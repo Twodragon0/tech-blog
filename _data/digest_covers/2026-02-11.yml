@@ -1,0 +1,69 @@
+date: '2026-02-11'
+slug: Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI
+sfx: FB11
+title: 랜섬웨어 대응, Fortinet 긴급 패치, AI 보안 위협 분석
+aria: 랜섬웨어 대응, Fortinet 긴급 패치, AI 보안 위협 분석
+bands:
+- theme: red
+  label: SECURITY
+  headline: 북한 연계 IT 요원, LinkedIn에서 전문가 사칭으로 기업…
+  metric: 북한 연계 IT 요원, LinkedIn에서 전문가 사칭으로 기업 침투
+  detail: 북한 연계 IT 요원, LinkedIn에서 전문가 사칭으로 기업 침투
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: Google Photos "Ask Photos" 기능 활용 가이드
+  metric: Google Photos "Ask Photos" 기능 활용 가이드
+  detail: Google Photos "Ask Photos" 기능 활용 가이드
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context
+- theme: blue
+  label: CLOUD
+  headline: Google Distributed Cloud, air-gappe…
+  metric: Google Distributed Cloud, air-gapped 환경에 퍼블릭 클라…
+  detail: Google Distributed Cloud, air-gapped 환경에 퍼블릭 클라우드급 네트워킹 제공
+  badge:
+    value: CLD
+    label: CLD
+    sub: highlighted
+  visual:
+    kind: cloud_k8s
+  metric_b: 'DevSecOps : cloud response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : cloud'
+  mini:
+    value: CLOU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: CLD
+    label: BADGE
+    sub: context

@@ -1,0 +1,69 @@
+date: '2026-01-25'
+slug: Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents
+sfx: JN25
+title: VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper
+aria: VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위험도 평가 스코어카드 (Risk Assessment Score…
+  metric: 위험도 평가 스코어카드 (Risk Assessment Scorecard)
+  detail: 위험도 평가 스코어카드 (Risk Assessment Scorecard)
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: 1. VMware vCenter CVE-2024-37079 국내…
+  metric: 1. VMware vCenter CVE-2024-37079 국내 영향
+  detail: 1. VMware vCenter CVE-2024-37079 국내 영향
+  badge:
+    value: CVE
+    label: CVE
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: CVE
+    label: BADGE
+    sub: context
+- theme: green
+  label: DEFENSE
+  headline: '헌팅 시나리오 1: VMware vCenter 침해 흔적 탐지'
+  metric: '헌팅 시나리오 1: VMware vCenter 침해 흔적 탐지'
+  detail: '헌팅 시나리오 1: VMware vCenter 침해 흔적 탐지'
+  badge:
+    value: DEF
+    label: DEF
+    sub: highlighted
+  visual:
+    kind: shield
+  metric_b: 'DevSecOps : defense response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  mini:
+    value: DEFE
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: DEF
+    label: BADGE
+    sub: context

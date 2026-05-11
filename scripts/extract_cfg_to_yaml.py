@@ -46,12 +46,10 @@ SPECS_DIR = REPO_ROOT / "_data" / "digest_covers"
 
 # Default L22 ultra source scripts to extract.
 #
-# We exclude `upgrade_2026_01_02_digests_to_ultra.py` because it is
-# content-derived — it auto-extracts story metadata from each post body
-# at runtime instead of carrying hand-curated cfg_<date>() functions.
-# Static-YAML extraction wouldn't capture its dynamic behavior, so it
-# stays as-is and gets phased out separately if/when its target dates
-# move to hand-curation.
+# Note: `upgrade_2026_01_02_digests_to_ultra.py` was content-derived (not
+# hand-curated cfg functions) and has been removed in step 2 of the
+# unification plan. Its target dates (2026-01/02) now have static YAML specs
+# under `_data/digest_covers/`.
 DEFAULT_L22_SCRIPTS = [
     "scripts/upgrade_2026_02_25_to_ultra.py",
     "scripts/upgrade_2026_04_26_to_ultra.py",

@@ -1,0 +1,69 @@
+date: '2026-02-23'
+slug: Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin
+sfx: FB23
+title: Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향
+aria: Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위험도 평가
+  metric: 위험도 평가
+  detail: 위험도 평가
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: purple
+  label: AI
+  headline: Vertical AI 보안 구축 방안 (SK쉴더스 HeadLin…
+  metric: Vertical AI 보안 구축 방안 (SK쉴더스 HeadLine 11월호)
+  detail: Vertical AI 보안 구축 방안 (SK쉴더스 HeadLine 11월호)
+  badge:
+    value: AI
+    label: AI
+    sub: highlighted
+  visual:
+    kind: code_bars
+  metric_b: 'DevSecOps : ai response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  mini:
+    value: AI
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: AI
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: 비트코인 가격 $65,000 이하로 급락
+  metric: 비트코인 가격 $65,000 이하로 급락
+  detail: 비트코인 가격 $65,000 이하로 급락
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context

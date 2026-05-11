@@ -1,0 +1,69 @@
+date: '2026-02-26'
+slug: Tech_Security_Weekly_Digest_AI_Go_AWS_API
+sfx: FB26
+title: UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향
+aria: UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향
+bands:
+- theme: red
+  label: SECURITY
+  headline: Google, UNC2814 GRIDTIDE 캠페인 차단 - 4…
+  metric: Google, UNC2814 GRIDTIDE 캠페인 차단 - 42개국 53개 조직 침해
+  detail: Google, UNC2814 GRIDTIDE 캠페인 차단 - 42개국 53개 조직 침해
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: purple
+  label: AI
+  headline: Google Circle to Search AI 기반 시각 검색…
+  metric: Google Circle to Search AI 기반 시각 검색 기능 확장
+  detail: Google Circle to Search AI 기반 시각 검색 기능 확장
+  badge:
+    value: AI
+    label: AI
+    sub: highlighted
+  visual:
+    kind: code_bars
+  metric_b: 'DevSecOps : ai response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  mini:
+    value: AI
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: AI
+    label: BADGE
+    sub: context
+- theme: blue
+  label: CLOUD
+  headline: 프로덕션 AI 에이전트 개발 가이드 (Google Cloud)
+  metric: 프로덕션 AI 에이전트 개발 가이드 (Google Cloud)
+  detail: 프로덕션 AI 에이전트 개발 가이드 (Google Cloud)
+  badge:
+    value: CLD
+    label: CLD
+    sub: highlighted
+  visual:
+    kind: cloud_k8s
+  metric_b: 'DevSecOps : cloud response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : cloud'
+  mini:
+    value: CLOU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: CLD
+    label: BADGE
+    sub: context

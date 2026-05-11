@@ -1,0 +1,69 @@
+date: '2026-01-27'
+slug: Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e
+sfx: JN27
+title: MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷
+aria: MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위험도 평가
+  metric: 위험도 평가
+  detail: 위험도 평가
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: 위협 분석 스코어카드
+  metric: 위협 분석 스코어카드
+  detail: 위협 분석 스코어카드
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context
+- theme: green
+  label: DEFENSE
+  headline: 취약점 개요
+  metric: 취약점 개요
+  detail: 취약점 개요
+  badge:
+    value: DEF
+    label: DEF
+    sub: highlighted
+  visual:
+    kind: shield
+  metric_b: 'DevSecOps : defense response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  mini:
+    value: DEFE
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: DEF
+    label: BADGE
+    sub: context

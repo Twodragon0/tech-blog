@@ -1,0 +1,69 @@
+date: '2026-01-31'
+slug: Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack
+sfx: JN31
+title: ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향
+aria: ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위협 스코어카드 (Risk Scorecard)
+  metric: 위협 스코어카드 (Risk Scorecard)
+  detail: 위협 스코어카드 (Risk Scorecard)
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: 개요
+  metric: 개요
+  detail: 개요
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context
+- theme: green
+  label: DEFENSE
+  headline: 핵심 요약
+  metric: 핵심 요약
+  detail: 핵심 요약
+  badge:
+    value: DEF
+    label: DEF
+    sub: highlighted
+  visual:
+    kind: shield
+  metric_b: 'DevSecOps : defense response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  mini:
+    value: DEFE
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: DEF
+    label: BADGE
+    sub: context

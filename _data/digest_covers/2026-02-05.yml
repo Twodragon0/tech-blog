@@ -1,0 +1,70 @@
+date: '2026-02-05'
+slug: Tech_Security_Weekly_Digest_CVE_AI_Malware_Go
+sfx: FB05
+title: n8n RCE, NGINX 하이재킹, AsyncRAT 캠페인 분석
+aria: n8n RCE, NGINX 하이재킹, AsyncRAT 캠페인 분석
+bands:
+- theme: red
+  label: SECURITY
+  headline: CVE 타임라인
+  metric: CVE 타임라인
+  detail: CVE 타임라인
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: Navigating health questions with Ch…
+  metric: Navigating health questions with ChatGPT
+  detail: Navigating health questions with ChatGPT
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context
+- theme: green
+  label: DEFENSE
+  headline: 'The platform usage trap part 1: Why…'
+  metric: 'The platform usage trap part 1: Why high activi…'
+  detail: 'The platform usage trap part 1: Why high activity doesn''t necessarily
+    mean high value'
+  badge:
+    value: DEF
+    label: DEF
+    sub: highlighted
+  visual:
+    kind: shield
+  metric_b: 'DevSecOps : defense response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  mini:
+    value: DEFE
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: DEF
+    label: BADGE
+    sub: context

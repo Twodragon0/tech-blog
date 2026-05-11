@@ -1,0 +1,69 @@
+date: '2026-02-19'
+slug: Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE
+sfx: FB19
+title: AWS 보안 업데이트, Zero-Day 패치, CVE-2026-2329 분석
+aria: AWS 보안 업데이트, Zero-Day 패치, CVE-2026-2329 분석
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위험도 평가
+  metric: 위험도 평가
+  detail: 위험도 평가
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: amber
+  label: ZERO-DAY
+  headline: Dell RecoverPoint VM 제로데이 CVE-2026-…
+  metric: Dell RecoverPoint VM 제로데이 CVE-2026-22769 실제 악용 중
+  detail: Dell RecoverPoint VM 제로데이 CVE-2026-22769 실제 악용 중
+  badge:
+    value: 0-DA
+    label: 0-DAY
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : zero-day response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : zero-day'
+  mini:
+    value: ZERO
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: 0-DA
+    label: BADGE
+    sub: context
+- theme: purple
+  label: AI
+  headline: OpenAI for India — AI 접근성 확대
+  metric: OpenAI for India — AI 접근성 확대
+  detail: OpenAI for India — AI 접근성 확대
+  badge:
+    value: AI
+    label: AI
+    sub: highlighted
+  visual:
+    kind: code_bars
+  metric_b: 'DevSecOps : ai response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  mini:
+    value: AI
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: AI
+    label: BADGE
+    sub: context

@@ -1,0 +1,69 @@
+date: '2026-02-27'
+slug: Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go
+sfx: FB27
+title: Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안
+aria: Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위험도 평가
+  metric: 위험도 평가
+  detail: 위험도 평가
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: purple
+  label: BLOCKCHAIN
+  headline: 'Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화…'
+  metric: 'Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화 C2 봇넷'
+  detail: 'Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화 C2 봇넷'
+  badge:
+    value: CHAI
+    label: CHAIN
+    sub: highlighted
+  visual:
+    kind: wallet_forensic
+  metric_b: 'DevSecOps : blockchain response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : blockchain'
+  mini:
+    value: BLOC
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: CHAI
+    label: BADGE
+    sub: context
+- theme: purple
+  label: AI
+  headline: 'Google x Massachusetts AI Hub: 무료 A…'
+  metric: 'Google x Massachusetts AI Hub: 무료 AI 교육 파트너십'
+  detail: 'Google x Massachusetts AI Hub: 무료 AI 교육 파트너십'
+  badge:
+    value: AI
+    label: AI
+    sub: highlighted
+  visual:
+    kind: code_bars
+  metric_b: 'DevSecOps : ai response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  mini:
+    value: AI
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: AI
+    label: BADGE
+    sub: context

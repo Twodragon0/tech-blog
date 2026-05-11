@@ -1,0 +1,70 @@
+date: '2026-02-20'
+slug: Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes
+sfx: FB20
+title: Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화
+aria: Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위험도 평가
+  metric: 위험도 평가
+  detail: 위험도 평가
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: PromptSpy 안드로이드 악성코드, Gemini AI를 악용…
+  metric: PromptSpy 안드로이드 악성코드, Gemini AI를 악용해 최근 앱 지속성 자…
+  detail: PromptSpy 안드로이드 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context
+- theme: amber
+  label: SUPPLY CHAIN
+  headline: '"Clinejection": AI 봇을 공급망 공격 벡터로 전환…'
+  metric: '"Clinejection": AI 봇을 공급망 공격 벡터로 전환한 방법'
+  detail: '"Clinejection": AI 봇을 공급망 공격 벡터로 전환한 방법'
+  badge:
+    value: CHAI
+    label: CHAIN
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : supply chain response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : supply
+    chain'
+  mini:
+    value: SUPP
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: CHAI
+    label: BADGE
+    sub: context

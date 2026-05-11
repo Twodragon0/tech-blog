@@ -1,0 +1,69 @@
+date: '2026-02-24'
+slug: Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM
+sfx: FB24
+title: APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크
+aria: APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위험도 평가
+  metric: 위험도 평가
+  detail: 위험도 평가
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: red
+  label: MALWARE
+  headline: APT28 MacroMaze 웹훅 매크로 멀웨어 캠페인
+  metric: APT28 MacroMaze 웹훅 매크로 멀웨어 캠페인
+  detail: APT28 MacroMaze 웹훅 매크로 멀웨어 캠페인
+  badge:
+    value: MAL
+    label: MAL
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : malware response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : malware'
+  mini:
+    value: MALW
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: MAL
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: OpenAI, SWE-bench Verified 벤치마크 평가…
+  metric: OpenAI, SWE-bench Verified 벤치마크 평가 중단
+  detail: OpenAI, SWE-bench Verified 벤치마크 평가 중단
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context

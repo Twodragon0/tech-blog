@@ -1,0 +1,70 @@
+date: '2026-02-21'
+slug: Tech_Security_Weekly_Digest_Data_Rust_AI_Threat
+sfx: FB21
+title: CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안
+aria: CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위험도 평가
+  metric: 위험도 평가
+  detail: 위험도 평가
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: purple
+  label: AI
+  headline: Anthropic, AI 기반 취약점 스캔을 위한 Claude…
+  metric: Anthropic, AI 기반 취약점 스캔을 위한 Claude Code Securit…
+  detail: Anthropic, AI 기반 취약점 스캔을 위한 Claude Code Security 출시
+  badge:
+    value: AI
+    label: AI
+    sub: highlighted
+  visual:
+    kind: code_bars
+  metric_b: 'DevSecOps : ai response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  mini:
+    value: AI
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: AI
+    label: BADGE
+    sub: context
+- theme: amber
+  label: CRYPTO MARKET
+  headline: Supreme Court가 Trump의 관세를 무효화하자 Bit…
+  metric: Supreme Court가 Trump의 관세를 무효화하자 Bitcoin 급등
+  detail: Supreme Court가 Trump의 관세를 무효화하자 Bitcoin 급등
+  badge:
+    value: BTC
+    label: BTC
+    sub: highlighted
+  visual:
+    kind: price_chart
+  metric_b: 'DevSecOps : crypto market response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : crypto
+    market'
+  mini:
+    value: CRYP
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: BTC
+    label: BADGE
+    sub: context

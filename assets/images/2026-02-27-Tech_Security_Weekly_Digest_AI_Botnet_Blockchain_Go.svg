@@ -1,371 +1,485 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Tech Security Weekly Digest: Aeternum Blockchain C2 Botnet, AWS AI Audit, Go Supply Chain Security — February 27 2026">
-<!-- profile: high-quality-cover (L20 Hero+2-Card, research-based, batch2-locked) -->
-<title>Aeternum Blockchain C2 Botnet, AWS AI Audit, Go Supply Chain — 2026.02.27</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안">
+<title>Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안</title>
 <defs>
-  <linearGradient id="bgMain" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#080E1E"/>
-    <stop offset="50%" stop-color="#0A1228"/>
-    <stop offset="100%" stop-color="#0D1530"/>
-  </linearGradient>
-  <linearGradient id="heroGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#111B35"/>
-    <stop offset="100%" stop-color="#0D1830"/>
-  </linearGradient>
-  <linearGradient id="card1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#0E1F38"/>
-    <stop offset="100%" stop-color="#091629"/>
-  </linearGradient>
-  <linearGradient id="card2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#0B1E2A"/>
-    <stop offset="100%" stop-color="#071422"/>
-  </linearGradient>
-  <linearGradient id="chainLink" x1="0%" y1="50%" x2="100%" y2="50%">
-    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0"/>
-    <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.9"/>
-    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
-  </linearGradient>
-  <radialGradient id="threatGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#E63946" stop-opacity="0.7"/>
-    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="polyGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.6"/>
-    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="awsGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.5"/>
-    <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="goGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#00ADD8" stop-opacity="0.5"/>
-    <stop offset="100%" stop-color="#00ADD8" stop-opacity="0"/>
-  </radialGradient>
-  <pattern id="dotGrid" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-    <circle cx="14" cy="14" r="0.7" fill="#2A3A5E" opacity="0.5"/>
-  </pattern>
-  <pattern id="hexPat" x="0" y="0" width="20" height="17.32" patternUnits="userSpaceOnUse">
-    <path d="M10 0 L20 5.77 L20 11.55 L10 17.32 L0 11.55 L0 5.77 Z" fill="none" stroke="#1E2E50" stroke-width="0.4" opacity="0.5"/>
-  </pattern>
-  <filter id="panelShadow" x="-5%" y="-5%" width="115%" height="120%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-    <feOffset dx="0" dy="4"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.5"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <clipPath id="heroClip">
-    <rect x="32" y="80" width="600" height="510" rx="8"/>
-  </clipPath>
-<filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-
-<!-- GLOBAL BACKGROUND -->
-<rect width="1200" height="630" fill="url(#bgMain)"/>
-<rect width="1200" height="630" fill="url(#dotGrid)" opacity="0.6"/>
-<circle cx="0" cy="630" r="280" fill="#0D3060" opacity="0.15"/>
-<circle cx="1200" cy="0" r="220" fill="#1A0A3A" opacity="0.2"/>
-
-<!-- HERO PANEL (LEFT 600x510 at 32,80) -->
-<g filter="url(#panelShadow)">
-  <rect x="32" y="80" width="600" height="510" rx="8" fill="url(#heroGrad)" stroke="#1E3060" stroke-width="1"/>
+<linearGradient id="bgSpreadFB27" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
+<linearGradient id="bandAFB27" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A0E2E"/><stop offset="100%" stop-color="#24122F"/></linearGradient>
+<linearGradient id="bandBFB27" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1E0A3A"/><stop offset="100%" stop-color="#2A0E4A"/></linearGradient>
+<linearGradient id="bandCFB27" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1E0A3A"/><stop offset="100%" stop-color="#2A0E4A"/></linearGradient>
+<linearGradient id="streakAFB27" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#E63946" stop-opacity="0"/><stop offset="50%" stop-color="#E63946" stop-opacity="0.85"/><stop offset="100%" stop-color="#E63946" stop-opacity="0"/></linearGradient>
+<linearGradient id="streakBFB27" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0"/><stop offset="50%" stop-color="#A78BFA" stop-opacity="0.85"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></linearGradient>
+<linearGradient id="streakCFB27" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0"/><stop offset="50%" stop-color="#A78BFA" stop-opacity="0.85"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></linearGradient>
+<radialGradient id="glowAFB27" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E63946" stop-opacity="0.55"/><stop offset="100%" stop-color="#E63946" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowBFB27" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.55"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowCFB27" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.55"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></radialGradient>
+<filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="0" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<pattern id="ledgerGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse"><path d="M0 20 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/><path d="M40 0 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/></pattern>
+<pattern id="circuitDot" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="0.8" fill="#3A2A4E" opacity="0.55"/></pattern>
+<pattern id="hexGridFB27" x="0" y="0" width="28" height="32" patternUnits="userSpaceOnUse"><path d="M14 0 L28 8 L28 24 L14 32 L0 24 L0 8 Z" fill="none" stroke="#2A3A56" stroke-width="0.3" opacity="0.4"/></pattern>
+<pattern id="radarRippleFB27" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="14" fill="none" stroke="#2A3A56" stroke-width="0.3" opacity="0.4"/></pattern>
+</defs>
+<rect width="1200" height="630" fill="url(#bgSpreadFB27)"/>
+<g>
+  <rect x="0" y="0" width="1200" height="210" fill="url(#bandAFB27)"/>
+  <rect x="0" y="0" width="1200" height="210" fill="url(#circuitDot)" opacity="0.6"/>
+  <rect x="0" y="0" width="8" height="210" fill="#E63946"/>
+  
+  <g filter="url(#textShadow)">
+    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">SECURITY</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">위험도 평가</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">위험도 평가</text>
+    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">위험도 평가</text>
+    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">DevSecOps : security response</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : security</text>
+    
+  </g>
+  <g transform="translate(500,105)">
+    <circle r="80" fill="#E63946" fill-opacity="0.08"><animate attributeName="r" values="60;90;60" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
+    <circle r="32" fill="#E63946" stroke="#FCA5A5" stroke-width="2" filter="url(#softShadow)"/>
+    <text y="-2" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#FFF">INFRA</text>
+    <text y="12" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FCA5A5">C2 HUB</text>
+    <g stroke="#E63946" stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="3 4" fill="none">
+      <line x1="0" y1="0" x2="80" y2="-50"/><line x1="0" y1="0" x2="95" y2="-10"/><line x1="0" y1="0" x2="85" y2="30"/>
+      <line x1="0" y1="0" x2="60" y2="60"/><line x1="0" y1="0" x2="-60" y2="60"/><line x1="0" y1="0" x2="-85" y2="30"/>
+      <line x1="0" y1="0" x2="-95" y2="-10"/><line x1="0" y1="0" x2="-80" y2="-50"/>
+      <line x1="0" y1="0" x2="-30" y2="-72"/><line x1="0" y1="0" x2="30" y2="-72"/>
+    </g>
+    <g fill="#FCA5A5">
+      <circle cx="80" cy="-50" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle cx="95" cy="-10" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle cx="85" cy="30" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle cx="60" cy="60" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle cx="-60" cy="60" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-85" cy="30" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
+      <circle cx="-95" cy="-10" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/></circle>
+      <circle cx="-80" cy="-50" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-30" cy="-72" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="30" cy="-72" r="5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.7s" repeatCount="indefinite"/></circle>
+    </g>
+    <g fill="#FFF">
+      <circle r="2"><animateMotion path="M0 0 L80 -50" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L95 -10" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L85 30" dur="2.2s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L-60 60" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L-95 -10" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle r="2"><animateMotion path="M0 0 L30 -72" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L60 60" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L-30 -72" dur="2.5s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L-80 -50" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle r="1.6"><animateMotion path="M0 0 L-85 30" dur="2.7s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="#FCA5A5" stroke-width="0.5" stroke-opacity="0.4" fill="none">
+      <circle r="42"><animate attributeName="r" values="36;52;36" dur="2.6s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.7;0;0.7" dur="2.6s" repeatCount="indefinite"/></circle>
+      <circle r="56"><animate attributeName="r" values="48;68;48" dur="3.2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
+    </g>
+    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FCA5A5" opacity="0.75">10 endpoints : 12 routes</text>
+  </g>
+  <g transform="translate(870,105)" filter="url(#softShadow)">
+    <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#1E0A14" stroke="#E63946" stroke-width="1.6" stroke-opacity="0.75"/>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#F87171">FOCUS</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">SECU</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FBB6BD">weekly</text>
+  </g>
+  <g transform="translate(1110,105)" filter="url(#softShadow)">
+    <rect x="-44" y="-48" width="88" height="96" rx="10" fill="#1E0A14" stroke="#E63946" stroke-width="1.4" stroke-opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#F87171">BADGE</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">SEC</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#FBB6BD">context</text>
+    <line x1="-32" y1="38" x2="32" y2="38" stroke="#E63946" stroke-width="0.6" stroke-opacity="0.45"/>
+    <circle cx="0" cy="-40" r="1.6" fill="#FCA5A5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(990,105)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E0A14" stroke="#E63946" stroke-width="2.2"/>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">SEC</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">SEC</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FBB6BD">highlighted</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
+    
+  </g>
+  <g transform="translate(990,105)">
+    <circle cx="10" cy="-50" r="3" fill="#E63946"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#FCA5A5"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#FCA5A5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+    <rect x="-78" y="-62" width="14" height="2" rx="1" fill="#E63946" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></rect>
+    <rect x="-78" y="-58" width="9" height="2" rx="1" fill="#FCA5A5" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.9s" repeatCount="indefinite"/></rect>
+    <rect x="62" y="-62" width="14" height="2" rx="1" fill="#E63946" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
+    <rect x="65" y="-58" width="9" height="2" rx="1" fill="#FCA5A5" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
+  </g>
+  <g opacity="0.85">
+    <line x1="20" y1="210" x2="1180" y2="210" stroke="#E63946" stroke-width="0.7" stroke-opacity="0.55" stroke-dasharray="6 6">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <circle cx="600" cy="210" r="2.2" fill="#E63946">
+      <animate attributeName="opacity" values="0.25;1;0.25" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 </g>
-<rect x="32" y="80" width="600" height="510" rx="8" fill="url(#hexPat)" opacity="0.8" clip-path="url(#heroClip)"/>
-<rect x="32" y="80" width="600" height="4" rx="2" fill="#E63946"/>
-
-<!-- Ambient glows in hero -->
-<circle cx="332" cy="350" r="200" fill="url(#threatGlow)" opacity="0.35">
-  <animate attributeName="opacity" values="0.25;0.45;0.25" dur="5.5s" repeatCount="indefinite"/>
-  <animate attributeName="r" values="200;220;200" dur="7s" repeatCount="indefinite"/>
-</circle>
-<circle cx="332" cy="260" r="130" fill="url(#polyGlow)" opacity="0.3">
-  <animate attributeName="opacity" values="0.2;0.45;0.2" dur="6s" repeatCount="indefinite"/>
-</circle>
-
-<!-- Blockchain Network Visualization -->
-<!-- Pulsing outer rings on central hub -->
-<circle cx="332" cy="290" r="56" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.5">
-  <animate attributeName="r" values="56;70;56" dur="3.2s" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.2s" repeatCount="indefinite"/>
-</circle>
-<circle cx="332" cy="290" r="42" fill="none" stroke="#8B5CF6" stroke-width="1" opacity="0.6">
-  <animate attributeName="r" values="42;52;42" dur="2.8s" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.8s" repeatCount="indefinite"/>
-</circle>
-<!-- Central Polygon C2 node -->
-<polygon points="332,261 356,275 356,305 332,319 308,305 308,275" fill="#1A0E3A" stroke="#8B5CF6" stroke-width="2"/>
-<text x="332" y="287" font-family="monospace" font-size="10" fill="#C4B5FD" text-anchor="middle" font-weight="bold">POLYGON</text>
-<text x="332" y="300" font-family="monospace" font-size="9" fill="#A78BFA" text-anchor="middle">BLOCKCHAIN</text>
-<text x="332" y="312" font-family="monospace" font-size="8" fill="#7C3AED" text-anchor="middle">C2 NODE</text>
-
-<!-- Bot node 1 top-left -->
-<line x1="308" y1="275" x2="192" y2="210" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="4,3" opacity="0.6">
-  <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.5s" repeatCount="indefinite"/>
-</line>
-<circle cx="188" cy="207" r="18" fill="#0F1830" stroke="#8B5CF6" stroke-width="1.5"/>
-<text x="188" y="203" font-family="monospace" font-size="7" fill="#C4B5FD" text-anchor="middle">BOT</text>
-<text x="188" y="213" font-family="monospace" font-size="7" fill="#C4B5FD" text-anchor="middle">0x4A</text>
-
-<!-- Bot node 2 top-right -->
-<line x1="356" y1="275" x2="472" y2="210" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="4,3" opacity="0.6">
-  <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.8s" repeatCount="indefinite"/>
-</line>
-<circle cx="476" cy="207" r="18" fill="#0F1830" stroke="#8B5CF6" stroke-width="1.5"/>
-<text x="476" y="203" font-family="monospace" font-size="7" fill="#C4B5FD" text-anchor="middle">BOT</text>
-<text x="476" y="213" font-family="monospace" font-size="7" fill="#C4B5FD" text-anchor="middle">0x7B</text>
-
-<!-- Bot node 3 bottom-left (red = active threat) -->
-<line x1="308" y1="305" x2="168" y2="375" stroke="#E63946" stroke-width="1" stroke-dasharray="4,3" opacity="0.5">
-  <animate attributeName="stroke-dashoffset" values="0;-14" dur="2.1s" repeatCount="indefinite"/>
-</line>
-<circle cx="164" cy="378" r="18" fill="#1A0A12" stroke="#E63946" stroke-width="1.5"/>
-<text x="164" y="374" font-family="monospace" font-size="7" fill="#FCA5A5" text-anchor="middle">BOT</text>
-<text x="164" y="384" font-family="monospace" font-size="7" fill="#FCA5A5" text-anchor="middle">0x3F</text>
-
-<!-- Bot node 4 bottom-right -->
-<line x1="356" y1="305" x2="496" y2="375" stroke="#E63946" stroke-width="1" stroke-dasharray="4,3" opacity="0.5">
-  <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.9s" repeatCount="indefinite"/>
-</line>
-<circle cx="500" cy="378" r="18" fill="#1A0A12" stroke="#E63946" stroke-width="1.5"/>
-<text x="500" y="374" font-family="monospace" font-size="7" fill="#FCA5A5" text-anchor="middle">BOT</text>
-<text x="500" y="384" font-family="monospace" font-size="7" fill="#FCA5A5" text-anchor="middle">0x91</text>
-
-<!-- Bot node 5 bottom-center (amber) -->
-<line x1="332" y1="319" x2="332" y2="415" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4,3" opacity="0.5">
-  <animate attributeName="stroke-dashoffset" values="0;-14" dur="2.4s" repeatCount="indefinite"/>
-</line>
-<circle cx="332" cy="430" r="18" fill="#1A1200" stroke="#F59E0B" stroke-width="1.5"/>
-<text x="332" y="426" font-family="monospace" font-size="7" fill="#FDE68A" text-anchor="middle">BOT</text>
-<text x="332" y="436" font-family="monospace" font-size="7" fill="#FDE68A" text-anchor="middle">0xC2</text>
-
-<!-- Encrypted command packet floating -->
-<rect x="290" y="325" width="36" height="12" rx="2" fill="#4C1D95" opacity="0.85">
-  <animate attributeName="y" values="325;345;325" dur="3.5s" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0.85;0.4;0.85" dur="3.5s" repeatCount="indefinite"/>
-</rect>
-<text x="308" y="334" font-family="monospace" font-size="7" fill="#DDD6FE" text-anchor="middle">
-  <animate attributeName="y" values="334;354;334" dur="3.5s" repeatCount="indefinite"/>
-  enc_cmd
-</text>
-
-<!-- Cross-link immutability chain -->
-<path d="M188 225 Q332 240 476 225" fill="none" stroke="url(#chainLink)" stroke-width="1.5" opacity="0.7">
-  <animate attributeName="opacity" values="0.7;0.3;0.7" dur="4s" repeatCount="indefinite"/>
-</path>
-
-<!-- Hero eyebrow -->
-<text x="52" y="112" font-family="Arial, sans-serif" font-size="11" fill="#E63946" font-weight="700" letter-spacing="2">CRITICAL THREAT</text>
-<rect x="52" y="116" width="48" height="2" fill="#E63946" opacity="0.8"/>
-
-<!-- Hero title -->
-<text x="52" y="145" font-family="Arial, sans-serif" font-size="22" fill="#FFFFFF" font-weight="800" letter-spacing="0.3">Aeternum C2 Botnet</text>
-
-<!-- Hero subtitle -->
-<text x="52" y="170" font-family="Arial, sans-serif" font-size="13" fill="#C4B5FD">Polygon Blockchain-Powered C2 Infrastructure</text>
-<text x="52" y="188" font-family="Arial, sans-serif" font-size="11.5" fill="#94A3B8">Encrypted commands stored on-chain -- takedown-resistant</text>
-
-<!-- Hero divider -->
-<line x1="52" y1="200" x2="605" y2="200" stroke="#1E3060" stroke-width="1" opacity="0.8"/>
-
-<!-- Hero KPI Cards -->
-<rect x="52" y="465" width="124" height="62" rx="6" fill="#1A0A12" stroke="#E63946" stroke-width="1.2" opacity="0.95"/>
-<text x="114" y="482" font-family="Arial, sans-serif" font-size="9" fill="#F87171" text-anchor="middle" letter-spacing="1">SEVERITY</text>
-<text x="114" y="503" font-family="Arial, sans-serif" font-size="16" fill="#E63946" font-weight="800" text-anchor="middle">CRITICAL</text>
-<text x="114" y="519" font-family="Arial, sans-serif" font-size="8.5" fill="#94A3B8" text-anchor="middle">P1 -- 7d remediation</text>
-
-<rect x="192" y="465" width="124" height="62" rx="6" fill="#0D1A35" stroke="#8B5CF6" stroke-width="1.2" opacity="0.95"/>
-<text x="254" y="482" font-family="Arial, sans-serif" font-size="9" fill="#A78BFA" text-anchor="middle" letter-spacing="1">VECTOR</text>
-<text x="254" y="503" font-family="Arial, sans-serif" font-size="14" fill="#C4B5FD" font-weight="800" text-anchor="middle">Blockchain</text>
-<text x="254" y="519" font-family="Arial, sans-serif" font-size="8.5" fill="#94A3B8" text-anchor="middle">RPC eth_call / eth_getLogs</text>
-
-<rect x="332" y="465" width="124" height="62" rx="6" fill="#0D1A1E" stroke="#06B6D4" stroke-width="1.2" opacity="0.95"/>
-<text x="394" y="482" font-family="Arial, sans-serif" font-size="9" fill="#67E8F9" text-anchor="middle" letter-spacing="1">SOURCE</text>
-<text x="394" y="503" font-family="Arial, sans-serif" font-size="14" fill="#22D3EE" font-weight="800" text-anchor="middle">Qrator Labs</text>
-<text x="394" y="519" font-family="Arial, sans-serif" font-size="8.5" fill="#94A3B8" text-anchor="middle">The Hacker News</text>
-
-<rect x="472" y="465" width="140" height="62" rx="6" fill="#0D1A0E" stroke="#22C55E" stroke-width="1.2" opacity="0.95"/>
-<text x="542" y="482" font-family="Arial, sans-serif" font-size="9" fill="#86EFAC" text-anchor="middle" letter-spacing="1">IMPACT</text>
-<text x="542" y="499" font-family="Arial, sans-serif" font-size="12" fill="#4ADE80" font-weight="800" text-anchor="middle">C2 Infra</text>
-<text x="542" y="513" font-family="Arial, sans-serif" font-size="9" fill="#4ADE80" text-anchor="middle">Takedown-Proof</text>
-<text x="542" y="523" font-family="Arial, sans-serif" font-size="7.5" fill="#94A3B8" text-anchor="middle">SIEM + RPC monitoring req.</text>
-
-<!-- Hero bottom tags -->
-<rect x="52" y="540" width="188" height="22" rx="4" fill="#4C1D95" opacity="0.75"/>
-<text x="146" y="555" font-family="monospace" font-size="9" fill="#DDD6FE" text-anchor="middle" letter-spacing="1">IMMUTABLE BLOCKCHAIN C2</text>
-
-<rect x="252" y="540" width="108" height="22" rx="4" fill="#1A0A12" opacity="0.75"/>
-<text x="306" y="555" font-family="monospace" font-size="9" fill="#F87171" text-anchor="middle" letter-spacing="1">30 NEWS -- FEB 27</text>
-
-<rect x="372" y="540" width="240" height="22" rx="4" fill="#0A1228" opacity="0.75"/>
-<text x="492" y="555" font-family="monospace" font-size="9" fill="#94A3B8" text-anchor="middle">Smart Contract C2 Storage -- No Takedown</text>
-
-<!-- TOP-RIGHT PANEL (AWS AI Audit 516x248 at 652,80) -->
-<g filter="url(#panelShadow)">
-  <rect x="652" y="80" width="516" height="248" rx="8" fill="url(#card1Grad)" stroke="#1E3A5A" stroke-width="1"/>
+<g>
+  <rect x="0" y="210" width="1200" height="210" fill="url(#bandBFB27)"/>
+  <rect x="0" y="210" width="1200" height="210" fill="url(#circuitDot)" opacity="0.6"/>
+  <rect x="0" y="210" width="8" height="210" fill="#A78BFA"/>
+  
+  <g filter="url(#textShadow)">
+    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">BLOCKCHAIN</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화…</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화 C2 봇넷</text>
+    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화 C2 봇넷</text>
+    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">DevSecOps : blockchain response</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : blockchain</text>
+    
+  </g>
+  <g transform="translate(500,315)">
+    <circle r="78" fill="#A78BFA" fill-opacity="0.06"><animate attributeName="r" values="68;88;68" dur="3.4s" repeatCount="indefinite"/></circle>
+    <circle r="92" fill="none" stroke="#A78BFA" stroke-width="0.4" stroke-opacity="0.25" stroke-dasharray="2 6"/>
+    <g stroke="#A78BFA" stroke-width="1" stroke-dasharray="3 4" fill="none" opacity="0.6">
+      <line x1="-80" y1="0" x2="-20" y2="-35"/><line x1="-80" y1="0" x2="-20" y2="0"/><line x1="-80" y1="0" x2="-20" y2="35"/>
+      <line x1="-20" y1="-35" x2="50" y2="-55"/><line x1="-20" y1="-35" x2="50" y2="-20"/>
+      <line x1="-20" y1="0" x2="50" y2="15"/><line x1="-20" y1="35" x2="50" y2="55"/><line x1="-20" y1="35" x2="50" y2="25"/>
+    </g>
+    <g fill="#A78BFA" opacity="0.9">
+      <circle cx="-80" cy="0" r="12" stroke="#C4B5FD" stroke-width="1.4"><animate attributeName="r" values="10;14;10" dur="2.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-20" cy="-35" r="6"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle cx="-20" cy="0" r="6"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle cx="-20" cy="35" r="6"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle cx="50" cy="-55" r="5" opacity="0.85"/><circle cx="50" cy="-20" r="5" opacity="0.85"/><circle cx="50" cy="15" r="5" opacity="0.85"/><circle cx="50" cy="55" r="5" opacity="0.85"/><circle cx="50" cy="25" r="5" opacity="0.85"/>
+    </g>
+    <g fill="#F5F7FA">
+      <circle r="2.2"><animateMotion path="M-80 0 L-20 -35" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle r="2.2"><animateMotion path="M-80 0 L-20 0" dur="1.9s" repeatCount="indefinite"/></circle>
+      <circle r="2.2"><animateMotion path="M-80 0 L-20 35" dur="2.3s" repeatCount="indefinite"/></circle>
+      <circle r="1.8"><animateMotion path="M-20 -35 L50 -55" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle r="1.8"><animateMotion path="M-20 0 L50 15" dur="2.0s" repeatCount="indefinite"/></circle>
+      <circle r="1.8"><animateMotion path="M-20 35 L50 55" dur="2.2s" repeatCount="indefinite"/></circle>
+    </g>
+    <g fill="#C4B5FD" opacity="0.7">
+      <circle cx="-92" cy="-30" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-92" cy="30" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="68" cy="-70" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="68" cy="70" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.3s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-50" cy="-60" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.5s" begin="0.7s" repeatCount="indefinite"/></circle>
+      <circle cx="-50" cy="60" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+      <circle cx="20" cy="-72" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="20" cy="72" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.2s" begin="1.0s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.45" fill="none">
+      <path d="M-90 -70 L-78 -70"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+      <path d="M-90 70 L-78 70"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.5s" repeatCount="indefinite"/></path>
+    </g>
+    <text x="-80" y="34" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A78BFA">SOURCE</text>
+    <text x="50" y="78" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A78BFA">MIXERS</text>
+    <text x="-15" y="-58" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#C4B5FD">HOPS</text>
+    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#C4B5FD" opacity="0.7">on-chain trace : 3 hops</text>
+  </g>
+  <g transform="translate(870,315)" filter="url(#softShadow)">
+    <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.6" stroke-opacity="0.75"/>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#C4B5FD">FOCUS</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">BLOC</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#DDD6FE">weekly</text>
+  </g>
+  <g transform="translate(1110,315)" filter="url(#softShadow)">
+    <rect x="-44" y="-48" width="88" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.4" stroke-opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#C4B5FD">BADGE</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">CHAI</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#DDD6FE">context</text>
+    <line x1="-32" y1="38" x2="32" y2="38" stroke="#A78BFA" stroke-width="0.6" stroke-opacity="0.45"/>
+    <circle cx="0" cy="-40" r="1.6" fill="#C4B5FD"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(990,315)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#160629" stroke="#A78BFA" stroke-width="2.2"/>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">CHAIN</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="60" font-weight="900" fill="#F5F7FA">CHAI</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#DDD6FE">highlighted</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#A78BFA" stroke-width="0.8" stroke-opacity="0.5"/>
+    
+  </g>
+  <g transform="translate(990,315)">
+    <circle cx="10" cy="-50" r="3" fill="#A78BFA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+    <rect x="-78" y="-62" width="14" height="2" rx="1" fill="#A78BFA" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></rect>
+    <rect x="-78" y="-58" width="9" height="2" rx="1" fill="#C4B5FD" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.9s" repeatCount="indefinite"/></rect>
+    <rect x="62" y="-62" width="14" height="2" rx="1" fill="#A78BFA" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
+    <rect x="65" y="-58" width="9" height="2" rx="1" fill="#C4B5FD" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
+  </g>
+  <g opacity="0.85">
+    <line x1="20" y1="420" x2="1180" y2="420" stroke="#A78BFA" stroke-width="0.7" stroke-opacity="0.55" stroke-dasharray="6 6">
+      <animate attributeName="stroke-dashoffset" values="0;-24" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <circle cx="600" cy="420" r="2.2" fill="#A78BFA">
+      <animate attributeName="opacity" values="0.25;1;0.25" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 </g>
-<rect x="652" y="80" width="516" height="4" rx="2" fill="#F59E0B"/>
-
-<!-- AWS glow -->
-<circle cx="1120" cy="140" r="100" fill="url(#awsGlow)" opacity="0.3">
-  <animate attributeName="opacity" values="0.2;0.4;0.2" dur="6.5s" repeatCount="indefinite"/>
-</circle>
-
-<!-- ISO shield illustration -->
-<path d="M940 105 L975 120 L975 162 Q975 192 940 207 Q905 192 905 162 L905 120 Z" fill="#0E1F38" stroke="#F59E0B" stroke-width="2"/>
-<path d="M940 115 L965 127 L965 161 Q965 185 940 197 Q915 185 915 161 L915 127 Z" fill="#1A2E4A" stroke="#FDE68A" stroke-width="1"/>
-<polyline points="928,156 937,165 955,145" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="940" y="178" font-family="Arial, sans-serif" font-size="8" fill="#FDE68A" text-anchor="middle" font-weight="700">ISO 42001</text>
-
-<!-- AWS badge -->
-<rect x="665" y="100" width="68" height="18" rx="3" fill="#F59E0B" opacity="0.9"/>
-<text x="699" y="113" font-family="Arial, sans-serif" font-size="9" fill="#0A0A00" font-weight="800" text-anchor="middle">AWS CLOUD</text>
-
-<!-- Card 1 content -->
-<text x="665" y="137" font-family="Arial, sans-serif" font-size="10" fill="#F59E0B" font-weight="700" letter-spacing="2">AI GOVERNANCE</text>
-<text x="665" y="158" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" font-weight="800">AWS ISO 42001 AI Audit</text>
-<text x="665" y="177" font-family="Arial, sans-serif" font-size="11" fill="#94A3B8">First surveillance audit passed -- AI management system</text>
-<text x="665" y="195" font-family="Arial, sans-serif" font-size="10.5" fill="#FDE68A">Formal AI risk compliance framework validated by ISO</text>
-<line x1="665" y1="205" x2="1155" y2="205" stroke="#1E3A5A" stroke-width="1"/>
-
-<!-- Card 1 KPI row -->
-<rect x="665" y="213" width="110" height="44" rx="5" fill="#0A1628" stroke="#F59E0B" stroke-width="1"/>
-<text x="720" y="227" font-family="Arial, sans-serif" font-size="8.5" fill="#FDE68A" text-anchor="middle">STANDARD</text>
-<text x="720" y="244" font-family="Arial, sans-serif" font-size="13" fill="#F59E0B" font-weight="800" text-anchor="middle">ISO 42001</text>
-<text x="720" y="253" font-family="Arial, sans-serif" font-size="7.5" fill="#64748B" text-anchor="middle">AI Mgmt System</text>
-
-<rect x="787" y="213" width="110" height="44" rx="5" fill="#0A1628" stroke="#22C55E" stroke-width="1"/>
-<text x="842" y="227" font-family="Arial, sans-serif" font-size="8.5" fill="#86EFAC" text-anchor="middle">STATUS</text>
-<text x="842" y="244" font-family="Arial, sans-serif" font-size="13" fill="#4ADE80" font-weight="800" text-anchor="middle">PASSED</text>
-<text x="842" y="253" font-family="Arial, sans-serif" font-size="7.5" fill="#64748B" text-anchor="middle">Surveillance Audit</text>
-
-<rect x="909" y="213" width="120" height="44" rx="5" fill="#0A1628" stroke="#06B6D4" stroke-width="1"/>
-<text x="969" y="227" font-family="Arial, sans-serif" font-size="8.5" fill="#67E8F9" text-anchor="middle">RISK LEVEL</text>
-<text x="969" y="244" font-family="Arial, sans-serif" font-size="13" fill="#22D3EE" font-weight="800" text-anchor="middle">MEDIUM</text>
-<text x="969" y="253" font-family="Arial, sans-serif" font-size="7.5" fill="#64748B" text-anchor="middle">AWS Security Blog</text>
-
-<!-- BOTTOM-RIGHT PANEL (Go Supply Chain 516x246 at 652,344) -->
-<g filter="url(#panelShadow)">
-  <rect x="652" y="344" width="516" height="246" rx="8" fill="url(#card2Grad)" stroke="#0F2A2A" stroke-width="1"/>
+<g>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#bandCFB27)"/>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#circuitDot)" opacity="0.6"/>
+  <rect x="0" y="420" width="8" height="210" fill="#A78BFA"/>
+  
+  <g filter="url(#textShadow)">
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">AI</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Google x Massachusetts AI Hub: 무료 A…</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Google x Massachusetts AI Hub: 무료 AI 교육 파트너십</text>
+    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Google x Massachusetts AI Hub: 무료 AI 교육 파트너십</text>
+    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">DevSecOps : ai response</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : ai</text>
+    
+  </g>
+  <g transform="translate(500,525)">
+    <rect x="-92" y="-56" width="184" height="116" rx="8" fill="#A78BFA" fill-opacity="0.05" stroke="#A78BFA" stroke-width="1.2" stroke-opacity="0.5"/>
+    <g stroke="#A78BFA" stroke-width="2" opacity="0.85">
+      <line x1="-80" y1="-40" x2="-30" y2="-40"/><line x1="-25" y1="-40" x2="40" y2="-40"/>
+      <line x1="-80" y1="-20" x2="-10" y2="-20"/><line x1="-5" y1="-20" x2="55" y2="-20"/>
+      <line x1="-80" y1="0" x2="-40" y2="0"/><line x1="-35" y1="0" x2="60" y2="0"/>
+      <line x1="-80" y1="20" x2="-20" y2="20"/><line x1="-15" y1="20" x2="30" y2="20"/>
+      <line x1="-80" y1="40" x2="-50" y2="40"/><line x1="-45" y1="40" x2="50" y2="40"/>
+    </g>
+    <rect x="-86" y="-50" width="4" height="104" fill="#A78BFA" opacity="0.6"/>
+    <g fill="#C4B5FD">
+      <circle cx="74" cy="-40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="-20" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="0" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="20" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
+    </g>
+    <rect x="-86" y="-50" width="178" height="3" fill="#A78BFA" opacity="0.4">
+      <animate attributeName="y" values="-50;46;-50" dur="3.2s" repeatCount="indefinite"/>
+    </rect>
+    <g fill="#C4B5FD" opacity="0.65">
+      <circle cx="-86" cy="-40" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="-20" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="0" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="20" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="40" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" begin="0.8s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+      <path d="M-94 -54 L-78 -54"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="1.8s" repeatCount="indefinite"/></path>
+      <path d="M82 -54 L94 -54"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2s" begin="0.3s" repeatCount="indefinite"/></path>
+    </g>
+    <text x="-86" y="-58" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#C4B5FD" opacity="0.7">5 lines</text>
+    <text x="80" y="-58" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#C4B5FD" opacity="0.7">live</text>
+    <text y="68" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A78BFA">CODE</text>
+    <text y="82" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#C4B5FD" opacity="0.7">cursor : line 5 col 14</text>
+  </g>
+  <g transform="translate(870,525)" filter="url(#softShadow)">
+    <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.6" stroke-opacity="0.75"/>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#C4B5FD">FOCUS</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">AI</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#DDD6FE">weekly</text>
+  </g>
+  <g transform="translate(1110,525)" filter="url(#softShadow)">
+    <rect x="-44" y="-48" width="88" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.4" stroke-opacity="0.7">
+      <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#C4B5FD">BADGE</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">AI</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#DDD6FE">context</text>
+    <line x1="-32" y1="38" x2="32" y2="38" stroke="#A78BFA" stroke-width="0.6" stroke-opacity="0.45"/>
+    <circle cx="0" cy="-40" r="1.6" fill="#C4B5FD"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+  </g>
+  <g transform="translate(990,525)" filter="url(#softShadow)">
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#160629" stroke="#A78BFA" stroke-width="2.2"/>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">AI</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">AI</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#DDD6FE">highlighted</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#A78BFA" stroke-width="0.8" stroke-opacity="0.5"/>
+    
+  </g>
+  <g transform="translate(990,525)">
+    <circle cx="10" cy="-50" r="3" fill="#A78BFA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+    <rect x="-78" y="-62" width="14" height="2" rx="1" fill="#A78BFA" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></rect>
+    <rect x="-78" y="-58" width="9" height="2" rx="1" fill="#C4B5FD" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.9s" repeatCount="indefinite"/></rect>
+    <rect x="62" y="-62" width="14" height="2" rx="1" fill="#A78BFA" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
+    <rect x="65" y="-58" width="9" height="2" rx="1" fill="#C4B5FD" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
+  </g>
+  
 </g>
-<rect x="652" y="344" width="516" height="4" rx="2" fill="#00ADD8"/>
-
-<!-- Go glow -->
-<circle cx="660" cy="500" r="90" fill="url(#goGlow)" opacity="0.25">
-  <animate attributeName="opacity" values="0.2;0.4;0.2" dur="7s" repeatCount="indefinite"/>
-</circle>
-
-<!-- Supply chain graphic (right side of card) -->
-<rect x="930" y="365" width="44" height="38" rx="4" fill="#0A1E1E" stroke="#00ADD8" stroke-width="1.5"/>
-<text x="952" y="381" font-family="monospace" font-size="8" fill="#00ADD8" text-anchor="middle">go.mod</text>
-<text x="952" y="393" font-family="monospace" font-size="7" fill="#67E8F9" text-anchor="middle">v1.2.3</text>
-<line x1="974" y1="384" x2="992" y2="384" stroke="#22D3EE" stroke-width="1.5"/>
-<rect x="994" y="365" width="48" height="38" rx="4" fill="#1A0A00" stroke="#F59E0B" stroke-width="1.5"/>
-<text x="1018" y="379" font-family="monospace" font-size="7" fill="#FDE68A" text-anchor="middle">pkg_malicious</text>
-<text x="1018" y="391" font-family="monospace" font-size="7" fill="#F87171" text-anchor="middle">POISONED</text>
-<!-- Warning triangle -->
-<path d="M1044 352 L1052 365 L1036 365 Z" fill="#E63946" opacity="0.9">
-  <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.8s" repeatCount="indefinite"/>
-</path>
-<text x="1044" y="363" font-family="Arial, sans-serif" font-size="8" fill="#FFFFFF" text-anchor="middle" font-weight="bold">!</text>
-
-<!-- Card 2 content -->
-<text x="665" y="375" font-family="Arial, sans-serif" font-size="10" fill="#00ADD8" font-weight="700" letter-spacing="2">SUPPLY CHAIN SECURITY</text>
-<rect x="842" y="360" width="36" height="16" rx="3" fill="#00ADD8" opacity="0.9"/>
-<text x="860" y="372" font-family="Arial, sans-serif" font-size="9" fill="#FFFFFF" font-weight="800" text-anchor="middle">Go</text>
-<text x="665" y="398" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" font-weight="800">Go Supply Chain Security</text>
-<text x="665" y="417" font-family="Arial, sans-serif" font-size="11" fill="#94A3B8">Module poisoning and dependency confusion in Go ecosystem</text>
-<text x="665" y="435" font-family="Arial, sans-serif" font-size="10.5" fill="#67E8F9">go.sum verify + GONOSUMCHECK + private proxy enforcement</text>
-<line x1="665" y1="445" x2="1155" y2="445" stroke="#0F2A2A" stroke-width="1"/>
-
-<!-- Card 2 KPI row -->
-<rect x="665" y="453" width="110" height="44" rx="5" fill="#081818" stroke="#00ADD8" stroke-width="1"/>
-<text x="720" y="467" font-family="Arial, sans-serif" font-size="8.5" fill="#67E8F9" text-anchor="middle">LANGUAGE</text>
-<text x="720" y="484" font-family="Arial, sans-serif" font-size="15" fill="#00ADD8" font-weight="800" text-anchor="middle">Go 1.22</text>
-<text x="720" y="493" font-family="Arial, sans-serif" font-size="7.5" fill="#64748B" text-anchor="middle">Module Security</text>
-
-<rect x="787" y="453" width="110" height="44" rx="5" fill="#081818" stroke="#F59E0B" stroke-width="1"/>
-<text x="842" y="467" font-family="Arial, sans-serif" font-size="8.5" fill="#FDE68A" text-anchor="middle">RISK</text>
-<text x="842" y="484" font-family="Arial, sans-serif" font-size="13" fill="#F59E0B" font-weight="800" text-anchor="middle">HIGH</text>
-<text x="842" y="493" font-family="Arial, sans-serif" font-size="7.5" fill="#64748B" text-anchor="middle">Dependency Confusion</text>
-
-<rect x="909" y="453" width="120" height="44" rx="5" fill="#081818" stroke="#22C55E" stroke-width="1"/>
-<text x="969" y="467" font-family="Arial, sans-serif" font-size="8.5" fill="#86EFAC" text-anchor="middle">MITIGATION</text>
-<text x="969" y="480" font-family="Arial, sans-serif" font-size="9.5" fill="#4ADE80" font-weight="800" text-anchor="middle">go.sum + GONOSUMCHECK</text>
-<text x="969" y="493" font-family="Arial, sans-serif" font-size="7.5" fill="#64748B" text-anchor="middle">Private Proxy Required</text>
-
-<!-- HEADER BAR -->
-<rect x="0" y="0" width="1200" height="72" fill="#050B18" opacity="0.92"/>
-<line x1="0" y1="72" x2="1200" y2="72" stroke="#1E3060" stroke-width="1"/>
-<text x="28" y="28" font-family="Arial, sans-serif" font-size="12" fill="#3B82F6" font-weight="700" letter-spacing="1.5">TECH SECURITY WEEKLY</text>
-<rect x="28" y="36" width="130" height="22" rx="4" fill="#0D1F3A"/>
-<text x="93" y="51" font-family="Arial, sans-serif" font-size="12" fill="#60A5FA" text-anchor="middle" font-weight="600">2026.02.27</text>
-<text x="175" y="51" font-family="Arial, sans-serif" font-size="11" fill="#475569">Weekly Digest -- DevSecOps -- 30 Stories</text>
-
-<!-- Header threat pills -->
-<rect x="750" y="22" width="76" height="18" rx="9" fill="#E63946" opacity="0.15"/>
-<rect x="751" y="23" width="74" height="16" rx="8" fill="none" stroke="#E63946" stroke-width="1" opacity="0.7"/>
-<text x="788" y="35" font-family="Arial, sans-serif" font-size="9" fill="#E63946" text-anchor="middle" font-weight="700">AI BOTNET</text>
-
-<rect x="838" y="22" width="82" height="18" rx="9" fill="#8B5CF6" opacity="0.15"/>
-<rect x="839" y="23" width="80" height="16" rx="8" fill="none" stroke="#8B5CF6" stroke-width="1" opacity="0.7"/>
-<text x="879" y="35" font-family="Arial, sans-serif" font-size="9" fill="#C4B5FD" text-anchor="middle" font-weight="700">BLOCKCHAIN</text>
-
-<rect x="932" y="22" width="66" height="18" rx="9" fill="#F59E0B" opacity="0.15"/>
-<rect x="933" y="23" width="64" height="16" rx="8" fill="none" stroke="#F59E0B" stroke-width="1" opacity="0.7"/>
-<text x="965" y="35" font-family="Arial, sans-serif" font-size="9" fill="#FDE68A" text-anchor="middle" font-weight="700">ISO 42001</text>
-
-<rect x="1010" y="22" width="56" height="18" rx="9" fill="#00ADD8" opacity="0.15"/>
-<rect x="1011" y="23" width="54" height="16" rx="8" fill="none" stroke="#00ADD8" stroke-width="1" opacity="0.7"/>
-<text x="1038" y="35" font-family="Arial, sans-serif" font-size="9" fill="#67E8F9" text-anchor="middle" font-weight="700">Go SEC</text>
-
-<!-- QR code (header right) -->
-<rect x="1078" y="10" width="52" height="52" rx="4" fill="#0D1F3A" stroke="#1E3060" stroke-width="1"/>
-<!-- QR finder pattern TL -->
-<rect x="1082" y="14" width="14" height="14" rx="1" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
-<rect x="1084" y="16" width="10" height="10" rx="0.5" fill="#3B82F6" opacity="0.35"/>
-<rect x="1084" y="16" width="4" height="4" fill="#3B82F6"/>
-<rect x="1090" y="16" width="4" height="4" fill="#3B82F6"/>
-<rect x="1084" y="22" width="4" height="4" fill="#3B82F6"/>
-<rect x="1090" y="22" width="4" height="4" fill="#3B82F6"/>
-<!-- QR finder pattern TR -->
-<rect x="1104" y="14" width="14" height="14" rx="1" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
-<rect x="1106" y="16" width="10" height="10" rx="0.5" fill="#3B82F6" opacity="0.35"/>
-<rect x="1106" y="16" width="4" height="4" fill="#3B82F6"/>
-<rect x="1112" y="16" width="4" height="4" fill="#3B82F6"/>
-<rect x="1112" y="22" width="4" height="4" fill="#3B82F6"/>
-<!-- QR data dots middle -->
-<rect x="1082" y="32" width="4" height="4" fill="#3B82F6"/>
-<rect x="1088" y="32" width="4" height="4" fill="#3B82F6"/>
-<rect x="1094" y="32" width="4" height="4" fill="#3B82F6"/>
-<rect x="1082" y="38" width="4" height="4" fill="#3B82F6"/>
-<rect x="1094" y="38" width="4" height="4" fill="#3B82F6"/>
-<rect x="1100" y="32" width="4" height="4" fill="#3B82F6"/>
-<rect x="1108" y="34" width="4" height="4" fill="#3B82F6"/>
-<rect x="1114" y="34" width="4" height="4" fill="#3B82F6"/>
-<!-- QR finder pattern BL -->
-<rect x="1082" y="44" width="14" height="14" rx="1" fill="none" stroke="#3B82F6" stroke-width="1.5"/>
-<rect x="1084" y="46" width="10" height="10" rx="0.5" fill="#3B82F6" opacity="0.35"/>
-<rect x="1084" y="46" width="4" height="4" fill="#3B82F6"/>
-<rect x="1090" y="46" width="4" height="4" fill="#3B82F6"/>
-<rect x="1084" y="52" width="4" height="4" fill="#3B82F6"/>
-<rect x="1090" y="52" width="4" height="4" fill="#3B82F6"/>
-<!-- QR data BR -->
-<rect x="1100" y="44" width="4" height="4" fill="#3B82F6"/>
-<rect x="1106" y="46" width="4" height="4" fill="#3B82F6"/>
-<rect x="1112" y="44" width="4" height="4" fill="#3B82F6"/>
-<rect x="1106" y="52" width="4" height="4" fill="#3B82F6"/>
-<rect x="1112" y="52" width="4" height="4" fill="#3B82F6"/>
-<text x="1104" y="66" font-family="Arial, sans-serif" font-size="6" fill="#475569" text-anchor="middle">scan</text>
-
-<!-- FOOTER -->
-<rect x="0" y="608" width="1200" height="22" fill="#050B18" opacity="0.9"/>
-<text x="16" y="622" font-family="monospace" font-size="8.5" fill="#1E3A5A">tech.2twodragon.com</text>
-<text x="600" y="622" font-family="monospace" font-size="8.5" fill="#1E3A5A" text-anchor="middle">Security -- DevSecOps -- Cloud -- AI -- Blockchain</text>
-<text x="1184" y="622" font-family="monospace" font-size="8.5" fill="#1E3A5A" text-anchor="end">@Twodragon</text>
-
-<!-- Column separator gap -->
-<rect x="644" y="80" width="8" height="510" fill="#080E1E"/>
-<!-- Row gap between right panels -->
-<rect x="652" y="334" width="516" height="10" fill="#080E1E"/>
-
-<!-- cover-qr: https://tech.2twodragon.com/posts/2026/02/27/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/ : 41x41 -->
+<g opacity="1">
+  <circle cx="200" cy="120" r="180" fill="url(#glowAFB27)" opacity="0.22"/>
+  <circle cx="200" cy="330" r="180" fill="url(#glowBFB27)" opacity="0.22"/>
+  <circle cx="200" cy="540" r="180" fill="url(#glowCFB27)" opacity="0.22"/>
+</g>
+<g opacity="0.9">
+  <g fill="#E63946">
+    <circle cx="240" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="340" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="390" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="63" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="780" cy="55" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="55" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="55" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="147" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="147" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="35" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="2.1s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="175" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="660" cy="27" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="1.1s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="81" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.3s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="129" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#E63946" opacity="0.6">
+    <rect x="780" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="840" y="27" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#FCA5A5" opacity="0.85">
+    <rect x="730" y="165" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="746" y="165" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="762" y="165" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+  </g>
+  <g stroke="#E63946" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+    <path d="M20 95 L28 95"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+    <path d="M20 125 L28 125"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+    <path d="M20 155 L28 155"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+    <path d="M20 185 L28 185"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.4s" begin="0.9s" repeatCount="indefinite"/></path>
+    <path d="M1180 95 L1172 95"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></path>
+    <path d="M1180 125 L1172 125"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" begin="0.5s" repeatCount="indefinite"/></path>
+    <path d="M1180 155 L1172 155"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.8s" repeatCount="indefinite"/></path>
+    <path d="M1180 185 L1172 185"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.7s" begin="1.1s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#FCA5A5" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+    <circle cx="500" cy="105" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
+    <circle cx="500" cy="105" r="60" stroke-dasharray="2 4"><animate attributeName="r" values="40;80;40" dur="3.4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3.4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#E63946" opacity="0.55">
+    <rect x="120" y="15" width="40" height="1.6"><animate attributeName="x" values="120;640;120" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6s" repeatCount="indefinite"/></rect>
+    <rect x="640" y="195" width="40" height="1.6"><animate attributeName="x" values="640;120;640" dur="6.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6.5s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#A78BFA">
+    <circle cx="240" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="340" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="390" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="273" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="780" cy="265" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="265" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="265" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="357" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="357" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="245" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="2.1s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="385" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="660" cy="237" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="1.1s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="291" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.3s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="339" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#A78BFA" opacity="0.6">
+    <rect x="780" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="840" y="237" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#C4B5FD" opacity="0.85">
+    <rect x="730" y="375" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="746" y="375" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="762" y="375" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+  </g>
+  <g stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+    <path d="M20 305 L28 305"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+    <path d="M20 335 L28 335"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+    <path d="M20 365 L28 365"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+    <path d="M20 395 L28 395"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.4s" begin="0.9s" repeatCount="indefinite"/></path>
+    <path d="M1180 305 L1172 305"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></path>
+    <path d="M1180 335 L1172 335"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" begin="0.5s" repeatCount="indefinite"/></path>
+    <path d="M1180 365 L1172 365"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.8s" repeatCount="indefinite"/></path>
+    <path d="M1180 395 L1172 395"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.7s" begin="1.1s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#C4B5FD" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+    <circle cx="500" cy="315" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
+    <circle cx="500" cy="315" r="60" stroke-dasharray="2 4"><animate attributeName="r" values="40;80;40" dur="3.4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3.4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#A78BFA" opacity="0.55">
+    <rect x="120" y="225" width="40" height="1.6"><animate attributeName="x" values="120;640;120" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6s" repeatCount="indefinite"/></rect>
+    <rect x="640" y="405" width="40" height="1.6"><animate attributeName="x" values="640;120;640" dur="6.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6.5s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#A78BFA">
+    <circle cx="240" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="290" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="340" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="390" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="780" cy="475" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></circle>
+    <circle cx="820" cy="475" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="475" r="1.4"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="240" cy="567" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.7s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="320" cy="567" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.9s" begin="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="455" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="2.1s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="180" cy="595" r="1.3"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="660" cy="447" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="1.1s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="501" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.3s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="900" cy="549" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#A78BFA" opacity="0.6">
+    <rect x="780" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="800" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+    <rect x="840" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#C4B5FD" opacity="0.85">
+    <rect x="730" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
+    <rect x="746" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <rect x="762" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
+  </g>
+  <g stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+    <path d="M20 515 L28 515"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
+    <path d="M20 545 L28 545"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
+    <path d="M20 575 L28 575"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
+    <path d="M20 605 L28 605"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.4s" begin="0.9s" repeatCount="indefinite"/></path>
+    <path d="M1180 515 L1172 515"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></path>
+    <path d="M1180 545 L1172 545"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" begin="0.5s" repeatCount="indefinite"/></path>
+    <path d="M1180 575 L1172 575"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.8s" repeatCount="indefinite"/></path>
+    <path d="M1180 605 L1172 605"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.7s" begin="1.1s" repeatCount="indefinite"/></path>
+  </g>
+  <g stroke="#C4B5FD" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+    <circle cx="500" cy="525" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
+    <circle cx="500" cy="525" r="60" stroke-dasharray="2 4"><animate attributeName="r" values="40;80;40" dur="3.4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3.4s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#A78BFA" opacity="0.55">
+    <rect x="120" y="435" width="40" height="1.6"><animate attributeName="x" values="120;640;120" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6s" repeatCount="indefinite"/></rect>
+    <rect x="640" y="615" width="40" height="1.6"><animate attributeName="x" values="640;120;640" dur="6.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6.5s" repeatCount="indefinite"/></rect>
+  </g>
+</g>
+<g opacity="0.85">
+  <g fill="#E63946" opacity="0.7">
+    <circle cx="500" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.7s" repeatCount="indefinite"/></circle>
+    <circle cx="540" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="580" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.3s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <circle cx="620" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <circle cx="660" cy="60" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.1s" begin="1.2s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#A78BFA" opacity="0.7">
+    <circle cx="500" cy="270" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.9s" repeatCount="indefinite"/></circle>
+    <circle cx="540" cy="270" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.2s" begin="0.4s" repeatCount="indefinite"/></circle>
+    <circle cx="580" cy="270" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.7s" repeatCount="indefinite"/></circle>
+    <circle cx="620" cy="270" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" begin="1.0s" repeatCount="indefinite"/></circle>
+  </g>
+  <g fill="#A78BFA" opacity="0.7">
+    <circle cx="500" cy="480" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.7s" repeatCount="indefinite"/></circle>
+    <circle cx="540" cy="480" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.1s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="580" cy="480" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+    <circle cx="620" cy="480" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.4s" begin="1.1s" repeatCount="indefinite"/></circle>
+  </g>
+  <g stroke-width="0.5" stroke-opacity="0.4" fill="none">
+    <rect x="700" y="40" width="36" height="2" fill="#E63946" stroke="none"><animate attributeName="x" values="700;1000;700" dur="6.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.7;0.1" dur="6.4s" repeatCount="indefinite"/></rect>
+    <rect x="700" y="250" width="36" height="2" fill="#A78BFA" stroke="none"><animate attributeName="x" values="1000;700;1000" dur="6.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.7;0.1" dur="6.8s" repeatCount="indefinite"/></rect>
+    <rect x="700" y="460" width="36" height="2" fill="#A78BFA" stroke="none"><animate attributeName="x" values="700;1000;700" dur="7.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.7;0.1" dur="7.2s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#FCA5A5" opacity="0.6">
+    <circle cx="60" cy="60" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" repeatCount="indefinite"/></circle>
+    <circle cx="60" cy="270" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" begin="0.5s" repeatCount="indefinite"/></circle>
+    <circle cx="60" cy="480" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.7s" begin="1.0s" repeatCount="indefinite"/></circle>
+    <circle cx="1140" cy="60" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+    <circle cx="1140" cy="480" r="1.6"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.6s" begin="0.8s" repeatCount="indefinite"/></circle>
+  </g>
+  <g stroke="#C4B5FD" stroke-width="0.4" stroke-opacity="0.4" fill="none">
+    <line x1="640" y1="200" x2="640" y2="220"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" repeatCount="indefinite"/></line>
+    <line x1="660" y1="200" x2="660" y2="220"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.4s" begin="0.4s" repeatCount="indefinite"/></line>
+    <line x1="640" y1="410" x2="640" y2="430"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.0s" begin="0.7s" repeatCount="indefinite"/></line>
+    <line x1="660" y1="410" x2="660" y2="430"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="1.1s" repeatCount="indefinite"/></line>
+  </g>
+</g>
 <g transform="translate(1080,504)" filter="url(#softShadow)">
   <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
   <path fill="#0A1020" d="M0.0 0.0h14.341v2.049h-14.341z M18.439 0.0h6.146v2.049h-6.146z M26.634 0.0h14.341v2.049h-14.341z M51.22 0.0h6.146v2.049h-6.146z M61.463 0.0h4.098v2.049h-4.098z M69.659 0.0h14.341v2.049h-14.341z M0.0 2.049h2.049v2.049h-2.049z M12.293 2.049h2.049v2.049h-2.049z M18.439 2.049h4.098v2.049h-4.098z M28.683 2.049h2.049v2.049h-2.049z M32.78 2.049h2.049v2.049h-2.049z M36.878 2.049h2.049v2.049h-2.049z M43.024 2.049h6.146v2.049h-6.146z M51.22 2.049h8.195v2.049h-8.195z M65.561 2.049h2.049v2.049h-2.049z M69.659 2.049h2.049v2.049h-2.049z M81.951 2.049h2.049v2.049h-2.049z M0.0 4.098h2.049v2.049h-2.049z M4.098 4.098h6.146v2.049h-6.146z M12.293 4.098h2.049v2.049h-2.049z M20.488 4.098h4.098v2.049h-4.098z M26.634 4.098h6.146v2.049h-6.146z M36.878 4.098h4.098v2.049h-4.098z M47.122 4.098h2.049v2.049h-2.049z M53.268 4.098h2.049v2.049h-2.049z M59.415 4.098h2.049v2.049h-2.049z M65.561 4.098h2.049v2.049h-2.049z M69.659 4.098h2.049v2.049h-2.049z M73.756 4.098h6.146v2.049h-6.146z M81.951 4.098h2.049v2.049h-2.049z M0.0 6.146h2.049v2.049h-2.049z M4.098 6.146h6.146v2.049h-6.146z M12.293 6.146h2.049v2.049h-2.049z M18.439 6.146h2.049v2.049h-2.049z M26.634 6.146h2.049v2.049h-2.049z M34.829 6.146h10.244v2.049h-10.244z M47.122 6.146h12.293v2.049h-12.293z M61.463 6.146h6.146v2.049h-6.146z M69.659 6.146h2.049v2.049h-2.049z M73.756 6.146h6.146v2.049h-6.146z M81.951 6.146h2.049v2.049h-2.049z M0.0 8.195h2.049v2.049h-2.049z M4.098 8.195h6.146v2.049h-6.146z M12.293 8.195h2.049v2.049h-2.049z M18.439 8.195h2.049v2.049h-2.049z M22.537 8.195h4.098v2.049h-4.098z M28.683 8.195h2.049v2.049h-2.049z M34.829 8.195h6.146v2.049h-6.146z M45.073 8.195h2.049v2.049h-2.049z M51.22 8.195h6.146v2.049h-6.146z M61.463 8.195h2.049v2.049h-2.049z M65.561 8.195h2.049v2.049h-2.049z M69.659 8.195h2.049v2.049h-2.049z M73.756 8.195h6.146v2.049h-6.146z M81.951 8.195h2.049v2.049h-2.049z M0.0 10.244h2.049v2.049h-2.049z M12.293 10.244h2.049v2.049h-2.049z M16.39 10.244h2.049v2.049h-2.049z M24.585 10.244h4.098v2.049h-4.098z M32.78 10.244h8.195v2.049h-8.195z M49.171 10.244h2.049v2.049h-2.049z M53.268 10.244h4.098v2.049h-4.098z M61.463 10.244h6.146v2.049h-6.146z M69.659 10.244h2.049v2.049h-2.049z M81.951 10.244h2.049v2.049h-2.049z M0.0 12.293h14.341v2.049h-14.341z M16.39 12.293h2.049v2.049h-2.049z M20.488 12.293h2.049v2.049h-2.049z M24.585 12.293h2.049v2.049h-2.049z M28.683 12.293h2.049v2.049h-2.049z M32.78 12.293h2.049v2.049h-2.049z M36.878 12.293h2.049v2.049h-2.049z M40.976 12.293h2.049v2.049h-2.049z M45.073 12.293h2.049v2.049h-2.049z M49.171 12.293h2.049v2.049h-2.049z M53.268 12.293h2.049v2.049h-2.049z M57.366 12.293h2.049v2.049h-2.049z M61.463 12.293h2.049v2.049h-2.049z M65.561 12.293h2.049v2.049h-2.049z M69.659 12.293h14.341v2.049h-14.341z M18.439 14.341h4.098v2.049h-4.098z M24.585 14.341h4.098v2.049h-4.098z M30.732 14.341h2.049v2.049h-2.049z M34.829 14.341h2.049v2.049h-2.049z M38.927 14.341h8.195v2.049h-8.195z M49.171 14.341h2.049v2.049h-2.049z M55.317 14.341h6.146v2.049h-6.146z M63.512 14.341h2.049v2.049h-2.049z M0.0 16.39h2.049v2.049h-2.049z M6.146 16.39h2.049v2.049h-2.049z M10.244 16.39h4.098v2.049h-4.098z M16.39 16.39h2.049v2.049h-2.049z M22.537 16.39h2.049v2.049h-2.049z M30.732 16.39h4.098v2.049h-4.098z M38.927 16.39h2.049v2.049h-2.049z M43.024 16.39h2.049v2.049h-2.049z M51.22 16.39h4.098v2.049h-4.098z M65.561 16.39h4.098v2.049h-4.098z M71.707 16.39h2.049v2.049h-2.049z M8.195 18.439h2.049v2.049h-2.049z M24.585 18.439h6.146v2.049h-6.146z M32.78 18.439h4.098v2.049h-4.098z M43.024 18.439h2.049v2.049h-2.049z M49.171 18.439h6.146v2.049h-6.146z M59.415 18.439h2.049v2.049h-2.049z M65.561 18.439h2.049v2.049h-2.049z M75.805 18.439h4.098v2.049h-4.098z M81.951 18.439h2.049v2.049h-2.049z M0.0 20.488h2.049v2.049h-2.049z M4.098 20.488h2.049v2.049h-2.049z M8.195 20.488h8.195v2.049h-8.195z M18.439 20.488h4.098v2.049h-4.098z M26.634 20.488h2.049v2.049h-2.049z M30.732 20.488h12.293v2.049h-12.293z M45.073 20.488h2.049v2.049h-2.049z M49.171 20.488h2.049v2.049h-2.049z M53.268 20.488h2.049v2.049h-2.049z M61.463 20.488h4.098v2.049h-4.098z M67.61 20.488h14.341v2.049h-14.341z M8.195 22.537h4.098v2.049h-4.098z M14.341 22.537h2.049v2.049h-2.049z M22.537 22.537h6.146v2.049h-6.146z M32.78 22.537h2.049v2.049h-2.049z M36.878 22.537h2.049v2.049h-2.049z M43.024 22.537h2.049v2.049h-2.049z M49.171 22.537h6.146v2.049h-6.146z M57.366 22.537h2.049v2.049h-2.049z M67.61 22.537h2.049v2.049h-2.049z M73.756 22.537h2.049v2.049h-2.049z M77.854 22.537h2.049v2.049h-2.049z M0.0 24.585h6.146v2.049h-6.146z M10.244 24.585h6.146v2.049h-6.146z M18.439 24.585h2.049v2.049h-2.049z M22.537 24.585h2.049v2.049h-2.049z M26.634 24.585h2.049v2.049h-2.049z M32.78 24.585h4.098v2.049h-4.098z M38.927 24.585h2.049v2.049h-2.049z M43.024 24.585h2.049v2.049h-2.049z M49.171 24.585h8.195v2.049h-8.195z M59.415 24.585h14.341v2.049h-14.341z M75.805 24.585h2.049v2.049h-2.049z M79.902 24.585h4.098v2.049h-4.098z M0.0 26.634h6.146v2.049h-6.146z M8.195 26.634h2.049v2.049h-2.049z M18.439 26.634h2.049v2.049h-2.049z M26.634 26.634h8.195v2.049h-8.195z M45.073 26.634h8.195v2.049h-8.195z M55.317 26.634h2.049v2.049h-2.049z M61.463 26.634h8.195v2.049h-8.195z M75.805 26.634h4.098v2.049h-4.098z M2.049 28.683h4.098v2.049h-4.098z M8.195 28.683h2.049v2.049h-2.049z M12.293 28.683h4.098v2.049h-4.098z M22.537 28.683h4.098v2.049h-4.098z M28.683 28.683h4.098v2.049h-4.098z M40.976 28.683h4.098v2.049h-4.098z M49.171 28.683h2.049v2.049h-2.049z M57.366 28.683h2.049v2.049h-2.049z M61.463 28.683h2.049v2.049h-2.049z M65.561 28.683h2.049v2.049h-2.049z M69.659 28.683h2.049v2.049h-2.049z M75.805 28.683h8.195v2.049h-8.195z M0.0 30.732h4.098v2.049h-4.098z M8.195 30.732h2.049v2.049h-2.049z M14.341 30.732h2.049v2.049h-2.049z M22.537 30.732h6.146v2.049h-6.146z M32.78 30.732h8.195v2.049h-8.195z M43.024 30.732h4.098v2.049h-4.098z M49.171 30.732h6.146v2.049h-6.146z M57.366 30.732h6.146v2.049h-6.146z M69.659 30.732h4.098v2.049h-4.098z M0.0 32.78h4.098v2.049h-4.098z M10.244 32.78h4.098v2.049h-4.098z M16.39 32.78h4.098v2.049h-4.098z M22.537 32.78h2.049v2.049h-2.049z M28.683 32.78h2.049v2.049h-2.049z M34.829 32.78h2.049v2.049h-2.049z M38.927 32.78h4.098v2.049h-4.098z M45.073 32.78h4.098v2.049h-4.098z M55.317 32.78h2.049v2.049h-2.049z M59.415 32.78h2.049v2.049h-2.049z M65.561 32.78h2.049v2.049h-2.049z M71.707 32.78h2.049v2.049h-2.049z M79.902 32.78h2.049v2.049h-2.049z M2.049 34.829h8.195v2.049h-8.195z M14.341 34.829h2.049v2.049h-2.049z M20.488 34.829h2.049v2.049h-2.049z M30.732 34.829h4.098v2.049h-4.098z M36.878 34.829h4.098v2.049h-4.098z M47.122 34.829h14.341v2.049h-14.341z M69.659 34.829h4.098v2.049h-4.098z M75.805 34.829h8.195v2.049h-8.195z M0.0 36.878h2.049v2.049h-2.049z M6.146 36.878h2.049v2.049h-2.049z M12.293 36.878h4.098v2.049h-4.098z M18.439 36.878h4.098v2.049h-4.098z M32.78 36.878h2.049v2.049h-2.049z M36.878 36.878h2.049v2.049h-2.049z M43.024 36.878h2.049v2.049h-2.049z M51.22 36.878h2.049v2.049h-2.049z M61.463 36.878h2.049v2.049h-2.049z M67.61 36.878h4.098v2.049h-4.098z M73.756 36.878h2.049v2.049h-2.049z M81.951 36.878h2.049v2.049h-2.049z M2.049 38.927h2.049v2.049h-2.049z M8.195 38.927h2.049v2.049h-2.049z M14.341 38.927h6.146v2.049h-6.146z M32.78 38.927h10.244v2.049h-10.244z M45.073 38.927h2.049v2.049h-2.049z M53.268 38.927h2.049v2.049h-2.049z M59.415 38.927h2.049v2.049h-2.049z M65.561 38.927h8.195v2.049h-8.195z M75.805 38.927h2.049v2.049h-2.049z M81.951 38.927h2.049v2.049h-2.049z M0.0 40.976h4.098v2.049h-4.098z M6.146 40.976h10.244v2.049h-10.244z M24.585 40.976h8.195v2.049h-8.195z M34.829 40.976h8.195v2.049h-8.195z M47.122 40.976h10.244v2.049h-10.244z M65.561 40.976h8.195v2.049h-8.195z M77.854 40.976h4.098v2.049h-4.098z M0.0 43.024h4.098v2.049h-4.098z M8.195 43.024h4.098v2.049h-4.098z M16.39 43.024h2.049v2.049h-2.049z M22.537 43.024h2.049v2.049h-2.049z M32.78 43.024h12.293v2.049h-12.293z M51.22 43.024h2.049v2.049h-2.049z M59.415 43.024h2.049v2.049h-2.049z M69.659 43.024h2.049v2.049h-2.049z M79.902 43.024h4.098v2.049h-4.098z M4.098 45.073h2.049v2.049h-2.049z M10.244 45.073h12.293v2.049h-12.293z M24.585 45.073h8.195v2.049h-8.195z M34.829 45.073h8.195v2.049h-8.195z M51.22 45.073h2.049v2.049h-2.049z M57.366 45.073h2.049v2.049h-2.049z M63.512 45.073h2.049v2.049h-2.049z M67.61 45.073h4.098v2.049h-4.098z M75.805 45.073h6.146v2.049h-6.146z M6.146 47.122h4.098v2.049h-4.098z M20.488 47.122h2.049v2.049h-2.049z M28.683 47.122h2.049v2.049h-2.049z M36.878 47.122h18.439v2.049h-18.439z M57.366 47.122h2.049v2.049h-2.049z M61.463 47.122h2.049v2.049h-2.049z M69.659 47.122h2.049v2.049h-2.049z M77.854 47.122h2.049v2.049h-2.049z M0.0 49.171h8.195v2.049h-8.195z M12.293 49.171h4.098v2.049h-4.098z M20.488 49.171h4.098v2.049h-4.098z M30.732 49.171h6.146v2.049h-6.146z M38.927 49.171h6.146v2.049h-6.146z M49.171 49.171h4.098v2.049h-4.098z M55.317 49.171h6.146v2.049h-6.146z M63.512 49.171h10.244v2.049h-10.244z M75.805 49.171h4.098v2.049h-4.098z M81.951 49.171h2.049v2.049h-2.049z M0.0 51.22h2.049v2.049h-2.049z M4.098 51.22h2.049v2.049h-2.049z M16.39 51.22h2.049v2.049h-2.049z M22.537 51.22h2.049v2.049h-2.049z M26.634 51.22h10.244v2.049h-10.244z M38.927 51.22h8.195v2.049h-8.195z M49.171 51.22h6.146v2.049h-6.146z M57.366 51.22h4.098v2.049h-4.098z M63.512 51.22h2.049v2.049h-2.049z M69.659 51.22h2.049v2.049h-2.049z M75.805 51.22h2.049v2.049h-2.049z M79.902 51.22h2.049v2.049h-2.049z M0.0 53.268h2.049v2.049h-2.049z M12.293 53.268h4.098v2.049h-4.098z M18.439 53.268h8.195v2.049h-8.195z M30.732 53.268h6.146v2.049h-6.146z M40.976 53.268h2.049v2.049h-2.049z M47.122 53.268h2.049v2.049h-2.049z M51.22 53.268h4.098v2.049h-4.098z M57.366 53.268h2.049v2.049h-2.049z M61.463 53.268h2.049v2.049h-2.049z M65.561 53.268h4.098v2.049h-4.098z M71.707 53.268h4.098v2.049h-4.098z M79.902 53.268h4.098v2.049h-4.098z M2.049 55.317h2.049v2.049h-2.049z M8.195 55.317h2.049v2.049h-2.049z M18.439 55.317h2.049v2.049h-2.049z M22.537 55.317h2.049v2.049h-2.049z M28.683 55.317h2.049v2.049h-2.049z M32.78 55.317h6.146v2.049h-6.146z M40.976 55.317h6.146v2.049h-6.146z M49.171 55.317h8.195v2.049h-8.195z M59.415 55.317h2.049v2.049h-2.049z M65.561 55.317h2.049v2.049h-2.049z M69.659 55.317h2.049v2.049h-2.049z M79.902 55.317h4.098v2.049h-4.098z M2.049 57.366h2.049v2.049h-2.049z M6.146 57.366h10.244v2.049h-10.244z M20.488 57.366h6.146v2.049h-6.146z M28.683 57.366h2.049v2.049h-2.049z M34.829 57.366h2.049v2.049h-2.049z M40.976 57.366h10.244v2.049h-10.244z M53.268 57.366h4.098v2.049h-4.098z M59.415 57.366h4.098v2.049h-4.098z M65.561 57.366h4.098v2.049h-4.098z M71.707 57.366h2.049v2.049h-2.049z M79.902 57.366h4.098v2.049h-4.098z M6.146 59.415h4.098v2.049h-4.098z M14.341 59.415h4.098v2.049h-4.098z M20.488 59.415h6.146v2.049h-6.146z M38.927 59.415h2.049v2.049h-2.049z M43.024 59.415h2.049v2.049h-2.049z M51.22 59.415h2.049v2.049h-2.049z M57.366 59.415h6.146v2.049h-6.146z M67.61 59.415h6.146v2.049h-6.146z M75.805 59.415h4.098v2.049h-4.098z M81.951 59.415h2.049v2.049h-2.049z M0.0 61.463h2.049v2.049h-2.049z M4.098 61.463h2.049v2.049h-2.049z M8.195 61.463h2.049v2.049h-2.049z M12.293 61.463h2.049v2.049h-2.049z M16.39 61.463h2.049v2.049h-2.049z M24.585 61.463h4.098v2.049h-4.098z M30.732 61.463h4.098v2.049h-4.098z M38.927 61.463h4.098v2.049h-4.098z M45.073 61.463h2.049v2.049h-2.049z M51.22 61.463h2.049v2.049h-2.049z M71.707 61.463h2.049v2.049h-2.049z M77.854 61.463h6.146v2.049h-6.146z M6.146 63.512h2.049v2.049h-2.049z M16.39 63.512h4.098v2.049h-4.098z M26.634 63.512h6.146v2.049h-6.146z M34.829 63.512h2.049v2.049h-2.049z M38.927 63.512h6.146v2.049h-6.146z M49.171 63.512h2.049v2.049h-2.049z M53.268 63.512h8.195v2.049h-8.195z M63.512 63.512h2.049v2.049h-2.049z M67.61 63.512h2.049v2.049h-2.049z M73.756 63.512h4.098v2.049h-4.098z M0.0 65.561h2.049v2.049h-2.049z M4.098 65.561h2.049v2.049h-2.049z M8.195 65.561h12.293v2.049h-12.293z M24.585 65.561h10.244v2.049h-10.244z M38.927 65.561h4.098v2.049h-4.098z M51.22 65.561h6.146v2.049h-6.146z M65.561 65.561h10.244v2.049h-10.244z M77.854 65.561h2.049v2.049h-2.049z M81.951 65.561h2.049v2.049h-2.049z M16.39 67.61h10.244v2.049h-10.244z M38.927 67.61h6.146v2.049h-6.146z M49.171 67.61h2.049v2.049h-2.049z M55.317 67.61h12.293v2.049h-12.293z M73.756 67.61h10.244v2.049h-10.244z M0.0 69.659h14.341v2.049h-14.341z M24.585 69.659h4.098v2.049h-4.098z M32.78 69.659h4.098v2.049h-4.098z M38.927 69.659h2.049v2.049h-2.049z M57.366 69.659h2.049v2.049h-2.049z M61.463 69.659h2.049v2.049h-2.049z M65.561 69.659h2.049v2.049h-2.049z M69.659 69.659h2.049v2.049h-2.049z M73.756 69.659h2.049v2.049h-2.049z M77.854 69.659h4.098v2.049h-4.098z M0.0 71.707h2.049v2.049h-2.049z M12.293 71.707h2.049v2.049h-2.049z M16.39 71.707h12.293v2.049h-12.293z M30.732 71.707h2.049v2.049h-2.049z M34.829 71.707h2.049v2.049h-2.049z M38.927 71.707h8.195v2.049h-8.195z M49.171 71.707h4.098v2.049h-4.098z M55.317 71.707h2.049v2.049h-2.049z M61.463 71.707h2.049v2.049h-2.049z M65.561 71.707h2.049v2.049h-2.049z M73.756 71.707h2.049v2.049h-2.049z M77.854 71.707h2.049v2.049h-2.049z M81.951 71.707h2.049v2.049h-2.049z M0.0 73.756h2.049v2.049h-2.049z M4.098 73.756h6.146v2.049h-6.146z M12.293 73.756h2.049v2.049h-2.049z M20.488 73.756h2.049v2.049h-2.049z M24.585 73.756h4.098v2.049h-4.098z M30.732 73.756h2.049v2.049h-2.049z M38.927 73.756h4.098v2.049h-4.098z M45.073 73.756h2.049v2.049h-2.049z M51.22 73.756h10.244v2.049h-10.244z M65.561 73.756h12.293v2.049h-12.293z M79.902 73.756h2.049v2.049h-2.049z M0.0 75.805h2.049v2.049h-2.049z M4.098 75.805h6.146v2.049h-6.146z M12.293 75.805h2.049v2.049h-2.049z M16.39 75.805h2.049v2.049h-2.049z M20.488 75.805h4.098v2.049h-4.098z M32.78 75.805h4.098v2.049h-4.098z M38.927 75.805h6.146v2.049h-6.146z M57.366 75.805h4.098v2.049h-4.098z M63.512 75.805h8.195v2.049h-8.195z M73.756 75.805h8.195v2.049h-8.195z M0.0 77.854h2.049v2.049h-2.049z M4.098 77.854h6.146v2.049h-6.146z M12.293 77.854h2.049v2.049h-2.049z M18.439 77.854h2.049v2.049h-2.049z M22.537 77.854h2.049v2.049h-2.049z M28.683 77.854h2.049v2.049h-2.049z M40.976 77.854h4.098v2.049h-4.098z M47.122 77.854h8.195v2.049h-8.195z M57.366 77.854h2.049v2.049h-2.049z M61.463 77.854h4.098v2.049h-4.098z M73.756 77.854h10.244v2.049h-10.244z M0.0 79.902h2.049v2.049h-2.049z M12.293 79.902h2.049v2.049h-2.049z M18.439 79.902h6.146v2.049h-6.146z M28.683 79.902h2.049v2.049h-2.049z M32.78 79.902h2.049v2.049h-2.049z M36.878 79.902h2.049v2.049h-2.049z M43.024 79.902h4.098v2.049h-4.098z M51.22 79.902h4.098v2.049h-4.098z M57.366 79.902h12.293v2.049h-12.293z M71.707 79.902h2.049v2.049h-2.049z M79.902 79.902h2.049v2.049h-2.049z M0.0 81.951h14.341v2.049h-14.341z M16.39 81.951h4.098v2.049h-4.098z M22.537 81.951h2.049v2.049h-2.049z M26.634 81.951h4.098v2.049h-4.098z M32.78 81.951h2.049v2.049h-2.049z M38.927 81.951h8.195v2.049h-8.195z M49.171 81.951h2.049v2.049h-2.049z M59.415 81.951h2.049v2.049h-2.049z M63.512 81.951h18.439v2.049h-18.439z"/>

@@ -1,0 +1,69 @@
+date: '2026-01-23'
+slug: Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL
+sfx: JN23
+title: Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL
+aria: Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위협 리스크 스코어카드
+  metric: 위협 리스크 스코어카드
+  detail: 위협 리스크 스코어카드
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: red
+  label: PHISHING
+  headline: Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및…
+  metric: Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및 BEC 공격 경고
+  detail: Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및 BEC 공격 경고
+  badge:
+    value: PSH
+    label: PSH
+    sub: highlighted
+  visual:
+    kind: browser_cve
+  metric_b: 'DevSecOps : phishing response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : phishing'
+  mini:
+    value: PHIS
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: PSH
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: OpenAI, PostgreSQL로 8억 ChatGPT 사용자…
+  metric: OpenAI, PostgreSQL로 8억 ChatGPT 사용자 지원
+  detail: OpenAI, PostgreSQL로 8억 ChatGPT 사용자 지원
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context

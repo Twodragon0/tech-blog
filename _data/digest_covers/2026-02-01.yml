@@ -1,0 +1,69 @@
+date: '2026-02-01'
+slug: Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet
+sfx: FB01
+title: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet 패치
+aria: AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet 패치
+bands:
+- theme: red
+  label: SECURITY
+  headline: Executive Summary
+  metric: Executive Summary
+  detail: Executive Summary
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: 위험도 스코어카드
+  metric: 위험도 스코어카드
+  detail: 위험도 스코어카드
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context
+- theme: green
+  label: DEFENSE
+  headline: 요약
+  metric: 요약
+  detail: 요약
+  badge:
+    value: DEF
+    label: DEF
+    sub: highlighted
+  visual:
+    kind: shield
+  metric_b: 'DevSecOps : defense response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  mini:
+    value: DEFE
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: DEF
+    label: BADGE
+    sub: context

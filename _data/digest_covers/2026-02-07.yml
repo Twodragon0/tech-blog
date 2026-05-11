@@ -1,0 +1,69 @@
+date: '2026-02-07'
+slug: Tech_Security_Weekly_Digest_AI_Malware_Go_Security
+sfx: FB07
+title: APT 침해 분석, AitM 라우터 공격, 공급망 보안 동향
+aria: APT 침해 분석, AitM 라우터 공격, 공급망 보안 동향
+bands:
+- theme: red
+  label: SECURITY
+  headline: 위험도 평가
+  metric: 위험도 평가
+  detail: 위험도 평가
+  badge:
+    value: SEC
+    label: SEC
+    sub: highlighted
+  visual:
+    kind: network_nodes
+  metric_b: 'DevSecOps : security response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  mini:
+    value: SECU
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: SEC
+    label: BADGE
+    sub: context
+- theme: amber
+  label: VULNERABILITY
+  headline: 주요 하이라이트
+  metric: 주요 하이라이트
+  detail: 주요 하이라이트
+  badge:
+    value: VLN
+    label: VLN
+    sub: highlighted
+  visual:
+    kind: lock_cve
+  metric_b: 'DevSecOps : vulnerability response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  mini:
+    value: VULN
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: VLN
+    label: BADGE
+    sub: context
+- theme: green
+  label: DEFENSE
+  headline: 'TGR-STA-1030: 37개국 정부/인프라 침해 APT 캠페인'
+  metric: 'TGR-STA-1030: 37개국 정부/인프라 침해 APT 캠페인'
+  detail: 'TGR-STA-1030: 37개국 정부/인프라 침해 APT 캠페인'
+  badge:
+    value: DEF
+    label: DEF
+    sub: highlighted
+  visual:
+    kind: shield
+  metric_b: 'DevSecOps : defense response'
+  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  mini:
+    value: DEFE
+    label: FOCUS
+    sub: weekly
+  mini2:
+    value: DEF
+    label: BADGE
+    sub: context
