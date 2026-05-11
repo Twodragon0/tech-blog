@@ -1,0 +1,79 @@
+date: '2026-04-30'
+slug: Tech_Security_Weekly_Digest_AI_Malware_Rust
+sfx: AP30
+title: '2026-04-30: SAP npm credential theft, DPRK AI npm RAT, Bedrock trust'
+aria: SAP npm packages credential-theft supply-chain attack, DPRK AI-injected npm
+  malware fake firms RAT Claude-Opus-generated, Amazon Bedrock trust and safety framework
+bands:
+- theme: red
+  label: SUPPLY CHAIN ATTACK
+  headline: SAP npm Credential Theft
+  metric: 'SAP npm : credential exfiltration'
+  detail: 'SAP-linked npm packages compromised : developer tokens + AWS keys stolen
+    : CI/CD pipeline at risk : SBOM mandatory'
+  badge:
+    value: SAP
+    label: TARGET
+    sub: npm chain
+  visual:
+    kind: network_nodes
+    label: HIJACK
+  metric_b: 'Pin SAP npm lockfiles : enforce npm audit in CI'
+  detail_b: 'Rotate all SAP-linked tokens : block untrusted registries : audit SBOM
+    weekly : run pip-audit + npm audit'
+  mini:
+    value: NPM
+    label: VECTOR
+    sub: package
+  mini2:
+    value: CI
+    label: RISK
+    sub: pipeline
+- theme: amber
+  label: DPRK AI MALWARE
+  headline: DPRK npm RAT via AI
+  metric: 'Claude-Opus-generated : @validate-sdk/v2'
+  detail: 'North Korea injects RAT into npm via AI-generated code : fake firms front
+    : @validate-sdk/v2 package : credential + clipboard theft'
+  badge:
+    value: DPRK
+    label: ACTOR
+    sub: AI-assisted
+  visual:
+    kind: code_bars
+    caption: RAT
+  metric_b: 'Inspect AI-generated package metadata : UEBA alert on clipboard access'
+  detail_b: 'Block unverified npm scoped packages : scan for AI code signatures in
+    SBOM : rotate secrets post-incident'
+  mini:
+    value: RAT
+    label: PAYLOAD
+    sub: npm
+  mini2:
+    value: AI
+    label: GENERATED
+    sub: Opus
+- theme: blue
+  label: CLOUD AI SAFETY
+  headline: AWS Bedrock Trust Framework
+  metric: 'Trust + safety : AI guardrails'
+  detail: 'Amazon Bedrock trust-and-safety guidance : guardrails for LLM apps : prompt
+    injection defense : agent scope control'
+  badge:
+    value: AWS
+    label: BEDROCK
+    sub: guardrails
+  visual:
+    kind: shield
+    label: TRUST
+  metric_b: 'Enable Bedrock guardrails + content filters : tag inference workloads'
+  detail_b: 'IAM least-privilege for Bedrock agents : monitor model invocation logs
+    : apply deny-all on unused models'
+  mini:
+    value: LLM
+    label: GUARD
+    sub: prompt
+  mini2:
+    value: IAM
+    label: SCOPE
+    sub: agent
