@@ -27,9 +27,9 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: MITRE ATT&CK 매핑
-  metric: MITRE ATT&CK 매핑
-  detail: MITRE ATT&CK 매핑
+  headline: MITRE ATT&CK Mapping
+  metric: MITRE ATT&CK Mapping
+  detail: MITRE ATT&CK Mapping
   badge:
     value: VLN
     label: VLN
