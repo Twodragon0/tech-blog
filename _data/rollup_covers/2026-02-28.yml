@@ -1,0 +1,48 @@
+# February 2026 Security Digest Monthly Index — rollup cover spec.
+# Source: _posts/2026-02-28-February_2026_Security_Digest_Monthly_Index.md
+#
+# Audit:
+#   - No redirect_from. daily_count_source: index_table.
+#   - 22 daily digests across 4 weeks (W1=6, W2=3, W3=6, W4=7).
+#   - Render as 4 week-aggregated cells (not 22 day cells) to keep the
+#     strip readable. Each week-cell carries the dominant theme of its
+#     headline issues from the source post's index table.
+date: '2026-02-28'
+slug: February_2026_Security_Digest_Monthly_Index
+kind: monthly_index
+period_label: 'February 2026'
+period_short: FEB 2026
+daily_count: 22
+daily_count_source: index_table
+sfx: FB28
+title: '2026-02 Monthly Index: AI finds 12 OpenSSL 0-days, APT28, Lazarus npm chain'
+aria: |
+  February 2026 security digest monthly index covering 22 daily digests
+  across four weeks : AI auto-discovers 12 OpenSSL zero-days, OWASP
+  Agentic AI framework, Lazarus npm and PyPI supply chain campaign,
+  APT28 webhook malware, UAC-0050 European banks, Aeternum blockchain
+  botnet, BlackField ransomware return.
+top_highlights:
+  - severity: HIGH
+    label: AI BREAKTHROUGH
+    headline: 'AI Auto-Finds 12 OpenSSL 0-Days'
+    detail: 'First AI-led mass zero-day discovery : paradigm shift'
+    source: OpenSSL Security Team
+  - severity: HIGH
+    label: SUPPLY CHAIN
+    headline: 'Lazarus npm + PyPI Campaign'
+    detail: 'DPRK-linked package poisoning : developer machine pivot'
+    source: ReversingLabs / GitHub
+  - severity: HIGH
+    label: NATION-STATE
+    headline: 'APT28 Webhook Malware Europe'
+    detail: 'UAC-0050 European banks : EU finance sector targeted'
+    source: ESET / Mandiant
+days:
+  - { date: 'Week 1', severity: HIGH,   tag: 'OpenSSL + OWASP AI' }
+  - { date: 'Week 2', severity: HIGH,   tag: 'Lazarus npm chain' }
+  - { date: 'Week 3', severity: HIGH,   tag: 'FortiGate + Roundcube' }
+  - { date: 'Week 4', severity: HIGH,   tag: 'APT28 + Aeternum' }
+footer:
+  daily_digests: 22
+  categories: [security, devsecops]

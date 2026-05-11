@@ -1,0 +1,48 @@
+# April Week 3 2026 Security Digest weekly rollup — cover spec.
+# Source: _posts/2026-04-19-Week3_April_2026_Security_Digest.md
+#
+# Audit:
+#   - redirect_from has 7 entries (4/13..4/19). daily_count = 7.
+#   - daily_count_source: redirect_from.
+date: '2026-04-19'
+slug: Week3_April_2026_Security_Digest
+kind: weekly_rollup
+period_label: 'April 13-19, 2026'
+period_short: W3 APR
+daily_count: 7
+daily_count_source: redirect_from
+sfx: AP19
+title: '2026-04 Week 3 rollup: CPUID supply chain, Nginx UI CVE, PowMix botnet'
+aria: |
+  April week 3 2026 weekly rollup covering 7 daily security digests :
+  CPUID supply chain breach distributing tampered CPU-Z, n8n Webhooks
+  abused for phishing email delivery, Nginx UI CVE-2026-33032
+  authentication bypass critical, Marimo pre-auth RCE, PowMix botnet,
+  Mirai variant Nexcorium, Operation PowerOFF takedown coordination.
+top_highlights:
+  - severity: HIGH
+    label: SUPPLY CHAIN
+    headline: 'CPUID Supply Chain Breach'
+    detail: 'CPU-Z tampered build pushed via official channel'
+    source: The Hacker News
+  - severity: HIGH
+    label: AUTH BYPASS
+    headline: 'Nginx UI CVE-2026-33032'
+    detail: 'Pre-auth admin takeover : patch immediately'
+    source: Nginx Security Advisory
+  - severity: MEDIUM
+    label: BOTNET TAKEDOWN
+    headline: 'PowMix + Mirai Nexcorium'
+    detail: 'Operation PowerOFF takedown coordination'
+    source: Microsoft Security
+days:
+  - { date: '4/13', severity: HIGH,   tag: 'CPUID + Marimo RCE' }
+  - { date: '4/14', severity: MEDIUM, tag: 'JanelaRAT new variant' }
+  - { date: '4/15', severity: MEDIUM, tag: 'AWS MCP + PHP Composer' }
+  - { date: '4/16', severity: HIGH,   tag: 'n8n phish + Nginx CVE' }
+  - { date: '4/17', severity: HIGH,   tag: 'PowMix + PowerOFF' }
+  - { date: '4/18', severity: LOW,    tag: 'Defender ETL config' }
+  - { date: '4/19', severity: MEDIUM, tag: 'Grinex + Mirai Nexcorium' }
+footer:
+  daily_digests: 7
+  categories: [security, devsecops]

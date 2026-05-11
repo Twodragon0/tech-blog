@@ -1,0 +1,52 @@
+# January 2026 Security Digest Monthly Index — rollup cover spec.
+# Source: _posts/2026-01-31-January_2026_Security_Digest_Monthly_Index.md
+#
+# Audit (see .omc/plans/rollup-cover-design-audit.md):
+#   - No redirect_from in this post. daily_count_source: index_table.
+#   - January digests are W4-only: 1/23..1/31 = 9 daily digests.
+#   - summary_card.highlights has 3 generic editorial items; we replace
+#     them with concrete monthly-trend headlines pulled from the
+#     "월간 주요 트렌드" + "통계" sections.
+date: '2026-01-31'
+slug: January_2026_Security_Digest_Monthly_Index
+kind: monthly_index
+period_label: 'January 2026'
+period_short: JAN 2026
+daily_count: 9
+daily_count_source: index_table
+sfx: JN31
+title: '2026-01 Monthly Index: AitM phishing, VMware KEV, AI agent NHI, LLMjacking'
+aria: |
+  January 2026 security digest monthly index covering 9 daily digests :
+  Microsoft AitM phishing, VMware vCenter KEV, Sandworm DynoWiper Polish
+  grid attack, n8n RCE CVE-2026-1470, LLMjacking on 175000 Ollama servers,
+  ShinyHunters vishing MFA bypass, OT systems attack from CERT Polska.
+top_highlights:
+  - severity: HIGH
+    label: SOCIAL ENGINEERING
+    headline: ShinyHunters Vishing MFA Bypass
+    detail: 'Phone-based MFA bypass : Mandiant first official report'
+    source: Mandiant
+  - severity: HIGH
+    label: ZERO-DAY PATCH
+    headline: 'n8n Workflow RCE CVE-2026-1470'
+    detail: 'CVSS 9.9 : pre-auth workflow RCE : patch immediately'
+    source: NVD / n8n Security
+  - severity: MEDIUM
+    label: AI INFRASTRUCTURE
+    headline: 'LLMjacking on 175k Ollama Servers'
+    detail: 'Unauthenticated inference endpoints exposed to internet'
+    source: Wiz Research
+days:
+  - { date: '1/23', severity: HIGH,   tag: 'AitM phishing + NHI' }
+  - { date: '1/24', severity: MEDIUM, tag: 'BitLocker / BGP Leak' }
+  - { date: '1/25', severity: HIGH,   tag: 'VMware KEV + DynoWiper' }
+  - { date: '1/26', severity: MEDIUM, tag: 'Zero Trust / Chrome AI' }
+  - { date: '1/27', severity: HIGH,   tag: 'MS Office 0-day' }
+  - { date: '1/28', severity: MEDIUM, tag: 'CTEM + Grist RCE' }
+  - { date: '1/29', severity: HIGH,   tag: 'n8n RCE CVSS 9.9' }
+  - { date: '1/30', severity: HIGH,   tag: 'LLMjacking 175k' }
+  - { date: '1/31', severity: HIGH,   tag: 'Vishing + OT attack' }
+footer:
+  daily_digests: 9
+  categories: [security, devsecops]

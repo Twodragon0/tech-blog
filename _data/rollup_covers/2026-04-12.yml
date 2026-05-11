@@ -1,0 +1,48 @@
+# April Week 2 2026 Security Digest weekly rollup — cover spec.
+# Source: _posts/2026-04-12-Week2_April_2026_Security_Digest.md
+#
+# Audit:
+#   - redirect_from has 7 entries (4/6..4/12). daily_count = 7.
+#   - daily_count_source: redirect_from.
+date: '2026-04-12'
+slug: Week2_April_2026_Security_Digest
+kind: weekly_rollup
+period_label: 'April 6-12, 2026'
+period_short: W2 APR
+daily_count: 7
+daily_count_source: redirect_from
+sfx: AP12
+title: '2026-04 Week 2 rollup: Drift 285M hack, Iran-DPRK APT, GlassWorm Zig'
+aria: |
+  April week 2 2026 weekly rollup covering 7 daily security digests :
+  Drift protocol 285 million USD heist, Iran and DPRK-linked Korea
+  targeting, APT28 DNS hijacking, GlassWorm Zig IDE dropper, Masjesu
+  IoT botnet, EngageLab SDK flaw exposing 50 million Android users,
+  Citizen Lab spyware disclosure, ChatGPT and Claude safety debate.
+top_highlights:
+  - severity: HIGH
+    label: APT CAMPAIGN
+    headline: 'Iran-DPRK Korea APT Layered Attack'
+    detail: 'Multi-stage targeting + APT28 DNS hijacking PRISMEX campaign'
+    source: AhnLab ASEC / Mandiant
+  - severity: HIGH
+    label: BOTNET + CLOUD
+    headline: 'Masjesu IoT + Chaos Cloud + Docker'
+    detail: 'CVE-2026-34040 Docker auth bypass : DDoS scale-up'
+    source: Akamai SIRT / Trend Micro
+  - severity: HIGH
+    label: SUPPLY CHAIN
+    headline: 'GlassWorm Zig IDE Dropper'
+    detail: 'EngageLab SDK exposes 50M Android : IDE infection'
+    source: SafeBreach Labs
+days:
+  - { date: '4/6',  severity: HIGH,   tag: 'Drift 285M + QR phish' }
+  - { date: '4/7',  severity: HIGH,   tag: 'Iran-DPRK Korea APT' }
+  - { date: '4/8',  severity: HIGH,   tag: 'APT28 DNS + Docker CVE' }
+  - { date: '4/9',  severity: HIGH,   tag: 'Chaos cloud + Masjesu' }
+  - { date: '4/10', severity: HIGH,   tag: 'EngageLab 50M Android' }
+  - { date: '4/11', severity: MEDIUM, tag: 'GlassWorm Zig IDE' }
+  - { date: '4/12', severity: MEDIUM, tag: 'Citizen Lab spyware' }
+footer:
+  daily_digests: 7
+  categories: [security, devsecops]

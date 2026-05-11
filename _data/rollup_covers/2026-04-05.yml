@@ -1,0 +1,48 @@
+# April Week 1 2026 Security Digest weekly rollup — cover spec.
+# Source: _posts/2026-04-05-Week1_April_2026_Security_Digest.md
+#
+# Audit:
+#   - redirect_from has 5 entries (4/1..4/5). daily_count = 5.
+#   - daily_count_source: redirect_from.
+#   - Schema permits weekly_rollup with 5..7 days (audit-driven relaxation
+#     from plan's strict ==7; April Week 1 only spans Tue..Fri).
+date: '2026-04-05'
+slug: Week1_April_2026_Security_Digest
+kind: weekly_rollup
+period_label: 'April 1-5, 2026'
+period_short: W1 APR
+daily_count: 5
+daily_count_source: redirect_from
+sfx: AP05
+title: '2026-04 Week 1 rollup: TrueConf 0-day, Axios npm, AWS LZA ISO 27001'
+aria: |
+  April week 1 2026 weekly rollup covering 5 daily security digests :
+  TrueConf CVE-2026-3502 zero-day APT against Southeast Asia governments,
+  Axios npm supply chain breach with DPRK attribution, device-code
+  phishing surges 37x, AWS Landing Zone Accelerator universal config,
+  Android developer verification rollout.
+top_highlights:
+  - severity: HIGH
+    label: SUPPLY CHAIN
+    headline: 'Axios npm Supply Chain Breach'
+    detail: 'DPRK-linked actor : device code phishing 37x surge'
+    source: ReversingLabs / GitHub
+  - severity: HIGH
+    label: ZERO-DAY APT
+    headline: 'TrueConf CVE-2026-3502'
+    detail: 'TrueChaos campaign : SEA government targets : MitM RCE'
+    source: Kaspersky GReAT
+  - severity: MEDIUM
+    label: CLOUD COMPLIANCE
+    headline: 'AWS LZA + ISO 27001:2022 Guide'
+    detail: 'Continuous compliance via Config + Security Hub + CloudTrail'
+    source: AWS Security
+days:
+  - { date: '4/1', severity: HIGH,   tag: 'TrueConf 0-day APT' }
+  - { date: '4/2', severity: MEDIUM, tag: 'AI agent malware' }
+  - { date: '4/3', severity: HIGH,   tag: 'CVE patch + AWS' }
+  - { date: '4/4', severity: MEDIUM, tag: 'Go runtime + AI data' }
+  - { date: '4/5', severity: HIGH,   tag: 'Axios npm + LZA' }
+footer:
+  daily_digests: 5
+  categories: [security, devsecops]
