@@ -1,0 +1,80 @@
+date: '2026-03-23'
+slug: Tech_Security_Weekly_Digest_Ransomware
+sfx: MR23
+title: '2026-03-23: Gentlemen Ransomware Spread, Zero Trust Visibility, EQST Insight'
+aria: Gentlemen ransomware diffusion tactical analysis Sinobi-Lynx link, Zero Trust
+  network visibility analytics strategy segmentation, SK Shieldus EQST integrated
+  threat insight December
+bands:
+- theme: red
+  label: RANSOMWARE SPREAD
+  headline: Gentlemen Ransomware
+  metric: 'Sinobi-Lynx link : lateral spread'
+  detail: 'Gentlemen ransomware expands : Sinobi ties to Lynx group confirmed : backup
+    integrity audit urgent : MITRE T1486 data encryption'
+  badge:
+    value: HIGH
+    label: THREAT
+    sub: ransomware
+  visual:
+    kind: lock_cve
+    cvss: 'HIGH'
+  metric_b: 'WORM backup + offline copy : EDR behavioural rules for ransom dropper'
+  detail_b: 'Validate backup restore SLA : isolate lateral movement vectors : hunt
+    T1486 + T1490 telemetry in SIEM now'
+  mini:
+    value: RNS
+    label: FAMILY
+    sub: Gentlemen
+  mini2:
+    value: LNX
+    label: LINKED
+    sub: Lynx grp
+- theme: amber
+  label: ZERO TRUST VISIBILITY
+  headline: Network Visibility Analytics
+  metric: 'Zero Trust : visibility + analytics'
+  detail: 'SK Shieldus Special Report : Zero Trust security strategy : network segmentation
+    + visibility analytics : access control tightening'
+  badge:
+    value: ZTA
+    label: STRATEGY
+    sub: visibility
+  visual:
+    kind: network_nodes
+    label: ZERO TRUST
+  metric_b: 'Deploy microsegmentation : integrate traffic analytics with SIEM'
+  detail_b: 'Map east-west flows : enforce identity-based perimeter : log all lateral
+    access events : alert on anomalous micro-segment crossing'
+  mini:
+    value: SEG
+    label: TACTIC
+    sub: micro-seg
+  mini2:
+    value: VIZ
+    label: ANALYTICS
+    sub: visibility
+- theme: purple
+  label: EQST THREAT INSIGHT
+  headline: SK Shieldus EQST Dec
+  metric: 'EQST insight : integrated Dec report'
+  detail: 'SK Shieldus EQST integrated December insight : ransomware + supply chain
+    + DeFi key compromise : unified threat scoring'
+  badge:
+    value: EQST
+    label: SOURCE
+    sub: Dec report
+  visual:
+    kind: bar_graph
+    caption: THREATS
+  metric_b: 'Correlate EQST IoCs with internal SIEM : update threat models quarterly'
+  detail_b: 'Distribute EQST findings to SOC + DevSecOps teams : track KRI scores
+    : rehearse IR playbook against reported TTPs'
+  mini:
+    value: SOC
+    label: ACTION
+    sub: IoC update
+  mini2:
+    value: DEC
+    label: EDITION
+    sub: integrated
