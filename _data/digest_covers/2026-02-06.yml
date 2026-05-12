@@ -1,14 +1,14 @@
 date: '2026-02-06'
 slug: Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat
 sfx: FB06
-title: CrashFix RAT, 초대형 DDoS 봇넷, Codespaces RCE 취약점
-aria: CrashFix RAT, 초대형 DDoS 봇넷, Codespaces RCE 취약점
+title: '2026-02-06: CrashFix RAT DDoS Codespaces RCE'
+aria: CrashFix RAT DDoS Codespaces RCE
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: AI Usage Control - Buyer's Guide
-  metric: AI Usage Control - Buyer's Guide
-  detail: AI Usage Control - Buyer's Guide
+  headline: AI Usage Control Buyer Guide AI
+  metric: AI Usage Control Buyer Guide AI Usage Control
+  detail: AI Usage Control Buyer Guide AI Usage Control Buyer Guide AI Usage Control
+    Buyer Guide Botnet Prompt
   badge:
     value: AI
     label: AI
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: Claude Opus 4.6 - Vertex AI 출시와 AI…
-  metric: Claude Opus 4.6 - Vertex AI 출시와 AI 에이전트 보안
-  detail: Claude Opus 4.6 - Vertex AI 출시와 AI 에이전트 보안
+  headline: Claude Opus Vertex AI AI Claude
+  metric: Claude Opus Vertex AI AI Claude Opus Vertex AI
+  detail: Claude Opus Vertex AI AI Claude Opus Vertex AI AI Claude Opus Vertex AI
+    AI Cloud Threat Prompt injection
   badge:
     value: AI
     label: AI

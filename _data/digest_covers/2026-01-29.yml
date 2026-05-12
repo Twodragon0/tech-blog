@@ -1,14 +1,14 @@
 date: '2026-01-29'
 slug: Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent
 sfx: JN29
-title: n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안
-aria: n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안
+title: '2026-01-29: Critical RCE Link Zero Day Kubernetes AI Agent'
+aria: Critical RCE Link Zero Day Kubernetes AI Agent
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: n8n RCE D
+  metric: n8n RCE D
+  detail: n8n RCE D Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 취약점 개요
-  metric: 취약점 개요
-  detail: 취약점 개요
+  headline: Link Zero Day
+  metric: Link Zero Day
+  detail: Link Zero Day Vendor advisory + scope assessment + canary rollout + rollback
+    plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: green
   label: DEFENSE
-  headline: 배경
-  metric: 배경
-  detail: 배경
+  headline: Kubernetes AI Agent
+  metric: Kubernetes AI Agent
+  detail: Kubernetes AI Agent SIEM correlation + log retention + escalation path +
+    tabletop drill
   badge:
     value: DEF
     label: DEF

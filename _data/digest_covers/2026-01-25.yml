@@ -1,14 +1,15 @@
 date: '2026-01-25'
 slug: Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents
 sfx: JN25
-title: VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper
-aria: VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper
+title: '2026-01-25: VMware KEV Fortinet SSO Sandworm DynoWiper'
+aria: VMware KEV Fortinet SSO Sandworm DynoWiper
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가 스코어카드 (Risk Assessment Score…
-  metric: 위험도 평가 스코어카드 (Risk Assessment Scorecard)
-  detail: 위험도 평가 스코어카드 (Risk Assessment Scorecard)
+  headline: Risk Assessment Score Risk
+  metric: Risk Assessment Score Risk Assessment Scorecard
+  detail: Risk Assessment Score Risk Assessment Scorecard Risk Assessment Scorecard
+    VMware vCenter Detection rules +
   badge:
     value: SEC
     label: SEC
@@ -27,9 +28,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 1. VMware vCenter CVE-2024-37079 국내…
-  metric: 1. VMware vCenter CVE-2024-37079 국내 영향
-  detail: 1. VMware vCenter CVE-2024-37079 국내 영향
+  headline: VMware CVE-2024-37079 VMware
+  metric: VMware CVE-2024-37079 VMware CVE-2024-37079
+  detail: VMware CVE-2024-37079 VMware CVE-2024-37079 VMware CVE-2024-37079 Fortinet
+    SSO Vendor advisory + scope
   badge:
     value: CVE
     label: CVE
@@ -48,9 +50,10 @@ bands:
     sub: context
 - theme: green
   label: DEFENSE
-  headline: '헌팅 시나리오 1: VMware vCenter 침해 흔적 탐지'
-  metric: '헌팅 시나리오 1: VMware vCenter 침해 흔적 탐지'
-  detail: '헌팅 시나리오 1: VMware vCenter 침해 흔적 탐지'
+  headline: VMware VMware VMware Sandworm
+  metric: VMware VMware VMware Sandworm DynoWiper AI
+  detail: VMware VMware VMware Sandworm DynoWiper AI Agents SIEM correlation + log
+    retention + escalation path +
   badge:
     value: DEF
     label: DEF

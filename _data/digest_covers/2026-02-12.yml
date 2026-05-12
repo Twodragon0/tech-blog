@@ -1,14 +1,14 @@
 date: '2026-02-12'
 slug: Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent
 sfx: FB12
-title: 공급망 침해 사례, Windows 보안 업데이트, APT36 분석
-aria: 공급망 침해 사례, Windows 보안 업데이트, APT36 분석
+title: '2026-02-12: Windows APT36'
+aria: Windows APT36
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 악성 Outlook 애드인 기반 자격증명 탈취
-  metric: 악성 Outlook 애드인 기반 자격증명 탈취
-  detail: 악성 Outlook 애드인 기반 자격증명 탈취
+  headline: Outlook Outlook Outlook Cloud
+  metric: Outlook Outlook Outlook Cloud
+  detail: Outlook Outlook Outlook Cloud Vendor advisory + scope assessment + canary
+    rollout + rollback plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: green
   label: DEFENSE
-  headline: 에이전트 개발 시대의 테스트 전략 전환
-  metric: 에이전트 개발 시대의 테스트 전략 전환
-  detail: 에이전트 개발 시대의 테스트 전략 전환
+  headline: Security Agent
+  metric: Security Agent
+  detail: Security Agent SIEM correlation + log retention + escalation path + tabletop
+    drill
   badge:
     value: DEF
     label: DEF

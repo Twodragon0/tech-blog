@@ -1,14 +1,14 @@
 date: '2026-02-22'
 slug: Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security
 sfx: FB22
-title: AI 위협 행위자 분석, Roundcube KEV 긴급, Claude Code 보안 점검
-aria: AI 위협 행위자 분석, Roundcube KEV 긴급, Claude Code 보안 점검
+title: '2026-02-22: AI Roundcube KEV Claude Code'
+aria: AI Roundcube KEV Claude Code
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: AI 활용 위협 행위자, 55개국 FortiGate 600대 이…
-  metric: AI 활용 위협 행위자, 55개국 FortiGate 600대 이상 침해
-  detail: AI 활용 위협 행위자, 55개국 FortiGate 600대 이상 침해
+  headline: AI FortiGate AI FortiGate AI
+  metric: AI FortiGate AI FortiGate AI FortiGate Threat
+  detail: AI FortiGate AI FortiGate AI FortiGate Threat Prompt injection guardrails
+    + model provenance + output
   badge:
     value: AI
     label: AI
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 비트코인 24개월 중 50%가 상승 마감, 경제학자 연말 상승…
-  metric: 비트코인 24개월 중 50%가 상승 마감, 경제학자 연말 상승 전망
-  detail: 비트코인 24개월 중 50%가 상승 마감, 경제학자 연말 상승 전망
+  headline: Vulnerability Security
+  metric: Vulnerability Security
+  detail: Vulnerability Security Vendor advisory + scope assessment + canary rollout
+    + rollback plan
   badge:
     value: VLN
     label: VLN

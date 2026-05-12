@@ -1,14 +1,14 @@
 date: '2026-02-21'
 slug: Tech_Security_Weekly_Digest_Data_Rust_AI_Threat
 sfx: FB21
-title: CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안
-aria: CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안
+title: '2026-02-21: CVE-2025-49113 Rust'
+aria: CVE-2025-49113 Rust
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: Data
+  metric: Data
+  detail: Data Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: Anthropic, AI 기반 취약점 스캔을 위한 Claude…
-  metric: Anthropic, AI 기반 취약점 스캔을 위한 Claude Code Securit…
-  detail: Anthropic, AI 기반 취약점 스캔을 위한 Claude Code Security 출시
+  headline: Anthropic AI Claude Anthropic AI
+  metric: Anthropic AI Claude Anthropic AI Claude Code
+  detail: Anthropic AI Claude Anthropic AI Claude Code Securit Anthropic AI Claude
+    Code Security Rust Prompt injection
   badge:
     value: AI
     label: AI
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: amber
   label: CRYPTO MARKET
-  headline: Supreme Court가 Trump의 관세를 무효화하자 Bit…
-  metric: Supreme Court가 Trump의 관세를 무효화하자 Bitcoin 급등
-  detail: Supreme Court가 Trump의 관세를 무효화하자 Bitcoin 급등
+  headline: Supreme Bit Supreme Bitcoin Supreme
+  metric: Supreme Bit Supreme Bitcoin Supreme Bitcoin AI
+  detail: Supreme Bit Supreme Bitcoin Supreme Bitcoin AI Threat Vendor advisory +
+    scope assessment + canary rollout +
   badge:
     value: BTC
     label: BTC

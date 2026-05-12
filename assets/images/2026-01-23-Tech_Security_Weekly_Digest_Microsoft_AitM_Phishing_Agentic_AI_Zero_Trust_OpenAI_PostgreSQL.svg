@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL">
-<title>Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Microsoft AitM Agentic AI Zero Trust OpenAI PostgreSQL">
+<title>2026-01-23: Microsoft AitM Agentic AI Zero Trust OpenAI PostgreSQL</title>
 <defs>
 <linearGradient id="bgSpreadJN23" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
 <linearGradient id="bandAJN23" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A0E2E"/><stop offset="100%" stop-color="#24122F"/></linearGradient>
@@ -26,9 +26,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">SECURITY</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">위협 리스크 스코어카드</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">위협 리스크 스코어카드</text>
-    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">위협 리스크 스코어카드</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Microsoft AitM Phishing</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Microsoft AitM Phishing</text>
+    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Microsoft AitM Phishing Detection rules + IoC pre-load + credential rotation + SBOM verify</text>
     <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">DevSecOps : security response</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : security</text>
     
   </g>
@@ -122,9 +122,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">PHISHING</text>
-    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및…</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및 BEC 공격 경고</text>
-    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및 BEC 공격 경고</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Microsoft AitM Microsoft AitM BEC</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Microsoft AitM Microsoft AitM BEC Microsoft</text>
+    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Microsoft AitM Microsoft AitM BEC Microsoft AitM BEC Agentic AI Zero Detection rules + IoC pre-load +</text>
     <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">DevSecOps : phishing response</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : phishing</text>
     
   </g>
@@ -208,9 +208,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">VULNERABILITY</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">OpenAI, PostgreSQL로 8억 ChatGPT 사용자…</text>
-    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">OpenAI, PostgreSQL로 8억 ChatGPT 사용자 지원</text>
-    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">OpenAI, PostgreSQL로 8억 ChatGPT 사용자 지원</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">OpenAI ChatGPT OpenAI ChatGPT</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">OpenAI ChatGPT OpenAI ChatGPT OpenAI ChatGPT</text>
+    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">OpenAI ChatGPT OpenAI ChatGPT OpenAI ChatGPT Trust OpenAI PostgreSQL Vendor advisory + scope assessment +</text>
     <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFD58A">DevSecOps : vulnerability response</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#E0D5B6" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability</text>
     
   </g>

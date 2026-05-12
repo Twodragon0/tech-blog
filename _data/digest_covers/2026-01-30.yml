@@ -1,14 +1,14 @@
 date: '2026-01-30'
 slug: Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA
 sfx: JN30
-title: Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA
-aria: Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA
+title: '2026-01-30: Ollama AI SolarWinds WHD RCE Google IPIDEA'
+aria: Ollama AI SolarWinds WHD RCE Google IPIDEA
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: Ollama AI
+  metric: Ollama AI
+  detail: Ollama AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 위협 개요
-  metric: 위협 개요
-  detail: 위협 개요
+  headline: SolarWinds RCE
+  metric: SolarWinds RCE
+  detail: SolarWinds RCE Vendor advisory + scope assessment + canary rollout + rollback
+    plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: green
   label: DEFENSE
-  headline: 취약점 개요
-  metric: 취약점 개요
-  detail: 취약점 개요
+  headline: Google IPIDEA
+  metric: Google IPIDEA
+  detail: Google IPIDEA SIEM correlation + log retention + escalation path + tabletop
+    drill
   badge:
     value: DEF
     label: DEF

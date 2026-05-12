@@ -1,14 +1,14 @@
 date: '2026-02-04'
 slug: Tech_Security_Weekly_Digest_AI_Docker_Data_Go
 sfx: FB04
-title: 2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go
-aria: 2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go
+title: '2026-02-04: AI : Docker : Data Go'
+aria: 'AI : Docker : Data Go'
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,9 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 개요
-  metric: 개요
-  detail: 개요
+  headline: Docker
+  metric: Docker
+  detail: Docker Vendor advisory + scope assessment + canary rollout + rollback plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +48,10 @@ bands:
     sub: context
 - theme: green
   label: KUBERNETES
-  headline: KUBERNETES
-  metric: KUBERNETES
-  detail: KUBERNETES
+  headline: KUBERNETES KUBERNETES KUBERNETES
+  metric: KUBERNETES KUBERNETES KUBERNETES Data Go
+  detail: KUBERNETES KUBERNETES KUBERNETES Data Go SIEM correlation + log retention
+    + escalation path + tabletop drill
   badge:
     value: K8S
     label: K8s

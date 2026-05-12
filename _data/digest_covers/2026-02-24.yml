@@ -1,14 +1,14 @@
 date: '2026-02-24'
 slug: Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM
 sfx: FB24
-title: APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크
-aria: APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크
+title: '2026-02-24: APT28 Docker LLM'
+aria: APT28 Docker LLM
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: Malware
+  metric: Malware
+  detail: Malware Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: red
   label: MALWARE
-  headline: APT28 MacroMaze 웹훅 매크로 멀웨어 캠페인
-  metric: APT28 MacroMaze 웹훅 매크로 멀웨어 캠페인
-  detail: APT28 MacroMaze 웹훅 매크로 멀웨어 캠페인
+  headline: APT28 MacroMaze APT28 MacroMaze
+  metric: APT28 MacroMaze APT28 MacroMaze APT28 MacroMaze
+  detail: APT28 MacroMaze APT28 MacroMaze APT28 MacroMaze AI Detection rules + IoC
+    pre-load + credential rotation +
   badge:
     value: MAL
     label: MAL
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: OpenAI, SWE-bench Verified 벤치마크 평가…
-  metric: OpenAI, SWE-bench Verified 벤치마크 평가 중단
-  detail: OpenAI, SWE-bench Verified 벤치마크 평가 중단
+  headline: OpenAI SWE Verified OpenAI SWE
+  metric: OpenAI SWE Verified OpenAI SWE Verified OpenAI
+  detail: OpenAI SWE Verified OpenAI SWE Verified OpenAI SWE Verified Docker LLM Vendor
+    advisory + scope assessment +
   badge:
     value: VLN
     label: VLN

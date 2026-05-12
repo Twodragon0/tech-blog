@@ -1,14 +1,14 @@
 date: '2026-02-18'
 slug: Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update
 sfx: FB18
-title: 클라우드 보안 위협, 안드로이드 악성코드, 업데이트 리스크 분석
-aria: 클라우드 보안 위협, 안드로이드 악성코드, 업데이트 리스크 분석
+title: '2026-02-18: AI : Cloud : Malware Update'
+aria: 'AI : Cloud : Malware Update'
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: blue
   label: CLOUD
-  headline: 현대 SOC 팀의 AI·컨텍스트 기반 클라우드 침해 조사 가속…
-  metric: 현대 SOC 팀의 AI·컨텍스트 기반 클라우드 침해 조사 가속 전략
-  detail: 현대 SOC 팀의 AI·컨텍스트 기반 클라우드 침해 조사 가속 전략
+  headline: SOC AI SOC AI SOC AI Cloud
+  metric: SOC AI SOC AI SOC AI Cloud
+  detail: SOC AI SOC AI SOC AI Cloud IAM audit + network segmentation + telemetry
+    coverage + secret rotation
   badge:
     value: CLD
     label: CLD
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 2026년 책임 있는 AI(Responsible AI) 진행 보…
-  metric: 2026년 책임 있는 AI(Responsible AI) 진행 보고서
-  detail: 2026년 책임 있는 AI(Responsible AI) 진행 보고서
+  headline: AI Responsible AI AI Responsible AI
+  metric: AI Responsible AI AI Responsible AI AI
+  detail: AI Responsible AI AI Responsible AI AI Responsible AI Malware Update Vendor
+    advisory + scope assessment +
   badge:
     value: VLN
     label: VLN

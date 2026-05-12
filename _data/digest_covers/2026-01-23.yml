@@ -1,14 +1,15 @@
 date: '2026-01-23'
 slug: Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL
 sfx: JN23
-title: Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL
-aria: Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL
+title: '2026-01-23: Microsoft AitM Agentic AI Zero Trust OpenAI PostgreSQL'
+aria: Microsoft AitM Agentic AI Zero Trust OpenAI PostgreSQL
 bands:
 - theme: red
   label: SECURITY
-  headline: 위협 리스크 스코어카드
-  metric: 위협 리스크 스코어카드
-  detail: 위협 리스크 스코어카드
+  headline: Microsoft AitM Phishing
+  metric: Microsoft AitM Phishing
+  detail: Microsoft AitM Phishing Detection rules + IoC pre-load + credential rotation
+    + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +28,10 @@ bands:
     sub: context
 - theme: red
   label: PHISHING
-  headline: Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및…
-  metric: Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및 BEC 공격 경고
-  detail: Microsoft, 에너지 기업 대상 다단계 AitM 피싱 및 BEC 공격 경고
+  headline: Microsoft AitM Microsoft AitM BEC
+  metric: Microsoft AitM Microsoft AitM BEC Microsoft
+  detail: Microsoft AitM Microsoft AitM BEC Microsoft AitM BEC Agentic AI Zero Detection
+    rules + IoC pre-load +
   badge:
     value: PSH
     label: PSH
@@ -48,9 +50,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: OpenAI, PostgreSQL로 8억 ChatGPT 사용자…
-  metric: OpenAI, PostgreSQL로 8억 ChatGPT 사용자 지원
-  detail: OpenAI, PostgreSQL로 8억 ChatGPT 사용자 지원
+  headline: OpenAI ChatGPT OpenAI ChatGPT
+  metric: OpenAI ChatGPT OpenAI ChatGPT OpenAI ChatGPT
+  detail: OpenAI ChatGPT OpenAI ChatGPT OpenAI ChatGPT Trust OpenAI PostgreSQL Vendor
+    advisory + scope assessment +
   badge:
     value: VLN
     label: VLN

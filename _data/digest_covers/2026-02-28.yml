@@ -1,14 +1,15 @@
 date: '2026-02-28'
 slug: Tech_Security_Weekly_Digest_Go_AI_Malware
 sfx: FB28
-title: Pig Butchering $6100만 압수, FreePBX 대규모 침해, Go Crypto 백도어
-aria: Pig Butchering $6100만 압수, FreePBX 대규모 침해, Go Crypto 백도어
+title: '2026-02-28: Pig Butchering FreePBX Go Crypto'
+aria: Pig Butchering FreePBX Go Crypto
 bands:
 - theme: red
   label: SECURITY
-  headline: 미국 법무부, Pig Butchering 사기 연루 USDT $…
-  metric: 미국 법무부, Pig Butchering 사기 연루 USDT $6,100만 압수
-  detail: 미국 법무부, Pig Butchering 사기 연루 USDT $6,100만 압수
+  headline: Pig Butchering USDT Pig Butchering
+  metric: Pig Butchering USDT Pig Butchering USDT Pig
+  detail: Pig Butchering USDT Pig Butchering USDT Pig Butchering USDT Go Detection
+    rules + IoC pre-load + credential
   badge:
     value: SEC
     label: SEC
@@ -27,9 +28,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: OpenAI-Microsoft 파트너십 강화 공동 성명
-  metric: OpenAI-Microsoft 파트너십 강화 공동 성명
-  detail: OpenAI-Microsoft 파트너십 강화 공동 성명
+  headline: OpenAI Microsoft OpenAI Microsoft
+  metric: OpenAI Microsoft OpenAI Microsoft OpenAI
+  detail: OpenAI Microsoft OpenAI Microsoft OpenAI Microsoft AI Vendor advisory +
+    scope assessment + canary rollout +
   badge:
     value: VLN
     label: VLN
@@ -48,9 +50,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: 'AI 에이전트 품질 보증: "Vibe Check"에서 지속적 평…'
-  metric: 'AI 에이전트 품질 보증: "Vibe Check"에서 지속적 평가 체계로'
-  detail: 'AI 에이전트 품질 보증: "Vibe Check"에서 지속적 평가 체계로'
+  headline: AI Vibe Check AI Vibe Check AI Vibe
+  metric: AI Vibe Check AI Vibe Check AI Vibe Check
+  detail: AI Vibe Check AI Vibe Check AI Vibe Check Malware Prompt injection guardrails
+    + model provenance + output
   badge:
     value: AI
     label: AI

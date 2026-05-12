@@ -1,14 +1,14 @@
 date: '2026-02-17'
 slug: Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security
 sfx: FB17
-title: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어 전략
-aria: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어 전략
+title: '2026-02-17: AI'
+aria: AI
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,9 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 소개
-  metric: 소개
-  detail: 소개
+  headline: Agent
+  metric: Agent
+  detail: Agent Vendor advisory + scope assessment + canary rollout + rollback plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +48,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: Infostealer, AI 에이전트 설정 파일 및 게이트웨이…
-  metric: Infostealer, AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취
-  detail: Infostealer, AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취
+  headline: Infostealer AI Infostealer AI
+  metric: Infostealer AI Infostealer AI Infostealer AI
+  detail: Infostealer AI Infostealer AI Infostealer AI Cloud Security Prompt injection
+    guardrails + model provenance +
   badge:
     value: AI
     label: AI

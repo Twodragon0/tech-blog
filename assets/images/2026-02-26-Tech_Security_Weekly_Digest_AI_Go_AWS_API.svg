@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향">
-<title>UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="UNC2814 GRIDTIDE Claude Code RCE">
+<title>2026-02-26: UNC2814 GRIDTIDE Claude Code RCE</title>
 <defs>
 <linearGradient id="bgSpreadFB26" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
 <linearGradient id="bandAFB26" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A0E2E"/><stop offset="100%" stop-color="#24122F"/></linearGradient>
@@ -26,9 +26,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">SECURITY</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Google, UNC2814 GRIDTIDE 캠페인 차단 - 4…</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Google, UNC2814 GRIDTIDE 캠페인 차단 - 42개국 53개 조직 침해</text>
-    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Google, UNC2814 GRIDTIDE 캠페인 차단 - 42개국 53개 조직 침해</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Google UNC2814 GRIDTIDE Google</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE</text>
+    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE AI Detection rules + IoC pre-load +</text>
     <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">DevSecOps : security response</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : security</text>
     
   </g>
@@ -122,9 +122,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">AI</text>
-    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Google Circle to Search AI 기반 시각 검색…</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Google Circle to Search AI 기반 시각 검색 기능 확장</text>
-    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Google Circle to Search AI 기반 시각 검색 기능 확장</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Google Circle Search AI Google</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Google Circle Search AI Google Circle Search AI</text>
+    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Google Circle Search AI Google Circle Search AI Google Circle Search AI Go Prompt injection guardrails +</text>
     <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">DevSecOps : ai response</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : ai</text>
     
   </g>
@@ -213,9 +213,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">CLOUD</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">프로덕션 AI 에이전트 개발 가이드 (Google Cloud)</text>
-    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">프로덕션 AI 에이전트 개발 가이드 (Google Cloud)</text>
-    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">프로덕션 AI 에이전트 개발 가이드 (Google Cloud)</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">AI Google Cloud AI Google Cloud AI</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">AI Google Cloud AI Google Cloud AI Google Cloud</text>
+    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">AI Google Cloud AI Google Cloud AI Google Cloud AWS API IAM audit + network segmentation + telemetry coverage</text>
     <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">DevSecOps : cloud response</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0DCF0" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : cloud</text>
     
   </g>

@@ -1,14 +1,15 @@
 date: '2026-02-26'
 slug: Tech_Security_Weekly_Digest_AI_Go_AWS_API
 sfx: FB26
-title: UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향
-aria: UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향
+title: '2026-02-26: UNC2814 GRIDTIDE Claude Code RCE'
+aria: UNC2814 GRIDTIDE Claude Code RCE
 bands:
 - theme: red
   label: SECURITY
-  headline: Google, UNC2814 GRIDTIDE 캠페인 차단 - 4…
-  metric: Google, UNC2814 GRIDTIDE 캠페인 차단 - 42개국 53개 조직 침해
-  detail: Google, UNC2814 GRIDTIDE 캠페인 차단 - 42개국 53개 조직 침해
+  headline: Google UNC2814 GRIDTIDE Google
+  metric: Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE
+  detail: Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE
+    AI Detection rules + IoC pre-load +
   badge:
     value: SEC
     label: SEC
@@ -27,9 +28,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: Google Circle to Search AI 기반 시각 검색…
-  metric: Google Circle to Search AI 기반 시각 검색 기능 확장
-  detail: Google Circle to Search AI 기반 시각 검색 기능 확장
+  headline: Google Circle Search AI Google
+  metric: Google Circle Search AI Google Circle Search AI
+  detail: Google Circle Search AI Google Circle Search AI Google Circle Search AI
+    Go Prompt injection guardrails +
   badge:
     value: AI
     label: AI
@@ -48,9 +50,10 @@ bands:
     sub: context
 - theme: blue
   label: CLOUD
-  headline: 프로덕션 AI 에이전트 개발 가이드 (Google Cloud)
-  metric: 프로덕션 AI 에이전트 개발 가이드 (Google Cloud)
-  detail: 프로덕션 AI 에이전트 개발 가이드 (Google Cloud)
+  headline: AI Google Cloud AI Google Cloud AI
+  metric: AI Google Cloud AI Google Cloud AI Google Cloud
+  detail: AI Google Cloud AI Google Cloud AI Google Cloud AWS API IAM audit + network
+    segmentation + telemetry coverage
   badge:
     value: CLD
     label: CLD

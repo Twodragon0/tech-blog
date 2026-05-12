@@ -1,14 +1,15 @@
 date: '2026-01-24'
 slug: Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker
 sfx: JN24
-title: BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안
-aria: BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안
+title: '2026-01-24: BitLocker FBI Cloudflare Route Leak Docker'
+aria: BitLocker FBI Cloudflare Route Leak Docker
 bands:
 - theme: red
   label: SECURITY
-  headline: Microsoft, FBI에 BitLocker 복구 키 제공 -…
-  metric: Microsoft, FBI에 BitLocker 복구 키 제공 - 암호화 신뢰성 논란
-  detail: Microsoft, FBI에 BitLocker 복구 키 제공 - 암호화 신뢰성 논란
+  headline: Microsoft BitLocker Microsoft
+  metric: Microsoft BitLocker Microsoft BitLocker
+  detail: Microsoft BitLocker Microsoft BitLocker Microsoft BitLocker BitLocker FBI
+    Detection rules + IoC pre-load +
   badge:
     value: SEC
     label: SEC
@@ -27,9 +28,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: OpenAI Codex Agent Loop 아키텍처 공개
-  metric: OpenAI Codex Agent Loop 아키텍처 공개
-  detail: OpenAI Codex Agent Loop 아키텍처 공개
+  headline: OpenAI Codex Agent Loop OpenAI
+  metric: OpenAI Codex Agent Loop OpenAI Codex Agent Loop
+  detail: OpenAI Codex Agent Loop OpenAI Codex Agent Loop OpenAI Codex Agent Loop
+    Cloudflare Route Prompt injection
   badge:
     value: AI
     label: AI
@@ -48,9 +50,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 결론
-  metric: 결론
-  detail: 결론
+  headline: Leak Agentic Enterprise Docker
+  metric: Leak Agentic Enterprise Docker
+  detail: Leak Agentic Enterprise Docker Vendor advisory + scope assessment + canary
+    rollout + rollback plan
   badge:
     value: VLN
     label: VLN

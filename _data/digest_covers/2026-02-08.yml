@@ -1,14 +1,14 @@
 date: '2026-02-08'
 slug: Tech_Security_Weekly_Digest_AI_Ransomware_Data
 sfx: FB08
-title: Signal 피싱 국가지원 공격, BlackField 랜섬웨어, 데이터 보안
-aria: Signal 피싱 국가지원 공격, BlackField 랜섬웨어, 데이터 보안
+title: '2026-02-08: Signal BlackField'
+aria: Signal BlackField
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: FOMC 금리 인하 기대감 증가
-  metric: FOMC 금리 인하 기대감 증가
-  detail: FOMC 금리 인하 기대감 증가
+  headline: FOMC FOMC FOMC Ransomware
+  metric: FOMC FOMC FOMC Ransomware
+  detail: FOMC FOMC FOMC Ransomware Vendor advisory + scope assessment + canary rollout
+    + rollback plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +49,9 @@ bands:
     sub: context
 - theme: amber
   label: REGULATION
-  headline: 위협-규제 매핑 테이블
-  metric: 위협-규제 매핑 테이블
-  detail: 위협-규제 매핑 테이블
+  headline: Data
+  metric: Data
+  detail: Data Vendor advisory + scope assessment + canary rollout + rollback plan
   badge:
     value: REG
     label: REG

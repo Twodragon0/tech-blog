@@ -1,14 +1,15 @@
 date: '2026-01-28'
 slug: Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE
 sfx: JN28
-title: Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE
-aria: Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE
+title: '2026-01-28: Microsoft Office Zero Day CTEM Grist Core RCE'
+aria: Microsoft Office Zero Day CTEM Grist Core RCE
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: Microsoft Office
+  metric: Microsoft Office
+  detail: Microsoft Office Detection rules + IoC pre-load + credential rotation +
+    SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +28,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 취약점 개요
-  metric: 취약점 개요
-  detail: 취약점 개요
+  headline: Zero Day
+  metric: Zero Day
+  detail: Zero Day Vendor advisory + scope assessment + canary rollout + rollback
+    plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +50,10 @@ bands:
     sub: context
 - theme: green
   label: DEFENSE
-  headline: 마무리
-  metric: 마무리
-  detail: 마무리
+  headline: CTEM Grist Core RCE
+  metric: CTEM Grist Core RCE
+  detail: CTEM Grist Core RCE SIEM correlation + log retention + escalation path +
+    tabletop drill
   badge:
     value: DEF
     label: DEF

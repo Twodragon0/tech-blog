@@ -1,14 +1,14 @@
 date: '2026-02-23'
 slug: Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin
 sfx: FB23
-title: Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향
-aria: Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향
+title: '2026-02-23: Vertical AI BlackField'
+aria: Vertical AI BlackField
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: Vertical AI 보안 구축 방안 (SK쉴더스 HeadLin…
-  metric: Vertical AI 보안 구축 방안 (SK쉴더스 HeadLine 11월호)
-  detail: Vertical AI 보안 구축 방안 (SK쉴더스 HeadLine 11월호)
+  headline: Vertical AI HeadLin Vertical AI
+  metric: Vertical AI HeadLin Vertical AI HeadLine
+  detail: Vertical AI HeadLin Vertical AI HeadLine Vertical AI HeadLine Ransomware
+    Prompt injection guardrails + model
   badge:
     value: AI
     label: AI
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 비트코인 가격 $65,000 이하로 급락
-  metric: 비트코인 가격 $65,000 이하로 급락
-  detail: 비트코인 가격 $65,000 이하로 급락
+  headline: Data Bitcoin
+  metric: Data Bitcoin
+  detail: Data Bitcoin Vendor advisory + scope assessment + canary rollout + rollback
+    plan
   badge:
     value: VLN
     label: VLN

@@ -1,14 +1,14 @@
 date: '2026-02-07'
 slug: Tech_Security_Weekly_Digest_AI_Malware_Go_Security
 sfx: FB07
-title: APT 침해 분석, AitM 라우터 공격, 공급망 보안 동향
-aria: APT 침해 분석, AitM 라우터 공격, 공급망 보안 동향
+title: '2026-02-07: APT AitM'
+aria: APT AitM
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,9 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 주요 하이라이트
-  metric: 주요 하이라이트
-  detail: 주요 하이라이트
+  headline: Malware
+  metric: Malware
+  detail: Malware Vendor advisory + scope assessment + canary rollout + rollback plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +48,10 @@ bands:
     sub: context
 - theme: green
   label: DEFENSE
-  headline: 'TGR-STA-1030: 37개국 정부/인프라 침해 APT 캠페인'
-  metric: 'TGR-STA-1030: 37개국 정부/인프라 침해 APT 캠페인'
-  detail: 'TGR-STA-1030: 37개국 정부/인프라 침해 APT 캠페인'
+  headline: TGR STA APT TGR STA APT TGR STA APT
+  metric: TGR STA APT TGR STA APT TGR STA APT Go Security
+  detail: TGR STA APT TGR STA APT TGR STA APT Go Security SIEM correlation + log retention
+    + escalation path + tabletop
   badge:
     value: DEF
     label: DEF

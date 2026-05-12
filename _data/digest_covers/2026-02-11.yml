@@ -1,14 +1,15 @@
 date: '2026-02-11'
 slug: Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI
 sfx: FB11
-title: 랜섬웨어 대응, Fortinet 긴급 패치, AI 보안 위협 분석
-aria: 랜섬웨어 대응, Fortinet 긴급 패치, AI 보안 위협 분석
+title: '2026-02-11: Fortinet AI'
+aria: Fortinet AI
 bands:
 - theme: red
   label: SECURITY
-  headline: 북한 연계 IT 요원, LinkedIn에서 전문가 사칭으로 기업…
-  metric: 북한 연계 IT 요원, LinkedIn에서 전문가 사칭으로 기업 침투
-  detail: 북한 연계 IT 요원, LinkedIn에서 전문가 사칭으로 기업 침투
+  headline: IT IT IT Security
+  metric: IT IT IT Security
+  detail: IT IT IT Security Detection rules + IoC pre-load + credential rotation +
+    SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +28,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: Google Photos "Ask Photos" 기능 활용 가이드
-  metric: Google Photos "Ask Photos" 기능 활용 가이드
-  detail: Google Photos "Ask Photos" 기능 활용 가이드
+  headline: Google Photos Ask Photos Google
+  metric: Google Photos Ask Photos Google Photos Ask
+  detail: Google Photos Ask Photos Google Photos Ask Photos Google Photos Ask Photos
+    Ransomware Vendor advisory + scope
   badge:
     value: VLN
     label: VLN
@@ -48,9 +50,10 @@ bands:
     sub: context
 - theme: blue
   label: CLOUD
-  headline: Google Distributed Cloud, air-gappe…
-  metric: Google Distributed Cloud, air-gapped 환경에 퍼블릭 클라…
-  detail: Google Distributed Cloud, air-gapped 환경에 퍼블릭 클라우드급 네트워킹 제공
+  headline: Google Distributed Cloud Google
+  metric: Google Distributed Cloud Google Distributed
+  detail: Google Distributed Cloud Google Distributed Cloud Google Distributed Cloud
+    Patch AI IAM audit + network
   badge:
     value: CLD
     label: CLD

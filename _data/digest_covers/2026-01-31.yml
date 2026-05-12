@@ -1,14 +1,15 @@
 date: '2026-01-31'
 slug: Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack
 sfx: JN31
-title: ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향
-aria: ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향
+title: '2026-01-31: ShinyHunters Vishing MFA Chrome OT'
+aria: ShinyHunters Vishing MFA Chrome OT
 bands:
 - theme: red
   label: SECURITY
-  headline: 위협 스코어카드 (Risk Scorecard)
-  metric: 위협 스코어카드 (Risk Scorecard)
-  detail: 위협 스코어카드 (Risk Scorecard)
+  headline: Risk Scorecard Risk Scorecard Risk
+  metric: Risk Scorecard Risk Scorecard Risk Scorecard
+  detail: Risk Scorecard Risk Scorecard Risk Scorecard ShinyHunters Vishing Detection
+    rules + IoC pre-load + credential
   badge:
     value: SEC
     label: SEC
@@ -27,9 +28,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: 개요
-  metric: 개요
-  detail: 개요
+  headline: Chrome Extension
+  metric: Chrome Extension
+  detail: Chrome Extension Vendor advisory + scope assessment + canary rollout + rollback
+    plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +50,10 @@ bands:
     sub: context
 - theme: green
   label: DEFENSE
-  headline: 핵심 요약
-  metric: 핵심 요약
-  detail: 핵심 요약
+  headline: OT Attack
+  metric: OT Attack
+  detail: OT Attack SIEM correlation + log retention + escalation path + tabletop
+    drill
   badge:
     value: DEF
     label: DEF

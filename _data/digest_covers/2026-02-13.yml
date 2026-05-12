@@ -1,14 +1,14 @@
 date: '2026-02-13'
 slug: Tech_Security_Weekly_Digest_AI_Go_Security_Agent
 sfx: FB13
-title: Lazarus 공급망 공격, Copilot Studio 취약점, FinOps 보안
-aria: Lazarus 공급망 공격, Copilot Studio 취약점, FinOps 보안
+title: '2026-02-13: Lazarus Copilot Studio FinOps'
+aria: Lazarus Copilot Studio FinOps
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: Gemini AI를 악용한 국가 배후 정찰·공격 지원
-  metric: Gemini AI를 악용한 국가 배후 정찰·공격 지원
-  detail: Gemini AI를 악용한 국가 배후 정찰·공격 지원
+  headline: Gemini Gemini Gemini Go
+  metric: Gemini Gemini Gemini Go
+  detail: Gemini Gemini Gemini Go Vendor advisory + scope assessment + canary rollout
+    + rollback plan
   badge:
     value: VLN
     label: VLN
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: green
   label: DEFENSE
-  headline: GPT-5.3-Codex-Spark 공개
-  metric: GPT-5.3-Codex-Spark 공개
-  detail: GPT-5.3-Codex-Spark 공개
+  headline: GPT Codex Spark GPT Codex Spark GPT
+  metric: GPT Codex Spark GPT Codex Spark GPT Codex Spark
+  detail: GPT Codex Spark GPT Codex Spark GPT Codex Spark Security Agent SIEM correlation
+    + log retention + escalation
   badge:
     value: DEF
     label: DEF

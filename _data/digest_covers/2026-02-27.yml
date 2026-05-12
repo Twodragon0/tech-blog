@@ -1,14 +1,14 @@
 date: '2026-02-27'
 slug: Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go
 sfx: FB27
-title: Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안
-aria: Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안
+title: '2026-02-27: Aeternum C2 AWS ISO AI'
+aria: Aeternum C2 AWS ISO AI
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: AI
+  metric: AI
+  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: purple
   label: BLOCKCHAIN
-  headline: 'Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화…'
-  metric: 'Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화 C2 봇넷'
-  detail: 'Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화 C2 봇넷'
+  headline: Aeternum C2 Botnet Aeternum C2
+  metric: Aeternum C2 Botnet Aeternum C2 Botnet C2
+  detail: Aeternum C2 Botnet Aeternum C2 Botnet C2 Aeternum C2 Botnet C2 Botnet Prompt
+    injection guardrails + model
   badge:
     value: CHAI
     label: CHAIN
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: purple
   label: AI
-  headline: 'Google x Massachusetts AI Hub: 무료 A…'
-  metric: 'Google x Massachusetts AI Hub: 무료 AI 교육 파트너십'
-  detail: 'Google x Massachusetts AI Hub: 무료 AI 교육 파트너십'
+  headline: Google Massachusetts AI Hub Google
+  metric: Google Massachusetts AI Hub Google
+  detail: Google Massachusetts AI Hub Google Massachusetts AI Hub AI Google Massachusetts
+    AI Hub AI Blockchain Go
   badge:
     value: AI
     label: AI

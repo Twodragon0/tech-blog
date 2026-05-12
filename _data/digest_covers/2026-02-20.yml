@@ -1,14 +1,14 @@
 date: '2026-02-20'
 slug: Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes
 sfx: FB20
-title: Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화
-aria: Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화
+title: '2026-02-20: Gemini Pro AI Kubernetes'
+aria: Gemini Pro AI Kubernetes
 bands:
 - theme: red
   label: SECURITY
-  headline: 위험도 평가
-  metric: 위험도 평가
-  detail: 위험도 평가
+  headline: Gemini
+  metric: Gemini
+  detail: Gemini Detection rules + IoC pre-load + credential rotation + SBOM verify
   badge:
     value: SEC
     label: SEC
@@ -27,9 +27,10 @@ bands:
     sub: context
 - theme: amber
   label: VULNERABILITY
-  headline: PromptSpy 안드로이드 악성코드, Gemini AI를 악용…
-  metric: PromptSpy 안드로이드 악성코드, Gemini AI를 악용해 최근 앱 지속성 자…
-  detail: PromptSpy 안드로이드 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화
+  headline: PromptSpy Gemini PromptSpy Gemini
+  metric: PromptSpy Gemini PromptSpy Gemini PromptSpy
+  detail: PromptSpy Gemini PromptSpy Gemini PromptSpy Gemini AI Vendor advisory +
+    scope assessment + canary rollout +
   badge:
     value: VLN
     label: VLN
@@ -48,9 +49,10 @@ bands:
     sub: context
 - theme: amber
   label: SUPPLY CHAIN
-  headline: '"Clinejection": AI 봇을 공급망 공격 벡터로 전환…'
-  metric: '"Clinejection": AI 봇을 공급망 공격 벡터로 전환한 방법'
-  detail: '"Clinejection": AI 봇을 공급망 공격 벡터로 전환한 방법'
+  headline: Clinejection AI Clinejection AI
+  metric: Clinejection AI Clinejection AI Clinejection AI
+  detail: Clinejection AI Clinejection AI Clinejection AI Supply Chain Kubernetes
+    Vendor advisory + scope assessment +
   badge:
     value: CHAI
     label: CHAIN
