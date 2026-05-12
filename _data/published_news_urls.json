@@ -1,180 +1,6 @@
 {
-  "updated_at": "2026-05-10T02:05:08.368829+00:00",
+  "updated_at": "2026-05-12T02:11:05.272248+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/american-utility-firm-itron-discloses-breach-of-internal-it-network/",
-      "title": "American utility firm Itron discloses breach of internal IT network",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/announcing-our-partnership-with-the-republic-of-korea/",
-      "title": "Announcing our partnership with the Republic of Korea",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://openai.com/index/our-principles",
-      "title": "Our principles",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/simulating-expert-teams-with-agentic-ai-and-amazon-bedrock-agentcore/",
-      "title": "에이전틱 AI와 Amazon Bedrock AgentCore를 활용한 전문가 팀 시뮬레이션",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/utxo-management-dual-class-digital-credit",
-      "title": "UTXO Management Launches Dual-Class Digital Credit Income Fund",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/prediction-markets-reflect-wisdom-of-an-informed-minority-not-crowd-study?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Prediction markets reflect 'wisdom of an informed minority,’ not crowd: Study",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/western-union-usdpt-stablecoin-may-launch-dan-network?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Western Union eyes May for its stablecoin USDPT rollout",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/arbitrum-dao-asked-to-unfreeze-30k-eth-tied-to-kelp-hacker-direct-them-to-defi-united?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Aave asks Arbitrum to send 30K ETH from Kelp exploiter to ‘DeFi United’",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/litecoin-post-mortem-chain-reorganization?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Litecoin gives post-attack update, but other devs doubt zero-day theory",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28944",
-      "title": "Show GN: Fairy - 개발자 프로젝트와 오픈소스를 후원하는 서비스",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28942",
-      "title": "Show GN: slaude - 흔적 안 남기는 일회용 Claude Code",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28941",
-      "title": "tailscale 개인 사용자 무제한 디바이스 접속 가능",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28940",
-      "title": "Sawe, 경쟁 레이스에서 처음으로 2시간 이내 마라톤을 뛴 첫 선수로 등극",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=28939",
-      "title": "Mixture of Experts(MoE)란 무엇인가 — DeepSeek이 왜 1.6조 파라미터인데 싸게 돌아가는지",
-      "published_date": "2026-04-27",
-      "expires_at": "2026-05-04T08:07:07.139293+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/checkmarx-confirms-github-repository.html",
-      "title": "Checkmarx Confirms GitHub Repository Data Posted on Dark Web After March 23 Atta",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/robinhood-account-creation-flaw-abused-to-send-phishing-emails/",
-      "title": "Robinhood account creation flaw abused to send phishing emails",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/weekly-recap-fast16-malware-xchat.html",
-      "title": "⚡ Weekly Recap: Fast16 Malware, XChat Launch, Federal Backdoor, AI Employee Trac",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/how-to-develop-an-aws-security-hub-poc/",
-      "title": "Optimize security operations through an AWS Security Hub POC",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/glassworm-malware-attacks-return-via-73-openvsx-sleeper-extensions/",
-      "title": "GlassWorm malware attacks return via 73 OpenVSX \"sleeper\" extensions",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://openai.com/index/openai-available-at-fedramp-moderate",
-      "title": "OpenAI available at FedRAMP Moderate",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/",
-      "title": "Join the new AI Agents Vibe Coding Course from Google and Kaggle",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://openai.com/index/next-phase-of-microsoft-partnership",
-      "title": "The next phase of the Microsoft OpenAI partnership",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/automate-repetitive-tasks-with-amazon-quick-flows/",
-      "title": "Automate repetitive tasks with Amazon Quick Flows",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-and-deploy-an-automatic-sync-solution-for-amazon-bedrock-knowledge-bases/",
-      "title": "Build and deploy an automatic sync solution for Amazon Bedrock Knowledge Bases",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/google-earth-ai-models-and-datasets-in-bigquery/",
-      "title": "Mapping a smarter future with BigQuery and Google Earth AI models and datasets",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-anthropic-meta-partnership-aws-lambda-s3-files-amazon-bedrock-agentcore-cli-and-more-april-27-2026/",
-      "title": "AWS Weekly Roundup: Anthropic & Meta partnership, AWS Lambda S3 Files, Amazon Be",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-27-copilot-student-gpt-5-3-codex-removal-from-model-picker",
-      "title": "Copilot Student GPT-5.3-Codex removal from model picker",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-27-copilot-cloud-agent-starts-20-faster-with-actions-custom-images",
-      "title": "Copilot cloud agent starts 20% faster with Actions custom images",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-04-27-github-copilot-code-review-will-start-consuming-github-actions-minutes-on-june-1-2026",
-      "title": "GitHub Copilot code review will start consuming GitHub Actions minutes on June 1",
-      "published_date": "2026-04-28",
-      "expires_at": "2026-05-05T02:06:36.191695+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/researchers-discover-critical-github.html",
       "title": "Researchers Discover Critical GitHub CVE-2026-3854 RCE Flaw Exploitable via Sing",
@@ -1254,6 +1080,96 @@
       "title": "확률적 엔지니어링과 24/7 직원",
       "published_date": "2026-05-10",
       "expires_at": "2026-05-17T02:05:08.368720+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/teampcp-compromises-checkmarx-jenkins.html",
+      "title": "TeamPCP Compromises Checkmarx Jenkins AST Plugin Weeks After KICS Supply Chain A",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/cpanel-cve-2026-41940-under-active.html",
+      "title": "cPanel CVE-2026-41940 Under Active Exploitation to Deploy Filemanager Backdoor",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html",
+      "title": "Hackers Used AI to Develop First Known Zero-Day 2FA Bypass for Mass Exploitation",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/legal/gm-agrees-to-1275m-california-settlement-over-sale-of-drivers-data/",
+      "title": "GM agrees to $12.75M California settlement over sale of drivers’ data",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/weekly-recap-linux-rootkit-macos-crypto.html",
+      "title": "⚡ Weekly Recap: Linux Rootkit, macOS Crypto Stealer, WebSocket Skimmers and More",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/05/11/security/labyrinth-1-1-end-to-end-encrypted-e2ee-backups-more-reliable/",
+      "title": "Labyrinth 1.1: Making End-to-End Encrypted Backups Even More Reliable",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://openai.com/signals/research/2026q1-update",
+      "title": "How ChatGPT adoption broadened in early 2026",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://openai.com/business/guides-and-resources/how-enterprises-are-scaling-ai",
+      "title": "How enterprises are scaling AI",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://openai.com/index/openai-campus-network-student-club-interest-form",
+      "title": "OpenAI Campus Network: Student club interest form",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://openai.com/index/openai-launches-the-deployment-company",
+      "title": "OpenAI launches DeployCo to help businesses build around intelligence",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/database-center-improvements-from-next26/",
+      "title": "Meet the latest Database Center, now with Gemini-powered fleet intelligence",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/storage-data-transfer/cloud-storage-rapid-turbocharges-object-storage-for-ai-analytics/",
+      "title": "Cloud Storage Rapid: Turbocharged object storage for AI and analytics",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/cluster-reliability-for-trillion-parameter-models-on-tpus/",
+      "title": "Cluster-level reliability for trillion-parameter models on TPUs",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/architecting-a-resilient-scalable-and-secure-foundation-for-the-agentic-era/",
+      "title": "Architecting a resilient, scalable and secure foundation for the agentic era",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/postgres-18-and-extended-support-for-legacy-versions-in-alloydb/",
+      "title": "Future-proof your data strategy: AlloyDB adds PostgreSQL 18 and new Extended Sup",
+      "published_date": "2026-05-12",
+      "expires_at": "2026-05-19T02:11:05.272151+00:00"
     }
   ]
 }
