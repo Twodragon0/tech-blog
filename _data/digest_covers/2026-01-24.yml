@@ -1,72 +1,75 @@
 date: '2026-01-24'
 slug: Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker
 sfx: JN24
-title: '2026-01-24: BitLocker FBI Cloudflare Route Leak Docker'
-aria: BitLocker FBI Cloudflare Route Leak Docker
+title: '2026-01-24: BitLocker FBI Key Disclosure, Cloudflare BGP Route Leak, CNCF Agentic Platform'
+aria: Microsoft FBI BitLocker encryption key trust debate, Cloudflare BGP route leak Jan 22 RPKI response, CNCF agentic enterprise platform pillars
 bands:
 - theme: red
-  label: SECURITY
-  headline: Microsoft BitLocker Microsoft
-  metric: Microsoft BitLocker Microsoft BitLocker
-  detail: Microsoft BitLocker Microsoft BitLocker Microsoft BitLocker BitLocker FBI
-    Detection rules + IoC pre-load +
+  label: ENCRYPTION TRUST
+  headline: BitLocker Keys to FBI Debate
+  metric: 'Recovery key handoff : trust boundary'
+  detail: 'Microsoft provides BitLocker recovery keys to FBI on court order : enterprise
+    encryption trust model challenged : full-disk encryption value re-examined'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: BLK
+    label: BITLKR
+    sub: FBI
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Deploy self-managed key escrow : avoid cloud-escrowed FDE keys'
+  detail_b: 'Switch to self-hosted key escrow (MBAM or Intune local) : evaluate pre-boot
+    auth vs cloud recovery : document threat model for law enforcement access'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: FDE
+    label: ENCRYPT
+    sub: keys
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: FBI
+    label: ACCESS
+    sub: legal
 - theme: purple
-  label: AI
-  headline: OpenAI Codex Agent Loop OpenAI
-  metric: OpenAI Codex Agent Loop OpenAI Codex Agent Loop
-  detail: OpenAI Codex Agent Loop OpenAI Codex Agent Loop OpenAI Codex Agent Loop
-    Cloudflare Route Prompt injection
+  label: BGP SECURITY
+  headline: Cloudflare Route Leak RPKI Fix
+  metric: 'BGP leak Jan 22 : RPKI ROV blocks'
+  detail: 'Cloudflare Jan 22 BGP route leak root-cause analysis : RPKI Route Origin
+    Validation blocked propagation : prompt injection risk in agentic loops noted'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
+    value: BGP
+    label: ROUTING
+    sub: leak
   visual:
     kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  metric_b: 'Enable RPKI ROV on all BGP peers : deploy IRR filters'
+  detail_b: 'Validate all originated prefixes with RPKI : enforce ROA for your ASN :
+    configure AS-path filtering : alert on unexpected prefix withdrawals'
   mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
+    value: ROV
+    label: RPKI
+    sub: valid
   mini2:
-    value: AI
-    label: BADGE
-    sub: context
+    value: CLF
+    label: CLOUDFL
+    sub: BGP
 - theme: amber
-  label: VULNERABILITY
-  headline: Leak Agentic Enterprise Docker
-  metric: Leak Agentic Enterprise Docker
-  detail: Leak Agentic Enterprise Docker Vendor advisory + scope assessment + canary
-    rollout + rollback plan
+  label: PLATFORM ENG
+  headline: CNCF Enterprise 4 Pillars
+  metric: 'CNCF : 4 platform control pillars'
+  detail: 'CNCF defines 4 autonomous enterprise platform control pillars : Developer
+    Portal, Policy Engine, Observability, and GitOps Delivery : Docker Desktop update'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: PLT
+    label: PLATFORM
+    sub: CNCF
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Adopt Backstage + OPA + OpenTelemetry + Flux stack'
+  detail_b: 'Implement Backstage developer portal : integrate OPA policy engine : deploy
+    OpenTelemetry collector : migrate to Flux or ArgoCD GitOps delivery pipeline'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: IDP
+    label: PORTAL
+    sub: CNCF
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: OPS
+    label: GITOPS
+    sub: Flux

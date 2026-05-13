@@ -1,71 +1,75 @@
 date: '2026-02-06'
 slug: Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat
 sfx: FB06
-title: '2026-02-06: CrashFix RAT DDoS Codespaces RCE'
-aria: CrashFix RAT DDoS Codespaces RCE
+title: '2026-02-06: CrashFix ClickFix Python RAT, AISURU 31.4 Tbps DDoS Record, Codespaces RCE'
+aria: CrashFix ClickFix variant deploys Python RAT, AISURU Kimwolf 31.4 Tbps DDoS record, GitHub Codespaces RCE AsyncRAT BYOVD compound threat
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: CLICKFIX RAT
+  headline: CrashFix ClickFix Drops Python RAT
+  metric: 'CrashFix : ClickFix social eng + RAT'
+  detail: 'CrashFix campaign uses ClickFix social-engineering technique to deploy Python
+    RAT : fake CAPTCHA page executes PowerShell payload : T1204.002 user execution lure'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: RAT
+    label: CRASH
+    sub: Fix
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Block clipboard-injection ClickFix pages : alert on PowerShell from browser'
+  detail_b: 'Configure web proxy to block known ClickFix landing domains : alert EDR
+    on browser-spawned PowerShell : restrict clipboard access in enterprise browsers'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: PS1
+    label: PWRSH
+    sub: lure
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: SOC
+    label: CLICK
+    sub: fix
 - theme: purple
-  label: AI
-  headline: AI Usage Control Buyer Guide AI
-  metric: AI Usage Control Buyer Guide AI Usage Control
-  detail: AI Usage Control Buyer Guide AI Usage Control Buyer Guide AI Usage Control
-    Buyer Guide Botnet Prompt
+  label: RECORD DDOS
+  headline: AISURU Hits 31.4 Tbps DDoS
+  metric: '31.4 Tbps : largest DDoS on record'
+  detail: 'AISURU/Kimwolf botnet sets new DDoS record at 31.4 Tbps : AI-assisted traffic
+    amplification : multi-vector UDP ICMP TCP flood : targets cloud CDN infrastructure'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
+    value: DDS
+    label: DDOS
+    sub: record
   visual:
     kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  metric_b: 'Enable DDoS protection via Cloudflare or AWS Shield Advanced'
+  detail_b: 'Enable Cloudflare Magic Transit or AWS Shield Advanced : configure anycast
+    scrubbing : set rate limits on UDP and ICMP : test DDoS runbook with tabletop exercise'
   mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
+    value: TBP
+    label: 31.4T
+    sub: bps
   mini2:
-    value: AI
-    label: BADGE
-    sub: context
+    value: CDN
+    label: TARGET
+    sub: flood
 - theme: purple
-  label: AI
-  headline: Claude Opus Vertex AI AI Claude
-  metric: Claude Opus Vertex AI AI Claude Opus Vertex AI
-  detail: Claude Opus Vertex AI AI Claude Opus Vertex AI AI Claude Opus Vertex AI
-    AI Cloud Threat Prompt injection
+  label: CLOUD THREAT
+  headline: Codespaces RCE BYOVD AsyncRAT
+  metric: 'Codespaces RCE : BYOVD + AsyncRAT C2'
+  detail: 'GitHub Codespaces RCE combined with BYOVD driver abuse and AsyncRAT C2 :
+    compound attack chain targets developer cloud environments : Vertex AI Claude Opus noted'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
+    value: RCE
+    label: CDSPC
+    sub: BYOVD
   visual:
     kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  metric_b: 'Restrict Codespaces to org-approved images : block BYOVD driver signing'
+  detail_b: 'Enforce GitHub Codespaces policy to org-managed container images : enable
+    driver signing enforcement : alert on AsyncRAT network IOCs : review Codespaces audit logs'
   mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
+    value: BYO
+    label: BYOVD
+    sub: driver
   mini2:
-    value: AI
-    label: BADGE
-    sub: context
+    value: C2
+    label: ASYNCRT
+    sub: cloud

@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="UNC2814 GRIDTIDE Claude Code RCE">
-<title>2026-02-26: UNC2814 GRIDTIDE Claude Code RCE</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="UNC2814 GRIDTIDE APT campaign analysis, Claude Code RCE vulnerability patch, voice phishing vishing surge AWS API security">
+<title>2026-02-26: UNC2814 GRIDTIDE Campaign, Claude Code RCE Vuln, Vishing Surge</title>
 <defs>
 <linearGradient id="bgSpreadFB26" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
 <linearGradient id="bandAFB26" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A0E2E"/><stop offset="100%" stop-color="#24122F"/></linearGradient>
@@ -25,11 +25,11 @@
   <rect x="0" y="0" width="8" height="210" fill="#E63946"/>
   
   <g filter="url(#textShadow)">
-    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">SECURITY</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Google UNC2814 GRIDTIDE Google</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE</text>
-    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE AI Detection rules + IoC pre-load +</text>
-    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">DevSecOps : security response</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : security</text>
+    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">APT CAMPAIGN</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">UNC2814 GRIDTIDE APT Active</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">UNC2814 GRIDTIDE : Go implants : AWS API</text>
+    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">UNC2814 GRIDTIDE campaign active: Go-compiled cross-platform implants targeting AWS API credentials : T1078 valid account abuse : cloud IAM exfiltration confirmed</text>
+    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">Hunt UNC2814 Go implant IOCs : audit AWS API key exposure</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">Search EDR for Go-compiled GRIDTIDE implant signatures : audit AWS API keys in source repos and CI pipelines : rotate any exposed keys : enable CloudTrail anomaly alerts</text>
     
   </g>
   <g transform="translate(500,105)">
@@ -75,25 +75,25 @@
   </g>
   <g transform="translate(870,105)" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#1E0A14" stroke="#E63946" stroke-width="1.6" stroke-opacity="0.75"/>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#F87171">FOCUS</text>
-    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">SECU</text>
-    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FBB6BD">weekly</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#F87171">IMPL</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">GO</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FBB6BD">cross-OS</text>
   </g>
   <g transform="translate(1110,105)" filter="url(#softShadow)">
     <rect x="-44" y="-48" width="88" height="96" rx="10" fill="#1E0A14" stroke="#E63946" stroke-width="1.4" stroke-opacity="0.7">
       <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
     </rect>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#F87171">BADGE</text>
-    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">SEC</text>
-    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#FBB6BD">context</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#F87171">API</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">AWS</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#FBB6BD">exfil</text>
     <line x1="-32" y1="38" x2="32" y2="38" stroke="#E63946" stroke-width="0.6" stroke-opacity="0.45"/>
     <circle cx="0" cy="-40" r="1.6" fill="#FCA5A5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
   </g>
   <g transform="translate(990,105)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E0A14" stroke="#E63946" stroke-width="2.2"/>
-    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">SEC</text>
-    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">SEC</text>
-    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FBB6BD">highlighted</text>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">GRID</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">GRD</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FBB6BD">TIDE</text>
     <line x1="-58" y1="50" x2="78" y2="50" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
     
   </g>
@@ -121,11 +121,11 @@
   <rect x="0" y="210" width="8" height="210" fill="#A78BFA"/>
   
   <g filter="url(#textShadow)">
-    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">AI</text>
-    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Google Circle Search AI Google</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Google Circle Search AI Google Circle Search AI</text>
-    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Google Circle Search AI Google Circle Search AI Google Circle Search AI Go Prompt injection guardrails +</text>
-    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">DevSecOps : ai response</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : ai</text>
+    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">AI VULN</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Claude Code RCE Vulnerability</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">Claude Code : RCE : patch required</text>
+    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">RCE vulnerability disclosed in Anthropic Claude Code : prompt injection enables arbitrary code execution in agentic context : patch or disable code execution tools immediately</text>
+    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">Apply Claude Code patch : restrict code exec tool permissions</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Update Claude Code to patched version : restrict agentic code execution to isolated sandboxes : review prompt injection guardrails in AI-assisted development tools</text>
     
   </g>
   <g transform="translate(500,315)">
@@ -166,25 +166,25 @@
   </g>
   <g transform="translate(870,315)" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.6" stroke-opacity="0.75"/>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#C4B5FD">FOCUS</text>
-    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">AI</text>
-    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#DDD6FE">weekly</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#C4B5FD">SAND</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">RCE</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#DDD6FE">box</text>
   </g>
   <g transform="translate(1110,315)" filter="url(#softShadow)">
     <rect x="-44" y="-48" width="88" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.4" stroke-opacity="0.7">
       <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
     </rect>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#C4B5FD">BADGE</text>
-    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">AI</text>
-    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#DDD6FE">context</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#C4B5FD">PROMP</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">INJ</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#DDD6FE">guard</text>
     <line x1="-32" y1="38" x2="32" y2="38" stroke="#A78BFA" stroke-width="0.6" stroke-opacity="0.45"/>
     <circle cx="0" cy="-40" r="1.6" fill="#C4B5FD"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
   </g>
   <g transform="translate(990,315)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#160629" stroke="#A78BFA" stroke-width="2.2"/>
-    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">AI</text>
-    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">AI</text>
-    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#DDD6FE">highlighted</text>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">CODE</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">CLC</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#DDD6FE">RCE</text>
     <line x1="-58" y1="50" x2="78" y2="50" stroke="#A78BFA" stroke-width="0.8" stroke-opacity="0.5"/>
     
   </g>
@@ -212,11 +212,11 @@
   <rect x="0" y="420" width="8" height="210" fill="#60A5FA"/>
   
   <g filter="url(#textShadow)">
-    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">CLOUD</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">AI Google Cloud AI Google Cloud AI</text>
-    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">AI Google Cloud AI Google Cloud AI Google Cloud</text>
-    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">AI Google Cloud AI Google Cloud AI Google Cloud AWS API IAM audit + network segmentation + telemetry coverage</text>
-    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">DevSecOps : cloud response</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0DCF0" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : cloud</text>
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#93C5FD">VISHING</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Voice Phishing Surge Targets Staff</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#BFDBFE">Vishing : helpdesk impersonation surge</text>
+    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0DCF0">Voice phishing surge impersonates IT helpdesk to capture MFA codes : Go-compiled vishing toolkit automates call scripting : AWS SSO and API tokens primary targets</text>
+    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#BFDBFE">Train staff on vishing : enforce call-back verification for MFA resets</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0DCF0" fill-opacity="0.85">Conduct vishing awareness training with real call samples : enforce manager call-back procedure before any MFA device reset : log all helpdesk identity verification steps</text>
     
   </g>
   <g transform="translate(500,525)">
@@ -256,25 +256,25 @@
   </g>
   <g transform="translate(870,525)" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#0A1628" stroke="#60A5FA" stroke-width="1.6" stroke-opacity="0.75"/>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#93C5FD">FOCUS</text>
-    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">CLOU</text>
-    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#BFDBFE">weekly</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#93C5FD">RESET</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">MFA</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#BFDBFE">policy</text>
   </g>
   <g transform="translate(1110,525)" filter="url(#softShadow)">
     <rect x="-44" y="-48" width="88" height="96" rx="10" fill="#0A1628" stroke="#60A5FA" stroke-width="1.4" stroke-opacity="0.7">
       <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
     </rect>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#93C5FD">BADGE</text>
-    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">CLD</text>
-    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#BFDBFE">context</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#93C5FD">CALL</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">CBK</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#BFDBFE">verify</text>
     <line x1="-32" y1="38" x2="32" y2="38" stroke="#60A5FA" stroke-width="0.6" stroke-opacity="0.45"/>
     <circle cx="0" cy="-40" r="1.6" fill="#93C5FD"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
   </g>
   <g transform="translate(990,525)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1628" stroke="#60A5FA" stroke-width="2.2"/>
-    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#93C5FD">CLD</text>
-    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">CLD</text>
-    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#BFDBFE">highlighted</text>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#93C5FD">VISH</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">VSH</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#BFDBFE">surge</text>
     <line x1="-58" y1="50" x2="78" y2="50" stroke="#60A5FA" stroke-width="0.8" stroke-opacity="0.5"/>
     
   </g>

@@ -1,72 +1,75 @@
 date: '2026-02-26'
 slug: Tech_Security_Weekly_Digest_AI_Go_AWS_API
 sfx: FB26
-title: '2026-02-26: UNC2814 GRIDTIDE Claude Code RCE'
-aria: UNC2814 GRIDTIDE Claude Code RCE
+title: '2026-02-26: UNC2814 GRIDTIDE Campaign, Claude Code RCE Vuln, Vishing Surge'
+aria: UNC2814 GRIDTIDE APT campaign analysis, Claude Code RCE vulnerability patch, voice phishing vishing surge AWS API security
 bands:
 - theme: red
-  label: SECURITY
-  headline: Google UNC2814 GRIDTIDE Google
-  metric: Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE
-  detail: Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE Google UNC2814 GRIDTIDE
-    AI Detection rules + IoC pre-load +
+  label: APT CAMPAIGN
+  headline: UNC2814 GRIDTIDE APT Active
+  metric: 'UNC2814 GRIDTIDE : Go implants : AWS API'
+  detail: 'UNC2814 GRIDTIDE campaign active: Go-compiled cross-platform implants targeting
+    AWS API credentials : T1078 valid account abuse : cloud IAM exfiltration confirmed'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: GRD
+    label: GRID
+    sub: TIDE
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Hunt UNC2814 Go implant IOCs : audit AWS API key exposure'
+  detail_b: 'Search EDR for Go-compiled GRIDTIDE implant signatures : audit AWS API
+    keys in source repos and CI pipelines : rotate any exposed keys : enable CloudTrail anomaly alerts'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: GO
+    label: IMPL
+    sub: cross-OS
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: AWS
+    label: API
+    sub: exfil
 - theme: purple
-  label: AI
-  headline: Google Circle Search AI Google
-  metric: Google Circle Search AI Google Circle Search AI
-  detail: Google Circle Search AI Google Circle Search AI Google Circle Search AI
-    Go Prompt injection guardrails +
+  label: AI VULN
+  headline: Claude Code RCE Vulnerability
+  metric: 'Claude Code : RCE : patch required'
+  detail: 'RCE vulnerability disclosed in Anthropic Claude Code : prompt injection enables
+    arbitrary code execution in agentic context : patch or disable code execution tools immediately'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
+    value: CLC
+    label: CODE
+    sub: RCE
   visual:
     kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  metric_b: 'Apply Claude Code patch : restrict code exec tool permissions'
+  detail_b: 'Update Claude Code to patched version : restrict agentic code execution
+    to isolated sandboxes : review prompt injection guardrails in AI-assisted development tools'
   mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
+    value: RCE
+    label: SAND
+    sub: box
   mini2:
-    value: AI
-    label: BADGE
-    sub: context
+    value: INJ
+    label: PROMP
+    sub: guard
 - theme: blue
-  label: CLOUD
-  headline: AI Google Cloud AI Google Cloud AI
-  metric: AI Google Cloud AI Google Cloud AI Google Cloud
-  detail: AI Google Cloud AI Google Cloud AI Google Cloud AWS API IAM audit + network
-    segmentation + telemetry coverage
+  label: VISHING
+  headline: Voice Phishing Surge Targets Staff
+  metric: 'Vishing : helpdesk impersonation surge'
+  detail: 'Voice phishing surge impersonates IT helpdesk to capture MFA codes : Go-compiled
+    vishing toolkit automates call scripting : AWS SSO and API tokens primary targets'
   badge:
-    value: CLD
-    label: CLD
-    sub: highlighted
+    value: VSH
+    label: VISH
+    sub: surge
   visual:
     kind: cloud_k8s
-  metric_b: 'DevSecOps : cloud response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : cloud'
+  metric_b: 'Train staff on vishing : enforce call-back verification for MFA resets'
+  detail_b: 'Conduct vishing awareness training with real call samples : enforce manager
+    call-back procedure before any MFA device reset : log all helpdesk identity verification steps'
   mini:
-    value: CLOU
-    label: FOCUS
-    sub: weekly
+    value: MFA
+    label: RESET
+    sub: policy
   mini2:
-    value: CLD
-    label: BADGE
-    sub: context
+    value: CBK
+    label: CALL
+    sub: verify

@@ -1,72 +1,75 @@
 date: '2026-02-05'
 slug: Tech_Security_Weekly_Digest_CVE_AI_Malware_Go
 sfx: FB05
-title: '2026-02-05: RCE NGINX AsyncRAT'
-aria: RCE NGINX AsyncRAT
+title: '2026-02-05: Critical CVE Batch, AI-Powered Malware Campaigns, Go-Based Attack Tools'
+aria: Critical CVE emergency patches February 5, AI-powered malware campaign AsyncRAT NGINX exploit, Go language attack tooling DevSecOps threat analysis
 bands:
 - theme: red
-  label: SECURITY
-  headline: CVE CVE CVE CVE
-  metric: CVE CVE CVE CVE
-  detail: CVE CVE CVE CVE Detection rules + IoC pre-load + credential rotation + SBOM
-    verify
+  label: CVE BATCH
+  headline: Feb 5 Critical CVE Emergency Patch
+  metric: 'Multiple CVSS 9+ : patch urgency high'
+  detail: 'February 5 critical CVE batch: NGINX RCE, AsyncRAT C2 framework update,
+    Go-compiled backdoors in active campaigns : 28 news items analyzed for DevSecOps teams'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: CVE
+    label: CRITICAL
+    sub: Feb 5
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Patch NGINX to latest stable : block AsyncRAT C2 IOCs at perimeter'
+  detail_b: 'Apply NGINX security patches immediately : update CVE IOC blocklists :
+    scan for Go-compiled binaries in unusual directories : run EDR behavioral hunt rules'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: NGX
+    label: NGINX
+    sub: RCE
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: IOC
+    label: BLOCK
+    sub: C2
 - theme: amber
-  label: VULNERABILITY
-  headline: Navigating Ch Navigating ChatGPT
-  metric: Navigating Ch Navigating ChatGPT Navigating
-  detail: Navigating Ch Navigating ChatGPT Navigating ChatGPT AI Vendor advisory +
-    scope assessment + canary rollout +
+  label: AI MALWARE
+  headline: AI-Powered Malware Campaigns
+  metric: 'AI-generated : polymorphic payloads'
+  detail: 'AI-powered malware campaigns use LLM-generated polymorphic code to evade
+    static AV : ChatGPT jailbreak for payload generation documented : AsyncRAT variant analysis'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: AI
+    label: MALWARE
+    sub: poly
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Deploy behavioral EDR : disable ChatGPT API in CASB for unmanaged use'
+  detail_b: 'Enable behavioral detection in EDR to catch polymorphic evasion : restrict
+    LLM API access to approved use cases via CASB : monitor for AI-generated code patterns'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: LLM
+    label: GEN
+    sub: payload
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: EDR
+    label: BEHAV
+    sub: detect
 - theme: green
-  label: DEFENSE
-  headline: The Why The Why The Why Malware Go
-  metric: The Why The Why The Why Malware Go
-  detail: The Why The Why The Why Malware Go SIEM correlation + log retention + escalation
-    path + tabletop drill
+  label: GO TOOLING
+  headline: Go-Based Attack Tools Rising
+  metric: 'Go-compiled : cross-platform malware'
+  detail: 'Go-language attack tools trending: cross-platform compilation enables single
+    codebase targeting Linux Windows macOS : harder to reverse-engineer than Python RATs'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: GO
+    label: ATTACK
+    sub: tool
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Flag unsigned Go binaries in EDR : run YARA rules for Go malware families'
+  detail_b: 'Develop YARA signatures for Go-compiled malware : alert on unsigned Go
+    executables running outside dev paths : integrate threat intel for known Go botnet IOCs'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: GOL
+    label: GO
+    sub: binary
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: XPL
+    label: CROSS
+    sub: platform

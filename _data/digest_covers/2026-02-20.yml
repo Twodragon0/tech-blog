@@ -1,72 +1,75 @@
 date: '2026-02-20'
 slug: Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes
 sfx: FB20
-title: '2026-02-20: Gemini Pro AI Kubernetes'
-aria: Gemini Pro AI Kubernetes
+title: '2026-02-20: Gemini 3.1 Pro Launch, AI Supply Chain Attack, K8s Ingress NGINX Retirement'
+aria: Google Gemini 3.1 Pro release, AI supply chain PromptSpy Clinejection attack vectors, Kubernetes Ingress NGINX retirement security impact
 bands:
 - theme: red
-  label: SECURITY
-  headline: Gemini
-  metric: Gemini
-  detail: Gemini Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: AI SUPPLY CHAIN
+  headline: PromptSpy Clinejection Attack
+  metric: 'AI supply chain : prompt-injected pkgs'
+  detail: 'AI supply chain attack via PromptSpy and Clinejection: malicious AI model
+    cards on HuggingFace execute prompt injections at load time : poisoned fine-tune datasets'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: SCC
+    label: AI
+    sub: supply
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Scan HuggingFace model cards for prompt injection : verify model provenance'
+  detail_b: 'Enable model provenance verification before loading : scan model cards
+    for embedded instructions : use Air-ML to audit model files : pin model versions in code'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: HUG
+    label: MODEL
+    sub: inject
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: PIN
+    label: PROV
+    sub: verify
 - theme: amber
-  label: VULNERABILITY
-  headline: PromptSpy Gemini PromptSpy Gemini
-  metric: PromptSpy Gemini PromptSpy Gemini PromptSpy
-  detail: PromptSpy Gemini PromptSpy Gemini PromptSpy Gemini AI Vendor advisory +
-    scope assessment + canary rollout +
+  label: GEMINI VULN
+  headline: PromptSpy Targets Gemini API
+  metric: 'Gemini API : prompt injection exfil'
+  detail: 'PromptSpy research targets Google Gemini API with prompt injection data
+    exfiltration : Gemini 3.1 Pro launched with improved safety filters : vendor advisory'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: INJ
+    label: GEMINI
+    sub: prompt
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Enable Gemini safety filters : monitor API for anomalous output patterns'
+  detail_b: 'Configure Gemini API safety settings at maximum for production : implement
+    output filtering proxy : monitor token usage for exfiltration patterns : use Gemini 3.1 Pro'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: G31
+    label: GEMINI
+    sub: 3.1 Pro
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: SFT
+    label: FILTER
+    sub: output
 - theme: amber
-  label: SUPPLY CHAIN
-  headline: Clinejection AI Clinejection AI
-  metric: Clinejection AI Clinejection AI Clinejection AI
-  detail: Clinejection AI Clinejection AI Clinejection AI Supply Chain Kubernetes
-    Vendor advisory + scope assessment +
+  label: K8S DEPRECATED
+  headline: Ingress NGINX Retirement Impact
+  metric: 'NGINX Ingress : deprecated in K8s 1.31'
+  detail: 'Kubernetes Ingress NGINX controller deprecated in K8s 1.31 : security implications
+    for clusters not migrated : Gateway API recommended replacement : 29 news items analyzed'
   badge:
-    value: CHAI
-    label: CHAIN
-    sub: highlighted
+    value: K8S
+    label: NGINX
+    sub: retire
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : supply chain response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : supply
-    chain'
+  metric_b: 'Migrate to Gateway API before K8s 1.31 : audit Ingress NGINX configs'
+  detail_b: 'Audit all Kubernetes Ingress NGINX deployments : plan migration to K8s
+    Gateway API : test Gateway API config in staging : update RBAC and network policies'
   mini:
-    value: SUPP
-    label: FOCUS
-    sub: weekly
+    value: GWY
+    label: K8S
+    sub: API
   mini2:
-    value: CHAI
-    label: BADGE
-    sub: context
+    value: NGX
+    label: MIGR
+    sub: 1.31

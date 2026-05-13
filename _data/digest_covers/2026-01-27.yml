@@ -1,72 +1,75 @@
 date: '2026-01-27'
 slug: Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e
 sfx: JN27
-title: '2026-01-27: MS Office Zero Day Kimi K2 Kimwolf'
-aria: MS Office Zero Day Kimi K2 Kimwolf
+title: '2026-01-27: MS Office CVE-2026-21509 Zero-Day, Kimi K2.5 Visual Agent, Kimwolf Botnet 2M'
+aria: Microsoft Office CVE-2026-21509 zero-day emergency patch, Kimi K2.5 open-source visual agent AI, Kimwolf Badbox 2.0 IoT botnet 2M devices
 bands:
 - theme: red
-  label: SECURITY
-  headline: Microsoft Office Zero
-  metric: Microsoft Office Zero
-  detail: Microsoft Office Zero Detection rules + IoC pre-load + credential rotation
-    + SBOM verify
+  label: ZERO-DAY
+  headline: Office CVE-2026-21509 RCE
+  metric: 'CVSS critical : active exploit Jan 27'
+  detail: 'Microsoft Office CVE-2026-21509 zero-day RCE : no interaction required :
+    exploit circulating in wild : emergency out-of-band patch released'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: 0DY
+    label: MSOFFICE
+    sub: RCE
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Apply MS emergency patch : disable macro auto-run as interim workaround'
+  detail_b: 'Deploy CVE-2026-21509 patch via WSUS or Intune immediately : set registry
+    HKLM Office policy to block untrusted macros : monitor event 4688 for unusual Office child procs'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: CVE
+    label: OFFICE
+    sub: 21509
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: RCE
+    label: REMOTE
+    sub: exec
 - theme: amber
-  label: VULNERABILITY
-  headline: Day Kimi K25
-  metric: Day Kimi K25
-  detail: Day Kimi K25 Vendor advisory + scope assessment + canary rollout + rollback
-    plan
+  label: AI AGENT
+  headline: Kimi K2.5 Open-Source Vision
+  metric: 'Kimi K2.5 : open-source visual agent'
+  detail: 'Moonshot AI releases Kimi K2.5 open-source visual agent : multimodal action
+    model for GUI automation : AWS G7e NVIDIA Blackwell GPU availability announced'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: AI
+    label: KIMI
+    sub: K2.5
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Evaluate Kimi K2.5 for internal RPA : sandbox before prod deployment'
+  detail_b: 'Run Kimi K2.5 in isolated environment : audit action permissions before
+    production : enforce agent identity controls : log all GUI automation events'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: VIS
+    label: AGENT
+    sub: GUI
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: AWS
+    label: G7e
+    sub: Blackwell
 - theme: green
-  label: DEFENSE
-  headline: Kimwolf Botnet AWS G7e
-  metric: Kimwolf Botnet AWS G7e
-  detail: Kimwolf Botnet AWS G7e SIEM correlation + log retention + escalation path
-    + tabletop drill
+  label: IOT BOTNET
+  headline: Kimwolf Badbox 2.0 Infects 2M
+  metric: 'Badbox 2.0 : 2M IoT devices'
+  detail: 'Kimwolf/Badbox 2.0 IoT botnet infects 2 million devices : targets Android
+    TV boxes and routers : C2 via encrypted channel : Oracle Jan patch addresses related CVEs'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: BOT
+    label: KIMWOLF
+    sub: IoT
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Audit IoT inventory : block C2 egress : replace EoL Android TV devices'
+  detail_b: 'Identify unauthorized Android TV devices on network : block outbound ports
+    to known Badbox C2 ranges : enforce firmware update policy : disable ADB remotely'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: IoT
+    label: BOTNET
+    sub: 2M
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: C2
+    label: ENCRYPT
+    sub: channel

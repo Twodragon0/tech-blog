@@ -1,72 +1,75 @@
 date: '2026-02-01'
 slug: Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet
 sfx: FB01
-title: '2026-02-01: OpenSSL OWASP Agentic AI Fortinet'
-aria: OpenSSL OWASP Agentic AI Fortinet
+title: '2026-02-01: AI Finds All 12 OpenSSL Zero-Days, OWASP Agentic AI Framework, Fortinet FortiCloud 0day'
+aria: AI system discovers all 12 OpenSSL zero-days historic event, OWASP Agentic AI security framework NIST governance, Fortinet FortiCloud SSO zero-day Azure Kyverno
 bands:
 - theme: red
-  label: SECURITY
-  headline: Executive Summary Executive Summary
-  metric: Executive Summary Executive Summary Executive
-  detail: Executive Summary Executive Summary Executive Summary AI OpenSSL Detection
-    rules + IoC pre-load + credential
+  label: AI VULN SCAN
+  headline: AI Finds 12 OpenSSL Zero-Days
+  metric: '12 zero-days : AI-only discovery'
+  detail: 'Historic event: AI system discovers all 12 OpenSSL zero-days in single automated
+    audit : no human researcher involved : signals shift in vulnerability research methodology'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: AI
+    label: OPENSSL
+    sub: 12 CVEs
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Run AI-assisted fuzzing on cryptographic libraries quarterly'
+  detail_b: 'Integrate AI-driven fuzz testing in SSDLC pipeline : prioritize cryptographic
+    library audits : patch OpenSSL to latest stable : monitor NVD feed for AI-discovered CVEs'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: SSL
+    label: 12CVE
+    sub: AI-found
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: FUZ
+    label: FUZZ
+    sub: AI
 - theme: amber
-  label: VULNERABILITY
-  headline: Zero Day
-  metric: Zero Day
-  detail: Zero Day Vendor advisory + scope assessment + canary rollout + rollback
-    plan
+  label: AGENTIC SEC
+  headline: OWASP Agentic AI Framework
+  metric: 'OWASP + NIST : AI agent governance'
+  detail: 'OWASP releases Agentic AI security framework : covers prompt injection, tool
+    abuse, excessive permissions : Microsoft NIST-based AI agent governance model published'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: OWS
+    label: OWASP
+    sub: agentic
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Adopt OWASP Agentic AI checklist : enforce least-privilege tool permissions'
+  detail_b: 'Implement OWASP AI agent security controls : sandbox tool execution :
+    require human-in-the-loop for destructive actions : log all agent tool invocations'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: AGT
+    label: AGENT
+    sub: OWASP
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: NST
+    label: NIST
+    sub: govern
 - theme: green
-  label: DEFENSE
-  headline: OWASP Agentic Fortinet
-  metric: OWASP Agentic Fortinet
-  detail: OWASP Agentic Fortinet SIEM correlation + log retention + escalation path
-    + tabletop drill
+  label: FORTINET 0DAY
+  headline: FortiCloud SSO Bypass Returns
+  metric: 'Fortinet 0day : auth bypass still active'
+  detail: 'Fortinet FortiCloud SSO zero-day authentication bypass confirmed still unpatched :
+    Azure policy via Kyverno supply-chain hardening highlighted as compensating control'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: 0DY
+    label: FORTNT
+    sub: SSO
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Disable FortiCloud SSO : deploy Kyverno Azure supply-chain policy'
+  detail_b: 'Disable FortiCloud SSO management access : restrict to local auth only :
+    apply Kyverno policies for Azure supply-chain hardening : scan eScan AV for malicious updates'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: SSO
+    label: BYPASS
+    sub: Fortinet
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: KYV
+    label: KYVERNO
+    sub: Azure

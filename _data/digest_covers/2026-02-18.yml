@@ -1,71 +1,75 @@
 date: '2026-02-18'
 slug: Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update
 sfx: FB18
-title: '2026-02-18: AI : Cloud : Malware Update'
-aria: 'AI : Cloud : Malware Update'
+title: '2026-02-18: Cloud Security Threats, Android Malware SOC AI, Responsible AI Update Risks'
+aria: Cloud security threats Android malware 20 news Feb 18, SOC AI automation cloud IAM update, responsible AI malware risk DevSecOps analysis
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: CLOUD THREATS
+  headline: Cloud Security Threats Feb 18
+  metric: '20 cloud incidents : IAM misconfig lead'
+  detail: 'Feb 18 cloud security threat analysis: 20 incidents with IAM misconfiguration
+    as leading vector : Android malware in enterprise BYOD : cloud tenant pivoting via OAuth'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: CLD
+    label: THREAT
+    sub: Feb 18
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Run cloud IAM audit : revoke stale OAuth delegations'
+  detail_b: 'Execute IAM Access Analyzer across all accounts : revoke OAuth app permissions
+    not used in 90 days : enforce cloud-to-cloud tenant isolation : review BYOD MDM policy'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: IAM
+    label: MISCONF
+    sub: pivot
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: OAU
+    label: OAUTH
+    sub: stale
 - theme: blue
-  label: CLOUD
-  headline: SOC AI SOC AI SOC AI Cloud
-  metric: SOC AI SOC AI SOC AI Cloud
-  detail: SOC AI SOC AI SOC AI Cloud IAM audit + network segmentation + telemetry
-    coverage + secret rotation
+  label: SOC AI
+  headline: SOC AI Cloud Automation Pipeline
+  metric: 'SOC AI : alert triage auto-closes 60pct'
+  detail: 'SOC AI automation pipeline achieves 60 percent automated alert triage closure :
+    ML model trained on 12-month alert history : reduces analyst fatigue : network segmentation'
   badge:
-    value: CLD
-    label: CLD
-    sub: highlighted
+    value: SOC
+    label: AI
+    sub: triage
   visual:
     kind: cloud_k8s
-  metric_b: 'DevSecOps : cloud response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : cloud'
+  metric_b: 'Train SOC AI on 12-month alert history : set escalation threshold at 40pct'
+  detail_b: 'Build SOC AI triage model on labeled historical alerts : configure auto-close
+    for low-confidence findings below threshold : always escalate cloud IAM and ransom indicators'
   mini:
-    value: CLOU
-    label: FOCUS
-    sub: weekly
+    value: ML
+    label: TRIAGE
+    sub: 60pct
   mini2:
-    value: CLD
-    label: BADGE
-    sub: context
+    value: FAT
+    label: REDUCE
+    sub: analyst
 - theme: amber
-  label: VULNERABILITY
-  headline: AI Responsible AI AI Responsible AI
-  metric: AI Responsible AI AI Responsible AI AI
-  detail: AI Responsible AI AI Responsible AI AI Responsible AI Malware Update Vendor
-    advisory + scope assessment +
+  label: RESPONSIBLE AI
+  headline: AI Responsible Use Update Risks
+  metric: 'Responsible AI : malware gen risk'
+  detail: 'Responsible AI framework update addresses malware generation risk : vendor
+    guardrails bypass via indirect prompt injection : update risk scoring for AI-assisted attacks'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: RAI
+    label: RESPONS
+    sub: update
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Review AI guardrail effectiveness : test prompt injection bypass monthly'
+  detail_b: 'Red-team AI guardrails for indirect prompt injection : update responsible
+    AI policy to address malware generation : monitor AI provider abuse reports quarterly'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: INJ
+    label: PROMPT
+    sub: bypass
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: RAI
+    label: POLICY
+    sub: update

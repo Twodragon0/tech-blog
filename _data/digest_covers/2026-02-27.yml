@@ -1,71 +1,75 @@
 date: '2026-02-27'
 slug: Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go
 sfx: FB27
-title: '2026-02-27: Aeternum C2 AWS ISO AI'
-aria: Aeternum C2 AWS ISO AI
+title: '2026-02-27: Aeternum Blockchain C2 Botnet, AWS ISO 42001 AI Audit, Go Supply Chain'
+aria: Aeternum blockchain C2 botnet command infrastructure, AWS ISO 42001 AI governance audit certification, Go supply chain security dependency integrity
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: BLOCKCHAIN C2
+  headline: Aeternum Botnet Uses Blockchain C2
+  metric: 'Aeternum : blockchain C2 : DNS fallback'
+  detail: 'Aeternum botnet uses blockchain transactions as covert C2 channel : DNS fallback
+    for resilience : Go-compiled implant distributed via supply chain : T1568 dynamic resolution'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
-  visual:
-    kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
-  mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
-  mini2:
-    value: SEC
-    label: BADGE
-    sub: context
-- theme: purple
-  label: BLOCKCHAIN
-  headline: Aeternum C2 Botnet Aeternum C2
-  metric: Aeternum C2 Botnet Aeternum C2 Botnet C2
-  detail: Aeternum C2 Botnet Aeternum C2 Botnet C2 Aeternum C2 Botnet C2 Botnet Prompt
-    injection guardrails + model
-  badge:
-    value: CHAI
-    label: CHAIN
-    sub: highlighted
+    value: AET
+    label: AETRN
+    sub: C2
   visual:
     kind: wallet_forensic
-  metric_b: 'DevSecOps : blockchain response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : blockchain'
+  metric_b: 'Block blockchain C2 domains : hunt Aeternum Go implant IOCs'
+  detail_b: 'Block Aeternum C2 blockchain resolver endpoints at perimeter : hunt Go
+    implant signatures in EDR : monitor DNS for dynamic resolution T1568 patterns : isolate infected hosts'
   mini:
-    value: BLOC
-    label: FOCUS
-    sub: weekly
+    value: C2
+    label: CHAIN
+    sub: covert
   mini2:
-    value: CHAI
-    label: BADGE
-    sub: context
+    value: DNS
+    label: T1568
+    sub: dynres
 - theme: purple
-  label: AI
-  headline: Google Massachusetts AI Hub Google
-  metric: Google Massachusetts AI Hub Google
-  detail: Google Massachusetts AI Hub Google Massachusetts AI Hub AI Google Massachusetts
-    AI Hub AI Blockchain Go
+  label: AI GOVERNANCE
+  headline: AWS Achieves ISO 42001 AI Audit
+  metric: 'AWS : ISO 42001 : AI governance cert'
+  detail: 'AWS achieves ISO 42001 AI management system certification : first major cloud
+    provider : AI governance audit framework available for enterprise compliance programs'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
+    value: AWS
+    label: ISO
+    sub: 42001
   visual:
     kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  metric_b: 'Leverage AWS ISO 42001 for AI compliance : map to internal AI policy'
+  detail_b: 'Use AWS ISO 42001 certification evidence in AI compliance audits : align
+    internal AI governance policy to ISO 42001 controls : document AI model risk assessments'
   mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
+    value: ISO
+    label: 42001
+    sub: AI mgmt
   mini2:
-    value: AI
-    label: BADGE
-    sub: context
+    value: GOV
+    label: AUDIT
+    sub: cert
+- theme: purple
+  label: SUPPLY CHAIN
+  headline: Go Supply Chain Integrity Risks
+  metric: 'Go modules : supply chain : integrity risk'
+  detail: 'Go module supply chain security risks analyzed: typosquatting in pkg.go.dev :
+    malicious replace directives in go.mod : SBOM and checksum verification gaps in CI pipelines'
+  badge:
+    value: GO
+    label: MOD
+    sub: chain
+  visual:
+    kind: code_bars
+  metric_b: 'Pin Go module checksums : scan go.mod for replace directives'
+  detail_b: 'Enforce go.sum checksum verification in CI : scan go.mod for unexpected
+    replace directives : use govulncheck in CI pipeline : generate SBOM for all Go service binaries'
+  mini:
+    value: SUM
+    label: CHECK
+    sub: CI
+  mini2:
+    value: SBM
+    label: SBOM
+    sub: gen

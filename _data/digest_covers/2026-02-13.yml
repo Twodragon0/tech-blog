@@ -1,71 +1,75 @@
 date: '2026-02-13'
 slug: Tech_Security_Weekly_Digest_AI_Go_Security_Agent
 sfx: FB13
-title: '2026-02-13: Lazarus Copilot Studio FinOps'
-aria: Lazarus Copilot Studio FinOps
+title: '2026-02-13: Lazarus npm PyPI Supply Chain, Copilot Studio Agent Risk, Gemini AI Recon'
+aria: Lazarus npm PyPI malicious package supply chain campaign, Microsoft Copilot Studio agent security risk, Gemini AI abuse for recon GPT-5 Codex-Spark FinOps
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: SUPPLY CHAIN
+  headline: Lazarus npm PyPI Campaign
+  metric: 'Lazarus : npm PyPI malicious pkgs'
+  detail: 'Lazarus Group deploys malicious npm and PyPI packages in supply chain campaign :
+    packages mimic popular libs : execute loader on install : T1195.001 supply chain compromise'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: LAZ
+    label: LAZARUS
+    sub: supply
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Run npm audit and pip-audit in CI : enforce package allowlist'
+  detail_b: 'Add package integrity check step in CI pipeline : enforce npm and PyPI
+    allowlist via private registry proxy : alert on new transitive dependencies : use SBOM diff'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: NPM
+    label: PYPI
+    sub: Lazarus
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: SBM
+    label: SBOM
+    sub: diff
 - theme: amber
-  label: VULNERABILITY
-  headline: Gemini Gemini Gemini Go
-  metric: Gemini Gemini Gemini Go
-  detail: Gemini Gemini Gemini Go Vendor advisory + scope assessment + canary rollout
-    + rollback plan
+  label: COPILOT RISK
+  headline: Copilot Studio Agent Security Gap
+  metric: 'Copilot Studio : data exfil via agent'
+  detail: 'Microsoft Copilot Studio agent security risk: agents can exfiltrate data
+    via prompt injection in connected data sources : Gemini AI abuse for recon documented'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: AGT
+    label: COPILOT
+    sub: risk
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Enable Copilot Studio DLP policies : restrict agent data source access'
+  detail_b: 'Configure Microsoft Purview DLP policies for Copilot Studio agents : restrict
+    data connector scope : enable admin audit logs : review agent permissions quarterly'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: DLP
+    label: COPLT
+    sub: policy
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: GEM
+    label: RECON
+    sub: abuse
 - theme: green
-  label: DEFENSE
-  headline: GPT Codex Spark GPT Codex Spark GPT
-  metric: GPT Codex Spark GPT Codex Spark GPT Codex Spark
-  detail: GPT Codex Spark GPT Codex Spark GPT Codex Spark Security Agent SIEM correlation
-    + log retention + escalation
+  label: AI TOOLS
+  headline: GPT-5 Codex-Spark Released
+  metric: 'GPT-5 Codex-Spark : agentic dev tool'
+  detail: 'GPT-5.3 Codex-Spark release for agentic development : autonomous code generation
+    with multi-step task handling : FinOps CUD committed use discount update for cloud cost'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: GPT
+    label: CODEX
+    sub: Spark
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Sandbox Codex-Spark in isolated dev env : audit generated code before merge'
+  detail_b: 'Run Codex-Spark output through static analysis before merging : enforce
+    code review on AI-generated PRs : configure FinOps CUD for AI workload cost optimization'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: G5
+    label: GPT
+    sub: agentic
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: CUD
+    label: FINOPS
+    sub: cost

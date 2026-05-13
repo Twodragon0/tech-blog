@@ -1,71 +1,75 @@
 date: '2026-01-29'
 slug: Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent
 sfx: JN29
-title: '2026-01-29: Critical RCE Link Zero Day Kubernetes AI Agent'
-aria: Critical RCE Link Zero Day Kubernetes AI Agent
+title: '2026-01-29: n8n CVE-2026-1470 RCE, D-Link CVE-2026-0625 EoL Zero-Day, Kubernetes AI Agent'
+aria: n8n workflow RCE CVE-2026-1470 CVSS 9.9, D-Link end-of-life CVE-2026-0625 zero-day unpatched, Kubernetes AI agent security eBPF controls
 bands:
 - theme: red
-  label: SECURITY
-  headline: n8n RCE D
-  metric: n8n RCE D
-  detail: n8n RCE D Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: CRITICAL RCE
+  headline: n8n CVE-2026-1470 CVSS 9.9
+  metric: 'CVSS 9.9 : unauthenticated RCE'
+  detail: 'n8n workflow automation RCE CVE-2026-1470 CVSS 9.9 : unauthenticated attacker
+    executes arbitrary code via webhook endpoint : patch to n8n 1.x immediately'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: RCE
+    label: n8n
+    sub: 9.9
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Upgrade n8n to patched version : restrict webhook endpoint access by IP'
+  detail_b: 'Apply n8n patch CVE-2026-1470 : place n8n behind authenticated reverse
+    proxy : disable public webhook exposure : audit existing workflows for malicious nodes'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: CVE
+    label: 26-1470
+    sub: n8n
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: WHK
+    label: WEBHOOK
+    sub: exploit
 - theme: amber
-  label: VULNERABILITY
-  headline: Link Zero Day
-  metric: Link Zero Day
-  detail: Link Zero Day Vendor advisory + scope assessment + canary rollout + rollback
-    plan
+  label: EOL ZERO-DAY
+  headline: D-Link CVE-2026-0625 No Patch
+  metric: 'EoL device : no patch available'
+  detail: 'D-Link end-of-life router CVE-2026-0625 zero-day : command injection via
+    admin interface : vendor confirms no patch for EoL models : replace hardware'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: 0DY
+    label: DLINK
+    sub: EoL
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Replace EoL D-Link devices : isolate on dedicated VLAN as interim step'
+  detail_b: 'Identify all EoL D-Link devices in inventory : block admin interface from
+    internet : isolate behind VLAN : procure replacement hardware with supported firmware'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: EoL
+    label: DLINK
+    sub: 0day
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: CMD
+    label: INJECT
+    sub: admin
 - theme: green
-  label: DEFENSE
-  headline: Kubernetes AI Agent
-  metric: Kubernetes AI Agent
-  detail: Kubernetes AI Agent SIEM correlation + log retention + escalation path +
-    tabletop drill
+  label: K8S AI SEC
+  headline: Kubernetes AI Agent eBPF Guard
+  metric: 'eBPF runtime : AI agent syscall scope'
+  detail: 'Kubernetes AI agent security challenges : eBPF-based syscall scoping limits
+    blast radius : NHI workload identity via SPIFFE : Infomaniak Swiss sovereign cloud reference'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: K8S
+    label: AI
+    sub: eBPF
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Deploy Falco eBPF rules : enforce SPIFFE workload identity for AI agents'
+  detail_b: 'Configure Falco eBPF policies to restrict AI agent syscalls : assign SPIFFE
+    SVIDs to each agent workload : audit K8s RBAC for least-privilege agent service accounts'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: BPF
+    label: EBPF
+    sub: guard
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: NHI
+    label: SPIFFE
+    sub: K8s

@@ -1,72 +1,75 @@
 date: '2026-01-28'
 slug: Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE
 sfx: JN28
-title: '2026-01-28: Microsoft Office Zero Day CTEM Grist Core RCE'
-aria: Microsoft Office Zero Day CTEM Grist Core RCE
+title: '2026-01-28: MS Office CVE-2026-21509 Patch Guide, CTEM 5-Stage Framework, Grist-Core RCE'
+aria: Microsoft Office CVE-2026-21509 zero-day patch remediation, CTEM 5-stage continuous threat exposure management, Grist-Core RCE vulnerability analysis
 bands:
 - theme: red
-  label: SECURITY
-  headline: Microsoft Office
-  metric: Microsoft Office
-  detail: Microsoft Office Detection rules + IoC pre-load + credential rotation +
-    SBOM verify
+  label: PATCH GUIDE
+  headline: CVE-2026-21509 Remediation
+  metric: 'CVSS critical : patch deploy steps'
+  detail: 'Deep-dive on MS Office CVE-2026-21509 patch: WSUS group policy deployment,
+    registry macro block, and T1203 exploitation indicator detection in SIEM'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: CVE
+    label: MSOFFCE
+    sub: patch
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Deploy patch via Intune compliance policy : set macro block registry key'
+  detail_b: 'Stage patch rollout: dev ring first then prod : add CVE-2026-21509 IoC
+    hashes to EDR : alert on Office spawning cmd.exe or powershell.exe child procs'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: PAT
+    label: PATCH
+    sub: ring
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: EDR
+    label: IOC
+    sub: hunt
 - theme: amber
-  label: VULNERABILITY
-  headline: Zero Day
-  metric: Zero Day
-  detail: Zero Day Vendor advisory + scope assessment + canary rollout + rollback
-    plan
+  label: CTEM
+  headline: 5-Stage CTEM Framework
+  metric: 'CTEM : scoping to validation loop'
+  detail: 'Continuous Threat Exposure Management 5 stages: Scoping, Discovery, Prioritization,
+    Validation, Mobilization : MITRE ATT and CK mapped remediation workflow'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: CTM
+    label: CTEM
+    sub: loop
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Map attack surface via CTEM scoping : prioritize by EPSS score'
+  detail_b: 'Deploy attack surface management tool : run pentest validation on top-10
+    EPSS findings : feed results to ticketing for mobilization : review monthly'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: ASM
+    label: SCOPE
+    sub: CTEM
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: EPS
+    label: EPSS
+    sub: priority
 - theme: green
-  label: DEFENSE
-  headline: CTEM Grist Core RCE
-  metric: CTEM Grist Core RCE
-  detail: CTEM Grist Core RCE SIEM correlation + log retention + escalation path +
-    tabletop drill
+  label: OSS RCE
+  headline: Grist-Core RCE Vulnerability
+  metric: 'Grist-Core : sandbox escape RCE'
+  detail: 'Grist-Core open-source spreadsheet RCE via sandbox escape : attacker-controlled
+    formula executes arbitrary code server-side : patch to latest release required'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: RCE
+    label: GRIST
+    sub: sandbox
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Upgrade Grist-Core immediately : restrict formula execution permissions'
+  detail_b: 'Update Grist-Core to patched release : disable untrusted user formula
+    execution : deploy behind auth proxy : enable CSP headers to limit data exfil risk'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: OSS
+    label: GRIST
+    sub: RCE
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: SBX
+    label: ESCAPE
+    sub: formula

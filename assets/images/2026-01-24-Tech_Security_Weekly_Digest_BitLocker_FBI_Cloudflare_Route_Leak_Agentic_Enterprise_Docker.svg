@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="BitLocker FBI Cloudflare Route Leak Docker">
-<title>2026-01-24: BitLocker FBI Cloudflare Route Leak Docker</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Microsoft FBI BitLocker encryption key trust debate, Cloudflare BGP route leak Jan 22 RPKI response, CNCF agentic enterprise platform pillars">
+<title>2026-01-24: BitLocker FBI Key Disclosure, Cloudflare BGP Route Leak, CNCF Agentic Platform</title>
 <defs>
 <linearGradient id="bgSpreadJN24" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
 <linearGradient id="bandAJN24" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A0E2E"/><stop offset="100%" stop-color="#24122F"/></linearGradient>
@@ -25,11 +25,11 @@
   <rect x="0" y="0" width="8" height="210" fill="#E63946"/>
   
   <g filter="url(#textShadow)">
-    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">SECURITY</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Microsoft BitLocker Microsoft</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Microsoft BitLocker Microsoft BitLocker</text>
-    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Microsoft BitLocker Microsoft BitLocker Microsoft BitLocker BitLocker FBI Detection rules + IoC pre-load +</text>
-    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">DevSecOps : security response</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : security</text>
+    <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">ENCRYPTION TRUST</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">BitLocker Keys to FBI Debate</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Recovery key handoff : trust boundary</text>
+    <text x="30" y="144" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Microsoft provides BitLocker recovery keys to FBI on court order : enterprise encryption trust model challenged : full-disk encryption value re-examined</text>
+    <text x="30" y="162" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FBB6BD">Deploy self-managed key escrow : avoid cloud-escrowed FDE keys</text><text x="30" y="178" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D9C9CE" fill-opacity="0.85">Switch to self-hosted key escrow (MBAM or Intune local) : evaluate pre-boot auth vs cloud recovery : document threat model for law enforcement access</text>
     
   </g>
   <g transform="translate(500,105)">
@@ -75,25 +75,25 @@
   </g>
   <g transform="translate(870,105)" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#1E0A14" stroke="#E63946" stroke-width="1.6" stroke-opacity="0.75"/>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#F87171">FOCUS</text>
-    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">SECU</text>
-    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FBB6BD">weekly</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#F87171">ENCRYPT</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">FDE</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FBB6BD">keys</text>
   </g>
   <g transform="translate(1110,105)" filter="url(#softShadow)">
     <rect x="-44" y="-48" width="88" height="96" rx="10" fill="#1E0A14" stroke="#E63946" stroke-width="1.4" stroke-opacity="0.7">
       <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
     </rect>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#F87171">BADGE</text>
-    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">SEC</text>
-    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#FBB6BD">context</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#F87171">ACCESS</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">FBI</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#FBB6BD">legal</text>
     <line x1="-32" y1="38" x2="32" y2="38" stroke="#E63946" stroke-width="0.6" stroke-opacity="0.45"/>
     <circle cx="0" cy="-40" r="1.6" fill="#FCA5A5"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
   </g>
   <g transform="translate(990,105)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E0A14" stroke="#E63946" stroke-width="2.2"/>
-    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">SEC</text>
-    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">SEC</text>
-    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FBB6BD">highlighted</text>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#F87171">BITLKR</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">BLK</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FBB6BD">FBI</text>
     <line x1="-58" y1="50" x2="78" y2="50" stroke="#E63946" stroke-width="0.8" stroke-opacity="0.5"/>
     
   </g>
@@ -121,11 +121,11 @@
   <rect x="0" y="210" width="8" height="210" fill="#A78BFA"/>
   
   <g filter="url(#textShadow)">
-    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">AI</text>
-    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">OpenAI Codex Agent Loop OpenAI</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">OpenAI Codex Agent Loop OpenAI Codex Agent Loop</text>
-    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">OpenAI Codex Agent Loop OpenAI Codex Agent Loop OpenAI Codex Agent Loop Cloudflare Route Prompt injection</text>
-    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">DevSecOps : ai response</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : ai</text>
+    <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">BGP SECURITY</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Cloudflare Route Leak RPKI Fix</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">BGP leak Jan 22 : RPKI ROV blocks</text>
+    <text x="30" y="354" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">Cloudflare Jan 22 BGP route leak root-cause analysis : RPKI Route Origin Validation blocked propagation : prompt injection risk in agentic loops noted</text>
+    <text x="30" y="372" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#DDD6FE">Enable RPKI ROV on all BGP peers : deploy IRR filters</text><text x="30" y="388" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#D0CCE5" fill-opacity="0.85">Validate all originated prefixes with RPKI : enforce ROA for your ASN : configure AS-path filtering : alert on unexpected prefix withdrawals</text>
     
   </g>
   <g transform="translate(500,315)">
@@ -166,25 +166,25 @@
   </g>
   <g transform="translate(870,315)" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.6" stroke-opacity="0.75"/>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#C4B5FD">FOCUS</text>
-    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">AI</text>
-    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#DDD6FE">weekly</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#C4B5FD">RPKI</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">ROV</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#DDD6FE">valid</text>
   </g>
   <g transform="translate(1110,315)" filter="url(#softShadow)">
     <rect x="-44" y="-48" width="88" height="96" rx="10" fill="#160629" stroke="#A78BFA" stroke-width="1.4" stroke-opacity="0.7">
       <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
     </rect>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#C4B5FD">BADGE</text>
-    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">AI</text>
-    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#DDD6FE">context</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#C4B5FD">CLOUDFL</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">CLF</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#DDD6FE">BGP</text>
     <line x1="-32" y1="38" x2="32" y2="38" stroke="#A78BFA" stroke-width="0.6" stroke-opacity="0.45"/>
     <circle cx="0" cy="-40" r="1.6" fill="#C4B5FD"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
   </g>
   <g transform="translate(990,315)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#160629" stroke="#A78BFA" stroke-width="2.2"/>
-    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">AI</text>
-    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">AI</text>
-    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#DDD6FE">highlighted</text>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">ROUTING</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">BGP</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#DDD6FE">leak</text>
     <line x1="-58" y1="50" x2="78" y2="50" stroke="#A78BFA" stroke-width="0.8" stroke-opacity="0.5"/>
     
   </g>
@@ -212,11 +212,11 @@
   <rect x="0" y="420" width="8" height="210" fill="#FFB703"/>
   
   <g filter="url(#textShadow)">
-    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">VULNERABILITY</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Leak Agentic Enterprise Docker</text>
-    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">Leak Agentic Enterprise Docker</text>
-    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">Leak Agentic Enterprise Docker Vendor advisory + scope assessment + canary rollout + rollback plan</text>
-    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFD58A">DevSecOps : vulnerability response</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#E0D5B6" fill-opacity="0.85">Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability</text>
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">PLATFORM ENG</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">CNCF Enterprise 4 Pillars</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">CNCF : 4 platform control pillars</text>
+    <text x="30" y="564" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">CNCF defines 4 autonomous enterprise platform control pillars : Developer Portal, Policy Engine, Observability, and GitOps Delivery : Docker Desktop update</text>
+    <text x="30" y="582" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#FFD58A">Adopt Backstage + OPA + OpenTelemetry + Flux stack</text><text x="30" y="598" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#E0D5B6" fill-opacity="0.85">Implement Backstage developer portal : integrate OPA policy engine : deploy OpenTelemetry collector : migrate to Flux or ArgoCD GitOps delivery pipeline</text>
     
   </g>
   <g transform="translate(500,525)">
@@ -256,25 +256,25 @@
   </g>
   <g transform="translate(870,525)" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#1E1805" stroke="#FFB703" stroke-width="1.6" stroke-opacity="0.75"/>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#FFB703">FOCUS</text>
-    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">VULN</text>
-    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFD58A">weekly</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#FFB703">PORTAL</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" fill="#F5F7FA">IDP</text>
+    <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFD58A">CNCF</text>
   </g>
   <g transform="translate(1110,525)" filter="url(#softShadow)">
     <rect x="-44" y="-48" width="88" height="96" rx="10" fill="#1E1805" stroke="#FFB703" stroke-width="1.4" stroke-opacity="0.7">
       <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
     </rect>
-    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#FFB703">BADGE</text>
-    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">VLN</text>
-    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#FFD58A">context</text>
+    <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="#FFB703">GITOPS</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="900" fill="#F5F7FA">OPS</text>
+    <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#FFD58A">Flux</text>
     <line x1="-32" y1="38" x2="32" y2="38" stroke="#FFB703" stroke-width="0.6" stroke-opacity="0.45"/>
     <circle cx="0" cy="-40" r="1.6" fill="#FCD34D"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
   </g>
   <g transform="translate(990,525)" filter="url(#softShadow)">
     <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#1E1805" stroke="#FFB703" stroke-width="2.2"/>
-    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FFB703">VLN</text>
-    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">VLN</text>
-    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FFD58A">highlighted</text>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#FFB703">PLATFORM</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">PLT</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#FFD58A">CNCF</text>
     <line x1="-58" y1="50" x2="78" y2="50" stroke="#FFB703" stroke-width="0.8" stroke-opacity="0.5"/>
     
   </g>

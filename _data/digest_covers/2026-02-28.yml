@@ -1,72 +1,75 @@
 date: '2026-02-28'
 slug: Tech_Security_Weekly_Digest_Go_AI_Malware
 sfx: FB28
-title: '2026-02-28: Pig Butchering FreePBX Go Crypto'
-aria: Pig Butchering FreePBX Go Crypto
+title: '2026-02-28: Pig Butchering $61M Seized, FreePBX Mass Breach, Go Crypto Backdoor'
+aria: Pig butchering USDT 61 million dollar seizure DOJ, FreePBX mass compromise SIP credential theft, Go crypto backdoor supply chain malware AI analysis
 bands:
 - theme: red
-  label: SECURITY
-  headline: Pig Butchering USDT Pig Butchering
-  metric: Pig Butchering USDT Pig Butchering USDT Pig
-  detail: Pig Butchering USDT Pig Butchering USDT Pig Butchering USDT Go Detection
-    rules + IoC pre-load + credential
+  label: FRAUD SEIZURE
+  headline: Pig Butchering $61M USDT Seized
+  metric: 'Pig butchering : $61M USDT seized : DOJ'
+  detail: 'DOJ seizes $61M USDT in pig butchering crypto fraud operation : romance scam
+    infrastructure dismantled : blockchain forensics traces mixer hops and exchange cashouts'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: PIG
+    label: FRAUD
+    sub: 61M
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Train staff on romance scam IOCs : alert on large USDT outflows'
+  detail_b: 'Brief finance team on pig butchering social engineering indicators : configure
+    USDT outflow alert threshold in treasury monitoring : add seized exchange addresses to blocklist'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: USD
+    label: SEIZE
+    sub: 61M
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: MXR
+    label: TRACE
+    sub: chain
 - theme: amber
-  label: VULNERABILITY
-  headline: OpenAI Microsoft OpenAI Microsoft
-  metric: OpenAI Microsoft OpenAI Microsoft OpenAI
-  detail: OpenAI Microsoft OpenAI Microsoft OpenAI Microsoft AI Vendor advisory +
-    scope assessment + canary rollout +
+  label: VOIP BREACH
+  headline: FreePBX Mass Compromise
+  metric: 'FreePBX : mass SIP cred theft : toll fraud'
+  detail: 'FreePBX installations mass-compromised via exposed management portal : SIP
+    credentials harvested for toll fraud : Go-compiled scanner automates discovery at scale'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: PBX
+    label: FREE
+    sub: breach
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Restrict FreePBX admin to VPN : rotate all SIP credentials'
+  detail_b: 'Move FreePBX management portal behind VPN or bastion host immediately :
+    rotate all SIP account credentials : enable geographic call restriction for toll fraud prevention'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: SIP
+    label: CRED
+    sub: rotate
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: GEO
+    label: BLOCK
+    sub: toll
 - theme: purple
-  label: AI
-  headline: AI Vibe Check AI Vibe Check AI Vibe
-  metric: AI Vibe Check AI Vibe Check AI Vibe Check
-  detail: AI Vibe Check AI Vibe Check AI Vibe Check Malware Prompt injection guardrails
-    + model provenance + output
+  label: GO BACKDOOR
+  headline: Go Crypto Package Backdoor Found
+  metric: 'Go crypto pkg : backdoor : supply chain'
+  detail: 'Malicious backdoor discovered in popular Go cryptography package on pkg.go.dev :
+    targets secret key material : AI-assisted code review detected subtle obfuscation in PRNG'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
+    value: GO
+    label: BACK
+    sub: door
   visual:
     kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  metric_b: 'Audit Go crypto dependencies : verify checksums in go.sum'
+  detail_b: 'Audit all Go crypto package imports for backdoored versions : verify go.sum
+    checksums against pkg.go.dev : replace with stdlib crypto or audited alternatives : scan with govulncheck'
   mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
+    value: PRN
+    label: PRNG
+    sub: obfusc
   mini2:
-    value: AI
-    label: BADGE
-    sub: context
+    value: CHK
+    label: SUM
+    sub: verify

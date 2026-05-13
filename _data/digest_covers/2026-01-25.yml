@@ -1,72 +1,75 @@
 date: '2026-01-25'
 slug: Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents
 sfx: JN25
-title: '2026-01-25: VMware KEV Fortinet SSO Sandworm DynoWiper'
-aria: VMware KEV Fortinet SSO Sandworm DynoWiper
+title: '2026-01-25: VMware vCenter KEV Patch, Fortinet SSO Zero-Day, Sandworm DynoWiper'
+aria: CISA KEV VMware vCenter CVE-2024-37079 active exploit patch, Fortinet FortiCloud SSO bypass zero-day, Sandworm DynoWiper Poland grid attack
 bands:
 - theme: red
-  label: SECURITY
-  headline: Risk Assessment Score Risk
-  metric: Risk Assessment Score Risk Assessment Scorecard
-  detail: Risk Assessment Score Risk Assessment Scorecard Risk Assessment Scorecard
-    VMware vCenter Detection rules +
+  label: CISA KEV
+  headline: VMware vCenter CVE-2024-37079
+  metric: 'CVSS 9.8 : active exploit KEV'
+  detail: 'CISA adds VMware vCenter CVE-2024-37079 to KEV catalog : heap overflow RCE :
+    active exploitation confirmed : 30-day patch deadline for federal'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: KEV
+    label: CISA
+    sub: critical
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Apply vCenter 8.0 U3b patch immediately : isolate VAMI port'
+  detail_b: 'Patch vCenter Server to 8.0 U3b or 7.0 U3r : restrict management network
+    access : enable vSphere Audit Logging : check exploit indicators in /var/log/vmware'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: RCE
+    label: HEAP
+    sub: overflow
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: VMW
+    label: VCNTR
+    sub: patch
 - theme: amber
-  label: VULNERABILITY
-  headline: VMware CVE-2024-37079 VMware
-  metric: VMware CVE-2024-37079 VMware CVE-2024-37079
-  detail: VMware CVE-2024-37079 VMware CVE-2024-37079 VMware CVE-2024-37079 Fortinet
-    SSO Vendor advisory + scope
+  label: ZERO-DAY
+  headline: Fortinet FortiCloud SSO Bypass
+  metric: 'FortiGate fully patched : SSO 0day'
+  detail: 'Fortinet FortiGate zero-day bypasses FortiCloud SSO on fully patched devices :
+    authentication bypass in management interface : no patch at disclosure'
   badge:
-    value: CVE
-    label: CVE
-    sub: highlighted
+    value: 0DY
+    label: FORTNT
+    sub: SSO
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Disable FortiCloud SSO mgmt interface : restrict access by IP ACL'
+  detail_b: 'Disable FortiCloud single-sign-on in management UI : restrict admin access
+    to trusted subnets : enable FortiGate local auth only : monitor login events'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: SSO
+    label: BYPASS
+    sub: FortiOS
   mini2:
-    value: CVE
-    label: BADGE
-    sub: context
+    value: FGT
+    label: FORTIGTE
+    sub: 0day
 - theme: green
-  label: DEFENSE
-  headline: VMware VMware VMware Sandworm
-  metric: VMware VMware VMware Sandworm DynoWiper AI
-  detail: VMware VMware VMware Sandworm DynoWiper AI Agents SIEM correlation + log
-    retention + escalation path +
+  label: APT WIPER
+  headline: Sandworm DynoWiper Grid Attack
+  metric: 'DynoWiper : Polish grid OT target'
+  detail: 'Sandworm APT deploys DynoWiper against Polish electricity grid OT systems :
+    wiper overwrites MBR and ICS configs : Google ADK AI agent defense automation'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: APT
+    label: SANDWRM
+    sub: wiper
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Segment OT networks : deploy ICS-specific EDR and anomaly detection'
+  detail_b: 'Isolate OT from corporate IT via unidirectional gateway : deploy Claroty
+    or Dragos ICS monitoring : backup ICS configs offline : test restoration playbooks'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: OT
+    label: ICS
+    sub: wiper
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: MBR
+    label: WIPE
+    sub: DynoW

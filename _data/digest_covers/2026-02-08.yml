@@ -1,70 +1,75 @@
 date: '2026-02-08'
 slug: Tech_Security_Weekly_Digest_AI_Ransomware_Data
 sfx: FB08
-title: '2026-02-08: Signal BlackField'
-aria: Signal BlackField
+title: '2026-02-08: German BfV Signal Phishing Nation-State, BlackField Ransomware, Zero Trust Data'
+aria: German BfV BSI Russia-linked Signal phishing politicians military journalists, BlackField ransomware code reuse analysis, zero trust data-centric security strategy
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: NATION-STATE
+  headline: Russia-Linked Signal Phishing
+  metric: 'BfV/BSI alert : political targets'
+  detail: 'German BfV and BSI warn of Russia-linked Signal phishing targeting politicians,
+    military, journalists : device linking code abuse : T1566 spearphish via trusted app'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: APT
+    label: SIGNAL
+    sub: phish
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Disable Signal device-link QR code scan from unknown sources'
+  detail_b: 'Brief high-value users on Signal linking-code phishing : revoke unknown
+    linked devices in Signal settings : enforce MDM policy to restrict Signal QR code auth'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: SIG
+    label: SIGNAL
+    sub: link
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: RUS
+    label: APT
+    sub: target
 - theme: amber
-  label: VULNERABILITY
-  headline: FOMC FOMC FOMC Ransomware
-  metric: FOMC FOMC FOMC Ransomware
-  detail: FOMC FOMC FOMC Ransomware Vendor advisory + scope assessment + canary rollout
-    + rollback plan
+  label: RANSOMWARE
+  headline: BlackField Ransomware Code Reuse
+  metric: 'BlackField : reused Conti codebase'
+  detail: 'BlackField ransomware deep-dive: reuses Conti v3 encryption routines and
+    lateral movement modules : VSS deletion, AV bypass, and domain admin enumeration'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: RNS
+    label: BLACKFLD
+    sub: Conti
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Deploy ransomware-specific EDR rules : protect VSS snapshots'
+  detail_b: 'Enable VSS shadow copy protection in EDR : block vssadmin delete shadows :
+    require admin approval for volume encryption : test backup restoration quarterly'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: VSS
+    label: CONTI
+    sub: code
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: EDR
+    label: RANSOM
+    sub: block
 - theme: amber
-  label: REGULATION
-  headline: Data
-  metric: Data
-  detail: Data Vendor advisory + scope assessment + canary rollout + rollback plan
+  label: ZERO TRUST
+  headline: Data-Centric Zero Trust Strategy
+  metric: 'Data classification : ZT enforcement'
+  detail: 'Zero Trust data-centric security strategy: classify data at rest and in transit :
+    enforce policy based on data sensitivity not network perimeter : FOMC compliance reference'
   badge:
-    value: REG
-    label: REG
-    sub: highlighted
+    value: ZT
+    label: DATA
+    sub: centric
   visual:
     kind: senate_columns
-  metric_b: 'DevSecOps : regulation response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : regulation'
+  metric_b: 'Deploy data classification labels : enforce ZT policy per sensitivity tier'
+  detail_b: 'Implement Microsoft Purview or similar DLP with classification labels :
+    enforce access controls based on data sensitivity : log all access to sensitive data'
   mini:
-    value: REGU
-    label: FOCUS
-    sub: weekly
+    value: DLP
+    label: CLASS
+    sub: label
   mini2:
-    value: REG
-    label: BADGE
-    sub: context
+    value: ZT
+    label: POLICY
+    sub: data

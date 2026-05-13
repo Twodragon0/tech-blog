@@ -1,71 +1,75 @@
 date: '2026-02-12'
 slug: Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent
 sfx: FB12
-title: '2026-02-12: Windows APT36'
-aria: Windows APT36
+title: '2026-02-12: Supply Chain Compromise, Windows Security Update, APT36 India Pivot'
+aria: Supply chain compromise cases 27 news Feb 12, Windows security update APT36 analysis, Outlook cloud security agent AI threat response
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: SUPPLY CHAIN
+  headline: Supply Chain Compromise Feb 12
+  metric: '27 news : supply chain attack surge'
+  detail: 'Feb 12 supply chain security surge: multiple package manager compromises
+    analyzed : Windows update signed binary hijack : APT36 India-nexus campaign active'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: SCC
+    label: SUPPLY
+    sub: chain
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Enable SBOM for all builds : verify package integrity with Sigstore'
+  detail_b: 'Implement Sigstore cosign for all container images : enable SBOM generation
+    in CI : verify package checksums against NVD : alert on unexpected dependency additions'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: SBM
+    label: SBOM
+    sub: verify
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: SIG
+    label: SIGSTR
+    sub: cosign
 - theme: amber
-  label: VULNERABILITY
-  headline: Outlook Outlook Outlook Cloud
-  metric: Outlook Outlook Outlook Cloud
-  detail: Outlook Outlook Outlook Cloud Vendor advisory + scope assessment + canary
-    rollout + rollback plan
+  label: WINDOWS CVE
+  headline: Outlook Cloud Security Update
+  metric: 'Outlook : cloud CVE patched Feb 12'
+  detail: 'Microsoft Outlook cloud security update Feb 12 patches URL preview RCE :
+    APT36 exploiting legacy Outlook to pivot to cloud workloads : credential harvest confirmed'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: CVE
+    label: OUTLK
+    sub: cloud
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Apply Outlook security update : disable legacy Outlook URL preview'
+  detail_b: 'Deploy Outlook update via Intune : disable legacy URL preview in Group Policy :
+    alert on APT36 IOC signatures : review Microsoft 365 sign-in logs for unusual locations'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: OTL
+    label: PATCH
+    sub: RCE
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: A36
+    label: APT36
+    sub: India
 - theme: green
-  label: DEFENSE
-  headline: Security Agent
-  metric: Security Agent
-  detail: Security Agent SIEM correlation + log retention + escalation path + tabletop
-    drill
+  label: AI AGENT SEC
+  headline: Cloud Security Agent Automation
+  metric: 'AI agent : automated threat response'
+  detail: 'Cloud security agent automation: AI-driven playbook execution for incident
+    response : agent validates findings before action : reduces MTTR for cloud misconfigs'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: AGT
+    label: CLOUD
+    sub: AI
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Deploy AI security agent with human-in-the-loop approval gates'
+  detail_b: 'Configure AI agent response to require human approval for destructive actions :
+    log all agent tool calls : set confidence thresholds before auto-remediation'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: SOAR
+    label: AUTO
+    sub: resp
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: HiL
+    label: HUMAN
+    sub: gate

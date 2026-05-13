@@ -1,71 +1,75 @@
 date: '2026-02-19'
 slug: Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE
 sfx: FB19
-title: '2026-02-19: AWS Zero Day CVE-2026-2329'
-aria: AWS Zero Day CVE-2026-2329
+title: '2026-02-19: Dell RecoverPoint CVE-2026-22769 0day, VS Code 125M Extension CVEs, Cellebrite Activist Surveillance'
+aria: Dell RecoverPoint VM CVE-2026-22769 zero-day active exploit, VS Code extensions 4 critical vulns 125M installs, Cellebrite forensics Kenya activist surveillance
 bands:
 - theme: red
-  label: SECURITY
-  headline: AWS
-  metric: AWS
-  detail: AWS Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: ZERO-DAY
+  headline: Dell RecoverPoint CVE-2026-22769
+  metric: 'CVSS critical : active exploit in wild'
+  detail: 'Dell RecoverPoint VM CVE-2026-22769 zero-day actively exploited in the wild :
+    authentication bypass leading to RCE : patch or isolate management interface immediately'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: 0DY
+    label: DELL
+    sub: RecvPt
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Apply Dell RecoverPoint patch : isolate mgmt interface from internet'
+  detail_b: 'Apply Dell Security Advisory patch for CVE-2026-22769 : restrict RecoverPoint
+    management to dedicated management VLAN : monitor for exploit indicators in system logs'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: CVE
+    label: 22769
+    sub: Dell
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: RCE
+    label: REMOTE
+    sub: auth bypass
 - theme: amber
-  label: ZERO-DAY
-  headline: Dell RecoverPoint VM CVE Dell
-  metric: Dell RecoverPoint VM CVE Dell RecoverPoint VM
-  detail: Dell RecoverPoint VM CVE Dell RecoverPoint VM CVE-2026-22769 Dell RecoverPoint
-    VM CVE-2026-22769 Security
+  label: VS CODE VULNS
+  headline: VS Code Extensions 125M Install CVEs
+  metric: '4 extensions : 125M total installs at risk'
+  detail: 'Four VS Code extensions with combined 125 million installs have critical
+    vulnerabilities : arbitrary command execution via malicious workspace : T1204.002 user exec'
   badge:
-    value: 0-DA
-    label: 0-DAY
-    sub: highlighted
+    value: IDE
+    label: VSCODE
+    sub: ext CVE
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : zero-day response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : zero-day'
+  metric_b: 'Audit VS Code extension list : remove unvetted extensions from dev fleet'
+  detail_b: 'Run VS Code extension audit across developer fleet : remove extensions
+    with known CVEs : enforce enterprise extension allowlist via settings sync : review workspace trust'
   mini:
-    value: ZERO
-    label: FOCUS
-    sub: weekly
+    value: EXT
+    label: 125M
+    sub: at risk
   mini2:
-    value: 0-DA
-    label: BADGE
-    sub: context
+    value: WST
+    label: TRUST
+    sub: VS Code
 - theme: purple
-  label: AI
-  headline: OpenAI India AI OpenAI India AI
-  metric: OpenAI India AI OpenAI India AI OpenAI India AI
-  detail: OpenAI India AI OpenAI India AI OpenAI India AI Zero-Day CVE Prompt injection
-    guardrails + model provenance +
+  label: SURVEILLANCE
+  headline: Cellebrite Targets Kenya Activists
+  metric: 'Cellebrite : civil society surveillance'
+  detail: 'Cellebrite forensics tool documented in surveillance of Kenya activists :
+    OpenAI India AI expansion context : vendor accountability for dual-use tools highlighted'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
+    value: SVL
+    label: CELLBRT
+    sub: activist
   visual:
     kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  metric_b: 'Audit Cellebrite contract use : enforce dual-use policy review process'
+  detail_b: 'Review Cellebrite and forensic tool procurement contracts for misuse clauses :
+    enforce dual-use technology policy requiring senior approval : document lawful use basis'
   mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
+    value: DUL
+    label: DUAL
+    sub: use
   mini2:
-    value: AI
-    label: BADGE
-    sub: context
+    value: ACT
+    label: RIGHTS
+    sub: Kenya

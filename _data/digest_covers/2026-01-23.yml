@@ -1,72 +1,75 @@
 date: '2026-01-23'
 slug: Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL
 sfx: JN23
-title: '2026-01-23: Microsoft AitM Agentic AI Zero Trust OpenAI PostgreSQL'
-aria: Microsoft AitM Agentic AI Zero Trust OpenAI PostgreSQL
+title: '2026-01-23: Microsoft AitM Phishing, HashiCorp Zero Trust NHI, OpenAI PostgreSQL'
+aria: Microsoft AitM phishing BEC bypass MFA, HashiCorp Agentic AI Zero Trust NHI short-lived creds, OpenAI PostgreSQL 800M user scale
 bands:
 - theme: red
-  label: SECURITY
-  headline: Microsoft AitM Phishing
-  metric: Microsoft AitM Phishing
-  detail: Microsoft AitM Phishing Detection rules + IoC pre-load + credential rotation
-    + SBOM verify
+  label: PHISHING ALERT
+  headline: Microsoft AitM Bypasses MFA
+  metric: 'AitM proxy : MFA token theft'
+  detail: 'Microsoft warns AitM phishing rigs intercept OAuth tokens post-MFA : BEC pivot
+    via stolen session : T1557 MITRE tactic'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: AiM
+    label: AITM
+    sub: phishing
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Deploy FIDO2 phishing-resistant MFA : CAE token binding'
+  detail_b: 'Block legacy auth protocols : require phishing-resistant MFA : enable CAE
+    continuous access evaluation : monitor OAuth consent grants'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: BEC
+    label: THREAT
+    sub: AitM
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
-- theme: red
-  label: PHISHING
-  headline: Microsoft AitM Microsoft AitM BEC
-  metric: Microsoft AitM Microsoft AitM BEC Microsoft
-  detail: Microsoft AitM Microsoft AitM BEC Microsoft AitM BEC Agentic AI Zero Detection
-    rules + IoC pre-load +
+    value: MFA
+    label: BYPASS
+    sub: token
+- theme: amber
+  label: AGENTIC AI
+  headline: HashiCorp NHI Zero Trust
+  metric: 'Vault dynamic creds : short-lived tokens'
+  detail: 'HashiCorp Zero Trust framework for agentic AI : NHI inventory + dynamic Vault
+    credentials : T1078 Valid Accounts mitigated'
   badge:
-    value: PSH
-    label: PSH
-    sub: highlighted
+    value: NHI
+    label: IDENTITY
+    sub: agentic
   visual:
     kind: browser_cve
-  metric_b: 'DevSecOps : phishing response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : phishing'
+  metric_b: 'NHI audit + Vault dynamic cred rotation : SPIFFE workload identity'
+  detail_b: 'Inventory all non-human identities : rotate static API keys to Vault dynamic
+    creds : enforce short TTL : SPIRE for K8s workload attestation'
   mini:
-    value: PHIS
-    label: FOCUS
-    sub: weekly
+    value: VLT
+    label: VAULT
+    sub: dynamic
   mini2:
-    value: PSH
-    label: BADGE
-    sub: context
-- theme: amber
-  label: VULNERABILITY
-  headline: OpenAI ChatGPT OpenAI ChatGPT
-  metric: OpenAI ChatGPT OpenAI ChatGPT OpenAI ChatGPT
-  detail: OpenAI ChatGPT OpenAI ChatGPT OpenAI ChatGPT Trust OpenAI PostgreSQL Vendor
-    advisory + scope assessment +
+    value: ZT
+    label: ZERO
+    sub: trust
+- theme: green
+  label: SCALE ARCH
+  headline: OpenAI PostgreSQL 800M Users
+  metric: 'Citus sharding : 800M user scale'
+  detail: 'OpenAI scales ChatGPT on PostgreSQL with Citus sharding : horizontal shard
+    distribution handles 800M user load : vLLM inference 150M funding'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: PG
+    label: POSTGRES
+    sub: scale
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Adopt Citus shard rebalancing : PgBouncer connection pool tuning'
+  detail_b: 'Migrate to partitioned tables : configure Citus shard count per workload
+    : enable pg_stat_statements monitoring : test failover paths'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: DB
+    label: SCALE
+    sub: Citus
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: OAI
+    label: OPENAI
+    sub: 800M

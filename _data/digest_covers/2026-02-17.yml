@@ -1,70 +1,75 @@
 date: '2026-02-17'
 slug: Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security
 sfx: FB17
-title: '2026-02-17: AI'
-aria: AI
+title: '2026-02-17: Infostealer Steals AI Agent Tokens, Password Manager 25 Recovery Attacks, Serverless Defense'
+aria: Infostealer malware new AI agent config token theft vector, Bitwarden Dashlane LastPass 25 recovery attacks, AWS AI serverless defense architecture
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: AI TOKEN THEFT
+  headline: Infostealer Targets AI Agent Tokens
+  metric: 'Infostealer : AI agent cred + token theft'
+  detail: 'New infostealer campaign targets AI agent configuration files and access
+    tokens : steals Claude Copilot Cursor credentials : T1555 credential vault scraping'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: INF
+    label: STEAL
+    sub: AI token
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Encrypt AI agent config files : store tokens in vault not dotfiles'
+  detail_b: 'Move AI agent secrets from dotfiles to HashiCorp Vault or OS keychain :
+    enable file integrity monitoring on .cursor .claude config dirs : rotate on detection'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: TKN
+    label: AI
+    sub: agent
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: VLT
+    label: VAULT
+    sub: store
 - theme: amber
-  label: VULNERABILITY
-  headline: Agent
-  metric: Agent
-  detail: Agent Vendor advisory + scope assessment + canary rollout + rollback plan
+  label: PASSWORD MGR
+  headline: 25 Password Manager Recovery Attacks
+  metric: 'Bitwarden/Dashlane : 25 recovery gaps'
+  detail: 'Researchers document 25 password manager recovery attack vectors across
+    Bitwarden Dashlane LastPass : account recovery bypass via social engineering and SMS'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: PWD
+    label: RECOVER
+    sub: attack
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Disable SMS recovery : enforce hardware MFA for password manager accounts'
+  detail_b: 'Replace SMS account recovery with hardware security key : audit all
+    account recovery options in Bitwarden admin : enforce phishing-resistant MFA for vault access'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: MGR
+    label: VAULT
+    sub: recover
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: SMS
+    label: BYPASS
+    sub: social
 - theme: purple
-  label: AI
-  headline: Infostealer AI Infostealer AI
-  metric: Infostealer AI Infostealer AI Infostealer AI
-  detail: Infostealer AI Infostealer AI Infostealer AI Cloud Security Prompt injection
-    guardrails + model provenance +
+  label: CLOUD DEFENSE
+  headline: AWS Serverless AI Defense Architecture
+  metric: 'Lambda guardrails : AI agent security'
+  detail: 'AWS AI-based serverless defense architecture: Lambda function guardrails
+    with prompt injection detection : model provenance tracking : cloud security agent patterns'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
+    value: SLS
+    label: AWS
+    sub: AI guard
   visual:
     kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  metric_b: 'Deploy Lambda-based AI guardrails : enable model invocation logging'
+  detail_b: 'Implement AWS Lambda guardrail layer for AI endpoint protection : enable
+    Amazon Bedrock model invocation logging : configure guardrails for topic denial and content filter'
   mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
+    value: LMB
+    label: LAMBDA
+    sub: guard
   mini2:
-    value: AI
-    label: BADGE
-    sub: context
+    value: BDR
+    label: BEDROCK
+    sub: log

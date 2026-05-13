@@ -1,70 +1,75 @@
 date: '2026-02-07'
 slug: Tech_Security_Weekly_Digest_AI_Malware_Go_Security
 sfx: FB07
-title: '2026-02-07: APT AitM'
-aria: APT AitM
+title: '2026-02-07: AI Malware Campaigns, Go-Based APT Tools, AitM Phishing Update'
+aria: AI-based malware campaigns 25 news Feb 7, Go-compiled APT attack tools threat analysis, AitM phishing credential harvest update DevSecOps response
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: AI MALWARE
+  headline: AI Malware 25 Threats Feb 7
+  metric: '25 incidents : AI-gen evasion code'
+  detail: 'Feb 7 AI-based malware round-up: 25 incidents analyzed including AI-generated
+    evasion code, LLM-assisted payload mutation, and polymorphic shellcode variants'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: AI
+    label: MALWARE
+    sub: Feb 7
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Enable behavioral AI detection in EDR : sandbox all email attachments'
+  detail_b: 'Deploy next-gen EDR with AI behavioral engine : sandbox-detonate all email
+    attachments before delivery : update YARA signatures with AI-generated mutation patterns'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: GEN
+    label: AI
+    sub: evade
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: EDR
+    label: BEHAV
+    sub: detect
 - theme: amber
-  label: VULNERABILITY
-  headline: Malware
-  metric: Malware
-  detail: Malware Vendor advisory + scope assessment + canary rollout + rollback plan
+  label: GO APT TOOLS
+  headline: Go-Compiled APT Attack Tooling
+  metric: 'Go APT : cross-OS stealthy implants'
+  detail: 'APT groups adopting Go-compiled implants for cross-OS targeting : Windows
+    Linux macOS from single codebase : packed binaries resist static AV analysis'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: APT
+    label: GO
+    sub: implant
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Hunt Go-compiled implants via YARA : block unusual Go runtime syscalls'
+  detail_b: 'Add Go-specific YARA rules to threat hunting platform : alert on Go runtime
+    syscalls from unexpected processes : use Sigma rules for Go-based C2 beacon patterns'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: GOL
+    label: APT
+    sub: cross-OS
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: YAR
+    label: YARA
+    sub: hunt
 - theme: green
-  label: DEFENSE
-  headline: TGR STA APT TGR STA APT TGR STA APT
-  metric: TGR STA APT TGR STA APT TGR STA APT Go Security
-  detail: TGR STA APT TGR STA APT TGR STA APT Go Security SIEM correlation + log retention
-    + escalation path + tabletop
+  label: AITM UPDATE
+  headline: AitM Phishing Infrastructure TGR
+  metric: 'TGR STA : AitM infra expansion'
+  detail: 'Threat actor TGR STA expands AitM phishing infrastructure : new reverse-proxy
+    kits targeting Microsoft 365 and Google Workspace : Go-based C2 panels in use'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: AiM
+    label: TGR
+    sub: STA
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Enable CAE for M365 : block known AitM proxy ASNs at firewall'
+  detail_b: 'Enforce Conditional Access Evaluation in Azure AD : block TGR STA known
+    C2 ASNs : require FIDO2 for admin accounts : alert on impossible-travel login events'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: M365
+    label: PROXY
+    sub: AitM
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: CAE
+    label: TOKEN
+    sub: bind

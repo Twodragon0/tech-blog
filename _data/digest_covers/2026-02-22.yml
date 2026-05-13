@@ -1,71 +1,75 @@
 date: '2026-02-22'
 slug: Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security
 sfx: FB22
-title: '2026-02-22: AI Roundcube KEV Claude Code'
-aria: AI Roundcube KEV Claude Code
+title: '2026-02-22: AI Actor 55-Country FortiGate Breach, Roundcube KEV x2, Claude Code Security'
+aria: AI threat actor 55-country FortiGate mass breach analysis, CISA Roundcube webmail CVE KEV emergency, Anthropic Claude Code Security mode release
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: MASS BREACH
+  headline: AI Actor Breaches 55 Countries
+  metric: 'FortiGate : AI actor : 55 nations hit'
+  detail: 'AI-assisted threat actor conducts mass FortiGate breach across 55 countries :
+    credential harvesting at scale via FortiOS auth bypass : IoC sweep recommended globally'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: FGT
+    label: FORTI
+    sub: 55-ctry
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Block FortiGate IOCs : force credential reset on all SSL-VPN accounts'
+  detail_b: 'Deploy FortiGate IOC blocklist from threat intel feed : reset all SSL-VPN
+    credentials in affected regions : enable FortiGuard breach detection logging : patch FortiOS now'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: VPN
+    label: CRED
+    sub: reset
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: IOC
+    label: SWEEP
+    sub: global
 - theme: purple
-  label: AI
-  headline: AI FortiGate AI FortiGate AI
-  metric: AI FortiGate AI FortiGate AI FortiGate Threat
-  detail: AI FortiGate AI FortiGate AI FortiGate Threat Prompt injection guardrails
-    + model provenance + output
+  label: KEV URGENT
+  headline: Roundcube 2 CVEs Added to KEV
+  metric: 'CISA KEV : Roundcube 2 CVEs urgent'
+  detail: 'CISA adds 2 Roundcube webmail CVEs to Known Exploited Vulnerabilities catalog :
+    XSS and CSRF chain enables session takeover : active exploitation confirmed in the wild'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
-  visual:
-    kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
-  mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
-  mini2:
-    value: AI
-    label: BADGE
-    sub: context
-- theme: amber
-  label: VULNERABILITY
-  headline: Vulnerability Security
-  metric: Vulnerability Security
-  detail: Vulnerability Security Vendor advisory + scope assessment + canary rollout
-    + rollback plan
-  badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: RCB
+    label: KEV
+    sub: 2 CVEs
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Patch Roundcube to latest : enforce HTTPS-only session cookies'
+  detail_b: 'Apply Roundcube security updates for both KEV CVEs immediately : configure
+    session cookies with Secure and HttpOnly flags : audit webmail access logs for XSS indicators'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: XSS
+    label: CSRF
+    sub: chain
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: SES
+    label: TAKEO
+    sub: webmail
+- theme: amber
+  label: AI SEC TOOL
+  headline: Claude Code Security Mode Ships
+  metric: 'Claude Code : security review mode'
+  detail: 'Anthropic releases Claude Code Security mode for AI-assisted code security
+    review : MITRE ATT and CK mapped findings : integrates with CI for continuous security analysis'
+  badge:
+    value: AIC
+    label: CODE
+    sub: sec mode
+  visual:
+    kind: code_bars
+  metric_b: 'Enable Claude Code Security in CI : map findings to MITRE ATT and CK'
+  detail_b: 'Add Claude Code Security scan to CI pipeline as blocking gate : configure
+    MITRE mapping for triage : review AI-flagged secrets and injection patterns in PRs'
+  mini:
+    value: ATK
+    label: MITRE
+    sub: map
+  mini2:
+    value: CCI
+    label: CI
+    sub: gate

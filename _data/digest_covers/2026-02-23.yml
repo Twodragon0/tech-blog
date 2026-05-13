@@ -1,71 +1,75 @@
 date: '2026-02-23'
 slug: Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin
 sfx: FB23
-title: '2026-02-23: Vertical AI BlackField'
-aria: Vertical AI BlackField
+title: '2026-02-23: SK Shieldus Vertical AI Strategy, BlackField Ransomware Analysis, Bitcoin $65K Drop'
+aria: SK Shieldus Vertical AI security strategy deep dive, BlackField ransomware Conti v3 analysis zero-trust data, Bitcoin 65K drop Russia sanctions evasion exchange network
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: RANSOMWARE
+  headline: BlackField Ransomware Deep Dive
+  metric: 'BlackField : Conti v3 reuse : VSS delete'
+  detail: 'BlackField ransomware detailed analysis: Conti v3 code reuse with updated
+    encryptor : VSS shadow copy deletion : zero-trust data protection countermeasures detailed'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: BLK
+    label: BLACK
+    sub: field
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Block BlackField IOCs : enforce VSS protection policy'
+  detail_b: 'Add BlackField IOC blocklist to EDR : configure VSS protection via GPO
+    to deny shadow copy deletion : enable ransomware rollback in backup solution : test recovery'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: VSS
+    label: SHADO
+    sub: delete
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: CNT
+    label: CONTI
+    sub: v3 reuse
 - theme: purple
-  label: AI
-  headline: Vertical AI HeadLin Vertical AI
-  metric: Vertical AI HeadLin Vertical AI HeadLine
-  detail: Vertical AI HeadLin Vertical AI HeadLine Vertical AI HeadLine Ransomware
-    Prompt injection guardrails + model
+  label: VERTICAL AI
+  headline: SK Shieldus Vertical AI Strategy
+  metric: 'Vertical AI : OT and cloud sec integration'
+  detail: 'SK Shieldus Nov-Dec security report: Vertical AI security strategy for OT
+    and cloud environments : EQST insight threat correlation : AI-driven detection posture'
   badge:
-    value: AI
-    label: AI
-    sub: highlighted
+    value: VAI
+    label: VERT
+    sub: AI sec
   visual:
     kind: code_bars
-  metric_b: 'DevSecOps : ai response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : ai'
+  metric_b: 'Adopt Vertical AI detection model : integrate OT and IT threat feeds'
+  detail_b: 'Evaluate Vertical AI security platform for OT-IT convergence environments :
+    integrate EQST threat intelligence into SIEM : pilot AI-driven alert correlation in SOC'
   mini:
-    value: AI
-    label: FOCUS
-    sub: weekly
+    value: OT
+    label: CONV
+    sub: IT-OT
   mini2:
-    value: AI
-    label: BADGE
-    sub: context
+    value: EQS
+    label: INTEL
+    sub: feed
 - theme: amber
-  label: VULNERABILITY
-  headline: Data Bitcoin
-  metric: Data Bitcoin
-  detail: Data Bitcoin Vendor advisory + scope assessment + canary rollout + rollback
-    plan
+  label: CRYPTO SEIZURE
+  headline: Bitcoin Drop + Russia Evasion Bust
+  metric: 'BTC : $65K drop + sanctions evasion bust'
+  detail: 'Bitcoin drops to $65K : Russia sanctions evasion exchange network disrupted :
+    cross-chain laundering tactics documented : blockchain forensics identifies mixer chain'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: BTC
+    label: SEIZE
+    sub: 65K
   visual:
-    kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+    kind: price_chart
+  metric_b: 'Monitor crypto payment exposure : alert on mixer transactions'
+  detail_b: 'Subscribe to blockchain threat intel feed for sanctions watchlist : configure
+    alert on transactions to known mixer services : review crypto payment vendor policy compliance'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: MXR
+    label: MIXER
+    sub: chain
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: SNC
+    label: SANCT
+    sub: evade

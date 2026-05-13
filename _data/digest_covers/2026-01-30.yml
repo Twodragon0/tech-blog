@@ -1,71 +1,75 @@
 date: '2026-01-30'
 slug: Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA
 sfx: JN30
-title: '2026-01-30: Ollama AI SolarWinds WHD RCE Google IPIDEA'
-aria: Ollama AI SolarWinds WHD RCE Google IPIDEA
+title: '2026-01-30: Ollama 175K Exposed LLMjacking, SolarWinds WHD CVSS 9.8 RCE x4, Google IPIDEA 6.1M Proxy'
+aria: Ollama AI 175000 servers exposed LLMjacking risk, SolarWinds Web Help Desk 4x CVSS 9.8 RCE, Google GTIG IPIDEA 6.1M residential proxy disruption
 bands:
 - theme: red
-  label: SECURITY
-  headline: Ollama AI
-  metric: Ollama AI
-  detail: Ollama AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: AI EXPOSURE
+  headline: Ollama 175K Servers Exposed
+  metric: '175K hosts : LLMjacking via open API'
+  detail: 'Ollama AI inference servers 175,000 instances exposed to internet without
+    auth : LLMjacking attackers steal GPU compute : T1078 credential abuse via open REST API'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: LLM
+    label: OLLAMA
+    sub: exposed
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Block Ollama port 11434 externally : add reverse proxy with auth'
+  detail_b: 'Firewall Ollama REST API port 11434 : deploy Nginx with basic auth or
+    OAuth proxy : scan cloud inventory for exposed AI inference endpoints : enable logging'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: GPU
+    label: HIJACK
+    sub: LLMjack
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: API
+    label: EXPOSED
+    sub: 175K
 - theme: amber
-  label: VULNERABILITY
-  headline: SolarWinds RCE
-  metric: SolarWinds RCE
-  detail: SolarWinds RCE Vendor advisory + scope assessment + canary rollout + rollback
-    plan
+  label: CRITICAL RCE
+  headline: SolarWinds WHD 4x CVSS 9.8
+  metric: 'CVSS 9.8 x4 : WHD unauthenticated RCE'
+  detail: 'SolarWinds Web Help Desk 6 new CVEs including 4 at CVSS 9.8 : unauthenticated
+    RCE via Java deserialization : CVE-2025-40551 CVE-2025-40552 among critical batch'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: RCE
+    label: SOLARW
+    sub: WHD
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Apply SolarWinds WHD patch : isolate WHD from internet exposure'
+  detail_b: 'Patch SolarWinds Web Help Desk to latest build : restrict WHD access to
+    internal network : block Java deserialization where possible : audit WHD access logs'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: CVE
+    label: 40551
+    sub: WHD
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: '9.8'
+    label: CVSS
+    sub: x4
 - theme: green
-  label: DEFENSE
-  headline: Google IPIDEA
-  metric: Google IPIDEA
-  detail: Google IPIDEA SIEM correlation + log retention + escalation path + tabletop
-    drill
+  label: PROXY TAKEDOWN
+  headline: Google GTIG Disrupts IPIDEA
+  metric: 'IPIDEA : 6.1M IP proxy block'
+  detail: 'Google Threat Intelligence Group disrupts IPIDEA residential proxy network
+    with 6.1M IP addresses : used for credential stuffing and geo-evasion at scale'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: TKD
+    label: GTIG
+    sub: proxy
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Block IPIDEA ASN ranges : enable datacenter proxy detection in WAF'
+  detail_b: 'Update WAF rules to detect residential proxy ASNs : enable IP reputation
+    filtering : alert on unusual login geolocations : use device fingerprinting for auth'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: PRX
+    label: IPIDEA
+    sub: 6.1M
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: WAF
+    label: BLOCK
+    sub: proxy

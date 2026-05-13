@@ -1,71 +1,75 @@
 date: '2026-02-24'
 slug: Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM
 sfx: FB24
-title: '2026-02-24: APT28 Docker LLM'
-aria: APT28 Docker LLM
+title: '2026-02-24: APT28 Webhook Malware Europe, XMRig BYOVD Worm, Docker Gordon AI + LLM Risk'
+aria: APT28 Europe webhook malware campaign T1071, XMRig worm BYOVD cryptominer lateral movement, Docker Gordon AI security KubeCon LLM operational risk
 bands:
 - theme: red
-  label: SECURITY
-  headline: Malware
-  metric: Malware
-  detail: Malware Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: APT28 MALWARE
+  headline: APT28 Webhook Malware Targets EU
+  metric: 'APT28 : webhook C2 : EU targets'
+  detail: 'APT28 deploys webhook-based malware against European targets : T1071 application
+    layer C2 via legitimate webhook services : credential harvesting and lateral movement observed'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: A28
+    label: APT28
+    sub: webhook
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Block webhook C2 domains : hunt APT28 T1071 indicators'
+  detail_b: 'Block known APT28 webhook C2 domains at proxy layer : hunt T1071 indicators
+    in proxy logs for outbound webhook POSTs : review European endpoint EDR telemetry for implants'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: C2
+    label: HOOK
+    sub: T1071
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: EU
+    label: TARGET
+    sub: lateral
 - theme: red
-  label: MALWARE
-  headline: APT28 MacroMaze APT28 MacroMaze
-  metric: APT28 MacroMaze APT28 MacroMaze APT28 MacroMaze
-  detail: APT28 MacroMaze APT28 MacroMaze APT28 MacroMaze AI Detection rules + IoC
-    pre-load + credential rotation +
+  label: CRYPTOMINER
+  headline: XMRig Worm BYOVD Campaign
+  metric: 'XMRig worm : BYOVD driver : cryptominer'
+  detail: 'XMRig cryptominer worm campaign uses BYOVD vulnerable driver technique to
+    disable EDR : self-replicating across Windows shares : high CPU drain indicator'
   badge:
-    value: MAL
-    label: MAL
-    sub: highlighted
+    value: XMR
+    label: WORM
+    sub: BYOVD
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : malware response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : malware'
+  metric_b: 'Block BYOVD driver hash : scan for XMRig processes on Windows fleet'
+  detail_b: 'Add BYOVD driver hash to EDR blocklist : scan Windows fleet for XMRig
+    process and scheduled task IOCs : enforce driver signature validation via Windows Defender WDAC'
   mini:
-    value: MALW
-    label: FOCUS
-    sub: weekly
+    value: DVR
+    label: WDAC
+    sub: sign
   mini2:
-    value: MAL
-    label: BADGE
-    sub: context
+    value: CPU
+    label: DRAIN
+    sub: IOC
 - theme: amber
-  label: VULNERABILITY
-  headline: OpenAI SWE Verified OpenAI SWE
-  metric: OpenAI SWE Verified OpenAI SWE Verified OpenAI
-  detail: OpenAI SWE Verified OpenAI SWE Verified OpenAI SWE Verified Docker LLM Vendor
-    advisory + scope assessment +
+  label: LLM RISK
+  headline: Docker Gordon AI + LLM Op Risk
+  metric: 'Docker Gordon AI : LLM op risk : KubeCon'
+  detail: 'Docker launches Gordon AI assistant for Docker operations : KubeCon Europe
+    SecurityCon highlights LLM operational risk in container environments : supply-chain guidance'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: DOK
+    label: GORDO
+    sub: AI
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Audit LLM container tool permissions : enforce image provenance'
+  detail_b: 'Review Docker Gordon AI permissions before enabling in production environments :
+    enforce image provenance with cosign verification : apply KubeCon SecurityCon LLM guidance'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: LLM
+    label: PERM
+    sub: audit
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: CSN
+    label: IMAGE
+    sub: sign

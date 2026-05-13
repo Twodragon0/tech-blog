@@ -1,70 +1,75 @@
 date: '2026-02-04'
 slug: Tech_Security_Weekly_Digest_AI_Docker_Data_Go
 sfx: FB04
-title: '2026-02-04: AI : Docker : Data Go'
-aria: 'AI : Docker : Data Go'
+title: '2026-02-04: DockerDash Code Exec, Metro4Shell CVE-2025-11953, AWS IAM Multi-Region'
+aria: Docker AI DockerDash code execution flaw, React Native Metro4Shell RCE CVE-2025-11953, AWS IAM Identity Center multi-region security AI agent 3Cs
 bands:
 - theme: red
-  label: SECURITY
-  headline: AI
-  metric: AI
-  detail: AI Detection rules + IoC pre-load + credential rotation + SBOM verify
+  label: DOCKER FLAW
+  headline: DockerDash AI Code Exec Bug
+  metric: 'DockerDash : unsandboxed code exec'
+  detail: 'Docker AI assistant DockerDash code execution vulnerability : AI-generated
+    commands run without sandboxing : container escape risk in developer environments'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: DCK
+    label: DOCKER
+    sub: AI flaw
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Disable DockerDash in prod : enforce rootless Docker for dev environments'
+  detail_b: 'Disable DockerDash AI assistant until patch applied : enforce rootless
+    Docker daemon : restrict container capabilities : audit Docker daemon socket exposure'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: AI
+    label: DASH
+    sub: exec
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: CTR
+    label: ESCAPE
+    sub: risk
 - theme: amber
-  label: VULNERABILITY
-  headline: Docker
-  metric: Docker
-  detail: Docker Vendor advisory + scope assessment + canary rollout + rollback plan
+  label: RCE
+  headline: Metro4Shell CVE-2025-11953
+  metric: 'Metro4Shell : React Native CLI RCE'
+  detail: 'React Native CLI Metro4Shell CVE-2025-11953 RCE : attacker-controlled Metro
+    bundler config executes arbitrary code : SSDLC dependency chain risk for mobile dev'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: RCE
+    label: METRO
+    sub: 11953
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Update React Native CLI : pin Metro bundler to patched version'
+  detail_b: 'Upgrade React Native CLI and Metro bundler immediately : verify CVE-2025-11953
+    patch in changelog : review metro.config.js for untrusted input paths'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: CVE
+    label: 25-11953
+    sub: Metro
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: RN
+    label: REACT
+    sub: native
 - theme: green
-  label: KUBERNETES
-  headline: KUBERNETES KUBERNETES KUBERNETES
-  metric: KUBERNETES KUBERNETES KUBERNETES Data Go
-  detail: KUBERNETES KUBERNETES KUBERNETES Data Go SIEM correlation + log retention
-    + escalation path + tabletop drill
+  label: CLOUD IAM
+  headline: AWS IAM Identity Center Risks
+  metric: 'IAM Identity Center : multi-region gap'
+  detail: 'AWS IAM Identity Center multi-region security analysis : permission set replication
+    lag creates privilege escalation window : AI agent 3Cs security principles published'
   badge:
-    value: K8S
-    label: K8s
-    sub: highlighted
+    value: IAM
+    label: AWS
+    sub: multi-rg
   visual:
     kind: cloud_k8s
-  metric_b: 'DevSecOps : kubernetes response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : kubernetes'
+  metric_b: 'Audit IAM Identity Center replication : enforce SCPs to close privilege gap'
+  detail_b: 'Review IAM Identity Center permission sets across all regions : enforce
+    Service Control Policies to limit effective permissions : monitor CloudTrail for cross-region IAM events'
   mini:
-    value: KUBE
-    label: FOCUS
-    sub: weekly
+    value: SCP
+    label: REGION
+    sub: IAM
   mini2:
-    value: K8S
-    label: BADGE
-    sub: context
+    value: 3CS
+    label: AI
+    sub: agent

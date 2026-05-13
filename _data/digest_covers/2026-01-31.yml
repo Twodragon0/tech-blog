@@ -1,72 +1,75 @@
 date: '2026-01-31'
 slug: Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack
 sfx: JN31
-title: '2026-01-31: ShinyHunters Vishing MFA Chrome OT'
-aria: ShinyHunters Vishing MFA Chrome OT
+title: '2026-01-31: ShinyHunters Vishing MFA Bypass, Chrome Extension ChatGPT Token Theft, OT Grid Attack'
+aria: Mandiant ShinyHunters vishing MFA bypass technique, malicious Chrome extension ChatGPT auth token theft, CERT Polska 30+ wind solar OT system attacks
 bands:
 - theme: red
-  label: SECURITY
-  headline: Risk Scorecard Risk Scorecard Risk
-  metric: Risk Scorecard Risk Scorecard Risk Scorecard
-  detail: Risk Scorecard Risk Scorecard Risk Scorecard ShinyHunters Vishing Detection
-    rules + IoC pre-load + credential
+  label: VISHING
+  headline: ShinyHunters Vishing Bypasses MFA
+  metric: 'Vishing call : MFA OTP captured live'
+  detail: 'Mandiant documents ShinyHunters vishing campaign : social engineers call
+    victims live to capture MFA OTP in real time : T1566.004 voice phishing : Snowflake breach linked'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: VSH
+    label: SHINYHNT
+    sub: vishing
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Deploy FIDO2 hardware keys : register no-OTP policy for sensitive accounts'
+  detail_b: 'Replace TOTP with FIDO2 phishing-resistant keys for admin accounts : enable
+    out-of-band session binding : train helpdesk to challenge unsolicited password reset calls'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: MFA
+    label: BYPASS
+    sub: OTP
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: SOC
+    label: VOICE
+    sub: phish
 - theme: amber
-  label: VULNERABILITY
-  headline: Chrome Extension
-  metric: Chrome Extension
-  detail: Chrome Extension Vendor advisory + scope assessment + canary rollout + rollback
-    plan
+  label: EXTENSION THREAT
+  headline: Chrome Extension Steals ChatGPT Tokens
+  metric: 'Browser extension : OAuth token exfil'
+  detail: 'Malicious Chrome extension steals ChatGPT OAuth authentication tokens :
+    session hijacking without credential : T1539 steal web session cookie : CERT Polska alert'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: EXT
+    label: CHROME
+    sub: steal
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Allowlist Chrome extensions via policy : deploy DLP for token monitoring'
+  detail_b: 'Configure Chrome enterprise policy to restrict extensions to approved list :
+    monitor network for OAuth token exfil patterns : revoke suspicious ChatGPT sessions'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: TKN
+    label: SESSION
+    sub: hijack
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: CHR
+    label: EXT
+    sub: malicious
 - theme: green
-  label: DEFENSE
-  headline: OT Attack
-  metric: OT Attack
-  detail: OT Attack SIEM correlation + log retention + escalation path + tabletop
-    drill
+  label: OT ATTACK
+  headline: 30+ Wind and Solar OT Targeted
+  metric: '30+ OT systems : CERT Polska alert'
+  detail: 'CERT Polska reports 30+ wind and solar OT systems targeted in coordinated
+    attack : attackers pivot from IT to OT via VPN : ICS protocol abuse in energy sector'
   badge:
-    value: DEF
-    label: DEF
-    sub: highlighted
+    value: OT
+    label: ENERGY
+    sub: ICS
   visual:
     kind: shield
-  metric_b: 'DevSecOps : defense response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : defense'
+  metric_b: 'Segment OT from IT : deploy unidirectional gateway on energy assets'
+  detail_b: 'Isolate OT network with unidirectional gateway : deploy Claroty or Dragos
+    monitoring on energy ICS : patch VPN gateways : enforce MFA on all OT remote access'
   mini:
-    value: DEFE
-    label: FOCUS
-    sub: weekly
+    value: ICS
+    label: WIND
+    sub: solar
   mini2:
-    value: DEF
-    label: BADGE
-    sub: context
+    value: VPN
+    label: PIVOT
+    sub: IT-OT

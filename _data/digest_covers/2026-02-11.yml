@@ -1,72 +1,75 @@
 date: '2026-02-11'
 slug: Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI
 sfx: FB11
-title: '2026-02-11: Fortinet AI'
-aria: Fortinet AI
+title: '2026-02-11: Fortinet Ransomware Patch Tuesday, Google Distributed Cloud, AI Security'
+aria: Fortinet ransomware patch Tuesday 26 news Feb 11, Google Distributed Cloud sovereign AI deployment, Google Photos Ask Photos AI privacy risk
 bands:
 - theme: red
-  label: SECURITY
-  headline: IT IT IT Security
-  metric: IT IT IT Security
-  detail: IT IT IT Security Detection rules + IoC pre-load + credential rotation +
-    SBOM verify
+  label: PATCH TUESDAY
+  headline: Fortinet Ransomware Patch Feb 11
+  metric: 'Fortinet critical : ransomware exploit chain'
+  detail: 'Feb 11 Patch Tuesday: Fortinet FortiOS critical patch for actively exploited
+    ransomware delivery chain : 26 security news analyzed including IT-OT pivot attacks'
   badge:
-    value: SEC
-    label: SEC
-    sub: highlighted
+    value: PAT
+    label: FORTNT
+    sub: Feb 11
   visual:
     kind: network_nodes
-  metric_b: 'DevSecOps : security response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : security'
+  metric_b: 'Apply Fortinet FortiOS patch immediately : segment IT-OT boundary'
+  detail_b: 'Deploy FortiOS security update : block ransomware C2 egress : add Fortinet
+    CVEs to KEV watchlist : validate backup integrity before applying patches'
   mini:
-    value: SECU
-    label: FOCUS
-    sub: weekly
+    value: FGT
+    label: PATCH
+    sub: urgent
   mini2:
-    value: SEC
-    label: BADGE
-    sub: context
+    value: C2
+    label: BLOCK
+    sub: ransom
 - theme: amber
-  label: VULNERABILITY
-  headline: Google Photos Ask Photos Google
-  metric: Google Photos Ask Photos Google Photos Ask
-  detail: Google Photos Ask Photos Google Photos Ask Photos Google Photos Ask Photos
-    Ransomware Vendor advisory + scope
+  label: AI PRIVACY
+  headline: Google Photos Ask Photos Risk
+  metric: 'Ask Photos : privacy data exposure'
+  detail: 'Google Photos Ask Photos AI feature exposes private photo metadata to LLM
+    processing : location and people data leaked in AI query context : vendor disclosure'
   badge:
-    value: VLN
-    label: VLN
-    sub: highlighted
+    value: AI
+    label: PHOTOS
+    sub: privacy
   visual:
     kind: lock_cve
-  metric_b: 'DevSecOps : vulnerability response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : vulnerability'
+  metric_b: 'Disable Ask Photos in Google Workspace : review photo sharing policies'
+  detail_b: 'Disable Ask Photos for enterprise accounts in Google Admin : review Google
+    Photos sharing settings : educate users on AI feature data usage : assess DLP exposure'
   mini:
-    value: VULN
-    label: FOCUS
-    sub: weekly
+    value: PHO
+    label: LEAK
+    sub: meta
   mini2:
-    value: VLN
-    label: BADGE
-    sub: context
+    value: LLM
+    label: CONTEXT
+    sub: risk
 - theme: blue
-  label: CLOUD
-  headline: Google Distributed Cloud Google
-  metric: Google Distributed Cloud Google Distributed
-  detail: Google Distributed Cloud Google Distributed Cloud Google Distributed Cloud
-    Patch AI IAM audit + network
+  label: SOVEREIGN CLOUD
+  headline: Google Distributed Cloud for AI
+  metric: 'GDC : sovereign on-prem AI workloads'
+  detail: 'Google Distributed Cloud expansion for sovereign AI workloads : on-premises
+    Kubernetes with Vertex AI : air-gapped deployment for regulated industries'
   badge:
-    value: CLD
-    label: CLD
-    sub: highlighted
+    value: GDC
+    label: GOOGLE
+    sub: sovereign
   visual:
     kind: cloud_k8s
-  metric_b: 'DevSecOps : cloud response'
-  detail_b: 'Detection rules + IoC pre-load + secret rotation + SBOM verify : cloud'
+  metric_b: 'Evaluate GDC for regulated AI workloads : enforce IAM audit logging'
+  detail_b: 'Assess Google Distributed Cloud for air-gapped AI inference : configure
+    Vertex AI access controls : enable Cloud Audit Logs for all GDC AI API calls'
   mini:
-    value: CLOU
-    label: FOCUS
-    sub: weekly
+    value: K8S
+    label: GDC
+    sub: on-prem
   mini2:
-    value: CLD
-    label: BADGE
-    sub: context
+    value: VTX
+    label: VERTEX
+    sub: AI
