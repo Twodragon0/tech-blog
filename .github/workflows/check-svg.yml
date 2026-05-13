@@ -6,11 +6,16 @@ on:
       - main
     paths:
       - 'assets/images/*.svg'
+      - 'scripts/check_posts.py'
+      - 'scripts/check_cover_qr_urls.py'
   pull_request:
     branches:
       - main
     paths:
       - 'assets/images/*.svg'
+      - 'scripts/check_posts.py'
+      - 'scripts/check_cover_qr_urls.py'
+  workflow_dispatch: {}
 
 permissions: {}
 
