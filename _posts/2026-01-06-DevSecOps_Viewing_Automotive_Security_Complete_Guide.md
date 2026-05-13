@@ -25,6 +25,7 @@ tags:
 title: 'DevSecOps가 바라보는 자동차 보안 완벽 가이드: 커넥티드 카 시대의 보안 전략'
 toc: true
 redirect_from:
+  - /posts/2026/01/DevSecOps가_바라보는_자동차_보안_완벽_가이드/
   - /posts/2026/01/DevSecOps_Viewing_Automotive_Security_Complete_Guide/
   - /posts/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide/
 summary_card:

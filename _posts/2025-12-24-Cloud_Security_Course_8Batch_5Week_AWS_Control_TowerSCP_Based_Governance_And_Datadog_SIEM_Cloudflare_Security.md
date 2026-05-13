@@ -28,6 +28,7 @@ series: "Cloud Security Course 8기"
 series_order: 6
 series_total: 9
 redirect_from:
+  - /posts/2025/12/클라우드_시큐리티_과정_8기_5주차_AWS_Control_TowerSCP_기반_거버넌스_및_Datadog_SIEM_Cloudflare_보안/
   - /posts/2025/12/Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security/
   - /posts/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security/
 summary_card:

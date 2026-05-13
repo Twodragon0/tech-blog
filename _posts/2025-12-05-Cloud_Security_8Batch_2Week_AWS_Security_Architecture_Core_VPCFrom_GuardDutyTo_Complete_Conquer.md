@@ -26,6 +26,7 @@ series: "Cloud Security Course 8기"
 series_order: 3
 series_total: 9
 redirect_from:
+  - /posts/2025/12/클라우드_시큐리티_8기_2주차_AWS_보안_아키텍처의_핵심_VPC부터_GuardDuty까지_완벽_정복/
   - /posts/2025/12/Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/
   - /posts/2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/
 summary_card:

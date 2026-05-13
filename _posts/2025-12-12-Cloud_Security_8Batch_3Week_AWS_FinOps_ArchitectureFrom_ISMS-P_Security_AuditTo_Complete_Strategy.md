@@ -28,6 +28,7 @@ series: "Cloud Security Course 8기"
 series_order: 4
 series_total: 9
 redirect_from:
+  - /posts/2025/12/클라우드_시큐리티_8기_3주차_AWS_FinOps_아키텍처부터_ISMS-P_보안_감사까지_완벽_공략/
   - /posts/2025/12/Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy/
   - /posts/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy/
 summary_card:

@@ -25,6 +25,7 @@ tags:
 title: '2025년 ISMS-P 인증 완벽 가이드: AWS 환경에서 관리체계 수립 및 보호대책 구현'
 toc: true
 redirect_from:
+  - /posts/2026/01/2025_ISMS-P_인증_완벽_가이드_AWS_환경에서의_관리체계_수립_및_보호조치_구현/
   - /posts/2026/01/2025_ISMS-P_Certification_Complete_Guide_AWS_In_Environment_Management_System_Establishment_And_Protection_Measures_Implementation/
   - /posts/2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_In_Environment_Management_System_Establishment_And_Protection_Measures_Implementation/
 summary_card:
