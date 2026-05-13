@@ -1,0 +1,36 @@
+date: '2026-03-19'
+slug: Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch
+date_str: 2026.03.19
+post_title: 'Weekly digest 2026-03-19: NK $300M sanction, Cisco FMC 9.8, telnetd RCE'
+url: https://tech.2twodragon.com/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/
+hero:
+  tag: CRITICAL PATCH
+  index: '01'
+  theme: red
+  visual: cve_chain
+  headline: Cisco FMC CVE-2026-20131
+  subheadline: Auth bypass in Firepower Management Center  /  CVSS 9.8
+  kpi_value: '9.8'
+  kpi_label: CVSS
+  kpi_sub: auth bypass
+  action: P0 - PATCH FMC NOW
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: blue
+  visual: code_injection
+  headline: Telnetd CVE-2026-32746
+  subheadline: Root RCE in inetutils telnetd  /  affects 23 vendor builds
+  kpi_value: '23'
+  kpi_label: VENDORS
+  kpi_sub: root RCE chain
+bottom_right:
+  tag: SANCTION
+  index: '03'
+  theme: amber
+  visual: data_exfil
+  headline: NK IT Workers Sanctioned
+  subheadline: Treasury hits 6 fronts laundering remote-dev paychecks
+  kpi_value: $300M
+  kpi_label: SEIZED
+  kpi_sub: OFAC action

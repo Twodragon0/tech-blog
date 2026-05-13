@@ -1,0 +1,36 @@
+date: '2026-03-16'
+slug: Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update
+date_str: 2026.03.16
+post_title: 'Weekly digest 2026-03-16: AI red-team OSS, Bedrock multi-agent, Aave Shield'
+url: https://tech.2twodragon.com/posts/2026/03/16/Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/
+hero:
+  tag: OSS RELEASE
+  index: '01'
+  theme: red
+  visual: code_injection
+  headline: AI Agent Red-Team OSS
+  subheadline: Open-source toolkit for LLM jailbreak and prompt-injection tests
+  kpi_value: v1.0
+  kpi_label: RELEASE
+  kpi_sub: MIT licensed
+  action: ADOPT - HARDEN AI AGENTS NOW
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: blue
+  visual: hub_spoke
+  headline: AWS Bedrock Multi-Agent
+  subheadline: Coordinated agent runtime ships with isolation guardrails
+  kpi_value: GA
+  kpi_label: STATUS
+  kpi_sub: us-east + eu-west
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: amber
+  visual: supply_chain_pipe
+  headline: Aave Shield DeFi Launch
+  subheadline: On-chain insurance covers smart-contract exploits
+  kpi_value: $50M
+  kpi_label: TVL
+  kpi_sub: first 24h

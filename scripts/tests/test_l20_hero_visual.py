@@ -34,7 +34,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ASSETS_DIR = REPO_ROOT / "assets" / "images"
 REFERENCE_SVG = ASSETS_DIR / "2026-04-08-Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet.svg"
 
-# Exact 16 filenames produced by upgrade_2026_03_16_31_to_l20_hero.py
+# Exact 15 filenames produced by upgrade_l20_cover.py from
+# _data/l20_covers/*.yml (2026-03-23 owned by digest pipeline per audit D1)
 L20_MARCH_FILENAMES: list[str] = [
     "2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update.svg",
     "2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin.svg",

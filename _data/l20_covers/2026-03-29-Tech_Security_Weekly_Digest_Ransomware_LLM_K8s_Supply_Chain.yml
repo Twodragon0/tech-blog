@@ -1,0 +1,36 @@
+date: '2026-03-29'
+slug: Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain
+date_str: 2026.03.29
+post_title: 'Weekly digest 2026-03-29: ransomware AI, LLM jailbreak CVE, Helm + Next.js'
+url: https://tech.2twodragon.com/posts/2026/03/29/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/
+hero:
+  tag: RANSOMWARE
+  index: '01'
+  theme: red
+  visual: ransomware_lock
+  headline: Ransomware AI Automation
+  subheadline: AI tooling crafts negotiation chat and victim-specific lures
+  kpi_value: +38%
+  kpi_label: VICTIMS
+  kpi_sub: qoq increase
+  action: HARDEN - PRACTICE DR DRILL
+top_right:
+  tag: LLM CVE
+  index: '02'
+  theme: blue
+  visual: code_injection
+  headline: LLM Jailbreak CVE-2026-3291
+  subheadline: Indirect prompt injection bypasses safety system prompt
+  kpi_value: '8.6'
+  kpi_label: CVSS
+  kpi_sub: indirect injection
+bottom_right:
+  tag: SUPPLY CHAIN
+  index: '03'
+  theme: amber
+  visual: supply_chain_pipe
+  headline: Helm + Next.js Auth Bypass
+  subheadline: Helm chart ships weak default and Next.js middleware bypass
+  kpi_value: '2'
+  kpi_label: PROJECTS
+  kpi_sub: Helm + Next.js

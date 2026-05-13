@@ -1,0 +1,36 @@
+date: '2026-03-28'
+slug: Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day
+date_str: 2026.03.28
+post_title: 'Weekly digest 2026-03-28: AI agent priv esc, AWS ECS escape, Harbor'
+url: https://tech.2twodragon.com/posts/2026/03/28/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/
+hero:
+  tag: ZERO-DAY
+  index: '01'
+  theme: red
+  visual: container_escape
+  headline: AWS ECS Container Escape
+  subheadline: Task role assumed by sibling task via metadata race
+  kpi_value: 0day
+  kpi_label: STATUS
+  kpi_sub: AWS patching
+  action: ENABLE IMDSv2 ONLY
+top_right:
+  tag: AI RISK
+  index: '02'
+  theme: blue
+  visual: ai_agent_funnel
+  headline: AI Agent Priv Escalation
+  subheadline: Framework tools chain into shell exec via crafted plan
+  kpi_value: '3'
+  kpi_label: FRAMEWORKS
+  kpi_sub: popular AI libs
+bottom_right:
+  tag: REGISTRY
+  index: '03'
+  theme: amber
+  visual: supply_chain_pipe
+  headline: Harbor Registry Supply
+  subheadline: Replication race lets unsigned image overwrite trusted tag
+  kpi_value: '2.12'
+  kpi_label: VERSION
+  kpi_sub: patch released

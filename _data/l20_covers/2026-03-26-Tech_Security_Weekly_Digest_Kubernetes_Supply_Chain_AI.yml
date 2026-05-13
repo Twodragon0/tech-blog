@@ -1,0 +1,36 @@
+date: '2026-03-26'
+slug: Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI
+date_str: 2026.03.26
+post_title: 'Weekly digest 2026-03-26: K8s RBAC bypass, SLSA SBOM, AI prompt-injection'
+url: https://tech.2twodragon.com/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/
+hero:
+  tag: K8S BYPASS
+  index: '01'
+  theme: red
+  visual: container_escape
+  headline: K8s RBAC Bypass + Cilium
+  subheadline: eBPF policy gap lets sidecar escalate to node uid 0
+  kpi_value: '1.31'
+  kpi_label: VERSIONS
+  kpi_sub: 1.30-1.31 hit
+  action: UPGRADE - DENY RAW ESCAPE
+top_right:
+  tag: SUPPLY CHAIN
+  index: '02'
+  theme: blue
+  visual: supply_chain_pipe
+  headline: SLSA SBOM Adoption
+  subheadline: L3 attestation now required by major Linux distro mirrors
+  kpi_value: L3
+  kpi_label: SLSA
+  kpi_sub: tier required
+bottom_right:
+  tag: DEFENSE
+  index: '03'
+  theme: amber
+  visual: ai_agent_funnel
+  headline: AI Prompt-Injection Defense
+  subheadline: Pattern library blocks indirect injections from web context
+  kpi_value: 94%
+  kpi_label: BLOCK
+  kpi_sub: inj test set

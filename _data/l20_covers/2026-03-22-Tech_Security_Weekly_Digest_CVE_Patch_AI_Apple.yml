@@ -1,0 +1,36 @@
+date: '2026-03-22'
+slug: Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple
+date_str: 2026.03.22
+post_title: 'Weekly digest 2026-03-22: Signal phishing, Oracle IdM 9.8, Trivy + Apple KEV'
+url: https://tech.2twodragon.com/posts/2026/03/22/Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/
+hero:
+  tag: CRITICAL PATCH
+  index: '01'
+  theme: red
+  visual: cve_chain
+  headline: Oracle IdM CVE-2026-31201
+  subheadline: Pre-auth RCE in Identity Manager  /  CVSS 9.8
+  kpi_value: '9.8'
+  kpi_label: CVSS
+  kpi_sub: pre-auth RCE
+  action: P0 - PATCH ORACLE IDM
+top_right:
+  tag: PHISHING
+  index: '02'
+  theme: blue
+  visual: data_exfil
+  headline: Signal WhatsApp Phish
+  subheadline: Spear-phishing kits hijack secure-chat session pairing
+  kpi_value: '2'
+  kpi_label: TARGETS
+  kpi_sub: Signal + WhatsApp
+bottom_right:
+  tag: KEV
+  index: '03'
+  theme: amber
+  visual: code_injection
+  headline: Trivy + Apple KEV
+  subheadline: CanisterWorm worm joins CISA KEV with Apple webkit chain
+  kpi_value: '3'
+  kpi_label: CVES
+  kpi_sub: added to KEV
