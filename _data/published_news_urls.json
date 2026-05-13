@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-12T02:11:05.272248+00:00",
+  "updated_at": "2026-05-13T02:17:11.220170+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/researchers-discover-critical-github.html",
-      "title": "Researchers Discover Critical GitHub CVE-2026-3854 RCE Flaw Exploitable via Sing",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/brazilian-lofygang-resurfaces-after.html",
-      "title": "Brazilian LofyGang Resurfaces After Three Years With Minecraft LofyStealer Campa",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/vect-20-ransomware-irreversibly.html",
-      "title": "VECT 2.0 Ransomware Irreversibly Destroys Files Over 131KB on Windows, Linux, ES",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/what-the-march-2026-threat-technique-catalog-update-means-for-your-aws-environment/",
-      "title": "What the March 2026 Threat Technique Catalog update means for your AWS environme",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/why-secure-data-movement-is-zero-trust.html",
-      "title": "Why Secure Data Movement Is the Zero Trust Bottleneck Nobody Talks About",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents/",
-      "title": "NVIDIA Launches Nemotron 3 Nano Omni Model, Unifying Vision, Audio and Language ",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/translate/fun-facts-google-translate-20-years/",
-      "title": "Celebrating 20 years of Google Translate: Fun facts, tips and new features to tr",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/connecting-agents-to-decisions-277dee8ddb40?source=rss----3c87dc14372f---4",
-      "title": "Connecting Agents to Decisions",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/manufacturing-simulation-first/",
-      "title": "Into the Omniverse: Manufacturing’s Simulation-First Era Has Arrived",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/migrating-a-text-agent-to-a-voice-assistant-with-amazon-nova-2-sonic/",
-      "title": "Migrating a text agent to a voice assistant with Amazon Nova 2 Sonic",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/welcome-to-the-agentic-era-public-sector-highlights-and-reflections-from-next-26/",
-      "title": "Welcome to the agentic era: Public sector highlights and reflections from Next ‘",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-managed-mcp-servers-are-available-for-everyone/",
-      "title": "50+ fully managed MCP servers now available for Google Cloud services",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/de/topics/offentlicher-sektor/google-cloud-und-das-bsi-c3a-framework-wie-wir-digitale-souveranitat-in-deutschland-konkret-machen/",
-      "title": "Google Cloud und das BSI C3A-Framework: Wie wir Digitale Souveränität in Deutsch",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/top-announcements-of-the-whats-next-with-aws-2026/",
-      "title": "Top announcements of the What’s Next with AWS, 2026",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/agentic-ai-product-gtm-with-aws-marketplace/",
-      "title": "AI Native 제품의 GTM 을 위한 과금 모델 통합 전략",
-      "published_date": "2026-04-29",
-      "expires_at": "2026-05-06T02:08:14.322629+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/sap-npm-packages-compromised-by-mini.html",
       "title": "SAP-Related npm Packages Compromised in Credential-Stealing Supply Chain Attack",
@@ -1170,6 +1080,96 @@
       "title": "Future-proof your data strategy: AlloyDB adds PostgreSQL 18 and new Extended Sup",
       "published_date": "2026-05-12",
       "expires_at": "2026-05-19T02:11:05.272151+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/12/accelerating-detection-engineering-using-ai-assisted-synthetic-attack-logs-generation/",
+      "title": "Accelerating detection engineering using AI-assisted synthetic attack logs gener",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/new-exim-bdat-vulnerability-exposes.html",
+      "title": "New Exim BDAT Vulnerability Exposes GnuTLS Builds to Potential Code Execution",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/",
+      "title": "Defense at AI speed: Microsoft’s new multi-model agentic security system tops le",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/aws-security-agent-full-repository-code-scanning-feature-now-available-in-preview/",
+      "title": "AWS Security Agent full repository code scanning feature now available in previe",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/rubygems-suspends-new-signups-after.html",
+      "title": "RubyGems Suspends New Signups After Hundreds of Malicious Packages Are Uploaded",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/05/12/data-infrastructure/migrating-data-ingestion-systems-at-meta-scale/",
+      "title": "Migrating Data Ingestion Systems at Meta Scale",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://openai.com/academy/how-finance-teams-use-codex",
+      "title": "How finance teams use Codex",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/sap-specialized-agents/",
+      "title": "NVIDIA and SAP Bring Trust to Specialized Agents",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-amazon-finance-streamlines-regulatory-inquiries-by-using-generative-ai-on-aws/",
+      "title": "How Amazon Finance streamlines regulatory inquiries by using generative AI on AW",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/automate-schema-generation-for-intelligent-document-processing/",
+      "title": "Automate schema generation for intelligent document processing",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/sap-google-cloud/sap-sapphire-2026-the-future-of-google-cloud-ai-agents/",
+      "title": "SAP SAPPHIRE 2026: Google Cloud unveils unified agentic vision and massive compu",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/infrastructure/how-imgix-processes-8-billion-images-daily-with-g4-vms-powered-by-nvidia-blackwell/",
+      "title": "How Imgix processes 8 billion images daily with G4 VMs powered by NVIDIA Blackwe",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/amazon-redshift-introduces-aws-graviton-based-rg-instances-with-an-integrated-data-lake-query-engine/",
+      "title": "Amazon Redshift introduces AWS Graviton-based RG instances with an integrated da",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/nccl/",
+      "title": "분산 트레이닝 관점에서의 AWS 인터커넥트 기술 소개 – AWS 환경에서 NCCL을 이용한 GPU 간 통신",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-12-copilot-code-review-comment-experience-improvements",
+      "title": "Copilot code review: Comment experience improvements",
+      "published_date": "2026-05-13",
+      "expires_at": "2026-05-20T02:17:11.220041+00:00"
     }
   ]
 }
