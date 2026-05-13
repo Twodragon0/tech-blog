@@ -74,5 +74,9 @@
   - 실시간 분석
 -->
 {% if site.cloudflare_analytics_token %}
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ site.cloudflare_analytics_token }}"}' integrity='sha384-OngJu5CJZ5lWGKcpmuxzX/oKa+Gcbcw0xdBkaOPd+KAe6c0poNtwdci1DEIrrtF/' crossorigin='anonymous'></script>
+<!-- SRI integrity omitted intentionally: Cloudflare updates
+     beacon.min.js content without changing the URL (no version
+     pin), so any pinned hash breaks the load on every CF rotation.
+     Trusted CF CDN + token-scoped beacon makes this acceptable. -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ site.cloudflare_analytics_token }}"}' crossorigin='anonymous'></script>
 {% endif %}
