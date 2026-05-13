@@ -56,8 +56,8 @@
   },
   "2026-03-25-Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent.svg": {
     "png": "2026-03-25-Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent.png",
-    "sha256": "1e69259e221451b3cf6b0dea0eb728c17c23f7b1b89488c7c02e813fbf532c19",
-    "bytes": 160247
+    "sha256": "e890577da58249fc7a3b65482a23602af316007b42be67529cea9cd68784001d",
+    "bytes": 160239
   },
   "2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI.svg": {
     "png": "2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI.png",
@@ -146,7 +146,7 @@
   },
   "2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.svg": {
     "png": "2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.png",
-    "sha256": "07913a7a481dd9e3077db9602eb6c94a015958be8be4a318c16cfdc181c88566",
-    "bytes": 333762
+    "sha256": "01c0402de1f6cae8ae4c091761120b5ba116803ea84a4c694a826ef90f27ee11",
+    "bytes": 395691
   }
 }
