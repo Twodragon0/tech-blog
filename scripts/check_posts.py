@@ -208,6 +208,19 @@ def _is_stacked_bands_cover_svg(raw_svg: str) -> bool:
     )
 
 
+def _is_rollup_cover_svg(raw_svg: str) -> bool:
+    """Return True when the SVG uses the rollup-cover profile.
+
+    Rollup covers (monthly_index + weekly_rollup) emit a hybrid layout:
+    top-3 highlights strip + N-cell day strip + 4-card footer stats.
+    Day strips of 7-11 cells × ~3 labels per cell + footer + highlights
+    inflate text-node counts to 46-80, well above the 40-node default
+    limit. Detection: `id="bgRoll..."` is the unambiguous marker emitted
+    by `scripts/lib/svg_rollup_generator.py:render_rollup_svg`.
+    """
+    return 'id="bgRoll' in raw_svg
+
+
 def check_title_truncation(title: str) -> List[str]:
     """Detect frontmatter titles that appear to have been truncated mid-phrase.
 
@@ -400,6 +413,7 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
 
     is_hq_cover = _is_high_quality_cover_svg(raw_svg)
     is_stacked_bands = not is_hq_cover and _is_stacked_bands_cover_svg(raw_svg)
+    is_rollup = not is_hq_cover and not is_stacked_bands and _is_rollup_cover_svg(raw_svg)
     # HQ dashboard covers (threat signal map style) are deliberately
     # information-dense — stats labels, data viz annotations, terminal
     # snippets. Observed distribution on 2026-03/04 weekly digests:
@@ -411,12 +425,20 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
     # tier: 42-61 text nodes, up to ~1200 chars. Limits set ~25% above the
     # observed max (75 nodes / 1300 chars) to catch genuine runaway generation
     # while silencing these intentional false positives.
+    #
+    # Rollup covers (monthly_index + weekly_rollup) bundle top-3 highlights +
+    # N-cell day strip (7-11 cells × ~3 labels) + 4-card footer. Observed
+    # range: 46-80 text nodes, ~1200-1900 chars. Limit set ~25% above the
+    # observed max (100 nodes / 2400 chars).
     if is_hq_cover:
         text_node_limit = 115
         total_char_limit = 1700
     elif is_stacked_bands:
         text_node_limit = 75
         total_char_limit = 1300
+    elif is_rollup:
+        text_node_limit = 100
+        total_char_limit = 2400
     else:
         text_node_limit = 40
         total_char_limit = 800
