@@ -31,6 +31,9 @@ summary_card:
     - { source: "The Hacker News", title: "Progress, 인증 우회 가능한 치명적 MOVEit Automation 버그 패치" }
     - { source: "The Hacker News", title: "주간 요약: AI 기반 피싱, Android 스파이 도구, Linux 익스플로잇, GitHub RCE 등" }
     - { source: "Google Cloud Blog", title: "Apache Airflow용 Managed Service로 데이터와 AI 확장하기" }
+redirect_from:
+  - /posts/2026/05/Tech_Security_Weekly_Digest_AI_Patch_AWS/
+  - /posts/2026-05-05-Tech_Security_Weekly_Digest_AI_Patch_AWS/
 ---
 
 {% include ai-summary-card.html %}

@@ -21,6 +21,8 @@ redirect_from:
   - /posts/2026/04/17/Tech_Security_Weekly_Digest_Botnet_Threat_AI_Malware/
   - /posts/2026/04/18/Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/
   - /posts/2026/04/19/Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/
+  - /posts/2026/04/Week3_April_2026_Security_Digest/
+  - /posts/2026-04-19-Week3_April_2026_Security_Digest/
 summary_card:
   title: "2026년 4월 3주차 보안 다이제스트 주간 롤업"
   period: "2026년 4월 3주차 (4/13 ~ 4/19)"

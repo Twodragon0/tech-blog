@@ -26,6 +26,7 @@ series_order: 7
 series_total: 7
 redirect_from:
   - /posts/2025/06/Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration/
+  - /posts/2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration/
 summary_card:
   title: "클라우드 시큐리티 과정 7기 - 9주차: DevSecOps 통합 정리"
   audience: "DevSecOps 엔지니어, 보안 엔지니어, 개발자"

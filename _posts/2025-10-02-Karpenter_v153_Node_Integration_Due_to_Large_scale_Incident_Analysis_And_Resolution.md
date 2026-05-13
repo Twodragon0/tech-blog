@@ -25,6 +25,7 @@ title: Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 �
 toc: true
 redirect_from:
   - /posts/2025/10/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/
+  - /posts/2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/
 summary_card:
   title: "Karpenter v1.5.3 노드 통합으로 인한 대규모 장애 분석 및 해결기"
   audience: "SRE, 인시던트 대응 담당자, 운영 엔지니어"

@@ -32,6 +32,7 @@ title: "Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/
+  - /posts/2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/
 summary_card:
   title: "Tech & Security Weekly Digest (2026년 01월 30일)"
   period: "2026년 1월 29일 ~ 30일 (48시간)"

@@ -16,6 +16,7 @@ image_alt: "Tech Security Weekly Digest March 07 2026 Android Zero Day DevSecOps
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/
+  - /posts/2026-03-07-Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/
 summary_card:
   title: "Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증"
   period: "2026년 03월 07일 (24시간)"

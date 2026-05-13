@@ -32,6 +32,9 @@ summary_card:
     - { source: "The Hacker News", title: "정보 기관 주장 이후 제재 대상 Grinex 거래소가 1,374만 달러 해킹으로 폐쇄" }
     - { source: "Microsoft Security Blog", title: "크로스 테넌트 헬프데스크 사칭에서 데이터 유출까지: 인간 운영 침입 플레이북" }
     - { source: "The Hacker News", title: "Mirai 변종 Nexcorium, CVE-2024-3721 취약점으로 TBK DVR 장악해 DDoS 봇넷" }
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/
+  - /posts/2026-04-19-Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/
 ---
 
 {% include ai-summary-card.html %}

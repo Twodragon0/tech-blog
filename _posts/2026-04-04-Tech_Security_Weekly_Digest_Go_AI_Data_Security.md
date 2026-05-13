@@ -16,6 +16,7 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Go_AI_Data_Security/
+  - /posts/2026-04-04-Tech_Security_Weekly_Digest_Go_AI_Data_Security/
 summary_card:
   title: "중국 연계 TA416 PlugX 캠페인·Microsoft·Linux·LinkedIn 6,000+ 계정 표적: 2026-04-04 보안 위클리 다이제스트"
   period: "2026년 04월 04일 (24시간)"

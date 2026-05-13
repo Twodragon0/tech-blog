@@ -16,6 +16,7 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Patch_AI/
+  - /posts/2026-04-06-Tech_Security_Weekly_Digest_Patch_AI/
 summary_card:
   title: "2억 8500만 달러 규모 Drift 해킹, 신종 피싱 문자에 QR 코드를 활용한 교통위반, New FortiClient EMS 취약점"
   period: "2026년 04월 06일 (24시간)"

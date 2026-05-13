@@ -16,6 +16,7 @@ image_alt: "Microsoft zero day, Apple patch, and Ivanti EPMM attack digest"
 toc: true
 redirect_from:
   - /posts/2026/02/Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM/
+  - /posts/2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM/
 summary_card:
   title: "2026년 2월 2주차 보안 위협 종합 분석"
   period: "2026년 2월 8일 ~ 2월 14일"

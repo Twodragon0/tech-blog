@@ -29,6 +29,9 @@ summary_card:
   highlights:
     - { source: "BleepingComputer", title: "미국 유틸리티 기업 Itron, 내부 IT 네트워크 침해 사실 공개" }
     - { source: "AWS Korea Blog", title: "에이전틱 AI와 Amazon Bedrock AgentCore를 활용한 전문가 팀 시뮬레이션" }
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Agent/
+  - /posts/2026-04-27-Tech_Security_Weekly_Digest_AI_Agent/
 ---
 
 {% include ai-summary-card.html %}

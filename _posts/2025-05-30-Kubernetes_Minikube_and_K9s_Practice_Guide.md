@@ -40,6 +40,10 @@ summary_card:
     - { source: "K9s 터미널 UI 활용", title: "실시간 모니터링, 네임스페이스 기반 리소스 관리, 성능 최적화(대규모 클러스터), 보안 고려사항(읽기 전용 모드, RBAC), 커스텀 뷰 설정" }
     - { source: "Kubernetes 2024-2025 보안 강화", title: "User Namespaces(1.33+), Bound Service Account Tokens(1.32+), mTLS Pod Certificates(1.35 Beta), Dynamic Resource Allocation(1.34 Stable)" }
     - { source: "실전 테스트 시나리오", title: "Pod/Deployment/Service 배포, ConfigMap/Secret 관리, 문제 해결(로그 분석, 리소스 모니터링, 네트워크 디버깅), HPA 및 Network Policy 적용" }
+redirect_from:
+  - /posts/2025/05/Kubernetes_Minikube_and_K9s_Practice_Guide/
+  - /posts/2025-05-30-Kubernetes_Minikube_and_K9s_Practice_Guide/
+  - /posts/2025/05/Kubernetes_Minikube_ampamp_K9s_Practice_Guide_Problem_From_Resolution_Practical_TestTo/
 ---
 {% include ai-summary-card.html %}
 

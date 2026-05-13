@@ -30,6 +30,7 @@ series_order: 6
 series_total: 7
 redirect_from:
   - /posts/2025/06/Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide/
+  - /posts/2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide/
 summary_card:
   title: "클라우드 시큐리티 과정 7기 - 8주차: CI/CD와 Kubernetes 보안 실전 가이드"
   audience: "클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자"

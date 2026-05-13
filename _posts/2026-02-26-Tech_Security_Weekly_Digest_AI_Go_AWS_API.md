@@ -15,6 +15,7 @@ image_alt: "Tech Security Weekly Digest February 26 2026 AI Go AWS"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Go_AWS_API/
+  - /posts/2026-02-26-Tech_Security_Weekly_Digest_AI_Go_AWS_API/
 summary_card:
   title: "UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향"
   period: "2026-02-26 (24시간)"

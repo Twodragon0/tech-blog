@@ -33,6 +33,9 @@ summary_card:
     - { source: "The Hacker News", title: "SystemBC C2 서버, The Gentlemen 랜섬웨어 작전에서 1,570명 이상의 피해자 드러내" }
     - { source: "The Hacker News", title: "22 BRIDGE:BREAK 취약점으로 수천 대의 Lantronix 및 Silex 직렬-IP 컨버터 노출" }
     - { source: "Google Cloud Blog", title: "공공 부문 전반에 걸친 AI 기반을 파트너 생태계로 구축" }
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/
+  - /posts/2026-04-22-Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/
 ---
 
 {% include ai-summary-card.html %}

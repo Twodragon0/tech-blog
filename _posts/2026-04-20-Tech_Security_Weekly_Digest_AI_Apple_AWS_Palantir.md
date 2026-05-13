@@ -32,6 +32,9 @@ summary_card:
     - { source: "BleepingComputer", title: "Apple 계정 변경 알림을 악용한 피싱 이메일 발송" }
     - { source: "BleepingComputer", title: "NIST, 증가하는 취약점 수로 인해 비우선순위 결함 평가 중단" }
     - { source: "TechCrunch Security", title: "Palantir, 포용성과 &#x27;퇴행적&#x27; 문화를 비난하는 소형 선언문 게시" }
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/
+  - /posts/2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/
 ---
 
 {% include ai-summary-card.html %}

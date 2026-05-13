@@ -16,6 +16,7 @@ image_alt: "Tech Security Weekly Digest March 04 2026 JWT Auth Crypto AI Governa
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin/
+  - /posts/2026-03-04-Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin/
 summary_card:
   title: "기술·보안 주간 다이제스트: JWT 인증 위협, 암호화폐 유출, 금융 AI 거버넌스"
   period: "2026-03-04 (24시간)"

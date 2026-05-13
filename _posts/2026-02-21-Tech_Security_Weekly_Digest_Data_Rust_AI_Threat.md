@@ -34,6 +34,9 @@ summary_card:
     - { source: "보안 뉴스", title: "The Hacker News, SK쉴더스 보안 리포트 등 15건의 취약점, AI, 클라우드 보안 관련 DevSecOps 실무 위협 분석" }
     - { source: "실무 관점", title: "영향 범위와 우선순위를 함께 점검해야 합니다" }
     - { source: "운영 체계", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+redirect_from:
+  - /posts/2026/02/Tech_Security_Weekly_Digest_Data_Rust_AI_Threat/
+  - /posts/2026-02-21-Tech_Security_Weekly_Digest_Data_Rust_AI_Threat/
 ---
 {% include ai-summary-card.html %}
 

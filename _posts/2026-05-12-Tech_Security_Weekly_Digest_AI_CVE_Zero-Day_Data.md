@@ -31,6 +31,9 @@ summary_card:
     - { source: "The Hacker News", title: "cPanel CVE-2026-41940 활성 익스플로잇으로 Filemanager 백도어 배포" }
     - { source: "The Hacker News", title: "해커들이 AI를 사용해 최초로 알려진 제로데이 2FA 우회 공격을 대규모 악용에 활용" }
     - { source: "Google Cloud Blog", title: "최신 Database Center를 만나보세요, 이제 Gemini 기반의 플릿 인텔리전스가 탑재되었습니다" }
+redirect_from:
+  - /posts/2026/05/Tech_Security_Weekly_Digest_AI_CVE_Zero-Day_Data/
+  - /posts/2026-05-12-Tech_Security_Weekly_Digest_AI_CVE_Zero-Day_Data/
 ---
 
 {% include ai-summary-card.html %}

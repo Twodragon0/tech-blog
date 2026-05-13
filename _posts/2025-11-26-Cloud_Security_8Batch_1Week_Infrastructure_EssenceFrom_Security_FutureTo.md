@@ -24,6 +24,7 @@ series_order: 2
 series_total: 9
 redirect_from:
   - /posts/2025/11/Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo/
+  - /posts/2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo/
 summary_card:
   title: "클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지"
   audience: "클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자"

@@ -31,6 +31,7 @@ redirect_from:
   - /posts/2026/02/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/
   - /posts/2026/02/Tech_Security_Weekly_Digest_Notepadpp_Hijack_Bitcoin_Crash_AI_Agents/
   - /posts/2026/02/Weekly_Tech_AI_Blockchain_Digest/
+  - /posts/2026-02-02-Weekly_Tech_AI_Blockchain_Digest/
 summary_card:
   title: "Weekly Tech & AI & Blockchain Digest (2026년 02월 02일)"
   categories:

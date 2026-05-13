@@ -16,6 +16,7 @@ image_alt: "Tech Security Weekly Digest March 01 2026 AI Agent Ransomware"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/
+  - /posts/2026-03-01-Tech_Security_Weekly_Digest_AI_Agent_Ransomware/
 summary_card:
   title: "기술·보안 주간 다이제스트: AI 에이전트 보안, Gentlemen 랜섬웨어, 운영 대응"
   period: "2026-03-01 (24시간)"

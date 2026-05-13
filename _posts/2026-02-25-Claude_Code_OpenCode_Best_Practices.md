@@ -26,6 +26,7 @@ author: Twodragon
 toc: true
 redirect_from:
   - /posts/2026/02/Claude_Code_OpenCode_Best_Practices/
+  - /posts/2026-02-25-Claude_Code_OpenCode_Best_Practices/
 summary_card:
   title: "Claude Code & OpenCode Best Practices: 38가지 실전 가이드"
   period: "2026-02-25"

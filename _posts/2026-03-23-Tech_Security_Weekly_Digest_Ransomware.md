@@ -15,6 +15,7 @@ image_alt: "Gentlemen ransomware, zero trust visibility, and EQST threat insight
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Ransomware/
+  - /posts/2026-03-23-Tech_Security_Weekly_Digest_Ransomware/
 summary_card:
   title: "Gentlemen 랜섬웨어 확산, 제로트러스트 가시성, EQST 위협 인사이트"
   period: "2026년 03월 23일 (24시간)"

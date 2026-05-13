@@ -30,6 +30,7 @@ title: '2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리
 toc: true
 redirect_from:
   - /posts/2026/01/KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST/
+  - /posts/2026-01-22-KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST/
 summary_card:
   title: "2025년 3분기 랜섬웨어 동향 분석: KARA 리포트 핵심 정리 및 기업 대응 전략"
   audience: "보안 담당자, CISO, DevSecOps 엔지니어, SOC 분석가, 침해사고대응팀(CERT)"

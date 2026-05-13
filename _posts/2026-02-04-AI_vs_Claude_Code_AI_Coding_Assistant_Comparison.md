@@ -28,6 +28,7 @@ title: 'AI vs Claude Code: 코딩 어시스턴트 비교 - 보안, DevSecOps, Fi
 toc: true
 redirect_from:
   - /posts/2026/02/AI_vs_Claude_Code_AI_Coding_Assistant_Comparison/
+  - /posts/2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Comparison/
 summary_card:
   title: "AI vs Claude Code: AI 코딩 어시스턴트 심층 비교 (2026)"
   audience: "DevSecOps 엔지니어, 보안 담당자, FinOps 실무자, CTO/CISO, AI 도구 도입 검토 팀"

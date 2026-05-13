@@ -29,6 +29,9 @@ summary_card:
     - { source: "월간 종합", title: "2026년 1월 발행 보안 다이제스트 핵심 이슈 인덱싱" }
     - { source: "위협 동향", title: "AitM 피싱, VMware KEV, IoT 봇넷, OT 시스템 공격 집중 정리" }
     - { source: "운영 포인트", title: "Zero-Day 긴급 패치, AI 에이전트 NHI 관리, Kubernetes 보안 대응 확인" }
+redirect_from:
+  - /posts/2026/01/January_2026_Security_Digest_Monthly_Index/
+  - /posts/2026-01-31-January_2026_Security_Digest_Monthly_Index/
 ---
 
 {% include ai-summary-card.html %}

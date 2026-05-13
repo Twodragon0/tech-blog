@@ -34,6 +34,7 @@ title: "BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/
+  - /posts/2026-01-24-Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/
 summary_card:
   title: "Tech & Security Weekly Digest (2026년 01월 24일)"
   period: "2026년 1월 23일 ~ 24일 (24시간)"

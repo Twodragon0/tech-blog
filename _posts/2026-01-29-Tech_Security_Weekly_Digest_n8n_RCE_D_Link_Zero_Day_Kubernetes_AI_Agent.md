@@ -33,6 +33,7 @@ title: "n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/
+  - /posts/2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/
 summary_card:
   title: "Tech & Security Weekly Digest (2026년 01월 29일)"
   period: "2026년 1월 28일 ~ 29일 (48시간)"

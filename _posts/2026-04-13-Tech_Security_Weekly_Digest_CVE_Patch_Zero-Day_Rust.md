@@ -16,6 +16,7 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust/
+  - /posts/2026-04-13-Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust/
 summary_card:
   title: "CPUID 침해로 인해 변조된 CPU-Z, Marimo의 치명적인 사전 인증 RCE 취약점, Adobe, 악용 중인 Acrobat"
   period: "2026년 04월 13일 (24시간)"

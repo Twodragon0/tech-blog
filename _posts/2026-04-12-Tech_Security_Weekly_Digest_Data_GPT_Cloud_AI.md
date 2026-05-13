@@ -16,6 +16,7 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/
+  - /posts/2026-04-12-Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/
 summary_card:
   title: "Citizen Lab, 국제 단속에서 2만 명 이상의 암호화폐 사기, ChatGPT, Claude에 맞서기"
   period: "2026년 04월 12일 (24시간)"

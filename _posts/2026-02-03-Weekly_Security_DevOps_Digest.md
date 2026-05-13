@@ -38,6 +38,7 @@ title: '주간 보안·DevOps 다이제스트: AI Agent 보안 취약점, MDM �
 toc: true
 redirect_from:
   - /posts/2026/02/Weekly_Security_DevOps_Digest/
+  - /posts/2026-02-03-Weekly_Security_DevOps_Digest/
 summary_card:
   title: "Weekly Security & DevOps Digest (2026년 02월 03일)"
   audience: "보안 담당자, DevSecOps 엔지니어, IT 관리자, MDM 운영자"

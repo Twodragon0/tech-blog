@@ -16,6 +16,7 @@ image_alt: "Tech Security Weekly Digest March 09 2026 AI Security Go Bitcoin"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/
+  - /posts/2026-03-09-Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/
 summary_card:
   title: "AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse"
   period: "2026년 03월 09일 (24시간)"

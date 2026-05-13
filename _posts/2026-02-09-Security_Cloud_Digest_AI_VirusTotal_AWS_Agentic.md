@@ -26,6 +26,7 @@ title: '2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, A
 toc: true
 redirect_from:
   - /posts/2026/02/Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic/
+  - /posts/2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic/
 summary_card:
   title: "2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안, AWS Agentic AI"
   period: "2026-02-09"

@@ -31,6 +31,7 @@ title: 'AI Agent 보안 아키텍처: Stateful Runtime & Continuous Evaluation'
 toc: true
 redirect_from:
   - /posts/2026/02/AI_Agent_Security_Architecture_Design_Guide/
+  - /posts/2026-02-28-AI_Agent_Security_Architecture_Design_Guide/
 summary_card:
   title: "AI Agent 보안 아키텍처 설계 가이드: Stateful Runtime과 Continuous Evaluation"
   audience: "보안 엔지니어, DevSecOps 엔지니어, AI/ML 엔지니어, 클라우드 아키텍트, CISO"

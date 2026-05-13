@@ -16,6 +16,7 @@ image_alt: "Daily Tech Digest RSS Roundup"
 toc: true
 redirect_from:
   - /posts/2026/02/Daily_Tech_Digest_RSS_Roundup/
+  - /posts/2026-02-16-Daily_Tech_Digest_RSS_Roundup/
 summary_card:
   title: "2026년 2월 16일 데일리 테크 다이제스트"
   period: "2026년 2월 15일 ~ 2월 16일"

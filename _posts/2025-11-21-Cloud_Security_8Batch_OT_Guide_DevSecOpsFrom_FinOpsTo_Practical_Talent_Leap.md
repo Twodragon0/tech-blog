@@ -25,6 +25,7 @@ series_order: 1
 series_total: 9
 redirect_from:
   - /posts/2025/11/Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap/
+  - /posts/2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap/
 summary_card:
   title: "클라우드 시큐리티 8기 OT 안내: DevSecOps부터 FinOps까지, 실무형 인재로 도약하라!"
   audience: "DevSecOps 엔지니어, 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자"

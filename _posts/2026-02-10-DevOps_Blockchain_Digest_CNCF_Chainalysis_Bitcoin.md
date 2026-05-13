@@ -25,6 +25,7 @@ title: 'DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitco
 toc: true
 redirect_from:
   - /posts/2026/02/DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin/
+  - /posts/2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin/
 summary_card:
   title: "2026-02-10 DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin"
   period: "2026-02-10"

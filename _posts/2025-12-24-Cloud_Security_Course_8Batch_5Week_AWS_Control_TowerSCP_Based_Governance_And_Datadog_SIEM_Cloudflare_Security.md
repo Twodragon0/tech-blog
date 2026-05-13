@@ -29,6 +29,7 @@ series_order: 6
 series_total: 9
 redirect_from:
   - /posts/2025/12/Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security/
+  - /posts/2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security/
 summary_card:
   title: "클라우드 시큐리티 과정 8기 5주차: AWS Control Tower/SCP 기반 거버넌스 및 Datadog SIEM, Cloudflare 보안"
   audience: "클라우드 아키텍트, 보안 엔지니어, DevOps 엔지니어, 클라우드 관리자"

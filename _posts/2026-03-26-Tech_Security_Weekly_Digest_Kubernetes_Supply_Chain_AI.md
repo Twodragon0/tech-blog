@@ -15,6 +15,7 @@ image_alt: "Kubernetes RBAC bypass, SLSA supply chain security, AI agent prompt 
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/
+  - /posts/2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/
 summary_card:
   title: "Kubernetes RBAC 우회 취약점, SLSA 공급망 보안, AI 에이전트 프롬프트 인젝션 방어"
   period: "2026년 03월 26일 (24시간)"

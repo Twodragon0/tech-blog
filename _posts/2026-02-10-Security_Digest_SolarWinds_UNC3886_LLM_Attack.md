@@ -23,6 +23,7 @@ title: '2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩
 toc: true
 redirect_from:
   - /posts/2026/02/Security_Digest_SolarWinds_UNC3886_LLM_Attack/
+  - /posts/2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack/
 summary_card:
   title: "2026-02-10 보안 다이제스트: SolarWinds RCE, UNC3886 통신사 첩보, LLM 공격"
   period: "2026-02-10"

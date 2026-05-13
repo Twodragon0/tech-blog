@@ -11,9 +11,14 @@ description: roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 
   CSF 2.0, GitHub Advanced Security, AI/ML 보안 자동화, 단계별 학습 경로, SAST/DAST/IAST 도구 스택,
   공급망 보안(SBOM) 강화까지 전문가 성장 가이드.
 excerpt: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 항목, OWASP Top 10:2025, NIST CSF 2.0 연계, GitHub Advanced Security, AI/ML 보안 자동화, SAST/DAST/IAST 도구 스택, SBOM 공급망 보안 강화까지 전문가 성장 가이드를 제공합니다."
-image: /assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg
+image: /assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis.svg
 image_alt: '2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis'
 layout: post
+redirect_from:
+  - /posts/2026/01/10/2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis/
+  - /posts/2026/01/2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis/
+  - /posts/2026/01/2026_DevSecOps_Roadmap_Complete_Guide_Analysis/
+  - /posts/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis/
 tags:
 - DevSecOps
 - roadmap
@@ -24,8 +29,6 @@ tags:
 keywords: [DevSecOps, 로드맵, 보안, 학습-경로, roadmap.sh, 2026]
 title: '2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석'
 toc: true
-redirect_from:
-  - /posts/2026/01/2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis/
 summary_card:
   title: "2026년 DevSecOps 로드맵 완벽 가이드: roadmap.sh 분석"
   period: "2026-01-10"
@@ -51,7 +54,7 @@ summary_card:
 
 {% include ai-summary-card.html %}
 
-<img src="{{ '/assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_roadmap.sh_Analysis.svg' | relative_url }}" alt="2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis" loading="lazy" class="post-image">
+<img src="{{ '/assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis.svg' | relative_url }}" alt="2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis" loading="lazy" class="post-image">
 
 ![DevSecOps Section Banner](/assets/images/section-devsecops.svg)
 

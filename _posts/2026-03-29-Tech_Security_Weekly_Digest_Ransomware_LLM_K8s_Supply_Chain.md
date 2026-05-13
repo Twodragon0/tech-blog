@@ -15,6 +15,7 @@ image_alt: "Ransomware evolution, LLM jailbreak attacks, Kubernetes supply chain
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/
+  - /posts/2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/
 summary_card:
   title: "랜섬웨어 진화, LLM 탈옥 공격, K8s 공급망 위협 분석"
   period: "2026년 03월 29일 (24시간)"

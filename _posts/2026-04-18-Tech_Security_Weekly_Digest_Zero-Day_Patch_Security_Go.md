@@ -33,6 +33,9 @@ summary_card:
     - { source: "AWS Security Blog", title: "구성 기반 ETL 솔루션으로 보안 로그를 OCSF 형식으로 변환하기" }
     - { source: "The Hacker News", title: "Google, 2025년 정책 위반 광고 83억 건 차단 및 Android 17 개인정보 보호 대개편 시작" }
     - { source: "Google Cloud Blog", title: "세계에서 가장 까다로운 방송 및 스트리밍 워크로드를 위한 Evolving Media CDN" }
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/
+  - /posts/2026-04-18-Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/
 ---
 
 {% include ai-summary-card.html %}

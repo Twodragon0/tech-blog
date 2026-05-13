@@ -32,6 +32,7 @@ title: "Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/
+  - /posts/2026-01-23-Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/
 summary_card:
   title: "Tech & Security Weekly Digest (2026년 01월 23일)"
   period: "2026년 1월 22일 ~ 23일 (24시간)"

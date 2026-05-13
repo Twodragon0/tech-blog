@@ -30,6 +30,7 @@ title: "ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/
+  - /posts/2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/
 summary_card:
   title: "Tech & Security Weekly Digest (2026년 01월 31일)"
   period: "2026년 1월 30일 ~ 31일"

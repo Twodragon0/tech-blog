@@ -38,6 +38,9 @@ summary_card:
     - { source: "", title: "Network Load Balancer와 Security Group을 활용한 Zero Trust 아키텍처 구축" }
     - { source: "", title: "Terraform을 통한 인프라 자동화 및 보안 설정" }
     - { source: "", title: "데이터베이스 접근 관리 솔루션 AWS 배포 경험 공유" }
+redirect_from:
+  - /posts/2025/10/AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide/
+  - /posts/2025-10-03-AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide/
 ---
 {% include ai-summary-card.html %}
 

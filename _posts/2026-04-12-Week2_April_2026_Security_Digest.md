@@ -21,6 +21,8 @@ redirect_from:
   - /posts/2026/04/10/Tech_Security_Weekly_Digest_AI_Malware_Go_Agent/
   - /posts/2026/04/11/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/
   - /posts/2026/04/12/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/
+  - /posts/2026/04/Week2_April_2026_Security_Digest/
+  - /posts/2026-04-12-Week2_April_2026_Security_Digest/
 summary_card:
   title: "2026년 4월 2주차 보안 다이제스트 주간 롤업"
   period: "2026년 4월 2주차 (4/6 ~ 4/12)"

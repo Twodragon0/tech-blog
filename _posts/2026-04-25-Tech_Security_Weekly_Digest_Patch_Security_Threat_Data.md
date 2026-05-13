@@ -33,6 +33,9 @@ summary_card:
     - { source: "The Hacker News", title: "NASA 직원들, 미국 국방 소프트웨어 노린 중국 피싱 공격에 속아 넘어가" }
     - { source: "AWS Security Blog", title: "오늘날의 비밀을 미래의 양자 위험으로부터 보호하기" }
     - { source: "Google Cloud Blog", title: "Google Cloud Next &#x27;26에서 발표한 260가지 – 요약" }
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_Patch_Security_Threat_Data/
+  - /posts/2026-04-25-Tech_Security_Weekly_Digest_Patch_Security_Threat_Data/
 ---
 
 {% include ai-summary-card.html %}

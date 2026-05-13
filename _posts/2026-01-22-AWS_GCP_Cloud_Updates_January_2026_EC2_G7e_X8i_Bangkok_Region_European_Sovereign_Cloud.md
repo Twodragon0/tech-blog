@@ -31,6 +31,7 @@ title: 'AWS/GCP 2026년 1월: EC2 G7e/X8i, Bangkok 리전, Sovereign Cloud'
 toc: true
 redirect_from:
   - /posts/2026/01/AWS_GCP_Cloud_Updates_January_2026_EC2_G7e_X8i_Bangkok_Region_European_Sovereign_Cloud/
+  - /posts/2026-01-22-AWS_GCP_Cloud_Updates_January_2026_EC2_G7e_X8i_Bangkok_Region_European_Sovereign_Cloud/
 summary_card:
   title: "AWS/GCP 2026년 1월 주요 업데이트: EC2 G7e/X8i, Bangkok 리전, European Sovereign Cloud"
   audience: "클라우드 아키텍트, DevOps 엔지니어, AI/ML 엔지니어, FinOps 담당자"

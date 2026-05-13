@@ -15,6 +15,7 @@ image_alt: "Libra token forensics, stablecoin regulation, and crypto market dige
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Bitcoin/
+  - /posts/2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin/
 summary_card:
   title: "아르헨티나 Libra 토큰 포렌식, 스테이블코인 규제, 암호화폐 시장 동향"
   period: "2026년 03월 16일 (24시간)"

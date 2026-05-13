@@ -28,6 +28,7 @@ title: '2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고,
 toc: true
 redirect_from:
   - /posts/2026/02/Blockchain_Tech_Digest_Bithumb_Bitcoin/
+  - /posts/2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin/
 summary_card:
   title: "블록체인 & 테크 다이제스트 (2026년 02월 09일)"
   period: "2026년 02월 09일"

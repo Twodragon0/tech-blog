@@ -17,6 +17,7 @@ toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/
   - /posts/2026/02/Weekly_Tech_Security_Digest_AI_Cloud_Risk/
+  - /posts/2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/
 summary_card:
   title: "기술·보안 주간 다이제스트: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어"
   period: "2026-02-17 (24시간)"

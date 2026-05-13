@@ -28,6 +28,7 @@ title: 보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)
 toc: true
 redirect_from:
   - /posts/2026/01/Security_Vendor_Blog_Weekly_Review/
+  - /posts/2026-01-22-Security_Vendor_Blog_Weekly_Review/
 summary_card:
   title: "보안 벤더 블로그 주간 리뷰 (2026년 01월 22일)"
   period: "2026년 1월 15일 ~ 22일 (7일간)"

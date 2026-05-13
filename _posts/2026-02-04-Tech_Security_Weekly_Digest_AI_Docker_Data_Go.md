@@ -28,6 +28,7 @@ title: '2026년 2월 보안 다이제스트: Docker AI 취약점, CVE-2025-11953
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Docker_Data_Go/
+  - /posts/2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go/
 summary_card:
   title: "주간 기술 보안 다이제스트 (2026년 02월 04일)"
   period: "2026년 02월 03일 ~ 04일 (24시간)"

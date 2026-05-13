@@ -37,6 +37,9 @@ summary_card:
     - { source: "코드 보안 자동화", title: "CI/CD 파이프라인에 보안 스캔 통합, DevSecOps 모범 사례(Shift-Left Security), 자동화된 보안 검사, 실시간 취약점 알림" }
     - { source: "AWS 환경 개발 생산성 향상", title: "Amazon Q Developer와 GitHub 통합, AWS 서비스 최적화 제안, 코드 리뷰 자동화, 보안과 생산성의 균형" }
     - { source: "2025년 DevSecOps 트렌드", title: "AI 코딩 어시스턴트 보안 검증 체크리스트, AI 생성 코드 보안 검증(취약점 패턴 검사, 의존성 스캔, 보안 모범 사례 준수), Post-Quantum 암호화 대응" }
+redirect_from:
+  - /posts/2025/05/Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/
+  - /posts/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/
 ---
 {% include ai-summary-card.html %}
 

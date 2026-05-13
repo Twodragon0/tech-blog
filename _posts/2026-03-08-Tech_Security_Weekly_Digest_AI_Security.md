@@ -16,6 +16,7 @@ image_alt: "Tech Security Weekly Digest March 08 2026 AI Security"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Security/
+  - /posts/2026-03-08-Tech_Security_Weekly_Digest_AI_Security/
 summary_card:
   title: "OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향"
   period: "2026-03-08 (24시간)"

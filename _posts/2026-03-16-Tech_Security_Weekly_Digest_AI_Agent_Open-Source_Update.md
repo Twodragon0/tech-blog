@@ -15,6 +15,7 @@ image_alt: "AI red team tooling, Bedrock multi-agent workflows, and Aave Shield 
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/
+  - /posts/2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/
 summary_card:
   title: "AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시"
   period: "2026년 03월 16일 (24시간)"

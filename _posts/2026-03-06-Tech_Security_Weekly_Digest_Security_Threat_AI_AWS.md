@@ -16,6 +16,7 @@ image_alt: "Tech Security Weekly Digest March 06 2026 Security Threat AI AWS"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/
+  - /posts/2026-03-06-Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/
 summary_card:
   title: "CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석"
   period: "2026년 03월 06일 (24시간)"

@@ -16,6 +16,7 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/
+  - /posts/2026-04-11-Tech_Security_Weekly_Digest_AI_Go_CVE_Update/
 summary_card:
   title: "GlassWorm 캠페인, Zig, 브라우저 확장 프로그램은 아무도 논의하지, Google, Windows에서 세션 도난"
   period: "2026년 04월 11일 (24시간)"

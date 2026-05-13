@@ -44,6 +44,9 @@ summary_card:
     - { source: "Kubernetes 아키텍처", title: "Control Plane(API Server, etcd, Scheduler, Controller Manager), Node(kubelet, Pods), 주요 리소스(Pod, Deployment, Service, ConfigMap, Secret, Namespace)" }
     - { source: "컨테이너 보안 Best Practices", title: "최소 권한 원칙, 이미지 스캔(Trivy, Snyk), Secret 관리(Kubernetes Secrets, External Secrets Operator), 비루트 사용자 실행, 읽기 전용 파일시스템" }
     - { source: "런타임 보안", title: "Trivy 취약점 스캔, Falco 이상 행위 탐지, Pod Security Standards 적용, Network Policy 구현, Minikube/K9s 실습 가이드" }
+redirect_from:
+  - /posts/2025/05/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/
+  - /posts/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/
 ---
 {% include ai-summary-card.html %}
 

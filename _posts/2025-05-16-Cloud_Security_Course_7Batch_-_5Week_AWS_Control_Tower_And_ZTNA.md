@@ -40,6 +40,9 @@ summary_card:
     - { source: "ZTNA(Zero Trust Network Access)", title: "Zero Trust 개념(\"절대 신뢰하지 말고, 항상 검증하라\"), AWS 구현 방법(PrivateLink, VPC Endpoint, Security Group 최소 권한), 클라우드 환경 제로 트러스트 보안 모델 적용" }
     - { source: "2025년 AWS 거버넌스 업데이트", title: "Organizations 계정 마이그레이션 개선(조직 간 직접 이동, 다운타임 최소화), Control Tower Guardrails 확장, SCP 정책 자동화" }
     - { source: "실무 적용", title: "멀티 계정 아키텍처 설계, 거버넌스 정책 자동화, 제로 트러스트 네트워크 구성, 보안 및 컴플라이언스 통합 관리" }
+redirect_from:
+  - /posts/2025/05/Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA/
+  - /posts/2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA/
 ---
 {% include ai-summary-card.html %}
 

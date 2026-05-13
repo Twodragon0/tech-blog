@@ -33,6 +33,9 @@ summary_card:
     - { source: "포인트 1", title: "2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스" }
     - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
     - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+redirect_from:
+  - /posts/2026/02/Tech_Blog_Weekly_Digest_AI_Data_Cloud/
+  - /posts/2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud/
 ---
 
 {% include ai-summary-card.html %}

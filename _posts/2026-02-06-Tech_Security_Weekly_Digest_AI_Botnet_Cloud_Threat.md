@@ -27,6 +27,7 @@ title: "CrashFix RAT, 초대형 DDoS 봇넷, Codespaces RCE 취약점"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/
+  - /posts/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/
 summary_card:
   title: "기술·보안 주간 다이제스트: CrashFix RAT, 초대형 DDoS, Codespaces RCE"
   period: "2026-02-06 (24시간)"

@@ -44,6 +44,9 @@ summary_card:
     - { source: "FinOps 프레임워크", title: "Inform(가시성 확보), Optimize(비용 최적화), Operate(운영 관리), Capabilities(비용 할당/태깅, 예산/예측, 이상 탐지, Reserved Instance/Savings Plans, Right Sizing)" }
     - { source: "비용 최적화 전략", title: "일관된 리소스 태깅 전략(Environment, Project, Owner, CostCenter), AWS Cost Explorer API 활용, 월간 비용 분석 및 이상 탐지, Reserved Instance/Savings Plans 최적화" }
     - { source: "AWS Well-Architected Framework", title: "보안 및 비용 최적화 관점에서의 아키텍처 설계, 보안과 비용의 균형, 실무 적용 가능한 FinOps 전략" }
+redirect_from:
+  - /posts/2025/05/Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/
+  - /posts/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/
 ---
 {% include ai-summary-card.html %}
 

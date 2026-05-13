@@ -16,6 +16,7 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/
+  - /posts/2026-04-08-Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/
 summary_card:
   title: "러시아 국가 연계 APT28 DNS 하이재킹, Docker CVE-2026-34040, AI 기업 보안"
   period: "2026년 04월 08일 (24시간)"

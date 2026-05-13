@@ -15,6 +15,7 @@ image_alt: "Zero day firewall breach and patch response overview"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/
+  - /posts/2026-03-19-Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/
 summary_card:
   title: "북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE"
   period: "2026년 03월 19일 (24시간)"

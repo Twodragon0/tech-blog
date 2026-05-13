@@ -25,6 +25,8 @@ redirect_from:
   - /posts/2026/04/28/Tech_Security_Weekly_Digest_Data_AI_Malware_AWS/
   - /posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/
   - /posts/2026/04/30/Tech_Security_Weekly_Digest_AI_Malware_Rust/
+  - /posts/2026/04/Week4_April_2026_Security_Digest/
+  - /posts/2026-04-30-Week4_April_2026_Security_Digest/
 summary_card:
   title: "2026년 4월 4주차 보안 다이제스트 주간 롤업"
   period: "2026년 4월 4주차 (4/20 ~ 4/30)"

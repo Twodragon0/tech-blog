@@ -33,6 +33,9 @@ summary_card:
     - { source: "The Hacker News", title: "주간 보안 뉴스 요약: Vercel 해킹, Push 사기, QEMU 악용, 신종 Android RAT 등장" }
     - { source: "BleepingComputer", title: "KelpDAO, 라자루스 해커와 연관된 2억 9천만 달러 해킹 피해" }
     - { source: "AWS Blog", title: "AWS 위클리 라운드업: Amazon Bedrock의 Claude Opus 4.7, AWS" }
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/
+  - /posts/2026-04-21-Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/
 ---
 
 {% include ai-summary-card.html %}

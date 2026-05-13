@@ -16,6 +16,7 @@ image_alt: "Tech Security Weekly Digest February 27 2026 AI Botnet Blockchain"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/
+  - /posts/2026-02-27-Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/
 summary_card:
   title: "Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안"
   period: "2026-02-27 (24시간)"

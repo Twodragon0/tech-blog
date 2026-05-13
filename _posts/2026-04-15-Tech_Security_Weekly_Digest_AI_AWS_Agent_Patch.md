@@ -16,6 +16,7 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_AWS_Agent_Patch/
+  - /posts/2026-04-15-Tech_Security_Weekly_Digest_AI_AWS_Agent_Patch/
 summary_card:
   title: "Model Context, 새로운 PHP Composer, Google, Pixel 10 모뎀 보안"
   period: "2026년 04월 15일 (24시간)"

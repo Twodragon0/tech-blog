@@ -25,6 +25,7 @@ title: 'AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS'
 toc: true
 redirect_from:
   - /posts/2026/02/AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS/
+  - /posts/2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS/
 summary_card:
   title: "2026-02-10 AI & 클라우드 다이제스트: Meta Prometheus, Google OTLP, AWS 업데이트"
   period: "2026-02-10"

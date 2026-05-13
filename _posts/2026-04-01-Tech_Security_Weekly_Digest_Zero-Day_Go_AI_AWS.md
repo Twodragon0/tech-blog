@@ -16,6 +16,7 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/
+  - /posts/2026-04-01-Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/
 summary_card:
   title: "Android Developer, TrueConf 제로데이, 동남아시아 정부, AWS에서 제공하는 새로운 규정 준수 가이드"
   period: "2026년 04월 01일 (24시간)"

@@ -29,6 +29,9 @@ summary_card:
     - { source: "월간 종합", title: "2026년 2월 발행 보안 다이제스트 핵심 이슈 인덱싱" }
     - { source: "위협 동향", title: "AI 기반 취약점 탐지, 공급망 공격 고도화, 랜섬웨어 진화, APT 캠페인 집중 정리" }
     - { source: "운영 포인트", title: "OWASP Agentic AI 프레임워크, Kubernetes 보안, LLM 운영 리스크 대응 확인" }
+redirect_from:
+  - /posts/2026/02/February_2026_Security_Digest_Monthly_Index/
+  - /posts/2026-02-28-February_2026_Security_Digest_Monthly_Index/
 ---
 
 {% include ai-summary-card.html %}

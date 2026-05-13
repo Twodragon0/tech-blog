@@ -16,6 +16,7 @@ image_alt: "AWS security update, zero day response, and CVE review digest"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE/
+  - /posts/2026-02-19-Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE/
 summary_card:
   title: "기술·보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329"
   period: "2026-02-19 (24시간)"

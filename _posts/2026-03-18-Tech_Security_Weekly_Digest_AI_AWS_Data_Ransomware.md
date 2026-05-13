@@ -15,6 +15,7 @@ image_alt: "AI sandbox DNS exfiltration and multi cluster security overview"
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/
+  - /posts/2026-03-18-Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/
 summary_card:
   title: "AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안"
   period: "2026년 03월 18일 (24시간)"

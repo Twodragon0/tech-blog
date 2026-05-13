@@ -23,6 +23,7 @@ image_alt: 'Kandji macOS Complete Master: Setup from Security Regulation Complia
 original_url: https://twodragon.tistory.com/680
 redirect_from:
   - /posts/2025/05/Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/
+  - /posts/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/
 summary_card:
   title: "Kandji로 macOS 완벽 마스터! 셋업부터 보안, 규정 준수까지 올인원 가이드"
   audience: "기업 보안 담당자, 보안 엔지니어, CISO"

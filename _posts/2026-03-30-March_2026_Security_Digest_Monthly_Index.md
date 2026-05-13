@@ -15,6 +15,7 @@ image_alt: "March 2026 Security Digest Monthly Index"
 toc: true
 redirect_from:
   - /posts/2026/03/March_2026_Security_Digest_Monthly_Index/
+  - /posts/2026-03-30-March_2026_Security_Digest_Monthly_Index/
 summary_card:
   title: "2026년 3월 보안 다이제스트 월간 인덱스"
   period: "2026년 3월 월간 인덱스"

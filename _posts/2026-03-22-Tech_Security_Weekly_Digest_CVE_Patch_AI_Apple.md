@@ -15,6 +15,7 @@ image_alt: "Signal phishing, Oracle identity RCE, and Trivy supply chain worm di
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/
+  - /posts/2026-03-22-Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/
 summary_card:
   title: "Signal 피싱 경고, Oracle Identity RCE, Trivy CanisterWorm 공급망 공격"
   period: "2026년 03월 22일 (24시간)"

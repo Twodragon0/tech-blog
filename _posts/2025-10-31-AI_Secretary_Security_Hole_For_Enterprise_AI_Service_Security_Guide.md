@@ -23,6 +23,8 @@ toc: true
 redirect_from:
   - /posts/2025/10/31/AI_amplsquoSecretaryamprsquo_amplsquoSecurity_Holeamprsquo_For_Enterprise_AI_Service_Security_Guide/
   - /posts/2025/10/AI_amplsquoSecretaryamprsquo_amplsquoSecurity_Holeamprsquo_For_Enterprise_AI_Service_Security_Guide/
+  - /posts/2025/10/AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide/
+  - /posts/2025-10-31-AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide/
 summary_card:
   title: "AI 시대, 당신의 &#39;비서&#39;가 &#39;보안 구멍&#39;이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드"
   audience: "기업 보안 담당자, 보안 엔지니어, CISO"

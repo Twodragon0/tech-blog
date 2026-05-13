@@ -31,6 +31,9 @@ summary_card:
     - { source: "The Hacker News", title: "PCPJack 자격 증명 탈취기가 5개 CVE를 악용해 클라우드 시스템 전반에 웜처럼 확산" }
     - { source: "Microsoft Security Blog", title: "프롬프트가 셸이 될 때: AI 에이전트 프레임워크의 RCE 취약점" }
     - { source: "Google Cloud Blog", title: "Gemini 3.1 Flash-Lite가 Gemini Enterprise Agent Platform에서" }
+redirect_from:
+  - /posts/2026/05/Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent/
+  - /posts/2026-05-08-Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent/
 ---
 
 {% include ai-summary-card.html %}

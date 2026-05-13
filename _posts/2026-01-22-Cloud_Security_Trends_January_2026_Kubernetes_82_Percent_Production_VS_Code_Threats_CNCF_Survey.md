@@ -29,6 +29,7 @@ title: '2026년 1월 클라우드 보안: Kubernetes 프로덕션 채택률 82% 
 toc: true
 redirect_from:
   - /posts/2026/01/Cloud_Security_Trends_January_2026_Kubernetes_82_Percent_Production_VS_Code_Threats_CNCF_Survey/
+  - /posts/2026-01-22-Cloud_Security_Trends_January_2026_Kubernetes_82_Percent_Production_VS_Code_Threats_CNCF_Survey/
 summary_card:
   title: "2026년 1월 클라우드 보안 동향: Kubernetes 82% 프로덕션 도입, VS Code 악용 위협 증가"
   audience: "DevSecOps 엔지니어, 클라우드 보안 담당자, 플랫폼 엔지니어, SRE"

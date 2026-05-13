@@ -28,6 +28,7 @@ title: 'GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중
 toc: true
 redirect_from:
   - /posts/2026/01/GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture/
+  - /posts/2026-01-14-GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture/
 summary_card:
   title: "GCP 클라우드 보안 완벽 가이드: IAM부터 GKE까지 실무 중심 보안 아키텍처"
   audience: "GCP 보안 엔지니어, 클라우드 아키텍트, DevOps 엔지니어, 보안 전문가"

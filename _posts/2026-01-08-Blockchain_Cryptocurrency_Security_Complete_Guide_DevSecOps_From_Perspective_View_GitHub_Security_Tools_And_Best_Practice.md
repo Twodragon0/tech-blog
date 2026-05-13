@@ -33,6 +33,7 @@ title: '블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에�
 toc: true
 redirect_from:
   - /posts/2026/01/Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_And_Best_Practice/
+  - /posts/2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_And_Best_Practice/
 summary_card:
   title: "블록체인 암호화폐 보안 완벽 가이드: DevSecOps 관점에서 본 GitHub 보안 도구 및 모범 사례"
   audience: "블록체인 개발자, 보안 엔지니어, DevSecOps 엔지니어"

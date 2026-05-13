@@ -33,6 +33,9 @@ summary_card:
     - { source: "The Hacker News", title: "브라질의 LofyGang, 3년 만에 Minecraft LofyStealer 캠페인으로 재등장" }
     - { source: "The Hacker News", title: "VECT 2.0 랜섬웨어, Windows·Linux·ESXi에서 131KB 초과 파일을 복구 불가능하게 파괴" }
     - { source: "Google Cloud Blog", title: "에이전틱 시대에 오신 것을 환영합니다: Next &#x27;26에서 본 공공 부문의 주요 내용과 성찰" }
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/
+  - /posts/2026-04-29-Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/
 ---
 
 {% include ai-summary-card.html %}

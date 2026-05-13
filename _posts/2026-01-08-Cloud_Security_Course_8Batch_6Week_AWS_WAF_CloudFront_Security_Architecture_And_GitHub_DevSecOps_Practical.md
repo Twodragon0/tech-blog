@@ -36,6 +36,7 @@ title: '클라우드 보안 8기 6주차: AWS WAF/CloudFront 보안 아키텍처
 toc: true
 redirect_from:
   - /posts/2026/01/Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/
+  - /posts/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/
 summary_card:
   title: "클라우드 보안 과정 8기 6주차: AWS WAF/CloudFront 보안 아키텍처 및 GitHub DevSecOps 실전"
   audience: "보안 엔지니어, DevSecOps 엔지니어, 클라우드 보안 담당자, 개발자"

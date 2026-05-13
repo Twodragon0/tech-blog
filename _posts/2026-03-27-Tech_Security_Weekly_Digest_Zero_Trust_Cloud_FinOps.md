@@ -15,6 +15,7 @@ image_alt: "AWS IAM Zero Trust, GCP Workload Identity security, FinOps cost opti
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/
+  - /posts/2026-03-27-Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/
 summary_card:
   title: "AWS IAM Zero Trust 구현, GCP Workload Identity 보안, FinOps 비용 최적화"
   period: "2026년 03월 27일 (24시간)"

@@ -22,6 +22,7 @@ image_alt: 'SKT Security Issue Complete Response Guide: IMEI Check USIM eSIM Rep
 original_url: https://twodragon.tistory.com/677
 redirect_from:
   - /posts/2025/04/SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance/
+  - /posts/2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance/
 summary_card:
   title: "SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성"
   audience: "기업 보안 담당자, 보안 엔지니어, CISO"

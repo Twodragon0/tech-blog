@@ -33,6 +33,9 @@ summary_card:
     - { source: "The Hacker News", title: "자체 전파 공급망 웜이 npm 패키지를 탈취해 개발자 토큰을 훔치다" }
     - { source: "The Hacker News", title: "Harvester, Microsoft Graph API를 통해 남아시아에서 Linux GoGra 백도어 배포" }
     - { source: "Google Cloud Blog", title: "에이전트를 한 단계 업그레이드하세요: Google의 공식 스킬 리포지토리 발표" }
+redirect_from:
+  - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Docker_Go_API/
+  - /posts/2026-04-23-Tech_Security_Weekly_Digest_AI_Docker_Go_API/
 ---
 
 {% include ai-summary-card.html %}

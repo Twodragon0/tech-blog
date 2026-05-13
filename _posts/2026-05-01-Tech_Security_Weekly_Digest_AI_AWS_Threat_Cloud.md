@@ -32,6 +32,9 @@ summary_card:
     - { source: "The Hacker News", title: "ThreatsDay 게시판: SMS 블래스터 적발, OpenEMR 취약점, 60만 건의 Roblox 해킹" }
     - { source: "The Hacker News", title: "새로운 Python 백도어, 터널링 서비스 이용해 브라우저 및 클라우드 자격증명 탈취" }
     - { source: "Google Cloud Blog", title: "Cloud CISO Perspectives: Next &#x27;26에서 멀티클라우드와 멀티AI를 선택한 이유" }
+redirect_from:
+  - /posts/2026/05/Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud/
+  - /posts/2026-05-01-Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud/
 ---
 
 {% include ai-summary-card.html %}

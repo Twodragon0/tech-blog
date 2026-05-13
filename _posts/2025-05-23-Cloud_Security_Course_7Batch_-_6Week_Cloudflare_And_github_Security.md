@@ -40,6 +40,9 @@ summary_card:
     - { source: "GitHub 보안 자동화", title: "Dependabot 의존성 취약점 스캔 및 자동 PR 생성, Code Scanning(CodeQL) 정적 분석, Secret Scanning 민감 정보 탐지, Security Advisories 관리" }
     - { source: "실무 보안 실습", title: "DVWA(Damn Vulnerable Web Application)를 활용한 취약점 실습, AWS WAF 규칙 테스트, Cloudflare 보안 설정 실습, GitHub 보안 기능 통합" }
     - { source: "보안 모범 사례", title: "Defense in Depth 전략, 다층 보안 방어, 자동화된 보안 검사, 실시간 모니터링 및 알림" }
+redirect_from:
+  - /posts/2025/05/Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/
+  - /posts/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/
 ---
 {% include ai-summary-card.html %}
 

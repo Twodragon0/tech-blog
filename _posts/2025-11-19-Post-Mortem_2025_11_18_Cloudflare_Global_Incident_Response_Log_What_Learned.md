@@ -24,6 +24,7 @@ title: '[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일
 toc: true
 redirect_from:
   - /posts/2025/11/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/
+  - /posts/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/
 summary_card:
   title: "[Post-Mortem] 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지"
   audience: "SRE, 인시던트 대응 담당자, 운영 엔지니어"

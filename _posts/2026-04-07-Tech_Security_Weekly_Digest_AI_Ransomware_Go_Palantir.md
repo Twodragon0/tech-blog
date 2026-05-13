@@ -16,6 +16,7 @@ toc: true
 sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/
+  - /posts/2026-04-07-Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/
 summary_card:
   title: "이란 연계 패스워드 스프레이링 공격, 이스라엘, 북한 연계 해커들, 한국 표적 다단계, 독일 당국, REvil 및 GangCrab"
   period: "2026년 04월 07일 (24시간)"

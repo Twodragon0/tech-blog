@@ -29,6 +29,7 @@ title: '보안 위협 인텔리전스: Notepad++ 공급망 공격, SK쉴더스, 
 toc: true
 redirect_from:
   - /posts/2026/02/Weekly_Security_Threat_Intelligence_Digest/
+  - /posts/2026-02-02-Weekly_Security_Threat_Intelligence_Digest/
 summary_card:
   title: "Weekly Security Threat Intelligence Digest (2026년 02월 02일)"
   audience: "보안 담당자, DevSecOps 엔지니어, SOC 분석가, CISO"

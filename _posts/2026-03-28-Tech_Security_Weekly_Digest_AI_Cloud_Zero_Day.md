@@ -15,6 +15,7 @@ image_alt: "AI agent security threats, cloud zero-day vulnerabilities, container
 toc: true
 redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/
+  - /posts/2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/
 summary_card:
   title: "AI 에이전트 보안 위협, 클라우드 Zero-Day, 컨테이너 공급망 공격"
   period: "2026년 03월 28일 (24시간)"

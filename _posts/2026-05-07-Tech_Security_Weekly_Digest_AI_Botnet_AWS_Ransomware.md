@@ -31,6 +31,9 @@ summary_card:
     - { source: "AWS Security Blog", title: "AWS에서 ISO/IEC 42001:2023 준수 가이드 제공" }
     - { source: "The Hacker News", title: "MuddyWater, 가짜 랜섬웨어 공격에서 Microsoft Teams를 이용해 자격 증명 탈취" }
     - { source: "Google Cloud Blog", title: "미래를 맞추다: Breuninger가 &#x27;be your own model&#x27; AI로 매출을 높인 방법" }
+redirect_from:
+  - /posts/2026/05/Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware/
+  - /posts/2026-05-07-Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware/
 ---
 
 {% include ai-summary-card.html %}

@@ -31,6 +31,9 @@ summary_card:
     - { source: "The Hacker News", title: "3만 개의 Facebook 계정, Google AppSheet 피싱 캠페인으로 해킹당해" }
     - { source: "AWS Security Blog", title: "AI 시대의 보안 태세 개선" }
     - { source: "BleepingComputer", title: "Microsoft, 현대화된 Windows Run 테스트 중, 기존 대화상자보다 빠르다고 밝혀" }
+redirect_from:
+  - /posts/2026/05/Tech_Security_Weekly_Digest_AI_Go_Security_AWS/
+  - /posts/2026-05-02-Tech_Security_Weekly_Digest_AI_Go_Security_AWS/
 ---
 
 {% include ai-summary-card.html %}
