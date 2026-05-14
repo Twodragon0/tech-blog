@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-13T02:17:11.220170+00:00",
+  "updated_at": "2026-05-14T02:18:57.438424+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/04/sap-npm-packages-compromised-by-mini.html",
-      "title": "SAP-Related npm Packages Compromised in Credential-Stealing Supply Chain Attack",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/04/new-wave-of-dprk-attacks-uses-ai.html",
-      "title": "New Wave of DPRK Attacks Uses AI-Inserted npm Malware, Fake Firms, and RATs",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/designing-trust-and-safety-into-amazon-bedrock-powered-applications/",
-      "title": "Designing trust and safety into Amazon Bedrock powered applications",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/official-sap-npm-packages-compromised-to-steal-credentials/",
-      "title": "Official SAP npm packages compromised to steal credentials",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/popular-wordpress-redirect-plugin-hid-dormant-backdoor-for-years/",
-      "title": "Popular WordPress redirect plugin hid dormant backdoor for years",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://openai.com/index/building-the-compute-infrastructure-for-the-intelligence-age",
-      "title": "Building the compute infrastructure for the Intelligence Age",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://openai.com/index/cybersecurity-in-the-intelligence-age",
-      "title": "Cybersecurity in the Intelligence Age",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/extracting-contract-insights-with-pwcs-ai-driven-annotation-on-aws/",
-      "title": "Extracting contract insights with PwC’s AI-driven annotation on AWS",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/organizing-agents-memory-at-scale-namespace-design-patterns-in-agentcore-memory/",
-      "title": "Organizing Agents’ memory at scale: Namespace design patterns in AgentCore Memor",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/building-ai-ready-data-vanguards-virtual-analyst-journey/",
-      "title": "Building AI-ready data: Vanguard’s Virtual Analyst journey",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/startups/the-top-startup-announcement-from-next26/",
-      "title": "The founder’s AI foundation: The top announcements for startups from Next ‘26",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/how-ukg-taps-workforce-intelligence-with-the-agentic-data-cloud/",
-      "title": "UKG unlocks real-time workforce intelligence at scale with the Agentic Data Clou",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/build-production-apps-in-2-weeks-with-aws-ai-dlc/",
-      "title": "AWS AI-DLC 기반 라포랩스 사내 배포 플랫폼 Raploy 구축 사례",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/ko-splade-neural-sparse-opensearch-hybrid/",
-      "title": "한국어 파인튜닝된 SPLADE 기반 Neural Sparse 모델과 Amazon OpenSearch 하이브리드 검색 벤치마크",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/dotnet/governing-mcp-tool-calls-in-dotnet-with-the-agent-governance-toolkit/",
-      "title": "Governing MCP tool calls in .NET with the Agent Governance Toolkit",
-      "published_date": "2026-04-30",
-      "expires_at": "2026-05-07T02:08:01.957088+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/04/pytorch-lightning-compromised-in-pypi.html",
       "title": "PyTorch Lightning and Intercom-client Hit in Supply Chain Attacks to Steal Crede",
@@ -1170,6 +1080,96 @@
       "title": "Copilot code review: Comment experience improvements",
       "published_date": "2026-05-13",
       "expires_at": "2026-05-20T02:17:11.220041+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/detecting-and-preventing-crypto-mining-in-your-aws-environment/",
+      "title": "Detecting and preventing crypto mining in your AWS environment",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/microsofts-mdash-ai-system-finds-16.html",
+      "title": "Microsoft's MDASH AI System Finds 16 Windows Flaws Fixed in Patch Tuesday",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/introducing-the-updated-aws-user-guide-to-governance-risk-and-compliance-for-responsible-ai-adoption/",
+      "title": "Introducing the updated AWS User Guide to Governance, Risk, and Compliance for R",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/azerbaijani-energy-firm-hit-by-repeated.html",
+      "title": "Azerbaijani Energy Firm Hit by Repeated Microsoft Exchange Exploitation",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/west-pharmaceutical-says-hackers-stole-data-encrypted-systems/",
+      "title": "West Pharmaceutical says hackers stole data, encrypted systems",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ineffable-intelligence-reinforcement-learning-infrastructure/",
+      "title": "NVIDIA, Ineffable Intelligence Team Up to Build the Future of Reinforcement Lear",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/05/13/ml-applications/reel-friends-building-social-discovery-that-scales-to-billions/",
+      "title": "Reel Friends: Building Social Discovery that Scales to Billions",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://openai.com/index/building-codex-windows-sandbox",
+      "title": "Building a safe, effective sandbox to enable Codex on Windows",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-financial-document-processing-with-pulse-ai-and-amazon-bedrock/",
+      "title": "Build financial document processing with Pulse AI and Amazon Bedrock",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-real-time-voice-streaming-applications-with-amazon-nova-sonic-and-webrtc/",
+      "title": "Build real-time voice streaming applications with Amazon Nova Sonic and WebRTC",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-gartner-magic-quadrant/",
+      "title": "Google Named a Leader in the Gartner® Magic Quadrant™ for AI Application Develop",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/more-than-100x-faster-and-cheaper-llm-powered-sql-queries-with-proxy-models/",
+      "title": "The power of LLMs on your data, more than two orders of magnitude faster and che",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/media-entertainment/how-glance-turns-hours-of-video-into-mobile-ready-clips-with-ai/",
+      "title": "How Glance turns hours of video into mobile-ready clips with AI",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/why-cloud-infrastructure-is-the-foundation-for-digital-health-in-2026/",
+      "title": "The new era of SaMD: Why cloud infrastructure is the foundation for digital heal",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/smart-moves-building-resilient-transportation-systems-with-google-ai/",
+      "title": "Smart moves: Building resilient transportation systems with Google AI",
+      "published_date": "2026-05-14",
+      "expires_at": "2026-05-21T02:18:57.438293+00:00"
     }
   ]
 }
