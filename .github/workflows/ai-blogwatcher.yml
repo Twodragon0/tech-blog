@@ -211,6 +211,13 @@ jobs:
           CLAUDE_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'claude') && secrets.CLAUDE_API_KEY || '' }}
           OPENAI_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'gpt-5.4' || env.USE_AI == 'codex-medium') && secrets.OPENAI_API_KEY || '' }}
           DEEPSEEK_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'deepseek') && secrets.DEEPSEEK_API_KEY || '' }}
+          # Emit L22 ultra three-band covers (~67-70 KB) with the QR code
+          # block at translate(1080,504). Without this flag, auto_publish_news
+          # falls back to L20 Hero (~19 KB, no QR), which is why 2026-05-12
+          # through 2026-05-15 auto-published posts shipped without QR codes.
+          # daily-news.yml already sets this flag (line 170); mirror here for
+          # the blogwatcher dispatch path.
+          USE_L22_ULTRA: "1"
         run: |
           # Validate MODE against whitelist
           case "${MODE}" in
