@@ -207,12 +207,15 @@ fi
 # hashes match the final bytes the browser receives. A Jekyll :post_write
 # plugin can't be used here: it runs before terser, and was reverted in
 # 90803aa8 after blocking all JS on production with stale (pre-minify) hashes.
-if command -v python3 >/dev/null 2>&1; then
+# Ruby (not Python) because Vercel build env guarantees `ruby` via Bundler
+# but `python3` may be unavailable — symptom observed on 9dfd0f4c deploy
+# where the Python variant silently no-op'd via the `|| log` fallback.
+if command -v ruby >/dev/null 2>&1; then
     log "Injecting SRI integrity hashes into built HTML..."
-    python3 scripts/build/inject_sri.py --site _site --baseurl "${JEKYLL_BASEURL:-}" || \
+    ruby scripts/build/inject_sri.rb --site _site --baseurl "${JEKYLL_BASEURL:-}" || \
         log "SRI injection failed (non-fatal); continuing without integrity attributes"
 else
-    log "python3 not available, skipping SRI injection"
+    log "ruby not available, skipping SRI injection"
 fi
 
 log "Build completed successfully!"
