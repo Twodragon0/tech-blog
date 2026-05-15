@@ -203,5 +203,17 @@ else
     log "terser not available, skipping JS minification"
 fi
 
+# Inject SRI integrity hashes into <script>/<link> tags AFTER terser, so the
+# hashes match the final bytes the browser receives. A Jekyll :post_write
+# plugin can't be used here: it runs before terser, and was reverted in
+# 90803aa8 after blocking all JS on production with stale (pre-minify) hashes.
+if command -v python3 >/dev/null 2>&1; then
+    log "Injecting SRI integrity hashes into built HTML..."
+    python3 scripts/build/inject_sri.py --site _site --baseurl "${JEKYLL_BASEURL:-}" || \
+        log "SRI injection failed (non-fatal); continuing without integrity attributes"
+else
+    log "python3 not available, skipping SRI injection"
+fi
+
 log "Build completed successfully!"
 log "Build output size: $(du -sh _site | cut -f1)"
