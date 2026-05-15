@@ -254,6 +254,38 @@ jobs:
             echo "No post created for today"
           fi
 
+      - name: Verify L22 ultra cover (QR block present)
+        if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'
+        run: |
+          # Asserts today's auto-published SVG is L22 ultra (~67-70 KB with
+          # QR block at translate(1080,504)), not the L20 Hero fallback
+          # (~19 KB, no QR). Catches the flag-drift regression that
+          # silently shipped 4 QR-less covers on 2026-05-12~15 because
+          # USE_L22_ULTRA wasn't set on this workflow.
+          TODAY=$(date +%Y-%m-%d)
+          SVG=$(find assets/images -maxdepth 1 -type f \
+              \( -name "${TODAY}-*Digest*.svg" -o -name "${TODAY}-*Weekly*.svg" \) \
+              -print | sort -u | head -1)
+          if [ -z "$SVG" ] || [ ! -f "$SVG" ]; then
+            echo "::error::No SVG cover found for ${TODAY}"
+            exit 1
+          fi
+          SIZE=$(stat -c '%s' "$SVG" 2>/dev/null || stat -f '%z' "$SVG")
+          echo "Cover: $SVG"
+          echo "Size:  ${SIZE} bytes"
+          # L22 ultra: 60-75 KB typical. L20 Hero: 18-22 KB. Threshold 50000
+          # cleanly separates them with margin for QR data variance.
+          if [ "${SIZE}" -lt 50000 ]; then
+            echo "::error::Cover ${SIZE}B is too small — likely L20 Hero fallback (no QR). Expected L22 ultra (>=50000B)."
+            echo "::error::Check that USE_L22_ULTRA=\"1\" is set in this workflow's env block."
+            exit 1
+          fi
+          if ! grep -q 'translate(1080,504)' "$SVG"; then
+            echo "::error::Cover ${SVG} missing QR block at translate(1080,504)."
+            exit 1
+          fi
+          echo "OK: L22 ultra cover with QR block confirmed (${SIZE} bytes)."
+
       - name: Validate new post
         if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
         run: |

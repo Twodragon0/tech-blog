@@ -221,19 +221,26 @@ def _reload_auto_publish_news():
 
 
 class TestL22UltraEnvFlag:
-    def test_unset_defaults_to_disabled(self, monkeypatch):
+    def test_unset_defaults_to_enabled(self, monkeypatch):
+        """Default flipped from opt-in to ON-by-default on 2026-05-15
+        after the 05-12~15 batch shipped without QR due to flag drift
+        on ai-blogwatcher.yml (only daily-news.yml set USE_L22_ULTRA=1)."""
         monkeypatch.delenv("USE_L22_ULTRA", raising=False)
         mod = _reload_auto_publish_news()
-        assert mod.L22_ULTRA_ENABLED is False
+        assert mod.L22_ULTRA_ENABLED is True
 
-    @pytest.mark.parametrize("value", ["1", "true", "yes", "on", "TRUE"])
+    @pytest.mark.parametrize("value", ["1", "true", "yes", "on", "TRUE", ""])
     def test_truthy_values_enable(self, monkeypatch, value):
+        # Empty string now ALSO defaults to enabled — opt-out requires
+        # an explicit 0/false/no/off.
         monkeypatch.setenv("USE_L22_ULTRA", value)
         mod = _reload_auto_publish_news()
         assert mod.L22_ULTRA_ENABLED is True
 
-    @pytest.mark.parametrize("value", ["0", "false", "no", "off", ""])
+    @pytest.mark.parametrize("value", ["0", "false", "no", "off", "FALSE", "Off"])
     def test_falsy_values_disable(self, monkeypatch, value):
+        """Only explicit opt-out values disable L22 ultra.
+        Empty string is NOT in this list anymore."""
         monkeypatch.setenv("USE_L22_ULTRA", value)
         mod = _reload_auto_publish_news()
         assert mod.L22_ULTRA_ENABLED is False

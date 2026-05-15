@@ -184,17 +184,19 @@ L20_HERO_ENABLED: bool = os.getenv("USE_L20_HERO", "1").strip().lower() not in {
     "",
 }
 
-# Feature flag: upgrade to the L22 ultra three-band cover (~67-70 KB)
-# instead of the L20 hero default (~19 KB). When enabled, takes
-# precedence over USE_L20_HERO.  Defaults to OFF (opt-in) until the
-# auto-derived band metadata is validated against more dates.
-# Set USE_L22_ULTRA=1 to enable; the cover quality matches the
-# hand-curated scripts/upgrade_2026_05_to_ultra.py output.
-L22_ULTRA_ENABLED: bool = os.getenv("USE_L22_ULTRA", "0").strip().lower() in {
-    "1",
-    "true",
-    "yes",
-    "on",
+# L22 ultra three-band cover (~67-70 KB, includes QR code block at
+# translate(1080,504)) is the default for security-mode auto-publish.
+# Flipped from opt-in to ON-by-default on 2026-05-15 after the
+# 2026-05-12~15 batch shipped without QR because ai-blogwatcher.yml
+# never set USE_L22_ULTRA=1 (only daily-news.yml did) — flag-drift
+# regression class.
+# Set USE_L22_ULTRA=0 / false / no / off to opt OUT (e.g., to debug
+# the legacy L20 Hero path locally without touching the workflow env).
+L22_ULTRA_ENABLED: bool = os.getenv("USE_L22_ULTRA", "1").strip().lower() not in {
+    "0",
+    "false",
+    "no",
+    "off",
 }
 
 
