@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-15T02:16:56.760967+00:00",
+  "updated_at": "2026-05-16T02:08:12.038766+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/30000-facebook-accounts-hacked-via.html",
-      "title": "30,000 Facebook Accounts Hacked via Google AppSheet Phishing Campaign",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/security-posture-improvement-in-the-ai-era/",
-      "title": "Security posture improvement in the AI era",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-tests-modern-windows-run-says-its-faster-than-legacy-dialog/",
-      "title": "Microsoft tests modern Windows Run, says it's faster than legacy dialog",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/announcing-the-iso-310002018-risk-management-on-aws-compliance-guide/",
-      "title": "Announcing the ISO 31000:2018 Risk Management on AWS Compliance Guide",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html",
-      "title": "Cybercrime Groups Using Vishing and SSO Abuse in Rapid SaaS Extortion Attacks",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/05/01/security/meta-strengthening-end-to-end-encrypted-backups/",
-      "title": "How Meta Is Strengthening End-to-End Encrypted Backups",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/aws-transform-now-automates-bi-migration-to-amazon-quick-in-days/",
-      "title": "AWS Transform now automates BI migration to Amazon Quick in days",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-01-upcoming-deprecation-of-gpt-5-2-and-gpt-5-2-codex",
-      "title": "Upcoming deprecation of GPT-5.2 and GPT-5.2-Codex",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/a-virtual-agent-team-at-docker-how-the-coding-agent-sandboxes-team-uses-a-fleet-of-agents-to-ship-faster/",
-      "title": "A Virtual Agent team at Docker: How the Coding Agent Sandboxes team uses a fleet",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/exodus-bets-self-custody-can-power-life",
-      "title": "From NYSE Gut Punch to ‘One App for Money’: Exodus Bets Self‑Custody Can Power E",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/exodus-exod-announces-official-ufc-deal",
-      "title": "Exodus (EXOD) Announces Official UFC Deal and Revised, Self-Custody Money App",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/galoy-pushes-deeper-into-u-s-banking",
-      "title": "Galoy Pushes Deeper Into U.S. Banking With All-in-One Bitcoin Platform",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/strategy-mstr-stock-bitcoin-price-back-78k",
-      "title": "Strategy (MSTR) Stock Pops 9% As Bitcoin Price Pumps Back to $78,000",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/go-time-after-clarity-act-stablecoin-yield-compromise-finalized?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "CLARITY Act stablecoin yield rules finalised: ‘Go time’ for crypto bill",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
-    {
-      "url": "https://arstechnica.com/security/2026/05/ubuntu-infrastructure-has-been-down-for-more-than-a-day/",
-      "title": "Ubuntu infrastructure has been down for more than a day",
-      "published_date": "2026-05-02",
-      "expires_at": "2026-05-09T01:59:39.155419+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/critrical-cpanel-flaw-mass-exploited-in-sorry-ransomware-attacks/",
       "title": "Critrical cPanel flaw mass-exploited in \"Sorry\" ransomware attacks",
@@ -1170,6 +1080,96 @@
       "title": "Team-level Copilot usage metrics now available via API",
       "published_date": "2026-05-15",
       "expires_at": "2026-05-22T02:16:56.760872+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/turla-turns-kazuar-backdoor-into.html",
+      "title": "Turla Turns Kazuar Backdoor Into Modular P2P Botnet for Persistent Access",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/the-aws-ai-security-framework-securing-ai-with-the-right-controls-at-the-right-layers-at-the-right-phases/",
+      "title": "The AWS AI Security Framework: Securing AI with the right controls, at the right",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/what-45-days-of-watching-your-own-tools.html",
+      "title": "What 45 Days of Watching Your Own Tools Will Tell You About Your Real Attack Sur",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/tanstack-supply-chain-attack-hits-two.html",
+      "title": "TanStack Supply Chain Attack Hits Two OpenAI Employee Devices, Forces macOS Upda",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/funnel-builder-wordpress-plugin-bug-exploited-to-steal-credit-cards/",
+      "title": "Funnel Builder WordPress plugin bug exploited to steal credit cards",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/restrict-access-to-sensitive-documents-in-your-amazon-quick-knowledge-bases-for-amazon-s3/",
+      "title": "Restrict access to sensitive documents in your Amazon Quick knowledge bases for ",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/winners-and-highlights-of-the-gemini-live-agent-challenge/",
+      "title": "Gemini Live Agent Challenge: Announcing the winners and highlights",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/blackfile-vishing-extortion-operation/",
+      "title": "Welcome to BlackFile: Inside a Vishing Extortion Operation",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/introducing-claude-platform-on-aws-anthropics-native-platform-through-your-aws-account/",
+      "title": "AWS의 Claude Platform 소개: AWS 계정을 통한 Anthropic의 네이티브 Claude Platform 시작하기",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/gs-shop-ai-powered-video-recommendation-platform/",
+      "title": "GS SHOP의 영상 기반 AI 상품 추천 플랫폼 구축기",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/agentic-ai-foundation-platform-part3/",
+      "title": "Agentic AI 기반 플랫폼 –  Part3 : AgentCore Policy, Evaluation, Observability로 기업 운영 ",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-15-grok-code-fast-1-deprecated",
+      "title": "Grok Code Fast 1 deprecated",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-15-copilot-memory-supports-user-preferences-for-pro-pro-users",
+      "title": "Copilot Memory supports user preferences for Pro, Pro+ users",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/create-custom-mcp-catalogs-and-profiles/",
+      "title": "Custom MCP Catalogs and Profiles: Advancing Enterprise MCP Adoption",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-15-timestamp-fields-in-github-projects",
+      "title": "Timestamp fields in GitHub Projects",
+      "published_date": "2026-05-16",
+      "expires_at": "2026-05-23T02:08:12.038650+00:00"
     }
   ]
 }
