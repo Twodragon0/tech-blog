@@ -326,15 +326,172 @@ class TestDispatchPrecedence:
         assert svg == "<svg>legacy</svg>"
 
 
+class TestForceVisualVariety:
+    """Fix 1: when 2+ bands route to the same primitive, the dispatcher
+    must rewrite them so all 3 bands carry distinct primitives. The
+    deterministic seeded rotation also has to keep the same post stable
+    across reruns (same date → same visual triple)."""
+
+    def test_three_identical_kinds_get_diversified(self):
+        from scripts.news.l22_dispatch import _force_variety
+        out = _force_variety(["lock_cve", "lock_cve", "lock_cve"], seed_hex="20260513")
+        assert len(set(out)) == 3, f"expected 3 distinct primitives, got {out}"
+
+    def test_two_identical_one_different_get_diversified(self):
+        from scripts.news.l22_dispatch import _force_variety
+        out = _force_variety(["lock_cve", "network_nodes", "lock_cve"], seed_hex="20260513")
+        assert len(set(out)) == 3
+
+    def test_already_distinct_passes_through_unchanged(self):
+        from scripts.news.l22_dispatch import _force_variety
+        triple = ["lock_cve", "network_nodes", "code_bars"]
+        assert _force_variety(triple, seed_hex="20260513") == triple
+
+    def test_deterministic_per_seed(self):
+        from scripts.news.l22_dispatch import _force_variety
+        a = _force_variety(["lock_cve", "lock_cve", "lock_cve"], seed_hex="20260513")
+        b = _force_variety(["lock_cve", "lock_cve", "lock_cve"], seed_hex="20260513")
+        assert a == b, "same seed must produce the same rotation"
+
+    def test_seven_target_dates_each_produce_three_distinct_kinds(self):
+        """End-to-end: 2026-05-12..18 excerpts → 3 distinct visual_kinds."""
+        from scripts.news.l22_dispatch import (
+            _force_variety,
+            _route_visual_kind,
+            extract_three_stories_from_excerpt,
+        )
+
+        # Real frontmatter excerpts copy-pasted from _posts/.
+        cases = {
+            "20260512": (
+                "TeamPCP, Checkmarx Jenkins, cPanel CVE-2026-41940 활성, "
+                "해커들이 AI를 사용해 최초로 알려진을 중심으로 2026년 05월 12일 "
+                "주요 보안/기술 뉴스 28건과 대응 우선순위를 정리합니다."
+            ),
+            "20260513": (
+                "AI 기반 합성 공격 로그 생성을 통한 탐지, 새로운 Exim BDAT "
+                "취약점으로 GnuTLS, AI 속도의 방어를 중심으로 2026년 05월 "
+                "13일 주요 보안/기술 뉴스 29건과 대응 우선순위를 정리합니다."
+            ),
+            "20260514": (
+                "AWS 환경에서 암호화폐 채굴 탐지 및 방지, Microsoft의 MDASH "
+                "AI 시스템, 업데이트된 AWS User Guide 소개를 중심으로 "
+                "2026년 05월 14일 주요 보안/기술 뉴스 30건과 대응 우선순위를 정리합니다."
+            ),
+        }
+        for seed, excerpt in cases.items():
+            stories = extract_three_stories_from_excerpt("", excerpt, "")
+            assert stories is not None, f"excerpt parse failed for {seed}"
+            initial = [
+                _route_visual_kind(s["headline"], i) for i, s in enumerate(stories)
+            ]
+            forced = _force_variety(initial, seed_hex=seed)
+            assert len(set(forced)) == 3, (
+                f"date {seed}: forced visuals not 3-distinct: {forced}"
+            )
+
+
+class TestExtractFromExcerpt:
+    """Fix 2: extract 3 distinct anchor-story headlines from a Korean
+    auto-publisher excerpt, falling back to None when the boilerplate
+    shape is absent so callers can use the original filename path."""
+
+    def test_2026_05_13_excerpt_yields_three_distinct_korean_headlines(self):
+        from scripts.news.l22_dispatch import extract_three_stories_from_excerpt
+        excerpt = (
+            "AI 기반 합성 공격 로그 생성을 통한 탐지, 새로운 Exim BDAT 취약점으로 GnuTLS, "
+            "AI 속도의 방어를 중심으로 2026년 05월 13일 주요 보안/기술 뉴스 29건과 "
+            "대응 우선순위를 정리합니다."
+        )
+        stories = extract_three_stories_from_excerpt("", excerpt, "")
+        assert stories is not None
+        h0, h1, h2 = (s["headline"] for s in stories)
+        # All three differ.
+        assert len({h0, h1, h2}) == 3
+        # Specific spec assertion: the spec literally calls out these three.
+        assert "AI" in h0
+        assert "Exim BDAT" in h1
+        assert "AI" in h2 and "방어" in h2
+
+    def test_returns_none_when_boilerplate_missing(self):
+        from scripts.news.l22_dispatch import extract_three_stories_from_excerpt
+        # English-only excerpt — no "을 중심으로" marker.
+        out = extract_three_stories_from_excerpt(
+            "", "LockBit ransomware hits 320 victims this week", ""
+        )
+        assert out is None
+
+    def test_returns_none_when_segments_under_three(self):
+        from scripts.news.l22_dispatch import extract_three_stories_from_excerpt
+        # Boilerplate present but only 1 segment before it.
+        out = extract_three_stories_from_excerpt(
+            "", "단일 주제를 중심으로 정리합니다.", ""
+        )
+        assert out is None
+
+
+class TestInferKpiWithExcerpt:
+    """Fix 3: KPI inference falls back to the excerpt when the headline
+    has nothing numeric, and recognises Korean "<count>건" as a COUNT."""
+
+    def test_headline_match_wins_over_excerpt(self):
+        from scripts.news.l22_dispatch import _infer_kpi_with_excerpt
+        out = _infer_kpi_with_excerpt(
+            "CVE-2026-1234 RCE", excerpt="never used 99건"
+        )
+        assert out[0] == "CVE" and out[1] == "ID"
+
+    def test_excerpt_count_in_geon_format_picked_up(self):
+        from scripts.news.l22_dispatch import _infer_kpi_with_excerpt
+        out = _infer_kpi_with_excerpt(
+            "AI 속도의 방어",
+            excerpt="...주요 보안/기술 뉴스 29건과 대응 우선순위를 정리합니다.",
+        )
+        assert out == ("29", "COUNT", "items")
+
+    def test_default_when_both_empty(self):
+        from scripts.news.l22_dispatch import _infer_kpi_with_excerpt
+        assert _infer_kpi_with_excerpt("", "") == ("TBD", "STATUS", "NEW")
+
+
+class TestBandSpecificMiniBadges:
+    """Fix 4: each band's mini-badges carry a band-specific severity /
+    priority label so the 3 stripes do not all read the literal
+    'MAY / WK / Q2' placeholders."""
+
+    def test_three_bands_have_three_distinct_priorities(self):
+        from scripts.news.l22_dispatch import _build_band_cfg
+        b0 = _build_band_cfg("h0", "s0", 0)
+        b1 = _build_band_cfg("h1", "s1", 1)
+        b2 = _build_band_cfg("h2", "s2", 2)
+        # mini_value: P0 / P1 / P2 (priority rank).
+        assert (b0["mini_value"], b1["mini_value"], b2["mini_value"]) == (
+            "P0", "P1", "P2",
+        )
+        # mini_label is now "PRI" (priority), not the old "ISSUE".
+        assert b0["mini_label"] == "PRI"
+        # mini2_value: HIGH / MED / LOW severity tiers.
+        assert (b0["mini2_value"], b1["mini2_value"], b2["mini2_value"]) == (
+            "HIGH", "MED", "LOW",
+        )
+
+
 class TestKoreanTitleFilenameExtraction:
     """Regression guard for the 2026-05-13~18 bug: render_l22_svg_string
     was calling extract_three_stories(title, excerpt) without the
     filename= kwarg, so Korean-only auto-published posts fell through
     to the placeholder pool ['Security Update', 'Threat Analysis',
     'Patch Advisory'] instead of using English filename keywords.
+
+    After the 2026-05-15 variety fix the dispatcher prefers
+    excerpt-extracted Korean anchor stories over filename keywords,
+    because the excerpt actually carries the 3 distinct news stories
+    while the filename only carries broad tag words. The placeholder
+    pool guard is preserved — if the excerpt extractor fails for any
+    reason the filename fallback still must beat the placeholders.
     """
 
-    def test_korean_title_uses_filename_keywords(self):
+    def test_korean_excerpt_drives_headlines_not_placeholder_pool(self):
         from scripts.news.l22_dispatch import render_l22_svg_string
 
         post_info = {
@@ -344,11 +501,12 @@ class TestKoreanTitleFilenameExtraction:
         }
         svg = render_l22_svg_string(post_info)
         assert svg, "renderer must produce output"
-        # Filename keywords AI / Vulnerability / Security / Agent must appear
-        # as headlines, NOT the placeholder pool defaults.
+        # Korean anchor stories from the excerpt should appear verbatim
+        # (the L22 renderer keeps Hangul in <text>, unlike L20).
         assert "AI" in svg
-        assert "Vulnerability" in svg or "Security" in svg
-        # Placeholder pool must NOT have triggered.
+        assert "Exim BDAT" in svg or "AI 방어" in svg
+        # Placeholder pool from the filename-fallback path must NOT
+        # have triggered — the excerpt path took priority.
         assert "Security Update" not in svg
         assert "Threat Analysis" not in svg
         assert "Patch Advisory" not in svg

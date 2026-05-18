@@ -35,8 +35,10 @@ from typing import Dict, List, Optional, Tuple
 # Re-export the L20 helpers we depend on so callers don't need two imports.
 from scripts.news.l20_dispatch import (
     _date_str_from_filename,
+    _has_hangul,
     _infer_kpi,
     _post_url_from_filename,
+    _shorten,
     extract_three_stories,
 )
 
@@ -125,6 +127,172 @@ def _shorten_for_detail(text: str, max_len: int = 110) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Excerpt-driven headline extraction (Fix 2)
+# ---------------------------------------------------------------------------
+
+# Korean-locale boilerplate that wraps the 3 anchor stories in auto-published
+# digest excerpts. Examples (from 2026-05-12..18 excerpts):
+#
+#   "...을 중심으로 2026년 05월 13일 주요 보안/기술 뉴스 29건과 대응 우선순위를 정리합니다."
+#   "Vulnerability, Security, Agent 등 최신 위협 동향과 ..."
+#
+# We chop everything from "을/를 중심으로" (or the literal phrase "정리합니다")
+# onward, then split the prefix on the standard Korean enumerator chars
+# ( , / · / · ) to recover the 3 anchor story phrases.
+_EXCERPT_BOILERPLATE_RE = re.compile(
+    r"(?:을|를)\s*중심으로.*$|정리합니다.*$|등\s*최신.*$|등\s*DevSecOps.*$",
+)
+
+# Splitter for the prefix: comma, semicolon, the unicode middle-dot
+# (U+00B7), ASCII bullet, pipe. Hyphens stay attached to words
+# ("Exim BDAT"). Whitespace around separators is optional.
+_EXCERPT_SPLIT_RE = re.compile(r"\s*[,;\u00b7\u2022|/]\s*")
+
+
+def extract_three_stories_from_excerpt(
+    title: str,
+    excerpt: str,
+    filename: str,
+) -> Optional[Tuple[Dict, Dict, Dict]]:
+    """Mine 3 short anchor-story headlines from a Korean digest excerpt.
+
+    Returns ``None`` when the excerpt does not carry the auto-publisher's
+    boilerplate shape (i.e. cannot be parsed with confidence) — callers
+    must fall back to :func:`extract_three_stories`.
+
+    The auto-publisher emits excerpts of the form::
+
+        "<anchor1>, <anchor2>, <anchor3>을 중심으로 ... 정리합니다.
+         <tag1>, <tag2> 등 최신 위협 동향과 ..."
+
+    so we trim everything after the first "을/를 중심으로" (or fallback
+    phrases) and split the remaining prefix on standard enumerators.
+    """
+    text = (excerpt or "").strip()
+    if not text:
+        return None
+
+    prefix = _EXCERPT_BOILERPLATE_RE.split(text, maxsplit=1)[0].strip()
+    if not prefix or prefix == text:
+        # No boilerplate marker found — refuse to guess.
+        return None
+
+    raw = [p.strip() for p in _EXCERPT_SPLIT_RE.split(prefix) if p.strip()]
+    if len(raw) < 3:
+        return None
+
+    # Take the first 3 segments. Each segment is a Korean phrase that we
+    # keep in Korean (the L22 SVG renderer's <text> elements DO accept
+    # Hangul — only L20's check-svg gate rejects it).
+    segments = raw[:3]
+
+    # Sanity gate: at least one segment must contain Hangul, otherwise
+    # we're probably re-parsing an English title and the original
+    # extract_three_stories path is the correct one.
+    if not any(_has_hangul(s) for s in segments):
+        return None
+
+    stories: List[Dict] = []
+    for seg in segments:
+        # 15-25 Korean chars per the spec. Use 28 as a soft cap so a
+        # tight 3-word phrase like "AI 속도의 방어" stays intact.
+        head = _shorten(seg, 28)
+        stories.append({
+            "headline": head,
+            # Subheadline reuses the trimmed segment so the second metric
+            # row carries the full context rather than the boilerplate.
+            "subheadline": _shorten(seg, 60),
+        })
+
+    return stories[0], stories[1], stories[2]
+
+
+# ---------------------------------------------------------------------------
+# KPI inference with excerpt fallback (Fix 3)
+# ---------------------------------------------------------------------------
+
+# Korean count suffix (e.g. "29건", "16건") — the auto-publisher injects
+# the news article count into every excerpt: "주요 보안/기술 뉴스 29건과
+# 대응 우선순위를 정리합니다."
+_KO_COUNT_RE = re.compile(r"(\d{1,4})\s*건")
+
+
+def _infer_kpi_with_excerpt(
+    headline: str,
+    excerpt: str = "",
+) -> Tuple[str, str, str]:
+    """:func:`_infer_kpi` with an excerpt-scan fallback.
+
+    Heuristics tried in order:
+
+    1. :func:`scripts.news.l20_dispatch._infer_kpi` on the headline.
+    2. If (1) returned the ``("TBD", "STATUS", "NEW")`` default, retry the
+       same matcher on the excerpt.
+    3. Korean-locale "<count>건" pattern in the excerpt — auto-published
+       digest excerpts always include "뉴스 29건과 대응 우선순위를
+       정리합니다" so the count anchors the KPI when nothing else does.
+    4. Final fall-through: return the original default so the L22 renderer
+       still has a 3-string KPI triple to draw.
+    """
+    value, label, sub = _infer_kpi(headline)
+    if value != "TBD":
+        return value, label, sub
+
+    if excerpt:
+        ev, el, es = _infer_kpi(excerpt)
+        if ev != "TBD":
+            return ev, el, es
+
+        m = _KO_COUNT_RE.search(excerpt)
+        if m:
+            return (m.group(1)[:6], "COUNT", "items")
+
+    return value, label, sub
+
+
+# ---------------------------------------------------------------------------
+# Visual-variety enforcement (Fix 1)
+# ---------------------------------------------------------------------------
+
+# Deterministic rotation pool for the "force 3 distinct primitives" pass.
+# Chosen for maximum visual contrast: lock_cve (padlock + CVSS chip) ≠
+# network_nodes (graph) ≠ code_bars (bar chart with caption).
+_VARIETY_ROTATIONS: List[List[str]] = [
+    ["lock_cve", "network_nodes", "code_bars"],
+    ["network_nodes", "code_bars", "shield"],
+    ["lock_cve", "code_bars", "router_mesh"],
+    ["browser_cve", "network_nodes", "code_bars"],
+    ["shield", "router_mesh", "code_bars"],
+    ["lock_cve", "cloud_k8s", "network_nodes"],
+    ["code_bars", "wallet_forensic", "lock_cve"],
+    ["cloud_k8s", "code_bars", "shield"],
+]
+
+
+def _force_variety(visual_kinds: List[str], seed_hex: str) -> List[str]:
+    """Override duplicates so all 3 bands carry distinct primitives.
+
+    When ``visual_kinds`` already has 3 distinct entries, return it
+    unchanged. Otherwise pick a deterministic rotation from
+    :data:`_VARIETY_ROTATIONS` keyed by the post-date hex so the same
+    post always renders the same triple, but neighbouring dates rotate
+    through different combinations.
+    """
+    if len(set(visual_kinds)) == 3:
+        return visual_kinds
+
+    # Deterministic seed: sum of hex digits in ``seed_hex`` (e.g. the
+    # YYYYMMDD digits with no separators). Anything non-hex contributes 0.
+    s = 0
+    for ch in (seed_hex or "L22"):
+        try:
+            s += int(ch, 16)
+        except ValueError:
+            pass
+    return list(_VARIETY_ROTATIONS[s % len(_VARIETY_ROTATIONS)])
+
+
+# ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
 
@@ -133,6 +301,8 @@ def _build_band_cfg(
     headline: str,
     subheadline: str,
     band_idx: int,
+    excerpt: str = "",
+    visual_kind_override: Optional[str] = None,
 ) -> dict:
     """Translate (headline, subheadline) into a render_bands_svg band dict.
 
@@ -140,9 +310,11 @@ def _build_band_cfg(
 
     * ``theme``       — by band index (red / amber / green)
     * ``visual``      — keyword-matched primitive call with sensible kwargs
+                        (override-able for the post-routing variety pass)
     * ``label``       — keyword-matched short caps tag
-    * ``badge_*``     — :func:`l20_dispatch._infer_kpi` on the headline
-    * ``mini*_*``     — small stable identifiers from the band index/category
+    * ``badge_*``     — :func:`_infer_kpi_with_excerpt` (headline first,
+                        excerpt fallback for KPI mining)
+    * ``mini*_*``     — band-specific severity / priority labels
     * ``metric/detail`` and ``metric_b/detail_b`` — the headline + sub
     """
     # Lazy-import the renderer to avoid a hard dep when only metadata
@@ -152,9 +324,9 @@ def _build_band_cfg(
     theme_name = _route_theme(band_idx)
     theme = l22.THEMES[theme_name]
     label = _route_label(headline)
-    visual_kind = _route_visual_kind(headline, band_idx)
+    visual_kind = visual_kind_override or _route_visual_kind(headline, band_idx)
 
-    badge_value, badge_label, badge_sub = _infer_kpi(headline)
+    badge_value, badge_label, badge_sub = _infer_kpi_with_excerpt(headline, excerpt)
 
     cy = [105, 315, 525][band_idx]
 
@@ -170,6 +342,13 @@ def _build_band_cfg(
     }
     visual_fn = visual_dispatch.get(visual_kind, visual_dispatch["lock_cve"])
 
+    # Fix 4: band-specific priority/severity badge labels so the 3 stripes
+    # do not all carry the literal "MAY / WK / Q2" placeholders. The mini
+    # badges now read (P0 / HIGH / red) → (P1 / MED / amber) → (P2 / LOW /
+    # green), matching the severity descent down the band stack.
+    severity_rank = ["P0", "P1", "P2"][band_idx]
+    severity_tier = ["HIGH", "MED", "LOW"][band_idx]
+
     return dict(
         theme=theme_name,
         label=label,
@@ -184,14 +363,74 @@ def _build_band_cfg(
         badge_value=badge_value,
         badge_label=badge_label,
         badge_sub=badge_sub,
-        mini_value=["MAY", "WK", "Q2"][band_idx % 3],
-        mini_label="ISSUE",
-        mini_sub="weekly",
-        mini2_value=["HI", "MID", "LO"][band_idx],
+        mini_value=severity_rank,
+        mini_label="PRI",
+        mini_sub=theme_name,
+        mini2_value=severity_tier,
         mini2_label="TIER",
         mini2_sub=theme_name,
         visual=visual_fn(),
     )
+
+
+def _resolve_three_stories(
+    title: str,
+    excerpt: str,
+    filename: str,
+) -> Tuple[Dict, Dict, Dict]:
+    """Pick the richest 3-story tuple available for the band builder.
+
+    Order:
+
+    1. :func:`extract_three_stories_from_excerpt` — works for Korean-only
+       auto-published digests where the title is one merged phrase but
+       the excerpt has 3 enumerated anchor stories.
+    2. :func:`extract_three_stories` — original English-keyword fallback
+       used for titles that already split on commas.
+    """
+    excerpt_stories = extract_three_stories_from_excerpt(title, excerpt, filename)
+    if excerpt_stories is not None:
+        return excerpt_stories
+    return extract_three_stories(title, excerpt, filename=filename)
+
+
+def _build_bands_with_variety(
+    h: Dict,
+    tr: Dict,
+    br: Dict,
+    excerpt: str,
+    seed_hex: str,
+) -> List[dict]:
+    """Build the 3-band config and apply the variety-enforcement pass.
+
+    Each band's initial ``visual_kind`` comes from the keyword router.
+    If 2+ bands collide on the same primitive (common for
+    single-keyword Korean filenames like "AI / Vulnerability /
+    Security" that all route to ``lock_cve``), the variety pass
+    rewrites the duplicates to a deterministic 3-distinct rotation
+    seeded by ``seed_hex``.
+    """
+    initial_kinds = [
+        _route_visual_kind(h["headline"], 0),
+        _route_visual_kind(tr["headline"], 1),
+        _route_visual_kind(br["headline"], 2),
+    ]
+    final_kinds = _force_variety(initial_kinds, seed_hex)
+
+    return [
+        _build_band_cfg(
+            h["headline"], h["subheadline"], 0,
+            excerpt=excerpt, visual_kind_override=final_kinds[0],
+        ),
+        _build_band_cfg(
+            tr["headline"], tr["subheadline"], 1,
+            excerpt=excerpt, visual_kind_override=final_kinds[1],
+        ),
+        _build_band_cfg(
+            br["headline"], br["subheadline"], 2,
+            excerpt=excerpt, visual_kind_override=final_kinds[2],
+        ),
+    ]
 
 
 def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
@@ -214,17 +453,12 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
         return False
 
     try:
-        h, tr, br = extract_three_stories(title, excerpt, filename=filename)
-        bands_cfg = [
-            _build_band_cfg(h["headline"], h["subheadline"], 0),
-            _build_band_cfg(tr["headline"], tr["subheadline"], 1),
-            _build_band_cfg(br["headline"], br["subheadline"], 2),
-        ]
+        h, tr, br = _resolve_three_stories(title, excerpt, filename)
         date_str = _date_str_from_filename(filename) or ""
-        url = _post_url_from_filename(filename)
-        sfx_match = re.search(r"(\d{2})-(\d{2})\.svg|(\d{2})-(\d{2})$", filename)
-        # Simpler: take last 4 digits of date as suffix to keep gradient ids unique.
         sfx = (date_str.replace(".", "")[-4:] if date_str else "L22")[:4] or "L22"
+        seed = date_str.replace(".", "") or filename or "L22"
+        bands_cfg = _build_bands_with_variety(h, tr, br, excerpt, seed_hex=seed)
+        url = _post_url_from_filename(filename)
 
         aria = (
             f"Weekly digest cover {date_str}: "
@@ -263,15 +497,12 @@ def render_l22_svg_string(post_info: Dict) -> str:
         excerpt = str(post_info.get("excerpt", "") or "")
         filename = str(post_info.get("filename", "") or "")
 
-        h, tr, br = extract_three_stories(title, excerpt, filename=filename)
-        bands_cfg = [
-            _build_band_cfg(h["headline"], h["subheadline"], 0),
-            _build_band_cfg(tr["headline"], tr["subheadline"], 1),
-            _build_band_cfg(br["headline"], br["subheadline"], 2),
-        ]
+        h, tr, br = _resolve_three_stories(title, excerpt, filename)
         date_str = _date_str_from_filename(filename) or ""
-        url = _post_url_from_filename(filename)
         sfx = (date_str.replace(".", "")[-4:] if date_str else "L22")[:4] or "L22"
+        seed = date_str.replace(".", "") or filename or "L22"
+        bands_cfg = _build_bands_with_variety(h, tr, br, excerpt, seed_hex=seed)
+        url = _post_url_from_filename(filename)
 
         aria = (
             f"Weekly digest cover {date_str}: "
