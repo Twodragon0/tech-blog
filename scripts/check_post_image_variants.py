@@ -77,14 +77,22 @@ def _extract_image_field(post_path: Path) -> str | None:
     return str(fm["image"]).strip() if "image" in fm else None
 
 
+def _strip_query(image_field: str) -> str:
+    """Drop ``?query`` and ``#fragment`` from an image: URL so cache-bust
+    suffixes like ``?v=20260518`` don't break filesystem lookups.
+    """
+    return image_field.split("?", 1)[0].split("#", 1)[0]
+
+
 def _base_stem(image_field: str) -> str:
     """Strip /assets/images/ prefix and trailing suffix to get the bare stem.
 
     Example:
-        "/assets/images/2026-05-06-Foo_og.png"  -> "2026-05-06-Foo"
-        "/assets/images/2026-05-06-Foo.svg"     -> "2026-05-06-Foo"
+        "/assets/images/2026-05-06-Foo_og.png"          -> "2026-05-06-Foo"
+        "/assets/images/2026-05-06-Foo.svg"             -> "2026-05-06-Foo"
+        "/assets/images/2026-05-06-Foo.svg?v=20260518"  -> "2026-05-06-Foo"
     """
-    name = Path(image_field.lstrip("/")).name
+    name = Path(_strip_query(image_field).lstrip("/")).name
     return _STEM_STRIP_RE.sub("", name)
 
 
@@ -98,7 +106,7 @@ def check_post(post_path: Path) -> PostResult | None:
 
     # The literal image: value may itself exist (e.g. an SVG or a plain PNG).
     # If the literal file is present, the primary requirement is satisfied.
-    literal_path = IMAGES_DIR / Path(image_field.lstrip("/")).name
+    literal_path = IMAGES_DIR / Path(_strip_query(image_field).lstrip("/")).name
     literal_exists = literal_path.exists()
 
     og_png = IMAGES_DIR / f"{stem}_og.png"
