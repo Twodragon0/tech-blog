@@ -15,7 +15,7 @@ tags:
 keywords: [AWS, FinOps, ISMS-P, Audit, Cost-Optimization]
 excerpt: "클라우드 시큐리티 8기 3주차 핵심 정리. 2025년 FinOps 트렌드와 AWS Cost Explorer·Trusted Advisor 비용 관리 도구 활용법, ISMS-P 인증 심사 대응 전략을 실무 중심으로 학습하여 비용 최적화와 보안 컴플라이언스를 동시에 달성합니다."
 description: "클라우드 시큐리티 8기 3주차 핵심 정리. 2025년 FinOps 트렌드와 AWS Cost Explorer·Trusted Advisor 비용 관리 도구 활용법, ISMS-P 인증 심사 대응 전략을 실무 중심으로 학습하여 비용 최적화와 보안 컴플라이언스를 동시에 달성합니다."
-image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.svg
+image: /assets/images/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.svg?v=20260518
 toc: true
 author: Twodragon
 comments: true

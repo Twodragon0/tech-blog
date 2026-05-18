@@ -8,7 +8,7 @@ date: 2025-11-19 12:25:20 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 description: "2025년 11월 18일 Cloudflare 글로벌 장애 실시간 대응 일지. 장애 발생 타임라인, 원인 분석, 서비스 영향 범위 파악, Multi-CDN 전환 전략, 자동 Failover 구현 방법, 재발 방지를 위한 인프라 복원력 설계까지 SRE 관점에서 정리합니다."
 excerpt: "2025년 11월 18일 Cloudflare 글로벌 장애 실시간 대응 일지. 장애 발생 타임라인, 원인 분석, 서비스 영향 범위 파악, Multi-CDN 전환 전략, 자동 Failover 구현 방법, 재발 방지를 위한 인프라 복원력 설계까지 SRE 관점에서 정리합니다."
-image: /assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned.svg
+image: /assets/images/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned.svg?v=20260518
 image_alt: 'Post-Mortem November 18 2025 Cloudflare Global Incident Response Log: What We'
 layout: post
 original_url: https://twodragon.tistory.com/699
