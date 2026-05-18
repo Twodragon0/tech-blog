@@ -1,9 +1,46 @@
 # Google Search Console Indexing Fixes
 
 **작성일**: 2026-04-30
-**최종 갱신**: 2026-05-07 (재진단 + 자동화 fix 추가)
-**대상**: 152 URLs not indexed (GSC coverage report)
+**최종 갱신**: 2026-05-18 (4월 daily-digest sitemap 차단 해제)
+**대상**: 314 URLs not indexed (GSC coverage report, 2026-05-18 snapshot)
 **목표**: 카테고리별 indexing 실패 원인 진단 및 수정
+
+## 2026-05-18 재진단 및 자동화 Fix
+
+### 카테고리별 변화 (2026-05-07 → 2026-05-18)
+
+| 카테고리 | 05-07 | 05-18 | Δ | 비고 |
+|----------|-------|-------|---|------|
+| Not found (404) | 17 | 17 | 0 | 2026-05-13 redirect_from 백필(c4329a49) 효과 대기 중 |
+| Page with redirect | 4 | 3 | -1 | 개선 |
+| Blocked by robots.txt | 2 | 2 | 0 | 의도 (llms.txt / llms-full.txt) |
+| Alternate page with proper canonical | 2 | 2 | 0 | 정상 |
+| Excluded by 'noindex' | 1 | 1 | 0 | 의도 (`vercel.json` X-Robots-Tag on llms*.txt) |
+| **Discovered — currently not indexed** | (n/a) | **162** | 신규 노출 | 4월 daily-digest 30건 차단 + 자동발행 게시물 누적 |
+| **Crawled — currently not indexed** | 126 | 127 | +1 | 정체 |
+| **합계** | 152 | **314** | +162 | "Discovered" 카테고리 신규 가시화로 인한 점프 |
+
+### 자동화 Fix
+
+#### A. 4월 daily-digest 30건 sitemap 차단 해제 — Discovered-not-indexed 회수
+
+**문제**: `_posts/2026-04-{01..30}-Tech_Security_Weekly_Digest_*.md` 30건 모두 front-matter에 `sitemap: false` (3월/5월 digest는 없음, 4월만 일관되게 차단). 원인 commit 미상이나 2026-04-30 ~ 2026-05-07 사이의 "유사 weekly digest 통합" 실험으로 추정. 차단 결과 category/tag 페이지에서 internal link로는 발견되지만 sitemap signal 부재로 Google 색인 우선순위 강등 → "Discovered, currently not indexed" 162건의 주요 기여 원인.
+
+**수정**: 30개 파일에서 `^sitemap: false$` 단독 라인 제거 (`sed -i '' '/^sitemap: false$/d'`). 다른 front-matter 필드 영향 없음.
+
+**결과**: sitemap.xml URL 수 163 → 193 (+30). IndexNow 워크플로우 (`workflow_run` trigger)가 다음 CI 완료 후 자동 ping. 7-14일 recrawl 후 GSC "Discovered" 감소 기대.
+
+**커밋**: `9d127b7d fix(seo): unblock 30 April daily-digest posts from sitemap — GSC indexing recovery`
+
+### 남은 자동화 불가 개선 (사용자 액션 필요)
+
+이전 문서의 4개 항목 유지:
+1. **외부 백링크 확보** — GitHub README, Tistory, LinkedIn 등에 inbound 링크 추가
+2. **GSC 수동 색인 요청** — URL Inspection → "색인 요청" (우선순위 5-10건)
+3. **Vercel Attack Challenge Mode 비활성화** — Googlebot signal collection 회복 (메모리 `feedback_vercel_challenge_mode.md` 참조)
+4. **콘텐츠 unique value 강화** — weekly digest의 자체 commentary 비중 확대
+
+---
 
 ## 2026-05-07 재진단 및 자동화 Fix
 
