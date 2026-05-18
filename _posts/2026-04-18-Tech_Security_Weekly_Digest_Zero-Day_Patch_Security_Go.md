@@ -13,7 +13,6 @@ comments: true
 image: /assets/images/2026-04-18-Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go.svg
 image_alt: "Microsoft Defender, ETL, Google, 2025 - security digest overview"
 toc: true
-sitemap: false
 summary_card:
   title: "Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고"
   period: "2026년 04월 18일 (24시간)"

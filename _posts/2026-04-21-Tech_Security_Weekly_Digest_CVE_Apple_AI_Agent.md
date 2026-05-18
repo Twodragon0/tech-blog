@@ -13,7 +13,6 @@ comments: true
 image: /assets/images/2026-04-21-Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent.svg
 image_alt: "SGLang CVE-2026-5760(CVSS, KelpDAO - security digest overview"
 toc: true
-sitemap: false
 summary_card:
   title: "SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO, 라자루스"
   period: "2026년 04월 21일 (24시간)"

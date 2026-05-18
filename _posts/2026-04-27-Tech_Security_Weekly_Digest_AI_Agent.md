@@ -13,7 +13,6 @@ comments: true
 image: /assets/images/2026-04-27-Tech_Security_Weekly_Digest_AI_Agent.svg
 image_alt: "Weekly security digest overview"
 toc: true
-sitemap: false
 summary_card:
   title: "미국 유틸리티 기업 Itron, 대한민국과의 파트너십을 발표합니다, 우리의 원칙"
   period: "2026년 04월 27일 (24시간)"

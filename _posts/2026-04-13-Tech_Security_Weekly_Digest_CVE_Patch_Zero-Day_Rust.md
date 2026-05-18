@@ -13,7 +13,6 @@ comments: true
 image: /assets/images/2026-04-13-Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust.svg
 image_alt: "CPUID CPU-Z, Marimo RCE, Adobe, Acrobat - security digest overview"
 toc: true
-sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust/
   - /posts/2026-04-13-Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust/

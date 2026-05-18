@@ -13,7 +13,6 @@ comments: true
 image: /assets/images/2026-04-19-Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet.svg
 image_alt: "Grinex, Mirai Nexcorium - security digest overview"
 toc: true
-sitemap: false
 summary_card:
   title: "정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium"
   period: "2026년 04월 19일 (24시간)"

@@ -13,7 +13,6 @@ comments: true
 image: /assets/images/2026-04-08-Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet.svg
 image_alt: "APT28 DNS hijacking, Docker CVE, AI enterprise security digest"
 toc: true
-sitemap: false
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/
   - /posts/2026-04-08-Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/

@@ -13,7 +13,6 @@ comments: true
 image: /assets/images/2026-04-25-Tech_Security_Weekly_Digest_Patch_Security_Threat_Data.svg
 image_alt: "FIRESTARTER, NASA - security digest overview"
 toc: true
-sitemap: false
 summary_card:
   title: "FIRESTARTER 백도어, NASA 직원들, 미국 국방 소프트웨어 노린, 오늘날의 비밀을 미래의 양자 위험으로부터"
   period: "2026년 04월 25일 (24시간)"

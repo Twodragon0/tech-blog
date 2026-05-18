@@ -13,7 +13,6 @@ comments: true
 image: /assets/images/2026-04-23-Tech_Security_Weekly_Digest_AI_Docker_Go_API.svg
 image_alt: "KICS Docker VS, npm, Harvester, Microsoft Graph - security digest overview"
 toc: true
-sitemap: false
 summary_card:
   title: "악성 KICS Docker 이미지와 VS, 자체 전파 공급망 웜이 npm 패키지를 탈취해, Harvester, Microsoft Graph"
   period: "2026년 04월 23일 (24시간)"
