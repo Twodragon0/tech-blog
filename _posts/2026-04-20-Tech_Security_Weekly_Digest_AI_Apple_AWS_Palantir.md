@@ -275,6 +275,15 @@ Curve Finance 창립자는 Kelp exploit의 파급 효과가 자본 효율성을 
 ### P2 (30일 내)
 
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 두 핵심은 **Apple 계정 변경 알림 시스템의 피싱 발사대화** 와 **NIST NVD 의 비우선순위 CVE 평가 중단**이다. 둘은 같은 결의 양면이다 — **신뢰의 1차 출처(Apple 의 공식 메일 인프라, NIST 의 CVSS 메타데이터)** 가 더 이상 그 자체로 신호로 기능하지 않는다는 점이다. 공격자는 새 디바이스 "기기명" 필드에 피싱 문구를 넣어 Apple SPF/DKIM/DMARC 를 완벽히 통과시키고, 방어자는 NVD 메타데이터가 빠진 CVE 의 위험도를 자체적으로 평가해야 한다.
+
+이번 주 한 줄 점검: Apple 측은 메일 게이트웨이에서 `Sender: Apple <no_reply@email.apple.com>` 도메인 일치 + 본문 내 짧은 URL/도메인 mismatch 패턴을 차단 룰로 강제하라. Exchange Online 기준으로 `IncludeMessageProperties` 에 from-domain 매칭, body URL host 불일치 조건을 동시에 강제하는 mail flow rule 한 줄이면 1차 게이트가 된다. NIST 측은 자체 우선순위화 파이프라인부터 깔아라 — `curl -s "https://api.first.org/data/v1/epss?cve=CVE-2026-XXXXX&pretty=true" | jq '.data[] | {cve,epss,percentile}'` 한 줄로 EPSS 점수를 추출해 CVSS 가 비어 있는 CVE 라도 exploit 확률 상위 1% 는 자동으로 P0 큐에 올리는 로직을 SOC 자동화에 박는다.
+
+본 블로그의 [AI 비서 보안 구멍 — 엔터프라이즈 AI 서비스 보안 가이드](https://tech.2twodragon.com/posts/2025/10/31/AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide/) 에서 정리한 SaaS 신뢰 채널 검증 원칙은 Apple 알림 케이스의 — 정상 발신자 + 본문 sanitization 부재 — 시나리오와 정확히 같은 결이다. 사내 자동 알림 시스템(빌드 알림, 모니터링 알림, ChatOps) 이 사용자 입력값을 출력 메시지에 그대로 흘려보내고 있다면, 이번 주에 sanitization 한 줄을 박는 것이 가장 작은 안전 조치다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |

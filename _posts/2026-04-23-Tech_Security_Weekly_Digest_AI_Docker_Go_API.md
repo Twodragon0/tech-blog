@@ -562,6 +562,15 @@ FBI 국장 Kash Patel이 Bitcoin 2026 컨퍼런스에서 "비트코인에 대한
 
 - [ ] **Palantir의 프론트엔드 엔지니어링: 다국어 협업 엔지니어링** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 핵심은 **Checkmarx KICS Docker Hub 공식 저장소의 악성 이미지 업로드(v2.1.21 위조 태그 추가, 기존 태그 덮어쓰기)** 와 **개발자 토큰을 노린 자체 전파 npm 공급망 웜**이다. 둘은 같은 결의 반복이다 — **보안 스캐너 자체가 공급망 침해의 1차 채널**이 됐다는 점이다. KICS 같은 IaC 스캐너는 CI 파이프라인에서 root 권한·소스 마운트·자격증명에 접근하므로, 그 이미지가 한 번 오염되면 침해 반경은 사내 모든 인프라 코드와 클러스터 자격증명으로 즉시 확장된다.
+
+이번 주 한 줄: 사내 사용 중인 보안 도구 Docker 이미지의 digest 핀부터 검증하라 — `docker images --digests | awk '/checkmarx|kics|snyk|trivy|grype|tfsec|checkov|terrascan|semgrep/ {print $1":"$2" -> "$4}' | tee /tmp/security-tools-digests.txt; for line in $(cat /tmp/security-tools-digests.txt); do echo "verify: $line"; done` 한 줄로 사내에 풀린 보안 도구 이미지의 현행 digest 를 추출하고, 각 이미지를 vendor advisory 의 known-good digest 와 대조하라. CI 파이프라인의 모든 보안 스캐너는 `image: checkmarx/kics@sha256:<digest>` 같은 immutable digest 핀으로 강제되어야 한다 — `:latest`·`:v2.x.y` tag 만 쓰는 단계라면 이번 주가 그 마이그레이션 시점이다.
+
+본 블로그의 [NPM Shai-Hulud 자기복제 웜 — 180개 패키지 침해 분석](https://tech.2twodragon.com/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/) 에서 정리한 자기 전파형 npm 웜의 토큰 탈취 패턴은 오늘의 두 사건이 동일 가족군의 진화임을 보여준다. 그때 도입한 짧은 lifetime PAT, post-install 훅 비활성화(`npm ci --ignore-scripts`), OS keyring 마이그레이션 절차가 사내에 박혀 있지 않다면, 이번 사건이 가장 합리적인 도입 트리거다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |

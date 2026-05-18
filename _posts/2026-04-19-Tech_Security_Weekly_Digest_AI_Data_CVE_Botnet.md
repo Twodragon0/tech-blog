@@ -283,6 +283,15 @@ Solana의 선물 미결제약정이 이번 주 20% 증가하며 SOL의 회복세
 ### P2 (30일 내)
 
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 두 축은 **제재 대상 거래소 Grinex 의 1,374만 달러 해킹·서비스 폐쇄(정보기관 관여 주장)** 와 **Mirai 변종 Nexcorium 의 CVE-2024-3721(TBK DVR) 악용 DDoS 봇넷 구축**이다. 둘은 같은 결로 만난다 — **법적 회색지대(제재 대상 거래소)와 자산 인벤토리에서 누락된 임베디드 장비(중국제 TBK DVR)** 가 모두 IR 시점에서 "도와줄 사람이 없다" 는 공통점을 갖는다. Grinex 는 제재 때문에 서방 IR 펌과 협업할 수 없고, TBK DVR 은 EOL 펌웨어가 깔린 채 CCTV 인프라 깊숙이 박혀 있어 패치 경로 자체가 없다.
+
+이번 주 한 줄 점검: 사내·자회사 네트워크의 TBK·Mirai 표적 임베디드 노출부터 색출하라 — `nmap -sV -p 23,80,554,8000,8080,8888 --script http-title -T4 -iL internal-cidrs.txt -oG - | grep -iE 'TBK|hisilicon|dvr|hikvision|dahua|netsurveillance' | tee /tmp/iot-exposure-$(date +%F).txt` 한 줄로 사내 CCTV·NVR·DVR 노출 인벤토리를 추출하고, 발견 시 우선 management VLAN 으로 격리한 뒤 EOL 펌웨어 장비는 교체 계획표(quarter 단위) 에 올린다. Grinex 의 1,374만 달러 시나리오에서 자사가 동일 처지에 빠지지 않게 하려면, 사내 운영 지갑·hot wallet 의 트랜잭션 한도(daily withdrawal cap) 와 multi-sig threshold 가 운영 코드에 박혀 있는지 — 단순 정책 문서가 아니라 — 코드 단위로 점검하라.
+
+본 블로그의 [KARA 랜섬웨어 동향 보고서 2025년 3분기 분석](https://tech.2twodragon.com/posts/2026/01/22/KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST/) 에서 정리한 affiliate 별 IoC 매트릭스·자금 추적 패턴은 Grinex 같은 제재 회색지대 거래소가 어떻게 mixing layer 로 활용되는지를 보여주는 분석 프레임이다. 사내 SIEM 의 블록체인 IoC 피드가 Grinex·Garantex 류 제재 대상 주소를 차단 리스트에 자동 반영하고 있는지 — 이번 주의 가장 직접적인 점검 항목이다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |

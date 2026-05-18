@@ -526,6 +526,15 @@ Capital B가 12 Bitcoin을 추가 매입하여 재무부 보유량을 총 2,937 
 
 - [ ] **Adobe Agents, NVIDIA 및 WPP와 함께 규모의 자율 AI로 돌파구적 창의적 인텔리전스를 선보이다** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 두 헤드라인 — **SGLang CVE-2026-5760(CVSS 9.8, 악성 GGUF 모델 파일을 통한 명령어 삽입 RCE)** 과 **KelpDAO 의 2억 9천만 달러 해킹(Lazarus 연관)** — 은 같은 결로 만난다. **LLM 추론 런타임과 DeFi 프로토콜 모두 "외부에서 입력된 데이터(모델 파일·사용자 트랜잭션) 가 신뢰 경계 안에서 실행되는 코드를 결정"** 한다는 점이다. SGLang 은 GGUF 모델 메타데이터 안의 문자열이 그대로 시스템 명령으로 흘러 들어가는 패턴이고, KelpDAO 케이스는 외부 호출이 자산 이동 권한을 결정하는 컨트랙트 표면이다.
+
+이번 주 한 줄: 사내 LLM inference 서버 인벤토리부터 점검하라 — `kubectl get pods -A -o jsonpath='{range .items[*]}{.metadata.namespace}/{.metadata.name}: {.spec.containers[*].image}{"\n"}{end}' 2>/dev/null | grep -iE 'sglang|vllm|tgi|ollama|llama-cpp'` 한 줄로 K8s 위의 추론 런타임을 색출하고, SGLang 사용 시 즉시 `pip install -U sglang` 패치 라인 이상으로 업그레이드한 뒤 모델 로드 경로가 사용자 업로드 디렉터리(공용 PV·S3 bucket)와 분리돼 있는지 확인하라. KelpDAO 측 교훈은 운영 자산 이동 권한이 코드에 어떻게 박혀 있는지로 옮겨야 한다 — 사내 hot wallet 의 multi-sig threshold, timelock, daily withdrawal cap 이 단순 정책 문서가 아니라 컨트랙트·트랜잭션 정책 엔진(예: Fireblocks TAP) 안에 박혀 있는지 코드 단위로 검증하라.
+
+본 블로그의 [LLM 보안 실무 가이드 — Prompt Injection·RAG·MCP](https://tech.2twodragon.com/posts/2026/03/07/LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP/) 에서 정리한 모델·데이터 신뢰 경계 패턴은 GGUF 파일 같은 외부 모델 아티팩트를 inference 런타임에 로드할 때 왜 별도 sandbox 와 hash pin 이 필요한지를 직접 보여준다. 거기서 제시한 모델 카드·SHA256 핀·격리 실행 체크리스트가 운영 inference 스택에 박혀 있다면, SGLang 류 RCE 의 충격 반경은 한 컨테이너 안에서 끝난다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |

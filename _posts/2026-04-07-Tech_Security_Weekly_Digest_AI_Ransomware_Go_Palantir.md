@@ -506,6 +506,15 @@ Bitcoin 개발 연구소 Second가 자체 Ark 프로토콜 구현체인 Bark를 
 
 - [ ] **Palantir의 프론트엔드 엔지니어링: 백엔드 없는 크로스 애플리케이션 API 구축** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 두 축은 **이란 연계 위협 행위자의 M365 패스워드 스프레이링(3월 3·13·23일 3차 파동, 이스라엘 300+ 기관)** 과 **DPRK 의 GitHub 를 C2 채널로 사용한 한국 표적 다단계 공격**이다. 둘은 같은 결로 만난다 — **SaaS 컨트롤 플레인(M365, GitHub) 이 그 자체로 공격 인프라가 된다**는 점이다. 패스워드 스프레이링은 SaaS 의 약한 ID 게이트를 뚫고, GitHub 를 C2 로 쓰는 캠페인은 통상 화이트리스트 도메인이라 egress 필터링이 무력화된다. 두 사건 모두 사용자 디바이스가 아니라 클라우드 ID·SCM 자체를 1차 표적으로 삼는다.
+
+이번 주 한 줄 점검: M365 측은 패스워드 스프레이링 흔적부터 추출하라 — `Get-MgAuditLogSignIn -Filter "Status/ErrorCode eq 50053 or Status/ErrorCode eq 50126" -Top 5000 | Group-Object IPAddress | Where-Object Count -gt 50 | Sort-Object Count -Descending` 로 단일 IP 에서 50회 이상 실패한 패턴을 색출하고, 해당 IP 대역(주로 VPS) 을 Conditional Access named location 의 block 룰에 즉시 등록한다. GitHub C2 측은 사내 egress 로그(zeek/proxy/falcoSPF) 에서 `raw.githubusercontent.com`·`gist.githubusercontent.com` 접근을 사용자 OS 외 컨테이너·서버 호스트에서 비정상적으로 호출하는 패턴을 `zeek-cut id.orig_h host uri user_agent < http.log | awk '$2 ~ /githubusercontent/ && $4 !~ /git|curl/'` 로 추출한다 — 빌드 노드 외 호스트에서의 호출은 거의 모두 의심 대상이다.
+
+본 블로그의 [클라우드 보안 8기 6주차 — AWS WAF·CloudFront 보안 아키텍처 및 GitHub DevSecOps 실습](https://tech.2twodragon.com/posts/2026/01/08/Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/) 에서 정리한 GitHub Advanced Security·Branch protection·OIDC 트러스트 구성은 GitHub 가 C2 로 악용되는 시나리오 자체를 막진 못해도, 사내 코드 유출과 토큰 탈취가 같은 채널을 타는 것을 차단하는 가장 직접적인 방어선이다. 이번 사고를 계기로 그 글의 룰셋이 운영 저장소에 모두 박혔는지 다시 점검할 가치가 있다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |

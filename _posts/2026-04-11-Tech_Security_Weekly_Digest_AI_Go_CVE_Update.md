@@ -471,6 +471,15 @@ Bloomberg는 이란의 Islamic Revolutionary Guard Corps(IRGC)가 Hormuz 해협 
 
 - [ ] **CoreWeave, Anthropic와 AI 워크로드 실행을 위한 다년간 계약 체결** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 두 축은 **GlassWorm 캠페인의 Zig 드로퍼·Open VSX 악성 확장 (`specstudio.code-wakatime-activity-tracker`)** 과 **Chrome 146 의 DBSC(Device Bound Session Credentials) 일반 배포**다. 둘은 같은 게임의 양면이다 — 공격자는 개발자 IDE 와 브라우저 세션이라는 가장 신뢰받는 클라이언트 측 컨텍스트를 노리고, 방어자는 세션 토큰을 디바이스에 바인딩해 탈취 후 재사용을 무력화시킨다. GlassWorm 이 Zig 로 컴파일된 드로퍼를 쓰는 이유는 명확하다 — Go·C# 시그니처 룰을 그대로 회피하면서, IDE 같은 신뢰 프로세스 안에서 실행되어 EDR 알림을 거의 띄우지 않는다.
+
+이번 주 한 줄 점검: 개발자 머신의 VS Code/Cursor/Windsurf 확장 인벤토리부터 추출하라 — `code --list-extensions --show-versions; cursor --list-extensions --show-versions 2>/dev/null; for d in ~/.vscode/extensions ~/.cursor/extensions; do ls "$d" 2>/dev/null; done | grep -iE "wakatime|specstudio|activity-tracker"` 로 GlassWorm IoC 와 일치하는 확장이 있는지 즉시 색출하고, Open VSX 에서 설치된 확장은 별도 화이트리스트가 없는 한 publisher verification 기준으로 모두 한번 재검토해야 한다. DBSC 측은 사내 SaaS 콘솔(M365 admin, AWS console, Okta admin) 의 SSO 토큰 lifetime 을 단축하고, Chrome 146+ 으로 강제 업그레이드하는 endpoint 정책을 푸시하라.
+
+본 블로그의 [NPM Shai-Hulud 자기복제 웜 — 180개 패키지 침해 분석](https://tech.2twodragon.com/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/) 에서 정리한 dev-machine 토큰 유출·CI 자격증명 도용 시나리오는 GlassWorm 의 다중 IDE 침투 패턴이 노리는 다음 단계와 정확히 겹친다. 거기서 제시한 OS keyring 마이그레이션·짧은 lifetime PAT·하드웨어 키 강제 절차는 이번 GlassWorm 캠페인 대응 작업으로 즉시 옮길 수 있다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |

@@ -429,6 +429,15 @@ Riot Platforms가 채굴에서 AI 인프라로의 전환을 위해 1분기에 3,
 
 - [ ] 클라우드 인프라 보안 설정 정기 감사
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 두 헤드라인 — **중국 연계 TA416 의 PlugX + OAuth 동의 프롬프트 피싱(유럽 정부 표적)** 과 **Microsoft 가 공개한 cron 으로 지속성을 확보한 PHP 쿠키 제어형 웹셸** — 은 같은 결로 만난다. **신뢰 토큰(OAuth scope 토큰)과 스케줄러(cron) 라는 정상 OS 기능을 악용하면, EDR 시그니처와 무관하게 침입이 장기 지속**된다는 패턴이다. TA416 은 사용자가 직접 동의한 OAuth 권한이라 차단 트리거가 안 잡히고, PHP 웹셸은 `crontab -e` 한 줄로 재부팅을 견딘다.
+
+이번 주 점검할 한 줄: `for u in $(getent passwd | cut -d: -f1); do echo "== $u =="; crontab -u "$u" -l 2>/dev/null | grep -v '^#'; done | tee /var/log/cron-audit-$(date +%F).log` 으로 호스트마다 사용자별 crontab 을 전체 덤프하라. www-data·apache·nginx 같은 서비스 계정의 crontab 이 비어 있어야 정상인데, 거기에 `*/5 * * * * curl ... | sh` 류가 박혀 있으면 Microsoft 가 공개한 패턴과 정확히 일치한다. OAuth 측은 Azure AD 환경에서 `Get-MgAuditLogSignIn -Filter "AuthenticationDetails/any(d:d/AuthenticationStepResultDetail eq 'Consent')"` 로 최근 30일치 사용자 동의 이벤트를 추출하고, 상위 비표준 publisher 도메인을 모두 차단 리스트에 올려야 한다.
+
+본 블로그의 [KISA 보안 권고 — Linux 루트킷 탐지·랜섬웨어 예방 가이드 분석](https://tech.2twodragon.com/posts/2026/01/22/KISA_Security_Advisory_Ransomware_Prevention_Linux_Rootkit_Detection_Guide_Analysis/) 에서 정리한 LD_PRELOAD·cron·systemd timer 의 지속성 메커니즘 체크리스트는 이번 PHP 웹셸 사례에 그대로 적용된다. 거기서 제시한 베이스라인 명령들을 사내 IR 플레이북에 박아두지 않았다면, 이번 주 작업으로 그 통합을 마치는 게 가장 효율적이다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |

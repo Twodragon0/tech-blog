@@ -550,6 +550,15 @@ Chainalysis Links NYC 2026 컨퍼런스에서 암호화폐 거래소, 글로벌 
 
 - [ ] **KernelEvolve: Meta의 랭킹 엔지니어 에이전트가 AI 인프라를 최적화하는 방법** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 두 핵심은 **Next.js CVE-2025-55182(766 호스트 침해·자격증명 탈취)** 과 **Cisco IMC/SSM CVE-2026-20093(CVSS 9.8 RCE)** 다. 둘은 표면적으로 웹 프레임워크와 서버 OOB 관리 인터페이스로 갈리지만, 같은 약한 고리를 노린다 — **컨트롤 플레인이 인터넷에 직접 노출되거나, 인증을 우회할 수 있는 미들웨어 라우팅 결함**이다. 이미 766 호스트가 자격증명 탈취 단계까지 진행된 Next.js 케이스는 단순 패치 적용을 넘어 토큰 회수 단계까지 이번 주 안에 들어가야 한다.
+
+이번 주 한 줄 점검: `gh api -X GET search/code --paginate -f q='filename:next.config.js OR filename:next.config.mjs language:JavaScript' --jq '.items[].repository.full_name' | sort -u` 으로 사내 GitHub 조직 안의 Next.js 사용 저장소를 인벤토리한 뒤, 각 저장소의 `package.json` 에서 next 버전이 패치 라인(13.5.x/14.2.x/15.x 패치 버전) 이상인지 검증하라. Cisco IMC/SSM 측은 `curl -sk https://<imc-ip>/redfish/v1 -o /dev/null -w '%{http_code}\n'` 으로 OOB 인터페이스가 외부에서 응답하는지 확인하고, 응답이 200/401 이면 즉시 management VLAN 분리 또는 ACL 차단을 P0 로 올려야 한다.
+
+이번 사건은 본 블로그의 [Next.js SSR 에러 — Cloudflare 차단·ALB 5xx 인시던트 분석](https://tech.2twodragon.com/posts/2026/01/16/Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis/) 에서 정리한 SSR 레이어의 신뢰 경계가 왜 미들웨어 단계에서 다시 검증돼야 하는지를 재확인시킨다. CVE-2025-55182 도 미들웨어 우회 형태의 결함이라는 점에서, 그때 도입한 edge 룰·헤더 화이트리스트 패턴을 이번 패치 시점에 동일 코드베이스에 다시 강제 적용할 가치가 있다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |
