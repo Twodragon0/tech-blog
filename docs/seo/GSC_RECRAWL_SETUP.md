@@ -1,16 +1,22 @@
-# GSC Recrawl Automation — Setup Runbook (PR-1 Foundation)
+# GSC Recrawl Automation — Setup Runbook (PR-1 + PR-2)
 
-**Status**: Setup checklist for the URL Inspection observability layer.
-**Scope**: This runbook covers ONLY the read-only inspection workflow shipped
-in PR-1. Subsequent PRs (priority queue, targeted IndexNow re-ping,
-observability/alerts) are deferred.
+**Status**: Setup checklist for the URL Inspection observability layer
+plus the daily priority action report.
+**Scope**: This runbook covers PR-1 (read-only inspection) and PR-2
+(priority scoring + daily markdown report). Subsequent PRs (targeted
+IndexNow re-ping, observability/alerts) are deferred.
 
 The automation lives in:
 
-- `scripts/gsc_inspect.py` — calls Search Console URL Inspection API
-- `.github/workflows/gsc-queue-refresh.yml` — daily 06:00 UTC cron
+- `scripts/gsc_inspect.py` — calls Search Console URL Inspection API (PR-1)
+- `scripts/gsc_priority.py` — scores and ranks URLs from the state file (PR-2)
+- `.github/workflows/gsc-queue-refresh.yml` — daily 06:00 UTC cron (PR-1 + PR-2)
 - `requirements-gsc.txt` — isolated Python deps
 - `.omc/state/gsc-queue.json` — generated state (gitignored, artifact-only)
+- `.omc/state/gsc-queue-history/YYYY-MM-DD.json` — prior-day snapshots used
+  for the "consecutive stuck runs" priority component (gitignored)
+- `.omc/reports/gsc-daily-action-YYYY-MM-DD.md` — operator action report
+  (gitignored, artifact-only)
 
 ## Why this layer exists
 
@@ -127,12 +133,64 @@ falls back to exponential backoff on HTTP 429 / 5xx.
 | Many 429s | Hit per-minute throttle | Wait 15 min, retry; lower `--daily-budget` |
 | `no URLs found in sitemap` | Sitemap fetch failed or empty | Check the sitemap URL manually |
 
+## Daily action report (PR-2)
+
+After the inspection step succeeds, the workflow archives today's queue
+to `.omc/state/gsc-queue-history/YYYY-MM-DD.json` and runs
+`scripts/gsc_priority.py` to render a markdown action report at
+`.omc/reports/gsc-daily-action-YYYY-MM-DD.md`.
+
+### What the report contains
+
+1. A timestamp header + coverage-state distribution table
+2. **Top-N priority URLs** — the daily operator playbook
+3. Suggested actions — copy-pasteable steps for the GSC UI
+4. Full ranked list (collapsible `<details>`)
+5. The priority-score formula coefficients
+
+### Priority-score components
+
+| Component | Max points | What it rewards |
+|---|---|---|
+| `recency` | 40 | Newer posts (linear decay over 365 days) |
+| `engagement` | 0 (reserved) | Hook for future Plausible/GA4 integration (PR-5) |
+| `sitemap_age` | 20 | Long time since Google last crawled the URL |
+| `stuck_penalty` | 15 + up to 15 | URLs stuck in `Discovered/Crawled — currently not indexed` across consecutive prior days |
+
+Total cap ≈ 80 points. Indexed URLs receive 0 from `stuck_penalty`; the
+score is informational for indexed URLs but they naturally rank below
+stuck ones.
+
+### How to use the report
+
+1. Find the latest workflow run under **Actions → GSC Queue Refresh**.
+2. In the run's artifacts panel, download `gsc-action-{run_id}` — the
+   markdown report is inside.
+3. Open the report, copy each URL in the Top-N table into the GSC UI's
+   URL Inspection tool, and click **Request Indexing**.
+4. Stop when GSC starts rate-limiting (undocumented ~10-12/day cap per
+   property).
+
+The report is also surfaced as a workflow-summary excerpt under the
+job's "Daily action report — top of report" section, so you can scan it
+without downloading the artifact.
+
+### Local dry-run
+
+```bash
+python3 scripts/gsc_priority.py --dry-run
+# or use a synthetic state file:
+python3 scripts/gsc_priority.py --state path/to/state.json --dry-run
+```
+
+The `--dry-run` flag prints the report to stdout and writes no files.
+
 ## What this does NOT do (yet)
 
-PR-1 is read-only observability. It does NOT:
+PR-1 + PR-2 are read-only observability + an operator action report.
+The pipeline does NOT:
 
 - Trigger Google to recrawl any URL (no public API for this)
-- Compute priority scores for stuck URLs (PR-2)
 - Send targeted IndexNow re-pings to Bing/Naver (PR-3)
 - Open GitHub issues on hard failure (PR-4)
-- Persist state to the repo (artifacts only — explicit choice for PR-1)
+- Persist state to the repo (artifacts only — explicit choice)

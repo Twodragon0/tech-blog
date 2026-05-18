@@ -92,3 +92,41 @@ jobs:
           path: .omc/state/gsc-queue.json
           if-no-files-found: warn
           retention-days: 14
+
+      # ---- PR-2: priority queue + daily action report ----
+
+      - name: Archive today's queue to history dir
+        if: steps.guard.outputs.should_run == 'true' && steps.inspect.outcome == 'success'
+        run: |
+          set -euo pipefail
+          mkdir -p .omc/state/gsc-queue-history
+          TODAY="$(date -u +%Y-%m-%d)"
+          cp .omc/state/gsc-queue.json ".omc/state/gsc-queue-history/${TODAY}.json"
+          echo "archived to .omc/state/gsc-queue-history/${TODAY}.json"
+
+      - name: Generate priority action report
+        if: steps.guard.outputs.should_run == 'true' && steps.inspect.outcome == 'success'
+        id: priority
+        run: |
+          set -euo pipefail
+          python3 scripts/gsc_priority.py
+          TODAY="$(date -u +%Y-%m-%d)"
+          REPORT_PATH=".omc/reports/gsc-daily-action-${TODAY}.md"
+          echo "report_path=${REPORT_PATH}" >> "$GITHUB_OUTPUT"
+          if [ -f "$REPORT_PATH" ]; then
+            {
+              echo ""
+              echo "### Daily action report — top of report"
+              echo ""
+              head -n 40 "$REPORT_PATH"
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload action report artifact
+        if: steps.guard.outputs.should_run == 'true' && steps.inspect.outcome == 'success'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
+        with:
+          name: gsc-action-${{ github.run_id }}
+          path: .omc/reports/gsc-daily-action-*.md
+          if-no-files-found: warn
+          retention-days: 30
