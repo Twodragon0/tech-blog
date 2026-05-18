@@ -54,7 +54,7 @@ Before merging a Renovate PR for these deps:
 | Dependency | Pinned range | Source |
 |---|---|---|
 | librsvg2-bin | 2.52.x (ubuntu-22.04 apt) | runner image |
-| Pillow | `>=10.4.0,<11.0.0` | `requirements-visual.txt` |
+| Pillow | `>=12.2.0,<13.0.0` | `requirements-visual.txt` |
 | numpy | `>=2.0.0,<3.0.0` | `requirements-visual.txt` |
 
 ## Ubuntu apt package version notes
