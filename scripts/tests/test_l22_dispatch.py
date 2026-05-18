@@ -324,3 +324,31 @@ class TestDispatchPrecedence:
         # Neither dispatch path runs; legacy generator picks up.
         assert called == {"l22": 0, "l20": 0, "legacy": 1}
         assert svg == "<svg>legacy</svg>"
+
+
+class TestKoreanTitleFilenameExtraction:
+    """Regression guard for the 2026-05-13~18 bug: render_l22_svg_string
+    was calling extract_three_stories(title, excerpt) without the
+    filename= kwarg, so Korean-only auto-published posts fell through
+    to the placeholder pool ['Security Update', 'Threat Analysis',
+    'Patch Advisory'] instead of using English filename keywords.
+    """
+
+    def test_korean_title_uses_filename_keywords(self):
+        from scripts.news.l22_dispatch import render_l22_svg_string
+
+        post_info = {
+            "title": "AI 기반 합성 공격 로그 생성을 통한 탐지, 새로운 Exim BDAT, AI 방어",
+            "excerpt": "AI 기반 합성 공격, Exim BDAT, AI 방어를 중심으로 2026년 05월 13일 보안 뉴스 정리",
+            "filename": "2026-05-13-Tech_Security_Weekly_Digest_AI_Vulnerability_Security_Agent.md",
+        }
+        svg = render_l22_svg_string(post_info)
+        assert svg, "renderer must produce output"
+        # Filename keywords AI / Vulnerability / Security / Agent must appear
+        # as headlines, NOT the placeholder pool defaults.
+        assert "AI" in svg
+        assert "Vulnerability" in svg or "Security" in svg
+        # Placeholder pool must NOT have triggered.
+        assert "Security Update" not in svg
+        assert "Threat Analysis" not in svg
+        assert "Patch Advisory" not in svg

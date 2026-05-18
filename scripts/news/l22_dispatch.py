@@ -214,7 +214,7 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
         return False
 
     try:
-        h, tr, br = extract_three_stories(title, excerpt)
+        h, tr, br = extract_three_stories(title, excerpt, filename=filename)
         bands_cfg = [
             _build_band_cfg(h["headline"], h["subheadline"], 0),
             _build_band_cfg(tr["headline"], tr["subheadline"], 1),
@@ -263,7 +263,7 @@ def render_l22_svg_string(post_info: Dict) -> str:
         excerpt = str(post_info.get("excerpt", "") or "")
         filename = str(post_info.get("filename", "") or "")
 
-        h, tr, br = extract_three_stories(title, excerpt)
+        h, tr, br = extract_three_stories(title, excerpt, filename=filename)
         bands_cfg = [
             _build_band_cfg(h["headline"], h["subheadline"], 0),
             _build_band_cfg(tr["headline"], tr["subheadline"], 1),
