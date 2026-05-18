@@ -511,6 +511,15 @@ FBI에 따르면 2025년 미국에서 발생한 암호화폐 사기 피해액이
 
 - [ ] **Palantir의 프론트엔드 엔지니어링: Three.js의 플롯라인** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 핵심은 Docker CVE-2026-34040 — `--authorization-plugin` 설정에서 특정 헤더 조합으로 AuthZ 결정을 우회하는 패턴이다. Docker Engine을 사용하는 조직 중 Twistlock·OPA·자체 AuthZ 플러그인을 신뢰 경계로 삼아 root 권한 컨테이너 실행을 통제하던 곳은, 이번 패치 적용 전까지 그 게이트가 **신뢰할 수 없는 상태**라고 간주해야 한다. 같은 날 보고된 ComfyUI 1,000+ 인스턴스 크립토마이너 봇넷 캠페인도 결국 동일한 실패 — 개발자 도구가 인증 없이 인터넷에 노출된 상태 — 의 다른 얼굴이다.
+
+이번 주 작업할 일은 두 가지다. 첫째, `docker version --format '{{.Server.Version}}'` 으로 Engine 버전을 인벤토리하고, AuthZ 플러그인 사용 호스트에 한해 28.x 패치 적용을 P0로 올린다. 둘째, ComfyUI·Jupyter·MLflow 같은 ML 개발 UI 노출 여부를 `aws ec2 describe-security-groups --filters "Name=ip-permission.cidr,Values=0.0.0.0/0" --query 'SecurityGroups[*].[GroupId,IpPermissions[?FromPort==`8188`||FromPort==`5000`||FromPort==`8888`]]'` 로 즉시 스캔하라. APT28의 SOHO 라우터 캠페인이 가르치는 교훈도 같다 — 관리 인터페이스가 공용 인터넷에 노출된 상태로 방치되면 패치 적용 속도와 무관하게 자산은 적의 인프라가 된다.
+
+이번 사건은 본 블로그의 [클라우드 보안 8기 7주차 — Docker·Kubernetes 보안 실습](https://tech.2twodragon.com/posts/2026/01/15/Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/) 에서 다룬 컨테이너 권한 최소화·런타임 격리 원칙이 왜 게이트가 무너졌을 때의 마지막 방어선인지를 다시 보여준다. AuthZ 게이트가 우회된다 해도, `--cap-drop=ALL` 과 read-only rootfs·user namespace remapping이 적용된 컨테이너라면 호스트 takeover 의 폭은 현저히 줄어든다. 이번 주의 패치 작업과 별도로, "AuthZ를 통과해 들어온 컨테이너가 root 권한을 받을 수 있는가" 라는 질문을 다시 던질 가치가 있다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |

@@ -533,6 +533,15 @@ Afroman이 Bitcoin 2026 컨퍼런스의 연사로 공식 확정되었습니다. 
 
 - [ ] **Meta Adaptive Ranking Model: LLM 규모 광고 모델 서빙을 위한 추론 확장 곡선 극복** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
+
+## DevSecOps 관점: 이번 주의 실무 시사점
+
+오늘의 두 헤드라인 — Android Developer Verification 단계 시행과 TrueConf CVE-2026-3502 — 은 표면적으로 무관해 보이지만 한 축에서 만난다. **"업데이트·배포 채널의 신원(identity)을 누가 보증하는가"** 라는 질문이다. Google이 개발자 검증을 강제하는 이유는 익명 퍼블리셔가 악성 APK를 푸시한 사고 누적 때문이고, TrueConf 사고는 코드 서명 검증이 빠진 자동 업데이터가 RCE 통로가 된 사례다. 같은 패턴이 사내 CI 아티팩트, Helm 차트, 내부 PyPI 미러에서 재현되지 않는다고 단정할 근거는 없다.
+
+이번 주 실무자가 손에 잡히는 작업으로 옮길 항목은 **artifact 서명 검증을 빌드의 옵션이 아니라 게이트로 승격**하는 것이다. cosign을 이미 도입했다면 검증을 admission 단에서 실행해야 한다 — 예: `cosign verify --certificate-identity-regexp "^https://github.com/myorg/" --certificate-oidc-issuer https://token.actions.githubusercontent.com ghcr.io/myorg/app@sha256:...` 명령을 Kyverno 또는 Sigstore policy-controller로 강제하면, 서명 누락 이미지는 클러스터에 들어오지 못한다. TrueConf처럼 외부 벤더 바이너리를 EDR 정책 예외로 둔 케이스가 있다면 이번 주에 그 예외 목록을 재검토하라.
+
+또 하나의 결론은 ISO/IEC 27001:2022의 Annex A 8.30·8.31(공급망 보안·개발 분리) 통제를 형식적 문서가 아닌 **자동화된 evidence**로 채워야 한다는 점이다. 이는 본 블로그의 [LLM 보안 실무 가이드 — Prompt Injection·RAG·MCP](https://tech.2twodragon.com/posts/2026/03/07/LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP/) 에서 다룬 MCP 도구 화이트리스트 원칙과 같은 결로 이어진다. 자동 업데이터든 AI 에이전트든, 신뢰 경계를 넘어 코드를 실행시키는 주체에 대한 신원 증명을 강제하지 않으면 같은 사고가 다른 표면에서 반복된다.
+
 ## 참고 자료
 
 | 리소스 | 링크 |
