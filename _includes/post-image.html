@@ -46,12 +46,16 @@ Usage:
 
 {% assign _pi_classes = _pi_classes | strip %}
 
+{% comment %} Content-hash cache-bust query (?v={hash8}). Filter returns the
+src unchanged for external URLs, non-/assets/ paths, or missing files. {% endcomment %}
+{% assign _pi_src_versioned = _pi_src | image_v %}
+
 {% if include.width and include.height %}
-<img src="{{ _pi_src | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}" width="{{ include.width }}" height="{{ include.height }}">
+<img src="{{ _pi_src_versioned | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}" width="{{ include.width }}" height="{{ include.height }}">
 {% elsif include.width %}
-<img src="{{ _pi_src | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}" width="{{ include.width }}">
+<img src="{{ _pi_src_versioned | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}" width="{{ include.width }}">
 {% elsif include.height %}
-<img src="{{ _pi_src | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}" height="{{ include.height }}">
+<img src="{{ _pi_src_versioned | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}" height="{{ include.height }}">
 {% else %}
-<img src="{{ _pi_src | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}">
+<img src="{{ _pi_src_versioned | escape }}" alt="{{ _pi_alt | escape }}" class="{{ _pi_classes }}" loading="{{ _pi_loading }}">
 {% endif %}

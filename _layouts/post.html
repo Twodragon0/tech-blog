@@ -75,7 +75,7 @@ layout: default
     {% comment %} 포스트 이미지: 메타 정보 아래에 표시 {% endcomment %}
     {% if page.image %}
     <div class="post-image">
-      {% assign image_path = page.image | relative_url %}
+      {% assign image_path = page.image | image_v | relative_url %}
       {% if page.image_alt %}
         {% assign image_alt_text = page.image_alt | escape %}
       {% else %}

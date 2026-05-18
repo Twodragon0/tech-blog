@@ -15,7 +15,7 @@ tags:
 keywords: [Kubernetes, Minikube, K9s, K8s, Troubleshooting]
 excerpt: "Kubernetes 로컬 개발 환경 실습 가이드. Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용법, Kubernetes 2024-2025 보안 강화(User Namespaces, Bound Service Account Tokens), 트러블슈팅과 실전 테스트 시나리오까지 실무 중심으로 정리합니다."
 description: "Kubernetes 로컬 개발 환경 실습 가이드. Minikube 1.37.0+ 설치 및 설정, K9s 터미널 UI 활용법, Kubernetes 2024-2025 보안 강화(User Namespaces, Bound Service Account Tokens), 트러블슈팅과 실전 테스트 시나리오까지 실무 중심으로 정리합니다."
-image: /assets/images/2025-05-30-Kubernetes_Minikube_and_K9s_Practice_Guide.svg?v=20260518
+image: /assets/images/2025-05-30-Kubernetes_Minikube_and_K9s_Practice_Guide.svg
 toc: true
 author: Yongho Ha
 comments: true

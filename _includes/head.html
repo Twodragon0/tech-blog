@@ -142,11 +142,20 @@
     Facebook/Twitter/KakaoTalk fetch the preview image. Use site.url
     directly to keep the URL pointing at the production CDN.
   {%- endcomment -%}
+  {% comment %}
+    Content-hash cache-bust query (?v={hash8}) supplied by the
+    image_content_hash plugin. Replaces the older date-based
+    `?v={last_modified_at}` scheme (still in git history) because the hash
+    is strictly stronger: it changes only when image bytes change, not on
+    every editorial save. og-default skips versioning (no point — the
+    fallback file is content-stable across builds and the social platforms
+    have already cached it for every post).
+  {% endcomment %}
   {% if og_image contains 'og-default' %}
     {% assign og_image_url = site.url | append: og_image %}
   {% else %}
-    {% assign og_cache_key = page.last_modified_at | default: page.date | default: site.time | date: '%s' %}
-    {% assign og_image_url = site.url | append: og_image | append: '?v=' | append: og_cache_key %}
+    {% assign og_image_versioned = og_image | image_v %}
+    {% assign og_image_url = site.url | append: og_image_versioned %}
   {% endif %}
   {% assign og_image_mime = 'image/png' %}
   {% if og_image contains '.jpg' or og_image contains '.jpeg' %}{% assign og_image_mime = 'image/jpeg' %}{% endif %}
@@ -435,7 +444,7 @@
     }{% if page.image %},
     "image": {
       "@type": "ImageObject",
-      "url": "{{ site.url }}{{ page.image }}",
+      "url": "{{ site.url }}{{ page.image | image_v }}",
       "width": {{ site.og_image_width | default: 1200 }},
       "height": {{ site.og_image_height | default: 630 }}
     }{% endif %}{% if page.category %},
