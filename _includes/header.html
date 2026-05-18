@@ -16,6 +16,9 @@
           {{ item.title }}
         </a>
         {% endfor %}
+        {% if jekyll.environment != "production" %}
+        <a href="{{ '/assets/l25-visual-gallery.html' | relative_url }}" class="nav-link nav-internal" title="L25 visual reference (internal — dev builds only)" rel="nofollow noindex">Gallery</a>
+        {% endif %}
       </nav>
 
       <div class="nav-actions">
@@ -92,5 +95,8 @@
       {{ item.title }}
     </a>
     {% endfor %}
+    {% if jekyll.environment != "production" %}
+    <a href="{{ '/assets/l25-visual-gallery.html' | relative_url }}" class="nav-link nav-internal" title="L25 visual reference (internal — dev builds only)" rel="nofollow noindex">Gallery</a>
+    {% endif %}
   </nav>
 </header>
