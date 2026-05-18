@@ -45,7 +45,7 @@ Jekyll::Hooks.register :site, :post_write do |site|
   baseurl = site.config['baseurl'].to_s
   tags_json = render_tags_json(tag_index, baseurl)
   cats_json = render_categories_json(site, category_index, static_paths)
-  archive_json = render_archive_json(posts, baseurl)
+  archive_json = render_archive_json(posts, baseurl, static_paths)
 
   dest = site.dest
   File.write(File.join(dest, 'tags-data.json'), tags_json)
@@ -161,7 +161,7 @@ def render_categories_json(site, cat_index, static_paths)
   JSON.generate(hash)
 end
 
-def render_archive_json(posts, baseurl)
+def render_archive_json(posts, baseurl, static_paths)
   # Group by year → month → posts. Posts are already date-sorted DESC by
   # Jekyll, so sub-arrays come out newest-first within each month bucket.
   years = {}
@@ -170,7 +170,7 @@ def render_archive_json(posts, baseurl)
     month = post.date.strftime('%m')
     years[year] ||= {}
     years[year][month] ||= []
-    years[year][month] << archive_post_payload(post, baseurl)
+    years[year][month] << archive_post_payload(post, baseurl, static_paths)
   end
 
   # Emit years newest-first to match the visible archive page ordering.
@@ -186,7 +186,7 @@ def render_archive_json(posts, baseurl)
   JSON.generate(ordered)
 end
 
-def archive_post_payload(post, baseurl)
+def archive_post_payload(post, baseurl, static_paths)
   tags = Array(post.data['tags'] || [])
   cats_str = build_category_string(post)
   excerpt_short = sanitize_excerpt_short(post.data['excerpt'])
@@ -199,8 +199,35 @@ def archive_post_payload(post, baseurl)
     'c'    => primary_category(post),
     'cs'   => cats_str,
     'tags' => tags.first(3).map(&:to_s),
-    'ex'   => excerpt_short
+    'ex'   => excerpt_short,
+    'i'    => archive_post_thumbnail(post, baseurl, static_paths)
   }
+end
+
+# Returns the best available thumbnail URL for a post, in priority order:
+#   1. _card.webp  (525w — optimal for listing thumbnails)
+#   2. _og.webp    (1120w fallback)
+#   3. literal image: field
+def archive_post_thumbnail(post, baseurl, static_paths)
+  img_path = post.data['image'].to_s
+  return '' if img_path.empty?
+
+  # Strip query string (cache-bust tolerance) and recover base stem
+  base = img_path.sub(/\?.*\z/, '')
+                 .sub(/_og\.png\z/i, '')
+                 .sub(/\.png\z/i, '')
+                 .sub(/\.svg\z/i, '')
+
+  card_path = "#{base}_card.webp"
+  og_path   = "#{base}_og.webp"
+
+  if static_paths[card_path.start_with?('/') ? card_path : "/#{card_path}"]
+    prefix_with_baseurl(card_path, baseurl)
+  elsif static_paths[og_path.start_with?('/') ? og_path : "/#{og_path}"]
+    prefix_with_baseurl(og_path, baseurl)
+  else
+    prefix_with_baseurl(img_path, baseurl)
+  end
 end
 
 def sanitize_excerpt_short(excerpt)

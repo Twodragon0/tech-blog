@@ -446,7 +446,7 @@
 .archive-item {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   gap: 0.5rem var(--spacing-md);
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius-md);
@@ -569,6 +569,22 @@
 
 .archive-item-title:hover {
   color: var(--color-primary);
+}
+
+/* Thumbnail shown before date in each archive row */
+.archive-item-thumb {
+  width: 80px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+@media (max-width: 480px) {
+  .archive-item-thumb {
+    display: none;
+  }
 }
 
 /* Archive page responsive */
@@ -889,7 +905,7 @@
   color: var(--color-text-tertiary);
   line-height: var(--line-height-normal);
   margin-top: 2px;
-  padding-left: calc(52px + var(--spacing-md) + 0.5rem); /* align under title: time + gap */
+  padding-left: calc(80px + 4px + 52px + var(--spacing-md) * 2 + 0.5rem); /* align under title: thumb + time + gaps */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

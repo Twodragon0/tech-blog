@@ -61,11 +61,17 @@
         escapeHtml(excerpt) + '</span>';
     }
 
+    var thumbSrc = escapeHtml(post.i || '');
+    var thumbHtml = '<img class="archive-item-thumb" src="' + thumbSrc + '" alt="" ' +
+      'loading="lazy" decoding="async" width="80" height="42" ' +
+      'onerror="this.style.display=\'none\'">';
+
     return '<li class="archive-item" ' +
       'data-categories="' + escapeHtml(cats.trim()) + '" ' +
       'data-title="' + escapeHtml(titleLower) + '" ' +
       'data-tags="' + escapeHtml(tagStr) + '" ' +
       'data-excerpt="' + escapeHtml(excerpt) + '">' +
+      thumbHtml +
       '<time datetime="' + escapeHtml(post.x) + '">' + escapeHtml(post.d) + '</time>' +
       catBadge +
       '<a href="' + escapeHtml(post.u) + '" class="archive-item-title">' + escapeHtml(title) + '</a>' +
