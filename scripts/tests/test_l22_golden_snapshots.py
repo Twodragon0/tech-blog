@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Golden-snapshot regression tests for the L22 ultra weekly-digest SVG renderer.
 
-Protects the two visually-verified covers (2026-04-29, 2026-04-30) against
-silent renderer drift.  Any change to ``upgrade_digest_cover.render()``,
-``svg_l22_generator``, or the YAML specs that alters the output will fail
-these tests and surface the message:
+Protects the twelve visually-verified covers (2026-04-29, 2026-04-30,
+2026-05-01 through 2026-05-10) against silent renderer drift.  Any change to
+``upgrade_digest_cover.render()``, ``svg_l22_generator``, or the YAML specs
+that alters the output will fail these tests and surface the message:
 
     "renderer drift detected — visual review required"
 
@@ -39,7 +39,7 @@ def _load_and_render(spec_path: Path) -> str:
 
 # ── parametrize fixtures ─────────────────────────────────────────────────────
 
-# (date, slug) pairs for the two visually-verified L22 ultra covers
+# (date, slug) pairs for the twelve visually-verified L22 ultra covers
 _GOLDEN_SPECS = [
     pytest.param(
         "2026-04-29",
@@ -50,6 +50,56 @@ _GOLDEN_SPECS = [
         "2026-04-30",
         "Tech_Security_Weekly_Digest_AI_Malware_Rust",
         id="2026-04-30",
+    ),
+    pytest.param(
+        "2026-05-01",
+        "Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud",
+        id="2026-05-01",
+    ),
+    pytest.param(
+        "2026-05-02",
+        "Tech_Security_Weekly_Digest_AI_Go_Security_AWS",
+        id="2026-05-02",
+    ),
+    pytest.param(
+        "2026-05-03",
+        "Tech_Security_Weekly_Digest_Ransomware_Azure_CVE_Vulnerability",
+        id="2026-05-03",
+    ),
+    pytest.param(
+        "2026-05-04",
+        "Tech_Security_Weekly_Digest_AI_Data_CVE_Malware",
+        id="2026-05-04",
+    ),
+    pytest.param(
+        "2026-05-05",
+        "Tech_Security_Weekly_Digest_AI_Patch_AWS",
+        id="2026-05-05",
+    ),
+    pytest.param(
+        "2026-05-06",
+        "Tech_Security_Weekly_Digest_CVE_AI_Malware_Go",
+        id="2026-05-06",
+    ),
+    pytest.param(
+        "2026-05-07",
+        "Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware",
+        id="2026-05-07",
+    ),
+    pytest.param(
+        "2026-05-08",
+        "Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent",
+        id="2026-05-08",
+    ),
+    pytest.param(
+        "2026-05-09",
+        "Tech_Security_Weekly_Digest_Vulnerability_AI_Threat",
+        id="2026-05-09",
+    ),
+    pytest.param(
+        "2026-05-10",
+        "Tech_Security_Weekly_Digest_Malware_Patch_AI_Agent",
+        id="2026-05-10",
     ),
 ]
 
@@ -102,6 +152,16 @@ _THEME_ACCENTS = {
 _EXPECTED_THEMES: dict[str, set[str]] = {
     "2026-04-29": {"red", "amber", "green"},
     "2026-04-30": {"red", "amber", "blue"},
+    "2026-05-01": {"red", "amber", "green"},
+    "2026-05-02": {"red", "amber", "green"},
+    "2026-05-03": {"red", "amber", "green"},
+    "2026-05-04": {"red", "amber", "green"},
+    "2026-05-05": {"red", "amber", "green"},
+    "2026-05-06": {"red", "amber", "green"},
+    "2026-05-07": {"red", "amber", "green"},
+    "2026-05-08": {"red", "amber", "green"},
+    "2026-05-09": {"red", "amber", "green"},
+    "2026-05-10": {"red", "amber", "green"},
 }
 
 
