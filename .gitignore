@@ -103,11 +103,16 @@ referenced_images.txt
 .env.backup
 
 # OMC (oh-my-claudecode) state files - temporary session data
-.omc/
-.omc/state/
+.omc/*
+.omc/state/*
 .omc/sessions/
 .omc/notepads/
 .omc/checkpoints/
+
+# Allow committed schema example files under .omc/state/ — these are
+# documentation, not runtime state, and contain no secrets.
+!.omc/state/
+!.omc/state/*.example
 
 # OpenCode session artifacts
 HEARTBEAT.md

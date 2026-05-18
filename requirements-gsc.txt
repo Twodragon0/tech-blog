@@ -1,0 +1,4 @@
+# Dependencies for scripts/gsc_inspect.py — Google Search Console URL Inspection
+# Kept separate from main requirements to avoid bloating the existing dep tree.
+google-api-python-client>=2.0.0
+google-auth>=2.0.0

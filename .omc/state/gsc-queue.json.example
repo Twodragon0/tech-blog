@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-18T07:30:00Z",
+  "site_url": "https://tech.2twodragon.com",
+  "totals": {
+    "inspected": 193,
+    "indexed": 50,
+    "discovered_not_indexed": 100,
+    "crawled_not_indexed": 30,
+    "errors": 13
+  },
+  "urls": [
+    {
+      "url": "https://tech.2twodragon.com/security/example-post/",
+      "inspected_at": "2026-05-18T07:30:01Z",
+      "verdict": "PASS",
+      "coverage_state": "Submitted and indexed",
+      "indexing_state": "INDEXING_ALLOWED",
+      "last_crawl_time": "2026-05-15T10:00:00Z",
+      "robots_txt_state": "ALLOWED",
+      "page_fetch_state": "SUCCESSFUL",
+      "google_canonical": "https://tech.2twodragon.com/security/example-post/",
+      "user_canonical": "https://tech.2twodragon.com/security/example-post/"
+    },
+    {
+      "url": "https://tech.2twodragon.com/devops/stuck-post/",
+      "inspected_at": "2026-05-18T07:30:02Z",
+      "verdict": "NEUTRAL",
+      "coverage_state": "Discovered - currently not indexed",
+      "indexing_state": "INDEXING_ALLOWED",
+      "last_crawl_time": null,
+      "robots_txt_state": "ALLOWED",
+      "page_fetch_state": null,
+      "google_canonical": null,
+      "user_canonical": "https://tech.2twodragon.com/devops/stuck-post/"
+    },
+    {
+      "url": "https://tech.2twodragon.com/cloud/failed-inspect/",
+      "inspected_at": "2026-05-18T07:30:03Z",
+      "error": "HttpError 429 Too Many Requests"
+    }
+  ]
+}

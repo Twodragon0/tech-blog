@@ -1,0 +1,94 @@
+name: GSC Queue Refresh
+
+# PR-1 Foundation: daily URL Inspection snapshot of all sitemap URLs.
+# Read-only — does NOT call the Indexing API or otherwise trigger recrawl.
+# Output uploaded as workflow artifact (not committed, to avoid leaking any
+# accidental sensitive field from the inspection response into git history).
+on:
+  schedule:
+    # Daily at 06:00 UTC (= 15:00 KST). Off-peak for Search Console quota.
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Cap number of URLs to inspect (0 = no cap)'
+        required: false
+        default: '0'
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    name: Refresh GSC URL inspection state
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+
+      - name: Guard — service-account secret must be present
+        id: guard
+        env:
+          HAS_SECRET: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' && 'true' || 'false' }}
+        run: |
+          if [ "$HAS_SECRET" != "true" ]; then
+            echo "::warning::GSC_SERVICE_ACCOUNT_JSON secret is NOT set."
+            echo "::warning::See docs/seo/GSC_RECRAWL_SETUP.md for setup steps."
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python
+        if: steps.guard.outputs.should_run == 'true'
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'requirements-gsc.txt'
+
+      - name: Install dependencies
+        if: steps.guard.outputs.should_run == 'true'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-gsc.txt
+
+      - name: Run GSC URL inspection
+        if: steps.guard.outputs.should_run == 'true'
+        id: inspect
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL || 'https://tech.2twodragon.com' }}
+        run: |
+          set -o pipefail
+          LIMIT_FLAG=""
+          if [ -n "${{ github.event.inputs.limit }}" ] && [ "${{ github.event.inputs.limit }}" != "0" ]; then
+            LIMIT_FLAG="--limit ${{ github.event.inputs.limit }}"
+          fi
+          # Capture the 1-line summary printed to stdout for the job summary
+          SUMMARY=$(python3 scripts/gsc_inspect.py $LIMIT_FLAG | tail -n 1)
+          echo "summary=${SUMMARY}" >> "$GITHUB_OUTPUT"
+          echo "$SUMMARY"
+
+      - name: Write job summary
+        if: steps.guard.outputs.should_run == 'true' && always()
+        run: |
+          {
+            echo "## GSC Queue Refresh"
+            echo ""
+            echo "- Site: \`${{ vars.GSC_SITE_URL || 'https://tech.2twodragon.com' }}\`"
+            echo "- Run: \`${{ github.run_id }}\`"
+            echo "- Summary: \`${{ steps.inspect.outputs.summary }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload state artifact
+        if: steps.guard.outputs.should_run == 'true' && always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
+        with:
+          name: gsc-queue-${{ github.run_id }}
+          path: .omc/state/gsc-queue.json
+          if-no-files-found: warn
+          retention-days: 14
