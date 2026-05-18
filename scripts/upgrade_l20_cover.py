@@ -13,6 +13,10 @@ use separate renderers + spec dirs to avoid schema-union foot-guns:
     rendered by ``scripts/upgrade_rollup_cover.py``
   - L20 hero + 2-card covers:          ``_data/l20_covers/*.yml``
     rendered by THIS script
+  - L25 single-topic post covers:      ``_data/l25_covers/*.yml``
+    rendered by ``scripts/upgrade_l25_cover.py`` (forward-looking;
+    spec dir ships empty — the 28 grandfathered 2025 SVGs are not
+    re-rendered by this pipeline)
 
 See ``.omc/plans/l20-hero-unification.md`` for the design rationale and
 spec schema.

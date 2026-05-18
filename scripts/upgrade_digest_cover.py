@@ -5,6 +5,19 @@ Step 1 of `.omc/plans/upgrade-script-unification.md` — replaces the
 hardcoded ``upgrade_*_to_ultra.py`` family with one CLI + per-date
 YAML specs under ``_data/digest_covers/``.
 
+Sibling pipelines (all share the ``--spec``/``--all``/``--since``/
+``--check``/``--dry-run`` CLI surface and the byte-stable drift gate):
+
+  - daily L22 ultra weekly digests:    ``_data/digest_covers/*.yml``
+    rendered by THIS script
+  - weekly/monthly rollup index covers: ``_data/rollup_covers/*.yml``
+    rendered by ``scripts/upgrade_rollup_cover.py``
+  - L20 hero + 2-card covers:           ``_data/l20_covers/*.yml``
+    rendered by ``scripts/upgrade_l20_cover.py``
+  - L25 single-topic post covers:       ``_data/l25_covers/*.yml``
+    rendered by ``scripts/upgrade_l25_cover.py`` (forward-looking;
+    spec dir ships empty)
+
 Spec format (YAML)::
 
     date: 2026-05-10

@@ -10,6 +10,11 @@ use separate renderers + spec dirs to avoid schema-union foot-guns:
     rendered by ``scripts/upgrade_digest_cover.py``.
   - rollup (week/month index) covers: ``_data/rollup_covers/*.yml``
     rendered by THIS script.
+  - L20 hero + 2-card covers:        ``_data/l20_covers/*.yml``
+    rendered by ``scripts/upgrade_l20_cover.py``.
+  - L25 single-topic post covers:    ``_data/l25_covers/*.yml``
+    rendered by ``scripts/upgrade_l25_cover.py`` (forward-looking;
+    spec dir ships empty).
 
 See ``.omc/plans/rollup-cover-design.md`` for the design rationale and
 spec schema.
