@@ -1,14 +1,15 @@
 # L25-single PROTOTYPE spec (preview render only — do NOT regenerate the
 # grandfathered on-disk SVG from this YAML). Source post:
 #   _posts/2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned.md
-# Tone: incident postmortem -> red theme, shield visual.
+# Tone: incident postmortem -> red theme, outage_timeline visual (incident
+# lifecycle + blast radius, not the ransomware lock that ``shield`` renders).
 
 date: 2025-11-19
 slug: Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned
 post_title: "Post-Mortem: 2025-11-18 Cloudflare Global Incident Response Log"
 category: incident
 theme: red
-visual: shield
+visual: outage_timeline
 headline: "Cloudflare Global Outage RCA"
 subheadline: "Multi-CDN failover playbook and SRE incident-response log"
 

@@ -1,13 +1,14 @@
 # L25-single PROTOTYPE spec (preview render only). Source post:
 #   _posts/2025-05-30-Kubernetes_Minikube_and_K9s_Practice_Guide.md
-# Tone: tutorial / hands-on K8s lab -> blue theme, network_nodes hub-spoke visual.
+# Tone: tutorial / hands-on K8s lab -> blue theme, k8s_topology visual
+# (real K8s objects POD/SVC/NS/CRD/CM/NODE around an api-server hex).
 
 date: 2025-05-30
 slug: Kubernetes_Minikube_and_K9s_Practice_Guide
 post_title: "Kubernetes Minikube + K9s Practice Guide"
 category: tutorial
 theme: blue
-visual: network_nodes
+visual: k8s_topology
 headline: "Minikube + K9s Lab Guide"
 subheadline: "Local cluster, terminal UI, 2024-2025 K8s security upgrades"
 

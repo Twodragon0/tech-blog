@@ -28,7 +28,9 @@ from scripts.lib import svg_l22_generator as l22
 THEMES = l20.THEMES
 CATEGORIES = frozenset({"incident", "course", "tutorial", "guide", "event"})
 
-# Visual dispatch — reuse L20 primitives (theme-aware single-focal builders).
+# Visual dispatch — reuse L20 primitives (theme-aware single-focal builders),
+# augmented with two L25-native primitives (``outage_timeline``,
+# ``k8s_topology``) registered further down once their bodies are defined.
 # Aliases: network_nodes/hub_spoke → vb_hub_spoke; code_bars → vb_code_injection;
 # shield → vb_ransomware_lock; supply_chain_pipe → vb_supply_chain_pipe;
 # lock_cve → vb_cve_chain.
@@ -320,6 +322,176 @@ def _kpi_strip(y: int, kpis: List[Mapping[str, Any]], theme: str) -> str:
         )
         x += cell_w + gap
     return "".join(parts)
+
+
+# L25-native visual primitives --------------------------------------------
+
+def _visual_outage_timeline(cx: int, cy: int, theme: str = "red") -> str:
+    """Incident-postmortem visual: 5-phase horizontal timeline plus a
+    blast-radius indicator below.
+
+    Design intent: replaces the generic ``shield``/ransomware-lock visual
+    on outage RCA posts where there is no encryption / ransom note — just
+    an SRE-style incident lifecycle. The "Mitigate" marker is highlighted
+    in the theme accent (others muted to ``accent_soft``) so the eye lands
+    on the active response phase. Concentric arcs underneath label the
+    blast radius from GLOBAL inward to ASIA — read as "the outage rippled
+    out from the edge". Deterministic (no time-dependent values)."""
+    t = _theme(theme)
+    a, soft = t["accent"], t["accent_soft"]
+    phases = [
+        (-150, "DETECT"),
+        (-78, "DIAGNOSE"),
+        (0, "MITIGATE"),     # current/highlighted
+        (78, "RESOLVE"),
+        (150, "POSTMORTEM"),
+    ]
+    nodes = []
+    for x, label in phases:
+        is_cur = (label == "MITIGATE")
+        r = 9 if is_cur else 6
+        fill = a if is_cur else "#0A0C16"
+        stroke = a if is_cur else soft
+        nodes.append(
+            f'<circle cx="{x}" cy="-30" r="{r}" fill="{fill}" stroke="{stroke}" '
+            f'stroke-width="{2 if is_cur else 1.4}">'
+            + (
+                f'<animate attributeName="r" values="8;11;8" dur="2s" '
+                f'repeatCount="indefinite"/>' if is_cur else ""
+            )
+            + '</circle>'
+        )
+        nodes.append(
+            f'<text x="{x}" y="-50" text-anchor="middle" '
+            f'font-family="Inter, monospace" font-size="8" font-weight="800" '
+            f'fill="{a if is_cur else soft}" letter-spacing="1.2">{label}</text>'
+        )
+    # Concentric blast-radius arcs (top-down semicircles centered at (0,90)).
+    arcs = []
+    for radius, opacity, region in [
+        (96, 0.30, "GLOBAL"),
+        (74, 0.45, "US-EAST"),
+        (52, 0.65, "EU"),
+        (30, 0.90, "ASIA"),
+    ]:
+        arcs.append(
+            f'<path d="M{-radius} 90 A{radius} {radius} 0 0 1 {radius} 90" '
+            f'fill="none" stroke="{a}" stroke-width="1.2" '
+            f'stroke-opacity="{opacity}"/>'
+        )
+        arcs.append(
+            f'<text x="0" y="{90 - radius + 12}" text-anchor="middle" '
+            f'font-family="Inter, monospace" font-size="7" font-weight="700" '
+            f'fill="{soft}" opacity="{opacity + 0.2:.2f}" letter-spacing="1">'
+            f'{region}</text>'
+        )
+    return (
+        f'<g transform="translate({cx},{cy})">'
+        # (No internal header — the visual_frame caption "OUTAGE TIMELINE"
+        # already labels this zone; an inner label would duplicate it.)
+        # Horizontal axis.
+        f'<line x1="-168" y1="-30" x2="168" y2="-30" stroke="{soft}" '
+        f'stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="4 3"/>'
+        # Phase markers + labels.
+        + "".join(nodes) +
+        # Sweep pulse along the axis (motion dot, no scripts).
+        f'<circle r="2.4" fill="{a}">'
+        f'<animateMotion path="M-150 -30 L150 -30" dur="3.6s" '
+        f'repeatCount="indefinite"/></circle>'
+        # Blast-radius header.
+        f'<text x="0" y="22" text-anchor="middle" '
+        f'font-family="Inter, monospace" font-size="9" font-weight="800" '
+        f'fill="{soft}" letter-spacing="2">BLAST RADIUS</text>'
+        # Concentric arcs + region labels + epicenter dot.
+        + "".join(arcs) +
+        f'<circle cx="0" cy="90" r="3" fill="{a}">'
+        f'<animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" '
+        f'repeatCount="indefinite"/></circle>'
+        f'</g>'
+    )
+
+
+def _visual_k8s_topology(cx: int, cy: int, theme: str = "blue") -> str:
+    """Kubernetes-cluster topology: central control-plane hex with 6
+    satellite objects (POD, SVC, NS, CRD, CM, NODE).
+
+    Design intent: replaces the generic CROSS/VECTOR/PROXY hub-spoke when
+    the post is a hands-on K8s tutorial — the labels are now genuine K8s
+    object kinds an operator would recognize. The center is drawn as a
+    hex (api-server crown) rather than a plain circle to mark it as the
+    control plane. Connections are subtle curved guides with a slow
+    stroke-dash sweep to suggest reconciliation traffic without the
+    busy attack-style motion the L20 hub-spoke uses. Deterministic."""
+    t = _theme(theme)
+    a, soft = t["accent"], t["accent_soft"]
+    # Hex points (radius 26 around 0,0) — api-server "crown".
+    hex_pts = "0,-26 22,-13 22,13 0,26 -22,13 -22,-13"
+    # 6 satellite positions on a 100-unit radius circle, with labels.
+    sats = [
+        (   0,  -92, "POD",  "#86EFAC"),  # green
+        (  92,  -34, "SVC",  "#67E8F9"),  # cyan
+        (  82,   54, "NS",   "#C4B5FD"),  # purple
+        (   0,   92, "CM",   "#FFD58A"),  # amber
+        ( -82,   54, "CRD",  "#F9A8D4"),  # pink
+        ( -92,  -34, "NODE", soft),       # theme-soft (blue)
+    ]
+    nodes_svg = []
+    lines_svg = []
+    for x, y, label, col in sats:
+        # Curved control-line from center (0,0) to satellite (x,y) via a
+        # subtle quadratic midpoint that bows outward away from origin.
+        mx = x * 0.55 + (-y * 0.18)
+        my = y * 0.55 + (x * 0.18)
+        lines_svg.append(
+            f'<path d="M0 0 Q{mx:.1f} {my:.1f} {x} {y}" stroke="{a}" '
+            f'stroke-width="1" stroke-opacity="0.5" fill="none" '
+            f'stroke-dasharray="3 3">'
+            f'<animate attributeName="stroke-dashoffset" values="0;-12" '
+            f'dur="2.6s" repeatCount="indefinite"/></path>'
+        )
+        nodes_svg.append(
+            f'<g transform="translate({x},{y})">'
+            f'<rect x="-24" y="-13" width="48" height="26" rx="5" '
+            f'fill="#0A1A30" stroke="{col}" stroke-width="1.4"/>'
+            f'<text x="0" y="4" text-anchor="middle" '
+            f'font-family="Inter, monospace" font-size="10" font-weight="900" '
+            f'fill="{col}" letter-spacing="1">{label}</text>'
+            f'</g>'
+        )
+    return (
+        f'<g transform="translate({cx},{cy})">'
+        # (No internal header — the visual_frame caption "K8S TOPOLOGY"
+        # already labels this zone; an inner label would duplicate it.)
+        # Curved control-plane connections (drawn first, under the boxes).
+        + "".join(lines_svg) +
+        # Central control-plane hex + label.
+        f'<polygon points="{hex_pts}" fill="#0A1A30" stroke="{a}" '
+        f'stroke-width="2" filter="url(#softShadow)">'
+        f'<animate attributeName="stroke-opacity" values="0.7;1;0.7" '
+        f'dur="3s" repeatCount="indefinite"/></polygon>'
+        f'<text x="0" y="-3" text-anchor="middle" '
+        f'font-family="Inter, monospace" font-size="9" font-weight="900" '
+        f'fill="{soft}">api-server</text>'
+        f'<text x="0" y="9" text-anchor="middle" '
+        f'font-family="Inter, monospace" font-size="7" font-weight="700" '
+        f'fill="{a}" letter-spacing="1.2">CONTROL PLANE</text>'
+        # Satellite nodes.
+        + "".join(nodes_svg) +
+        # Bottom-corner mode badge ("single-node" — accurate for minikube).
+        f'<g transform="translate(-120,124)">'
+        f'<rect x="0" y="0" width="86" height="18" rx="3" fill="#0A0C16" '
+        f'stroke="{a}" stroke-width="1"/>'
+        f'<text x="43" y="13" text-anchor="middle" '
+        f'font-family="Inter, monospace" font-size="8" font-weight="800" '
+        f'fill="{soft}" letter-spacing="1.4">single-node</text>'
+        f'</g>'
+        f'</g>'
+    )
+
+
+# Register the L25-native primitives after their bodies are defined.
+VISUAL_BUILDERS["outage_timeline"] = _visual_outage_timeline
+VISUAL_BUILDERS["k8s_topology"]    = _visual_k8s_topology
 
 
 # Top-level renderer -------------------------------------------------------

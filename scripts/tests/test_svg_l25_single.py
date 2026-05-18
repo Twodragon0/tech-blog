@@ -124,6 +124,26 @@ class TestVisualBuilders:
             windows.add(svg[idx:idx + 600])
         assert len(windows) >= 4, f"got {len(windows)} distinct outputs"
 
+    def test_outage_timeline_signature(self):
+        """``outage_timeline`` emits 5 incident phases + BLAST RADIUS arcs
+        — proves the incident-postmortem replacement for ``shield`` renders
+        timeline content (not the ransomware lock the L20 shield emits)."""
+        svg = l25.render_l25_single(_minimal_spec(visual="outage_timeline"))
+        for token in ("DETECT", "DIAGNOSE", "MITIGATE", "RESOLVE",
+                      "POSTMORTEM", "BLAST RADIUS", "GLOBAL", "ASIA"):
+            assert token in svg, f"missing {token!r}"
+
+    def test_k8s_topology_signature(self):
+        """``k8s_topology`` emits the api-server hex + 6 K8s object labels
+        — proves the K8s-tutorial replacement for ``network_nodes`` carries
+        real cluster vocabulary (POD/SVC/NS/CRD/CM/NODE) not CROSS/VECTOR."""
+        svg = l25.render_l25_single(
+            _minimal_spec(category="tutorial", theme="blue",
+                          visual="k8s_topology"))
+        for token in ("api-server", "CONTROL PLANE", "POD", "SVC",
+                      "NS", "CRD", "CM", "NODE", "single-node"):
+            assert token in svg, f"missing {token!r}"
+
 
 # 4. Determinism + XML escape ----------------------------------------------
 
