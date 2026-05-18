@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-17T02:12:15.294481+00:00",
+  "updated_at": "2026-05-18T02:33:08.374889+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/instructure-confirms-data-breach-shinyhunters-claims-attack/",
-      "title": "Instructure confirms data breach, ShinyHunters claims attack",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/microsoft-defender-wrongly-flags-digicert-certs-as-trojan-win32-cerdigentadha/",
-      "title": "Microsoft Defender wrongly flags DigiCert certs as Trojan:Win32/Cerdigent.A!dha",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html",
-      "title": "CISA Adds Actively Exploited Linux Root Access Bug CVE-2026-31431 to KEV",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/telegram-mini-apps-abused-for-crypto-scams-android-malware-delivery/",
-      "title": "Telegram Mini Apps abused for crypto scams, Android malware delivery",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://www.securityweek.com/us-military-reaches-deals-with-7-tech-companies-to-use-their-ai-on-classified-systems/",
-      "title": "US Military Reaches Deals With 7 Tech Companies to Use Their AI on Classified Sy",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/strategy-takes-a-bitcoin-buying-breather-ahead-of-q1-earnings-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Strategy takes Bitcoin buying breather ahead of Q1 earnings report",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/americans-distrust-crypto-ai-as-industry-super-pacs-flood-midterms-poll-finds?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Americans distrust crypto, AI as industry super PACs flood midterms, poll finds",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/irans-largest-crypto-exchange-founded-by-sons-of-family-tied-to-supreme-leaders-reuters?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Iran’s largest crypto exchange founded by sons of family tied to supreme leaders",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/new-york-forces-uphold-to-pay-5m-over-fraudulent-crypto-investment-scheme?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "New York forces Uphold to pay $5M over fraudulent crypto investment scheme",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/crypto-industry-will-be-just-fine-if-clarity-act-doesnt-pass-chris-perkins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Crypto industry will be ‘just fine’ if CLARITY Act doesn’t pass: Chris Perkins",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29140",
-      "title": "GPT-5.5 vs GPT-5.4 vs Opus 4.7 - 실제 코딩 작업 56개 벤치마크 비교",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29139",
-      "title": "Barman - PostgreSQL용 백업 및 복구 관리자",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29138",
-      "title": "Kimi K2.6가 코딩 챌린지에서 Claude, GPT-5.5, Gemini를 이김",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29137",
-      "title": "수백만 줄의 Haskell: Mercury의 프로덕션 엔지니어링",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29136",
-      "title": "Mercedes-Benz, 물리 버튼을 되돌리겠다고 약속함",
-      "published_date": "2026-05-04",
-      "expires_at": "2026-05-11T02:02:54.256584+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/phishing-campaign-hits-80-orgs-using.html",
       "title": "Phishing Campaign Hits 80+ Orgs Using SimpleHelp and ScreenConnect RMM Tools",
@@ -1170,6 +1080,96 @@
       "title": "아직 존재하지 않는 것들을 위한 시각화 디자인",
       "published_date": "2026-05-17",
       "expires_at": "2026-05-24T02:12:15.294381+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/microsoft/new-windows-miniplasma-zero-day-exploit-gives-system-access-poc-released/",
+      "title": "New Windows 'MiniPlasma' zero-day exploit gives SYSTEM access, PoC released",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/nginx-cve-2026-42945-exploited-in-wild.html",
+      "title": "NGINX CVE-2026-42945 Exploited in the Wild, Causing Worker Crashes and Possible ",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/93743/",
+      "title": "2026년 4월 APT 그룹 동향 보고서",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/grafana-github-token-breach-led-to.html",
+      "title": "Grafana GitHub Token Breach Led to Codebase Download and Extortion Attempt",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/tycoon2fa-hijacks-microsoft-365-accounts-via-device-code-phishing/",
+      "title": "Tycoon2FA hijacks Microsoft 365 accounts via device-code phishing",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bernstein-say-figures-q1-shows-uniqueness-of-blockchain-marketplaces?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bernstein says Figure's Q1 results shows uniqueness of blockchain marketplaces",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/saylor-signals-btc-buy-as-retail-holders-get-push-on-strc-dividend-vote?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Saylor signals BTC buy as retail holders get push on STRC dividend vote",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/sbi-rakuten-nomura-line-up-to-launch-crypto-investment-trusts-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "SBI, Rakuten, Nomura line up to launch crypto investment trusts: Report",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-slides-below-79k-macro-fears-can-fixed-income-outflows-save-it?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin slides below $79K on macro fears: Can fixed-income outflows save it?",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/italys-largest-bank-more-than-doubles-crypto-holdings-to-235m-in-q1-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Italy’s largest bank more than doubles crypto holdings to $235M in Q1: Report",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29613",
+      "title": "whichllm - 내 하드웨어에서 실제로 돌아가고 최고 성능을 내는 로컬 LLM 찾기",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29612",
+      "title": "AI 구독은 엔터프라이즈의 시한폭탄",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29611",
+      "title": "2025년 4월 이후 5개 주에서 Flock 카메라 최소 25대가 파괴됨",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29610",
+      "title": "AI가 여러분의 프로세스를 더 빠르게 만들지는 않을 것 같습니다",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29609",
+      "title": "보안 연구자가 Microsoft가 BitLocker 백도어를 만들었다고 말하며 익스플로잇 공개",
+      "published_date": "2026-05-18",
+      "expires_at": "2026-05-25T02:33:08.374791+00:00"
     }
   ]
 }
