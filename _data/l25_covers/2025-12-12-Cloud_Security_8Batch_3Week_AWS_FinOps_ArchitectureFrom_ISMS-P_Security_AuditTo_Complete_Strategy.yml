@@ -1,0 +1,33 @@
+# L25-single PROTOTYPE spec (preview render only). Source post:
+#   _posts/2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.md
+# Tone: course / FinOps audit -> purple theme, supply_chain_pipe pipeline visual.
+
+date: 2025-12-12
+slug: Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy
+post_title: "Cloud Security 8Batch Week 3: AWS FinOps and ISMS-P Audit"
+category: course
+theme: purple
+visual: supply_chain_pipe
+headline: "AWS FinOps + ISMS-P Audit"
+subheadline: "Cost Optimization Hub, Compute Optimizer, Anomaly Detection"
+
+detail_line:
+  - "FinOps 2025 - AI/ML cost optimization - GreenOps - Unit Economics"
+  - "AWS Artifact - Config Rules - Security Hub - CloudTrail compliance"
+
+accent_badge:
+  value: "8/3"
+  label: "BATCH/WEEK"
+  sub: "ISMS-P + FINOPS"
+
+tag_chips:
+  - { label: "AWS",                tone: amber }
+  - { label: "FINOPS",             tone: green }
+  - { label: "ISMS-P",             tone: purple }
+  - { label: "AUDIT",              tone: blue }
+  - { label: "COST-OPTIMIZATION",  tone: amber }
+
+kpi_strip:
+  - { label: "TRACK",     value: "FINOPS" }
+  - { label: "FRAMEWORK", value: "ISMS-P" }
+  - { label: "STATUS",    value: "ACTIVE" }

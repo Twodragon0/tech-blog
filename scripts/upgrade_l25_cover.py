@@ -65,6 +65,8 @@ _ALLOWED_TOP_LEVEL_KEYS = frozenset({
     "date", "slug", "post_title", "category", "theme",
     "headline", "subheadline", "visual",
     "tag_chips", "kpi_strip", "url",
+    # L25 visual-density enrichers (all optional):
+    "detail_line", "accent_badge",
 })
 _REQUIRED_TOP_LEVEL_KEYS = (
     "date", "slug", "post_title", "category", "theme",
@@ -72,6 +74,12 @@ _REQUIRED_TOP_LEVEL_KEYS = (
 )
 _KPI_REQUIRED = ("label", "value")
 _KPI_ALLOWED = frozenset(_KPI_REQUIRED)
+# Per-chip dict form: {label: AWS, tone: amber}.  ``tone`` is optional.
+_CHIP_REQUIRED = ("label",)
+_CHIP_ALLOWED = frozenset({"label", "tone"})
+# Accent badge: {value, label, sub} — all optional individually, the badge
+# only renders when ``value`` is non-empty.
+_ACCENT_BADGE_ALLOWED = frozenset({"value", "label", "sub"})
 
 
 def _short_path(p: Path) -> str:
@@ -95,6 +103,8 @@ class Spec:
     visual: str
     tag_chips: tuple
     kpi_strip: tuple
+    detail_line: tuple = ()
+    accent_badge: Optional[Dict[str, str]] = None
     url_override: Optional[str] = None
 
     @property
@@ -110,12 +120,20 @@ class Spec:
         return self.url_override or l25._post_url(self.date, self.slug)
 
     def to_dict(self) -> Dict[str, Any]:
+        # tag_chips may be plain-string tuple or dict tuple; both flow through
+        # to the renderer unchanged.
+        chips: List[Any] = []
+        for c in self.tag_chips:
+            chips.append(dict(c) if isinstance(c, dict) else c)
         return {
             "date": self.date, "slug": self.slug, "post_title": self.post_title,
             "category": self.category, "theme": self.theme,
             "headline": self.headline, "subheadline": self.subheadline,
-            "visual": self.visual, "tag_chips": list(self.tag_chips),
-            "kpi_strip": [dict(c) for c in self.kpi_strip], "url": self.url,
+            "visual": self.visual, "tag_chips": chips,
+            "kpi_strip": [dict(c) for c in self.kpi_strip],
+            "detail_line": list(self.detail_line),
+            "accent_badge": dict(self.accent_badge) if self.accent_badge else {},
+            "url": self.url,
         }
 
 
@@ -135,6 +153,55 @@ def _validate_kpi(idx: int, raw: Any) -> Dict[str, str]:
         raise ValueError(f"kpi_strip[{idx}]: unknown keys: {sorted(extra)}")
     # Coerce scalars to str — YAML may decode "1.0" as float.
     return {k: "" if raw[k] is None else str(raw[k]) for k in _KPI_REQUIRED}
+
+
+def _validate_chip(idx: int, raw: Any) -> Any:
+    """Accept legacy plain-string chips OR the new ``{label, tone}`` form."""
+    if raw is None:
+        raise ValueError(f"tag_chips[{idx}]: must not be null")
+    if isinstance(raw, (str, int, float)):
+        return str(raw)
+    if isinstance(raw, dict):
+        missing = [k for k in _CHIP_REQUIRED if k not in raw]
+        if missing:
+            raise ValueError(f"tag_chips[{idx}]: missing keys: {missing}")
+        extra = set(raw) - _CHIP_ALLOWED
+        if extra:
+            raise ValueError(f"tag_chips[{idx}]: unknown keys: {sorted(extra)}")
+        out: Dict[str, str] = {"label": str(raw["label"])}
+        if "tone" in raw and raw["tone"] is not None:
+            out["tone"] = str(raw["tone"])
+        return out
+    raise ValueError(
+        f"tag_chips[{idx}]: expected str or dict, got {type(raw).__name__}"
+    )
+
+
+def _validate_detail_line(raw: Any) -> tuple:
+    """``detail_line`` is 0-2 bullet phrases (raw strings)."""
+    if raw is None:
+        return ()
+    if not isinstance(raw, list):
+        raise ValueError("detail_line: must be a list of strings")
+    if len(raw) > 2:
+        raise ValueError(
+            f"detail_line: must have at most 2 entries (got {len(raw)})"
+        )
+    return tuple(str(x) for x in raw)
+
+
+def _validate_accent_badge(raw: Any) -> Optional[Dict[str, str]]:
+    """``accent_badge`` is an optional ``{value, label, sub}`` dict."""
+    if raw is None:
+        return None
+    if not isinstance(raw, dict):
+        raise ValueError(
+            f"accent_badge: expected dict, got {type(raw).__name__}"
+        )
+    extra = set(raw) - _ACCENT_BADGE_ALLOWED
+    if extra:
+        raise ValueError(f"accent_badge: unknown keys: {sorted(extra)}")
+    return {k: "" if raw.get(k) is None else str(raw.get(k)) for k in _ACCENT_BADGE_ALLOWED}
 
 
 def _require_enum(path: Path, field: str, value: str, allowed) -> None:
@@ -180,8 +247,10 @@ def load_spec(path: Path) -> Spec:
         post_title=str(raw["post_title"]),
         category=category, theme=theme, visual=visual,
         headline=str(raw["headline"]), subheadline=str(raw["subheadline"]),
-        tag_chips=tuple(str(t) for t in chips),
+        tag_chips=tuple(_validate_chip(i, c) for i, c in enumerate(chips)),
         kpi_strip=tuple(_validate_kpi(i, c) for i, c in enumerate(kpis)),
+        detail_line=_validate_detail_line(raw.get("detail_line")),
+        accent_badge=_validate_accent_badge(raw.get("accent_badge")),
         url_override=str(raw["url"]) if raw.get("url") else None,
     )
 
@@ -192,14 +261,23 @@ def render(spec: Spec) -> str:
     return l25.render_l25_single(spec.to_dict())
 
 
-def write(spec: Spec, *, dry_run: bool = False) -> int:
+def write(
+    spec: Spec, *, dry_run: bool = False, output: Optional[Path] = None,
+) -> int:
     """Render + write.  Returns bytes written (0 if dry-run).  Matches the
     L20/L22 digest CLI semantic: dry-run reports 0 so the "did it hit
-    disk?" signal stays in CLI output."""
+    disk?" signal stays in CLI output.
+
+    When ``output`` is provided the file lands at that path instead of the
+    canonical ``assets/images/{date}-{slug}.svg`` so a caller can render
+    preview SVGs (``.preview.svg``) for review without touching production
+    covers — the drift gate still keys on ``spec.output_path``."""
     svg = render(spec)
     if dry_run:
         return 0
-    spec.output_path.write_text(svg, encoding="utf-8")
+    target = output if output is not None else spec.output_path
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(svg, encoding="utf-8")
     return len(svg.encode("utf-8"))
 
 
@@ -265,6 +343,14 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         "--check", action="store_true",
         help="Re-render each spec and exit 1 if any on-disk SVG drifts",
     )
+    parser.add_argument(
+        "--output",
+        help=(
+            "Override the output path for the rendered SVG. Only valid with "
+            "--spec (single-render mode); useful for review previews like "
+            "...preview.svg without touching the canonical assets/images path."
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -275,6 +361,16 @@ def main(argv: Optional[List[str]] = None) -> int:
         # Forward-looking infra: empty spec dir is a valid steady state.
         print("no specs to process")
         return 0
+
+    output_override: Optional[Path] = None
+    if getattr(args, "output", None):
+        if args.all:
+            print(
+                "error: --output is only valid with --spec (single render)",
+                file=sys.stderr,
+            )
+            return 2
+        output_override = Path(args.output)
 
     drift: List[str] = []
     rendered = 0
@@ -293,9 +389,13 @@ def main(argv: Optional[List[str]] = None) -> int:
             else:
                 print(f"  OK    {spec.filename}")
         else:
-            size = write(spec, dry_run=args.dry_run)
+            size = write(spec, dry_run=args.dry_run, output=output_override)
             tag = "[DRY] " if args.dry_run else ""
-            print(f"  {tag}wrote {spec.filename}: {size} bytes")
+            display = (
+                _short_path(output_override) if output_override
+                else spec.filename
+            )
+            print(f"  {tag}wrote {display}: {size} bytes")
             rendered += 1
 
     if args.check:

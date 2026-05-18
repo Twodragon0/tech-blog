@@ -109,13 +109,18 @@ class TestVisualBuilders:
         assert "translate(840,290)" in svg
 
     def test_distinct_visuals_distinguishable(self):
-        """Slice the 600 bytes after the hero visual anchor — at least
-        four visual_ids must produce different windows (proves they
-        aren't all aliased to the same builder)."""
+        """Slice the 600 bytes after the LAST hero visual anchor — at least
+        four visual_ids must produce different windows (proves they aren't
+        all aliased to the same builder).
+
+        ``rfind`` is required because the visual frame decoration also
+        emits a ``translate(840,290)`` group BEFORE the actual visual
+        builder; we want the last anchor, which is always the visual
+        builder's own translate."""
         windows = set()
         for vid in sorted(l25.VISUAL_BUILDERS):
             svg = l25.render_l25_single(_minimal_spec(visual=vid))
-            idx = svg.find("translate(840,290)")
+            idx = svg.rfind("translate(840,290)")
             windows.add(svg[idx:idx + 600])
         assert len(windows) >= 4, f"got {len(windows)} distinct outputs"
 
@@ -227,15 +232,28 @@ class TestWriteCheck:
 # 7. CLI drift gate on empty spec dir --------------------------------------
 
 class TestCliEmptySpecDir:
-    def test_check_empty_dir_exits_zero(self, capsys):
-        """Steady state: SPECS_DIR ships empty; --all --check must exit 0."""
+    """SPECS_DIR may legitimately hold prototype YAMLs while their on-disk
+    SVGs live behind a ``.preview.svg`` suffix — that's a valid pre-batch
+    state. These tests redirect SPECS_DIR to a tmp dir so CLI behaviour
+    on an empty directory remains exercised regardless of real-repo state."""
+
+    @pytest.fixture
+    def _empty_specs_dir(self, tmp_path, monkeypatch):
+        empty = tmp_path / "l25_covers_empty"
+        empty.mkdir()
+        from scripts import upgrade_l25_cover as mod
+        monkeypatch.setattr(mod, "SPECS_DIR", empty)
+        return empty
+
+    def test_check_empty_dir_exits_zero(self, capsys, _empty_specs_dir):
+        """Empty SPECS_DIR -> --all --check exits 0 with the no-specs notice."""
         assert main(["--all", "--check"]) == 0
         assert "no specs to process" in capsys.readouterr().out
 
-    def test_all_empty_dir_exits_zero(self, capsys):
+    def test_all_empty_dir_exits_zero(self, capsys, _empty_specs_dir):
         assert main(["--all"]) == 0
         assert "no specs to process" in capsys.readouterr().out
 
-    def test_spec_dir_present_and_empty(self):
+    def test_spec_dir_present(self):
+        """Real SPECS_DIR always exists (forward-looking infra)."""
         assert SPECS_DIR.is_dir(), f"{SPECS_DIR} missing"
-        assert list(SPECS_DIR.glob("*.yml")) == []
