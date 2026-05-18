@@ -79,7 +79,7 @@ sitemap:
         {% if sm_png_file %}{% assign sm_image = sm_image_png %}{% elsif sm_og_png_file %}{% assign sm_image = sm_image_og_png %}{% endif %}
       {% endif %}
       <image:image>
-        <image:loc>{{ site.url }}{{ sm_image }}</image:loc>
+        <image:loc>{{ site.url }}{{ sm_image | image_v }}</image:loc>
         <image:title>{{ post.title | xml_escape }}</image:title>
         <image:caption>{{ post.image_alt | default: post.excerpt | strip_html | strip_newlines | truncate: 160 | xml_escape }}</image:caption>
       </image:image>
