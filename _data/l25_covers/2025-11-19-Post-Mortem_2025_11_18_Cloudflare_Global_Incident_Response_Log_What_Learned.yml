@@ -5,7 +5,7 @@
 # lifecycle + blast radius, not the ransomware lock that ``shield`` renders).
 
 date: 2025-11-19
-slug: Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned
+slug: Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned
 post_title: "Post-Mortem: 2025-11-18 Cloudflare Global Incident Response Log"
 category: incident
 theme: red
