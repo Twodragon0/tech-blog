@@ -11,6 +11,9 @@ on:
       - 'scripts/upgrade_rollup_cover.py'
       - 'scripts/lib/svg_rollup_generator.py'
       - '_data/rollup_covers/**.yml'
+      - 'scripts/upgrade_l25_cover.py'
+      - 'scripts/lib/svg_l25_single.py'
+      - '_data/l25_covers/**.yml'
   pull_request:
     paths:
       - 'assets/images/**.svg'
@@ -21,6 +24,9 @@ on:
       - 'scripts/upgrade_rollup_cover.py'
       - 'scripts/lib/svg_rollup_generator.py'
       - '_data/rollup_covers/**.yml'
+      - 'scripts/upgrade_l25_cover.py'
+      - 'scripts/lib/svg_l25_single.py'
+      - '_data/l25_covers/**.yml'
 
 concurrency:
   group: svg-lint-${{ github.ref }}
@@ -57,6 +63,10 @@ jobs:
       - name: Rollup cover drift check (YAML spec vs on-disk SVG)
         id: rollup_drift
         run: python3 scripts/upgrade_rollup_cover.py --all --check
+
+      - name: L25 single cover drift check (YAML spec vs on-disk SVG)
+        id: l25_drift
+        run: python3 scripts/upgrade_l25_cover.py --all --check
 
       - name: Upload lint report on failure
         if: failure() && steps.lint.outcome == 'failure'
