@@ -9,6 +9,11 @@ layout: default
     {% endif %}
   </header>
 
+  {%- comment -%}
+    Collect posts whose `category` or `categories` matches this hub.
+    `cat_key` falls back to the page title when no explicit
+    `category_name` is set.
+  {%- endcomment -%}
   {%- assign cat_key = page.category_name | default: page.title | downcase | strip -%}
   {%- assign matched = "" | split: "" -%}
   {%- for post in site.posts -%}
@@ -34,6 +39,99 @@ layout: default
     {{ content }}
 
     {%- if matched.size > 0 -%}
+
+    {%- comment -%}
+      Build month buckets (YYYY-MM → count) for the bar chart, and
+      tabulate tag frequencies for the top-5 chip list.
+    {%- endcomment -%}
+    {%- assign by_month = matched | group_by_exp: "p", "p.date | date: '%Y-%m'" | sort: "name" -%}
+    {%- assign max_month_count = 1 -%}
+    {%- for bucket in by_month -%}
+      {%- if bucket.items.size > max_month_count -%}
+        {%- assign max_month_count = bucket.items.size -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- assign all_tags = matched | map: "tags" | flatten | compact -%}
+    {%- assign unique_tags = all_tags | uniq -%}
+    {%- assign tag_index = "" | split: "" -%}
+    {%- for t in unique_tags -%}
+      {%- assign cnt = 0 -%}
+      {%- for at in all_tags -%}
+        {%- if at == t -%}{%- assign cnt = cnt | plus: 1 -%}{%- endif -%}
+      {%- endfor -%}
+      {%- comment -%}Zero-pad count to 3 digits so a lexical sort yields a numeric desc.{%- endcomment -%}
+      {%- if cnt < 10 -%}{%- assign padded = '00' | append: cnt -%}
+      {%- elsif cnt < 100 -%}{%- assign padded = '0' | append: cnt -%}
+      {%- else -%}{%- assign padded = cnt | append: '' -%}
+      {%- endif -%}
+      {%- assign entry = padded | append: '|' | append: t -%}
+      {%- assign tag_index = tag_index | push: entry -%}
+    {%- endfor -%}
+    {%- assign tag_index_sorted = tag_index | sort | reverse -%}
+    {%- assign top_tag_entries = tag_index_sorted | slice: 0, 5 -%}
+
+    {%- assign first_post = matched | last -%}
+    {%- assign last_post = matched | first -%}
+
+    <section class="cat-stats" aria-labelledby="cat-stats-heading">
+      <h2 id="cat-stats-heading" class="cat-stats-heading visually-hidden">카테고리 통계</h2>
+
+      <div class="cat-stat-grid">
+        <div class="cat-stat-card">
+          <div class="cat-stat-value">{{ matched.size }}</div>
+          <div class="cat-stat-label">총 포스트</div>
+        </div>
+        <div class="cat-stat-card">
+          <div class="cat-stat-value">{{ by_month.size }}</div>
+          <div class="cat-stat-label">월 활동</div>
+        </div>
+        <div class="cat-stat-card">
+          <div class="cat-stat-value">{{ unique_tags.size }}</div>
+          <div class="cat-stat-label">고유 태그</div>
+        </div>
+        <div class="cat-stat-card">
+          <div class="cat-stat-value">{{ last_post.date | date: "%m.%d" }}</div>
+          <div class="cat-stat-label">최근 글</div>
+        </div>
+      </div>
+
+      <div class="cat-stat-widgets">
+        <div class="cat-widget cat-widget--bars">
+          <h3 class="cat-widget-title">월별 포스트 ({{ first_post.date | date: "%Y.%m" }} → {{ last_post.date | date: "%Y.%m" }})</h3>
+          <ol class="cat-month-bars" role="list">
+            {%- for bucket in by_month -%}
+              {%- assign pct = bucket.items.size | times: 100 | divided_by: max_month_count -%}
+              {%- assign month_label = bucket.name | split: "-" | last -%}
+              {%- assign year_label = bucket.name | split: "-" | first -%}
+              <li class="cat-month-bar-item" title="{{ bucket.name }} — {{ bucket.items.size }}건">
+                <span class="cat-month-bar" style="--bar-h: {{ pct }}%;" aria-hidden="true"></span>
+                <span class="cat-month-bar-count">{{ bucket.items.size }}</span>
+                <span class="cat-month-bar-label"><span class="cat-month-bar-mm">{{ month_label }}</span><span class="cat-month-bar-yy">'{{ year_label | slice: 2, 2 }}</span></span>
+              </li>
+            {%- endfor -%}
+          </ol>
+        </div>
+
+        <div class="cat-widget cat-widget--tags">
+          <h3 class="cat-widget-title">상위 태그</h3>
+          <ul class="cat-top-tags" role="list">
+            {%- for entry in top_tag_entries -%}
+              {%- assign parts = entry | split: '|' -%}
+              {%- assign tcount = parts[0] | plus: 0 -%}
+              {%- assign tname = parts[1] -%}
+              <li class="cat-top-tag">
+                <a href="/tags/#{{ tname | url_encode }}">
+                  <span class="cat-top-tag-name">{{ tname }}</span>
+                  <span class="cat-top-tag-count">{{ tcount }}</span>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section class="category-archive" aria-labelledby="category-archive-heading">
       <h2 id="category-archive-heading">전체 포스트 ({{ matched.size }}건)</h2>
       <p class="category-archive-meta">최신 글이 위쪽입니다. 클릭하면 해당 포스트로 이동합니다.</p>
@@ -69,17 +167,179 @@ layout: default
 </article>
 
 <style>
-.category-archive { margin-top: 2.5rem; }
-.category-archive-meta { color: var(--text-muted, #666); font-size: 0.9rem; margin-bottom: 1rem; }
-.category-archive-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-.category-archive-table th, .category-archive-table td { text-align: left; padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--border-color, #e5e5e5); vertical-align: top; }
-.category-archive-table th { background: var(--bg-subtle, #fafafa); font-weight: 600; }
-.cat-date { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--text-muted, #666); width: 7em; }
-.cat-title a { color: var(--link-color, #0366d6); text-decoration: none; }
-.cat-title a:hover { text-decoration: underline; }
-.cat-tags { font-size: 0.85rem; }
-.tag-chip { display: inline-block; padding: 0.1rem 0.5rem; margin: 0 0.15rem 0.15rem 0; background: var(--bg-subtle, #f0f0f0); border-radius: 3px; color: var(--text-muted, #555); }
-.category-empty { color: var(--text-muted, #666); font-style: italic; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* ── Stats summary ──────────────────────────────────────────── */
+.cat-stats { margin-top: var(--spacing-xl, 2rem); margin-bottom: var(--spacing-2xl, 3rem); }
+.cat-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md, 1rem);
+  margin-bottom: var(--spacing-xl, 2rem);
+}
+.cat-stat-card {
+  background: var(--color-bg-secondary, #f8fafc);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--border-radius-md, 0.5rem);
+  padding: var(--spacing-md, 1rem);
+  text-align: center;
+}
+.cat-stat-value {
+  font-size: var(--font-size-2xl, 1.5rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-text-primary, #0f172a);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.cat-stat-label {
+  margin-top: 0.25rem;
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--color-text-tertiary, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Two-column widgets ─────────────────────────────────────── */
+.cat-stat-widgets {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-lg, 1.5rem);
+}
+.cat-widget {
+  background: var(--color-bg-secondary, #f8fafc);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--border-radius-md, 0.5rem);
+  padding: var(--spacing-lg, 1.5rem);
+}
+.cat-widget-title {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-text-secondary, #334155);
+  margin: 0 0 var(--spacing-md, 1rem) 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Monthly bars ───────────────────────────────────────────── */
+.cat-month-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 140px;
+  overflow-x: auto;
+}
+.cat-month-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 28px;
+  min-width: 28px;
+  height: 100%;
+  position: relative;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.cat-month-bar {
+  display: block;
+  width: 100%;
+  height: var(--bar-h, 0%);
+  min-height: 2px;
+  background: linear-gradient(180deg, var(--color-primary, #3b82f6), var(--color-primary-light, rgba(59,130,246,0.4)));
+  border-radius: var(--border-radius-sm, 0.25rem) var(--border-radius-sm, 0.25rem) 0 0;
+  transition: opacity var(--transition-base, 200ms ease);
+}
+.cat-month-bar-item:hover .cat-month-bar { opacity: 0.78; }
+.cat-month-bar-count {
+  font-size: 0.7rem;
+  color: var(--color-text-tertiary, #64748b);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.cat-month-bar-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.65rem;
+  color: var(--color-text-tertiary, #94a3b8);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.cat-month-bar-mm { font-weight: var(--font-weight-medium, 500); }
+.cat-month-bar-yy { opacity: 0.7; }
+
+/* ── Top tags ───────────────────────────────────────────────── */
+.cat-top-tags { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.cat-top-tag a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.6rem;
+  background: var(--color-bg-primary, #fff);
+  border: 1px solid var(--color-border-light, #f1f5f9);
+  border-radius: var(--border-radius-sm, 0.375rem);
+  color: var(--color-text-secondary, #334155);
+  text-decoration: none;
+  font-size: var(--font-size-sm, 0.875rem);
+  transition: background var(--transition-fast, 150ms ease), border-color var(--transition-fast, 150ms ease);
+}
+.cat-top-tag a:hover {
+  background: var(--color-primary-light, rgba(59,130,246,0.1));
+  border-color: var(--color-primary, #3b82f6);
+  color: var(--color-primary, #3b82f6);
+}
+.cat-top-tag-name { font-weight: var(--font-weight-medium, 500); }
+.cat-top-tag-count {
+  background: var(--color-bg-tertiary, #e2e8f0);
+  color: var(--color-text-secondary, #475569);
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  font-size: var(--font-size-xs, 0.75rem);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Archive table ──────────────────────────────────────────── */
+.category-archive { margin-top: var(--spacing-2xl, 3rem); }
+.category-archive-meta { color: var(--color-text-tertiary, #64748b); font-size: var(--font-size-sm, 0.9rem); margin-bottom: var(--spacing-md, 1rem); }
+.category-archive-table { width: 100%; border-collapse: collapse; font-size: var(--font-size-sm, 0.95rem); }
+.category-archive-table th, .category-archive-table td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--color-border-light, #e5e5e5);
+  vertical-align: top;
+}
+.category-archive-table th {
+  background: var(--color-bg-secondary, #fafafa);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-text-secondary, #334155);
+}
+.cat-date {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-tertiary, #64748b);
+  width: 7em;
+}
+.cat-title a { color: var(--color-primary, #0366d6); text-decoration: none; }
+.cat-title a:hover { color: var(--color-primary-hover, #1d4ed8); text-decoration: underline; }
+.cat-tags { font-size: var(--font-size-xs, 0.85rem); }
+.tag-chip {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  margin: 0 0.15rem 0.15rem 0;
+  background: var(--color-bg-tertiary, #f0f0f0);
+  border-radius: var(--border-radius-sm, 0.25rem);
+  color: var(--color-text-secondary, #475569);
+}
+.category-empty { color: var(--color-text-tertiary, #64748b); font-style: italic; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cat-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .cat-stat-widgets { grid-template-columns: 1fr; }
+  .cat-month-bars { height: 110px; }
+}
 @media (max-width: 640px) {
   .category-archive-table .cat-tags { display: none; }
 }
