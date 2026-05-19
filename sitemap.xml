@@ -88,4 +88,16 @@ sitemap:
     {% endunless %}
   {% endfor %}
 
+  <!-- Category hub pages — added 2026-05-19 as crawl entry points -->
+  {% for page in site.category_pages %}
+    {% unless page.sitemap == false %}
+    <url>
+      <loc>{{ site.url }}{{ page.url }}</loc>
+      <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    {% endunless %}
+  {% endfor %}
+
 </urlset>

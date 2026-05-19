@@ -67,8 +67,11 @@ feed:
 permalink: /posts/:year/:month/:day/:title/
 
 # Collections for categories
+# NOTE: the collection name MUST NOT be "categories" — that clashes with the
+# post-derived `site.categories` hash (used by archive.html / discussion.html)
+# and turns it into a list of Documents, breaking the filter chips and stats.
 collections:
-  categories:
+  category_pages:
     output: true
     permalink: /category/:name/
 
