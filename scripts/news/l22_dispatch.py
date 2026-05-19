@@ -32,6 +32,38 @@ import re
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+# ---------------------------------------------------------------------------
+# Band-visual marker injection
+# ---------------------------------------------------------------------------
+
+# The three band visual groups are positioned at fixed cy values in every
+# L22 cover.  The auto-publish path injects a comment marker immediately
+# before each group so the CI gate can verify visual variety without parsing
+# SVG primitives.
+_BAND_CY = [105, 315, 525]
+
+
+def _inject_band_visual_markers(svg: str, visual_kinds: List[str]) -> str:
+    """Inject ``<!-- band-visual: {kind} -->`` before each band visual group.
+
+    Targets the three ``<g transform="translate(500,{cy})">`` elements that
+    each visual function (``v_lock_cve``, ``v_network_nodes``, …) emits.
+    The golden-snapshot / spec-driven render path does NOT call this
+    function, so byte-stable YAML specs remain unchanged.
+
+    Args:
+        svg: Rendered SVG string from ``render_bands_svg``.
+        visual_kinds: List of 3 visual kind strings (same order as bands).
+
+    Returns:
+        SVG string with markers prepended to each band visual group.
+    """
+    for cy, kind in zip(_BAND_CY, visual_kinds):
+        target = f'<g transform="translate(500,{cy})">'
+        replacement = f'<!-- band-visual: {kind} -->\n{target}'
+        svg = svg.replace(target, replacement, 1)
+    return svg
+
 # Re-export the L20 helpers we depend on so callers don't need two imports.
 from scripts.news.l20_dispatch import (
     _date_str_from_filename,
@@ -457,6 +489,12 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
         date_str = _date_str_from_filename(filename) or ""
         sfx = (date_str.replace(".", "")[-4:] if date_str else "L22")[:4] or "L22"
         seed = date_str.replace(".", "") or filename or "L22"
+        initial_kinds = [
+            _route_visual_kind(h["headline"], 0),
+            _route_visual_kind(tr["headline"], 1),
+            _route_visual_kind(br["headline"], 2),
+        ]
+        final_kinds = _force_variety(initial_kinds, seed)
         bands_cfg = _build_bands_with_variety(h, tr, br, excerpt, seed_hex=seed)
         url = _post_url_from_filename(filename)
 
@@ -472,6 +510,7 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
             bands_cfg=bands_cfg,
             tier="ultra",
         )
+        svg = _inject_band_visual_markers(svg, final_kinds)
         output_path.write_text(svg, encoding="utf-8")
         return True
     except Exception as exc:
@@ -501,6 +540,12 @@ def render_l22_svg_string(post_info: Dict) -> str:
         date_str = _date_str_from_filename(filename) or ""
         sfx = (date_str.replace(".", "")[-4:] if date_str else "L22")[:4] or "L22"
         seed = date_str.replace(".", "") or filename or "L22"
+        initial_kinds = [
+            _route_visual_kind(h["headline"], 0),
+            _route_visual_kind(tr["headline"], 1),
+            _route_visual_kind(br["headline"], 2),
+        ]
+        final_kinds = _force_variety(initial_kinds, seed)
         bands_cfg = _build_bands_with_variety(h, tr, br, excerpt, seed_hex=seed)
         url = _post_url_from_filename(filename)
 
@@ -508,7 +553,7 @@ def render_l22_svg_string(post_info: Dict) -> str:
             f"Weekly digest cover {date_str}: "
             f"{h['headline']}, {tr['headline']}, {br['headline']}"
         )
-        return l22.render_bands_svg(
+        svg = l22.render_bands_svg(
             sfx=sfx,
             aria=aria,
             title=f"{date_str}: {h['headline']}",
@@ -516,6 +561,7 @@ def render_l22_svg_string(post_info: Dict) -> str:
             bands_cfg=bands_cfg,
             tier="ultra",
         )
+        return _inject_band_visual_markers(svg, final_kinds)
     except Exception as exc:
         logging.warning(f"L22 SVG render failed, falling back: {exc}")
         return ""

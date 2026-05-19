@@ -17,6 +17,8 @@ on:
       - 'scripts/upgrade_l25_cover.py'
       - 'scripts/lib/svg_l25_single.py'
       - '_data/l25_covers/**.yml'
+      - 'scripts/news/l22_dispatch.py'
+      - 'scripts/check_l22_visual_variety.py'
   pull_request:
     paths:
       - 'assets/images/**.svg'
@@ -33,6 +35,8 @@ on:
       - 'scripts/upgrade_l25_cover.py'
       - 'scripts/lib/svg_l25_single.py'
       - '_data/l25_covers/**.yml'
+      - 'scripts/news/l22_dispatch.py'
+      - 'scripts/check_l22_visual_variety.py'
 
 concurrency:
   group: svg-lint-${{ github.ref }}
@@ -73,6 +77,10 @@ jobs:
       - name: L25 single cover drift check (YAML spec vs on-disk SVG)
         id: l25_drift
         run: python3 scripts/upgrade_l25_cover.py --all --check
+
+      - name: L22 cover visual-variety gate
+        id: variety_gate
+        run: python3 scripts/check_l22_visual_variety.py --all
 
       - name: Upload lint report on failure
         if: failure() && steps.lint.outcome == 'failure'
