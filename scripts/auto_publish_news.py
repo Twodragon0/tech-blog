@@ -716,6 +716,19 @@ def main():
 
     with open(post_path, "w", encoding="utf-8") as f:
         f.write(post_content)
+
+    # Diversify the boilerplate excerpt so daily digests don't collapse into
+    # GSC's "Crawled, currently not indexed" duplicate-content bucket. See
+    # scripts/seo_diversify_excerpts.py. Failures are logged but never block
+    # publishing — the v1 excerpt is still SEO-valid, just less unique.
+    try:
+        from seo_diversify_excerpts import _process_file as _diversify_excerpt
+        changed, _reason = _diversify_excerpt(post_path, apply=True)
+        if changed:
+            print(f"\u2705 Diversified excerpt: {post_path.name}")
+    except Exception as _diversify_err:
+        logging.debug(f"Excerpt diversification skipped: {_diversify_err}")
+
     _run_post_quality_gate(post_path, target=80)
 
     # --- Digest quality self-check (truncation / English-header gate) ---
