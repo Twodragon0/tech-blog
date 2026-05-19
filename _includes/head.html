@@ -441,13 +441,13 @@
         "@type": "ImageObject",
         "url": "{{ site.url }}{{ site.logo }}"
       }
-    }{% if page.image %},
+    },
     "image": {
       "@type": "ImageObject",
-      "url": "{{ site.url }}{{ page.image | image_v }}",
+      "url": "{{ site.url }}{% if page.image %}{{ page.image | image_v }}{% else %}/assets/images/og-default.png{% endif %}",
       "width": {{ site.og_image_width | default: 1200 }},
       "height": {{ site.og_image_height | default: 630 }}
-    }{% endif %}{% if page.category %},
+    }{% if page.category %},
     "articleSection": "{{ page.category }}"{% endif %}{% if page.tags %},
     "keywords": "{{ page.tags | join: ', ' }}"{% endif %}
   }
