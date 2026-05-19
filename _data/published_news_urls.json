@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-18T02:33:08.374889+00:00",
+  "updated_at": "2026-05-19T02:33:33.869832+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/phishing-campaign-hits-80-orgs-using.html",
-      "title": "Phishing Campaign Hits 80+ Orgs Using SimpleHelp and ScreenConnect RMM Tools",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/progress-patches-critical-moveit.html",
-      "title": "Progress Patches Critical MOVEit Automation Bug Enabling Authentication Bypass",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/weekly-recap-ai-powered-phishing.html",
-      "title": "⚡ Weekly Recap: AI-Powered Phishing, Android Spying Tool, Linux Exploit, GitHub ",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/securing-open-proxies-in-your-aws-environment/",
-      "title": "Securing open proxies in your AWS environment",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/weaver-e-cology-critical-bug-exploited-in-attacks-since-march/",
-      "title": "Weaver E-cology critical bug exploited in attacks since March",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026/",
-      "title": "The latest AI news we announced in April 2026",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/event-driven-webhooks/",
-      "title": "Reduce friction and latency for long-running jobs with Webhooks in Gemini API",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/beyond-bi-how-the-dataset-qa-feature-of-amazon-quick-powers-the-next-generation-of-data-decisions/",
-      "title": "Beyond BI: How the Dataset Q&A feature of Amazon Quick powers the next generatio",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-the-agent-quality-loop-agentcore-optimization-now-in-preview/",
-      "title": "Introducing the agent quality loop: AgentCore Optimization now in preview",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/agent-guided-workflows-to-accelerate-model-customization-in-amazon-sagemaker-ai/",
-      "title": "Agent-guided workflows to accelerate model customization in Amazon SageMaker AI",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/managed-apache-airflow-scaling-data-and-ai-workloads/",
-      "title": "Scaling data and AI with Managed Service for Apache Airflow",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/firestore-agentic-ai-search-and-mongodb-compatibility/",
-      "title": "Firestore at Next '26: Unlock agentic development, search and MongoDB compatibil",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/chrome-enterprise/chrome-enterprise-introduces-new-integrations-for-healthcare/",
-      "title": "Chrome Enterprise introduces new integrations for healthcare",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-whats-next-with-aws-2026-amazon-quick-openai-partnership-and-more-may-4-2026/",
-      "title": "AWS Weekly Roundup: What’s Next with AWS 2026, Amazon Quick, OpenAI partnership,",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/dotnet/microsoft-agent-framework-building-blocks-for-ai-part-3/",
-      "title": "Microsoft Agent Framework – Building Blocks for AI Part 3",
-      "published_date": "2026-05-05",
-      "expires_at": "2026-05-12T02:03:37.112721+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/critical-apache-http2-flaw-cve-2026.html",
       "title": "Critical Apache HTTP/2 Flaw (CVE-2026-23918) Enables DoS and Potential RCE",
@@ -1170,6 +1080,96 @@
       "title": "보안 연구자가 Microsoft가 BitLocker 백도어를 만들었다고 말하며 익스플로잇 공개",
       "published_date": "2026-05-18",
       "expires_at": "2026-05-25T02:33:08.374791+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/interpol-operation-ramz-disrupts-mena.html",
+      "title": "INTERPOL Operation Ramz Disrupts MENA Cybercrime Networks with 201 Arrests",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/18/storm-2949-turned-compromised-identity-into-cloud-wide-breach/",
+      "title": "How Storm-2949 turned a compromised identity into a cloud-wide breach",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/weekly-recap-exchange-0-day-npm-worm.html",
+      "title": "⚡ Weekly Recap: Exchange 0-Day, npm Worm, Fake AI Repo, Cisco Exploit and More",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/how-to-reduce-phishing-exposure-before.html",
+      "title": "How to Reduce Phishing Exposure Before It Turns into Business Disruption",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/interpol-operation-ramz-seizes-53-malware-phishing-servers/",
+      "title": "INTERPOL ‘Operation Ramz’ seizes 53 malware, phishing servers",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/dell-technologies-agent-enterprise-ai/",
+      "title": "NVIDIA CEO Jensen Huang at Dell Technologies World: ‘Demand Is Going Parabolic, ",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/vera-cpu-delivery/",
+      "title": "Vera Arrives: NVIDIA’s First CPU Built for Agents Lands at Top AI Labs",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://openai.com/index/dell-codex-enterprise-partnership",
+      "title": "OpenAI and Dell partner to bring Codex to hybrid and on-premise enterprise envir",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/prompting-amazon-nova-2-for-content-moderation/",
+      "title": "Prompting Amazon Nova 2 for content moderation",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/aderant-transforms-cloud-operations-with-amazon-quick/",
+      "title": "Aderant transforms cloud operations with Amazon Quick",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/building-an-agentic-data-layer-on-google-cloud-5-key-scenarios/",
+      "title": "Beyond the Query: 5 Scenarios Laying the Foundation for the Agentic Era",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/systems/how-google-does-it-fleet-wide-large-scale-ab-experimentation/",
+      "title": "How Google Does It: Fleet-wide, large-scale A/B experimentation",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/streaming-ai-news-from-next26/",
+      "title": "What we announced in streaming AI at Next ‘26",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-transform-at-1-year-claude-platform-on-aws-ec2-m3-ultra-mac-instances-and-more-may-18-2026/",
+      "title": "AWS Weekly Roundup: AWS Transform at 1 year, Claude Platform on AWS, EC2 M3 Ultr",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/cj-oliveyoung-aidlc-tech-blog/",
+      "title": "CJ올리브영의 AI 협업 개발 프로세스 구축, AI-DLC 실전 도입 사례",
+      "published_date": "2026-05-19",
+      "expires_at": "2026-05-26T02:33:33.869711+00:00"
     }
   ]
 }
