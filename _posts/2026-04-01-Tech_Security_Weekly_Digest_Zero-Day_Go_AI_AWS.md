@@ -5,7 +5,7 @@ date: 2026-04-01 10:48:40 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Go, AI, AWS]
-excerpt: "Android Developer 긴급 보안 업데이트, TrueConf 제로데이 취약점 분석, 동남아시아 정부 기관 대상 APT 공격 캠페인, AWS 신규 규정 준수 가이드를 중심으로 2026년 04월 01일 주요 보안·기술 뉴스 30건과 DevSecOps 대응 우선순위를 정리합니다."
+excerpt: "Android Developer Verification · TrueConf 제로데이, 동남아시아 정부 네트워크 공격에 악용이 부각된 2026년 04월 01일 보안 다이제스트 — 30건의 이슈와 실행 가능한 대응 액션을 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "Android Developer 긴급 보안 업데이트, TrueConf 제로데이 취약점 분석, 동남아시아 정부 기관 대상 APT 공격 캠페인, AWS 신규 규정 준수 가이드를 중심으로 2026년 04월 01일 주요 보안·기술 뉴스 30건과 DevSecOps 대응 우선순위를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Go, AI]
 author: Twodragon

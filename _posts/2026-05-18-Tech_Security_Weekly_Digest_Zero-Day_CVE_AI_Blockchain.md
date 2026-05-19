@@ -4,7 +4,7 @@ title: "새로운 Windows 'MiniPlasma', NGINX CVE-2026-42945 실제 공격, 2026
 date: 2026-05-18 11:32:14 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, CVE, AI, Blockchain]
-excerpt: "새로운 Windows 'MiniPlasma', NGINX CVE-2026-42945 실제 공격, 2026년 4월 APT 그룹 동향 보고서를 중심으로 2026년 05월 18일 주요 보안/기술 뉴스 15건과 대응 우선순위를 정리합니다. Zero-Day, AI, Blockchain 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+excerpt: "새로운 Windows 'MiniPlasma' 제로데이 익스플로잇 · NGINX CVE-2026-42945 실제 공격 발생이 부각된 2026년 05월 18일 보안 다이제스트 — 15건의 이슈와 실행 가능한 대응 액션을 정리합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
 description: "2026년 05월 18일 보안 뉴스 요약. BleepingComputer, The Hacker News, 안랩 ASEC 블로그 등 15건을 분석하고 새로운 Windows 'MiniPlasma', NGINX CVE-2026-42945 실제 공격, 2026년 4월 APT 그룹 동향 보고서 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, CVE, AI]
 author: Twodragon

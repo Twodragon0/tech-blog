@@ -5,7 +5,7 @@ date: 2026-04-04 10:21:41 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go, AI, Data, Security]
-excerpt: "중국 연계 TA416의 PlugX 멀웨어 캠페인이 Microsoft·Linux·LinkedIn 플랫폼을 통해 6,000개 이상 계정을 표적으로 삼은 사례와 방어 전략을 중심으로 2026년 04월 04일 주요 보안·기술 뉴스 24건과 DevSecOps 대응 우선순위를 정리합니다."
+excerpt: "중국 연계 TA416, PlugX 및 OAuth 기반 피싱으로 유럽 · Microsoft, Linux 서버에서 Cron을 통해 지속되는이 부각된 2026년 04월 04일 보안 다이제스트 — 24건의 이슈와 실행 가능한 대응 액션을 정리합니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
 description: "중국 연계 TA416의 PlugX 멀웨어 캠페인이 Microsoft·Linux·LinkedIn 플랫폼을 통해 6,000개 이상 계정을 표적으로 삼은 사례와 방어 전략을 중심으로 2026년 04월 04일 주요 보안·기술 뉴스 24건과 DevSecOps 대응 우선순위를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go, AI, Data]
 author: Twodragon

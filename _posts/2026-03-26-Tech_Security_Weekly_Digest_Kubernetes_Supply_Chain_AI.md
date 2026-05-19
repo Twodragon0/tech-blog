@@ -5,7 +5,7 @@ date: 2026-03-26 10:00:00 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Kubernetes, Supply-Chain, AI-Agent]
-excerpt: "Kubernetes RBAC 우회 취약점과 Cilium/eBPF 네트워크 정책, SLSA/SBOM 기반 공급망 보안 프레임워크, AI 에이전트 프롬프트 인젝션 공격 방어, CVE 패치 자동화 등 2026년 03월 26일 주요 보안/기술 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."
+excerpt: "2026년 03월 26일 수집한 15건의 보안 이슈 중 RBAC 우회 취약점(CVE-2026-0421)과 · SLSA v1.1/SBOM 기반 공급망 보안 프레임워크 실무 적용을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "Kubernetes RBAC 우회 취약점과 Cilium/eBPF 네트워크 정책, SLSA/SBOM 기반 공급망 보안 프레임워크, AI 에이전트 프롬프트 인젝션 공격 방어, CVE 패치 자동화 등 2026년 03월 26일 주요 보안/기술 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Kubernetes, Supply-Chain, AI-Agent]
 author: Twodragon

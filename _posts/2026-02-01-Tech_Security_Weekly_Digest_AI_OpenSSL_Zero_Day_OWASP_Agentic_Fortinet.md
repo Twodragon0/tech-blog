@@ -8,7 +8,7 @@ comments: true
 date: 2026-02-01 10:00:00 +0900
 last_modified_at: 2026-04-16T11:22:39+09:00
 description: '2026년 2월 1일 보안 뉴스: AI 시스템이 OpenSSL 제로데이 12건을 모두 발견한 역사적 사건, OWASP Agentic AI 보안 프레임워크, Microsoft NIST 기반 AI 에이전트 거버넌스, Fortinet FortiCloud SSO 제로데이, Azure...'
-excerpt: "AI 시스템이 OpenSSL 제로데이 12건 전부 발견한 역사적 사건, OWASP Agentic AI 보안 프레임워크, Microsoft NIST 기반 AI 에이전트 거버넌스, Fortinet FortiCloud SSO 제로데이 등 2026년 2월 1일 주요 보안 뉴스를 정리합니다."
+excerpt: "2026년 02월 01일 수집한 12건의 보안 이슈 중 역사상 최초로 AI 시스템이 인터넷 암호화 핵심 라이브러리의 모든 · 자율 AI 에이전트 애플리케이션 보안을 위한 공식 프레임워크 발표를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 image: /assets/images/2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.svg
 image_alt: OpenSSL zero day, OWASP agentic AI, and Fortinet patch digest
 layout: post

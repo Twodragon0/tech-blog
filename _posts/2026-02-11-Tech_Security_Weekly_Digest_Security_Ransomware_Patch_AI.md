@@ -7,7 +7,7 @@ comments: true
 date: 2026-02-11 12:47:26 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 description: "2026년 02월 11일 보안 뉴스 26건: The Hacker News 등 주요 매체 기반으로 보안, 랜섬웨어, 패치, AI 관련 DevSecOps 실무 위협 분석 및 대응 가이드. 공격 경로·영향 자산·탐지 포인트와 경영진 관점 우선순위·대응 체크리스트를 함께 제공합니다."
-excerpt: "2026년 02월 11일 보안 뉴스 26건: The Hacker News 등 주요 매체 기반으로 보안, 랜섬웨어, 패치, AI 관련 DevSecOps 실무 위협 분석 및 대응 가이드. 공격 경로·영향 자산·탐지 포인트와 경영진 관점 우선순위·대응 체크리스트를 함께 제공합니다."
+excerpt: "2026년 02월 11일 보안 뉴스: The Hacker News · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다 등 2026년 02월 11일 보고된 26건의 보안/기술 이슈를 운영 관점에서 점검합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
 image: /assets/images/2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI.svg
 image_alt: 기술·보안 주간 다이제스트 2026년 2월 11일 보안 랜섬웨어 패치
 keywords:

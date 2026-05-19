@@ -5,7 +5,7 @@ date: 2026-03-22 10:22:54 +0900
 last_modified_at: 2026-04-23T23:18:14+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AI, Apple]
-excerpt: "Signal·WhatsApp 표적 피싱 캠페인, Oracle Identity Manager 원격 코드 실행 취약점, Trivy CanisterWorm CI/CD 공급망 확산, Apple KEV 긴급 패치 이슈를 중심으로 2026년 03월 22일 보안 대응 우선순위를 DevSecOps 관점에서 정리합니다."
+excerpt: "2026년 03월 22일 공개된 15건의 위협·취약점 가운데 FBI, 러시아 해커들의 Signal 및 WhatsApp 대규모 · Oracle Identity Manager 인증되지 않은 RCE가 즉각 대응 우선순위에 올랐습니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
 description: "Signal·WhatsApp 표적 피싱 캠페인, Oracle Identity Manager 원격 코드 실행 취약점, Trivy CanisterWorm CI/CD 공급망 확산, Apple KEV 긴급 패치 이슈를 중심으로 2026년 03월 22일 보안 대응 우선순위를 DevSecOps 관점에서 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, AI]
 author: Twodragon

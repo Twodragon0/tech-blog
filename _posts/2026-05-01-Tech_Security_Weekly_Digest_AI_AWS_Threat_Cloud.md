@@ -5,7 +5,7 @@ date: 2026-05-01 11:10:05 +0900
 last_modified_at: 2026-05-01T02:11:35Z
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Threat, Cloud]
-excerpt: "PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어를 중심으로 2026년 05월 01일 주요 보안/기술 뉴스 28건과 대응 우선순위를 정리합니다. AI, AWS, Cloud 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+excerpt: "2026년 05월 01일 수집한 28건의 보안 이슈 중 PyTorch Lightning 및 Intercom-client · ThreatsDay 게시판: SMS 블래스터 적발을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
 description: "2026년 05월 01일 보안 뉴스 요약. The Hacker News, Microsoft Security Blog 등 28건을 분석하고 PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Threat]
 author: Twodragon

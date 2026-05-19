@@ -5,7 +5,7 @@ date: 2026-02-26 11:05:21 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, AWS, API]
-excerpt: "UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향을 중심으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2026년 2월 26일 주간 보안 다이제스트입니다."
+excerpt: "2026년 02월 26일 수집한 15건의 보안 이슈 중 2026년 02월 26일 보안 뉴스: The Hacker News · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향을 중심으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2026년 2월 26일 주간 보안 다이제스트입니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, AWS]
 author: Twodragon

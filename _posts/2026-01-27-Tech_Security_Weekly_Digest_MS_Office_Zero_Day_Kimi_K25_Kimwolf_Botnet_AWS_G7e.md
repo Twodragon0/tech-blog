@@ -8,7 +8,7 @@ comments: true
 date: 2026-01-27 22:00:00 +0900
 last_modified_at: 2026-04-24T21:30:07+09:00
 description: '2026년 1월 27일 주요 기술/보안 뉴스: Microsoft Office CVE-2026-21509 Zero-Day 긴급 패치, Kimi K2.5 오픈소스 비주얼 에이전트 AI, Kimwolf/Badbox 2.0 IoT 봇넷 200만 기기 감염, AWS EC2 G7e...'
-excerpt: "Microsoft Office CVE-2026-21509 Zero-Day 긴급 패치, Kimi K2.5 오픈소스 비주얼 에이전트 출시, Kimwolf/Badbox 2.0 IoT 봇넷 200만 기기 감염, AWS EC2 G7e NVIDIA Blackwell GPU 출시 등 2026년 1월 27일 주요 보안·기술 뉴스를 정리합니다."
+excerpt: "2026년 01월 27일 수집한 15건의 보안 이슈 중 CVSS 7.8 긴급 패치 - 보안 기능 우회 취약점 실제 악용 중 · 비주얼 에이전트 AI - HLE 벤치마크 50.2% SOTA를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
 image: /assets/images/2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e.svg
 image_alt: Tech and Security Weekly Digest January 27 2026 - MS Office Zero Day, Kimi
   K2.5, Kimwolf Botnet, AWS G7e

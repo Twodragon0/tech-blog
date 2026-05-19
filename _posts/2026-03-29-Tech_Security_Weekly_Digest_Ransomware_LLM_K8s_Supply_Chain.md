@@ -5,7 +5,7 @@ date: 2026-03-29 09:00:00 +0900
 last_modified_at: 2026-04-23T23:18:14+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware, LLM, Kubernetes]
-excerpt: "랜섬웨어 그룹의 AI 기반 공격 자동화, LLM 멀티스텝 탈옥 취약점 CVE-2026-3291, Kubernetes Helm 차트 공급망 공격, Next.js 인증 우회 등 2026년 3월 29일 주요 보안 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."
+excerpt: "랜섬웨어 그룹이 AI 기반 공격 자동화 도구를 활용한 표적형 공격 · LLM 탈옥 취약점 CVE-2026-3291로 주요 모델 안전장치를 비롯한 2026년 03월 29일 보안/기술 동향 15건을 DevSecOps 시선으로 정리합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
 description: "랜섬웨어 그룹의 AI 기반 공격 자동화, LLM 멀티스텝 탈옥 취약점 CVE-2026-3291, Kubernetes Helm 차트 공급망 공격, Next.js 인증 우회 등 2026년 3월 29일 주요 보안 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Ransomware, LLM, Kubernetes]
 author: Twodragon

@@ -7,7 +7,7 @@ last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Security]
-excerpt: "OpenAI Codex 보안 스캔 도입, Firefox 148 취약점 14건 패치, USDC 스테이블코인 동향 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."
+excerpt: "OpenAI Codex Security가 120만 커밋에서 · USDC 스테이블코인 전송량 $1.8T 돌파를 비롯한 2026년 03월 08일 보안/기술 동향 14건을 DevSecOps 시선으로 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
 description: "OpenAI Codex 보안 스캔 도입, Firefox 148 취약점 14건 패치, USDC 스테이블코인 동향 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."
 author: Twodragon
 comments: true

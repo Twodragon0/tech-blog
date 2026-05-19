@@ -4,7 +4,7 @@ title: "AWS 환경에서 암호화폐 채굴 탐지 및 방지, Microsoft의 MDA
 date: 2026-05-14 11:17:18 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Patch, AI, Update]
-excerpt: "AWS 환경에서 암호화폐 채굴 탐지 및 방지, Microsoft의 MDASH AI 시스템, 업데이트된 AWS User Guide 소개를 중심으로 2026년 05월 14일 주요 보안/기술 뉴스 30건과 대응 우선순위를 정리합니다. Patch, Update 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+excerpt: "AWS 환경에서 암호화폐 채굴 탐지 및 방지 · Microsoft의 MDASH AI 시스템을 비롯한 2026년 05월 14일 보안/기술 동향 30건을 DevSecOps 시선으로 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
 description: "2026년 05월 14일 보안 뉴스 요약. AWS Security Blog, The Hacker News, BleepingComputer 등 30건을 분석하고 AWS 환경에서 암호화폐 채굴 탐지 및 방지, Microsoft의 MDASH AI 시스템, 업데이트된 AWS User Guide 소개 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Patch, AI]
 author: Twodragon

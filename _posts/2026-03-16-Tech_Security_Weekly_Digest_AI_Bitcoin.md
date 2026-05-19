@@ -5,7 +5,7 @@ date: 2026-03-16 18:32:58 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Bitcoin]
-excerpt: "아르헨티나 Libra 토큰 온체인 포렌식 분석, 글로벌 스테이블코인 규제 동향, 암호화폐 시장 보안 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."
+excerpt: "아르헨티나 대통령 Libra 토큰 홍보 관련 $5M 거래 포렌식 · 스테이블코인 규제 불확실성, 크립토보다 은행에 더 큰 타격 전망을 비롯한 2026년 03월 16일 보안/기술 동향 15건을 DevSecOps 시선으로 정리합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
 description: "아르헨티나 Libra 토큰 온체인 포렌식 분석, 글로벌 스테이블코인 규제 동향, 암호화폐 시장 보안 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Bitcoin]
 author: Twodragon

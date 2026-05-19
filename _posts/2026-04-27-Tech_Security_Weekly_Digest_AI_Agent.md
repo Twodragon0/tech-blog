@@ -5,7 +5,7 @@ date: 2026-04-27 17:06:33 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent]
-excerpt: "미국 유틸리티 기업 Itron, 대한민국과의 파트너십을 발표합니다, 우리의 원칙을 중심으로 2026년 04월 27일 주요 보안/기술 뉴스 14건과 대응 우선순위를 정리합니다. AI, Agent 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다. 보안 담당자를 위한 핵심 위협 정보와 실무 대응 가이드를 한눈에 확인하세요."
+excerpt: "2026년 04월 27일 공개된 14건의 위협·취약점 가운데 미국 유틸리티 기업 Itron, 내부 IT 네트워크 침해 사실 공개 · 에이전틱 AI와 Amazon Bedrock AgentCore를이 즉각 대응 우선순위에 올랐습니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "2026년 04월 27일 보안 뉴스 요약. BleepingComputer, Google DeepMind Blog, OpenAI Blog 등 14건을 분석하고 미국 유틸리티 기업 Itron, 대한민국과의 파트너십을 발표합니다, 우리의 원칙 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent]
 author: Twodragon

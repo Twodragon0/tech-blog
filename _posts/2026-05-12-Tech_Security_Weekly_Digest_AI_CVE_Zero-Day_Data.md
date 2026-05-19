@@ -4,7 +4,7 @@ title: "TeamPCP, Checkmarx Jenkins, cPanel CVE-2026-41940 활성, 해커들이 A
 date: 2026-05-12 11:09:14 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, CVE, Zero-Day, Data]
-excerpt: "TeamPCP, Checkmarx Jenkins, cPanel CVE-2026-41940 활성, 해커들이 AI를 사용해 최초로 알려진을 중심으로 2026년 05월 12일 주요 보안/기술 뉴스 28건과 대응 우선순위를 정리합니다. Zero-Day, Data 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+excerpt: "2026년 05월 12일 수집한 28건의 보안 이슈 중 TeamPCP, Checkmarx Jenkins AST 플러그인을 · cPanel CVE-2026-41940 활성 익스플로잇으로를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
 description: "2026년 05월 12일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 28건을 분석하고 TeamPCP, Checkmarx Jenkins, cPanel CVE-2026-41940 활성 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, CVE, Zero-Day]
 author: Twodragon

@@ -5,7 +5,7 @@ date: 2026-04-06 10:31:19 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, AI]
-excerpt: "2억 8,500만 달러 규모 Drift 프로토콜 해킹, QR 코드 활용 교통위반 신종 피싱 문자 기법, FortiClient EMS 신규 취약점 패치를 중심으로 2026년 04월 06일 주요 보안·기술 뉴스 15건과 DevSecOps 실무 대응 우선순위 및 탐지 전략을 정리합니다."
+excerpt: "2억 8500만 달러 규모 Drift 해킹 · 신종 피싱 문자에 QR 코드를 활용한 교통위반 사기 등장 등 2026년 04월 06일 보고된 15건의 보안/기술 이슈를 운영 관점에서 점검합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "2026년 04월 06일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 15건을 분석하고 2억 8500만 달러 규모 Drift 해킹, 신종 피싱 문자에 QR 코드를 활용한 교통위반, New FortiClient EMS 취약점 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, AI]
 author: Twodragon

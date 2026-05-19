@@ -7,7 +7,7 @@ last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Zero-Trust, Crypto-Regulation, Weekly-Digest, 2026]
 keywords: [Security-Weekly,  DevSecOps,  Zero-Trust,  Crypto-Regulation,  Weekly-Digest,  2026]
-excerpt: "SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 규제 동향, 랜섬웨어 대응 전략에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하여 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 제시한 주간 다이제스트입니다."
+excerpt: "2026년 03월 02일 수집한 15건의 보안 이슈 중 SK쉴더스 제로트러스트 가시성 분석 리포트 · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
 description: "SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 규제 동향, 랜섬웨어 대응 전략에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하여 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 제시한 주간 다이제스트입니다."
 author: Twodragon
 comments: true

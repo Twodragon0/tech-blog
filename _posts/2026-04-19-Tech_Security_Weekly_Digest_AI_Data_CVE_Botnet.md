@@ -5,7 +5,7 @@ date: 2026-04-19 10:52:41 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Data, CVE, Botnet]
-excerpt: "정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium를 중심으로 2026년 04월 19일 주요 보안/기술 뉴스 15건과 대응 우선순위를 정리합니다. AI, Data, CVE 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+excerpt: "정보 기관 주장 이후 제재 대상 Grinex 거래소가 1,374만 · 크로스 테넌트 헬프데스크 사칭에서 데이터 유출까지: 인간 운영 침입이 부각된 2026년 04월 19일 보안 다이제스트 — 15건의 이슈와 실행 가능한 대응 액션을 정리합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
 description: "2026년 04월 19일 보안 뉴스 요약. The Hacker News, Microsoft Security Blog, BleepingComputer 등 15건을 분석하고 정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Data, CVE]
 author: Twodragon

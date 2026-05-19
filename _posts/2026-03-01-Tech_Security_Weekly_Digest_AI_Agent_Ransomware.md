@@ -7,7 +7,7 @@ last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Ransomware]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Agent,  Ransomware]
-excerpt: "NVIDIA Agentic AI 통신 자율 네트워크, SK쉴더스 OT 보안·Gentlemen 랜섬웨어 위협, AWS MCP Registry 에이전트 플랫폼에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하여 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 제시한 주간 다이제스트입니다."
+excerpt: "NVIDIA Agentic AI 자율 네트워크 블루프린트 · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다가 부각된 2026년 03월 01일 보안 다이제스트 — 15건의 이슈와 실행 가능한 대응 액션을 정리합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
 description: "NVIDIA Agentic AI 통신 자율 네트워크, SK쉴더스 OT 보안·Gentlemen 랜섬웨어 위협, AWS MCP Registry 에이전트 플랫폼에서 확인된 주요 위협과 기술 변화를 운영 관점으로 요약하고, 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하여 보안팀·플랫폼팀이 바로 실행할 우선 대응 항목을 제시한 주간 다이제스트입니다."
 author: Twodragon
 comments: true

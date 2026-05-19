@@ -5,7 +5,7 @@ date: 2026-05-02 10:58:29 +0900
 last_modified_at: 2026-05-02T01:59:40Z
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, AWS]
-excerpt: "3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft, 현대화된 Windows를 중심으로 2026년 05월 02일 주요 보안/기술 뉴스 19건과 대응 우선순위를 정리합니다. Go, Security, AWS 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+excerpt: "2026년 05월 02일 수집한 19건의 보안 이슈 중 3만 개의 Facebook 계정, Google AppSheet 피싱 · AI 시대의 보안 태세 개선을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
 description: "2026년 05월 02일 보안 뉴스 요약. The Hacker News, AWS Security Blog, BleepingComputer 등 19건을 분석하고 3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security]
 author: Twodragon

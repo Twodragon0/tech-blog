@@ -7,7 +7,7 @@ last_modified_at: 2026-03-30T17:41:34+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go, Security, Agent]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Go,  Security,  Agent]
-excerpt: "Gemini AI 악용 정찰, Lazarus npm·PyPI 악성 패키지 공급망 캠페인, Copilot Studio 에이전트 리스크, GPT-5.3 Codex-Spark 출시, FinOps CUD 업데이트 등 2026-02-13 핵심 이슈 25건을 DevSecOps 관점으로 요약하고 대응 포인트를 정리합니다."
+excerpt: "Gemini AI 악용 정찰, Lazarus npm · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다가 부각된 2026년 02월 13일 보안 다이제스트 — 25건의 이슈와 실행 가능한 대응 액션을 정리합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
 description: "2026년 02월 13일 보안 뉴스: Gemini AI 악용 정찰, Lazarus 공급망 캠페인, Copilot Studio 에이전트 리스크, GPT-5.3 Codex-Spark, FinOps CUD 업데이트 등 25건을 DevSecOps 관점으로 요약하고 대응 포인트를 정리했습니다."
 author: Twodragon
 comments: true

@@ -5,7 +5,7 @@ date: 2026-04-18 10:28:03 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Patch, Security, Go]
-excerpt: "Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고를 중심으로 2026년 04월 18일 주요 보안/기술 뉴스 27건과 대응 우선순위를 정리합니다. Zero-Day, Patch, Security 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+excerpt: "Microsoft Defender 제로데이 취약점 3건 악용 중 · 구성 기반 ETL 솔루션으로 보안 로그를 OCSF 형식으로 변환하기 등 2026년 04월 18일 보고된 27건의 보안/기술 이슈를 운영 관점에서 점검합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
 description: "2026년 04월 18일 보안 뉴스 요약. The Hacker News, AWS Security Blog, BleepingComputer 등 27건을 분석하고 Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Patch, Security]
 author: Twodragon

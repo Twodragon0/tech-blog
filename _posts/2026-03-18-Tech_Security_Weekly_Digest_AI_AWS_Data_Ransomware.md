@@ -5,7 +5,7 @@ date: 2026-03-18 10:11:09 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Data, Ransomware]
-excerpt: "Amazon Bedrock·LangSmith·SGLang AI 결함으로 인한 데이터 유출·RCE 위험, LeakNet 랜섬웨어 ClickFix·Deno 인메모리 로더 배포, GKE 멀티클러스터 Inference Gateway를 중심으로 2026년 03월 18일 보안·클라우드 대응 포인트를 정리합니다."
+excerpt: "2026년 03월 18일 수집한 15건의 보안 이슈 중 Amazon Bedrock, LangSmith · AWS, 독일 참여 보험사와 두 번째 GDV 커뮤니티 감사 완료를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
 description: "Amazon Bedrock·LangSmith·SGLang AI 결함으로 인한 데이터 유출·RCE 위험, LeakNet 랜섬웨어 ClickFix·Deno 인메모리 로더 배포, GKE 멀티클러스터 Inference Gateway를 중심으로 2026년 03월 18일 보안·클라우드 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Data]
 author: Twodragon

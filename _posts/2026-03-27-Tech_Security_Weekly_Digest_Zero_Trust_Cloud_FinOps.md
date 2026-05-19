@@ -5,7 +5,7 @@ date: 2026-03-27 10:00:00 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Trust, Cloud, FinOps]
-excerpt: "AWS IAM Identity Center + SCP 기반 Zero Trust 구현, GCP Workload Identity Federation 보안 강화, FinOps Spot 인스턴스 비용 최적화, Terraform IaC 보안 스캔 등 2026년 3월 27일 주요 보안 뉴스와 DevSecOps 대응 우선순위를 정리합니다."
+excerpt: "2026년 03월 27일 수집한 15건의 보안 이슈 중 IAM Identity Center + SCP 기반 Zero · Workload Identity Federation 보안 베스트를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
 description: "AWS IAM Identity Center + SCP 기반 Zero Trust 구현, GCP Workload Identity Federation 보안 강화, FinOps Spot 인스턴스 비용 최적화, Terraform IaC 보안 스캔 등 2026년 3월 27일 주요 보안 뉴스와 DevSecOps 대응 우선순위를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Trust, Cloud, FinOps]
 author: Twodragon

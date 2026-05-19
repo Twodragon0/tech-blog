@@ -5,7 +5,7 @@ date: 2026-04-25 10:30:43 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, Security, Threat, Data]
-excerpt: "FIRESTARTER 백도어, NASA 직원들, 미국 국방 소프트웨어 노린, 오늘날의 비밀을 미래의 양자 위험으로부터를 중심으로 2026년 04월 25일 주요 보안/기술 뉴스 24건과 대응 우선순위를 정리합니다. Patch, Security, Threat 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+excerpt: "FIRESTARTER 백도어, 연방 정부 Cisco · NASA 직원들, 미국 국방 소프트웨어 노린 중국 피싱 공격에 속아가 부각된 2026년 04월 25일 보안 다이제스트 — 24건의 이슈와 실행 가능한 대응 액션을 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "2026년 04월 25일 보안 뉴스 요약. The Hacker News, AWS Security Blog, BleepingComputer 등 24건을 분석하고 FIRESTARTER 백도어, NASA 직원들, 미국 국방 소프트웨어 노린 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, Security, Threat]
 author: Twodragon

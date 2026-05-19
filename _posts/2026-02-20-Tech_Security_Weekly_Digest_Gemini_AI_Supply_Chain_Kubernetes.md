@@ -7,7 +7,7 @@ last_modified_at: 2026-03-30T17:41:34+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Gemini, AI, Supply-Chain, Kubernetes]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  Gemini,  AI,  Supply-Chain,  Kubernetes]
-excerpt: "Gemini 3.1 Pro 출시, AI 공급망 공격 신규 벡터, Kubernetes Ingress NGINX 은퇴 이슈를 중심으로 기술 관점(공격 경로·영향 자산·탐지 포인트)과 경영진 관점(서비스 영향·우선순위·의사결정 체크리스트)을 함께 정리한 2026년 2월 20일 주간 보안 다이제스트입니다."
+excerpt: "2026년 02월 20일 보안 뉴스: The Hacker News · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다가 부각된 2026년 02월 20일 보안 다이제스트 — 15건의 이슈와 실행 가능한 대응 액션을 정리합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
 description: "2026년 02월 20일 보안 뉴스: The Hacker News, Google Cloud, Snyk 등 29건. Gemini 3.1 Pro, AI 공급망 공격, Kubernetes Ingress NGINX 은퇴 관련 DevSecOps 실무 위협 분석 및 대응 가이드."
 author: Twodragon
 comments: true

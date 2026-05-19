@@ -5,7 +5,7 @@ date: 2026-04-07 10:29:23 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Go, Palantir]
-excerpt: "이란 연계 패스워드 스프레이링 공격, 북한 연계 해커의 한국 표적 다단계 공격, 독일 당국의 REvil·GangCrab 랜섬웨어 운영자 기소를 중심으로 2026년 04월 07일 주요 보안·기술 뉴스 17건과 DevSecOps 실무 대응 우선순위 및 탐지 전략을 상세 정리합니다."
+excerpt: "2026년 04월 07일 수집한 17건의 보안 이슈 중 이란 연계 패스워드 스프레이링 공격, 이스라엘 Microsoft · 북한 연계 해커들, 한국 표적 다단계 공격에서 GitHub를 C2로를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
 description: "이란 연계 패스워드 스프레이링 공격, 북한 연계 해커의 한국 표적 다단계 공격, 독일 당국의 REvil·GangCrab 랜섬웨어 운영자 기소를 중심으로 2026년 04월 07일 주요 보안·기술 뉴스 17건과 DevSecOps 실무 대응 우선순위 및 탐지 전략을 상세 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Go]
 author: Twodragon

@@ -5,7 +5,7 @@ date: 2026-04-12 10:49:10 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, GPT, Cloud, AI]
-excerpt: "Citizen Lab 스파이웨어 공개, 국제 공조 단속 2만 명 이상 암호화폐 사기 적발, ChatGPT·Claude AI 안전성 논란을 중심으로 2026년 04월 12일 주요 보안·기술 뉴스 15건과 DevSecOps 실무 대응 우선순위 및 탐지 포인트를 정리합니다."
+excerpt: "2026년 04월 12일 공개된 15건의 위협·취약점 가운데 Citizen Lab: 법 집행 기관이 광고 데이터를 통해 5억 대 · 국제 단속에서 2만 명 이상의 암호화폐 사기 피해자 확인이 즉각 대응 우선순위에 올랐습니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
 description: "2026년 04월 12일 보안 뉴스 요약. The Hacker News, BleepingComputer, GeekNews (긱뉴스) 등 15건을 분석하고 Citizen Lab, 국제 단속에서 2만 명 이상의 암호화폐 사기, ChatGPT 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, GPT, Cloud]
 author: Twodragon

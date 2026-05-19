@@ -8,7 +8,7 @@ comments: true
 date: 2026-01-23 10:00:00 +0900
 last_modified_at: 2026-04-24T21:30:07+09:00
 description: '2026년 1월 23일 주요 기술/보안 뉴스: Microsoft AitM 피싱 경고, HashiCorp Agentic AI Zero Trust NHI 관리, OpenAI PostgreSQL 8억 사용자 스케일링 아키텍처, vLLM 제작자 Inferact $150M 투자까지...'
-excerpt: "Microsoft AitM 피싱 경고, HashiCorp Agentic AI Zero Trust NHI 관리, OpenAI PostgreSQL 8억 사용자 스케일링 아키텍처, vLLM 제작자 Inferact $150M 투자 등 2026년 1월 23일 주요 기술·보안 뉴스를 분석합니다."
+excerpt: "에너지 기업 대상 다단계 AitM 피싱 & BEC 공격 경고 - · Agentic AI 시스템의 Zero Trust NHI(비인간 등 2026년 01월 23일 보고된 15건의 보안/기술 이슈를 운영 관점에서 점검합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
 image: /assets/images/2026-01-23-Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL.svg
 image_alt: Tech and Security Weekly Digest January 2026 - AitM Phishing, Zero Trust,
   PostgreSQL Scaling

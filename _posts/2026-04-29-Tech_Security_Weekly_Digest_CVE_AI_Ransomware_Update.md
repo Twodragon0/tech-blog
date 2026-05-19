@@ -5,7 +5,7 @@ date: 2026-04-29 11:06:47 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, AI, Ransomware, Update]
-excerpt: "연구진, 단일 Git Push로 악용, 브라질의 LofyGang, 3년, VECT 2.0 랜섬웨어를 중심으로 2026년 04월 29일 주요 보안/기술 뉴스 28건과 대응 우선순위를 정리합니다. CVE, AI, Ransomware 등 최신 위협 동향과 DevSecOps 실무 대응 방안을 함께 다룹니다."
+excerpt: "2026년 04월 29일 공개된 28건의 위협·취약점 가운데 연구진, 단일 Git Push로 악용 가능한 GitHub · 브라질의 LofyGang, 3년 만에 Minecraft가 즉각 대응 우선순위에 올랐습니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
 description: "2026년 04월 29일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 28건을 분석하고 연구진, 단일 Git Push로 악용, 브라질의 LofyGang 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, AI, Ransomware]
 author: Twodragon

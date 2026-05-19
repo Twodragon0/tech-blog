@@ -5,7 +5,7 @@ date: 2026-03-28 10:00:00 +0900
 last_modified_at: 2026-04-23T23:18:14+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Zero-Day]
-excerpt: "AI 에이전트 프레임워크 권한 탈취 취약점, AWS ECS Zero-Day 컨테이너 탈출, Harbor 레지스트리 공급망 공격, Microsoft 긴급 보안 업데이트 등 2026년 3월 28일 주요 보안 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."
+excerpt: "2026년 03월 28일 공개된 15건의 위협·취약점 가운데 AI 에이전트 프레임워크에서 발견된 권한 탈취 취약점 분석 및 방어 · AWS ECS Zero-Day 컨테이너 탈출 취약점으로 호스트 노드가 즉각 대응 우선순위에 올랐습니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "AI 에이전트 프레임워크 권한 탈취 취약점, AWS ECS Zero-Day 컨테이너 탈출, Harbor 레지스트리 공급망 공격, Microsoft 긴급 보안 업데이트 등 2026년 3월 28일 주요 보안 뉴스의 위협 분석과 DevSecOps 대응 우선순위를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Cloud, Zero-Day]
 author: Twodragon
