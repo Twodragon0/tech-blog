@@ -434,3 +434,14 @@ summary_card:
 
 ---
 작성자: Twodragon
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [랜섬웨어 대응, Fortinet 긴급 패치, AI 보안 위협 분석](/posts/2026/02/11/Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI/) — 2026-02-11
+- [Lazarus 공급망 공격, Copilot Studio 취약점, FinOps 보안](/posts/2026/02/13/Tech_Security_Weekly_Digest_AI_Go_Security_Agent/) — 2026-02-13
+- [n8n RCE, NGINX 하이재킹, AsyncRAT 캠페인 분석](/posts/2026/02/05/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-02-05
+

@@ -560,4 +560,14 @@ Bitcoin Magazine의 The Core Issue는 광범위한 인터넷의 다양한 위협
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안](/posts/2026/03/18/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/) — 2026-03-18
+- [Speagle 데이터 유출, BYOVD EDR 킬러, AI 코드 에이전트 모니터링](/posts/2026/03/20/Tech_Security_Weekly_Digest_Malware_Data_Security_Threat/) — 2026-03-20
+- [AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시](/posts/2026/03/16/Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/) — 2026-03-16
+
+---
+
 **작성자**: Twodragon

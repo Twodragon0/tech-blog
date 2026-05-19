@@ -530,4 +530,14 @@ FBI에 따르면 2025년 미국에서 발생한 암호화폐 사기 피해액이
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [이란·북한 연계 해커, 한국 표적 다단계 공격·REvil: 주간 보안 다이제스트](/posts/2026/04/07/Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/) — 2026-04-07
+- [Chaos 클라우드 변종·Masjesu IoT 봇넷·APT28 PRISMEX: 2026-04-09 보안 위클리 다이제스트](/posts/2026/04/09/Tech_Security_Weekly_Digest_Cloud_Botnet_AI_Malware/) — 2026-04-09
+- [AWS LZA 컴플라이언스·npm 해킹·디바이스 코드 피싱: 주간 보안 다이제스트](/posts/2026/04/05/Tech_Security_Weekly_Digest_AWS_AI_Security_Malware/) — 2026-04-05
+
+---
+
 **작성자**: Twodragon

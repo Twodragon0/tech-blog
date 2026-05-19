@@ -586,4 +586,14 @@ Sentora가 Smart Yield 플랫폼을 출시하며 기관 수준의 DeFi를 일반
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [SAP 관련 npm 패키지, 북한의 새로운 공격 물결, AI 삽입 npm, Amazon Bedrock 기반](/posts/2026/04/30/Tech_Security_Weekly_Digest_AI_Malware_Rust/) — 2026-04-30
+- [3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft, 현대화된 Windows](/posts/2026/05/02/Tech_Security_Weekly_Digest_AI_Go_Security_AWS/) — 2026-05-02
+- [Checkmarx, 3월 23일 공격 이후 다크, Robinhood 계정 생성 결함 악용해 피싱, ⚡ 주간 요약: Fast16 악성코드](/posts/2026/04/28/Tech_Security_Weekly_Digest_Data_AI_Malware_AWS/) — 2026-04-28
+
+---
+
 **작성자**: Twodragon

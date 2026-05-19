@@ -569,4 +569,14 @@ Chainalysis Links NYC 2026 컨퍼런스에서 암호화폐 거래소, 글로벌 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [CERT-UA 사칭 캠페인 100만 이메일 유포, Axios npm 공급망 침해, UAC 우회 멀웨어](/posts/2026/04/02/Tech_Security_Weekly_Digest_AI_Malware/) — 2026-04-02
+- [TA416 PlugX·LinkedIn 6천+ 계정 표적: 주간 보안 다이제스트 2026-04-04](/posts/2026/04/04/Tech_Security_Weekly_Digest_Go_AI_Data_Security/) — 2026-04-04
+- [OpenAI, ChatGPT 데이터 유출 결함, DeepLoad 멀웨어, ClickFix, 주간 보안 뉴스 요약](/posts/2026/03/31/Tech_Security_Weekly_Digest_Vulnerability_Patch_AI_GPT/) — 2026-03-31
+
+---
+
 **작성자**: Twodragon

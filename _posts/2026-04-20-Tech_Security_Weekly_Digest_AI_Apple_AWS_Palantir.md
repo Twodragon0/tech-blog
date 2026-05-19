@@ -294,4 +294,14 @@ Curve Finance 창립자는 Kelp exploit의 파급 효과가 자본 효율성을 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium](/posts/2026/04/19/Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/) — 2026-04-19
+- [SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO, 라자루스](/posts/2026/04/21/Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/) — 2026-04-21
+- [신규 발견된 PowMix 봇넷, ThreatsDay Bulletin, Operation PowerOFF](/posts/2026/04/17/Tech_Security_Weekly_Digest_Botnet_Threat_AI_Malware/) — 2026-04-17
+
+---
+
 **작성자**: Twodragon

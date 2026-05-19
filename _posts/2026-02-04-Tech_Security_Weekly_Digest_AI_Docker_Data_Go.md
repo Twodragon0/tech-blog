@@ -435,3 +435,14 @@ index=docker OR index=network OR index=endpoint
 ---
 
 작성자: Twodragon
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [n8n RCE, NGINX 하이재킹, AsyncRAT 캠페인 분석](/posts/2026/02/05/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-02-05
+- [AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet 패치](/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/) — 2026-02-01
+- [APT 침해 분석, AitM 라우터 공격, 공급망 보안 동향](/posts/2026/02/07/Tech_Security_Weekly_Digest_AI_Malware_Go_Security/) — 2026-02-07
+

@@ -729,3 +729,14 @@ AI 분야에서는 GPT-5.4의 네이티브 컴퓨터 사용 기능 출시가 가
 ---
 
 작성자: Twodragon
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Coruna iOS 익스플로잇, 핵티비스트 DDoS, 보안 대응 우선순위](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
+- [Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
+- [AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse](/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/) — 2026-03-09
+

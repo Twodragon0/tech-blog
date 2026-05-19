@@ -533,4 +533,14 @@ Google이 Pixel 10 모뎀의 DNS 파서를 Rust로 교체한 결정은 모바일
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 3월 랜섬웨어 동향 보고서, JanelaRAT 멀웨어, 2025년, FBI와 인도네시아 경찰, 2천만 달러 사기](/posts/2026/04/14/Tech_Security_Weekly_Digest_Malware_Vulnerability_AI_Data/) — 2026-04-14
+- [n8n Webhooks, 2025년 10월부터, Nginx UI 인증 우회 취약점, 활발하게 악용 중인 nginx-ui](/posts/2026/04/16/Tech_Security_Weekly_Digest_AI_Malware_CVE_Patch/) — 2026-04-16
+- [Citizen Lab, 국제 단속에서 2만 명 이상의 암호화폐 사기, ChatGPT, Claude에 맞서기](/posts/2026/04/12/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/) — 2026-04-12
+
+---
+
 **작성자**: Twodragon

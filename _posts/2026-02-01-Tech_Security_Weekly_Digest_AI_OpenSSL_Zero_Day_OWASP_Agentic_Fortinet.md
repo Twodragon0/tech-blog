@@ -309,3 +309,14 @@ OpenSSL은 지구상에서 가장 많이 검토되고 감사된 암호화 라이
 
 
 ---
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향](/posts/2026/01/31/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/) — 2026-01-31
+- [n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/) — 2026-01-29
+- [VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper](/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/) — 2026-01-25
+

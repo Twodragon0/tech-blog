@@ -594,4 +594,14 @@ ANTPOOL, Block Inc, F2Pool, Foundry, Spiderpool, MARA Foundation 및 DMND가 Str
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Mirai 기반 xlabs_v1 봇넷, AWS에서 ISO/IEC 42001, MuddyWater, 가짜 랜섬웨어](/posts/2026/05/07/Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware/) — 2026-05-07
+- [TCLBANKER Banking, 가짜 통화 기록 앱, 730만 회 Play, Active attack](/posts/2026/05/09/Tech_Security_Weekly_Digest_Vulnerability_AI_Threat/) — 2026-05-09
+- [피싱 캠페인, SimpleHelp, Progress, 인증 우회 가능한 치명적, 주간 요약: AI 기반 피싱](/posts/2026/05/05/Tech_Security_Weekly_Digest_AI_Patch_AWS/) — 2026-05-05
+
+---
+
 **작성자**: Twodragon

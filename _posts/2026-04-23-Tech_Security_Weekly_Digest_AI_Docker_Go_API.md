@@ -581,4 +581,14 @@ FBI 국장 Kash Patel이 Bitcoin 2026 컨퍼런스에서 "비트코인에 대한
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Winter 2025 SOC 1 보고서 발표, SystemBC C2 서버, 22 BRIDGE](/posts/2026/04/22/Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/) — 2026-04-22
+- [UNC6692, Microsoft, Bitwarden CLI, Checkmarx, ThreatsDay Bulletin](/posts/2026/04/24/Tech_Security_Weekly_Digest_Malware_AI_Go_Threat/) — 2026-04-24
+- [Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 '퇴행적'](/posts/2026/04/20/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/) — 2026-04-20
+
+---
+
 **작성자**: Twodragon

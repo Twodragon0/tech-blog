@@ -528,4 +528,14 @@ Winklevoss 쌍둥이가 Gemini에 1억 달러 규모의 Bitcoin 투자를 발표
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Cisco Catalyst SD-WAN, Stealer Backdoor가 개발자, ThreatsDay 게시판](/posts/2026/05/15/Tech_Security_Weekly_Digest_AI_Threat_AWS_Go/) — 2026-05-15
+- [Funnel Builder Flaw, Microsoft, 중요한 Azure 취약점, 러시아 해커, Kazuar 백도어를 모듈형](/posts/2026/05/17/Tech_Security_Weekly_Digest_CVE_Vulnerability_Azure_Botnet/) — 2026-05-17
+- [AI 기반 합성 공격 로그 생성을 통한 탐지, 새로운 Exim BDAT 취약점으로 GnuTLS, AI 속도의 방어](/posts/2026/05/13/Tech_Security_Weekly_Digest_AI_Vulnerability_Security_Agent/) — 2026-05-13
+
+---
+
 **작성자**: Twodragon

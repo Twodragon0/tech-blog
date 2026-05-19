@@ -206,4 +206,14 @@ Bitcoin 가격, DeFi, NFT, Web3, 규제 동향을 포함한 암호화폐 시장 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전](/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/) — 2026-03-15
+- [GlassWorm GitHub 토큰 탈취, Chrome 제로데이, 라우터 봇넷 위협](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) — 2026-03-17
+- [북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
+
+---
+
 **작성자**: Twodragon

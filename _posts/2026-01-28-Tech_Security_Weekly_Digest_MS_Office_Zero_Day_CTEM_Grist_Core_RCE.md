@@ -309,3 +309,13 @@ Microsoft Office의 Protected View 보안 기능을 우회하는 Zero-Day 취약
 작성자: Twodragon
 작성일: 2026-01-28
 
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷](/posts/2026/01/27/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/) — 2026-01-27
+- [n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/) — 2026-01-29
+- [VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper](/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/) — 2026-01-25
+

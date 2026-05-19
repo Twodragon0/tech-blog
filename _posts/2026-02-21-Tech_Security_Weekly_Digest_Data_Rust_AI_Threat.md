@@ -295,3 +295,14 @@ EC-Council이 4개의 새로운 AI 인증 프로그램과 업데이트된 Certif
 ---
 
 작성자: Twodragon
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+- [AI 위협 행위자 분석, Roundcube KEV 긴급, Claude Code 보안 점검](/posts/2026/02/22/Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security/) — 2026-02-22
+- [클라우드 보안 위협, 안드로이드 악성코드, 업데이트 리스크 분석](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
+

@@ -490,4 +490,14 @@ Bloomberg는 이란의 Islamic Revolutionary Guard Corps(IRGC)가 Hormuz 해협 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [EngageLab SDK·UAT-10362 LucidRook·Microsoft Agentic SOC 보안 위클리](/posts/2026/04/10/Tech_Security_Weekly_Digest_AI_Malware_Go_Agent/) — 2026-04-10
+- [Citizen Lab, 국제 단속에서 2만 명 이상의 암호화폐 사기, ChatGPT, Claude에 맞서기](/posts/2026/04/12/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/) — 2026-04-12
+- [러시아 국가 연계 APT28, 글로벌 DNS 하이재킹, AI 기업 보안, Docker CVE](/posts/2026/04/08/Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/) — 2026-04-08
+
+---
+
 **작성자**: Twodragon

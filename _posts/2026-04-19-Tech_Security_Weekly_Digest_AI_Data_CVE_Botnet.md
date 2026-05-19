@@ -302,4 +302,14 @@ Solana의 선물 미결제약정이 이번 주 20% 증가하며 SOL의 회복세
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고](/posts/2026/04/18/Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/) — 2026-04-18
+- [Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 '퇴행적'](/posts/2026/04/20/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/) — 2026-04-20
+- [n8n Webhooks, 2025년 10월부터, Nginx UI 인증 우회 취약점, 활발하게 악용 중인 nginx-ui](/posts/2026/04/16/Tech_Security_Weekly_Digest_AI_Malware_CVE_Patch/) — 2026-04-16
+
+---
+
 **작성자**: Twodragon

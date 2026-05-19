@@ -448,4 +448,14 @@ Riot Platforms가 채굴에서 AI 인프라로의 전환을 위해 1분기에 3,
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Cisco FMC CVE-2025-55182·에이전트 AI 보안 원칙: 주간 보안 다이제스트](/posts/2026/04/03/Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/) — 2026-04-03
+- [AWS LZA 컴플라이언스·npm 해킹·디바이스 코드 피싱: 주간 보안 다이제스트](/posts/2026/04/05/Tech_Security_Weekly_Digest_AWS_AI_Security_Malware/) — 2026-04-05
+- [Android Developer, TrueConf 제로데이, 동남아시아 정부, AWS에서 제공하는 새로운 규정 준수 가이드](/posts/2026/04/01/Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/) — 2026-04-01
+
+---
+
 **작성자**: Twodragon

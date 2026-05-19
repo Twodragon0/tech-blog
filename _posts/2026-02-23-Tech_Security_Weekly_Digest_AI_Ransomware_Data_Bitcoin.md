@@ -382,3 +382,14 @@ IT/OT 융합 환경의 주요 리스크:
 ---
 
 작성자: Twodragon
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [AI 위협 행위자 분석, Roundcube KEV 긴급, Claude Code 보안 점검](/posts/2026/02/22/Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security/) — 2026-02-22
+- [APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
+- [Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+

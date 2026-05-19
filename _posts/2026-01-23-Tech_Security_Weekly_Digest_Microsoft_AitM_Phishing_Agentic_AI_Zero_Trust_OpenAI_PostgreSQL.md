@@ -427,3 +427,14 @@ SIEM & 탐지:
 ---
 
 면책 조항: 이 포스트의 모든 기술적 내용은 교육 및 방어 목적으로만 제공됩니다. 무단 접근, 시스템 침해, 또는 불법적 활동에 사용해서는 안 됩니다. SIEM 쿼리 및 Threat Hunting 스크립트는 자신이 관리하는 시스템에서만 실행하시기 바랍니다.
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안](/posts/2026/01/24/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/) — 2026-01-24
+- [AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) — 2026-01-26
+- [Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
+

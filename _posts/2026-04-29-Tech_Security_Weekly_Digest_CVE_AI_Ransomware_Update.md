@@ -615,4 +615,14 @@ VECT 2.0의 destructive 특성은 백업 전략의 RPO·RTO 가정을 흔든다.
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Checkmarx, 3월 23일 공격 이후 다크, Robinhood 계정 생성 결함 악용해 피싱, ⚡ 주간 요약: Fast16 악성코드](/posts/2026/04/28/Tech_Security_Weekly_Digest_Data_AI_Malware_AWS/) — 2026-04-28
+- [SAP 관련 npm 패키지, 북한의 새로운 공격 물결, AI 삽입 npm, Amazon Bedrock 기반](/posts/2026/04/30/Tech_Security_Weekly_Digest_AI_Malware_Rust/) — 2026-04-30
+- [연구원들, 엔지니어링 소프트웨어 노리는 스턱스넷, Microsoft, 개편된 Windows, 위협 행위자가 Microsoft](/posts/2026/04/26/Tech_Security_Weekly_Digest_Malware_Threat_AWS_Go/) — 2026-04-26
+
+---
+
 **작성자**: Twodragon

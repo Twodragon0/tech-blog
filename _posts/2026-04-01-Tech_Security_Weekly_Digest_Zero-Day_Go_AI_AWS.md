@@ -552,4 +552,14 @@ Afroman이 Bitcoin 2026 컨퍼런스의 연사로 공식 확정되었습니다. 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [OpenAI, ChatGPT 데이터 유출 결함, DeepLoad 멀웨어, ClickFix, 주간 보안 뉴스 요약](/posts/2026/03/31/Tech_Security_Weekly_Digest_Vulnerability_Patch_AI_GPT/) — 2026-03-31
+- [CERT-UA 사칭 캠페인 100만 이메일 유포, Axios npm 공급망 침해, UAC 우회 멀웨어](/posts/2026/04/02/Tech_Security_Weekly_Digest_AI_Malware/) — 2026-04-02
+- [랜섬웨어 진화, LLM 탈옥 공격, K8s 공급망 위협 분석](/posts/2026/03/29/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/) — 2026-03-29
+
+---
+
 **작성자**: Twodragon

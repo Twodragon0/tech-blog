@@ -697,4 +697,14 @@ spec:
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Kubernetes RBAC 취약점, SLSA 공급망 보안, AI 프롬프트 인젝션 방어](/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/) — 2026-03-26
+- [AI 에이전트 보안, 클라우드 Zero-Day, 컨테이너 공급망 공격](/posts/2026/03/28/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/) — 2026-03-28
+- [북한 VS Code 멀웨어, IAM 정책 설계, Bedrock 보안 운영 포인트](/posts/2026/03/24/Tech_Security_Weekly_Digest_Malware_Data_AWS_AI/) — 2026-03-24
+
+---
+
 **작성자**: Twodragon

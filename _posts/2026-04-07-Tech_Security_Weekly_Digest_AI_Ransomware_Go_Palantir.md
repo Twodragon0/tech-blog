@@ -525,4 +525,14 @@ Bitcoin 개발 연구소 Second가 자체 Ark 프로토콜 구현체인 Bark를 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Drift 해킹·QR 코드 피싱·FortiClient EMS 취약점: 주간 보안 다이제스트](/posts/2026/04/06/Tech_Security_Weekly_Digest_Patch_AI/) — 2026-04-06
+- [러시아 국가 연계 APT28, 글로벌 DNS 하이재킹, AI 기업 보안, Docker CVE](/posts/2026/04/08/Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/) — 2026-04-08
+- [TA416 PlugX·LinkedIn 6천+ 계정 표적: 주간 보안 다이제스트 2026-04-04](/posts/2026/04/04/Tech_Security_Weekly_Digest_Go_AI_Data_Security/) — 2026-04-04
+
+---
+
 **작성자**: Twodragon

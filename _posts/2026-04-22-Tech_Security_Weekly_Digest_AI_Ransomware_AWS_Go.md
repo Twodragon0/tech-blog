@@ -562,4 +562,14 @@ The Gentlemen 랜섬웨어가 SystemBC C2로 1,570명 피해자를 확보한 사
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO, 라자루스](/posts/2026/04/21/Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/) — 2026-04-21
+- [악성 KICS Docker 이미지와 VS, 자체 전파 공급망 웜이 npm 패키지를 탈취해, Harvester, Microsoft Graph](/posts/2026/04/23/Tech_Security_Weekly_Digest_AI_Docker_Go_API/) — 2026-04-23
+- [정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium](/posts/2026/04/19/Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/) — 2026-04-19
+
+---
+
 **작성자**: Twodragon

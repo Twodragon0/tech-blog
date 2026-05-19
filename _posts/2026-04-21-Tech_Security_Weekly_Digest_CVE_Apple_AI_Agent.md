@@ -545,4 +545,14 @@ Capital B가 12 Bitcoin을 추가 매입하여 재무부 보유량을 총 2,937 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 '퇴행적'](/posts/2026/04/20/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/) — 2026-04-20
+- [Winter 2025 SOC 1 보고서 발표, SystemBC C2 서버, 22 BRIDGE](/posts/2026/04/22/Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/) — 2026-04-22
+- [Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고](/posts/2026/04/18/Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/) — 2026-04-18
+
+---
+
 **작성자**: Twodragon

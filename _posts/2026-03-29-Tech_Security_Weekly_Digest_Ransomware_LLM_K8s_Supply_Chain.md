@@ -564,3 +564,14 @@ az ad sign-in-activity list --filter "clientAppUsed eq 'Exchange ActiveSync'"
 - [Kyverno 2.0 GA - CNCF Blog](https://www.cncf.io/blog/2026/03/28/kyverno-2-0-ga-kubernetes-policy-management/)
 - [Terraform 1.10 State Encryption](https://www.hashicorp.com/blog/terraform-1-10-state-encryption)
 - [FinOps Security Cost Framework](https://www.finops.org/blog/2026/03/security-cost-optimization-framework/)
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [AI 에이전트 보안, 클라우드 Zero-Day, 컨테이너 공급망 공격](/posts/2026/03/28/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/) — 2026-03-28
+- [Kubernetes RBAC 취약점, SLSA 공급망 보안, AI 프롬프트 인젝션 방어](/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/) — 2026-03-26
+- [Android Developer, TrueConf 제로데이, 동남아시아 정부, AWS에서 제공하는 새로운 규정 준수 가이드](/posts/2026/04/01/Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/) — 2026-04-01
+

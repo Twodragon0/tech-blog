@@ -656,3 +656,14 @@ EU의 MiCA(Markets in Crypto-Assets Regulation)가 전면 시행에 들어갔습
 ---
 
 *이 포스트가 유용했다면, [tech.2twodragon.com](https://tech.2twodragon.com)을 방문하여 더 많은 DevSecOps 인사이트를 확인하세요.*
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석](/posts/2026/03/06/Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/) — 2026-03-06
+- [OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향](/posts/2026/03/08/Tech_Security_Weekly_Digest_AI_Security/) — 2026-03-08
+- [JWT 인증 위협, 암호화폐 유출 사고, 금융 AI 거버넌스](/posts/2026/03/04/Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin/) — 2026-03-04
+

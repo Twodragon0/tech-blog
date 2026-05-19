@@ -470,3 +470,13 @@ Google의 IPIDEA 해체는 6.1M IP 규모의 레지덴셜 프록시 네트워크
 *이 포스팅은 47개 RSS 피드에서 수집된 224개 뉴스를 분석하여 작성되었습니다.*
 *수집 기간: 2026년 1월 29일 ~ 30일 (48시간)*
 
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/) — 2026-01-29
+- [ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향](/posts/2026/01/31/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/) — 2026-01-31
+- [MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷](/posts/2026/01/27/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/) — 2026-01-27
+

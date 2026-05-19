@@ -528,3 +528,14 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 ---
 
 작성자: Twodragon
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Copilot 악용 토큰 유출, UAC-0050 금융기관 공격, LLM 보안 운영](/posts/2026/02/25/Tech_Security_Weekly_Digest_AI_Malware_Ransomware_LLM/) — 2026-02-25
+- [Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안](/posts/2026/02/27/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/) — 2026-02-27
+- [Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향](/posts/2026/02/23/Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/) — 2026-02-23
+

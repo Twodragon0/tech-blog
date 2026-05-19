@@ -532,3 +532,14 @@ BGP 모니터링:
 ---
 
 면책 조항: 이 포스팅은 교육 및 정보 제공 목적으로 작성되었습니다. 실제 운영 환경에 적용 시 조직의 보안 정책과 법적 요구사항을 반드시 확인하시기 바랍니다.
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL](/posts/2026/01/23/Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/) — 2026-01-23
+- [VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper](/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/) — 2026-01-25
+- [MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷](/posts/2026/01/27/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/) — 2026-01-27
+
