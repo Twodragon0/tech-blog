@@ -1498,7 +1498,12 @@ def _render_global_gavel_svg(
 
 
 def _convert_svg_to_og_png(svg_path: Path) -> None:
-    """Convert SVG to PNG for Open Graph social media previews using rsvg-convert."""
+    """Convert SVG to PNG for Open Graph social media previews using rsvg-convert.
+
+    Post-processes the rsvg output with Pillow palette quantization to keep
+    OG cards under the 200 KB target — large _og.png files inflate Google's
+    image crawl budget and slow Facebook/Twitter/KakaoTalk preview fetches.
+    """
     import shutil
 
     rsvg = shutil.which("rsvg-convert")
@@ -1515,11 +1520,55 @@ def _convert_svg_to_og_png(svg_path: Path) -> None:
             timeout=30,
         )
         if result.returncode == 0:
+            _compress_og_png(png_path)
             print(f"✅ Created OG image: {png_path}")
         else:
             logging.warning(f"rsvg-convert failed: {result.stderr[:200]}")
     except Exception as e:
         logging.warning(f"PNG conversion skipped: {e}")
+
+
+def _compress_og_png(png_path: Path, max_kb: int = 200) -> None:
+    """Palette-quantize an OG PNG so file size stays under ``max_kb`` KB.
+
+    Falls back to a plain ``optimize=True`` re-save when Pillow is missing
+    or quantization actually grows the file (rare). Idempotent — files
+    already under the target are left untouched.
+    """
+    try:
+        from PIL import Image
+    except Exception as exc:  # pragma: no cover - Pillow always shipped in CI
+        logging.debug(f"Pillow unavailable, skipping OG compress: {exc}")
+        return
+
+    try:
+        size_before = png_path.stat().st_size
+        if size_before <= max_kb * 1024:
+            return
+        with Image.open(png_path) as img:
+            img.load()
+            # OG cards never use transparency (flattened by Slack/Twitter/FB
+            # anyway). Dropping alpha shrinks the buffer ~25% and lets the
+            # MEDIANCUT quantizer (smoother gradients than Octree) run.
+            rgb = img.convert("RGB")
+        paletted = rgb.quantize(
+            colors=128,
+            method=Image.Quantize.MEDIANCUT,
+            dither=Image.Dither.FLOYDSTEINBERG,
+        )
+        tmp = png_path.with_suffix(".png.tmp")
+        paletted.save(tmp, format="PNG", optimize=True)
+        size_after = tmp.stat().st_size
+        if size_after < size_before:
+            tmp.replace(png_path)
+            logging.info(
+                f"OG compressed {png_path.name}: {size_before // 1024}→"
+                f"{size_after // 1024} KB"
+            )
+        else:
+            tmp.unlink(missing_ok=True)
+    except Exception as exc:
+        logging.debug(f"OG PNG compression skipped for {png_path.name}: {exc}")
 
 
 def _extract_card_labels(news_items: List[Dict], limit: int = 5) -> List[str]:
