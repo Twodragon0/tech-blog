@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-19T02:33:33.869832+00:00",
+  "updated_at": "2026-05-20T02:33:10.856853+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/critical-apache-http2-flaw-cve-2026.html",
-      "title": "Critical Apache HTTP/2 Flaw (CVE-2026-23918) Enables DoS and Potential RCE",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/daemon-tools-supply-chain-attack.html",
-      "title": "DAEMON Tools Supply Chain Attack Compromises Official Installers with Malware",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/china-linked-uat-8302-targets.html",
-      "title": "China-Linked UAT-8302 Targets Governments Using Shared APT Malware Across Region",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/introducing-ai-traffic-analysis-dashboards-for-aws-waf/",
-      "title": "Introducing AI traffic analysis dashboards for AWS WAF",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/new-stealthy-quasar-linux-malware-targets-software-developers/",
-      "title": "New stealthy Quasar Linux malware targets software developers",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/",
-      "title": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/future-vision-film-competition-xprize/",
-      "title": "Google is partnering with XPRIZE and Range Media Partners on the $3.5 million Fu",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://openai.com/index/gpt-5-5-instant",
-      "title": "GPT-5.5 Instant: smarter, clearer, and more personalized",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-hapag-lloyd-uses-amazon-bedrock-to-transform-customer-feedback-into-actionable-insights/",
-      "title": "How Hapag-Lloyd uses Amazon Bedrock to transform customer feedback into actionab",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/streamlining-generative-ai-development-with-mlflow-v3-10-on-amazon-sagemaker-ai/",
-      "title": "Streamlining generative AI development with MLflow v3.10 on Amazon SageMaker AI",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/public-sector-momentum-and-mission-impact-at-google-cloud-next-26/",
-      "title": "Public sector momentum and mission impact at Google Cloud Next ‘26",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/five-guides-to-building-and-scaling-production-ready-ai-agents/",
-      "title": "Five must-have guides to move agents into production with Gemini Enterprise Agen",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/introducing-agent-gateway-isv-ecosystem-for-security-and-governance/",
-      "title": "Introducing Agent Gateway ISV ecosystem for security and governance",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/cloud-engineers-ai-toolkit-sign-up-now-for-a-developer-workshop-near-you/",
-      "title": "Cloud Engineer’s AI Toolkit: Sign up Now for a Developer Workshop Near You!",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/modernize-your-workflows-amazon-workspaces-now-gives-ai-agents-their-own-desktop-preview/",
-      "title": "Modernize your workflows: Amazon WorkSpaces now gives AI agents their own deskto",
-      "published_date": "2026-05-06",
-      "expires_at": "2026-05-13T02:02:52.150460+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/mirai-based-xlabsv1-botnet-exploits-adb.html",
       "title": "Mirai-Based xlabs_v1 Botnet Exploits ADB to Hijack IoT Devices for DDoS Attacks",
@@ -1170,6 +1080,96 @@
       "title": "CJ올리브영의 AI 협업 개발 프로세스 구축, AI-DLC 실전 도입 사례",
       "published_date": "2026-05-19",
       "expires_at": "2026-05-26T02:33:33.869711+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/trapdoor-android-ad-fraud-scheme-hit.html",
+      "title": "Trapdoor Android Ad Fraud Scheme Hit 659 Million Daily Bid Requests Using 455 Ap",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/cirt-insights-how-to-help-prevent-unauthorized-account-removals-from-aws-organizations/",
+      "title": "CIRT insights: How to help prevent unauthorized account removals from AWS Organi",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/dirtydecrypt-poc-released-for-linux.html",
+      "title": "DirtyDecrypt PoC Released for Linux Kernel CVE-2026-31635 LPE Vulnerability",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/max-severity-flaw-in-chromadb-for-ai-apps-allows-server-hijacking/",
+      "title": "Max-severity flaw in ChromaDB for AI apps allows server hijacking",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/cybercrime-service-disrupted-for-abusing-microsoft-platform-to-sign-malware/",
+      "title": "Cybercrime service disrupted for abusing Microsoft platform to sign malware",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-openai-for-singapore",
+      "title": "Introducing OpenAI for Singapore",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/google-cloud-developer-community-ai-builders/",
+      "title": "NVIDIA and Google Cloud Empower the Next Wave of AI Builders",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-collection/",
+      "title": "I/O 2026",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/ai-mode-us-insights/",
+      "title": "How AI Mode is changing the way people search in the U.S.",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/workspace/workspace-updates/",
+      "title": "New ways to create and get things done in Google Workspace",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/the-agentic-era-architecting-the-blueprint-for-mission-impact-across-the-public-sector/",
+      "title": "The agentic era: Architecting the blueprint for mission impact across the public",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud/",
+      "title": "Everything Google Cloud customers need to know coming out of Google I/O",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/io26-news-for-agent-developers-on-google-cloud/",
+      "title": "What Google I/O '26 means for developing agents on Google Cloud",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/data-agent-kit-brings-data-skills-and-tools-to-your-ide-or-cli/",
+      "title": "The future of agentic development: Redefining the data practitioner lifecycle wi",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/cime-live-streaming-platform-with-amazon-ivs/",
+      "title": "씨미가 4K · 4초 저지연 라이브를 만든 방법 — Amazon IVS와 자체 구축의 하이브리드  설계",
+      "published_date": "2026-05-20",
+      "expires_at": "2026-05-27T02:33:10.856757+00:00"
     }
   ]
 }
