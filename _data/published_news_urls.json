@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-20T02:33:10.856853+00:00",
+  "updated_at": "2026-05-21T00:34:25.764352+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/05/mirai-based-xlabsv1-botnet-exploits-adb.html",
@@ -1170,6 +1170,96 @@
       "title": "씨미가 4K · 4초 저지연 라이브를 만든 방법 — Amazon IVS와 자체 구축의 하이브리드  설계",
       "published_date": "2026-05-20",
       "expires_at": "2026-05-27T02:33:10.856757+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/microsoft-open-sources-rampart-and.html",
+      "title": "Microsoft Open-Sources RAMPART and Clarity to Secure AI Agents During Developmen",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/why-policy-in-amazon-bedrock-agentcore-chose-cedar-for-securing-agentic-workflows/",
+      "title": "Why Policy in Amazon Bedrock AgentCore chose Cedar for securing agentic workflow",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/microsoft-takes-down-malware-signing.html",
+      "title": "Microsoft Takes Down Malware-Signing Service Behind Ransomware Attacks",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/webworm-deploys-echocreep-and-graphworm.html",
+      "title": "Webworm Deploys EchoCreep and GraphWorm Backdoors Using Discord and MS Graph API",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/20/mini-shai-hulud-compromised-antv-npm-packages-enable-ci-cd-credential-theft/",
+      "title": "Mini Shai Hulud: Compromised @antv npm packages enable CI/CD credential theft",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/missouri-programs/",
+      "title": "We’re announcing new community investments in Missouri.",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/",
+      "title": "100 things we announced at I/O 2026",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/google-beam-group-meetings/",
+      "title": "A new experiment brings better group meetings to Google Beam",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/openai-launches-overseas-ai-lab-singapore-234m-commitment?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "OpenAI launches overseas AI lab in Singapore with $234M commitment",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/announcing-openai-compatible-api-support-for-amazon-sagemaker-ai-endpoints/",
+      "title": "Announcing OpenAI-compatible API support for Amazon SageMaker AI endpoints",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/urban-outfitters-moves-sterling-oms-to-alloydb-for-postgresql/",
+      "title": "Urban Outfitters achieves major cost savings by moving Sterling OMS to AlloyDB f",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/benchmark-llms-on-device-with-ai-edge-portal/",
+      "title": "Benchmark and optimize LLMs on-device with AI Edge Portal",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/agent-executor-googles-distributed-agent-runtime/",
+      "title": "Introducing Agent Executor, Google’s distributed Agent Runtime",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/bringing-you-agent-sandbox-on-gke-and-agent-substrate/",
+      "title": "Agent Sandbox on GKE is now available for everyone, and a first look at Agent Su",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-20-updates-to-available-models-in-copilot-on-web",
+      "title": "Updates to available models in Copilot on web",
+      "published_date": "2026-05-21",
+      "expires_at": "2026-05-28T00:34:25.764269+00:00"
     }
   ]
 }
