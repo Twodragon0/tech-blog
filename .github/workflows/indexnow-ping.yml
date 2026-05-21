@@ -109,12 +109,13 @@ jobs:
         continue-on-error: true
 
       - name: Surface ping failure as workflow annotation
+        # `outcome` is the raw step result; `conclusion` is overridden to
+        # `success` by continue-on-error. We want the raw outcome here.
         if: >
-          steps.ping.conclusion == 'failure' &&
+          steps.ping.outcome == 'failure' &&
           (github.event_name == 'workflow_dispatch' ||
            steps.check_files.outputs.should_ping == 'true')
         run: |
-          # continue-on-error swallows the exit code at job level, but we
-          # still want a loud, visible signal on the GitHub Actions UI.
-          # The annotation surfaces in the run summary as a yellow warning.
-          echo "::warning title=IndexNow ping failed::Script exited non-zero — likely 0 URLs from sitemap or endpoint rejection. Inspect the 'Ping IndexNow' step log for diagnostic. Deploy was NOT blocked."
+          # The annotation surfaces in the run summary as a yellow warning,
+          # making the failure visible without blocking the deploy pipeline.
+          echo "::warning title=IndexNow ping failed::Script exited non-zero — inspect the 'Ping IndexNow' step log. Deploy was NOT blocked."
