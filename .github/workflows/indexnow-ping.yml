@@ -37,17 +37,40 @@ jobs:
       - name: Check if content files changed
         id: check_files
         if: github.event_name != 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Get the commit SHA that triggered the upstream workflow
           COMMIT_SHA="${{ github.event.workflow_run.head_sha }}"
-          echo "Checking files changed in commit $COMMIT_SHA"
+          echo "Triggering deploy commit: $COMMIT_SHA"
 
-          # List files changed vs parent commit
-          git fetch origin "$COMMIT_SHA" --depth=2 2>/dev/null || true
-          CHANGED=$(git diff --name-only "$COMMIT_SHA^" "$COMMIT_SHA" 2>/dev/null || echo "")
+          # Determine the push range: prefer the previous successful deploy's
+          # head_sha so we diff across ALL commits in the push, not just the
+          # last one. This fixes the bug where batched pushes that ended with
+          # a non-_posts/ commit silently skipped the ping.
+          PREV_SHA=$(gh api \
+            "repos/${{ github.repository }}/actions/workflows/deploy-pages.yml/runs?branch=main&status=success&per_page=5" \
+            --jq '[.workflow_runs[] | select(.head_sha != "'"$COMMIT_SHA"'")] | .[0].head_sha // empty' \
+            2>/dev/null || true)
 
+          if [ -n "$PREV_SHA" ] && [ "$PREV_SHA" != "$COMMIT_SHA" ]; then
+            echo "Previous successful deploy: $PREV_SHA"
+            git fetch origin "$PREV_SHA" --depth=1 2>/dev/null || true
+            git fetch origin "$COMMIT_SHA" --depth=50 2>/dev/null || true
+            CHANGED=$(git diff --name-only "$PREV_SHA" "$COMMIT_SHA" 2>/dev/null || echo "")
+            DIFF_MODE="push-range ($PREV_SHA..$COMMIT_SHA)"
+          else
+            echo "No previous deploy SHA found; falling back to single-commit diff"
+            git fetch origin "$COMMIT_SHA" --depth=2 2>/dev/null || true
+            CHANGED=$(git diff --name-only "$COMMIT_SHA^" "$COMMIT_SHA" 2>/dev/null || echo "")
+            DIFF_MODE="single-commit ($COMMIT_SHA)"
+          fi
+
+          echo "Diff mode: $DIFF_MODE"
           echo "Changed files:"
-          echo "$CHANGED"
+          echo "$CHANGED" | head -50
+          TOTAL=$(echo "$CHANGED" | grep -cv '^$' || echo 0)
+          echo "Total files changed: $TOTAL"
 
           # Ping only when content-relevant files changed
           if echo "$CHANGED" | grep -qE '^(_posts/|sitemap\.xml|_config\.yml)'; then
@@ -67,6 +90,7 @@ jobs:
           python-version: '3.12'
 
       - name: Ping IndexNow
+        id: ping
         if: >
           github.event_name == 'workflow_dispatch' ||
           steps.check_files.outputs.should_ping == 'true'
@@ -83,3 +107,14 @@ jobs:
           fi
         # Ping failure must NOT block the deploy pipeline
         continue-on-error: true
+
+      - name: Surface ping failure as workflow annotation
+        if: >
+          steps.ping.conclusion == 'failure' &&
+          (github.event_name == 'workflow_dispatch' ||
+           steps.check_files.outputs.should_ping == 'true')
+        run: |
+          # continue-on-error swallows the exit code at job level, but we
+          # still want a loud, visible signal on the GitHub Actions UI.
+          # The annotation surfaces in the run summary as a yellow warning.
+          echo "::warning title=IndexNow ping failed::Script exited non-zero — likely 0 URLs from sitemap or endpoint rejection. Inspect the 'Ping IndexNow' step log for diagnostic. Deploy was NOT blocked."
