@@ -5,14 +5,14 @@ Covers:
 2. test_key_masking         - raw key is never printed to stdout/stderr
 3. test_url_limit           - 10000+ URL input is truncated safely
 4. test_dry_run             - --dry-run produces output without HTTP calls
+5. test_sitemap_parsing     - production HTTP fetch + hard fail on zero URLs
 """
 
 import json
 import sys
-import textwrap
-from io import StringIO
 from pathlib import Path
 from unittest.mock import MagicMock, patch
+from urllib.error import URLError
 
 import pytest
 
@@ -170,3 +170,75 @@ def test_dry_run_contains_payload_structure(sample_key, sample_urls, capsys):
     assert sample_urls[0] in out
     # Raw key must not appear in dry-run output (including keyLocation URL)
     assert sample_key not in out
+
+
+# ---------------------------------------------------------------------------
+# 5. Sitemap parsing — production fetch
+# ---------------------------------------------------------------------------
+
+
+SAMPLE_XML = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://tech.2twodragon.com/a/</loc></url>
+  <url><loc>https://tech.2twodragon.com/b/</loc></url>
+</urlset>
+""".strip()
+
+
+def _make_url_resp(body_bytes, status=200):
+    resp = MagicMock()
+    resp.status = status
+    resp.read = MagicMock(return_value=body_bytes)
+    resp.__enter__ = MagicMock(return_value=resp)
+    resp.__exit__ = MagicMock(return_value=False)
+    return resp
+
+
+def test_parse_sitemap_urls_success():
+    """A 200 response with valid namespaced XML returns the parsed URL list."""
+    fake_resp = _make_url_resp(SAMPLE_XML.encode("utf-8"))
+    with patch("indexnow_ping.urlopen", return_value=fake_resp):
+        urls = ping.parse_sitemap_urls("https://tech.2twodragon.com/sitemap.xml")
+    assert urls == [
+        "https://tech.2twodragon.com/a/",
+        "https://tech.2twodragon.com/b/",
+    ]
+
+
+def test_parse_sitemap_urls_returns_empty_on_url_error(capsys):
+    """Connection failures return [] with a stderr diagnostic — no local fallback."""
+    with patch(
+        "indexnow_ping.urlopen", side_effect=URLError("nodename nor servname")
+    ):
+        urls = ping.parse_sitemap_urls("https://invalid.example.test/sitemap.xml")
+    assert urls == []
+    assert "Failed to fetch sitemap" in capsys.readouterr().err
+
+
+def test_parse_sitemap_urls_returns_empty_on_non_200(capsys):
+    """A non-200 status returns [] with a stderr diagnostic."""
+    fake_resp = _make_url_resp(b"", status=503)
+    with patch("indexnow_ping.urlopen", return_value=fake_resp):
+        urls = ping.parse_sitemap_urls("https://tech.2twodragon.com/sitemap.xml")
+    assert urls == []
+    assert "HTTP 503" in capsys.readouterr().err
+
+
+def test_parse_sitemap_urls_returns_empty_on_invalid_xml(capsys):
+    """A 200 with malformed XML returns [] with a parse-error diagnostic."""
+    fake_resp = _make_url_resp(b"<not-xml")
+    with patch("indexnow_ping.urlopen", return_value=fake_resp):
+        urls = ping.parse_sitemap_urls("https://tech.2twodragon.com/sitemap.xml")
+    assert urls == []
+    assert "Failed to parse sitemap" in capsys.readouterr().err
+
+
+def test_main_returns_1_on_zero_urls(sample_key, capsys):
+    """0 URLs is a hard failure (exit 1) — no silent success."""
+    with patch.object(ping, "resolve_key", return_value=sample_key), \
+         patch.object(ping, "parse_sitemap_urls", return_value=[]), \
+         patch("sys.argv", ["indexnow_ping.py"]):
+        rc = ping.main()
+
+    assert rc == 1
+    assert "hard fail" in capsys.readouterr().err

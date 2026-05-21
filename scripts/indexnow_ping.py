@@ -44,8 +44,8 @@ INDEXNOW_ENDPOINTS = [
 ]
 
 HOST = "tech.2twodragon.com"
-SITEMAP_PATH = Path(__file__).parent.parent / "sitemap.xml"
 CONFIG_PATH = Path(__file__).parent.parent / "_config.yml"
+PRODUCTION_SITEMAP_URL = f"https://{HOST}/sitemap.xml"
 
 # IndexNow limit per submission
 URL_LIMIT = 10_000
@@ -53,6 +53,9 @@ URL_LIMIT = 10_000
 # Retry settings for 429 rate limit
 MAX_RETRIES = 1
 RETRY_BACKOFF = 30  # seconds
+
+# Sitemap fetch timeout (production XML download)
+SITEMAP_FETCH_TIMEOUT = 30
 
 
 # ---------------------------------------------------------------------------
@@ -100,38 +103,47 @@ def resolve_key() -> str:
     sys.exit(1)
 
 
-def parse_sitemap_urls() -> list[str]:
-    """Extract all <loc> URLs from sitemap.xml."""
-    if not SITEMAP_PATH.exists():
-        # Try Jekyll _site output
-        site_sitemap = Path(__file__).parent.parent / "_site" / "sitemap.xml"
-        if site_sitemap.exists():
-            target = site_sitemap
-        else:
-            print(
-                f"WARNING: sitemap.xml not found at {SITEMAP_PATH}", file=sys.stderr
-            )
-            return []
-    else:
-        target = SITEMAP_PATH
+def parse_sitemap_urls(sitemap_url: str = PRODUCTION_SITEMAP_URL) -> list[str]:
+    """Fetch sitemap.xml from `sitemap_url` and return all <loc> URLs.
+
+    Production-only source: the deployed sitemap is the ground truth for what
+    is publicly crawlable. If the fetch or parse fails, the caller treats it
+    as a hard failure — local files are not consulted because pinging URLs
+    that aren't live yet would be useless.
+    """
+    req = Request(sitemap_url, headers={"User-Agent": "TechBlog-IndexNow/1.0"})
+    try:
+        with urlopen(req, timeout=SITEMAP_FETCH_TIMEOUT) as resp:
+            if resp.status != 200:
+                print(
+                    f"ERROR: Sitemap fetch returned HTTP {resp.status} from {sitemap_url}",
+                    file=sys.stderr,
+                )
+                return []
+            xml_text = resp.read().decode("utf-8", errors="replace")
+    except (HTTPError, URLError) as exc:
+        print(
+            f"ERROR: Failed to fetch sitemap from {sitemap_url}: {exc}",
+            file=sys.stderr,
+        )
+        return []
 
     try:
-        tree = ET.parse(target)
-        root = tree.getroot()
-        # Handle namespace-aware sitemap
-        ns = ""
-        tag = root.tag
-        if "{" in tag:
-            ns = tag.split("}")[0] + "}"
-        urls = []
-        for url_elem in root.findall(f"{ns}url"):
-            loc = url_elem.find(f"{ns}loc")
-            if loc is not None and loc.text:
-                urls.append(loc.text.strip())
-        return urls
+        root = ET.fromstring(xml_text)
     except ET.ParseError as exc:
-        print(f"ERROR: Failed to parse sitemap.xml: {exc}", file=sys.stderr)
+        print(
+            f"ERROR: Failed to parse sitemap fetched from {sitemap_url}: {exc}",
+            file=sys.stderr,
+        )
         return []
+
+    ns = root.tag.split("}")[0] + "}" if "{" in root.tag else ""
+    urls = []
+    for url_elem in root.findall(f"{ns}url"):
+        loc = url_elem.find(f"{ns}loc")
+        if loc is not None and loc.text:
+            urls.append(loc.text.strip())
+    return urls
 
 
 def build_payload(key: str, urls: list[str]) -> dict:
@@ -209,7 +221,12 @@ def main() -> int:
         "--urls",
         nargs="+",
         metavar="URL",
-        help="Specific URLs to submit (default: all URLs from sitemap.xml)",
+        help="Specific URLs to submit (default: all URLs from sitemap)",
+    )
+    parser.add_argument(
+        "--sitemap-url",
+        default=PRODUCTION_SITEMAP_URL,
+        help=f"Sitemap source URL (default: {PRODUCTION_SITEMAP_URL})",
     )
     parser.add_argument(
         "--dry-run",
@@ -226,11 +243,15 @@ def main() -> int:
         urls = args.urls
         print(f"Custom URL list: {len(urls)} URL(s)")
     else:
-        urls = parse_sitemap_urls()
+        print(f"Sitemap source: {args.sitemap_url}")
+        urls = parse_sitemap_urls(args.sitemap_url)
         print(f"Sitemap URLs parsed: {len(urls)}")
 
     if not urls:
-        print("ERROR: No URLs to submit.", file=sys.stderr)
+        print(
+            "ERROR: No URLs to submit — sitemap returned 0 URLs (hard fail).",
+            file=sys.stderr,
+        )
         return 1
 
     # Enforce IndexNow limit
