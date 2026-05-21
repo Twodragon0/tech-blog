@@ -481,7 +481,7 @@ tech-blog/
 ---
 layout: post
 title: "제목 (Korean OK)"
-date: YYYY-MM-DD HH:MM:SS +0900
+date: YYYY-MM-DD HH:MM:SS +0900   # see "Date / Timezone Rule" below
 category: [security|devsecops|devops|cloud|kubernetes|finops|incident]
 categories: [category1, category2]
 tags: [tag1, tag2]
@@ -489,6 +489,35 @@ excerpt: "Summary (150-200 chars)"
 image: /assets/images/YYYY-MM-DD-English_Title.svg
 ---
 ```
+
+### Date / Timezone Rule (critical for URLs)
+
+The site is pinned to `timezone: UTC` in `_config.yml`. The permalink
+`/posts/:year/:month/:day/:title/` uses the post date converted to UTC,
+so the filename's date prefix can differ from the live URL when the time
+component is in the early-morning KST window.
+
+| `date:` in front matter         | KST day | UTC day  | Live URL date |
+|---------------------------------|---------|----------|---------------|
+| `2026-05-21 09:00:00 +0900`     | May 21  | May 21   | `/2026/05/21/` ✓ |
+| `2026-05-21 00:00:00 +0900`     | May 21  | May 20   | `/2026/05/20/` ⚠ |
+| `2026-05-21 08:59:59 +0900`     | May 21  | May 20   | `/2026/05/20/` ⚠ |
+
+**Authoring rules:**
+1. Default to `HH:MM:SS = 09:00:00 +0900` (or anything ≥ 09:00 KST) so the
+   filename date and the URL date are guaranteed to match.
+2. If you must keep an earlier KST timestamp, add the KST-canonical URL
+   to `redirect_from` so internal links to the filename-date URL still
+   work:
+   ```yaml
+   redirect_from:
+     - /posts/{YYYY}/{MM}/{DD}/{slug}/   # filename-date variant
+   ```
+3. Audit script (planned): `scripts/check_kst_midnight.py` will flag any
+   post with KST 00:00-08:59 + `0900` that lacks the redirect entry.
+
+Background: `.omc/research/kst_midnight_audit_2026_05_21.md` documents
+the 9 historical posts affected before the rule was introduced.
 
 ### Code Blocks
 - **Always** include language tags: ```python, ```bash, ```yaml

@@ -188,7 +188,7 @@ tech-blog/
 ---
 layout: post
 title: "Title (Korean allowed)"
-date: YYYY-MM-DD HH:MM:SS +0900
+date: YYYY-MM-DD HH:MM:SS +0900   # use HH >= 09 — see Timezone Rule
 category: security|devsecops|devops|cloud|kubernetes|finops|incident
 categories: [category1, category2]
 tags: [tag1, tag2, tag3]
@@ -196,6 +196,25 @@ excerpt: "Summary (150-200 chars recommended)"
 image: /assets/images/YYYY-MM-DD-English_Title.svg
 ---
 ```
+
+### Timezone Rule
+
+`_config.yml` pins `timezone: UTC`, so the permalink date components come
+from the post date converted to UTC. The filename date prefix only matches
+the live URL when the KST day equals the UTC day — i.e. when the hour
+field is `>= 09:00 +0900`.
+
+- Default new posts to `09:00:00 +0900` (or later) so KST day == UTC day.
+- Posts authored with KST `00:00-08:59 +0900` land on the previous UTC
+  calendar day. If you must keep such a timestamp, add a redirect entry
+  so the filename-date URL still resolves:
+  ```yaml
+  redirect_from:
+    - /posts/{YYYY}/{MM}/{DD}/{slug}/   # filename-date variant
+  ```
+- See `.omc/research/kst_midnight_audit_2026_05_21.md` for the historical
+  audit and `scripts/check_kst_midnight.py` (planned) for automated
+  enforcement.
 
 ### Categories
 - `security` - Security-related content

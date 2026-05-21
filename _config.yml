@@ -63,6 +63,16 @@ feed:
   path: feed.xml
   excerpt_only: false
 
+# Build timezone — pinned to UTC so :year/:month/:day in the permalink
+# resolves the same on every runner (local macOS, GitHub Actions, Vercel).
+# Without this, Jekyll uses the runner's local TZ, which means a KST shell
+# emits /2025/05/30/... while CI/Vercel emit /2025/05/29/... for the same
+# post dated "2025-05-30 01:11:00 +0900". Authors writing posts at
+# 00:00-08:59 KST should either set the time to >= 09:00 KST (so KST day
+# == UTC day) or add the KST-canonical path to redirect_from. See
+# .omc/research/kst_midnight_audit_2026_05_21.md.
+timezone: UTC
+
 # Permalinks - Clean URL structure
 permalink: /posts/:year/:month/:day/:title/
 
