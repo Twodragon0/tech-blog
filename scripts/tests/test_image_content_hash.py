@@ -26,10 +26,14 @@ IMAGES_DIR = REPO_ROOT / "assets" / "images"
 # Three L25 covers known to be referenced from L25-promoted posts (2026-05-15
 # digest cover overhaul). They must show up with a content-hash version query
 # in the built HTML.
+# Permalinks use the post date interpreted in the build's timezone. The
+# fixture pins TZ=UTC so this list matches production (Vercel and CI also
+# build in UTC). The Minikube post is dated `2025-05-30 01:11 +0900`,
+# which is 2025-05-29 16:11 UTC, so it lands under /05/29/.
 L25_SLUGS = (
     "2025/11/19/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned",
     "2025/12/12/Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy",
-    "2025/05/30/Kubernetes_Minikube_and_K9s_Practice_Guide",
+    "2025/05/29/Kubernetes_Minikube_and_K9s_Practice_Guide",
 )
 
 VERSIONED_IMG_SRC_RE = re.compile(
@@ -50,6 +54,11 @@ def built_site_dir() -> Path:
     dest = Path(tempfile.mkdtemp(prefix="jk-image-hash-pytest-"))
     try:
         env = os.environ.copy()
+        # Pin the build timezone so permalinks are stable across runners.
+        # CI runs in UTC; macOS dev shells default to local (e.g. KST).
+        # Without this, posts dated near midnight in KST would resolve to
+        # a different /YYYY/MM/DD/ path on dev vs CI vs Vercel.
+        env["TZ"] = "UTC"
         result = subprocess.run(
             [
                 "bundle",
@@ -89,26 +98,7 @@ def test_l25_post_body_image_has_content_hash_version(
 ) -> None:
     """Each L25-promoted post must emit a body <img> with ?v={hash}."""
     html_path = built_site_dir / "posts" / post_slug / "index.html"
-    if not html_path.is_file():
-        # Diagnostic: dump the actual built layout around the expected path
-        # so we can see what Jekyll produced instead. This fires only on
-        # failure and is cheap (a few directory listings).
-        diag_lines = [f"missing built HTML: {html_path}"]
-        parent = html_path.parent.parent  # e.g. .../posts/2025/05/30/
-        for level in (parent.parent, parent):  # /YYYY/MM/ and /YYYY/MM/DD/
-            if level.is_dir():
-                diag_lines.append(f"  contents of {level}:")
-                for entry in sorted(level.iterdir()):
-                    diag_lines.append(f"    {entry.name}{'/' if entry.is_dir() else ''}")
-            else:
-                diag_lines.append(f"  missing dir: {level}")
-        # Also search the whole build dir for any path containing the slug tail
-        slug_tail = post_slug.rsplit("/", 1)[-1]
-        matches = list(built_site_dir.rglob(f"*{slug_tail}*"))
-        diag_lines.append(f"  rglob hits for *{slug_tail}*: {len(matches)}")
-        for m in matches[:10]:
-            diag_lines.append(f"    {m.relative_to(built_site_dir)}")
-        pytest.fail("\n".join(diag_lines))
+    assert html_path.is_file(), f"missing built HTML: {html_path}"
 
     html = html_path.read_text(encoding="utf-8")
     matches = VERSIONED_IMG_SRC_RE.findall(html)
