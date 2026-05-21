@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "피싱 캠페인, SimpleHelp, Progress, 인증 우회 가능한 치명적, 주간 요약: AI 기반 피싱"
+title: "2026년 05월 05일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (14건)"
 date: 2026-05-05 11:02:12 +0900
 last_modified_at: 2026-05-05T02:03:38Z
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-05-05-Tech_Security_Weekly_Digest_AI_Patch_AWS.svg
 image_alt: "SimpleHelp, Progress, : AI - security digest overview"
 toc: true
 summary_card:
-  title: "피싱 캠페인, SimpleHelp, Progress, 인증 우회 가능한 치명적, 주간 요약: AI 기반 피싱"
+  title: "2026년 05월 05일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (14건)"
   period: "2026년 05월 05일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

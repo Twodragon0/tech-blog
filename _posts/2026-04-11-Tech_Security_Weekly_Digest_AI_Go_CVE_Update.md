@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GlassWorm·Chrome 146 DBSC·브라우저 확장 AI 위협: 주간 보안 다이제스트"
+title: "2026년 04월 11일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (13건)"
 date: 2026-04-11 10:25:28 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/
   - /posts/2026-04-11-Tech_Security_Weekly_Digest_AI_Go_CVE_Update/
 summary_card:
-  title: "GlassWorm 캠페인, Zig, 브라우저 확장 프로그램은 아무도 논의하지, Google, Windows에서 세션 도난"
+  title: "2026년 04월 11일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (13건)"
   period: "2026년 04월 11일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

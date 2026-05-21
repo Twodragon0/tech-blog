@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "연구진, 단일 Git Push로 악용, 브라질의 LofyGang, 3년, VECT 2.0 랜섬웨어"
+title: "2026년 04월 29일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)"
 date: 2026-04-29 11:06:47 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-04-29-Tech_Security_Weekly_Digest_CVE_AI_Ransomware_U
 image_alt: "Git Push, LofyGang, 3, VECT 2.0 - security digest overview"
 toc: true
 summary_card:
-  title: "연구진, 단일 Git Push로 악용, 브라질의 LofyGang, 3년, VECT 2.0 랜섬웨어"
+  title: "2026년 04월 29일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)"
   period: "2026년 04월 29일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

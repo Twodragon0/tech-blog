@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AI 정렬 연구, EKS Flyte 워크플로, Docker 보안, Cloud Native 동향"
+title: "2026년 02월 20일 기술 블로그 주간 다이제스트: 쿠버네티스·클라우드·컨테이너 (3건)"
 date: 2026-02-20 08:15:29 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [tech, devops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud.svg
 image_alt: "기술 블로그 주간 다이제스트 2026년 2월 20일"
 toc: true
 summary_card:
-  title: "AI 정렬 연구, EKS Flyte 워크플로, Docker 보안, Cloud Native 동향"
+  title: "2026년 02월 20일 기술 블로그 주간 다이제스트: 쿠버네티스·클라우드·컨테이너 (3건)"
   period: "2026-02-20 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

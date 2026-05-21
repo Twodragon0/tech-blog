@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안"
+title: "2026년 03월 18일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (13건)"
 date: 2026-03-18 10:11:09 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/
   - /posts/2026-03-18-Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/
 summary_card:
-  title: "AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안"
+  title: "2026년 03월 18일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (13건)"
   period: "2026년 03월 18일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

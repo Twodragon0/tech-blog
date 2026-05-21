@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증"
+title: "2026년 03월 07일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (4건)"
 date: 2026-03-07 12:00:00 +0900
 last_modified_at: 2026-03-30T17:41:34+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/
   - /posts/2026-03-07-Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/
 summary_card:
-  title: "Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증"
+  title: "2026년 03월 07일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (4건)"
   period: "2026년 03월 07일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

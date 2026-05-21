@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Winter 2025 SOC 1 보고서 발표, SystemBC C2 서버, 22 BRIDGE"
+title: "2026년 04월 22일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)"
 date: 2026-04-22 10:48:41 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-04-22-Tech_Security_Weekly_Digest_AI_Ransomware_AWS_G
 image_alt: "Winter 2025 SOC 1, SystemBC C2, 22 BRIDGE - security digest overview"
 toc: true
 summary_card:
-  title: "Winter 2025 SOC 1 보고서 발표, SystemBC C2 서버, 22 BRIDGE"
+  title: "2026년 04월 22일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)"
   period: "2026년 04월 22일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

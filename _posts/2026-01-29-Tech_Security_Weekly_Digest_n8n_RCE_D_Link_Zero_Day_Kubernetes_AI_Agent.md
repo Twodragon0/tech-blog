@@ -29,13 +29,13 @@ tags:
 - DevSecOps
 - '2026'
 keywords: [Security-Weekly, n8n, RCE, CVE-2026-1470, D-Link, Zero-Day, CVE-2026-0625, Kubernetes]
-title: "n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안"
+title: "2026년 01월 29일 주간 보안 다이제스트: 제로데이·DNS 유출·AI 에이전트 (5건)"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/
   - /posts/2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/
 summary_card:
-  title: "Tech & Security Weekly Digest (2026년 01월 29일)"
+  title: "2026년 01월 29일 주간 보안 다이제스트: 제로데이·DNS 유출·AI 에이전트 (5건)"
   period: "2026년 1월 28일 ~ 29일 (48시간)"
   audience: "DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, SRE, CISO"
   categories:

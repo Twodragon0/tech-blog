@@ -28,13 +28,13 @@ tags:
 - DevSecOps
 - '2026'
 keywords: [Security-Weekly, AitM-Phishing, BEC, Zero-Trust, Agentic-AI, NHI, PostgreSQL, OpenAI]
-title: "Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL"
+title: "2026년 01월 23일 주간 보안 다이제스트: AI 에이전트·클라우드·피싱 (5건)"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/
   - /posts/2026-01-23-Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/
 summary_card:
-  title: "Tech & Security Weekly Digest (2026년 01월 23일)"
+  title: "2026년 01월 23일 주간 보안 다이제스트: AI 에이전트·클라우드·피싱 (5건)"
   period: "2026년 1월 22일 ~ 23일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO"
   categories:

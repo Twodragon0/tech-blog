@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석"
+title: "2026년 03월 06일 주간 보안 다이제스트: 제로데이·악성코드·Cisco FMC (4건)"
 date: 2026-03-06 12:29:02 +0900
 last_modified_at: 2026-03-31T12:28:24+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/
   - /posts/2026-03-06-Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/
 summary_card:
-  title: "CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석"
+  title: "2026년 03월 06일 주간 보안 다이제스트: 제로데이·악성코드·Cisco FMC (4건)"
   period: "2026년 03월 06일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

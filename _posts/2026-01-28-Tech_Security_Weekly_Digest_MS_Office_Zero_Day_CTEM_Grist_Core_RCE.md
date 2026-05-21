@@ -25,13 +25,13 @@ tags:
 - Cloud-Security
 - '2026'
 keywords: [Security-Weekly, DevSecOps, CVE-2026-21509, Microsoft-Office, Zero-Day, CTEM, Grist-Core, RCE]
-title: "Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE"
+title: "2026년 01월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (4건)"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/
   - /posts/2026-01-28-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/
 summary_card:
-  title: "Tech & Security Weekly Digest (2026년 01월 28일)"
+  title: "2026년 01월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (4건)"
   period: "2026년 1월 27일 ~ 28일"
   audience: "보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO"
   categories:

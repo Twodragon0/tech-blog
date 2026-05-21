@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "공급망 침해 사례, Windows 보안 업데이트, APT36 분석"
+title: "2026년 02월 12일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (3건)"
 date: 2026-02-12 12:41:50 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent/
   - /posts/2026-02-12-Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent/
 summary_card:
-  title: "기술·보안 주간 다이제스트: 공급망 침해, Windows 보안, APT36"
+  title: "2026년 02월 12일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (3건)"
   period: "2026-02-12 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

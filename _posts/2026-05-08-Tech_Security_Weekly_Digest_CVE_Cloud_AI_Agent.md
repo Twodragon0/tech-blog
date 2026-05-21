@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ivanti EPMM CVE-2026-6973, PCPJack 자격 증명 탈취기가 5개, 프롬프트가 셸이 될 때"
+title: "2026년 05월 08일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (15건)"
 date: 2026-05-08 11:10:33 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Cloud, AI, Agent]
@@ -13,7 +13,7 @@ image: /assets/images/2026-05-08-Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent.
 image_alt: "Ivanti EPMM CVE-2026-6973, PCPJack 5 - security digest overview"
 toc: true
 summary_card:
-  title: "Ivanti EPMM CVE-2026-6973, PCPJack 자격 증명 탈취기가 5개, 프롬프트가 셸이 될 때"
+  title: "2026년 05월 08일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (15건)"
   period: "2026년 05월 08일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

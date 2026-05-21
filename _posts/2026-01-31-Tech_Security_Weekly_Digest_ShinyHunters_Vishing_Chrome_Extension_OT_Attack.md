@@ -26,13 +26,13 @@ tags:
 - Cloud-Security
 - '2026'
 keywords: [Security-Weekly, DevSecOps, ShinyHunters, Vishing, MFA-Bypass, Chrome-Extension, ChatGPT, OT-Security]
-title: "ShinyHunters Vishing MFA 우회, Chrome 확장 위협, OT 공격 동향"
+title: "2026년 01월 31일 주간 보안 다이제스트: DNS 유출·클라우드·피싱 (4건)"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/
   - /posts/2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/
 summary_card:
-  title: "Tech & Security Weekly Digest (2026년 01월 31일)"
+  title: "2026년 01월 31일 주간 보안 다이제스트: DNS 유출·클라우드·피싱 (4건)"
   period: "2026년 1월 30일 ~ 31일"
   audience: "보안 담당자, SOC 분석가, DevSecOps 엔지니어, CISO"
   categories:

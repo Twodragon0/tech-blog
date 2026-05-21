@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향"
+title: "2026년 02월 23일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (3건)"
 date: 2026-02-23 12:39:51 +0900
 last_modified_at: 2026-04-16T11:22:39+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/
   - /posts/2026-02-23-Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/
 summary_card:
-  title: "Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향"
+  title: "2026년 02월 23일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (3건)"
   period: "2026-02-23 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

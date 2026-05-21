@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "악성 KICS Docker 이미지와 VS, 자체 전파 공급망 웜이 npm 패키지를 탈취해, Harvester, Microsoft Graph"
+title: "2026년 04월 23일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (15건)"
 date: 2026-04-23 10:52:45 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-04-23-Tech_Security_Weekly_Digest_AI_Docker_Go_API.sv
 image_alt: "KICS Docker VS, npm, Harvester, Microsoft Graph - security digest overview"
 toc: true
 summary_card:
-  title: "악성 KICS Docker 이미지와 VS, 자체 전파 공급망 웜이 npm 패키지를 탈취해, Harvester, Microsoft Graph"
+  title: "2026년 04월 23일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (15건)"
   period: "2026년 04월 23일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

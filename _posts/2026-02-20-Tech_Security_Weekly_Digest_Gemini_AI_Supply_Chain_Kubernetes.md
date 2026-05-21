@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화"
+title: "2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·쿠버네티스 (3건)"
 date: 2026-02-20 09:00:00 +0900
 last_modified_at: 2026-03-30T17:41:34+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/
   - /posts/2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/
 summary_card:
-  title: "Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화"
+  title: "2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·쿠버네티스 (3건)"
   period: "2026-02-20 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

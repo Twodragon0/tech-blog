@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전"
+title: "2026년 03월 15일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (6건)"
 date: 2026-03-15 10:24:40 +0900
 last_modified_at: 2026-03-31T12:28:24+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/
   - /posts/2026-03-15-Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/
 summary_card:
-  title: "GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전"
+  title: "2026년 03월 15일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (6건)"
   period: "2026-03-15 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

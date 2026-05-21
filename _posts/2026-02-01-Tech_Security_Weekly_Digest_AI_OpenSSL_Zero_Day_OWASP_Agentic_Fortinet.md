@@ -28,13 +28,13 @@ tags:
 - NIST
 - '2026'
 keywords: [Security-Weekly, DevSecOps, AI-Security, OpenSSL, Zero-Day, OWASP, Agentic-AI, Fortinet]
-title: "AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet 패치"
+title: "2026년 02월 01일 주간 보안 다이제스트: 제로데이·AI 에이전트·쿠버네티스 (4건)"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/
   - /posts/2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/
 summary_card:
-  title: "Tech & Security Weekly Digest (2026년 02월 01일)"
+  title: "2026년 02월 01일 주간 보안 다이제스트: 제로데이·AI 에이전트·쿠버네티스 (4건)"
   categories:
     - { class: "security", label: "Security" }
     - { class: "devsecops", label: "DevSecOps" }

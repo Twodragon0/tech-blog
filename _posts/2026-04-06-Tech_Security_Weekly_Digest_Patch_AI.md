@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Drift 해킹·QR 코드 피싱·FortiClient EMS 취약점: 주간 보안 다이제스트"
+title: "2026년 04월 06일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·북한 위협 (6건)"
 date: 2026-04-06 10:31:19 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Patch_AI/
   - /posts/2026-04-06-Tech_Security_Weekly_Digest_Patch_AI/
 summary_card:
-  title: "2억 8500만 달러 규모 Drift 해킹, 신종 피싱 문자에 QR 코드를 활용한 교통위반, New FortiClient EMS 취약점"
+  title: "2026년 04월 06일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·북한 위협 (6건)"
   period: "2026년 04월 06일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

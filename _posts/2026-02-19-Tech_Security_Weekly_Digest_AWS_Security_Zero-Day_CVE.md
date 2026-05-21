@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "AWS 보안 업데이트, Zero-Day 패치, CVE-2026-2329 분석"
+title: "2026년 02월 19일 주간 보안 다이제스트: 제로데이·BYOVD EDR·클라우드 (3건)"
 date: 2026-02-19 12:36:00 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE/
   - /posts/2026-02-19-Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE/
 summary_card:
-  title: "기술·보안 주간 다이제스트: AWS 보안, Zero-Day, CVE-2026-2329"
+  title: "2026년 02월 19일 주간 보안 다이제스트: 제로데이·BYOVD EDR·클라우드 (3건)"
   period: "2026-02-19 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

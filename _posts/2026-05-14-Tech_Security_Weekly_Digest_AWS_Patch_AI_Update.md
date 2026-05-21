@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AWS 환경에서 암호화폐 채굴 탐지 및 방지, Microsoft의 MDASH AI 시스템, 업데이트된 AWS User Guide 소개"
+title: "2026년 05월 14일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (15건)"
 date: 2026-05-14 11:17:18 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Patch, AI, Update]
@@ -13,7 +13,7 @@ image: /assets/images/2026-05-14-Tech_Security_Weekly_Digest_AWS_Patch_AI_Update
 image_alt: "AWS, Microsoft MDASH AI, AWS User Guide - security digest overview"
 toc: true
 summary_card:
-  title: "AWS 환경에서 암호화폐 채굴 탐지 및 방지, Microsoft의 MDASH AI 시스템, 업데이트된 AWS User Guide 소개"
+  title: "2026년 05월 14일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (15건)"
   period: "2026년 05월 14일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

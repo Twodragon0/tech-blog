@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AWS IAM Zero Trust, GCP Workload Identity, FinOps 최적화"
+title: "2026년 03월 27일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (10건)"
 date: 2026-03-27 10:00:00 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/
   - /posts/2026-03-27-Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/
 summary_card:
-  title: "AWS IAM Zero Trust 구현, GCP Workload Identity 보안, FinOps 비용 최적화"
+  title: "2026년 03월 27일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (10건)"
   period: "2026년 03월 27일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

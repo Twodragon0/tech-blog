@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO, 라자루스"
+title: "2026년 04월 21일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (13건)"
 date: 2026-04-21 10:49:41 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-04-21-Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent.
 image_alt: "SGLang CVE-2026-5760(CVSS, KelpDAO - security digest overview"
 toc: true
 summary_card:
-  title: "SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO, 라자루스"
+  title: "2026년 04월 21일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (13건)"
   period: "2026년 04월 21일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

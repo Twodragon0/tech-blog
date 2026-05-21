@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium"
+title: "2026년 04월 19일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (6건)"
 date: 2026-04-19 10:52:41 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-04-19-Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet.
 image_alt: "Grinex, Mirai Nexcorium - security digest overview"
 toc: true
 summary_card:
-  title: "정보 기관 주장 이후 제재 대상 Grinex, 크로스 테넌트 헬프데스크 사칭에서 데이터, Mirai 변종 Nexcorium"
+  title: "2026년 04월 19일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (6건)"
   period: "2026년 04월 19일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

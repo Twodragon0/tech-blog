@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어"
+title: "2026년 05월 01일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (15건)"
 date: 2026-05-01 11:10:05 +0900
 last_modified_at: 2026-05-01T02:11:35Z
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-05-01-Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud
 image_alt: "PyTorch Lightning, ThreatsDay, Python - security digest overview"
 toc: true
 summary_card:
-  title: "PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어"
+  title: "2026년 05월 01일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (15건)"
   period: "2026년 05월 01일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

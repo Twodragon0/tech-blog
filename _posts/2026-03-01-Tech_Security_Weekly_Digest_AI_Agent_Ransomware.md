@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "AI 에이전트 보안 위협, Gentlemen 랜섬웨어, 운영 대응 전략"
+title: "2026년 03월 01일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (3건)"
 date: 2026-03-01 23:23:38 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/
   - /posts/2026-03-01-Tech_Security_Weekly_Digest_AI_Agent_Ransomware/
 summary_card:
-  title: "기술·보안 주간 다이제스트: AI 에이전트 보안, Gentlemen 랜섬웨어, 운영 대응"
+  title: "2026년 03월 01일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (3건)"
   period: "2026-03-01 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

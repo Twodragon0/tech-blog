@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Turla, Kazuar 백도어를 모듈형 P2P, AWS AI 보안 프레임워크, 45일간의 자체 도구 모니터링이 실제 공격"
+title: "2026년 05월 16일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·쿠버네티스 (13건)"
 date: 2026-05-16 11:07:01 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Botnet, AI, AWS, Security]
@@ -13,7 +13,7 @@ image: /assets/images/2026-05-16-Tech_Security_Weekly_Digest_Botnet_AI_AWS_Secur
 image_alt: "Turla, Kazuar P2P, AWS AI, 45 - security digest overview"
 toc: true
 summary_card:
-  title: "Turla, Kazuar 백도어를 모듈형 P2P, AWS AI 보안 프레임워크, 45일간의 자체 도구 모니터링이 실제 공격"
+  title: "2026년 05월 16일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·쿠버네티스 (13건)"
   period: "2026년 05월 16일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

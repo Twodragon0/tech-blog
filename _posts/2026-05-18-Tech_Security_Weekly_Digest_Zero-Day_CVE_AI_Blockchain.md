@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "새로운 Windows 'MiniPlasma', NGINX CVE-2026-42945 실제 공격, 2026년 4월 APT 그룹 동향 보고서"
+title: "2026년 05월 18일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (6건)"
 date: 2026-05-18 11:32:14 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, CVE, AI, Blockchain]
@@ -13,7 +13,7 @@ image: /assets/images/2026-05-18-Tech_Security_Weekly_Digest_Zero-Day_CVE_AI_Blo
 image_alt: "Windows 'MiniPlasma', NGINX CVE-2026-42945, 2026 4 APT - security digest overview"
 toc: true
 summary_card:
-  title: "새로운 Windows 'MiniPlasma', NGINX CVE-2026-42945 실제 공격, 2026년 4월 APT 그룹 동향 보고서"
+  title: "2026년 05월 18일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (6건)"
   period: "2026년 05월 18일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

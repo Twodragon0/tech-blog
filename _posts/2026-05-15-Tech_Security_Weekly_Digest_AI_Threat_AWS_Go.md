@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cisco Catalyst SD-WAN, Stealer Backdoor가 개발자, ThreatsDay 게시판"
+title: "2026년 05월 15일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)"
 date: 2026-05-15 11:15:26 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Threat, AWS, Go]
@@ -13,7 +13,7 @@ image: /assets/images/2026-05-15-Tech_Security_Weekly_Digest_AI_Threat_AWS_Go.sv
 image_alt: "Cisco Catalyst SD-WAN, Stealer Backdoor, ThreatsDay - security digest overview"
 toc: true
 summary_card:
-  title: "Cisco Catalyst SD-WAN, Stealer Backdoor가 개발자, ThreatsDay 게시판"
+  title: "2026년 05월 15일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)"
   period: "2026년 05월 15일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

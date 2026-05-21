@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "JWT 인증 위협, 암호화폐 유출 사고, 금융 AI 거버넌스"
+title: "2026년 03월 04일 주간 보안 다이제스트: 랜섬웨어·DNS 유출·클라우드 (3건)"
 date: 2026-03-04 14:05:06 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin/
   - /posts/2026-03-04-Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin/
 summary_card:
-  title: "기술·보안 주간 다이제스트: JWT 인증 위협, 암호화폐 유출, 금융 AI 거버넌스"
+  title: "2026년 03월 04일 주간 보안 다이제스트: 랜섬웨어·DNS 유출·클라우드 (3건)"
   period: "2026-03-04 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

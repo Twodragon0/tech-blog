@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "미국 유틸리티 기업 Itron, 대한민국과의 파트너십을 발표합니다, 우리의 원칙"
+title: "2026년 04월 27일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (7건)"
 date: 2026-04-27 17:06:33 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-04-27-Tech_Security_Weekly_Digest_AI_Agent.svg
 image_alt: "Weekly security digest overview"
 toc: true
 summary_card:
-  title: "미국 유틸리티 기업 Itron, 대한민국과의 파트너십을 발표합니다, 우리의 원칙"
+  title: "2026년 04월 27일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (7건)"
   period: "2026년 04월 27일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

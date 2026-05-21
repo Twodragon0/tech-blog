@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 '퇴행적'"
+title: "2026년 04월 20일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (6건)"
 date: 2026-04-20 10:53:57 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palant
 image_alt: "Apple, NIST, Palantir, '' - security digest overview"
 toc: true
 summary_card:
-  title: "Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위, Palantir, 포용성과 &#x27;퇴행적&#x27;"
+  title: "2026년 04월 20일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (6건)"
   period: "2026년 04월 20일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

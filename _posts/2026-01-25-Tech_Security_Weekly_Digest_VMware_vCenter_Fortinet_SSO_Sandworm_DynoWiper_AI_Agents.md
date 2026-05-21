@@ -31,13 +31,13 @@ tags:
 - Platform-Engineering
 - '2026'
 keywords: [Security-Weekly, VMware, vCenter, CISA-KEV, Fortinet, FortiGate, SSO-Bypass, Sandworm]
-title: "VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper"
+title: "2026년 01월 25일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (5건)"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/
   - /posts/2026-01-25-Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/
 summary_card:
-  title: "Tech & Security Weekly Digest (2026년 01월 25일)"
+  title: "2026년 01월 25일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (5건)"
   period: "2026년 1월 23일 ~ 25일 (48시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SOC 분석가, 클라우드 아키텍트, CISO"
   categories:

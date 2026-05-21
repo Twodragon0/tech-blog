@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TA416 PlugX·LinkedIn 6천+ 계정 표적: 주간 보안 다이제스트 2026-04-04"
+title: "2026년 04월 04일 주간 보안 다이제스트: 악성코드·BYOVD EDR·AI 에이전트 (12건)"
 date: 2026-04-04 10:21:41 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Go_AI_Data_Security/
   - /posts/2026-04-04-Tech_Security_Weekly_Digest_Go_AI_Data_Security/
 summary_card:
-  title: "중국 연계 TA416 PlugX 캠페인·Microsoft·Linux·LinkedIn 6,000+ 계정 표적: 2026-04-04 보안 위클리 다이제스트"
+  title: "2026년 04월 04일 주간 보안 다이제스트: 악성코드·BYOVD EDR·AI 에이전트 (12건)"
   period: "2026년 04월 04일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

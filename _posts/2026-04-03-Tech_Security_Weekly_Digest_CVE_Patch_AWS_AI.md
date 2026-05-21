@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cisco FMC CVE-2025-55182·에이전트 AI 보안 원칙: 주간 보안 다이제스트"
+title: "2026년 04월 03일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (15건)"
 date: 2026-04-03 10:26:39 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/
   - /posts/2026-04-03-Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/
 summary_card:
-  title: "Cisco FMC CVE-2025-55182 원격 침해·에이전트 AI 4대 보안 원칙: 2026-04-03 보안 위클리 다이제스트"
+  title: "2026년 04월 03일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (15건)"
   period: "2026년 04월 03일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

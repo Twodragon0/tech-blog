@@ -23,13 +23,13 @@ tags:
 - Cloud
 - Threat
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Cloud]
-title: "CrashFix RAT, 초대형 DDoS 봇넷, Codespaces RCE 취약점"
+title: "2026년 02월 06일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (3건)"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/
   - /posts/2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/
 summary_card:
-  title: "기술·보안 주간 다이제스트: CrashFix RAT, 초대형 DDoS, Codespaces RCE"
+  title: "2026년 02월 06일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (3건)"
   period: "2026-02-06 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

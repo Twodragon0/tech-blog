@@ -30,13 +30,13 @@ tags:
 - Ransomware
 - Patch
 - AI
-title: "랜섬웨어 대응, Fortinet 긴급 패치, AI 보안 위협 분석"
+title: "2026년 02월 11일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (3건)"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI/
   - /posts/2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI/
 summary_card:
-  title: "기술·보안 주간 다이제스트: 랜섬웨어, Fortinet 패치, AI 보안"
+  title: "2026년 02월 11일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (3건)"
   period: "2026-02-11 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

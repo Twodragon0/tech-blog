@@ -30,13 +30,13 @@ tags:
 - DevSecOps
 - '2026'
 keywords: [Security-Weekly, BitLocker, FBI, Encryption, Route-Leak, BGP, Cloudflare, Agentic-AI]
-title: "BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안"
+title: "2026년 01월 24일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·AI 에이전트 (5건)"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/
   - /posts/2026-01-24-Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/
 summary_card:
-  title: "Tech & Security Weekly Digest (2026년 01월 24일)"
+  title: "2026년 01월 24일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·AI 에이전트 (5건)"
   period: "2026년 1월 23일 ~ 24일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트, CISO"
   categories:

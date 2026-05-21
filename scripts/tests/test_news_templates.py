@@ -3318,3 +3318,101 @@ class TestBuildCleanExcerptVariants:
         assert len(excerpt) <= 200, (
             f"Excerpt too long ({len(excerpt)}): {excerpt!r}"
         )
+
+
+# ---------------------------------------------------------------------------
+# Schema-driven digest post title (replaces headline-fragment join that
+# produced grammatically broken titles like "Microsoft, 현대화된 Windows").
+# Reference: .omc/research/gsc_disparity_analysis_2026_05_21.md
+# ---------------------------------------------------------------------------
+
+
+class TestComposeDigestPostTitle:
+    """Guards the new digest-title schema:
+        `{date_str} {series_prefix}: {theme} ({N}건)`
+
+    The whole point of moving to this schema is that the title remains
+    grammatically well-formed regardless of theme content.
+    """
+
+    _DATE = "2026년 05월 21일"
+
+    @staticmethod
+    def _items(n=18):
+        return [
+            {"title": "CVE-2026-12345 Zero-day in Cisco FMC",
+             "summary": "critical zero-day", "category": "security"},
+            {"title": "OpenAI ChatGPT agent vulnerability",
+             "summary": "AI agent abuse", "category": "security"},
+            {"title": "Cloud config leak in AWS",
+             "summary": "cloud breach", "category": "security"},
+        ] * (n // 3 + 1)
+
+    def test_security_title_has_series_prefix(self):
+        from news.content_generator import _compose_digest_post_title
+
+        title = _compose_digest_post_title(
+            self._DATE, self._items(18), 18, mode="security"
+        )
+        assert title.startswith(self._DATE)
+        assert "주간 보안 다이제스트" in title
+
+    def test_tech_blog_title_has_series_prefix(self):
+        from news.content_generator import _compose_digest_post_title
+
+        items = [
+            {"title": "Kubernetes 1.34 release",
+             "summary": "kubernetes update", "category": "tech"},
+            {"title": "New AI model from OpenAI",
+             "summary": "ai model release", "category": "ai"},
+        ] * 8
+        title = _compose_digest_post_title(
+            self._DATE, items, 16, mode="tech-blog"
+        )
+        assert "기술 블로그 주간 다이제스트" in title
+
+    def test_title_ends_with_item_count(self):
+        from news.content_generator import _compose_digest_post_title
+
+        title = _compose_digest_post_title(
+            self._DATE, self._items(18), 18, mode="security"
+        )
+        assert title.endswith("(18건)")
+
+    def test_no_dangling_comma_joins(self):
+        """The new schema must never emit headline-fragment comma joins."""
+        from news.content_generator import _compose_digest_post_title
+
+        title = _compose_digest_post_title(
+            self._DATE, self._items(18), 18, mode="security"
+        )
+        # The fragmented form would contain "...Microsoft, AI...Windows" —
+        # i.e. multiple commas as primary separator. The schema uses `·`
+        # between themes and only one structural `,` is allowed (inside
+        # parenthetical count, e.g. "(18건)" — but we render with `(`/`)`
+        # so commas are entirely absent in practice).
+        assert title.count(",") == 0, f"Unexpected comma in: {title!r}"
+
+    def test_fallback_when_no_labels_match(self):
+        """When no canonical labels match, we still get a grammatical title."""
+        from news.content_generator import _compose_digest_post_title
+
+        items = [{"title": "Some generic news", "summary": "",
+                  "category": "general"}] * 5
+        title = _compose_digest_post_title(self._DATE, items, 5, mode="security")
+        # _extract_digest_title_labels has its own internal fallback chain;
+        # the only contract here is "title is well-formed".
+        assert title.startswith(self._DATE)
+        assert title.endswith("(5건)")
+        assert ":" in title
+
+    def test_title_length_reasonable(self):
+        """SEO-friendly title length: 30-70 chars."""
+        from news.content_generator import _compose_digest_post_title
+
+        title = _compose_digest_post_title(
+            self._DATE, self._items(18), 18, mode="security"
+        )
+        assert 30 <= len(title) <= 70, (
+            f"Title length out of range ({len(title)}): {title!r}"
+        )

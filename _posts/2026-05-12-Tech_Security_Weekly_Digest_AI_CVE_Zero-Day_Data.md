@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TeamPCP, Checkmarx Jenkins, cPanel CVE-2026-41940 활성, 해커들이 AI를 사용해 최초로 알려진"
+title: "2026년 05월 12일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (15건)"
 date: 2026-05-12 11:09:14 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, CVE, Zero-Day, Data]
@@ -13,7 +13,7 @@ image: /assets/images/2026-05-12-Tech_Security_Weekly_Digest_AI_CVE_Zero-Day_Dat
 image_alt: "TeamPCP, Checkmarx Jenkins, cPanel CVE-2026-41940, AI - security digest overview"
 toc: true
 summary_card:
-  title: "TeamPCP, Checkmarx Jenkins, cPanel CVE-2026-41940 활성, 해커들이 AI를 사용해 최초로 알려진"
+  title: "2026년 05월 12일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (15건)"
   period: "2026년 05월 12일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

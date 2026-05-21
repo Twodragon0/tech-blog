@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안"
+title: "2026년 02월 27일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (3건)"
 date: 2026-02-27 12:28:30 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/
   - /posts/2026-02-27-Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/
 summary_card:
-  title: "Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안"
+  title: "2026년 02월 27일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (3건)"
   period: "2026-02-27 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

@@ -223,8 +223,11 @@ class TestGenerateTechBlogContentQuoteSafety:
         )
         sc = self._parse_summary_card(content)
         title = sc.get("title", "")
-        assert title.startswith("기술 블로그 주간 다이제스트:"), (
-            f"Tech-blog summary_card.title missing prefix: {title!r}"
+        # New schema (2026-05-21): `{date_str} 기술 블로그 주간 다이제스트: {theme} ({N}건)`.
+        # The series identifier now sits after a date prefix so GSC sees a
+        # freshness signal — reference .omc/research/gsc_disparity_analysis_2026_05_21.md.
+        assert "기술 블로그 주간 다이제스트:" in title, (
+            f"Tech-blog summary_card.title missing series identifier: {title!r}"
         )
 
     def test_summary_card_categories_present(self):

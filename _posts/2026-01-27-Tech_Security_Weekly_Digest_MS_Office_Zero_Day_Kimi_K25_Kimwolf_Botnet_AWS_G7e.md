@@ -27,13 +27,13 @@ tags:
 - DevSecOps
 - '2026'
 keywords: [Security-Weekly, Zero-Day, Microsoft-Office, Kimi-K25, AI-Agents, Kimwolf-Botnet, AWS-G7e, NVIDIA-Blackwell]
-title: "MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷"
+title: "2026년 01월 27일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (5건)"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/
   - /posts/2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/
 summary_card:
-  title: "Tech & Security Weekly Digest (2026년 01월 27일)"
+  title: "2026년 01월 27일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (5건)"
   period: "2026년 1월 26일 ~ 27일 (48시간)"
   audience: "DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, AI/ML 엔지니어, CISO"
   categories:

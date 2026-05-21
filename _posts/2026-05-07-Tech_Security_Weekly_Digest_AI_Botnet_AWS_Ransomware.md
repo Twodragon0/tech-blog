@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mirai 기반 xlabs_v1 봇넷, AWS에서 ISO/IEC 42001, MuddyWater, 가짜 랜섬웨어"
+title: "2026년 05월 07일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (15건)"
 date: 2026-05-07 11:04:16 +0900
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, AWS, Ransomware]
@@ -13,7 +13,7 @@ image: /assets/images/2026-05-07-Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ranso
 image_alt: "Mirai xlabs_v1, AWS ISO/IEC 42001, MuddyWater - security digest overview"
 toc: true
 summary_card:
-  title: "Mirai 기반 xlabs_v1 봇넷, AWS에서 ISO/IEC 42001, MuddyWater, 가짜 랜섬웨어"
+  title: "2026년 05월 07일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (15건)"
   period: "2026년 05월 07일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

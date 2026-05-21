@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kubernetes RBAC 취약점, SLSA 공급망 보안, AI 프롬프트 인젝션 방어"
+title: "2026년 03월 26일 주간 보안 다이제스트: 제로데이·DNS 유출·AI 에이전트 (11건)"
 date: 2026-03-26 10:00:00 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/
   - /posts/2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/
 summary_card:
-  title: "Kubernetes RBAC 우회 취약점, SLSA 공급망 보안, AI 에이전트 프롬프트 인젝션 방어"
+  title: "2026년 03월 26일 주간 보안 다이제스트: 제로데이·DNS 유출·AI 에이전트 (11건)"
   period: "2026년 03월 26일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

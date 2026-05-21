@@ -27,13 +27,13 @@ tags:
 - DevSecOps
 - '2026'
 keywords: [Security-Weekly, Zero-Trust, AI-Agents, Chrome-Security, Terraform, HashiCorp, Google-Security, Non-Human-Identity]
-title: "AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks"
+title: "2026년 01월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (5건)"
 toc: true
 redirect_from:
   - /posts/2026/01/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/
   - /posts/2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/
 summary_card:
-  title: "Tech & Security Weekly Digest (2026년 01월 26일)"
+  title: "2026년 01월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (5건)"
   period: "2026년 1월 24일 ~ 26일 (48시간)"
   audience: "DevSecOps 엔지니어, 클라우드 아키텍트, 보안 담당자, 플랫폼 엔지니어, CISO"
   categories:

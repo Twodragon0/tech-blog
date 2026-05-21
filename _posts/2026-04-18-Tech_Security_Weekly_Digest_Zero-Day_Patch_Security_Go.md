@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고"
+title: "2026년 04월 18일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (14건)"
 date: 2026-04-18 10:28:03 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-04-18-Tech_Security_Weekly_Digest_Zero-Day_Patch_Secu
 image_alt: "Microsoft Defender, ETL, Google, 2025 - security digest overview"
 toc: true
 summary_card:
-  title: "Microsoft Defender, 구성 기반 ETL 솔루션으로 보안, Google, 2025년 정책 위반 광고"
+  title: "2026년 04월 18일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (14건)"
   period: "2026년 04월 18일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

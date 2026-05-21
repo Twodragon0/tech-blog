@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "이란·북한 연계 해커, 한국 표적 다단계 공격·REvil: 주간 보안 다이제스트"
+title: "2026년 04월 07일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·북한 위협 (14건)"
 date: 2026-04-07 10:29:23 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/
   - /posts/2026-04-07-Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/
 summary_card:
-  title: "이란 연계 패스워드 스프레이링 공격, 이스라엘, 북한 연계 해커들, 한국 표적 다단계, 독일 당국, REvil 및 GangCrab"
+  title: "2026년 04월 07일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·북한 위협 (14건)"
   period: "2026년 04월 07일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

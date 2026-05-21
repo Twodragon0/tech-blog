@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향"
+title: "2026년 02월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (3건)"
 date: 2026-02-26 11:05:21 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Go_AWS_API/
   - /posts/2026-02-26-Tech_Security_Weekly_Digest_AI_Go_AWS_API/
 summary_card:
-  title: "UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향"
+  title: "2026년 02월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (3건)"
   period: "2026-02-26 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

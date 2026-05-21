@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "FIRESTARTER 백도어, NASA 직원들, 미국 국방 소프트웨어 노린, 오늘날의 비밀을 미래의 양자 위험으로부터"
+title: "2026년 04월 25일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (13건)"
 date: 2026-04-25 10:30:43 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-04-25-Tech_Security_Weekly_Digest_Patch_Security_Thre
 image_alt: "FIRESTARTER, NASA - security digest overview"
 toc: true
 summary_card:
-  title: "FIRESTARTER 백도어, NASA 직원들, 미국 국방 소프트웨어 노린, 오늘날의 비밀을 미래의 양자 위험으로부터"
+  title: "2026년 04월 25일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (13건)"
   period: "2026년 04월 25일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

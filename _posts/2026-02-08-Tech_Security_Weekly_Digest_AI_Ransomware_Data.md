@@ -24,13 +24,13 @@ tags:
 - Zero-Trust
 - Data-Security
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Signal-Phishing, BlackField-Ransomware, Zero-Trust]
-title: "Signal 피싱 국가지원 공격, BlackField 랜섬웨어, 데이터 보안"
+title: "2026년 02월 08일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (3건)"
 toc: true
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Ransomware_Data/
   - /posts/2026-02-08-Tech_Security_Weekly_Digest_AI_Ransomware_Data/
 summary_card:
-  title: "기술·보안 주간 다이제스트: Signal 피싱, BlackField 랜섬웨어, 데이터 보안"
+  title: "2026년 02월 08일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (3건)"
   period: "2026-02-08 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

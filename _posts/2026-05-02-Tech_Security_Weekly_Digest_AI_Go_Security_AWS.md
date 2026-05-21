@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft, 현대화된 Windows"
+title: "2026년 05월 02일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (10건)"
 date: 2026-05-02 10:58:29 +0900
 last_modified_at: 2026-05-02T01:59:40Z
 categories: [security, devsecops]
@@ -14,7 +14,7 @@ image: /assets/images/2026-05-02-Tech_Security_Weekly_Digest_AI_Go_Security_AWS.
 image_alt: "3 Facebook, AI, Microsoft, Windows - security digest overview"
 toc: true
 summary_card:
-  title: "3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft, 현대화된 Windows"
+  title: "2026년 05월 02일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (10건)"
   period: "2026년 05월 02일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

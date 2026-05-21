@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Citizen Lab, 국제 단속에서 2만 명 이상의 암호화폐 사기, ChatGPT, Claude에 맞서기"
+title: "2026년 04월 12일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (7건)"
 date: 2026-04-12 10:49:10 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/
   - /posts/2026-04-12-Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/
 summary_card:
-  title: "Citizen Lab, 국제 단속에서 2만 명 이상의 암호화폐 사기, ChatGPT, Claude에 맞서기"
+  title: "2026년 04월 12일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (7건)"
   period: "2026년 04월 12일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

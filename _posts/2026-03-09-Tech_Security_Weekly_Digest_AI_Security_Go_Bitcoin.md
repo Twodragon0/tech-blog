@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse"
+title: "2026년 03월 09일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (7건)"
 date: 2026-03-09 12:37:51 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/
   - /posts/2026-03-09-Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/
 summary_card:
-  title: "AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse"
+  title: "2026년 03월 09일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (7건)"
   period: "2026년 03월 09일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

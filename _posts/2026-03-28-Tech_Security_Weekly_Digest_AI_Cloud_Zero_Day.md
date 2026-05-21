@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AI 에이전트 보안, 클라우드 Zero-Day, 컨테이너 공급망 공격"
+title: "2026년 03월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (17건)"
 date: 2026-03-28 10:00:00 +0900
 last_modified_at: 2026-04-23T23:18:14+09:00
 categories: [security, devsecops]
@@ -17,7 +17,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/
   - /posts/2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/
 summary_card:
-  title: "AI 에이전트 보안 위협, 클라우드 Zero-Day, 컨테이너 공급망 공격"
+  title: "2026년 03월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (17건)"
   period: "2026년 03월 28일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:

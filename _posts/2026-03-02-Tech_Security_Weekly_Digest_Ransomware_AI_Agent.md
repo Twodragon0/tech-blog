@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "제로트러스트 가시성, 암호화폐 규제 동향, 랜섬웨어 대응 전략"
+title: "2026년 03월 02일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (3건)"
 date: 2026-03-02 12:29:39 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/03/Tech_Security_Weekly_Digest_Ransomware_AI_Agent/
   - /posts/2026-03-02-Tech_Security_Weekly_Digest_Ransomware_AI_Agent/
 summary_card:
-  title: "기술·보안 주간 다이제스트: 제로트러스트 가시성, 암호화폐 규제, 랜섬웨어 대응"
+  title: "2026년 03월 02일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (3건)"
   period: "2026-03-02 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

@@ -762,6 +762,42 @@ def _title_quality_score(title: str) -> int:
     return max(0, score)
 
 
+def _compose_digest_post_title(
+    date_str: str,
+    news_items: List[Dict],
+    total: int,
+    mode: str = "security",
+) -> str:
+    """Build a stable, schema-driven digest title.
+
+    Format: ``{date_str} {series}: {theme} ({total}건)``
+
+    Themes come from :func:`_extract_digest_title_labels` which produces
+    canonical phrases like "제로데이" / "AI 에이전트". This deliberately
+    sidesteps the headline-fragment join that previously emitted titles
+    like "Microsoft, 현대화된 Windows" (broken Korean grammar, low CTR,
+    duplicate-content shape — see .omc/research/gsc_disparity_analysis_2026_05_21.md).
+
+    The series prefix gives Google a clean signal that these posts are a
+    recurring publication, which is what investing.2twodragon.com benefits
+    from with its `{report_kind} 리포트 - {date}` pattern.
+    """
+    labels = _extract_digest_title_labels(news_items, mode=mode)
+    if labels:
+        # Take up to 3 labels — _extract_digest_title_labels already caps at 3
+        # internally, so this is a no-op upper-bound. Three labels meaningfully
+        # widens the theme-combination space (C(16,3)=560 vs C(16,2)=120),
+        # which matters because security digests heavily trip the generic
+        # "CVE-" → 제로데이 pattern. See scripts/backfill_digest_titles.py
+        # for the parallel design used during the 2026-05-21 backfill.
+        theme = "·".join(labels[:3])
+    else:
+        theme = "기술 동향" if mode == "tech-blog" else "보안 위협"
+
+    series = "기술 블로그 주간 다이제스트" if mode == "tech-blog" else "주간 보안 다이제스트"
+    return f"{date_str} {series}: {theme} ({total}건)"
+
+
 def _build_digest_title(news_items: List[Dict], mode: str = "security") -> str:
     """Prefer specific headline-driven titles over generic topic buckets.
     Falls back to label-based title if quality score is too low."""
@@ -1404,8 +1440,13 @@ def generate_post_content(
 
     topics = _extract_key_topics(news_items)
 
-    # Better title generation: extract meaningful topics from content
+    # `title_keywords` is the bare theme phrase (e.g. "제로데이, AI 에이전트")
+    # used downstream by excerpt/description/image_alt builders that splice
+    # the topic into Korean prose. The post title itself uses the
+    # schema-driven `post_title` so search engines see a stable series
+    # pattern like "YYYY년 MM월 DD일 주간 보안 다이제스트: theme (N건)".
     title_keywords = _build_digest_title(news_items, mode="security")
+    post_title = _compose_digest_post_title(date_str, news_items, total, mode="security")
 
     base_tags = [
         "Security-Weekly",
@@ -1436,7 +1477,7 @@ def generate_post_content(
 
     # Cap at 80 chars to keep summary_card.title and downstream display lengths
     # bounded (regression guard: 2026-05-06 Liquid include parser overflow).
-    _capped_title = title_keywords[:80].rstrip(" ,.") if len(title_keywords) > 80 else title_keywords
+    _capped_title = post_title[:80].rstrip(" ,.") if len(post_title) > 80 else post_title
 
     summary_card_yaml = _emit_summary_card_yaml(
         title=_capped_title,
@@ -1453,7 +1494,7 @@ def generate_post_content(
     # from emitting backslash-escaped quotes into the BlogPosting structured
     # data block, which caused JSON.parse failures and "crawled — not indexed"
     # outcomes in Google Search Console.
-    yaml_title = sanitize_quotes_for_yaml(title_keywords)
+    yaml_title = sanitize_quotes_for_yaml(post_title)
     yaml_excerpt = sanitize_quotes_for_yaml(
         _build_clean_excerpt(title_keywords, date_str, total, "security", topics)
     )
@@ -1794,8 +1835,11 @@ def generate_tech_blog_content(
         f"Tech-blog topic group sum mismatch: {group_sum} != {total}"
     )
 
-    # Title generation for tech-blog mode
+    # Title generation for tech-blog mode (see security-mode block above for
+    # the rationale — `title_keywords` carries themes for excerpt/description
+    # builders, `post_title` is the schema-driven title surfaced to GSC).
     title_keywords = _build_digest_title(news_items, mode="tech-blog")
+    post_title = _compose_digest_post_title(date_str, news_items, total, mode="tech-blog")
 
     topics = _extract_key_topics(news_items)
     base_tags = ["Tech-Blog", "Weekly-Digest", "Developer", str(date.year)]
@@ -1833,18 +1877,12 @@ def generate_tech_blog_content(
     dynamic_tags.append(str(date.year))
     tags_data: List[str] = list(dynamic_tags[:6])
 
-    # The tech-blog summary_card.title prepends "기술 블로그 주간 다이제스트: "
-    # (17 chars). Keep total length <= 80 chars (regression guard 2026-05-06).
-    _TECH_PREFIX_LEN = len("기술 블로그 주간 다이제스트: ")  # 17
-    _tech_title_cap = 80 - _TECH_PREFIX_LEN
-    _capped_tech_title = (
-        title_keywords[:_tech_title_cap].rstrip(" ,.")
-        if len(title_keywords) > _tech_title_cap
-        else title_keywords
-    )
+    # post_title already contains the "기술 블로그 주간 다이제스트:" prefix from
+    # _compose_digest_post_title. Cap to 80 chars (regression guard 2026-05-06).
+    _capped_tech_title = post_title[:80].rstrip(" ,.") if len(post_title) > 80 else post_title
 
     summary_card_yaml = _emit_summary_card_yaml(
-        title=f"기술 블로그 주간 다이제스트: {_capped_tech_title}",
+        title=_capped_tech_title,
         period=f"{date_str} (24시간)",
         audience="소프트웨어 개발자, DevOps 엔지니어, 테크 리드, CTO",
         categories=categories_data,
@@ -1855,7 +1893,7 @@ def generate_tech_blog_content(
     # Use sanitize_quotes_for_yaml (not _yaml_escape_dq) for the 4 JSON-LD
     # fields so ASCII `"` is replaced with `'` rather than backslash-escaped.
     # See security-mode block above for full rationale.
-    yaml_title = sanitize_quotes_for_yaml(f"기술 블로그 주간 다이제스트: {title_keywords}")
+    yaml_title = sanitize_quotes_for_yaml(post_title)
     yaml_excerpt = sanitize_quotes_for_yaml(
         _build_clean_excerpt(title_keywords, date_str, total, "tech", topics)
     )

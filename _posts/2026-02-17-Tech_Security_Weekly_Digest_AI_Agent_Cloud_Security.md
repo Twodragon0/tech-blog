@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어 전략"
+title: "2026년 02월 17일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (3건)"
 date: 2026-02-17 12:35:29 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -19,7 +19,7 @@ redirect_from:
   - /posts/2026/02/Weekly_Tech_Security_Digest_AI_Cloud_Risk/
   - /posts/2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/
 summary_card:
-  title: "기술·보안 주간 다이제스트: AI 에이전트 토큰 탈취, 패스워드 매니저 취약점, 서버리스 방어"
+  title: "2026년 02월 17일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (3건)"
   period: "2026-02-17 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "Lazarus 공급망 공격, Copilot Studio 취약점, FinOps 보안"
+title: "2026년 02월 13일 주간 보안 다이제스트: 악성코드·BYOVD EDR·북한 위협 (3건)"
 date: 2026-02-13 12:39:45 +0900
 last_modified_at: 2026-03-30T17:41:34+09:00
 categories: [security, devsecops]
@@ -18,7 +18,7 @@ redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_AI_Go_Security_Agent/
   - /posts/2026-02-13-Tech_Security_Weekly_Digest_AI_Go_Security_Agent/
 summary_card:
-  title: "기술·보안 주간 다이제스트: Lazarus 공급망, Copilot Studio, FinOps"
+  title: "2026년 02월 13일 주간 보안 다이제스트: 악성코드·BYOVD EDR·북한 위협 (3건)"
   period: "2026-02-13 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:

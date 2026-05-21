@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안"
+title: "2026년 02월 21일 주간 보안 다이제스트: 제로데이·랜섬웨어·AI 에이전트 (3건)"
 date: 2026-02-21 00:12:00 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
@@ -15,7 +15,7 @@ image: /assets/images/2026-02-21-Tech_Security_Weekly_Digest_Data_Rust_AI_Threat
 image_alt: "기술·보안 주간 다이제스트 2026년 2월 21일"
 toc: true
 summary_card:
-  title: "CVE-2025-49113 분석, 랜섬웨어 대응, Rust 공급망 보안"
+  title: "2026년 02월 21일 주간 보안 다이제스트: 제로데이·랜섬웨어·AI 에이전트 (3건)"
   period: "2026-02-21 (24시간)"
   audience: "보안/클라우드/플랫폼 엔지니어 및 기술 의사결정자"
   categories:
