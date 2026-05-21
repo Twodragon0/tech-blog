@@ -104,8 +104,6 @@ redirect_from:
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical | **CVE**: CVE-2026-6973
-
 # DevSecOps 실무자 관점에서 본 Ivanti EPMM CVE-2026-6973 분석
 
 ## 1. 기술적 배경 및 위협 분석
@@ -198,8 +196,6 @@ DevSecOps 관점에서 특히 위협적인 점은 **CI/CD 파이프라인 내 cr
   source="Microsoft Security Blog"
   severity="Critical"
 %}
-
-> 🔴 **심각도**: Critical | **CVE**: CVE-2026-26030, CVE-2026-25592
 
 ## 1. 기술적 배경 및 위협 분석
 

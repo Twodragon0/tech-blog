@@ -180,8 +180,6 @@ DevSecOps 관점에서 이 취약점은 **CI/CD 파이프라인의 민감 데이
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical
-
 # DevSecOps 관점 분석: AI 기반 피싱, 안드로이드 스파이 도구, 리눅스 익스플로잇, GitHub RCE
 
 ## 1. 기술적 배경 및 위협 분석

@@ -2709,15 +2709,11 @@ def generate_news_section(
         card_parts.append("%}")
         section += "\n".join(card_parts) + "\n\n"
 
-    # 심각도 및 CVE 뱃지
-    if cve_ids or severity == "Critical":
-        severity_emoji = {"Critical": "🔴", "High": "🟠", "Medium": "🟡"}.get(
-            severity, "🟡"
-        )
-        section += f"> {severity_emoji} **심각도**: {severity}"
-        if cve_ids:
-            section += f" | **CVE**: {', '.join(cve_ids[:5])}"
-        section += "\n\n"
+    # Severity is already rendered inside the news-card include via the
+    # `severity="..."` param above; the prior text blockquote form
+    # (`> 🔴 **심각도**: Critical | **CVE**: ...`) was visually redundant
+    # and was removed in commit aff1e3c5 follow-up. CVE IDs continue to
+    # appear in the news headline/body and the MITRE mapping below.
 
     # AI 강화 시도 (Critical/High 보안 뉴스만) - 3단계 폴백 체인 사용
     if is_critical and category in ("security", "devsecops"):

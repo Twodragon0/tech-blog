@@ -101,8 +101,6 @@ summary_card:
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical | **CVE**: CVE-2026-20182
-
 # Cisco Catalyst SD-WAN Controller 인증 우회 취약점 분석 (CVE-2026-20182)
 
 ## 1. 기술적 배경 및 위협 분석
@@ -202,8 +200,6 @@ DevSecOps 실무자 관점에서 이번 사건은 다음과 같은 직접적 영
   source="The Hacker News"
   severity="Critical"
 %}
-
-> 🔴 **심각도**: Critical
 
 # DevSecOps 실무자 관점 분석: ThreatsDay Bulletin
 

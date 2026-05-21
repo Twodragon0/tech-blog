@@ -105,8 +105,6 @@ redirect_from:
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical | **CVE**: CVE-2026-3854
-
 # DevSecOps 관점 분석: GitHub CVE-2026-3854 RCE 취약점
 
 ## 1. 기술적 배경 및 위협 분석
@@ -210,8 +208,6 @@ DevSecOps 환경에서 이 위협은 **개발자, 게이머, 그리고 CI/CD 파
   source="The Hacker News"
   severity="Critical"
 %}
-
-> 🔴 **심각도**: Critical
 
 # VECT 2.0 Ransomware 분석: DevSecOps 실무자 관점
 

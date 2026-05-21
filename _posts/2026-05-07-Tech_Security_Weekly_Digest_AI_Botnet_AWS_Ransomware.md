@@ -194,8 +194,6 @@ DevSecOps 파이프라인에 미치는 주요 영향:
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical
-
 # MuddyWater의 Microsoft Teams를 활용한 False Flag 랜섬웨어 공격 분석
 
 ## 1. 기술적 배경 및 위협 분석

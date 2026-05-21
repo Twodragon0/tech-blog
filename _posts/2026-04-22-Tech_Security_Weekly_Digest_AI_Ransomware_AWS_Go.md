@@ -397,8 +397,6 @@ GitHub의 정적 분석 엔진 CodeQL이 models-as-data에서 사용자 정의 s
   severity="High"
 %}
 
-> 🟠 **심각도**: High | **CVE**: CVE-2026-40372
-
 #### 요약
 
 Microsoft가 보안 취약점 CVE-2026-40372를 해결하기 위해 .NET 10.0.7을 정기 일정 외의 아웃오브밴드 보안 업데이트로 출시했습니다. 이 소식은 .NET Blog를 통해 처음 공개되었습니다.

@@ -146,8 +146,6 @@ DevSecOps 파이프라인에 미치는 주요 영향:
   severity="High"
 %}
 
-> 🟠 **심각도**: High | **CVE**: CVE-2026-41940
-
 # DevSecOps 관점에서 cPanel CVE-2026-41940 분석
 
 ## 1. 기술적 배경 및 위협 분석
@@ -205,8 +203,6 @@ mitre_attack:
   source="The Hacker News"
   severity="Critical"
 %}
-
-> 🔴 **심각도**: Critical
 
 다음은 DevSecOps 실무자 관점에서 해당 뉴스를 분석한 내용입니다.
 

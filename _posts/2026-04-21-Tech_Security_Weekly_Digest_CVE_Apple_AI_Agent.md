@@ -103,8 +103,6 @@ redirect_from:
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical | **CVE**: CVE-2026-5760
-
 #### 요약
 
 SGLang에서 원격 코드 실행(RCE)을 허용하는 치명적 취약점 CVE-2026-5760(CVSS 9.8)이 공개되었습니다. 이 취약점은 악성 GGUF 모델 파일을 통해 명령어 삽입을 유발하여 임의 코드 실행으로 이어질 수 있습니다.
@@ -154,8 +152,6 @@ index=security sourcetype=syslog ("exploit" OR "remote code execution" OR "shell
   source="The Hacker News"
   severity="Critical"
 %}
-
-> 🔴 **심각도**: Critical
 
 #### 요약
 

@@ -96,8 +96,6 @@ summary_card:
   severity="Critical"
 %}
 
-> 🔴 **심각도**: Critical
-
 # DevSecOps 관점: Windows 'MiniPlasma' 제로데이 취약점 분석
 
 ## 1. 기술적 배경 및 위협 분석
@@ -139,8 +137,6 @@ DevSecOps 관점에서는 **빌드 파이프라인**, **CI/CD 에이전트**, **
   source="The Hacker News"
   severity="Critical"
 %}
-
-> 🔴 **심각도**: Critical | **CVE**: CVE-2026-42945
 
 # DevSecOps 관점 NGINX CVE-2026-42945 분석
 
