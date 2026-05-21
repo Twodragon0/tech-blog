@@ -89,7 +89,26 @@ def test_l25_post_body_image_has_content_hash_version(
 ) -> None:
     """Each L25-promoted post must emit a body <img> with ?v={hash}."""
     html_path = built_site_dir / "posts" / post_slug / "index.html"
-    assert html_path.is_file(), f"missing built HTML: {html_path}"
+    if not html_path.is_file():
+        # Diagnostic: dump the actual built layout around the expected path
+        # so we can see what Jekyll produced instead. This fires only on
+        # failure and is cheap (a few directory listings).
+        diag_lines = [f"missing built HTML: {html_path}"]
+        parent = html_path.parent.parent  # e.g. .../posts/2025/05/30/
+        for level in (parent.parent, parent):  # /YYYY/MM/ and /YYYY/MM/DD/
+            if level.is_dir():
+                diag_lines.append(f"  contents of {level}:")
+                for entry in sorted(level.iterdir()):
+                    diag_lines.append(f"    {entry.name}{'/' if entry.is_dir() else ''}")
+            else:
+                diag_lines.append(f"  missing dir: {level}")
+        # Also search the whole build dir for any path containing the slug tail
+        slug_tail = post_slug.rsplit("/", 1)[-1]
+        matches = list(built_site_dir.rglob(f"*{slug_tail}*"))
+        diag_lines.append(f"  rglob hits for *{slug_tail}*: {len(matches)}")
+        for m in matches[:10]:
+            diag_lines.append(f"    {m.relative_to(built_site_dir)}")
+        pytest.fail("\n".join(diag_lines))
 
     html = html_path.read_text(encoding="utf-8")
     matches = VERSIONED_IMG_SRC_RE.findall(html)
