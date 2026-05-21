@@ -47,6 +47,7 @@ summary_card:
 redirect_from:
   - /posts/2025/05/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/
   - /posts/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/
+  - /posts/2025/05/30/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/
 ---
 {% include ai-summary-card.html %}
 

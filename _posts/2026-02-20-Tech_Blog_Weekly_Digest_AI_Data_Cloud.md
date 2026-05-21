@@ -36,6 +36,7 @@ summary_card:
 redirect_from:
   - /posts/2026/02/Tech_Blog_Weekly_Digest_AI_Data_Cloud/
   - /posts/2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud/
+  - /posts/2026/02/20/Tech_Blog_Weekly_Digest_AI_Data_Cloud/
 ---
 
 {% include ai-summary-card.html %}

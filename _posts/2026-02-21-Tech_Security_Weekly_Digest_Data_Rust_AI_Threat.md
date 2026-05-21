@@ -37,6 +37,7 @@ summary_card:
 redirect_from:
   - /posts/2026/02/Tech_Security_Weekly_Digest_Data_Rust_AI_Threat/
   - /posts/2026-02-21-Tech_Security_Weekly_Digest_Data_Rust_AI_Threat/
+  - /posts/2026/02/21/Tech_Security_Weekly_Digest_Data_Rust_AI_Threat/
 ---
 {% include ai-summary-card.html %}
 
