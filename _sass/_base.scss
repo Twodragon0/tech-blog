@@ -62,6 +62,11 @@
   --container-max-width: 1200px;
   --container-padding: 1.5rem;
   --header-height: 70px;
+  /* Desktop-only sub-navigation strip below the main header. Holds
+     the four core-topic links (Security, DevSecOps, Cloud, Kubernetes).
+     Overridden to 0 inside @media (max-width: 768px) since the mobile
+     drawer carries those links instead of a persistent strip. */
+  --subnav-height: 36px;
   --border-radius-sm: 0.375rem;
   --border-radius-md: 0.5rem;
   --border-radius-lg: 0.75rem;

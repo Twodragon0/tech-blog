@@ -472,7 +472,7 @@
 
 /* Main Content */
 .main-content {
-  min-height: calc(100vh - var(--header-height) - 200px);
+  min-height: calc(100vh - var(--header-height) - var(--subnav-height) - 200px);
   padding: var(--spacing-2xl) 0;
 }
 
@@ -720,7 +720,13 @@
     display: none;
   }
 
-  /* Hide desktop sub-nav strip on mobile; mobile drawer carries the same links. */
+  /* Hide desktop sub-nav strip on mobile; mobile drawer carries the same links.
+     Zero out the variable so anchor scroll-margin-top calculations elsewhere
+     don't over-compensate by ~36px on a header that no longer includes it. */
+  :root {
+    --subnav-height: 0px;
+  }
+
   .site-subnav {
     display: none;
   }
