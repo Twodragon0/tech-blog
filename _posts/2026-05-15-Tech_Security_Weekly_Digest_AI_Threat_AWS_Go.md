@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 05월 15일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)"
 date: 2026-05-15 11:15:26 +0900
+last_modified_at: 2026-05-21T18:36:46+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Threat, AWS, Go]
 excerpt: "Cisco Catalyst SD-WAN Controller 인증 · Stealer Backdoor가 개발자 비밀을 노리는 3개가 부각된 2026년 05월 15일 보안 다이제스트 — 29건의 이슈와 실행 가능한 대응 액션을 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."

@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 05월 14일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (15건)"
 date: 2026-05-14 11:17:18 +0900
+last_modified_at: 2026-05-21T18:36:46+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Patch, AI, Update]
 excerpt: "AWS 환경에서 암호화폐 채굴 탐지 및 방지 · Microsoft의 MDASH AI 시스템을 비롯한 2026년 05월 14일 보안/기술 동향 30건을 DevSecOps 시선으로 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."

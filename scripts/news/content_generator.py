@@ -1507,6 +1507,7 @@ def generate_post_content(
 layout: post
 title: "{yaml_title}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
+last_modified_at: {date.strftime("%Y-%m-%dT%H:%M:%S")}+09:00
 categories: [security, devsecops]
 tags: [{", ".join(tags)}]
 excerpt: "{yaml_excerpt}"
@@ -1906,6 +1907,7 @@ def generate_tech_blog_content(
 layout: post
 title: "{yaml_title}"
 date: {date.strftime("%Y-%m-%d %H:%M:%S")} +0900
+last_modified_at: {date.strftime("%Y-%m-%dT%H:%M:%S")}+09:00
 categories: [tech, devops]
 tags: [{", ".join(tags)}]
 excerpt: "{yaml_excerpt}"

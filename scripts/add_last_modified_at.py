@@ -54,7 +54,7 @@ def extract_frontmatter_bounds(content: str) -> tuple[int, int] | None:
     return None
 
 
-def process_file(filepath: str, commit: bool) -> tuple[str, bool]:
+def process_file(filepath: str, commit: bool, add_only: bool = False) -> tuple[str, bool]:
     """Process a single post file.
 
     Returns (status_message, was_changed).
@@ -77,6 +77,12 @@ def process_file(filepath: str, commit: bool) -> tuple[str, bool]:
     existing_match = re.search(
         r"^last_modified_at:\s*(.+)$", content, re.MULTILINE
     )
+
+    if add_only and existing_match:
+        return (
+            f"SKIP (add-only, already present): {os.path.basename(filepath)}",
+            False,
+        )
 
     if existing_match:
         existing_val = existing_match.group(1).strip()
@@ -163,6 +169,12 @@ def main() -> None:
         default=False,
         help="Actually write changes to files",
     )
+    parser.add_argument(
+        "--add-only",
+        action="store_true",
+        default=False,
+        help="Only ADD the field to posts missing it; skip posts that already have last_modified_at",
+    )
     args = parser.parse_args()
 
     # Default to dry-run unless --commit specified
@@ -184,7 +196,7 @@ def main() -> None:
     errors = 0
 
     for filepath in post_files:
-        msg, was_changed = process_file(filepath, commit=do_commit)
+        msg, was_changed = process_file(filepath, commit=do_commit, add_only=args.add_only)
         print(msg)
         if "ERROR" in msg:
             errors += 1

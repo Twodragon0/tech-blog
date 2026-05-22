@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 05월 12일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (15건)"
 date: 2026-05-12 11:09:14 +0900
+last_modified_at: 2026-05-21T18:36:46+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, CVE, Zero-Day, Data]
 excerpt: "2026년 05월 12일 수집한 28건의 보안 이슈 중 TeamPCP, Checkmarx Jenkins AST 플러그인을 · cPanel CVE-2026-41940 활성 익스플로잇으로를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."

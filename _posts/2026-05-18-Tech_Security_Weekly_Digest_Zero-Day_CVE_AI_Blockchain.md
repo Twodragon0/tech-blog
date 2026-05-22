@@ -2,6 +2,7 @@
 layout: post
 title: "2026년 05월 18일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (6건)"
 date: 2026-05-18 11:32:14 +0900
+last_modified_at: 2026-05-21T18:36:46+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, CVE, AI, Blockchain]
 excerpt: "새로운 Windows 'MiniPlasma' 제로데이 익스플로잇 · NGINX CVE-2026-42945 실제 공격 발생이 부각된 2026년 05월 18일 보안 다이제스트 — 15건의 이슈와 실행 가능한 대응 액션을 정리합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
