@@ -57,8 +57,8 @@ bands:
     label: BOTNET
     sub: Kazuar
   visual:
-    kind: network_nodes
-    label: MESH
+    kind: botnet_p2p
+    label: KAZUAR
   metric_b: "Hunt Kazuar IoC : block mesh bootstrap : tag long-lived services"
   detail_b: "EDR rule for Kazuar variants : egress block Tor + P2P : audit kernel module loads"
   mini:

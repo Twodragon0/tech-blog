@@ -14,8 +14,8 @@ bands:
     label: BIDS
     sub: per day
   visual:
-    kind: bar_graph
-    caption: FRAUD
+    kind: ad_fraud
+    count: '455'
   metric_b: "MDM: block Trapdoor app SHAs : audit ad-network billing for anomaly : reset device IDFAs"
   detail_b: "Add IoC to mobile EDR : block known C2 + bid endpoints : audit on-device SDK manifest"
   mini:
@@ -57,8 +57,8 @@ bands:
     label: CVE
     sub: kernel LPE
   visual:
-    kind: lock_cve
-    cvss: '7.8'
+    kind: kernel_lpe
+    cve: DirtyDecrypt
   metric_b: "Patch kernel : enable kernel lockdown : audit dmesg for exploit attempts"
   detail_b: "Rolling reboot to patched kernel : SELinux enforcing : sysctl restrict ptrace : eBPF LSM block"
   mini:

@@ -35,8 +35,8 @@ bands:
     label: NPM
     sub: Node-IPC
   visual:
-    kind: code_bars
-    caption: NPM
+    kind: supply_chain
+    label: NPM
   metric_b: "Pin Node-IPC version : block backdoor SHAs : rotate dev tokens + SSH keys + GitHub PATs"
   detail_b: "Run npm audit signatures : scan dev workstations for IoCs : rebuild CI agents from gold"
   mini:

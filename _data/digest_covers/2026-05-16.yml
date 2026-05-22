@@ -14,8 +14,8 @@ bands:
     label: BOTNET
     sub: Kazuar
   visual:
-    kind: network_nodes
-    label: BOTNET
+    kind: botnet_p2p
+    label: TURLA
   metric_b: "Hunt for Kazuar IoC : block P2P bootstrap nodes : audit egress for mesh chatter"
   detail_b: "Egress block Tor + P2P : EDR rule for Kazuar variants : check long-running services"
   mini:

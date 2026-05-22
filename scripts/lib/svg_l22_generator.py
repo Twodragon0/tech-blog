@@ -706,6 +706,155 @@ def v_bar_graph(cx: int, yc: int, accent: str, soft: str, caption: str = "GROWTH
   </g>'''
 
 
+def v_supply_chain(cx: int, yc: int, accent: str, soft: str, label: str = "SUPPLY") -> str:
+    """Conveyor belt with packages + tamper indicator (npm worm, plugin poisoning, KY3P)."""
+    return f'''<g transform="translate({cx},{yc})">
+    <circle r="78" fill="{accent}" fill-opacity="0.07"><animate attributeName="r" values="62;86;62" dur="3.4s" repeatCount="indefinite"/></circle>
+    <rect x="-90" y="12" width="180" height="20" rx="4" fill="{accent}" fill-opacity="0.15" stroke="{accent}" stroke-width="1.4"/>
+    <g stroke="{soft}" stroke-width="0.8" stroke-opacity="0.5">
+      <line x1="-80" y1="18" x2="-80" y2="26"/><line x1="-50" y1="18" x2="-50" y2="26"/>
+      <line x1="-20" y1="18" x2="-20" y2="26"/><line x1="10" y1="18" x2="10" y2="26"/>
+      <line x1="40" y1="18" x2="40" y2="26"/><line x1="70" y1="18" x2="70" y2="26"/>
+    </g>
+    <g>
+      <rect x="-78" y="-12" width="22" height="22" rx="2" fill="{accent}" stroke="{soft}" stroke-width="1.2" filter="url(#softShadow)">
+        <animateTransform attributeName="transform" type="translate" values="0 0;-12 0;0 0" dur="3.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="-40" y="-12" width="22" height="22" rx="2" fill="{accent}" stroke="{soft}" stroke-width="1.2" filter="url(#softShadow)">
+        <animateTransform attributeName="transform" type="translate" values="0 0;-12 0;0 0" dur="3.6s" begin="-0.8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="-2" y="-12" width="22" height="22" rx="2" fill="#E63946" stroke="#FCA5A5" stroke-width="1.6" filter="url(#softShadow)">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.4s" repeatCount="indefinite"/>
+      </rect>
+      <text x="9" y="3" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="#FFF">!</text>
+      <rect x="36" y="-12" width="22" height="22" rx="2" fill="{accent}" stroke="{soft}" stroke-width="1.2" filter="url(#softShadow)">
+        <animateTransform attributeName="transform" type="translate" values="0 0;-12 0;0 0" dur="3.6s" begin="-1.6s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <g stroke="#E63946" stroke-width="1.2" fill="none" opacity="0.7">
+      <path d="M9 -36 L0 -22 L18 -22 Z"/>
+      <text x="9" y="-30" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#FCA5A5">TAMPER</text>
+    </g>
+    <g fill="{soft}" opacity="0.6">
+      <circle cx="-90" cy="-40" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="90" cy="-40" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-90" cy="40" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="90" cy="40" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+    </g>
+    <text y="56" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{label}</text>
+    <text y="70" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">4 stages : 1 tampered</text>
+  </g>'''
+
+
+def v_botnet_p2p(cx: int, yc: int, accent: str, soft: str, label: str = "P2P") -> str:
+    """Distributed P2P mesh (no central hub) — distinct from network_nodes C2."""
+    nodes = [(-70, -40), (70, -40), (-90, 0), (90, 0), (-70, 40), (70, 40), (0, -60), (0, 60), (-30, -20), (30, -20), (-30, 20), (30, 20)]
+    node_circles = ""
+    for i, (x, y) in enumerate(nodes):
+        delay = (i % 4) * 0.4
+        node_circles += f'<circle cx="{x}" cy="{y}" r="6" fill="{accent}" stroke="{soft}" stroke-width="1.4"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" begin="{delay}s" repeatCount="indefinite"/></circle>'
+    # P2P mesh = each node connects to multiple peers (no center)
+    edges = [
+        (0, 8), (1, 9), (2, 10), (3, 11), (4, 10), (5, 11),
+        (6, 8), (6, 9), (7, 10), (7, 11), (8, 10), (9, 11),
+        (0, 6), (1, 6), (4, 7), (5, 7), (2, 8), (3, 9),
+    ]
+    edge_lines = ""
+    for a, b in edges:
+        x1, y1 = nodes[a]
+        x2, y2 = nodes[b]
+        edge_lines += f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{accent}" stroke-width="0.6" stroke-opacity="0.4"/>'
+    # Animated packets along a few edges
+    packet_paths = [
+        f"M{nodes[0][0]} {nodes[0][1]} L{nodes[8][0]} {nodes[8][1]}",
+        f"M{nodes[10][0]} {nodes[10][1]} L{nodes[11][0]} {nodes[11][1]}",
+        f"M{nodes[6][0]} {nodes[6][1]} L{nodes[8][0]} {nodes[8][1]}",
+    ]
+    packets = ""
+    for i, p in enumerate(packet_paths):
+        dur = 2.0 + i * 0.3
+        packets += f'<circle r="1.8" fill="#FFF"><animateMotion path="{p}" dur="{dur}s" repeatCount="indefinite"/></circle>'
+    return f'''<g transform="translate({cx},{yc})">
+    <circle r="92" fill="{accent}" fill-opacity="0.05"><animate attributeName="r" values="76;100;76" dur="3.8s" repeatCount="indefinite"/></circle>
+    {edge_lines}
+    {node_circles}
+    {packets}
+    <g stroke="{soft}" stroke-width="0.5" stroke-opacity="0.3" fill="none">
+      <circle r="48"><animate attributeName="r" values="40;56;40" dur="3.0s" repeatCount="indefinite"/></circle>
+    </g>
+    <text y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{label} MESH</text>
+    <text y="98" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">12 peers : no central C2</text>
+  </g>'''
+
+
+def v_kernel_lpe(cx: int, yc: int, accent: str, soft: str, cve: str = "LPE") -> str:
+    """Ring 0..3 with privilege escalation arrow (kernel LPE, SYSTEM-priv exploits)."""
+    return f'''<g transform="translate({cx},{yc})">
+    <circle r="82" fill="{accent}" fill-opacity="0.06"><animate attributeName="r" values="68;90;68" dur="3.4s" repeatCount="indefinite"/></circle>
+    <g stroke="{accent}" fill="none" stroke-width="1.6">
+      <circle r="68" stroke-opacity="0.4"/>
+      <circle r="50" stroke-opacity="0.55"/>
+      <circle r="32" stroke-opacity="0.7"/>
+      <circle r="14" fill="{accent}" stroke="{soft}" stroke-width="2"/>
+    </g>
+    <g fill="{soft}">
+      <text y="-58" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" opacity="0.6">RING 3</text>
+      <text y="-42" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" opacity="0.7">RING 2</text>
+      <text y="-26" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" opacity="0.8">RING 1</text>
+    </g>
+    <text y="4" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#FFF">R0</text>
+    <g stroke="#E63946" stroke-width="2" fill="none" stroke-dasharray="4 3">
+      <path d="M72 -10 L20 -4">
+        <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.4s" repeatCount="indefinite"/>
+      </path>
+      <polygon points="20,-4 32,-10 32,2" fill="#E63946" stroke="none"/>
+    </g>
+    <g fill="#FCA5A5">
+      <circle cx="74" cy="-10" r="3.6"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.4s" repeatCount="indefinite"/></circle>
+      <text x="80" y="-22" text-anchor="start" font-family="Inter, monospace" font-size="9" font-weight="800">USER</text>
+    </g>
+    <g fill="{soft}" opacity="0.6">
+      <circle cx="-80" cy="-50" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="80" cy="50" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-80" cy="50" r="1.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
+    </g>
+    <text y="64" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{cve}</text>
+    <text y="78" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">user -> kernel : ring 3 -> 0</text>
+  </g>'''
+
+
+def v_ad_fraud(cx: int, yc: int, accent: str, soft: str, count: str = "455") -> str:
+    """Mobile-device grid with bid waves (ad-fraud, mass-scale Android schemes)."""
+    devices = ""
+    for r in range(3):
+        for c in range(5):
+            x = -80 + c * 36
+            y = -32 + r * 30
+            delay = ((r * 5 + c) % 7) * 0.35
+            devices += (
+                f'<rect x="{x}" y="{y}" width="22" height="32" rx="3" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1">'
+                f'<animate attributeName="opacity" values="0.5;1;0.5" dur="2.0s" begin="{delay}s" repeatCount="indefinite"/>'
+                f'</rect>'
+                f'<circle cx="{x + 11}" cy="{y + 26}" r="1.4" fill="{soft}" opacity="0.65"/>'
+            )
+    return f'''<g transform="translate({cx},{yc})">
+    <circle r="84" fill="{accent}" fill-opacity="0.05"><animate attributeName="r" values="68;92;68" dur="3.6s" repeatCount="indefinite"/></circle>
+    {devices}
+    <g stroke="{soft}" stroke-width="0.8" fill="none" stroke-opacity="0.7">
+      <path d="M-94 60 Q0 80 94 60">
+        <animate attributeName="stroke-opacity" values="0.2;0.8;0.2" dur="2.0s" repeatCount="indefinite"/>
+      </path>
+      <path d="M-94 72 Q0 92 94 72">
+        <animate attributeName="stroke-opacity" values="0.2;0.8;0.2" dur="2.2s" begin="0.4s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <text x="0" y="-44" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="{accent}" opacity="0.7">{count} apps</text>
+    <text y="-2" text-anchor="middle" font-family="Inter, monospace" font-size="28" font-weight="900" fill="{soft}" opacity="0.2">$</text>
+    <text y="60" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">BID FRAUD</text>
+    <text y="86" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">15 devices : wave egress</text>
+  </g>'''
+
+
 # --- Topic motif library (per-post signature accents) ---
 def motif_bitcoin(x: int, y: int, color: str) -> str:
     """Bitcoin Bsymbol coin badge centred at (x, y)."""

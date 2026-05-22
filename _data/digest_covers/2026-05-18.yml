@@ -14,8 +14,8 @@ bands:
     label: WIN
     sub: SYSTEM
   visual:
-    kind: lock_cve
-    cvss: '9.4'
+    kind: kernel_lpe
+    cve: MiniPlasma
   metric_b: "Defender ASR rule : Sysmon process tree audit : block Windows kernel exploit chain"
   detail_b: "Stage isolation playbook : segment privileged workstations : log all SYSTEM token creates"
   mini:

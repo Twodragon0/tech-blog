@@ -14,7 +14,8 @@ bands:
     label: FRAMEWORK
     sub: "SP Global"
   visual:
-    kind: cloud_k8s
+    kind: supply_chain
+    label: KY3P
   metric_b: "Reuse audit evidence : regulator-grade : finance vertical accelerator"
   detail_b: "Map KY3P controls vs SOC 2 + PCI DSS : flag uncovered residual : pipe to GRC tool"
   mini:

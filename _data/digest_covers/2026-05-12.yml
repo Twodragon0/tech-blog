@@ -14,8 +14,8 @@ bands:
     label: PLUGIN
     sub: Jenkins AST
   visual:
-    kind: code_bars
-    caption: SCAN
+    kind: supply_chain
+    label: AST
   metric_b: "Repin Jenkins plugin checksum : pull AST upstream : audit IaC scan history"
   detail_b: "Treat Checkmarx output as unverified for last 30 days : re-scan with second tool : rotate CI tokens"
   mini:

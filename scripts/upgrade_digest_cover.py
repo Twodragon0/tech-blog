@@ -118,6 +118,11 @@ VISUAL_REGISTRY: Dict[str, Callable[..., str]] = {
     "wallet_forensic":  l22.v_wallet_forensic,
     "senate_columns":   l22.v_senate_columns,
     "price_chart":      l22.v_price_chart,
+    # Content-specific primitives (added 2026-05-22 to break repetition across batches)
+    "supply_chain":     l22.v_supply_chain,    # npm worm, plugin poisoning, KY3P, SBOM
+    "botnet_p2p":       l22.v_botnet_p2p,      # Turla/Kazuar, distributed mesh (no center)
+    "kernel_lpe":       l22.v_kernel_lpe,      # SYSTEM-priv 0-day, DirtyDecrypt, MiniPlasma
+    "ad_fraud":         l22.v_ad_fraud,        # Android ad-fraud schemes, mass-scale bid abuse
 }
 
 
