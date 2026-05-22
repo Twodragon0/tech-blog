@@ -1,0 +1,71 @@
+date: '2026-05-14'
+slug: Tech_Security_Weekly_Digest_AWS_Patch_AI_Update
+sfx: MY14
+title: "2026-05-14: AWS cryptomining detection, MDASH Patch Tuesday 16 flaws, AWS AI GRC"
+aria: AWS environment cryptomining detection and prevention guide, Microsoft MDASH AI system finds 16 Windows flaws fixed on Patch Tuesday, updated AWS user guide for responsible AI adoption with governance risk and compliance
+bands:
+- theme: red
+  label: AWS CRYPTOMINING
+  headline: "AWS cryptomining detect"
+  metric: "Cryptojacking detect+block : EC2 + EKS + Lambda"
+  detail: "AWS guide for cryptomining detection : GuardDuty + CloudTrail + Lambda response : auto isolation"
+  badge:
+    value: XMR
+    label: MINER
+    sub: AWS-target
+  visual:
+    kind: cloud_k8s
+  metric_b: "Pin GuardDuty cryptojacking finding : auto-stop EC2 on detection : alert per-account"
+  detail_b: "Add Lambda response : tag suspect EC2 quarantine : block mining-pool DNS : audit STS calls"
+  mini:
+    value: GD
+    label: SVC
+    sub: GuardDuty
+  mini2:
+    value: EC2
+    label: TARGET
+    sub: + EKS
+- theme: amber
+  label: MDASH PATCH TUESDAY
+  headline: "MDASH finds 16 Windows"
+  metric: "MS MDASH AI : 16 Windows flaws on PTuesday"
+  detail: "Microsoft AI agent MDASH discovered 16 Windows flaws : Patch Tuesday cycle accelerated"
+  badge:
+    value: '16'
+    label: FIXED
+    sub: MDASH-found
+  visual:
+    kind: bar_graph
+    caption: PATCH
+  metric_b: "Stage MS patches in ring : prioritize MDASH-found CVE first : monitor exploit telemetry"
+  detail_b: "Deploy via Intune ring : flag CVE on MDASH-discovery channel : SLA cut from 30 to 7 days"
+  mini:
+    value: MS
+    label: PATCH
+    sub: Tuesday
+  mini2:
+    value: AI
+    label: AGENT
+    sub: MDASH
+- theme: green
+  label: AWS AI GOVERNANCE
+  headline: "AWS AI GRC guide"
+  metric: "AWS responsible-AI GRC : user guide refresh"
+  detail: "AWS publishes responsible-AI governance risk compliance guide : map to NIST AI RMF + EU AI Act"
+  badge:
+    value: GRC
+    label: AI
+    sub: AWS guide
+  visual:
+    kind: shield
+    label: AI-GRC
+  metric_b: "Cross-walk to NIST AI RMF + EU AI Act : pull AWS controls into your AI policy"
+  detail_b: "Run AWS Inspector AI assessor : flag Bedrock guardrail gaps : enforce log retention on AI calls"
+  mini:
+    value: AI
+    label: POLICY
+    sub: responsible
+  mini2:
+    value: GRC
+    label: FRAME
+    sub: AWS
