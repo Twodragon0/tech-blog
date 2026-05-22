@@ -1,0 +1,72 @@
+date: '2026-05-16'
+slug: Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security
+sfx: MY16
+title: "2026-05-16: Turla Kazuar P2P botnet, AWS AI security frame, 45-day attack-surface lesson"
+aria: Turla converts Kazuar backdoor into modular P2P botnet for persistent access, AWS AI security framework with right control and right layer and right stage, 45-day self-tool monitoring teaches what real attack surface looks like
+bands:
+- theme: red
+  label: TURLA P2P BOTNET
+  headline: "Turla Kazuar P2P"
+  metric: "Russian APT Turla : Kazuar modular P2P botnet"
+  detail: "Turla converts Kazuar into modular P2P botnet : persistent access : mesh resilience"
+  badge:
+    value: P2P
+    label: BOTNET
+    sub: Kazuar
+  visual:
+    kind: network_nodes
+    label: BOTNET
+  metric_b: "Hunt for Kazuar IoC : block P2P bootstrap nodes : audit egress for mesh chatter"
+  detail_b: "Egress block Tor + P2P : EDR rule for Kazuar variants : check long-running services"
+  mini:
+    value: RU
+    label: ACTOR
+    sub: Turla
+  mini2:
+    value: APT
+    label: TIER
+    sub: state
+- theme: amber
+  label: AWS AI FRAMEWORK
+  headline: "AWS AI security frame"
+  metric: "Right control : right layer : right stage"
+  detail: "AWS publishes AI security framework : controls across data + model + agent layers and lifecycle stages"
+  badge:
+    value: AISEC
+    label: FRAME
+    sub: AWS
+  visual:
+    kind: shield
+    label: AI-SEC
+  metric_b: "Map controls onto Bedrock guardrails : add to AWS Inspector AI ruleset"
+  detail_b: "Cross-walk to NIST AI RMF : pin guardrail config in Terraform : audit agent IAM scope"
+  mini:
+    value: AWS
+    label: VENDOR
+    sub: AI frame
+  mini2:
+    value: '3x3'
+    label: GRID
+    sub: ctrl/layer
+- theme: green
+  label: ATTACK SURFACE
+  headline: "45-day self-tool monitor"
+  metric: "45 days : real attack surface : self-tool visibility"
+  detail: "45-day attack-surface monitor of own tools : finds hidden subdomains + leak paths + IaC drift"
+  badge:
+    value: '45'
+    label: DAYS
+    sub: monitor
+  visual:
+    kind: bar_graph
+    caption: ASM
+  metric_b: "Adopt EASM pilot : 30-day baseline run : weekly diff to ticketing"
+  detail_b: "Subscribe to ASI feed : pin in CMDB : alert on subdomain creation : audit IaC drift"
+  mini:
+    value: EASM
+    label: TOOL
+    sub: surface
+  mini2:
+    value: '45d'
+    label: DURATION
+    sub: pilot

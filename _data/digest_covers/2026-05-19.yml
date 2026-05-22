@@ -1,0 +1,70 @@
+date: '2026-05-19'
+slug: Tech_Security_Weekly_Digest_Cloud_AI_Malware_Go
+sfx: MY19
+title: "2026-05-19: Interpol Op Lamas 201, Storm-2949 cloud pivot, Exchange 0-day npm worm"
+aria: Interpol Operation Lamas disrupts MENA cybercrime network and arrests 201 suspects, Storm-2949 converts compromised identities into cross-cloud breach, weekly recap of Exchange zero-day plus npm worm plus fake AI repos plus Cisco exploit
+bands:
+- theme: red
+  label: INTERPOL OP LAMAS
+  headline: "Interpol Op Lamas 201"
+  metric: "Interpol Op Lamas : 201 arrests : MENA cybercrime"
+  detail: "Interpol disrupts MENA cybercrime ring : 201 arrests : ransomware + carding networks dismantled"
+  badge:
+    value: '201'
+    label: ARRESTS
+    sub: MENA
+  visual:
+    kind: senate_columns
+  metric_b: "Cross-check IoC from Op Lamas : refresh ransomware playbook : sanctions list audit"
+  detail_b: "Subscribe to Interpol Cyber bulletin : pull seized infra IPs into blocklist : audit FX flows"
+  mini:
+    value: MENA
+    label: REGION
+    sub: targeted
+  mini2:
+    value: INT
+    label: OP
+    sub: Interpol
+- theme: amber
+  label: STORM-2949 PIVOT
+  headline: "Storm-2949 cloud pivot"
+  metric: "Compromised identity : cross-cloud breach pivot"
+  detail: "Storm-2949 turns compromised identity into cross-cloud breach : Entra ID + AWS STS chain"
+  badge:
+    value: '2949'
+    label: STORM
+    sub: pivot
+  visual:
+    kind: cloud_k8s
+  metric_b: "Hunt for Storm-2949 TTPs : audit Entra ID risky sign-ins : restrict cross-cloud federation"
+  detail_b: "Block legacy auth : enforce MFA on service accts : tag fed roles : alert on token reuse"
+  mini:
+    value: ID
+    label: VECTOR
+    sub: identity
+  mini2:
+    value: XC
+    label: PIVOT
+    sub: cross-cloud
+- theme: green
+  label: WEEKLY OMNIBUS
+  headline: "Exchange 0d, npm worm"
+  metric: "Exchange 0-day + npm worm + fake AI repo + Cisco"
+  detail: "This week omnibus : Exchange 0-day in wild : npm self-replicating worm : fake AI repos : Cisco RCE"
+  badge:
+    value: '4'
+    label: STORIES
+    sub: this week
+  visual:
+    kind: bar_graph
+    caption: WEEK
+  metric_b: "Patch Exchange : audit npm install chain : verify AI repo upstream : route Cisco RCE to P0"
+  detail_b: "Subscribe to weekly digest : pin npm install logs : verify HuggingFace repo signatures"
+  mini:
+    value: EXG
+    label: 0DAY
+    sub: Exchange
+  mini2:
+    value: NPM
+    label: WORM
+    sub: self-rep

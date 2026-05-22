@@ -1,0 +1,72 @@
+date: '2026-05-21'
+slug: Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Malware
+sfx: MY21
+title: "2026-05-21: MS opensources RAMPART Clarity, Bedrock AgentCore Cedar, MS kills cert signer"
+aria: Microsoft open-sources RAMPART and Clarity for AI agent development security, Amazon Bedrock AgentCore selects Cedar for agent workflow security policy, Microsoft removes malware code-signing service behind ransomware campaigns
+bands:
+- theme: red
+  label: MS OPEN SOURCE AI
+  headline: "RAMPART + Clarity OSS"
+  metric: "MS open-sources : RAMPART + Clarity : AI agent dev sec"
+  detail: "Microsoft opens RAMPART + Clarity to community : agent dev guardrails + observability now OSS"
+  badge:
+    value: OSS
+    label: TOOLS
+    sub: RAMPART+Clarity
+  visual:
+    kind: shield
+    label: AGENT
+  metric_b: "Pilot RAMPART for AI dev sec : Clarity in pre-prod : feed telemetry into SIEM"
+  detail_b: "Pin RAMPART tag : add Clarity to agent SDLC : map controls to OWASP LLM Top 10"
+  mini:
+    value: MS
+    label: VENDOR
+    sub: Microsoft
+  mini2:
+    value: '2x'
+    label: TOOLS
+    sub: dev-sec
+- theme: amber
+  label: BEDROCK CEDAR
+  headline: "Bedrock AgentCore Cedar"
+  metric: "Amazon Bedrock AgentCore : Cedar policy lang for agents"
+  detail: "Bedrock AgentCore picks Cedar for agent workflow policy : fine-grained access + audit trail"
+  badge:
+    value: CDR
+    label: POLICY
+    sub: Cedar
+  visual:
+    kind: code_bars
+    caption: POLICY
+  metric_b: "Author Cedar policies for agent IAM : audit decision log : route to CloudTrail"
+  detail_b: "Test Cedar policy in dev : map onto IAM action model : enforce least-privilege per workflow"
+  mini:
+    value: AWS
+    label: VENDOR
+    sub: Bedrock
+  mini2:
+    value: CDR
+    label: LANG
+    sub: policy
+- theme: green
+  label: MS KILLS CERT SIGNER
+  headline: "MS kills ransomware signer"
+  metric: "MS removes malware code-signing service : ransomware infra hit"
+  detail: "Microsoft revokes malware signing service used by ransomware groups : signed payloads now blocked"
+  badge:
+    value: REV
+    label: CERTS
+    sub: revoked
+  visual:
+    kind: lock_cve
+    cvss: '7.0'
+  metric_b: "Pin Defender SmartScreen update : audit signed-binary exec logs : flag stale certs"
+  detail_b: "Stage SmartScreen rollout : block legacy signer certs : monitor exec of pre-revoke binaries"
+  mini:
+    value: MS
+    label: VENDOR
+    sub: Microsoft
+  mini2:
+    value: SIG
+    label: VECTOR
+    sub: code-sign

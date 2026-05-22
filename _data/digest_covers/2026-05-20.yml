@@ -1,0 +1,71 @@
+date: '2026-05-20'
+slug: Tech_Security_Weekly_Digest_AI_AWS_CVE_Vulnerability
+sfx: MY20
+title: "2026-05-20: Trapdoor Android 659M bids, AWS Orgs CIRT guide, DirtyDecrypt LPE"
+aria: Trapdoor Android ad-fraud scheme uses 455 apps to generate 659 million bid requests daily, CIRT insight on how to prevent unauthorized account removal in AWS Organizations, DirtyDecrypt PoC targets Linux kernel CVE-2026-31635 local privilege escalation
+bands:
+- theme: red
+  label: TRAPDOOR AD-FRAUD
+  headline: "Trapdoor 659M bids/day"
+  metric: "455 Android apps : 659M bid requests per day"
+  detail: "Trapdoor ad-fraud: 455 apps generate 659 million daily bid requests : massive ad-network drain"
+  badge:
+    value: '659M'
+    label: BIDS
+    sub: per day
+  visual:
+    kind: bar_graph
+    caption: FRAUD
+  metric_b: "MDM: block Trapdoor app SHAs : audit ad-network billing for anomaly : reset device IDFAs"
+  detail_b: "Add IoC to mobile EDR : block known C2 + bid endpoints : audit on-device SDK manifest"
+  mini:
+    value: '455'
+    label: APPS
+    sub: Android
+  mini2:
+    value: AD
+    label: VECTOR
+    sub: bid-fraud
+- theme: amber
+  label: AWS ORG GUARD
+  headline: "AWS Orgs CIRT guide"
+  metric: "AWS Organizations : prevent unauthorized account removal"
+  detail: "CIRT insight: SCP + Organization-level guardrail to block rogue account-leave"
+  badge:
+    value: SCP
+    label: GUARD
+    sub: AWS Orgs
+  visual:
+    kind: cloud_k8s
+  metric_b: "Apply DenyAccountLeave SCP : enable Organization CloudTrail : alert on Org change events"
+  detail_b: "Deploy SCP via Terraform : monitor Organizations API : DR test for account-leave scenario"
+  mini:
+    value: ORG
+    label: SCOPE
+    sub: AWS
+  mini2:
+    value: SCP
+    label: TOOL
+    sub: deny-leave
+- theme: green
+  label: DIRTYDECRYPT LPE
+  headline: "DirtyDecrypt Linux LPE"
+  metric: "CVE-2026-31635 : Linux kernel LPE : PoC public"
+  detail: "DirtyDecrypt PoC exploits Linux kernel CVE-2026-31635 : LPE primitive : patch kernel"
+  badge:
+    value: '31635'
+    label: CVE
+    sub: kernel LPE
+  visual:
+    kind: lock_cve
+    cvss: '7.8'
+  metric_b: "Patch kernel : enable kernel lockdown : audit dmesg for exploit attempts"
+  detail_b: "Rolling reboot to patched kernel : SELinux enforcing : sysctl restrict ptrace : eBPF LSM block"
+  mini:
+    value: LPE
+    label: VECTOR
+    sub: local-priv
+  mini2:
+    value: PoC
+    label: STATUS
+    sub: public
