@@ -1,0 +1,36 @@
+date: '2026-02-20'
+slug: Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes
+date_str: 2026.02.20
+post_title: '2026-02-20: Gemini 3.1 Pro Launch, AI Supply Chain Attack, K8s Ingress NGINX Retirement'
+url: https://tech.2twodragon.com/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/
+hero:
+  tag: AI SUPPLY CHAIN
+  index: '01'
+  theme: red
+  visual: supply_chain_pipe
+  headline: PromptSpy Clinejection Attack
+  subheadline: AI supply chain attack via PromptSpy and Clinejection
+  kpi_value: SCC
+  kpi_label: AI
+  kpi_sub: supply
+  action: SCAN HUGGINGFACE MODEL CARDS FOR PROMPT INJEC...
+top_right:
+  tag: GEMINI VULN
+  index: '02'
+  theme: amber
+  visual: cve_chain
+  headline: PromptSpy Targets Gemini API
+  subheadline: PromptSpy research targets Google Gemini API with prompt injection data exf...
+  kpi_value: INJ
+  kpi_label: GEMINI
+  kpi_sub: prompt
+bottom_right:
+  tag: K8S DEPRECATED
+  index: '03'
+  theme: amber
+  visual: container_escape
+  headline: Ingress NGINX Retirement Impact
+  subheadline: Kubernetes Ingress NGINX controller deprecated in K8s 1.31
+  kpi_value: K8S
+  kpi_label: NGINX
+  kpi_sub: retire

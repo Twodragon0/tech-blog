@@ -1,0 +1,36 @@
+date: '2026-02-08'
+slug: Tech_Security_Weekly_Digest_AI_Ransomware_Data
+date_str: 2026.02.08
+post_title: '2026-02-08: German BfV Signal Phishing Nation-State, BlackField Ransomware, Zero Trust Data'
+url: https://tech.2twodragon.com/posts/2026/02/08/Tech_Security_Weekly_Digest_AI_Ransomware_Data/
+hero:
+  tag: NATION-STATE
+  index: '01'
+  theme: red
+  visual: hub_spoke
+  headline: Russia-Linked Signal Phishing
+  subheadline: German BfV and BSI warn of Russia-linked Signal phishing targeting politici...
+  kpi_value: APT
+  kpi_label: SIGNAL
+  kpi_sub: phish
+  action: DISABLE SIGNAL DEVICE-LINK QR CODE SCAN FROM...
+top_right:
+  tag: RANSOMWARE
+  index: '02'
+  theme: amber
+  visual: ransomware_lock
+  headline: BlackField Ransomware Code Reuse
+  subheadline: BlackField ransomware deep-dive
+  kpi_value: RNS
+  kpi_label: BLACKFLD
+  kpi_sub: Conti
+bottom_right:
+  tag: ZERO TRUST
+  index: '03'
+  theme: amber
+  visual: code_injection
+  headline: Data-Centric Zero Trust Strategy
+  subheadline: Zero Trust data-centric security strategy
+  kpi_value: ZT
+  kpi_label: DATA
+  kpi_sub: centric

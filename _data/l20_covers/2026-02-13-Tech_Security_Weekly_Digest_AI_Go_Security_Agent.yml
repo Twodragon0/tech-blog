@@ -1,0 +1,36 @@
+date: '2026-02-13'
+slug: Tech_Security_Weekly_Digest_AI_Go_Security_Agent
+date_str: 2026.02.13
+post_title: '2026-02-13: Lazarus npm PyPI Supply Chain, Copilot Studio Agent Risk, Gemini AI Recon'
+url: https://tech.2twodragon.com/posts/2026/02/13/Tech_Security_Weekly_Digest_AI_Go_Security_Agent/
+hero:
+  tag: SUPPLY CHAIN
+  index: '01'
+  theme: red
+  visual: supply_chain_pipe
+  headline: Lazarus npm PyPI Campaign
+  subheadline: Lazarus Group deploys malicious npm and PyPI packages in supply chain campaign
+  kpi_value: LAZ
+  kpi_label: LAZARUS
+  kpi_sub: supply
+  action: RUN NPM AUDIT AND PIP-AUDIT IN CI...
+top_right:
+  tag: COPILOT RISK
+  index: '02'
+  theme: amber
+  visual: cve_chain
+  headline: Copilot Studio Agent Security Gap
+  subheadline: Microsoft Copilot Studio agent security risk
+  kpi_value: AGT
+  kpi_label: COPILOT
+  kpi_sub: risk
+bottom_right:
+  tag: AI TOOLS
+  index: '03'
+  theme: blue
+  visual: ai_agent_funnel
+  headline: GPT-5 Codex-Spark Released
+  subheadline: GPT-5.3 Codex-Spark release for agentic development
+  kpi_value: GPT
+  kpi_label: CODEX
+  kpi_sub: Spark

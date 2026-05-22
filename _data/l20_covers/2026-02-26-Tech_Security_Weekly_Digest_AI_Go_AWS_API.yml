@@ -1,0 +1,36 @@
+date: '2026-02-26'
+slug: Tech_Security_Weekly_Digest_AI_Go_AWS_API
+date_str: 2026.02.26
+post_title: '2026-02-26: UNC2814 GRIDTIDE Campaign, Claude Code RCE Vuln, Vishing Surge'
+url: https://tech.2twodragon.com/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/
+hero:
+  tag: APT CAMPAIGN
+  index: '01'
+  theme: red
+  visual: hub_spoke
+  headline: UNC2814 GRIDTIDE APT Active
+  subheadline: UNC2814 GRIDTIDE campaign active
+  kpi_value: GRD
+  kpi_label: GRID
+  kpi_sub: TIDE
+  action: HUNT UNC2814 GO IMPLANT IOCS...
+top_right:
+  tag: AI VULN
+  index: '02'
+  theme: blue
+  visual: cve_chain
+  headline: Claude Code RCE Vulnerability
+  subheadline: RCE vulnerability disclosed in Anthropic Claude Code
+  kpi_value: CLC
+  kpi_label: CODE
+  kpi_sub: RCE
+bottom_right:
+  tag: VISHING
+  index: '03'
+  theme: blue
+  visual: container_escape
+  headline: Voice Phishing Surge Targets Staff
+  subheadline: Voice phishing surge impersonates IT helpdesk to capture MFA codes
+  kpi_value: VSH
+  kpi_label: VISH
+  kpi_sub: surge

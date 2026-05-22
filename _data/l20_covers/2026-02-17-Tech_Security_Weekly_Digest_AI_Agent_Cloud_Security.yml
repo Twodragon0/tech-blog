@@ -1,0 +1,36 @@
+date: '2026-02-17'
+slug: Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security
+date_str: 2026.02.17
+post_title: '2026-02-17: Infostealer Steals AI Agent Tokens, Password Manager 25 Recovery Attacks, Serverless Defense'
+url: https://tech.2twodragon.com/posts/2026/02/17/Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security/
+hero:
+  tag: AI TOKEN THEFT
+  index: '01'
+  theme: red
+  visual: ai_agent_funnel
+  headline: Infostealer Targets AI Agent Tokens
+  subheadline: New infostealer campaign targets AI agent configuration files and access to...
+  kpi_value: INF
+  kpi_label: STEAL
+  kpi_sub: AI token
+  action: ENCRYPT AI AGENT CONFIG FILES...
+top_right:
+  tag: PASSWORD MGR
+  index: '02'
+  theme: amber
+  visual: cve_chain
+  headline: 25 Password Manager Recovery Attacks
+  subheadline: Researchers document 25 password manager recovery attack vectors across Bit...
+  kpi_value: PWD
+  kpi_label: RECOVER
+  kpi_sub: attack
+bottom_right:
+  tag: CLOUD DEFENSE
+  index: '03'
+  theme: blue
+  visual: code_injection
+  headline: AWS Serverless AI Defense Architecture
+  subheadline: AWS AI-based serverless defense architecture
+  kpi_value: SLS
+  kpi_label: AWS
+  kpi_sub: AI guard

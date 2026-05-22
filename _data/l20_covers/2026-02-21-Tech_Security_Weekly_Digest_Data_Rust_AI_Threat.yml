@@ -1,0 +1,36 @@
+date: '2026-02-21'
+slug: Tech_Security_Weekly_Digest_Data_Rust_AI_Threat
+date_str: 2026.02.21
+post_title: '2026-02-21: CVE-2025-49113 Analysis, Ransomware Response, Rust Supply Chain Security'
+url: https://tech.2twodragon.com/posts/2026/02/21/Tech_Security_Weekly_Digest_Data_Rust_AI_Threat/
+hero:
+  tag: CVE ANALYSIS
+  index: '01'
+  theme: red
+  visual: cve_chain
+  headline: CVE-2025-49113 Deep Dive
+  subheadline: CVE-2025-49113 deep analysis
+  kpi_value: CVE
+  kpi_label: '49113'
+  kpi_sub: race
+  action: APPLY CVE-2025-49113 PATCH...
+top_right:
+  tag: AI SECURITY
+  index: '02'
+  theme: blue
+  visual: ai_agent_funnel
+  headline: Anthropic Claude Code Security Mode
+  subheadline: Anthropic Claude Code security review capability
+  kpi_value: AIC
+  kpi_label: CLAUDE
+  kpi_sub: code sec
+bottom_right:
+  tag: CRYPTO THREAT
+  index: '03'
+  theme: amber
+  visual: data_exfil
+  headline: Bitcoin AI Threat Actor Correlation
+  subheadline: Threat intelligence correlates Bitcoin transactions with AI-funded threat a...
+  kpi_value: BTC
+  kpi_label: THREAT
+  kpi_sub: funding
