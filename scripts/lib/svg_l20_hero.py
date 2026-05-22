@@ -596,6 +596,74 @@ def _ambient_layer() -> str:
     )
 
 
+def _corner_brackets(x: int, y: int, w: int, h: int, color: str, size: int = 10) -> str:
+    """Four L-shaped corner brackets inside a panel — gives a 'screen frame' look."""
+    s = size
+    return (
+        f'<g stroke="{color}" stroke-width="1.4" fill="none" opacity="0.7">'
+        f'<path d="M{x+4} {y+4+s} L{x+4} {y+4} L{x+4+s} {y+4}"/>'
+        f'<path d="M{x+w-4-s} {y+4} L{x+w-4} {y+4} L{x+w-4} {y+4+s}"/>'
+        f'<path d="M{x+4} {y+h-4-s} L{x+4} {y+h-4} L{x+4+s} {y+h-4}"/>'
+        f'<path d="M{x+w-4-s} {y+h-4} L{x+w-4} {y+h-4} L{x+w-4} {y+h-4-s}"/>'
+        f'</g>'
+    )
+
+
+def _hero_radar_arc(cx: int, cy: int, color: str) -> str:
+    """Animated radar sweep arc decoration — drawn behind hero visual."""
+    return (
+        f'<g transform="translate({cx},{cy})" opacity="0.32">'
+        f'<circle r="180" fill="none" stroke="{color}" stroke-width="0.6" stroke-dasharray="2 4"/>'
+        f'<circle r="140" fill="none" stroke="{color}" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.7"/>'
+        f'<circle r="100" fill="none" stroke="{color}" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.5"/>'
+        f'<g>'
+        f'<path d="M0 0 L180 0 A180 180 0 0 1 127 127 Z" fill="{color}" opacity="0.10"/>'
+        f'<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="14s" repeatCount="indefinite"/>'
+        f'</g>'
+        f'</g>'
+    )
+
+
+def _data_strip(x: int, y: int, w: int, color: str) -> str:
+    """Small horizontal data-strip with running tick marks — fills empty panel space."""
+    ticks = []
+    step = 14
+    for i in range(0, w, step):
+        height = 4 if (i // step) % 3 == 0 else 2
+        ticks.append(
+            f'<rect x="{x+i}" y="{y}" width="1" height="{height}" fill="{color}" opacity="0.55"/>'
+        )
+    return (
+        f'<g>'
+        f'<rect x="{x}" y="{y-2}" width="{w}" height="1" fill="{color}" opacity="0.35"/>'
+        f'{"".join(ticks)}'
+        f'<rect x="{x+w-50}" y="{y-1}" width="50" height="6" fill="{color}" opacity="0.45">'
+        f'<animate attributeName="x" values="{x};{x+w-50};{x}" dur="6.4s" repeatCount="indefinite"/>'
+        f'<animate attributeName="opacity" values="0.2;0.7;0.2" dur="6.4s" repeatCount="indefinite"/>'
+        f'</rect>'
+        f'</g>'
+    )
+
+
+def _extra_starfield() -> str:
+    """Denser starfield to bring background up to 4-08 visual density."""
+    return (
+        '<g fill="#7DA3D9" opacity="0.85">'
+        '<circle cx="252" cy="58" r="0.8"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="4.3s" repeatCount="indefinite"/></circle>'
+        '<circle cx="368" cy="74" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.8s" begin="0.4s" repeatCount="indefinite"/></circle>'
+        '<circle cx="624" cy="60" r="1.1"><animate attributeName="opacity" values="0.25;0.95;0.25" dur="4.5s" repeatCount="indefinite"/></circle>'
+        '<circle cx="858" cy="68" r="0.9"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="3.6s" begin="0.6s" repeatCount="indefinite"/></circle>'
+        '<circle cx="996" cy="62" r="1.0"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.0s" begin="0.2s" repeatCount="indefinite"/></circle>'
+        '<circle cx="1138" cy="76" r="0.8"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="5.2s" begin="0.5s" repeatCount="indefinite"/></circle>'
+        '<circle cx="218" cy="596" r="0.9"><animate attributeName="opacity" values="0.18;0.75;0.18" dur="4.6s" begin="0.3s" repeatCount="indefinite"/></circle>'
+        '<circle cx="380" cy="608" r="1.0"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.9s" begin="0.7s" repeatCount="indefinite"/></circle>'
+        '<circle cx="704" cy="600" r="0.8"><animate attributeName="opacity" values="0.18;0.7;0.18" dur="4.2s" begin="0.4s" repeatCount="indefinite"/></circle>'
+        '<circle cx="892" cy="608" r="1.1"><animate attributeName="opacity" values="0.22;0.9;0.22" dur="4.7s" begin="0.6s" repeatCount="indefinite"/></circle>'
+        '<circle cx="1078" cy="600" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.6s" begin="0.8s" repeatCount="indefinite"/></circle>'
+        '</g>'
+    )
+
+
 def _spark_accents() -> str:
     """Small ambient spark accents (right edge + left edge marks)."""
     return (
@@ -672,6 +740,7 @@ def render_l20_hero(
     parts.append('<rect width="1200" height="630" fill="url(#bgSpread)"/>')
     parts.append('<rect width="1200" height="630" fill="url(#envGrid)"/>')
     parts.append(_ambient_layer())
+    parts.append(_extra_starfield())
     # Header bar
     parts.append('<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>')
     parts.append(
@@ -715,6 +784,10 @@ def render_l20_hero(
         f'font-size="17" font-weight="500" fill="{hero_text}">{_escape(_fit_subheadline(hero["subheadline"], max_chars=62))}</text>'
     )
     parts.append('</g>')
+    # Hero panel decorations (radar arc behind visual, corner brackets, data strip)
+    parts.append(_hero_radar_arc(332, 360, hero_accent))
+    parts.append(_corner_brackets(32, 80, 600, 510, hero_accent, size=12))
+    parts.append(_data_strip(54, 528, 280, hero_accent))
     # Hero embedded visual (centered around (332, 360))
     parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", "")))
     # Hero action tag
@@ -755,6 +828,7 @@ def render_l20_hero(
         f'font-size="14" font-weight="500" fill="{tr_t["accent_text"]}">{_escape(_fit_subheadline(top_right["subheadline"]))}</text>'
     )
     parts.append('</g>')
+    parts.append(_corner_brackets(652, 80, 516, 248, tr_accent, size=9))
     parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", "")))
     parts.append(_kpi_card(1094, 168, top_right["theme"], top_right["kpi_value"], top_right["kpi_label"], top_right["kpi_sub"]))
 
@@ -782,6 +856,7 @@ def render_l20_hero(
         f'font-size="14" font-weight="500" fill="{br_t["accent_text"]}">{_escape(_fit_subheadline(bottom_right["subheadline"]))}</text>'
     )
     parts.append('</g>')
+    parts.append(_corner_brackets(652, 344, 516, 246, br_accent, size=9))
     parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", "")))
     parts.append(_kpi_card(1094, 452, bottom_right["theme"], bottom_right["kpi_value"], bottom_right["kpi_label"], bottom_right["kpi_sub"]))
 
