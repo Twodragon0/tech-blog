@@ -1,0 +1,36 @@
+date: '2026-03-07'
+slug: LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP
+date_str: 2026.03.07
+post_title: 'LLM security guide 2026: prompt injection, RAG poisoning, MCP tool poisoning'
+url: https://tech.2twodragon.com/posts/2026/03/07/LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP/
+hero:
+  tag: PROMPT INJECT
+  theme: red
+  visual: ai_agent_funnel
+  headline: LLM Prompt Injection
+  subheadline: Direct and indirect prompt injection defenses across LLM service surface
+  kpi_value: PI
+  kpi_label: LLM
+  kpi_sub: defense
+  action: ALLOW-LIST PROMPTS + AUDIT LOGS
+  index: '01'
+top_right:
+  tag: RAG SECURITY
+  theme: amber
+  visual: data_exfil
+  headline: RAG Pipeline Poisoning
+  subheadline: RAG pipeline ingestion-time data poisoning defenses for retrieval stores
+  kpi_value: RAG
+  kpi_label: POISON
+  kpi_sub: filter
+  index: '02'
+bottom_right:
+  tag: MCP THREAT
+  theme: blue
+  visual: supply_chain_pipe
+  headline: MCP Tool Poisoning
+  subheadline: Model Context Protocol tool-poisoning and Pickle supply chain attacks
+  kpi_value: MCP
+  kpi_label: TOOL
+  kpi_sub: poison
+  index: '03'

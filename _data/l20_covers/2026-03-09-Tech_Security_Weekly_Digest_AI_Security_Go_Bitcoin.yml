@@ -1,0 +1,36 @@
+date: '2026-03-09'
+slug: Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin
+date_str: 2026.03.09
+post_title: 'Weekly digest 2026-03-09: Krebs prompt-injection deep-dive, CLARITY Act, DNS exfil'
+url: https://tech.2twodragon.com/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/
+hero:
+  tag: KREBS PI
+  theme: red
+  visual: ai_agent_funnel
+  headline: Krebs Prompt Injection
+  subheadline: Krebs on Security deep-dive on prompt injection and over-broad agent scopes
+  kpi_value: PI
+  kpi_label: AGENT
+  kpi_sub: scope
+  action: TIGHTEN AGENT TOOL SCOPES
+  index: '01'
+top_right:
+  tag: CLARITY ACT
+  theme: amber
+  visual: hub_spoke
+  headline: CLARITY Act SEC vs CFTC
+  subheadline: CLARITY Act crypto bill clarifies SEC and CFTC jurisdictional split
+  kpi_value: CLR
+  kpi_label: ACT
+  kpi_sub: SEC
+  index: '02'
+bottom_right:
+  tag: DNS EXFIL
+  theme: blue
+  visual: data_exfil
+  headline: Go-Based DNS Exfil
+  subheadline: Go-compiled DNS tunneling tool grows footprint in active intrusions
+  kpi_value: Go
+  kpi_label: DNS
+  kpi_sub: exfil
+  index: '03'

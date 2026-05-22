@@ -1,0 +1,36 @@
+date: '2026-03-06'
+slug: Tech_Security_Weekly_Digest_Security_Threat_AI_AWS
+date_str: 2026.03.06
+post_title: 'Weekly digest 2026-03-06: CVE-2026-20122 active, Europol 64K AitM takedown, Cisco FMC'
+url: https://tech.2twodragon.com/posts/2026/03/06/Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/
+hero:
+  tag: CVE 20122
+  theme: red
+  visual: cve_chain
+  headline: CVE-2026-20122 In The Wild
+  subheadline: CVE-2026-20122 active exploitation confirmed - urgent patch required
+  kpi_value: RCE
+  kpi_label: '20122'
+  kpi_sub: active
+  action: PATCH NOW + AUDIT INGRESS LOG
+  index: '01'
+top_right:
+  tag: AitM TAKEDOWN
+  theme: amber
+  visual: data_exfil
+  headline: Europol 64K AitM Bust
+  subheadline: Europol-led action dismantles 64000-account AitM phishing operation
+  kpi_value: 64K
+  kpi_label: AitM
+  kpi_sub: phish
+  index: '02'
+bottom_right:
+  tag: CISCO FMC
+  theme: blue
+  visual: code_injection
+  headline: Cisco FMC Privilege Bug
+  subheadline: Cisco Firepower Management Center vulnerability enables local privilege escalation
+  kpi_value: FMC
+  kpi_label: LPE
+  kpi_sub: Cisco
+  index: '03'

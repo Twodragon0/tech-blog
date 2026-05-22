@@ -1,372 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly metro map: JWT Auth Breach, Bitcoin $10.3M Heist, AI Governance 7 Principles">
-<title>JWT Auth Breach, Iran Bitcoin $10.3M Heist, Financial AI Governance — 2026.03.04</title>
-<!-- profile: high-quality-cover (L21 Metro Map, research-based, batch3a-locked) -->
-<defs>
-  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#0A1020"/>
-    <stop offset="50%" stop-color="#0C1630"/>
-    <stop offset="100%" stop-color="#0F1A3A"/>
-  </linearGradient>
-  <radialGradient id="pulseRed" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#FF4D5E" stop-opacity="1"/>
-    <stop offset="60%" stop-color="#E63946" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#E63946" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="pulseAmber" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#FFC43D" stop-opacity="1"/>
-    <stop offset="60%" stop-color="#FFA107" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#FFA107" stop-opacity="0"/>
-  </radialGradient>
-  <radialGradient id="pulseCyan" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#5FD3F3" stop-opacity="1"/>
-    <stop offset="60%" stop-color="#2AA8CE" stop-opacity="0.45"/>
-    <stop offset="100%" stop-color="#2AA8CE" stop-opacity="0"/>
-  </radialGradient>
-  <pattern id="dotGrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-    <circle cx="15" cy="15" r="0.7" fill="#2E3A66" opacity="0.55"/>
-  </pattern>
-  <filter id="stationShadow" x="-20%" y="-20%" width="140%" height="140%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="2.2"/>
-    <feOffset dx="0" dy="2"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.6"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="textShadow" x="-5%" y="-5%" width="110%" height="120%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
-    <feOffset dx="1" dy="1.5"/>
-    <feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer>
-    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="glowRed" x="-10%" y="-50%" width="120%" height="200%">
-    <feGaussianBlur stdDeviation="3"/>
-  </filter>
-  <filter id="glowAmber" x="-10%" y="-50%" width="120%" height="200%">
-    <feGaussianBlur stdDeviation="3"/>
-  </filter>
-  <filter id="glowCyan" x="-10%" y="-50%" width="120%" height="200%">
-    <feGaussianBlur stdDeviation="3"/>
-  </filter>
-<filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-
-<!-- Background -->
-<rect width="1200" height="630" fill="url(#bgGrad)"/>
-<rect width="1200" height="630" fill="url(#dotGrid)"/>
-
-<!-- Subtle map guides -->
-<g opacity="0.12" stroke="#4A6AA0" stroke-width="0.6" fill="none">
-  <line x1="0" y1="150" x2="1200" y2="150">
-    <animate attributeName="opacity" values="0.08;0.18;0.08" dur="6s" repeatCount="indefinite"/>
-  </line>
-  <line x1="0" y1="310" x2="1200" y2="310">
-    <animate attributeName="opacity" values="0.08;0.18;0.08" dur="6s" repeatCount="indefinite" begin="1s"/>
-  </line>
-  <line x1="0" y1="470" x2="1200" y2="470">
-    <animate attributeName="opacity" values="0.08;0.18;0.08" dur="6s" repeatCount="indefinite" begin="2s"/>
-  </line>
-  <line x1="200" y1="0" x2="200" y2="630"/>
-  <line x1="450" y1="0" x2="450" y2="630"/>
-  <line x1="700" y1="0" x2="700" y2="630"/>
-  <line x1="950" y1="0" x2="950" y2="630"/>
-</g>
-
-<!-- Header -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Weekly digest cover 2026.03.04: JWT Signing Key Leak, DNS Tunnel Ransomware, Cloud Exposure Surge">
+<!-- profile: high-quality-cover (L20 Hero+2-Card) -->
+<title>Weekly digest 2026-03-04: JWT signing key leak, ransomware DNS exfil, cloud exposure</title>
+<defs><linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0B1326"/><stop offset="55%" stop-color="#0D1530"/><stop offset="100%" stop-color="#141034"/></linearGradient><linearGradient id="heroPanel" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1A0A08"/><stop offset="100%" stop-color="#110608"/></linearGradient><linearGradient id="heroPanelBlue" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0A1A30"/><stop offset="100%" stop-color="#071426"/></linearGradient><linearGradient id="heroPanelAmber" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#1A1208"/><stop offset="100%" stop-color="#120E06"/></linearGradient><linearGradient id="heroPanelGreen" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#08160E"/><stop offset="100%" stop-color="#04100A"/></linearGradient><linearGradient id="heroPanelPurple" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#110629"/><stop offset="100%" stop-color="#0A0418"/></linearGradient><radialGradient id="hotRed" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E63946" stop-opacity="0.6"/><stop offset="100%" stop-color="#E63946" stop-opacity="0"/></radialGradient><radialGradient id="hotBlue" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#3A86FF" stop-opacity="0.5"/><stop offset="100%" stop-color="#3A86FF" stop-opacity="0"/></radialGradient><radialGradient id="hotAmber" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFB703" stop-opacity="0.45"/><stop offset="100%" stop-color="#FFB703" stop-opacity="0"/></radialGradient><radialGradient id="hotGreen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0.45"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></radialGradient><radialGradient id="hotPurple" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.45"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></radialGradient><pattern id="envGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.8" fill="#2A3256" opacity="0.55"/></pattern><filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="3"/><feOffset dx="2" dy="4"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="textShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="1" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.7"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1200" height="630" fill="url(#bgSpread)"/>
+<rect width="1200" height="630" fill="url(#envGrid)"/>
+<circle cx="310" cy="310" r="160" fill="url(#hotRed)"><animate attributeName="opacity" values="0.6;1;0.6" dur="5.8s" repeatCount="indefinite"/></circle><circle cx="950" cy="210" r="120" fill="url(#hotBlue)"><animate attributeName="opacity" values="0.45;0.85;0.45" dur="6.4s" repeatCount="indefinite"/></circle><circle cx="970" cy="480" r="110" fill="url(#hotAmber)"><animate attributeName="opacity" values="0.4;0.75;0.4" dur="7.1s" repeatCount="indefinite"/></circle><g fill="#8FB8FF"><circle cx="180" cy="70" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3.4s" repeatCount="indefinite"/></circle><circle cx="440" cy="62" r="1"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="4.2s" repeatCount="indefinite"/></circle><circle cx="740" cy="68" r="1.3"><animate attributeName="opacity" values="0.25;1;0.25" dur="3.9s" repeatCount="indefinite"/></circle><circle cx="1060" cy="74" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.1s" repeatCount="indefinite"/></circle><circle cx="90" cy="580" r="1"><animate attributeName="opacity" values="0.15;0.8;0.15" dur="4.7s" repeatCount="indefinite"/></circle><circle cx="550" cy="590" r="0.8"><animate attributeName="opacity" values="0.2;0.75;0.2" dur="3.6s" begin="0.5s" repeatCount="indefinite"/></circle></g>
+<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>
+<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>
+<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" text-anchor="end">2026.03.04</text>
+<rect x="0" y="54" width="1200" height="2" fill="#E63946" opacity="0.85"><animate attributeName="opacity" values="0.4;1;0.4" dur="4.8s" repeatCount="indefinite"/></rect>
+<rect x="32" y="80" width="600" height="510" rx="14" ry="14" fill="url(#heroPanel)" stroke="#E63946" stroke-width="1.8" opacity="0.98"/>
+<circle cx="160" cy="300" r="240" fill="url(#hotRed)" opacity="0.28"/>
+<rect x="32" y="80" width="600" height="4" fill="#E63946" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="3.4s" repeatCount="indefinite"/></rect>
 <g filter="url(#textShadow)">
-  <text x="60" y="56" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#E9EEF8" letter-spacing="1.2">
-    WEEKLY SECURITY
-    <animate attributeName="fill" values="#E9EEF8;#8FB8FF;#E9EEF8" dur="6s" repeatCount="indefinite"/>
-  </text>
-  <text x="60" y="84" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="500" fill="#7A90C0" letter-spacing="2">METRO THREAT MAP -- 2026.03.04</text>
+<text x="54" y="112" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#F87171" letter-spacing="3">JWT KEY LEAK  /  01</text>
+<text x="54" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="31" font-weight="800" fill="#F8FAFC">JWT Signing Key Leak</text>
+<text x="54" y="174" font-family="Inter, Helvetica, Arial, sans-serif" font-size="17" font-weight="500" fill="#FBB6BD">Leaked JWT signing key collapses authentication trust boundary</text>
 </g>
-
-<!-- Legend top-right -->
-<g transform="translate(960,50)" filter="url(#textShadow)">
-  <rect x="-6" y="-28" width="222" height="56" rx="10" fill="#14213E" stroke="#3A4E82" stroke-width="1.2">
-    <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
-  </rect>
-  <circle cx="8" cy="0" r="5" fill="#E63946">
-    <animate attributeName="r" values="5;6.5;5" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <text x="20" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">JWT HIGH</text>
-  <circle cx="96" cy="0" r="5" fill="#FFA107">
-    <animate attributeName="r" values="5;6.5;5" dur="2.4s" repeatCount="indefinite"/>
-  </circle>
-  <text x="108" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">BTC HIGH</text>
-  <circle cx="184" cy="0" r="5" fill="#2AA8CE">
-    <animate attributeName="r" values="5;6.5;5" dur="2.8s" repeatCount="indefinite"/>
-  </circle>
-  <text x="196" y="5" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#E9EEF8">AI MED</text>
+<g transform="translate(332,360)" filter="url(#softShadow)"><rect x="-160" y="-110" width="320" height="220" rx="10" fill="#0A0C16" stroke="#E63946" stroke-width="1.4" opacity="0.95"/><text x="0" y="-86" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#F87171" letter-spacing="2">CVE REGRESSION CHAIN</text><g transform="translate(-140,-70)"><rect x="0" y="0" width="280" height="50" rx="6" fill="#1E0A14" stroke="#F87171" stroke-width="1.2"/><text x="10" y="18" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#F87171">PRIOR CVE</text><text x="10" y="33" font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FBB6BD">Original flaw  /  patched</text><text x="10" y="44" font-family="Inter, monospace" font-size="8" font-weight="500" fill="#FBB6BD" opacity="0.8">Partial fix earlier</text><rect x="226" y="6" width="48" height="14" rx="3" fill="#7A0000" stroke="#E63946" stroke-width="1"><animate attributeName="opacity" values="0.7;1;0.7" dur="1.6s" repeatCount="indefinite"/></rect><text x="250" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFE4E6">PATCHED</text></g><g transform="translate(-12,-12)"><path d="M0 0 L0 22 L-6 14 M0 22 L6 14" stroke="#E63946" stroke-width="1.8" fill="none" stroke-linecap="round"/><text x="14" y="14" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#F87171">REGRESSED</text></g><g transform="translate(-140,16)"><rect x="0" y="0" width="280" height="50" rx="6" fill="#2A0808" stroke="#E63946" stroke-width="2"><animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/></rect><text x="10" y="18" font-family="Inter, monospace" font-size="11" font-weight="800" fill="#F5F7FA">NEW CVE</text><text x="10" y="33" font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FFB703">Active exploitation</text><text x="10" y="44" font-family="Inter, monospace" font-size="8" font-weight="500" fill="#E0C0A0" opacity="0.8">Production hosts at risk</text><rect x="232" y="6" width="42" height="14" rx="3" fill="#E63946"><animate attributeName="opacity" values="0.8;1;0.8" dur="1.2s" repeatCount="indefinite"/></rect><text x="253" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFFFFF">ACTIVE</text></g><g transform="translate(-140,80)"><rect x="0" y="0" width="280" height="22" rx="4" fill="#0E1220" stroke="#3A86FF" stroke-width="1"/><text x="140" y="15" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#8FB8FF">PATCH UPSTREAM NOW</text></g></g>
+<g transform="translate(54,548)">
+<rect x="0" y="0" width="280" height="24" rx="3" fill="#E63946" opacity="0.95"/>
+<text x="140" y="17" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">ROTATE JWT KEYS + INVALIDATE TOKENS</text>
 </g>
-
-<!-- ==================== LINE 1: JWT Auth Breach (RED) y=170 ==================== -->
-<g>
-  <line x1="120" y1="170" x2="1080" y2="170" stroke="#E63946" stroke-width="18" stroke-linecap="round" opacity="0.25" filter="url(#glowRed)">
-    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite"/>
-  </line>
-  <line x1="120" y1="170" x2="1080" y2="170" stroke="#E63946" stroke-width="9" stroke-linecap="round"/>
-
-  <!-- L1 Badge -->
-  <g transform="translate(60,170)" filter="url(#textShadow)">
-    <rect x="-8" y="-16" width="60" height="32" rx="6" fill="#E63946">
-      <animate attributeName="fill" values="#E63946;#FF6B7A;#E63946" dur="4s" repeatCount="indefinite"/>
-    </rect>
-    <text x="22" y="6" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" text-anchor="middle">L1</text>
-  </g>
-
-  <!-- Animated traveler L1 -->
-  <circle r="10" fill="#FFE1E4" stroke="#FFFFFF" stroke-width="2">
-    <animate attributeName="cx" values="120;1080;120" dur="9s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="170;170;170" dur="9s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;1;1;0" dur="9s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Station A: Key Leak -->
-  <g transform="translate(200,170)">
-    <circle r="18" fill="url(#pulseRed)">
-      <animate attributeName="r" values="18;28;18" dur="2.8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="12" fill="#0A1020" stroke="#E63946" stroke-width="4" filter="url(#stationShadow)"/>
-    <circle r="4" fill="#FF4D5E">
-      <animate attributeName="opacity" values="1;0.3;1" dur="1.4s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="200" y="138" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle">Key Leak</text>
-    <text x="200" y="212" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB8BE" text-anchor="middle">.env / Git</text>
-  </g>
-
-  <!-- Station B: Token Forge -->
-  <g transform="translate(420,170)">
-    <circle r="16" fill="#0A1020" stroke="#E63946" stroke-width="4" filter="url(#stationShadow)"/>
-    <circle r="6" fill="#E63946">
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
-      <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="420" y="138" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#FFE1E4" text-anchor="middle">Token Forge</text>
-    <text x="420" y="212" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB8BE" text-anchor="middle">T1134 Claim</text>
-  </g>
-
-  <!-- Station C: Auth Bypass -->
-  <g transform="translate(640,170)">
-    <rect x="-18" y="-14" width="36" height="28" fill="#0A1020" stroke="#E63946" stroke-width="4" filter="url(#stationShadow)">
-      <animate attributeName="stroke-width" values="4;5;4" dur="2.5s" repeatCount="indefinite"/>
-    </rect>
-    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="900" fill="#FF4D5E">JWT</text>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="640" y="138" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle">Auth Bypass</text>
-    <text x="640" y="212" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB8BE" text-anchor="middle">T1078</text>
-  </g>
-
-  <!-- Station D: Priv Escalation -->
-  <g transform="translate(860,170)">
-    <polygon points="-14,-14 14,-14 0,14" fill="#0A1020" stroke="#E63946" stroke-width="4" filter="url(#stationShadow)">
-      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="14s" repeatCount="indefinite"/>
-    </polygon>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="860" y="138" font-family="Helvetica, Arial, sans-serif" font-size="17" font-weight="800" fill="#FFFFFF" text-anchor="middle">Priv Escalate</text>
-    <text x="860" y="212" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB8BE" text-anchor="middle">user-&gt;admin</text>
-  </g>
-
-  <!-- Terminus: Lateral Move -->
-  <g transform="translate(1050,170)">
-    <circle r="22" fill="none" stroke="#E63946" stroke-width="3" stroke-dasharray="4 3">
-      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="8s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="14" fill="#E63946" filter="url(#stationShadow)">
-      <animate attributeName="fill" values="#E63946;#FF4D5E;#E63946" dur="2s" repeatCount="indefinite"/>
-    </circle>
-    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" font-weight="900" fill="#FFFFFF">MOVE</text>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="1050" y="138" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#FFE1E4" text-anchor="middle">Lateral Move</text>
-  </g>
-</g>
-
-<!-- ==================== LINE 2: Bitcoin Iran $10.3M Heist (AMBER) y=330 ==================== -->
-<g>
-  <line x1="120" y1="330" x2="1080" y2="330" stroke="#FFA107" stroke-width="18" stroke-linecap="round" opacity="0.25" filter="url(#glowAmber)">
-    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite" begin="0.7s"/>
-  </line>
-  <line x1="120" y1="330" x2="1080" y2="330" stroke="#FFA107" stroke-width="9" stroke-linecap="round"/>
-
-  <!-- L2 Badge -->
-  <g transform="translate(60,330)" filter="url(#textShadow)">
-    <rect x="-8" y="-16" width="60" height="32" rx="6" fill="#FFA107">
-      <animate attributeName="fill" values="#FFA107;#FFC43D;#FFA107" dur="4s" repeatCount="indefinite"/>
-    </rect>
-    <text x="22" y="6" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="900" fill="#1A1202" text-anchor="middle">L2</text>
-  </g>
-
-  <!-- Animated traveler L2 -->
-  <circle r="10" fill="#FFF0C9" stroke="#FFFFFF" stroke-width="2">
-    <animate attributeName="cx" values="120;1080;120" dur="10s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="330;330;330" dur="10s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;1;1;0" dur="10s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Station A: Strike Trigger -->
-  <g transform="translate(200,330)">
-    <circle r="18" fill="url(#pulseAmber)">
-      <animate attributeName="r" values="18;26;18" dur="3.2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="12" fill="#0A1020" stroke="#FFA107" stroke-width="4" filter="url(#stationShadow)"/>
-    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#FFC43D">STRIKE</text>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="200" y="298" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">US-Israel Strike</text>
-    <text x="200" y="372" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFD27A" text-anchor="middle">Geopolitical Trigger</text>
-  </g>
-
-  <!-- Station B: Exchange Breach -->
-  <g transform="translate(420,330)">
-    <circle r="16" fill="#0A1020" stroke="#FFA107" stroke-width="4" filter="url(#stationShadow)"/>
-    <circle r="6" fill="#FFA107">
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" repeatCount="indefinite"/>
-      <animate attributeName="r" values="6;8;6" dur="2.2s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="420" y="298" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">Iran Exchange</text>
-    <text x="420" y="372" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFD27A" text-anchor="middle">Breach</text>
-  </g>
-
-  <!-- Station C: BTC Drain -->
-  <g transform="translate(640,330)">
-    <rect x="-14" y="-14" width="28" height="28" rx="3" fill="#0A1020" stroke="#FFA107" stroke-width="4" filter="url(#stationShadow)">
-      <animate attributeName="stroke-width" values="4;5;4" dur="2.5s" repeatCount="indefinite" begin="0.4s"/>
-    </rect>
-    <text y="4" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="900" fill="#FFC43D">BTC</text>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="640" y="298" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">Wallet Drain</text>
-    <text x="640" y="372" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFD27A" text-anchor="middle">On-chain move</text>
-  </g>
-
-  <!-- Station D: Chainalysis Trace -->
-  <g transform="translate(860,330)">
-    <polygon points="0,-16 14,8 -14,8" fill="#0A1020" stroke="#FFA107" stroke-width="4" filter="url(#stationShadow)">
-      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="16s" repeatCount="indefinite"/>
-    </polygon>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="860" y="298" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">Chainalysis</text>
-    <text x="860" y="372" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#FFD27A" text-anchor="middle">On-chain Trace</text>
-  </g>
-
-  <!-- Terminus: $10.3M -->
-  <g transform="translate(1050,330)">
-    <circle r="22" fill="none" stroke="#FFA107" stroke-width="3" stroke-dasharray="4 3">
-      <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="9s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="14" fill="#FFA107" filter="url(#stationShadow)">
-      <animate attributeName="fill" values="#FFA107;#FFC43D;#FFA107" dur="2.4s" repeatCount="indefinite"/>
-    </circle>
-    <text y="4" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="8" font-weight="900" fill="#1A1202">$10.3M</text>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="1050" y="298" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="800" fill="#FFE7B5" text-anchor="middle">$10.3M BTC</text>
-  </g>
-</g>
-
-<!-- ==================== LINE 3: AI Governance 7 Principles (CYAN) y=490 ==================== -->
-<g>
-  <line x1="120" y1="490" x2="1080" y2="490" stroke="#2AA8CE" stroke-width="18" stroke-linecap="round" opacity="0.25" filter="url(#glowCyan)">
-    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="3s" repeatCount="indefinite" begin="1.4s"/>
-  </line>
-  <line x1="120" y1="490" x2="1080" y2="490" stroke="#2AA8CE" stroke-width="9" stroke-linecap="round"/>
-
-  <!-- L3 Badge -->
-  <g transform="translate(60,490)" filter="url(#textShadow)">
-    <rect x="-8" y="-16" width="60" height="32" rx="6" fill="#2AA8CE">
-      <animate attributeName="fill" values="#2AA8CE;#5FD3F3;#2AA8CE" dur="4s" repeatCount="indefinite"/>
-    </rect>
-    <text x="22" y="6" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="900" fill="#061622" text-anchor="middle">L3</text>
-  </g>
-
-  <!-- Animated traveler L3 -->
-  <circle r="10" fill="#CFF0FA" stroke="#FFFFFF" stroke-width="2">
-    <animate attributeName="cx" values="120;1080;120" dur="11s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="490;490;490" dur="11s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;1;1;0" dur="11s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Station A: Risk Control -->
-  <g transform="translate(200,490)">
-    <circle r="18" fill="url(#pulseCyan)">
-      <animate attributeName="r" values="18;26;18" dur="3.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="12" fill="#0A1020" stroke="#2AA8CE" stroke-width="4" filter="url(#stationShadow)"/>
-    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#5FD3F3">RISK</text>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="200" y="458" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">Risk Control</text>
-    <text x="200" y="532" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#9FE3F7" text-anchor="middle">Principle 1</text>
-  </g>
-
-  <!-- Station B: Transparency -->
-  <g transform="translate(420,490)">
-    <circle r="16" fill="#0A1020" stroke="#2AA8CE" stroke-width="4" filter="url(#stationShadow)"/>
-    <circle r="6" fill="#2AA8CE">
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/>
-      <animate attributeName="r" values="6;8;6" dur="2.4s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="420" y="458" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">Transparency</text>
-    <text x="420" y="532" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#9FE3F7" text-anchor="middle">Principle 3</text>
-  </g>
-
-  <!-- Station C: Accountability -->
-  <g transform="translate(640,490)">
-    <rect x="-16" y="-12" width="32" height="24" rx="3" fill="#0A1020" stroke="#2AA8CE" stroke-width="4" filter="url(#stationShadow)">
-      <animate attributeName="stroke-width" values="4;5;4" dur="2.5s" repeatCount="indefinite" begin="0.6s"/>
-    </rect>
-    <text y="4" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9" font-weight="900" fill="#5FD3F3">GOV</text>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="640" y="458" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">Accountability</text>
-    <text x="640" y="532" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#9FE3F7" text-anchor="middle">Principle 5</text>
-  </g>
-
-  <!-- Station D: Human Oversight -->
-  <g transform="translate(860,490)">
-    <polygon points="-14,-12 14,-12 14,12 -14,12" fill="#0A1020" stroke="#2AA8CE" stroke-width="4" filter="url(#stationShadow)">
-      <animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
-    </polygon>
-    <text y="4" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="8" font-weight="900" fill="#5FD3F3">HUMAN</text>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="860" y="458" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">Human Oversight</text>
-    <text x="860" y="532" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#9FE3F7" text-anchor="middle">Principle 6</text>
-  </g>
-
-  <!-- Terminus: 7 Principles -->
-  <g transform="translate(1050,490)">
-    <circle r="22" fill="none" stroke="#2AA8CE" stroke-width="3" stroke-dasharray="4 3">
-      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="10s" repeatCount="indefinite"/>
-    </circle>
-    <circle r="14" fill="#2AA8CE" filter="url(#stationShadow)">
-      <animate attributeName="fill" values="#2AA8CE;#5FD3F3;#2AA8CE" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-    <text y="5" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="900" fill="#061622">7P</text>
-  </g>
-  <g filter="url(#textShadow)">
-    <text x="1050" y="458" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#CFF0FA" text-anchor="middle">AI Gov 7 Prin.</text>
-  </g>
-</g>
-
-<!-- Footer -->
+<text x="350" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#A5B4C4" font-style="italic">Weekly Digest  /  2026.03.04</text>
+<rect x="652" y="80" width="516" height="248" rx="14" ry="14" fill="url(#heroPanelAmber)" stroke="#FFB703" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="80" width="516" height="4" fill="#FFB703" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.2s" repeatCount="indefinite"/></rect>
 <g filter="url(#textShadow)">
-  <text x="60" y="592" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#4A6090" letter-spacing="1">L1: JWT Auth Breach  |  L2: Bitcoin $10.3M Heist  |  L3: Financial AI Governance  |  tech.2twodragon.com</text>
+<text x="670" y="110" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFB703" letter-spacing="3">RANSOMWARE  /  02</text>
+<text x="670" y="140" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">DNS Tunnel Ransomware</text>
+<text x="670" y="163" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FFD58A">Ransomware crews chain DNS tunnels to stage data</text>
 </g>
-
-<!-- cover-qr: https://tech.2twodragon.com/posts/2026/03/04/Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin/ : 41x41 -->
+<g transform="translate(800,230)"><g transform="translate(-100,-90)" filter="url(#softShadow)"><rect x="0" y="32" width="80" height="64" rx="8" fill="#FFB703"/><path d="M14 32 L14 16 Q40 -6 66 16 L66 32" stroke="#FFB703" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="40" cy="60" r="6" fill="#FFFFFF"/><rect x="38" y="62" width="4" height="14" fill="#FFFFFF"/><text x="40" y="116" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#FFD58A">LOCKED</text></g><g transform="translate(20,-90)" filter="url(#softShadow)"><rect x="0" y="0" width="180" height="180" rx="8" fill="#0A0C16" stroke="#FFB703" stroke-width="1.4"/><text x="90" y="22" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="#F87171">RANSOM NOTE</text><line x1="14" y1="32" x2="166" y2="32" stroke="#FFB703" stroke-width="0.8" opacity="0.6"/><g font-family="Inter, monospace" font-size="9" font-weight="600" fill="#FCA5A5"><text x="14" y="50">Files encrypted: 100%</text><text x="14" y="68">AES-256 + RSA-4096</text><text x="14" y="86">Backups deleted</text><text x="14" y="104">Volume shadow wiped</text></g><rect x="14" y="118" width="152" height="22" rx="3" fill="#2A0808" stroke="#FFB703" stroke-width="1.2"><animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite"/></rect><text x="90" y="133" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#FFFFFF">PAY OR LOSE DATA</text><g transform="translate(14,148)" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FFB703"><rect x="0" y="0" width="152" height="20" rx="3" fill="#1A1208" stroke="#FFB703" stroke-width="1"/><text x="76" y="14" text-anchor="middle">countdown  /  72h window</text></g></g></g>
+<g transform="translate(1094,168)" filter="url(#softShadow)"><rect x="-68" y="-55" width="140" height="110" rx="10" fill="#1A1208" stroke="#FFB703" stroke-width="2"/><text x="2" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#FFB703">TUNNEL</text><text x="2" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">DNS</text><text x="2" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#FFD58A">ransom</text></g>
+<rect x="652" y="344" width="516" height="246" rx="14" ry="14" fill="url(#heroPanelBlue)" stroke="#3A86FF" stroke-width="1.6" opacity="0.97"/>
+<rect x="652" y="344" width="516" height="4" fill="#3A86FF" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.8s" repeatCount="indefinite"/></rect>
+<g filter="url(#textShadow)">
+<text x="670" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#7DA3D9" letter-spacing="3">CLOUD EXPOSE  /  03</text>
+<text x="670" y="404" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">Cloud Exposure Surge</text>
+<text x="670" y="428" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">Public cloud storage misconfigurations expose</text>
+</g>
+<g transform="translate(800,490)"><g filter="url(#softShadow)"><rect x="-95" y="-110" width="190" height="100" rx="10" fill="#0A1B2E" stroke="#2CCCE4" stroke-width="2"/><g transform="translate(-81,-96)" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#0A1020"><rect x="0" y="48" width="162" height="22" rx="3" fill="#2CCCE4" opacity="0.9"/><rect x="0" y="24" width="162" height="20" rx="3" fill="#2CCCE4" opacity="0.72"/><rect x="0" y="0" width="162" height="20" rx="3" fill="#2CCCE4" opacity="0.55"/><text x="81" y="62" text-anchor="middle">APP LAYER</text><text x="81" y="37" text-anchor="middle">RUNTIME</text><text x="81" y="13" text-anchor="middle">CONTAINER</text></g><text x="0" y="-22" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#2CCCE4">container API</text></g><g transform="translate(-65,-126)" filter="url(#softShadow)"><rect x="0" y="0" width="130" height="16" rx="3" fill="#3A86FF"><animate attributeName="opacity" values="0.85;1;0.85" dur="1.5s" repeatCount="indefinite"/></rect><text x="65" y="11" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#FFFFFF">BYPASS AUTHZ</text></g><g transform="translate(0,-4)"><path d="M0 0 L0 44" stroke="#3A86FF" stroke-width="2.4" stroke-dasharray="4 3" fill="none"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.2s" repeatCount="indefinite"/></path><g fill="#60A5FA"><circle r="3.2"><animateMotion path="M0 -4 L0 46" dur="2.2s" repeatCount="indefinite"/></circle><circle r="2.4" opacity="0.7"><animateMotion path="M0 -4 L0 46" dur="2.2s" begin="0.7s" repeatCount="indefinite"/></circle></g></g><circle cx="0" cy="40" r="22" fill="#3A86FF" opacity="0.35"><animate attributeName="r" values="16;28;16" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/></circle><g transform="translate(-95,50)" filter="url(#softShadow)"><rect x="0" y="0" width="190" height="80" rx="10" fill="#1E0A0A" stroke="#3A86FF" stroke-width="2.2"/><path d="M62 0 L74 18 L86 0" stroke="#3A86FF" stroke-width="2" fill="none" stroke-linecap="round"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.4s" repeatCount="indefinite"/></path><text x="95" y="32" text-anchor="middle" font-family="Inter, monospace" font-size="14" font-weight="900" fill="#60A5FA">HOST KERNEL</text><text x="95" y="50" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#FCA5A5">root access achieved</text><g transform="translate(56,58)" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#FFF5F5"><rect x="0" y="0" width="78" height="18" rx="3" fill="#7A0000" stroke="#3A86FF" stroke-width="1.2"/><text x="39" y="13" text-anchor="middle">uid=0  PWNED</text></g></g></g>
+<g transform="translate(1094,452)" filter="url(#softShadow)"><rect x="-68" y="-55" width="140" height="110" rx="10" fill="#071426" stroke="#3A86FF" stroke-width="2"/><text x="2" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#7DA3D9">OPEN</text><text x="2" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#F5F7FA">S3</text><text x="2" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="#BFC9D9">buckets</text></g>
+<g opacity="0.85"><g fill="#F87171"><circle cx="1104" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="1124" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" begin="0.3s" repeatCount="indefinite"/></circle></g><g fill="#7DA3D9"><circle cx="1104" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/></circle><circle cx="1124" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.4s" repeatCount="indefinite"/></circle></g><g fill="#FFD58A"><circle cx="1104" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle><circle cx="1124" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.3s" repeatCount="indefinite"/></circle></g><g stroke="#E63946" stroke-width="0.5" fill="none"><path d="M20 230 L28 230"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path><path d="M20 300 L28 300"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.3s" repeatCount="indefinite"/></path><path d="M20 370 L28 370"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" begin="0.6s" repeatCount="indefinite"/></path><path d="M20 440 L28 440"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.9s" repeatCount="indefinite"/></path></g></g>
 <g transform="translate(1080,504)" filter="url(#softShadow)">
   <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>
   <path fill="#0A1020" d="M0.0 0.0h14.341v2.049h-14.341z M16.39 0.0h2.049v2.049h-2.049z M22.537 0.0h4.098v2.049h-4.098z M30.732 0.0h2.049v2.049h-2.049z M36.878 0.0h2.049v2.049h-2.049z M43.024 0.0h2.049v2.049h-2.049z M47.122 0.0h2.049v2.049h-2.049z M53.268 0.0h2.049v2.049h-2.049z M61.463 0.0h2.049v2.049h-2.049z M69.659 0.0h14.341v2.049h-14.341z M0.0 2.049h2.049v2.049h-2.049z M12.293 2.049h2.049v2.049h-2.049z M16.39 2.049h2.049v2.049h-2.049z M20.488 2.049h4.098v2.049h-4.098z M26.634 2.049h6.146v2.049h-6.146z M34.829 2.049h2.049v2.049h-2.049z M38.927 2.049h4.098v2.049h-4.098z M49.171 2.049h2.049v2.049h-2.049z M61.463 2.049h4.098v2.049h-4.098z M69.659 2.049h2.049v2.049h-2.049z M81.951 2.049h2.049v2.049h-2.049z M0.0 4.098h2.049v2.049h-2.049z M4.098 4.098h6.146v2.049h-6.146z M12.293 4.098h2.049v2.049h-2.049z M16.39 4.098h8.195v2.049h-8.195z M26.634 4.098h12.293v2.049h-12.293z M43.024 4.098h2.049v2.049h-2.049z M51.22 4.098h2.049v2.049h-2.049z M55.317 4.098h2.049v2.049h-2.049z M63.512 4.098h4.098v2.049h-4.098z M69.659 4.098h2.049v2.049h-2.049z M73.756 4.098h6.146v2.049h-6.146z M81.951 4.098h2.049v2.049h-2.049z M0.0 6.146h2.049v2.049h-2.049z M4.098 6.146h6.146v2.049h-6.146z M12.293 6.146h2.049v2.049h-2.049z M22.537 6.146h4.098v2.049h-4.098z M32.78 6.146h2.049v2.049h-2.049z M45.073 6.146h2.049v2.049h-2.049z M51.22 6.146h4.098v2.049h-4.098z M59.415 6.146h2.049v2.049h-2.049z M69.659 6.146h2.049v2.049h-2.049z M73.756 6.146h6.146v2.049h-6.146z M81.951 6.146h2.049v2.049h-2.049z M0.0 8.195h2.049v2.049h-2.049z M4.098 8.195h6.146v2.049h-6.146z M12.293 8.195h2.049v2.049h-2.049z M16.39 8.195h2.049v2.049h-2.049z M22.537 8.195h6.146v2.049h-6.146z M32.78 8.195h2.049v2.049h-2.049z M36.878 8.195h2.049v2.049h-2.049z M43.024 8.195h6.146v2.049h-6.146z M53.268 8.195h2.049v2.049h-2.049z M59.415 8.195h2.049v2.049h-2.049z M63.512 8.195h4.098v2.049h-4.098z M69.659 8.195h2.049v2.049h-2.049z M73.756 8.195h6.146v2.049h-6.146z M81.951 8.195h2.049v2.049h-2.049z M0.0 10.244h2.049v2.049h-2.049z M12.293 10.244h2.049v2.049h-2.049z M26.634 10.244h2.049v2.049h-2.049z M30.732 10.244h4.098v2.049h-4.098z M40.976 10.244h8.195v2.049h-8.195z M51.22 10.244h2.049v2.049h-2.049z M57.366 10.244h4.098v2.049h-4.098z M69.659 10.244h2.049v2.049h-2.049z M81.951 10.244h2.049v2.049h-2.049z M0.0 12.293h14.341v2.049h-14.341z M16.39 12.293h2.049v2.049h-2.049z M20.488 12.293h2.049v2.049h-2.049z M24.585 12.293h2.049v2.049h-2.049z M28.683 12.293h2.049v2.049h-2.049z M32.78 12.293h2.049v2.049h-2.049z M36.878 12.293h2.049v2.049h-2.049z M40.976 12.293h2.049v2.049h-2.049z M45.073 12.293h2.049v2.049h-2.049z M49.171 12.293h2.049v2.049h-2.049z M53.268 12.293h2.049v2.049h-2.049z M57.366 12.293h2.049v2.049h-2.049z M61.463 12.293h2.049v2.049h-2.049z M65.561 12.293h2.049v2.049h-2.049z M69.659 12.293h14.341v2.049h-14.341z M18.439 14.341h2.049v2.049h-2.049z M22.537 14.341h2.049v2.049h-2.049z M26.634 14.341h2.049v2.049h-2.049z M32.78 14.341h2.049v2.049h-2.049z M36.878 14.341h2.049v2.049h-2.049z M47.122 14.341h2.049v2.049h-2.049z M51.22 14.341h4.098v2.049h-4.098z M61.463 14.341h2.049v2.049h-2.049z M65.561 14.341h2.049v2.049h-2.049z M0.0 16.39h2.049v2.049h-2.049z M6.146 16.39h18.439v2.049h-18.439z M28.683 16.39h4.098v2.049h-4.098z M34.829 16.39h2.049v2.049h-2.049z M47.122 16.39h2.049v2.049h-2.049z M53.268 16.39h4.098v2.049h-4.098z M59.415 16.39h2.049v2.049h-2.049z M63.512 16.39h6.146v2.049h-6.146z M73.756 16.39h2.049v2.049h-2.049z M77.854 16.39h6.146v2.049h-6.146z M0.0 18.439h2.049v2.049h-2.049z M4.098 18.439h2.049v2.049h-2.049z M8.195 18.439h2.049v2.049h-2.049z M14.341 18.439h4.098v2.049h-4.098z M22.537 18.439h10.244v2.049h-10.244z M36.878 18.439h6.146v2.049h-6.146z M45.073 18.439h4.098v2.049h-4.098z M55.317 18.439h4.098v2.049h-4.098z M61.463 18.439h4.098v2.049h-4.098z M67.61 18.439h8.195v2.049h-8.195z M2.049 20.488h4.098v2.049h-4.098z M8.195 20.488h2.049v2.049h-2.049z M12.293 20.488h6.146v2.049h-6.146z M22.537 20.488h6.146v2.049h-6.146z M36.878 20.488h2.049v2.049h-2.049z M40.976 20.488h16.39v2.049h-16.39z M59.415 20.488h4.098v2.049h-4.098z M67.61 20.488h2.049v2.049h-2.049z M73.756 20.488h2.049v2.049h-2.049z M77.854 20.488h2.049v2.049h-2.049z M0.0 22.537h4.098v2.049h-4.098z M10.244 22.537h2.049v2.049h-2.049z M16.39 22.537h2.049v2.049h-2.049z M34.829 22.537h2.049v2.049h-2.049z M38.927 22.537h4.098v2.049h-4.098z M45.073 22.537h4.098v2.049h-4.098z M53.268 22.537h4.098v2.049h-4.098z M59.415 22.537h8.195v2.049h-8.195z M71.707 22.537h2.049v2.049h-2.049z M75.805 22.537h2.049v2.049h-2.049z M79.902 22.537h2.049v2.049h-2.049z M0.0 24.585h4.098v2.049h-4.098z M6.146 24.585h4.098v2.049h-4.098z M12.293 24.585h2.049v2.049h-2.049z M16.39 24.585h4.098v2.049h-4.098z M22.537 24.585h2.049v2.049h-2.049z M26.634 24.585h4.098v2.049h-4.098z M32.78 24.585h2.049v2.049h-2.049z M47.122 24.585h4.098v2.049h-4.098z M53.268 24.585h2.049v2.049h-2.049z M57.366 24.585h2.049v2.049h-2.049z M61.463 24.585h2.049v2.049h-2.049z M65.561 24.585h2.049v2.049h-2.049z M69.659 24.585h2.049v2.049h-2.049z M0.0 26.634h2.049v2.049h-2.049z M4.098 26.634h4.098v2.049h-4.098z M16.39 26.634h14.341v2.049h-14.341z M32.78 26.634h2.049v2.049h-2.049z M36.878 26.634h8.195v2.049h-8.195z M53.268 26.634h8.195v2.049h-8.195z M69.659 26.634h6.146v2.049h-6.146z M79.902 26.634h4.098v2.049h-4.098z M0.0 28.683h4.098v2.049h-4.098z M8.195 28.683h6.146v2.049h-6.146z M16.39 28.683h4.098v2.049h-4.098z M22.537 28.683h2.049v2.049h-2.049z M26.634 28.683h6.146v2.049h-6.146z M36.878 28.683h6.146v2.049h-6.146z M47.122 28.683h6.146v2.049h-6.146z M55.317 28.683h2.049v2.049h-2.049z M59.415 28.683h6.146v2.049h-6.146z M67.61 28.683h6.146v2.049h-6.146z M77.854 28.683h2.049v2.049h-2.049z M81.951 28.683h2.049v2.049h-2.049z M0.0 30.732h6.146v2.049h-6.146z M8.195 30.732h2.049v2.049h-2.049z M18.439 30.732h2.049v2.049h-2.049z M22.537 30.732h4.098v2.049h-4.098z M30.732 30.732h4.098v2.049h-4.098z M40.976 30.732h2.049v2.049h-2.049z M47.122 30.732h2.049v2.049h-2.049z M57.366 30.732h2.049v2.049h-2.049z M63.512 30.732h6.146v2.049h-6.146z M73.756 30.732h10.244v2.049h-10.244z M0.0 32.78h6.146v2.049h-6.146z M8.195 32.78h2.049v2.049h-2.049z M12.293 32.78h2.049v2.049h-2.049z M16.39 32.78h2.049v2.049h-2.049z M20.488 32.78h4.098v2.049h-4.098z M26.634 32.78h2.049v2.049h-2.049z M43.024 32.78h4.098v2.049h-4.098z M51.22 32.78h2.049v2.049h-2.049z M65.561 32.78h4.098v2.049h-4.098z M75.805 32.78h2.049v2.049h-2.049z M6.146 34.829h6.146v2.049h-6.146z M20.488 34.829h2.049v2.049h-2.049z M24.585 34.829h4.098v2.049h-4.098z M34.829 34.829h4.098v2.049h-4.098z M40.976 34.829h6.146v2.049h-6.146z M51.22 34.829h2.049v2.049h-2.049z M59.415 34.829h10.244v2.049h-10.244z M73.756 34.829h2.049v2.049h-2.049z M2.049 36.878h2.049v2.049h-2.049z M8.195 36.878h6.146v2.049h-6.146z M18.439 36.878h2.049v2.049h-2.049z M26.634 36.878h4.098v2.049h-4.098z M34.829 36.878h6.146v2.049h-6.146z M47.122 36.878h2.049v2.049h-2.049z M55.317 36.878h2.049v2.049h-2.049z M59.415 36.878h2.049v2.049h-2.049z M63.512 36.878h2.049v2.049h-2.049z M69.659 36.878h8.195v2.049h-8.195z M79.902 36.878h4.098v2.049h-4.098z M8.195 38.927h4.098v2.049h-4.098z M18.439 38.927h4.098v2.049h-4.098z M26.634 38.927h2.049v2.049h-2.049z M30.732 38.927h2.049v2.049h-2.049z M43.024 38.927h2.049v2.049h-2.049z M47.122 38.927h6.146v2.049h-6.146z M55.317 38.927h4.098v2.049h-4.098z M61.463 38.927h4.098v2.049h-4.098z M73.756 38.927h2.049v2.049h-2.049z M77.854 38.927h4.098v2.049h-4.098z M0.0 40.976h8.195v2.049h-8.195z M12.293 40.976h4.098v2.049h-4.098z M22.537 40.976h4.098v2.049h-4.098z M28.683 40.976h2.049v2.049h-2.049z M32.78 40.976h2.049v2.049h-2.049z M36.878 40.976h2.049v2.049h-2.049z M40.976 40.976h4.098v2.049h-4.098z M49.171 40.976h4.098v2.049h-4.098z M59.415 40.976h2.049v2.049h-2.049z M63.512 40.976h4.098v2.049h-4.098z M69.659 40.976h4.098v2.049h-4.098z M75.805 40.976h4.098v2.049h-4.098z M0.0 43.024h2.049v2.049h-2.049z M4.098 43.024h8.195v2.049h-8.195z M16.39 43.024h2.049v2.049h-2.049z M20.488 43.024h6.146v2.049h-6.146z M45.073 43.024h6.146v2.049h-6.146z M53.268 43.024h6.146v2.049h-6.146z M61.463 43.024h8.195v2.049h-8.195z M71.707 43.024h6.146v2.049h-6.146z M0.0 45.073h2.049v2.049h-2.049z M8.195 45.073h2.049v2.049h-2.049z M12.293 45.073h6.146v2.049h-6.146z M24.585 45.073h10.244v2.049h-10.244z M36.878 45.073h2.049v2.049h-2.049z M40.976 45.073h4.098v2.049h-4.098z M47.122 45.073h4.098v2.049h-4.098z M55.317 45.073h6.146v2.049h-6.146z M69.659 45.073h2.049v2.049h-2.049z M73.756 45.073h6.146v2.049h-6.146z M16.39 47.122h10.244v2.049h-10.244z M34.829 47.122h2.049v2.049h-2.049z M47.122 47.122h2.049v2.049h-2.049z M55.317 47.122h2.049v2.049h-2.049z M59.415 47.122h2.049v2.049h-2.049z M63.512 47.122h6.146v2.049h-6.146z M71.707 47.122h6.146v2.049h-6.146z M79.902 47.122h2.049v2.049h-2.049z M0.0 49.171h2.049v2.049h-2.049z M4.098 49.171h4.098v2.049h-4.098z M12.293 49.171h2.049v2.049h-2.049z M16.39 49.171h2.049v2.049h-2.049z M20.488 49.171h4.098v2.049h-4.098z M28.683 49.171h4.098v2.049h-4.098z M40.976 49.171h2.049v2.049h-2.049z M47.122 49.171h4.098v2.049h-4.098z M57.366 49.171h2.049v2.049h-2.049z M65.561 49.171h2.049v2.049h-2.049z M69.659 49.171h2.049v2.049h-2.049z M0.0 51.22h2.049v2.049h-2.049z M6.146 51.22h2.049v2.049h-2.049z M14.341 51.22h4.098v2.049h-4.098z M22.537 51.22h10.244v2.049h-10.244z M36.878 51.22h2.049v2.049h-2.049z M47.122 51.22h2.049v2.049h-2.049z M55.317 51.22h2.049v2.049h-2.049z M61.463 51.22h2.049v2.049h-2.049z M65.561 51.22h4.098v2.049h-4.098z M71.707 51.22h4.098v2.049h-4.098z M77.854 51.22h2.049v2.049h-2.049z M81.951 51.22h2.049v2.049h-2.049z M2.049 53.268h6.146v2.049h-6.146z M10.244 53.268h4.098v2.049h-4.098z M16.39 53.268h2.049v2.049h-2.049z M24.585 53.268h2.049v2.049h-2.049z M32.78 53.268h2.049v2.049h-2.049z M38.927 53.268h6.146v2.049h-6.146z M53.268 53.268h14.341v2.049h-14.341z M69.659 53.268h2.049v2.049h-2.049z M73.756 53.268h4.098v2.049h-4.098z M81.951 53.268h2.049v2.049h-2.049z M4.098 55.317h8.195v2.049h-8.195z M14.341 55.317h2.049v2.049h-2.049z M18.439 55.317h4.098v2.049h-4.098z M28.683 55.317h2.049v2.049h-2.049z M38.927 55.317h2.049v2.049h-2.049z M47.122 55.317h2.049v2.049h-2.049z M57.366 55.317h2.049v2.049h-2.049z M61.463 55.317h4.098v2.049h-4.098z M67.61 55.317h14.341v2.049h-14.341z M0.0 57.366h2.049v2.049h-2.049z M8.195 57.366h2.049v2.049h-2.049z M12.293 57.366h2.049v2.049h-2.049z M22.537 57.366h2.049v2.049h-2.049z M26.634 57.366h6.146v2.049h-6.146z M38.927 57.366h4.098v2.049h-4.098z M45.073 57.366h2.049v2.049h-2.049z M51.22 57.366h4.098v2.049h-4.098z M61.463 57.366h6.146v2.049h-6.146z M75.805 57.366h2.049v2.049h-2.049z M79.902 57.366h2.049v2.049h-2.049z M0.0 59.415h2.049v2.049h-2.049z M8.195 59.415h2.049v2.049h-2.049z M28.683 59.415h2.049v2.049h-2.049z M36.878 59.415h2.049v2.049h-2.049z M40.976 59.415h2.049v2.049h-2.049z M45.073 59.415h6.146v2.049h-6.146z M53.268 59.415h4.098v2.049h-4.098z M65.561 59.415h6.146v2.049h-6.146z M73.756 59.415h2.049v2.049h-2.049z M79.902 59.415h2.049v2.049h-2.049z M0.0 61.463h8.195v2.049h-8.195z M10.244 61.463h4.098v2.049h-4.098z M16.39 61.463h2.049v2.049h-2.049z M20.488 61.463h4.098v2.049h-4.098z M30.732 61.463h4.098v2.049h-4.098z M40.976 61.463h8.195v2.049h-8.195z M55.317 61.463h2.049v2.049h-2.049z M59.415 61.463h2.049v2.049h-2.049z M63.512 61.463h2.049v2.049h-2.049z M67.61 61.463h2.049v2.049h-2.049z M75.805 61.463h4.098v2.049h-4.098z M81.951 61.463h2.049v2.049h-2.049z M0.0 63.512h10.244v2.049h-10.244z M16.39 63.512h2.049v2.049h-2.049z M20.488 63.512h2.049v2.049h-2.049z M26.634 63.512h2.049v2.049h-2.049z M30.732 63.512h4.098v2.049h-4.098z M36.878 63.512h2.049v2.049h-2.049z M45.073 63.512h2.049v2.049h-2.049z M49.171 63.512h4.098v2.049h-4.098z M55.317 63.512h4.098v2.049h-4.098z M61.463 63.512h2.049v2.049h-2.049z M69.659 63.512h4.098v2.049h-4.098z M77.854 63.512h6.146v2.049h-6.146z M0.0 65.561h4.098v2.049h-4.098z M6.146 65.561h4.098v2.049h-4.098z M12.293 65.561h2.049v2.049h-2.049z M16.39 65.561h6.146v2.049h-6.146z M26.634 65.561h4.098v2.049h-4.098z M34.829 65.561h2.049v2.049h-2.049z M40.976 65.561h4.098v2.049h-4.098z M53.268 65.561h2.049v2.049h-2.049z M59.415 65.561h2.049v2.049h-2.049z M65.561 65.561h18.439v2.049h-18.439z M16.39 67.61h2.049v2.049h-2.049z M20.488 67.61h6.146v2.049h-6.146z M28.683 67.61h4.098v2.049h-4.098z M34.829 67.61h2.049v2.049h-2.049z M45.073 67.61h4.098v2.049h-4.098z M51.22 67.61h4.098v2.049h-4.098z M65.561 67.61h2.049v2.049h-2.049z M73.756 67.61h2.049v2.049h-2.049z M0.0 69.659h14.341v2.049h-14.341z M16.39 69.659h6.146v2.049h-6.146z M24.585 69.659h6.146v2.049h-6.146z M43.024 69.659h2.049v2.049h-2.049z M47.122 69.659h2.049v2.049h-2.049z M51.22 69.659h2.049v2.049h-2.049z M55.317 69.659h4.098v2.049h-4.098z M61.463 69.659h6.146v2.049h-6.146z M69.659 69.659h2.049v2.049h-2.049z M73.756 69.659h6.146v2.049h-6.146z M0.0 71.707h2.049v2.049h-2.049z M12.293 71.707h2.049v2.049h-2.049z M16.39 71.707h2.049v2.049h-2.049z M28.683 71.707h4.098v2.049h-4.098z M36.878 71.707h2.049v2.049h-2.049z M47.122 71.707h2.049v2.049h-2.049z M51.22 71.707h2.049v2.049h-2.049z M57.366 71.707h4.098v2.049h-4.098z M63.512 71.707h4.098v2.049h-4.098z M73.756 71.707h4.098v2.049h-4.098z M79.902 71.707h2.049v2.049h-2.049z M0.0 73.756h2.049v2.049h-2.049z M4.098 73.756h6.146v2.049h-6.146z M12.293 73.756h2.049v2.049h-2.049z M16.39 73.756h2.049v2.049h-2.049z M20.488 73.756h4.098v2.049h-4.098z M28.683 73.756h2.049v2.049h-2.049z M32.78 73.756h4.098v2.049h-4.098z M40.976 73.756h8.195v2.049h-8.195z M51.22 73.756h2.049v2.049h-2.049z M57.366 73.756h2.049v2.049h-2.049z M63.512 73.756h12.293v2.049h-12.293z M0.0 75.805h2.049v2.049h-2.049z M4.098 75.805h6.146v2.049h-6.146z M12.293 75.805h2.049v2.049h-2.049z M16.39 75.805h6.146v2.049h-6.146z M24.585 75.805h6.146v2.049h-6.146z M36.878 75.805h2.049v2.049h-2.049z M45.073 75.805h12.293v2.049h-12.293z M61.463 75.805h2.049v2.049h-2.049z M71.707 75.805h2.049v2.049h-2.049z M77.854 75.805h4.098v2.049h-4.098z M0.0 77.854h2.049v2.049h-2.049z M4.098 77.854h6.146v2.049h-6.146z M12.293 77.854h2.049v2.049h-2.049z M18.439 77.854h4.098v2.049h-4.098z M28.683 77.854h6.146v2.049h-6.146z M38.927 77.854h4.098v2.049h-4.098z M49.171 77.854h2.049v2.049h-2.049z M53.268 77.854h10.244v2.049h-10.244z M67.61 77.854h2.049v2.049h-2.049z M71.707 77.854h4.098v2.049h-4.098z M77.854 77.854h2.049v2.049h-2.049z M81.951 77.854h2.049v2.049h-2.049z M0.0 79.902h2.049v2.049h-2.049z M12.293 79.902h2.049v2.049h-2.049z M20.488 79.902h2.049v2.049h-2.049z M24.585 79.902h4.098v2.049h-4.098z M30.732 79.902h4.098v2.049h-4.098z M38.927 79.902h4.098v2.049h-4.098z M49.171 79.902h2.049v2.049h-2.049z M55.317 79.902h2.049v2.049h-2.049z M69.659 79.902h2.049v2.049h-2.049z M73.756 79.902h6.146v2.049h-6.146z M81.951 79.902h2.049v2.049h-2.049z M0.0 81.951h14.341v2.049h-14.341z M16.39 81.951h2.049v2.049h-2.049z M20.488 81.951h2.049v2.049h-2.049z M28.683 81.951h2.049v2.049h-2.049z M32.78 81.951h2.049v2.049h-2.049z M40.976 81.951h2.049v2.049h-2.049z M45.073 81.951h8.195v2.049h-8.195z M55.317 81.951h2.049v2.049h-2.049z M65.561 81.951h2.049v2.049h-2.049z M69.659 81.951h2.049v2.049h-2.049z M73.756 81.951h2.049v2.049h-2.049z"/>
