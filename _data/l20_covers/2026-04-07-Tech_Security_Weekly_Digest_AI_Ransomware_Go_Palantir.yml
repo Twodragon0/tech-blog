@@ -1,0 +1,36 @@
+date: '2026-04-07'
+slug: Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir
+date_str: 2026.04.07
+post_title: 'Weekly digest 2026-04-07: Iran spray 300+ IL Microsoft 365, DPRK GitHub C2 vs Korea, German LE IDs REvil GandCrab'
+url: https://tech.2twodragon.com/posts/2026/04/07/Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/
+hero:
+  tag: IRAN MS365 SPRAY
+  index: '01'
+  theme: red
+  visual: hub_spoke
+  headline: Iran Spray 300+ MS365
+  subheadline: Iran password spray hits 300+ Israeli Microsoft 365 orgs
+  kpi_value: 300+
+  kpi_label: TARGETS
+  kpi_sub: IL MS365
+  action: SMART LOCKOUT + AUDIT RISKY SIGN-INS
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: code_injection
+  headline: DPRK GitHub C2 vs KR
+  subheadline: DPRK actors use GitHub as C2 in multi-stage attacks on Korea
+  kpi_value: GH
+  kpi_label: C2
+  kpi_sub: DPRK multistage
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: ransomware_lock
+  headline: REvil GandCrab Leaders ID
+  subheadline: German police identify REvil and GandCrab ransomware gang leaders
+  kpi_value: DE
+  kpi_label: LE
+  kpi_sub: deanon op

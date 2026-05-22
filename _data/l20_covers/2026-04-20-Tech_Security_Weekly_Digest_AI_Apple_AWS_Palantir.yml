@@ -1,0 +1,36 @@
+date: '2026-04-20'
+slug: Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir
+date_str: 2026.04.20
+post_title: 'Weekly digest 2026-04-20: Apple account-change phishing wave, NIST stops non-priority CVE triage, Palantir inclusion manifesto'
+url: https://tech.2twodragon.com/posts/2026/04/20/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/
+hero:
+  tag: APPLE PHISH
+  index: '01'
+  theme: red
+  visual: code_injection
+  headline: Apple Acct-Change Phish
+  subheadline: Phishing emails abuse Apple account-change notifications
+  kpi_value: APL
+  kpi_label: BRAND
+  kpi_sub: Apple lure
+  action: TAG SPOOF DOMAINS + USER ALERT
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: cve_chain
+  headline: NIST Stops CVE Triage
+  subheadline: NIST halts non-priority CVE triage due to rising volume
+  kpi_value: NVD
+  kpi_label: HALT
+  kpi_sub: non-prio CVE
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: data_exfil
+  headline: Palantir Inclusion Stand
+  subheadline: Palantir publishes inclusion-critique manifesto from CEO
+  kpi_value: PLT
+  kpi_label: VENDOR
+  kpi_sub: HR stance
