@@ -98,6 +98,28 @@ def qr_block(url: str) -> str:
     )
 
 
+# --- Text-fit helper (caps band-internal text so it never crosses the
+# visual element at x=420 or the mini-cards at x=820+). Per font-size,
+# the safe character budget at x=30 left-aligned, in 1200-wide frame, is:
+#   36px headline: ~19 chars before visual collision (cap 24 for sub-readability)
+#   20px metric:   ~35 chars (cap 38)
+#   15px detail:   ~47 chars (cap 50)
+#   13px metric_b: ~54 chars (cap 56)
+#   12px detail_b: ~58 chars (cap 60)
+# Ellipsis is plain ASCII "..." since the english_text_only gate rejects
+# non-ASCII glyphs in <text> nodes.
+def _fit_band_text(text: str, max_chars: int) -> str:
+    if text is None:
+        return ""
+    s = str(text)
+    if len(s) <= max_chars:
+        return s
+    cut = s.rfind(" ", 0, max_chars - 1)
+    if cut < max_chars - 18:
+        cut = max_chars - 1
+    return s[:cut].rstrip() + "..."
+
+
 # --- Band builder ---
 def band(
     idx: int,
@@ -168,6 +190,17 @@ def band(
     <line x1="-32" y1="38" x2="32" y2="38" stroke="{theme["accent"]}" stroke-width="0.6" stroke-opacity="0.45"/>
     <circle cx="0" cy="-40" r="1.6" fill="{theme["soft"]}"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
   </g>'''
+    # Cap text fields against their per-font-size character budget so
+    # they never overflow into the visual element (x>=420) or the mini
+    # cards (x>=820). See _fit_band_text() docstring for the per-size
+    # safe-char budget.
+    headline = _fit_band_text(headline, 24)
+    metric = _fit_band_text(metric, 38)
+    detail = _fit_band_text(detail, 50)
+    metric_b = _fit_band_text(metric_b, 56)
+    detail_b = _fit_band_text(detail_b, 60)
+    context = _fit_band_text(context, 60)
+
     extra_text_lines = ""
     if is_ultra and (metric_b or detail_b):
         # Compress detail line to make room for two extra rows above the (optional) context.

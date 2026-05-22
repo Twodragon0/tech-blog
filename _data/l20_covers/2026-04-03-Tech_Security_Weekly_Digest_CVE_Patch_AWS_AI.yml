@@ -1,0 +1,36 @@
+date: '2026-04-03'
+slug: Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI
+date_str: 2026.04.03
+post_title: 'Weekly digest 2026-04-03: 766 Next.js hosts CVE-2025-55182, Cisco IMC SSM 9.8, four agent AI security principles'
+url: https://tech.2twodragon.com/posts/2026/04/03/Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/
+hero:
+  tag: NEXT.JS BREACH
+  index: '01'
+  theme: red
+  visual: cve_chain
+  headline: 766 Next.js Hosts Hit
+  subheadline: CVE-2025-55182 used to compromise 766 Next.js hosts plus creds
+  kpi_value: '766'
+  kpi_label: HOSTS
+  kpi_sub: creds stolen
+  action: PATCH NEXT.JS + ROTATE ALL CREDS
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: cve_chain
+  headline: Cisco IMC SSM CVSS 9.8
+  subheadline: Two Cisco IMC and SSM CVEs enable remote system takeover
+  kpi_value: '9.8'
+  kpi_label: CVSS
+  kpi_sub: IMC + SSM
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: ai_agent_funnel
+  headline: 4 Agent AI Security
+  subheadline: Four principles for securing agentic AI systems
+  kpi_value: '4'
+  kpi_label: PRINCIPLES
+  kpi_sub: agent AI sec
