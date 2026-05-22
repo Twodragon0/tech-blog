@@ -1,0 +1,36 @@
+date: '2026-05-02'
+slug: Tech_Security_Weekly_Digest_AI_Go_Security_AWS
+date_str: 2026.05.02
+post_title: '2026-05-02: 30K Facebook phish, AWS AI posture, Win Run'
+url: https://tech.2twodragon.com/posts/2026/05/02/Tech_Security_Weekly_Digest_AI_Go_Security_AWS/
+hero:
+  tag: MASS PHISHING
+  index: '01'
+  theme: red
+  visual: code_injection
+  headline: 30K Facebook Accounts
+  subheadline: Phishing campaign abuses Google AppSheet to bulk-send credential-harvesting...
+  kpi_value: 30K
+  kpi_label: ACCOUNTS
+  kpi_sub: harvested
+  action: BLOCK APPSHEET OUTBOUND WHEN IMPERSONATION DE...
+top_right:
+  tag: CLOUD AI POSTURE
+  index: '02'
+  theme: amber
+  visual: container_escape
+  headline: AWS AI Security Guide
+  subheadline: AWS publishes AI posture management guidance
+  kpi_value: AWS
+  kpi_label: POSTURE
+  kpi_sub: AI guide
+bottom_right:
+  tag: WINDOWS PRODUCTIVITY
+  index: '03'
+  theme: blue
+  visual: code_injection
+  headline: Modernized Run Dialog
+  subheadline: Microsoft tests redesigned Run with command palette UX
+  kpi_value: WIN
+  kpi_label: REFRESH
+  kpi_sub: Run UX

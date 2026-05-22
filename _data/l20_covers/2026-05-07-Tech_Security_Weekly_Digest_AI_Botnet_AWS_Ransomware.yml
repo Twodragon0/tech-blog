@@ -1,0 +1,36 @@
+date: '2026-05-07'
+slug: Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware
+date_str: 2026.05.07
+post_title: '2026-05-07: Mirai xlabs_v1, AWS ISO 42001, MuddyWater Teams'
+url: https://tech.2twodragon.com/posts/2026/05/07/Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware/
+hero:
+  tag: IOT BOTNET
+  index: '01'
+  theme: red
+  visual: code_injection
+  headline: Mirai xlabs_v1 via ADB
+  subheadline: Mirai-based xlabs_v1 exploits exposed ADB to enslave IoT and Android device...
+  kpi_value: IoT
+  kpi_label: VECTOR
+  kpi_sub: ADB exposed
+  action: BLOCK ADB PORTS + AUDIT IOT FIRMWARE UPDATE C...
+top_right:
+  tag: AI COMPLIANCE
+  index: '02'
+  theme: amber
+  visual: container_escape
+  headline: AWS ISO/IEC 42001
+  subheadline: AWS publishes ISO/IEC 42001
+  kpi_value: '42001'
+  kpi_label: ISO
+  kpi_sub: AI MS
+bottom_right:
+  tag: APT TEAMS ABUSE
+  index: '03'
+  theme: blue
+  visual: ransomware_lock
+  headline: MuddyWater Fake Ransomware
+  subheadline: MuddyWater fake ransomware leverages Microsoft Teams external chat for cred...
+  kpi_value: MW
+  kpi_label: ACTOR
+  kpi_sub: MuddyWater

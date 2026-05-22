@@ -1,0 +1,36 @@
+date: '2026-05-01'
+slug: Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud
+date_str: 2026.05.01
+post_title: '2026-05-01: PyTorch supply chain, Python backdoor, multi-AI'
+url: https://tech.2twodragon.com/posts/2026/05/01/Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud/
+hero:
+  tag: SUPPLY CHAIN ATTACK
+  index: '01'
+  theme: red
+  visual: supply_chain_pipe
+  headline: PyTorch Lightning Hijack
+  subheadline: PyTorch Lightning + Intercom-client compromised
+  kpi_value: ML
+  kpi_label: ECOSYSTEM
+  kpi_sub: poisoned
+  action: PIN LOCKFILES + SIGNATURE VERIFY ON ML DEPS
+top_right:
+  tag: PYTHON BACKDOOR
+  index: '02'
+  theme: amber
+  visual: container_escape
+  headline: Tunneling Steals Cloud Creds
+  subheadline: Python backdoor uses tunneling services to exfiltrate browser auth tokens...
+  kpi_value: 3K
+  kpi_label: VICTIMS
+  kpi_sub: reported
+bottom_right:
+  tag: MULTI CLOUD STRATEGY
+  index: '03'
+  theme: blue
+  visual: container_escape
+  headline: CISO Picks Multi AI
+  subheadline: Cloud CISO playbook
+  kpi_value: 3+
+  kpi_label: CLOUDS
+  kpi_sub: federated
