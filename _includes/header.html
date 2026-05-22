@@ -87,6 +87,21 @@
         </button>
       </div>
     </div>
+
+    {%- comment -%}
+      Core-topic sub-navigation strip (desktop only — hidden ≤768px;
+      mobile users see the same links inside the mobile drawer below).
+      Order matches the editorial priority: security → devsecops → cloud
+      → kubernetes. Update both this list and the mobile drawer block
+      below in lockstep if you add or rename a topic.
+    {%- endcomment -%}
+    <nav class="site-subnav" role="navigation" aria-label="주제별 카테고리 바로가기">
+      <span class="subnav-label" aria-hidden="true">Topics</span>
+      <a href="{{ '/category/security/' | relative_url }}" class="subnav-link {% if page.url == '/category/security/' %}active{% endif %}" {% if page.url == '/category/security/' %}aria-current="page"{% endif %}>Security</a>
+      <a href="{{ '/category/devsecops/' | relative_url }}" class="subnav-link {% if page.url == '/category/devsecops/' %}active{% endif %}" {% if page.url == '/category/devsecops/' %}aria-current="page"{% endif %}>DevSecOps</a>
+      <a href="{{ '/category/cloud/' | relative_url }}" class="subnav-link {% if page.url == '/category/cloud/' %}active{% endif %}" {% if page.url == '/category/cloud/' %}aria-current="page"{% endif %}>Cloud</a>
+      <a href="{{ '/category/kubernetes/' | relative_url }}" class="subnav-link {% if page.url == '/category/kubernetes/' %}active{% endif %}" {% if page.url == '/category/kubernetes/' %}aria-current="page"{% endif %}>Kubernetes</a>
+    </nav>
   </div>
 
   <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="모바일 메뉴">
@@ -98,5 +113,13 @@
     {% if jekyll.environment != "production" %}
     <a href="{{ '/assets/l25-visual-gallery.html' | relative_url }}" class="nav-link nav-internal" title="L25 visual reference (internal — dev builds only)" rel="nofollow noindex">Gallery</a>
     {% endif %}
+
+    <div class="mobile-nav-group" role="group" aria-labelledby="mobile-topics-label">
+      <p class="mobile-nav-group-label" id="mobile-topics-label">Topics</p>
+      <a href="{{ '/category/security/' | relative_url }}" class="nav-link {% if page.url == '/category/security/' %}active{% endif %}" {% if page.url == '/category/security/' %}aria-current="page"{% endif %}>Security</a>
+      <a href="{{ '/category/devsecops/' | relative_url }}" class="nav-link {% if page.url == '/category/devsecops/' %}active{% endif %}" {% if page.url == '/category/devsecops/' %}aria-current="page"{% endif %}>DevSecOps</a>
+      <a href="{{ '/category/cloud/' | relative_url }}" class="nav-link {% if page.url == '/category/cloud/' %}active{% endif %}" {% if page.url == '/category/cloud/' %}aria-current="page"{% endif %}>Cloud</a>
+      <a href="{{ '/category/kubernetes/' | relative_url }}" class="nav-link {% if page.url == '/category/kubernetes/' %}active{% endif %}" {% if page.url == '/category/kubernetes/' %}aria-current="page"{% endif %}>Kubernetes</a>
+    </div>
   </nav>
 </header>

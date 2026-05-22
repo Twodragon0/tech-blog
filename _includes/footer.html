@@ -9,6 +9,16 @@
         </a>
       </div>
       
+      <nav class="footer-topics" role="navigation" aria-label="주제별 카테고리">
+        <p class="footer-topics-label">Topics</p>
+        <ul class="footer-topics-list">
+          <li><a href="{{ '/category/security/' | relative_url }}">Security</a></li>
+          <li><a href="{{ '/category/devsecops/' | relative_url }}">DevSecOps</a></li>
+          <li><a href="{{ '/category/cloud/' | relative_url }}">Cloud</a></li>
+          <li><a href="{{ '/category/kubernetes/' | relative_url }}">Kubernetes</a></li>
+        </ul>
+      </nav>
+
       <nav class="footer-links" role="navigation" aria-label="소셜 링크">
         {% if site.author.github %}
         <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub 프로필 열기">
