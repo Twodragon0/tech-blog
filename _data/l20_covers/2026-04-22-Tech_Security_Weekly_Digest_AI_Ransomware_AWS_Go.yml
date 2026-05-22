@@ -1,0 +1,36 @@
+date: '2026-04-22'
+slug: Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go
+date_str: 2026.04.22
+post_title: 'Weekly digest 2026-04-22: SystemBC Gentlemen ransomware 1570 victims, AWS SOC1 winter 184, BRIDGE:BREAK 22 CVEs'
+url: https://tech.2twodragon.com/posts/2026/04/22/Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/
+hero:
+  tag: RANSOMWARE OP
+  index: '01'
+  theme: red
+  visual: ransomware_lock
+  headline: SystemBC C2 + Gentlemen
+  subheadline: 1570+ victim hosts exposed in SystemBC operation
+  kpi_value: 1570
+  kpi_label: VICTIMS
+  kpi_sub: exposed in op
+  action: HUNT SYSTEMBC C2 + ROLLBACK PAYLOADS
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: container_escape
+  headline: 'BRIDGE:BREAK 22 CVEs'
+  subheadline: Lantronix and Silex serial-IP converters open RCE chain
+  kpi_value: '22'
+  kpi_label: CVES
+  kpi_sub: serial bridges
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: data_exfil
+  headline: AWS Winter 2025 SOC 1
+  subheadline: Coverage expanded to 184 services with new control mapping
+  kpi_value: '184'
+  kpi_label: SERVICES
+  kpi_sub: in scope

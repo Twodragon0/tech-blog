@@ -1,0 +1,36 @@
+date: '2026-04-25'
+slug: Tech_Security_Weekly_Digest_Patch_Security_Threat_Data
+date_str: 2026.04.25
+post_title: 'Weekly digest 2026-04-25: FIRESTARTER federal Cisco backdoor, NASA China phishing, post-quantum readiness'
+url: https://tech.2twodragon.com/posts/2026/04/25/Tech_Security_Weekly_Digest_Patch_Security_Threat_Data/
+hero:
+  tag: FEDERAL BACKDOOR
+  index: '01'
+  theme: red
+  visual: cve_chain
+  headline: FIRESTARTER on Cisco Firepower
+  subheadline: Federal-gov backdoor survives security patch cycle, persists across reboot
+  kpi_value: PATCH+
+  kpi_label: PERSIST
+  kpi_sub: survives MS update
+  action: RIP-AND-REPLACE COMPROMISED APPLIANCES
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: data_exfil
+  headline: NASA China Phishing Net
+  subheadline: PRC spear-phish lands on NASA staff targeting US defense software supply chain
+  kpi_value: NASA
+  kpi_label: TARGET
+  kpi_sub: defense supplier
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: hub_spoke
+  headline: Post-Quantum Readiness
+  subheadline: AWS guide for protecting today secrets against future quantum decrypt
+  kpi_value: PQC
+  kpi_label: CRYPTO
+  kpi_sub: hybrid rollout

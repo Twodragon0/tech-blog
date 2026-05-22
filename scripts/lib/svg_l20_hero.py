@@ -126,6 +126,26 @@ def _escape(text: str) -> str:
     )
 
 
+def _fit_subheadline(text: str, max_chars: int = 54) -> str:
+    """Truncate side-card subheadline so it never collides with the
+    KPI card at x>=1026. Headline-side subheadline starts at x=670;
+    at font-size 14 the safe run is ~54 chars before colliding.
+    Ends with single-char ellipsis if truncated (no fancy unicode, the
+    Hangul stripper would refuse anything outside ASCII).
+    """
+    if text is None:
+        return ""
+    s = str(text)
+    if len(s) <= max_chars:
+        return s
+    # Break at the last space within max_chars - 1 if possible, for a
+    # cleaner cut than a mid-word truncation.
+    cut = s.rfind(" ", 0, max_chars - 1)
+    if cut < max_chars - 18:  # if break point too early, just hard cut
+        cut = max_chars - 1
+    return s[:cut].rstrip() + "..."
+
+
 def _theme(name: str) -> Dict[str, str]:
     return THEMES.get(name, THEMES["red"])
 
@@ -692,7 +712,7 @@ def render_l20_hero(
     )
     parts.append(
         f'<text x="54" y="174" font-family="Inter, Helvetica, Arial, sans-serif" '
-        f'font-size="17" font-weight="500" fill="{hero_text}">{_escape(hero["subheadline"])}</text>'
+        f'font-size="17" font-weight="500" fill="{hero_text}">{_escape(_fit_subheadline(hero["subheadline"], max_chars=62))}</text>'
     )
     parts.append('</g>')
     # Hero embedded visual (centered around (332, 360))
@@ -732,7 +752,7 @@ def render_l20_hero(
     )
     parts.append(
         f'<text x="670" y="163" font-family="Inter, Helvetica, Arial, sans-serif" '
-        f'font-size="14" font-weight="500" fill="{tr_t["accent_text"]}">{_escape(top_right["subheadline"])}</text>'
+        f'font-size="14" font-weight="500" fill="{tr_t["accent_text"]}">{_escape(_fit_subheadline(top_right["subheadline"]))}</text>'
     )
     parts.append('</g>')
     parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", "")))
@@ -759,7 +779,7 @@ def render_l20_hero(
     )
     parts.append(
         f'<text x="670" y="428" font-family="Inter, Helvetica, Arial, sans-serif" '
-        f'font-size="14" font-weight="500" fill="{br_t["accent_text"]}">{_escape(bottom_right["subheadline"])}</text>'
+        f'font-size="14" font-weight="500" fill="{br_t["accent_text"]}">{_escape(_fit_subheadline(bottom_right["subheadline"]))}</text>'
     )
     parts.append('</g>')
     parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", "")))
