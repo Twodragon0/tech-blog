@@ -929,7 +929,7 @@ div.post-card-excerpt {
 
 .category-section {
   margin-bottom: var(--spacing-2xl);
-  scroll-margin-top: 100px;
+  scroll-margin-top: calc(var(--header-height) + var(--subnav-height) + 30px);
 }
 
 .category-section-header {
