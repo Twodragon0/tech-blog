@@ -1,0 +1,36 @@
+date: '2026-05-15'
+slug: Tech_Security_Weekly_Digest_AI_Threat_AWS_Go
+date_str: 2026.05.15
+post_title: 'Weekly digest 2026-05-15: Cisco Catalyst SD-WAN auth bypass admin exploit, Node-IPC stealer backdoor x3, ThreatsDay PAN-OS RCE Mythos cURL'
+url: https://tech.2twodragon.com/posts/2026/05/15/Tech_Security_Weekly_Digest_AI_Threat_AWS_Go/
+hero:
+  tag: CISCO SD-WAN
+  index: '01'
+  theme: red
+  visual: cve_chain
+  headline: Cisco Catalyst Auth Bypass
+  subheadline: SD-WAN Controller auth bypass abused for admin access in wild
+  kpi_value: AUTH
+  kpi_label: BYPASS
+  kpi_sub: Cisco SD-WAN
+  action: PATCH + ROTATE ADMIN CREDS
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: supply_chain_pipe
+  headline: Node-IPC Stealer x3
+  subheadline: Three Node-IPC npm versions ship stealer backdoor on dev secrets
+  kpi_value: x3
+  kpi_label: NPM
+  kpi_sub: Node-IPC
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: code_injection
+  headline: ThreatsDay PAN-OS RCE
+  subheadline: ThreatsDay omnibus, PAN-OS RCE plus Mythos cURL plus tokenizer
+  kpi_value: 10+
+  kpi_label: STORIES
+  kpi_sub: this brief

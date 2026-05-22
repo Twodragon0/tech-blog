@@ -1,0 +1,36 @@
+date: '2026-05-14'
+slug: Tech_Security_Weekly_Digest_AWS_Patch_AI_Update
+date_str: 2026.05.14
+post_title: 'Weekly digest 2026-05-14: AWS cryptojacking detection guide, MDASH finds 16 Windows flaws on Patch Tuesday, AWS responsible-AI GRC user guide'
+url: https://tech.2twodragon.com/posts/2026/05/14/Tech_Security_Weekly_Digest_AWS_Patch_AI_Update/
+hero:
+  tag: AWS CRYPTOMINING
+  index: '01'
+  theme: red
+  visual: container_escape
+  headline: AWS Cryptomining Detect
+  subheadline: GuardDuty plus Lambda auto-isolation against EC2 EKS cryptojacking
+  kpi_value: XMR
+  kpi_label: MINER
+  kpi_sub: AWS-target
+  action: PIN GD FINDING + AUTO-STOP EC2
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: cve_chain
+  headline: MDASH Finds 16 Windows
+  subheadline: Microsoft AI agent uncovers 16 Patch Tuesday Windows flaws
+  kpi_value: '16'
+  kpi_label: FIXED
+  kpi_sub: MDASH-found
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: ai_agent_funnel
+  headline: AWS AI GRC Guide
+  subheadline: AWS publishes responsible-AI governance risk compliance guide
+  kpi_value: GRC
+  kpi_label: AI
+  kpi_sub: AWS guide

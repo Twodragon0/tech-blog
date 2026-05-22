@@ -1,0 +1,36 @@
+date: '2026-05-16'
+slug: Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security
+date_str: 2026.05.16
+post_title: 'Weekly digest 2026-05-16: Turla converts Kazuar into modular P2P botnet, AWS AI security framework 3x3 grid, 45-day self-tool attack-surface monitor'
+url: https://tech.2twodragon.com/posts/2026/05/16/Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security/
+hero:
+  tag: TURLA P2P BOTNET
+  index: '01'
+  theme: red
+  visual: hub_spoke
+  headline: Turla Kazuar P2P
+  subheadline: Turla converts Kazuar backdoor into modular P2P botnet mesh
+  kpi_value: P2P
+  kpi_label: BOTNET
+  kpi_sub: Kazuar
+  action: HUNT KAZUAR + BLOCK P2P BOOTSTRAP
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: ai_agent_funnel
+  headline: AWS AI Security Frame
+  subheadline: AWS ships right-control right-layer right-stage AI security grid
+  kpi_value: AISEC
+  kpi_label: FRAME
+  kpi_sub: AWS
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: data_exfil
+  headline: 45-Day Self-Tool Monitor
+  subheadline: 45-day attack-surface monitor finds subdomain leak and IaC drift
+  kpi_value: '45'
+  kpi_label: DAYS
+  kpi_sub: monitor
