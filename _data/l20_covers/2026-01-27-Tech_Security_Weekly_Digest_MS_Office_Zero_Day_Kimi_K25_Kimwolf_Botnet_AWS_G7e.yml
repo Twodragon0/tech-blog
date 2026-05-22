@@ -1,0 +1,36 @@
+date: '2026-01-27'
+slug: Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e
+date_str: 2026.01.27
+post_title: 'Weekly digest 2026-01-27: MS Office zero-day, Kimi K25 AI model, Kimwolf botnet, AWS G7e instance launch'
+url: https://tech.2twodragon.com/posts/2026/01/27/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/
+hero:
+  tag: MS OFFICE 0-DAY
+  index: '01'
+  theme: red
+  visual: cve_chain
+  headline: MS Office 0-Day
+  subheadline: Office zero-day in wild exploits formula-injection chain
+  kpi_value: '0D'
+  kpi_label: OFFICE
+  kpi_sub: in-wild
+  action: ENABLE PROTECTED VIEW + ASR
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: hub_spoke
+  headline: Kimwolf Botnet
+  subheadline: Kimwolf botnet emerges with new C2 infrastructure pattern
+  kpi_value: BOT
+  kpi_label: NEW
+  kpi_sub: Kimwolf
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: ai_agent_funnel
+  headline: Kimi K25 + AWS G7e
+  subheadline: Kimi K25 model launch and AWS G7e Trainium instance arrives
+  kpi_value: K25
+  kpi_label: MODEL
+  kpi_sub: + G7e GPU

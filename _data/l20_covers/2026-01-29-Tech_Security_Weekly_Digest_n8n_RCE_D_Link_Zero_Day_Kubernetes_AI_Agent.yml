@@ -1,0 +1,36 @@
+date: '2026-01-29'
+slug: Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent
+date_str: 2026.01.29
+post_title: 'Weekly digest 2026-01-29: n8n workflow RCE, D-Link zero-day, Kubernetes AI agent patterns'
+url: https://tech.2twodragon.com/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/
+hero:
+  tag: N8N RCE
+  index: '01'
+  theme: red
+  visual: code_injection
+  headline: n8n Workflow RCE
+  subheadline: n8n self-hosted workflow exposes arbitrary code execution
+  kpi_value: RCE
+  kpi_label: VULN
+  kpi_sub: n8n flow
+  action: PIN N8N + AUDIT WEBHOOK ACL
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: cve_chain
+  headline: D-Link Zero-Day
+  subheadline: D-Link router zero-day exposes thousands to remote takeover
+  kpi_value: '0D'
+  kpi_label: DLINK
+  kpi_sub: router
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: ai_agent_funnel
+  headline: K8s AI Agent Pattern
+  subheadline: Kubernetes-native AI agent deployment and isolation patterns
+  kpi_value: K8s
+  kpi_label: PLATFORM
+  kpi_sub: AI agent

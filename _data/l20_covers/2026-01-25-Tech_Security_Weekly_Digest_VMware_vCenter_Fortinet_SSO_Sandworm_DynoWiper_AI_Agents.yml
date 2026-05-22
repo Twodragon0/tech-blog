@@ -1,0 +1,36 @@
+date: '2026-01-25'
+slug: Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents
+date_str: 2026.01.25
+post_title: 'Weekly digest 2026-01-25: Sandworm DynoWiper UA wiper campaign, VMware vCenter exploit, Fortinet SSO bypass'
+url: https://tech.2twodragon.com/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/
+hero:
+  tag: SANDWORM WIPER
+  index: '01'
+  theme: red
+  visual: ransomware_lock
+  headline: Sandworm DynoWiper UA
+  subheadline: Russian Sandworm deploys DynoWiper destructive malware on UA
+  kpi_value: WIPE
+  kpi_label: TARGET
+  kpi_sub: UA infra
+  action: HUNT DYNOWIPER IOC + AUDIT BACKUP
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: cve_chain
+  headline: VMware vCenter Exploit
+  subheadline: VMware vCenter exploitation chain enables admin takeover
+  kpi_value: vCT
+  kpi_label: EXPLOIT
+  kpi_sub: VMware
+bottom_right:
+  tag: HIGH
+  index: '03'
+  theme: blue
+  visual: code_injection
+  headline: Fortinet SSO Bypass
+  subheadline: Fortinet SSO bypass active exploitation across managed deploys
+  kpi_value: SSO
+  kpi_label: BYPASS
+  kpi_sub: Fortinet

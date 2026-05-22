@@ -1,0 +1,36 @@
+date: '2026-03-23'
+slug: Tech_Security_Weekly_Digest_Ransomware
+date_str: 2026.03.23
+post_title: 'Weekly digest 2026-03-23: SK Shieldus March security report, BYOVD EDR bypass wave, cloud workload posture'
+url: https://tech.2twodragon.com/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/
+hero:
+  tag: SK SHIELDUS REPORT
+  index: '01'
+  theme: red
+  visual: ransomware_lock
+  headline: SK Shieldus March Brief
+  subheadline: SK Shieldus March security report covers ransomware trend
+  kpi_value: MAR
+  kpi_label: REPORT
+  kpi_sub: SK Shieldus
+  action: REFRESH RANSOM PLAYBOOK
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: cve_chain
+  headline: BYOVD EDR Bypass
+  subheadline: Bring-your-own-vulnerable-driver wave bypasses EDR detection
+  kpi_value: BYOVD
+  kpi_label: TECHNIQUE
+  kpi_sub: EDR bypass
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: container_escape
+  headline: Cloud Workload Posture
+  subheadline: Cloud workload protection posture across multi-cloud estate
+  kpi_value: CSPM
+  kpi_label: SCOPE
+  kpi_sub: multi-cloud

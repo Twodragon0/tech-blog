@@ -1,0 +1,36 @@
+date: '2026-01-28'
+slug: Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE
+date_str: 2026.01.28
+post_title: 'Weekly digest 2026-01-28: MS Office zero-day deep-dive, CTEM continuous threat exposure, Grist Core RCE'
+url: https://tech.2twodragon.com/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/
+hero:
+  tag: MS OFFICE 0-DAY
+  index: '01'
+  theme: red
+  visual: cve_chain
+  headline: MS Office 0-Day Deep-Dive
+  subheadline: In-depth chain analysis of the active Office zero-day exploit
+  kpi_value: '0D'
+  kpi_label: OFFICE
+  kpi_sub: chain
+  action: PATCH OFFICE + ASR HARDENING
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: hub_spoke
+  headline: CTEM Exposure Mgmt
+  subheadline: Continuous threat exposure management framework rollout
+  kpi_value: CTEM
+  kpi_label: FRAME
+  kpi_sub: exposure mgmt
+bottom_right:
+  tag: HIGH
+  index: '03'
+  theme: blue
+  visual: code_injection
+  headline: Grist Core RCE
+  subheadline: Grist Core RCE chain enables collaborative-sheet takeover
+  kpi_value: RCE
+  kpi_label: VULN
+  kpi_sub: Grist Core

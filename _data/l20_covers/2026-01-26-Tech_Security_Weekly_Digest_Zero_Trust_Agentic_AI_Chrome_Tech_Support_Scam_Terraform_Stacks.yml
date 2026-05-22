@@ -1,0 +1,36 @@
+date: '2026-01-26'
+slug: Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks
+date_str: 2026.01.26
+post_title: 'Weekly digest 2026-01-26: Chrome tech-support scam wave, Zero-Trust agentic AI, Terraform Stacks GA'
+url: https://tech.2twodragon.com/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/
+hero:
+  tag: BROWSER SCAM
+  index: '01'
+  theme: red
+  visual: code_injection
+  headline: Chrome Tech-Support Scam
+  subheadline: Chrome tech-support scam wave abuses browser overlay popups
+  kpi_value: SCM
+  kpi_label: VECTOR
+  kpi_sub: browser
+  action: BLOCK SCAM DOMAINS + USER TRAIN
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: ai_agent_funnel
+  headline: Zero Trust Agentic AI
+  subheadline: Zero-trust controls applied to agentic AI workload boundaries
+  kpi_value: ZT
+  kpi_label: SCOPE
+  kpi_sub: agentic AI
+bottom_right:
+  tag: MEDIUM
+  index: '03'
+  theme: blue
+  visual: hub_spoke
+  headline: Terraform Stacks GA
+  subheadline: HashiCorp ships Terraform Stacks to GA for multi-env IaC
+  kpi_value: GA
+  kpi_label: STATUS
+  kpi_sub: Stacks

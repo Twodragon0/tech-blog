@@ -1,0 +1,36 @@
+date: '2026-01-31'
+slug: Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack
+date_str: 2026.01.31
+post_title: 'Weekly digest 2026-01-31: ShinyHunters vishing campaign, malicious Chrome extension, OT systems attack'
+url: https://tech.2twodragon.com/posts/2026/01/31/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/
+hero:
+  tag: SHINY VISHING
+  index: '01'
+  theme: red
+  visual: data_exfil
+  headline: ShinyHunters Vishing Ops
+  subheadline: ShinyHunters voice-phishing campaign targets enterprise helpdesk
+  kpi_value: SH
+  kpi_label: GROUP
+  kpi_sub: vishing
+  action: HARDEN HELPDESK CALLER-VERIFY
+top_right:
+  tag: HIGH
+  index: '02'
+  theme: amber
+  visual: code_injection
+  headline: Chrome Ext Attack
+  subheadline: Malicious Chrome extension exfiltrates session cookies at scale
+  kpi_value: EXT
+  kpi_label: BROWSER
+  kpi_sub: cookie theft
+bottom_right:
+  tag: HIGH
+  index: '03'
+  theme: blue
+  visual: container_escape
+  headline: OT Systems Attack
+  subheadline: Operational-technology systems attacked across industrial control
+  kpi_value: OT
+  kpi_label: SECTOR
+  kpi_sub: ICS attack
