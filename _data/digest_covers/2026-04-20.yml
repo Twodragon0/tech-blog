@@ -1,0 +1,70 @@
+date: '2026-04-20'
+slug: Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir
+sfx: AP20
+title: "2026-04-20: Apple account-change phishing, NIST stops non-priority CVE triage, Palantir inclusion manifesto"
+aria: Phishing emails abuse Apple account-change notifications, NIST halts non-priority vulnerability triage due to rising CVE volume, Palantir posts manifesto rejecting inclusion and so-called regressive culture
+bands:
+- theme: red
+  label: APPLE PHISH
+  headline: "Apple acct-change phish"
+  metric: "Apple account-change notif : phishing vector"
+  detail: "Phish abuses Apple acct-change notifications"
+  badge:
+    value: 'APL'
+    label: VENDOR
+    sub: Apple
+  visual:
+    kind: browser_cve
+    label: PHISH
+  metric_b: "Tag Apple-source emails : warn users on acct-change patterns"
+  detail_b: "EOP filter rule for spoofed Apple : MFA prompt on acct-change"
+  mini:
+    value: 'EM'
+    label: VECTOR
+    sub: email
+  mini2:
+    value: 'AC'
+    label: PRETEXT
+    sub: acct-change
+- theme: amber
+  label: NIST TRIAGE HALT
+  headline: "NIST stops CVE triage"
+  metric: "NIST : non-priority CVE triage : halted"
+  detail: "NIST halts non-priority CVE triage on volume"
+  badge:
+    value: NVD
+    label: HALT
+    sub: triage
+  visual:
+    kind: senate_columns
+  metric_b: "Pin alt CVE feed : subscribe to GitHub advisory + Vulnrichment"
+  detail_b: "Refresh vuln-mgmt tool feeds : reconcile CVSS sources"
+  mini:
+    value: NST
+    label: AGENCY
+    sub: NIST
+  mini2:
+    value: CVE
+    label: SCOPE
+    sub: non-prio
+- theme: green
+  label: PALANTIR MANIFEST
+  headline: "Palantir inclusion stand"
+  metric: "Palantir : inclusion criticism : public manifesto"
+  detail: "Palantir publishes inclusion-critique manifesto"
+  badge:
+    value: PLT
+    label: VENDOR
+    sub: Palantir
+  visual:
+    kind: senate_columns
+  metric_b: "Monitor vendor stance : update vendor-risk register"
+  detail_b: "Brief procurement team : reassess long-term vendor exposure"
+  mini:
+    value: HR
+    label: DOMAIN
+    sub: culture
+  mini2:
+    value: PUB
+    label: TYPE
+    sub: statement

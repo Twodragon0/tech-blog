@@ -1,0 +1,71 @@
+date: '2026-04-14'
+slug: Tech_Security_Weekly_Digest_Malware_Vulnerability_AI_Data
+sfx: AP14
+title: "2026-04-14: March 2026 ransomware trend report, JanelaRAT 14739 BR LATAM banks, W3LL 20M takedown"
+aria: March 2026 ransomware trends report, JanelaRAT malware targets Latin American banks with 14739 attacks in Brazil during 2025, FBI and Indonesian police dismantle W3LL phishing network behind 20M dollar fraud
+bands:
+- theme: red
+  label: RANSOM TREND MAR
+  headline: "March 2026 ransom trend"
+  metric: "Mar 2026 : ransomware activity report"
+  detail: "March 2026 ransomware operator trend digest"
+  badge:
+    value: MAR
+    label: REPORT
+    sub: ransom
+  visual:
+    kind: lock_cve
+    cvss: 'TTP'
+  metric_b: "Refresh ransom playbook : tabletop on March TTPs"
+  detail_b: "Subscribe to monthly digest : update SOC briefings : audit DR"
+  mini:
+    value: 'MAR'
+    label: PERIOD
+    sub: '2026'
+  mini2:
+    value: REP
+    label: TYPE
+    sub: trend
+- theme: amber
+  label: JANELARAT LATAM
+  headline: "JanelaRAT 14739 BR"
+  metric: "JanelaRAT : 14739 attacks : 2025 BR LATAM banks"
+  detail: "JanelaRAT hits LATAM banks 14739x in 2025"
+  badge:
+    value: '14739'
+    label: ATTACKS
+    sub: BR LATAM
+  visual:
+    kind: network_nodes
+    label: RAT
+  metric_b: "Hunt JanelaRAT IoC in LATAM SOC : audit cross-bank intel sharing"
+  detail_b: "Tag LATAM bank assets : pin JanelaRAT signature : EDR roll-out"
+  mini:
+    value: BR
+    label: ORIGIN
+    sub: Brazil
+  mini2:
+    value: BNK
+    label: TARGET
+    sub: LATAM
+- theme: green
+  label: W3LL TAKEDOWN
+  headline: "W3LL 20M takedown"
+  metric: "FBI + ID police : W3LL phish : 20M USD fraud"
+  detail: "FBI + Indonesia LE dismantle W3LL phish ring"
+  badge:
+    value: $20M
+    label: FRAUD
+    sub: W3LL
+  visual:
+    kind: senate_columns
+  metric_b: "Refresh phish kit IoC : audit OAuth grant for related domains"
+  detail_b: "Subscribe to LE bulletin : pull seized infra IPs to blocklist"
+  mini:
+    value: 'FBI'
+    label: AGENCY
+    sub: LE-op
+  mini2:
+    value: 'ID'
+    label: PARTNER
+    sub: Indonesia

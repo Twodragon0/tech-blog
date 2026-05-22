@@ -1,0 +1,72 @@
+date: '2026-04-13'
+slug: Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust
+sfx: AP13
+title: "2026-04-13: CPUID trojanized CPU-Z HWMonitor STX RAT, Marimo pre-auth RCE, Adobe Acrobat CVE-2026-34621"
+aria: CPUID compromise leads to trojanized CPU-Z and HWMonitor distributing STX RAT, Marimo critical pre-auth RCE flaw under active exploitation, Adobe ships patch for actively exploited Acrobat Reader CVE-2026-34621
+bands:
+- theme: red
+  label: CPUID TROJAN
+  headline: "CPU-Z trojan STX RAT"
+  metric: "CPUID compromise : CPU-Z + HWMonitor : STX RAT drop"
+  detail: "Trojanized CPU-Z and HWMonitor drop STX RAT"
+  badge:
+    value: STX
+    label: RAT
+    sub: CPUID
+  visual:
+    kind: supply_chain
+    label: CPU-Z
+  metric_b: "Pin CPU-Z + HWMonitor SHAs : EDR rule for STX RAT IoC"
+  detail_b: "Block stale CPUID downloads : verify checksum : rebuild dev box"
+  mini:
+    value: CPU
+    label: SOURCE
+    sub: CPUID hack
+  mini2:
+    value: STX
+    label: PAYLOAD
+    sub: RAT
+- theme: amber
+  label: MARIMO RCE
+  headline: "Marimo pre-auth RCE"
+  metric: "Marimo : critical pre-auth RCE : in-wild exploit"
+  detail: "Marimo pre-auth RCE in wild : urgent patch"
+  badge:
+    value: RCE
+    label: VULN
+    sub: Marimo
+  visual:
+    kind: lock_cve
+    cvss: '9.8'
+  metric_b: "Pin Marimo version : segment Marimo from prod net"
+  detail_b: "WAF rule for Marimo exploit pattern : kill orphan workers"
+  mini:
+    value: MRM
+    label: STACK
+    sub: Marimo
+  mini2:
+    value: PRE
+    label: AUTH
+    sub: bypass
+- theme: green
+  label: ADOBE PATCH
+  headline: "Adobe Acrobat 34621"
+  metric: "Adobe : Acrobat Reader CVE-2026-34621 : exploit fix"
+  detail: "Adobe patches actively exploited Acrobat CVE"
+  badge:
+    value: '34621'
+    label: CVE
+    sub: Acrobat
+  visual:
+    kind: lock_cve
+    cvss: '8.3'
+  metric_b: "Stage Acrobat patch via Intune ring : audit PDF egress logs"
+  detail_b: "Deploy patch in 7 days : EDR rule on Acrobat anomalies"
+  mini:
+    value: ADB
+    label: VENDOR
+    sub: Adobe
+  mini2:
+    value: PDF
+    label: VECTOR
+    sub: Reader

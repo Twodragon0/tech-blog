@@ -1,0 +1,72 @@
+date: '2026-04-15'
+slug: Tech_Security_Weekly_Digest_AI_AWS_Agent_Patch
+sfx: AP15
+title: "2026-04-15: AWS MCP secure agent pattern, PHP Composer RCE patch, Pixel 10 Rust DNS"
+aria: AWS publishes secure AI agent access pattern using Model Context Protocol, new PHP Composer vulnerability enables arbitrary command execution and is patched, Google adds Rust-based DNS parser to Pixel 10 modem
+bands:
+- theme: red
+  label: PHP COMPOSER RCE
+  headline: "PHP Composer RCE"
+  metric: "PHP Composer : arbitrary command exec : patch out"
+  detail: "PHP Composer arbitrary cmd exec : patch issued"
+  badge:
+    value: RCE
+    label: PHP
+    sub: Composer
+  visual:
+    kind: lock_cve
+    cvss: '8.7'
+  metric_b: "Pin Composer ver in CI : audit composer.json scripts"
+  detail_b: "Patch ASAP : run composer audit on all repos : block self-update"
+  mini:
+    value: PHP
+    label: STACK
+    sub: Composer
+  mini2:
+    value: CMD
+    label: VECTOR
+    sub: exec
+- theme: amber
+  label: MCP AWS AGENT
+  headline: "MCP AWS agent access"
+  metric: "AWS + MCP : secure AI agent resource access pattern"
+  detail: "AWS guide secure MCP-driven agent AWS access"
+  badge:
+    value: MCP
+    label: PATTERN
+    sub: AWS guide
+  visual:
+    kind: shield
+    label: MCP
+  metric_b: "Pilot MCP server in dev acct : audit agent IAM scope"
+  detail_b: "Pin Bedrock guardrail : tag agent inference workload : SCP guard"
+  mini:
+    value: AWS
+    label: VENDOR
+    sub: MCP guide
+  mini2:
+    value: AGT
+    label: TIER
+    sub: pattern
+- theme: green
+  label: PIXEL 10 RUST DNS
+  headline: "Pixel 10 Rust DNS"
+  metric: "Google Pixel 10 : modem : Rust DNS parser"
+  detail: "Google adds Rust DNS parser to Pixel 10 modem"
+  badge:
+    value: RUS
+    label: LANG
+    sub: Pixel 10
+  visual:
+    kind: shield
+    label: RUST
+  metric_b: "Track Pixel 10 deploy : audit modem patch cadence"
+  detail_b: "Pin Pixel 10 fleet baseline : EDR rule for DNS-tunnel anomaly"
+  mini:
+    value: PXL
+    label: DEVICE
+    sub: Pixel 10
+  mini2:
+    value: DNS
+    label: STACK
+    sub: parser

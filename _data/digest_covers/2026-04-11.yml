@@ -1,0 +1,72 @@
+date: '2026-04-11'
+slug: Tech_Security_Weekly_Digest_AI_Go_CVE_Update
+sfx: AP11
+title: "2026-04-11: GlassWorm Zig IDE dropper, browser ext AI ingest, Chrome 146 DBSC"
+aria: GlassWorm campaign uses Zig dropper to infect multiple developer IDEs, browser extensions become a new undiscussed AI consumption channel, Google ships DBSC in Chrome 146 to block session theft on Windows
+bands:
+- theme: red
+  label: GLASSWORM IDE
+  headline: "GlassWorm Zig IDE drop"
+  metric: "GlassWorm : Zig dropper : multi-IDE infect"
+  detail: "Zig-based GlassWorm dropper hits dev IDEs"
+  badge:
+    value: ZIG
+    label: DROPPER
+    sub: GlassWorm
+  visual:
+    kind: supply_chain
+    label: IDE
+  metric_b: "Pin IDE ext signatures : block Zig artifact downloads"
+  detail_b: "Audit dev workstation IDE plugin : rebuild from gold image"
+  mini:
+    value: IDE
+    label: TARGET
+    sub: dev tool
+  mini2:
+    value: ZIG
+    label: TECH
+    sub: dropper
+- theme: amber
+  label: BROWSER AI INGEST
+  headline: "Browser ext AI channel"
+  metric: "Browser ext : new undiscussed AI ingest"
+  detail: "Browser ext ingest into LLM context silently"
+  badge:
+    value: EXT
+    label: AI-CHAN
+    sub: ingest
+  visual:
+    kind: browser_cve
+    label: EXT
+  metric_b: "MDM restrict ext install : monitor AI provider egress"
+  detail_b: "Whitelist approved AI tools : audit page-scrape ext"
+  mini:
+    value: 'AI'
+    label: CHANNEL
+    sub: new
+  mini2:
+    value: EXT
+    label: VECTOR
+    sub: browser
+- theme: green
+  label: CHROME DBSC
+  headline: "Chrome 146 DBSC Win"
+  metric: "Google : Chrome 146 : DBSC block session theft"
+  detail: "Chrome 146 ships DBSC to block session theft"
+  badge:
+    value: '146'
+    label: CHROME
+    sub: DBSC
+  visual:
+    kind: shield
+    label: DBSC
+  metric_b: "Force-upgrade fleet to Chrome 146 : tag DBSC adoption metric"
+  detail_b: "Pin Win Chrome 146 : audit cookie-theft IoC : SIEM rule on session"
+  mini:
+    value: WIN
+    label: PLATFORM
+    sub: Windows
+  mini2:
+    value: SES
+    label: THREAT
+    sub: theft
