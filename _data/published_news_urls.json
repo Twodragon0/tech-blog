@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-22T00:33:09.739088+00:00",
+  "updated_at": "2026-05-23T00:32:28.462864+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html",
-      "title": "Ivanti EPMM CVE-2026-6973 RCE Under Active Exploitation Grants Admin-Level Acces",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/pcpjack-credential-stealer-exploits-5.html",
-      "title": "PCPJack Credential Stealer Exploits 5 CVEs to Spread Worm-Like Across Cloud Syst",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/07/prompts-become-shells-rce-vulnerabilities-ai-agent-frameworks/",
-      "title": "When prompts become shells: RCE vulnerabilities in AI agent frameworks",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/one-click-total-shutdown-patient-zero.html",
-      "title": "One Click, Total Shutdown: The \"Patient Zero\" Webinar on Killing Stealth Breache",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/pan-os-rce-exploit-under-active-use.html",
-      "title": "PAN-OS RCE Exploit Under Active Use Enabling Root Access and Espionage",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/energy-secretary-chris-wright-ian-buck/",
-      "title": "Powering the Next American Century: US Energy Secretary Chris Wright and NVIDIA’",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gaijin-sso/",
-      "title": "Linked and Loaded: Gaijin Single Sign-On Now Available on GeForce NOW",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber",
-      "title": "Scaling Trusted Access for Cyber with GPT-5.5 and GPT-5.5-Cyber",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://openai.com/index/parloa",
-      "title": "Parloa builds service agents customers want to talk to",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
-      "title": "Advancing voice intelligence with new models in the API",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-flash-lite-is-now-generally-available/",
-      "title": "Gemini 3.1 Flash-Lite is now generally available on Gemini Enterprise Agent Plat",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/scaling-real-time-performance-with-bigtable-in-memory-tier/",
-      "title": "New Bigtable in-memory tier for sub-millisecond read latency",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-basf-manages-thousands-of-supply-chain-decisions-with-alphaevolve/",
-      "title": "How BASF manages thousands of supply chain decisions with AlphaEvolve’s agentic ",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/ec2-grafana-k6/",
-      "title": "Grafana k6로 Amazon EC2 비용 최적화 하기",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-07-upcoming-deprecation-of-gpt-4-1",
-      "title": "Upcoming deprecation of GPT-4.1",
-      "published_date": "2026-05-08",
-      "expires_at": "2026-05-15T02:12:14.543071+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/tclbanker-banking-trojan-targets.html",
       "title": "TCLBANKER Banking Trojan Targets Financial Platforms via WhatsApp and Outlook Wo",
@@ -1260,6 +1170,96 @@
       "title": "GitHub Copilot for Eclipse is open source",
       "published_date": "2026-05-22",
       "expires_at": "2026-05-29T00:33:09.738985+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/first-vpn-dismantled-in-global-takedown.html",
+      "title": "First VPN Dismantled in Global Takedown Over Use by 25 Ransomware Groups",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/ghostwriter-targets-ukraine-government.html",
+      "title": "Ghostwriter Targets Ukraine Government Entities with Prometheus Phishing Malware",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/megalodon-github-attack-targets-5561.html",
+      "title": "Megalodon GitHub Attack Targets 5,561 Repos with Malicious CI/CD Workflows",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/making-vulnerable-drivers-exploitable.html",
+      "title": "Making Vulnerable Drivers Exploitable Without Hardware - The BYOVD Perspective",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/22/microsoft-recognized-as-a-leader-in-the-forrester-wave-for-workforce-identity-security-platforms/",
+      "title": "Microsoft recognized as a Leader in The Forrester Wave™ for Workforce Identity S",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-dialogues-recap/",
+      "title": "Catch up on the Dialogues stage at Google I/O 2026.",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/nvidia/nemotron-labs-diffusion",
+      "title": "Towards Speed-of-Light Text Generation with Nemotron-Labs Diffusion Language Mod",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/Dharma-AI/specialization-beats-scale",
+      "title": "Specialization Beats Scale: A Strategic Variable Most AI Procurement Decisions O",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/startups/filling-the-gaps-in-dental-skills-with-specialized-agentic-ai/",
+      "title": "The Blueprint: How Movix fills a gap in dental skills with specialized agentic A",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/hae-genai-sandbox-hackathon-3/",
+      "title": "현대오토에버의 Amazon Bedrock으로 구축한 빅데이터 클러스터 장애 대응 자동화 에이전트 구축기",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/hae-genai-sandbox-hackathon-2/",
+      "title": "현대오토에버의 Amazon Bedrock으로 구축한 다중 AI 에이전트: 장애 대응 시간 5분으로 단축하기",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/hae-genai-sandbox-hackathon-1/",
+      "title": "현대오토에버의 GenAI Sandbox 활용 생산성 향상 Hackathon: 혁신과 협업의 성공 사례",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-05-22-staged-publishing-and-new-install-time-controls-for-npm",
+      "title": "Staged publishing and new install-time controls for npm",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/05/22/designing-end-to-end-ingress-request-tracing-for-multi-tenant-saas-platforms/",
+      "title": "Designing end-to-end ingress request tracing for multi-tenant SaaS platforms",
+      "published_date": "2026-05-23",
+      "expires_at": "2026-05-30T00:32:28.462764+00:00"
     }
   ]
 }
