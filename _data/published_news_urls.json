@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-23T00:32:28.462864+00:00",
+  "updated_at": "2026-05-24T00:31:23.894402+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/tclbanker-banking-trojan-targets.html",
-      "title": "TCLBANKER Banking Trojan Targets Financial Platforms via WhatsApp and Outlook Wo",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/fake-call-history-apps-stole-payments.html",
-      "title": "Fake Call History Apps Stole Payments From Users After 7.3 Million Play Store Do",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/08/active-attack-dirty-frag-linux-vulnerability-expands-post-compromise-risk/",
-      "title": "Active attack: Dirty Frag Linux vulnerability expands post-compromise risk",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/quasar-linux-rat-steals-developer.html",
-      "title": "Quasar Linux RAT Steals Developer Credentials for Software Supply Chain Compromi",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/one-missed-threat-per-week-what-25m.html",
-      "title": "One Missed Threat Per Week: What 25M Alerts Reveal About Low-Severity Risk",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://blog.google/company-news/inside-google/company-announcements/the-small-brief/",
-      "title": "See what happens when creative legends use AI to make ads for small businesses.",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://openai.com/index/running-codex-safely",
-      "title": "Running Codex safely at OpenAI",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/halliburton-enhances-seismic-workflow-creation-with-amazon-bedrock-and-generative-ai/",
-      "title": "Halliburton enhances seismic workflow creation with Amazon Bedrock and Generativ",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/lablab-ai-amd-developer-hackathon/cybersecqwen-4b",
-      "title": "CyberSecQwen-4B: Why Defensive Cyber Needs Small, Specialized, Locally-Runnable ",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/allenai/emo",
-      "title": "EMO: Pretraining mixture of experts for emergent modularity",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/ship-code-within-minutes-with-the-gemini-cli-devops-extension/",
-      "title": "Ship code within minutes with the Gemini CLI DevOps Extension",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-node-startup-gets-faster/",
-      "title": "With faster node startup for GKE, say goodbye to cold-start latency",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-08-upcoming-deprecation-of-grok-code-fast-1",
-      "title": "Upcoming deprecation of Grok Code Fast 1",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-08-copilot-code-review-comment-types-now-in-usage-metrics-api",
-      "title": "Copilot code review comment types now in usage metrics API",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-08-disable-commit-comments-on-the-user-level",
-      "title": "Disable commit comments on the user level",
-      "published_date": "2026-05-09",
-      "expires_at": "2026-05-16T02:06:06.177171+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/jdownloader-site-hacked-to-replace-installers-with-python-rat-malware/",
       "title": "JDownloader site hacked to replace installers with Python RAT malware",
@@ -1260,6 +1170,96 @@
       "title": "Designing end-to-end ingress request tracing for multi-tenant SaaS platforms",
       "published_date": "2026-05-23",
       "expires_at": "2026-05-30T00:32:28.462764+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/npm-adds-2fa-gated-publishing-and.html",
+      "title": "npm Adds 2FA-Gated Publishing and Package Install Controls Against Supply Chain ",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/packagist-supply-chain-attack-infects-8.html",
+      "title": "Packagist Supply Chain Attack Infects 8 Packages Using GitHub-Hosted Linux Malwa",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/claude-mythos-ai-finds-10000-high.html",
+      "title": "Claude Mythos AI Finds 10,000 High-Severity Flaws in Widely Used Software",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/laravel-lang-packages-hijacked-to-deploy-credential-stealing-malware/",
+      "title": "Laravel Lang packages hijacked to deploy credential-stealing malware",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/laravel-lang-php-packages-compromised.html",
+      "title": "Laravel-Lang PHP Packages Compromised to Deliver Cross-Platform Credential Steal",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/business/the-history-and-future-of-physical-bitcoin",
+      "title": "The History and Future of Physical Bitcoin",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/70-crypto-wrench-attacks-happen-france?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "70% of all crypto wrench attacks happen in France: Report",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/warsh-cut-rate-despite-consensus-rate-hikes?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Warsh will cut rates, despite consensus view of rate hikes: Analyst",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/binance-denies-new-wsj-report-alleging-850m-in-iran-linked-transactions?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Binance denies new WSJ report alleging $850M in Iran-linked transactions",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ecb-pushes-back-on-euro-stablecoin-proposals-citing-financial-stability-risks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "ECB pushes back on euro stablecoin proposals, citing financial stability risks",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29811",
+      "title": "직접 만들지 말라 …",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29810",
+      "title": "영주권 신청자는 미국을 떠나 신청해야 한다고 Trump 행정부가 밝힘",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29809",
+      "title": "SpaceX, Starship v3 로켓 발사",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29808",
+      "title": "Cleve Moler 사망",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29807",
+      "title": "AI는 기존 기술 역량에 곱셈 효과를 준다",
+      "published_date": "2026-05-24",
+      "expires_at": "2026-05-31T00:31:23.894287+00:00"
     }
   ]
 }
