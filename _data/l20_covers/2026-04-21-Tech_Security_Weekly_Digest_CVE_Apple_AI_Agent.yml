@@ -1,0 +1,36 @@
+date: '2026-04-21'
+slug: Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent
+date_str: 2026.04.21
+post_title: 'Weekly digest 2026-04-21: SGLang CVE-2026-5760 critical RCE, Vercel breach, Push fraud'
+url: https://tech.2twodragon.com/posts/2026/04/21/Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/
+hero:
+  tag: SGLANG RCE
+  theme: red
+  visual: cve_chain
+  headline: SGLang CVE-2026-5760 RCE
+  subheadline: SGLang LLM serving stack hit by CVE-2026-5760 with CVSS 9.8 remote-code-exec
+  kpi_value: '9.8'
+  kpi_label: CVSS
+  kpi_sub: SGLang
+  action: PATCH SGLANG + RESTRICT INFERENCE INGRESS
+  index: '01'
+top_right:
+  tag: VERCEL BREACH
+  theme: amber
+  visual: hub_spoke
+  headline: Vercel Hack Disclosure
+  subheadline: Vercel discloses platform compromise impacting customer build secrets
+  kpi_value: VER
+  kpi_label: BREACH
+  kpi_sub: platform
+  index: '02'
+bottom_right:
+  tag: PUSH FRAUD
+  theme: blue
+  visual: code_injection
+  headline: Push Notification Scam
+  subheadline: Push-notification phishing wave bypasses MFA via consent fatigue prompts
+  kpi_value: MFA
+  kpi_label: PUSH
+  kpi_sub: fatigue
+  index: '03'
