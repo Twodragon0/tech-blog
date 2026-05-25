@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-24T00:31:23.894402+00:00",
+  "updated_at": "2026-05-25T00:32:04.375561+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/jdownloader-site-hacked-to-replace-installers-with-python-rat-malware/",
-      "title": "JDownloader site hacked to replace installers with Python RAT malware",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/cpanel-whm-patch-3-new-vulnerabilities.html",
-      "title": "cPanel, WHM Release Fixes for Three New Vulnerabilities — Patch Now",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/fake-openai-repository-on-hugging-face-pushes-infostealer-malware/",
-      "title": "Fake OpenAI repository on Hugging Face pushes infostealer malware",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://www.copahost.com/blog/cpanels-black-week-three-new-vulnerabilities-patched-after-ransomware-attack-on-44000-servers/",
-      "title": "CPanel's Black Week: 3 New Vulnerabilities Patched After Attack on 44k Servers",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/lablab-ai-amd-developer-hackathon/oncoagent-official-paper",
-      "title": "\"OncoAgent: A Dual-Tier Multi-Agent Framework for Privacy-Preserving Oncology Cl",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/cz-says-crypto-exchange-rivals-opposed-his-pardon-bid?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "CZ says crypto exchange rivals opposed his pardon bid",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/seven-major-bitcoin-mining-pools-stratum-v2?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "7 major Bitcoin mining pools join Stratum V2, working group",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/strategy-ceo-phong-le-strategy-selling-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Strategy CEO Phong Le says company will sell BTC only in specific cases",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/clarity-act-reshore-crypto-industry-us?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "The CLARITY Act will help reshore the crypto industry in the US — Attorney",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/features/the-nobitex-dilemma-how-irans-biggest-crypto-exchange-stays-off-the-ofac-blacklist?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "The Nobitex dilemma: How Iran's biggest crypto exchange stays off the OFAC black",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29349",
-      "title": "EU 의회조사처, VPN을 “닫아야 할 허점”이라고 불러",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29348",
-      "title": "Bun의 실험적 Rust 재작성판이 Linux x64 glibc에서 99.8% 테스트 호환성에 도달",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29347",
-      "title": "Claude Code 사용: HTML의 비합리적 효과",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29346",
-      "title": "Internet Archive Switzerland",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29345",
-      "title": "확률적 엔지니어링과 24/7 직원",
-      "published_date": "2026-05-10",
-      "expires_at": "2026-05-17T02:05:08.368720+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/teampcp-compromises-checkmarx-jenkins.html",
       "title": "TeamPCP Compromises Checkmarx Jenkins AST Plugin Weeks After KICS Supply Chain A",
@@ -1260,6 +1170,72 @@
       "title": "AI는 기존 기술 역량에 곱셈 효과를 준다",
       "published_date": "2026-05-24",
       "expires_at": "2026-05-31T00:31:23.894287+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/ghost-cms-sql-injection-flaw-exploited-in-large-scale-clickfix-campaign/",
+      "title": "Ghost CMS SQL injection flaw exploited in large-scale ClickFix campaign",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/buterin-fires-back-ef-critics-neutrality?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Buterin fires back at Ethereum Foundation critics, recommits to neutrality",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/law-firm-fenwick-west-54m-ftx-settlement?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "FTX law firm Fenwick & West to pay $54M to victims in settlement",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/tom-lees-ethereum-portfolio-sitting-on-73b-in-unrealized-losses?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Tom Lee’s Ethereum portfolio down $7.35B as ETH price outlook worsens",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/cftc-officials-who-questioned-prediction-markets-were-suspended-nyt?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "CFTC officials who questioned prediction markets were suspended: NYT",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/blockchain-researcher-defends-ethereum-foundation-says-its-exactly-doing-its-job?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Blockchain researcher defends Ethereum Foundation, says it’s doing ‘exactly’ its",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29843",
+      "title": "omarchy는 배포판이 아니다",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29842",
+      "title": "FBI는 미국 번호판 판독기에 ‘준실시간’ 접근을 원한다",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29841",
+      "title": "미국 기술기업, 네덜란드 규제 당국자 이름을 상원에 공유",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29840",
+      "title": "스캐머들이 마이크로소프트 내부 계정을 악용해 스팸 링크 발송중",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=29839",
+      "title": "Microsoft, “현재까지 발견된 가장 오래된 DOS 소스 코드” 오픈소스 공개",
+      "published_date": "2026-05-25",
+      "expires_at": "2026-06-01T00:32:04.375461+00:00"
     }
   ]
 }
