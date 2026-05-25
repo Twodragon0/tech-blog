@@ -27,4 +27,4 @@ gem "logger"
 gem "google-protobuf", ">= 3.25.5"
 
 # Fix: sass-embedded 1.58.3 breaks on Ruby 3.3+ (FileUtils::URI error)
-gem "sass-embedded", "~> 1.99"
+gem "sass-embedded", "~> 1.100"
