@@ -93,9 +93,8 @@ jobs:
       - name: SVG size-band gate (rollup / hq / std classification)
         id: size_gate
         # Mirrors scripts/check_svg_precommit.sh — same classification rules
-        # and band thresholds. Restricted to PR-changed files so existing
-        # legacy SVGs do not retroactively fail the build; --strict makes
-        # any *new* out-of-band cover a hard CI failure.
+        # and band thresholds. With --baseline, legacy grandfathered SVGs are
+        # allowed; any *new* out-of-band cover is a hard CI failure.
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             BASE="origin/${{ github.event.pull_request.base.ref }}"
@@ -103,7 +102,10 @@ jobs:
             BASE="HEAD~1"
           fi
           echo "[size-gate] diff base: $BASE"
-          python3 scripts/check_svg_size_gate.py --changed "$BASE" --strict
+          python3 scripts/check_svg_size_gate.py \
+            --changed "$BASE" \
+            --baseline scripts/svg_size_gate_baseline.txt \
+            --strict
 
       - name: Upload lint report on failure
         if: failure() && steps.lint.outcome == 'failure'

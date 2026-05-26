@@ -137,3 +137,119 @@ def test_python_gate_warn_only_mode_returns_zero() -> None:
         timeout=30,
     )
     assert result.returncode == 0, "warn-only mode must always exit 0"
+
+
+def test_inline_diagram_filenames_are_exempt() -> None:
+    """Small inline diagrams must not trigger std-min violations."""
+    inline_diagrams = [
+        "2026-01-22-Linux_Rootkit_Detection_Flow.svg",
+        "2026-01-22-quadruple-extortion.svg",
+        "2026-01-23-AitM_BEC_Attack_Flow.svg",
+        "2026-01-24-bitlocker-key-flow.svg",
+        "2026-01-29-n8n-sandbox-escape-attack-flow.svg",
+        "2026-02-04-3cs-framework.svg",
+        "2026-02-05-CVE-Timeline.svg",
+    ]
+    for name in inline_diagrams:
+        svg = ASSETS / name
+        if not svg.exists():
+            pytest.skip(f"{name} not on disk")
+        assert _gate.is_exempt(name), (
+            f"{name} should be exempt but is_exempt() returned False. "
+            "Update EXEMPT_PATTERNS in scripts/check_svg_size_gate.py."
+        )
+
+
+def test_baseline_silences_known_violations(tmp_path) -> None:
+    """A baseline allow-list must keep strict-mode from failing on listed paths."""
+    # Generate a fresh baseline from current state
+    baseline = tmp_path / "baseline.txt"
+    gen = subprocess.run(
+        ["python3", str(PY_GATE), "--update-baseline", str(baseline)],
+        cwd=REPO,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    assert gen.returncode == 0
+    assert baseline.exists()
+    # With the baseline, --all --strict must exit 0 (legacy grandfathered).
+    result = subprocess.run(
+        ["python3", str(PY_GATE), "--all", "--strict", "--baseline", str(baseline)],
+        cwd=REPO,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    assert result.returncode == 0, (
+        "strict mode with up-to-date baseline must pass.\n"
+        f"stdout: {result.stdout}"
+    )
+
+
+def test_strict_blocks_new_violation(tmp_path) -> None:
+    """A new out-of-band SVG NOT in baseline must trigger exit 1 under --strict."""
+    # Create a fake std-profile SVG that overshoots the std max band.
+    # Bigger than STD_MAX_BYTES (24576) so size check fires; lacks HQ/rollup
+    # markers so it falls into the std bucket.
+    fake = tmp_path / "2099-12-31-Synthetic_Regression_Test.svg"
+    body = '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1">'
+    body += '<!-- pad -->' * 4000  # ~50 KB of comment padding
+    body += '</svg>'
+    assert len(body) > 25000, "smoke test payload must exceed STD_MAX_BYTES"
+    fake.write_text(body, encoding="utf-8")
+
+    # Without baseline → strict exit 1
+    result = subprocess.run(
+        ["python3", str(PY_GATE), str(fake), "--strict"],
+        cwd=REPO,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+    assert result.returncode == 1, (
+        f"strict mode must reject new oversize std SVG. "
+        f"stdout: {result.stdout}"
+    )
+    assert "WARN" in result.stdout
+    assert "FAIL" in result.stdout
+
+    # With baseline including this path → strict exit 0
+    baseline = tmp_path / "baseline.txt"
+    # The gate stores paths repo-relative; for tmp paths that fall outside
+    # the repo, repo_rel() falls back to the absolute path string. Match that.
+    baseline.write_text(str(fake) + "\n", encoding="utf-8")
+
+    result = subprocess.run(
+        ["python3", str(PY_GATE), str(fake), "--strict", "--baseline", str(baseline)],
+        cwd=REPO,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+    assert result.returncode == 0, (
+        f"baselined violation must pass strict mode.\n"
+        f"stdout: {result.stdout}"
+    )
+
+
+def test_baseline_file_committed_and_current() -> None:
+    """The committed baseline must be up-to-date with current repo state."""
+    baseline = REPO / "scripts" / "svg_size_gate_baseline.txt"
+    assert baseline.exists(), (
+        "scripts/svg_size_gate_baseline.txt missing — regenerate with:\n"
+        "  python3 scripts/check_svg_size_gate.py --update-baseline scripts/svg_size_gate_baseline.txt"
+    )
+    result = subprocess.run(
+        ["python3", str(PY_GATE), "--all", "--strict", "--baseline", str(baseline)],
+        cwd=REPO,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    assert result.returncode == 0, (
+        "Committed baseline is stale — new violations not yet baselined.\n"
+        "Regenerate with:\n"
+        "  python3 scripts/check_svg_size_gate.py --update-baseline scripts/svg_size_gate_baseline.txt\n"
+        f"stdout: {result.stdout}"
+    )
