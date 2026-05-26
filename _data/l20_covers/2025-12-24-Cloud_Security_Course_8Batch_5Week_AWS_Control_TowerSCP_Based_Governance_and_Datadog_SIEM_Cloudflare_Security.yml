@@ -1,0 +1,36 @@
+date: '2025-12-24'
+slug: Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security
+date_str: 2025.12.24
+post_title: 'Cloud Security 8/5: Control Tower SCP, Datadog SIEM, Cloudflare web sec'
+url: https://tech.2twodragon.com/posts/2025/12/24/Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security/
+hero:
+  tag: CTL TOWER
+  theme: red
+  visual: hub_spoke
+  headline: Control Tower + SCP
+  subheadline: AWS Control Tower SCP-based multi-account governance and landing zone
+  kpi_value: CT
+  kpi_label: SCP
+  kpi_sub: AWS
+  action: DEFINE SCP + ENFORCE LZ
+  index: '01'
+top_right:
+  tag: DATADOG SIEM
+  theme: amber
+  visual: data_exfil
+  headline: Datadog SIEM
+  subheadline: Datadog SIEM unified security monitoring across cloud and on-prem signals
+  kpi_value: DD
+  kpi_label: SIEM
+  kpi_sub: unif
+  index: '02'
+bottom_right:
+  tag: CLOUDFLARE
+  theme: blue
+  visual: cve_chain
+  headline: Cloudflare Web Sec
+  subheadline: Cloudflare web security hardening complements Datadog SIEM coverage
+  kpi_value: CF
+  kpi_label: WEB
+  kpi_sub: sec
+  index: '03'

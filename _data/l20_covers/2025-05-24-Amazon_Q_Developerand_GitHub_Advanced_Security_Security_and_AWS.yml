@@ -1,0 +1,36 @@
+date: '2025-05-24'
+slug: Amazon_Q_Developerand_GitHub_Advanced_Security_Security_and_AWS
+date_str: 2025.05.24
+post_title: 'Amazon Q Developer + GHAS: AI code review, SAST SCA, AWS cost optimize'
+url: https://tech.2twodragon.com/posts/2025/05/24/Amazon_Q_Developerand_GitHub_Advanced_Security_Security_and_AWS/
+hero:
+  tag: AMAZON Q
+  theme: red
+  visual: ai_agent_funnel
+  headline: Amazon Q Developer
+  subheadline: Amazon Q Developer AI-powered code generation and review
+  kpi_value: AmQ
+  kpi_label: DEV
+  kpi_sub: AI
+  action: PILOT + AUDIT AI CODE
+  index: '01'
+top_right:
+  tag: GHAS
+  theme: amber
+  visual: supply_chain_pipe
+  headline: GitHub Advanced Sec
+  subheadline: GitHub Advanced Security SAST SCA secret scanning enforcement
+  kpi_value: GHAS
+  kpi_label: SAST
+  kpi_sub: sca
+  index: '02'
+bottom_right:
+  tag: COST OPT
+  theme: blue
+  visual: data_exfil
+  headline: AWS Cost Optimize
+  subheadline: AWS cost optimization recommendations from Q Developer integrated
+  kpi_value: COST
+  kpi_label: AWS
+  kpi_sub: AmQ
+  index: '03'

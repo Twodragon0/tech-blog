@@ -1,0 +1,36 @@
+date: '2025-12-12'
+slug: Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy
+date_str: 2025.12.12
+post_title: 'Cloud Security 8/3: FinOps trends, Cost Explorer, Trusted Advisor, ISMS-P audit'
+url: https://tech.2twodragon.com/posts/2025/12/12/Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy/
+hero:
+  tag: FINOPS 2025
+  theme: red
+  visual: data_exfil
+  headline: FinOps + Cost Explorer
+  subheadline: FinOps 2025 trends with AWS Cost Explorer and Trusted Advisor tooling
+  kpi_value: FIN
+  kpi_label: OPS
+  kpi_sub: AWS
+  action: REVIEW BUDGETS + ALERTS
+  index: '01'
+top_right:
+  tag: ISMS-P
+  theme: amber
+  visual: hub_spoke
+  headline: ISMS-P Audit
+  subheadline: ISMS-P certification audit response strategy for cloud environments
+  kpi_value: ISMS
+  kpi_label: P
+  kpi_sub: AUD
+  index: '02'
+bottom_right:
+  tag: COMPLY
+  theme: blue
+  visual: cve_chain
+  headline: Cost + Compliance
+  subheadline: Cost optimization and security compliance achieved together in practice
+  kpi_value: COST
+  kpi_label: CMP
+  kpi_sub: join
+  index: '03'

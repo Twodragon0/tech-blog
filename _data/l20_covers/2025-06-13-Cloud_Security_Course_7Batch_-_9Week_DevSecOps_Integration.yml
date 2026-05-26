@@ -1,0 +1,36 @@
+date: '2025-06-13'
+slug: Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration
+date_str: 2025.06.13
+post_title: 'Cloud Security 7/9: DevSecOps pipeline architecture, maturity model, checklist'
+url: https://tech.2twodragon.com/posts/2025/06/13/Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration/
+hero:
+  tag: DSO PIPELINE
+  theme: red
+  visual: supply_chain_pipe
+  headline: DevSecOps Pipeline
+  subheadline: DevSecOps pipeline architecture mapping security tools to lifecycle stages
+  kpi_value: DSO
+  kpi_label: FULL
+  kpi_sub: arch
+  action: MAP TOOLS + INTEGRATE
+  index: '01'
+top_right:
+  tag: MATURITY
+  theme: amber
+  visual: hub_spoke
+  headline: Maturity Model
+  subheadline: DevSecOps maturity model and AWS security service integration strategy
+  kpi_value: MAT
+  kpi_label: MOD
+  kpi_sub: DSO
+  index: '02'
+bottom_right:
+  tag: CHECKLIST
+  theme: blue
+  visual: cve_chain
+  headline: Field Checklist
+  subheadline: Practical adoption checklist for DevSecOps rollout across teams
+  kpi_value: CHK
+  kpi_label: DSO
+  kpi_sub: ops
+  index: '03'

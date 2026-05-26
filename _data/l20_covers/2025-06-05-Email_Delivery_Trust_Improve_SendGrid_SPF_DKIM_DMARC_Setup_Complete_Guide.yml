@@ -1,0 +1,36 @@
+date: '2025-06-05'
+slug: Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide
+date_str: 2025.06.05
+post_title: 'Email trust: SendGrid SPF DKIM DMARC, deliverability, DNS records'
+url: https://tech.2twodragon.com/posts/2025/06/05/Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide/
+hero:
+  tag: SPF
+  theme: red
+  visual: hub_spoke
+  headline: SPF Sender Auth
+  subheadline: SPF record verifies authorized sending servers for the domain
+  kpi_value: SPF
+  kpi_label: DNS
+  kpi_sub: auth
+  action: PUBLISH SPF + ALIGN DOMAIN
+  index: '01'
+top_right:
+  tag: DKIM
+  theme: amber
+  visual: code_injection
+  headline: DKIM Signing
+  subheadline: DKIM signature ensures email content integrity across hops
+  kpi_value: DKIM
+  kpi_label: SIGN
+  kpi_sub: key
+  index: '02'
+bottom_right:
+  tag: DMARC
+  theme: blue
+  visual: cve_chain
+  headline: DMARC Policy + Report
+  subheadline: DMARC policy enforcement with aggregate and forensic reporting
+  kpi_value: DMARC
+  kpi_label: POL
+  kpi_sub: rep
+  index: '03'

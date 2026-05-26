@@ -1,0 +1,36 @@
+date: '2025-05-02'
+slug: Cloud_Security_Course_7Batch_-_3Week_AWS_Security_and_Finops
+date_str: 2025.05.02
+post_title: 'Cloud Security 7/3: AWS security services, FinOps framework, Well-Architected'
+url: https://tech.2twodragon.com/posts/2025/05/02/Cloud_Security_Course_7Batch_-_3Week_AWS_Security_and_Finops/
+hero:
+  tag: AWS SECURITY
+  theme: red
+  visual: hub_spoke
+  headline: IAM Org CloudTrail
+  subheadline: AWS IAM Organizations CloudTrail GuardDuty Security Hub structure
+  kpi_value: IAM
+  kpi_label: AWS
+  kpi_sub: core
+  action: MAP ACCOUNTS + ENABLE GUARD
+  index: '01'
+top_right:
+  tag: FINOPS
+  theme: amber
+  visual: data_exfil
+  headline: FinOps Framework
+  subheadline: FinOps framework with cost optimization and budget control patterns
+  kpi_value: FIN
+  kpi_label: OPS
+  kpi_sub: cost
+  index: '02'
+bottom_right:
+  tag: WELL-ARCH
+  theme: blue
+  visual: cve_chain
+  headline: Well-Architected Pillars
+  subheadline: AWS Well-Architected Framework applied to cloud security baselines
+  kpi_value: WA
+  kpi_label: PIL
+  kpi_sub: '5'
+  index: '03'

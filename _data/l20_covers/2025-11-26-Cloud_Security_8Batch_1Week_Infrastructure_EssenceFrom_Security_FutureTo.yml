@@ -1,0 +1,36 @@
+date: '2025-11-26'
+slug: Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo
+date_str: 2025.11.26
+post_title: 'Cloud Security 8/1: cloud infrastructure essence, AI threats, Zero Trust, PQC'
+url: https://tech.2twodragon.com/posts/2025/11/26/Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo/
+hero:
+  tag: INFRA ESSENCE
+  theme: red
+  visual: hub_spoke
+  headline: Cloud Infra Essence
+  subheadline: Cloud infrastructure foundational concepts and security implications
+  kpi_value: INF
+  kpi_label: CORE
+  kpi_sub: cloud
+  action: MAP WORKLOADS + BASELINE
+  index: '01'
+top_right:
+  tag: AI THREAT
+  theme: amber
+  visual: ai_agent_funnel
+  headline: AI Security Threats
+  subheadline: AI security threats and response strategy across enterprise workloads
+  kpi_value: AI
+  kpi_label: THR
+  kpi_sub: ent
+  index: '02'
+bottom_right:
+  tag: PQC
+  theme: blue
+  visual: cve_chain
+  headline: Post-Quantum Crypto
+  subheadline: Post-quantum cryptography and Zero Trust design principles intro
+  kpi_value: PQC
+  kpi_label: FUT
+  kpi_sub: crypto
+  index: '03'

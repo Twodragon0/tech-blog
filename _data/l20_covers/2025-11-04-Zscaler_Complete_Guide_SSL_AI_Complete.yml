@@ -1,0 +1,36 @@
+date: '2025-11-04'
+slug: Zscaler_Complete_Guide_SSL_AI_Complete
+date_str: 2025.11.04
+post_title: 'Zscaler guide: SSL inspection, sandbox ATP, Zero Trust web, ZTNA 2.0'
+url: https://tech.2twodragon.com/posts/2025/11/04/Zscaler_Complete_Guide_SSL_AI_Complete/
+hero:
+  tag: SSL INSPECT
+  theme: red
+  visual: data_exfil
+  headline: SSL Inline Inspection
+  subheadline: Zscaler SSL inline inspection unblocks visibility into encrypted traffic
+  kpi_value: SSL
+  kpi_label: INSP
+  kpi_sub: zs
+  action: ENABLE INSPECT + EXEMPT BANK
+  index: '01'
+top_right:
+  tag: SANDBOX
+  theme: amber
+  visual: code_injection
+  headline: Sandbox + ATP
+  subheadline: Sandbox ATP analyzes suspicious files before delivery to endpoints
+  kpi_value: ATP
+  kpi_label: SBX
+  kpi_sub: mal
+  index: '02'
+bottom_right:
+  tag: ZTNA 2.0
+  theme: blue
+  visual: hub_spoke
+  headline: ZTNA 2.0 Adoption
+  subheadline: ZTNA 2.0 Zero Trust web architecture rollout with category policies
+  kpi_value: ZTNA
+  kpi_label: '2.0'
+  kpi_sub: web
+  index: '03'

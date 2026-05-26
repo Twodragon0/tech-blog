@@ -1,0 +1,36 @@
+date: '2025-05-02'
+slug: Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide
+date_str: 2025.05.02
+post_title: 'Kandji macOS: MDM policies, FIDO2, Zero Trust, AI threat detection'
+url: https://tech.2twodragon.com/posts/2025/05/02/Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/
+hero:
+  tag: KANDJI MDM
+  theme: red
+  visual: hub_spoke
+  headline: Kandji macOS MDM
+  subheadline: Kandji-based macOS endpoint management with MDM policy enforcement
+  kpi_value: MDM
+  kpi_label: KANDJI
+  kpi_sub: mac
+  action: ENROLL DEVICES + APPLY BASELINE
+  index: '01'
+top_right:
+  tag: FIDO2
+  theme: amber
+  visual: cve_chain
+  headline: FIDO2 + WebAuthn
+  subheadline: Passkey-based FIDO2 WebAuthn authentication integrated with Kandji
+  kpi_value: FIDO
+  kpi_label: AUTH
+  kpi_sub: key
+  index: '02'
+bottom_right:
+  tag: ZERO TRUST
+  theme: blue
+  visual: ai_agent_funnel
+  headline: Zero Trust + AI
+  subheadline: Zero Trust architecture with AI-driven threat detection on endpoints
+  kpi_value: ZT
+  kpi_label: AI
+  kpi_sub: det
+  index: '03'

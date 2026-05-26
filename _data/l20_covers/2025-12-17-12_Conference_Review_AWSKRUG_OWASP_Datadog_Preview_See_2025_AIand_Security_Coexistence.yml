@@ -1,0 +1,36 @@
+date: '2025-12-17'
+slug: 12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence
+date_str: 2025.12.17
+post_title: 'Dec conferences: AWSKRUG, OWASP, Datadog, 2025 AI x security coexistence'
+url: https://tech.2twodragon.com/posts/2025/12/17/12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence/
+hero:
+  tag: AWSKRUG
+  theme: red
+  visual: hub_spoke
+  headline: AWSKRUG + OWASP
+  subheadline: AWSKRUG and OWASP seminars surface 2025 AI and security trends
+  kpi_value: AWSK
+  kpi_label: OWSP
+  kpi_sub: conf
+  action: FOLLOW UP NEW STANDARDS
+  index: '01'
+top_right:
+  tag: DATADOG
+  theme: amber
+  visual: data_exfil
+  headline: Datadog Observability
+  subheadline: Datadog observability and LLM security findings from the December summit
+  kpi_value: DD
+  kpi_label: OBS
+  kpi_sub: LLM
+  index: '02'
+bottom_right:
+  tag: ZT STANDARD
+  theme: blue
+  visual: cve_chain
+  headline: Zero Trust Standards
+  subheadline: Zero Trust standardization momentum across vendors and frameworks
+  kpi_value: ZT
+  kpi_label: STD
+  kpi_sub: '2025'
+  index: '03'

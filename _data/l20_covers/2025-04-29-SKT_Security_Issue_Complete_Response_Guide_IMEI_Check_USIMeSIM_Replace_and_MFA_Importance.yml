@@ -1,0 +1,36 @@
+date: '2025-04-29'
+slug: SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance
+date_str: 2025.04.29
+post_title: 'SKT USIM breach response: IMEI check, USIM eSIM replace, MFA importance'
+url: https://tech.2twodragon.com/posts/2025/04/29/SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance/
+hero:
+  tag: USIM BREACH
+  theme: red
+  visual: data_exfil
+  headline: SKT USIM Leak Response
+  subheadline: SKT USIM data leak triggers SIM-swap risk for millions of subscribers
+  kpi_value: USIM
+  kpi_label: LEAK
+  kpi_sub: SKT
+  action: REPLACE USIM + ENABLE MFA NOW
+  index: '01'
+top_right:
+  tag: IMEI CHECK
+  theme: amber
+  visual: cve_chain
+  headline: IMEI Verification
+  subheadline: IMEI verification procedure with carrier-side validation steps
+  kpi_value: IMEI
+  kpi_label: CHK
+  kpi_sub: sim
+  index: '02'
+bottom_right:
+  tag: MFA
+  theme: blue
+  visual: hub_spoke
+  headline: MFA + Banking Lockdown
+  subheadline: Enable MFA across banking accounts and carrier security services
+  kpi_value: MFA
+  kpi_label: BANK
+  kpi_sub: lock
+  index: '03'

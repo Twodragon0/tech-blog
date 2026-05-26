@@ -1,0 +1,36 @@
+date: '2025-09-16'
+slug: AWS_reInforce_2025_Cloud_Security_and_Future
+date_str: 2025.09.16
+post_title: 'AWS re:Inforce 2025: Zero Trust, AI threats, GuardDuty extensions, Security Hub'
+url: https://tech.2twodragon.com/posts/2025/09/16/AWS_reInforce_2025_Cloud_Security_and_Future/
+hero:
+  tag: re:INFORCE
+  theme: red
+  visual: hub_spoke
+  headline: AWS re:Inforce 2025
+  subheadline: AWS re:Inforce 2025 highlights cloud security service announcements
+  kpi_value: AWS
+  kpi_label: '2025'
+  kpi_sub: conf
+  action: PILOT NEW FEATURES Q4
+  index: '01'
+top_right:
+  tag: ZERO TRUST
+  theme: amber
+  visual: cve_chain
+  headline: Zero Trust + AI
+  subheadline: Zero Trust architecture upgrades with AI-driven threat detection updates
+  kpi_value: ZT
+  kpi_label: AI
+  kpi_sub: new
+  index: '02'
+bottom_right:
+  tag: GUARDDUTY
+  theme: blue
+  visual: data_exfil
+  headline: GuardDuty + Sec Hub
+  subheadline: GuardDuty expansion and Security Hub improvements ship at re:Inforce
+  kpi_value: GD
+  kpi_label: SH
+  kpi_sub: ext
+  index: '03'

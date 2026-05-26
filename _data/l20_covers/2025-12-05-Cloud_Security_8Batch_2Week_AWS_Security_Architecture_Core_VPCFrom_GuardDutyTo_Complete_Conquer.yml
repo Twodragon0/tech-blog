@@ -1,0 +1,36 @@
+date: '2025-12-05'
+slug: Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer
+date_str: 2025.12.05
+post_title: 'Cloud Security 8/2: VPC design, IAM least-priv, S3 policy, GuardDuty, re:Invent'
+url: https://tech.2twodragon.com/posts/2025/12/05/Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer/
+hero:
+  tag: VPC DESIGN
+  theme: red
+  visual: hub_spoke
+  headline: VPC Security Design
+  subheadline: VPC security design with subnet flow log and routing best practices
+  kpi_value: VPC
+  kpi_label: AWS
+  kpi_sub: net
+  action: AUDIT VPC + ENABLE FLOW LOGS
+  index: '01'
+top_right:
+  tag: IAM
+  theme: amber
+  visual: cve_chain
+  headline: IAM Least Privilege
+  subheadline: IAM least-privilege patterns plus S3 bucket policy enforcement
+  kpi_value: IAM
+  kpi_label: S3
+  kpi_sub: min
+  index: '02'
+bottom_right:
+  tag: GUARDDUTY
+  theme: blue
+  visual: data_exfil
+  headline: GuardDuty + re:Invent
+  subheadline: GuardDuty threat detection plus re:Invent 2025 new security launches
+  kpi_value: GD
+  kpi_label: AWS
+  kpi_sub: new
+  index: '03'

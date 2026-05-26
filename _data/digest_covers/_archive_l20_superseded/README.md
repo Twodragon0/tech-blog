@@ -67,6 +67,36 @@ python3 scripts/upgrade_digest_cover.py --all
 
 (Then rebuild rasters and commit.)
 
+## Monthly index migration to L20 (post-archive)
+
+Two posts originally rendered through `scripts/upgrade_rollup_cover.py`
+(monthly index pipeline, ~75 KB rollup SVGs) were migrated to the L20
+pipeline in commit `1ca3b977` so the entire Jan–May 2026 visual family
+stays consistent with `2026-03/04`:
+
+- `2026-01-31-January_2026_Security_Digest_Monthly_Index`
+- `2026-02-28-February_2026_Security_Digest_Monthly_Index`
+
+The corresponding `_data/rollup_covers/2026-01-31.yml` and
+`_data/rollup_covers/2026-02-28.yml` specs were left in place but are
+no longer consulted, because `scripts/upgrade_l20_cover.py --all`
+matches `_data/l20_covers/*.yml` first and writes the same SVG path,
+overwriting the rollup output. If you ever need to restore the rollup
+look:
+
+```bash
+# 1. delete the L20 spec
+git rm _data/l20_covers/2026-01-31-January_2026_Security_Digest_Monthly_Index.yml
+git rm _data/l20_covers/2026-02-28-February_2026_Security_Digest_Monthly_Index.yml
+
+# 2. re-render from the rollup spec (still authoritative for that date)
+python3 scripts/upgrade_rollup_cover.py --spec _data/rollup_covers/2026-01-31.yml
+python3 scripts/upgrade_rollup_cover.py --spec _data/rollup_covers/2026-02-28.yml
+```
+
+Note: `test_known_rollup_dates_classified_correctly` was updated in
+the same commit to drop these two stems from its expected-rollup list.
+
 ## Related history
 
 - Commit `aba4195c` — initial archive move (43 files).
@@ -76,3 +106,4 @@ python3 scripts/upgrade_digest_cover.py --all
 - Commit `d7e9cea7` — May pinned + Apr 29/30 L20 batch.
 - Commit `218f5709` — L20 decoration layer enrichment.
 - Commit `c3751f71` — L20 visual-primitive secondary detail icons.
+- Commit `1ca3b977` — Jan + Feb 39 cover conversions + monthly index migration.

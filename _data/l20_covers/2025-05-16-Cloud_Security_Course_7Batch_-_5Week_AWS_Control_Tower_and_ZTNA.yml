@@ -1,0 +1,36 @@
+date: '2025-05-16'
+slug: Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA
+date_str: 2025.05.16
+post_title: 'Cloud Security 7/5: AWS Control Tower Landing Zone, ZTNA'
+url: https://tech.2twodragon.com/posts/2025/05/16/Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA/
+hero:
+  tag: CONTROL TWR
+  theme: red
+  visual: hub_spoke
+  headline: AWS Control Tower
+  subheadline: AWS Control Tower Landing Zone Guardrails and SCP-based multi-account
+  kpi_value: CT
+  kpi_label: AWS
+  kpi_sub: land
+  action: SET LANDING ZONE + SCPs
+  index: '01'
+top_right:
+  tag: ZTNA
+  theme: amber
+  visual: data_exfil
+  headline: Zero Trust Network
+  subheadline: ZTNA Zero Trust Network Access concept and AWS implementation patterns
+  kpi_value: ZTNA
+  kpi_label: NET
+  kpi_sub: AWS
+  index: '02'
+bottom_right:
+  tag: GOVERNANCE
+  theme: blue
+  visual: cve_chain
+  headline: 2025 Governance
+  subheadline: 2025 AWS governance updates affecting enterprise account strategies
+  kpi_value: GOV
+  kpi_label: '2025'
+  kpi_sub: AWS
+  index: '03'

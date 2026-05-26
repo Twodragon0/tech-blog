@@ -1,0 +1,36 @@
+date: '2025-05-30'
+slug: Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes
+date_str: 2025.05.30
+post_title: 'Cloud Security 7/7: Docker basics, K8s architecture, Trivy Falco runtime'
+url: https://tech.2twodragon.com/posts/2025/05/30/Cloud_Security_Course_7Batch_-_7Week_Docker_and_Kubernetes/
+hero:
+  tag: DOCKER
+  theme: red
+  visual: container_escape
+  headline: Docker Fundamentals
+  subheadline: Docker image container Dockerfile fundamentals and security patterns
+  kpi_value: DKR
+  kpi_label: BASE
+  kpi_sub: fund
+  action: SCAN IMAGES + PIN BASE
+  index: '01'
+top_right:
+  tag: K8S
+  theme: amber
+  visual: hub_spoke
+  headline: K8s Control Plane Node Pod
+  subheadline: Kubernetes Control Plane Node Pod architecture overview
+  kpi_value: K8s
+  kpi_label: ARCH
+  kpi_sub: node
+  index: '02'
+bottom_right:
+  tag: RUNTIME
+  theme: blue
+  visual: code_injection
+  headline: Trivy + Falco Runtime
+  subheadline: Container runtime security with Trivy image scan and Falco threats
+  kpi_value: TRV
+  kpi_label: FAL
+  kpi_sub: rt
+  index: '03'

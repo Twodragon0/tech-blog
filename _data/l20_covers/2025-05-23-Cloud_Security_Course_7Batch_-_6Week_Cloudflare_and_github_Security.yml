@@ -1,0 +1,36 @@
+date: '2025-05-23'
+slug: Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security
+date_str: 2025.05.23
+post_title: 'Cloud Security 7/6: AWS WAF, Cloudflare DDoS, GitHub Dependabot CodeQL'
+url: https://tech.2twodragon.com/posts/2025/05/23/Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security/
+hero:
+  tag: AWS WAF
+  theme: red
+  visual: hub_spoke
+  headline: AWS WAF + Managed Rules
+  subheadline: AWS WAF rule design with managed rule group composition patterns
+  kpi_value: WAF
+  kpi_label: AWS
+  kpi_sub: rule
+  action: DEPLOY MANAGED RULES
+  index: '01'
+top_right:
+  tag: CLOUDFLARE
+  theme: amber
+  visual: data_exfil
+  headline: Cloudflare DDoS
+  subheadline: Cloudflare DDoS and WAF security policies for edge protection
+  kpi_value: CF
+  kpi_label: DDoS
+  kpi_sub: edge
+  index: '02'
+bottom_right:
+  tag: GITHUB
+  theme: blue
+  visual: supply_chain_pipe
+  headline: Dependabot + CodeQL
+  subheadline: GitHub Dependabot CodeQL and secret scanning DevSecOps automation
+  kpi_value: GH
+  kpi_label: DSO
+  kpi_sub: auto
+  index: '03'
