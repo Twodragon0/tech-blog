@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-25T00:32:04.375561+00:00",
+  "updated_at": "2026-05-26T00:32:07.090674+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/05/teampcp-compromises-checkmarx-jenkins.html",
@@ -1236,6 +1236,96 @@
       "title": "Microsoft, “현재까지 발견된 가장 오래된 DOS 소스 코드” 오픈소스 공개",
       "published_date": "2026-05-25",
       "expires_at": "2026-06-01T00:32:04.375461+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/weekly-recap-linux-flaws-defender-0.html",
+      "title": "⚡ Weekly Recap: Linux Flaws, Defender 0-Days, Router Botnets, and Supply Chain C",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/ghost-cms-cve-2026-26980-exploited-to.html",
+      "title": "Ghost CMS CVE-2026-26980 Exploited to Hijack 700+ Sites for ClickFix Attacks",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/the-alert-firehose-finally-meets-its.html",
+      "title": "The Alert Firehose Finally Meets Its Match",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://research.checkpoint.com/2026/25th-may-threat-intelligence-report/",
+      "title": "25th May – Threat Intelligence Report",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/lazarus-deploys-remotepe-memory-only.html",
+      "title": "Lazarus Deploys RemotePE Memory-Only RAT Against Financial and Crypto Firms",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/chinese-language-phishing-services/",
+      "title": "2 PhaaS 2 Furious: The Evolution of Chinese-language Phishing Services",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-local-zones-in-istanbul-open-source-extenddb-kiro-web-and-more-may-25-2026/",
+      "title": "AWS Weekly Roundup: AWS Local Zones in Istanbul, open-source ExtendDB, Kiro Web,",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/05/25/why-kubernetes-policy-enforcement-happens-too-late-and-what-to-do-about-it/",
+      "title": "Why Kubernetes policy enforcement happens too late—and what to do about it",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/05/25/zero-downtime-migration-from-ingress-nginx-to-envoy-gateway/",
+      "title": "Zero-Downtime migration from ingress NGINX to Envoy Gateway",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/xrp-price-in-value-zone-near-140-as-whales-pull-170m-from-exchanges?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "XRP price trades in ‘value zone’ near $1.40 as whales pull $170M from exchanges",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ledger-integrates-uae-backed-adi-token-as-gulf-blockchain-infrastructure-expands?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "UAE-linked ADI Chain gains Ledger support amid stablecoin growth",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/texas-primary-runoffs-crypto-pac-prediction-markets-newcomers?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Crypto PAC money pours into Texas primary runoffs, as prediction markets favor c",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/press-releases/coinquant-introduces-trading-infrastructure-for-the-agent-economy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "CoinQuant introduces trading infrastructure for the agent economy",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/squid-safe-labs-third-party-module-3-2-million-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Squid and Safe Labs say third-party module behind $3.2M exploit",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
+    },
+    {
+      "url": "https://arstechnica.com/tech-policy/2026/05/uss-big-bet-on-quantum-computing-may-not-be-entirely-legal/",
+      "title": "US's big bet on quantum computing may not be entirely legal",
+      "published_date": "2026-05-26",
+      "expires_at": "2026-06-02T00:32:07.090569+00:00"
     }
   ]
 }
