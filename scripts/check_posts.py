@@ -480,7 +480,17 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
             f"⚠️ SVG relies on repeated label text instead of a single concept: {image_path}"
         )
 
-    truncated = [t for t in text_nodes if t.endswith("...") or t.endswith("\u2026")]
+    # Spec-rendered covers (HQ dashboard, stacked-bands L22, rollup) use the
+    # _fit_band_text budget which intentionally truncates with "..." when
+    # the YAML spec strings exceed per-font-size character caps. The
+    # render-time drift gate already enforces spec <-> SVG consistency, so
+    # treating these intentional ellipses as "truncated" produces false
+    # positives. Only flag truncation for non-spec covers.
+    truncated = (
+        []
+        if (is_hq_cover or is_stacked_bands or is_rollup)
+        else [t for t in text_nodes if t.endswith("...") or t.endswith("\u2026")]
+    )
     if truncated:
         issues.append(
             f"⚠️ SVG contains truncated text: {truncated[0][:50]}... in {image_path}"
