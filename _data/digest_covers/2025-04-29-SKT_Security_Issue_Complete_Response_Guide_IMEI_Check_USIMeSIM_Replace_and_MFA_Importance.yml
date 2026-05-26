@@ -60,10 +60,10 @@ bands:
     label: ENABLE
     sub: lock
   visual:
-    kind: network_nodes
-    label: MFA MESH
+    kind: code_bars
+    caption: MFA SETUP
   metric_b: 'Banking app PIN + biometric : MFA recovery codes offline'
-  detail_b: 'Print recovery codes : disable SMS-OTP : enable TOTP via Authy/1Password'
+  detail_b: 'Print recovery codes : disable SMS-OTP : enable TOTP app'
   mini:
     value: TOTP
     label: MFA
