@@ -1,0 +1,74 @@
+date: '2025-09-10'
+slug: npm_Large-scale_Security_20
+sfx: SP10
+title: '2025-09-10: npm 2.0 breach, 18 core packages, 2B weekly downloads'
+aria: npm registry large-scale supply chain breach, 18 core packages including debug
+  chalk lodash infected with malware, weekly download volume above 2 billion,
+  emergency triage and SBOM-based recovery procedure.
+bands:
+- theme: red
+  label: NPM REGISTRY BREACH
+  headline: 18 Core Packages Hit
+  metric: 'debug chalk lodash : 18 hijacks'
+  detail: 'Maintainer ATO via phishing : malware injected post-pub : 2B weekly downloads'
+  badge:
+    value: '18'
+    label: PACKAGES
+    sub: infected
+  visual:
+    kind: code_bars
+    caption: NPM TAMPER
+  metric_b: 'Maintainer ATO chain : npm publish hijack : transitive blast radius'
+  detail_b: 'OTP backup code abuse : phishing landing page : staged malware post-pub'
+  mini:
+    value: '2B'
+    label: WEEKLY
+    sub: downloads
+  mini2:
+    value: ATO
+    label: VECTOR
+    sub: maint
+- theme: amber
+  label: MALWARE PAYLOAD
+  headline: Postinstall Exfil
+  metric: 'postinstall script : creds + env steal'
+  detail: 'package.json postinstall : env var exfil : crypto wallet scrape : C2 beacon'
+  badge:
+    value: ENV
+    label: EXFIL
+    sub: vars
+  visual:
+    kind: lock_cve
+    cvss: EXFIL
+  metric_b: 'Env var sweep : .env / AWS_SECRET : NPM_TOKEN steal'
+  detail_b: 'Block npm postinstall in CI : audit .npmrc tokens : rotate AWS keys now'
+  mini:
+    value: ENV
+    label: STEAL
+    sub: secrets
+  mini2:
+    value: C2
+    label: BEACON
+    sub: exfil
+- theme: blue
+  label: SUPPLY CHAIN DEFENSE
+  headline: SBOM + Lockfile Audit
+  metric: 'SBOM scan : lockfile pin : 2FA'
+  detail: 'SBOM CycloneDX scan : lockfile-only install : npm publish 2FA mandatory'
+  badge:
+    value: SBOM
+    label: SCAN
+    sub: deps
+  visual:
+    kind: shield
+    label: SBOM
+  metric_b: 'pnpm/yarn frozen lockfile : --ignore-scripts in CI : npm token rotate'
+  detail_b: 'Scan deps with osv-scanner + snyk : disable postinstall : audit transitive'
+  mini:
+    value: 2FA
+    label: PUBLISH
+    sub: req
+  mini2:
+    value: LOCK
+    label: PIN
+    sub: deps

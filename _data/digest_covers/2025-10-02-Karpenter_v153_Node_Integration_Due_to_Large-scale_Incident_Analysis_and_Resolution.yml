@@ -1,0 +1,73 @@
+date: '2025-10-02'
+slug: Karpenter_v153_Node_Integration_Due_to_Large-scale_Incident_Analysis_and_Resolution
+sfx: OC02
+title: '2025-10-02: Karpenter v1.5.3 node consolidation outage, PDB mitigation'
+aria: Karpenter v1.5.3 upgrade triggers aggressive node consolidation causing large-scale
+  EKS outage, PodDisruptionBudget gap allows simultaneous evictions, mitigation
+  pattern and Karpenter operational best practices for cluster resilience.
+bands:
+- theme: red
+  label: EKS OUTAGE
+  headline: Karpenter v1.5.3 Consolidate
+  metric: 'Aggressive consolidation : node drain'
+  detail: 'v1.5.3 default policy : parallel node delete : workloads evicted at once'
+  badge:
+    value: v1.5.3
+    label: KARPENTER
+    sub: regress
+  visual:
+    kind: cloud_k8s
+  metric_b: 'Consolidation policy default flip : node binpack churn'
+  detail_b: 'Disruption budget gap : multi-AZ pods evicted : LB 503 burst spike'
+  mini:
+    value: K8s
+    label: EKS
+    sub: outage
+  mini2:
+    value: '1.5'
+    label: VER
+    sub: regress
+- theme: amber
+  label: ROOT CAUSE
+  headline: PDB Gap on Consolidate
+  metric: 'PDB missing : parallel evict'
+  detail: 'No PodDisruptionBudget : Karpenter ignores absence : drain all replicas'
+  badge:
+    value: PDB
+    label: GAP
+    sub: missing
+  visual:
+    kind: lock_cve
+    cvss: PDB
+  metric_b: 'Karpenter ignored PDB absence : drained all replicas in parallel'
+  detail_b: 'Default disruption budget = 0 : no minAvailable guard : zero-replica window'
+  mini:
+    value: '0'
+    label: PDB
+    sub: gap
+  mini2:
+    value: DRY
+    label: RUN
+    sub: skip
+- theme: blue
+  label: REMEDIATION
+  headline: PDB + Disruption Block
+  metric: 'PDB minAvail=1 : DisruptionBlock'
+  detail: 'PDB minAvailable=1 : Karpenter disruptionBlock annotation : staged rollout'
+  badge:
+    value: PDB
+    label: APPLY
+    sub: min1
+  visual:
+    kind: shield
+    label: PDB
+  metric_b: 'karpenter.sh/do-not-disrupt annotation : staged consolidation policy'
+  detail_b: 'Pin Karpenter ver in chart : canary upgrade per AZ : alarm on node churn'
+  mini:
+    value: PIN
+    label: CHART
+    sub: ver
+  mini2:
+    value: AZ
+    label: CANARY
+    sub: stage

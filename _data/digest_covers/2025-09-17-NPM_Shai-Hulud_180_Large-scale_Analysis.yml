@@ -1,0 +1,74 @@
+date: '2025-09-17'
+slug: NPM_Shai-Hulud_180_Large-scale_Analysis
+sfx: SP17
+title: '2025-09-17: NPM Shai-Hulud worm, 180+ packages, first self-replicating'
+aria: First self-replicating worm in npm ecosystem Shai-Hulud compromises over 180
+  packages, propagation mechanism via stolen tokens, infection detection guide
+  with SBOM and 2FA enforcement for open-source supply chain.
+bands:
+- theme: red
+  label: NPM WORM
+  headline: Shai-Hulud Self-Replicate
+  metric: 'First npm worm : 180+ packages hit'
+  detail: 'Self-replicating worm : token theft chain : auto-publish to next package'
+  badge:
+    value: '180+'
+    label: PKGS
+    sub: infected
+  visual:
+    kind: code_bars
+    caption: WORM SPREAD
+  metric_b: 'Worm payload : steal NPM_TOKEN : re-publish to next maintainer'
+  detail_b: 'Stage1 token exfil : Stage2 enumerate maintainer pkgs : Stage3 republish'
+  mini:
+    value: WORM
+    label: FIRST
+    sub: npm
+  mini2:
+    value: '180'
+    label: PKGS
+    sub: hit
+- theme: amber
+  label: PROPAGATION CHAIN
+  headline: Token Steal + Publish
+  metric: 'NPM_TOKEN exfil : auto-spread'
+  detail: 'env NPM_TOKEN steal : list maintainer packages : silently publish new ver'
+  badge:
+    value: TOK
+    label: STEAL
+    sub: spread
+  visual:
+    kind: network_nodes
+    label: SPREAD
+  metric_b: 'Auto-enumerate maintainer scope : silent version bump publish'
+  detail_b: 'npm whoami + npm access ls : publish patch with worm payload : repeat'
+  mini:
+    value: AUTO
+    label: SPREAD
+    sub: worm
+  mini2:
+    value: TOK
+    label: NPM
+    sub: steal
+- theme: blue
+  label: OSS DEFENSE
+  headline: 2FA + SBOM Mandatory
+  metric: 'Publish 2FA : SBOM : npm audit'
+  detail: '2FA on publish : SBOM CycloneDX : npm audit signatures : lockfile pin'
+  badge:
+    value: 2FA
+    label: PUBLISH
+    sub: req
+  visual:
+    kind: shield
+    label: 2FA
+  metric_b: 'Sigstore signing : SLSA Level 3 build : provenance attestation'
+  detail_b: 'npm publish --provenance : sigstore cosign : SLSA generator GitHub Action'
+  mini:
+    value: SLSA
+    label: BUILD
+    sub: L3
+  mini2:
+    value: SIG
+    label: STORE
+    sub: sign

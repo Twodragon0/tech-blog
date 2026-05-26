@@ -1,0 +1,74 @@
+date: '2025-11-19'
+slug: Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_what_Learned
+sfx: NV19
+title: '2025-11-19: Cloudflare 11-18 global outage post-mortem and resilience plan'
+aria: Cloudflare global outage on November 18 2025 full post-mortem timeline,
+  service impact scope and root cause analysis, Multi-CDN failover strategy
+  and automatic resilience design from an SRE perspective.
+bands:
+- theme: red
+  label: GLOBAL OUTAGE
+  headline: Cloudflare 11-18 Outage
+  metric: 'Global edge outage : multi-region'
+  detail: 'Cloudflare edge plane failure : DNS + WAF + workers blast radius'
+  badge:
+    value: 11-18
+    label: OUTAGE
+    sub: global
+  visual:
+    kind: network_nodes
+    label: EDGE
+  metric_b: 'Global edge plane fail : DNS + WAF + Workers affected'
+  detail_b: 'DNS resolution stalls : WAF rule eval block : Workers cold-start spike'
+  mini:
+    value: 11/18
+    label: DATE
+    sub: utc
+  mini2:
+    value: GLB
+    label: SCOPE
+    sub: edge
+- theme: amber
+  label: TIMELINE + IMPACT
+  headline: Multi-Hour Blast Radius
+  metric: 'Multi-hour impact : major sites hit'
+  detail: 'Major SaaS down : API gateway 5xx : retail checkout 503 cascade'
+  badge:
+    value: SaaS
+    label: IMPACT
+    sub: many
+  visual:
+    kind: bar_graph
+    caption: TIMELINE
+  metric_b: 'Cascading 5xx : API gateway timeout : retail checkout 503'
+  detail_b: 'Status timeline log : RCA depends on stuck deploy : rollback path delayed'
+  mini:
+    value: 5xx
+    label: API
+    sub: spike
+  mini2:
+    value: SaaS
+    label: HIT
+    sub: many
+- theme: blue
+  label: RESILIENCE PLAN
+  headline: Multi-CDN + Failover
+  metric: 'Multi-CDN : auto failover : SLO'
+  detail: 'Multi-CDN edge : DNS health-check failover : retry budget : SLO error budget'
+  badge:
+    value: MCD
+    label: PLAN
+    sub: multi
+  visual:
+    kind: shield
+    label: FAILOVER
+  metric_b: 'DNS health-check failover : Multi-CDN steering : retry budget cap'
+  detail_b: 'Route53 health check + secondary CDN : weighted DNS : chaos drill quarterly'
+  mini:
+    value: DNS
+    label: HCHK
+    sub: fail
+  mini2:
+    value: SLO
+    label: BUDGET
+    sub: error

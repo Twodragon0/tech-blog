@@ -1,0 +1,74 @@
+date: '2025-04-29'
+slug: SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_and_MFA_Importance
+sfx: AP29
+title: '2025-04-29: SKT USIM breach response, IMEI check, USIM swap, MFA'
+aria: SK Telecom USIM data leak triggers SIM-swap risk, IMEI verification procedure
+  and carrier-side defense, USIM/eSIM replacement plus MFA enrollment to lock
+  banking and carrier accounts.
+bands:
+- theme: red
+  label: USIM BREACH
+  headline: SKT USIM Leak Response
+  metric: 'Telecom carrier breach : SIM-swap risk'
+  detail: 'USIM data leak : SIM-swap attack chain : carrier MFA gap : urgent rotation'
+  badge:
+    value: USIM
+    label: BREACH
+    sub: rotate
+  visual:
+    kind: lock_cve
+    cvss: USIM
+  metric_b: 'SIM-swap surface : SMS-OTP bypass : carrier MFA enroll'
+  detail_b: 'Replace USIM/eSIM : freeze carrier port-out : enroll authenticator app'
+  mini:
+    value: SIM
+    label: SWAP
+    sub: risk
+  mini2:
+    value: SKT
+    label: CARRIER
+    sub: breach
+- theme: amber
+  label: IMEI CHECK
+  headline: IMEI Verification Drill
+  metric: 'IMEI verify : device anchor'
+  detail: 'Phone IMEI check : carrier device pairing : detect cloned line'
+  badge:
+    value: IMEI
+    label: VERIFY
+    sub: anchor
+  visual:
+    kind: shield
+    label: DEVICE
+  metric_b: 'Carrier verify call : detect unknown IMEI pair'
+  detail_b: 'Dial carrier check code : SMS log audit : reject unknown device pair'
+  mini:
+    value: '*'
+    label: CHECK
+    sub: dial
+  mini2:
+    value: ID
+    label: DEVICE
+    sub: anchor
+- theme: blue
+  label: MFA HARDENING
+  headline: MFA + Banking Lockdown
+  metric: 'TOTP : authenticator app : bank lock'
+  detail: 'Authenticator app MFA : bank app PIN+biometric : disable SMS-OTP for finance'
+  badge:
+    value: MFA
+    label: ENABLE
+    sub: lock
+  visual:
+    kind: network_nodes
+    label: MFA MESH
+  metric_b: 'Banking app PIN + biometric : MFA recovery codes offline'
+  detail_b: 'Print recovery codes : disable SMS-OTP : enable TOTP via Authy/1Password'
+  mini:
+    value: TOTP
+    label: MFA
+    sub: app
+  mini2:
+    value: PIN
+    label: BANK
+    sub: lock
