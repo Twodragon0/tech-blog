@@ -9,6 +9,8 @@ excerpt: "2026년 05월 24일 보안 다이제스트. 랜섬웨어 운영자의 
 description: "랜섬웨어 운영 모델의 데이터-탈취 피벗, AWS IAM Identity Center 권한 위임 취약점, 오픈소스 공급망 캠페인을 분석한 2026년 05월 24일 주간 보안 다이제스트. 영향 평가와 실무 대응 가이드를 정리합니다."
 keywords: [Security-Weekly, Ransomware, AWS, IAM-Identity-Center, Supply-Chain, OSS]
 author: Twodragon
+synthetic: true
+synthetic_reason: "blogwatcher 자동 발행 파이프라인 중단(2026-05-22 이후)으로 인한 임시 합성 다이제스트"
 comments: true
 image: /assets/images/2026-05-24-Tech_Security_Weekly_Digest_Ransomware_Pivot_IAM_Center_OSS_Supply.svg
 image_alt: "Ransomware pivot, AWS IAM Identity Center, OSS supply chain - 2026-05-24 digest"
