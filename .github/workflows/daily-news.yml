@@ -161,13 +161,11 @@ jobs:
         if: steps.check_news.outputs.has_enough_news == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          # 1-week trial (started 2026-05-10): emit 67 KB L22 ultra covers
-          # at publish time instead of the 19 KB L20 hero default. Falls
-          # back to L20 → legacy on render failure (see auto_publish_news
-          # main() dispatch). Evaluate against the hand-curated baseline
-          # after 2026-05-17; flip default in scripts/auto_publish_news.py
-          # to ON if quality holds, otherwise unset and investigate.
-          USE_L22_ULTRA: "1"
+          # 2026-05-26: L22 ultra deprecated in favor of L20 family unification.
+          # L20 Hero+2-Card now emits the same QR block at translate(1080,504)
+          # and strips Hangul consistently (the L22 path leaked Korean on
+          # 2026-05-23..26 and tripped the unified SVG quality gate).
+          # USE_L20_HERO defaults to "1" so we don't need to set it explicitly.
         run: |
           DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
           MAX_NEWS="${{ github.event.inputs.max_news || '15' }}"

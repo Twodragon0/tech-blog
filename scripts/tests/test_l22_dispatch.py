@@ -221,35 +221,35 @@ def _reload_auto_publish_news():
 
 
 class TestL22UltraEnvFlag:
-    def test_unset_defaults_to_enabled(self, monkeypatch):
-        """Default flipped from opt-in to ON-by-default on 2026-05-15
-        after the 05-12~15 batch shipped without QR due to flag drift
-        on ai-blogwatcher.yml (only daily-news.yml set USE_L22_ULTRA=1)."""
+    def test_unset_defaults_to_disabled(self, monkeypatch):
+        """L22 ultra deprecated 2026-05-26 in favor of L20 family unification.
+        Default flipped back to OFF; L22 retained only as an explicit
+        opt-in legacy renderer. See auto_publish_news.py L22_ULTRA_ENABLED."""
         monkeypatch.delenv("USE_L22_ULTRA", raising=False)
         mod = _reload_auto_publish_news()
-        assert mod.L22_ULTRA_ENABLED is True
+        assert mod.L22_ULTRA_ENABLED is False
 
-    @pytest.mark.parametrize("value", ["1", "true", "yes", "on", "TRUE", ""])
+    @pytest.mark.parametrize("value", ["1", "true", "yes", "on", "TRUE"])
     def test_truthy_values_enable(self, monkeypatch, value):
-        # Empty string now ALSO defaults to enabled — opt-out requires
-        # an explicit 0/false/no/off.
+        # Explicit opt-in only.
         monkeypatch.setenv("USE_L22_ULTRA", value)
         mod = _reload_auto_publish_news()
         assert mod.L22_ULTRA_ENABLED is True
 
-    @pytest.mark.parametrize("value", ["0", "false", "no", "off", "FALSE", "Off"])
+    @pytest.mark.parametrize("value", ["0", "false", "no", "off", "FALSE", "Off", ""])
     def test_falsy_values_disable(self, monkeypatch, value):
-        """Only explicit opt-out values disable L22 ultra.
-        Empty string is NOT in this list anymore."""
+        """Default + explicit opt-out values disable L22 ultra. Empty
+        string is the new default-equivalent and disables."""
         monkeypatch.setenv("USE_L22_ULTRA", value)
         mod = _reload_auto_publish_news()
         assert mod.L22_ULTRA_ENABLED is False
 
 
 class TestDispatchPrecedence:
-    """L22 wins over L20 when both flags are set; falls back gracefully."""
+    """L20 wins over L22 when both flags are set (2026-05-26 migration);
+    falls back gracefully."""
 
-    def _stub_dispatch(self, monkeypatch, mod, l22_returns: str, l20_returns: str = "<svg>l20</svg>"):
+    def _stub_dispatch(self, monkeypatch, mod, l20_returns: str, l22_returns: str = "<svg>l22</svg>"):
         called = {"l22": 0, "l20": 0, "legacy": 0}
 
         def fake_l22(post_info):
@@ -269,55 +269,55 @@ class TestDispatchPrecedence:
         monkeypatch.setattr(mod, "generate_svg_image", fake_legacy)
         return called
 
-    def test_l22_enabled_takes_precedence_over_l20(self, monkeypatch):
+    def test_l20_takes_precedence_when_both_enabled(self, monkeypatch):
         monkeypatch.setenv("USE_L22_ULTRA", "1")
         monkeypatch.setenv("USE_L20_HERO", "1")
         mod = _reload_auto_publish_news()
-        called = self._stub_dispatch(monkeypatch, mod, l22_returns="<svg>l22</svg>")
+        called = self._stub_dispatch(monkeypatch, mod, l20_returns="<svg>l20</svg>")
 
         # Inline the dispatch fragment as it appears in main():
         post_info: dict = {"title": "T", "filename": "f.md"}
         svg = ""
-        if mod.L22_ULTRA_ENABLED:
-            svg = mod._render_l22_svg_string(post_info)
-        if not svg and mod.L20_HERO_ENABLED:
+        if mod.L20_HERO_ENABLED:
             svg = mod._render_l20_svg_string(post_info)
+        if not svg and mod.L22_ULTRA_ENABLED:
+            svg = mod._render_l22_svg_string(post_info)
         if not svg:
             svg = mod.generate_svg_image(None, {}, [])
 
-        assert called == {"l22": 1, "l20": 0, "legacy": 0}
-        assert svg == "<svg>l22</svg>"
+        assert called == {"l22": 0, "l20": 1, "legacy": 0}
+        assert svg == "<svg>l20</svg>"
 
-    def test_l22_failure_falls_back_to_l20(self, monkeypatch):
+    def test_l20_failure_falls_back_to_l22(self, monkeypatch):
         monkeypatch.setenv("USE_L22_ULTRA", "1")
         monkeypatch.setenv("USE_L20_HERO", "1")
         mod = _reload_auto_publish_news()
-        called = self._stub_dispatch(monkeypatch, mod, l22_returns="")  # render fail
+        called = self._stub_dispatch(monkeypatch, mod, l20_returns="")  # render fail
 
         post_info: dict = {"title": "T", "filename": "f.md"}
         svg = ""
-        if mod.L22_ULTRA_ENABLED:
-            svg = mod._render_l22_svg_string(post_info)
-        if not svg and mod.L20_HERO_ENABLED:
+        if mod.L20_HERO_ENABLED:
             svg = mod._render_l20_svg_string(post_info)
+        if not svg and mod.L22_ULTRA_ENABLED:
+            svg = mod._render_l22_svg_string(post_info)
         if not svg:
             svg = mod.generate_svg_image(None, {}, [])
 
         assert called == {"l22": 1, "l20": 1, "legacy": 0}
-        assert svg == "<svg>l20</svg>"
+        assert svg == "<svg>l22</svg>"
 
     def test_both_flags_off_falls_back_to_legacy(self, monkeypatch):
         monkeypatch.setenv("USE_L22_ULTRA", "0")
         monkeypatch.setenv("USE_L20_HERO", "0")
         mod = _reload_auto_publish_news()
-        called = self._stub_dispatch(monkeypatch, mod, l22_returns="")
+        called = self._stub_dispatch(monkeypatch, mod, l20_returns="")
 
         post_info: dict = {"title": "T", "filename": "f.md"}
         svg = ""
-        if mod.L22_ULTRA_ENABLED:
-            svg = mod._render_l22_svg_string(post_info)
-        if not svg and mod.L20_HERO_ENABLED:
+        if mod.L20_HERO_ENABLED:
             svg = mod._render_l20_svg_string(post_info)
+        if not svg and mod.L22_ULTRA_ENABLED:
+            svg = mod._render_l22_svg_string(post_info)
         if not svg:
             svg = mod.generate_svg_image(None, {}, [])
 

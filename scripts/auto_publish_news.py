@@ -184,19 +184,23 @@ L20_HERO_ENABLED: bool = os.getenv("USE_L20_HERO", "1").strip().lower() not in {
     "",
 }
 
-# L22 ultra three-band cover (~67-70 KB, includes QR code block at
-# translate(1080,504)) is the default for security-mode auto-publish.
-# Flipped from opt-in to ON-by-default on 2026-05-15 after the
-# 2026-05-12~15 batch shipped without QR because ai-blogwatcher.yml
-# never set USE_L22_ULTRA=1 (only daily-news.yml did) — flag-drift
-# regression class.
-# Set USE_L22_ULTRA=0 / false / no / off to opt OUT (e.g., to debug
-# the legacy L20 Hero path locally without touching the workflow env).
-L22_ULTRA_ENABLED: bool = os.getenv("USE_L22_ULTRA", "1").strip().lower() not in {
+# L22 ultra three-band cover (~67-70 KB) is now opt-in only.
+#
+# Migrated to L20 family on 2026-05-26: L20 Hero+2-Card has been
+# producing covers with the same QR block (via svg_l22_generator.qr_block
+# at translate(1080,504)) since 2026-04. The L22-only Hangul retention
+# path (l22_dispatch._resolve_three_stories) leaked Korean text into
+# 4 SVGs on 2026-05-23..26 and tripped the unified SVG quality gate.
+# Unifying on L20 keeps the QR block, strips Hangul consistently,
+# and removes the dual-renderer maintenance burden.
+#
+# Set USE_L22_ULTRA=1 to explicitly opt in to the legacy renderer.
+L22_ULTRA_ENABLED: bool = os.getenv("USE_L22_ULTRA", "0").strip().lower() not in {
     "0",
     "false",
     "no",
     "off",
+    "",
 }
 
 
@@ -645,12 +649,13 @@ def main():
         print(f"   - {cat}: {len(items)} items")
 
     # Generate SVG. Dispatch order for weekly-digest posts (mode == "security"):
-    #   1. USE_L22_ULTRA=1 (opt-in)  → 67-70 KB three-band L22 ultra cover
-    #   2. USE_L20_HERO=1 (default)  → 19 KB L20 hero+2-card cover
-    #   3. fallback                  → legacy generate_svg_image
-    # L22 takes precedence when both flags are set; on render failure each
-    # tier degrades to the next so publishing is never blocked on cover
-    # generation.
+    #   1. USE_L20_HERO=1 (default ON) → L20 Hero+2-Card cover (~40-75 KB,
+    #                                    includes QR block at translate(1080,504))
+    #   2. USE_L22_ULTRA=1 (opt-in)    → legacy L22 three-band ultra cover
+    #   3. fallback                    → legacy generate_svg_image
+    # Migrated to L20-first on 2026-05-26 (see L22_ULTRA_ENABLED comment).
+    # On render failure each tier degrades to the next so publishing is
+    # never blocked on cover generation.
     if (L20_HERO_ENABLED or L22_ULTRA_ENABLED) and args.mode == "security":
         post_info_for_l20 = {
             "title": post_content.split("\n", 1)[0]
@@ -670,10 +675,10 @@ def main():
             post_info_for_l20["excerpt"] = m_excerpt.group(1).strip()
 
         svg_content = ""
-        if L22_ULTRA_ENABLED:
-            svg_content = _render_l22_svg_string(post_info_for_l20)
-        if not svg_content and L20_HERO_ENABLED:
+        if L20_HERO_ENABLED:
             svg_content = _render_l20_svg_string(post_info_for_l20)
+        if not svg_content and L22_ULTRA_ENABLED:
+            svg_content = _render_l22_svg_string(post_info_for_l20)
         if not svg_content:
             # Hard fallback: never block publishing on cover failure.
             svg_content = generate_svg_image(now, categorized, selected)

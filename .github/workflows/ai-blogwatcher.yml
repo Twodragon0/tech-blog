@@ -211,13 +211,12 @@ jobs:
           CLAUDE_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'claude') && secrets.CLAUDE_API_KEY || '' }}
           OPENAI_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'gpt-5.4' || env.USE_AI == 'codex-medium') && secrets.OPENAI_API_KEY || '' }}
           DEEPSEEK_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'deepseek') && secrets.DEEPSEEK_API_KEY || '' }}
-          # Emit L22 ultra three-band covers (~67-70 KB) with the QR code
-          # block at translate(1080,504). Without this flag, auto_publish_news
-          # falls back to L20 Hero (~19 KB, no QR), which is why 2026-05-12
-          # through 2026-05-15 auto-published posts shipped without QR codes.
-          # daily-news.yml already sets this flag (line 170); mirror here for
-          # the blogwatcher dispatch path.
-          USE_L22_ULTRA: "1"
+          # 2026-05-26: L22 ultra deprecated in favor of L20 family unification.
+          # L20 Hero+2-Card now emits the same QR block at translate(1080,504)
+          # via svg_l22_generator.qr_block, and strips Hangul consistently
+          # (the L22 _resolve_three_stories path retained Korean and tripped
+          # the unified SVG quality gate on 2026-05-23..26).
+          # USE_L20_HERO defaults to "1"; no explicit env needed.
         run: |
           # Validate MODE against whitelist
           case "${MODE}" in
@@ -254,14 +253,13 @@ jobs:
             echo "No post created for today"
           fi
 
-      - name: Verify L22 ultra cover (QR block present)
+      - name: Verify L20 cover (QR block present)
         if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'
         run: |
-          # Asserts today's auto-published SVG is L22 ultra (~67-70 KB with
-          # QR block at translate(1080,504)), not the L20 Hero fallback
-          # (~19 KB, no QR). Catches the flag-drift regression that
-          # silently shipped 4 QR-less covers on 2026-05-12~15 because
-          # USE_L22_ULTRA wasn't set on this workflow.
+          # Asserts today's auto-published SVG is an L20 family cover with
+          # a QR block at translate(1080,504). The L22 lower-bound was
+          # removed on 2026-05-26 when the pipeline unified on L20 — L20
+          # covers typically range 35-75 KB depending on content density.
           TODAY=$(date +%Y-%m-%d)
           SVG=$(find assets/images -maxdepth 1 -type f \
               \( -name "${TODAY}-*Digest*.svg" -o -name "${TODAY}-*Weekly*.svg" \) \
@@ -273,18 +271,17 @@ jobs:
           SIZE=$(stat -c '%s' "$SVG" 2>/dev/null || stat -f '%z' "$SVG")
           echo "Cover: $SVG"
           echo "Size:  ${SIZE} bytes"
-          # L22 ultra: 60-75 KB typical. L20 Hero: 18-22 KB. Threshold 50000
-          # cleanly separates them with margin for QR data variance.
-          if [ "${SIZE}" -lt 50000 ]; then
-            echo "::error::Cover ${SIZE}B is too small — likely L20 Hero fallback (no QR). Expected L22 ultra (>=50000B)."
-            echo "::error::Check that USE_L22_ULTRA=\"1\" is set in this workflow's env block."
+          # Sanity floor: L20 covers are >=30 KB. Anything smaller indicates
+          # the legacy generate_svg_image fallback fired (no QR, plain text).
+          if [ "${SIZE}" -lt 30000 ]; then
+            echo "::error::Cover ${SIZE}B is too small — likely legacy fallback. Expected L20 (>=30000B)."
             exit 1
           fi
           if ! grep -q 'translate(1080,504)' "$SVG"; then
             echo "::error::Cover ${SVG} missing QR block at translate(1080,504)."
             exit 1
           fi
-          echo "OK: L22 ultra cover with QR block confirmed (${SIZE} bytes)."
+          echo "OK: L20 cover with QR block confirmed (${SIZE} bytes)."
 
       - name: Validate new post
         if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
