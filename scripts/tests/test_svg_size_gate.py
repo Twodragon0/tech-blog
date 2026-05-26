@@ -1,62 +1,52 @@
 #!/usr/bin/env python3
-"""Sanity tests for scripts/check_svg_precommit.sh.
+"""Sanity tests for the SVG size gate.
 
-Verifies the gate correctly classifies the three SVG profiles
-(lane/digest, high-quality cover, weekly/monthly rollup) and does
-not emit a false-positive WARN for any cover currently committed
-under ``assets/images/``.
+The gate has two entry points that must stay in sync:
+  - scripts/check_svg_size_gate.py   (canonical Python implementation)
+  - scripts/check_svg_precommit.sh   (shell thin delegator)
+Both consume the SAME classifier defined in check_svg_size_gate.py,
+so the pre-commit hook and the .github/workflows/svg-lint.yml CI step
+catch the same regressions.
+
+This file imports the Python gate directly and reuses its classify()
++ BANDS to verify (1) every committed rollup SVG falls inside the
+rollup band, (2) known rollup/hq dates are classified correctly, and
+(3) both entry points exit 0 with no staged diff.
 """
 from __future__ import annotations
 
-import re
+import importlib.util
 import subprocess
 from pathlib import Path
 
 import pytest
 
 REPO = Path(__file__).resolve().parent.parent.parent
-GATE = REPO / "scripts" / "check_svg_precommit.sh"
+SHELL_GATE = REPO / "scripts" / "check_svg_precommit.sh"
+PY_GATE = REPO / "scripts" / "check_svg_size_gate.py"
 ASSETS = REPO / "assets" / "images"
 
 
-# Markers copied from check_svg_precommit.sh (must stay in sync).
-HQ_RE = re.compile(
-    r'sceneGlow1|sceneGlow2|@keyframes [^ ]*floatUp|clipPath id="[^"]*clip"'
-    r'|profile: high-quality-cover|id="bgSpread[A-Z0-9]*"'
-    r'|id="heroPanel[A-Z0-9]*"|id="bandA[A-Z0-9]+"'
-)
-ROLLUP_RE = re.compile(
-    r'>WEEKLY ROLLUP<|>MONTHLY INDEX<|id="bgRoll[A-Z0-9]+"|id="hdrGrad[A-Z0-9]+"'
-)
+# Load the Python gate as a module to reuse its classifier + BANDS.
+_spec = importlib.util.spec_from_file_location("_svg_gate", PY_GATE)
+_gate = importlib.util.module_from_spec(_spec)
+assert _spec.loader is not None
+_spec.loader.exec_module(_gate)  # type: ignore[union-attr]
 
-
-def classify(svg: Path) -> str:
-    """Replicate the gate's profile detection in Python for testability."""
-    text = svg.read_text(encoding="utf-8", errors="replace")
-    # rollup check fires first in the gate
-    if ROLLUP_RE.search(text):
-        return "rollup"
-    if HQ_RE.search(text):
-        return "hq"
-    return "std"
+classify = _gate.classify
+BANDS = _gate.BANDS
 
 
 def size(svg: Path) -> int:
     return svg.stat().st_size
 
 
-# Profile bands must match the values in check_svg_precommit.sh.
-BANDS = {
-    "std": (5000, 24576),
-    "hq": (18000, 73728),
-    "rollup": (38000, 83968),
-}
-
-
 def test_gate_script_exists_and_executable() -> None:
-    """The gate fragment must exist and be a runnable shell script."""
-    assert GATE.exists(), f"missing {GATE}"
-    assert GATE.read_text().startswith("#!/bin/sh")
+    """Both gate entry points must exist."""
+    assert SHELL_GATE.exists(), f"missing {SHELL_GATE}"
+    assert SHELL_GATE.read_text().startswith("#!/bin/sh")
+    assert PY_GATE.exists(), f"missing {PY_GATE}"
+    assert PY_GATE.read_text().startswith("#!/usr/bin/env python3")
 
 
 def test_rollup_band_covers_existing_rollups() -> None:
@@ -107,16 +97,43 @@ def test_l20_hero_covers_classify_as_hq() -> None:
         )
 
 
-def test_gate_runs_without_diff_returns_zero() -> None:
-    """Running the gate with no staged diff must exit 0 silently."""
+def test_shell_gate_runs_without_diff_returns_zero() -> None:
+    """The shell wrapper must exit 0 (warn-only) regardless of state."""
     result = subprocess.run(
-        ["sh", str(GATE)],
+        ["sh", str(SHELL_GATE)],
         cwd=REPO,
         capture_output=True,
         text=True,
         timeout=10,
-        env={"PATH": "/usr/bin:/bin"},
     )
     assert result.returncode == 0
-    # No staged SVGs in test env → no output expected
-    assert "WARN" not in result.stdout
+
+
+def test_python_gate_strict_mode_signals_violations() -> None:
+    """--strict must exit non-zero when violations exist (smoke via --all)."""
+    result = subprocess.run(
+        ["python3", str(PY_GATE), "--all", "--strict"],
+        cwd=REPO,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    # The repo contains pre-existing legacy SVGs outside their bands;
+    # the gate's job is to surface them. We just verify --strict propagates
+    # the warning count to the exit code so CI can fail on regressions.
+    if "WARN" in result.stdout:
+        assert result.returncode == 1, "--strict must exit 1 on any WARN"
+    else:
+        assert result.returncode == 0
+
+
+def test_python_gate_warn_only_mode_returns_zero() -> None:
+    """Without --strict the gate must return 0 even with violations."""
+    result = subprocess.run(
+        ["python3", str(PY_GATE), "--all"],
+        cwd=REPO,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    assert result.returncode == 0, "warn-only mode must always exit 0"

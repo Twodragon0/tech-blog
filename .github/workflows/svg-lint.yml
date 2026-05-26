@@ -19,6 +19,8 @@ on:
       - '_data/l25_covers/**.yml'
       - 'scripts/news/l22_dispatch.py'
       - 'scripts/check_l22_visual_variety.py'
+      - 'scripts/check_svg_size_gate.py'
+      - 'scripts/check_svg_precommit.sh'
   pull_request:
     paths:
       - 'assets/images/**.svg'
@@ -37,6 +39,8 @@ on:
       - '_data/l25_covers/**.yml'
       - 'scripts/news/l22_dispatch.py'
       - 'scripts/check_l22_visual_variety.py'
+      - 'scripts/check_svg_size_gate.py'
+      - 'scripts/check_svg_precommit.sh'
 
 concurrency:
   group: svg-lint-${{ github.ref }}
@@ -50,6 +54,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6
+        with:
+          # Fetch enough history so the size-gate step can diff PR head
+          # against the merge base of the target branch.
+          fetch-depth: 0
 
       - name: Set up Python 3.11
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
@@ -81,6 +89,21 @@ jobs:
       - name: L22 cover visual-variety gate
         id: variety_gate
         run: python3 scripts/check_l22_visual_variety.py --all
+
+      - name: SVG size-band gate (rollup / hq / std classification)
+        id: size_gate
+        # Mirrors scripts/check_svg_precommit.sh — same classification rules
+        # and band thresholds. Restricted to PR-changed files so existing
+        # legacy SVGs do not retroactively fail the build; --strict makes
+        # any *new* out-of-band cover a hard CI failure.
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="origin/${{ github.event.pull_request.base.ref }}"
+          else
+            BASE="HEAD~1"
+          fi
+          echo "[size-gate] diff base: $BASE"
+          python3 scripts/check_svg_size_gate.py --changed "$BASE" --strict
 
       - name: Upload lint report on failure
         if: failure() && steps.lint.outcome == 'failure'
