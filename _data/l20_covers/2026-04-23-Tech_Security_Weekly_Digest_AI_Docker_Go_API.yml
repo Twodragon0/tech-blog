@@ -1,0 +1,36 @@
+date: '2026-04-23'
+slug: Tech_Security_Weekly_Digest_AI_Docker_Go_API
+date_str: 2026.04.23
+post_title: 'Weekly digest 2026-04-23: malicious KICS Docker image + VS Code ext, self-prop npm worm, BYOVD'
+url: https://tech.2twodragon.com/posts/2026/04/23/Tech_Security_Weekly_Digest_AI_Docker_Go_API/
+hero:
+  tag: KICS IMG
+  theme: red
+  visual: supply_chain_pipe
+  headline: Malicious KICS Docker
+  subheadline: Malicious KICS Docker image and VS Code extension distribute developer-token theft
+  kpi_value: KICS
+  kpi_label: IMG
+  kpi_sub: mal
+  action: BLOCK IMG + AUDIT EXT REGISTRY
+  index: '01'
+top_right:
+  tag: NPM WORM
+  theme: amber
+  visual: code_injection
+  headline: Self-Prop npm Worm
+  subheadline: Self-propagating supply-chain worm hijacks npm packages to steal dev tokens
+  kpi_value: WORM
+  kpi_label: NPM
+  kpi_sub: tok
+  index: '02'
+bottom_right:
+  tag: BYOVD
+  theme: blue
+  visual: cve_chain
+  headline: BYOVD EDR Bypass
+  subheadline: BYOVD families abuse signed drivers to disable EDR telemetry sensors
+  kpi_value: BYO
+  kpi_label: VD
+  kpi_sub: EDR
+  index: '03'
