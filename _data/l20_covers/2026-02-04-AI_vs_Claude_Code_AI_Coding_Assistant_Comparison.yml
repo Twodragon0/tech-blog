@@ -1,0 +1,36 @@
+date: '2026-02-04'
+slug: AI_vs_Claude_Code_AI_Coding_Assistant_Comparison
+date_str: 2026.02.04
+post_title: 'AI vs Claude Code: CVE-2026-25253 RCE, 400+ malicious skills, SOC 2 certified'
+url: https://tech.2twodragon.com/posts/2026/02/04/AI_vs_Claude_Code_AI_Coding_Assistant_Comparison/
+hero:
+  tag: CVE-2026-25253
+  theme: red
+  visual: cve_chain
+  headline: AI Agent RCE Detail
+  subheadline: CVE-2026-25253 RCE vulnerability deep-dive across AI coding agents
+  kpi_value: '25253'
+  kpi_label: CVE
+  kpi_sub: RCE
+  action: PIN AGENT + LIMIT MCP
+  index: '01'
+top_right:
+  tag: MALICIOUS SKILLS
+  theme: amber
+  visual: ai_agent_funnel
+  headline: 400+ Malicious Skills
+  subheadline: 400 plus malicious skills campaign distributed across agent stores
+  kpi_value: '400'
+  kpi_label: SKILL
+  kpi_sub: mal
+  index: '02'
+bottom_right:
+  tag: SOC 2
+  theme: blue
+  visual: hub_spoke
+  headline: SOC 2 + DevSecOps
+  subheadline: SOC 2 Type II certification with DevSecOps CI/CD and FinOps ROI
+  kpi_value: SOC2
+  kpi_label: DSO
+  kpi_sub: finops
+  index: '03'

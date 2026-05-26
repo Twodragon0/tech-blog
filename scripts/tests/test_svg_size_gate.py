@@ -65,12 +65,17 @@ def test_rollup_band_covers_existing_rollups() -> None:
 
 
 def test_known_rollup_dates_classified_correctly() -> None:
-    """Known rollup files must be classified as rollup, not hq or std."""
+    """Known rollup files must be classified as rollup, not hq or std.
+
+    Note: January and February 2026 monthly indexes were intentionally
+    migrated to the L20 Hero+2-Card pipeline to match the visual family
+    of 2026-03/04 covers, so they no longer classify as rollup.
+    """
     known_rollup_stems = [
+        "2026-04-05-Week1_April_2026_Security_Digest",
         "2026-04-12-Week2_April_2026_Security_Digest",
         "2026-04-19-Week3_April_2026_Security_Digest",
-        "2026-01-31-January_2026_Security_Digest_Monthly_Index",
-        "2026-02-28-February_2026_Security_Digest_Monthly_Index",
+        "2026-04-30-Week4_April_2026_Security_Digest",
     ]
     for stem in known_rollup_stems:
         svg = ASSETS / f"{stem}.svg"

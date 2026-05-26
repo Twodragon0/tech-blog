@@ -1,0 +1,36 @@
+date: '2026-01-28'
+slug: Claude_MD_Security_Guide
+date_str: 2026.01.28
+post_title: 'CLAUDE.md security guide: AI agent project security, never hardcode secrets'
+url: https://tech.2twodragon.com/posts/2026/01/28/Claude_MD_Security_Guide/
+hero:
+  tag: CLAUDE.MD
+  theme: red
+  visual: ai_agent_funnel
+  headline: CLAUDE.md Drafting
+  subheadline: CLAUDE.md drafting patterns enforce secret hygiene across AI agents
+  kpi_value: CMD
+  kpi_label: SEC
+  kpi_sub: baseline
+  action: REVIEW + COMMIT CLAUDE.MD
+  index: '01'
+top_right:
+  tag: NO HARDCODE
+  theme: amber
+  visual: code_injection
+  headline: Never Hardcode Secrets
+  subheadline: Never-hardcode-secrets principle with environment variable patterns
+  kpi_value: ENV
+  kpi_label: 'NO'
+  kpi_sub: hard
+  index: '02'
+bottom_right:
+  tag: PRE-COMMIT
+  theme: blue
+  visual: supply_chain_pipe
+  headline: Pre-commit Automation
+  subheadline: Log masking input validation and pre-commit automation workflows
+  kpi_value: PRE
+  kpi_label: HOOK
+  kpi_sub: auto
+  index: '03'

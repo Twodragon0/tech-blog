@@ -1,0 +1,36 @@
+date: '2026-01-22'
+slug: Security_Vendor_Blog_Weekly_Review
+date_str: 2026.01.22
+post_title: 'Vendor blog weekly: VS Code tunnel, ACME cert flaw, AI Agent NHI, HashiCorp'
+url: https://tech.2twodragon.com/posts/2026/01/22/Security_Vendor_Blog_Weekly_Review/
+hero:
+  tag: VS CODE
+  theme: red
+  visual: code_injection
+  headline: VS Code Tunnel Wave
+  subheadline: VS Code remote tunnel abuse spreads to additional vendor advisories
+  kpi_value: VSC
+  kpi_label: TUN
+  kpi_sub: wave
+  action: DISABLE UNUSED TUNNELS
+  index: '01'
+top_right:
+  tag: ACME
+  theme: amber
+  visual: cve_chain
+  headline: ACME Certificate Flaw
+  subheadline: ACME certificate-issuance vulnerability affects automation workflows
+  kpi_value: ACME
+  kpi_label: CERT
+  kpi_sub: vuln
+  index: '02'
+bottom_right:
+  tag: NHI
+  theme: blue
+  visual: ai_agent_funnel
+  headline: AI Agent Zero Trust NHI
+  subheadline: AI agent Zero Trust non-human identity management strategy guidance
+  kpi_value: NHI
+  kpi_label: ZT
+  kpi_sub: AI
+  index: '03'

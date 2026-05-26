@@ -1,0 +1,36 @@
+date: '2026-01-22'
+slug: Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide
+date_str: 2026.01.22
+post_title: 'Cloud Security 8/8: CI/CD pipeline security, K8s NetworkPolicy, AI DevSecOps'
+url: https://tech.2twodragon.com/posts/2026/01/22/Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide/
+hero:
+  tag: CI/CD
+  theme: red
+  visual: supply_chain_pipe
+  headline: Trivy Snyk Vault Stack
+  subheadline: CI/CD pipeline security with Trivy Snyk and HashiCorp Vault integration
+  kpi_value: CI
+  kpi_label: GATE
+  kpi_sub: scan
+  action: BLOCK ON HIGH SEVERITY
+  index: '01'
+top_right:
+  tag: K8S NETPOL
+  theme: amber
+  visual: hub_spoke
+  headline: NetworkPolicy + RBAC
+  subheadline: Kubernetes network policy and RBAC patterns for tenant isolation
+  kpi_value: NP
+  kpi_label: RBAC
+  kpi_sub: k8s
+  index: '02'
+bottom_right:
+  tag: AI DSO
+  theme: blue
+  visual: ai_agent_funnel
+  headline: AI-Driven DevSecOps
+  subheadline: Cursor and Claude integration for AI-assisted DevSecOps reviews
+  kpi_value: AI
+  kpi_label: DSO
+  kpi_sub: asst
+  index: '03'

@@ -1,0 +1,36 @@
+date: '2026-02-10'
+slug: AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS
+date_str: 2026.02.10
+post_title: 'AI Cloud 2026-02-10: Meta Prometheus GW cluster, Google OTLP, AWS Claude 4.6 Bedrock'
+url: https://tech.2twodragon.com/posts/2026/02/10/AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS/
+hero:
+  tag: META PROM
+  theme: red
+  visual: hub_spoke
+  headline: Meta Prometheus GW
+  subheadline: Meta Prometheus gigawatt-class AI cluster powers next-gen training
+  kpi_value: GW
+  kpi_label: META
+  kpi_sub: AI
+  action: REVIEW CAPACITY + CARBON
+  index: '01'
+top_right:
+  tag: OTLP
+  theme: amber
+  visual: supply_chain_pipe
+  headline: Google Cloud OTLP
+  subheadline: Google Cloud native OTLP telemetry support arrives across services
+  kpi_value: OTLP
+  kpi_label: GCP
+  kpi_sub: obs
+  index: '02'
+bottom_right:
+  tag: BEDROCK
+  theme: blue
+  visual: ai_agent_funnel
+  headline: AWS Claude 4.6 Bedrock
+  subheadline: AWS Bedrock adds Claude Opus 4.6 and ChatGPT GenAI.mil platform
+  kpi_value: '4.6'
+  kpi_label: BDR
+  kpi_sub: gov
+  index: '03'

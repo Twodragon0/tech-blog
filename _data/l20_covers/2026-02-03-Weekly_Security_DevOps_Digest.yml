@@ -1,0 +1,36 @@
+date: '2026-02-03'
+slug: Weekly_Security_DevOps_Digest
+date_str: 2026.02.03
+post_title: 'Security DevOps 2026-02-03: Clawdbot RCE, ClawHavoc 335 Atomic, MDM, VS Code'
+url: https://tech.2twodragon.com/posts/2026/02/03/Weekly_Security_DevOps_Digest/
+hero:
+  tag: AI AGENT RCE
+  theme: red
+  visual: ai_agent_funnel
+  headline: Clawdbot 1-Click RCE
+  subheadline: AI Agent Clawdbot Moltbot CVE-2026-25253 one-click remote code exec
+  kpi_value: '25253'
+  kpi_label: CVE
+  kpi_sub: AI
+  action: PATCH AGENT + WAF RULE
+  index: '01'
+top_right:
+  tag: CLAWHAVOC
+  theme: amber
+  visual: supply_chain_pipe
+  headline: ClawHavoc 335 Stealer
+  subheadline: ClawHavoc campaign delivers 335 Atomic Stealer payloads via fake updates
+  kpi_value: '335'
+  kpi_label: ATM
+  kpi_sub: steal
+  index: '02'
+bottom_right:
+  tag: MDM + VSCODE
+  theme: blue
+  visual: code_injection
+  headline: MDM + Fake VSCode
+  subheadline: MDM application-control strategy and fake VS Code extension wave
+  kpi_value: MDM
+  kpi_label: VSC
+  kpi_sub: fake
+  index: '03'

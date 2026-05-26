@@ -1,0 +1,36 @@
+date: '2026-02-05'
+slug: AI_Content_Creator_Workflow_2026_Blog_Video_Music_Animation
+date_str: 2026.02.05
+post_title: 'AI content creator 2026: Claude 4.5, Qwen3-TTS, Suno, Runway, D-ID, Python pipeline'
+url: https://tech.2twodragon.com/posts/2026/02/05/AI_Content_Creator_Workflow_2026_Blog_Video_Music_Animation/
+hero:
+  tag: BLOG GEN
+  theme: red
+  visual: ai_agent_funnel
+  headline: Claude 4.5 Blog Gen
+  subheadline: Claude Opus 4.5 blog generation with Qwen3-TTS open-source voice
+  kpi_value: '4.5'
+  kpi_label: BLOG
+  kpi_sub: gen
+  action: PILOT + AUDIT API KEYS
+  index: '01'
+top_right:
+  tag: VIDEO + MUSIC
+  theme: amber
+  visual: data_exfil
+  headline: Suno + Runway + D-ID
+  subheadline: Suno music Runway Gen-3 video and D-ID animation in one stack
+  kpi_value: SUN
+  kpi_label: RUN
+  kpi_sub: DID
+  index: '02'
+bottom_right:
+  tag: PIPELINE
+  theme: blue
+  visual: supply_chain_pipe
+  headline: Python E2E Pipeline
+  subheadline: Python end-to-end pipeline and three case studies across the workflow
+  kpi_value: E2E
+  kpi_label: PY
+  kpi_sub: case
+  index: '03'

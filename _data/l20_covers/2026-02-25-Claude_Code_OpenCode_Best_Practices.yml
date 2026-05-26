@@ -1,0 +1,36 @@
+date: '2026-02-25'
+slug: Claude_Code_OpenCode_Best_Practices
+date_str: 2026.02.25
+post_title: 'Claude Code + OpenCode best practices: 38 patterns, CLAUDE.md, agent teams'
+url: https://tech.2twodragon.com/posts/2026/02/25/Claude_Code_OpenCode_Best_Practices/
+hero:
+  tag: 38 PATTERNS
+  theme: red
+  visual: ai_agent_funnel
+  headline: 38 Best Practices
+  subheadline: 38 best practices spanning Claude Code and OpenCode adoption guidance
+  kpi_value: '38'
+  kpi_label: BP
+  kpi_sub: AI
+  action: ADOPT + REVIEW QUARTERLY
+  index: '01'
+top_right:
+  tag: CONTEXT WIN
+  theme: amber
+  visual: hub_spoke
+  headline: Context + CLAUDE.md
+  subheadline: Context window optimization paired with CLAUDE.md authoring patterns
+  kpi_value: CTX
+  kpi_label: WIN
+  kpi_sub: opt
+  index: '02'
+bottom_right:
+  tag: AGENT TEAMS
+  theme: blue
+  visual: supply_chain_pipe
+  headline: Agent Teams + Hooks
+  subheadline: Agent team orchestration with hooks skills and prompting techniques
+  kpi_value: TEAM
+  kpi_label: HOOK
+  kpi_sub: sk
+  index: '03'

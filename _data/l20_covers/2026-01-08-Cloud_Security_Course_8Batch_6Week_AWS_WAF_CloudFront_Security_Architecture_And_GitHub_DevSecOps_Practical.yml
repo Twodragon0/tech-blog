@@ -1,0 +1,36 @@
+date: '2026-01-08'
+slug: Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical
+date_str: 2026.01.08
+post_title: 'Cloud Security course 8/6: AWS WAF CloudFront, GitHub DevSecOps practical'
+url: https://tech.2twodragon.com/posts/2026/01/08/Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/
+hero:
+  tag: AWS WAF
+  theme: red
+  visual: hub_spoke
+  headline: WAF + CloudFront OAC
+  subheadline: AWS WAF and CloudFront OAI OAC rules with geo-blocking patterns
+  kpi_value: WAF
+  kpi_label: CF
+  kpi_sub: OAC
+  action: ENFORCE OAC + GEO BLOCK
+  index: '01'
+top_right:
+  tag: GITHUB DSO
+  theme: amber
+  visual: supply_chain_pipe
+  headline: CodeQL Dependabot
+  subheadline: GitHub DevSecOps stack with CodeQL Dependabot and secret scanning
+  kpi_value: GH
+  kpi_label: DSO
+  kpi_sub: stack
+  index: '02'
+bottom_right:
+  tag: DATA MASK
+  theme: blue
+  visual: code_injection
+  headline: SSRF + Data Masking
+  subheadline: SSRF patches and data masking for Jekyll-based security blogs
+  kpi_value: SSRF
+  kpi_label: MASK
+  kpi_sub: jekyll
+  index: '03'

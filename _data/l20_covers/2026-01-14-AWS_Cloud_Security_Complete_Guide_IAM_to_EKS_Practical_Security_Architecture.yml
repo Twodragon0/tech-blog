@@ -1,0 +1,36 @@
+date: '2026-01-14'
+slug: AWS_Cloud_Security_Complete_Guide_IAM_to_EKS_Practical_Security_Architecture
+date_str: 2026.01.14
+post_title: 'AWS cloud security guide: IAM to EKS, defense in depth, least privilege'
+url: https://tech.2twodragon.com/posts/2026/01/14/AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture/
+hero:
+  tag: IAM CORE
+  theme: red
+  visual: hub_spoke
+  headline: IAM Least Privilege
+  subheadline: IAM least-privilege baseline anchors VPC S3 RDS EKS hardening
+  kpi_value: IAM
+  kpi_label: CORE
+  kpi_sub: min
+  action: ROTATE KEYS + ENFORCE SCP
+  index: '01'
+top_right:
+  tag: EKS
+  theme: amber
+  visual: container_escape
+  headline: EKS Hardening
+  subheadline: EKS pod security and runtime defense with namespace isolation
+  kpi_value: EKS
+  kpi_label: POD
+  kpi_sub: sec
+  index: '02'
+bottom_right:
+  tag: DEFENSE
+  theme: blue
+  visual: data_exfil
+  headline: Defense In Depth
+  subheadline: Encryption logging and monitoring layered across AWS workloads
+  kpi_value: DiD
+  kpi_label: LAYER
+  kpi_sub: log
+  index: '03'

@@ -1,0 +1,36 @@
+date: '2026-01-14'
+slug: GCP_Cloud_Security_Complete_Guide_IAM_to_GKE_Practical_Security_Architecture
+date_str: 2026.01.14
+post_title: 'GCP cloud security guide: IAM to GKE, Pod Security, Security Command Center'
+url: https://tech.2twodragon.com/posts/2026/01/14/GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture/
+hero:
+  tag: GCP IAM
+  theme: red
+  visual: hub_spoke
+  headline: IAM + VPC Isolation
+  subheadline: GCP IAM least privilege with VPC network segmentation patterns
+  kpi_value: IAM
+  kpi_label: VPC
+  kpi_sub: min
+  action: REVIEW SCC FINDINGS
+  index: '01'
+top_right:
+  tag: GKE
+  theme: amber
+  visual: container_escape
+  headline: GKE Pod Security
+  subheadline: GKE Pod Security Standards baseline and runtime hardening guidance
+  kpi_value: GKE
+  kpi_label: POD
+  kpi_sub: std
+  index: '02'
+bottom_right:
+  tag: SCC
+  theme: blue
+  visual: data_exfil
+  headline: Security Command Center
+  subheadline: Security Command Center central findings and KMS encryption controls
+  kpi_value: SCC
+  kpi_label: FIND
+  kpi_sub: kms
+  index: '03'

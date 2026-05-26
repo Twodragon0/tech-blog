@@ -1,0 +1,36 @@
+date: '2026-01-10'
+slug: 2026_DevSecOps_Roadmap_Complete_Guide_Analysis
+date_str: 2026.01.10
+post_title: '2026 DevSecOps roadmap: 93 items, OWASP 2025, NIST CSF 2.0, GHAS'
+url: https://tech.2twodragon.com/posts/2026/01/10/2026_DevSecOps_Roadmap_Complete_Guide_Analysis/
+hero:
+  tag: ROADMAP
+  theme: red
+  visual: hub_spoke
+  headline: 93 Learning Items
+  subheadline: roadmap.sh 2026 DevSecOps roadmap maps 93 items across the lifecycle
+  kpi_value: '93'
+  kpi_label: ITEM
+  kpi_sub: plan
+  action: PRIORITIZE OWASP + NIST
+  index: '01'
+top_right:
+  tag: FRAMEWORKS
+  theme: amber
+  visual: cve_chain
+  headline: OWASP + NIST CSF 2
+  subheadline: OWASP Top 10:2025 ties into NIST CSF 2.0 and GHAS integration
+  kpi_value: CSF
+  kpi_label: '2.0'
+  kpi_sub: map
+  index: '02'
+bottom_right:
+  tag: AI / ML
+  theme: blue
+  visual: ai_agent_funnel
+  headline: AI ML Security Automation
+  subheadline: AI ML security automation with SAST DAST IAST plus SBOM tooling
+  kpi_value: AI
+  kpi_label: ML
+  kpi_sub: auto
+  index: '03'

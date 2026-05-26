@@ -1,0 +1,36 @@
+date: '2026-01-22'
+slug: AWS_GCP_Cloud_Updates_January_2026
+date_str: 2026.01.22
+post_title: 'AWS GCP Jan 2026: EC2 G7e Blackwell, X8i SAP, Bangkok, Sovereign Cloud, Gemini 3'
+url: https://tech.2twodragon.com/posts/2026/01/22/AWS_GCP_Cloud_Updates_January_2026_EC2_G7e_X8i_Bangkok_Region_European_Sovereign_Cloud/
+hero:
+  tag: EC2 G7e
+  theme: red
+  visual: hub_spoke
+  headline: G7e Blackwell GPU
+  subheadline: AWS EC2 G7e launches NVIDIA Blackwell GPU acceleration tier
+  kpi_value: G7e
+  kpi_label: GPU
+  kpi_sub: BLW
+  action: BUDGET + CAPACITY RESERVE
+  index: '01'
+top_right:
+  tag: BANGKOK
+  theme: amber
+  visual: data_exfil
+  headline: GCP Bangkok Region
+  subheadline: GCP opens Bangkok region adding ASEAN data-residency coverage
+  kpi_value: GCP
+  kpi_label: BKK
+  kpi_sub: asean
+  index: '02'
+bottom_right:
+  tag: SOVEREIGN
+  theme: blue
+  visual: supply_chain_pipe
+  headline: EU Sovereign Cloud
+  subheadline: European sovereign cloud lifts data-sovereignty guarantees for EU customers
+  kpi_value: EU
+  kpi_label: SOV
+  kpi_sub: data
+  index: '03'

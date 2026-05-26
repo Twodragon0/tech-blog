@@ -1,0 +1,36 @@
+date: '2026-01-22'
+slug: KARA_Ransomware_Trends_2025_Q3
+date_str: 2026.01.22
+post_title: 'KARA Q3 2025 ransomware: LockBit 5.0, Akira, INC ransom, Zero Trust'
+url: https://tech.2twodragon.com/posts/2026/01/22/KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST/
+hero:
+  tag: RANSOM Q3
+  theme: red
+  visual: ransomware_lock
+  headline: LockBit 5.0 + Akira
+  subheadline: LockBit 5.0 Akira and INC Ransomware lead Q3 2025 attack volume
+  kpi_value: Q3
+  kpi_label: '2025'
+  kpi_sub: rep
+  action: REFRESH IR + BACKUP DRILL
+  index: '01'
+top_right:
+  tag: TTPs
+  theme: amber
+  visual: data_exfil
+  headline: Updated TTPs
+  subheadline: Updated YARA Sigma detection rules and TTP coverage analysis
+  kpi_value: TTP
+  kpi_label: YARA
+  kpi_sub: sigma
+  index: '02'
+bottom_right:
+  tag: ZERO TRUST
+  theme: blue
+  visual: hub_spoke
+  headline: Zero Trust Defense
+  subheadline: Zero Trust defense and incident response checklist for enterprises
+  kpi_value: ZT
+  kpi_label: IR
+  kpi_sub: chk
+  index: '03'

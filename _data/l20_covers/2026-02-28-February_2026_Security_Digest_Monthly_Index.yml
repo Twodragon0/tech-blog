@@ -1,0 +1,36 @@
+date: '2026-02-28'
+slug: February_2026_Security_Digest_Monthly_Index
+date_str: 2026.02.28
+post_title: 'Feb 2026 monthly index: OpenSSL AI, ransomware evolution, APT28 Lazarus UAC-0050'
+url: https://tech.2twodragon.com/posts/2026/02/28/February_2026_Security_Digest_Monthly_Index/
+hero:
+  tag: MONTH BRIEF
+  theme: red
+  visual: hub_spoke
+  headline: February 2026 Index
+  subheadline: Monthly index aggregates 22 weekly digests of February 2026 threats
+  kpi_value: '22'
+  kpi_label: FEB
+  kpi_sub: month
+  action: REVIEW MONTHLY KEV + IR
+  index: '01'
+top_right:
+  tag: OPENSSL AI
+  theme: amber
+  visual: cve_chain
+  headline: OpenSSL AI Detect
+  subheadline: OpenSSL AI auto-detection supply-chain attacks ransomware evolution
+  kpi_value: SSL
+  kpi_label: AI
+  kpi_sub: feb
+  index: '02'
+bottom_right:
+  tag: APT GROUPS
+  theme: blue
+  visual: data_exfil
+  headline: APT28 Lazarus UAC-0050
+  subheadline: APT28 Lazarus and UAC-0050 threat actor activity dominates February
+  kpi_value: APT
+  kpi_label: '3'
+  kpi_sub: feb
+  index: '03'

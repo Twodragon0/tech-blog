@@ -1,0 +1,36 @@
+date: '2026-02-02'
+slug: Weekly_Tech_AI_Blockchain_Digest
+date_str: 2026.02.02
+post_title: 'Tech AI Blockchain 2026-02-02: Apple MLX, Bitcoin crash $19B, DeFi security'
+url: https://tech.2twodragon.com/posts/2026/02/02/Weekly_Tech_AI_Blockchain_Digest/
+hero:
+  tag: APPLE MLX
+  theme: red
+  visual: ai_agent_funnel
+  headline: A18 Neural MLX Bug
+  subheadline: Apple A18 Pro Neural Engine MLX bug surfaces in inference workloads
+  kpi_value: A18
+  kpi_label: MLX
+  kpi_sub: bug
+  action: PIN MLX VERSION + RETEST
+  index: '01'
+top_right:
+  tag: BTC CRASH
+  theme: amber
+  visual: data_exfil
+  headline: Bitcoin Crash 19B
+  subheadline: Bitcoin weekend crash drives 19 billion USD in cascade liquidations
+  kpi_value: 19B
+  kpi_label: BTC
+  kpi_sub: liq
+  index: '02'
+bottom_right:
+  tag: DEFI
+  theme: blue
+  visual: code_injection
+  headline: DeFi Security Incident
+  subheadline: DeFi security incident with Claude Code tips and FOSDEM 2026 recap
+  kpi_value: DEFI
+  kpi_label: HIT
+  kpi_sub: recap
+  index: '03'

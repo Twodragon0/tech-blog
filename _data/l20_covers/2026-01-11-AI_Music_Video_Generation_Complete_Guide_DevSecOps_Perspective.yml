@@ -1,0 +1,36 @@
+date: '2026-01-11'
+slug: AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective
+date_str: 2026.01.11
+post_title: 'AI music video gen guide: Suno V5, Veo 3, Midjourney V1, Zero-Trust'
+url: https://tech.2twodragon.com/posts/2026/01/11/AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective/
+hero:
+  tag: SUNO V5
+  theme: red
+  visual: ai_agent_funnel
+  headline: Suno V5 MIDI Export
+  subheadline: Suno V5 MIDI export pairs with Veo 3 multishot 1080p generation
+  kpi_value: V5
+  kpi_label: SUNO
+  kpi_sub: midi
+  action: GATE API KEYS + REVIEW EULA
+  index: '01'
+top_right:
+  tag: VEO 3
+  theme: amber
+  visual: data_exfil
+  headline: Veo 3 + Midjourney V1
+  subheadline: Veo 3 1080p multi-shot pipeline with Midjourney Video V1 workflows
+  kpi_value: VEO
+  kpi_label: '3'
+  kpi_sub: 1080p
+  index: '02'
+bottom_right:
+  tag: ZERO TRUST
+  theme: blue
+  visual: hub_spoke
+  headline: Zero-Trust API Key
+  subheadline: Zero-trust API key management with data privacy controls for gen-AI
+  kpi_value: ZTA
+  kpi_label: KEYS
+  kpi_sub: vault
+  index: '03'

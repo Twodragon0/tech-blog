@@ -1,0 +1,36 @@
+date: '2026-02-10'
+slug: Security_Digest_SolarWinds_UNC3886_LLM_Attack
+date_str: 2026.02.10
+post_title: 'Security 2026-02-10: SolarWinds RCE, UNC3886 Singapore telco, LLM GRPO, UNC1069 deepfake'
+url: https://tech.2twodragon.com/posts/2026/02/10/Security_Digest_SolarWinds_UNC3886_LLM_Attack/
+hero:
+  tag: SOLARWINDS RCE
+  theme: red
+  visual: cve_chain
+  headline: SolarWinds WHD RCE
+  subheadline: SolarWinds WHD multi-stage RCE chain tracked as CVE-2025-40551
+  kpi_value: '40551'
+  kpi_label: CVE
+  kpi_sub: WHD
+  action: PATCH WHD + ROTATE CREDS
+  index: '01'
+top_right:
+  tag: UNC3886
+  theme: amber
+  visual: data_exfil
+  headline: UNC3886 SG Telco
+  subheadline: Chinese UNC3886 espionage targets Singapore telecommunications providers
+  kpi_value: UNC
+  kpi_label: '3886'
+  kpi_sub: SG
+  index: '02'
+bottom_right:
+  tag: LLM GRPO
+  theme: blue
+  visual: ai_agent_funnel
+  headline: LLM GRPO Bypass
+  subheadline: LLM safety alignment GRPO neutralized plus UNC1069 deepfake crypto attacks
+  kpi_value: GRPO
+  kpi_label: LLM
+  kpi_sub: bypass
+  index: '03'

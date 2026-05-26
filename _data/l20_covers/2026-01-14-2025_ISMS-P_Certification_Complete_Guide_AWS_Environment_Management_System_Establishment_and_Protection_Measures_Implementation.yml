@@ -1,0 +1,36 @@
+date: '2026-01-14'
+slug: 2025_ISMS-P_Certification_Complete_Guide_AWS_Environment_Management_System_Establishment_and_Protection_Measures_Implementation
+date_str: 2026.01.14
+post_title: 'ISMS-P certification guide: 101 controls, AWS environment, NIST CSF 2.0 + AI'
+url: https://tech.2twodragon.com/posts/2026/01/14/2025_ISMS-P_Certification_Complete_Guide_AWS_In_Environment_Management_System_Establishment_And_Protection_Measures_Implementation/
+hero:
+  tag: ISMS-P 2025
+  theme: red
+  visual: hub_spoke
+  headline: ISMS-P 101 Controls
+  subheadline: Revised ISMS-P 101-control framework mapped to AWS environment baselines
+  kpi_value: '101'
+  kpi_label: CTRL
+  kpi_sub: new
+  action: MAP CONTROLS + SCHEDULE AUDIT
+  index: '01'
+top_right:
+  tag: NIST CSF
+  theme: amber
+  visual: cve_chain
+  headline: NIST CSF 2.0 Linkage
+  subheadline: NIST CSF 2.0 alignment strategy and CIS Benchmark compliance program
+  kpi_value: CSF
+  kpi_label: '2.0'
+  kpi_sub: link
+  index: '02'
+bottom_right:
+  tag: AI SECURITY
+  theme: blue
+  visual: ai_agent_funnel
+  headline: AI Security Reqs
+  subheadline: AI security requirements integrate with traditional control families
+  kpi_value: AI
+  kpi_label: REQ
+  kpi_sub: map
+  index: '03'

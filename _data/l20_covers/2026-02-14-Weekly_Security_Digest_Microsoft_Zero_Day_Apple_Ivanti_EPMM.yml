@@ -1,0 +1,36 @@
+date: '2026-02-14'
+slug: Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM
+date_str: 2026.02.14
+post_title: '2026 W7 security: MS 6 zero-days, Apple CVE-2026-20700, Ivanti EPMM, SAP 9.9'
+url: https://tech.2twodragon.com/posts/2026/02/14/Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM/
+hero:
+  tag: MS 0-DAY x6
+  theme: red
+  visual: cve_chain
+  headline: MS 6 Zero-Days
+  subheadline: Microsoft Patch Tuesday ships six zero-day fixes for active exploitation
+  kpi_value: '6'
+  kpi_label: 0DAY
+  kpi_sub: MSFT
+  action: PATCH NOW + AUDIT LOGS
+  index: '01'
+top_right:
+  tag: APPLE 20700
+  theme: amber
+  visual: code_injection
+  headline: Apple CVE-2026-20700
+  subheadline: Apple CVE-2026-20700 targeted attack chain affects mobile and macOS
+  kpi_value: '20700'
+  kpi_label: CVE
+  kpi_sub: APPL
+  index: '02'
+bottom_right:
+  tag: IVANTI EPMM
+  theme: blue
+  visual: data_exfil
+  headline: Ivanti EPMM Mass Exploit
+  subheadline: Ivanti EPMM mass exploitation plus SAP CVSS 9.9 SQL injection wave
+  kpi_value: '9.9'
+  kpi_label: SAP
+  kpi_sub: SQLi
+  index: '03'

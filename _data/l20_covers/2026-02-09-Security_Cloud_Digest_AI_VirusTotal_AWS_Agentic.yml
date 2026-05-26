@@ -1,0 +1,36 @@
+date: '2026-02-09'
+slug: Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic
+date_str: 2026.02.09
+post_title: 'Security 2026-02-09: VirusTotal AI supply chain, SK Shieldus BlackField, AWS Agentic'
+url: https://tech.2twodragon.com/posts/2026/02/09/Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic/
+hero:
+  tag: VT AI
+  theme: red
+  visual: ai_agent_funnel
+  headline: AI VirusTotal Supply
+  subheadline: AI VirusTotal integration hardens agent supply-chain telemetry
+  kpi_value: VT
+  kpi_label: AI
+  kpi_sub: supply
+  action: ENABLE VT FEED IN PIPELINE
+  index: '01'
+top_right:
+  tag: BLACKFIELD
+  theme: amber
+  visual: ransomware_lock
+  headline: BlackField Ransom Rpt
+  subheadline: SK Shieldus BlackField ransomware analysis covers TTPs and IOCs
+  kpi_value: BLK
+  kpi_label: FLD
+  kpi_sub: rep
+  index: '02'
+bottom_right:
+  tag: AWS AGENTIC
+  theme: blue
+  visual: hub_spoke
+  headline: AWS Agentic AI Case
+  subheadline: AWS Agentic AI delivered by two engineers in seven weeks case study
+  kpi_value: 2x7
+  kpi_label: AWS
+  kpi_sub: agent
+  index: '03'

@@ -1,0 +1,36 @@
+date: '2026-01-06'
+slug: DevSecOps_Viewing_Automotive_Security_Complete_Guide
+date_str: 2026.01.06
+post_title: 'DevSecOps automotive security: SDV architecture, ISO 21434, UN R155/R156'
+url: https://tech.2twodragon.com/posts/2026/01/06/DevSecOps_Viewing_Automotive_Security_Complete_Guide/
+hero:
+  tag: SDV ARCHITECTURE
+  theme: red
+  visual: hub_spoke
+  headline: SDV Security Stack
+  subheadline: Software-defined vehicle security across network, physical, and supply chain
+  kpi_value: SDV
+  kpi_label: ARCH
+  kpi_sub: layers
+  action: INTEGRATE TARA + CYBER PATCH
+  index: '01'
+top_right:
+  tag: ISO 21434
+  theme: amber
+  visual: cve_chain
+  headline: ISO 21434 + R155
+  subheadline: Regulatory compliance under ISO 21434 and UN R155/R156 lifecycle
+  kpi_value: ISO
+  kpi_label: '21434'
+  kpi_sub: R155
+  index: '02'
+bottom_right:
+  tag: TOOL STACK
+  theme: blue
+  visual: supply_chain_pipe
+  headline: SAST DAST SBOM
+  subheadline: Integrated SAST DAST SBOM tooling across the automotive DevSecOps pipeline
+  kpi_value: DSO
+  kpi_label: STACK
+  kpi_sub: sast
+  index: '03'

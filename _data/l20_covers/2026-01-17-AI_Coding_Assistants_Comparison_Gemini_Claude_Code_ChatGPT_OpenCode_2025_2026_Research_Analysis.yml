@@ -1,0 +1,36 @@
+date: '2026-01-17'
+slug: AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis
+date_str: 2026.01.17
+post_title: 'AI coding assistants compared: Gemini, Claude Code, ChatGPT, OpenCode, DeepSeek'
+url: https://tech.2twodragon.com/posts/2026/01/17/AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis/
+hero:
+  tag: BENCHMARKS
+  theme: red
+  visual: ai_agent_funnel
+  headline: SWE-Bench HumanEval
+  subheadline: SWE-Bench and HumanEval results compared across five AI coding tools
+  kpi_value: SWE
+  kpi_label: BENCH
+  kpi_sub: hu-e
+  action: PILOT WITH GUARDRAILS
+  index: '01'
+top_right:
+  tag: REPRODUCIBLE
+  theme: amber
+  visual: code_injection
+  headline: Reproducibility Gap
+  subheadline: Reproducibility issues across releases and multilingual coverage gaps
+  kpi_value: REPRO
+  kpi_label: GAP
+  kpi_sub: lang
+  index: '02'
+bottom_right:
+  tag: FIELD GUIDE
+  theme: blue
+  visual: hub_spoke
+  headline: Practical Field Guide
+  subheadline: Practical adoption guide weighing latency cost and review workflow
+  kpi_value: GUIDE
+  kpi_label: OPS
+  kpi_sub: cost
+  index: '03'
