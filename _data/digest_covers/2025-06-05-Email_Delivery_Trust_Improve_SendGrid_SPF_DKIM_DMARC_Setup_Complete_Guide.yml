@@ -1,0 +1,75 @@
+date: '2025-06-05'
+slug: Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide
+sfx: JN05
+title: '2025-06-05: SendGrid SPF/DKIM/DMARC email auth stack, deliverability hardening'
+aria: SendGrid email deliverability hardening with SPF TXT record authorizing sender
+  IPs, DKIM selector key signing payload integrity, DMARC policy ramp from none to
+  quarantine to reject, aggregate RUA reports closing phishing and spoofing attack
+  surface while restoring inbox placement rate.
+bands:
+- theme: red
+  label: EMAIL SPOOF RISK
+  headline: No SPF/DKIM Alignment
+  metric: 'Spoofed FROM : phishing wave'
+  detail: 'No SPF TXT record : DKIM missing : DMARC absent : domain freely impersonated'
+  badge:
+    value: SPF
+    label: MISSING
+    sub: align
+  visual:
+    kind: network_nodes
+    label: SPOOF
+  metric_b: 'Brand impersonation : inbox collapses : ESP blocks sender IP : no auth signal'
+  detail_b: 'MX lookup passes but SPF neutral : no DKIM signature : DMARC p=none only'
+  mini:
+    value: '0'
+    label: AUTH
+    sub: DNS
+  mini2:
+    value: PHI
+    label: RISK
+    sub: spoof
+- theme: amber
+  label: DNS AUTH STACK
+  headline: SPF + DKIM + DMARC
+  metric: 'v=spf1 include:sendgrid.net ~all'
+  detail: 'SPF TXT authorizes sendgrid.net IPs : DKIM selector key signs payload hash'
+  badge:
+    value: DNS
+    label: STACK
+    sub: 3-layer
+  visual:
+    kind: lock_cve
+    cvss: AUTH
+  metric_b: 'DKIM selector1._domainkey CNAME : RSA-2048 key pair : body hash verified'
+  detail_b: 'DMARC p=quarantine : rua=mailto:dmarc-rua@ : alignment strict : pct=100'
+  mini:
+    value: TXT
+    label: SPF
+    sub: DNS
+  mini2:
+    value: RUA
+    label: DMARC
+    sub: rpt
+- theme: blue
+  label: POLICY RAMP
+  headline: none to reject Hardening
+  metric: 'p=none > quarantine > reject'
+  detail: 'DMARC none for baseline : quarantine after report review : reject at full trust'
+  badge:
+    value: '100'
+    label: PCT
+    sub: reject
+  visual:
+    kind: shield
+    label: DMARC
+  metric_b: 'Aggregate RUA reports reveal unauthorized senders : sub-domain policy added'
+  detail_b: 'Deliverability + anti-phish both restored : inbox rate climbs with auth pass'
+  mini:
+    value: INB
+    label: RATE
+    sub: up
+  mini2:
+    value: BLK
+    label: PHISH
+    sub: stop

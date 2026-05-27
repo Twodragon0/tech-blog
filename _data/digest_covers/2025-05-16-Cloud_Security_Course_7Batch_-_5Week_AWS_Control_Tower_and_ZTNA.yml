@@ -1,0 +1,76 @@
+date: '2025-05-16'
+slug: Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_and_ZTNA
+sfx: MY16
+title: '2025-05-16: AWS Control Tower Landing Zone, SCP guardrails, Zero Trust network'
+aria: Sprawling AWS org with dozens of accounts, inconsistent guardrails, flat network
+  with implicit trust between VPCs and broad security group rules, resolved by Control
+  Tower Landing Zone bootstrapping mandatory Guardrails with SCPs at OU level forbidding
+  privileged actions org-wide, account factory standardizing baseline, PrivateLink
+  and VPC endpoints replacing IGW exposure under Zero Trust never-trust-always-verify.
+bands:
+- theme: red
+  label: AWS ORG SPRAWL
+  headline: Flat Net + No Guardrails
+  metric: 'Implicit VPC trust : broad SGs'
+  detail: 'Dozens of accounts : no central guardrails : flat network implicit trust between VPCs'
+  badge:
+    value: SG
+    label: OPEN
+    sub: trust
+  visual:
+    kind: network_nodes
+    label: ORG
+  metric_b: 'Broad 0.0.0.0/0 SG rules : IGW exposed : no SCP boundary : org-wide blast'
+  detail_b: 'Shadow accounts bypassing baseline : no tag enforcement : cost spike no alert'
+  mini:
+    value: '0/0'
+    label: SG
+    sub: rule
+  mini2:
+    value: IGW
+    label: EXPOSE
+    sub: pub
+- theme: amber
+  label: LANDING ZONE
+  headline: Control Tower + SCP Guards
+  metric: 'CT Landing Zone : SCP OU block'
+  detail: 'Control Tower Landing Zone bootstraps each new account with mandatory Guardrails'
+  badge:
+    value: SCP
+    label: OU
+    sub: guard
+  visual:
+    kind: lock_cve
+    cvss: CTRL
+  metric_b: 'SCPs at OU level forbid privileged actions org-wide : account factory baseline'
+  detail_b: 'Service Control Policy deny-list for root, IAM, org-leave : CloudTrail enforced'
+  mini:
+    value: AFT
+    label: FACTORY
+    sub: acct
+  mini2:
+    value: CT
+    label: TRAIL
+    sub: log
+- theme: blue
+  label: ZERO TRUST NET
+  headline: PrivateLink + VPC Endpoints
+  metric: 'PrivateLink : no IGW : ZT verify'
+  detail: 'PrivateLink + VPC endpoints replace IGW exposure : minimal SG rules enforced'
+  badge:
+    value: ZT
+    label: NETWORK
+    sub: priv
+  visual:
+    kind: shield
+    label: ZTNA
+  metric_b: 'Never trust always verify per-request : Security Hub aggregates findings'
+  detail_b: 'GuardDuty threat detect : Config rules for drift : IAM Access Analyzer ext'
+  mini:
+    value: GD
+    label: GUARD
+    sub: duty
+  mini2:
+    value: IAM
+    label: ANLYZ
+    sub: ext

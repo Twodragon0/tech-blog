@@ -1,0 +1,75 @@
+date: '2025-05-23'
+slug: Cloud_Security_Course_7Batch_-_6Week_Cloudflare_and_github_Security
+sfx: MY23
+title: '2025-05-23: Cloudflare WAF + GHAS supply chain security, edge and shift-left'
+aria: Web app under SQLi, XSS, and L7 DDoS with committed secrets and vulnerable
+  npm transitive dependencies, mitigated by AWS WAF managed rule groups with Cloudflare
+  DDoS auto-mitigation at CDN tier, shifted left via GitHub Dependabot CVE auto-PRs,
+  CodeQL SAST gates on pull request, and Secret Scanning push protection at commit.
+bands:
+- theme: red
+  label: WEB + SUPPLY CHAIN
+  headline: SQLi + XSS + Secrets Leak
+  metric: 'SQLi XSS L7 DDoS : npm vuln'
+  detail: 'Web app under SQLi + XSS : L7 DDoS floods origin : committed secrets in repo'
+  badge:
+    value: SQLI
+    label: XSS
+    sub: DDoS
+  visual:
+    kind: network_nodes
+    label: ATTACK
+  metric_b: 'Transitive npm dep CVEs : hardcoded API key committed : perimeter + supply chain'
+  detail_b: 'Open redirect chained to XSS : malicious npm dep injects postinstall payload'
+  mini:
+    value: DEP
+    label: CVE
+    sub: npm
+  mini2:
+    value: KEY
+    label: LEAK
+    sub: commit
+- theme: amber
+  label: EDGE DEFENSE
+  headline: WAF + DDoS + TLS 1.3
+  metric: 'AWS WAF rules : CF DDoS auto'
+  detail: 'AWS WAF managed rule groups + rate limiting : Cloudflare DDoS auto-mitigation'
+  badge:
+    value: WAF
+    label: EDGE
+    sub: rules
+  visual:
+    kind: code_bars
+    caption: WAF BLOCK
+  metric_b: 'Cloudflare OWASP Core Rule Set : TLS 1.3 enforced : HSTS at CDN tier'
+  detail_b: 'Rate limit per-IP per-path : bot score challenge : geo-block high-risk ASNs'
+  mini:
+    value: TLS
+    label: '1.3'
+    sub: CDN
+  mini2:
+    value: HSTS
+    label: HDR
+    sub: edge
+- theme: blue
+  label: SHIFT LEFT
+  headline: CodeQL + Dependabot + SecScan
+  metric: 'CodeQL SAST : Dependabot PRs'
+  detail: 'Dependabot auto-PRs for CVEs : CodeQL SAST gates on PR : push protection active'
+  badge:
+    value: SAST
+    label: CODEQL
+    sub: gate
+  visual:
+    kind: shield
+    label: GHAS
+  metric_b: 'Secret Scanning blocks credentials at commit : alert on transitive dep CVE'
+  detail_b: 'GHAS security overview dashboard : branch protection + required status checks'
+  mini:
+    value: SEC
+    label: SCAN
+    sub: push
+  mini2:
+    value: CVE
+    label: AUTO
+    sub: PR

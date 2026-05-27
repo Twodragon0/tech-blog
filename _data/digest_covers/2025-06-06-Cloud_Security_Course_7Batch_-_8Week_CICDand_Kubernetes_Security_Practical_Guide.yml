@@ -1,0 +1,76 @@
+date: '2025-06-06'
+slug: Cloud_Security_Course_7Batch_-_8Week_CICDand_Kubernetes_Security_Practical_Guide
+sfx: JN06
+title: '2025-06-06: CI/CD pipeline hardening, K8s Pod Security and RBAC least-privilege'
+aria: Compromised CI/CD pipeline pushes unsigned image with embedded secret to prod
+  cluster, overprivileged ServiceAccount and open NetworkPolicy enables lateral movement
+  to etcd, mitigated by GitHub Actions least-privilege permissions, Semgrep Gitleaks
+  Trivy gates, Cosign image signing, Pod Security Standards Restricted, RBAC, Kyverno
+  admission control, and Falco runtime anomaly detection with ArgoCD GitOps.
+bands:
+- theme: red
+  label: PIPELINE BREACH
+  headline: Unsigned Image + Secret Leak
+  metric: 'Unsigned image : secret in env'
+  detail: 'Compromised pipeline : unsigned image : embedded secret to prod cluster'
+  badge:
+    value: IMG
+    label: UNSIGNED
+    sub: prod
+  visual:
+    kind: code_bars
+    caption: PIPE BREACH
+  metric_b: 'Overprivileged SA : open NetworkPolicy : lateral to etcd'
+  detail_b: 'KUBECONFIG leak in log : wildcard RBAC : hostPath mount risk'
+  mini:
+    value: SA
+    label: PRIV
+    sub: over
+  mini2:
+    value: ETC
+    label: REACH
+    sub: lateral
+- theme: amber
+  label: PIPELINE HARDENING
+  headline: Semgrep + Trivy + Cosign
+  metric: 'GHA permissions: : Trivy scan'
+  detail: 'GHA least-privilege permissions: : Semgrep SAST + Gitleaks scan'
+  badge:
+    value: SAST
+    label: GATE
+    sub: CI
+  visual:
+    kind: network_nodes
+    label: CI/CD
+  metric_b: 'Trivy vuln scan : Cosign sign + verify : Syft SBOM at build'
+  detail_b: 'Gitleaks blocks secret commit : OIDC ephemeral token : no long-lived key'
+  mini:
+    value: SBM
+    label: SYFT
+    sub: SBOM
+  mini2:
+    value: SGN
+    label: COSIGN
+    sub: img
+- theme: blue
+  label: CLUSTER RUNTIME
+  headline: PSS Restricted + Falco GitOps
+  metric: 'PSS Restricted : Kyverno admit'
+  detail: 'Pod Security Standards Restricted : RBAC least-privilege : Kyverno admission'
+  badge:
+    value: PSS
+    label: RESTRICT
+    sub: pod
+  visual:
+    kind: shield
+    label: K8s
+  metric_b: 'Falco detects exec in container : ArgoCD GitOps reconcile drift'
+  detail_b: 'NetworkPolicy default-deny : egress whitelist : audit log to SIEM : no root'
+  mini:
+    value: FAL
+    label: FALCO
+    sub: rt
+  mini2:
+    value: GIT
+    label: ARGO
+    sub: ops
