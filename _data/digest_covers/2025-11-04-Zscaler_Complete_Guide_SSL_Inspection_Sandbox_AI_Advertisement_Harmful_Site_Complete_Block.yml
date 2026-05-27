@@ -1,11 +1,9 @@
 date: '2025-11-04'
 slug: Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block
 sfx: NV04
-title: '2025-11-04: Zscaler SSL inspection, ATP sandbox, ZTNA 2.0 complete web hardening'
-aria: Zscaler enterprise security guide covering SSL inline inspection at 94 percent
-  coverage, sandbox ATP malware blocking, AI service and harmful site category policy,
-  Zero Trust Network Access 2.0 architecture, and 99.3 percent threat block rate with
-  sub-50ms user latency.
+title: '2025-11-04: Zscaler SSL inspection, ATP sandbox, ZTNA 2.0'
+aria: Zscaler SSL inspection at 94 percent coverage, ATP sandbox malware blocking,
+  AI and harmful site policy, ZTNA 2.0, 99.3 percent threat block rate.
 bands:
 - theme: red
   label: WEB THREAT EXPOSURE

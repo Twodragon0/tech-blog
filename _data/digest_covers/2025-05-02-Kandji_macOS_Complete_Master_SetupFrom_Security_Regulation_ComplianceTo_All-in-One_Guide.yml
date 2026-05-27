@@ -1,74 +1,76 @@
-date: '2025-05-02'
-slug: Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide
-sfx: MY02
-title: '2025-05-02: Kandji MDM, macOS endpoint hardening, Zero Trust compliance guide'
-aria: Kandji MDM platform for macOS endpoint management, covering FileVault encryption,
-  Gatekeeper policy enforcement, passkey FIDO2 integration, Zero Trust architecture,
-  and AI-based threat detection for enterprise compliance including ISMS-P and CIS Benchmark.
+aria: Kandji MDM macOS mgmt with FileVault, Gatekeeper, FIDO2, ISMS-P.
 bands:
-- theme: red
-  label: ENDPOINT RISK GAP
-  headline: Unmanaged macOS Fleet
-  metric: 'No MDM : ungoverned endpoints'
-  detail: 'Direct device access : no central policy : compliance gaps : ISMS-P violations'
-  badge:
-    value: MDM
+- badge:
     label: MISSING
     sub: risk
-  visual:
-    kind: lock_cve
-    cvss: MGMT
+    value: MDM
+  detail: 'Direct device access : no central policy : compliance gaps : ISMS-P violations'
+  detail_b: 'FileVault not enforced : Gatekeeper bypassed : no SIP monitoring : audit
+    fail'
+  headline: Unmanaged macOS Fleet
+  label: ENDPOINT RISK GAP
+  metric: 'No MDM : ungoverned endpoints'
   metric_b: 'Shadow IT on macOS : ungoverned app installs : no patch visibility'
-  detail_b: 'FileVault not enforced : Gatekeeper bypassed : no SIP monitoring : audit fail'
   mini:
-    value: '0'
     label: MDM
     sub: policy
+    value: '0'
   mini2:
-    value: CIS
     label: BENCH
     sub: fail
-- theme: amber
-  label: MDM ARCHITECTURE
-  headline: Kandji Policy Engine
-  metric: 'Kandji API : MDM profile push'
-  detail: 'Apple Business Manager integration : zero-touch deploy : FileVault escrow : TCC policy'
-  badge:
-    value: MDM
+    value: CIS
+  theme: red
+  visual:
+    cvss: MGMT
+    kind: lock_cve
+- badge:
     label: KANDJI
     sub: engine
-  visual:
-    kind: network_nodes
-    label: MDM
+    value: MDM
+  detail: 'Apple Business Manager integration : zero-touch deploy : FileVault escrow
+    : TCC policy'
+  detail_b: 'Passkey FIDO2/WebAuthn : YubiKey + Touch ID : device trust scoring :
+    SASE link'
+  headline: Kandji Policy Engine
+  label: MDM ARCHITECTURE
+  metric: 'Kandji API : MDM profile push'
   metric_b: 'Blueprint policy push : app auto-deploy : Gatekeeper + SIP enforcement'
-  detail_b: 'Passkey FIDO2/WebAuthn : YubiKey + Touch ID : device trust scoring : SASE link'
   mini:
-    value: ZTD
     label: DEPLOY
     sub: zero
+    value: ZTD
   mini2:
-    value: FIDO
     label: PASSKEY
     sub: auth
-- theme: blue
-  label: COMPLIANCE OUTCOME
-  headline: ISMS-P + CIS Hardened
-  metric: 'ISMS-P : CIS Benchmark : NIST'
-  detail: 'CIS Level 2 applied : NIST 800-171 controls : ISMS-P checklist passed : 92/100'
-  badge:
-    value: '92'
+    value: FIDO
+  theme: amber
+  visual:
+    kind: code_bars
+    caption: MDM ARCH
+- badge:
     label: SCORE
     sub: compl
+    value: '92'
+  detail: 'CIS Level 2 applied : NIST 800-171 controls : ISMS-P checklist passed :
+    92/100'
+  detail_b: 'AI threat detection : anomaly auto-response : predictive security posture'
+  headline: ISMS-P + CIS Hardened
+  label: COMPLIANCE OUTCOME
+  metric: 'ISMS-P : CIS Benchmark : NIST'
+  metric_b: 'Real-time dashboard : SIEM integration : 6-month key rotation policy'
+  mini:
+    label: DETECT
+    sub: threat
+    value: AI
+  mini2:
+    label: ADMIN
+    sub: req
+    value: MFA
+  theme: blue
   visual:
     kind: shield
     label: ISMS
-  metric_b: 'Real-time dashboard : SIEM integration : 6-month key rotation policy'
-  detail_b: 'AI threat detection : anomaly auto-response : predictive security posture'
-  mini:
-    value: AI
-    label: DETECT
-    sub: threat
-  mini2:
-    value: MFA
-    label: ADMIN
-    sub: req
+date: '2025-05-02'
+sfx: MY02
+slug: Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide
+title: '2025-05-02: Kandji MDM macOS hardening guide'
