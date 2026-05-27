@@ -1,10 +1,23 @@
 #!/usr/bin/env python3
 """L22 ultra dispatch for auto-publish blogwatcher.
 
+.. deprecated:: 2026-05-26
+   This module is deprecated as of the L20 family unification commit
+   ``728266e1``. New code MUST use :mod:`scripts.news.l20_dispatch`
+   instead. The L20 path now emits the same QR block (via
+   :func:`scripts.lib.svg_l22_generator.qr_block` at
+   ``translate(1080,504)``) and strips Hangul consistently with the
+   unified SVG quality gate. The Hangul-retaining
+   :func:`_resolve_three_stories` in this module triggered the
+   2026-05-23..26 CI failure (Korean text in <text> elements).
+
+   Deprecation roadmap: see ``.omc/plans/l22-dispatch-deprecation.md``.
+   Removal expected after Phase 4 (post-2026-06-01).
+
 Wraps :mod:`scripts.lib.svg_l22_generator` so the publisher can emit
 the rich 67-70 KB three-band cover (red / amber / green stripes, KPI
 badges, themed visual primitives, animated dividers) at publish time
-instead of the 19 KB L20 hero default.
+instead of the L20 hero default.
 
 The auto-derived stories will not match the editorial polish of a
 hand-curated ``scripts/upgrade_2026_05_to_ultra.py`` config, but the
@@ -22,15 +35,29 @@ Three layers:
 3. ``generate_l22_digest_svg`` builds the bands_cfg list and calls
    :func:`scripts.lib.svg_l22_generator.render_bands_svg`.
 
-Env-flag wiring lives in ``scripts.auto_publish_news.USE_L22_ULTRA``.
+Env-flag wiring lives in ``scripts.auto_publish_news.USE_L22_ULTRA``
+(default OFF since 2026-05-26).
 """
 
 from __future__ import annotations
 
 import logging
 import re
+import warnings
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
+
+# Emit a one-shot deprecation notice on import. Phase 1 of the
+# l22-dispatch deprecation plan: signal callers without changing
+# runtime behaviour. Phase 2-4 will remove call sites, then this
+# module. See .omc/plans/l22-dispatch-deprecation.md.
+warnings.warn(
+    "scripts.news.l22_dispatch is deprecated as of 2026-05-26 "
+    "(L20 family unification). Use scripts.news.l20_dispatch instead. "
+    "Removal planned after 2026-06-01.",
+    DeprecationWarning,
+    stacklevel=2,
+)
 
 # ---------------------------------------------------------------------------
 # Band-visual marker injection
