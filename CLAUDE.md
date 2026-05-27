@@ -708,6 +708,7 @@ architect  →  blog-lead  →  test-engineer  →  post-validator
 | `.claude/commands/` | Custom skills for Claude Code (TIP 4) |
 | `docs/` | All project documentation |
 | `scripts/README.md` | Script documentation |
+| `docs/troubleshooting/CROSS_PLATFORM_CASE_SENSITIVITY.md` | macOS↔Linux case-sensitivity 함정과 자동 게이트 (`check_svg_title_ascii`, `check_spec_slug_consistency`) 운영 가이드 |
 
 ## Quick Checklist
 
