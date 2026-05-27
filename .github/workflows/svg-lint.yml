@@ -22,6 +22,7 @@ on:
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
+      - 'scripts/check_spec_slug_consistency.py'
   pull_request:
     paths:
       - 'assets/images/**.svg'
@@ -43,6 +44,7 @@ on:
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
+      - 'scripts/check_spec_slug_consistency.py'
 
 concurrency:
   group: svg-lint-${{ github.ref }}
@@ -112,6 +114,10 @@ jobs:
       - name: SVG title/desc ASCII gate (no non-ASCII in <title> or <desc>)
         id: title_ascii
         run: python3 scripts/check_svg_title_ascii.py --all
+
+      - name: Digest cover spec slug vs post image consistency gate
+        id: spec_slug_consistency
+        run: python3 scripts/check_spec_slug_consistency.py --all
 
       - name: Upload lint report on failure
         if: failure() && steps.lint.outcome == 'failure'

@@ -85,3 +85,18 @@ if [ -n "$STAGED_ALL_SVGS" ]; then
   fi
   echo "[pre-commit] SVG title/desc ASCII check: passed."
 fi
+
+# 7. Digest cover spec slug ↔ post image: consistency gate
+STAGED_SPECS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_data/digest_covers/[^/]+\.yml$' || true)
+if [ -n "$STAGED_SPECS" ]; then
+  echo "[pre-commit] Checking digest cover spec slug vs post image: consistency..."
+  python3 "$REPO_ROOT/scripts/check_spec_slug_consistency.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Spec slug / post image: mismatch found. Fix before committing."
+    echo "             The post image: field must equal /assets/images/{date}-{slug}.svg"
+    echo "             (case-sensitive, matching the spec slug exactly)."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Spec slug consistency: passed."
+fi

@@ -8,7 +8,7 @@ date: 2025-11-04 17:45:38 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 description: "Zscaler 엔터프라이즈 보안 완벽 활용 가이드. SSL 인라인 검사 설정, 샌드박스(ATP) 기반 악성코드 차단, AI 서비스·광고·유해 사이트 카테고리 정책 수립, Zero Trust 아키텍처 구현, ZTNA 2.0 도입까지 웹 보안 강화 방법을 체계적으로 다룹니다."
 excerpt: "Zscaler 엔터프라이즈 보안 완벽 활용 가이드. SSL 인라인 검사 설정, 샌드박스(ATP) 기반 악성코드 차단, AI 서비스·광고·유해 사이트 카테고리 정책 수립, Zero Trust 아키텍처 구현, ZTNA 2.0 도입까지 웹 보안 강화 방법을 체계적으로 다룹니다."
-image: /assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_AI_Complete.svg
+image: /assets/images/2025-11-04-Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block.svg
 image_alt: 'Zscaler Complete Guide: SSL Inspection Sandbox AI Advertising Malicious
   Site Complete Blocking'
 keywords:
