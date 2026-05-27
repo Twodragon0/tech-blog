@@ -101,9 +101,13 @@ def _strip_hangul(text: str) -> str:
     if not text:
         return ""
     cleaned = _HANGUL_RE.sub("", str(text))
+    # Collapse Korean separator residue left after Hangul strip: middle dots
+    # (U+00B7), bullets (U+2022), and orphan ASCII hyphens between blanks.
+    cleaned = re.sub(r"[·•](\s*[·•])+", "", cleaned)
+    cleaned = re.sub(r"\s+[·•]+\s+", " ", cleaned)
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     cleaned = re.sub(r"(,\s*){2,}", ", ", cleaned)
-    cleaned = re.sub(r"^[\s,;:.\-]+|[\s,;:.\-]+$", "", cleaned)
+    cleaned = re.sub(r"^[\s,;:.\-·•]+|[\s,;:.\-·•]+$", "", cleaned)
     return cleaned
 
 
