@@ -1,0 +1,76 @@
+date: '2025-09-16'
+slug: AWS_reInforce_2025_Cloud_Security_and_Future
+sfx: SP16
+title: '2025-09-16: AWS re:Inforce 2025, AI threat detect, AgentCore Identity'
+aria: AWS re:Inforce 2025 conference in Philadelphia draws 5800 security
+  practitioners, GuardDuty Extended Threat Detection cuts mean detect time 60%
+  while Security Hub GA automates compliance, IAM Policy Autopilot tunes
+  least-privilege at scale, AgentCore Identity prepares for AI agent era with
+  guardrails and Zero Trust verification.
+bands:
+- theme: red
+  label: CLOUD THREAT
+  headline: AI Era Attack Surface
+  metric: 'AI agent : 9/10 risk'
+  detail: 'AI agent identity gap : shadow agent : data exfil via tool call abuse'
+  badge:
+    value: AI
+    label: RISK
+    sub: 9/10
+  visual:
+    kind: lock_cve
+    cvss: AI
+  metric_b: 'Cross-account blast : KMS gap : public S3 detected too late'
+  detail_b: 'GuardDuty default off : Macie data classify miss : IAM 0/0 policy'
+  mini:
+    value: SHD
+    label: AGENT
+    sub: hide
+  mini2:
+    value: 'S3'
+    label: PUB
+    sub: leak
+- theme: amber
+  label: GUARDDUTY +
+  headline: Extended Threat Detect
+  metric: 'GD ETD : 60% MTTD'
+  detail: 'GuardDuty Extended Threat Detection : multi-signal corr : 60% MTTD cut'
+  badge:
+    value: ETD
+    label: GD
+    sub: ext
+  visual:
+    kind: network_nodes
+    label: GD-ETD
+  metric_b: 'Security Hub GA : auto compliance check : 40% false pos drop'
+  detail_b: 'IAM Policy Autopilot : least-priv tune : Macie auto classify PII'
+  mini:
+    value: GA
+    label: HUB
+    sub: sec
+  mini2:
+    value: IAM
+    label: AUTO
+    sub: pilot
+- theme: blue
+  label: AGENT IDENTITY
+  headline: AgentCore + ZT Verify
+  metric: 'AgentCore ID : ZT verify'
+  detail: 'AgentCore Identity : per-agent IAM scope : tool-use guardrail : audit'
+  badge:
+    value: AC
+    label: ID
+    sub: agent
+  visual:
+    kind: shield
+    label: ZT
+  metric_b: 'Zero Trust never-trust per-request : reInvent 2025 Security Agent'
+  detail_b: 'Bedrock guardrail PII filter : 30% sec staff offload via AI assist'
+  mini:
+    value: BR
+    label: GUARD
+    sub: rail
+  mini2:
+    value: ZT
+    label: AGT
+    sub: vrfy

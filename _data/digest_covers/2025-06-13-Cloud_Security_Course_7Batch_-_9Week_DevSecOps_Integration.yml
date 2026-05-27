@@ -1,0 +1,75 @@
+date: '2025-06-13'
+slug: Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration
+sfx: JN13
+title: '2025-06-13: DevSecOps full SDLC, shift-left, DSOMM maturity model'
+aria: Traditional waterfall security review at release gate causes 100x fix cost
+  and 70% release delays, resolved by DevSecOps shift-left integration with OWASP
+  DSOMM maturity model, SAST DAST SCA IaC and container scans wired into CI/CD,
+  MTTR reduced 60% via automated feedback loop and Shift-Left strategy.
+bands:
+- theme: red
+  label: WATERFALL DRAG
+  headline: Late Security Review
+  metric: 'Fix cost 100x : delay 70%'
+  detail: 'Security review at release : late find = 100x cost : 2wk emergency patch'
+  badge:
+    value: 100x
+    label: FIX
+    sub: cost
+  visual:
+    kind: code_bars
+    caption: SHIFT GAP
+  metric_b: 'Dev-Sec friction : 10 week waterfall : MTTR weeks not hours'
+  detail_b: 'Manual checklist : no auto gate : prod CVE found by external pentest'
+  mini:
+    value: 10wk
+    label: WATER
+    sub: fall
+  mini2:
+    value: MAN
+    label: GATE
+    sub: only
+- theme: amber
+  label: SHIFT LEFT
+  headline: DSOMM Maturity Ladder
+  metric: 'OWASP DSOMM : 4 level'
+  detail: 'OWASP DSOMM 4 levels : Initial Growth Mature Optimize : score each domain'
+  badge:
+    value: L4
+    label: DSOMM
+    sub: opt
+  visual:
+    kind: lock_cve
+    cvss: DSOMM
+  metric_b: 'SAST DAST SCA in CI : container scan : IaC policy : secret rotate'
+  detail_b: 'Semgrep + Trivy + Checkov : OPA policy gate : Vault dynamic secret'
+  mini:
+    value: SAST
+    label: SCA
+    sub: gate
+  mini2:
+    value: IaC
+    label: OPA
+    sub: pol
+- theme: blue
+  label: FEEDBACK LOOP
+  headline: MTTR -60% + Auto Heal
+  metric: 'MTTR -60% : auto patch'
+  detail: 'Auto feedback loop : 5.5 week cycle : MTTR 60% down vs waterfall'
+  badge:
+    value: 5.5w
+    label: CYCLE
+    sub: fast
+  visual:
+    kind: shield
+    label: AUTO
+  metric_b: 'Realtime IDE feedback : auto-patch zero-day : SIEM AI anomaly detect'
+  detail_b: 'Pre-commit SAST IDE plugin : Dependabot auto-PR : Falco runtime alert'
+  mini:
+    value: PRE
+    label: IDE
+    sub: hint
+  mini2:
+    value: AI
+    label: SIEM
+    sub: anom

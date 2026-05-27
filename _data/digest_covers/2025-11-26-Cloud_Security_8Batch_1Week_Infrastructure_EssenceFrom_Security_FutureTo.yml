@@ -1,0 +1,75 @@
+date: '2025-11-26'
+slug: Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo
+sfx: NV26
+title: '2025-11-26: Cloud infra essence to future, Shadow AI, post-quantum'
+aria: Cloud infrastructure essence covering network compute and data planes with
+  Shadow AI usage and over-privileged IAM exposing data to unmonitored agents,
+  remediated by Zero Trust access redesign within 3 months and post-quantum
+  crypto migration plus GuardDuty Extended Threat Detection rollout cutting
+  breach detect time from 45 days to 24 hours and 70% sec cost reduction.
+bands:
+- theme: red
+  label: INFRA GAPS
+  headline: Shadow AI + Open IAM
+  metric: 'Shadow AI : 45d MTTD'
+  detail: 'Shadow AI tools used : IP leak : IAM 0/0 admin : MTTD 45 days breach'
+  badge:
+    value: SHD
+    label: AI
+    sub: leak
+  visual:
+    kind: cloud_k8s
+  metric_b: 'Public subnet DB : KMS off : monitoring absent : compliance miss'
+  detail_b: 'Engineers use ChatGPT prod data : IAM star policy : SG 0.0.0.0/0 DB'
+  mini:
+    value: 0/0
+    label: SG
+    sub: db
+  mini2:
+    value: 45d
+    label: MTTD
+    sub: slow
+- theme: amber
+  label: ZT REDESIGN
+  headline: Zero Trust 3-Month Plan
+  metric: 'ZT verify : 3 month'
+  detail: 'Zero Trust never-trust : 3 month redesign : IAM least-priv : MFA force'
+  badge:
+    value: ZT
+    label: PLAN
+    sub: 3mo
+  visual:
+    kind: network_nodes
+    label: ZT
+  metric_b: 'IAM Access Analyzer : SCP OU deny : VPC endpoint : PrivateLink'
+  detail_b: 'Per-request verify : conditional access : device posture check'
+  mini:
+    value: SCP
+    label: OU
+    sub: deny
+  mini2:
+    value: VPE
+    label: PRIV
+    sub: link
+- theme: blue
+  label: FUTURE STACK
+  headline: PQC + GuardDuty ETD
+  metric: 'PQC ready : MTTD 24h'
+  detail: 'Post-quantum crypto migrate : ML-KEM Kyber : 24h MTTD via GD ETD'
+  badge:
+    value: PQC
+    label: KEM
+    sub: ml
+  visual:
+    kind: shield
+    label: PQC
+  metric_b: 'GuardDuty Extended Threat Detection : AI anomaly : 70% cost cut'
+  detail_b: 'Hybrid TLS X25519+ML-KEM : NIST FIPS 203 : 6 month roll'
+  mini:
+    value: GD
+    label: ETD
+    sub: ai
+  mini2:
+    value: 'KEM'
+    label: NIST
+    sub: 203

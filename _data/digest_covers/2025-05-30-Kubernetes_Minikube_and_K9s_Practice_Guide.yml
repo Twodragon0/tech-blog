@@ -1,0 +1,74 @@
+date: '2025-05-30'
+slug: Kubernetes_Minikube_and_K9s_Practice_Guide
+sfx: MY30
+title: '2025-05-30: Minikube local K8s + K9s TUI, User Namespaces hardening'
+aria: Local Kubernetes dev environment via Minikube 1.37 with K9s terminal UI for
+  cluster ops, common pitfalls in resource limits and addon driver mismatches, and
+  2024-2025 security hardening through User Namespaces and Bound Service Account
+  Tokens for production parity testing.
+bands:
+- theme: red
+  label: LOCAL K8s GAP
+  headline: Minikube Resource Pitfall
+  metric: 'Driver mismatch : OOM kill'
+  detail: 'Minikube driver/CPU mismatch : pod OOM : addon enable race : 60% setup fail'
+  badge:
+    value: OOM
+    label: POD
+    sub: kill
+  visual:
+    kind: cloud_k8s
+  metric_b: 'Default 2 CPU 2GB cap : addon ingress fails : kubelet evict pressure'
+  detail_b: 'docker vs hyperkit driver : DNS coreDNS crashloop : storage class miss'
+  mini:
+    value: '2GB'
+    label: CAP
+    sub: tight
+  mini2:
+    value: DNS
+    label: CORE
+    sub: loop
+- theme: amber
+  label: TUI OPS
+  headline: K9s Cluster Navigator
+  metric: 'K9s plugins : skin : pulses'
+  detail: 'K9s terminal UI : pod log tail : exec shell : describe : context switch'
+  badge:
+    value: K9s
+    label: TUI
+    sub: nav
+  visual:
+    kind: network_nodes
+    label: K9s
+  metric_b: 'Pulse view CPU mem : xray RBAC : popeye sanity scan : skin custom'
+  detail_b: 'kubectl alias replace : multi-context switch : log tail filter regex'
+  mini:
+    value: POP
+    label: EYE
+    sub: scan
+  mini2:
+    value: XRY
+    label: RBAC
+    sub: view
+- theme: blue
+  label: 2025 HARDENING
+  headline: UserNS + Bound SA Tokens
+  metric: 'UserNS GA : BoundSA token'
+  detail: 'User Namespaces GA in 1.30+ : root UID maps to unpriv host UID : isolate'
+  badge:
+    value: UNS
+    label: K8s
+    sub: 1.30
+  visual:
+    kind: shield
+    label: UserNS
+  metric_b: 'Bound Service Account tokens : projected volume : audience scoped'
+  detail_b: 'kube-apiserver --enable-bounded-token : 1h expiry : audience required'
+  mini:
+    value: BND
+    label: SA
+    sub: tok
+  mini2:
+    value: '1h'
+    label: EXP
+    sub: scope
