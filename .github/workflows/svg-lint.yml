@@ -21,6 +21,7 @@ on:
       - 'scripts/check_l22_visual_variety.py'
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/check_svg_precommit.sh'
+      - 'scripts/check_svg_title_ascii.py'
   pull_request:
     paths:
       - 'assets/images/**.svg'
@@ -41,6 +42,7 @@ on:
       - 'scripts/check_l22_visual_variety.py'
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/check_svg_precommit.sh'
+      - 'scripts/check_svg_title_ascii.py'
 
 concurrency:
   group: svg-lint-${{ github.ref }}
@@ -106,6 +108,10 @@ jobs:
             --changed "$BASE" \
             --baseline scripts/svg_size_gate_baseline.txt \
             --strict
+
+      - name: SVG title/desc ASCII gate (no non-ASCII in <title> or <desc>)
+        id: title_ascii
+        run: python3 scripts/check_svg_title_ascii.py --all
 
       - name: Upload lint report on failure
         if: failure() && steps.lint.outcome == 'failure'

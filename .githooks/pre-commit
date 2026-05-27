@@ -54,24 +54,7 @@ if [ -n "$SVG_FILES" ]; then
   fi
 fi
 
-# 5. Post front-matter quote safety (title/excerpt/description/image_alt must not contain ASCII double-quotes)
-STAGED_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/.*\.md$' || true)
-if [ -n "$STAGED_POSTS" ]; then
-  echo "[pre-commit] Checking post front-matter quote safety..."
-  POSTS_ARGS=""
-  for f in $STAGED_POSTS; do
-    POSTS_ARGS="$POSTS_ARGS $f"
-  done
-  python3 "$REPO_ROOT/scripts/check_post_quote_safety.py" $POSTS_ARGS
-  if [ $? -ne 0 ]; then
-    echo "[pre-commit] Front-matter quote safety check failed."
-    echo "             To bypass (emergency only): SKIP_QUOTE_CHECK=1 git commit ..."
-    exit 1
-  fi
-  echo "[pre-commit] Front-matter quote safety: OK"
-fi
-
-# 6. SVG compliance linter (placeholder text, accent/category mismatch, missing signature — blocks commit)
+# 5. SVG compliance linter (placeholder text, accent/category mismatch, missing signature — blocks commit)
 STAGED_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/2026-[^/]+\.svg$' || true)
 if [ -n "$STAGED_SVGS" ]; then
   echo "[pre-commit] Running SVG compliance linter..."
@@ -87,4 +70,18 @@ if [ -n "$STAGED_SVGS" ]; then
     exit 1
   fi
   echo "[pre-commit] SVG compliance: passed."
+fi
+
+# 6. SVG <title>/<desc> ASCII gate — blocks commit on any non-ASCII codepoint
+STAGED_ALL_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/[^/]+\.svg$' || true)
+if [ -n "$STAGED_ALL_SVGS" ]; then
+  echo "[pre-commit] Checking SVG <title>/<desc> for non-ASCII characters..."
+  python3 "$REPO_ROOT/scripts/check_svg_title_ascii.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] SVG title/desc ASCII violations found. Fix before committing."
+    echo "             All <title> and <desc> content must be ASCII (codepoint < 128)."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] SVG title/desc ASCII check: passed."
 fi

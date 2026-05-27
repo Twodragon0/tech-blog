@@ -111,6 +111,20 @@ if [ -n "$STAGED_SVGS" ]; then
   fi
   echo "[pre-commit] SVG compliance: passed."
 fi
+
+# 6. SVG <title>/<desc> ASCII gate — blocks commit on any non-ASCII codepoint
+STAGED_ALL_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/[^/]+\.svg$' || true)
+if [ -n "$STAGED_ALL_SVGS" ]; then
+  echo "[pre-commit] Checking SVG <title>/<desc> for non-ASCII characters..."
+  python3 "$REPO_ROOT/scripts/check_svg_title_ascii.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] SVG title/desc ASCII violations found. Fix before committing."
+    echo "             All <title> and <desc> content must be ASCII (codepoint < 128)."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] SVG title/desc ASCII check: passed."
+fi
 HOOK
 
 chmod +x "$HOOK_FILE"
