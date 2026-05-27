@@ -2,7 +2,7 @@
 
 layout: post
 title: "클라우드 시큐리티 과정 7기 - 6주차 Cloudflare 및 GitHub 보안"
-date: 2025-05-23 01:07:48 +0900
+date: 2025-05-23 09:00:00 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [AWS, CDN, Cloudflare, GitHub, SAST, WAF]
@@ -43,6 +43,7 @@ summary_card:
 redirect_from:
   - /posts/2025/05/Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/
   - /posts/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/
+  - /posts/2025/05/22/Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/
 ---
 {% include ai-summary-card.html %}
 

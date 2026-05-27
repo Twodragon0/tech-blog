@@ -2,7 +2,7 @@
 
 layout: post
 title: 'Kubernetes Minikube & K9s 실습 가이드: 문제 해결부터 실전 테스트까지'
-date: 2025-05-30 01:11:00 +0900
+date: 2025-05-30 09:00:00 +0900
 last_modified_at: 2026-04-25T00:10:26+09:00
 categories:
 - kubernetes
@@ -44,6 +44,7 @@ redirect_from:
   - /posts/2025/05/Kubernetes_Minikube_and_K9s_Practice_Guide/
   - /posts/2025-05-30-Kubernetes_Minikube_and_K9s_Practice_Guide/
   - /posts/2025/05/Kubernetes_Minikube_ampamp_K9s_Practice_Guide_Problem_From_Resolution_Practical_TestTo/
+  - /posts/2025/05/29/Kubernetes_Minikube_and_K9s_Practice_Guide/
 ---
 {% include ai-summary-card.html %}
 

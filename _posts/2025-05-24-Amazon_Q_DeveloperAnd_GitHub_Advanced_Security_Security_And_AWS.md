@@ -2,7 +2,7 @@
 
 layout: post
 title: 'Amazon Q Developer & GitHub Advanced Security로 AWS 코드 보안 강화'
-date: 2025-05-24 00:17:56 +0900
+date: 2025-05-24 09:00:00 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories:
 - devsecops
@@ -40,6 +40,7 @@ summary_card:
 redirect_from:
   - /posts/2025/05/Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/
   - /posts/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/
+  - /posts/2025/05/23/Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/
 ---
 {% include ai-summary-card.html %}
 

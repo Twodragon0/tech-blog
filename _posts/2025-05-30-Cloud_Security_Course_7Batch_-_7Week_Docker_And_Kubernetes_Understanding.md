@@ -2,7 +2,7 @@
 
 layout: post
 title: '클라우드 시큐리티 과정 7기 - 7주차: Docker 및 Kubernetes 이해'
-date: 2025-05-30 00:04:58 +0900
+date: 2025-05-30 09:00:00 +0900
 last_modified_at: 2026-04-16T11:29:01+09:00
 categories:
 - kubernetes
@@ -48,6 +48,7 @@ redirect_from:
   - /posts/2025/05/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/
   - /posts/2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/
   - /posts/2025/05/30/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/
+  - /posts/2025/05/29/Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding/
 ---
 {% include ai-summary-card.html %}
 

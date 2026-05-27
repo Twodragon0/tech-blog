@@ -2,7 +2,7 @@
 
 layout: post
 title: '클라우드 시큐리티 과정 7기 - 3주차: AWS 보안 및 FinOps'
-date: 2025-05-02 00:41:54 +0900
+date: 2025-05-02 09:00:00 +0900
 last_modified_at: 2026-03-30T17:41:34+09:00
 categories:
 - cloud
@@ -47,6 +47,7 @@ summary_card:
 redirect_from:
   - /posts/2025/05/Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/
   - /posts/2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/
+  - /posts/2025/05/01/Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops/
 ---
 {% include ai-summary-card.html %}
 
