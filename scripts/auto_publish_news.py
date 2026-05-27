@@ -184,24 +184,10 @@ L20_HERO_ENABLED: bool = os.getenv("USE_L20_HERO", "1").strip().lower() not in {
     "",
 }
 
-# L22 ultra three-band cover (~67-70 KB) is now opt-in only.
-#
-# Migrated to L20 family on 2026-05-26: L20 Hero+2-Card has been
-# producing covers with the same QR block (via svg_l22_generator.qr_block
-# at translate(1080,504)) since 2026-04. The L22-only Hangul retention
-# path (l22_dispatch._resolve_three_stories) leaked Korean text into
-# 4 SVGs on 2026-05-23..26 and tripped the unified SVG quality gate.
-# Unifying on L20 keeps the QR block, strips Hangul consistently,
-# and removes the dual-renderer maintenance burden.
-#
-# Set USE_L22_ULTRA=1 to explicitly opt in to the legacy renderer.
-L22_ULTRA_ENABLED: bool = os.getenv("USE_L22_ULTRA", "0").strip().lower() not in {
-    "0",
-    "false",
-    "no",
-    "off",
-    "",
-}
+# L22 ultra opt-in removed in Phase 2 of the deprecation rollout
+# (.omc/plans/l22-dispatch-deprecation.md). The L20 family is the
+# single canonical dispatch; render failure now falls straight through
+# to the legacy ``generate_svg_image`` safety net.
 
 
 def _render_l20_svg_string(post_info: Dict) -> str:
@@ -260,22 +246,6 @@ def _render_l20_svg_string(post_info: Dict) -> str:
         )
     except Exception as _exc:
         logging.warning(f"L20 SVG render failed, falling back: {_exc}")
-        return ""
-
-
-def _render_l22_svg_string(post_info: Dict) -> str:
-    """Render an L22 ultra three-band SVG string.
-
-    Auto-derives 3 themed bands (red/amber/green) from the post's top
-    headlines via :mod:`scripts.news.l22_dispatch`. Returns ``""`` on
-    any failure so the publisher can fall back to L20 / legacy paths
-    without crashing.
-    """
-    try:
-        from scripts.news.l22_dispatch import render_l22_svg_string
-        return render_l22_svg_string(post_info)
-    except Exception as exc:
-        logging.debug(f"L22 dispatch import failed: {exc}")
         return ""
 
 
@@ -649,14 +619,14 @@ def main():
         print(f"   - {cat}: {len(items)} items")
 
     # Generate SVG. Dispatch order for weekly-digest posts (mode == "security"):
-    #   1. USE_L20_HERO=1 (default ON) → L20 Hero+2-Card cover (~40-75 KB,
+    #   1. USE_L20_HERO=1 (default ON) → L20 Hero+2-Card cover (~20-75 KB,
     #                                    includes QR block at translate(1080,504))
-    #   2. USE_L22_ULTRA=1 (opt-in)    → legacy L22 three-band ultra cover
-    #   3. fallback                    → legacy generate_svg_image
-    # Migrated to L20-first on 2026-05-26 (see L22_ULTRA_ENABLED comment).
-    # On render failure each tier degrades to the next so publishing is
-    # never blocked on cover generation.
-    if (L20_HERO_ENABLED or L22_ULTRA_ENABLED) and args.mode == "security":
+    #   2. legacy generate_svg_image   → hard safety net, never blocks publishing
+    # L22 dispatch was removed in Phase 2 of the deprecation rollout
+    # (.omc/plans/l22-dispatch-deprecation.md, commit 2635169a). The legacy
+    # path remains as the final guard so a cover render exception cannot
+    # block publishing.
+    if L20_HERO_ENABLED and args.mode == "security":
         post_info_for_l20 = {
             "title": post_content.split("\n", 1)[0]
             if post_content.startswith("title:") else "",
@@ -674,13 +644,8 @@ def main():
         if m_excerpt:
             post_info_for_l20["excerpt"] = m_excerpt.group(1).strip()
 
-        svg_content = ""
-        if L20_HERO_ENABLED:
-            svg_content = _render_l20_svg_string(post_info_for_l20)
-        if not svg_content and L22_ULTRA_ENABLED:
-            svg_content = _render_l22_svg_string(post_info_for_l20)
+        svg_content = _render_l20_svg_string(post_info_for_l20)
         if not svg_content:
-            # Hard fallback: never block publishing on cover failure.
             svg_content = generate_svg_image(now, categorized, selected)
     else:
         svg_content = generate_svg_image(now, categorized, selected)

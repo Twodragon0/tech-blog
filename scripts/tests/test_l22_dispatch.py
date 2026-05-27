@@ -205,7 +205,8 @@ class TestGenerateL22DigestSvg:
 
 
 # =====================================================================
-# auto_publish_news USE_L22_ULTRA env flag
+# auto_publish_news L20 dispatch (Phase 2 of L22 deprecation: L22 opt-in
+# path removed; legacy generate_svg_image stays as the final safety net).
 # =====================================================================
 
 
@@ -220,41 +221,12 @@ def _reload_auto_publish_news():
     return importlib.import_module("auto_publish_news")
 
 
-class TestL22UltraEnvFlag:
-    def test_unset_defaults_to_disabled(self, monkeypatch):
-        """L22 ultra deprecated 2026-05-26 in favor of L20 family unification.
-        Default flipped back to OFF; L22 retained only as an explicit
-        opt-in legacy renderer. See auto_publish_news.py L22_ULTRA_ENABLED."""
-        monkeypatch.delenv("USE_L22_ULTRA", raising=False)
-        mod = _reload_auto_publish_news()
-        assert mod.L22_ULTRA_ENABLED is False
+class TestDispatchAfterL22Removal:
+    """After Phase 2 (commit removing L22_ULTRA_ENABLED) the dispatch is
+    L20 -> legacy. L22 dispatch helpers no longer exist on the module."""
 
-    @pytest.mark.parametrize("value", ["1", "true", "yes", "on", "TRUE"])
-    def test_truthy_values_enable(self, monkeypatch, value):
-        # Explicit opt-in only.
-        monkeypatch.setenv("USE_L22_ULTRA", value)
-        mod = _reload_auto_publish_news()
-        assert mod.L22_ULTRA_ENABLED is True
-
-    @pytest.mark.parametrize("value", ["0", "false", "no", "off", "FALSE", "Off", ""])
-    def test_falsy_values_disable(self, monkeypatch, value):
-        """Default + explicit opt-out values disable L22 ultra. Empty
-        string is the new default-equivalent and disables."""
-        monkeypatch.setenv("USE_L22_ULTRA", value)
-        mod = _reload_auto_publish_news()
-        assert mod.L22_ULTRA_ENABLED is False
-
-
-class TestDispatchPrecedence:
-    """L20 wins over L22 when both flags are set (2026-05-26 migration);
-    falls back gracefully."""
-
-    def _stub_dispatch(self, monkeypatch, mod, l20_returns: str, l22_returns: str = "<svg>l22</svg>"):
-        called = {"l22": 0, "l20": 0, "legacy": 0}
-
-        def fake_l22(post_info):
-            called["l22"] += 1
-            return l22_returns
+    def _stub_dispatch(self, monkeypatch, mod, l20_returns: str):
+        called = {"l20": 0, "legacy": 0}
 
         def fake_l20(post_info):
             called["l20"] += 1
@@ -264,65 +236,56 @@ class TestDispatchPrecedence:
             called["legacy"] += 1
             return "<svg>legacy</svg>"
 
-        monkeypatch.setattr(mod, "_render_l22_svg_string", fake_l22)
         monkeypatch.setattr(mod, "_render_l20_svg_string", fake_l20)
         monkeypatch.setattr(mod, "generate_svg_image", fake_legacy)
         return called
 
-    def test_l20_takes_precedence_when_both_enabled(self, monkeypatch):
-        monkeypatch.setenv("USE_L22_ULTRA", "1")
+    def test_l22_helpers_no_longer_exposed(self):
+        mod = _reload_auto_publish_news()
+        assert not hasattr(mod, "L22_ULTRA_ENABLED"), (
+            "L22_ULTRA_ENABLED was removed in Phase 2 deprecation"
+        )
+        assert not hasattr(mod, "_render_l22_svg_string"), (
+            "_render_l22_svg_string was removed in Phase 2 deprecation"
+        )
+
+    def test_l20_dispatches_on_success(self, monkeypatch):
         monkeypatch.setenv("USE_L20_HERO", "1")
         mod = _reload_auto_publish_news()
         called = self._stub_dispatch(monkeypatch, mod, l20_returns="<svg>l20</svg>")
 
-        # Inline the dispatch fragment as it appears in main():
         post_info: dict = {"title": "T", "filename": "f.md"}
-        svg = ""
-        if mod.L20_HERO_ENABLED:
-            svg = mod._render_l20_svg_string(post_info)
-        if not svg and mod.L22_ULTRA_ENABLED:
-            svg = mod._render_l22_svg_string(post_info)
+        svg = mod._render_l20_svg_string(post_info) if mod.L20_HERO_ENABLED else ""
         if not svg:
             svg = mod.generate_svg_image(None, {}, [])
 
-        assert called == {"l22": 0, "l20": 1, "legacy": 0}
+        assert called == {"l20": 1, "legacy": 0}
         assert svg == "<svg>l20</svg>"
 
-    def test_l20_failure_falls_back_to_l22(self, monkeypatch):
-        monkeypatch.setenv("USE_L22_ULTRA", "1")
+    def test_l20_failure_falls_through_to_legacy(self, monkeypatch):
         monkeypatch.setenv("USE_L20_HERO", "1")
         mod = _reload_auto_publish_news()
-        called = self._stub_dispatch(monkeypatch, mod, l20_returns="")  # render fail
+        called = self._stub_dispatch(monkeypatch, mod, l20_returns="")
 
         post_info: dict = {"title": "T", "filename": "f.md"}
-        svg = ""
-        if mod.L20_HERO_ENABLED:
-            svg = mod._render_l20_svg_string(post_info)
-        if not svg and mod.L22_ULTRA_ENABLED:
-            svg = mod._render_l22_svg_string(post_info)
+        svg = mod._render_l20_svg_string(post_info) if mod.L20_HERO_ENABLED else ""
         if not svg:
             svg = mod.generate_svg_image(None, {}, [])
 
-        assert called == {"l22": 1, "l20": 1, "legacy": 0}
-        assert svg == "<svg>l22</svg>"
+        assert called == {"l20": 1, "legacy": 1}
+        assert svg == "<svg>legacy</svg>"
 
-    def test_both_flags_off_falls_back_to_legacy(self, monkeypatch):
-        monkeypatch.setenv("USE_L22_ULTRA", "0")
+    def test_l20_disabled_uses_legacy_directly(self, monkeypatch):
         monkeypatch.setenv("USE_L20_HERO", "0")
         mod = _reload_auto_publish_news()
         called = self._stub_dispatch(monkeypatch, mod, l20_returns="")
 
         post_info: dict = {"title": "T", "filename": "f.md"}
-        svg = ""
-        if mod.L20_HERO_ENABLED:
-            svg = mod._render_l20_svg_string(post_info)
-        if not svg and mod.L22_ULTRA_ENABLED:
-            svg = mod._render_l22_svg_string(post_info)
+        svg = mod._render_l20_svg_string(post_info) if mod.L20_HERO_ENABLED else ""
         if not svg:
             svg = mod.generate_svg_image(None, {}, [])
 
-        # Neither dispatch path runs; legacy generator picks up.
-        assert called == {"l22": 0, "l20": 0, "legacy": 1}
+        assert called == {"l20": 0, "legacy": 1}
         assert svg == "<svg>legacy</svg>"
 
 
