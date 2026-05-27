@@ -259,7 +259,8 @@ jobs:
           # Asserts today's auto-published SVG is an L20 family cover with
           # a QR block at translate(1080,504). The L22 lower-bound was
           # removed on 2026-05-26 when the pipeline unified on L20 — L20
-          # covers typically range 35-75 KB depending on content density.
+          # covers typically range 26-75 KB depending on content density
+          # (excerpts with short news headlines compress more aggressively).
           TODAY=$(date +%Y-%m-%d)
           SVG=$(find assets/images -maxdepth 1 -type f \
               \( -name "${TODAY}-*Digest*.svg" -o -name "${TODAY}-*Weekly*.svg" \) \
@@ -271,10 +272,13 @@ jobs:
           SIZE=$(stat -c '%s' "$SVG" 2>/dev/null || stat -f '%z' "$SVG")
           echo "Cover: $SVG"
           echo "Size:  ${SIZE} bytes"
-          # Sanity floor: L20 covers are >=30 KB. Anything smaller indicates
-          # the legacy generate_svg_image fallback fired (no QR, plain text).
-          if [ "${SIZE}" -lt 30000 ]; then
-            echo "::error::Cover ${SIZE}B is too small — likely legacy fallback. Expected L20 (>=30000B)."
+          # Sanity floor: L20 covers are >=20 KB. Legacy generate_svg_image
+          # fallback produces ~10 KB plain SVGs without a QR block. The
+          # 2026-05-27 auto-publish came in at 26 KB on a tight excerpt
+          # (smallest observed L20), so the floor sits well below that
+          # while still cleanly separating from the legacy fallback.
+          if [ "${SIZE}" -lt 20000 ]; then
+            echo "::error::Cover ${SIZE}B is too small — likely legacy fallback. Expected L20 (>=20000B)."
             exit 1
           fi
           if ! grep -q 'translate(1080,504)' "$SVG"; then
