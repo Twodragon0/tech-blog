@@ -1,0 +1,75 @@
+date: '2025-11-04'
+slug: Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block
+sfx: NV04
+title: '2025-11-04: Zscaler SSL inspection, ATP sandbox, ZTNA 2.0 complete web hardening'
+aria: Zscaler enterprise security guide covering SSL inline inspection at 94 percent
+  coverage, sandbox ATP malware blocking, AI service and harmful site category policy,
+  Zero Trust Network Access 2.0 architecture, and 99.3 percent threat block rate with
+  sub-50ms user latency.
+bands:
+- theme: red
+  label: WEB THREAT EXPOSURE
+  headline: Encrypted Malware Bypass
+  metric: 'SSL blind spot : ATP bypass'
+  detail: 'HTTPS traffic not inspected : encrypted malware passes : zero-day download risk'
+  badge:
+    value: SSL
+    label: BLIND
+    sub: spot
+  visual:
+    kind: lock_cve
+    cvss: BYPASS
+  metric_b: 'AI service data leak : unsanctioned SaaS upload : harmful/ad site drive-by'
+  detail_b: 'Hybrid workforce no perimeter : split-tunnel VPN gaps : no URL categorization'
+  mini:
+    value: '0%'
+    label: INSP
+    sub: SSL
+  mini2:
+    value: ZERO
+    label: DAY
+    sub: risk
+- theme: amber
+  label: ZSCALER ENGINE
+  headline: SSL Inline + Sandbox ATP
+  metric: 'ZIA SSL proxy : ATP sandbox'
+  detail: 'SSL inline decrypt : Sandbox ATP file detonation : URL category policy : AI block'
+  badge:
+    value: ATP
+    label: SANDBOX
+    sub: detonate
+  visual:
+    kind: code_bars
+    caption: SSL PROXY
+  metric_b: 'AI service allowlist : ad/malvertising block : CASB for shadow SaaS : ZTNA 2.0'
+  detail_b: 'ZIA policy: geo-block, app-block, data pattern DLP : 45ms avg latency maintained'
+  mini:
+    value: CASB
+    label: SHADOW
+    sub: SaaS
+  mini2:
+    value: DLP
+    label: DATA
+    sub: pat
+- theme: blue
+  label: ZERO TRUST OUTCOME
+  headline: 99.3% Block, ZTNA 2.0
+  metric: '99.3% block : 94% SSL cover'
+  detail: 'Threat block 99.3% : SSL coverage 94% : DLP 100% : policy compliance 96.8%'
+  badge:
+    value: '99.3'
+    label: BLOCK
+    sub: pct
+  visual:
+    kind: shield
+    label: ZTNA
+  metric_b: 'GDPR + ISO 27001 + ISMS-P compliance : 37% TCO vs on-prem : Level 4/5 maturity'
+  detail_b: 'ZTNA 2.0 continuous verification : device posture check : least-priv app access'
+  mini:
+    value: '45ms'
+    label: LATENCY
+    sub: avg
+  mini2:
+    value: L4
+    label: ZT
+    sub: mature

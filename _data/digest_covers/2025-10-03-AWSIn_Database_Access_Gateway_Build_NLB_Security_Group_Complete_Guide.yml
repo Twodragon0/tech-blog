@@ -1,0 +1,74 @@
+date: '2025-10-03'
+slug: AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide
+sfx: OC03
+title: '2025-10-03: AWS NLB + Security Group, Zero Trust database access gateway build'
+aria: AWS Network Load Balancer and Security Group used to build a Zero Trust database
+  access gateway, covering least-privilege Security Group policy, Terraform infrastructure
+  automation, centralized RDS and ElastiCache routing, and audit logging for compliance.
+bands:
+- theme: red
+  label: DB ACCESS RISK
+  headline: Direct DB Exposure
+  metric: 'direct DB access : SG sprawl'
+  detail: 'Apps connect directly : sprawling Security Groups : IP churn : no audit trail'
+  badge:
+    value: SG
+    label: SPRAWL
+    sub: risk
+  visual:
+    kind: network_nodes
+    label: DB RISK
+  metric_b: 'Multi-team DB sprawl : RDS/Redis/Redshift/DocumentDB all direct-exposed'
+  detail_b: 'Manual IP updates : no centralized path : traffic untraceable : least-priv broken'
+  mini:
+    value: '4+'
+    label: DB
+    sub: types
+  mini2:
+    value: RAW
+    label: ACCESS
+    sub: direct
+- theme: amber
+  label: NLB GATEWAY ARCH
+  headline: NLB + SG Least Privilege
+  metric: 'NLB proxy : SG min-rule'
+  detail: 'NLB single entry : Security Group per-tier : Terraform IaC : port-locked rules'
+  badge:
+    value: NLB
+    label: PROXY
+    sub: entry
+  visual:
+    kind: code_bars
+    caption: IaC GATE
+  metric_b: 'Terraform module : SG ingress by service only : dynamic IP managed centrally'
+  detail_b: 'Zero Trust path : VPC private subnet : cross-team isolation : no bastion needed'
+  mini:
+    value: IaC
+    label: TF
+    sub: auto
+  mini2:
+    value: VPC
+    label: PRIV
+    sub: net
+- theme: blue
+  label: ZERO TRUST OUTCOME
+  headline: Centralized Audit Access
+  metric: 'central GW : audit log : HA'
+  detail: 'Single gateway enforces policy : full access log : multi-AZ HA : compliance ready'
+  badge:
+    value: ZT
+    label: GATEWAY
+    sub: built
+  visual:
+    kind: shield
+    label: AUDIT
+  metric_b: 'Security Group min-rule : automated drift detection : CloudTrail log coverage'
+  detail_b: 'NLB health check + failover : zero-downtime SG update : IaC state lock'
+  mini:
+    value: HA
+    label: MULTI
+    sub: AZ
+  mini2:
+    value: LOG
+    label: AUDIT
+    sub: full

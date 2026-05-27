@@ -1,0 +1,74 @@
+date: '2025-05-24'
+slug: Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS
+sfx: MY24
+title: '2025-05-24: Amazon Q + GitHub Advanced Security, AI DevSecOps pipeline hardening'
+aria: Amazon Q Developer combined with GitHub Advanced Security for AI-assisted code
+  security, covering CodeQL SAST, Dependabot SCA, secret scanning, shift-left DevSecOps
+  pipeline integration, and 99.3 percent faster vulnerability detection in AWS environments.
+bands:
+- theme: red
+  label: CODE VULN EXPOSURE
+  headline: Supply Chain + Secret Leak
+  metric: 'supply chain : 9.2 CVSS : secret scan'
+  detail: 'npm/PyPI dependency hijack : hardcoded creds : IAM over-permission : 14-day MTTD'
+  badge:
+    value: '9.2'
+    label: CVSS
+    sub: supply
+  visual:
+    kind: lock_cve
+    cvss: '9.2'
+  metric_b: 'Secret exposure 9.5 CVSS : 81.1% leak reduction after GH scan active'
+  detail_b: 'Unreviewed AI-generated code : hidden backdoor patterns : no SCA baseline'
+  mini:
+    value: '14d'
+    label: MTTD
+    sub: vuln
+  mini2:
+    value: IAM
+    label: OVER
+    sub: priv
+- theme: amber
+  label: AI SCAN PIPELINE
+  headline: CodeQL + Q Developer
+  metric: 'CodeQL SAST : Dependabot SCA'
+  detail: 'Amazon Q code review : CodeQL pattern scan : Dependabot auto-PR : secret scanning'
+  badge:
+    value: Q+GH
+    label: SAST
+    sub: combo
+  visual:
+    kind: code_bars
+    caption: SAST SCAN
+  metric_b: 'Amazon Q 9.4/10 security : GH Advanced Security 9.5/10 : Snyk 9.0/10'
+  detail_b: 'CI/CD pipeline gate : PR auto-block on CRITICAL : ISMS-P/ISO 27001 mapping'
+  mini:
+    value: SAST
+    label: SHIFT
+    sub: left
+  mini2:
+    value: SCA
+    label: DEP
+    sub: scan
+- theme: blue
+  label: DEVSECOPS OUTCOME
+  headline: 99% Faster Detection
+  metric: '2.3h detect : 1.2d resolve'
+  detail: 'MTTD 14.2d->2.3h (99.3%) : review 3.5h->24min : incidents 12.3->2.1/yr'
+  badge:
+    value: '99%'
+    label: FASTER
+    sub: detect
+  visual:
+    kind: shield
+    label: DSOPM
+  metric_b: 'DSOMM maturity Level 2.1->3.8 : AWS Well-Arch compliance enforced in CI'
+  detail_b: 'Post-quantum crypto readiness : AI-generated code review checklist active'
+  mini:
+    value: L3.8
+    label: DSOMM
+    sub: level
+  mini2:
+    value: PQC
+    label: READY
+    sub: crypto
