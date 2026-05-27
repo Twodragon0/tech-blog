@@ -61,6 +61,12 @@ These audio/video scripts have been migrated to `~/Desktop/online-course/scripts
 | `generate_tts_comparison.py` | Experimental TTS comparison |
 | `test_tts_providers.py` | Experimental TTS testing |
 
+## L22 Digest Cover Pipeline (Deprecated)
+
+| Script | Reason |
+|--------|--------|
+| `regenerate_2026_04_plus_covers.py` | Superseded by `scripts/upgrade_digest_cover.py` reading `_data/digest_covers/*.yml` via the spec-driven `render_bands_svg` flow. This was a one-shot regen tool for 2026-04+ digest covers using the L22 ultra dispatch (`scripts.news.l22_dispatch.generate_l22_digest_svg`). Phase 3 of L22 deprecation plan (archived 2026-05-27). Terminal deletion scheduled for Phase 4 (≥1 week after Phase 3). |
+
 ## Using Archived Scripts
 
 If you need to use an archived script:
