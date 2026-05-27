@@ -58,12 +58,12 @@ fi
 STAGED_SVGS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/2026-[^/]+\.svg$' || true)
 if [ -n "$STAGED_SVGS" ]; then
   echo "[pre-commit] Running SVG compliance linter..."
-  # Convert newline-separated list to space-separated args
-  SVG_ARGS=""
-  for f in $STAGED_SVGS; do
-    SVG_ARGS="$SVG_ARGS $f"
-  done
-  python3 "$REPO_ROOT/scripts/lint_svg_compliance.py" --files $SVG_ARGS
+  # Re-emit paths as NUL-delimited and feed xargs -0 so filenames with spaces
+  # or shell metacharacters are handled safely (macOS BSD xargs -0 compatible).
+  git diff --cached --name-only --diff-filter=ACM \
+    | grep -E '^assets/images/2026-[^/]+\.svg$' \
+    | tr '\n' '\0' \
+    | xargs -0 python3 "$REPO_ROOT/scripts/lint_svg_compliance.py" --files
   if [ $? -ne 0 ]; then
     echo "[pre-commit] SVG compliance violations found. Fix before committing."
     echo "             To bypass (not recommended): git commit --no-verify"
