@@ -198,6 +198,29 @@ class TestVisualRegistry:
         # rendered into the SVG.
         assert spec_high.bands_cfg[0]["visual"] != spec_low.bands_cfg[0]["visual"]
 
+    def test_compliance_grid_renders_nonempty_svg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_compliance_grid(500, 315, "#60A5FA", "#93C5FD")
+        assert result.strip(), "v_compliance_grid returned empty fragment"
+        assert "COMPLIANCE" in result
+        assert "9 controls" in result
+
+    def test_identity_handshake_renders_nonempty_svg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_identity_handshake(500, 315, "#60A5FA", "#93C5FD")
+        assert result.strip(), "v_identity_handshake returned empty fragment"
+        assert "mTLS" in result
+
+    def test_compliance_grid_scorecard_kwarg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_compliance_grid(500, 315, "#60A5FA", "#93C5FD", scorecard="CIS-L2 90/100")
+        assert "CIS-L2 90/100" in result
+
+    def test_identity_handshake_caption_kwarg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_identity_handshake(500, 315, "#60A5FA", "#93C5FD", caption="ZTNA")
+        assert "ZTNA" in result
+
 
 # ---------------------------------------------------------------------------
 # render() — full SVG emission

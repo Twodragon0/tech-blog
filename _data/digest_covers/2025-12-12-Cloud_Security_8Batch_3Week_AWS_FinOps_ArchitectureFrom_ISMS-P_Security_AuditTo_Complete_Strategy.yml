@@ -58,8 +58,8 @@ bands:
     label: COST
     sub: cut
   visual:
-    kind: shield
-    label: ISMS
+    kind: compliance_grid
+    scorecard: ISMS-P audit
   metric_b: 'Tag report : ISMS-P'
   detail_b: 'Tag evidence'
   mini:

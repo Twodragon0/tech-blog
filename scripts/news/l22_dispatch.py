@@ -116,6 +116,8 @@ _VISUAL_HEURISTICS: List[Tuple[re.Pattern[str], str]] = [
     (re.compile(r"\bai\b|\bllm\b|\bagent|\bmodel\b|\bopenai|\bhugging|\bml\b"), "code_bars"),
     (re.compile(r"\bpatch|\bfix(es)?\b|\bupdate|\bhardening"), "shield"),
     (re.compile(r"\bbitcoin|\bcrypto|\bwallet|\bdeFi|\bblockchain"), "wallet_forensic"),
+    (re.compile(r"\baudit|\bisms\b|\bcis\b|\bnist\b|\bcompliance|\bcertif"), "compliance_grid"),
+    (re.compile(r"\bpasskey|\bfido\b|\bwebauthn|\bzero[- ]?trust|\bztna\b|\bmtls\b|\bprivatelink"), "identity_handshake"),
 ]
 
 

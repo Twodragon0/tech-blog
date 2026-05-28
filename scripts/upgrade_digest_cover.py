@@ -123,6 +123,9 @@ VISUAL_REGISTRY: Dict[str, Callable[..., str]] = {
     "botnet_p2p":       l22.v_botnet_p2p,      # Turla/Kazuar, distributed mesh (no center)
     "kernel_lpe":       l22.v_kernel_lpe,      # SYSTEM-priv 0-day, DirtyDecrypt, MiniPlasma
     "ad_fraud":         l22.v_ad_fraud,        # Android ad-fraud schemes, mass-scale bid abuse
+    # Blue-band audit/identity primitives (added 2026-05-28)
+    "compliance_grid":       l22.v_compliance_grid,    # ISMS-P/CIS/NIST audit checkbox grid
+    "identity_handshake":    l22.v_identity_handshake, # FIDO2/ZTNA/mTLS handshake sequence
 }
 
 

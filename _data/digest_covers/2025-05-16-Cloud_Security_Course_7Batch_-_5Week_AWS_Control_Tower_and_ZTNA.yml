@@ -62,8 +62,8 @@ bands:
     label: NETWORK
     sub: priv
   visual:
-    kind: shield
-    label: ZTNA
+    kind: identity_handshake
+    caption: ZTNA
   metric_b: 'Never trust always verify per-request : Security Hub aggregates findings'
   detail_b: 'GuardDuty threat detect : Config rules for drift : IAM Access Analyzer ext'
   mini:

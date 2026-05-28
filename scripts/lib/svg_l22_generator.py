@@ -888,6 +888,93 @@ def v_ad_fraud(cx: int, yc: int, accent: str, soft: str, count: str = "455") -> 
   </g>'''
 
 
+def v_compliance_grid(cx: int, yc: int, accent: str, soft: str, scorecard: str = "ISMS-P 95/100") -> str:
+    """3x3 audit checkbox grid with checkmarks, pending cells, and scorecard ribbon."""
+    # 3x3 grid: cells 0-5 checked, 6-7 pending (animated), 8 active scanning
+    # Cell positions (col x row): gx + col*(cw+gap), gy + row*(ch+gap); cw=44 ch=40 gap=4
+    # Row 0: (-70,-62) (-22,-62) (26,-62)
+    # Row 1: (-70,-18) (-22,-18) (26,-18)
+    # Row 2: (-70, 26) (-22, 26) (26, 26) <- cell 8 = scanning
+    return f'''<g transform="translate({cx},{yc})">
+    <circle r="80" fill="{accent}" fill-opacity="0.05"><animate attributeName="r" values="66;86;66" dur="3.4s" repeatCount="indefinite"/></circle>
+    <rect x="-90" y="-66" width="180" height="132" rx="10" fill="none" stroke="{accent}" stroke-opacity="0.35"/>
+    <g fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1.4">
+      <rect x="-70" y="-62" width="44" height="40" rx="4"/>
+      <rect x="-22" y="-62" width="44" height="40" rx="4"/>
+      <rect x="26" y="-62" width="44" height="40" rx="4"/>
+      <rect x="-70" y="-18" width="44" height="40" rx="4"/>
+      <rect x="-22" y="-18" width="44" height="40" rx="4"/>
+      <rect x="26" y="-18" width="44" height="40" rx="4"/>
+    </g>
+    <g stroke="{soft}" stroke-width="1.8" fill="none">
+      <path d="M-64 -46L-60 -40L-48 -54"/>
+      <path d="M-16 -46L-12 -40L0 -54"/>
+      <path d="M32 -46L36 -40L48 -54"/>
+      <path d="M-64 -2L-60 4L-48 -10"/>
+      <path d="M-16 -2L-12 4L0 -10"/>
+      <path d="M32 -2L36 4L48 -10"/>
+    </g>
+    <rect x="-70" y="26" width="44" height="40" rx="4" fill="none" stroke="{accent}" stroke-width="1.4">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-22" y="26" width="44" height="40" rx="4" fill="none" stroke="{accent}" stroke-width="1.4">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="26" y="26" width="44" height="40" rx="4" fill="{accent}" fill-opacity="0.35" stroke="{accent}" stroke-width="1.4">
+      <animate attributeName="stroke-width" values="1.4;2.0;1.4" dur="1.4s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="48" cy="46" r="5" fill="{soft}"><animate attributeName="r" values="4;7;4" dur="1.4s" repeatCount="indefinite"/></circle>
+    <rect x="-90" y="46" width="180" height="14" rx="3" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-opacity="0.4"/>
+    <text x="0" y="57" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.85">{scorecard}</text>
+    <circle cx="-92" cy="-40" r="1.4" fill="{soft}" opacity="0.55"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" repeatCount="indefinite"/></circle>
+    <text y="78" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">COMPLIANCE</text>
+    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">9 controls : 6 pass : 1 audit</text>
+  </g>'''
+
+
+def v_identity_handshake(cx: int, yc: int, accent: str, soft: str, caption: str = "ZERO TRUST") -> str:
+    """User-to-service mTLS handshake with stepped sequence labels."""
+    return f'''<g transform="translate({cx},{yc})">
+    <circle r="80" fill="{accent}" fill-opacity="0.05"><animate attributeName="r" values="64;88;64" dur="3.6s" repeatCount="indefinite"/></circle>
+    <circle cx="-72" cy="0" r="20" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1.6"/>
+    <line x1="-78" y1="-5" x2="-66" y2="-5" stroke="{soft}" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="-78" y1="0" x2="-72" y2="6" stroke="{soft}" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="-72" y1="6" x2="-66" y2="0" stroke="{soft}" stroke-width="1.4" stroke-linecap="round"/>
+    <text x="-72" y="32" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.75">USER</text>
+    <rect x="56" y="-14" width="32" height="28" rx="2" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1.6"/>
+    <line x1="60" y1="-7" x2="84" y2="-7" stroke="{soft}" stroke-width="1.2" opacity="0.7"/>
+    <line x1="60" y1="-1" x2="84" y2="-1" stroke="{soft}" stroke-width="1.2" opacity="0.5"/>
+    <line x1="60" y1="5" x2="84" y2="5" stroke="{soft}" stroke-width="1.2" opacity="0.35"/>
+    <text x="72" y="32" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.75">SERVICE</text>
+    <path d="M-52 0 Q0 -28 52 0" stroke="{soft}" stroke-width="1.6" fill="none" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" values="0;-32;0" dur="2.4s" repeatCount="indefinite"/>
+    </path>
+    <rect x="-7" y="-30" width="14" height="12" rx="2" fill="{accent}" fill-opacity="0.25" stroke="{accent}" stroke-width="1"/>
+    <path d="M-5 -24 Q0 -28 5 -24" stroke="{accent}" stroke-width="1.4" fill="none"/>
+    <text x="-44" y="-34" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="700" fill="{accent}">
+      CHALLENGE<animate attributeName="opacity" values="0;1;1;0" dur="3.6s" begin="0s" repeatCount="indefinite"/>
+    </text>
+    <text x="0" y="-42" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="700" fill="{soft}">
+      ATTEST<animate attributeName="opacity" values="0;0;1;0" dur="3.6s" begin="0.6s" repeatCount="indefinite"/>
+    </text>
+    <text x="44" y="-34" text-anchor="middle" font-family="Inter, monospace" font-size="7" font-weight="700" fill="{accent}">
+      ALLOW<animate attributeName="opacity" values="0;0;0;1" dur="3.6s" begin="1.2s" repeatCount="indefinite"/>
+    </text>
+    <g fill="{soft}" opacity="0.55">
+      <circle cx="-82" cy="-40" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="82" cy="-40" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="-82" cy="40" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.7s" repeatCount="indefinite"/></circle>
+      <circle cx="82" cy="40" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" begin="1.0s" repeatCount="indefinite"/></circle>
+    </g>
+    <g stroke="{accent}" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+      <path d="M-94 -68 L-80 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2.0s" repeatCount="indefinite"/></path>
+      <path d="M80 -68 L94 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2.3s" begin="0.4s" repeatCount="indefinite"/></path>
+    </g>
+    <text y="68" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{caption}</text>
+    <text y="82" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">mTLS verify : 3 step</text>
+  </g>'''
+
+
 # --- Topic motif library (per-post signature accents) ---
 def motif_bitcoin(x: int, y: int, color: str) -> str:
     """Bitcoin Bsymbol coin badge centred at (x, y)."""

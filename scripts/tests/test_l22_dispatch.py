@@ -50,6 +50,14 @@ class TestRouteHelpers:
             # "vulnerabilities" matches the \bvuln rule (lock_cve) before
             # the \bpatch rule (shield) — keep heuristic ordering test honest.
             ("vendor releases hardening for backups", "shield"),
+            # New blue-band primitives: compliance_grid keywords
+            ("AWS ISMS-P audit ready with 95 controls", "compliance_grid"),
+            ("NIST CSF certification gap analysis", "compliance_grid"),
+            ("SOC2 compliance certification achieved", "compliance_grid"),
+            # identity_handshake keywords
+            ("Passkey FIDO2 replaces OTP in enterprise SSO", "identity_handshake"),
+            ("ZTNA gateway enables zero-trust policy enforcement", "identity_handshake"),
+            ("mTLS mutual authentication for service mesh", "identity_handshake"),
         ],
     )
     def test_route_visual_kind_keyword_matches(self, headline, expected_visual):
