@@ -140,6 +140,22 @@ if [ -n "$STAGED_SPECS" ]; then
   fi
   echo "[pre-commit] Spec slug consistency: passed."
 fi
+
+# 8. KST-midnight filename-date URL safety gate
+STAGED_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/[^/]+\.md$' || true)
+if [ -n "$STAGED_POSTS" ]; then
+  echo "[pre-commit] Checking KST-midnight posts for missing filename-date redirect_from..."
+  python3 "$REPO_ROOT/scripts/check_kst_midnight.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] KST-midnight violation found. Fix before committing."
+    echo "             Posts with KST 00:00-08:59 (+0900) need redirect_from:"
+    echo "               - /posts/{YYYY}/{MM}/{DD}/{slug}/  # filename date"
+    echo "             Or change date: to HH >= 09:00:00 +0900."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] KST-midnight check: passed."
+fi
 HOOK
 
 chmod +x "$HOOK_FILE"

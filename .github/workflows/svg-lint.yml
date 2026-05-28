@@ -23,6 +23,8 @@ on:
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
+      - 'scripts/check_kst_midnight.py'
+      - '_posts/**.md'
   pull_request:
     paths:
       - 'assets/images/**.svg'
@@ -45,6 +47,8 @@ on:
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
+      - 'scripts/check_kst_midnight.py'
+      - '_posts/**.md'
 
 concurrency:
   group: svg-lint-${{ github.ref }}
@@ -118,6 +122,10 @@ jobs:
       - name: Digest cover spec slug vs post image consistency gate
         id: spec_slug_consistency
         run: python3 scripts/check_spec_slug_consistency.py --all
+
+      - name: KST-midnight filename-date URL safety gate
+        id: kst_midnight
+        run: python3 scripts/check_kst_midnight.py --all
 
       - name: Upload lint report on failure
         if: failure() && steps.lint.outcome == 'failure'
