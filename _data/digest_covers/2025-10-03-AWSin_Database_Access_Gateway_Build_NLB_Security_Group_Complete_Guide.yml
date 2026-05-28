@@ -60,8 +60,8 @@ bands:
     label: GATEWAY
     sub: built
   visual:
-    kind: shield
-    label: AUDIT
+    kind: identity_handshake
+    caption: ZT GATEWAY
   metric_b: 'Security Group min-rule : automated drift detection : CloudTrail log coverage'
   detail_b: 'NLB health check + failover : zero-downtime SG update : IaC state lock'
   mini:

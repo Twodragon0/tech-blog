@@ -214,34 +214,39 @@
     
   </g>
   <g transform="translate(500,525)">
-    <circle r="78" fill="#60A5FA" fill-opacity="0.05"><animate attributeName="r" values="68;84;68" dur="3.4s" repeatCount="indefinite"/></circle>
-    <path d="M0 -60 L55 -40 L50 25 Q40 55 0 65 Q-40 55 -50 25 L-55 -40 Z" fill="#60A5FA" fill-opacity="0.15" stroke="#60A5FA" stroke-width="2.4" filter="url(#softShadow)"/>
-    <path d="M0 -50 L45 -33 L40 22 Q32 46 0 55 Q-32 46 -40 22 L-45 -33 Z" fill="none" stroke="#93C5FD" stroke-width="1" opacity="0.7"/>
-    <path d="M0 -40 L35 -26 L31 18 Q24 38 0 45 Q-24 38 -31 18 L-35 -26 Z" fill="none" stroke="#93C5FD" stroke-width="0.6" opacity="0.5"/>
-    <g transform="translate(0,-5)" stroke="#93C5FD" stroke-width="3" fill="none">
-      <path d="M-18 5 L-4 20 L22 -12"><animate attributeName="stroke-dasharray" values="0 80;80 0" dur="2.4s" repeatCount="indefinite"/></path>
+    <circle r="80" fill="#60A5FA" fill-opacity="0.05"><animate attributeName="r" values="66;86;66" dur="3.4s" repeatCount="indefinite"/></circle>
+    <rect x="-90" y="-66" width="180" height="132" rx="10" fill="none" stroke="#60A5FA" stroke-opacity="0.35"/>
+    <g fill="#60A5FA" fill-opacity="0.18" stroke="#60A5FA" stroke-width="1.4">
+      <rect x="-70" y="-62" width="44" height="40" rx="4"/>
+      <rect x="-22" y="-62" width="44" height="40" rx="4"/>
+      <rect x="26" y="-62" width="44" height="40" rx="4"/>
+      <rect x="-70" y="-18" width="44" height="40" rx="4"/>
+      <rect x="-22" y="-18" width="44" height="40" rx="4"/>
+      <rect x="26" y="-18" width="44" height="40" rx="4"/>
     </g>
-    <g fill="#93C5FD" opacity="0.7">
-      <circle cx="-40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
-      <circle cx="40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
-      <circle cx="-30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
-      <circle cx="30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <g stroke="#93C5FD" stroke-width="1.8" fill="none">
+      <path d="M-64 -46L-60 -40L-48 -54"/>
+      <path d="M-16 -46L-12 -40L0 -54"/>
+      <path d="M32 -46L36 -40L48 -54"/>
+      <path d="M-64 -2L-60 4L-48 -10"/>
+      <path d="M-16 -2L-12 4L0 -10"/>
+      <path d="M32 -2L36 4L48 -10"/>
     </g>
-    <g fill="#93C5FD" opacity="0.55">
-      <circle cx="-65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" repeatCount="indefinite"/></circle>
-      <circle cx="65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
-      <circle cx="-50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" begin="0.7s" repeatCount="indefinite"/></circle>
-      <circle cx="50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.3s" begin="1.0s" repeatCount="indefinite"/></circle>
-      <circle cx="-50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></circle>
-      <circle cx="50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
-    </g>
-    <g stroke="#60A5FA" stroke-width="0.4" stroke-opacity="0.35" fill="none">
-      <path d="M-78 -68 L-66 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2s" repeatCount="indefinite"/></path>
-      <path d="M66 -68 L78 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2.3s" begin="0.4s" repeatCount="indefinite"/></path>
-    </g>
-    <text x="-78" y="-72" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#93C5FD" opacity="0.7">verified</text>
-    <text y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#60A5FA">ZTNA</text>
-    <text y="98" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#93C5FD" opacity="0.7">3 rings : signed by CA</text>
+    <rect x="-70" y="26" width="44" height="40" rx="4" fill="none" stroke="#60A5FA" stroke-width="1.4">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-22" y="26" width="44" height="40" rx="4" fill="none" stroke="#60A5FA" stroke-width="1.4">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="26" y="26" width="44" height="40" rx="4" fill="#60A5FA" fill-opacity="0.35" stroke="#60A5FA" stroke-width="1.4">
+      <animate attributeName="stroke-width" values="1.4;2.0;1.4" dur="1.4s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="48" cy="46" r="5" fill="#93C5FD"><animate attributeName="r" values="4;7;4" dur="1.4s" repeatCount="indefinite"/></circle>
+    <rect x="-90" y="46" width="180" height="14" rx="3" fill="#60A5FA" fill-opacity="0.18" stroke="#60A5FA" stroke-opacity="0.4"/>
+    <text x="0" y="57" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#93C5FD" opacity="0.85">ISO 27001 + ISMS-P</text>
+    <circle cx="-92" cy="-40" r="1.4" fill="#93C5FD" opacity="0.55"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" repeatCount="indefinite"/></circle>
+    <text y="78" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#60A5FA">COMPLIANCE</text>
+    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#93C5FD" opacity="0.7">9 controls : 6 pass : 1 audit</text>
   </g>
   <g transform="translate(870,525)" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#0A1628" stroke="#60A5FA" stroke-width="1.6" stroke-opacity="0.75"/>

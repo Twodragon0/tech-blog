@@ -59,8 +59,8 @@ bands:
     label: RESTRICT
     sub: pod
   visual:
-    kind: shield
-    label: K8s
+    kind: siem_panels
+    caption: FALCO+ARGOCD
   metric_b: 'Falco detects exec in container : ArgoCD GitOps reconcile drift'
   detail_b: 'NetworkPolicy default-deny : egress whitelist : audit log to SIEM : no root'
   mini:

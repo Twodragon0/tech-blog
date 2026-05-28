@@ -68,8 +68,8 @@ bands:
     value: MFA
   theme: blue
   visual:
-    kind: shield
-    label: ISMS
+    kind: compliance_grid
+    scorecard: ISMS-P 92/100
 date: '2025-05-02'
 sfx: MY02
 slug: Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide

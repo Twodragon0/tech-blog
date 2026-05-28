@@ -59,8 +59,8 @@ bands:
     label: BLOCK
     sub: pct
   visual:
-    kind: shield
-    label: ZTNA
+    kind: compliance_grid
+    scorecard: ISO 27001 + ISMS-P
   metric_b: 'GDPR + ISO 27001 + ISMS-P compliance : 37% TCO vs on-prem : Level 4/5 maturity'
   detail_b: 'ZTNA 2.0 continuous verification : device posture check : least-priv app access'
   mini:

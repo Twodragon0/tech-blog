@@ -62,8 +62,8 @@ bands:
     label: ID
     sub: agent
   visual:
-    kind: shield
-    label: ZT
+    kind: identity_handshake
+    caption: AGENTCORE ZT
   metric_b: 'Zero Trust never-trust per-request : reInvent 2025 Security Agent'
   detail_b: 'Bedrock guardrail PII filter : 30% sec staff offload via AI assist'
   mini:
