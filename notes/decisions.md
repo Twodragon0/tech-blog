@@ -79,3 +79,20 @@
   - **path-to-regexp는 정규식 superset이 아님**: `(?i)`, `(?!`, `(?=` 등 lookaround/flag 비지원. 캐릭터 클래스로 우회.
   - **Vercel managed rule은 Attack Mode와 분리**: 대시보드에서 Attack Mode toggling 만으로는 봇 차단 해제 안 됨. `vercel api /v1/security/firewall/config/active`로 직접 검증 필요.
   - **Silent drift 위험**: Vercel 대시보드 변경은 repo audit log에 남지 않음. 주간 backup cron 필수.
+
+## 2026-05-28: 2025-12-19 8b-4wk Vuln+ISMS-P spec — SKIP_PERMANENTLY
+
+After architect-agent deep-read, the 2025-12-19 post is a CISO-perspective
+rewrite of the same territory as the 2025-05-09 7batch-4wk Inspector+ISMS-P
+spec (MY09). The 12-19 post adds MITRE ATT&CK cloud-matrix mapping + a
+FinOps cross-cut, but neither generates the numeric band payload required
+to fill `metric`/`metric_b`/`mini`/`mini2` fields without fabrication.
+Forward-looking ROI estimates are insufficient signal for visual bands.
+
+Decision: do NOT author a separate spec. Treat MY09 as the canonical
+ISMS-P cover for the 8batch series. If the MITRE ATT&CK section warrants
+its own cover later, evaluate as a standalone "ATT&CK Cloud Matrix" topic
+rather than another ISMS-P recap.
+
+Confidence: high. Architect agent ID: a8367758da5c76502 (session
+aee548e8-62e0-4c61-9a89-deeb59c191e2).
