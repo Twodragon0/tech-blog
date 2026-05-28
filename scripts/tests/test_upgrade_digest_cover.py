@@ -221,6 +221,30 @@ class TestVisualRegistry:
         result = l22.v_identity_handshake(500, 315, "#60A5FA", "#93C5FD", caption="ZTNA")
         assert "ZTNA" in result
 
+    def test_siem_panels_renders_nonempty_svg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_siem_panels(500, 315, "#60A5FA", "#93C5FD")
+        assert result.strip(), "v_siem_panels returned empty fragment"
+        assert "SIEM" in result
+        assert "MTTR" in result
+
+    def test_siem_panels_caption_kwarg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_siem_panels(500, 315, "#60A5FA", "#93C5FD", caption="GUARDDUTY")
+        assert "GUARDDUTY" in result
+
+    def test_attestation_chain_renders_nonempty_svg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_attestation_chain(500, 315, "#60A5FA", "#93C5FD")
+        assert result.strip(), "v_attestation_chain returned empty fragment"
+        assert "cosign" in result
+        assert "4 stages" in result
+
+    def test_attestation_chain_caption_kwarg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_attestation_chain(500, 315, "#60A5FA", "#93C5FD", caption="SBOM")
+        assert "SBOM" in result
+
 
 # ---------------------------------------------------------------------------
 # render() — full SVG emission

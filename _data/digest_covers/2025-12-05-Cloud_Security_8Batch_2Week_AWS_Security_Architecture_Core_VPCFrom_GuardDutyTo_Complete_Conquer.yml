@@ -58,8 +58,8 @@ bands:
     label: MTTD
     sub: cut
   visual:
-    kind: shield
-    label: GD
+    kind: siem_panels
+    caption: GUARDDUTY
   metric_b: 'ML anomaly'
   detail_b: 'GD ETD : EB'
   mini:

@@ -58,6 +58,16 @@ class TestRouteHelpers:
             ("Passkey FIDO2 replaces OTP in enterprise SSO", "identity_handshake"),
             ("ZTNA gateway enables zero-trust policy enforcement", "identity_handshake"),
             ("mTLS mutual authentication for service mesh", "identity_handshake"),
+            # siem_panels keywords
+            ("Datadog SIEM new detection rules released", "siem_panels"),
+            ("Splunk observability platform update", "siem_panels"),
+            ("Falco runtime security MTTR reduction", "siem_panels"),
+            ("OpenTelemetry cloudwatch integration guide", "siem_panels"),
+            # attestation_chain keywords
+            ("SBOM generation with CycloneDX for Java artifacts", "attestation_chain"),
+            ("cosign SLSA Level 3 build provenance attestation", "attestation_chain"),
+            ("sigstore signing lockfile pin for artifact integrity", "attestation_chain"),
+            ("dependabot codeql analysis for GitHub Actions", "attestation_chain"),
         ],
     )
     def test_route_visual_kind_keyword_matches(self, headline, expected_visual):

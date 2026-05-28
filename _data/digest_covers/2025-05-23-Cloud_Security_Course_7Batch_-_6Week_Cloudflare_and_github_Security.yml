@@ -61,8 +61,8 @@ bands:
     label: CODEQL
     sub: gate
   visual:
-    kind: shield
-    label: GHAS
+    kind: attestation_chain
+    caption: CODEQL+DEP
   metric_b: 'Secret Scanning blocks credentials at commit : alert on transitive dep CVE'
   detail_b: 'GHAS security overview dashboard : branch protection + required status checks'
   mini:

@@ -975,6 +975,101 @@ def v_identity_handshake(cx: int, yc: int, accent: str, soft: str, caption: str 
   </g>'''
 
 
+def v_siem_panels(cx: int, yc: int, accent: str, soft: str, caption: str = "SIEM") -> str:
+    """3-panel SOC console with sparkline, severity tiles, and progress bar."""
+    return f'''<g transform="translate({cx},{yc})">
+    <rect x="-92" y="-60" width="184" height="124" rx="8" fill="{accent}" fill-opacity="0.06" stroke="{accent}" stroke-opacity="0.5" stroke-width="1.4"/>
+    <g stroke="{soft}" stroke-width="1.6" fill="none" opacity="0.8">
+      <polyline points="-80,-26 -60,-32 -40,-30 -20,-38 0,-42 20,-46 40,-48 60,-50 80,-52"/>
+    </g>
+    <rect x="-86" y="-54" width="172" height="34" rx="3" fill="{accent}" fill-opacity="0.04"/>
+    <g fill="{accent}" fill-opacity="0.6" stroke="{accent}" stroke-width="1.2">
+      <rect x="-80" y="-14" width="28" height="22" rx="3"/>
+      <rect x="-48" y="-14" width="28" height="22" rx="3"/>
+      <rect x="-16" y="-14" width="28" height="22" rx="3"/>
+      <rect x="16" y="-14" width="28" height="22" rx="3"/>
+    </g>
+    <rect x="48" y="-14" width="28" height="22" rx="3" fill="#FFB703" fill-opacity="0.75" stroke="#FFB703" stroke-width="1.2">
+      <animate attributeName="fill-opacity" values="0.45;0.9;0.45" dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-86" y="18" width="172" height="14" rx="3" fill="none" stroke="{accent}" stroke-opacity="0.45" stroke-width="1.2"/>
+    <rect x="-84" y="19" width="152" height="12" rx="2" fill="{soft}" fill-opacity="0.35">
+      <animate attributeName="fill-opacity" values="0.25;0.45;0.25" dur="2.8s" repeatCount="indefinite"/>
+    </rect>
+    <text x="0" y="46" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{caption}</text>
+    <text x="0" y="60" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">5 signals : 1 open : MTTR -60%</text>
+    <circle cx="-88" cy="-56" r="1.4" fill="{soft}" opacity="0.5">
+      <animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="88" cy="-56" r="1.4" fill="{soft}" opacity="0.5">
+      <animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.3s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="62" cy="-3" r="2.4" fill="#FFB703" opacity="0.9">
+      <animate attributeName="r" values="1.8;3.2;1.8" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>'''
+
+
+def v_attestation_chain(cx: int, yc: int, accent: str, soft: str, caption: str = "SUPPLY-CHAIN") -> str:
+    """4 linked hex badges (Source-Build-Sign-Verify) with staggered animations."""
+    # Hex badge helper: 6-sided polygon centred at (hx, hy) radius r
+    def _hex(hx: int, hy: int, r: int = 18) -> str:
+        pts = " ".join(
+            f"{hx + round(r * __import__('math').cos(__import__('math').radians(60*i - 30)))},"
+            f"{hy + round(r * __import__('math').sin(__import__('math').radians(60*i - 30)))}"
+            for i in range(6)
+        )
+        return pts
+
+    hx0, hx1, hx2, hx3 = -60, -12, 36, 84
+    hy = 0
+    pts0 = _hex(hx0, hy)
+    pts1 = _hex(hx1, hy)
+    pts2 = _hex(hx2, hy)
+    pts3 = _hex(hx3, hy)
+    return f'''<g transform="translate({cx},{yc})">
+    <circle r="78" fill="{accent}" fill-opacity="0.05"/>
+    <g stroke="{accent}" stroke-width="1.4" fill="{accent}" fill-opacity="0.18">
+      <polygon points="{pts0}"/>
+      <polygon points="{pts1}"/>
+      <polygon points="{pts2}"/>
+      <polygon points="{pts3}"/>
+    </g>
+    <g stroke="{soft}" stroke-width="1.8" fill="none">
+      <path d="M{hx0-8},{hy+6} L{hx0-2},{hy+12} L{hx0+10},{hy-6}">
+        <animate attributeName="stroke-dasharray" values="0 40;40 0;40 0" dur="2.0s" begin="0s" repeatCount="indefinite"/>
+      </path>
+      <path d="M{hx1-8},{hy+6} L{hx1-2},{hy+12} L{hx1+10},{hy-6}">
+        <animate attributeName="stroke-dasharray" values="0 40;0 40;40 0;40 0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/>
+      </path>
+      <path d="M{hx2-8},{hy+6} L{hx2-2},{hy+12} L{hx2+10},{hy-6}">
+        <animate attributeName="stroke-dasharray" values="0 40;0 40;0 40;40 0" dur="2.0s" begin="0.8s" repeatCount="indefinite"/>
+      </path>
+      <path d="M{hx3-8},{hy+6} L{hx3-2},{hy+12} L{hx3+10},{hy-6}">
+        <animate attributeName="stroke-dasharray" values="0 40;0 40;0 40;0 40" dur="2.0s" begin="1.2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g stroke="{accent}" stroke-width="1.2" stroke-opacity="0.55" fill="{accent}" fill-opacity="0.55">
+      <line x1="{hx0+20}" y1="{hy}" x2="{hx1-22}" y2="{hy}"/>
+      <polygon points="{hx1-22},{hy-3} {hx1-22},{hy+3} {hx1-14},{hy}"/>
+      <line x1="{hx1+20}" y1="{hy}" x2="{hx2-22}" y2="{hy}"/>
+      <polygon points="{hx2-22},{hy-3} {hx2-22},{hy+3} {hx2-14},{hy}"/>
+      <line x1="{hx2+20}" y1="{hy}" x2="{hx3-22}" y2="{hy}"/>
+      <polygon points="{hx3-22},{hy-3} {hx3-22},{hy+3} {hx3-14},{hy}"/>
+    </g>
+    <g text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.8">
+      <text x="{hx0}" y="34">SOURCE</text>
+      <text x="{hx1}" y="34">BUILD</text>
+      <text x="{hx2}" y="34">SIGN</text>
+      <text x="{hx3}" y="34">VERIFY</text>
+    </g>
+    <rect x="-60" y="44" width="168" height="18" rx="9" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-opacity="0.45" stroke-width="1.2"/>
+    <text x="24" y="57" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.85">signed : cosign + SLSA L3</text>
+    <text x="12" y="80" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{caption}</text>
+    <text x="12" y="94" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">4 stages : 4 attested</text>
+  </g>'''
+
+
 # --- Topic motif library (per-post signature accents) ---
 def motif_bitcoin(x: int, y: int, color: str) -> str:
     """Bitcoin Bsymbol coin badge centred at (x, y)."""

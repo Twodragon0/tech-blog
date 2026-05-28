@@ -124,8 +124,10 @@ VISUAL_REGISTRY: Dict[str, Callable[..., str]] = {
     "kernel_lpe":       l22.v_kernel_lpe,      # SYSTEM-priv 0-day, DirtyDecrypt, MiniPlasma
     "ad_fraud":         l22.v_ad_fraud,        # Android ad-fraud schemes, mass-scale bid abuse
     # Blue-band audit/identity primitives (added 2026-05-28)
+    "attestation_chain":     l22.v_attestation_chain,  # SBOM/cosign/SLSA supply-chain 4-hex badge
     "compliance_grid":       l22.v_compliance_grid,    # ISMS-P/CIS/NIST audit checkbox grid
     "identity_handshake":    l22.v_identity_handshake, # FIDO2/ZTNA/mTLS handshake sequence
+    "siem_panels":           l22.v_siem_panels,        # SOC console sparkline + severity tiles
 }
 
 

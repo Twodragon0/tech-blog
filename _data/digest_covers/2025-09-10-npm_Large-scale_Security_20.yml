@@ -60,8 +60,8 @@ bands:
     label: SCAN
     sub: deps
   visual:
-    kind: shield
-    label: SBOM
+    kind: attestation_chain
+    caption: SBOM
   metric_b: 'pnpm/yarn frozen lockfile : --ignore-scripts in CI : npm token rotate'
   detail_b: 'Scan deps with osv-scanner + snyk : disable postinstall : audit transitive'
   mini:

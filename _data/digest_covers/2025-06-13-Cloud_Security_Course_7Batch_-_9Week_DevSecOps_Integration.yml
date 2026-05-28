@@ -61,8 +61,8 @@ bands:
     label: CYCLE
     sub: fast
   visual:
-    kind: shield
-    label: AUTO
+    kind: siem_panels
+    caption: MTTR
   metric_b: 'Realtime IDE feedback : auto-patch zero-day : SIEM AI anomaly detect'
   detail_b: 'Pre-commit SAST IDE plugin : Dependabot auto-PR : Falco runtime alert'
   mini:

@@ -220,34 +220,45 @@
     
   </g>
   <g transform="translate(500,525)">
-    <circle r="78" fill="#60A5FA" fill-opacity="0.05"><animate attributeName="r" values="68;84;68" dur="3.4s" repeatCount="indefinite"/></circle>
-    <path d="M0 -60 L55 -40 L50 25 Q40 55 0 65 Q-40 55 -50 25 L-55 -40 Z" fill="#60A5FA" fill-opacity="0.15" stroke="#60A5FA" stroke-width="2.4" filter="url(#softShadow)"/>
-    <path d="M0 -50 L45 -33 L40 22 Q32 46 0 55 Q-32 46 -40 22 L-45 -33 Z" fill="none" stroke="#93C5FD" stroke-width="1" opacity="0.7"/>
-    <path d="M0 -40 L35 -26 L31 18 Q24 38 0 45 Q-24 38 -31 18 L-35 -26 Z" fill="none" stroke="#93C5FD" stroke-width="0.6" opacity="0.5"/>
-    <g transform="translate(0,-5)" stroke="#93C5FD" stroke-width="3" fill="none">
-      <path d="M-18 5 L-4 20 L22 -12"><animate attributeName="stroke-dasharray" values="0 80;80 0" dur="2.4s" repeatCount="indefinite"/></path>
+    <circle r="78" fill="#60A5FA" fill-opacity="0.05"/>
+    <g stroke="#60A5FA" stroke-width="1.4" fill="#60A5FA" fill-opacity="0.18">
+      <polygon points="-44,-9 -44,9 -60,18 -76,9 -76,-9 -60,-18"/>
+      <polygon points="4,-9 4,9 -12,18 -28,9 -28,-9 -12,-18"/>
+      <polygon points="52,-9 52,9 36,18 20,9 20,-9 36,-18"/>
+      <polygon points="100,-9 100,9 84,18 68,9 68,-9 84,-18"/>
     </g>
-    <g fill="#93C5FD" opacity="0.7">
-      <circle cx="-40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
-      <circle cx="40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
-      <circle cx="-30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
-      <circle cx="30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <g stroke="#93C5FD" stroke-width="1.8" fill="none">
+      <path d="M-68,6 L-62,12 L-50,-6">
+        <animate attributeName="stroke-dasharray" values="0 40;40 0;40 0" dur="2.0s" begin="0s" repeatCount="indefinite"/>
+      </path>
+      <path d="M-20,6 L-14,12 L-2,-6">
+        <animate attributeName="stroke-dasharray" values="0 40;0 40;40 0;40 0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/>
+      </path>
+      <path d="M28,6 L34,12 L46,-6">
+        <animate attributeName="stroke-dasharray" values="0 40;0 40;0 40;40 0" dur="2.0s" begin="0.8s" repeatCount="indefinite"/>
+      </path>
+      <path d="M76,6 L82,12 L94,-6">
+        <animate attributeName="stroke-dasharray" values="0 40;0 40;0 40;0 40" dur="2.0s" begin="1.2s" repeatCount="indefinite"/>
+      </path>
     </g>
-    <g fill="#93C5FD" opacity="0.55">
-      <circle cx="-65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" repeatCount="indefinite"/></circle>
-      <circle cx="65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
-      <circle cx="-50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" begin="0.7s" repeatCount="indefinite"/></circle>
-      <circle cx="50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.3s" begin="1.0s" repeatCount="indefinite"/></circle>
-      <circle cx="-50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></circle>
-      <circle cx="50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <g stroke="#60A5FA" stroke-width="1.2" stroke-opacity="0.55" fill="#60A5FA" fill-opacity="0.55">
+      <line x1="-40" y1="0" x2="-34" y2="0"/>
+      <polygon points="-34,-3 -34,3 -26,0"/>
+      <line x1="8" y1="0" x2="14" y2="0"/>
+      <polygon points="14,-3 14,3 22,0"/>
+      <line x1="56" y1="0" x2="62" y2="0"/>
+      <polygon points="62,-3 62,3 70,0"/>
     </g>
-    <g stroke="#60A5FA" stroke-width="0.4" stroke-opacity="0.35" fill="none">
-      <path d="M-78 -68 L-66 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2s" repeatCount="indefinite"/></path>
-      <path d="M66 -68 L78 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2.3s" begin="0.4s" repeatCount="indefinite"/></path>
+    <g text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#93C5FD" opacity="0.8">
+      <text x="-60" y="34">SOURCE</text>
+      <text x="-12" y="34">BUILD</text>
+      <text x="36" y="34">SIGN</text>
+      <text x="84" y="34">VERIFY</text>
     </g>
-    <text x="-78" y="-72" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#93C5FD" opacity="0.7">verified</text>
-    <text y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#60A5FA">GHAS</text>
-    <text y="98" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#93C5FD" opacity="0.7">3 rings : signed by CA</text>
+    <rect x="-60" y="44" width="168" height="18" rx="9" fill="#60A5FA" fill-opacity="0.18" stroke="#60A5FA" stroke-opacity="0.45" stroke-width="1.2"/>
+    <text x="24" y="57" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#93C5FD" opacity="0.85">signed : cosign + SLSA L3</text>
+    <text x="12" y="80" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#60A5FA">CODEQL+DEP</text>
+    <text x="12" y="94" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#93C5FD" opacity="0.7">4 stages : 4 attested</text>
   </g>
   <g transform="translate(870,525)" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#0A1628" stroke="#60A5FA" stroke-width="1.6" stroke-opacity="0.75"/>

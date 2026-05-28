@@ -60,8 +60,8 @@ bands:
     label: PUBLISH
     sub: req
   visual:
-    kind: shield
-    label: 2FA
+    kind: attestation_chain
+    caption: 2FA+SBOM
   metric_b: 'Sigstore signing : SLSA Level 3 build : provenance attestation'
   detail_b: 'npm publish --provenance : sigstore cosign : SLSA generator GitHub Action'
   mini:
