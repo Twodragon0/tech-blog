@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-27T00:48:50.247919+00:00",
+  "updated_at": "2026-05-28T00:31:47.070939+00:00",
   "entries": [
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/12/accelerating-detection-engineering-using-ai-assisted-synthetic-attack-logs-generation/",
-      "title": "Accelerating detection engineering using AI-assisted synthetic attack logs gener",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/new-exim-bdat-vulnerability-exposes.html",
-      "title": "New Exim BDAT Vulnerability Exposes GnuTLS Builds to Potential Code Execution",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/12/defense-at-ai-speed-microsofts-new-multi-model-agentic-security-system-tops-leading-industry-benchmark/",
-      "title": "Defense at AI speed: Microsoft’s new multi-model agentic security system tops le",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/aws-security-agent-full-repository-code-scanning-feature-now-available-in-preview/",
-      "title": "AWS Security Agent full repository code scanning feature now available in previe",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/rubygems-suspends-new-signups-after.html",
-      "title": "RubyGems Suspends New Signups After Hundreds of Malicious Packages Are Uploaded",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/05/12/data-infrastructure/migrating-data-ingestion-systems-at-meta-scale/",
-      "title": "Migrating Data Ingestion Systems at Meta Scale",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://openai.com/academy/how-finance-teams-use-codex",
-      "title": "How finance teams use Codex",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/sap-specialized-agents/",
-      "title": "NVIDIA and SAP Bring Trust to Specialized Agents",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-amazon-finance-streamlines-regulatory-inquiries-by-using-generative-ai-on-aws/",
-      "title": "How Amazon Finance streamlines regulatory inquiries by using generative AI on AW",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/automate-schema-generation-for-intelligent-document-processing/",
-      "title": "Automate schema generation for intelligent document processing",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/sap-google-cloud/sap-sapphire-2026-the-future-of-google-cloud-ai-agents/",
-      "title": "SAP SAPPHIRE 2026: Google Cloud unveils unified agentic vision and massive compu",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/infrastructure/how-imgix-processes-8-billion-images-daily-with-g4-vms-powered-by-nvidia-blackwell/",
-      "title": "How Imgix processes 8 billion images daily with G4 VMs powered by NVIDIA Blackwe",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/amazon-redshift-introduces-aws-graviton-based-rg-instances-with-an-integrated-data-lake-query-engine/",
-      "title": "Amazon Redshift introduces AWS Graviton-based RG instances with an integrated da",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/nccl/",
-      "title": "분산 트레이닝 관점에서의 AWS 인터커넥트 기술 소개 – AWS 환경에서 NCCL을 이용한 GPU 간 통신",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-12-copilot-code-review-comment-experience-improvements",
-      "title": "Copilot code review: Comment experience improvements",
-      "published_date": "2026-05-13",
-      "expires_at": "2026-05-20T02:17:11.220041+00:00"
-    },
     {
       "url": "https://aws.amazon.com/blogs/security/detecting-and-preventing-crypto-mining-in-your-aws-environment/",
       "title": "Detecting and preventing crypto mining in your AWS environment",
@@ -1326,6 +1236,96 @@
       "title": "Part 1: Kiro로 RDS/Aurora 장애 분석 자동화하기 — IDE에서 분석하기",
       "published_date": "2026-05-27",
       "expires_at": "2026-06-03T00:48:50.247801+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/grandoreiro-malware-and-btmob-rat.html",
+      "title": "Grandoreiro Malware and BTMOB RAT Campaigns Target Windows and Android Users",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/malicious-npm-package-stole-files-from.html",
+      "title": "Malicious npm Package Stole Files From Claude AI User Directory via GitHub",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/5-steps-to-managing-shadow-ai-tools.html",
+      "title": "5 Steps to Managing Shadow AI Tools Without Slowing Down Employees",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/gpu-mining-malware-spreads-via-seo-poisoning-ai-chatbots/",
+      "title": "GPU mining malware spreads via SEO poisoning, AI chatbots",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/glassworm-malware-takedown-disrupts.html",
+      "title": "GlassWorm Malware Takedown Disrupts Developer Supply Chain Attack Infrastructure",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-factories-the-new-infrastructure-of-intelligence/",
+      "title": "AI Factories: The New Infrastructure of Intelligence",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://openai.com/index/cisco",
+      "title": "Cisco and OpenAI redefine enterprise engineering with Codex",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://openai.com/index/building-self-improving-tax-agents-with-codex",
+      "title": "Building self-improving tax agents with Codex",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/process-financial-documents-using-amazon-bedrock-data-automation/",
+      "title": "Process financial documents using Amazon Bedrock Data Automation",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-ai-agents-for-business-support-using-amazon-bedrock-agentcore/",
+      "title": "Building AI agents for business support using Amazon Bedrock AgentCore",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/a-guide-to-ai-cold-starts-on-cloud-run/",
+      "title": "A Guide to AI Cold Starts on Cloud Run",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/introducing-google-ai-threat-defense/",
+      "title": "Introducing Google AI Threat Defense to help you outpace the adversary",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/meet-our-newest-aws-heroes-may-2026/",
+      "title": "Meet Our Newest AWS Heroes – May 2026",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/building-agentic-ai-for-amazon-rds-for-sql-server-with-strands-and-agentcore/",
+      "title": "Strands와 AgentCore를 활용해 Amazon RDS for SQL Server용 에이전틱 AI 구축하기",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/05/27/gpu-autoscaling-on-kubernetes-with-keda-building-an-external-scaler/",
+      "title": "GPU autoscaling on Kubernetes with KEDA: Building an external scaler",
+      "published_date": "2026-05-28",
+      "expires_at": "2026-06-04T00:31:47.070838+00:00"
     }
   ]
 }
