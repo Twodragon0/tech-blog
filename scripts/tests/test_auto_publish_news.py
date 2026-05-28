@@ -403,3 +403,103 @@ class TestDigestQualitySelfCheck:
             post_path.unlink(missing_ok=True)
 
         assert post_path.exists(), "Post file should be kept when quality gate passes"
+
+
+# ---------------------------------------------------------------------------
+# _generate_and_commit_raster_variants — raster emission tests
+# ---------------------------------------------------------------------------
+
+
+class TestGenerateAndCommitRasterVariants:
+    """Regression guard: auto-publish must emit all 5 raster variants.
+
+    These tests verify that _generate_and_commit_raster_variants emits
+    _og.avif, _og.webp, _card.avif, _card.webp from an existing _og.png,
+    and that it skips variants that already exist (idempotent).
+    """
+
+    def _write_fake_png(self, path: _Path) -> None:
+        """Write a minimal 1x1 white PNG so Pillow can open it."""
+        try:
+            from PIL import Image
+            img = Image.new("RGB", (1200, 630), color=(255, 255, 255))
+            img.save(path, "PNG")
+        except ImportError:
+            # Pillow not installed; tests will be skipped below
+            path.write_bytes(b"\x89PNG\r\n\x1a\n" + b"\x00" * 100)
+
+    def test_all_five_rasters_emitted_from_og_png(self, tmp_path):
+        """Given an _og.png, all 4 modern variants are created (Pillow path)."""
+        pytest.importorskip("PIL", reason="Pillow required for raster generation")
+
+        images_dir = tmp_path / "assets" / "images"
+        images_dir.mkdir(parents=True)
+        posts_dir = tmp_path / "_posts"
+        posts_dir.mkdir()
+
+        stem = "2026-05-28-Tech_Security_Weekly_Digest_AI_Test"
+        svg_path = images_dir / f"{stem}.svg"
+        svg_path.write_text("<svg xmlns='http://www.w3.org/2000/svg'><rect width='1' height='1'/></svg>")
+        png_path = images_dir / f"{stem}_og.png"
+        self._write_fake_png(png_path)
+
+        post_path = posts_dir / f"{stem}.md"
+        post_path.write_text("---\ntitle: Test\n---\n")
+
+        # _ConfigProxy.__getattr__ falls through to the real module for
+        # non-proxied attrs, so direct access works here.
+        import auto_publish_news as _apn
+        fn = _apn._generate_and_commit_raster_variants
+
+        # Run with no_commit=True so we don't need a real git repo.
+        fn(svg_path=svg_path, post_path=post_path, post_stem=stem, no_commit=True)
+
+        expected = [
+            f"{stem}_og.avif",
+            f"{stem}_og.webp",
+            f"{stem}_card.avif",
+            f"{stem}_card.webp",
+        ]
+        for fname in expected:
+            dest = images_dir / fname
+            assert dest.exists(), (
+                f"Expected raster variant {fname} to be created by "
+                f"_generate_and_commit_raster_variants but it was missing. "
+                f"This reproduces the 2026-05-27/28 blogwatcher cron bug where "
+                f"Pillow was not installed so raster variants were never emitted."
+            )
+
+    def test_idempotent_skips_existing_variants(self, tmp_path):
+        """Existing raster variants are not regenerated (idempotent)."""
+        pytest.importorskip("PIL", reason="Pillow required for raster generation")
+
+        images_dir = tmp_path / "assets" / "images"
+        images_dir.mkdir(parents=True)
+        posts_dir = tmp_path / "_posts"
+        posts_dir.mkdir()
+
+        stem = "2026-05-28-Tech_Security_Weekly_Digest_Idempotent"
+        svg_path = images_dir / f"{stem}.svg"
+        svg_path.write_text("<svg/>")
+        png_path = images_dir / f"{stem}_og.png"
+        self._write_fake_png(png_path)
+
+        post_path = posts_dir / f"{stem}.md"
+        post_path.write_text("---\ntitle: Test\n---\n")
+
+        # Pre-create all variants with sentinel bytes
+        sentinel = b"EXISTING"
+        for suffix in ("_og.avif", "_og.webp", "_card.avif", "_card.webp"):
+            (images_dir / f"{stem}{suffix}").write_bytes(sentinel)
+
+        import auto_publish_news as _apn
+        fn = _apn._generate_and_commit_raster_variants
+
+        fn(svg_path=svg_path, post_path=post_path, post_stem=stem, no_commit=True)
+
+        # Sentinel bytes must be unchanged — files not overwritten
+        for suffix in ("_og.avif", "_og.webp", "_card.avif", "_card.webp"):
+            content = (images_dir / f"{stem}{suffix}").read_bytes()
+            assert content == sentinel, (
+                f"{stem}{suffix} was overwritten when it should have been skipped"
+            )

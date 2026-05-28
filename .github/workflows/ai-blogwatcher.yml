@@ -108,11 +108,15 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: "pip"
 
+      - name: Install system image tools
+        run: sudo apt-get install -y --no-install-recommends librsvg2-bin
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install feedparser requests beautifulsoup4 python-frontmatter PyYAML
           pip install pytest pytest-cov
+          pip install "Pillow>=10.0"
 
       - name: Create directories
         run: mkdir -p _data data _posts assets/images
@@ -311,6 +315,9 @@ jobs:
           TODAY=$(date +%Y-%m-%d)
           git add "_posts/${TODAY}"*.md 2>/dev/null || true
           git add "assets/images/${TODAY}"*.svg 2>/dev/null || true
+          git add "assets/images/${TODAY}"*.png 2>/dev/null || true
+          git add "assets/images/${TODAY}"*.avif 2>/dev/null || true
+          git add "assets/images/${TODAY}"*.webp 2>/dev/null || true
           git add "_data/collected_news.json" 2>/dev/null || true
           git add "_data/published_news_urls.json" 2>/dev/null || true
           git add "data/collected_news.json" 2>/dev/null || true
