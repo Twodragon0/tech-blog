@@ -1,0 +1,73 @@
+date: '2025-12-05'
+slug: Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer
+sfx: VG02
+title: '2025-12-05: VPC isolation, IAM least-priv, GuardDuty ETD'
+aria: Flat VPC IAM star S3 public fixed by subnet isolation
+  least-priv IAM GuardDuty ETD cuts MTTD 45d to 8h
+  via auto response playbook.
+bands:
+- theme: red
+  label: FLAT VPC
+  headline: IAM * + S3 Public
+  metric: 'Flat VPC : IAM *'
+  detail: 'Flat VPC : IAM * : S3'
+  badge:
+    value: '*'
+    label: IAM
+    sub: star
+  visual:
+    kind: cloud_k8s
+  metric_b: '0.0.0.0/0'
+  detail_b: 'Dev+prod VPC'
+  mini:
+    value: 45d
+    label: MTTD
+    sub: avg
+  mini2:
+    value: PUB
+    label: S3
+    sub: acl
+- theme: amber
+  label: SUBNET ISO
+  headline: Least-Priv + S3
+  metric: 'Tiered subnet : IAM LP'
+  detail: 'Tiered subnet : IAM LP'
+  badge:
+    value: LP
+    label: IAM
+    sub: least
+  visual:
+    kind: lock_cve
+    cvss: PRIV
+  metric_b: 'Subnet : priv tier'
+  detail_b: 'Anlzr+BPA+VPE'
+  mini:
+    value: VPE
+    label: PRIV
+    sub: ep
+  mini2:
+    value: BPA
+    label: S3
+    sub: blk
+- theme: blue
+  label: GUARDDUTY
+  headline: 8h MTTD + Playbook
+  metric: 'GD ETD : 8h MTTD'
+  detail: 'GD ETD : 8h'
+  badge:
+    value: '8h'
+    label: MTTD
+    sub: cut
+  visual:
+    kind: shield
+    label: GD
+  metric_b: 'ML anomaly'
+  detail_b: 'GD ETD : EB'
+  mini:
+    value: GD
+    label: ETD
+    sub: ml
+  mini2:
+    value: ISO
+    label: AUTO
+    sub: ec2

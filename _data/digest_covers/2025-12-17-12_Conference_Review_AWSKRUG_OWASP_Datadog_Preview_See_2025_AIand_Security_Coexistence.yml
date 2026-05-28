@@ -1,0 +1,76 @@
+date: '2025-12-17'
+slug: 12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence
+sfx: CR12
+title: '2025-12-17: AWSKRUG+OWASP+Datadog, AI attack 93%, Zero Trust'
+aria: December 2025 twelve conference review spanning AWSKRUG OWASP and Datadog
+  events with AI-driven attacks rising to 93 percent of incidents causing
+  anxiety, addressed by Zero Trust adoption and post-quantum readiness roadmap
+  presented across three venues distilling 2025 AI and security coexistence
+  patterns into actionable defensive frameworks.
+bands:
+- theme: red
+  label: AI ATTACK RISE
+  headline: 93% AI-Driven Incidents
+  metric: 'AI attacks 93% : anxiety peak'
+  detail: 'AI-driven attacks 93% of incidents : social engineering AI : deepfake'
+  badge:
+    value: '93%'
+    label: AI
+    sub: attacks
+  visual:
+    kind: code_bars
+    caption: AI THREAT
+  metric_b: 'LLM prompt inject : deepfake CEO fraud : AI phishing kits mass scale'
+  detail_b: '2025 threat report : AI attack toolkits democratized : SOC overwhelmed'
+  mini:
+    value: LLM
+    label: INJECT
+    sub: risk
+  mini2:
+    value: SOC
+    label: OVER
+    sub: load
+- theme: amber
+  label: 3 VENUES
+  headline: AWSKRUG+OWASP+Datadog
+  metric: 'AWSKRUG : OWASP : Datadog 3'
+  detail: 'AWSKRUG cloud sec : OWASP top-10 2025 : Datadog preview threat intel'
+  badge:
+    value: '3'
+    label: CONF
+    sub: venues
+  visual:
+    kind: lock_cve
+    cvss: CONF
+  metric_b: 'AWSKRUG re:Invent recap : OWASP LLM top-10 : Datadog 2026 preview'
+  detail_b: 'AWS re:Invent cloud highlights : OWASP AI/LLM risks : Datadog AI sec'
+  mini:
+    value: KRG
+    label: AWS
+    sub: krug
+  mini2:
+    value: OWA
+    label: SP
+    sub: llm
+- theme: blue
+  label: ZERO TRUST + PQC
+  headline: ZT Roadmap + Post-Quantum
+  metric: 'ZT adopt : PQC ML-KEM ready'
+  detail: 'Zero Trust roadmap 2026 : post-quantum ML-KEM : NIST FIPS 203 timeline'
+  badge:
+    value: ZT
+    label: ROAD
+    sub: map
+  visual:
+    kind: shield
+    label: PQC
+  metric_b: 'Never-trust verify-always : NIST PQC FIPS 203 205 : hybrid TLS'
+  detail_b: 'ZT identity perimeter : ML-KEM X25519 hybrid : 2026 migration plan'
+  mini:
+    value: PQC
+    label: FIPS
+    sub: 203
+  mini2:
+    value: TLS
+    label: HYB
+    sub: rid

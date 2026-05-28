@@ -1,0 +1,72 @@
+date: '2025-12-12'
+slug: Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy
+sfx: FN03
+title: '2025-12-12: FinOps meets ISMS-P audit, tag sprawl to loop'
+aria: AWS FinOps ISMS-P loop, tag sprawl resolved by Cost Hub, Compute
+  Optimizer, SCP policy, spend cut 40 percent, audit prep 3w to 3d.
+bands:
+- theme: red
+  label: TAG SPRAWL
+  headline: Audit Anxiety + Drift
+  metric: 'Untagged 60% : 3w audit'
+  detail: 'Untagged 60% : 3w : blind'
+  badge:
+    value: '60%'
+    label: UNTAG
+    sub: rsrc
+  visual:
+    kind: cloud_k8s
+  metric_b: 'No cost map : ISMS'
+  detail_b: 'No tag : blind'
+  mini:
+    value: 3w
+    label: AUDIT
+    sub: prep
+  mini2:
+    value: '60%'
+    label: NOTAG
+    sub: rsrc
+- theme: amber
+  label: COST HUB OPT
+  headline: Hub + Optimizer + SCP
+  metric: 'Cost Hub : Opt'
+  detail: 'Cost Hub : Opt : SCP'
+  badge:
+    value: HUB
+    label: COST
+    sub: opt
+  visual:
+    kind: lock_cve
+    cvss: HUB
+  metric_b: 'Rightsizing : savings'
+  detail_b: 'Cost Hub : RI'
+  mini:
+    value: SCP
+    label: TAG
+    sub: scp
+  mini2:
+    value: RI
+    label: SAVE
+    sub: plan
+- theme: blue
+  label: ISMS LOOP
+  headline: Audit-Ready FinOps
+  metric: 'ISMS 3d : -40% cost'
+  detail: 'ISMS-P ready : -40% cost'
+  badge:
+    value: '40%'
+    label: COST
+    sub: cut
+  visual:
+    kind: shield
+    label: ISMS
+  metric_b: 'Tag report : ISMS-P'
+  detail_b: 'Tag evidence'
+  mini:
+    value: 3d
+    label: AUDIT
+    sub: rdy
+  mini2:
+    value: L3
+    label: FIN
+    sub: ops

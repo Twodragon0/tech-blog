@@ -1,0 +1,73 @@
+date: '2025-12-24'
+slug: Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_and_Datadog_SIEM_Cloudflare_Security
+sfx: CT05
+url: 'https://tech.2twodragon.com/posts/2025/12/Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security/'
+title: '2025-12-24: Control Tower+SCP, Datadog SIEM, Cloudflare WAF'
+aria: AWS Control Tower SCP governance, shadow OUs resolved by Datadog SIEM
+  and Cloudflare WAF, MTTD 8 min, DDoS mitigated in 30 seconds.
+bands:
+- theme: red
+  label: SHADOW OUs
+  headline: Log Scatter + Gap
+  metric: 'Shadow OUs : 12 silos'
+  detail: 'Shadow OUs : 12 silos : no SIEM'
+  badge:
+    value: '12'
+    label: SILOS
+    sub: logs
+  visual:
+    kind: cloud_k8s
+  metric_b: 'Root unmonitored : CT'
+  detail_b: 'OUs bypass SCP : blind'
+  mini:
+    value: ROOT
+    label: UNMON
+    sub: access
+  mini2:
+    value: SCP
+    label: BYPASS
+    sub: risk
+- theme: amber
+  label: CT + DATADOG
+  headline: SCP Governance + SIEM
+  metric: 'CT enroll : SCP deny : SIEM'
+  detail: 'CT : SCP deny : Datadog SIEM'
+  badge:
+    value: SIEM
+    label: DDOGS
+    sub: ingest
+  visual:
+    kind: lock_cve
+    cvss: SCP
+  metric_b: 'Account Factory : SCP'
+  detail_b: 'CT Terraform : deny'
+  mini:
+    value: SCP
+    label: DENY
+    sub: root
+  mini2:
+    value: CTF
+    label: ACCT
+    sub: factory
+- theme: blue
+  label: CF WAF DDOS
+  headline: Edge Shield 30s
+  metric: 'CF WAF : DDoS 30s'
+  detail: 'CF WAF OWASP : DDoS 30s : 8m'
+  badge:
+    value: '30s'
+    label: DDOS
+    sub: mit
+  visual:
+    kind: shield
+    label: CF
+  metric_b: 'OWASP rules : bot : rate'
+  detail_b: 'CF L7 DDoS : MTTD 8m'
+  mini:
+    value: 8m
+    label: MTTD
+    sub: detect
+  mini2:
+    value: WAF
+    label: OWASP
+    sub: rules

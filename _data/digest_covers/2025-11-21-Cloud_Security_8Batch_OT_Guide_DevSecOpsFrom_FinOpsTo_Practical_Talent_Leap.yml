@@ -1,0 +1,76 @@
+date: '2025-11-21'
+slug: Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap
+sfx: OT00
+title: '2025-11-21: 8-batch OT roadmap, 9-week DevSecOps+FinOps path'
+aria: Cloud Security 8-batch OT roadmap bridging skill gap and AI attack pressure
+  with a structured 9-week curriculum covering DevSecOps and FinOps, leading
+  to certification path outcomes and measurable talent leap with graduates
+  reducing cloud incident MTTD by 60 percent and achieving AWS Security
+  Specialty and CKS certification within the program timeline.
+bands:
+- theme: red
+  label: SKILL GAP
+  headline: AI Pressure + No Roadmap
+  metric: 'Skill gap : AI attack : no path'
+  detail: 'Skill gap wide : AI attack toolkits rising : no structured study path'
+  badge:
+    value: GAP
+    label: SKILL
+    sub: wide
+  visual:
+    kind: code_bars
+    caption: SKILL MISS
+  metric_b: 'Entry engineers no cloud sec : AI tools blur boundaries : burnout'
+  detail_b: 'Cloud sec knowledge scattered : no mentorship : cert confusion'
+  mini:
+    value: AI
+    label: PRESS
+    sub: ure
+  mini2:
+    value: '0'
+    label: PATH
+    sub: none
+- theme: amber
+  label: 9-WEEK CURRICULUM
+  headline: DevSecOps + FinOps Tracks
+  metric: '9 week : devsecops : finops'
+  detail: '9-week structured curriculum : DevSecOps track : FinOps cost track'
+  badge:
+    value: '9w'
+    label: CURR
+    sub: icu
+  visual:
+    kind: network_nodes
+    label: CURR
+  metric_b: 'Week 1-3 infra sec : week 4-6 DevSecOps CICD : week 7-9 FinOps'
+  detail_b: 'Hands-on lab every week : peer review : capstone project deploy'
+  mini:
+    value: LAB
+    label: WEEK
+    sub: ly
+  mini2:
+    value: CAP
+    label: STONE
+    sub: proj
+- theme: blue
+  label: CERT + LEAP
+  headline: AWS Sec + CKS Outcomes
+  metric: 'AWS Sec cert : CKS : MTTD -60%'
+  detail: 'AWS Security Specialty : CKS cert : MTTD cut 60% post graduation'
+  badge:
+    value: CKS
+    label: CERT
+    sub: k8s
+  visual:
+    kind: shield
+    label: CERT
+  metric_b: 'AWS Security Specialty pass rate 85% : CKS 78% : job ready'
+  detail_b: 'Graduates cut MTTD 60% : salary +30% : cloud sec engineer path'
+  mini:
+    value: '85%'
+    label: AWS
+    sub: pass
+  mini2:
+    value: '+30%'
+    label: SAL
+    sub: ary
