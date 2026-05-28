@@ -513,11 +513,29 @@ component is in the early-morning KST window.
    redirect_from:
      - /posts/{YYYY}/{MM}/{DD}/{slug}/   # filename-date variant
    ```
-3. Audit script (planned): `scripts/check_kst_midnight.py` will flag any
-   post with KST 00:00-08:59 + `0900` that lacks the redirect entry.
+3. Audit script (implemented 2026-05-28, commit `9b9f68f5`):
+   `scripts/check_kst_midnight.py` flags any post with KST 00:00-08:59
+   + `0900` that lacks the filename-date URL in `redirect_from`. Wired
+   into pre-commit (step 8) and CI (`.github/workflows/svg-lint.yml`).
+   Run manually: `python3 scripts/check_kst_midnight.py --all`.
 
 Background: `.omc/research/kst_midnight_audit_2026_05_21.md` documents
-the 9 historical posts affected before the rule was introduced.
+the 9 historical posts affected before the rule was introduced. The 7
+posts that still violated the rule were fixed in commit `b4ff35c4`
+(2026-05-28).
+
+### Active automation gates (8 enforcing)
+
+| # | Script | Scope | Wired to |
+|---|--------|-------|----------|
+| 1 | `check_svg_title_ascii.py` | SVG `<title>`/`<desc>` ASCII-only | pre-commit + svg-lint CI |
+| 2 | `check_spec_slug_consistency.py` | spec slug ↔ post `image:` field | pre-commit + svg-lint CI |
+| 3 | `check_svg_size_gate.py` | SVG size band (std/hq/rollup) | pre-commit (warn) + svg-lint CI |
+| 4 | `validate-svg.sh` | SVG XML well-formed + no Hangul | PreToolUse hook (per-edit) |
+| 5 | `tests/visual-baselines/` | PNG visual regression baselines | visual-regression CI (PR only) |
+| 6 | `check_svg_precommit.sh` | NUL-delimited path-safety wrapper | pre-commit |
+| 7 | `check_kst_midnight.py` | KST 00-09 post URL drift | pre-commit + svg-lint CI |
+| 8 | blogwatcher raster auto-emit | cron-side raster generation | `.github/workflows/ai-blogwatcher.yml` |
 
 ### Code Blocks
 - **Always** include language tags: ```python, ```bash, ```yaml
