@@ -1,4 +1,4 @@
-aria: Kandji MDM macOS mgmt with FileVault, Gatekeeper, FIDO2, ISMS-P.
+aria: Kandji MDM macOS hardening, FIDO2 + ISMS-P.
 bands:
 - badge:
     label: MISSING
