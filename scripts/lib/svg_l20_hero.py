@@ -105,6 +105,10 @@ def _strip_hangul(text: str) -> str:
     # (U+00B7), bullets (U+2022), and orphan ASCII hyphens between blanks.
     cleaned = re.sub(r"[·•](\s*[·•])+", "", cleaned)
     cleaned = re.sub(r"\s+[·•]+\s+", " ", cleaned)
+    # Strip leading middle-dot/bullet at token start (after whitespace or
+    # string start). Preserves intentional ASCII-token separators like
+    # ``AWS·GCP·Azure`` (no whitespace before the dot).
+    cleaned = re.sub(r"(^|\s)[·•]+(?=\w)", r"\1", cleaned)
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     cleaned = re.sub(r"(,\s*){2,}", ", ", cleaned)
     cleaned = re.sub(r"^[\s,;:.\-·•]+|[\s,;:.\-·•]+$", "", cleaned)

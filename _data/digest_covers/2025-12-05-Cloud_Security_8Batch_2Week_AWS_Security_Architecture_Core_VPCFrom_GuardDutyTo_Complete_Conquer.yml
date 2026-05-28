@@ -2,9 +2,8 @@ date: '2025-12-05'
 slug: Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer
 sfx: VG02
 title: '2025-12-05: VPC isolation, IAM least-priv, GuardDuty ETD'
-aria: Flat VPC IAM star S3 public fixed by subnet isolation
-  least-priv IAM GuardDuty ETD cuts MTTD 45d to 8h
-  via auto response playbook.
+aria: Flat VPC IAM star S3 public fixed by subnet isolation.
+  GuardDuty ETD cuts MTTD 45d to 8h.
 bands:
 - theme: red
   label: FLAT VPC

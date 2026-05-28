@@ -28,12 +28,14 @@ IMAGES_DIR = REPO_ROOT / "assets" / "images"
 # in the built HTML.
 # Permalinks use the post date interpreted in the build's timezone. The
 # fixture pins TZ=UTC so this list matches production (Vercel and CI also
-# build in UTC). The Minikube post is dated `2025-05-30 01:11 +0900`,
-# which is 2025-05-29 16:11 UTC, so it lands under /05/29/.
+# build in UTC). The Minikube post was previously dated `2025-05-30 01:11
+# +0900` (UTC 05-29), which broke the filename-date URL — see commit
+# b4ff35c4 (fix(posts): unbreak filename-date URLs for 7 KST-midnight
+# posts). Date now bumped to 09:00 KST so URL day matches filename day.
 L25_SLUGS = (
     "2025/11/19/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned",
     "2025/12/12/Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy",
-    "2025/05/29/Kubernetes_Minikube_and_K9s_Practice_Guide",
+    "2025/05/30/Kubernetes_Minikube_and_K9s_Practice_Guide",
 )
 
 VERSIONED_IMG_SRC_RE = re.compile(
