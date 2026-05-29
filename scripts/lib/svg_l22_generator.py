@@ -2200,6 +2200,49 @@ def _illust_ai_threat(cx: int, cy: int, accent: str, halo: str) -> str:
   </g>'''
 
 
+def _illust_rollup_index(cx: int, cy: int, accent: str, soft: str, halo: str = None, label: str = "MONTHLY RECAP") -> str:
+    """Calendar-style card grid (4 rows x 7 cols) for monthly/weekly rollup index posts."""
+    if halo is None:
+        halo = soft
+    # Build 28 post-count pills (4 rows x 7 cols)
+    cols, rows = 7, 4
+    cell_w, cell_h = 24, 16
+    gap_x, gap_y = 4, 4
+    grid_w = cols * cell_w + (cols - 1) * gap_x   # 7*24 + 6*4 = 192
+    grid_h = rows * cell_h + (rows - 1) * gap_y   # 4*16 + 3*4 = 76
+    start_x = -(grid_w // 2)
+    start_y = -8
+    pill_counts = [5, 3, 4, 5, 2, 4, 3,   # row 1
+                   4, 5, 3, 4, 3, 5, 2,   # row 2
+                   3, 4, 5, 2, 4, 3, 5,   # row 3
+                   5, 3, 4, 3, 5, 4, 3]   # row 4
+    pills = []
+    for i, cnt in enumerate(pill_counts):
+        row = i // cols
+        col = i % cols
+        px = start_x + col * (cell_w + gap_x)
+        py = start_y + row * (cell_h + gap_y)
+        opacity = 0.4 + (cnt / 5) * 0.5
+        pills.append(
+            f'<rect x="{px}" y="{py}" width="{cell_w}" height="{cell_h}" rx="3"'
+            f' fill="{accent}" opacity="{opacity:.2f}"/>'
+            f'<text x="{px + cell_w // 2}" y="{py + cell_h - 4}"'
+            f' text-anchor="middle" font-family="Arial,sans-serif" font-size="7"'
+            f' font-weight="700" fill="#f8fafc" opacity="0.9">{cnt}</text>'
+        )
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    <rect x="-110" y="-72" width="220" height="162" rx="14" fill="#0f172a" stroke="{accent}" stroke-width="2.2" opacity="0.94"/>
+    <rect x="-104" y="-66" width="208" height="22" rx="6" fill="{accent}" fill-opacity="0.22" stroke="{accent}" stroke-width="1.2"/>
+    <text x="-88" y="-51" font-family="Arial,sans-serif" font-size="10" font-weight="900" fill="#f8fafc" opacity="0.95">{label}</text>
+    <rect x="66" y="-66" width="38" height="22" rx="6" fill="{accent}" fill-opacity="0.55"/>
+    <text x="85" y="-51" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#0f172a">28</text>
+    {"".join(pills)}
+    <text y="100" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="{accent}" opacity="0.85">ROLLUP INDEX</text>
+    <text y="116" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="{halo}" opacity="0.7">4 weeks : 28 posts</text>
+  </g>'''
+
+
 # Map normalised category to illustration function (defined after all
 # illustration functions so forward references are resolved).
 SINGLE_ILLUSTRATIONS = {
@@ -2227,6 +2270,7 @@ SINGLE_ILLUSTRATIONS = {
     "macos": _illust_macos_device,
     "conference": _illust_conference,
     "ai_threat": _illust_ai_threat,
+    "rollup_index": _illust_rollup_index,
 }
 
 
@@ -2375,6 +2419,18 @@ def _pick_illustration(category: str, title: str) -> str:
     # dns 유출 = DNS leak/exfiltration (KO)
     if any(k in text for k in ("dns", "dns 유출", "network exfil", "dns leak", "dns tunnel")):
         return "network"
+    # Rollup / digest index posts (monthly or weekly aggregate indexes)
+    # 월간 인덱스 = monthly index (KO), 주간 롤업 = weekly rollup (KO)
+    # 주간 리뷰 = weekly review (KO), 데일리 테크 = daily tech (KO)
+    # 보안 위협 종합 = security threat roundup (KO)
+    if any(k in text for k in (
+        "월간 인덱스", "주간 롤업", "주간 리뷰",
+        "monthly index", "weekly rollup", "weekly roundup",
+        "데일리 테크", "daily tech",
+        "weekly security", "weekly tech", "weekly devops",
+        "보안 위협 종합",
+    )):
+        return "rollup_index"
     return "shield"
 
 

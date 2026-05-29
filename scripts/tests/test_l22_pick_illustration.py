@@ -321,3 +321,29 @@ class TestAiThreatRouting:
     ])
     def test_ai_threat_routing(self, cat, title, expected):
         assert pick(cat, title) == expected
+
+
+# ---------------------------------------------------------------------------
+# New: Rollup index posts (monthly / weekly aggregate)
+# ---------------------------------------------------------------------------
+
+class TestRollupIndexRouting:
+    @pytest.mark.parametrize("cat,title,expected", [
+        ("security", "주간 롤업 2026년 4월 1주차", "rollup_index"),
+        ("security", "월간 인덱스", "rollup_index"),
+        ("security", "Weekly Security Threat Intelligence Digest", "rollup_index"),
+        ("devops", "Daily Tech Digest RSS Roundup", "rollup_index"),
+        ("security", "보안 벤더 블로그 주간 리뷰 2026.01.22", "rollup_index"),
+        ("security", "Weekly Security DevOps Digest", "rollup_index"),
+        ("security", "February 2026 Security Digest Monthly Index", "rollup_index"),
+        ("security", "March 2026 Security Digest Monthly Index", "rollup_index"),
+        ("security", "Weekly Rollup April 2026 Week 1", "rollup_index"),
+    ])
+    def test_rollup_index_routing(self, cat, title, expected):
+        assert pick(cat, title) == expected
+
+    def test_rollup_does_not_match_generic_digest(self):
+        """Generic weekly digest without rollup keywords should NOT route to rollup_index."""
+        # Standard digest titles that use 주간 다이제스트 go to agent/lock/etc not rollup_index
+        result = pick("security", "주간 보안 다이제스트: 제로데이·BYOVD EDR")
+        assert result != "rollup_index"
