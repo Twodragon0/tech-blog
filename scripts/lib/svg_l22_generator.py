@@ -2181,6 +2181,15 @@ def _pick_illustration(category: str, title: str) -> str:
 
     Order is significant: more-specific topic keywords are tested before
     broader category fallbacks so per-post visual variety is maximised.
+
+    Rule precedence (top = highest priority):
+      sim > macos > globe/cdn > incident_timeline/ransomware >
+      npm/supply-chain > k8s > pipeline > email > ztna > ssl > mfa >
+      isms > agent > database > conference > finops > aws/gcp > cloud >
+      lock/malware/byovd > network/dns > shield (fallback)
+
+    Korean keyword pairs are listed alongside their English equivalents so
+    auto-published Korean-title posts route correctly.
     """
     text = (category + " " + title).lower()
     # SIM / telco identity (must come before generic security / mfa)
@@ -2189,23 +2198,53 @@ def _pick_illustration(category: str, title: str) -> str:
     # macOS / Kandji / Apple device management
     if any(k in text for k in ("kandji", "macos", " mdm", "apple device", "mdm ")):
         return "macos"
-    # Cloudflare global incident / outage
-    if any(k in text for k in ("cloudflare global", "cloudflare 11", "cloudflare incident", "global outage", "cloudflare ")):
+    # CDN / edge / Cloudflare global incident
+    # Note: bare "cloudflare " before incident_timeline so Cloudflare-specific
+    # outage posts get the globe visual (network topology) rather than the
+    # incident timeline strip.
+    if any(k in text for k in (
+        "cloudflare global", "cloudflare 11", "cloudflare incident",
+        "global outage", "cloudflare ",
+        "cdn ", " cdn", "fastly", "akamai", "anycast", "edge network",
+        "cloudfront", "content delivery",
+    )):
         return "globe"
-    # Incident / post-mortem timeline
-    if any(k in text for k in ("post-mortem", "post_mortem", "postmortem", "incident response", "11/18", "outage")):
+    # Incident / post-mortem / ransomware timeline
+    # 랜섬웨어 = ransomware (KO), 인시던트 = incident (KO), 사고 = accident/incident (KO)
+    # rca = root cause analysis, downtime, post-incident
+    if any(k in text for k in (
+        "post-mortem", "post_mortem", "postmortem",
+        "incident response", "11/18", "outage",
+        "ransomware", "랜섬웨어",
+        "rca", "root cause", "post-incident", "downtime",
+        "인시던트", "사고 대응", "침해 사고",
+    )):
         return "incident_timeline"
     # NPM / supply chain / package
-    if any(k in text for k in ("npm", "shai-hulud", "self_replication", "self-replicating", "worm", "supply chain", "supply_chain", "package breach")):
+    # 공급망 = supply chain (KO)
+    if any(k in text for k in (
+        "npm", "shai-hulud", "self_replication", "self-replicating",
+        "worm", "supply chain", "supply_chain", "package breach",
+        "공급망",
+    )):
         return "npm"
     # Kubernetes / Karpenter / k8s tooling
-    if any(k in text for k in ("kubernetes", "k8s", "minikube", "k9s", "karpenter")):
+    # 쿠버네티스 = kubernetes (KO), 헬름 = helm (KO)
+    if any(k in text for k in (
+        "kubernetes", "k8s", "minikube", "k9s", "karpenter",
+        "kubectl", "helm", " pod ", "namespace", "kubelet",
+        "쿠버네티스", "헬름",
+    )):
         return "k8s"
     # CI/CD pipeline
     if any(k in text for k in ("ci/cd", "ci_cd", "pipeline", "github actions", "github_advanced", "amazon q", "ghas")):
         return "pipeline"
-    # Email / DMARC / SendGrid
-    if any(k in text for k in ("dmarc", "spf", "dkim", "sendgrid", "smtp", "email delivery", "email_delivery")):
+    # Email / DMARC / deliverability
+    if any(k in text for k in (
+        "dmarc", "spf", "dkim", "sendgrid", "smtp", "imap",
+        "email delivery", "email_delivery", "deliverability",
+        "mail sender", "spam filter",
+    )):
         return "email"
     # Zero Trust / ZTNA
     if any(k in text for k in ("ztna", "zero trust", "zero-trust")):
@@ -2220,7 +2259,11 @@ def _pick_illustration(category: str, title: str) -> str:
     if any(k in text for k in ("isms", "isms-p", "audit", "compliance", "soc2", "iso27001")):
         return "isms"
     # AI agent / secretary
-    if any(k in text for k in ("ai secretary", "ai agent", " agent ", "llm", "claude", "openai", "gpt")):
+    # ai 에이전트 = AI agent (KO), 에이전틱 = agentic (KO)
+    if any(k in text for k in (
+        "ai secretary", "ai agent", " agent ", "llm", "claude", "openai", "gpt",
+        "ai 에이전트", "에이전틱",
+    )):
         return "agent"
     # Database / NLB / RDS / gateway
     if any(k in text for k in ("database", " rds ", "nlb", "db gateway", "database access", "gateway")):
@@ -2231,15 +2274,32 @@ def _pick_illustration(category: str, title: str) -> str:
     # FinOps / cost
     if any(k in text for k in ("finops", "cost-opt", "cost optim", "savings", "budget")):
         return "finops"
-    # AWS service stack (control tower, guardduty, vpc, security hub)
-    if any(k in text for k in ("aws", "control tower", "guardduty", "vpc", "security hub", "control_tower")):
+    # GCP / GKE alongside AWS service stack
+    # 클라우드 보안 with specific cloud providers → aws visual
+    if any(k in text for k in (
+        "aws", "control tower", "guardduty", "vpc", "security hub", "control_tower",
+        "gcp", "gke", "google cloud",
+    )):
         return "aws"
-    # Generic cloud
-    if any(k in text for k in ("cloud", "docker", "container")):
+    # Generic cloud / container
+    # 클라우드 = cloud (KO), 컨테이너 = container (KO)
+    if any(k in text for k in ("cloud", "docker", "container", "클라우드", "컨테이너")):
         return "cloud"
-    # CVE / RCE / vulnerability
-    if any(k in text for k in ("rce", "cve", "vulnerability", "exploit")):
+    # CVE / RCE / vulnerability / malware / BYOVD / EDR bypass
+    # 악성코드 = malware (KO), 제로데이 = zero-day (KO), 취약점 = vulnerability (KO)
+    # byovd = Bring Your Own Vulnerable Driver; edr = Endpoint Detection & Response
+    if any(k in text for k in (
+        "rce", "cve", "vulnerability", "exploit",
+        "malware", "악성코드",
+        "zero-day", "zeroday", "제로데이",
+        "byovd", " edr ", "edr ", "edr·", "endpoint detection",
+        "취약점",
+    )):
         return "lock"
+    # DNS / network exfiltration
+    # dns 유출 = DNS leak/exfiltration (KO)
+    if any(k in text for k in ("dns", "dns 유출", "network exfil", "dns leak", "dns tunnel")):
+        return "network"
     return "shield"
 
 
