@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-28T00:31:47.070939+00:00",
+  "updated_at": "2026-05-29T00:37:00.325943+00:00",
   "entries": [
-    {
-      "url": "https://aws.amazon.com/blogs/security/detecting-and-preventing-crypto-mining-in-your-aws-environment/",
-      "title": "Detecting and preventing crypto mining in your AWS environment",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/microsofts-mdash-ai-system-finds-16.html",
-      "title": "Microsoft's MDASH AI System Finds 16 Windows Flaws Fixed in Patch Tuesday",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/introducing-the-updated-aws-user-guide-to-governance-risk-and-compliance-for-responsible-ai-adoption/",
-      "title": "Introducing the updated AWS User Guide to Governance, Risk, and Compliance for R",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/azerbaijani-energy-firm-hit-by-repeated.html",
-      "title": "Azerbaijani Energy Firm Hit by Repeated Microsoft Exchange Exploitation",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/west-pharmaceutical-says-hackers-stole-data-encrypted-systems/",
-      "title": "West Pharmaceutical says hackers stole data, encrypted systems",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ineffable-intelligence-reinforcement-learning-infrastructure/",
-      "title": "NVIDIA, Ineffable Intelligence Team Up to Build the Future of Reinforcement Lear",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/05/13/ml-applications/reel-friends-building-social-discovery-that-scales-to-billions/",
-      "title": "Reel Friends: Building Social Discovery that Scales to Billions",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://openai.com/index/building-codex-windows-sandbox",
-      "title": "Building a safe, effective sandbox to enable Codex on Windows",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-financial-document-processing-with-pulse-ai-and-amazon-bedrock/",
-      "title": "Build financial document processing with Pulse AI and Amazon Bedrock",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-real-time-voice-streaming-applications-with-amazon-nova-sonic-and-webrtc/",
-      "title": "Build real-time voice streaming applications with Amazon Nova Sonic and WebRTC",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-named-a-leader-in-the-gartner-magic-quadrant/",
-      "title": "Google Named a Leader in the Gartner® Magic Quadrant™ for AI Application Develop",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/more-than-100x-faster-and-cheaper-llm-powered-sql-queries-with-proxy-models/",
-      "title": "The power of LLMs on your data, more than two orders of magnitude faster and che",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/media-entertainment/how-glance-turns-hours-of-video-into-mobile-ready-clips-with-ai/",
-      "title": "How Glance turns hours of video into mobile-ready clips with AI",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/why-cloud-infrastructure-is-the-foundation-for-digital-health-in-2026/",
-      "title": "The new era of SaMD: Why cloud infrastructure is the foundation for digital heal",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/smart-moves-building-resilient-transportation-systems-with-google-ai/",
-      "title": "Smart moves: Building resilient transportation systems with Google AI",
-      "published_date": "2026-05-14",
-      "expires_at": "2026-05-21T02:18:57.438293+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/cisco-catalyst-sd-wan-controller-auth.html",
       "title": "Cisco Catalyst SD-WAN Controller Auth Bypass Actively Exploited to Gain Admin Ac",
@@ -1326,6 +1236,96 @@
       "title": "GPU autoscaling on Kubernetes with KEDA: Building an external scaler",
       "published_date": "2026-05-28",
       "expires_at": "2026-06-04T00:31:47.070838+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/critical-gogs-rce-vulnerability-lets.html",
+      "title": "Critical Gogs RCE Vulnerability Lets Any Authenticated User Execute Arbitrary Co",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/why-and-how-to-migrate-to-a-transit-gateway-attached-aws-network-firewall/",
+      "title": "Why and how to migrate to a Transit Gateway-attached AWS Network Firewall",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/threat-actors-exploit-critical.html",
+      "title": "Threat Actors Exploit Critical FortiClient EMS Flaw to Deploy Credential Stealer",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-confirms-claude-mythos-class-models-will-roll-out-to-the-public/",
+      "title": "Anthropic confirms Claude Mythos-class models will roll out to the public",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/microsoft-slams-public-zero-day.html",
+      "title": "Microsoft Slams Public Zero-Day Disclosures Amid GitHub Researcher Account Remov",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/",
+      "title": "Catch up on 12 major I/O 2026 moments",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/icra-research-robotics-simulation-to-real-world/",
+      "title": "NVIDIA Research Advances Robotics From Simulation to the Real World",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-007-first-light-launch/",
+      "title": "The Name’s Gaming … Cloud Gaming: ‘007 First Light’ Launches on GeForce NOW",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://openai.com/index/endava",
+      "title": "How Endava builds an agentic organization with Codex",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/training-azerbaijani-language-models-on-amazon-sagemaker-ai/",
+      "title": "Training Azerbaijani language models on Amazon SageMaker AI",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/how-the-university-of-central-oklahoma-is-using-ai-to-streamline-analysis-of-complex-criminal-cases/",
+      "title": "How the University of Central Oklahoma is using AI to streamline analysis of com",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/devops-sre/how-google-sre-is-using-agentic-ai-to-improve-operations/",
+      "title": "AI in SRE: Where and how Google is deploying agentic AI to improve operations",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/ai-focused-innovations-in-dataflow/",
+      "title": "Evolving Dataflow to process massive datasets for machine learning",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/nano-banana-2-and-nano-banana-pro-are-generally-available/",
+      "title": "Nano Banana 2 and Nano Banana Pro are generally available, and already powering ",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/application-development/app-centric-maintenance-visibility-in-unified-maintenance/",
+      "title": "Go from resource-level to business-level maintenance in Google Cloud",
+      "published_date": "2026-05-29",
+      "expires_at": "2026-06-05T00:37:00.325814+00:00"
     }
   ]
 }
