@@ -245,6 +245,29 @@ class TestVisualRegistry:
         result = l22.v_attestation_chain(500, 315, "#60A5FA", "#93C5FD", caption="SBOM")
         assert "SBOM" in result
 
+    def test_ai_threat_renders_nonempty_svg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_ai_threat(500, 315, "#EF4444", "#FCA5A5")
+        assert result.strip(), "v_ai_threat returned empty fragment"
+        assert "AI THREAT" in result
+        assert "3 layers : 1 poison : injection" in result
+
+    def test_ai_threat_caption_kwarg(self, tmp_path):
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_ai_threat(500, 315, "#EF4444", "#FCA5A5", caption="PROMPT INJECT")
+        assert "PROMPT INJECT" in result
+
+    def test_ai_threat_animate_count(self, tmp_path):
+        """v_ai_threat must use exactly 6 animate elements (spec constraint)."""
+        import re
+        from scripts.lib import svg_l22_generator as l22
+        result = l22.v_ai_threat(500, 315, "#EF4444", "#FCA5A5")
+        count = len(re.findall(r"<animate\b", result))
+        assert count == 6, f"Expected 6 animate elements, got {count}"
+
+    def test_ai_threat_registered_in_visual_registry(self):
+        assert "ai_threat" in VISUAL_REGISTRY
+
 
 # ---------------------------------------------------------------------------
 # render() — full SVG emission

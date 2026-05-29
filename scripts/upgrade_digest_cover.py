@@ -128,6 +128,8 @@ VISUAL_REGISTRY: Dict[str, Callable[..., str]] = {
     "compliance_grid":       l22.v_compliance_grid,    # ISMS-P/CIS/NIST audit checkbox grid
     "identity_handshake":    l22.v_identity_handshake, # FIDO2/ZTNA/mTLS handshake sequence
     "siem_panels":           l22.v_siem_panels,        # SOC console sparkline + severity tiles
+    # AI-threat primitive (added 2026-05-29)
+    "ai_threat":             l22.v_ai_threat,          # neural-graph poison-node + injection arrow
 }
 
 

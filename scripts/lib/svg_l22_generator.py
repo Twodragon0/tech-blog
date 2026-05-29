@@ -1070,6 +1070,51 @@ def v_attestation_chain(cx: int, yc: int, accent: str, soft: str, caption: str =
   </g>'''
 
 
+def v_ai_threat(cx: int, yc: int, accent: str, soft: str, caption: str = "AI THREAT") -> str:
+    """3-layer neural graph with poison node + prompt-injection arrow (6 animate elements)."""
+    s = soft
+    a = accent
+    return f'''<g transform="translate({cx},{yc})">
+  <circle r="78" fill="{a}" fill-opacity="0.05"/>
+  <circle cx="-72" cy="-66" r="2.5" fill="{a}" opacity="0.25"/>
+  <circle cx="72" cy="-66" r="2.5" fill="{a}" opacity="0.25"/>
+  <circle cx="-72" cy="66" r="2.5" fill="{a}" opacity="0.25"/>
+  <circle cx="72" cy="66" r="2.5" fill="{a}" opacity="0.25"/>
+  <g fill="{s}" fill-opacity="0.18" stroke="{s}" stroke-width="1.2" stroke-opacity="0.6">
+    <circle cx="-52" cy="-24" r="7"/><circle cx="-52" cy="0" r="7"/><circle cx="-52" cy="24" r="7"/>
+    <circle cx="0" cy="-24" r="7"/><circle cx="0" cy="24" r="7"/>
+    <circle cx="52" cy="-16" r="7"/><circle cx="52" cy="16" r="7"/>
+  </g>
+  <circle cx="0" cy="0" r="9" fill="{a}" fill-opacity="0.65" stroke="{a}" stroke-width="1.8">
+    <animate attributeName="r" values="7;11;7" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <text x="0" y="3" text-anchor="middle" font-family="Inter,monospace" font-size="6" font-weight="900" fill="#F5F7FA">!</text>
+  <g stroke="{s}" stroke-width="0.9" stroke-opacity="0.35" fill="none">
+    <line x1="-45" y1="-24" x2="-7" y2="-24"/><line x1="-45" y1="-24" x2="-7" y2="24"/>
+    <line x1="-45" y1="0" x2="-7" y2="-24"/><line x1="-45" y1="0" x2="-7" y2="24"/>
+    <line x1="-45" y1="24" x2="-7" y2="-24"/><line x1="-45" y1="24" x2="-7" y2="24"/>
+    <line x1="7" y1="-24" x2="45" y2="-16"/><line x1="7" y1="-24" x2="45" y2="16"/>
+    <line x1="7" y1="24" x2="45" y2="-16"/><line x1="7" y1="24" x2="45" y2="16"/>
+  </g>
+  <g stroke="{a}" stroke-width="1.2" fill="none" stroke-dasharray="3 3">
+    <line x1="-45" y1="-24" x2="-9" y2="0"><animate attributeName="stroke-dashoffset" values="0;12" dur="1.2s" repeatCount="indefinite"/></line>
+    <line x1="-45" y1="0" x2="-9" y2="0"><animate attributeName="stroke-dashoffset" values="0;12" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></line>
+    <line x1="-45" y1="24" x2="-9" y2="0"><animate attributeName="stroke-dashoffset" values="0;12" dur="1.2s" begin="0.6s" repeatCount="indefinite"/></line>
+  </g>
+  <g stroke="{a}" stroke-width="1.2" fill="none" stroke-dasharray="3 3">
+    <line x1="9" y1="0" x2="45" y2="-16"/><line x1="9" y1="0" x2="45" y2="16"/>
+    <animate attributeName="stroke-dashoffset" values="0;12" dur="1.2s" begin="0.9s" repeatCount="indefinite"/>
+  </g>
+  <g transform="translate(-78,0)">
+    <line x1="0" y1="0" x2="18" y2="0" stroke="{a}" stroke-width="1.8" stroke-opacity="0.9"/>
+    <polygon points="18,-3 18,3 26,0" fill="{a}" fill-opacity="0.9"/>
+    <line x1="6" y1="-7" x2="14" y2="7" stroke="{s}" stroke-width="1.4" stroke-opacity="0.75"><animate attributeName="stroke-opacity" values="0.3;0.9;0.3" dur="2.4s" repeatCount="indefinite"/></line>
+  </g>
+  <text x="0" y="50" text-anchor="middle" font-family="Inter,monospace" font-size="10" font-weight="800" fill="{a}">{caption}</text>
+  <text x="0" y="64" text-anchor="middle" font-family="Inter,monospace" font-size="8" font-weight="700" fill="{s}" opacity="0.7">3 layers : 1 poison : injection</text>
+</g>'''
+
+
 # --- Topic motif library (per-post signature accents) ---
 def motif_bitcoin(x: int, y: int, color: str) -> str:
     """Bitcoin Bsymbol coin badge centred at (x, y)."""
@@ -2146,6 +2191,14 @@ def _illust_conference(cx: int, cy: int, accent: str, halo: str) -> str:
   </g>'''
 
 
+def _illust_ai_threat(cx: int, cy: int, accent: str, halo: str) -> str:
+    """Standalone AI-threat illustration: neural graph with poison node (wraps v_ai_threat)."""
+    inner = v_ai_threat(0, 0, accent, halo, "AI THREAT")
+    return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
+    <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
+    {inner}
+  </g>'''
+
 
 # Map normalised category to illustration function (defined after all
 # illustration functions so forward references are resolved).
@@ -2173,6 +2226,7 @@ SINGLE_ILLUSTRATIONS = {
     "ssl": _illust_zscaler_ssl,
     "macos": _illust_macos_device,
     "conference": _illust_conference,
+    "ai_threat": _illust_ai_threat,
 }
 
 
@@ -2258,6 +2312,24 @@ def _pick_illustration(category: str, title: str) -> str:
     # ISMS / audit / compliance
     if any(k in text for k in ("isms", "isms-p", "audit", "compliance", "soc2", "iso27001")):
         return "isms"
+    # AI threat / adversarial ML / agentic attacks (must precede generic agent/llm catches)
+    # 에이전틱 ai = agentic ai (KO), 프롬프트 인젝션 = prompt injection (KO)
+    # 도구 오남용 = tool abuse (KO), 모델 추출 = model extraction (KO), 딥페이크 = deepfake (KO)
+    if any(k in text for k in (
+        "agentic ai security", "agentic ai attack",
+        "prompt injection", "prompt_injection",
+        "llm attack", "llm security", "llm threat",
+        "mcp security", "mcp threat", "mcp abuse", "tool poisoning",
+        "model extraction", "model poisoning", "training data poison",
+        "ai threat", "ai attack vector",
+        "deepfake crypto", "synthetic media fraud",
+        "ai supply chain attack", "model registry",
+        "agent identity drift",
+        # Korean equivalents:
+        "에이전틱 ai", "프롬프트 인젝션",
+        "도구 오남용", "모델 추출", "딥페이크",
+    )):
+        return "ai_threat"
     # AI agent / secretary
     # ai 에이전트 = AI agent (KO), 에이전틱 = agentic (KO)
     if any(k in text for k in (
@@ -2269,6 +2341,9 @@ def _pick_illustration(category: str, title: str) -> str:
     if any(k in text for k in ("database", " rds ", "nlb", "db gateway", "database access", "gateway")):
         return "database"
     # Conference / review / preview
+    # Guard: "agentic" must not fall through to conference via "owasp" when title
+    # contains agentic ai security keywords (handled above). This catch is for
+    # pure conference/event posts only.
     if any(k in text for k in ("conference", "awskrug", "owasp", "datadog", "preview", "review")):
         return "conference"
     # FinOps / cost

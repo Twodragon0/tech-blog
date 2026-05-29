@@ -145,11 +145,14 @@ class TestEmailExpansion:
 class TestAgentExpansion:
     @pytest.mark.parametrize("title", [
         "AI 에이전트 보안 위협 분석",
-        "에이전틱 AI 보안 아키텍처",
         "주간 다이제스트: AI 에이전트·클라우드·패치",
     ])
     def test_korean_ai_agent_routes_to_agent(self, title):
         assert pick("security", title) == "agent"
+
+    def test_korean_agentic_ai_security_routes_to_ai_threat(self):
+        # "에이전틱 ai" = agentic AI (KO): security/attack context → ai_threat
+        assert pick("security", "에이전틱 AI 보안 아키텍처") == "ai_threat"
 
 
 # ---------------------------------------------------------------------------
@@ -291,3 +294,30 @@ class TestShieldFallbackRate:
             f"Shield fallback rate {rate:.1%} exceeds 30% threshold "
             f"({shield_count}/{len(sample)} posts fell back to shield)"
         )
+
+
+# ---------------------------------------------------------------------------
+# New: AI-threat routing (v_ai_threat primitive)
+# ---------------------------------------------------------------------------
+
+class TestAiThreatRouting:
+    @pytest.mark.parametrize("cat,title,expected", [
+        # E2 spec cases
+        ("security", "Agentic AI Security 2026 Attack Vectors Defense Architecture", "ai_threat"),
+        ("security", "Prompt injection RAG MCP security guide", "ai_threat"),
+        ("security", "LLM threat model analysis 2026", "ai_threat"),
+        ("security", "OWASP 2025 Agentic AI Security threat landscape", "ai_threat"),
+        # Non-threat AI must still route to agent
+        ("security", "DevSecOps AI tooling workflow integration", "shield"),
+        # Additional threat keywords
+        ("security", "Tool poisoning attack on MCP servers", "ai_threat"),
+        ("security", "Model poisoning training data corruption", "ai_threat"),
+        ("security", "MCP abuse lateral movement via AI agent", "ai_threat"),
+        ("security", "Deepfake crypto scam detection and prevention", "ai_threat"),
+        ("security", "AI threat intelligence platform 2026", "ai_threat"),
+        # Korean equivalents
+        ("security", "프롬프트 인젝션 공격 분석 및 방어 전략", "ai_threat"),
+        ("security", "딥페이크 탐지 기술 연구 2026", "ai_threat"),
+    ])
+    def test_ai_threat_routing(self, cat, title, expected):
+        assert pick(cat, title) == expected
