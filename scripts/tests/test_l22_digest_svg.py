@@ -26,9 +26,33 @@ def test_digest_title_regex_matches_expected_patterns():
         assert _DIGEST_TITLE_PATTERN.search(title), f"missed: {title}"
 
 
+def test_digest_title_regex_matches_rollup_variants():
+    """Widened variants (post-commit 26f58e4b discovery; the 9 historical
+    rollup posts that fell through to _pick_illustration before this fix
+    used these titles)."""
+    cases = [
+        "Weekly Security Threat Intelligence Digest",
+        "Weekly Tech & AI & Blockchain Digest",
+        "Weekly Security & DevOps Digest",
+        "주간 롤업",
+        "주간 리뷰",
+        "월간 인덱스",
+        "월간 다이제스트",
+        "데일리 테크 다이제스트",
+        "Monthly Recap",
+        "Monthly Roundup",
+        "Monthly Digest",
+        "2026년 1월 보안 다이제스트 월간 인덱스",
+    ]
+    for title in cases:
+        assert _DIGEST_TITLE_PATTERN.search(title), f"missed: {title}"
+
+
 def test_digest_title_regex_skips_non_digest():
     assert not _DIGEST_TITLE_PATTERN.search("AI Agent Security Architecture")
     assert not _DIGEST_TITLE_PATTERN.search("FinOps Cost Optimization Guide")
+    assert not _DIGEST_TITLE_PATTERN.search("Weekly meeting notes")
+    assert not _DIGEST_TITLE_PATTERN.search("일반 블로그 포스트")
 
 
 def test_is_digest_post_by_filename_pattern():

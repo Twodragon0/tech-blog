@@ -2128,7 +2128,14 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
 
 # --- L22 stacked-bands cover for Weekly Digest posts ---
 _DIGEST_TITLE_PATTERN = re.compile(
-    r"Weekly\s+Digest|주간\s*다이제스트|Tech_Security_Weekly_Digest|Daily_Tech_Digest",
+    r"Weekly\s+(?:[\w&]+\s+){0,5}Digest"
+    r"|Monthly\s+(?:Recap|Roundup|Index|Digest)"
+    r"|Daily\s+Tech\s+Digest"
+    r"|Daily_Tech_Digest"
+    r"|Tech_Security_Weekly_Digest"
+    r"|주간\s*(?:다이제스트|롤업|리뷰)"
+    r"|월간\s*(?:다이제스트|인덱스|롤업)"
+    r"|데일리\s*테크\s*다이제스트",
     re.IGNORECASE,
 )
 
