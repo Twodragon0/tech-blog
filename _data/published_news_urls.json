@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-05-29T00:37:00.325943+00:00",
+  "updated_at": "2026-05-30T00:34:09.552624+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/cisco-catalyst-sd-wan-controller-auth.html",
-      "title": "Cisco Catalyst SD-WAN Controller Auth Bypass Actively Exploited to Gain Admin Ac",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/stealer-backdoor-found-in-3-node-ipc.html",
-      "title": "Stealer Backdoor Found in 3 Node-IPC Versions Targeting Developer Secrets",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/threatsday-bulletin-pan-os-rce-mythos.html",
-      "title": "ThreatsDay Bulletin: PAN-OS RCE, Mythos cURL Bug, AI Tokenizer Attacks, and 10+ ",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/regional-routing-for-aws-access-portals-implementing-custom-vanity-domains-for-iam-identity-center/",
-      "title": "Regional routing for AWS access portals: Implementing custom vanity domains for ",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/ghostwriter-targets-ukrainian.html",
-      "title": "Ghostwriter Targets Ukrainian Government With Geofenced PDF Phishing, Cobalt Str",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-subnautica-2/",
-      "title": "Sea You in the Cloud: ‘Subnautica 2’ Early Access Dives Onto GeForce NOW",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://openai.com/index/work-with-codex-from-anywhere",
-      "title": "Work with Codex from anywhere",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/improve-bot-accuracy-with-amazon-lex-assisted-nlu/",
-      "title": "Improve bot accuracy with Amazon Lex Assisted NLU",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/real-time-voice-agents-with-stream-vision-agents-and-amazon-nova-2-sonic/",
-      "title": "Real-time voice agents with Stream Vision Agents and Amazon Nova 2 Sonic",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/from-siloed-data-to-unified-insights-cross-account-athena-access-for-amazon-quick/",
-      "title": "From siloed data to unified insights: Cross-account Athena Access for Amazon Qui",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-google-wiz-changes-multicloud-strategy-for-cisos/",
-      "title": "Cloud CISO Perspectives: How Google + Wiz changes multicloud strategy for CISOs",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/",
-      "title": "What’s new with Google Data Cloud",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/amazon-bedrock-introduces-new-advanced-prompt-optimization-and-migration-tool/",
-      "title": "Amazon Bedrock introduces new advanced prompt optimization and migration tool",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/optimizing-ai-storytelling-platform-with-elasticache-valkey-semantic-caching/",
-      "title": "Amazon ElastiCache for Valkey의 CESC로 Interactive AI 스토리텔링 플랫폼 최적화하기",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-14-team-level-copilot-usage-metrics-now-available-via-api",
-      "title": "Team-level Copilot usage metrics now available via API",
-      "published_date": "2026-05-15",
-      "expires_at": "2026-05-22T02:16:56.760872+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/turla-turns-kazuar-backdoor-into.html",
       "title": "Turla Turns Kazuar Backdoor Into Modular P2P Botnet for Persistent Access",
@@ -1326,6 +1236,96 @@
       "title": "Go from resource-level to business-level maintenance in Google Cloud",
       "published_date": "2026-05-29",
       "expires_at": "2026-06-05T00:37:00.325814+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/chatgphish-vulnerability-turns-chatgpt.html",
+      "title": "ChatGPhish Vulnerability Turns ChatGPT Web Summaries Into a Phishing Surface",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/attackers-use-llm-agent-for-post.html",
+      "title": "Attackers Use LLM Agent for Post-Exploitation After Marimo CVE-2026-39987 Exploi",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/new-russian-linked-greyvibe-targets.html",
+      "title": "New Russian-Linked GREYVIBE Targets Ukraine with AI-Powered Cyberattacks",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/05/what-2000-exposed-vibe-coded-apps.html",
+      "title": "What 2,000 Exposed Vibe-Coded Apps Reveal About the Limits of Most Security Stac",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/29/microsoft-is-named-a-leader-in-the-2026-gartner-magic-quadrant-for-endpoint-protection/",
+      "title": "Microsoft is named a Leader in the 2026 Gartner® Magic Quadrant™ for Endpoint Pr",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-vibe-coded-quiz/",
+      "title": "Take our I/O 2026 quiz, vibe coded in Google AI Studio.",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/",
+      "title": "9 demos of Gemini Omni and Gemini 3.5 in action",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/enterprise-business-software-and-the-mixed-up-chameleon-problem-f16df333bc71?source=rss----3c87dc14372f---4",
+      "title": "Enterprise Business Software and the Mixed-Up Chameleon Problem",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://openai.com/index/boston-childrens-hospital",
+      "title": "Boston Children’s uses AI to unlock new diagnoses",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://openai.com/index/braintrust",
+      "title": "How Braintrust turns customer requests into code with Codex",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-to-build-an-ai-ready-security-program-for-the-public-sector/",
+      "title": "Cloud CISO Perspectives: How to build an AI-ready security program for the publi",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up/",
+      "title": "Cool stuff Google Cloud customers built, May edition: Agentic algorithms for sup",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/guide-to-gemini-enterprise-and-a2ui-integration/",
+      "title": "Developer's guide to Gemini Enterprise and A2UI integration",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/using-connected-sheets-to-analyze-bigquery-data/",
+      "title": "From petabytes to predictions: Easy BigQuery insights in Google Sheets",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/alloydb-hot-standby-faster-failovers-and-consistent-performance/",
+      "title": "AlloyDB Hot Standby: Faster failovers, consistent performance",
+      "published_date": "2026-05-30",
+      "expires_at": "2026-06-06T00:34:09.552531+00:00"
     }
   ]
 }
