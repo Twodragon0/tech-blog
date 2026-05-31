@@ -96,3 +96,38 @@ rather than another ISMS-P recap.
 
 Confidence: high. Architect agent ID: a8367758da5c76502 (session
 aee548e8-62e0-4c61-9a89-deeb59c191e2).
+
+## 2026-06-01: L20 side-panel headline cap — surgical patch over regeneration
+
+L20 Hero+2-Card SVG covers had a structural overflow bug:
+`<text x="670" y="140|404" font-size="24" font-weight="800">` rendered
+side-panel headlines without a character cap. Headlines longer than
+~27 chars extended past x=1024 into the KPI card zone (1024-1164),
+producing visible text/illustration overlap in 21 production covers.
+
+Two repair strategies were considered:
+
+1. **Full regeneration** (`generate_post_images.py --force`) — runs
+   `extract_three_stories()` which derives headlines from title+excerpt+
+   filename only. Loses the rich body-H3-derived headlines that the
+   original L22 path had produced (e.g. "AWS Serverless AI Defense
+   Architecture" → "Cloud", "25 Password Manager Recovery Attacks" →
+   "Agent"). Verified on `2026-02-17-...AI_Agent_Cloud_Security.svg`.
+
+2. **Surgical in-place patch** — read each SVG, regex-match the two
+   side-panel `<text>` elements, apply `_fit_panel_headline()` to the
+   headline string only, write back. Preserves all other content
+   verbatim. Implemented in `scripts/fix_panel_headline_overflow.py`.
+
+Decision: surgical patch (commit 14d51115). Reasoning:
+- Editorial value of body-derived headlines (CVE names, vendor + impact
+  phrases) outweighs the cosmetic gain from regenerating illustrations.
+- 21 file diff stays content-stable, easier to review and revert.
+- Future digests are protected because `render_l20_hero()` now wraps
+  both call sites with `_fit_panel_headline()`.
+
+Cap algorithm: `max_chars=27`, budget=24 (3-char ellipsis reserved),
+word-boundary preferred unless latest space < budget-10 (then hard cut).
+Unit tests in `scripts/tests/test_l20_panel_headline_cap.py` cover all
+10 behavioral paths including parametrized real-world overflow cases
+(commit 6b5a621b).
