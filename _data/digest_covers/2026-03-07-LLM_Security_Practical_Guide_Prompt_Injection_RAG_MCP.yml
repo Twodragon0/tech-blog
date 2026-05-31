@@ -1,0 +1,77 @@
+date: '2026-03-07'
+slug: LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP
+sfx: MR07
+title: '2026-03-07: LLM prompt injection defense, RAG pipeline security, MCP threat'
+aria: LLM service prompt injection attack vectors direct and indirect with defense
+  patterns, RAG pipeline data poisoning prevention and retrieval integrity, MCP
+  protocol tool poisoning risk and sandboxed execution controls.
+bands:
+- theme: red
+  label: PROMPT INJECTION
+  headline: Direct + Indirect Attack
+  metric: 'LLM attack surface : direct + indirect injection'
+  detail: 'Direct prompt override : indirect via retrieved docs : system-prompt exfil
+    : OWASP LLM01'
+  badge:
+    value: LLM01
+    label: OWASP
+    sub: injection
+  visual:
+    kind: ai_threat
+  metric_b: 'Instruction hierarchy : system vs user prompt trust : output validator'
+  detail_b: 'Sandwich defense : output classifiers : separate system+user channels
+    : input sanitize'
+  mini:
+    value: INJ
+    label: VECTOR
+    sub: direct
+  mini2:
+    value: SYS
+    label: EXFIL
+    sub: risk
+- theme: amber
+  label: RAG SECURITY
+  headline: Pipeline Data Integrity
+  metric: 'RAG retrieval : data poisoning : chunk integrity'
+  detail: 'Poisoned chunk injection : embedding manipulation : retrieval-time trust
+    boundary : LLM03'
+  badge:
+    value: RAG
+    label: PIPELINE
+    sub: integrity
+  visual:
+    kind: supply_chain
+  metric_b: 'Chunk hash verification : access-controlled retrieval : source attribution'
+  detail_b: 'RBAC on vector store : signed chunk metadata : anomaly detection on
+    retrieved context'
+  mini:
+    value: VDB
+    label: VECTOR
+    sub: store
+  mini2:
+    value: HASH
+    label: CHUNK
+    sub: verify
+- theme: green
+  label: MCP THREAT
+  headline: Tool Poisoning Defense
+  metric: 'MCP protocol : tool call injection : sandbox escape'
+  detail: 'Tool description poisoning : unauthorized tool invocation : filesystem
+    access : process escape'
+  badge:
+    value: MCP
+    label: PROTO
+    sub: tool
+  visual:
+    kind: attestation_chain
+  metric_b: 'Tool allowlist : capability least privilege : sandboxed MCP runtime'
+  detail_b: 'Allowlist tool schemas : sign tool manifests : isolate MCP server
+    : audit tool calls'
+  mini:
+    value: TOOL
+    label: POISON
+    sub: risk
+  mini2:
+    value: SBX
+    label: SANDBOX
+    sub: escape

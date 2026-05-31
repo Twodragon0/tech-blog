@@ -1,0 +1,78 @@
+date: '2026-01-28'
+slug: Claude_MD_Security_Guide
+sfx: JN28
+title: '2026-01-28: CLAUDE.md AI agent security never hardcode secrets log masking'
+aria: CLAUDE.md project security guide for AI agent collaboration Claude Code Cursor
+  Copilot with never hardcode secrets principle log masking input validation and
+  pre-commit automation for DevSecOps teams.
+bands:
+- theme: red
+  label: AI AGENT SECURITY
+  headline: CLAUDE.md Config Gate
+  metric: 'CLAUDE.md : AI agent scope : instruction injection risk'
+  detail: 'CLAUDE.md defines agent security boundary : instruction injection via
+    malicious repo : overprivileged agent scope : prompt boundary enforcement'
+  badge:
+    value: CLMD
+    label: AGENT
+    sub: gate
+  visual:
+    kind: ai_threat
+  metric_b: 'Instruction injection test coverage : agent permission scope audit'
+  detail_b: 'Define allowed commands in CLAUDE.md : prohibit force push and
+    secret writes : test prompt injection on agent : review scope per sprint'
+  mini:
+    value: INJ
+    label: AGENT
+    sub: block
+  mini2:
+    value: PERM
+    label: SCOPE
+    sub: least
+- theme: amber
+  label: SECRET HYGIENE
+  headline: Never Hardcode + Mask
+  metric: 'No hardcoded secret : env var : log masking : pre-commit'
+  detail: 'Never hardcode API key : env var injection : log masking pattern :
+    Gitleaks pre-commit hook : input validation on all agent input'
+  badge:
+    value: SEC
+    label: NEVER
+    sub: hardcode
+  visual:
+    kind: lock_cve
+    cvss: HIGH
+  metric_b: 'Secret scan coverage : log masking coverage : pre-commit pass rate'
+  detail_b: 'Run Gitleaks on every commit : use os.getenv not literals :
+    mask_sensitive_info() in all log paths : validate agent inputs with zod/pydantic'
+  mini:
+    value: LEAK
+    label: SCAN
+    sub: gitleaks
+  mini2:
+    value: MASK
+    label: LOG
+    sub: pii
+- theme: green
+  label: PRE-COMMIT AUTOMATION
+  headline: Hook + Validation Gate
+  metric: 'Pre-commit hooks : input validation : CI enforce'
+  detail: 'Pre-commit secret detection : input validation schema : CI gate on
+    agent output : log masking validation test : SAST on AI-generated code'
+  badge:
+    value: HOOK
+    label: PRE
+    sub: commit
+  visual:
+    kind: compliance_grid
+  metric_b: 'Hook bypass attempts : validation failure rate : CI gate coverage'
+  detail_b: 'Block commits with secret patterns : validate agent output schema :
+    enforce SAST in CI : test masking function in unit tests : no --no-verify'
+  mini:
+    value: SAST
+    label: AI
+    sub: output
+  mini2:
+    value: NO
+    label: BYPASS
+    sub: hooks

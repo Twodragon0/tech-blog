@@ -1,0 +1,78 @@
+date: '2026-01-10'
+slug: 2026_DevSecOps_Roadmap_Complete_Guide_Analysis
+sfx: JN10
+title: '2026-01-10: DevSecOps 2026 roadmap 93 items, OWASP Top 10, NIST CSF 2.0'
+aria: roadmap.sh 2026 DevSecOps roadmap 93 learning items covering OWASP Top 10
+  2025 and NIST CSF 2.0 integration, GitHub Advanced Security pipeline integration,
+  threat modeling and secure coding fundamentals for modern DevOps teams.
+bands:
+- theme: red
+  label: SECURITY PIPELINE
+  headline: 93 Learning Items
+  metric: 'roadmap.sh 2026 : 93 items : DevSecOps path'
+  detail: 'Threat modeling : SAST+DAST in CI : container security : IaC scan :
+    secret detection : SBOM'
+  badge:
+    value: '93'
+    label: ITEMS
+    sub: roadmap
+  visual:
+    kind: supply_chain
+  metric_b: 'Pipeline gate coverage : SAST finding MTTR : IaC policy compliance'
+  detail_b: 'Checkov IaC scan : Semgrep SAST : Gitleaks secret scan : Trivy SBOM
+    in CI : DAST on staging'
+  mini:
+    value: SAST
+    label: GATE
+    sub: ci
+  mini2:
+    value: IaC
+    label: SCAN
+    sub: checkov
+- theme: amber
+  label: OWASP + NIST
+  headline: Framework Alignment
+  metric: 'OWASP Top 10:2025 : NIST CSF 2.0 : Govern'
+  detail: 'OWASP Top 10:2025 updated categories : NIST CSF 2.0 Govern function :
+    AI security controls : risk register'
+  badge:
+    value: CSF
+    label: NIST
+    sub: gov
+  visual:
+    kind: compliance_grid
+  metric_b: 'OWASP coverage in tests : risk register update cadence'
+  detail_b: 'Map OWASP to test cases : update risk register quarterly : link CSF
+    tiers to team maturity'
+  mini:
+    value: TOP10
+    label: OWASP
+    sub: '2025'
+  mini2:
+    value: RISK
+    label: REGISTER
+    sub: govern
+- theme: green
+  label: GITHUB ADVANCED SEC
+  headline: Code + Secret Scanning
+  metric: 'GHAS : CodeQL : secret scanning : Dependabot'
+  detail: 'GitHub Advanced Security CodeQL SAST : secret scanning push protection :
+    Dependabot auto-PR : SBOM export'
+  badge:
+    value: GHAS
+    label: CODE
+    sub: scan
+  visual:
+    kind: code_bars
+    caption: SEC SCAN
+  metric_b: 'CodeQL alert resolution SLA : Dependabot PR merge rate'
+  detail_b: 'Enable push protection : CodeQL P1 fix in 7 days : Dependabot auto-merge
+    minor : SBOM weekly export'
+  mini:
+    value: CQQL
+    label: SAST
+    sub: codeql
+  mini2:
+    value: SBOM
+    label: EXPORT
+    sub: weekly

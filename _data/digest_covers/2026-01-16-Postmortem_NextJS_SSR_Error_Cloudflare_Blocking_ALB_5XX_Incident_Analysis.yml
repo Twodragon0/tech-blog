@@ -1,0 +1,78 @@
+date: '2026-01-16'
+slug: Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis
+sfx: JN16
+title: '2026-01-16: Next.js SSR ReferenceError Cloudflare WAF block ALB 5XX post-mortem'
+aria: Post-mortem Next.js SSR ReferenceError location object Cloudflare WAF IP block
+  ALB Target Group health check failure 5XX incident root cause cascade analysis
+  and prevention playbook for SRE and incident response teams.
+bands:
+- theme: red
+  label: SSR FAILURE
+  headline: Location ReferenceError
+  metric: 'Next.js SSR : location undefined : ReferenceError : 5XX cascade'
+  detail: 'Next.js SSR location object ReferenceError : server-side undefined :
+    ALB Target Group health fail : deployment cascade : 5XX surge'
+  badge:
+    value: SSR
+    label: CRASH
+    sub: ssr
+  visual:
+    kind: siem_panels
+  metric_b: 'Time to detect : error rate peak : affected endpoints count'
+  detail_b: 'Guard browser API with typeof window : add SSR smoke test
+    in CI : alert on 5XX spike within 2 min of deploy : rollback trigger'
+  mini:
+    value: REF
+    label: ERROR
+    sub: ssr
+  mini2:
+    value: 5XX
+    label: SURGE
+    sub: alb
+- theme: amber
+  label: CLOUDFLARE WAF BLOCK
+  headline: IP Block + ALB Miss
+  metric: 'Cloudflare WAF : IP block : ALB health check fail'
+  detail: 'Cloudflare WAF blocked health check IP : ALB Target Group
+    health check fail : pod removed from rotation : traffic to unhealthy target'
+  badge:
+    value: WAF
+    label: BLOCK
+    sub: ip
+  visual:
+    kind: router_mesh
+  metric_b: 'WAF rule false positive rate : health check IP allowlist status'
+  detail_b: 'Allowlist ALB health check IP in Cloudflare WAF : separate
+    health check endpoint path : test WAF rule changes in staging first'
+  mini:
+    value: IP
+    label: ALLOW
+    sub: list
+  mini2:
+    value: HC
+    label: PATH
+    sub: /health
+- theme: green
+  label: SRE PREVENTION
+  headline: Gate + Runbook
+  metric: 'SSR CI gate : WAF staging : rollback SLA'
+  detail: 'Add SSR render smoke test in CI : test WAF rule in staging :
+    canary deploy with 5XX rollback : runbook for ALB health-check WAF bypass'
+  badge:
+    value: SRE
+    label: GATE
+    sub: ci
+  visual:
+    kind: shield
+    label: PREVENT
+  metric_b: 'Canary rollback SLA : CI SSR coverage : staging WAF parity'
+  detail_b: 'Canary 10% traffic : rollback if 5XX > 1% in 5 min : SSR
+    render test in CI : staging WAF mirrors prod rules : runbook rehearsed quarterly'
+  mini:
+    value: CAN
+    label: ARY
+    sub: 10pct
+  mini2:
+    value: RUN
+    label: BOOK
+    sub: sre

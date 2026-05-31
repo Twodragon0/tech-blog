@@ -1,0 +1,77 @@
+date: '2026-01-15'
+slug: Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide
+sfx: JN15
+title: '2026-01-15: Docker container security, Kubernetes PSS, 8th batch week 7'
+aria: Docker container security image scanning and non-root execution and secret
+  management, Kubernetes Pod Security Standards restricted profile and RBAC and
+  network policy, runtime threat detection with Falco and admission controller.
+bands:
+- theme: red
+  label: DOCKER SECURITY
+  headline: Image Scan + Non-Root
+  metric: 'Trivy scan : non-root : secret mount'
+  detail: 'Trivy image vuln scan : non-root USER directive : no plaintext ENV secrets
+    : read-only rootfs'
+  badge:
+    value: IMG
+    label: TRIVY
+    sub: scan
+  visual:
+    kind: cloud_k8s
+  metric_b: 'Base image freshness : Dockerfile lint : secret injection via vault'
+  detail_b: 'Pin base image to digest : hadolint Dockerfile : inject secrets via
+    Vault sidecar : no secrets in ENV'
+  mini:
+    value: HASH
+    label: PIN
+    sub: image
+  mini2:
+    value: ROOT
+    label: DENY
+    sub: non-root
+- theme: amber
+  label: K8S POD SECURITY
+  headline: PSS Restricted Profile
+  metric: 'PSS restricted : RBAC : network policy : OPA'
+  detail: 'Pod Security Standards restricted namespace : RBAC least privilege role
+    : Calico network policy : OPA Gatekeeper'
+  badge:
+    value: PSS
+    label: RESTRICT
+    sub: k8s
+  visual:
+    kind: compliance_grid
+  metric_b: 'IRSA token : service account per workload : deny hostNetwork'
+  detail_b: 'Enforce PSS restricted label : separate SA per deployment : deny
+    hostNetwork+hostPID : audit RBAC bindings'
+  mini:
+    value: RBAC
+    label: LEAST
+    sub: priv
+  mini2:
+    value: NETPOL
+    label: DENY
+    sub: default
+- theme: green
+  label: RUNTIME DEFENSE
+  headline: Falco + Admission
+  metric: 'Falco : runtime rules : admission webhook'
+  detail: 'Falco syscall rules : privileged container alert : OPA Gatekeeper
+    admission : CIS K8s benchmark'
+  badge:
+    value: FALCO
+    label: RUNTIME
+    sub: detect
+  visual:
+    kind: siem_panels
+  metric_b: 'CIS benchmark score : image policy : Falco alert SIEM integration'
+  detail_b: 'Run kube-bench CIS : Falco alert to SIEM : deny privileged admission
+    : image registry allowlist'
+  mini:
+    value: CIS
+    label: BENCH
+    sub: k8s
+  mini2:
+    value: PRIV
+    label: DENY
+    sub: falco
