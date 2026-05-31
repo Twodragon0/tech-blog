@@ -31,7 +31,7 @@
 <rect x="652" y="80" width="516" height="4" fill="#FFB703" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.2s" repeatCount="indefinite"/></rect>
 <g filter="url(#textShadow)">
 <text x="670" y="110" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#FFB703" letter-spacing="3">WINDOWS CVE  /  02</text>
-<text x="670" y="140" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">Outlook Cloud Security Update</text>
+<text x="670" y="140" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">Outlook Cloud Security...</text>
 <text x="670" y="163" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#FFD58A">Microsoft Outlook cloud security update Feb 12</text>
 </g>
 <g stroke="#FFB703" stroke-width="1.4" fill="none" opacity="0.7"><path d="M656 93 L656 84 L665 84"/><path d="M1155 84 L1164 84 L1164 93"/><path d="M656 315 L656 324 L665 324"/><path d="M1155 324 L1164 324 L1164 315"/></g>
@@ -41,7 +41,7 @@
 <rect x="652" y="344" width="516" height="4" fill="#3A86FF" opacity="0.85"><animate attributeName="opacity" values="0.5;1;0.5" dur="4.8s" repeatCount="indefinite"/></rect>
 <g filter="url(#textShadow)">
 <text x="670" y="374" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#7DA3D9" letter-spacing="3">AI AGENT SEC  /  03</text>
-<text x="670" y="404" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">Cloud Security Agent Automation</text>
+<text x="670" y="404" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="800" fill="#F5F7FA">Cloud Security Agent...</text>
 <text x="670" y="428" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#BFC9D9">Cloud security agent automation</text>
 </g>
 <g stroke="#3A86FF" stroke-width="1.4" fill="none" opacity="0.7"><path d="M656 357 L656 348 L665 348"/><path d="M1155 348 L1164 348 L1164 357"/><path d="M656 577 L656 586 L665 586"/><path d="M1155 586 L1164 586 L1164 577"/></g>

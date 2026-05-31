@@ -154,6 +154,25 @@ def _fit_subheadline(text: str, max_chars: int = 54) -> str:
     return s[:cut].rstrip() + "..."
 
 
+def _fit_panel_headline(text: str, max_chars: int = 27) -> str:
+    """Cap the side-panel headline so it cannot bleed into the KPI card
+    at x>=1024. Headlines start at x=670 with font-size 24 / weight 800;
+    safe run is ~27 chars before the rightmost glyph crosses x=1024.
+    The 3-char ellipsis suffix is included in the budget so the final
+    string never exceeds ``max_chars``.
+    """
+    if text is None:
+        return ""
+    s = str(text)
+    if len(s) <= max_chars:
+        return s
+    budget = max_chars - 3  # reserve room for the ellipsis
+    cut = s.rfind(" ", 0, budget)
+    if cut < budget - 10:
+        cut = budget
+    return s[:cut].rstrip() + "..."
+
+
 def _theme(name: str) -> Dict[str, str]:
     return THEMES.get(name, THEMES["red"])
 
@@ -871,7 +890,7 @@ def render_l20_hero(
     )
     parts.append(
         f'<text x="670" y="140" font-family="Inter, Helvetica, Arial, sans-serif" '
-        f'font-size="24" font-weight="800" fill="#F5F7FA">{_escape(top_right["headline"])}</text>'
+        f'font-size="24" font-weight="800" fill="#F5F7FA">{_escape(_fit_panel_headline(top_right["headline"]))}</text>'
     )
     parts.append(
         f'<text x="670" y="163" font-family="Inter, Helvetica, Arial, sans-serif" '
@@ -899,7 +918,7 @@ def render_l20_hero(
     )
     parts.append(
         f'<text x="670" y="404" font-family="Inter, Helvetica, Arial, sans-serif" '
-        f'font-size="24" font-weight="800" fill="#F5F7FA">{_escape(bottom_right["headline"])}</text>'
+        f'font-size="24" font-weight="800" fill="#F5F7FA">{_escape(_fit_panel_headline(bottom_right["headline"]))}</text>'
     )
     parts.append(
         f'<text x="670" y="428" font-family="Inter, Helvetica, Arial, sans-serif" '
