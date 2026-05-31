@@ -2133,6 +2133,15 @@ _DIGEST_TITLE_PATTERN = re.compile(
     r"|Daily\s+Tech\s+Digest"
     r"|Daily_Tech_Digest"
     r"|Tech_Security_Weekly_Digest"
+    # Filename-style topic digests: e.g. Blockchain_Tech_Digest,
+    # Security_Cloud_Digest, AI_Cloud_Digest, DevOps_Blockchain_Digest,
+    # Security_Digest. Matches 1-3 underscore-joined capitalized topic
+    # tokens followed by _Digest. Trailing \b would require non-word after
+    # _Digest, but filenames usually continue with another _Topic, so we
+    # only anchor the start.
+    r"|\b[A-Z]\w+(?:_[A-Z]\w+){0,2}_Digest"
+    # Korean variants: "X & Y 다이제스트", "X 다이제스트", optional date prefix.
+    r"|\S+\s*(?:&\s*\S+\s*)?다이제스트"
     r"|주간\s*(?:다이제스트|롤업|리뷰)"
     r"|월간\s*(?:다이제스트|인덱스|롤업)"
     r"|데일리\s*테크\s*다이제스트",

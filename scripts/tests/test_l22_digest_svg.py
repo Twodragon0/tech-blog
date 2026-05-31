@@ -48,6 +48,36 @@ def test_digest_title_regex_matches_rollup_variants():
         assert _DIGEST_TITLE_PATTERN.search(title), f"missed: {title}"
 
 
+def test_digest_title_regex_matches_topic_filename_variants():
+    """Topic-prefixed filename digests that previously fell through to
+    L20-fallback dispatch. Commit 5e40dfea regenerated 14 covers via a
+    bypass tool because these were not caught by the picker. This
+    extension ensures future auto-publish hits the L22 path directly."""
+    cases = [
+        "2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.md",
+        "2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic.md",
+        "2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.md",
+        "2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.md",
+        "2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.md",
+    ]
+    for fn in cases:
+        assert _DIGEST_TITLE_PATTERN.search(fn), f"missed: {fn}"
+
+
+def test_digest_title_regex_matches_korean_topic_variants():
+    """Korean digest titles without 주간/월간/데일리 prefix.
+    The Blockchain/Security/AI 다이제스트 posts use this form."""
+    cases = [
+        "2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고",
+        "2026-02-09 보안 & 클라우드 다이제스트: AI 공급망 보안",
+        "AI & 클라우드 다이제스트: Meta Prometheus",
+        "DevOps & 블록체인 다이제스트: CNCF Velocity",
+        "2026-02-10 보안 다이제스트: SolarWinds RCE",
+    ]
+    for title in cases:
+        assert _DIGEST_TITLE_PATTERN.search(title), f"missed: {title}"
+
+
 def test_digest_title_regex_skips_non_digest():
     assert not _DIGEST_TITLE_PATTERN.search("AI Agent Security Architecture")
     assert not _DIGEST_TITLE_PATTERN.search("FinOps Cost Optimization Guide")
