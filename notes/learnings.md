@@ -56,3 +56,30 @@
 **로컬 환경**:
 - Python 3.14 + `chardet 7.x` → `requests 2.32.5`의 `chardet<6` 요구와 충돌
 - 해결: `chardet 5.2.0` 다운그레이드 + `~/.config/pip/constraints.txt`에 `chardet<6` 설정
+
+## 2026-06-01
+
+### L20 side-panel headline cap 설계 교훈
+
+**상황**: `<text x="670" y="140|404" font-size="24" font-weight="800">` 가 글자수
+제한 없이 렌더 → 27자 초과 헤드라인이 KPI 카드(x=1024-1164) 영역과 겹침. 21개
+운영 SVG에서 가시적 오버레이 발생.
+
+**교훈 1 — 픽셀 예산은 코드 상수로 표현해야 함**:
+구획별 픽셀 예산이 docstring에 적혀있어도 호출부 코드에는 noop. 비슷한 문제 회피:
+side-card subheadline에는 이미 `_fit_subheadline(max_chars=54)` 가드가 존재. 패턴
+복제로 `_fit_panel_headline(max_chars=27)` 헬퍼 + 양쪽 call site (top_right,
+bottom_right) 둘 다 적용. 누락된 visual-budget guard는 항상 호출부에 명시.
+
+**교훈 2 — 일괄 재생성과 surgical patch는 결과물이 다름**:
+`generate_post_images.py --force` 로 재생성하면 `extract_three_stories()` 가
+title+excerpt+filename 만 사용해 헤드라인이 단일 토큰("Agent", "Cloud")으로 축소.
+원본은 L22 dispatch 시절 본문 H3에서 추출한 풍부한 문구(`AWS Serverless AI Defense
+Architecture`)였음. 편집 가치를 보존하려면 `scripts/fix_panel_headline_overflow.py`
+같은 in-place regex 패치 도구로 헤드라인 문자열만 잘라내는 방식이 안전. 향후
+유사 회귀(텍스트 overflow, 색상 충돌 등)에서 동일 접근 적용 가능.
+
+**교훈 3 — cap 함수의 ellipsis budget**:
+초기 구현은 `max_chars - 1` 위치에서 자르고 "..." 추가 → 결과 길이가 `max_chars + 2`
+까지 늘어남. 수정: `budget = max_chars - 3` 으로 ellipsis 자리 예약. 단위 테스트
+`test_result_never_exceeds_max_chars` 가 이 invariant를 강제. (commit `6b5a621b`)
