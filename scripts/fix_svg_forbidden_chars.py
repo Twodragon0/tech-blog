@@ -159,7 +159,7 @@ def fix_svg_file(path: Path, dry_run: bool = False) -> dict:
 
     for elem in tree.iter():
         tag = local(elem.tag)
-        if tag not in ("text", "tspan"):
+        if tag not in ("text", "tspan", "title", "desc"):
             continue
 
         # Fix elem.text
