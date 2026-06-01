@@ -457,6 +457,87 @@ class TestBandSpecificMiniBadges:
         )
 
 
+class TestExtractPostKpi:
+    """Fixture-replacement KPI extraction (2026-06-01 designer audit).
+
+    `_extract_post_kpi` mines per-visual KPIs from the post body so the
+    parameterized visual functions render post-specific metrics instead
+    of the four hardcoded fixture strings flagged by the designer audit:
+    ``10 endpoints : 12 routes``, ``3 rings : signed by CA``,
+    ``CVSS : critical scope``, ``3 pods / 3 nodes : workload identity``.
+    """
+
+    def test_extract_post_kpi_lock_cve_finds_cve_id(self, tmp_path):
+        from scripts.news.l22_dispatch import _extract_post_kpi
+        post = tmp_path / "post.md"
+        post.write_text(
+            "---\ntitle: x\n---\nCVE-2025-40551 was patched. CVSS 9.8 critical impact.\n",
+            encoding="utf-8",
+        )
+        out = _extract_post_kpi(post)
+        assert out["lock_cve"] == ("9.8", "CVE-2025-40551")
+        assert out["browser_cve"] == ("9.8", "CVE-2025-40551")
+
+    def test_extract_post_kpi_cloud_k8s_finds_pod_count(self, tmp_path):
+        from scripts.news.l22_dispatch import _extract_post_kpi
+        post = tmp_path / "post.md"
+        post.write_text(
+            "---\ntitle: x\n---\nCluster spec: 12 pods running across 5 nodes.\n",
+            encoding="utf-8",
+        )
+        out = _extract_post_kpi(post)
+        assert out["cloud_k8s"][0] == "12 pods"
+        # kpi_top_right + " | " + kpi_bottom packed into out["cloud_k8s"][1]
+        assert "5 nodes" in out["cloud_k8s"][1]
+
+    def test_extract_post_kpi_empty_returns_defaults(self, tmp_path):
+        from scripts.news.l22_dispatch import _extract_post_kpi
+        post = tmp_path / "post.md"
+        post.write_text(
+            "---\ntitle: x\n---\nNothing quantitatively interesting here.\n",
+            encoding="utf-8",
+        )
+        out = _extract_post_kpi(post)
+        # No CVE / CVSS / USD / count match → empty dict, visual uses its
+        # own default string.
+        assert out == {}
+
+    def test_v_routes_endpoints_accepts_kpi_override(self):
+        from scripts.lib.svg_l22_generator import v_network_nodes
+        svg = v_network_nodes(500, 105, "#fff", "#aaa", kpi="$44B exposure")
+        assert "$44B exposure" in svg
+        assert "10 endpoints : 12 routes" not in svg
+
+    def test_v_cloud_k8s_accepts_kpi_override(self):
+        from scripts.lib.svg_l22_generator import v_cloud_k8s
+        svg = v_cloud_k8s(
+            500, 105, "#fff", "#aaa",
+            kpi_top="12 pods", kpi_top_right="v1.30",
+            kpi_bottom="5 nodes : istio mesh",
+        )
+        assert "12 pods" in svg
+        assert "v1.30" in svg
+        assert "5 nodes : istio mesh" in svg
+        # Fixture strings replaced.
+        assert "3 pods" not in svg
+        assert "3 nodes : workload identity" not in svg
+
+    def test_v_cosign_chain_accepts_kpi_override(self):
+        from scripts.lib.svg_l22_generator import v_shield
+        svg = v_shield(500, 105, "#fff", "#aaa", kpi="9 signed : Sigstore CA")
+        assert "9 signed : Sigstore CA" in svg
+        assert "3 rings : signed by CA" not in svg
+
+    def test_v_lock_cve_accepts_subline_override(self):
+        from scripts.lib.svg_l22_generator import v_lock_cve
+        svg = v_lock_cve(
+            500, 105, "#fff", "#aaa",
+            cvss="9.8", subline="CVE-2025-40551 : kernel RCE",
+        )
+        assert "CVE-2025-40551 : kernel RCE" in svg
+        assert "CVSS : critical scope" not in svg
+
+
 class TestKoreanTitleFilenameExtraction:
     """Regression guard for the 2026-05-13~18 bug: render_l22_svg_string
     was calling extract_three_stories(title, excerpt) without the

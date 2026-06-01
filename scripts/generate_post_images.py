@@ -2370,20 +2370,81 @@ def _trim_l22_text(text: str, limit: int) -> str:
     return text[: limit - 1].rstrip() + "…"
 
 
-def _build_l22_band_cfg(topic: str, route: dict) -> dict:
-    """Compose a single render_bands_svg band dict from a topic + route."""
+def _kpi_kwargs_for_visual(
+    visual_name: str,
+    post_kpi: Dict[str, Tuple[str, str]],
+) -> Dict[str, str]:
+    """Translate an extracted ``post_kpi`` map into kwargs for ``visual_fn``.
+
+    Maps L22 visual functions (``v_lock_cve``, ``v_network_nodes``,
+    ``v_shield``, ``v_cloud_k8s``) to the right keyword arguments. Visuals
+    that have no entry in the extracted dict get an empty kwargs dict so
+    the visual function falls back to its module-level default.
+    """
+    if not post_kpi:
+        return {}
+
+    if visual_name == "v_lock_cve":
+        kpi = post_kpi.get("lock_cve") or ()
+        if kpi:
+            return {"cvss": kpi[0], "subline": kpi[1]}
+        return {}
+
+    if visual_name == "v_network_nodes":
+        kpi = post_kpi.get("routes_endpoints") or ()
+        if kpi:
+            return {"kpi": f"{kpi[0]} : {kpi[1]}"}
+        return {}
+
+    if visual_name == "v_shield":
+        kpi = post_kpi.get("shield") or ()
+        if kpi:
+            return {"kpi": f"{kpi[0]} : {kpi[1]}"}
+        return {}
+
+    if visual_name == "v_cloud_k8s":
+        kpi = post_kpi.get("cloud_k8s") or ()
+        if kpi:
+            top_right_and_bottom = kpi[1]
+            if " | " in top_right_and_bottom:
+                top_right, bottom = top_right_and_bottom.split(" | ", 1)
+            else:
+                top_right, bottom = "healthy", top_right_and_bottom
+            return {
+                "kpi_top": kpi[0],
+                "kpi_top_right": top_right,
+                "kpi_bottom": bottom,
+            }
+        return {}
+
+    return {}
+
+
+def _build_l22_band_cfg(
+    topic: str,
+    route: dict,
+    post_kpi: Optional[Dict[str, Tuple[str, str]]] = None,
+) -> dict:
+    """Compose a single render_bands_svg band dict from a topic + route.
+
+    When ``post_kpi`` is provided (extracted by
+    :func:`scripts.news.l22_dispatch._extract_post_kpi_from_text`), passes
+    per-visual KPI kwargs to ``visual_fn`` so the rendered fragment
+    carries post-specific KPIs instead of the hardcoded fixture strings.
+    """
     from scripts.lib import svg_l22_generator as _l22
 
     visual_fn = getattr(_l22, route["visual_name"])
     accent = _l22.THEMES[route["theme"]]["accent"]
     soft = _l22.THEMES[route["theme"]]["soft"]
+    kpi_kwargs = _kpi_kwargs_for_visual(route["visual_name"], post_kpi or {})
     # All visuals share the same (cx=500, yc=105) origin; band() shifts the
     # group vertically per index, so the same yc works for every band.
     try:
-        visual_svg = visual_fn(500, 105, accent, soft)
+        visual_svg = visual_fn(500, 105, accent, soft, **kpi_kwargs)
     except TypeError:
         # v_senate_columns has a different signature (no soft).
-        visual_svg = visual_fn(500, 105, accent)
+        visual_svg = visual_fn(500, 105, accent, **kpi_kwargs)
 
     headline = _trim_l22_text(topic, 36)
     metric = _trim_l22_text(topic, 48)
@@ -2431,12 +2492,24 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
         while len(topics) < 3:
             topics.append("Security Update")
 
+        # Extract per-visual KPIs from the post body so the band visuals
+        # render post-specific metrics instead of the hardcoded fixture
+        # strings ("10 endpoints : 12 routes", "3 rings : signed by CA",
+        # "CVSS : critical scope", "3 pods / 3 nodes : workload identity")
+        # flagged by the 2026-06-01 designer audit.
+        try:
+            from scripts.news.l22_dispatch import _extract_post_kpi_from_text
+            post_kpi = _extract_post_kpi_from_text(content)
+        except Exception as exc:  # pragma: no cover - defensive
+            log_message(f"⚠️ _extract_post_kpi failed, using defaults: {exc}", "WARNING")
+            post_kpi = {}
+
         bands_cfg = []
         used_themes: set = set()
         for topic in topics[:3]:
             route = _route_l22_band(topic, used_themes)
             used_themes.add(route["theme"])
-            bands_cfg.append(_build_l22_band_cfg(topic, route))
+            bands_cfg.append(_build_l22_band_cfg(topic, route, post_kpi=post_kpi))
 
         # Build URL from filename (YYYY-MM-DD-Slug.md -> /posts/YYYY/MM/DD/Slug/).
         url = "https://tech.2twodragon.com/"

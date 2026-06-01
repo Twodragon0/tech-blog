@@ -71,7 +71,7 @@
       <circle r="42"><animate attributeName="r" values="36;52;36" dur="2.6s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.7;0;0.7" dur="2.6s" repeatCount="indefinite"/></circle>
       <circle r="56"><animate attributeName="r" values="48;68;48" dur="3.2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
     </g>
-    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FCA5A5" opacity="0.75">10 endpoints : 12 routes</text>
+    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FCA5A5" opacity="0.75">BTC $71K : market data</text>
   </g>
   
   

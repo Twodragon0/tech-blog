@@ -413,7 +413,14 @@ def v_price_chart(cx: int, yc: int, accent: str, soft: str) -> str:
   </g>'''
 
 
-def v_network_nodes(cx: int, yc: int, accent: str, soft: str, label: str = "INFRA") -> str:
+def v_network_nodes(
+    cx: int,
+    yc: int,
+    accent: str,
+    soft: str,
+    label: str = "INFRA",
+    kpi: str = "10 endpoints : 12 routes",
+) -> str:
     """Central hub with radiating infected nodes (C2 topology)."""
     return f'''<g transform="translate({cx},{yc})">
     <circle r="80" fill="{accent}" fill-opacity="0.08"><animate attributeName="r" values="60;90;60" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;1;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
@@ -454,7 +461,7 @@ def v_network_nodes(cx: int, yc: int, accent: str, soft: str, label: str = "INFR
       <circle r="42"><animate attributeName="r" values="36;52;36" dur="2.6s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.7;0;0.7" dur="2.6s" repeatCount="indefinite"/></circle>
       <circle r="56"><animate attributeName="r" values="48;68;48" dur="3.2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="3.2s" repeatCount="indefinite"/></circle>
     </g>
-    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.75">10 endpoints : 12 routes</text>
+    <text y="92" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.75">{kpi}</text>
   </g>'''
 
 
@@ -580,7 +587,14 @@ def v_code_bars(cx: int, yc: int, accent: str, soft: str, caption: str = "CODE")
   </g>'''
 
 
-def v_shield(cx: int, yc: int, accent: str, soft: str, label: str = "SHIELD") -> str:
+def v_shield(
+    cx: int,
+    yc: int,
+    accent: str,
+    soft: str,
+    label: str = "SHIELD",
+    kpi: str = "3 rings : signed by CA",
+) -> str:
     """Shield emblem with concentric rings + checkmark animation."""
     return f'''<g transform="translate({cx},{yc})">
     <circle r="78" fill="{accent}" fill-opacity="0.05"><animate attributeName="r" values="68;84;68" dur="3.4s" repeatCount="indefinite"/></circle>
@@ -610,11 +624,18 @@ def v_shield(cx: int, yc: int, accent: str, soft: str, label: str = "SHIELD") ->
     </g>
     <text x="-78" y="-72" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">verified</text>
     <text y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">{label}</text>
-    <text y="98" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">3 rings : signed by CA</text>
+    <text y="98" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">{kpi}</text>
   </g>'''
 
 
-def v_lock_cve(cx: int, yc: int, accent: str, soft: str, cvss: str = "9.8") -> str:
+def v_lock_cve(
+    cx: int,
+    yc: int,
+    accent: str,
+    soft: str,
+    cvss: str = "9.8",
+    subline: str = "CVSS : critical scope",
+) -> str:
     """Padlock with CVE score + halo + radar ticks."""
     return f'''<g transform="translate({cx},{yc})">
     <circle r="78" fill="{accent}" fill-opacity="0.06"><animate attributeName="r" values="62;82;62" dur="3.4s" repeatCount="indefinite"/></circle>
@@ -649,11 +670,19 @@ def v_lock_cve(cx: int, yc: int, accent: str, soft: str, cvss: str = "9.8") -> s
       <line x1="-86" y1="0" x2="-74" y2="0"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" repeatCount="indefinite"/></line>
       <line x1="74" y1="0" x2="86" y2="0"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.5s" repeatCount="indefinite"/></line>
     </g>
-    <text y="78" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">CVSS : critical scope</text>
+    <text y="78" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">{subline}</text>
   </g>'''
 
 
-def v_cloud_k8s(cx: int, yc: int, accent: str, soft: str) -> str:
+def v_cloud_k8s(
+    cx: int,
+    yc: int,
+    accent: str,
+    soft: str,
+    kpi_top: str = "3 pods",
+    kpi_top_right: str = "healthy",
+    kpi_bottom: str = "3 nodes : workload identity",
+) -> str:
     """Cloud with K8s hexagonal nodes + traffic dots."""
     return f'''<g transform="translate({cx},{yc})">
     <circle r="80" fill="{accent}" fill-opacity="0.06"><animate attributeName="r" values="64;86;64" dur="3.4s" repeatCount="indefinite"/></circle>
@@ -685,10 +714,10 @@ def v_cloud_k8s(cx: int, yc: int, accent: str, soft: str) -> str:
       <line x1="-90" y1="-58" x2="-78" y2="-58"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" repeatCount="indefinite"/></line>
       <line x1="78" y1="-58" x2="90" y2="-58"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.4s" repeatCount="indefinite"/></line>
     </g>
-    <text x="-86" y="-58" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">3 pods</text>
-    <text x="86" y="-58" text-anchor="end" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">healthy</text>
+    <text x="-86" y="-58" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">{kpi_top}</text>
+    <text x="86" y="-58" text-anchor="end" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.7">{kpi_top_right}</text>
     <text y="60" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{accent}">K8s CLOUD</text>
-    <text y="74" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">3 nodes : workload identity</text>
+    <text y="74" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}" opacity="0.7">{kpi_bottom}</text>
   </g>'''
 
 
