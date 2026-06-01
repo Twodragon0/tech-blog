@@ -103,6 +103,53 @@ def test_is_digest_post_rejects_regular_post():
     assert _is_digest_post(info) is False
 
 
+def test_extract_digest_topics_skips_boilerplate_h3():
+    """When a non-boilerplate H2 group leads with a boilerplate H3 like
+    ``### 위험도 평가``, the extractor must walk further and pick the
+    next real-story H3 (e.g. ``### 1.1 ...``). Designer audit at
+    2026-06-01 identified Cloud_Security_Course_8Batch + Security_Digest
+    as posts whose covers showed "위험도 평가" as a band topic."""
+    body = """## 1. 보안 뉴스
+
+### 위험도 평가
+
+(boilerplate scoring rubric)
+
+### 1.1 SolarWinds CVE-2025-40551 RCE
+
+real content
+
+## 2. 위협 정보
+
+### 위협 정보
+
+(boilerplate)
+
+### 2.1 UNC3886 Telecom Espionage
+
+real content
+
+## 3. AI 보안
+
+### 핵심 포인트
+
+(boilerplate)
+
+### 3.1 LLM GRPO Safety Bypass
+
+real content
+"""
+    topics = _extract_digest_topics(body, max_topics=3)
+    assert len(topics) == 3
+    assert any("SolarWinds" in t for t in topics)
+    assert any("UNC3886" in t for t in topics)
+    assert any("LLM" in t for t in topics)
+    # Boilerplate H3 must not leak in.
+    assert not any("위험도 평가" in t for t in topics)
+    assert not any("위협 정보" in t for t in topics)
+    assert not any("핵심 포인트" in t for t in topics)
+
+
 def test_extract_digest_topics_skips_boilerplate_h2():
     body = """## 서론
 intro body

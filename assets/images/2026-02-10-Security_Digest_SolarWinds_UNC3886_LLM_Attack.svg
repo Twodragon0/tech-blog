@@ -4,13 +4,13 @@
 <linearGradient id="bgSpreadL22" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1226"/><stop offset="50%" stop-color="#0C1430"/><stop offset="100%" stop-color="#131038"/></linearGradient>
 <linearGradient id="bandAL22" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A0E2E"/><stop offset="100%" stop-color="#24122F"/></linearGradient>
 <linearGradient id="bandBL22" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#2A1A0C"/><stop offset="100%" stop-color="#1E1F0A"/></linearGradient>
-<linearGradient id="bandCL22" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0E2038"/><stop offset="100%" stop-color="#12283F"/></linearGradient>
+<linearGradient id="bandCL22" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1E0A3A"/><stop offset="100%" stop-color="#2A0E4A"/></linearGradient>
 <linearGradient id="streakAL22" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#E63946" stop-opacity="0"/><stop offset="50%" stop-color="#E63946" stop-opacity="0.85"/><stop offset="100%" stop-color="#E63946" stop-opacity="0"/></linearGradient>
 <linearGradient id="streakBL22" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFB703" stop-opacity="0"/><stop offset="50%" stop-color="#FFB703" stop-opacity="0.85"/><stop offset="100%" stop-color="#FFB703" stop-opacity="0"/></linearGradient>
-<linearGradient id="streakCL22" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0"/><stop offset="50%" stop-color="#4ADE80" stop-opacity="0.85"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></linearGradient>
+<linearGradient id="streakCL22" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0"/><stop offset="50%" stop-color="#A78BFA" stop-opacity="0.85"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></linearGradient>
 <radialGradient id="glowAL22" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#E63946" stop-opacity="0.55"/><stop offset="100%" stop-color="#E63946" stop-opacity="0"/></radialGradient>
 <radialGradient id="glowBL22" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFB703" stop-opacity="0.55"/><stop offset="100%" stop-color="#FFB703" stop-opacity="0"/></radialGradient>
-<radialGradient id="glowCL22" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#4ADE80" stop-opacity="0.55"/><stop offset="100%" stop-color="#4ADE80" stop-opacity="0"/></radialGradient>
+<radialGradient id="glowCL22" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A78BFA" stop-opacity="0.55"/><stop offset="100%" stop-color="#A78BFA" stop-opacity="0"/></radialGradient>
 <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/><feOffset dx="1" dy="3"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="textShadow" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/><feOffset dx="0" dy="1.5"/><feComponentTransfer><feFuncA type="linear" slope="0.85"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <pattern id="ledgerGrid" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse"><path d="M0 20 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/><path d="M40 0 L40 20" stroke="#2A3A56" stroke-width="0.4" opacity="0.5"/></pattern>
@@ -26,9 +26,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">SECURITY</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">위험도 평가</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">위험도 평가</text>
-    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">위험도 평가</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">SolarWinds Web Help...</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">SolarWinds Web Help Desk RCE - 다단계...</text>
+    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">SolarWinds Web Help Desk RCE - 다단계 공격으로 전체 도메인 장악</text>
     
     
   </g>
@@ -101,9 +101,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">VULNERABILITY</text>
-    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">위협 정보</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">위협 정보</text>
-    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">위협 정보</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">중국 연계 UNC3886 - 싱가포르...</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">중국 연계 UNC3886 - 싱가포르 통신사 4곳 전체 대상...</text>
+    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">중국 연계 UNC3886 - 싱가포르 통신사 4곳 전체 대상 사이버 첩보</text>
     
     
   </g>
@@ -165,65 +165,71 @@
 </g>
 <g>
   <rect x="0" y="420" width="1200" height="210" fill="url(#bandCL22)"/>
-  <rect x="0" y="420" width="1200" height="210" fill="url(#ledgerGrid)" opacity="0.6"/>
-  <rect x="0" y="420" width="8" height="210" fill="#4ADE80"/>
+  <rect x="0" y="420" width="1200" height="210" fill="url(#circuitDot)" opacity="0.6"/>
+  <rect x="0" y="420" width="8" height="210" fill="#A78BFA"/>
   
   <g filter="url(#textShadow)">
-    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">DEFENSE</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">핵심 포인트</text>
-    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">핵심 포인트</text>
-    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">핵심 포인트</text>
+    <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#C4B5FD">LLM</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">LLM 안전 정렬을 단일 프롬프트로...</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#DDD6FE">LLM 안전 정렬을 단일 프롬프트로 무력화하는 GRPO 공격</text>
+    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D0CCE5">LLM 안전 정렬을 단일 프롬프트로 무력화하는 GRPO 공격</text>
     
     
   </g>
   <g transform="translate(500,105)">
-    <circle r="78" fill="#4ADE80" fill-opacity="0.05"><animate attributeName="r" values="68;84;68" dur="3.4s" repeatCount="indefinite"/></circle>
-    <path d="M0 -60 L55 -40 L50 25 Q40 55 0 65 Q-40 55 -50 25 L-55 -40 Z" fill="#4ADE80" fill-opacity="0.15" stroke="#4ADE80" stroke-width="2.4" filter="url(#softShadow)"/>
-    <path d="M0 -50 L45 -33 L40 22 Q32 46 0 55 Q-32 46 -40 22 L-45 -33 Z" fill="none" stroke="#86EFAC" stroke-width="1" opacity="0.7"/>
-    <path d="M0 -40 L35 -26 L31 18 Q24 38 0 45 Q-24 38 -31 18 L-35 -26 Z" fill="none" stroke="#86EFAC" stroke-width="0.6" opacity="0.5"/>
-    <g transform="translate(0,-5)" stroke="#86EFAC" stroke-width="3" fill="none">
-      <path d="M-18 5 L-4 20 L22 -12"><animate attributeName="stroke-dasharray" values="0 80;80 0" dur="2.4s" repeatCount="indefinite"/></path>
+    <rect x="-92" y="-56" width="184" height="116" rx="8" fill="#A78BFA" fill-opacity="0.05" stroke="#A78BFA" stroke-width="1.2" stroke-opacity="0.5"/>
+    <g stroke="#A78BFA" stroke-width="2" opacity="0.85">
+      <line x1="-80" y1="-40" x2="-30" y2="-40"/><line x1="-25" y1="-40" x2="40" y2="-40"/>
+      <line x1="-80" y1="-20" x2="-10" y2="-20"/><line x1="-5" y1="-20" x2="55" y2="-20"/>
+      <line x1="-80" y1="0" x2="-40" y2="0"/><line x1="-35" y1="0" x2="60" y2="0"/>
+      <line x1="-80" y1="20" x2="-20" y2="20"/><line x1="-15" y1="20" x2="30" y2="20"/>
+      <line x1="-80" y1="40" x2="-50" y2="40"/><line x1="-45" y1="40" x2="50" y2="40"/>
     </g>
-    <g fill="#86EFAC" opacity="0.7">
-      <circle cx="-40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
-      <circle cx="40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
-      <circle cx="-30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
-      <circle cx="30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.9s" repeatCount="indefinite"/></circle>
+    <rect x="-86" y="-50" width="4" height="104" fill="#A78BFA" opacity="0.6"/>
+    <g fill="#C4B5FD">
+      <circle cx="74" cy="-40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="-20" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="0" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="20" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" repeatCount="indefinite"/></circle>
+      <circle cx="74" cy="40" r="3"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" repeatCount="indefinite"/></circle>
     </g>
-    <g fill="#86EFAC" opacity="0.55">
-      <circle cx="-65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" repeatCount="indefinite"/></circle>
-      <circle cx="65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
-      <circle cx="-50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" begin="0.7s" repeatCount="indefinite"/></circle>
-      <circle cx="50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.3s" begin="1.0s" repeatCount="indefinite"/></circle>
-      <circle cx="-50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></circle>
-      <circle cx="50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
+    <rect x="-86" y="-50" width="178" height="3" fill="#A78BFA" opacity="0.4">
+      <animate attributeName="y" values="-50;46;-50" dur="3.2s" repeatCount="indefinite"/>
+    </rect>
+    <g fill="#C4B5FD" opacity="0.65">
+      <circle cx="-86" cy="-40" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="-20" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.2s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="0" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="20" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.1s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-86" cy="40" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" begin="0.8s" repeatCount="indefinite"/></circle>
     </g>
-    <g stroke="#4ADE80" stroke-width="0.4" stroke-opacity="0.35" fill="none">
-      <path d="M-78 -68 L-66 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2s" repeatCount="indefinite"/></path>
-      <path d="M66 -68 L78 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2.3s" begin="0.4s" repeatCount="indefinite"/></path>
+    <g stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+      <path d="M-94 -54 L-78 -54"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="1.8s" repeatCount="indefinite"/></path>
+      <path d="M82 -54 L94 -54"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2s" begin="0.3s" repeatCount="indefinite"/></path>
     </g>
-    <text x="-78" y="-72" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#86EFAC" opacity="0.7">verified</text>
-    <text y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#4ADE80">SHIELD</text>
-    <text y="98" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#86EFAC" opacity="0.7">3 rings : signed by CA</text>
+    <text x="-86" y="-58" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#C4B5FD" opacity="0.7">5 lines</text>
+    <text x="80" y="-58" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#C4B5FD" opacity="0.7">live</text>
+    <text y="68" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#A78BFA">CODE</text>
+    <text y="82" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#C4B5FD" opacity="0.7">cursor : line 5 col 14</text>
   </g>
   
   
   <g transform="translate(990,525)" filter="url(#softShadow)">
-    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#0A1B2E" stroke="#4ADE80" stroke-width="2.2"/>
-    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#4ADE80">DEF</text>
-    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">DEF</text>
-    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#9FD3B0">highlighted</text>
-    <line x1="-58" y1="50" x2="78" y2="50" stroke="#4ADE80" stroke-width="0.8" stroke-opacity="0.5"/>
+    <rect x="-80" y="-65" width="180" height="125" rx="14" fill="#160629" stroke="#A78BFA" stroke-width="2.2"/>
+    <text x="10" y="-38" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#C4B5FD">LLM</text>
+    <text x="10" y="22" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="72" font-weight="900" fill="#F5F7FA">LLM</text>
+    <text x="10" y="44" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#DDD6FE">highlighted</text>
+    <line x1="-58" y1="50" x2="78" y2="50" stroke="#A78BFA" stroke-width="0.8" stroke-opacity="0.5"/>
     
   </g>
   <g transform="translate(990,525)">
-    <circle cx="10" cy="-50" r="3" fill="#4ADE80"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
-    <circle cx="-58" cy="-50" r="2" fill="#86EFAC"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
-    <circle cx="78" cy="-50" r="2" fill="#86EFAC"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
-    <rect x="-78" y="-62" width="14" height="2" rx="1" fill="#4ADE80" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></rect>
-    <rect x="-78" y="-58" width="9" height="2" rx="1" fill="#86EFAC" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.9s" repeatCount="indefinite"/></rect>
-    <rect x="62" y="-62" width="14" height="2" rx="1" fill="#4ADE80" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
-    <rect x="65" y="-58" width="9" height="2" rx="1" fill="#86EFAC" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
+    <circle cx="10" cy="-50" r="3" fill="#A78BFA"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="-58" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="78" cy="-50" r="2" fill="#C4B5FD"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/></circle>
+    <rect x="-78" y="-62" width="14" height="2" rx="1" fill="#A78BFA" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/></rect>
+    <rect x="-78" y="-58" width="9" height="2" rx="1" fill="#C4B5FD" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="1.9s" repeatCount="indefinite"/></rect>
+    <rect x="62" y="-62" width="14" height="2" rx="1" fill="#A78BFA" opacity="0.7"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>
+    <rect x="65" y="-58" width="9" height="2" rx="1" fill="#C4B5FD" opacity="0.5"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.1s" begin="0.3s" repeatCount="indefinite"/></rect>
   </g>
   
 </g>
@@ -321,7 +327,7 @@
     <rect x="120" y="225" width="40" height="1.6"><animate attributeName="x" values="120;640;120" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6s" repeatCount="indefinite"/></rect>
     <rect x="640" y="405" width="40" height="1.6"><animate attributeName="x" values="640;120;640" dur="6.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6.5s" repeatCount="indefinite"/></rect>
   </g>
-  <g fill="#4ADE80">
+  <g fill="#A78BFA">
     <circle cx="240" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite"/></circle>
     <circle cx="290" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.2s" repeatCount="indefinite"/></circle>
     <circle cx="340" cy="483" r="1.5"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/></circle>
@@ -338,18 +344,18 @@
     <circle cx="900" cy="501" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.3s" begin="0.2s" repeatCount="indefinite"/></circle>
     <circle cx="900" cy="549" r="1.2"><animate attributeName="opacity" values="0;1;0" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
   </g>
-  <g fill="#4ADE80" opacity="0.6">
+  <g fill="#A78BFA" opacity="0.6">
     <rect x="780" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/></rect>
     <rect x="800" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
     <rect x="820" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
     <rect x="840" y="447" width="6" height="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" begin="0.9s" repeatCount="indefinite"/></rect>
   </g>
-  <g fill="#86EFAC" opacity="0.85">
+  <g fill="#C4B5FD" opacity="0.85">
     <rect x="730" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.4s" repeatCount="indefinite"/></rect>
     <rect x="746" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></rect>
     <rect x="762" y="585" width="3" height="3" rx="0.6"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" begin="0.6s" repeatCount="indefinite"/></rect>
   </g>
-  <g stroke="#4ADE80" stroke-width="0.5" stroke-opacity="0.35" fill="none">
+  <g stroke="#A78BFA" stroke-width="0.5" stroke-opacity="0.35" fill="none">
     <path d="M20 515 L28 515"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>
     <path d="M20 545 L28 545"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></path>
     <path d="M20 575 L28 575"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></path>
@@ -359,11 +365,11 @@
     <path d="M1180 575 L1172 575"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.8s" repeatCount="indefinite"/></path>
     <path d="M1180 605 L1172 605"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.7s" begin="1.1s" repeatCount="indefinite"/></path>
   </g>
-  <g stroke="#86EFAC" stroke-width="0.6" stroke-opacity="0.3" fill="none">
+  <g stroke="#C4B5FD" stroke-width="0.6" stroke-opacity="0.3" fill="none">
     <circle cx="500" cy="525" r="100"><animate attributeName="r" values="80;120;80" dur="4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="4s" repeatCount="indefinite"/></circle>
     <circle cx="500" cy="525" r="60" stroke-dasharray="2 4"><animate attributeName="r" values="40;80;40" dur="3.4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3.4s" repeatCount="indefinite"/></circle>
   </g>
-  <g fill="#4ADE80" opacity="0.55">
+  <g fill="#A78BFA" opacity="0.55">
     <rect x="120" y="435" width="40" height="1.6"><animate attributeName="x" values="120;640;120" dur="6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6s" repeatCount="indefinite"/></rect>
     <rect x="640" y="615" width="40" height="1.6"><animate attributeName="x" values="640;120;640" dur="6.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.1;0.6;0.1" dur="6.5s" repeatCount="indefinite"/></rect>
   </g>

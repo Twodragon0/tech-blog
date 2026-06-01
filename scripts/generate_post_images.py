@@ -2160,6 +2160,39 @@ _DIGEST_BOILERPLATE_HEADINGS = {
     "이번 주 다이제스트",
     "참고 자료",
     "기타 주목할 뉴스",
+    # Course/guide boilerplate H2 (designer audit 2026-06-01 finding):
+    "Executive Summary",
+    "경영진 요약",
+    "보안 체크리스트",
+    "결론",
+    "관련 자료",
+    "CI/CD 보안 실습 체크리스트",
+    "Kubernetes 보안 실습 체크리스트",
+    "마무리",
+    "요약",
+    "Outro",
+}
+
+# Boilerplate H3 sections that appear repeatedly inside H2 topic groups.
+# Picked up by `_extract_digest_topics` when its parent H2 is NOT in
+# `_DIGEST_BOILERPLATE_HEADINGS` (e.g. "1. 보안 뉴스 > ### 위험도 평가"),
+# producing contaminated topic strings. Filter them out and look for the
+# next H3 instead.
+_DIGEST_BOILERPLATE_H3 = {
+    "위험도 평가",
+    "위협 정보",
+    "이번 주 하이라이트",
+    "핵심 포인트",
+    "주요 포인트",
+    "대응 체크리스트",
+    "공격 체인 다이어그램",
+    "SIEM 탐지 쿼리",
+    "위협 행위자 프로파일",
+    "한국 통신사 영향 분석",
+    "참고 자료",
+    "온라인 강의 (edu.2twodragon.com)",
+    "YouTube 영상",
+    "외부 참고 자료",
 }
 
 # Keyword -> (theme, visual_factory_name, label) routing for L22 bands.
@@ -2276,12 +2309,20 @@ def _extract_digest_topics(content: str, max_topics: int = 3) -> List[str]:
         if any(bp in h2_clean for bp in _DIGEST_BOILERPLATE_HEADINGS):
             continue
         body = match.group(2)
-        h3_match = re.search(r"^###\s+([^\n]+)", body, re.MULTILINE)
-        if h3_match:
-            topic = h3_match.group(1).strip()
-            # Strip leading numbering like "1.1 " or "1.2 ".
-            topic = re.sub(r"^\d+(?:\.\d+)?\s+", "", topic).strip()
-        else:
+        # Walk H3s in order, skipping boilerplate ones so the picked topic
+        # reflects actual story content (e.g. "1.1 CVE-..." over the
+        # preceding boilerplate "### 위험도 평가" header).
+        topic = ""
+        for h3_match in re.finditer(r"^###\s+([^\n]+)", body, re.MULTILINE):
+            candidate = h3_match.group(1).strip()
+            # Strip markdown emphasis (**...**) and leading numbering.
+            candidate = re.sub(r"\*\*([^*]+)\*\*", r"\1", candidate)
+            candidate = re.sub(r"^\d+(?:\.\d+)?\s+", "", candidate).strip()
+            if any(bp in candidate for bp in _DIGEST_BOILERPLATE_H3):
+                continue
+            topic = candidate
+            break
+        if not topic:
             topic = h2_clean
         if topic and topic not in seen:
             seen.add(topic)

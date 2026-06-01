@@ -26,9 +26,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="44" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#F87171">SECURITY</text>
-    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">위험도 평가</text>
-    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">위험도 평가</text>
-    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">위험도 평가</text>
+    <text x="30" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Claude Code는 챗봇이 아니라...</text>
+    <text x="30" y="118" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FBB6BD">Claude Code는 챗봇이 아니라 에이전트다</text>
+    <text x="30" y="146" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#D9C9CE">Claude Code는 챗봇이 아니라 에이전트다</text>
     
     
   </g>
@@ -101,9 +101,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="254" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#FFB703">VULNERABILITY</text>
-    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">Claude Code는 챗봇이 아니라...</text>
-    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">Claude Code는 챗봇이 아니라 에이전트다</text>
-    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">Claude Code는 챗봇이 아니라 에이전트다</text>
+    <text x="30" y="296" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">BP-01. 필수 환경 변수 3가지</text>
+    <text x="30" y="328" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFD58A">BP-01. 필수 환경 변수 3가지</text>
+    <text x="30" y="356" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#E0D5B6">BP-01. 필수 환경 변수 3가지</text>
     
     
   </g>
@@ -170,9 +170,9 @@
   
   <g filter="url(#textShadow)">
     <text x="30" y="464" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4" fill="#4ADE80">DEFENSE</text>
-    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">BP-01. 필수 환경 변수 3가지</text>
-    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">BP-01. 필수 환경 변수 3가지</text>
-    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">BP-01. 필수 환경 변수 3가지</text>
+    <text x="30" y="506" font-family="Inter, Helvetica, Arial, sans-serif" font-size="36" font-weight="800" fill="#F5F7FA">BP-06. 프로젝트마다...</text>
+    <text x="30" y="538" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#9FD3B0">BP-06. 프로젝트마다 CLAUDE.md 생성</text>
+    <text x="30" y="566" font-family="Inter, Helvetica, Arial, sans-serif" font-size="15" font-weight="500" fill="#BFC9D9">BP-06. 프로젝트마다 CLAUDE.md 생성</text>
     
     
   </g>
