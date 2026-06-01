@@ -2215,6 +2215,7 @@ _L22_KEYWORD_ROUTES = [
     ("aws", "blue", "v_cloud_k8s", "AWS CLOUD", "AWS"),
     ("azure", "blue", "v_cloud_k8s", "AZURE CLOUD", "AZ"),
     ("gcp", "blue", "v_cloud_k8s", "GCP CLOUD", "GCP"),
+    ("cncf",       "green",  "v_cloud_k8s",       "CNCF CLOUD",    "CNCF"),
     ("cloud", "blue", "v_cloud_k8s", "CLOUD", "CLD"),
     ("클라우드", "blue", "v_cloud_k8s", "CLOUD", "CLD"),
     ("prompt injection", "red",    "v_ai_threat", "PROMPT INJECT", "LLM"),
@@ -2228,6 +2229,14 @@ _L22_KEYWORD_ROUTES = [
     ("ai agent", "purple", "v_code_bars", "AI AGENT", "AGENT"),
     ("ai/ml", "purple", "v_code_bars", "AI ML", "AI"),
     ("ai ", "purple", "v_code_bars", "AI", "AI"),
+    # Brand + Korean aliases for crypto-exchange and CNCF digest topics
+    # (see .omc/research/l22_route_trace_2026_06_01.md for the routing trace).
+    ("bithumb",    "purple", "v_wallet_forensic", "EXCHANGE",      "EXC"),
+    ("upbit",      "purple", "v_wallet_forensic", "EXCHANGE",      "EXC"),
+    ("빗썸",        "purple", "v_wallet_forensic", "EXCHANGE",      "EXC"),
+    ("비트코인",    "amber",  "v_price_chart",     "CRYPTO MARKET", "BTC"),
+    ("chainalysis","purple", "v_wallet_forensic", "CHAIN INTEL",   "CHN"),
+    ("gitops",     "blue",   "v_code_bars",       "GITOPS",        "GIT"),
     ("blockchain", "purple", "v_wallet_forensic", "BLOCKCHAIN", "CHAIN"),
     ("블록체인", "purple", "v_wallet_forensic", "BLOCKCHAIN", "CHAIN"),
     ("bitcoin", "amber", "v_price_chart", "CRYPTO MARKET", "BTC"),
