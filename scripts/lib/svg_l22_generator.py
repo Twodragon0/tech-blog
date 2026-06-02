@@ -52,8 +52,20 @@ THEMES: Dict[str, Dict[str, str]] = {
 
 
 # --- QR code ---
+# Rendered QR edge length in px. Enlarged from the original 84px to 108px so
+# each module is ~2.63px (was ~2.05px at 84px for a 41x41 / version-6 matrix),
+# which survives the raster downscale to the 525x295 card variant far better.
+# The matrix itself is UNCHANGED for a given URL (only the per-module scale
+# differs), so the encoded payload still decodes to the same post URL.
+QR_PX = 108.0
+
+
 def gen_qr(url: str) -> str:
-    """Return SVG path data encoding ``url`` as a 84x84 px QR matrix."""
+    """Return SVG path data encoding ``url`` as a ``QR_PX`` x ``QR_PX`` matrix.
+
+    Only the render scale changed (84 -> 108 px); the underlying QR matrix is
+    identical for the same URL, so the decoded payload is unchanged.
+    """
     if not QRCODE_AVAILABLE:
         return ""
     qr = qrcode.QRCode(
@@ -66,7 +78,7 @@ def gen_qr(url: str) -> str:
     qr.make(fit=True)
     matrix = qr.get_matrix()
     size = len(matrix)
-    scale = 84.0 / size
+    scale = QR_PX / size
     parts: List[str] = []
     for ri, row in enumerate(matrix):
         j = 0
@@ -87,13 +99,24 @@ def gen_qr(url: str) -> str:
 
 
 def qr_block(url: str) -> str:
-    """Return the bottom-right QR <g> element for a 1200x630 cover."""
+    """Return the bottom-right QR <g> element for a 1200x630 cover.
+
+    Geometry (anchored at the locked ``translate(1080,504)`` origin):
+      - QR path renders at local (0,0), now ``QR_PX`` (108) px square, so it
+        occupies absolute x 1080..1188, y 504..612 (12px right / 18px bottom
+        frame margin -- in-frame).
+      - White backing rect is enlarged to 132x132 at local (-12,-12), i.e.
+        absolute x 1068..1200, y 492..624. The 12px white border around the
+        108px QR is a >=4-module quiet zone (~4.56 modules at ~2.63px/module).
+      - The "scan / full post" label is moved ABOVE the white rect (baseline
+        y=486, centred at x=1134) so it never overlaps the enlarged QR.
+    """
     return (
         f'<g transform="translate(1080,504)" filter="url(#softShadow)">\n'
-        f'  <rect x="-8" y="-8" width="100" height="100" rx="6" fill="#FFFFFF"/>\n'
+        f'  <rect x="-12" y="-12" width="132" height="132" rx="8" fill="#FFFFFF"/>\n'
         f'  <path fill="#0A1020" d="{gen_qr(url)}"/>\n'
         f'</g>\n'
-        f'<text x="1122" y="614" font-family="Inter, Helvetica, Arial, sans-serif" '
+        f'<text x="1134" y="486" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>'
     )
 

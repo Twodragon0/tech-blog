@@ -300,3 +300,103 @@ class TestQrPathDataRoundTrip:
             "gen_qr returned identical matrices for different URLs — "
             "the encoder is broken"
         )
+
+
+# ---------------------------------------------------------------------------
+# QR scannability geometry (enlarged QR + quiet zone)
+# ---------------------------------------------------------------------------
+
+
+class TestQrScannabilityGeometry:
+    """Lock the enlarged-QR scannability improvement so the QR can't silently
+    regress to the old tight 84px render.
+
+    The QR is rendered at ``QR_PX`` (108px) for a 41x41 (version-6) matrix,
+    giving ~2.63px/module, and ``qr_block`` wraps it in a 132x132 white rect
+    so the white margin around the 108px QR is a >=4-module quiet zone. The
+    whole block stays inside the 1200x630 frame and the label sits above the
+    rect (never over the QR).
+    """
+
+    @pytest.fixture(autouse=True)
+    def _require_qrcode(self):
+        from scripts.lib.svg_l22_generator import QRCODE_AVAILABLE
+
+        if not QRCODE_AVAILABLE:
+            pytest.skip("qrcode library not installed")
+
+    def test_qr_render_scale_is_enlarged(self):
+        from scripts.lib.svg_l22_generator import QR_PX
+
+        # Must be meaningfully larger than the original 84px to survive raster
+        # downscale; 108px gives ~2.63px/module for a 41x41 matrix.
+        assert QR_PX >= 104.0, f"QR_PX regressed below scannable size: {QR_PX}"
+
+    def test_qr_path_max_extent_matches_qr_px(self):
+        from scripts.lib.svg_l22_generator import QR_PX, gen_qr
+
+        url = (
+            "https://tech.2twodragon.com/posts/2026/05/23/"
+            "Tech_Security_Weekly_Digest_Ransomware_AI_Malware_Go/"
+        )
+        d = gen_qr(url)
+        assert d, "gen_qr returned empty path"
+        xs = [float(x) for x in re.findall(r"M([0-9.]+) ", d)]
+        # Last dark module starts at (size-1)*scale; full extent reaches QR_PX.
+        # Allow a one-module slack below QR_PX for the final module's origin.
+        one_module = QR_PX / 41.0
+        assert max(xs) <= QR_PX, "QR path overshoots QR_PX"
+        assert max(xs) >= QR_PX - 2 * one_module, "QR path far smaller than QR_PX"
+
+    def test_qr_block_quiet_zone_and_in_frame(self):
+        from scripts.lib.svg_l22_generator import QR_PX, qr_block
+
+        url = (
+            "https://tech.2twodragon.com/posts/2026/05/23/"
+            "Tech_Security_Weekly_Digest_Ransomware_AI_Malware_Go/"
+        )
+        block = qr_block(url)
+
+        # Locked anchor for the round-trip regex + L20 hero test.
+        assert 'transform="translate(1080,504)"' in block
+
+        # White backing rect: parse x/y/width/height (local coords).
+        m = re.search(
+            r'<rect x="(-?\d+)" y="(-?\d+)" width="(\d+)" height="(\d+)" '
+            r'rx="\d+" fill="#FFFFFF"/>',
+            block,
+        )
+        assert m, "white QR backing rect not found / changed shape"
+        rx, ry, rw, rh = (int(v) for v in m.groups())
+
+        # Quiet zone = white margin around the QR (QR path starts at local 0,0).
+        margin_left = -rx
+        margin_top = -ry
+        margin_right = (rx + rw) - QR_PX
+        margin_bottom = (ry + rh) - QR_PX
+        one_module = QR_PX / 41.0
+        for name, margin in (
+            ("left", margin_left),
+            ("top", margin_top),
+            ("right", margin_right),
+            ("bottom", margin_bottom),
+        ):
+            assert margin >= 4 * one_module, (
+                f"{name} quiet zone {margin:.1f}px < 4 modules "
+                f"({4 * one_module:.1f}px)"
+            )
+
+        # In-frame: absolute white-rect bounds within 0..1200 x, 0..630 y.
+        ax0, ay0 = 1080 + rx, 504 + ry
+        ax1, ay1 = ax0 + rw, ay0 + rh
+        assert 0 <= ax0 and ax1 <= 1200, f"QR rect x out of frame: {ax0}..{ax1}"
+        assert 0 <= ay0 and ay1 <= 630, f"QR rect y out of frame: {ay0}..{ay1}"
+
+        # Label must sit above the white rect (no overlap with the QR). Its
+        # baseline y must be <= the rect's absolute top.
+        lm = re.search(r'<text x="\d+" y="(\d+)"[^>]*>scan / full post</text>', block)
+        assert lm, "scan label not found"
+        label_y = int(lm.group(1))
+        assert label_y <= ay0, (
+            f"label baseline y={label_y} overlaps QR rect top {ay0}"
+        )
