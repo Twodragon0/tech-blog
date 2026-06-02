@@ -1,9 +1,32 @@
 #!/usr/bin/env python3
-"""L20 cover visual-honesty scorer (deterministic, NO LLM).
+"""Cover visual-honesty scorer (deterministic, NO LLM) for L20 / L22 / L25.
 
 Resolves OQ-6: produces a versioned, reproducible 0-100 honesty score for any
 committed L20 Hero+2-Card digest cover, so a PR can prove "score went from X
 to N" byte-for-byte instead of relying on an ad-hoc agent audit.
+
+Resolves OQ-5: extends the same deterministic rubric to the L22 fallback
+3-band digest renderer (``scripts.lib.svg_l22_generator.render_bands_svg``,
+fired only when L20 fails) and the L25 single-topic cover family
+(``profile: high-quality-cover (2025 upgraded L25-single)``), so an L22/L25
+cover can be audited reproducibly instead of by hand.
+
+System detection (``detect_system``) reads the on-disk SVG and classifies it:
+  * L20 — carries the ``profile: high-quality-cover (L20 Hero+2-Card)`` marker.
+  * L25 — carries the ``profile: high-quality-cover (2025 upgraded L25-single)``
+          marker (single-topic, one illustrative visual; both
+          ``svg_l25_single.render_l25_single`` and the single-mode
+          ``svg_l22_generator.render_single_svg`` emit this exact marker).
+  * L22 — no profile marker, but has the 3-band stacked structure (``bandA``
+          gradient ids + the three ``translate(500,{105,315,525})`` visual
+          groups) produced by ``render_bands_svg``.
+  * unknown — none of the above => current SKIP behavior (never false-flag).
+
+Each system carries its OWN claim-class taxonomy anchored to THAT builder's
+hardcoded ``<text>`` vocabulary. The honesty rule is identical across all
+three: an attack-class band/visual requires >=1 matching evidence token in the
+owning post, else a HONESTY_VIOLATION; neutral / market / advisory /
+single-illustrative classes that assert no fabricated incident always pass.
 
 What it checks (per band: hero / top-right / bottom-right):
   1. CLAIM CLASS — each L20 visual builder (``vb_*`` in
@@ -36,7 +59,7 @@ LLM, no clock/random. Stdlib only.
 CLI::
 
     python3 scripts/score_cover_honesty.py path/to/cover.svg     # single cover
-    python3 scripts/score_cover_honesty.py --all                 # every L20 cover
+    python3 scripts/score_cover_honesty.py --all                 # every L20/L22/L25 cover
     python3 scripts/score_cover_honesty.py --files a.svg b.svg   # explicit list
     python3 scripts/score_cover_honesty.py --all --json          # machine-readable
     python3 scripts/score_cover_honesty.py --all --strict        # exit 1 on any FAIL
@@ -97,11 +120,24 @@ from scripts.check_svg_size_gate import (  # noqa: E402
 )
 
 # Rubric identity. A score is only comparable within the same version. Bump
-# this whenever the taxonomy, weighting, or thresholds change.
-RUBRIC_VERSION = "1.0"
+# this whenever the taxonomy, weighting, or thresholds change. 1.1 widens the
+# taxonomy from L20-only to L20 + L22 + L25 (OQ-5); the L20 sub-rubric and its
+# scores are byte-identical to 1.0, so existing L20 PASS/FAIL verdicts are
+# unchanged.
+RUBRIC_VERSION = "1.1"
 
-# L20 profile marker emitted by render_l20_hero (svg_l20_hero.py).
+# Profile markers emitted by each generator family.
+#   L20 — render_l20_hero (svg_l20_hero.py)
+#   L25 — render_l25_single (svg_l25_single.py) AND the single-mode
+#         render_single_svg (svg_l22_generator.py); both emit this exact string.
 _L20_MARKER = "profile: high-quality-cover (L20 Hero+2-Card)"
+_L25_MARKER = "profile: high-quality-cover (2025 upgraded L25-single)"
+
+# Structural markers that identify an L22 3-band digest cover on disk. L22's
+# render_bands_svg emits NO profile comment, so detection is structural: every
+# L22 cover carries a ``bandA`` linear-gradient id and the three fixed visual
+# groups at translate(500,{105,315,525}).
+_L22_BAND_ANCHORS = ('id="bandA', "translate(500,105)")
 
 # Verdict thresholds.
 _PASS_MIN = 70
@@ -227,11 +263,236 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     ),
 }
 
-# Precompile evidence + anchor regexes once (determinism + speed).
-_EVIDENCE_RE: Dict[str, List[re.Pattern]] = {
-    vid: [re.compile(p, re.IGNORECASE) for p in patterns]
-    for vid, (_, patterns, _, _) in CLAIM_CLASSES.items()
+# ---------------------------------------------------------------------------
+# L22 claim-class taxonomy (anchored to svg_l22_generator's ``v_*`` visual
+# captions — the hardcoded <text> vocab each visual primitive emits). L22 is
+# the FALLBACK 3-band digest renderer (fires only when L20 fails). On disk a
+# band's builder is identified by its discriminating caption (e.g. ``C2 HUB``
+# for v_network_nodes). The routing replay path uses
+# ``l22_dispatch._route_visual_kind``.
+#
+# Keys are the L22 visual-kind names (v_<key>). Same 4-tuple shape as
+# CLAIM_CLASSES: (claim_class, [evidence...], [anchor...], always_pass).
+# Attack-class kinds require a matching evidence token; the architectural /
+# advisory / market kinds assert no fabricated incident and always pass.
+# ---------------------------------------------------------------------------
+CLAIM_CLASSES_L22: Dict[str, Tuple[str, List[str], List[str], bool]] = {
+    "lock_cve": (
+        "vuln/CVE",
+        [r"cve-\d", r"cvss", r"\brce\b", r"zero-day", r"0-day", r"exploit",
+         r"vulnerab", r"patch"],
+        ["CVSS : critical scope"],
+        False,
+    ),
+    "browser_cve": (
+        "browser-vuln/CVE",
+        [r"cve-\d", r"cvss", r"browser", r"chrome", r"firefox", r"safari",
+         r"\bedge\b", r"exploit"],
+        ["scan ack : 1 alert"],
+        False,
+    ),
+    "network_nodes": (
+        "C2/botnet",
+        [r"botnet", r"\bc2\b", r"\bddos\b", r"lateral", r"\bworm\b",
+         r"\bapt\b", r"infra"],
+        ["C2 HUB"],
+        False,
+    ),
+    "botnet_p2p": (
+        "C2/botnet",
+        [r"botnet", r"\bp2p\b", r"peer-to-peer", r"\bc2\b", r"\bddos\b",
+         r"mirai", r"\bworm\b"],
+        ["no central C2"],
+        False,
+    ),
+    "wallet_forensic": (
+        "crypto-breach/exfil",
+        [r"bitcoin", r"\bbtc\b", r"crypto", r"wallet", r"mixer", r"on-chain",
+         r"laund", r"defi", r"blockchain", r"exfil", r"breach"],
+        ["on-chain trace : 3 hops"],
+        False,
+    ),
+    "kernel_lpe": (
+        "privilege-escalation",
+        [r"privilege escalation", r"\blpe\b", r"\brce\b", r"kernel", r"\bring 0\b",
+         r"\bring0\b", r"root", r"breakout", r"escape"],
+        ["RING 3"],
+        False,
+    ),
+    "ad_fraud": (
+        "ad-fraud",
+        [r"\bfraud\b", r"\bbid\b", r"ad fraud", r"click fraud", r"\bsdk\b",
+         r"malvertis"],
+        ["BID FRAUD"],
+        False,
+    ),
+    "supply_chain": (
+        "supply-chain",
+        [r"supply chain", r"slsa", r"sbom", r"\bnpm\b", r"\bpypi\b", r"poisoned",
+         r"tampered", r"package", r"registry", r"cosign"],
+        ["4 stages : 1 tampered"],
+        False,
+    ),
+    # --- Architectural / advisory / market kinds: assert no fabricated
+    # incident, honest on any security/market digest band. always_pass=True.
+    "shield": (
+        "security (advisory/posture)",
+        [],  # signed/verified posture — asserts no incident
+        ["verified"],
+        True,
+    ),
+    "code_bars": (
+        "neutral (code/technical)",
+        [],
+        ["cursor : line 5 col 14"],
+        True,
+    ),
+    "bar_graph": (
+        "market/growth",
+        [r"\$\s*\d", r"\d+\s*%", r"growth", r"trend", r"revenue", r"market",
+         r"qoq", r"yoy"],
+        ["6 buckets : qoq trend"],
+        True,
+    ),
+    "price_chart": (
+        "market",
+        [r"\$\s*\d", r"price", r"bitcoin", r"crypto", r"\d+\s*%", r"rsi",
+         r"market", r"ohlc"],
+        ["7d ohlc : RSI 29"],
+        True,
+    ),
+    "senate_columns": (
+        "regulation/policy",
+        [r"regulation", r"senate", r"policy", r"compliance", r"law", r"\bact\b",
+         r"governance"],
+        ["5 columns : 1 gavel"],
+        True,
+    ),
+    "router_mesh": (
+        "network-topology (neutral)",
+        [],
+        ["4 nodes : 1 hub : 8 links"],
+        True,
+    ),
+    "cloud_k8s": (
+        "kubernetes (neutral)",
+        [],
+        ["K8s CLOUD"],
+        True,
+    ),
+    "compliance_grid": (
+        "compliance (advisory)",
+        [],
+        ["9 controls : 6 pass : 1 audit"],
+        True,
+    ),
+    "identity_handshake": (
+        "zero-trust (advisory)",
+        [],
+        ["mTLS verify : 3 step"],
+        True,
+    ),
+    "siem_panels": (
+        "observability (advisory)",
+        [],
+        ["5 signals : 1 open : MTTR -60%"],
+        True,
+    ),
+    "attestation_chain": (
+        "supply-chain (advisory)",
+        [],
+        ["signed : cosign + SLSA L3"],
+        True,
+    ),
+    "ai_threat": (
+        "ai-security (advisory)",
+        [],
+        ["3 layers : 1 poison : injection"],
+        True,
+    ),
 }
+
+# ---------------------------------------------------------------------------
+# L25 claim-class taxonomy (single-topic cover, ONE illustrative visual).
+# Anchored to svg_l22_generator.SINGLE_ILLUSTRATIONS captions (the on-disk
+# L25-marker covers are emitted by render_single_svg) and the L20-builder
+# reuse path in svg_l25_single.render_l25_single.
+#
+# An L25 cover carries exactly one visual that DESCRIBES the post's own
+# single topic, so almost every illustration is single-illustrative and
+# asserts no fabricated incident (always_pass). The few hard attack-claim
+# illustrations (a CVE padlock, a C2 network, a ransomware/incident timeline)
+# still require a matching evidence token in the post.
+# Keys are SINGLE_ILLUSTRATIONS keys.
+# ---------------------------------------------------------------------------
+CLAIM_CLASSES_L25: Dict[str, Tuple[str, List[str], List[str], bool]] = {
+    "lock": (
+        "vuln/CVE",
+        [r"cve-\d", r"cvss", r"\brce\b", r"zero-day", r"0-day", r"exploit",
+         r"vulnerab", r"malware", r"byovd", r"patch", r"breach"],
+        ["SECURE PERIMETER"],
+        False,
+    ),
+    "network": (
+        "C2/network-attack",
+        [r"botnet", r"\bc2\b", r"\bddos\b", r"\bdns\b", r"lateral", r"\bworm\b",
+         r"infra", r"network", r"propagat", r"fanout"],
+        ["PROPAGATION GRAPH"],
+        False,
+    ),
+    "incident_timeline": (
+        "incident/ransomware",
+        [r"ransomware", r"incident", r"outage", r"post-?mortem", r"\brca\b",
+         r"downtime", r"breach", r"spike", r"랜섬웨어", r"인시던트"],
+        ["INCIDENT TIMELINE"],
+        False,
+    ),
+    # --- single-illustrative / architectural / advisory: always_pass. These
+    # describe the post's own topic and assert no fabricated incident. Each
+    # anchor is the verbatim caption emitted by the matching _illust_* builder.
+    "shield": ("security (illustrative)", [], ["SHIELDED PERIMETER"], True),
+    "cloud": ("cloud (illustrative)", [], ["CLOUD WORKLOADS"], True),
+    "chart": ("market/metrics (illustrative)", [], ["QUARTERLY TREND"], True),
+    "chip": ("hardware/ai (illustrative)", [], ["AI INFERENCE"], True),
+    "npm": ("supply-chain (illustrative)", [], ["PACKAGE GRAPH"], True),
+    "k8s": ("kubernetes (illustrative)", [], ["K8S CLUSTER"], True),
+    "pipeline": ("ci/cd (illustrative)", [], ["CI/CD PIPELINE"], True),
+    "globe": ("edge/cdn (illustrative)", [], ["GLOBAL EDGE NET"], True),
+    "aws": ("aws (illustrative)", [], ["AWS SERVICE STACK"], True),
+    "finops": ("finops (illustrative)", [], ["FINOPS COST"], True),
+    "mfa": ("mfa (illustrative)", [], ["MFA STACK"], True),
+    "ztna": ("zero-trust (illustrative)", [], ["ZERO TRUST"], True),
+    "isms": ("compliance (illustrative)", [], ["AUDIT CHECKLIST"], True),
+    "agent": ("ai-agent (illustrative)", [], ["AGENT NETWORK"], True),
+    "database": ("database (illustrative)", [], ["DB ACCESS GATEWAY"], True),
+    "email": ("email-auth (illustrative)", [], ["EMAIL TRUST"], True),
+    "sim": ("telco (illustrative)", [], ["TELCO IDENTITY"], True),
+    "ssl": ("ssl-inspect (illustrative)", [], ["SSL INSPECT + SANDBOX"], True),
+    "macos": ("macos (illustrative)", [], ["macOS DEVICE"], True),
+    "conference": ("event (illustrative)", [], ["CONFERENCE STAGE"], True),
+    "ai_threat": ("ai-threat (illustrative)", [], ["3 layers : 1 poison : injection"], True),
+    "rollup_index": ("rollup-index (illustrative)", [], ["ROLLUP INDEX"], True),
+}
+
+# Map a system id -> its claim-class taxonomy.
+_TAXONOMY_BY_SYSTEM: Dict[str, Dict[str, Tuple[str, List[str], List[str], bool]]] = {
+    "L20": CLAIM_CLASSES,
+    "L22": CLAIM_CLASSES_L22,
+    "L25": CLAIM_CLASSES_L25,
+}
+
+# Precompile evidence + anchor regexes once per system (determinism + speed).
+_EVIDENCE_RE_BY_SYSTEM: Dict[str, Dict[str, List[re.Pattern]]] = {
+    system: {
+        vid: [re.compile(p, re.IGNORECASE) for p in patterns]
+        for vid, (_, patterns, _, _) in taxonomy.items()
+    }
+    for system, taxonomy in _TAXONOMY_BY_SYSTEM.items()
+}
+
+# Back-compat: the L20 evidence map keeps its original module name so the
+# unchanged L20 helpers below (and any external importer) still resolve it.
+_EVIDENCE_RE: Dict[str, List[re.Pattern]] = _EVIDENCE_RE_BY_SYSTEM["L20"]
 
 
 # ---------------------------------------------------------------------------
@@ -301,18 +562,27 @@ def _routed_visual_ids(title: str, excerpt: str, filename: str) -> List[str]:
     return [route_visual_id(s.get("headline", "")) for s in stories]
 
 
-def _fingerprint_visual_ids(svg_text: str) -> List[Optional[str]]:
+def _fingerprint_visual_ids(
+    svg_text: str,
+    taxonomy: Optional[Dict[str, Tuple[str, List[str], List[str], bool]]] = None,
+    n_bands: int = 3,
+) -> List[Optional[str]]:
     """Identify the builder per band by its discriminating anchor (path b).
 
-    The L20 layout draws exactly 3 visual builders, in document order:
-    hero (first), top-right (second), bottom-right (third). We scan the SVG for
-    every builder's discriminating anchor, record (offset, visual_id) hits, and
-    sort by offset to recover the per-band ordering. Returns a 3-list aligned
-    to (hero, top_right, bottom_right); None when fewer than 3 builders are
-    detected (a malformed/partial cover).
+    A 3-band digest (L20 / L22) draws exactly 3 visual builders, in document
+    order: hero/first band (first), second band, third band. We scan the SVG
+    for every builder's discriminating anchor, record (offset, visual_id)
+    hits, and sort by offset to recover the per-band ordering. Returns an
+    ``n_bands``-list aligned to band order; None entries when fewer than
+    ``n_bands`` builders are detected (a malformed/partial cover).
+
+    ``taxonomy`` defaults to the L20 ``CLAIM_CLASSES`` so existing callers are
+    byte-identical; pass the L22/L25 map to fingerprint those systems. For a
+    single-visual cover (L25) pass ``n_bands=1``.
     """
+    tax = taxonomy if taxonomy is not None else CLAIM_CLASSES
     hits: List[Tuple[int, str]] = []
-    for vid, (_, _, anchors, _) in CLAIM_CLASSES.items():
+    for vid, (_, _, anchors, _) in tax.items():
         for anchor in anchors:
             idx = svg_text.find(anchor)
             if idx != -1:
@@ -320,8 +590,8 @@ def _fingerprint_visual_ids(svg_text: str) -> List[Optional[str]]:
                 break  # first anchor occurrence is enough to confirm the builder
     hits.sort(key=lambda h: h[0])
     ordered = [vid for _, vid in hits]
-    out: List[Optional[str]] = [None, None, None]
-    for i in range(min(3, len(ordered))):
+    out: List[Optional[str]] = [None] * n_bands
+    for i in range(min(n_bands, len(ordered))):
         out[i] = ordered[i]
     return out
 
@@ -329,28 +599,48 @@ def _fingerprint_visual_ids(svg_text: str) -> List[Optional[str]]:
 # ---------------------------------------------------------------------------
 # Honesty detector
 # ---------------------------------------------------------------------------
-def _band_supported(visual_id: str, body_lower: str) -> bool:
-    """True if the post carries >=1 evidence token for this band's claim class."""
-    return any(rx.search(body_lower) for rx in _EVIDENCE_RE.get(visual_id, []))
+def _band_supported(
+    visual_id: str,
+    body_lower: str,
+    evidence: Optional[Dict[str, List[re.Pattern]]] = None,
+) -> bool:
+    """True if the post carries >=1 evidence token for this band's claim class.
+
+    ``evidence`` defaults to the L20 ``_EVIDENCE_RE`` map (regression-safe);
+    pass the L22/L25 precompiled map to score those systems.
+    """
+    ev = evidence if evidence is not None else _EVIDENCE_RE
+    return any(rx.search(body_lower) for rx in ev.get(visual_id, []))
 
 
 def _score_honesty(
     band_ids: List[Optional[str]],
     body_lower: str,
+    taxonomy: Optional[Dict[str, Tuple[str, List[str], List[str], bool]]] = None,
+    evidence: Optional[Dict[str, List[re.Pattern]]] = None,
+    band_names: Optional[Tuple[str, ...]] = None,
 ) -> Tuple[int, List[Dict], List[str]]:
     """Return (honesty_score, violations, flags).
 
     honesty_score starts at 60; -25 per HONESTY_VIOLATION (floor 0). An
     UNKNOWN_BUILDER (visual_id not in the taxonomy) is treated as a violation
     (R3: never a silent pass).
+
+    ``taxonomy`` / ``evidence`` / ``band_names`` default to the L20 maps so
+    existing callers are byte-identical; pass the L22/L25 maps to score those
+    systems. ``band_names`` is the per-band label tuple (L25 uses a single
+    ``("visual",)`` band).
     """
+    tax = taxonomy if taxonomy is not None else CLAIM_CLASSES
+    ev = evidence if evidence is not None else _EVIDENCE_RE
+    names = band_names if band_names is not None else _BAND_NAMES
     score = 60
     violations: List[Dict] = []
     flags: List[str] = []
-    for band_name, vid in zip(_BAND_NAMES, band_ids):
+    for band_name, vid in zip(names, band_ids):
         if vid is None:
             continue  # unresolved band (counted under fresh/stale, not honesty)
-        if vid not in CLAIM_CLASSES:
+        if vid not in tax:
             score -= 25
             violations.append({
                 "band": band_name,
@@ -360,10 +650,10 @@ def _score_honesty(
             })
             flags.append(f"UNKNOWN_BUILDER:{band_name}")
             continue
-        claim_class, _, _, always_pass = CLAIM_CLASSES[vid]
+        claim_class, _, _, always_pass = tax[vid]
         if always_pass:
-            continue  # neutral / market / security_advisory assert no fabrication
-        if not _band_supported(vid, body_lower):
+            continue  # neutral / market / advisory / illustrative: no fabrication
+        if not _band_supported(vid, body_lower, ev):
             score -= 25
             violations.append({
                 "band": band_name,
@@ -433,12 +723,21 @@ def _quality_legibility(svg_text: str) -> int:
     return 8
 
 
-def _quality_motif_diversity(band_ids: List[Optional[str]]) -> int:
-    """8 pts for 3 distinct claim classes, 5 for 2, 0 for 1 (all-identical)."""
+def _quality_motif_diversity(
+    band_ids: List[Optional[str]],
+    taxonomy: Optional[Dict[str, Tuple[str, List[str], List[str], bool]]] = None,
+) -> int:
+    """8 pts for 3 distinct claim classes, 5 for 2, 0 for 1 (all-identical).
+
+    ``taxonomy`` defaults to the L20 map (regression-safe). A single-visual
+    cover (L25) has 1 band -> distinct==1 by construction, so diversity is not
+    a meaningful penalty for L25 and the caller exempts it.
+    """
+    tax = taxonomy if taxonomy is not None else CLAIM_CLASSES
     classes = set()
     for vid in band_ids:
-        if vid and vid in CLAIM_CLASSES:
-            classes.add(CLAIM_CLASSES[vid][0])
+        if vid and vid in tax:
+            classes.add(tax[vid][0])
         elif vid:
             classes.add(vid)
     distinct = len(classes)
@@ -455,7 +754,7 @@ def _quality_fresh_render(stale_bands: int) -> int:
 
 
 # ---------------------------------------------------------------------------
-# Top-level scorer
+# System detection + per-system routing replay
 # ---------------------------------------------------------------------------
 def is_l20_cover(svg_path: Path) -> bool:
     """True when the SVG carries the L20 Hero+2-Card profile marker."""
@@ -465,17 +764,92 @@ def is_l20_cover(svg_path: Path) -> bool:
         return False
 
 
-def score_file(svg_path: Path) -> Dict:
-    """Score a single L20 cover. Returns a JSON-serializable result dict.
+def detect_system(svg_text: str) -> Optional[str]:
+    """Classify a cover by system from its on-disk bytes.
 
-    Result keys: rubric_version, file, post, score, verdict, honesty{}, quality{},
-    flags[]. Non-L20 covers return verdict ``SKIP``; covers with no owning post
-    return verdict ``NO_POST`` (honesty unverifiable, not a false pass/fail).
+    Returns ``"L20"`` / ``"L22"`` / ``"L25"`` / ``None`` (unknown).
+
+    * L20 — ``profile: high-quality-cover (L20 Hero+2-Card)`` marker.
+    * L25 — ``profile: high-quality-cover (2025 upgraded L25-single)`` marker.
+    * L22 — no profile marker, but the 3-band stacked structure (``bandA``
+            gradient id + the first ``translate(500,105)`` visual group).
+    * None — none of the above (keep current SKIP behavior; never false-flag).
+
+    Order matters: profile markers win over the structural L22 check so a
+    future marker-bearing L22 cover (if ever added) would not mis-detect.
+    """
+    if _L20_MARKER in svg_text:
+        return "L20"
+    if _L25_MARKER in svg_text:
+        return "L25"
+    if all(anchor in svg_text for anchor in _L22_BAND_ANCHORS):
+        return "L22"
+    return None
+
+
+def is_cover_in_scope(svg_path: Path) -> bool:
+    """True when the SVG is an L20/L22/L25 cover this scorer can audit."""
+    try:
+        return detect_system(
+            svg_path.read_text(encoding="utf-8", errors="replace")
+        ) is not None
+    except OSError:
+        return False
+
+
+def _routed_visual_kinds_l22(title: str, excerpt: str, filename: str) -> List[str]:
+    """Replay the L22 dispatch routing intent for the 3 bands (path a).
+
+    Mirrors ``l22_dispatch.generate_l22_digest_svg``: resolve the 3 anchor
+    stories, route each headline to a visual kind, then apply the same
+    deterministic variety-enforcement pass keyed by the post-date seed so the
+    routed intent matches what the generator would emit today.
+    """
+    from scripts.news import l22_dispatch as l22d
+
+    h, tr, br = l22d._resolve_three_stories(title, excerpt, filename)
+    date_str = l22d._date_str_from_filename(filename) or ""
+    seed = date_str.replace(".", "") or filename or "L22"
+    initial = [
+        l22d._route_visual_kind(h.get("headline", ""), 0),
+        l22d._route_visual_kind(tr.get("headline", ""), 1),
+        l22d._route_visual_kind(br.get("headline", ""), 2),
+    ]
+    return l22d._force_variety(initial, seed)
+
+
+def _picked_illustration_l25(title: str, excerpt: str, category: str) -> Optional[str]:
+    """Replay the L25 single-mode illustration choice (path a).
+
+    ``render_single_svg`` picks its illustration via
+    ``svg_l22_generator._pick_illustration(category, title)``. We replay that
+    here so the routed intent can be compared against the on-disk fingerprint.
+    Returns the SINGLE_ILLUSTRATIONS key, or None when the module is
+    unavailable.
+    """
+    try:
+        from scripts.lib import svg_l22_generator as l22
+    except Exception:
+        return None
+    return l22._pick_illustration(category or "", title or "")
+
+
+# ---------------------------------------------------------------------------
+# Top-level scorer
+# ---------------------------------------------------------------------------
+def score_file(svg_path: Path) -> Dict:
+    """Score a single L20/L22/L25 cover. Returns a JSON-serializable dict.
+
+    Result keys: rubric_version, system, file, post, score, verdict, honesty{},
+    quality{}, bands{}, flags[]. Covers of an unknown system return verdict
+    ``SKIP``; in-scope covers with no owning post return ``NO_POST`` (honesty
+    unverifiable, not a false pass/fail).
     """
     svg_path = Path(svg_path)
     rel = _repo_rel(svg_path)
     base = {
         "rubric_version": RUBRIC_VERSION,
+        "system": None,
         "file": rel,
         "post": None,
         "score": None,
@@ -491,10 +865,12 @@ def score_file(svg_path: Path) -> Dict:
         return base
 
     svg_text = svg_path.read_text(encoding="utf-8", errors="replace")
-    if _L20_MARKER not in svg_text:
+    system = detect_system(svg_text)
+    if system is None:
         base["verdict"] = "SKIP"
-        base["flags"] = ["NOT_L20"]
+        base["flags"] = ["UNKNOWN_SYSTEM"]
         return base
+    base["system"] = system
 
     post = find_owning_post(svg_path)
     if post is None:
@@ -505,9 +881,36 @@ def score_file(svg_path: Path) -> Dict:
 
     title, excerpt, body_lower = _post_signals(post)
 
+    if system == "L25":
+        return _finish_l25(base, svg_path, svg_text, title, excerpt, body_lower)
+    # L20 + L22 share the 3-band scoring shape (different taxonomy + routing).
+    return _finish_three_band(
+        base, system, svg_path, svg_text, title, excerpt, body_lower
+    )
+
+
+def _finish_three_band(
+    base: Dict,
+    system: str,
+    svg_path: Path,
+    svg_text: str,
+    title: str,
+    excerpt: str,
+    body_lower: str,
+) -> Dict:
+    """Score an L20 or L22 3-band digest cover (dual-path band identity)."""
+    taxonomy = _TAXONOMY_BY_SYSTEM[system]
+    evidence = _EVIDENCE_RE_BY_SYSTEM[system]
+
     # Band identity — dual path.
-    routed = _routed_visual_ids(title, excerpt, svg_path.name)
-    fingerprinted = _fingerprint_visual_ids(svg_text)
+    if system == "L20":
+        routed = _routed_visual_ids(title, excerpt, svg_path.name)
+    else:  # L22
+        try:
+            routed = _routed_visual_kinds_l22(title, excerpt, svg_path.name)
+        except Exception:
+            routed = [None, None, None]
+    fingerprinted = _fingerprint_visual_ids(svg_text, taxonomy, n_bands=3)
 
     flags: List[str] = []
     stale_bands = 0
@@ -527,19 +930,105 @@ def score_file(svg_path: Path) -> Dict:
                 stale_bands += 1
                 flags.append(f"STALE_RENDER:{band_name}")
 
-    honesty_score, violations, honesty_flags = _score_honesty(resolved, body_lower)
+    honesty_score, violations, honesty_flags = _score_honesty(
+        resolved, body_lower, taxonomy, evidence
+    )
     flags.extend(honesty_flags)
 
     q_ascii = _quality_ascii(svg_path)
     q_size = _quality_size_band(svg_path)
     q_leg = _quality_legibility(svg_text)
-    q_div = _quality_motif_diversity(resolved)
+    q_div = _quality_motif_diversity(resolved, taxonomy)
     q_fresh = _quality_fresh_render(stale_bands)
     quality_score = q_ascii + q_size + q_leg + q_div + q_fresh
 
     if q_div == 0:
         flags.append("LOW_DIVERSITY")
 
+    return _finalize(
+        base, honesty_score, violations, flags, quality_score,
+        {
+            "ascii": q_ascii, "size_band": q_size, "legibility": q_leg,
+            "motif_diversity": q_div, "fresh_render": q_fresh,
+        },
+        dict(zip(_BAND_NAMES, resolved)),
+    )
+
+
+_L25_BAND_NAMES = ("visual",)
+
+
+def _finish_l25(
+    base: Dict,
+    svg_path: Path,
+    svg_text: str,
+    title: str,
+    excerpt: str,
+    body_lower: str,
+) -> Dict:
+    """Score an L25 single-topic cover (one illustrative visual).
+
+    L25 has a single claim-bearing visual rather than 3 bands, so motif
+    diversity is not a meaningful signal (always 1 class) — it is excluded
+    from the quality budget and replaced by an equal-weight rebalance so an
+    honest single cover can still reach the PASS threshold. Honesty is scored
+    identically: an attack-class illustration requires a matching evidence
+    token; the single-illustrative classes always pass.
+    """
+    taxonomy = CLAIM_CLASSES_L25
+    evidence = _EVIDENCE_RE_BY_SYSTEM["L25"]
+
+    fingerprinted = _fingerprint_visual_ids(svg_text, taxonomy, n_bands=1)
+    category = _category_from_post(base.get("post"))
+    routed = _picked_illustration_l25(title, excerpt, category)
+
+    flags: List[str] = []
+    stale = 0
+    f_id = fingerprinted[0]
+    if f_id is None:
+        resolved = [routed]
+        stale = 1
+        flags.append("STALE_RENDER:visual")
+    else:
+        resolved = [f_id]
+        if routed is not None and f_id != routed:
+            stale = 1
+            flags.append("STALE_RENDER:visual")
+
+    honesty_score, violations, honesty_flags = _score_honesty(
+        resolved, body_lower, taxonomy, evidence, band_names=_L25_BAND_NAMES
+    )
+    flags.extend(honesty_flags)
+
+    # Quality (no motif-diversity term — single visual). Redistribute the 8
+    # diversity points across the 4 remaining proxies so the max stays 40.
+    q_ascii = _quality_ascii(svg_path)
+    q_size = _quality_size_band(svg_path)
+    q_leg = _quality_legibility_l25(svg_text)
+    q_fresh = _quality_fresh_render(stale)
+    # Each of the 4 proxies is worth 10 (was 8). Scale 8-point results to 10.
+    quality_score = round((q_ascii + q_size + q_leg + q_fresh) * 10 / 8)
+
+    return _finalize(
+        base, honesty_score, violations, flags, quality_score,
+        {
+            "ascii": q_ascii, "size_band": q_size, "legibility": q_leg,
+            "fresh_render": q_fresh,
+        },
+        {"visual": resolved[0]},
+    )
+
+
+def _finalize(
+    base: Dict,
+    honesty_score: int,
+    violations: List[Dict],
+    flags: List[str],
+    quality_score: int,
+    quality_detail: Dict,
+    bands: Dict,
+) -> Dict:
+    """Shared verdict computation for all systems (identical to L20 1.0)."""
     has_violation = bool(violations)
     total = honesty_score + quality_score
     if has_violation:
@@ -555,17 +1044,40 @@ def score_file(svg_path: Path) -> Dict:
     base["score"] = total
     base["verdict"] = verdict
     base["honesty"] = {"score": honesty_score, "violations": violations}
-    base["quality"] = {
-        "score": quality_score,
-        "ascii": q_ascii,
-        "size_band": q_size,
-        "legibility": q_leg,
-        "motif_diversity": q_div,
-        "fresh_render": q_fresh,
-    }
-    base["bands"] = dict(zip(_BAND_NAMES, resolved))
+    base["quality"] = dict(quality_detail, score=quality_score)
+    base["bands"] = bands
     base["flags"] = flags
     return base
+
+
+def _category_from_post(post_rel: Optional[str]) -> str:
+    """Read the post's ``category`` front-matter field (for L25 replay)."""
+    if not post_rel:
+        return ""
+    p = REPO / post_rel
+    try:
+        fm = _read_front_matter(p.read_text(encoding="utf-8", errors="replace"))
+    except OSError:
+        return ""
+    m = re.search(r"^category:\s*(.+?)\s*$", fm, re.MULTILINE)
+    if m:
+        return m.group(1).strip().strip("[]\"'")
+    return ""
+
+
+# L25 hero headline sits at x=54 y=172 font-size="34"; subheadline x=54 y=208
+# font-size="18". The single-mode render_single_svg uses a different layout
+# (Arial hero at x=84), so the L25 legibility proxy only penalizes a trailing
+# ellipsis on any hero/sub text rather than re-deriving per-layout budgets.
+_L25_ELLIPSIS_RE = re.compile(r'<text[^>]*font-size="(?:18|34|40|48|54|60)"[^>]*>([^<]*)</text>')
+
+
+def _quality_legibility_l25(svg_text: str) -> int:
+    """8 pts when no L25 hero/subheadline text is truncated with an ellipsis."""
+    for t in _L25_ELLIPSIS_RE.findall(svg_text):
+        if t.endswith("..."):
+            return 0
+    return 8
 
 
 def check_file(svg_path: Path) -> List[str]:
@@ -611,8 +1123,8 @@ def _repo_rel(p: Path) -> str:
 
 
 def collect_all() -> List[Path]:
-    """Every L20 cover under assets/images/ (deterministic sorted order)."""
-    return [p for p in sorted(ASSETS.glob("*.svg")) if is_l20_cover(p)]
+    """Every in-scope L20/L22/L25 cover under assets/images/ (sorted)."""
+    return [p for p in sorted(ASSETS.glob("*.svg")) if is_cover_in_scope(p)]
 
 
 def load_baseline(path: Path) -> set:
@@ -672,7 +1184,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     if not targets:
         if args.update_baseline:
             Path(args.update_baseline).write_text("", encoding="utf-8")
-        print("[cover-honesty] No L20 covers to score.")
+        print("[cover-honesty] No in-scope covers to score.")
         return 0
 
     results = [score_file(p) for p in targets]
@@ -683,10 +1195,10 @@ def main(argv: Optional[List[str]] = None) -> int:
         fails = sorted(r["file"] for r in results if r["verdict"] == "FAIL")
         out_lines = [
             "# scripts/cover_honesty_baseline.txt",
-            "# Grandfathered L20 cover-honesty FAILs.",
+            "# Grandfathered cover-honesty FAILs (L20 / L22 / L25).",
             "# Auto-generated by: python3 scripts/score_cover_honesty.py "
             "--update-baseline scripts/cover_honesty_baseline.txt",
-            "# Each line is a repo-relative POSIX path of an L20 cover currently",
+            "# Each line is a repo-relative POSIX path of a cover currently",
             "# scoring FAIL (>=1 honesty violation) that is intentionally allowed",
             "# during the warn-only rollout. Re-run --update-baseline after a",
             "# legacy cover is regenerated/fixed or a new legacy-class cover lands.",
@@ -719,13 +1231,32 @@ def _print_text(results: List[Dict], baseline: set) -> None:
         if r["verdict"] in ("FAIL", "WARN", "NO_POST"):
             flagged.append(r)
 
+    # Per-system breakdown (only scored verdicts count toward a system).
+    sys_counts: Dict[str, Dict[str, int]] = {}
+    for r in results:
+        sysid = r.get("system") or "unknown"
+        bucket = sys_counts.setdefault(
+            sysid, {"PASS": 0, "WARN": 0, "FAIL": 0, "NO_POST": 0}
+        )
+        if r["verdict"] in bucket:
+            bucket[r["verdict"]] += 1
+
     print("=" * 64)
-    print(f"  L20 Cover Honesty Report (rubric {RUBRIC_VERSION})")
+    print(f"  Cover Honesty Report (rubric {RUBRIC_VERSION})  L20 / L22 / L25")
     print("=" * 64)
     scored = counts["PASS"] + counts["WARN"] + counts["FAIL"]
-    print(f"  Covers scored: {scored}  (skipped non-L20: {counts['SKIP']})")
+    print(f"  Covers scored: {scored}  (skipped unknown-system: {counts['SKIP']})")
     print(f"  PASS: {counts['PASS']}   WARN: {counts['WARN']}   FAIL: {counts['FAIL']}"
           f"   NO_POST: {counts['NO_POST']}")
+    print()
+    print("  By system:")
+    for sysid in ("L20", "L22", "L25", "unknown"):
+        b = sys_counts.get(sysid)
+        if not b:
+            continue
+        n = b["PASS"] + b["WARN"] + b["FAIL"]
+        print(f"    {sysid:8s} scored={n:3d}  PASS={b['PASS']:3d}  "
+              f"WARN={b['WARN']:3d}  FAIL={b['FAIL']:3d}  NO_POST={b['NO_POST']:3d}")
     print()
     if flagged:
         print("-" * 64)
