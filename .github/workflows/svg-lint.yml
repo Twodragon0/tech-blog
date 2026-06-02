@@ -121,28 +121,20 @@ jobs:
             --baseline scripts/svg_size_gate_baseline.txt \
             --strict
 
-      - name: L20 cover honesty scorer (WARN-ONLY during rollout)
+      - name: L20 cover honesty scorer (BLOCKING — grandfathered baseline)
         id: cover_honesty
-        # NON-BLOCKING for now: reports honesty/quality scores for L20 covers
-        # but never fails the build while the 60/40 weighting + 70 PASS
-        # threshold are calibrated against the live corpus. ``continue-on-error``
-        # + omitting ``--strict`` both keep it warn-only. To FLIP TO BLOCKING
-        # after calibration: (1) run
+        # BLOCKING gate, conservative: scores every L20 cover and fails the
+        # build (--strict) on any FAIL that is NOT grandfathered in
+        # cover_honesty_baseline.txt. The 12 legacy non-digest FAILs are
+        # baselined, so this only catches NEW honesty regressions (a cover that
+        # newly asserts attack evidence its post lacks). Verified locally:
+        # --all --baseline … --strict exits 0 on the current corpus.
+        # After an intentional cover change, re-grandfather with:
         #   python3 scripts/score_cover_honesty.py --update-baseline scripts/cover_honesty_baseline.txt
-        # to grandfather current legacy FAILs, then (2) remove
-        # ``continue-on-error: true`` and switch the command to
-        #   --changed "$BASE" --baseline scripts/cover_honesty_baseline.txt --strict
-        # (mirrors the size_gate step above). See score_cover_honesty.py header.
-        continue-on-error: true
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            BASE="origin/${{ github.event.pull_request.base.ref }}"
-          else
-            BASE="HEAD~1"
-          fi
-          echo "[cover-honesty] diff base: $BASE (warn-only, non-blocking)"
           python3 scripts/score_cover_honesty.py --all \
-            --baseline scripts/cover_honesty_baseline.txt
+            --baseline scripts/cover_honesty_baseline.txt \
+            --strict
 
       - name: SVG title/desc ASCII gate (no non-ASCII in <title> or <desc>)
         id: title_ascii

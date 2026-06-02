@@ -56,14 +56,15 @@ CI ROLLOUT NOTE (warn-only -> strict):
   This gate is wired into ``.github/workflows/svg-lint.yml`` as a NON-BLOCKING
   (``continue-on-error: true``) step for now, so it reports but never fails the
   build while the 60/40 weighting + 70 threshold are calibrated against the
-  live corpus. To FLIP IT TO BLOCKING after calibration:
-    1. Run ``--update-baseline scripts/cover_honesty_baseline.txt`` to
-       grandfather the current legacy FAILs.
-    2. In ``svg-lint.yml`` remove ``continue-on-error: true`` from the
-       ``cover_honesty`` step and switch its command to
-       ``--changed "$BASE" --baseline scripts/cover_honesty_baseline.txt --strict``
-       (the same pattern the size-gate step uses).
-  No pre-commit hook is wired yet (intentional — warn-only rollout first).
+  live corpus. As of 2026-06-02 the svg-lint ``cover_honesty`` step IS blocking,
+  run conservatively as:
+    ``--all --baseline scripts/cover_honesty_baseline.txt --strict``
+  which scores the whole corpus but only fails on a FAIL that is NOT
+  grandfathered in the baseline — i.e. only NEW honesty regressions break the
+  build. (Note: there is no ``--changed`` flag; use ``--all`` + ``--baseline``.)
+  After an intentional cover change, re-grandfather with
+  ``--update-baseline scripts/cover_honesty_baseline.txt``.
+  No pre-commit hook is wired (CI gate only).
 """
 from __future__ import annotations
 
