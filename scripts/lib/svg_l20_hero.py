@@ -567,7 +567,47 @@ def vb_data_exfil(cx: int, cy: int, theme: str = "blue") -> str:
     )
 
 
-def vb_neutral(cx: int, cy: int, theme: str = "blue") -> str:
+# Coarse topic-class signal for vb_neutral's LIGHT per-topic variation.
+# Each class is (hub sub-label, accent override). Accent overrides stay
+# inside the existing benign palette (no new red-alert tones) and ASCII-only.
+# This is deliberately minimal (nit 3, CONSERVATIVE): mild visual variety so
+# all-neutral covers are not byte-identical — NOT a new visual or motif.
+_NEUTRAL_TOPIC_CLASSES: Dict[str, Tuple[str, str]] = {
+    "release": ("RELEASE", "#4ADE80"),    # green: version / launch / GA
+    "ecosystem": ("ECOSYSTEM", "#3A86FF"),  # blue: community / cncf / velocity
+    "advisory": ("ADVISORY", "#FFB703"),    # amber: guidance / policy / notice
+    "update": ("UPDATE", "#A78BFA"),        # purple: generic digest update
+}
+_NEUTRAL_CLASS_ORDER: Tuple[str, ...] = ("release", "ecosystem", "advisory", "update")
+_NEUTRAL_RELEASE_KW = ("release", "version", "launch", "ga ", "v1", "v2", "rollout", "ship")
+_NEUTRAL_ECOSYSTEM_KW = ("ecosystem", "cncf", "cloud native", "community", "velocity", "adoption", "foundation")
+_NEUTRAL_ADVISORY_KW = ("advisory", "guidance", "policy", "compliance", "notice", "deprecat", "lifecycle")
+
+
+def _neutral_topic_class(topic: str, band_index: int = 0) -> str:
+    """Pick a coarse neutral topic class from a headline keyword.
+
+    Deterministic: same topic always maps to the same class. When no keyword
+    matches (or topic is empty) we cycle by ``band_index`` so all-neutral
+    covers still vary band-to-band instead of collapsing to one class.
+    """
+    low = (topic or "").lower()
+    if any(k in low for k in _NEUTRAL_RELEASE_KW):
+        return "release"
+    if any(k in low for k in _NEUTRAL_ECOSYSTEM_KW):
+        return "ecosystem"
+    if any(k in low for k in _NEUTRAL_ADVISORY_KW):
+        return "advisory"
+    return _NEUTRAL_CLASS_ORDER[band_index % len(_NEUTRAL_CLASS_ORDER)]
+
+
+def vb_neutral(
+    cx: int,
+    cy: int,
+    theme: str = "blue",
+    topic: str = "",
+    band_index: int = 0,
+) -> str:
     """Content-neutral digest / ecosystem motif.
 
     Honest default for non-incident content (ecosystem velocity, lifecycle
@@ -577,9 +617,22 @@ def vb_neutral(cx: int, cy: int, theme: str = "blue") -> str:
     breach / CVE / exploit / victim / C2 language: it must never assert an
     incident the post lacks. Labels are deliberately benign (DIGEST / UPDATE /
     ECOSYSTEM / RELEASE).
+
+    LIGHT per-topic variation (nit 3, CONSERVATIVE): the accent color and the
+    hub sub-label vary by a coarse topic class derived from ``topic`` (the
+    band headline keyword), falling back to a ``band_index`` cycle when no
+    keyword matches. This is mild visual variety only — same motif, no new
+    builder, ASCII-only, attack-free. The base ``theme`` still drives the
+    soft/glow tones so the cover stays cohesive.
     """
     t = _theme(theme)
     a, soft = t["accent"], t["accent_soft"]
+    # LIGHT variation: the theme accent ``a`` still drives every structural
+    # stroke (so the base theme color invariant holds), and the coarse topic
+    # class only varies the hub sub-LABEL text + its color. This keeps the
+    # motif identical while making all-neutral covers visually distinguish.
+    topic_class = _neutral_topic_class(topic, band_index)
+    hub_sub, hub_sub_color = _NEUTRAL_TOPIC_CLASSES[topic_class]
     return (
         f'<g transform="translate({cx},{cy})">'
         # Three stacked source cards on the left (layered documents / feeds)
@@ -610,7 +663,7 @@ def vb_neutral(cx: int, cy: int, theme: str = "blue") -> str:
         f'<circle cx="0" cy="2" r="30" fill="#0A1326" stroke="{a}" stroke-width="2" filter="url(#softShadow)">'
         f'<animate attributeName="r" values="28;33;28" dur="3.4s" repeatCount="indefinite"/></circle>'
         f'<text x="0" y="-1" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="{soft}">UPDATE</text>'
-        f'<text x="0" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{a}">DIGEST</text>'
+        f'<text x="0" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{hub_sub_color}">{hub_sub}</text>'
         # Trend sparkline panel on the right (neutral activity, no alarm)
         f'<g transform="translate(56,-44)" filter="url(#softShadow)">'
         f'<rect x="0" y="0" width="120" height="92" rx="6" fill="#0A0F1E" stroke="{a}" stroke-width="1.2"/>'
@@ -691,7 +744,15 @@ VISUAL_BUILDERS = {
 }
 
 
-def _render_visual(visual_id: str, cx: int, cy: int, theme: str, label: str = "") -> str:
+def _render_visual(
+    visual_id: str,
+    cx: int,
+    cy: int,
+    theme: str,
+    label: str = "",
+    topic: str = "",
+    band_index: int = 0,
+) -> str:
     """Dispatch to the correct visual builder.
 
     Unknown-key fallback is ``vb_neutral`` — a genuinely content-neutral
@@ -708,6 +769,11 @@ def _render_visual(visual_id: str, cx: int, cy: int, theme: str, label: str = ""
     fn = VISUAL_BUILDERS.get(visual_id, vb_neutral)
     if visual_id == "hub_spoke" and label:
         return fn(cx, cy, theme=theme, center_label=label)
+    # vb_neutral (the routed key AND the unknown-key fallback) takes the
+    # topic/band hints for its LIGHT per-topic variation; the other builders
+    # ignore them.
+    if fn is vb_neutral:
+        return vb_neutral(cx, cy, theme=theme, topic=topic, band_index=band_index)
     return fn(cx, cy, theme=theme)
 
 
@@ -1004,7 +1070,7 @@ def render_l20_hero(
     parts.append(_corner_brackets(32, 80, 600, 510, hero_accent, size=12))
     parts.append(_data_strip(54, 528, 280, hero_accent))
     # Hero embedded visual (centered around (332, 360))
-    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", "")))
+    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0))
     # Hero action tag
     parts.append('<g transform="translate(54,548)">')
     parts.append(f'<rect x="0" y="0" width="280" height="24" rx="3" fill="{hero_accent}" opacity="0.95"/>')
@@ -1044,7 +1110,7 @@ def render_l20_hero(
     )
     parts.append('</g>')
     parts.append(_corner_brackets(652, 80, 516, 248, tr_accent, size=9))
-    parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", "")))
+    parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", ""), topic=top_right.get("headline", ""), band_index=1))
     parts.append(_kpi_card(1094, 168, top_right["theme"], top_right["kpi_value"], top_right["kpi_label"], top_right["kpi_sub"]))
 
     # BOTTOM RIGHT panel
@@ -1072,7 +1138,7 @@ def render_l20_hero(
     )
     parts.append('</g>')
     parts.append(_corner_brackets(652, 344, 516, 246, br_accent, size=9))
-    parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", "")))
+    parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", ""), topic=bottom_right.get("headline", ""), band_index=2))
     parts.append(_kpi_card(1094, 452, bottom_right["theme"], bottom_right["kpi_value"], bottom_right["kpi_label"], bottom_right["kpi_sub"]))
 
     parts.append(_spark_accents())

@@ -337,6 +337,49 @@ def test_render_visual_unknown_key_is_neutral() -> None:
     default) renders the neutral builder, never an attack narrative."""
     out = svg_l20_hero._render_visual("totally_unknown_key", 800, 230, "blue")
     assert ">UPDATE<" in out or ">DIGEST<" in out, "fallback is not vb_neutral"
+
+
+# ---------------------------------------------------------------------------
+# Test 3c: vb_neutral LIGHT per-topic variation (nit 3, CONSERVATIVE)
+# ---------------------------------------------------------------------------
+
+
+def test_vb_neutral_topic_variation_is_deterministic() -> None:
+    """Same topic always renders the same fragment (deterministic), and
+    different topic classes render different fragments (actual variety)."""
+    release = svg_l20_hero.vb_neutral(800, 230, "blue", topic="Kubernetes 1.30 release")
+    ecosystem = svg_l20_hero.vb_neutral(800, 230, "blue", topic="CNCF ecosystem velocity")
+    advisory = svg_l20_hero.vb_neutral(800, 230, "blue", topic="Lifecycle deprecation notice")
+    # Deterministic: identical inputs -> byte-identical output.
+    assert release == svg_l20_hero.vb_neutral(800, 230, "blue", topic="Kubernetes 1.30 release")
+    # Variety: the three topic classes are not byte-identical.
+    assert len({release, ecosystem, advisory}) == 3, "neutral topic variation collapsed"
+    # The class-specific hub sub-label is present.
+    assert ">RELEASE<" in release
+    assert ">ECOSYSTEM<" in ecosystem
+    assert ">ADVISORY<" in advisory
+
+
+def test_vb_neutral_band_index_cycle_varies_without_topic() -> None:
+    """With no topic keyword, the band_index cycle still differentiates
+    bands so an all-neutral cover is not byte-identical across bands."""
+    b0 = svg_l20_hero.vb_neutral(800, 230, "blue", topic="", band_index=0)
+    b1 = svg_l20_hero.vb_neutral(800, 230, "blue", topic="", band_index=1)
+    b2 = svg_l20_hero.vb_neutral(800, 230, "blue", topic="", band_index=2)
+    assert len({b0, b1, b2}) == 3, "band_index cycle did not vary neutral bands"
+
+
+def test_vb_neutral_variation_stays_ascii_and_attack_free() -> None:
+    """The variation must remain ASCII-only and add no attack vocabulary."""
+    topics = ["Kubernetes release", "CNCF ecosystem", "policy advisory", "", "generic digest"]
+    for idx, topic in enumerate(topics):
+        out = svg_l20_hero.vb_neutral(800, 230, "blue", topic=topic, band_index=idx)
+        assert all(ord(c) < 128 for c in out), f"non-ASCII for topic {topic!r}"
+        upper = out.upper()
+        for token in _ATTACK_VOCAB:
+            assert token.upper() not in upper, (
+                f"vb_neutral leaked attack vocab {token!r} for topic {topic!r}"
+            )
     upper = out.upper()
     for token in ("CVE REGRESSION", "ATTACKER", ">C2<", ">VICTIM<", "DATA EXFILTRATION"):
         assert token.upper() not in upper, f"fallback leaked {token!r}"

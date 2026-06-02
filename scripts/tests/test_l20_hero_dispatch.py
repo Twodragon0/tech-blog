@@ -213,6 +213,46 @@ class TestInferKpi:
 
 
 # =====================================================================
+# Nit 1 - market-routed USD KPI relabels IMPACT -> PRICE in _build_story
+# =====================================================================
+
+
+class TestMarketKpiPriceLabel:
+    """A USD figure on a market-routed band is a PRICE, not an attack
+    IMPACT. ``_build_story`` relabels only market-routed bands; non-market
+    USD KPIs keep the generic IMPACT label from ``_infer_kpi``."""
+
+    def test_market_usd_relabels_to_price(self):
+        from scripts.news.l20_dispatch import _build_story
+
+        story = _build_story(
+            headline="Bitcoin $71K",
+            subheadline="market trend overview",
+            index=2,
+            severity_label="MEDIUM",
+        )
+        assert story["visual"] == "market"
+        assert story["kpi_label"] == "PRICE"
+        assert story["kpi_sub"] == "spot"
+        assert story["kpi_value"] == "$71K"
+
+    def test_non_market_usd_keeps_impact(self):
+        from scripts.news.l20_dispatch import _build_story
+
+        # A breach-cost figure on an attack-routed (ransomware) band must keep
+        # the IMPACT label — the relabel is market-only.
+        story = _build_story(
+            headline="Ransomware heist drains $87M",
+            subheadline="incident impact estimate",
+            index=0,
+            severity_label="HIGH",
+        )
+        assert story["visual"] == "ransomware_lock"
+        assert story["kpi_label"] == "IMPACT"
+        assert story["kpi_sub"] == "estimated"
+
+
+# =====================================================================
 # Subheadline de-duplication (designer re-audit bug fix)
 # =====================================================================
 
@@ -256,8 +296,61 @@ class TestSubheadlineDeduplication:
         assert _dedupe_subheadline_extra("CNCF", "CNCF Chainalysis Bitcoin") == (
             "Chainalysis Bitcoin"
         )
-        # No overlap -> extra preserved verbatim.
+        # No overlap -> extra preserved verbatim (still within the 2-token cap).
         assert _dedupe_subheadline_extra("Bithumb", "Market update") == "Market update"
+
+    def test_dedupe_caps_at_two_tokens(self):
+        """Nit 2: the kept remainder is capped to <=2 keyword tokens so the
+        subheadline cannot accrete a long keyword echo."""
+        from scripts.news.l20_dispatch import _dedupe_subheadline_extra
+
+        out = _dedupe_subheadline_extra("Topic", "Alpha Beta Gamma Delta")
+        assert out.split() == ["Alpha", "Beta"]
+
+    def test_dedupe_removes_repeated_tokens(self):
+        """Nit 2: a token repeated within ``extra`` is kept only once."""
+        from scripts.news.l20_dispatch import _dedupe_subheadline_extra
+
+        assert _dedupe_subheadline_extra("Topic", "Bitcoin Bitcoin") == "Bitcoin"
+
+    def test_dedupe_drops_other_band_headline_token(self):
+        """Nit 2: the exact prior offender — band 1 "Cluster API" kept a
+        trailing "Bitcoin" that is band 3's headline. With cross-band context
+        that trailing token is dropped."""
+        from scripts.news.l20_dispatch import _dedupe_subheadline_extra
+
+        out = _dedupe_subheadline_extra(
+            "Cluster API",
+            "CNCF Chainalysis Bitcoin",
+            other_headlines=["CNCF Velocity", "Bitcoin"],
+        )
+        words = out.lower().split()
+        assert "bitcoin" not in words, f"trailing cross-band token kept: {out!r}"
+        # The honest, non-overlapping remainder survives (not blanked).
+        assert "chainalysis" in words
+
+    def test_extract_three_stories_no_trailing_cross_band_dup(self):
+        """End-to-end: no band's subheadline ends with another band's
+        headline lead-token (the prior trailing-duplicate symptom)."""
+        title = "DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin"
+        excerpt = "CNCF 속도 보고서 클러스터 API 업데이트"
+        fn = "2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.md"
+        h, tr, br = extract_three_stories(title, excerpt, fn)
+        stories = [h, tr, br]
+        for i, story in enumerate(stories):
+            sub_words = [
+                w.lower() for w in story["subheadline"].replace("-", " ").split()
+            ]
+            for j, other in enumerate(stories):
+                if i == j:
+                    continue
+                other_lead = other["headline"].split()[0].lower()
+                assert sub_words.count(other_lead) == 0 or other_lead in [
+                    w.lower() for w in story["headline"].split()
+                ], (
+                    f"band {i} sub {story['subheadline']!r} echoes band {j} "
+                    f"headline token {other_lead!r}"
+                )
 
 
 # =====================================================================

@@ -318,7 +318,14 @@ def _shorten(text: str, limit: int) -> str:
     return cut or text[:limit].rstrip()
 
 
-def _dedupe_subheadline_extra(base: str, extra: str) -> str:
+_SUBHEADLINE_EXTRA_MAX_TOKENS: int = 2
+
+
+def _dedupe_subheadline_extra(
+    base: str,
+    extra: str,
+    other_headlines: Optional[List[str]] = None,
+) -> str:
     """Drop the redundant slug echo from a subheadline ``extra`` context.
 
     Bug fix (designer re-audit): for Korean-excerpt digests the only ASCII
@@ -326,27 +333,64 @@ def _dedupe_subheadline_extra(base: str, extra: str) -> str:
     Bitcoin"``), which echoes the headline token. The old ``base + " - " +
     extra`` then rendered ``"Bithumb - Bithumb Bitcoin"`` /
     ``"CNCF - CNCF Chainalysis Bitcoin"``. Here we remove every word of
-    ``extra`` that already appears in ``base`` (case-insensitive) so the
-    subheadline never repeats the headline. Returns the trimmed remainder
-    (possibly empty).
+    ``extra`` that already appears in ``base`` (case-insensitive).
+
+    Trailing-token tightening (polish nit 2): the kept remainder could still
+    duplicate *another* band's topic — e.g. for band 1 "Cluster API" the
+    extra ``"CNCF Chainalysis Bitcoin"`` kept a trailing "Bitcoin" that is
+    band 3's headline. So we additionally:
+
+    1. de-duplicate repeated tokens within ``extra`` (keep first occurrence);
+    2. when ``other_headlines`` is supplied, drop any token equal to another
+       band's headline lead-token (the cross-band echo);
+    3. cap the remainder to ``_SUBHEADLINE_EXTRA_MAX_TOKENS`` tokens.
+
+    Returns the trimmed remainder (possibly empty). The cap keeps the result
+    honest/meaningful — it shortens, it does not blank a genuine context.
     """
     base_words = {w.lower() for w in re.findall(r"\w+", base)}
-    kept = [w for w in extra.split() if w.lower() not in base_words]
+    drop_words = set(base_words)
+    for hl in other_headlines or []:
+        for w in re.findall(r"\w+", hl or ""):
+            drop_words.add(w.lower())
+
+    kept: List[str] = []
+    seen: set = set()
+    for w in extra.split():
+        wl = w.lower()
+        if wl in base_words:
+            continue  # always drop the headline's own echo
+        if wl in seen:
+            continue  # de-dup repeated tokens
+        if wl in drop_words:
+            continue  # cross-band headline echo
+        seen.add(wl)
+        kept.append(w)
+        if len(kept) >= _SUBHEADLINE_EXTRA_MAX_TOKENS:
+            break
     return _clean_segment(" ".join(kept))
 
 
-def _pad_subheadline(seg: str, excerpt: str) -> str:
+def _pad_subheadline(
+    seg: str,
+    excerpt: str,
+    other_headlines: Optional[List[str]] = None,
+) -> str:
     """Build a 40-60 char subheadline from a segment + excerpt context.
 
     The ``extra`` context is de-duplicated against the headline so the
     subheadline never echoes the headline back (see
-    ``_dedupe_subheadline_extra``). When no non-redundant context remains,
-    fall back to the headline segment alone rather than ``"X - X ..."``.
+    ``_dedupe_subheadline_extra``). ``other_headlines`` (the sibling bands'
+    headlines) lets the de-dupe also drop a trailing token that duplicates
+    another band's topic. When no non-redundant context remains, fall back
+    to the headline segment alone rather than ``"X - X ..."``.
     """
     base = _clean_segment(seg)
     if len(base) >= _SUB_MIN_CHARS:
         return _shorten(base, _SUB_MAX_CHARS)
-    extra = _dedupe_subheadline_extra(base, _clean_segment(excerpt))
+    extra = _dedupe_subheadline_extra(
+        base, _clean_segment(excerpt), other_headlines=other_headlines
+    )
     candidate = (base + " - " + extra).strip(" -") if extra else base
     return _shorten(candidate, _SUB_MAX_CHARS) or base
 
@@ -412,11 +456,15 @@ def extract_three_stories(
     safe_excerpt = excerpt or ""
     if _has_hangul(safe_excerpt):
         safe_excerpt = " ".join(en_keywords) if en_keywords else ""
-    for seg in segments:
+    headlines = [_shorten(seg, _HEADLINE_MAX_CHARS) for seg in segments]
+    for i, seg in enumerate(segments):
+        others = [h for j, h in enumerate(headlines) if j != i]
         stories.append(
             {
-                "headline": _shorten(seg, _HEADLINE_MAX_CHARS),
-                "subheadline": _pad_subheadline(seg, safe_excerpt),
+                "headline": headlines[i],
+                "subheadline": _pad_subheadline(
+                    seg, safe_excerpt, other_headlines=others
+                ),
             }
         )
     return stories[0], stories[1], stories[2]
@@ -512,6 +560,15 @@ def _build_story(
     # otherwise fall back to the index rotation.
     theme = _THEME_BY_VISUAL.get(visual, route_theme(str(index)))
     kpi_value, kpi_label, kpi_sub = _infer_kpi(headline)
+    # Market-routed bands: a USD figure is a PRICE, not an attack IMPACT.
+    # ``_infer_kpi`` is generic and labels any "$71K" as IMPACT/estimated
+    # (correct for a breach-cost figure on an attack visual). When the band
+    # is routed to the market visual the same figure is a spot price, so
+    # relabel here — where both the routed visual_id and the kpi are known —
+    # rather than weakening the generic heuristic. Non-market USD KPIs keep
+    # their existing IMPACT label.
+    if visual == "market" and kpi_label == "IMPACT":
+        kpi_label, kpi_sub = "PRICE", "spot"
     story: Dict = {
         "tag": severity_label.upper(),
         "index": f"{index + 1:02d}",
