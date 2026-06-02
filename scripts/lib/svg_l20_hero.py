@@ -31,7 +31,16 @@ from scripts.lib import svg_l22_generator as l22
 # Hangul code-points: precomposed syllables + jamo (Hangul Jamo, Compat Jamo).
 # Anything in this set is hard-stripped from <text> values to keep covers
 # ASCII-friendly per the project's English-only-SVG rule (CLAUDE.md).
-_HANGUL_RE = re.compile(r"[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]+")
+_HANGUL_CLASS = r"[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]"
+_HANGUL_RE = re.compile(_HANGUL_CLASS + r"+")
+# A Hangul run optionally carrying an ADJACENT connector (& : ; ,) and the
+# spaces around it, so the residue that would otherwise dangle after a Korean
+# word is deleted is consumed during the strip \u2014 but only when Hangul is on at
+# least one side (a bare ASCII ``A & B`` / ``AT&T`` is left untouched because
+# it has no adjacent Hangul). See ``_strip_hangul``.
+_HANGUL_RESIDUE_RE = re.compile(
+    rf"(?:{_HANGUL_CLASS}+\s*[&:;,]?\s*|\s*[&:;]\s*{_HANGUL_CLASS}+|{_HANGUL_CLASS}+)"
+)
 
 
 # --- Theme palette ---
@@ -100,7 +109,16 @@ def _strip_hangul(text: str) -> str:
     """
     if not text:
         return ""
-    cleaned = _HANGUL_RE.sub("", str(text))
+    # Consume connector punctuation (& : ; ,) and surrounding spaces that are
+    # DIRECTLY ADJACENT to a Hangul run as part of the strip. This removes the
+    # residue that otherwise dangles after a Korean word is deleted
+    # (``블록체인 & 테크`` -> ``  `` ; ``다이제스트: Bithumb`` -> `` Bithumb`` ;
+    # ``운영 사고, Bitcoin`` -> ``, Bitcoin`` -> later collapsed). Crucially,
+    # the connector is only consumed when Hangul is on at least ONE side, so a
+    # genuine ASCII ``A & B`` / ``AT&T`` / ``9:30`` (no adjacent Hangul) is
+    # left intact — we cannot tell residue from legit punctuation AFTER the
+    # strip, only during it (see ``_HANGUL_RESIDUE_RE``).
+    cleaned = _HANGUL_RESIDUE_RE.sub(" ", str(text))
     # Collapse Korean separator residue left after Hangul strip: middle dots
     # (U+00B7), bullets (U+2022), and orphan ASCII hyphens between blanks.
     cleaned = re.sub(r"[·•](\s*[·•])+", "", cleaned)
@@ -111,7 +129,11 @@ def _strip_hangul(text: str) -> str:
     cleaned = re.sub(r"(^|\s)[·•]+(?=\w)", r"\1", cleaned)
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     cleaned = re.sub(r"(,\s*){2,}", ", ", cleaned)
-    cleaned = re.sub(r"^[\s,;:.\-·•]+|[\s,;:.\-·•]+$", "", cleaned)
+    # Tidy an orphaned space before a comma left by a stripped Korean word
+    # (`` , Bitcoin`` -> ``, Bitcoin``).
+    cleaned = re.sub(r"\s+,", ",", cleaned)
+    cleaned = re.sub(r"^[\s,;:.\-·•&]+|[\s,;:.\-·•&]+$", "", cleaned)
+    cleaned = re.sub(r"\s{2,}", " ", cleaned)
     return cleaned
 
 
@@ -545,6 +567,116 @@ def vb_data_exfil(cx: int, cy: int, theme: str = "blue") -> str:
     )
 
 
+def vb_neutral(cx: int, cy: int, theme: str = "blue") -> str:
+    """Content-neutral digest / ecosystem motif.
+
+    Honest default for non-incident content (ecosystem velocity, lifecycle
+    updates, operational notices, generic digests). Renders a small grid of
+    connected, stacked "cards" feeding an UPDATE hub with a rising trend
+    sparkline — a clean information-flow abstraction. Carries NO attack /
+    breach / CVE / exploit / victim / C2 language: it must never assert an
+    incident the post lacks. Labels are deliberately benign (DIGEST / UPDATE /
+    ECOSYSTEM / RELEASE).
+    """
+    t = _theme(theme)
+    a, soft = t["accent"], t["accent_soft"]
+    return (
+        f'<g transform="translate({cx},{cy})">'
+        # Three stacked source cards on the left (layered documents / feeds)
+        f'<g font-family="Inter, monospace" font-size="8" font-weight="800">'
+        f'<g transform="translate(-150,-40)">'
+        f'<rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2"/>'
+        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">DIGEST</text></g>'
+        f'<g transform="translate(-150,-6)">'
+        f'<rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2" opacity="0.88"/>'
+        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">ECOSYSTEM</text></g>'
+        f'<g transform="translate(-150,28)">'
+        f'<rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2" opacity="0.76"/>'
+        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">RELEASE</text></g>'
+        f'</g>'
+        # Connector lines into the hub
+        f'<g stroke="{a}" stroke-width="1" stroke-dasharray="3 2" fill="none" opacity="0.6">'
+        f'<line x1="-74" y1="-28" x2="-8" y2="0"/>'
+        f'<line x1="-74" y1="6" x2="-8" y2="2"/>'
+        f'<line x1="-74" y1="40" x2="-8" y2="4"/>'
+        f'</g>'
+        # Flowing data dots toward the hub
+        f'<g fill="{soft}">'
+        f'<circle r="2"><animateMotion path="M-74 -28 L-8 0" dur="2.2s" repeatCount="indefinite"/></circle>'
+        f'<circle r="2"><animateMotion path="M-74 6 L-8 2" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>'
+        f'<circle r="2"><animateMotion path="M-74 40 L-8 4" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></circle>'
+        f'</g>'
+        # Central UPDATE hub
+        f'<circle cx="0" cy="2" r="30" fill="#0A1326" stroke="{a}" stroke-width="2" filter="url(#softShadow)">'
+        f'<animate attributeName="r" values="28;33;28" dur="3.4s" repeatCount="indefinite"/></circle>'
+        f'<text x="0" y="-1" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="{soft}">UPDATE</text>'
+        f'<text x="0" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{a}">DIGEST</text>'
+        # Trend sparkline panel on the right (neutral activity, no alarm)
+        f'<g transform="translate(56,-44)" filter="url(#softShadow)">'
+        f'<rect x="0" y="0" width="120" height="92" rx="6" fill="#0A0F1E" stroke="{a}" stroke-width="1.2"/>'
+        f'<text x="60" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="{soft}">ACTIVITY</text>'
+        f'<polyline points="12,72 30,60 46,64 62,48 80,52 98,34 108,30" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        f'<circle cx="108" cy="30" r="3" fill="{soft}"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>'
+        f'<g stroke="{a}" stroke-width="0.6" opacity="0.3">'
+        f'<line x1="12" y1="46" x2="108" y2="46"/><line x1="12" y1="62" x2="108" y2="62"/></g>'
+        f'<text x="60" y="86" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{a}">trend overview</text>'
+        f'</g>'
+        f'</g>'
+    )
+
+
+def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
+    """Crypto market / price motif for price & trend stories ("Bitcoin $71K").
+
+    Candlestick chart + rising trend arrow with PRICE / MARKET / TREND
+    framing. Carries NO attack topology, breach, or CVE language — it reads
+    as a financial-market figure, honest for a pure price/market story.
+    """
+    t = _theme(theme)
+    a, soft = t["accent"], t["accent_soft"]
+    up = "#4ADE80"
+    down = "#F87171"
+    return (
+        f'<g transform="translate({cx},{cy})">'
+        # Chart frame
+        f'<g filter="url(#softShadow)">'
+        f'<rect x="-160" y="-66" width="290" height="132" rx="8" fill="#0A0F1E" stroke="{a}" stroke-width="1.4"/>'
+        f'</g>'
+        f'<text x="-148" y="-46" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{soft}" letter-spacing="1">MARKET</text>'
+        f'<text x="118" y="-46" text-anchor="end" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{a}">PRICE</text>'
+        # Gridlines
+        f'<g stroke="{a}" stroke-width="0.6" opacity="0.25">'
+        f'<line x1="-148" y1="-24" x2="118" y2="-24"/>'
+        f'<line x1="-148" y1="4" x2="118" y2="4"/>'
+        f'<line x1="-148" y1="32" x2="118" y2="32"/>'
+        f'</g>'
+        # Candlesticks (wick + body), mixed up/down then trending up
+        f'<g stroke-width="1">'
+        f'<line x1="-128" y1="-6" x2="-128" y2="40" stroke="{down}"/><rect x="-133" y="6" width="10" height="22" fill="{down}"/>'
+        f'<line x1="-104" y1="-2" x2="-104" y2="44" stroke="{up}"/><rect x="-109" y="2" width="10" height="26" fill="{up}"/>'
+        f'<line x1="-80" y1="-14" x2="-80" y2="30" stroke="{up}"/><rect x="-85" y="-10" width="10" height="24" fill="{up}"/>'
+        f'<line x1="-56" y1="-8" x2="-56" y2="34" stroke="{down}"/><rect x="-61" y="0" width="10" height="20" fill="{down}"/>'
+        f'<line x1="-32" y1="-20" x2="-32" y2="22" stroke="{up}"/><rect x="-37" y="-16" width="10" height="26" fill="{up}"/>'
+        f'<line x1="-8" y1="-30" x2="-8" y2="14" stroke="{up}"/><rect x="-13" y="-26" width="10" height="26" fill="{up}"/>'
+        f'<line x1="16" y1="-24" x2="16" y2="18" stroke="{down}"/><rect x="11" y="-20" width="10" height="18" fill="{down}"/>'
+        f'<line x1="40" y1="-40" x2="40" y2="6" stroke="{up}"/><rect x="35" y="-36" width="10" height="26" fill="{up}"/>'
+        f'<line x1="64" y1="-48" x2="64" y2="-4" stroke="{up}"/><rect x="59" y="-44" width="10" height="24" fill="{up}"/>'
+        f'</g>'
+        # Rising trend line over the candles
+        f'<polyline points="-128,18 -104,16 -80,2 -56,8 -32,-2 -8,-14 16,-8 40,-24 64,-34" '
+        f'fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>'
+        # Up arrow head at the end of the trend
+        f'<g transform="translate(64,-34)" stroke="{a}" stroke-width="2" fill="none" stroke-linecap="round">'
+        f'<path d="M0 0 L10 -8 M10 -8 L2 -8 M10 -8 L10 0">'
+        f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/></path>'
+        f'</g>'
+        f'<circle cx="64" cy="-34" r="3.4" fill="{soft}"><animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/></circle>'
+        # Bottom caption (neutral, no alarm)
+        f'<text x="-15" y="60" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">TREND OVERVIEW</text>'
+        f'</g>'
+    )
+
+
 VISUAL_BUILDERS = {
     "cve_chain": vb_cve_chain,
     "hub_spoke": vb_hub_spoke,
@@ -554,12 +686,26 @@ VISUAL_BUILDERS = {
     "supply_chain_pipe": vb_supply_chain_pipe,
     "code_injection": vb_code_injection,
     "data_exfil": vb_data_exfil,
+    "neutral": vb_neutral,
+    "market": vb_market,
 }
 
 
 def _render_visual(visual_id: str, cx: int, cy: int, theme: str, label: str = "") -> str:
-    """Dispatch to the correct visual builder; falls back to cve_chain."""
-    fn = VISUAL_BUILDERS.get(visual_id, vb_cve_chain)
+    """Dispatch to the correct visual builder.
+
+    Unknown-key fallback is ``vb_neutral`` — a genuinely content-neutral
+    digest/ecosystem motif (Option B, the honest corpus-wide fix). It is
+    kept in LOCKSTEP with ``l20_dispatch.route_visual_id``'s no-match
+    default. The history of this fallback: ``vb_cve_chain`` (fabricated a
+    CVE-exploitation narrative on any unrouted key) -> ``vb_hub_spoke``
+    (Option A stopgap; relocated the false claim to a C2/VICTIM narrative)
+    -> ``vb_neutral`` (asserts no incident at all). Both fallback sites MUST
+    change together — editing only one re-introduces a false-incident
+    narrative for unknown keys. See
+    ``.omc/plans/l20-digest-cover-audit-fix.md`` (Step 7 / Option B).
+    """
+    fn = VISUAL_BUILDERS.get(visual_id, vb_neutral)
     if visual_id == "hub_spoke" and label:
         return fn(cx, cy, theme=theme, center_label=label)
     return fn(cx, cy, theme=theme)

@@ -26,7 +26,52 @@ from scripts.news.l20_dispatch import (
     _infer_kpi,
     extract_three_stories,
     generate_l20_digest_svg,
+    route_visual_id,
 )
+
+
+# =====================================================================
+# Honesty-driven routing (Option B): non-attack -> neutral, price -> market
+# =====================================================================
+
+
+class TestHonestyDrivenRouting:
+    """The two flagged covers' tokens must route to honest, non-attack
+    visuals. The Option A stopgap routed them to attack builders
+    (data_exfil/container_escape/hub_spoke) which the re-audit flagged."""
+
+    def test_bithumb_routes_neutral_not_breach(self):
+        # Operational incident, NOT an intrusion: data_exfil would assert a
+        # breach the post lacks.
+        assert route_visual_id("Bithumb") == "neutral"
+
+    def test_cncf_and_cluster_api_route_neutral_not_escape(self):
+        # Ecosystem velocity / lifecycle, NOT a container escape.
+        assert route_visual_id("CNCF") == "neutral"
+        assert route_visual_id("Cluster API") == "neutral"
+
+    def test_bitcoin_routes_market_not_attack(self):
+        # Pure price / market story: any attack builder misrepresents it.
+        assert route_visual_id("Bitcoin") == "market"
+        assert route_visual_id("Bitcoin $71K") == "market"
+
+    def test_chainalysis_routes_neutral(self):
+        assert route_visual_id("Chainalysis report") == "neutral"
+
+    def test_real_cve_still_routes_cve_chain(self):
+        # The genuine CVE keyword route is UNCHANGED.
+        assert route_visual_id("CVE-2026-1234 RCE in Redis") == "cve_chain"
+        assert route_visual_id("Patch Tuesday 9.8 CVSS fix") == "cve_chain"
+
+    def test_genuine_attack_routes_unchanged(self):
+        # Ransomware / supply-chain / botnet still reach their attack builders.
+        assert route_visual_id("LockBit ransomware hits banks") == "ransomware_lock"
+        assert route_visual_id("Supply chain attack on npm") == "supply_chain_pipe"
+        assert route_visual_id("SOHO router botnet C2") == "hub_spoke"
+
+    def test_default_is_neutral(self):
+        assert route_visual_id("") == "neutral"
+        assert route_visual_id("an unrelated topic") == "neutral"
 
 
 # =====================================================================
@@ -165,6 +210,54 @@ class TestInferKpi:
     def test_default_when_empty(self):
         assert _infer_kpi("") == ("TBD", "STATUS", "NEW")
         assert _infer_kpi(None) == ("TBD", "STATUS", "NEW")
+
+
+# =====================================================================
+# Subheadline de-duplication (designer re-audit bug fix)
+# =====================================================================
+
+
+class TestSubheadlineDeduplication:
+    """Bug: side bands rendered ``"Bithumb - Bithumb Bitcoin"`` /
+    ``"CNCF - CNCF Chainalysis Bitcoin"`` — the headline echoed into the
+    subheadline because the only ASCII context for a Korean-excerpt digest
+    is the filename-keyword pool, which contains the headline token. The
+    subheadline must no longer repeat the headline back."""
+
+    def test_bithumb_subheadline_does_not_echo_headline(self):
+        title = "2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K"
+        excerpt = "빗썸 운영 사고 비트코인 오인출금 이슈"
+        fn = "2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.md"
+        h, tr, br = extract_three_stories(title, excerpt, fn)
+        # The exact corrupted strings must be gone.
+        assert h["subheadline"] != "Bithumb - Bithumb Bitcoin"
+        # No headline token is immediately repeated as the first sub word.
+        for story in (h, tr, br):
+            head = story["headline"].split()[0].lower()
+            sub_words = [w.lower() for w in story["subheadline"].replace("-", " ").split()]
+            # The headline's lead token must not appear twice in the sub.
+            assert sub_words.count(head) <= 1, (
+                f"headline token {head!r} repeated in subheadline "
+                f"{story['subheadline']!r}"
+            )
+
+    def test_cncf_subheadline_does_not_echo_headline(self):
+        title = "DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin"
+        excerpt = "CNCF 속도 보고서 클러스터 API 업데이트"
+        fn = "2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.md"
+        h, _, _ = extract_three_stories(title, excerpt, fn)
+        assert h["subheadline"] != "CNCF - CNCF Chainalysis Bitcoin"
+        assert not h["subheadline"].lower().startswith("cncf - cncf")
+
+    def test_dedupe_helper_drops_repeated_words(self):
+        from scripts.news.l20_dispatch import _dedupe_subheadline_extra
+
+        assert _dedupe_subheadline_extra("Bithumb", "Bithumb Bitcoin") == "Bitcoin"
+        assert _dedupe_subheadline_extra("CNCF", "CNCF Chainalysis Bitcoin") == (
+            "Chainalysis Bitcoin"
+        )
+        # No overlap -> extra preserved verbatim.
+        assert _dedupe_subheadline_extra("Bithumb", "Market update") == "Market update"
 
 
 # =====================================================================

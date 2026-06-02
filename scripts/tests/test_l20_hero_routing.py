@@ -51,12 +51,33 @@ class TestRouteVisualIdBuckets:
             # 7. Data exfiltration bucket
             ("AWS S3 leak exposes credential set", "data_exfil"),
             ("Session hijack via SSO token leak", "data_exfil"),
-            # 8. CVE / generic vuln bucket (catch-all)
+            # 8. CVE / generic vuln bucket (explicit keyword route, L118)
             ("CVE-2026-1234 RCE in Redis", "cve_chain"),
             ("Patch Tuesday brings 9.8 CVSS fix", "cve_chain"),
-            # Default fallback: empty + nonsense
-            ("", "cve_chain"),
-            ("totally unrelated banana split", "cve_chain"),
+            # Brand / topic aliases (ASCII-only, specific-first before
+            # catch-all). HONESTY-DRIVEN (Option B): non-attack content ->
+            # ``neutral``; market/price -> ``market``. The prior Option A
+            # stopgap routed these to attack builders
+            # (data_exfil/container_escape/hub_spoke), which the designer
+            # re-audit flagged as asserting breaches/escapes/C2 the posts lack.
+            ("Bithumb", "neutral"),
+            ("Upbit exchange incident", "neutral"),
+            ("CNCF", "neutral"),
+            ("Cluster API", "neutral"),
+            ("Cloud Native velocity", "neutral"),
+            ("Bitcoin", "market"),
+            ("Bitcoin $71K", "market"),
+            ("Ethereum staking", "market"),
+            ("Chainalysis report", "neutral"),
+            ("Hexagate monitoring", "neutral"),
+            # Default fallback: empty + nonsense now route to the genuinely
+            # content-neutral ``neutral`` builder (Option B / honest fix).
+            # History: cve_chain (fabricated CVE narrative) -> hub_spoke
+            # (Option A stopgap; relocated to a C2 narrative) -> neutral
+            # (asserts no incident at all). See
+            # .omc/plans/l20-digest-cover-audit-fix.md (Step 7 / Option B).
+            ("", "neutral"),
+            ("totally unrelated banana split", "neutral"),
         ],
     )
     def test_each_bucket_routes(self, topic, expected):
@@ -105,6 +126,64 @@ class TestBranchPriorityConflicts:
     def test_data_exfil_with_cve_routes_data_exfil(self):
         topic = "Token leak triggers data exfil chain CVE-2026-3333"
         assert route_visual_id(topic) == "data_exfil"
+
+    def test_cncf_alias_precedes_cve_catch_all(self):
+        # The CNCF brand alias (-> neutral, Option B honesty routing) is
+        # placed BEFORE the cve_chain catch-all, so a CNCF ecosystem story
+        # that merely mentions a CVE id still routes to the neutral builder
+        # rather than fabricating a CVE-exploitation narrative. (A genuine
+        # container/k8s ATTACK keyword like "container"/"kubernetes" would
+        # still win first via the container_escape route — tested above.)
+        topic = "CNCF velocity report references CVE-2026-4444"
+        assert route_visual_id(topic) == "neutral"
+
+    def test_real_container_attack_still_routes_container_escape(self):
+        # Genuine attack keywords are UNCHANGED: a real container/k8s escape
+        # story routes to the attack builder, not neutral.
+        assert route_visual_id("Kubernetes container escape via CVE-2026-4444") == (
+            "container_escape"
+        )
+
+
+# =====================================================================
+# Neutral default lockstep (Option B, Step 7 — the honest corpus-wide fix):
+#   route_visual_id no-match default AND _render_visual unknown-key
+#   fallback must BOTH point at the content-neutral ``neutral`` builder so
+#   NO false-incident narrative (CVE, C2, breach, exfil) leaks onto
+#   unrouted/non-CVE digest content.
+# =====================================================================
+
+
+class TestNeutralDefaultLockstep:
+    def test_real_cve_still_routes_cve_chain(self):
+        # The explicit CVE keyword route (l20_dispatch:118) is untouched.
+        assert route_visual_id("CVE-2026-1234 RCE") == "cve_chain"
+
+    def test_empty_and_unrouted_route_to_neutral(self):
+        assert route_visual_id("") == "neutral"
+        assert route_visual_id("some unrouted topic") == "neutral"
+
+    def test_render_visual_unknown_key_has_no_attack_narrative(self):
+        # Lockstep with the router default: an unknown visual_id must NOT
+        # fall back to ANY hardcoded attack narrative — neither the CVE
+        # narrative (the original bug) NOR the hub_spoke C2/VICTIM narrative
+        # (the Option A stopgap). The neutral builder asserts no incident.
+        from scripts.lib.svg_l20_hero import _render_visual
+
+        out = _render_visual("an_unknown_key", 0, 0, "blue")
+        # No CVE narrative (vb_cve_chain).
+        assert "CVE REGRESSION CHAIN" not in out
+        assert "NEW CVE" not in out
+        assert "Active exploitation" not in out
+        # No C2 / kill-chain narrative (vb_hub_spoke).
+        assert ">C2<" not in out
+        assert ">VICTIM<" not in out
+        assert ">CREDS<" not in out
+        # No exfiltration narrative (vb_data_exfil).
+        assert "DATA EXFILTRATION" not in out
+        assert "ATTACKER" not in out
+        # It IS the neutral digest motif.
+        assert ">UPDATE<" in out or ">DIGEST<" in out
 
 
 # =====================================================================

@@ -54,7 +54,7 @@ L20_MARCH_FILENAMES: list[str] = [
     "2026-03-31-Tech_Security_Weekly_Digest_Vulnerability_Patch_AI_GPT.svg",
 ]
 
-# All 8 visual builders
+# All 10 visual builders (8 attack/incident + 2 content-neutral: Option B).
 VISUAL_BUILDERS = [
     ("vb_cve_chain", svg_l20_hero.vb_cve_chain),
     ("vb_hub_spoke", svg_l20_hero.vb_hub_spoke),
@@ -64,6 +64,28 @@ VISUAL_BUILDERS = [
     ("vb_supply_chain_pipe", svg_l20_hero.vb_supply_chain_pipe),
     ("vb_code_injection", svg_l20_hero.vb_code_injection),
     ("vb_data_exfil", svg_l20_hero.vb_data_exfil),
+    ("vb_neutral", svg_l20_hero.vb_neutral),
+    ("vb_market", svg_l20_hero.vb_market),
+]
+
+# Attack/incident vocabulary that the two content-neutral builders MUST NOT
+# emit — the core honesty guarantee of Option B.
+_ATTACK_VOCAB = [
+    "CVE",
+    "0-DAY",
+    "EXPLOIT",
+    "ATTACKER",
+    "VICTIM",
+    "C2",
+    "PWNED",
+    "BREACH",
+    "RANSOM",
+    "EXFIL",
+    "uid=0",
+    "ACTIVE EXPLOITATION",
+    "MALWARE",
+    "BOTNET",
+    "BYPASS",
 ]
 
 KOREAN_RE = re.compile(r"[\uAC00-\uD7A3]")
@@ -257,6 +279,70 @@ def test_all_16_march_covers_pass_quality_gate(filename: str) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Test 3b: Content-neutral builders (Option B) — honesty + framing guarantees
+# ---------------------------------------------------------------------------
+
+@pytest.mark.parametrize("name,fn", [
+    ("vb_neutral", svg_l20_hero.vb_neutral),
+    ("vb_market", svg_l20_hero.vb_market),
+])
+def test_neutral_builders_are_ascii_and_wellformed(name, fn) -> None:
+    """Both content-neutral builders render valid, ASCII-only SVG fragments."""
+    for theme in ("blue", "amber", "red", "green", "purple"):
+        out = fn(800, 230, theme)
+        assert out and "<g" in out, f"{name}[{theme}] empty / missing group"
+        assert all(ord(c) < 128 for c in out), (
+            f"{name}[{theme}] emitted non-ASCII content"
+        )
+        try:
+            ET.fromstring(_wrap_svg(out))
+        except ET.ParseError as exc:
+            pytest.fail(f"{name}[{theme}] is not well-formed XML: {exc}")
+
+
+@pytest.mark.parametrize("name,fn", [
+    ("vb_neutral", svg_l20_hero.vb_neutral),
+    ("vb_market", svg_l20_hero.vb_market),
+])
+def test_neutral_builders_assert_no_attack_narrative(name, fn) -> None:
+    """The honesty guarantee: neither neutral builder may emit any attack /
+    breach / CVE / exploit vocabulary. This is the whole point of Option B —
+    a digest/market cover must not fabricate an incident the post lacks.
+    """
+    out = fn(800, 230, "blue").upper()
+    for token in _ATTACK_VOCAB:
+        assert token.upper() not in out, (
+            f"{name} leaked attack vocabulary {token!r}"
+        )
+
+
+def test_vb_neutral_uses_benign_labels() -> None:
+    """vb_neutral carries deliberately benign digest/ecosystem framing."""
+    out = svg_l20_hero.vb_neutral(800, 230, "blue")
+    assert any(lbl in out for lbl in ("DIGEST", "UPDATE", "ECOSYSTEM", "RELEASE")), (
+        "vb_neutral missing benign digest labels"
+    )
+
+
+def test_vb_market_reads_as_market_figure() -> None:
+    """vb_market frames the visual as a market/price/trend figure."""
+    out = svg_l20_hero.vb_market(800, 230, "amber")
+    assert any(lbl in out for lbl in ("MARKET", "PRICE", "TREND")), (
+        "vb_market missing market/price framing"
+    )
+
+
+def test_render_visual_unknown_key_is_neutral() -> None:
+    """_render_visual's unknown-key fallback (lockstep with the router
+    default) renders the neutral builder, never an attack narrative."""
+    out = svg_l20_hero._render_visual("totally_unknown_key", 800, 230, "blue")
+    assert ">UPDATE<" in out or ">DIGEST<" in out, "fallback is not vb_neutral"
+    upper = out.upper()
+    for token in ("CVE REGRESSION", "ATTACKER", ">C2<", ">VICTIM<", "DATA EXFILTRATION"):
+        assert token.upper() not in upper, f"fallback leaked {token!r}"
+
+
+# ---------------------------------------------------------------------------
 # Test 4: Reference April-08 baseline invariants
 # ---------------------------------------------------------------------------
 
@@ -282,6 +368,70 @@ def test_reference_04_08_baseline_invariants() -> None:
 # ---------------------------------------------------------------------------
 # Test 5: XML escaping of special characters in rendered output
 # ---------------------------------------------------------------------------
+
+def test_strip_hangul_removes_orphaned_connector_residue() -> None:
+    """Bug fix (designer re-audit): after Hangul is stripped from a Korean
+    digest title, no dangling ``&`` / ``:`` / empty segment may remain.
+
+    Example corruption before the fix:
+      ``2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K``
+      -> ``2026-02-09 &amp; : Bithumb , Bitcoin $71K``  (orphaned & and :)
+    """
+    title = "2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K"
+    out = svg_l20_hero._strip_hangul(title)
+    # Core content survives, ASCII-only.
+    assert "Bithumb" in out and "Bitcoin $71K" in out
+    assert all(ord(c) < 128 for c in out)
+    # No orphaned connectors / leading-trailing punctuation.
+    assert " & " not in out, f"orphaned ampersand remains: {out!r}"
+    assert " : " not in out, f"orphaned colon remains: {out!r}"
+    assert not out.endswith((":", "&", ",", ";"))
+    assert not out.startswith((":", "&", ",", ";", " "))
+    # No leading orphaned comma/segment (the ``, Bitcoin`` artifact).
+    assert ", ," not in out
+    assert "  " not in out, f"double space remains: {out!r}"
+
+    cncf = "DevOps & 블록체인 다이제스트: CNCF Velocity, Cluster API, Bitcoin"
+    out2 = svg_l20_hero._strip_hangul(cncf)
+    assert "CNCF Velocity" in out2 and "Cluster API" in out2
+    assert " : " not in out2 and not out2.endswith(":")
+
+
+def test_strip_hangul_preserves_legit_ascii_punctuation() -> None:
+    """The orphan-connector cleanup must NOT corrupt genuine ASCII
+    punctuation that has no adjacent Hangul (``AT&T``, ``Q&A``, ``9:30``,
+    ``A, B, C``, ``Cloud & Security``)."""
+    cases = {
+        "AT&T 9:30 Q&A session": "AT&T 9:30 Q&A session",
+        "Cloud & Security weekly": "Cloud & Security weekly",
+        "A, B, C three items": "A, B, C three items",
+    }
+    for src, expected in cases.items():
+        assert svg_l20_hero._strip_hangul(src) == expected
+
+
+def test_render_l20_hero_title_has_no_dangling_punctuation() -> None:
+    """End-to-end: a Korean digest title rendered into the SVG <title>
+    contains no orphaned ``&``/``:`` and stays ASCII-only."""
+    hero = _synthetic_story("red", "neutral")
+    top_right = _synthetic_story("blue", "market")
+    bottom_right = _synthetic_story("amber", "neutral")
+    svg = svg_l20_hero.render_l20_hero(
+        date_str="2026.02.09",
+        hero=hero,
+        top_right=top_right,
+        bottom_right=bottom_right,
+        url="https://example.test/",
+        post_title="2026-02-09 블록체인 & 테크 다이제스트: Bithumb 운영 사고, Bitcoin $71K",
+    )
+    title_match = re.search(r"<title>(.*?)</title>", svg, re.DOTALL)
+    assert title_match, "no <title> element"
+    title_text = title_match.group(1)
+    assert "Bithumb" in title_text
+    assert " &amp; " not in title_text, f"orphaned &amp; in title: {title_text!r}"
+    assert " : " not in title_text, f"orphaned colon in title: {title_text!r}"
+    assert not KOREAN_RE.search(title_text)
+
 
 def test_render_l20_hero_xml_escapes_special_chars() -> None:
     """Special XML characters in story fields must be escaped in the output SVG."""
