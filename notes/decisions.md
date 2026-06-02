@@ -131,3 +131,44 @@ word-boundary preferred unless latest space < budget-10 (then hard cut).
 Unit tests in `scripts/tests/test_l20_panel_headline_cap.py` cover all
 10 behavioral paths including parametrized real-world overflow cases
 (commit 6b5a621b).
+
+## 2026-06 — CodeQL HIGH alert triage (26 alerts)
+
+Context: after merging the large cover-honesty PR (#381, 1153 files), the
+"CodeQL" default-setup PR check failed. Investigation showed 26 open HIGH
+alerts + 3 medium. A read-only opus security review (+ direct spot-checks
+of the 5 highest-stakes claims) classified **all 26 HIGH as false
+positives** (0 true positives requiring code change):
+
+- `py/clear-text-logging` (9) / `py/clear-text-storage` (2): every flagged
+  value is public content (news titles, blog commentary, generated post
+  markdown, cover SVGs) or the masking sink itself (`logging_utils.py:42`).
+  The only real secret (`_GEMINI_API_KEY`) travels in the request URL
+  (`enhancer.py:46`), never in a logged/stored expression.
+- `py/incomplete-url-substring-sanitization` (2): pytest assertion oracles
+  in `test_fix_links.py`, not trust validation → dismissed `used in tests`.
+- `rb/incomplete-multi-character-sanitization` (2): single-pass tag strip on
+  trusted single-author front-matter; output is JSON-encoded then
+  JS-escaped. Loop-until-stable hardening rejected — risks shifting live
+  archive-card excerpt truncation (`[0,77]`/`[0,157]`+"...") for zero real
+  gain (Karpathy: don't fix what isn't broken).
+- `js/xss-through-dom` (8): all `setAttribute('src',…)`/`.src=` from
+  Jekyll-rendered `data-*` attrs or same-origin literals — not HTML sinks.
+- `js/incomplete-multi-character-sanitization` (3): regex strips assigned to
+  `textContent` (inert); the real XSS boundary is the `DOMPurify.sanitize`
+  allowlist at `chat-widget.js:218/654`, which is correct.
+
+Decisions:
+1. **Dismiss all 26 HIGH via code-scanning API** (`false positive`, or
+   `used in tests` for the 2 test alerts) with per-alert evidence comments.
+   No runtime code touched — patching working code to satisfy a static FP
+   would risk regressions. Verified: open HIGH count 26 → 0.
+2. **Fix the 3 real medium `actions/missing-workflow-permissions`** by
+   adding least-privilege `permissions:` blocks to svg-lint, lighthouse
+   (`contents: read`) and indexnow-ping (`contents: read` + `actions: read`
+   for its `gh api` workflow-runs lookup). Branch `fix/codeql-hardening`,
+   commit 729fcadf. These auto-close on merge when CodeQL re-scans main.
+
+Note: the "CodeQL" check itself failing on #381 was ALSO a large-diff
+false attribution (see memory `codeql_large_diff_false_attribution.md`) —
+it is not a required status, so the merge proceeded as UNSTABLE.
