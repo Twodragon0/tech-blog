@@ -2,6 +2,13 @@
 
 **Last updated**: 2026-04-24
 
+> **This is the DESIGN catalog (hand-authoring layout specs).** For the RUNTIME
+> code that actually generates covers — the dispatch order, the
+> L20/L22/L25/rollup/spec-driven generators, the honesty scorer + blocking CI
+> gate, the drift checks, and the gotchas that cause corpus-wide regressions —
+> invoke the **`cover-system` skill** (`.claude/skills/cover-system/SKILL.md`)
+> before editing any generator, router, spec, or regenerating covers.
+
 이 문서는 Tech Security Weekly Digest 포스트의 연구 기반 SVG 커버 레이아웃 5종(L13, L14, L20, L21, L22) 및 향후 확장 슬롯(L15/L16)을 카탈로그화합니다.
 
 각 레이아웃은 특정 뉴스 구성(1dominant+2supporting / 3-chain / 3-equal) 과 KPI 기반 의사결정에 최적화되어 있으며, 공통 파운데이션(색상, 타이포그래피, 필터)을 공유합니다.

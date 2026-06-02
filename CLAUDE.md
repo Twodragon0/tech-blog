@@ -564,6 +564,28 @@ posts that still violated the rule were fixed in commit `b4ff35c4`
 - No special chars: `·`, `•`, `—`, `"`, `'`
 - UTF-8 encoding required
 
+### Cover Generation System (runtime)
+
+> **Before touching any cover SVG, generator, router, or scorer, invoke the
+> `cover-system` skill** (`.claude/skills/cover-system/SKILL.md`). It maps the 5
+> cover systems (L20 / L22 / L25 / rollup / fallback), the dispatch order, the
+> honesty scorer + blocking CI gate, the drift checks, and the gotchas below.
+
+Non-negotiables (each one has caused a corpus-wide regression):
+- **Digest covers render via L20, not L22** (`process_post` runs L20 first; L22
+  is fallback-only). Editing the L22 router won't change a live digest cover.
+- **Do NOT blindly `generate_post_images.py --force` over all digests** — it
+  converts rollup + spec-driven covers to L20 and breaks the drift/size gates.
+  Spec-driven covers (`_data/{digest,rollup,l25}_covers/*.yml`) regenerate via
+  `upgrade_{digest,rollup,l25}_cover.py --all`, NOT the L20 generator.
+- **Honesty gate is blocking** (`score_cover_honesty.py --all --baseline … --strict`
+  in svg-lint CI). A band must not assert evidence the post lacks. Never bypass
+  the baseline to make a cover pass.
+- **Render + grep to verify; never reason about routing statically.**
+- Run the full cover verify workflow (drift checks + `check_svg_quality` +
+  honesty gate + gates + pytest) locally before committing cover changes — CI
+  runs checks that pre-commit does not.
+
 ## Common Commands
 
 ```bash
