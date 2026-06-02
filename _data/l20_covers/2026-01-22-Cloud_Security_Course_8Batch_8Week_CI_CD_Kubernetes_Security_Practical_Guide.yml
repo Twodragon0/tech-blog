@@ -17,7 +17,7 @@ hero:
 top_right:
   tag: K8S NETPOL
   theme: amber
-  visual: hub_spoke
+  visual: security_advisory
   headline: NetworkPolicy + RBAC
   subheadline: Kubernetes network policy and RBAC patterns for tenant isolation
   kpi_value: NP
