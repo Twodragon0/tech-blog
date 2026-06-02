@@ -20,6 +20,9 @@ on:
       - 'scripts/news/l22_dispatch.py'
       - 'scripts/check_l22_visual_variety.py'
       - 'scripts/check_svg_size_gate.py'
+      - 'scripts/score_cover_honesty.py'
+      - 'scripts/cover_honesty_baseline.txt'
+      - 'scripts/news/l20_dispatch.py'
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
@@ -44,6 +47,9 @@ on:
       - 'scripts/news/l22_dispatch.py'
       - 'scripts/check_l22_visual_variety.py'
       - 'scripts/check_svg_size_gate.py'
+      - 'scripts/score_cover_honesty.py'
+      - 'scripts/cover_honesty_baseline.txt'
+      - 'scripts/news/l20_dispatch.py'
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
@@ -114,6 +120,29 @@ jobs:
             --changed "$BASE" \
             --baseline scripts/svg_size_gate_baseline.txt \
             --strict
+
+      - name: L20 cover honesty scorer (WARN-ONLY during rollout)
+        id: cover_honesty
+        # NON-BLOCKING for now: reports honesty/quality scores for L20 covers
+        # but never fails the build while the 60/40 weighting + 70 PASS
+        # threshold are calibrated against the live corpus. ``continue-on-error``
+        # + omitting ``--strict`` both keep it warn-only. To FLIP TO BLOCKING
+        # after calibration: (1) run
+        #   python3 scripts/score_cover_honesty.py --update-baseline scripts/cover_honesty_baseline.txt
+        # to grandfather current legacy FAILs, then (2) remove
+        # ``continue-on-error: true`` and switch the command to
+        #   --changed "$BASE" --baseline scripts/cover_honesty_baseline.txt --strict
+        # (mirrors the size_gate step above). See score_cover_honesty.py header.
+        continue-on-error: true
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="origin/${{ github.event.pull_request.base.ref }}"
+          else
+            BASE="HEAD~1"
+          fi
+          echo "[cover-honesty] diff base: $BASE (warn-only, non-blocking)"
+          python3 scripts/score_cover_honesty.py --all \
+            --baseline scripts/cover_honesty_baseline.txt
 
       - name: SVG title/desc ASCII gate (no non-ASCII in <title> or <desc>)
         id: title_ascii
