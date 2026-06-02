@@ -50,10 +50,18 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# 2. Run pytest when Python scripts change
+# 2. Run pytest when Python scripts OR cover SVGs change.
+#    Cover-only commits used to skip pytest, so a corpus cover regen could land
+#    output that breaks the on-disk-SVG-reading tests (size-gate, visual
+#    baselines) uncaught — see the 25dcab53 missing-profile/rollup regression.
 CHANGED_PY=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^scripts/.*\.py$' || true)
-if [ -n "$CHANGED_PY" ]; then
-  echo "[pre-commit] Running tests..."
+CHANGED_SVG=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/.*\.svg$' || true)
+if [ -n "$CHANGED_PY" ] || [ -n "$CHANGED_SVG" ]; then
+  if [ -n "$CHANGED_PY" ]; then
+    echo "[pre-commit] Running tests (python change)..."
+  else
+    echo "[pre-commit] Running tests (cover SVG change — guards size-gate/visual-baseline regressions)..."
+  fi
   python3 -m pytest "$REPO_ROOT/scripts/tests/" -x -q 2>&1
   if [ $? -ne 0 ]; then
     echo "[pre-commit] FAILED"
