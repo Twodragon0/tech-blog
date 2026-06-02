@@ -18,6 +18,10 @@ concurrency:
   group: lighthouse-${{ github.ref }}
   cancel-in-progress: true
 
+# Least privilege: build + Lighthouse run only; artifacts go to temporary public storage.
+permissions:
+  contents: read
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
