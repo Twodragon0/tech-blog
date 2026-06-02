@@ -187,6 +187,68 @@ class TestNeutralDefaultLockstep:
 
 
 # =====================================================================
+# security_advisory route (honest generic-security builder):
+#   bare "vulnerability"/"malware"/"threat"/"cve"/"security update"/
+#   "advisory" of UNSPECIFIED severity -> security_advisory; a REAL specific
+#   CVE id / CVSS / RCE / 0-day still wins cve_chain (it precedes this route).
+# =====================================================================
+
+
+class TestSecurityAdvisoryRouting:
+    @pytest.mark.parametrize(
+        "topic",
+        [
+            "Vulnerability",
+            "vulnerability roundup",
+            "Malware",
+            "malware family",
+            "Threat",
+            "threat landscape",
+            "CVE",            # bare "CVE" (no id) -> advisory, not cve_chain
+            "CVE roundup",
+            "Security Update",
+            "Advisory",
+        ],
+    )
+    def test_generic_security_routes_advisory(self, topic):
+        assert route_visual_id(topic) == "security_advisory"
+
+    @pytest.mark.parametrize(
+        "topic",
+        [
+            "cve-2026-1234",
+            "CVE-2026-1234 RCE in Redis",
+            "Patch Tuesday brings 9.8 CVSS fix",
+            "Zero-day RCE in gateway",
+        ],
+    )
+    def test_real_specific_cve_still_routes_cve_chain(self, topic):
+        # The genuine-specific-CVE route precedes the advisory route, so a
+        # concrete CVE id / CVSS / RCE / 0-day keeps the cve_chain motif.
+        assert route_visual_id(topic) == "cve_chain"
+
+    def test_advisory_after_specific_attacks(self):
+        # A real attack keyword still wins over the advisory route even when
+        # generic security words co-occur.
+        assert route_visual_id("ransomware vulnerability") == "ransomware_lock"
+        assert route_visual_id("malware delivered via supply chain") == (
+            "supply_chain_pipe"
+        )
+        assert route_visual_id("container escape malware") == "container_escape"
+
+    def test_advisory_action_is_benign_not_patch_now(self):
+        from scripts.news.l20_dispatch import _action_for
+
+        action = _action_for("Vulnerability")
+        assert action == "READ THE ADVISORY"
+        assert "PATCH" not in action.upper()
+
+    def test_advisory_theme_is_amber_not_red(self):
+        # Amber = caution/attention, NOT a red-alert active incident.
+        assert route_theme("security_advisory") == "amber"
+
+
+# =====================================================================
 # route_theme - severity / index / visual hints
 # =====================================================================
 

@@ -18,8 +18,9 @@ jamo blocks) before XML escaping. Even if upstream callers leak Korean
 into headline / subheadline / aria text, the rendered SVG is guaranteed
 ASCII-only — defense in depth for the check-svg quality gate.
 
-The 8 visual builders (``vb_*``) each return a ``<g transform="translate(cx,cy)">``
-SVG string and are theme-aware via the THEMES palette.
+The visual builders (``vb_*``, 11 keys in ``VISUAL_BUILDERS``) each return a
+``<g transform="translate(cx,cy)">`` SVG string and are theme-aware via the
+THEMES palette.
 """
 from __future__ import annotations
 
@@ -154,6 +155,112 @@ def _escape(text: str) -> str:
         .replace(">", "&gt;")
         .replace('"', "&quot;")
     )
+
+
+# --- Clean <title>/<desc> builder ---
+# Map a coarse content domain (from category / filename digest stem) to a
+# human-readable topic word for the SVG <title>. Deterministic + ASCII-only.
+# Order matters: the FIRST keyword found in the lowered hint wins, so more
+# specific domains precede broader ones.
+_TITLE_TOPIC_RULES: list = [
+    ("incident", "Incident"),
+    ("security", "Security"),
+    ("devsecops", "Security"),
+    ("kubernetes", "Cloud"),
+    ("cloud", "Cloud"),
+    ("finops", "FinOps"),
+    ("blockchain", "Blockchain"),
+    ("devops", "DevOps"),
+    ("ai", "AI"),
+    ("tech", "Tech"),
+]
+# Dotted-date detector for the cover header (``2026.05.29`` / ``2026-05-29``).
+_TITLE_DATE_RE = re.compile(r"(\d{4})[.\-/](\d{1,2})[.\-/](\d{1,2})")
+
+
+def _title_cadence(post_title: str) -> str:
+    """Derive the digest cadence word (Weekly / Daily) from the raw title.
+
+    Looks for an explicit cadence marker in either the Korean source title
+    (``주간`` = weekly, ``일간``/``일일`` = daily) or its ASCII form
+    (``weekly`` / ``daily``). Defaults to ``Weekly`` — the digest pipeline
+    is weekly by default, so an unmarked digest reads as Weekly rather than
+    leaking an empty cadence.
+    """
+    t = (post_title or "")
+    low = t.lower()
+    if "일간" in t or "일일" in t or "daily" in low:
+        return "Daily"
+    return "Weekly"
+
+
+def _title_topic(category: str = "", filename: str = "", post_title: str = "") -> str:
+    """Derive the topic word (Security / DevOps / Blockchain / ...).
+
+    Reads from ``category`` first (the post front-matter category is the
+    most reliable signal), then the ``filename`` digest stem, then the raw
+    title as a last resort. Defaults to ``Tech`` so the title always carries
+    a domain word.
+    """
+    for hint in (category or "", filename or "", post_title or ""):
+        low = str(hint).lower()
+        for needle, word in _TITLE_TOPIC_RULES:
+            if needle in low:
+                return word
+    return "Tech"
+
+
+def _title_date(date_str: str = "", filename: str = "") -> str:
+    """Return a clean dotted date (``YYYY.MM.DD``) for the title.
+
+    Prefers an explicit ``date_str`` (already dotted by the dispatcher),
+    falling back to a date embedded in the filename. Returns an empty
+    string when neither carries a parseable date so the caller can drop the
+    trailing separator instead of emitting ``- ``.
+    """
+    for src in (date_str or "", filename or ""):
+        m = _TITLE_DATE_RE.search(str(src))
+        if m:
+            y, mo, d = m.groups()
+            return f"{y}.{int(mo):02d}.{int(d):02d}"
+    return ""
+
+
+def build_cover_title(
+    post_title: str = "",
+    date_str: str = "",
+    category: str = "",
+    filename: str = "",
+) -> str:
+    """Compose a clean, ASCII, a11y-friendly cover ``<title>``.
+
+    Produces e.g. ``"Weekly Security Digest - 2026.05.29"``. This replaces
+    the old behaviour of feeding the raw Korean post title through
+    ``_strip_hangul``, which left malformed boilerplate such as
+    ``"2026 05 29 AI (29 )"`` (orphaned slug fragments + a dangling ``(N )``
+    count token left when ``(29개 뉴스)`` had its Hangul stripped).
+
+    Determinism + honesty:
+      * Cadence (Weekly / Daily) and topic (Security / DevOps / ...) are
+        derived from the title / category / filename — no fabricated content.
+      * ASCII-only: the result uses `` - `` (never the non-ASCII em-dash) so
+        it passes ``check_svg_title_ascii.py``. As defence-in-depth the whole
+        string is run through ``_strip_hangul`` before return.
+      * No dangling ``(N )`` count, no orphaned punctuation, no slug tail:
+        the title is built from a fixed template, not by stripping the
+        source title.
+
+    The date is optional: when no parseable date is available the trailing
+    `` - <date>`` is dropped rather than emitting a dangling separator.
+    """
+    cadence = _title_cadence(post_title)
+    topic = _title_topic(category=category, filename=filename, post_title=post_title)
+    date = _title_date(date_str=date_str, filename=filename)
+    base = f"{cadence} {topic} Digest"
+    out = f"{base} - {date}" if date else base
+    # Defence in depth: guarantee ASCII even if a future caller leaks Hangul
+    # through ``post_title`` into one of the derivation helpers.
+    return _strip_hangul(out)
 
 
 def _fit_subheadline(text: str, max_chars: int = 54) -> str:
@@ -730,6 +837,75 @@ def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
     )
 
 
+def vb_security_advisory(cx: int, cy: int, theme: str = "amber") -> str:
+    """Honest motif for a GENERIC security topic of UNSPECIFIED severity.
+
+    For a digest "Vulnerability" / "Malware" / "CVE roundup" / "Threat"
+    section that is real-but-unspecified: there is a security topic, but the
+    post carries no specific CVE-id, exploit chain, or active-exploitation
+    claim. This builder signals exactly that and NOTHING more.
+
+    HONESTY CONSTRAINTS (hard): it must NOT fabricate specifics. There is
+    deliberately no ``CVE-XXXX`` id, no "Active exploitation", no
+    "PATCH UPSTREAM NOW", no attacker / victim / C2 / exploit-chain
+    narrative. The severity reads ``SEVERITY: TBD`` (i.e. unassessed) and the
+    headline label is ``SECURITY ADVISORY``. The gauge needle deliberately
+    parks at the neutral midpoint — it does not assert a high score.
+
+    Design: a centered shield outline (the universal "security topic" mark)
+    with a check-style glyph, an ``ADVISORY`` badge, and a horizontal
+    severity gauge whose track is unfilled with a ``TBD`` marker. ASCII-only,
+    theme-aware, sized to sit comfortably inside the hq size band.
+    """
+    t = _theme(theme)
+    a, soft, txt = t["accent"], t["accent_soft"], t["accent_text"]
+    return (
+        f'<g transform="translate({cx},{cy})">'
+        # Outer card frame
+        f'<g filter="url(#softShadow)">'
+        f'<rect x="-160" y="-104" width="320" height="208" rx="10" fill="#0A0F1E" stroke="{a}" stroke-width="1.4" opacity="0.95"/>'
+        f'</g>'
+        # Top label + ADVISORY badge
+        f'<text x="-148" y="-82" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="{soft}" letter-spacing="2">SECURITY ADVISORY</text>'
+        f'<g transform="translate(96,-96)">'
+        f'<rect x="0" y="0" width="60" height="18" rx="3" fill="{a}" opacity="0.9"/>'
+        f'<text x="30" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#0A0F1E">ADVISORY</text>'
+        f'</g>'
+        # Centered shield outline with a calm pulse + neutral check glyph
+        f'<g transform="translate(-92,-46)">'
+        f'<path d="M40 0 L78 14 L78 56 Q78 92 40 108 Q2 92 2 56 L2 14 Z" '
+        f'fill="none" stroke="{a}" stroke-width="2.4" stroke-linejoin="round">'
+        f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></path>'
+        f'<path d="M40 8 L70 19 L70 54 Q70 84 40 98 Q10 84 10 54 L10 19 Z" '
+        f'fill="{a}" opacity="0.10"/>'
+        # Neutral check mark inside the shield (status mark, not an alarm)
+        f'<path d="M26 54 L37 66 L56 40" fill="none" stroke="{soft}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">'
+        f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/></path>'
+        f'</g>'
+        # Right column: severity gauge (unfilled track, TBD marker)
+        f'<g transform="translate(8,-44)">'
+        f'<text x="0" y="0" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{txt}">SEVERITY</text>'
+        # Gauge track
+        f'<rect x="0" y="12" width="140" height="14" rx="7" fill="#11182B" stroke="{a}" stroke-width="1.2"/>'
+        # Three benign segment ticks (LOW / MED / HIGH scale, no value asserted)
+        f'<g stroke="{a}" stroke-width="1" opacity="0.4">'
+        f'<line x1="47" y1="12" x2="47" y2="26"/><line x1="93" y1="12" x2="93" y2="26"/>'
+        f'</g>'
+        # TBD marker parked at the neutral midpoint — asserts no score
+        f'<g transform="translate(70,19)">'
+        f'<circle cx="0" cy="0" r="6.5" fill="{a}">'
+        f'<animate attributeName="opacity" values="0.7;1;0.7" dur="2.2s" repeatCount="indefinite"/></circle>'
+        f'<circle cx="0" cy="0" r="2.4" fill="#0A0F1E"/>'
+        f'</g>'
+        f'<text x="0" y="44" font-family="Inter, monospace" font-size="11" font-weight="900" fill="{soft}">SEVERITY: TBD</text>'
+        f'<text x="0" y="60" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{txt}" opacity="0.85">unspecified - under review</text>'
+        f'</g>'
+        # Bottom caption (benign, no call to patch)
+        f'<text x="0" y="92" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">REVIEW ADVISORY DETAILS</text>'
+        f'</g>'
+    )
+
+
 VISUAL_BUILDERS = {
     "cve_chain": vb_cve_chain,
     "hub_spoke": vb_hub_spoke,
@@ -741,6 +917,7 @@ VISUAL_BUILDERS = {
     "data_exfil": vb_data_exfil,
     "neutral": vb_neutral,
     "market": vb_market,
+    "security_advisory": vb_security_advisory,
 }
 
 

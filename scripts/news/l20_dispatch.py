@@ -144,7 +144,35 @@ _VISUAL_ROUTES: List[Tuple[Tuple[str, ...], str]] = [
     (("chainalysis", "hexagate"), "neutral"),
     # CVE / generic vuln route MUST come after the specific buckets above so
     # that "Docker container escape via CVE-2026-X" stays in container_escape.
+    # This is the GENUINE-specific-CVE route: a real CVE id (cve-2...), CVSS
+    # score, RCE, or a dated 0-day/zero-day. It renders the cve_chain motif
+    # (PRIOR CVE -> regression -> NEW CVE), which asserts a concrete patched/
+    # exploited flaw — honest ONLY when the post carries such specifics.
     (("cve-2", "cvss", "rce", "patch tuesday", "zero-day", "0-day"), "cve_chain"),
+    # Generic security topic of UNSPECIFIED severity -> security_advisory
+    # (honest "shield + SEVERITY: TBD" motif, no fabricated specifics). This
+    # MUST come AFTER the genuine specific-attack routes above (ransomware,
+    # container, supply-chain, code-injection, hub-spoke/botnet, data-exfil)
+    # AND after the real-CVE route (cve-2/cvss/rce/0-day -> cve_chain) so a
+    # post with a concrete CVE id / exploit still renders the specific motif;
+    # and it MUST come BEFORE the neutral default so a bare
+    # "Vulnerability"/"Malware"/"CVE"/"Threat" band signals a security topic
+    # rather than collapsing to the content-neutral digest motif.
+    # NOTE: bare "cve" here matches only AFTER "cve-2"/"cvss" failed above, so
+    # a real CVE id keeps cve_chain; "security update"/"advisory" are generic
+    # roundup phrasings, not a specific exploit.
+    (
+        (
+            "vulnerability",
+            "vuln ",
+            "malware",
+            "threat",
+            "cve",
+            "security update",
+            "advisory",
+        ),
+        "security_advisory",
+    ),
 ]
 
 # Theme rotation defaults: hero=red, second=blue, third=amber.
@@ -160,6 +188,9 @@ _THEME_BY_VISUAL: Dict[str, str] = {
     # so the cover does not read as a red-alert security incident.
     "neutral": "blue",
     "market": "amber",
+    # Generic security advisory of unspecified severity: amber (caution /
+    # attention) — a security topic, but NOT a red-alert active incident.
+    "security_advisory": "amber",
 }
 
 # Severity-keyword overrides (case-insensitive substring match).
@@ -601,6 +632,9 @@ def _action_for(headline: str) -> str:
         # action bar does not assert a security response on neutral content.
         "neutral": "READ THE FULL DIGEST",
         "market": "TRACK THE MARKET TREND",
+        # Generic advisory of unspecified severity: a benign call-to-read, NOT
+        # "PATCH NOW" — the post carries no specific CVE/exploit to patch.
+        "security_advisory": "READ THE ADVISORY",
     }.get(visual, "REVIEW - HARDEN NOW")
 
 
@@ -618,7 +652,7 @@ def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
     tests that monkey-patch the writer).
     """
     try:
-        from scripts.lib.svg_l20_hero import render_l20_hero
+        from scripts.lib.svg_l20_hero import build_cover_title, render_l20_hero
     except Exception as exc:  # pragma: no cover - defensive import guard
         logging.error(f"L20 hero generator import failed: {exc}")
         return False
@@ -655,13 +689,25 @@ def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
         )
         url = _post_url_from_filename(filename)
 
+        # Build a clean, ASCII, a11y-friendly cover <title> instead of feeding
+        # the raw Korean post title through the Hangul stripper (which left
+        # malformed boilerplate like "2026 05 29 AI (29 )" — orphaned slug
+        # fragments + a dangling "(N )" count). Derives cadence + topic from
+        # the title / category / filename; date from the dotted header date.
+        cover_title = build_cover_title(
+            post_title=title,
+            date_str=date_str or "",
+            category=str(post_info.get("category", "") or ""),
+            filename=filename,
+        )
+
         svg = render_l20_hero(
             date_str=date_str or "",
             hero=hero_story,
             top_right=tr_story,
             bottom_right=br_story,
             url=url,
-            post_title=title or "Weekly Digest",
+            post_title=cover_title or "Weekly Tech Digest",
         )
 
         # Optional sanitizers: only used when the heavier module is on the
