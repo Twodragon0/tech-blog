@@ -60,6 +60,10 @@ concurrency:
   group: svg-lint-${{ github.ref }}
   cancel-in-progress: true
 
+# Least privilege: this workflow only checks out code and runs read-only linters.
+permissions:
+  contents: read
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 

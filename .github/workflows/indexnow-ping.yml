@@ -19,6 +19,11 @@ on:
         default: 'false'
         type: boolean
 
+# Least privilege: read repo contents (git diff) + list workflow runs (gh api).
+permissions:
+  contents: read
+  actions: read
+
 jobs:
   ping:
     name: Submit sitemap to IndexNow
