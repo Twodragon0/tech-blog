@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-01T00:34:24.846702+00:00",
+  "updated_at": "2026-06-02T00:39:11.637996+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/microsoft/new-windows-miniplasma-zero-day-exploit-gives-system-access-poc-released/",
-      "title": "New Windows 'MiniPlasma' zero-day exploit gives SYSTEM access, PoC released",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/nginx-cve-2026-42945-exploited-in-wild.html",
-      "title": "NGINX CVE-2026-42945 Exploited in the Wild, Causing Worker Crashes and Possible ",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/93743/",
-      "title": "2026년 4월 APT 그룹 동향 보고서",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/grafana-github-token-breach-led-to.html",
-      "title": "Grafana GitHub Token Breach Led to Codebase Download and Extortion Attempt",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/tycoon2fa-hijacks-microsoft-365-accounts-via-device-code-phishing/",
-      "title": "Tycoon2FA hijacks Microsoft 365 accounts via device-code phishing",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bernstein-say-figures-q1-shows-uniqueness-of-blockchain-marketplaces?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bernstein says Figure's Q1 results shows uniqueness of blockchain marketplaces",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/saylor-signals-btc-buy-as-retail-holders-get-push-on-strc-dividend-vote?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Saylor signals BTC buy as retail holders get push on STRC dividend vote",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/sbi-rakuten-nomura-line-up-to-launch-crypto-investment-trusts-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "SBI, Rakuten, Nomura line up to launch crypto investment trusts: Report",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-slides-below-79k-macro-fears-can-fixed-income-outflows-save-it?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin slides below $79K on macro fears: Can fixed-income outflows save it?",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/italys-largest-bank-more-than-doubles-crypto-holdings-to-235m-in-q1-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Italy’s largest bank more than doubles crypto holdings to $235M in Q1: Report",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29613",
-      "title": "whichllm - 내 하드웨어에서 실제로 돌아가고 최고 성능을 내는 로컬 LLM 찾기",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29612",
-      "title": "AI 구독은 엔터프라이즈의 시한폭탄",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29611",
-      "title": "2025년 4월 이후 5개 주에서 Flock 카메라 최소 25대가 파괴됨",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29610",
-      "title": "AI가 여러분의 프로세스를 더 빠르게 만들지는 않을 것 같습니다",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29609",
-      "title": "보안 연구자가 Microsoft가 BitLocker 백도어를 만들었다고 말하며 익스플로잇 공개",
-      "published_date": "2026-05-18",
-      "expires_at": "2026-05-25T02:33:08.374791+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/interpol-operation-ramz-disrupts-mena.html",
       "title": "INTERPOL Operation Ramz Disrupts MENA Cybercrime Networks with 201 Arrests",
@@ -1308,6 +1218,96 @@
       "title": "EY Canada가 사이버보안 보고서를 냈고 인용 대부분이 환각이었다",
       "published_date": "2026-06-01",
       "expires_at": "2026-06-08T00:34:24.846605+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/miasma-supply-chain-attack-compromises.html",
+      "title": "Miasma Supply Chain Attack Compromises Red Hat npm Packages with Credential-Stea",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/weekly-recap-new-linux-flaw-pan-os.html",
+      "title": "⚡ Weekly Recap: New Linux Flaw, PAN-OS Exploit, AI-Powered Attacks, OAuth Phishi",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-thousands-of-sites-for-clickfix-and-fakeupdate-attacks/",
+      "title": "Hackers hijack thousands of sites for ClickFix and FakeUpdate attacks",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/red-hat-npm-packages-compromised-to-steal-developer-credentials/",
+      "title": "Red Hat npm packages compromised to steal developer credentials",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/spain-arrests-doxer-leaking-sensitive-data-of-govt-employees/",
+      "title": "Spain arrests doxer leaking sensitive data of govt employees",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://openai.com/index/our-views-on-ai-policy-and-political-advocacy",
+      "title": "Our views on AI policy and political advocacy",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-google-ai/",
+      "title": "How we used Gemini to build Google I/O 2026",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://openai.com/index/stargate-michigan-data-center",
+      "title": "Building the infrastructure for the Intelligence Age in Michigan",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws",
+      "title": "OpenAI frontier models and Codex are now available on AWS",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-cloud-ecosystem/",
+      "title": "NVIDIA AI Cloud Ecosystem Expands Worldwide to Meet Global AI Compute Demand",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/customers/how-trustpilot-built-a-real-time-architecture-for-data-enrichment-using-gemma/",
+      "title": "How Trustpilot built a real-time architecture for data enrichment using Gemma",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/alloydb-remote-mcp-server-ga-secure-ai-agent-access-to-your-data/",
+      "title": "The fully-managed Remote MCP Server for AlloyDB is now Generally Available",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/modeling-a-digital-twin-using-bigquery-graph/",
+      "title": "Modeling a digital twin of a food supply chain using BigQuery Graph",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-standby-buffers-speed-up-autoscaling-for-less-spend/",
+      "title": "Introducing the GKE standby buffer: Improve node startup times without blowing y",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/what-google-cloud-announced-in-ai-this-month/",
+      "title": "What Google Cloud announced in AI this month",
+      "published_date": "2026-06-02",
+      "expires_at": "2026-06-09T00:39:11.637912+00:00"
     }
   ]
 }
