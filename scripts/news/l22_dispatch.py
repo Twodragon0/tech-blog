@@ -314,6 +314,107 @@ def _infer_kpi_with_excerpt(
 
 
 # ---------------------------------------------------------------------------
+# Per-visual KPI extraction from post body (2026-06-01 designer audit fix)
+# ---------------------------------------------------------------------------
+#
+# The L22 visual primitives (v_lock_cve, v_network_nodes, v_shield, v_cloud_k8s,
+# ...) used to embed hardcoded fixture KPI strings ("10 endpoints : 12 routes",
+# "3 rings : signed by CA", "CVSS : critical scope", "3 pods / healthy /
+# 3 nodes : workload identity") inside their SVG fragments.  The designer
+# audit on 2026-06-01 flagged the four fixtures: they make the band visuals
+# look identical to a human reviewer even when the post is about a
+# completely different topic, dropping each cover's audit score below the
+# 70 threshold.
+#
+# The extractor below mines the post body for per-visual metrics and
+# returns a dict keyed by visual_kind so the dispatch lambdas at
+# ``_build_band_cfg`` can pass them as kwargs to the visual function. If
+# extraction returns an empty tuple for a given visual_kind the visual
+# uses its default string, so posts where extraction yields nothing
+# render exactly as they used to.
+
+# CVE id (e.g. "CVE-2025-40551"). Mirrors _CVE_RE in l20_dispatch.py but is
+# re-declared here so this module stays import-stable when l20_dispatch is
+# patched in tests.
+_CVE_RE = re.compile(r"CVE-\d{4}-\d{4,6}", re.IGNORECASE)
+
+# CVSS score (e.g. "CVSS 9.8", "CVSS  10.0").
+_CVSS_RE = re.compile(r"CVSS\s*([0-9]+(?:\.[0-9])?)", re.IGNORECASE)
+
+# USD amount with magnitude suffix (e.g. "$44B", "$1.2M", "$870K"). The
+# trailing word-boundary keeps "$44" from matching when no suffix follows.
+_USD_RE = re.compile(r"\$\s*([0-9]+(?:[.,][0-9]+)?[BMK])\b", re.IGNORECASE)
+
+# Korean count phrases: ``\d+개`` (items), ``\d+건`` (cases), ``\d+곳`` (places).
+# Captures the digits + the suffix so the badge keeps the Korean unit.
+_KO_COUNT_PHRASE_RE = re.compile(r"(\d{1,4})\s*(개|건|곳)")
+
+# Semantic version (e.g. "1.20", "v2.4.1"). Used as a low-priority fallback
+# when no CVE/CVSS/USD/count was found.
+_VERSION_RE = re.compile(r"\b(v?\d+\.\d+(?:\.\d+)?)\b")
+
+# Bitcoin / crypto price (e.g. "비트코인 $93,500", "Bitcoin $1.2B", "BTC 93K").
+_CRYPTO_PRICE_RE = re.compile(
+    r"(?:비트코인|Bitcoin|BTC)\s*\$?([\d.,]+[BMK]?)",
+    re.IGNORECASE,
+)
+
+# Endpoint / port count near a route-style noun.
+_ENDPOINT_COUNT_RE = re.compile(
+    r"(\d{1,4})\s*(?:ports?|endpoints?|routes?|APIs?)",
+    re.IGNORECASE,
+)
+
+# Pod / node count.
+_POD_COUNT_RE = re.compile(r"(\d{1,4})\s*pods?", re.IGNORECASE)
+_NODE_COUNT_RE = re.compile(r"(\d{1,4})\s*nodes?", re.IGNORECASE)
+
+# Sign / cert count (rough heuristic).
+_SIGN_COUNT_RE = re.compile(
+    r"(\d{1,4})\s*(?:signatures?|signed|certificates?|certs?|attestations?)",
+    re.IGNORECASE,
+)
+
+
+def _read_post_body(post_path: Path) -> str:
+    """Read post body (without frontmatter). Returns empty string on error."""
+    try:
+        text = post_path.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return ""
+    # Strip YAML frontmatter delimited by ``---`` lines.
+    if text.startswith("---"):
+        end = text.find("\n---", 3)
+        if end != -1:
+            text = text[end + 4:]
+    return text
+
+
+def _extract_post_kpi(post_path: Path) -> Dict[str, Tuple[str, str]]:
+    """Mine per-visual KPI strings from a post body.
+
+    Returns a dict mapping ``visual_kind`` → ``(primary_kpi, sub_kpi)``.
+    Visual kinds that yielded no usable metric are simply absent from the
+    dict (or carry an empty tuple) so the caller's ``visual_dispatch``
+    lambdas can use ``dict.get(kind, ())`` and fall back to each visual's
+    own default string.
+
+    Supported visual kinds and what they extract:
+
+    - ``lock_cve``        — CVSS score (primary) + CVE id (sub)
+    - ``browser_cve``     — CVSS score (primary) + CVE id (sub)
+    - ``routes_endpoints``— port/endpoint count → "<N> endpoints" + crypto
+                            or USD amount as sub
+    - ``cosign_chain``    — signing/cert count
+    - ``shield``          — signing/cert count
+    - ``cloud_k8s``       — pod count (top), "healthy" or version (top-right),
+                            node count (bottom)
+    """
+    body = _read_post_body(post_path)
+    return _extract_post_kpi_from_text(body)
+
+
+# ---------------------------------------------------------------------------
 # Visual-variety enforcement (Fix 1)
 # ---------------------------------------------------------------------------
 
@@ -360,12 +461,114 @@ def _force_variety(visual_kinds: List[str], seed_hex: str) -> List[str]:
 # ---------------------------------------------------------------------------
 
 
+def _resolve_post_kpi(
+    post_info: Dict,
+    filename: str,
+) -> Dict[str, Tuple[str, str]]:
+    """Run :func:`_extract_post_kpi` against the post body.
+
+    Sources the body from ``post_info["content"]`` when the caller already
+    has it loaded, otherwise reads ``_posts/<filename>`` relative to the
+    repo root. Returns an empty dict on any read error so the dispatch
+    path remains side-effect-free.
+    """
+    content = str(post_info.get("content", "") or "")
+    if content:
+        # Re-use the extractor by writing to a synthetic Path that reads
+        # from memory. Simpler: replicate the body-scan logic in-process.
+        return _extract_post_kpi_from_text(content)
+
+    if not filename:
+        return {}
+
+    # Walk up from this module to find the repo root (the parent that
+    # contains ``_posts``). The hard-coded ``..`` path mirrors how
+    # ``scripts/regen_track_a_covers.py`` resolves the repo root.
+    here = Path(__file__).resolve()
+    for ancestor in here.parents:
+        candidate = ancestor / "_posts" / filename
+        if candidate.is_file():
+            return _extract_post_kpi(candidate)
+        # Stop walking once we hit the workspace root.
+        if (ancestor / "_posts").is_dir():
+            break
+    return {}
+
+
+def _extract_post_kpi_from_text(body: str) -> Dict[str, Tuple[str, str]]:
+    """Same extraction logic as :func:`_extract_post_kpi` but for an
+    already-loaded body string."""
+    if not body:
+        return {}
+
+    out: Dict[str, Tuple[str, str]] = {}
+
+    cve_match = _CVE_RE.search(body)
+    cvss_match = _CVSS_RE.search(body)
+    if cve_match or cvss_match:
+        primary = cvss_match.group(1) if cvss_match else "9.8"
+        sub = cve_match.group(0).upper() if cve_match else "CVE pending"
+        out["lock_cve"] = (primary, sub)
+        out["browser_cve"] = (primary, sub)
+
+    endpoint_match = _ENDPOINT_COUNT_RE.search(body)
+    crypto_match = _CRYPTO_PRICE_RE.search(body)
+    usd_match = _USD_RE.search(body)
+    if endpoint_match:
+        primary = f"{endpoint_match.group(1)} endpoints"
+        if crypto_match:
+            sub = f"BTC ${crypto_match.group(1)}"
+        elif usd_match:
+            sub = f"${usd_match.group(1).upper()}"
+        else:
+            sub = "live"
+        out["routes_endpoints"] = (primary, sub)
+    elif crypto_match:
+        out["routes_endpoints"] = (
+            f"BTC ${crypto_match.group(1)}",
+            "market data",
+        )
+    elif usd_match:
+        out["routes_endpoints"] = (
+            f"${usd_match.group(1).upper()} exposure",
+            "impact",
+        )
+
+    sign_match = _SIGN_COUNT_RE.search(body)
+    if sign_match:
+        primary = f"{sign_match.group(1)} signed"
+        out["cosign_chain"] = (primary, "signed by CA")
+        out["shield"] = (primary, "signed by CA")
+
+    pod_match = _POD_COUNT_RE.search(body)
+    node_match = _NODE_COUNT_RE.search(body)
+    version_match = _VERSION_RE.search(body)
+    ko_count_match = _KO_COUNT_PHRASE_RE.search(body)
+    if pod_match or node_match:
+        kpi_top = f"{pod_match.group(1)} pods" if pod_match else "pods"
+        if version_match:
+            kpi_top_right = f"v{version_match.group(1).lstrip('v')}"
+        else:
+            kpi_top_right = "healthy"
+        kpi_bottom = (
+            f"{node_match.group(1)} nodes : workload identity"
+            if node_match else "workload identity"
+        )
+        out["cloud_k8s"] = (kpi_top, kpi_top_right + " | " + kpi_bottom)
+    elif ko_count_match:
+        kpi_top = f"{ko_count_match.group(1)}{ko_count_match.group(2)}"
+        out["cloud_k8s"] = (kpi_top, "healthy | workload identity")
+
+    return out
+
+
 def _build_band_cfg(
     headline: str,
     subheadline: str,
     band_idx: int,
     excerpt: str = "",
     visual_kind_override: Optional[str] = None,
+    post_kpi: Optional[Dict[str, Tuple[str, str]]] = None,
 ) -> dict:
     """Translate (headline, subheadline) into a render_bands_svg band dict.
 
@@ -393,14 +596,56 @@ def _build_band_cfg(
 
     cy = [105, 315, 525][band_idx]
 
+    # Extracted KPIs from the post body (2026-06-01 designer-audit fix).
+    # When absent the visual functions use their own default strings.
+    kpi_map: Dict[str, Tuple[str, str]] = post_kpi or {}
+    lock_cve_kpi = kpi_map.get("lock_cve") or ()
+    routes_kpi = kpi_map.get("routes_endpoints") or ()
+    shield_kpi = kpi_map.get("shield") or ()
+    k8s_kpi = kpi_map.get("cloud_k8s") or ()
+
+    def _v_lock_cve() -> str:
+        kwargs: Dict[str, str] = {
+            "cvss": badge_value if len(badge_value) <= 4 else "HIGH"
+        }
+        if lock_cve_kpi:
+            kwargs["cvss"] = lock_cve_kpi[0]
+            kwargs["subline"] = lock_cve_kpi[1]
+        return l22.v_lock_cve(500, cy, theme["accent"], theme["soft"], **kwargs)
+
+    def _v_network_nodes() -> str:
+        kwargs: Dict[str, str] = {"label": label[:8] or "INFRA"}
+        if routes_kpi:
+            kwargs["kpi"] = f"{routes_kpi[0]} : {routes_kpi[1]}"
+        return l22.v_network_nodes(500, cy, theme["accent"], theme["soft"], **kwargs)
+
+    def _v_shield() -> str:
+        kwargs: Dict[str, str] = {"label": label[:8] or "PATCH"}
+        if shield_kpi:
+            kwargs["kpi"] = f"{shield_kpi[0]} : {shield_kpi[1]}"
+        return l22.v_shield(500, cy, theme["accent"], theme["soft"], **kwargs)
+
+    def _v_cloud_k8s() -> str:
+        kwargs: Dict[str, str] = {}
+        if k8s_kpi:
+            top_right_and_bottom = k8s_kpi[1]
+            if " | " in top_right_and_bottom:
+                top_right, bottom = top_right_and_bottom.split(" | ", 1)
+            else:
+                top_right, bottom = "healthy", top_right_and_bottom
+            kwargs["kpi_top"] = k8s_kpi[0]
+            kwargs["kpi_top_right"] = top_right
+            kwargs["kpi_bottom"] = bottom
+        return l22.v_cloud_k8s(500, cy, theme["accent"], theme["soft"], **kwargs)
+
     visual_dispatch = {
-        "lock_cve":       lambda: l22.v_lock_cve(500, cy, theme["accent"], theme["soft"], cvss=badge_value if len(badge_value) <= 4 else "HIGH"),
-        "network_nodes":  lambda: l22.v_network_nodes(500, cy, theme["accent"], theme["soft"], label=label[:8] or "INFRA"),
+        "lock_cve":       _v_lock_cve,
+        "network_nodes":  _v_network_nodes,
         "browser_cve":    lambda: l22.v_browser_cve(500, cy, theme["accent"], theme["soft"], label=label[:6] or "CVE"),
-        "cloud_k8s":      lambda: l22.v_cloud_k8s(500, cy, theme["accent"], theme["soft"]),
+        "cloud_k8s":      _v_cloud_k8s,
         "router_mesh":    lambda: l22.v_router_mesh(500, cy, theme["accent"], theme["soft"]),
         "code_bars":      lambda: l22.v_code_bars(500, cy, theme["accent"], theme["soft"], caption=label[:8] or "CODE"),
-        "shield":         lambda: l22.v_shield(500, cy, theme["accent"], theme["soft"], label=label[:8] or "PATCH"),
+        "shield":         _v_shield,
         "wallet_forensic": lambda: l22.v_wallet_forensic(500, cy, theme["accent"], theme["soft"]),
     }
     visual_fn = visual_dispatch.get(visual_kind, visual_dispatch["lock_cve"])
@@ -463,6 +708,7 @@ def _build_bands_with_variety(
     br: Dict,
     excerpt: str,
     seed_hex: str,
+    post_kpi: Optional[Dict[str, Tuple[str, str]]] = None,
 ) -> List[dict]:
     """Build the 3-band config and apply the variety-enforcement pass.
 
@@ -484,14 +730,17 @@ def _build_bands_with_variety(
         _build_band_cfg(
             h["headline"], h["subheadline"], 0,
             excerpt=excerpt, visual_kind_override=final_kinds[0],
+            post_kpi=post_kpi,
         ),
         _build_band_cfg(
             tr["headline"], tr["subheadline"], 1,
             excerpt=excerpt, visual_kind_override=final_kinds[1],
+            post_kpi=post_kpi,
         ),
         _build_band_cfg(
             br["headline"], br["subheadline"], 2,
             excerpt=excerpt, visual_kind_override=final_kinds[2],
+            post_kpi=post_kpi,
         ),
     ]
 
@@ -526,7 +775,10 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
             _route_visual_kind(br["headline"], 2),
         ]
         final_kinds = _force_variety(initial_kinds, seed)
-        bands_cfg = _build_bands_with_variety(h, tr, br, excerpt, seed_hex=seed)
+        post_kpi = _resolve_post_kpi(post_info, filename)
+        bands_cfg = _build_bands_with_variety(
+            h, tr, br, excerpt, seed_hex=seed, post_kpi=post_kpi,
+        )
         url = _post_url_from_filename(filename)
 
         aria = (
@@ -577,7 +829,10 @@ def render_l22_svg_string(post_info: Dict) -> str:
             _route_visual_kind(br["headline"], 2),
         ]
         final_kinds = _force_variety(initial_kinds, seed)
-        bands_cfg = _build_bands_with_variety(h, tr, br, excerpt, seed_hex=seed)
+        post_kpi = _resolve_post_kpi(post_info, filename)
+        bands_cfg = _build_bands_with_variety(
+            h, tr, br, excerpt, seed_hex=seed, post_kpi=post_kpi,
+        )
         url = _post_url_from_filename(filename)
 
         aria = (

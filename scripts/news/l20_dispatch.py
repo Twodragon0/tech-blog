@@ -113,9 +113,66 @@ _VISUAL_ROUTES: List[Tuple[Tuple[str, ...], str]] = [
         ),
         "data_exfil",
     ),
+    # Brand / topic aliases (ASCII-only). Korean source tokens never reach
+    # this router: ``extract_three_stories`` replaces Hangul segments with
+    # ASCII filename-slug keywords BEFORE routing (see L321-333), so only the
+    # ASCII brand names below can match. HONESTY-DRIVEN mapping (Option B):
+    # non-attack content routes to the content-neutral ``neutral`` builder,
+    # genuine market/price stories to ``market``; only genuine attack/vuln
+    # content reaches an attack builder. The prior Option A stopgap mapped
+    # these to attack builders (data_exfil/container_escape/hub_spoke), which
+    # the designer re-audit flagged: those assert breaches / container
+    # escapes / C2 the posts do not contain. See
+    # ``.omc/plans/l20-digest-cover-audit-fix.md`` (Step 7 / Option B):
+    #   bithumb/upbit  -> neutral   (exchange OPERATIONAL incident, not an
+    #                                intrusion; data_exfil falsely asserted a
+    #                                breach the post lacks)
+    #   cncf/cluster api/cloud native -> neutral (ecosystem velocity /
+    #                                lifecycle, NOT a container escape)
+    #   bitcoin/ethereum -> market  (price / market story; no attack topology)
+    #   chainalysis/hexagate -> neutral (security-integration product story,
+    #                                not an attack; also dead for the 2
+    #                                flagged covers but kept honest)
+    # MUST precede the generic cve_chain catch-all (specific-first ordering).
+    # NOTE: chainalysis/hexagate are effectively dead for the two flagged
+    # CNCF/Bithumb covers (those titles yield 3 ASCII segments, so the
+    # excerpt where these tokens live never backfills into a routed
+    # headline); they are added for OTHER posts that may surface them.
+    (("bithumb", "upbit"), "neutral"),
+    (("cncf", "cluster api", "cloud native"), "neutral"),
+    (("bitcoin", "ethereum"), "market"),
+    (("chainalysis", "hexagate"), "neutral"),
     # CVE / generic vuln route MUST come after the specific buckets above so
     # that "Docker container escape via CVE-2026-X" stays in container_escape.
+    # This is the GENUINE-specific-CVE route: a real CVE id (cve-2...), CVSS
+    # score, RCE, or a dated 0-day/zero-day. It renders the cve_chain motif
+    # (PRIOR CVE -> regression -> NEW CVE), which asserts a concrete patched/
+    # exploited flaw — honest ONLY when the post carries such specifics.
     (("cve-2", "cvss", "rce", "patch tuesday", "zero-day", "0-day"), "cve_chain"),
+    # Generic security topic of UNSPECIFIED severity -> security_advisory
+    # (honest "shield + SEVERITY: TBD" motif, no fabricated specifics). This
+    # MUST come AFTER the genuine specific-attack routes above (ransomware,
+    # container, supply-chain, code-injection, hub-spoke/botnet, data-exfil)
+    # AND after the real-CVE route (cve-2/cvss/rce/0-day -> cve_chain) so a
+    # post with a concrete CVE id / exploit still renders the specific motif;
+    # and it MUST come BEFORE the neutral default so a bare
+    # "Vulnerability"/"Malware"/"CVE"/"Threat" band signals a security topic
+    # rather than collapsing to the content-neutral digest motif.
+    # NOTE: bare "cve" here matches only AFTER "cve-2"/"cvss" failed above, so
+    # a real CVE id keeps cve_chain; "security update"/"advisory" are generic
+    # roundup phrasings, not a specific exploit.
+    (
+        (
+            "vulnerability",
+            "vuln ",
+            "malware",
+            "threat",
+            "cve",
+            "security update",
+            "advisory",
+        ),
+        "security_advisory",
+    ),
 ]
 
 # Theme rotation defaults: hero=red, second=blue, third=amber.
@@ -127,6 +184,13 @@ _THEME_BY_VISUAL: Dict[str, str] = {
     "supply_chain_pipe": "amber",
     "data_exfil": "blue",
     "ai_agent_funnel": "amber",
+    # Non-incident visuals: cool/calm palettes (blue digest, amber market)
+    # so the cover does not read as a red-alert security incident.
+    "neutral": "blue",
+    "market": "amber",
+    # Generic security advisory of unspecified severity: amber (caution /
+    # attention) — a security topic, but NOT a red-alert active incident.
+    "security_advisory": "amber",
 }
 
 # Severity-keyword overrides (case-insensitive substring match).
@@ -145,21 +209,33 @@ def route_visual_id(topic: str) -> str:
     """Return the L20 visual_id that best matches ``topic``.
 
     Uses an ordered list of keyword tuples; the FIRST tuple whose keyword
-    appears (case-insensitive substring) in ``topic`` wins. Defaults to
-    ``"cve_chain"`` if no keyword matches.
+    appears (case-insensitive substring) in ``topic`` wins.
+
+    No-match / empty-topic default is ``"neutral"`` — a genuinely
+    content-neutral digest/ecosystem visual (``svg_l20_hero.vb_neutral``,
+    Option B / the honest corpus-wide fix). It asserts NO incident (no CVE,
+    breach, C2, or exfiltration) on any unrouted topic. History: the default
+    was ``"cve_chain"`` (fabricated a CVE-exploitation narrative on every
+    unrouted crypto/market/cloud-native topic) -> ``"hub_spoke"`` (Option A
+    stopgap; relocated the false claim to a C2/relay narrative) -> ``"neutral"``
+    (honest). This default and the matching ``_render_visual`` unknown-key
+    fallback (``svg_l20_hero.py``) MUST stay in lockstep. See
+    ``.omc/plans/l20-digest-cover-audit-fix.md`` (Step 7 / Option B).
 
     Order is deliberately specific-first: e.g. "Docker container escape via
     CVE-2026-1234" routes to ``container_escape`` rather than ``cve_chain``
-    because the container bucket is checked before the CVE bucket.
+    because the container bucket is checked before the CVE bucket. The
+    explicit CVE keyword route (``cve-2``/``cvss``/``rce``/...) is preserved
+    so real-CVE posts still render ``cve_chain``.
     """
     if not topic:
-        return "cve_chain"
+        return "neutral"
     lower = topic.lower()
     for keywords, visual_id in _VISUAL_ROUTES:
         for kw in keywords:
             if kw in lower:
                 return visual_id
-    return "cve_chain"
+    return "neutral"
 
 
 def route_theme(severity_or_index: str) -> str:
@@ -273,12 +349,79 @@ def _shorten(text: str, limit: int) -> str:
     return cut or text[:limit].rstrip()
 
 
-def _pad_subheadline(seg: str, excerpt: str) -> str:
-    """Build a 40-60 char subheadline from a segment + excerpt context."""
+_SUBHEADLINE_EXTRA_MAX_TOKENS: int = 2
+
+
+def _dedupe_subheadline_extra(
+    base: str,
+    extra: str,
+    other_headlines: Optional[List[str]] = None,
+) -> str:
+    """Drop the redundant slug echo from a subheadline ``extra`` context.
+
+    Bug fix (designer re-audit): for Korean-excerpt digests the only ASCII
+    ``extra`` available is the filename-keyword join (e.g. ``"Bithumb
+    Bitcoin"``), which echoes the headline token. The old ``base + " - " +
+    extra`` then rendered ``"Bithumb - Bithumb Bitcoin"`` /
+    ``"CNCF - CNCF Chainalysis Bitcoin"``. Here we remove every word of
+    ``extra`` that already appears in ``base`` (case-insensitive).
+
+    Trailing-token tightening (polish nit 2): the kept remainder could still
+    duplicate *another* band's topic — e.g. for band 1 "Cluster API" the
+    extra ``"CNCF Chainalysis Bitcoin"`` kept a trailing "Bitcoin" that is
+    band 3's headline. So we additionally:
+
+    1. de-duplicate repeated tokens within ``extra`` (keep first occurrence);
+    2. when ``other_headlines`` is supplied, drop any token equal to another
+       band's headline lead-token (the cross-band echo);
+    3. cap the remainder to ``_SUBHEADLINE_EXTRA_MAX_TOKENS`` tokens.
+
+    Returns the trimmed remainder (possibly empty). The cap keeps the result
+    honest/meaningful — it shortens, it does not blank a genuine context.
+    """
+    base_words = {w.lower() for w in re.findall(r"\w+", base)}
+    drop_words = set(base_words)
+    for hl in other_headlines or []:
+        for w in re.findall(r"\w+", hl or ""):
+            drop_words.add(w.lower())
+
+    kept: List[str] = []
+    seen: set = set()
+    for w in extra.split():
+        wl = w.lower()
+        if wl in base_words:
+            continue  # always drop the headline's own echo
+        if wl in seen:
+            continue  # de-dup repeated tokens
+        if wl in drop_words:
+            continue  # cross-band headline echo
+        seen.add(wl)
+        kept.append(w)
+        if len(kept) >= _SUBHEADLINE_EXTRA_MAX_TOKENS:
+            break
+    return _clean_segment(" ".join(kept))
+
+
+def _pad_subheadline(
+    seg: str,
+    excerpt: str,
+    other_headlines: Optional[List[str]] = None,
+) -> str:
+    """Build a 40-60 char subheadline from a segment + excerpt context.
+
+    The ``extra`` context is de-duplicated against the headline so the
+    subheadline never echoes the headline back (see
+    ``_dedupe_subheadline_extra``). ``other_headlines`` (the sibling bands'
+    headlines) lets the de-dupe also drop a trailing token that duplicates
+    another band's topic. When no non-redundant context remains, fall back
+    to the headline segment alone rather than ``"X - X ..."``.
+    """
     base = _clean_segment(seg)
     if len(base) >= _SUB_MIN_CHARS:
         return _shorten(base, _SUB_MAX_CHARS)
-    extra = _clean_segment(excerpt)
+    extra = _dedupe_subheadline_extra(
+        base, _clean_segment(excerpt), other_headlines=other_headlines
+    )
     candidate = (base + " - " + extra).strip(" -") if extra else base
     return _shorten(candidate, _SUB_MAX_CHARS) or base
 
@@ -344,11 +487,15 @@ def extract_three_stories(
     safe_excerpt = excerpt or ""
     if _has_hangul(safe_excerpt):
         safe_excerpt = " ".join(en_keywords) if en_keywords else ""
-    for seg in segments:
+    headlines = [_shorten(seg, _HEADLINE_MAX_CHARS) for seg in segments]
+    for i, seg in enumerate(segments):
+        others = [h for j, h in enumerate(headlines) if j != i]
         stories.append(
             {
-                "headline": _shorten(seg, _HEADLINE_MAX_CHARS),
-                "subheadline": _pad_subheadline(seg, safe_excerpt),
+                "headline": headlines[i],
+                "subheadline": _pad_subheadline(
+                    seg, safe_excerpt, other_headlines=others
+                ),
             }
         )
     return stories[0], stories[1], stories[2]
@@ -444,6 +591,15 @@ def _build_story(
     # otherwise fall back to the index rotation.
     theme = _THEME_BY_VISUAL.get(visual, route_theme(str(index)))
     kpi_value, kpi_label, kpi_sub = _infer_kpi(headline)
+    # Market-routed bands: a USD figure is a PRICE, not an attack IMPACT.
+    # ``_infer_kpi`` is generic and labels any "$71K" as IMPACT/estimated
+    # (correct for a breach-cost figure on an attack visual). When the band
+    # is routed to the market visual the same figure is a spot price, so
+    # relabel here — where both the routed visual_id and the kpi are known —
+    # rather than weakening the generic heuristic. Non-market USD KPIs keep
+    # their existing IMPACT label.
+    if visual == "market" and kpi_label == "IMPACT":
+        kpi_label, kpi_sub = "PRICE", "spot"
     story: Dict = {
         "tag": severity_label.upper(),
         "index": f"{index + 1:02d}",
@@ -472,6 +628,13 @@ def _action_for(headline: str) -> str:
         "code_injection": "ROTATE TOKENS - AUDIT CI",
         "hub_spoke": "BLOCK C2 - SEGMENT NETWORK",
         "data_exfil": "REVOKE TOKENS - ROTATE KEYS",
+        # Non-incident visuals: benign, non-alarmist call-to-read tags so the
+        # action bar does not assert a security response on neutral content.
+        "neutral": "READ THE FULL DIGEST",
+        "market": "TRACK THE MARKET TREND",
+        # Generic advisory of unspecified severity: a benign call-to-read, NOT
+        # "PATCH NOW" — the post carries no specific CVE/exploit to patch.
+        "security_advisory": "READ THE ADVISORY",
     }.get(visual, "REVIEW - HARDEN NOW")
 
 
@@ -489,7 +652,7 @@ def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
     tests that monkey-patch the writer).
     """
     try:
-        from scripts.lib.svg_l20_hero import render_l20_hero
+        from scripts.lib.svg_l20_hero import build_cover_title, render_l20_hero
     except Exception as exc:  # pragma: no cover - defensive import guard
         logging.error(f"L20 hero generator import failed: {exc}")
         return False
@@ -526,13 +689,25 @@ def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
         )
         url = _post_url_from_filename(filename)
 
+        # Build a clean, ASCII, a11y-friendly cover <title> instead of feeding
+        # the raw Korean post title through the Hangul stripper (which left
+        # malformed boilerplate like "2026 05 29 AI (29 )" — orphaned slug
+        # fragments + a dangling "(N )" count). Derives cadence + topic from
+        # the title / category / filename; date from the dotted header date.
+        cover_title = build_cover_title(
+            post_title=title,
+            date_str=date_str or "",
+            category=str(post_info.get("category", "") or ""),
+            filename=filename,
+        )
+
         svg = render_l20_hero(
             date_str=date_str or "",
             hero=hero_story,
             top_right=tr_story,
             bottom_right=br_story,
             url=url,
-            post_title=title or "Weekly Digest",
+            post_title=cover_title or "Weekly Tech Digest",
         )
 
         # Optional sanitizers: only used when the heavier module is on the

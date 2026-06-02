@@ -18,8 +18,9 @@ jamo blocks) before XML escaping. Even if upstream callers leak Korean
 into headline / subheadline / aria text, the rendered SVG is guaranteed
 ASCII-only — defense in depth for the check-svg quality gate.
 
-The 8 visual builders (``vb_*``) each return a ``<g transform="translate(cx,cy)">``
-SVG string and are theme-aware via the THEMES palette.
+The visual builders (``vb_*``, 11 keys in ``VISUAL_BUILDERS``) each return a
+``<g transform="translate(cx,cy)">`` SVG string and are theme-aware via the
+THEMES palette.
 """
 from __future__ import annotations
 
@@ -31,7 +32,16 @@ from scripts.lib import svg_l22_generator as l22
 # Hangul code-points: precomposed syllables + jamo (Hangul Jamo, Compat Jamo).
 # Anything in this set is hard-stripped from <text> values to keep covers
 # ASCII-friendly per the project's English-only-SVG rule (CLAUDE.md).
-_HANGUL_RE = re.compile(r"[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]+")
+_HANGUL_CLASS = r"[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]"
+_HANGUL_RE = re.compile(_HANGUL_CLASS + r"+")
+# A Hangul run optionally carrying an ADJACENT connector (& : ; ,) and the
+# spaces around it, so the residue that would otherwise dangle after a Korean
+# word is deleted is consumed during the strip \u2014 but only when Hangul is on at
+# least one side (a bare ASCII ``A & B`` / ``AT&T`` is left untouched because
+# it has no adjacent Hangul). See ``_strip_hangul``.
+_HANGUL_RESIDUE_RE = re.compile(
+    rf"(?:{_HANGUL_CLASS}+\s*[&:;,]?\s*|\s*[&:;]\s*{_HANGUL_CLASS}+|{_HANGUL_CLASS}+)"
+)
 
 
 # --- Theme palette ---
@@ -100,7 +110,16 @@ def _strip_hangul(text: str) -> str:
     """
     if not text:
         return ""
-    cleaned = _HANGUL_RE.sub("", str(text))
+    # Consume connector punctuation (& : ; ,) and surrounding spaces that are
+    # DIRECTLY ADJACENT to a Hangul run as part of the strip. This removes the
+    # residue that otherwise dangles after a Korean word is deleted
+    # (``블록체인 & 테크`` -> ``  `` ; ``다이제스트: Bithumb`` -> `` Bithumb`` ;
+    # ``운영 사고, Bitcoin`` -> ``, Bitcoin`` -> later collapsed). Crucially,
+    # the connector is only consumed when Hangul is on at least ONE side, so a
+    # genuine ASCII ``A & B`` / ``AT&T`` / ``9:30`` (no adjacent Hangul) is
+    # left intact — we cannot tell residue from legit punctuation AFTER the
+    # strip, only during it (see ``_HANGUL_RESIDUE_RE``).
+    cleaned = _HANGUL_RESIDUE_RE.sub(" ", str(text))
     # Collapse Korean separator residue left after Hangul strip: middle dots
     # (U+00B7), bullets (U+2022), and orphan ASCII hyphens between blanks.
     cleaned = re.sub(r"[·•](\s*[·•])+", "", cleaned)
@@ -111,7 +130,11 @@ def _strip_hangul(text: str) -> str:
     cleaned = re.sub(r"(^|\s)[·•]+(?=\w)", r"\1", cleaned)
     cleaned = re.sub(r"\s{2,}", " ", cleaned)
     cleaned = re.sub(r"(,\s*){2,}", ", ", cleaned)
-    cleaned = re.sub(r"^[\s,;:.\-·•]+|[\s,;:.\-·•]+$", "", cleaned)
+    # Tidy an orphaned space before a comma left by a stripped Korean word
+    # (`` , Bitcoin`` -> ``, Bitcoin``).
+    cleaned = re.sub(r"\s+,", ",", cleaned)
+    cleaned = re.sub(r"^[\s,;:.\-·•&]+|[\s,;:.\-·•&]+$", "", cleaned)
+    cleaned = re.sub(r"\s{2,}", " ", cleaned)
     return cleaned
 
 
@@ -134,6 +157,112 @@ def _escape(text: str) -> str:
     )
 
 
+# --- Clean <title>/<desc> builder ---
+# Map a coarse content domain (from category / filename digest stem) to a
+# human-readable topic word for the SVG <title>. Deterministic + ASCII-only.
+# Order matters: the FIRST keyword found in the lowered hint wins, so more
+# specific domains precede broader ones.
+_TITLE_TOPIC_RULES: list = [
+    ("incident", "Incident"),
+    ("security", "Security"),
+    ("devsecops", "Security"),
+    ("kubernetes", "Cloud"),
+    ("cloud", "Cloud"),
+    ("finops", "FinOps"),
+    ("blockchain", "Blockchain"),
+    ("devops", "DevOps"),
+    ("ai", "AI"),
+    ("tech", "Tech"),
+]
+# Dotted-date detector for the cover header (``2026.05.29`` / ``2026-05-29``).
+_TITLE_DATE_RE = re.compile(r"(\d{4})[.\-/](\d{1,2})[.\-/](\d{1,2})")
+
+
+def _title_cadence(post_title: str) -> str:
+    """Derive the digest cadence word (Weekly / Daily) from the raw title.
+
+    Looks for an explicit cadence marker in either the Korean source title
+    (``주간`` = weekly, ``일간``/``일일`` = daily) or its ASCII form
+    (``weekly`` / ``daily``). Defaults to ``Weekly`` — the digest pipeline
+    is weekly by default, so an unmarked digest reads as Weekly rather than
+    leaking an empty cadence.
+    """
+    t = (post_title or "")
+    low = t.lower()
+    if "일간" in t or "일일" in t or "daily" in low:
+        return "Daily"
+    return "Weekly"
+
+
+def _title_topic(category: str = "", filename: str = "", post_title: str = "") -> str:
+    """Derive the topic word (Security / DevOps / Blockchain / ...).
+
+    Reads from ``category`` first (the post front-matter category is the
+    most reliable signal), then the ``filename`` digest stem, then the raw
+    title as a last resort. Defaults to ``Tech`` so the title always carries
+    a domain word.
+    """
+    for hint in (category or "", filename or "", post_title or ""):
+        low = str(hint).lower()
+        for needle, word in _TITLE_TOPIC_RULES:
+            if needle in low:
+                return word
+    return "Tech"
+
+
+def _title_date(date_str: str = "", filename: str = "") -> str:
+    """Return a clean dotted date (``YYYY.MM.DD``) for the title.
+
+    Prefers an explicit ``date_str`` (already dotted by the dispatcher),
+    falling back to a date embedded in the filename. Returns an empty
+    string when neither carries a parseable date so the caller can drop the
+    trailing separator instead of emitting ``- ``.
+    """
+    for src in (date_str or "", filename or ""):
+        m = _TITLE_DATE_RE.search(str(src))
+        if m:
+            y, mo, d = m.groups()
+            return f"{y}.{int(mo):02d}.{int(d):02d}"
+    return ""
+
+
+def build_cover_title(
+    post_title: str = "",
+    date_str: str = "",
+    category: str = "",
+    filename: str = "",
+) -> str:
+    """Compose a clean, ASCII, a11y-friendly cover ``<title>``.
+
+    Produces e.g. ``"Weekly Security Digest - 2026.05.29"``. This replaces
+    the old behaviour of feeding the raw Korean post title through
+    ``_strip_hangul``, which left malformed boilerplate such as
+    ``"2026 05 29 AI (29 )"`` (orphaned slug fragments + a dangling ``(N )``
+    count token left when ``(29개 뉴스)`` had its Hangul stripped).
+
+    Determinism + honesty:
+      * Cadence (Weekly / Daily) and topic (Security / DevOps / ...) are
+        derived from the title / category / filename — no fabricated content.
+      * ASCII-only: the result uses `` - `` (never the non-ASCII em-dash) so
+        it passes ``check_svg_title_ascii.py``. As defence-in-depth the whole
+        string is run through ``_strip_hangul`` before return.
+      * No dangling ``(N )`` count, no orphaned punctuation, no slug tail:
+        the title is built from a fixed template, not by stripping the
+        source title.
+
+    The date is optional: when no parseable date is available the trailing
+    `` - <date>`` is dropped rather than emitting a dangling separator.
+    """
+    cadence = _title_cadence(post_title)
+    topic = _title_topic(category=category, filename=filename, post_title=post_title)
+    date = _title_date(date_str=date_str, filename=filename)
+    base = f"{cadence} {topic} Digest"
+    out = f"{base} - {date}" if date else base
+    # Defence in depth: guarantee ASCII even if a future caller leaks Hangul
+    # through ``post_title`` into one of the derivation helpers.
+    return _strip_hangul(out)
+
+
 def _fit_subheadline(text: str, max_chars: int = 54) -> str:
     """Truncate side-card subheadline so it never collides with the
     KPI card at x>=1026. Headline-side subheadline starts at x=670;
@@ -151,6 +280,25 @@ def _fit_subheadline(text: str, max_chars: int = 54) -> str:
     cut = s.rfind(" ", 0, max_chars - 1)
     if cut < max_chars - 18:  # if break point too early, just hard cut
         cut = max_chars - 1
+    return s[:cut].rstrip() + "..."
+
+
+def _fit_panel_headline(text: str, max_chars: int = 27) -> str:
+    """Cap the side-panel headline so it cannot bleed into the KPI card
+    at x>=1024. Headlines start at x=670 with font-size 24 / weight 800;
+    safe run is ~27 chars before the rightmost glyph crosses x=1024.
+    The 3-char ellipsis suffix is included in the budget so the final
+    string never exceeds ``max_chars``.
+    """
+    if text is None:
+        return ""
+    s = str(text)
+    if len(s) <= max_chars:
+        return s
+    budget = max_chars - 3  # reserve room for the ellipsis
+    cut = s.rfind(" ", 0, budget)
+    if cut < budget - 10:
+        cut = budget
     return s[:cut].rstrip() + "..."
 
 
@@ -526,6 +674,238 @@ def vb_data_exfil(cx: int, cy: int, theme: str = "blue") -> str:
     )
 
 
+# Coarse topic-class signal for vb_neutral's LIGHT per-topic variation.
+# Each class is (hub sub-label, accent override). Accent overrides stay
+# inside the existing benign palette (no new red-alert tones) and ASCII-only.
+# This is deliberately minimal (nit 3, CONSERVATIVE): mild visual variety so
+# all-neutral covers are not byte-identical — NOT a new visual or motif.
+_NEUTRAL_TOPIC_CLASSES: Dict[str, Tuple[str, str]] = {
+    "release": ("RELEASE", "#4ADE80"),    # green: version / launch / GA
+    "ecosystem": ("ECOSYSTEM", "#3A86FF"),  # blue: community / cncf / velocity
+    "advisory": ("ADVISORY", "#FFB703"),    # amber: guidance / policy / notice
+    "update": ("UPDATE", "#A78BFA"),        # purple: generic digest update
+}
+_NEUTRAL_CLASS_ORDER: Tuple[str, ...] = ("release", "ecosystem", "advisory", "update")
+_NEUTRAL_RELEASE_KW = ("release", "version", "launch", "ga ", "v1", "v2", "rollout", "ship")
+_NEUTRAL_ECOSYSTEM_KW = ("ecosystem", "cncf", "cloud native", "community", "velocity", "adoption", "foundation")
+_NEUTRAL_ADVISORY_KW = ("advisory", "guidance", "policy", "compliance", "notice", "deprecat", "lifecycle")
+
+
+def _neutral_topic_class(topic: str, band_index: int = 0) -> str:
+    """Pick a coarse neutral topic class from a headline keyword.
+
+    Deterministic: same topic always maps to the same class. When no keyword
+    matches (or topic is empty) we cycle by ``band_index`` so all-neutral
+    covers still vary band-to-band instead of collapsing to one class.
+    """
+    low = (topic or "").lower()
+    if any(k in low for k in _NEUTRAL_RELEASE_KW):
+        return "release"
+    if any(k in low for k in _NEUTRAL_ECOSYSTEM_KW):
+        return "ecosystem"
+    if any(k in low for k in _NEUTRAL_ADVISORY_KW):
+        return "advisory"
+    return _NEUTRAL_CLASS_ORDER[band_index % len(_NEUTRAL_CLASS_ORDER)]
+
+
+def vb_neutral(
+    cx: int,
+    cy: int,
+    theme: str = "blue",
+    topic: str = "",
+    band_index: int = 0,
+) -> str:
+    """Content-neutral digest / ecosystem motif.
+
+    Honest default for non-incident content (ecosystem velocity, lifecycle
+    updates, operational notices, generic digests). Renders a small grid of
+    connected, stacked "cards" feeding an UPDATE hub with a rising trend
+    sparkline — a clean information-flow abstraction. Carries NO attack /
+    breach / CVE / exploit / victim / C2 language: it must never assert an
+    incident the post lacks. Labels are deliberately benign (DIGEST / UPDATE /
+    ECOSYSTEM / RELEASE).
+
+    LIGHT per-topic variation (nit 3, CONSERVATIVE): the accent color and the
+    hub sub-label vary by a coarse topic class derived from ``topic`` (the
+    band headline keyword), falling back to a ``band_index`` cycle when no
+    keyword matches. This is mild visual variety only — same motif, no new
+    builder, ASCII-only, attack-free. The base ``theme`` still drives the
+    soft/glow tones so the cover stays cohesive.
+    """
+    t = _theme(theme)
+    a, soft = t["accent"], t["accent_soft"]
+    # LIGHT variation: the theme accent ``a`` still drives every structural
+    # stroke (so the base theme color invariant holds), and the coarse topic
+    # class only varies the hub sub-LABEL text + its color. This keeps the
+    # motif identical while making all-neutral covers visually distinguish.
+    topic_class = _neutral_topic_class(topic, band_index)
+    hub_sub, hub_sub_color = _NEUTRAL_TOPIC_CLASSES[topic_class]
+    return (
+        f'<g transform="translate({cx},{cy})">'
+        # Three stacked source cards on the left (layered documents / feeds)
+        f'<g font-family="Inter, monospace" font-size="8" font-weight="800">'
+        f'<g transform="translate(-150,-40)">'
+        f'<rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2"/>'
+        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">DIGEST</text></g>'
+        f'<g transform="translate(-150,-6)">'
+        f'<rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2" opacity="0.88"/>'
+        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">ECOSYSTEM</text></g>'
+        f'<g transform="translate(-150,28)">'
+        f'<rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2" opacity="0.76"/>'
+        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">RELEASE</text></g>'
+        f'</g>'
+        # Connector lines into the hub
+        f'<g stroke="{a}" stroke-width="1" stroke-dasharray="3 2" fill="none" opacity="0.6">'
+        f'<line x1="-74" y1="-28" x2="-8" y2="0"/>'
+        f'<line x1="-74" y1="6" x2="-8" y2="2"/>'
+        f'<line x1="-74" y1="40" x2="-8" y2="4"/>'
+        f'</g>'
+        # Flowing data dots toward the hub
+        f'<g fill="{soft}">'
+        f'<circle r="2"><animateMotion path="M-74 -28 L-8 0" dur="2.2s" repeatCount="indefinite"/></circle>'
+        f'<circle r="2"><animateMotion path="M-74 6 L-8 2" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>'
+        f'<circle r="2"><animateMotion path="M-74 40 L-8 4" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></circle>'
+        f'</g>'
+        # Central UPDATE hub
+        f'<circle cx="0" cy="2" r="30" fill="#0A1326" stroke="{a}" stroke-width="2" filter="url(#softShadow)">'
+        f'<animate attributeName="r" values="28;33;28" dur="3.4s" repeatCount="indefinite"/></circle>'
+        f'<text x="0" y="-1" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="{soft}">UPDATE</text>'
+        f'<text x="0" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{hub_sub_color}">{hub_sub}</text>'
+        # Trend sparkline panel on the right (neutral activity, no alarm)
+        f'<g transform="translate(56,-44)" filter="url(#softShadow)">'
+        f'<rect x="0" y="0" width="120" height="92" rx="6" fill="#0A0F1E" stroke="{a}" stroke-width="1.2"/>'
+        f'<text x="60" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="{soft}">ACTIVITY</text>'
+        f'<polyline points="12,72 30,60 46,64 62,48 80,52 98,34 108,30" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        f'<circle cx="108" cy="30" r="3" fill="{soft}"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>'
+        f'<g stroke="{a}" stroke-width="0.6" opacity="0.3">'
+        f'<line x1="12" y1="46" x2="108" y2="46"/><line x1="12" y1="62" x2="108" y2="62"/></g>'
+        f'<text x="60" y="86" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{a}">trend overview</text>'
+        f'</g>'
+        f'</g>'
+    )
+
+
+def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
+    """Crypto market / price motif for price & trend stories ("Bitcoin $71K").
+
+    Candlestick chart + rising trend arrow with PRICE / MARKET / TREND
+    framing. Carries NO attack topology, breach, or CVE language — it reads
+    as a financial-market figure, honest for a pure price/market story.
+    """
+    t = _theme(theme)
+    a, soft = t["accent"], t["accent_soft"]
+    up = "#4ADE80"
+    down = "#F87171"
+    return (
+        f'<g transform="translate({cx},{cy})">'
+        # Chart frame
+        f'<g filter="url(#softShadow)">'
+        f'<rect x="-160" y="-66" width="290" height="132" rx="8" fill="#0A0F1E" stroke="{a}" stroke-width="1.4"/>'
+        f'</g>'
+        f'<text x="-148" y="-46" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{soft}" letter-spacing="1">MARKET</text>'
+        f'<text x="118" y="-46" text-anchor="end" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{a}">PRICE</text>'
+        # Gridlines
+        f'<g stroke="{a}" stroke-width="0.6" opacity="0.25">'
+        f'<line x1="-148" y1="-24" x2="118" y2="-24"/>'
+        f'<line x1="-148" y1="4" x2="118" y2="4"/>'
+        f'<line x1="-148" y1="32" x2="118" y2="32"/>'
+        f'</g>'
+        # Candlesticks (wick + body), mixed up/down then trending up
+        f'<g stroke-width="1">'
+        f'<line x1="-128" y1="-6" x2="-128" y2="40" stroke="{down}"/><rect x="-133" y="6" width="10" height="22" fill="{down}"/>'
+        f'<line x1="-104" y1="-2" x2="-104" y2="44" stroke="{up}"/><rect x="-109" y="2" width="10" height="26" fill="{up}"/>'
+        f'<line x1="-80" y1="-14" x2="-80" y2="30" stroke="{up}"/><rect x="-85" y="-10" width="10" height="24" fill="{up}"/>'
+        f'<line x1="-56" y1="-8" x2="-56" y2="34" stroke="{down}"/><rect x="-61" y="0" width="10" height="20" fill="{down}"/>'
+        f'<line x1="-32" y1="-20" x2="-32" y2="22" stroke="{up}"/><rect x="-37" y="-16" width="10" height="26" fill="{up}"/>'
+        f'<line x1="-8" y1="-30" x2="-8" y2="14" stroke="{up}"/><rect x="-13" y="-26" width="10" height="26" fill="{up}"/>'
+        f'<line x1="16" y1="-24" x2="16" y2="18" stroke="{down}"/><rect x="11" y="-20" width="10" height="18" fill="{down}"/>'
+        f'<line x1="40" y1="-40" x2="40" y2="6" stroke="{up}"/><rect x="35" y="-36" width="10" height="26" fill="{up}"/>'
+        f'<line x1="64" y1="-48" x2="64" y2="-4" stroke="{up}"/><rect x="59" y="-44" width="10" height="24" fill="{up}"/>'
+        f'</g>'
+        # Rising trend line over the candles
+        f'<polyline points="-128,18 -104,16 -80,2 -56,8 -32,-2 -8,-14 16,-8 40,-24 64,-34" '
+        f'fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>'
+        # Up arrow head at the end of the trend
+        f'<g transform="translate(64,-34)" stroke="{a}" stroke-width="2" fill="none" stroke-linecap="round">'
+        f'<path d="M0 0 L10 -8 M10 -8 L2 -8 M10 -8 L10 0">'
+        f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/></path>'
+        f'</g>'
+        f'<circle cx="64" cy="-34" r="3.4" fill="{soft}"><animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/></circle>'
+        # Bottom caption (neutral, no alarm)
+        f'<text x="-15" y="60" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">TREND OVERVIEW</text>'
+        f'</g>'
+    )
+
+
+def vb_security_advisory(cx: int, cy: int, theme: str = "amber") -> str:
+    """Honest motif for a GENERIC security topic of UNSPECIFIED severity.
+
+    For a digest "Vulnerability" / "Malware" / "CVE roundup" / "Threat"
+    section that is real-but-unspecified: there is a security topic, but the
+    post carries no specific CVE-id, exploit chain, or active-exploitation
+    claim. This builder signals exactly that and NOTHING more.
+
+    HONESTY CONSTRAINTS (hard): it must NOT fabricate specifics. There is
+    deliberately no ``CVE-XXXX`` id, no "Active exploitation", no
+    "PATCH UPSTREAM NOW", no attacker / victim / C2 / exploit-chain
+    narrative. The severity reads ``SEVERITY: TBD`` (i.e. unassessed) and the
+    headline label is ``SECURITY ADVISORY``. The gauge needle deliberately
+    parks at the neutral midpoint — it does not assert a high score.
+
+    Design: a centered shield outline (the universal "security topic" mark)
+    with a check-style glyph, an ``ADVISORY`` badge, and a horizontal
+    severity gauge whose track is unfilled with a ``TBD`` marker. ASCII-only,
+    theme-aware, sized to sit comfortably inside the hq size band.
+    """
+    t = _theme(theme)
+    a, soft, txt = t["accent"], t["accent_soft"], t["accent_text"]
+    return (
+        f'<g transform="translate({cx},{cy})">'
+        # Outer card frame
+        f'<g filter="url(#softShadow)">'
+        f'<rect x="-160" y="-104" width="320" height="208" rx="10" fill="#0A0F1E" stroke="{a}" stroke-width="1.4" opacity="0.95"/>'
+        f'</g>'
+        # Top label + ADVISORY badge
+        f'<text x="-148" y="-82" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="{soft}" letter-spacing="2">SECURITY ADVISORY</text>'
+        f'<g transform="translate(96,-96)">'
+        f'<rect x="0" y="0" width="60" height="18" rx="3" fill="{a}" opacity="0.9"/>'
+        f'<text x="30" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#0A0F1E">ADVISORY</text>'
+        f'</g>'
+        # Centered shield outline with a calm pulse + neutral check glyph
+        f'<g transform="translate(-92,-46)">'
+        f'<path d="M40 0 L78 14 L78 56 Q78 92 40 108 Q2 92 2 56 L2 14 Z" '
+        f'fill="none" stroke="{a}" stroke-width="2.4" stroke-linejoin="round">'
+        f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></path>'
+        f'<path d="M40 8 L70 19 L70 54 Q70 84 40 98 Q10 84 10 54 L10 19 Z" '
+        f'fill="{a}" opacity="0.10"/>'
+        # Neutral check mark inside the shield (status mark, not an alarm)
+        f'<path d="M26 54 L37 66 L56 40" fill="none" stroke="{soft}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">'
+        f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/></path>'
+        f'</g>'
+        # Right column: severity gauge (unfilled track, TBD marker)
+        f'<g transform="translate(8,-44)">'
+        f'<text x="0" y="0" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{txt}">SEVERITY</text>'
+        # Gauge track
+        f'<rect x="0" y="12" width="140" height="14" rx="7" fill="#11182B" stroke="{a}" stroke-width="1.2"/>'
+        # Three benign segment ticks (LOW / MED / HIGH scale, no value asserted)
+        f'<g stroke="{a}" stroke-width="1" opacity="0.4">'
+        f'<line x1="47" y1="12" x2="47" y2="26"/><line x1="93" y1="12" x2="93" y2="26"/>'
+        f'</g>'
+        # TBD marker parked at the neutral midpoint — asserts no score
+        f'<g transform="translate(70,19)">'
+        f'<circle cx="0" cy="0" r="6.5" fill="{a}">'
+        f'<animate attributeName="opacity" values="0.7;1;0.7" dur="2.2s" repeatCount="indefinite"/></circle>'
+        f'<circle cx="0" cy="0" r="2.4" fill="#0A0F1E"/>'
+        f'</g>'
+        f'<text x="0" y="44" font-family="Inter, monospace" font-size="11" font-weight="900" fill="{soft}">SEVERITY: TBD</text>'
+        f'<text x="0" y="60" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{txt}" opacity="0.85">unspecified - under review</text>'
+        f'</g>'
+        # Bottom caption (benign, no call to patch)
+        f'<text x="0" y="92" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">REVIEW ADVISORY DETAILS</text>'
+        f'</g>'
+    )
+
+
 VISUAL_BUILDERS = {
     "cve_chain": vb_cve_chain,
     "hub_spoke": vb_hub_spoke,
@@ -535,14 +915,42 @@ VISUAL_BUILDERS = {
     "supply_chain_pipe": vb_supply_chain_pipe,
     "code_injection": vb_code_injection,
     "data_exfil": vb_data_exfil,
+    "neutral": vb_neutral,
+    "market": vb_market,
+    "security_advisory": vb_security_advisory,
 }
 
 
-def _render_visual(visual_id: str, cx: int, cy: int, theme: str, label: str = "") -> str:
-    """Dispatch to the correct visual builder; falls back to cve_chain."""
-    fn = VISUAL_BUILDERS.get(visual_id, vb_cve_chain)
+def _render_visual(
+    visual_id: str,
+    cx: int,
+    cy: int,
+    theme: str,
+    label: str = "",
+    topic: str = "",
+    band_index: int = 0,
+) -> str:
+    """Dispatch to the correct visual builder.
+
+    Unknown-key fallback is ``vb_neutral`` — a genuinely content-neutral
+    digest/ecosystem motif (Option B, the honest corpus-wide fix). It is
+    kept in LOCKSTEP with ``l20_dispatch.route_visual_id``'s no-match
+    default. The history of this fallback: ``vb_cve_chain`` (fabricated a
+    CVE-exploitation narrative on any unrouted key) -> ``vb_hub_spoke``
+    (Option A stopgap; relocated the false claim to a C2/VICTIM narrative)
+    -> ``vb_neutral`` (asserts no incident at all). Both fallback sites MUST
+    change together — editing only one re-introduces a false-incident
+    narrative for unknown keys. See
+    ``.omc/plans/l20-digest-cover-audit-fix.md`` (Step 7 / Option B).
+    """
+    fn = VISUAL_BUILDERS.get(visual_id, vb_neutral)
     if visual_id == "hub_spoke" and label:
         return fn(cx, cy, theme=theme, center_label=label)
+    # vb_neutral (the routed key AND the unknown-key fallback) takes the
+    # topic/band hints for its LIGHT per-topic variation; the other builders
+    # ignore them.
+    if fn is vb_neutral:
+        return vb_neutral(cx, cy, theme=theme, topic=topic, band_index=band_index)
     return fn(cx, cy, theme=theme)
 
 
@@ -839,7 +1247,7 @@ def render_l20_hero(
     parts.append(_corner_brackets(32, 80, 600, 510, hero_accent, size=12))
     parts.append(_data_strip(54, 528, 280, hero_accent))
     # Hero embedded visual (centered around (332, 360))
-    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", "")))
+    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0))
     # Hero action tag
     parts.append('<g transform="translate(54,548)">')
     parts.append(f'<rect x="0" y="0" width="280" height="24" rx="3" fill="{hero_accent}" opacity="0.95"/>')
@@ -871,7 +1279,7 @@ def render_l20_hero(
     )
     parts.append(
         f'<text x="670" y="140" font-family="Inter, Helvetica, Arial, sans-serif" '
-        f'font-size="24" font-weight="800" fill="#F5F7FA">{_escape(top_right["headline"])}</text>'
+        f'font-size="24" font-weight="800" fill="#F5F7FA">{_escape(_fit_panel_headline(top_right["headline"]))}</text>'
     )
     parts.append(
         f'<text x="670" y="163" font-family="Inter, Helvetica, Arial, sans-serif" '
@@ -879,7 +1287,7 @@ def render_l20_hero(
     )
     parts.append('</g>')
     parts.append(_corner_brackets(652, 80, 516, 248, tr_accent, size=9))
-    parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", "")))
+    parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", ""), topic=top_right.get("headline", ""), band_index=1))
     parts.append(_kpi_card(1094, 168, top_right["theme"], top_right["kpi_value"], top_right["kpi_label"], top_right["kpi_sub"]))
 
     # BOTTOM RIGHT panel
@@ -899,7 +1307,7 @@ def render_l20_hero(
     )
     parts.append(
         f'<text x="670" y="404" font-family="Inter, Helvetica, Arial, sans-serif" '
-        f'font-size="24" font-weight="800" fill="#F5F7FA">{_escape(bottom_right["headline"])}</text>'
+        f'font-size="24" font-weight="800" fill="#F5F7FA">{_escape(_fit_panel_headline(bottom_right["headline"]))}</text>'
     )
     parts.append(
         f'<text x="670" y="428" font-family="Inter, Helvetica, Arial, sans-serif" '
@@ -907,7 +1315,7 @@ def render_l20_hero(
     )
     parts.append('</g>')
     parts.append(_corner_brackets(652, 344, 516, 246, br_accent, size=9))
-    parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", "")))
+    parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", ""), topic=bottom_right.get("headline", ""), band_index=2))
     parts.append(_kpi_card(1094, 452, bottom_right["theme"], bottom_right["kpi_value"], bottom_right["kpi_label"], bottom_right["kpi_sub"]))
 
     parts.append(_spark_accents())

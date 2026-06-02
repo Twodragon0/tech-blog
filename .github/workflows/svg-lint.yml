@@ -20,6 +20,9 @@ on:
       - 'scripts/news/l22_dispatch.py'
       - 'scripts/check_l22_visual_variety.py'
       - 'scripts/check_svg_size_gate.py'
+      - 'scripts/score_cover_honesty.py'
+      - 'scripts/cover_honesty_baseline.txt'
+      - 'scripts/news/l20_dispatch.py'
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
@@ -44,6 +47,9 @@ on:
       - 'scripts/news/l22_dispatch.py'
       - 'scripts/check_l22_visual_variety.py'
       - 'scripts/check_svg_size_gate.py'
+      - 'scripts/score_cover_honesty.py'
+      - 'scripts/cover_honesty_baseline.txt'
+      - 'scripts/news/l20_dispatch.py'
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
@@ -113,6 +119,21 @@ jobs:
           python3 scripts/check_svg_size_gate.py \
             --changed "$BASE" \
             --baseline scripts/svg_size_gate_baseline.txt \
+            --strict
+
+      - name: L20 cover honesty scorer (BLOCKING — grandfathered baseline)
+        id: cover_honesty
+        # BLOCKING gate, conservative: scores every L20 cover and fails the
+        # build (--strict) on any FAIL that is NOT grandfathered in
+        # cover_honesty_baseline.txt. The 12 legacy non-digest FAILs are
+        # baselined, so this only catches NEW honesty regressions (a cover that
+        # newly asserts attack evidence its post lacks). Verified locally:
+        # --all --baseline … --strict exits 0 on the current corpus.
+        # After an intentional cover change, re-grandfather with:
+        #   python3 scripts/score_cover_honesty.py --update-baseline scripts/cover_honesty_baseline.txt
+        run: |
+          python3 scripts/score_cover_honesty.py --all \
+            --baseline scripts/cover_honesty_baseline.txt \
             --strict
 
       - name: SVG title/desc ASCII gate (no non-ASCII in <title> or <desc>)

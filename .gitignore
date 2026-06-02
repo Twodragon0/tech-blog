@@ -108,6 +108,9 @@ referenced_images.txt
 .omc/sessions/
 .omc/notepads/
 .omc/checkpoints/
+# Stray nested .omc/ dirs created when an agent ran with a non-root cwd
+# (e.g. assets/images/.omc/) — never blog content, never commit.
+**/.omc/
 
 # Allow committed schema example files under .omc/state/ — these are
 # documentation, not runtime state, and contain no secrets.

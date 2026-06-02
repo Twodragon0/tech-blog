@@ -17,7 +17,7 @@ hero:
 top_right:
   tag: VS CODE
   theme: amber
-  visual: code_injection
+  visual: hub_spoke
   headline: VS Code Tunnel Abuse
   subheadline: VS Code remote tunnel feature abused as a covert command and control
   kpi_value: VSC

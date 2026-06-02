@@ -27,7 +27,7 @@ top_right:
 bottom_right:
   tag: ZERO TRUST
   theme: blue
-  visual: hub_spoke
+  visual: security_advisory
   headline: Zero Trust Defense
   subheadline: Zero Trust defense and incident response checklist for enterprises
   kpi_value: ZT

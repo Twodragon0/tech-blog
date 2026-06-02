@@ -1,0 +1,77 @@
+date: '2026-02-28'
+slug: AI_Agent_Security_Architecture_Design_Guide
+sfx: FB28
+title: '2026-02-28: AI agent stateful runtime security, AgentCore, continuous eval'
+aria: OpenAI Stateful Runtime memory persistence and attack surface, Amazon Bedrock
+  AgentCore multi-agent orchestration access controls, Google continuous evaluation
+  framework for AI agent trust boundaries.
+bands:
+- theme: red
+  label: STATEFUL RUNTIME
+  headline: Memory Persistence Risk
+  metric: 'OpenAI Stateful : session memory : persistence attack'
+  detail: 'Long-term memory poisoning : session hijack : cross-conversation leakage
+    : context injection'
+  badge:
+    value: MEM
+    label: PERSIST
+    sub: risk
+  visual:
+    kind: siem_panels
+  metric_b: 'Memory TTL enforcement : namespace isolation : per-session encryption'
+  detail_b: 'Expire stale memories : isolate user sessions : encrypt memory at rest
+    : audit memory reads'
+  mini:
+    value: TTL
+    label: EXPIRE
+    sub: memory
+  mini2:
+    value: OAI
+    label: VENDOR
+    sub: stateful
+- theme: amber
+  label: AGENTCORE IAM
+  headline: Multi-Agent Access Control
+  metric: 'AWS AgentCore : agent-to-agent trust : IAM scope'
+  detail: 'Bedrock AgentCore orchestration : inter-agent credential sharing : least
+    privilege scope : tool-use whitelist'
+  badge:
+    value: AWS
+    label: BEDROCK
+    sub: AgentCore
+  visual:
+    kind: identity_handshake
+  metric_b: 'Agent role isolation : task-scoped credentials : human-in-loop gates'
+  detail_b: 'Separate IAM role per agent : short-lived tokens : approval gate for
+    destructive tools'
+  mini:
+    value: IAM
+    label: SCOPE
+    sub: agent
+  mini2:
+    value: HITL
+    label: GATE
+    sub: approval
+- theme: green
+  label: CONTINUOUS EVAL
+  headline: Google Eval Framework
+  metric: 'GCP continuous eval : drift detection : safety metrics'
+  detail: 'Prompt drift monitoring : safety classifier score : behavioral regression
+    : eval-in-production'
+  badge:
+    value: EVAL
+    label: CONTINUOUS
+    sub: GCP
+  visual:
+    kind: compliance_grid
+  metric_b: 'Red-team eval pipeline : safety threshold alerts : model card updates'
+  detail_b: 'Automated red-team prompts : safety gate in CI/CD : log eval scores
+    : alert on regression'
+  mini:
+    value: SAFE
+    label: SCORE
+    sub: threshold
+  mini2:
+    value: REGR
+    label: DETECT
+    sub: drift
