@@ -1155,6 +1155,9 @@ def render_l20_hero(
     bottom_right: Dict,
     url: str,
     post_title: str,
+    *,
+    eyebrow: str = "WEEKLY DIGEST",
+    footer_label: str = "Weekly Digest",
 ) -> str:
     """Render full L20 Hero+2-Card 1200x630 SVG.
 
@@ -1165,6 +1168,11 @@ def render_l20_hero(
         bottom_right: story dict for HIGH/03.
         url: post URL for QR code.
         post_title: short post title for ``<title>``.
+        eyebrow: top-left header label. Defaults to ``"WEEKLY DIGEST"`` so the
+            existing digest callers are byte-identical; content covers pass an
+            honest category label (e.g. ``"DEVSECOPS GUIDE"``).
+        footer_label: italic footer label before ``"  /  {date}"``. Defaults to
+            ``"Weekly Digest"`` for digest byte-identity.
     """
     # Hero panel
     hero_t = _theme(hero["theme"])
@@ -1203,7 +1211,7 @@ def render_l20_hero(
     parts.append('<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>')
     parts.append(
         '<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" '
-        'font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>'
+        f'font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">{_escape(eyebrow)}</text>'
     )
     parts.append(
         f'<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" '
@@ -1259,7 +1267,7 @@ def render_l20_hero(
     parts.append('</g>')
     parts.append(
         f'<text x="350" y="566" font-family="Inter, Helvetica, Arial, sans-serif" '
-        f'font-size="13" font-weight="600" fill="#A5B4C4" font-style="italic">Weekly Digest  /  {_escape(date_str)}</text>'
+        f'font-size="13" font-weight="600" fill="#A5B4C4" font-style="italic">{_escape(footer_label)}  /  {_escape(date_str)}</text>'
     )
 
     # TOP RIGHT panel

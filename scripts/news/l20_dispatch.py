@@ -423,7 +423,25 @@ def _pad_subheadline(
         base, _clean_segment(excerpt), other_headlines=other_headlines
     )
     candidate = (base + " - " + extra).strip(" -") if extra else base
-    return _shorten(candidate, _SUB_MAX_CHARS) or base
+    result = _shorten(candidate, _SUB_MAX_CHARS) or base
+    # Redundant-subtitle guard: when no non-redundant context remained, the
+    # subheadline collapses to ``base`` alone, which (for single-keyword
+    # Korean-fallback posts) equals the headline -- e.g. headline
+    # "Vulnerability" / sub "Vulnerability". A duplicate subtitle reads as a
+    # rendering bug, so substitute a non-duplicate descriptor: borrow a sibling
+    # band's lead keyword, else a neutral phrase. ASCII-only, length-capped.
+    if _clean_segment(result).lower() == base.lower():
+        descriptor = ""
+        for hl in other_headlines or []:
+            cand = _clean_segment(hl)
+            if cand and cand.lower() != base.lower():
+                descriptor = cand
+                break
+        if descriptor:
+            result = _shorten(f"{base} - {descriptor}", _SUB_MAX_CHARS)
+        else:
+            result = _shorten(f"{base} - security topic overview", _SUB_MAX_CHARS)
+    return result
 
 
 def extract_three_stories(
@@ -501,7 +519,165 @@ def extract_three_stories(
     return stories[0], stories[1], stories[2]
 
 
-# --- KPI inference ---
+# --- Content-post story extraction ---
+# Generic tokens that look like post metadata/structure rather than topic
+# content. Filtered when picking headline tokens for content covers so we
+# don't surface "Latest", "Update", "Complete" etc. as story headlines.
+# Keep this set conservative: only drop tokens that are *never* meaningful
+# as standalone headlines; real topic words (AI, Security, ...) are allowed.
+_CONTENT_FILLER_TOKENS: frozenset = frozenset({
+    "latest", "update", "complete", "guide", "analysis", "perspective",
+    "view", "viewing", "from", "and", "the", "a", "of", "for", "with",
+    "practical", "best", "tools", "tool", "course", "batch", "week",
+    "generation", "model", "top", "y", "overview", "intro", "introduction",
+    "summary", "notes", "post", "part", "series", "edition", "review",
+    "2025", "2026", "2024", "2023",
+})
+
+# Minimum character length for a keyword to count as a meaningful headline
+# (avoids keeping single-letter fragments like "A" that slip through after
+# case-folding).
+_CONTENT_KW_MIN_LEN: int = 2
+
+
+def _meaningful_content_keywords(
+    filename: str,
+    title: str = "",
+) -> List[str]:
+    """Return a deduplicated list of meaningful (non-filler) topic keywords.
+
+    Sources (in priority order):
+    1. Individual WORD tokens from an English (non-Hangul) title — filtered
+       through ``_CONTENT_FILLER_TOKENS``.
+    2. Filename slug keywords — also filtered.
+
+    Deduplication is case-insensitive; the first occurrence's original
+    casing is preserved.  Digit-only tokens and tokens shorter than
+    ``_CONTENT_KW_MIN_LEN`` are always dropped.
+
+    Returns a list of at most 6 keywords; callers use the first 3 as
+    headline tokens and the rest as subheadline context.
+    """
+    seen_lower: set = set()
+    result: List[str] = []
+
+    def _push(token: str) -> None:
+        t = token.strip()
+        if not t or len(t) < _CONTENT_KW_MIN_LEN:
+            return
+        if t.isdigit():
+            return
+        # Drop digit-led alphanumeric tokens (e.g. "8Batch", "6Week", "2nd")
+        # — these are course/series ordinals, not meaningful topic words.
+        if t[0].isdigit():
+            return
+        tl = t.lower()
+        if tl in _CONTENT_FILLER_TOKENS:
+            return
+        if tl in seen_lower:
+            return
+        seen_lower.add(tl)
+        result.append(t)
+
+    # 1. English title words (skip if Hangul present — Korean titles are
+    #    handled by the filename fallback).
+    if title and not _has_hangul(title):
+        # Pre-scan for known meaningful compound phrases (e.g. "Top 10",
+        # "AI Security") BEFORE individual word filtering so they aren't
+        # split into individually-filler tokens. Longer phrases first.
+        _COMPOUND_PHRASES_RE = re.compile(
+            r"\bTop\s+10\b|\bAI\s+Security\b|\bZero\s+Day\b|\bRed\s+Team\b"
+            r"|\bBlue\s+Team\b|\bSupply\s+Chain\b",
+            re.IGNORECASE,
+        )
+        remainder = title
+        for m in _COMPOUND_PHRASES_RE.finditer(title):
+            if len(result) >= 8:
+                break
+            phrase = re.sub(r"\s+", " ", m.group().strip())
+            _push(phrase)
+            # Mark matched span so we skip these words during word-level scan.
+            remainder = remainder[:m.start()] + " " * (m.end() - m.start()) + remainder[m.end():]
+            # Block each component word individually so the filename slug step
+            # (step 2) doesn't re-add "AI" and "Security" after "AI Security"
+            # was already pushed as a compound.
+            for component in re.findall(r"[A-Za-z0-9]+", phrase):
+                seen_lower.add(component.lower())
+        for word in re.findall(r"[A-Za-z0-9][A-Za-z0-9+#.-]*", remainder):
+            if len(result) >= 8:
+                break
+            _push(word)
+
+    # 2. Filename slug keywords.
+    for kw in _english_topics_from_filename(filename):
+        if len(result) >= 8:
+            break
+        _push(kw)
+
+    return result[:6]
+
+
+def extract_content_stories(
+    post_title: str,
+    excerpt: str,
+    filename: str = "",
+    eyebrow: str = "TECH GUIDE",
+) -> Tuple[Dict, Dict, Dict]:
+    """Split a content-post title/filename into 3 meaningful English story dicts.
+
+    Unlike :func:`extract_three_stories` (digest variant), this helper:
+
+    * Filters generic filler tokens (``_CONTENT_FILLER_TOKENS``) so words
+      like "Latest", "Update", "Complete", "Guide" never become story
+      headlines.
+    * Builds subheadlines from the OTHER selected topic keywords rather
+      than from the (often Korean/filler) excerpt.
+    * Falls back to the ``eyebrow`` label (e.g. ``"Security Guide"``)
+      when fewer than two non-filler topics are available.
+
+    The English-only guarantee and ``_HEADLINE_MAX_CHARS`` / ``_SUB_MAX_CHARS``
+    length caps are preserved identical to :func:`extract_three_stories`.
+    """
+    meaningful = _meaningful_content_keywords(filename, post_title)
+
+    # eyebrow_title used both for subheadline context and fallback labels.
+    eyebrow_title = eyebrow.title()  # "SECURITY GUIDE" -> "Security Guide"
+
+    # Fallbacks: category-themed so a thin slug still reads accurately
+    # (e.g. "Cloud Guide overview" rather than "Threat Analysis" on a
+    # non-security post). Three distinct variants prevent dedup rejection.
+    fallbacks = [
+        f"{eyebrow_title} overview",
+        f"{eyebrow_title} topics",
+        f"{eyebrow_title} reference",
+    ]
+    # Pad to at least 3 using the fallbacks.
+    padded = list(meaningful)
+    fb_iter = iter(fallbacks)
+    while len(padded) < 3:
+        fb = next(fb_iter, f"{eyebrow_title} reference")
+        if fb.lower() not in {t.lower() for t in padded}:
+            padded.append(fb)
+
+    segments = padded[:3]
+    headlines = [_shorten(seg, _HEADLINE_MAX_CHARS) for seg in segments]
+
+    # Build subheadlines from the OTHER two selected topic keywords.
+    # ``segments`` is always padded to 3, so ``others`` is always length 2.
+    stories: List[Dict] = []
+    for i, seg in enumerate(segments):
+        others = [h for j, h in enumerate(headlines) if j != i]
+        sub_raw = f"{others[0]} - {others[1]}"
+        sub = _shorten(sub_raw, _SUB_MAX_CHARS)
+        # Redundant-subtitle guard: same rule as _pad_subheadline.
+        if _clean_segment(sub).lower() == headlines[i].lower():
+            sub = _shorten(f"{headlines[i]} - {eyebrow_title}", _SUB_MAX_CHARS)
+        stories.append({"headline": headlines[i], "subheadline": sub})
+
+    return stories[0], stories[1], stories[2]
+
+
+
 _CVE_RE = re.compile(r"CVE-\d{4}-\d{4,7}", re.IGNORECASE)
 _CVSS_RE = re.compile(r"CVSS\s*([0-9]+(?:\.[0-9])?)", re.IGNORECASE)
 _USD_RE = re.compile(r"\$\s*([0-9]+(?:\.[0-9]+)?)\s*([KMB])\b", re.IGNORECASE)
@@ -577,6 +753,17 @@ def _date_str_from_filename(filename: str, fallback: str = "") -> str:
     return f"{yyyy}.{mm}.{dd}"
 
 
+# Visual IDs that are honest for a non-incident content guide post.
+# Any visual NOT in this set depicts an active attack or breach motif
+# (BYPASS AUTHZ, DATA EXFILTRATION, VICTIM/C2, RANSOM NOTE, ...) and
+# must not appear on a beginner guide or overview post.
+_CONTENT_HONEST_VISUALS: frozenset = frozenset({
+    "neutral",
+    "security_advisory",
+    "market",
+})
+
+
 def _build_story(
     *,
     headline: str,
@@ -584,9 +771,21 @@ def _build_story(
     index: int,
     severity_label: str,
     action: Optional[str] = None,
+    content_mode: bool = False,
 ) -> Dict:
-    """Build a complete story dict ready for ``render_l20_hero``."""
+    """Build a complete story dict ready for ``render_l20_hero``.
+
+    Args:
+        content_mode: when True (content covers), any attack/incident visual
+            is clamped to ``"neutral"`` so the cover never shows a breach/C2
+            motif on a benign guide post. Digest callers leave this False to
+            preserve existing routing.
+    """
     visual = route_visual_id(headline)
+    # Content covers: downgrade attack visuals to neutral so a guide post
+    # about "Kubernetes" never renders the container-escape attack motif.
+    if content_mode and visual not in _CONTENT_HONEST_VISUALS:
+        visual = "neutral"
     # Theme: prefer visual-driven theme when content suggests it,
     # otherwise fall back to the index rotation.
     theme = _THEME_BY_VISUAL.get(visual, route_theme(str(index)))
@@ -737,4 +936,163 @@ def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
         return True
     except Exception as exc:
         logging.error(f"L20 digest SVG generation failed: {exc}")
+        return False
+
+
+# --- Content-post (non-digest) L20 cover ----------------------------------
+
+# Category -> honest eyebrow label (ASCII, all-caps). Default "TECH GUIDE".
+_CONTENT_EYEBROW_BY_CATEGORY: Dict[str, str] = {
+    "security": "SECURITY GUIDE",
+    "devsecops": "DEVSECOPS GUIDE",
+    "devops": "DEVOPS GUIDE",
+    "cloud": "CLOUD GUIDE",
+    "kubernetes": "KUBERNETES GUIDE",
+    "finops": "FINOPS GUIDE",
+    "blockchain": "BLOCKCHAIN GUIDE",
+    "incident": "INCIDENT REPORT",
+}
+
+# Title-cased footer label per eyebrow (deterministic, ASCII).
+_CONTENT_FOOTER_BY_EYEBROW: Dict[str, str] = {
+    "SECURITY GUIDE": "Security Guide",
+    "DEVSECOPS GUIDE": "DevSecOps Guide",
+    "DEVOPS GUIDE": "DevOps Guide",
+    "CLOUD GUIDE": "Cloud Guide",
+    "KUBERNETES GUIDE": "Kubernetes Guide",
+    "FINOPS GUIDE": "FinOps Guide",
+    "BLOCKCHAIN GUIDE": "Blockchain Guide",
+    "INCIDENT REPORT": "Incident Report",
+    "TECH GUIDE": "Tech Guide",
+}
+
+
+def _content_eyebrow_from_category(category) -> str:
+    """Map a post ``category`` (str / list / comma string) to an eyebrow label.
+
+    Uses the first token when ``category`` is a list or comma-separated string.
+    Returns ``"TECH GUIDE"`` for unknown / empty categories.
+    """
+    token = ""
+    if isinstance(category, (list, tuple)):
+        token = str(category[0]) if category else ""
+    else:
+        token = str(category or "")
+        if "," in token:
+            token = token.split(",", 1)[0]
+    token = token.strip().lower()
+    return _CONTENT_EYEBROW_BY_CATEGORY.get(token, "TECH GUIDE")
+
+
+def generate_l20_content_svg(post_info: Dict, output_path: Path) -> bool:
+    """Render an L20 Hero+2-Card SVG cover for a NON-digest content post.
+
+    Mirrors :func:`generate_l20_digest_svg` but renders an honest, category-
+    appropriate cover for Korean technical guides instead of the hardcoded
+    "WEEKLY DIGEST" branding. The eyebrow / footer / hero CTA are derived from
+    the post ``category``; story text reuses the same English-only
+    ``extract_three_stories`` + ``_build_story`` pipeline (filename-keyword
+    fallback) so the ``check_svg_quality`` Hangul gate stays satisfied.
+
+    Returns True on success, False on failure (identical contract to the
+    digest variant).
+    """
+    try:
+        from scripts.lib.svg_l20_hero import render_l20_hero
+    except Exception as exc:  # pragma: no cover - defensive import guard
+        logging.error(f"L20 hero generator import failed: {exc}")
+        return False
+
+    try:
+        title = str(post_info.get("title", "") or "")
+        excerpt = str(post_info.get("excerpt", "") or "")
+        filename = str(post_info.get("filename", "") or output_path.name)
+
+        eyebrow = _content_eyebrow_from_category(post_info.get("category", ""))
+        footer_label = _CONTENT_FOOTER_BY_EYEBROW.get(eyebrow, "Tech Guide")
+        hero_action = (
+            "READ THE FULL REPORT"
+            if eyebrow == "INCIDENT REPORT"
+            else "READ THE FULL GUIDE"
+        )
+
+        # Use the content-specific extractor (filler-filtered, topic-aware
+        # subheadlines) instead of the digest extractor so generic tokens
+        # like "Latest", "Update", "Complete" never become story headlines.
+        hero_dict, tr_dict, br_dict = extract_content_stories(
+            title, excerpt, filename, eyebrow=eyebrow
+        )
+
+        hero_story = _build_story(
+            headline=hero_dict["headline"],
+            subheadline=hero_dict["subheadline"],
+            index=0,
+            severity_label="HIGH",
+            action=hero_action,
+            content_mode=True,
+        )
+        tr_story = _build_story(
+            headline=tr_dict["headline"],
+            subheadline=tr_dict["subheadline"],
+            index=1,
+            severity_label="HIGH",
+            content_mode=True,
+        )
+        br_story = _build_story(
+            headline=br_dict["headline"],
+            subheadline=br_dict["subheadline"],
+            index=2,
+            severity_label="MEDIUM",
+            content_mode=True,
+        )
+
+        date_str = _date_str_from_filename(
+            filename, fallback=str(post_info.get("date", "") or "")
+        )
+        url = _post_url_from_filename(filename)
+
+        # Honest, ASCII-only cover <title>: "<Footer Label> - <date>" instead of
+        # the digest "...Digest" wording so the a11y/<title> text is accurate
+        # for a content guide. Falls back to the footer label when no date.
+        cover_title = f"{footer_label} - {date_str}" if date_str else footer_label
+
+        svg = render_l20_hero(
+            date_str=date_str or "",
+            hero=hero_story,
+            top_right=tr_story,
+            bottom_right=br_story,
+            url=url,
+            post_title=cover_title,
+            eyebrow=eyebrow,
+            footer_label=footer_label,
+        )
+
+        # Optional sanitizers: only used when the heavier module is on the
+        # path. Keeps unit tests fast.
+        _sanitize_svg_forbidden_chars = None
+        try:
+            from scripts.generate_post_images import (  # type: ignore
+                _sanitize_svg_forbidden_chars,
+                validate_and_fix_svg,
+            )
+
+            svg = validate_and_fix_svg(svg)
+        except Exception:  # pragma: no cover - sanitizer optional
+            _sanitize_svg_forbidden_chars = None  # type: ignore
+
+        output_svg = output_path.with_suffix(".svg")
+        output_svg.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_svg, "w", encoding="utf-8") as f:
+            f.write(svg)
+
+        if _sanitize_svg_forbidden_chars is not None:
+            try:
+                _sanitize_svg_forbidden_chars(output_svg)
+            except Exception:  # pragma: no cover
+                pass
+
+        logging.info(f"L20 content SVG written: {output_svg.name}")
+        return True
+    except Exception as exc:
+        logging.error(f"L20 content SVG generation failed: {exc}")
         return False

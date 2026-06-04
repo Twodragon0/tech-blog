@@ -12,6 +12,7 @@ description: roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 
   공급망 보안(SBOM) 강화까지 전문가 성장 가이드.
 excerpt: "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 항목, OWASP Top 10:2025, NIST CSF 2.0 연계, GitHub Advanced Security, AI/ML 보안 자동화, SAST/DAST/IAST 도구 스택, SBOM 공급망 보안 강화까지 전문가 성장 가이드를 제공합니다."
 image: /assets/images/2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis.svg
+cover_style: l20
 image_alt: '2026 DevSecOps Roadmap Complete Guide: roadmap.sh Analysis'
 layout: post
 redirect_from:
