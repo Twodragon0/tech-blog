@@ -199,7 +199,7 @@ def _render_l20_svg_string(post_info: Dict) -> str:
     back to the legacy generator without crashing the publisher.
     """
     try:
-        from scripts.lib.svg_l20_hero import render_l20_hero
+        from scripts.lib.svg_l20_hero import build_cover_title, render_l20_hero
         from scripts.news.l20_dispatch import (
             _action_for,
             _build_story,
@@ -236,13 +236,26 @@ def _render_l20_svg_string(post_info: Dict) -> str:
             index=2,
             severity_label="MEDIUM",
         )
+        date_str = _date_str_from_filename(filename) or ""
+        # Build a clean, ASCII <title> from the (often Korean) post title the
+        # same way the L20 dispatch path does (l20_dispatch.py). Passing the
+        # raw ``title`` straight through left non-ASCII residue such as
+        # "2026 06 05 Cisco FMC· (29 )" in <title>, tripping the title-ASCII
+        # gate (the 2026-06-05 cron cover). build_cover_title emits a fixed
+        # ASCII template like "Weekly Security Digest - 2026.06.05".
+        cover_title = build_cover_title(
+            post_title=title,
+            date_str=date_str,
+            category=str(post_info.get("category", "") or ""),
+            filename=filename,
+        )
         return render_l20_hero(
-            date_str=_date_str_from_filename(filename) or "",
+            date_str=date_str,
             hero=hero_story,
             top_right=tr_story,
             bottom_right=br_story,
             url=_post_url_from_filename(filename),
-            post_title=title or "Weekly Digest",
+            post_title=cover_title or "Weekly Digest",
         )
     except Exception as _exc:
         logging.warning(f"L20 SVG render failed, falling back: {_exc}")

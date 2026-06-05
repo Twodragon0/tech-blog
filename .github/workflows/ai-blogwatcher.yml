@@ -117,6 +117,9 @@ jobs:
           pip install feedparser requests beautifulsoup4 python-frontmatter PyYAML
           pip install pytest pytest-cov
           pip install "Pillow>=10.0"
+          # qrcode is required by svg_l22_generator.gen_qr (cover QR) and by the
+          # check_cover_qr_urls.py canonical-URL gate below.
+          pip install "qrcode[pil]"
 
       - name: Create directories
         run: mkdir -p _data data _posts assets/images
@@ -290,6 +293,21 @@ jobs:
             exit 1
           fi
           echo "OK: L20 cover with QR block confirmed (${SIZE} bytes)."
+
+          # --- Correctness gates (mirror the PR-side svg-lint / check-svg CI so
+          # auto-published covers can never regress what those gates enforce).
+          # Scoped to today's cover via the resolved $SVG path (no glob no-match
+          # risk). check_cover_qr_urls.py = QR encodes the canonical permalink;
+          # check_svg_title_ascii.py = <title>/<desc> ASCII-only; check_svg_quality
+          # = no Korean / banned chars in body <text>. These caught the
+          # 2026-06-03..05 cron covers (non-canonical QR + "Cisco FMC·" title)
+          # only after the fact on a PR merge; running them here fails the cron
+          # before the bad cover is committed.
+          echo "Running cover correctness gates on ${SVG} ..."
+          python3 scripts/check_cover_qr_urls.py --glob "${SVG}"
+          python3 scripts/check_svg_title_ascii.py "${SVG}"
+          python3 scripts/check_svg_quality.py --ci "${SVG}"
+          echo "OK: canonical QR URL + ASCII <title> + body-text quality gates passed."
 
       - name: Validate new post
         if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
