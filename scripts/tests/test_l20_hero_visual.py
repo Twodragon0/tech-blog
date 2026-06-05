@@ -196,9 +196,11 @@ def test_render_l20_hero_full_structure() -> None:
     assert 'x="652" y="80"' in svg, "Missing top-right panel at x=652 y=80"
     assert 'x="652" y="344"' in svg, "Missing bottom-right panel at x=652 y=344"
 
-    # Two KPI cards at expected translate positions
+    # Two KPI cards at expected translate positions. The bottom-right card is at
+    # cy=414 (not the panel-centred ~452) so its lower edge clears the
+    # frame-anchored QR block (scan label y=486, white rect y 492..624).
     assert "translate(1094,168)" in svg, "Missing KPI card at translate(1094,168)"
-    assert "translate(1094,452)" in svg, "Missing KPI card at translate(1094,452)"
+    assert "translate(1094,414)" in svg, "Missing KPI card at translate(1094,414)"
 
     # QR group from l22.qr_block
     assert "translate(1080,504)" in svg, "Missing QR block at translate(1080,504)"

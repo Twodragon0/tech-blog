@@ -1324,7 +1324,13 @@ def render_l20_hero(
     parts.append('</g>')
     parts.append(_corner_brackets(652, 344, 516, 246, br_accent, size=9))
     parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", ""), topic=bottom_right.get("headline", ""), band_index=2))
-    parts.append(_kpi_card(1094, 452, bottom_right["theme"], bottom_right["kpi_value"], bottom_right["kpi_label"], bottom_right["kpi_sub"]))
+    # BR KPI card sits in the upper-right of the panel (cy=414 -> y 359..469) so
+    # its lower edge clears the frame-anchored QR block: qr_block draws the
+    # "scan / full post" label at y=486 (top ~479) and a 132x132 white rect at
+    # y 492..624. At the previous cy=452 (y 397..507) the card's bottom-right
+    # corner was occluded by that white rect and the scan label. Keep cx=1094 in
+    # lockstep with the top-right KPI so the two cards stay vertically aligned.
+    parts.append(_kpi_card(1094, 414, bottom_right["theme"], bottom_right["kpi_value"], bottom_right["kpi_label"], bottom_right["kpi_sub"]))
 
     parts.append(_spark_accents())
     # QR (real)
