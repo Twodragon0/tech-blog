@@ -33,11 +33,13 @@ from scripts.lib.svg_utils import escape_xml_text as _escape_xml_text, is_valid_
 try:
     from scripts.news.l20_dispatch import (
         L20_HERO_ENABLED,
+        generate_l20_content_svg as _generate_l20_content_svg,
         generate_l20_digest_svg as _generate_l20_digest_svg,
     )
 except Exception:
     L20_HERO_ENABLED = False
     _generate_l20_digest_svg = None
+    _generate_l20_content_svg = None
 
 _SANITIZE_WARNED = False
 
@@ -299,6 +301,10 @@ def extract_post_info(post_file: Path) -> Dict:
             "content": content,
             "highlights": highlights,
             "filename": post_file.name,
+            # Opt-in cover routing: `cover_style: l20` in front matter routes a
+            # non-digest content post through the L20 content generator (honest
+            # eyebrow/CTA) instead of the generic SVG fallback.
+            "cover_style": post.metadata.get("cover_style", ""),
         }
     except Exception as e:
         log_message(f"포스팅 정보 추출 실패: {str(e)}", "ERROR")
@@ -2584,6 +2590,12 @@ def process_post(
             image_path = f"/assets/images/{post_stem}.svg"
         output_path = IMAGES_DIR / Path(image_path).name
         output_path.parent.mkdir(parents=True, exist_ok=True)
+        if (
+            str(post_info.get("cover_style", "")).lower() == "l20"
+            and _generate_l20_content_svg is not None
+        ):
+            log_message("🎨 L20 Content SVG (--svg-only) 생성 시도...", "INFO")
+            return _generate_l20_content_svg(post_info, output_path)
         if _is_digest_post(post_info):
             if L20_HERO_ENABLED and _generate_l20_digest_svg is not None:
                 log_message("🎨 L20 Digest SVG (--svg-only) 생성 시도...", "INFO")
@@ -2639,8 +2651,21 @@ def process_post(
         image_generated = generate_image_with_gemini(prompt, output_path)
 
     if not image_generated:
+        # Opt-in content covers: a post with ``cover_style: l20`` in front
+        # matter routes to the L20 content generator (honest category eyebrow)
+        # instead of the digest/fallback path. Checked BEFORE the digest gate.
+        if (
+            str(post_info.get("cover_style", "")).lower() == "l20"
+            and _generate_l20_content_svg is not None
+        ):
+            log_message("🎨 L20 Content SVG 이미지 생성 시도...", "INFO")
+            try:
+                image_generated = _generate_l20_content_svg(post_info, output_path)
+            except Exception as _exc:
+                log_message(f"⚠️ L20 Content SVG 실패, 폴백: {_exc}", "WARNING")
+                image_generated = False
         # Weekly digest posts: L20 (if enabled) → L22 → legacy digest → fallback.
-        if _is_digest_post(post_info):
+        if not image_generated and _is_digest_post(post_info):
             if L20_HERO_ENABLED and _generate_l20_digest_svg is not None:
                 log_message("🎨 L20 Digest SVG 이미지 생성 시도...", "INFO")
                 try:

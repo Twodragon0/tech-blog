@@ -14,6 +14,7 @@ description: 클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 
   Jekyll 블로그 보안 강화까지 실무 정리.
 excerpt: "클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC·WAF 규칙·Geo-blocking), GitHub DevSecOps 실전(CodeQL·Dependabot·Secret Scanning), SSRF·Data Masking 보안 패치, Jekyll 블로그 보안 강화까지 실무 정리합니다."
 image: /assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg
+cover_style: l20
 image_alt: 'Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture'
 layout: post
 original_url: https://twodragon.tistory.com/707

@@ -1155,6 +1155,9 @@ def render_l20_hero(
     bottom_right: Dict,
     url: str,
     post_title: str,
+    *,
+    eyebrow: str = "WEEKLY DIGEST",
+    footer_label: str = "Weekly Digest",
 ) -> str:
     """Render full L20 Hero+2-Card 1200x630 SVG.
 
@@ -1165,6 +1168,11 @@ def render_l20_hero(
         bottom_right: story dict for HIGH/03.
         url: post URL for QR code.
         post_title: short post title for ``<title>``.
+        eyebrow: top-left header label. Defaults to ``"WEEKLY DIGEST"`` so the
+            existing digest callers are byte-identical; content covers pass an
+            honest category label (e.g. ``"DEVSECOPS GUIDE"``).
+        footer_label: italic footer label before ``"  /  {date}"``. Defaults to
+            ``"Weekly Digest"`` for digest byte-identity.
     """
     # Hero panel
     hero_t = _theme(hero["theme"])
@@ -1203,7 +1211,7 @@ def render_l20_hero(
     parts.append('<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>')
     parts.append(
         '<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" '
-        'font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">WEEKLY DIGEST</text>'
+        f'font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">{_escape(eyebrow)}</text>'
     )
     parts.append(
         f'<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" '
@@ -1259,7 +1267,7 @@ def render_l20_hero(
     parts.append('</g>')
     parts.append(
         f'<text x="350" y="566" font-family="Inter, Helvetica, Arial, sans-serif" '
-        f'font-size="13" font-weight="600" fill="#A5B4C4" font-style="italic">Weekly Digest  /  {_escape(date_str)}</text>'
+        f'font-size="13" font-weight="600" fill="#A5B4C4" font-style="italic">{_escape(footer_label)}  /  {_escape(date_str)}</text>'
     )
 
     # TOP RIGHT panel
@@ -1316,7 +1324,13 @@ def render_l20_hero(
     parts.append('</g>')
     parts.append(_corner_brackets(652, 344, 516, 246, br_accent, size=9))
     parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", ""), topic=bottom_right.get("headline", ""), band_index=2))
-    parts.append(_kpi_card(1094, 452, bottom_right["theme"], bottom_right["kpi_value"], bottom_right["kpi_label"], bottom_right["kpi_sub"]))
+    # BR KPI card sits in the upper-right of the panel (cy=414 -> y 359..469) so
+    # its lower edge clears the frame-anchored QR block: qr_block draws the
+    # "scan / full post" label at y=486 (top ~479) and a 132x132 white rect at
+    # y 492..624. At the previous cy=452 (y 397..507) the card's bottom-right
+    # corner was occluded by that white rect and the scan label. Keep cx=1094 in
+    # lockstep with the top-right KPI so the two cards stay vertically aligned.
+    parts.append(_kpi_card(1094, 414, bottom_right["theme"], bottom_right["kpi_value"], bottom_right["kpi_label"], bottom_right["kpi_sub"]))
 
     parts.append(_spark_accents())
     # QR (real)
