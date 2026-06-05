@@ -14,6 +14,7 @@ API disabling and ``sys.path`` setup are handled by ``conftest.py``.
 
 import importlib
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -508,3 +509,37 @@ class TestAutoPublishDispatchBranch:
 
         assert called["legacy"] == 1
         assert svg == "<svg>legacy</svg>"
+
+
+# =====================================================================
+# Regression: cron cover <title> must be ASCII (build_cover_title wiring)
+# =====================================================================
+class TestRenderL20SvgStringCleanTitle:
+    """The blogwatcher cron path ``auto_publish_news._render_l20_svg_string``
+    must build the SVG ``<title>`` via ``build_cover_title`` (clean ASCII
+    template), not pass the raw — often Korean — post title straight through.
+
+    Regression for the 2026-06-05 auto-published cover that shipped
+    ``<title>2026 06 05 Cisco FMC· (29 )</title>`` (U+00B7 middle dot +
+    Hangul-strip residue), which only failed the title-ASCII gate after the
+    PR merge because the cron itself had no ASCII gate.
+    """
+
+    def test_korean_post_title_yields_ascii_clean_title(self):
+        ap = importlib.import_module("auto_publish_news")
+        post_info = {
+            "title": "2026년 06월 05일 주간 보안 다이제스트: 제로데이·Cisco FMC·패치 (29건)",
+            "excerpt": "Cisco FMC 제로데이 패치 및 주간 보안 동향 요약입니다.",
+            "filename": "2026-06-05-Tech_Security_Weekly_Digest_CVE_Patch_Go_AI.md",
+            "category": "security",
+        }
+        svg = ap._render_l20_svg_string(post_info)
+        assert svg, "_render_l20_svg_string returned empty (L20 import failed)"
+        m = re.search(r"<title>([^<]*)</title>", svg)
+        assert m, "no <title> element in rendered SVG"
+        title = m.group(1)
+        # Core regression: <title> is ASCII-only (no U+00B7, no Hangul).
+        non_ascii = [c for c in title if ord(c) >= 128]
+        assert not non_ascii, f"non-ASCII codepoint(s) {non_ascii!r} in <title>: {title!r}"
+        # Clean fixed template, topic derived from the filename slug.
+        assert title == "Weekly Security Digest - 2026.06.05", title
