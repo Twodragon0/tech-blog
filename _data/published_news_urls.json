@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-05T00:37:45.829350+00:00",
+  "updated_at": "2026-06-06T00:34:41.040091+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/first-vpn-dismantled-in-global-takedown.html",
-      "title": "First VPN Dismantled in Global Takedown Over Use by 25 Ransomware Groups",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/ghostwriter-targets-ukraine-government.html",
-      "title": "Ghostwriter Targets Ukraine Government Entities with Prometheus Phishing Malware",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/megalodon-github-attack-targets-5561.html",
-      "title": "Megalodon GitHub Attack Targets 5,561 Repos with Malicious CI/CD Workflows",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/making-vulnerable-drivers-exploitable.html",
-      "title": "Making Vulnerable Drivers Exploitable Without Hardware - The BYOVD Perspective",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/22/microsoft-recognized-as-a-leader-in-the-forrester-wave-for-workforce-identity-security-platforms/",
-      "title": "Microsoft recognized as a Leader in The Forrester Wave™ for Workforce Identity S",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-dialogues-recap/",
-      "title": "Catch up on the Dialogues stage at Google I/O 2026.",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/nvidia/nemotron-labs-diffusion",
-      "title": "Towards Speed-of-Light Text Generation with Nemotron-Labs Diffusion Language Mod",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/Dharma-AI/specialization-beats-scale",
-      "title": "Specialization Beats Scale: A Strategic Variable Most AI Procurement Decisions O",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/startups/filling-the-gaps-in-dental-skills-with-specialized-agentic-ai/",
-      "title": "The Blueprint: How Movix fills a gap in dental skills with specialized agentic A",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
-      "title": "What’s new with Google Cloud",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/hae-genai-sandbox-hackathon-3/",
-      "title": "현대오토에버의 Amazon Bedrock으로 구축한 빅데이터 클러스터 장애 대응 자동화 에이전트 구축기",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/hae-genai-sandbox-hackathon-2/",
-      "title": "현대오토에버의 Amazon Bedrock으로 구축한 다중 AI 에이전트: 장애 대응 시간 5분으로 단축하기",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/hae-genai-sandbox-hackathon-1/",
-      "title": "현대오토에버의 GenAI Sandbox 활용 생산성 향상 Hackathon: 혁신과 협업의 성공 사례",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-05-22-staged-publishing-and-new-install-time-controls-for-npm",
-      "title": "Staged publishing and new install-time controls for npm",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/05/22/designing-end-to-end-ingress-request-tracing-for-multi-tenant-saas-platforms/",
-      "title": "Designing end-to-end ingress request tracing for multi-tenant SaaS platforms",
-      "published_date": "2026-05-23",
-      "expires_at": "2026-05-30T00:32:28.462764+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/npm-adds-2fa-gated-publishing-and.html",
       "title": "npm Adds 2FA-Gated Publishing and Package Install Controls Against Supply Chain ",
@@ -1218,6 +1128,96 @@
       "title": "Fix with Copilot for failing Actions now in Pro, Pro+, and Max",
       "published_date": "2026-06-05",
       "expires_at": "2026-06-12T00:37:45.829242+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html",
+      "title": "IronWorm and New Miasma Worm Variant Hit npm in Supply Chain Attacks",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/android-spyware-asin-targets-arabic.html",
+      "title": "Android Spyware Asin Targets Arabic Users via Fake News, PDF and War Map Apps",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/new-threat-cluster-op-512-targets.html",
+      "title": "New Threat Cluster OP-512 Targets Microsoft IIS Servers with Custom Web Shell Fr",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/suspicious-polyfill-login-prompts-pop-up-on-toshiba-muji-websites/",
+      "title": "Suspicious Polyfill login prompts pop up on Toshiba, Muji websites",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/building-secure-b2c-applications-with-fine-grained-access-control-using-amazon-cognito-and-amazon-verified-permissions/",
+      "title": "Building secure B2C applications with fine-grained access control using Amazon C",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/",
+      "title": "The latest AI news we announced in May 2026",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/korea-ecosystem-2026/",
+      "title": "Seoul Purpose: How NVIDIA and South Korea Are Building the Future of AI",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim",
+      "title": "Thousand Token Wood: shipping a multi-agent economy on a 3B model",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/targeted-campaign-us-law-firms/",
+      "title": "Seeking Counsel: Ongoing Targeted Campaign Against US Law Firms",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/try-the-new-console-experience-in-amazon-bedrock-optimized-for-anthropic-and-openai-compatible-apis/",
+      "title": "Try the new console experience in Amazon Bedrock, optimized for Anthropic- and O",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/run-nvidia-osmo-robotics-workflows-on-amazon-eks/",
+      "title": "Amazon EKS에서 NVIDIA OSMO 기반 Physical AI 워크플로 운영하기",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-05-codeql-2-25-6-adds-swift-6-3-2-support-and-improves-c-coverage",
+      "title": "CodeQL 2.25.6 adds Swift 6.3.2 support and improves C# coverage",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-05-enterprise-managed-plugins-in-vs-code-in-public-preview",
+      "title": "Enterprise-managed plugins in VS Code in public preview",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/what-is-ai-governance/",
+      "title": "What is AI Governance? Frameworks, Principles, and Best Practices",
+      "published_date": "2026-06-06",
+      "expires_at": "2026-06-13T00:34:41.040000+00:00"
     }
   ]
 }
