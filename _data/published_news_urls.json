@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-06T00:34:41.040091+00:00",
+  "updated_at": "2026-06-07T00:35:45.479271+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/npm-adds-2fa-gated-publishing-and.html",
-      "title": "npm Adds 2FA-Gated Publishing and Package Install Controls Against Supply Chain ",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/packagist-supply-chain-attack-infects-8.html",
-      "title": "Packagist Supply Chain Attack Infects 8 Packages Using GitHub-Hosted Linux Malwa",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/claude-mythos-ai-finds-10000-high.html",
-      "title": "Claude Mythos AI Finds 10,000 High-Severity Flaws in Widely Used Software",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/laravel-lang-packages-hijacked-to-deploy-credential-stealing-malware/",
-      "title": "Laravel Lang packages hijacked to deploy credential-stealing malware",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/laravel-lang-php-packages-compromised.html",
-      "title": "Laravel-Lang PHP Packages Compromised to Deliver Cross-Platform Credential Steal",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/business/the-history-and-future-of-physical-bitcoin",
-      "title": "The History and Future of Physical Bitcoin",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/70-crypto-wrench-attacks-happen-france?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "70% of all crypto wrench attacks happen in France: Report",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/warsh-cut-rate-despite-consensus-rate-hikes?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Warsh will cut rates, despite consensus view of rate hikes: Analyst",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/binance-denies-new-wsj-report-alleging-850m-in-iran-linked-transactions?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Binance denies new WSJ report alleging $850M in Iran-linked transactions",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/ecb-pushes-back-on-euro-stablecoin-proposals-citing-financial-stability-risks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "ECB pushes back on euro stablecoin proposals, citing financial stability risks",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29811",
-      "title": "직접 만들지 말라 …",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29810",
-      "title": "영주권 신청자는 미국을 떠나 신청해야 한다고 Trump 행정부가 밝힘",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29809",
-      "title": "SpaceX, Starship v3 로켓 발사",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29808",
-      "title": "Cleve Moler 사망",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29807",
-      "title": "AI는 기존 기술 역량에 곱셈 효과를 준다",
-      "published_date": "2026-05-24",
-      "expires_at": "2026-05-31T00:31:23.894287+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/ghost-cms-sql-injection-flaw-exploited-in-large-scale-clickfix-campaign/",
       "title": "Ghost CMS SQL injection flaw exploited in large-scale ClickFix campaign",
@@ -1218,6 +1128,96 @@
       "title": "What is AI Governance? Frameworks, Principles, and Best Practices",
       "published_date": "2026-06-06",
       "expires_at": "2026-06-13T00:34:41.040000+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/new-chatgpt-lockdown-mode-limits-tools.html",
+      "title": "New ChatGPT Lockdown Mode Limits Tools That Could Enable Data Exfiltration",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/free-apps-are-quietly-turning-smart-tvs.html",
+      "title": "Free Apps Are Quietly Turning Smart TVs Into Web-Scraping Proxies for AI",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/cisa-adds-actively-exploited-solarwinds.html",
+      "title": "CISA Adds Actively Exploited SolarWinds Serv-U DoS Flaw to KEV Catalog",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/ai-agent-uncovers-21-zero-days-in.html",
+      "title": "AI Agent Uncovers 21 Zero-Days in FFmpeg; Chrome Patches Record 429 Bugs",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html",
+      "title": "Miasma Worm Hits 73 Microsoft GitHub Repositories in Major Supply Chain Attack",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim-v2",
+      "title": "Five labs, five minds: building a multi-model finance drama on small models",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-most-oversold-since-2020-crash-can-btc-rebound-to-70k-next?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin most oversold since 2020 crash: Can BTC rebound to $70K next?",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/06/06/bitcoin-ether-eye-worst-weekly-rout-since-ftx-collapse-as-cryptos-shed-usd390-billion",
+      "title": "Bitcoin, ether eye worst weekly rout since FTX collapse as cryptos shed $390 bil",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/opinion/2026/06/06/meta-is-paying-creators-in-stablecoins-spending-them-is-someone-else-s-problem",
+      "title": "Meta is paying creators in Stablecoins. Spending them is someone else's problem",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/06/06/america-s-largest-banks-are-building-a-new-digital-currency-network-to-stop-a-massive-deposit-drain",
+      "title": "America’s largest banks are building a new digital currency network to stop a ma",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/06/06/a-crypto-pioneer-who-turned-a-usd20-million-family-stake-into-a-billion-dollar-fund-doubles-down-on-bitcoin",
+      "title": "A crypto pioneer who turned a $20 million family stake into a billion-dollar fun",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30242",
+      "title": "OpenLogi - Rust로 작성된 Logitech Options+ 대체 오픈소스",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30241",
+      "title": "Google, xAI 데이터 센터의 컴퓨팅 용량 사용료로 매달 9억2천만 달러를 SpaceX에 지불할 예정",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30240",
+      "title": "가장 작은 C++ 바이너리",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30239",
+      "title": "Zeroserve: eBPF로 스크립팅할 수 있는 무설정 웹 서버",
+      "published_date": "2026-06-07",
+      "expires_at": "2026-06-14T00:35:45.479172+00:00"
     }
   ]
 }
