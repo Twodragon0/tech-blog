@@ -111,8 +111,14 @@ if str(REPO) not in sys.path:
 from scripts.lib.svg_l20_hero import VISUAL_BUILDERS  # noqa: E402
 from scripts.news.l20_dispatch import (  # noqa: E402
     extract_three_stories,
+    resolve_digest_band_visuals,
     route_visual_id,
 )
+
+try:  # Optional: lets the L20 routing-replay mirror the generator exactly.
+    import frontmatter as _frontmatter  # type: ignore
+except Exception:  # pragma: no cover - frontmatter optional in minimal envs
+    _frontmatter = None
 from scripts.check_svg_title_ascii import _violations as _ascii_violations  # noqa: E402
 from scripts.check_svg_size_gate import (  # noqa: E402
     BANDS,
@@ -556,8 +562,33 @@ def _post_signals(post: Path) -> Tuple[str, str, str]:
 _BAND_NAMES = ("hero", "top_right", "bottom_right")
 
 
-def _routed_visual_ids(title: str, excerpt: str, filename: str) -> List[str]:
-    """Replay the generator routing intent for the 3 bands (path a)."""
+def _routed_visual_ids(
+    title: str,
+    excerpt: str,
+    filename: str,
+    post: Optional[Path] = None,
+) -> List[str]:
+    """Replay the generator routing intent for the 3 bands (path a).
+
+    When the owning ``post`` is available, mirror the generator's CONTENT-AWARE
+    routing (``resolve_digest_band_visuals``): a band displaying a real story is
+    routed from that story's entity, so the scored intent matches the on-disk
+    visual and no spurious STALE_RENDER is raised. Falls back to filename-keyword
+    routing when the post / front matter can't be loaded (older covers predating
+    the content-aware generator legitimately read as stale).
+    """
+    if post is not None and _frontmatter is not None:
+        try:
+            fm = _frontmatter.load(str(post))
+            return resolve_digest_band_visuals(
+                title,
+                excerpt,
+                filename,
+                content=fm.content,
+                summary_card=fm.metadata.get("summary_card"),
+            )
+        except Exception:  # pragma: no cover - defensive: fall back to keywords
+            pass
     stories = extract_three_stories(title, excerpt, filename)
     return [route_visual_id(s.get("headline", "")) for s in stories]
 
@@ -885,7 +916,7 @@ def score_file(svg_path: Path) -> Dict:
         return _finish_l25(base, svg_path, svg_text, title, excerpt, body_lower)
     # L20 + L22 share the 3-band scoring shape (different taxonomy + routing).
     return _finish_three_band(
-        base, system, svg_path, svg_text, title, excerpt, body_lower
+        base, system, svg_path, svg_text, title, excerpt, body_lower, post
     )
 
 
@@ -897,6 +928,7 @@ def _finish_three_band(
     title: str,
     excerpt: str,
     body_lower: str,
+    post: Optional[Path] = None,
 ) -> Dict:
     """Score an L20 or L22 3-band digest cover (dual-path band identity)."""
     taxonomy = _TAXONOMY_BY_SYSTEM[system]
@@ -904,7 +936,7 @@ def _finish_three_band(
 
     # Band identity — dual path.
     if system == "L20":
-        routed = _routed_visual_ids(title, excerpt, svg_path.name)
+        routed = _routed_visual_ids(title, excerpt, svg_path.name, post)
     else:  # L22
         try:
             routed = _routed_visual_kinds_l22(title, excerpt, svg_path.name)

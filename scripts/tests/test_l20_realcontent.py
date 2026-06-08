@@ -27,7 +27,10 @@ from scripts.news.l20_dispatch import (
     _digest_stats,
     _digest_table_panels,
     _entity_tokens,
+    _honest_content_visual,
     _panel_from_source_title,
+    resolve_digest_band_visuals,
+    route_visual_id,
     _HEADLINE_MAX_CHARS,
     _SUB_MAX_CHARS,
 )
@@ -161,6 +164,59 @@ class TestPanelFromSourceTitle:
 
 
 # ---------------------------------------------------------------------------
+# Content-aware visual routing + honesty downgrade gate (Approach B)
+# ---------------------------------------------------------------------------
+class TestHonestContentVisual:
+    def test_all_attack_classes_downgraded_to_advisory(self):
+        # A content headline routes by keyword, but an attack-class builder
+        # asserts an incident the honesty gate verifies against a body EVIDENCE
+        # token — which a headline entity does not guarantee. So EVERY attack
+        # class is downgraded to the always-honest security_advisory (no
+        # overclaim, can never FAIL the gate on the unattended cron path).
+        for v in ("cve_chain", "supply_chain_pipe", "hub_spoke", "ransomware_lock",
+                  "data_exfil", "container_escape", "code_injection", "ai_agent_funnel"):
+            assert _honest_content_visual(v) == "security_advisory"
+
+    def test_always_honest_classes_kept(self):
+        for v in ("neutral", "market", "security_advisory"):
+            assert _honest_content_visual(v) == v
+
+
+class TestResolveDigestBandVisuals:
+    def test_single_cve_headline_does_not_assert_regression_chain(self):
+        sc = {"highlights": [
+            {"source": "The Hacker News", "title": "Ivanti EPMM CVE-2026-6973 RCE 공개"},
+        ]}
+        visuals = resolve_digest_band_visuals(
+            "주간 보안 다이제스트", "", "2026-05-08-x.md",
+            content="", summary_card=sc,
+        )
+        # Hero (band 0) carries the real CVE story but must NOT route cve_chain.
+        assert "cve_chain" not in visuals
+        assert visuals[0] == "security_advisory"
+
+    def test_attack_routed_headline_downgraded_not_overclaimed(self):
+        # A botnet/C2 headline routes to hub_spoke by keyword, but is clamped to
+        # security_advisory — the gate can't confirm a body C2 evidence token.
+        sc = {"highlights": [{"source": "The Hacker News", "title": "Aeternum Botnet C2 인프라 발견"}]}
+        visuals = resolve_digest_band_visuals(
+            "주간 보안 다이제스트", "", "2026-05-07-x.md",
+            content="", summary_card=sc,
+        )
+        assert visuals[0] == "security_advisory"
+        assert "hub_spoke" not in visuals and "cve_chain" not in visuals
+
+    def test_band_without_panel_keeps_filename_routing(self):
+        # Only one highlight -> bands 1,2 fall back to filename-keyword routing.
+        sc = {"highlights": [{"source": "BleepingComputer", "title": "Maps Pro 취약점"}]}
+        visuals = resolve_digest_band_visuals(
+            "주간 보안 다이제스트", "", "2026-06-01-Tech_Security_Weekly_Digest_Botnet.md",
+            content="", summary_card=sc,
+        )
+        assert len(visuals) == 3
+
+
+# ---------------------------------------------------------------------------
 # _digest_stats
 # ---------------------------------------------------------------------------
 class TestDigestStats:
@@ -211,19 +267,29 @@ class TestApplyRealContent:
         assert stories[1]["kpi_value"] == "30" and stories[1]["kpi_label"] == "ITEMS"
         assert stories[2]["kpi_value"] == "5" and stories[2]["kpi_label"] == "SECURITY"
 
-    def test_does_not_mutate_visual_theme_action(self):
-        """Honesty invariant: routing/claim keys are never touched."""
+    def test_visual_follows_content_and_never_overclaims(self):
+        """Approach B: a band's visual re-routes to its real story, but is
+        clamped to an honest class — never the overclaiming cve_chain /
+        supply_chain_pipe, and the hero action follows the resolved visual."""
         stories = self._stories()
-        before = [(s["visual"], s["theme"], s.get("action")) for s in stories]
         post_info = {
             "summary_card": {"highlights": [
-                {"source": "The Hacker News", "title": "Mirai 봇넷"},
+                # Single CVE story: must NOT assert a CVE regression chain.
+                {"source": "The Hacker News", "title": "Ivanti EPMM CVE-2026-6973 RCE"},
+                {"source": "The Hacker News", "title": "Packagist npm GitHub 패키지"},
+                {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견"},
             ]},
             "content": "- **총 뉴스 수**: 12개\n- **보안 뉴스**: 2개\n",
         }
         _apply_real_content(stories, post_info)
-        after = [(s["visual"], s["theme"], s.get("action")) for s in stories]
-        assert before == after
+        visuals = [s["visual"] for s in stories]
+        # No band asserts an attack class from a one-line headline.
+        for attack in ("cve_chain", "supply_chain_pipe", "hub_spoke", "ransomware_lock"):
+            assert attack not in visuals
+        assert stories[0]["visual"] == "security_advisory"   # single CVE -> advisory
+        assert stories[2]["visual"] == "security_advisory"   # botnet -> advisory
+        # Hero action follows the RESOLVED visual, not "PATCH UPSTREAM NOW".
+        assert stories[0]["action"] == "READ THE ADVISORY"
 
     def test_thin_post_keeps_keyword_fallback(self):
         stories = self._stories()
