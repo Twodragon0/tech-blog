@@ -300,6 +300,11 @@ def extract_post_info(post_file: Path) -> Dict:
             "excerpt": excerpt,
             "content": content,
             "highlights": highlights,
+            # Structured front-matter highlights ({source, title}). The L20
+            # digest generator extracts real ASCII story entities + source
+            # attribution from these to replace generic filename-keyword text.
+            # Empty dict when the post has no summary card.
+            "summary_card": post.metadata.get("summary_card", {}) or {},
             "filename": post_file.name,
             # Opt-in cover routing: `cover_style: l20` in front matter routes a
             # non-digest content post through the L20 content generator (honest

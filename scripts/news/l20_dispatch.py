@@ -29,6 +29,7 @@ stdlib + existing repo modules only.
 """
 from __future__ import annotations
 
+import html as _html
 import logging
 import os
 import re
@@ -837,6 +838,243 @@ def _action_for(headline: str) -> str:
     }.get(visual, "REVIEW - HARDEN NOW")
 
 
+# --- Real-content extraction (digest covers) ------------------------------
+#
+# The digest headlines/KPIs were previously filename keywords ("AI", "AWS") +
+# a hard-coded ``TBD / STATUS / NEW`` KPI placeholder, so every cover looked
+# identical. These helpers surface the post's ACTUAL reported content instead:
+# the lead entity of each top story (e.g. "Ivanti EPMM", "Mirai"), the real
+# source (The Hacker News, ...), and the real collection counts.
+#
+# Hard ASCII guarantee: the post headlines are Korean, but the SVG <text>
+# quality gate forbids Hangul. Every value produced here is ASCII by
+# construction — we extract only Latin entity tokens / CVE ids / digits and
+# never emit a Korean string. When no usable ASCII content is found the
+# caller keeps the existing filename-keyword behavior, so a thin post still
+# renders a valid cover.
+#
+# Honesty note: these helpers change only the DISPLAYED text + KPI counts.
+# The visual builder routing (``route_visual_id``) still keys off the
+# filename topic, so the honesty class of every band is unchanged.
+
+# HTML-escape artifacts ("x27" from &#x27;) and generic words that never make a
+# distinctive story subject. Lead-entity extraction skips these.
+_ENTITY_STOP: frozenset = frozenset({
+    "the", "a", "an", "of", "for", "and", "with", "via", "to", "in", "on",
+    "at", "by", "from", "new", "be", "your", "own", "can", "into", "over",
+    "out", "up", "is", "are", "as", "could", "may", "would", "using", "use",
+    "used", "now", "how", "why", "what", "when", "this", "that", "it", "its",
+    "has", "have", "was", "were", "but", "not", "you", "we", "they", "all",
+    "x27", "x2f", "x3d", "x2c", "x3a", "amp", "quot", "nbsp", "gt", "lt", "apos",
+    "mdash", "ndash", "hellip", "rsquo", "lsquo", "rdquo", "ldquo",
+})
+
+# Short tokens that ARE meaningful entities despite being <= 3 chars / not
+# strictly Capitalized (acronyms that read as proper subjects on a cover).
+_ENTITY_ACRONYMS: frozenset = frozenset({
+    "ai", "ml", "rce", "rat", "ddos", "iot", "cli", "api", "sap", "aws",
+    "gcp", "llm", "mfa", "vpn", "sql", "xss", "csrf", "ssrf", "c2", "k8s",
+    "npm", "pip", "ssh", "tls", "dns", "gpt", "ios", "vm", "vms", "ot",
+})
+
+
+def _entity_tokens(title: str) -> List[str]:
+    """Distinctive ASCII entity tokens from a (possibly Korean) headline.
+
+    HTML-unescapes first so ``&#x27;`` does not leak a bogus ``x27`` token.
+    Keeps Capitalized words (``Ivanti``, ``Mirai``, ``WhatsApp``), all-caps
+    acronyms (``TCLBANKER``, ``RCE``), known short acronyms, and CVE ids — in
+    document order. Generic stopwords are dropped. Returns ``[]`` when the
+    title carries no usable ASCII entity (e.g. an all-Korean headline).
+    """
+    text = _html.unescape(title or "")
+    out: List[str] = []
+    for tok in re.findall(r"[A-Za-z][A-Za-z0-9.+#/-]{1,}", text):
+        core = tok.strip(".+#/-")
+        tl = core.lower()
+        if not core or tl in _ENTITY_STOP:
+            continue
+        if _CVE_RE.match(tok):
+            out.append(tok)
+            continue
+        # Proper noun / product / all-caps name of >= 3 chars (drops 2-letter
+        # fragments like "FA"), OR a known meaningful short acronym ("AI", "C2").
+        if (len(core) >= 3 and (tok[0].isupper() or tok.isupper())) or tl in _ENTITY_ACRONYMS:
+            out.append(tok)
+    return out
+
+
+def _panel_from_source_title(src: str, ttl: str) -> Optional[Dict]:
+    """Build one ``{headline, subheadline}`` panel from a (source, title) pair.
+
+    * headline = the lead 1-2 entity tokens (joins multi-word product names
+      like ``"Hugging Face"`` when they fit), capped at ``_HEADLINE_MAX_CHARS``.
+      CVE ids belong in the subheadline, not the headline, so a leading CVE is
+      only used as the headline when the title has no other ASCII entity.
+    * subheadline = a CVE id (when present) + the real source attribution,
+      e.g. ``"CVE-2026-6973 - The Hacker News"``, capped at ``_SUB_MAX_CHARS``.
+
+    Returns ``None`` when the title carries no usable ASCII entity, so callers
+    skip the slot (leaving it on the keyword path) rather than padding it.
+    """
+    toks = _entity_tokens(ttl)
+    if not toks:
+        return None
+    non_cve = [t for t in toks if not _CVE_RE.match(t)]
+    if non_cve:
+        headline = non_cve[0]
+        if (
+            len(non_cve) > 1
+            and len(f"{non_cve[0]} {non_cve[1]}") <= _HEADLINE_MAX_CHARS
+        ):
+            headline = f"{non_cve[0]} {non_cve[1]}"
+    else:
+        headline = toks[0]
+    headline = _shorten(headline, _HEADLINE_MAX_CHARS)
+
+    cve = _CVE_RE.search(_html.unescape(ttl))
+    cve_str = cve.group(0).upper() if cve else ""
+    # Don't echo the CVE in the subheadline when it is already the headline
+    # (CVE-only highlight) — avoids "CVE-X / CVE-X - source".
+    if cve_str and cve_str == headline.upper():
+        cve_str = ""
+    src_ascii = src if (src and not _has_hangul(src)) else ""
+    if cve_str and src_ascii:
+        sub = f"{cve_str} - {src_ascii}"
+    elif cve_str:
+        sub = cve_str
+    elif src_ascii:
+        sub = src_ascii
+    else:
+        # No ASCII source / CVE: use a neutral descriptor rather than echoing
+        # the headline back (avoids a redundant "APT / APT" band).
+        sub = "Security advisory"
+    return {"headline": headline, "subheadline": _shorten(sub, _SUB_MAX_CHARS)}
+
+
+def _digest_highlight_panels(highlights) -> List[Dict]:
+    """Build up to 3 panels from the front-matter ``summary_card.highlights``.
+
+    ``highlights`` is a list of ``{source, title}`` dicts. Highlights with no
+    ASCII entity are skipped (not padded). Returns ``[]`` when nothing usable.
+    """
+    panels: List[Dict] = []
+    for h in (highlights or []):
+        if len(panels) >= 3:
+            break
+        if isinstance(h, dict):
+            src = str(h.get("source", "") or "")
+            ttl = str(h.get("title", "") or "")
+        else:
+            src, ttl = "", str(h or "")
+        panel = _panel_from_source_title(src, ttl)
+        if panel is not None:
+            panels.append(panel)
+    return panels
+
+
+# A digest body carries a markdown highlights table whose rows are
+# ``| <category> | <source> | <title> | <severity> |``. This is a SUPERSET of
+# summary_card.highlights (one row per collected item), so it backfills panels
+# for thin posts whose summary_card yields < 3 ASCII-usable highlights, and is
+# the real-content source on the cron path (which has the full body but no
+# parsed summary_card dict). The header/separator rows are skipped.
+_DIGEST_TABLE_ROW_RE = re.compile(r"^\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|\s*$", re.MULTILINE)
+_DIGEST_TABLE_SKIP_RE = re.compile(r"분야|소스|핵심\s*내용|^[\s:\-]+$")
+
+
+def _digest_table_panels(content: str) -> List[Dict]:
+    """Build up to 3 panels from the digest body highlights table.
+
+    Parses ``| category | source | title | severity |`` rows (skipping the
+    header / separator). Reuses :func:`_panel_from_source_title`, so rows with
+    no ASCII entity in the title are skipped. Returns ``[]`` when the table is
+    absent or carries no usable row.
+    """
+    panels: List[Dict] = []
+    for m in _DIGEST_TABLE_ROW_RE.finditer(content or ""):
+        if len(panels) >= 3:
+            break
+        col1, source, title, col4 = (c.strip() for c in m.groups())
+        # Skip the header row and the |---|---| separator. Only the first
+        # (category|source|title|severity) table is the highlights table; the
+        # severity column (col4) is a sanity gate that it's the right table.
+        if _DIGEST_TABLE_SKIP_RE.search(col1) or _DIGEST_TABLE_SKIP_RE.search(source):
+            continue
+        if not source or set(col4) <= set("-: "):
+            continue
+        panel = _panel_from_source_title(source, title)
+        if panel is not None:
+            panels.append(panel)
+    return panels
+
+
+# Body markers for the digest collection-stats block. Korean anchors are used
+# only to LOCATE the digit — the rendered value is the ASCII number itself.
+_DIGEST_TOTAL_RE = re.compile(r"총\s*뉴스\s*수\*{0,2}\s*[:：]\s*(\d{1,4})")
+_DIGEST_SECURITY_RE = re.compile(r"보안\s*뉴스\*{0,2}\s*[:：]\s*(\d{1,4})")
+
+
+def _digest_stats(content: str) -> Dict[str, Optional[int]]:
+    """Extract real collection counts (total / security) from a digest body.
+
+    Returns ``{"total": int|None, "security": int|None}``. ``None`` when the
+    marker is absent so the caller keeps the inferred KPI.
+    """
+    text = content or ""
+
+    def _grab(rx: re.Pattern) -> Optional[int]:
+        m = rx.search(text)
+        return int(m.group(1)) if m else None
+
+    return {"total": _grab(_DIGEST_TOTAL_RE), "security": _grab(_DIGEST_SECURITY_RE)}
+
+
+def _apply_real_content(
+    stories: List[Dict],
+    post_info: Dict,
+) -> None:
+    """Override displayed headline/subheadline/KPI from real post content.
+
+    Mutates ``stories`` (hero, top_right, bottom_right) in place. Leaves the
+    ``visual`` / ``theme`` / ``action`` / ``tag`` keys untouched so band
+    routing and honesty class are byte-identical to the keyword path.
+    """
+    sc = post_info.get("summary_card")
+    highlights = sc.get("highlights") if isinstance(sc, dict) else None
+    content = str(post_info.get("content", "") or "")
+    panels = _digest_highlight_panels(highlights)
+    # Backfill from the body highlights table when summary_card yields < 3
+    # usable panels (thin posts) — and as the primary source on the cron path,
+    # which has the full body but no parsed summary_card dict. Dedupe by
+    # headline so the table doesn't re-add an entity already shown.
+    if len(panels) < 3:
+        seen = {p["headline"].lower() for p in panels}
+        for p in _digest_table_panels(content):
+            if len(panels) >= 3:
+                break
+            if p["headline"].lower() in seen:
+                continue
+            seen.add(p["headline"].lower())
+            panels.append(p)
+    for i, story in enumerate(stories):
+        if i < len(panels):
+            story["headline"] = panels[i]["headline"]
+            story["subheadline"] = panels[i]["subheadline"]
+
+    stats = _digest_stats(content)
+    # KPI cards live on the two right panels (index 1, 2). Replace the
+    # placeholder ``TBD / STATUS / NEW`` with real counts when available.
+    if len(stories) > 1 and stats.get("total"):
+        stories[1]["kpi_value"] = str(stats["total"])
+        stories[1]["kpi_label"] = "ITEMS"
+        stories[1]["kpi_sub"] = "24h feed"
+    if len(stories) > 2 and stats.get("security") is not None:
+        stories[2]["kpi_value"] = str(stats["security"])
+        stories[2]["kpi_label"] = "SECURITY"
+        stories[2]["kpi_sub"] = "flagged"
+
+
 def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
     """Render an L20 Hero+2-Card SVG cover for a Weekly Digest post.
 
@@ -882,6 +1120,12 @@ def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
             index=2,
             severity_label="MEDIUM",
         )
+
+        # Surface the post's REAL reported content (lead story entities, real
+        # source attribution, real collection counts) over the generic
+        # filename-keyword text + ``TBD`` KPI placeholders. Visual routing /
+        # theme / action are left untouched, so the honesty class is unchanged.
+        _apply_real_content([hero_story, tr_story, br_story], post_info)
 
         date_str = _date_str_from_filename(
             filename, fallback=str(post_info.get("date", "") or "")
