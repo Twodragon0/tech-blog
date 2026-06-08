@@ -44,16 +44,18 @@ from scripts.news.l20_dispatch import _post_url_from_filename  # noqa: E402
 #     <rect ... fill="#FFFFFF"/>
 #     <path fill="#0A1020" d="..."/>
 #   </g>
-#   <text x="1122" y="614" ...>scan / full post</text>
+#   <text ...>scan / full post</text>
 #
-# The matcher captures both the <g> wrapper and the trailing scan label so
-# the replacement stays atomic. Some upgraded covers tweak the spacing —
-# the regex tolerates leading/trailing whitespace and any text-y caption
-# variant ("scan / full post", "Scan", etc.).
+# The matcher captures both the <g> wrapper and the trailing "scan / full post"
+# label so the replacement stays atomic. The label POSITION changed across
+# QR-geometry revisions: the legacy 84px block placed it at ``x="1122" y="614"``
+# (below the QR), the current 108px block at ``x="1134" y="486"`` (above the
+# enlarged 132x132 white rect). Anchor on the label's text content rather than
+# its coordinates so the fixer upgrades BOTH geometries (and any future tweak).
 _QR_BLOCK_RE = re.compile(
     r"<g transform=\"translate\(1080,504\)\"[^>]*>"
     r".*?</g>\s*"
-    r"<text x=\"1122\" y=\"614\"[^>]*>[^<]*</text>",
+    r"<text[^>]*>scan / full post</text>",
     re.DOTALL,
 )
 

@@ -83,9 +83,10 @@ from __future__ import annotations
 
 import argparse
 import sys
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import yaml
 
@@ -330,6 +331,58 @@ def check(spec: Spec) -> Optional[str]:
 
 
 # ---------------------------------------------------------------------------
+# Honesty guard
+# ---------------------------------------------------------------------------
+
+_HONESTY_BASELINE = REPO_ROOT / "scripts" / "cover_honesty_baseline.txt"
+
+
+def _honesty_regressions(rendered: List[Tuple["Spec", str]]) -> List[str]:
+    """Return one line per spec whose freshly-rendered cover would be a
+    NON-baselined honesty FAIL (a band asserting attack/CVE/breach evidence the
+    owning post lacks).
+
+    Scored entirely off-disk: each SVG is written to a temp file under its real
+    ``spec.filename`` so ``score_cover_honesty.find_owning_post`` (matches by
+    basename against each post's ``image:`` field) resolves the correct post.
+    The target path ``assets/images/<filename>`` is matched against the
+    committed honesty baseline so already-grandfathered legacy FAILs do not trip
+    the guard — only NEW honesty regressions do.
+
+    Why this exists: most ``_data/l20_covers/*.yml`` specs have drifted from the
+    honest on-disk corpus, so a blind ``--all`` re-render reintroduces dozens of
+    dishonest covers (the regression caught during PR #387). This guard makes
+    the write path refuse rather than silently corrupt the corpus.
+    """
+    try:
+        from scripts.score_cover_honesty import load_baseline, score_file
+    except Exception as exc:  # pragma: no cover - defensive
+        # Fail OPEN with a visible warning: the guard is defense-in-depth, not
+        # the only honesty gate (svg-lint CI still scores on-disk covers).
+        print(f"  WARN: honesty guard unavailable ({exc}); skipping", file=sys.stderr)
+        return []
+
+    baseline = load_baseline(_HONESTY_BASELINE) if _HONESTY_BASELINE.exists() else set()
+    regressions: List[str] = []
+    with tempfile.TemporaryDirectory() as td:
+        tdir = Path(td)
+        for spec, svg in rendered:
+            tmp = tdir / spec.filename
+            tmp.write_text(svg, encoding="utf-8")
+            result = score_file(tmp)
+            if result.get("verdict") != "FAIL":
+                continue
+            if f"assets/images/{spec.filename}" in baseline:
+                continue
+            viols = "; ".join(
+                f"{v['band']}:{v['visual_id']}"
+                for v in result.get("honesty", {}).get("violations", [])
+            )
+            regressions.append(f"{spec.filename}  [{viols or 'honesty FAIL'}]")
+    return regressions
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -381,6 +434,15 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         action="store_true",
         help="Re-render each spec and exit 1 if any on-disk SVG drifts",
     )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Bypass the cover-honesty guard. By default a write run aborts if "
+            "rendering would introduce a NON-baselined honesty FAIL (e.g. a "
+            "drifted spec asserting attack evidence its post lacks)."
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -391,34 +453,62 @@ def main(argv: Optional[List[str]] = None) -> int:
         print("no specs to process")
         return 0
 
-    drift: List[str] = []
-    rendered = 0
+    specs: List[Spec] = []
     for p in paths:
         try:
-            spec = load_spec(p)
+            specs.append(load_spec(p))
         except (ValueError, yaml.YAMLError) as exc:
             print(f"  ERROR loading {_short_path(p)}: {exc}", file=sys.stderr)
             return 2
 
-        if args.check:
+    if args.check:
+        drift: List[str] = []
+        for spec in specs:
             issue = check(spec)
             if issue:
                 print(f"  {issue}", file=sys.stderr)
                 drift.append(issue)
             else:
                 print(f"  OK    {spec.filename}")
-        else:
-            size = write(spec, dry_run=args.dry_run)
-            tag = "[DRY] " if args.dry_run else ""
-            print(f"  {tag}wrote {spec.filename}: {size} bytes")
-            rendered += 1
-
-    if args.check:
         if drift:
             print(f"\n{len(drift)} spec(s) drifted from on-disk SVG", file=sys.stderr)
             return 1
-        print(f"\n{len(paths)} specs OK")
+        print(f"\n{len(specs)} specs OK")
         return 0
+
+    # Write mode: render everything first so the honesty guard can score the
+    # would-be output BEFORE any byte hits disk.
+    rendered_pairs: List[Tuple[Spec, str]] = [(spec, render(spec)) for spec in specs]
+
+    if not args.dry_run and not args.force:
+        regressions = _honesty_regressions(rendered_pairs)
+        if regressions:
+            print(
+                f"\nERROR: honesty guard blocked the write — {len(regressions)} "
+                "spec(s) would render a NON-baselined honesty FAIL:",
+                file=sys.stderr,
+            )
+            for line in regressions:
+                print(f"  FAIL: {line}", file=sys.stderr)
+            print(
+                "\nThese specs have drifted from the honest on-disk corpus. "
+                "Do NOT mass-regenerate via this tool — fix the cover surgically "
+                "on disk (preserving its honest visuals) or reconcile the spec, "
+                "then re-run. Pass --force only if you have verified the render "
+                "is genuinely honest and intend to update the honesty baseline.",
+                file=sys.stderr,
+            )
+            return 1
+
+    rendered = 0
+    for spec, svg in rendered_pairs:
+        if args.dry_run:
+            print(f"  [DRY] wrote {spec.filename}: 0 bytes")
+        else:
+            spec.output_path.write_text(svg, encoding="utf-8")
+            print(f"  wrote {spec.filename}: {len(svg.encode('utf-8'))} bytes")
+        rendered += 1
+
     print(f"\n{rendered} spec(s) rendered")
     return 0
 
