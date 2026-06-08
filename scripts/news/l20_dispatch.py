@@ -816,26 +816,33 @@ def _build_story(
     return story
 
 
+_ACTION_BY_VISUAL: Dict[str, str] = {
+    "cve_chain": "PATCH UPSTREAM NOW",
+    "ransomware_lock": "ISOLATE - RESTORE FROM BACKUP",
+    "container_escape": "PIN RUNTIME - REVOKE PRIVS",
+    "ai_agent_funnel": "GATE TOOL CALLS - REVIEW LOGS",
+    "supply_chain_pipe": "VERIFY SLSA - SIGN ARTIFACTS",
+    "code_injection": "ROTATE TOKENS - AUDIT CI",
+    "hub_spoke": "BLOCK C2 - SEGMENT NETWORK",
+    "data_exfil": "REVOKE TOKENS - ROTATE KEYS",
+    # Non-incident visuals: benign, non-alarmist call-to-read tags so the
+    # action bar does not assert a security response on neutral content.
+    "neutral": "READ THE FULL DIGEST",
+    "market": "TRACK THE MARKET TREND",
+    # Generic advisory of unspecified severity: a benign call-to-read, NOT
+    # "PATCH NOW" — the post carries no specific CVE/exploit to patch.
+    "security_advisory": "READ THE ADVISORY",
+}
+
+
+def _action_for_visual(visual: str) -> str:
+    """Action tag for an already-resolved visual id (stays congruent with it)."""
+    return _ACTION_BY_VISUAL.get(visual, "REVIEW - HARDEN NOW")
+
+
 def _action_for(headline: str) -> str:
-    """Pick a short, all-caps action tag for the hero story."""
-    visual = route_visual_id(headline)
-    return {
-        "cve_chain": "PATCH UPSTREAM NOW",
-        "ransomware_lock": "ISOLATE - RESTORE FROM BACKUP",
-        "container_escape": "PIN RUNTIME - REVOKE PRIVS",
-        "ai_agent_funnel": "GATE TOOL CALLS - REVIEW LOGS",
-        "supply_chain_pipe": "VERIFY SLSA - SIGN ARTIFACTS",
-        "code_injection": "ROTATE TOKENS - AUDIT CI",
-        "hub_spoke": "BLOCK C2 - SEGMENT NETWORK",
-        "data_exfil": "REVOKE TOKENS - ROTATE KEYS",
-        # Non-incident visuals: benign, non-alarmist call-to-read tags so the
-        # action bar does not assert a security response on neutral content.
-        "neutral": "READ THE FULL DIGEST",
-        "market": "TRACK THE MARKET TREND",
-        # Generic advisory of unspecified severity: a benign call-to-read, NOT
-        # "PATCH NOW" — the post carries no specific CVE/exploit to patch.
-        "security_advisory": "READ THE ADVISORY",
-    }.get(visual, "REVIEW - HARDEN NOW")
+    """Pick a short, all-caps action tag for the hero story from its headline."""
+    return _action_for_visual(route_visual_id(headline))
 
 
 # --- Real-content extraction (digest covers) ------------------------------
@@ -1030,37 +1037,127 @@ def _digest_stats(content: str) -> Dict[str, Optional[int]]:
     return {"total": _grab(_DIGEST_TOTAL_RE), "security": _grab(_DIGEST_SECURITY_RE)}
 
 
-def _apply_real_content(
-    stories: List[Dict],
-    post_info: Dict,
-) -> None:
-    """Override displayed headline/subheadline/KPI from real post content.
+def _digest_panels(summary_card, content: str) -> List[Dict]:
+    """The ordered real-content panels for a digest, lead story first.
 
-    Mutates ``stories`` (hero, top_right, bottom_right) in place. Leaves the
-    ``visual`` / ``theme`` / ``action`` / ``tag`` keys untouched so band
-    routing and honesty class are byte-identical to the keyword path.
+    summary_card.highlights (editorially ranked) first, then body-table backfill
+    when fewer than 3 usable panels (thin posts / cron path), deduped by
+    headline. Single source of truth shared by the generator override and the
+    honesty scorer's routing replay, so both agree on the band visuals.
     """
-    sc = post_info.get("summary_card")
-    highlights = sc.get("highlights") if isinstance(sc, dict) else None
-    content = str(post_info.get("content", "") or "")
+    highlights = summary_card.get("highlights") if isinstance(summary_card, dict) else None
     panels = _digest_highlight_panels(highlights)
-    # Backfill from the body highlights table when summary_card yields < 3
-    # usable panels (thin posts) — and as the primary source on the cron path,
-    # which has the full body but no parsed summary_card dict. Dedupe by
-    # headline so the table doesn't re-add an entity already shown.
     if len(panels) < 3:
         seen = {p["headline"].lower() for p in panels}
-        for p in _digest_table_panels(content):
+        for p in _digest_table_panels(content or ""):
             if len(panels) >= 3:
                 break
             if p["headline"].lower() in seen:
                 continue
             seen.add(p["headline"].lower())
             panels.append(p)
+    return panels
+
+
+# Visuals a band may assert when routed FROM REAL STORY CONTENT (a one-line
+# headline). ONLY the always-honest classes are allowed: a content headline
+# routes by KEYWORD, but an attack-class builder asserts a specific incident
+# whose honesty the gate verifies against an EVIDENCE TOKEN in the post body —
+# and a headline entity is NOT the same thing as that body token. Routing
+# "APT36/SideCopy RAT" to hub_spoke (C2/botnet) when the body lacks a c2/botnet
+# token, or "Ivanti CVE-…" to cve_chain ("CVE REGRESSION CHAIN") from a single
+# CVE, both OVERCLAIM and FAIL the honesty gate. Since digests auto-publish via
+# cron (unattended), any attack-class content route is DOWNGRADED to the honest
+# weaker ``security_advisory`` ("advisory, severity unassessed", always_pass) —
+# congruent with a security headline, guaranteed to never overclaim or FAIL.
+# Mirrors the ``content_mode`` clamp in ``_build_story`` + the 2026-06-02
+# cve_chain default removal. See .omc/plans/l20-panel-visual-desync.md.
+_DIGEST_CONTENT_HONEST: frozenset = frozenset({"neutral", "market", "security_advisory"})
+
+
+def _honest_content_visual(visual_id: str) -> str:
+    """Clamp a content-routed visual to an always-honest class.
+
+    Always-honest classes (``neutral`` / ``market`` / ``security_advisory``)
+    pass through; every attack-class route is downgraded to ``security_advisory``
+    so a one-line headline never asserts an incident the post body does not
+    establish (no overclaim, and the honesty gate can never FAIL on it).
+    """
+    return visual_id if visual_id in _DIGEST_CONTENT_HONEST else "security_advisory"
+
+
+def resolve_digest_band_visuals(
+    title: str,
+    excerpt: str,
+    filename: str,
+    content: str,
+    summary_card,
+) -> List[str]:
+    """Return the FINAL 3 band visuals for a digest cover (content-aware).
+
+    A band whose displayed headline comes from a real story is routed from THAT
+    story's entity (so the icon matches the headline — e.g. a 'Mirai' botnet
+    headline gets the hub_spoke/C2 motif, not the filename keyword's
+    ransomware_lock). A band with no real panel keeps its filename-keyword
+    routing.
+
+    This is the lockstep source of truth: the generator (``_apply_real_content``)
+    sets ``story['visual']`` from it, and the honesty scorer's routing-replay
+    (``_routed_visual_ids``) calls it too, so on-disk visuals and scored intent
+    never diverge (no spurious STALE_RENDER).
+    """
+    h, tr, br = extract_three_stories(title, excerpt, filename)
+    visuals = [
+        route_visual_id(h["headline"]),
+        route_visual_id(tr["headline"]),
+        route_visual_id(br["headline"]),
+    ]
+    panels = _digest_panels(summary_card, content)
+    for i in range(min(3, len(visuals))):
+        if i < len(panels) and panels[i] is not None:
+            p = panels[i]
+            visuals[i] = _honest_content_visual(
+                route_visual_id(f"{p['headline']} {p['subheadline']}")
+            )
+    return visuals
+
+
+def _apply_real_content(
+    stories: List[Dict],
+    post_info: Dict,
+) -> None:
+    """Override displayed headline/subheadline/visual/KPI from real post content.
+
+    Mutates ``stories`` (hero, top_right, bottom_right) in place:
+    - headline/subheadline ← the real story (lead story stays on the hero);
+    - ``visual`` ← re-routed from the real headline so the icon matches the
+      story (Approach B — fixes the filename-keyword icon/headline desync);
+      ``theme`` follows the new visual and the hero ``action`` is recomputed;
+    - KPI ← real collection counts.
+
+    Honesty stays intact: the new visual is routed from an entity that comes
+    FROM the post, so its claim class still has matching post evidence. The
+    scorer replays the identical routing via :func:`resolve_digest_band_visuals`.
+    Bands with no real panel keep their filename-keyword visual untouched.
+    """
+    content = str(post_info.get("content", "") or "")
+    panels = _digest_panels(post_info.get("summary_card"), content)
     for i, story in enumerate(stories):
-        if i < len(panels):
-            story["headline"] = panels[i]["headline"]
-            story["subheadline"] = panels[i]["subheadline"]
+        if i < len(panels) and panels[i] is not None:
+            panel = panels[i]
+            story["headline"] = panel["headline"]
+            story["subheadline"] = panel["subheadline"]
+            # Re-route the visual (+ theme, + hero action) to the real story,
+            # clamped to an honest, non-overclaiming class.
+            new_visual = _honest_content_visual(
+                route_visual_id(f"{panel['headline']} {panel['subheadline']}")
+            )
+            story["visual"] = new_visual
+            story["theme"] = _THEME_BY_VISUAL.get(new_visual, story.get("theme", "blue"))
+            if "action" in story:
+                # Follow the RESOLVED visual (not the raw headline) so a
+                # downgraded band shows "READ THE ADVISORY", not "PATCH NOW".
+                story["action"] = _action_for_visual(new_visual)
 
     stats = _digest_stats(content)
     # KPI cards live on the two right panels (index 1, 2). Replace the
