@@ -1,72 +1,6 @@
 {
-  "updated_at": "2026-06-07T00:35:45.479271+00:00",
+  "updated_at": "2026-06-08T00:37:24.145739+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/ghost-cms-sql-injection-flaw-exploited-in-large-scale-clickfix-campaign/",
-      "title": "Ghost CMS SQL injection flaw exploited in large-scale ClickFix campaign",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/buterin-fires-back-ef-critics-neutrality?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Buterin fires back at Ethereum Foundation critics, recommits to neutrality",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/law-firm-fenwick-west-54m-ftx-settlement?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "FTX law firm Fenwick & West to pay $54M to victims in settlement",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/tom-lees-ethereum-portfolio-sitting-on-73b-in-unrealized-losses?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Tom Lee’s Ethereum portfolio down $7.35B as ETH price outlook worsens",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/cftc-officials-who-questioned-prediction-markets-were-suspended-nyt?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "CFTC officials who questioned prediction markets were suspended: NYT",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/blockchain-researcher-defends-ethereum-foundation-says-its-exactly-doing-its-job?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Blockchain researcher defends Ethereum Foundation, says it’s doing ‘exactly’ its",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29843",
-      "title": "omarchy는 배포판이 아니다",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29842",
-      "title": "FBI는 미국 번호판 판독기에 ‘준실시간’ 접근을 원한다",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29841",
-      "title": "미국 기술기업, 네덜란드 규제 당국자 이름을 상원에 공유",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29840",
-      "title": "스캐머들이 마이크로소프트 내부 계정을 악용해 스팸 링크 발송중",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=29839",
-      "title": "Microsoft, “현재까지 발견된 가장 오래된 DOS 소스 코드” 오픈소스 공개",
-      "published_date": "2026-05-25",
-      "expires_at": "2026-06-01T00:32:04.375461+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/weekly-recap-linux-flaws-defender-0.html",
       "title": "⚡ Weekly Recap: Linux Flaws, Defender 0-Days, Router Botnets, and Supply Chain C",
@@ -1218,6 +1152,96 @@
       "title": "Zeroserve: eBPF로 스크립팅할 수 있는 무설정 웹 서버",
       "published_date": "2026-06-07",
       "expires_at": "2026-06-14T00:35:45.479172+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/microsoft/hands-on-with-intelligent-terminal-an-ai-powered-windows-terminal/",
+      "title": "Hands on with Intelligent Terminal, an AI-powered Windows Terminal",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/c0xmo-botnet-spreads-via-dd-wrt-router-flaw-kills-rival-malware/",
+      "title": "C0XMO botnet spreads via DD-WRT router flaw, kills rival malware",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/silent-ransom-group-targets-law-firms-with-fake-it-support-calls/",
+      "title": "Silent Ransom Group targets law firms with fake IT support calls",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/06/07/the-worst-hacks-and-breaches-of-2026-so-far/",
+      "title": "Hacked, leaked, and held for ransom: the worst breaches of 2026 so far",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/emphere-raises-2-1-million-for-ai-powered-vulnerability-remediation/",
+      "title": "Emphere Raises $2.1 Million for AI-Powered Vulnerability Remediation",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai/",
+      "title": "NVIDIA and Doosan Group Collaborate to Advance Physical AI and AI Factory Infras",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/krafton-nc-t1-korea-gaming-pc-bang-rtx-spark/",
+      "title": "NVIDIA, KRAFTON, NC and Reigning ‘League of Legends’ Champions T1 Celebrate RTX ",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/build-small-hackathon/amazingdigitaldentures",
+      "title": "Amazing Digital Dentures (a failed project)",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/strategys-saylor-signals-btc-buy-as-preferred-dividend-pay-date-vote-looms?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Strategy’s Saylor signals BTC buy as preferred dividend pay date vote looms",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-risks-new-purge-with-bear-market-losses-still-35b-below-2022-total?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin risks new 'purge' with bear-market losses still $35B below 2022 total",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/what-happens-to-bitcoin-if-the-nasdaq-falls-further?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "What happens to Bitcoin if the Nasdaq falls further?",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/policy/2026/06/07/a-quick-review-of-the-ways-and-means-tax-bills-state-of-crypto",
+      "title": "A quick review of the Ways and Means tax bills: State of Crypto",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/06/06/michael-saylor-revives-bitcoin-buy-speculation-as-scrutiny-over-strategy-grows",
+      "title": "Michael Saylor revives bitcoin-buy speculation as scrutiny over Strategy grows",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30263",
+      "title": "취향(Taste)이 새로운 10x다",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30262",
+      "title": "Kubernetes Gateway API",
+      "published_date": "2026-06-08",
+      "expires_at": "2026-06-15T00:37:24.145645+00:00"
     }
   ]
 }
