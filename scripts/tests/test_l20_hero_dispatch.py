@@ -543,3 +543,41 @@ class TestRenderL20SvgStringCleanTitle:
         assert not non_ascii, f"non-ASCII codepoint(s) {non_ascii!r} in <title>: {title!r}"
         # Clean fixed template, topic derived from the filename slug.
         assert title == "Weekly Security Digest - 2026.06.05", title
+
+
+class TestRenderL20SvgStringRealContent:
+    """The cron path must surface REAL content (lead entities + source +
+    collection counts) from ``post_info["content"]`` (full body), not generic
+    filename keywords + a TBD KPI. ``post_info`` has no parsed summary_card
+    dict on the cron path, so the body-table backfill is the source.
+    """
+
+    _BODY = (
+        "**수집 통계:**\n- **총 뉴스 수**: 29개\n- **보안 뉴스**: 5개\n\n"
+        "| 분야 | 소스 | 핵심 내용 | 영향도 |\n"
+        "|------|------|----------|--------|\n"
+        "| 🔒 **Security** | The Hacker News | Ivanti EPMM CVE-2026-6973 RCE 공개 | 🟠 High |\n"
+        "| 🔒 **Security** | BleepingComputer | WP Maps Pro 취약점 악용 | 🟠 High |\n"
+        "| ⛓️ **Blockchain** | Cointelegraph | Michael Saylor BTC 매수 | 🟡 Medium |\n"
+    )
+
+    def test_cron_cover_carries_real_entities_and_counts(self):
+        ap = importlib.import_module("auto_publish_news")
+        post_info = {
+            "title": "2026년 06월 05일 주간 보안 다이제스트 (29건)",
+            "excerpt": "주간 보안 동향 요약입니다.",
+            "filename": "2026-06-05-Tech_Security_Weekly_Digest_CVE_Patch_Go_AI.md",
+            "category": "security",
+            "content": self._BODY,
+        }
+        svg = ap._render_l20_svg_string(post_info)
+        assert svg, "_render_l20_svg_string returned empty"
+        texts = re.findall(r"<text[^>]*>([^<]+)</text>", svg)
+        joined = "|".join(texts)
+        # Real lead entity + source from the body table (not "CVE"/"Patch"/"Go").
+        assert "Ivanti EPMM" in joined
+        assert "The Hacker News" in joined
+        # Real collection count replaces the TBD KPI placeholder.
+        assert "ITEMS" in joined and "29" in texts
+        # ASCII-only invariant holds end-to-end (no Hangul leaked into <text>).
+        assert not any(ord(c) >= 128 for c in joined), "non-ASCII in <text>"

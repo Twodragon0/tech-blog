@@ -202,6 +202,7 @@ def _render_l20_svg_string(post_info: Dict) -> str:
         from scripts.lib.svg_l20_hero import build_cover_title, render_l20_hero
         from scripts.news.l20_dispatch import (
             _action_for,
+            _apply_real_content,
             _build_story,
             _date_str_from_filename,
             _post_url_from_filename,
@@ -236,6 +237,13 @@ def _render_l20_svg_string(post_info: Dict) -> str:
             index=2,
             severity_label="MEDIUM",
         )
+        # Surface the post's REAL reported content (lead story entities, source
+        # attribution, collection counts) over the generic filename-keyword
+        # text + TBD KPI. ``post_info["content"]`` is the full rendered post
+        # (front matter + body highlights table), so the body-table backfill +
+        # stats populate real content on the cron path too. Visual routing /
+        # theme / action are left untouched (honesty class unchanged).
+        _apply_real_content([hero_story, tr_story, br_story], post_info)
         date_str = _date_str_from_filename(filename) or ""
         # Build a clean, ASCII <title> from the (often Korean) post title the
         # same way the L20 dispatch path does (l20_dispatch.py). Passing the
