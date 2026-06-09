@@ -23,6 +23,7 @@ import re
 from scripts.news.l20_dispatch import (
     _apply_real_content,
     _build_story,
+    _DIGEST_CONTENT_HONEST,
     _digest_highlight_panels,
     _digest_stats,
     _digest_table_panels,
@@ -325,3 +326,41 @@ class TestApplyRealContent:
         assert stories[0]["headline"] == "Maps Pro"            # from body table
         assert stories[1]["kpi_value"] == "12"                 # stats from content
         assert stories[2]["kpi_value"] == "2"
+
+
+# ---------------------------------------------------------------------------
+# Regression guard: content routing may NEVER assert an attack class
+# ---------------------------------------------------------------------------
+# This is the invariant that keeps cron-published digest covers honest. The
+# honesty gate is BLOCKING and digests auto-publish unattended, so re-adding any
+# attack class to the content-routing allowlist would silently re-open the
+# overclaim hole (a single CVE token rendering "CVE REGRESSION CHAIN", an APT
+# headline rendering a C2 graph with no body c2 token, etc.). "Honest" is
+# derived from the scorer's OWN taxonomy so the guard can't drift out of lockstep.
+class TestContentRoutingHonestyGuard:
+    def _always_pass_classes(self):
+        from scripts.score_cover_honesty import CLAIM_CLASSES
+        return {vid for vid, spec in CLAIM_CLASSES.items() if spec[3]}
+
+    def _attack_classes(self):
+        from scripts.score_cover_honesty import CLAIM_CLASSES
+        return {vid for vid, spec in CLAIM_CLASSES.items() if not spec[3]}
+
+    def test_allowlist_is_subset_of_always_pass(self):
+        # Every class a content headline may assert must be an always_pass
+        # (non-fabricating) class in the honesty taxonomy.
+        assert _DIGEST_CONTENT_HONEST <= self._always_pass_classes()
+
+    def test_allowlist_contains_no_attack_class(self):
+        assert not (_DIGEST_CONTENT_HONEST & self._attack_classes())
+
+    def test_every_attack_class_downgrades_to_always_pass(self):
+        # The gate must map EVERY attack class to an always_pass class, so a
+        # content-routed band can never overclaim regardless of routing churn.
+        always_pass = self._always_pass_classes()
+        for vid in self._attack_classes():
+            assert _honest_content_visual(vid) in always_pass
+
+    def test_always_pass_classes_pass_through_unchanged(self):
+        for vid in self._always_pass_classes():
+            assert _honest_content_visual(vid) == vid
