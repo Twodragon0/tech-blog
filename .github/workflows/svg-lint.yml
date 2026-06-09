@@ -26,6 +26,7 @@ on:
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
+      - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
       - '_posts/**.md'
   pull_request:
@@ -53,6 +54,7 @@ on:
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
+      - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
       - '_posts/**.md'
 
@@ -99,6 +101,10 @@ jobs:
       - name: Rollup cover drift check (YAML spec vs on-disk SVG)
         id: rollup_drift
         run: python3 scripts/upgrade_rollup_cover.py --all --check
+
+      - name: Rollup cover spec vs owning-post accuracy gate
+        id: rollup_spec_accuracy
+        run: python3 scripts/check_rollup_spec_consistency.py --strict
 
       - name: L25 single cover drift check (YAML spec vs on-disk SVG)
         id: l25_drift
