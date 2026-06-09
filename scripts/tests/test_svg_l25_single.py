@@ -19,7 +19,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from scripts.lib import svg_l25_single as l25  # noqa: E402
 from scripts.upgrade_l25_cover import (  # noqa: E402
-    SPECS_DIR, check, load_spec, main, render, write,
+    SPECS_DIR,
+    check,
+    load_spec,
+    main,
+    render,
+    write,
 )
 
 MARKER = "<!-- profile: high-quality-cover (2025 upgraded L25-single) -->"
@@ -176,12 +181,14 @@ class TestLoadSpec:
         assert len(spec.tag_chips) == 3 and len(spec.kpi_strip) == 3
 
     def test_rejects_unknown_top_level(self, tmp_path):
-        data = _minimal_spec(); data["nonsense"] = "v"
+        data = _minimal_spec()
+        data["nonsense"] = "v"
         with pytest.raises(ValueError, match="unknown top-level"):
             load_spec(_write_spec(tmp_path, data))
 
     def test_rejects_missing_required(self, tmp_path):
-        data = _minimal_spec(); del data["headline"]
+        data = _minimal_spec()
+        del data["headline"]
         with pytest.raises(ValueError, match="missing required"):
             load_spec(_write_spec(tmp_path, data))
 
@@ -207,7 +214,8 @@ class TestLoadSpec:
             load_spec(_write_spec(tmp_path, data))
 
     def test_omitting_url_uses_canonical(self, tmp_path):
-        data = _minimal_spec(); del data["url"]
+        data = _minimal_spec()
+        del data["url"]
         spec = load_spec(_write_spec(tmp_path, data))
         assert spec.url == (
             "https://tech.2twodragon.com/posts/2026/06/01/"

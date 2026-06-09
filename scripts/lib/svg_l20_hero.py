@@ -25,7 +25,7 @@ THEMES palette.
 from __future__ import annotations
 
 import re
-from typing import Dict
+from typing import Dict, Tuple
 
 from scripts.lib import svg_l22_generator as l22
 
