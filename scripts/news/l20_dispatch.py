@@ -900,6 +900,18 @@ _WEAK_HEADLINE_WORDS: frozenset = frozenset({
     "sorry", "new", "first", "report", "update", "alert", "week", "summary",
 })
 
+# Severity words (the digest body-table impact column). A headline made ENTIRELY
+# of these (e.g. "Critical Medium") is a cross-table leak from a risk-summary
+# table, never a real story — rejected by _is_good_headline (W4).
+_SEVERITY_WORDS: frozenset = frozenset({"critical", "high", "medium", "low"})
+
+# Provably-generic English common nouns / severity words that pass the
+# Capitalized/length filter but read as filler on a cover. Consulted ONLY in the
+# single-token reject path of _is_good_headline (W3) — NEVER in the two-token
+# join-lead path, which would wrongly kill real product names. Place/surname
+# detection is intentionally NOT attempted (false-positive risk on real actors).
+_WEAK_TRAILING: frozenset = frozenset({"factories"}) | _SEVERITY_WORDS
+
 
 def _common_prefix_len(a: str, b: str) -> int:
     """Length of the case-insensitive common leading run of ``a`` and ``b``."""
@@ -928,8 +940,12 @@ def _is_good_headline(h: str) -> bool:
         return False
     if not has_space:
         tl = h.lower()
-        if tl in (_ENTITY_ACRONYMS | _GENERIC_TRAILING | _WEAK_HEADLINE_WORDS):
+        if tl in (_ENTITY_ACRONYMS | _GENERIC_TRAILING | _WEAK_HEADLINE_WORDS | _WEAK_TRAILING):
             return False
+    elif all(t.lower() in _SEVERITY_WORDS for t in h.split()):
+        # W4: a multi-word headline made entirely of severity words
+        # ("Critical Medium") is a cross-table leak, not a real story.
+        return False
     return True
 
 
@@ -1128,33 +1144,69 @@ def _digest_highlight_panels(highlights) -> List[Dict]:
 _DIGEST_TABLE_ROW_RE = re.compile(r"^\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|\s*$", re.MULTILINE)
 _DIGEST_TABLE_SKIP_RE = re.compile(r"분야|소스|핵심\s*내용|^[\s:\-]+$")
 
+# W1 anchor: the digest highlights table opens with a (category, source) header
+# — current "분야 | 소스 | 핵심 내용 | 영향도" or the legacy "카테고리 | 출처 |
+# 주요 발견 | 영향도". Parsing is scoped to the contiguous rows AFTER this header,
+# so secondary body tables (risk summary, component, "대응 긴급도", reference /
+# regulation tables whose col1 is 이슈/출처/제목/기관) are excluded structurally —
+# regardless of their columns. This keeps cross-table garbage like "Critical
+# Medium" out of the candidate pool WITHOUT a category allowlist (the highlights
+# table legitimately uses 8+ categories incl. Korean labels: Security/AI/Cloud/
+# DevOps/Blockchain/Tech/FinOps/보안/클라우드/…, which an allowlist would drop).
+_DIGEST_TABLE_HEADER_RE = re.compile(r"^\|\s*(?:분야|카테고리)\s*\|\s*(?:소스|출처)\s*\|")
+
+# W2: Blockchain / Tech rows are off-topic FILLER for a security digest; rank
+# them below on-topic (Security/AI/Cloud/DevOps/…) backfill. The English stems
+# are letter-boundary anchored so on-topic labels that merely CONTAIN them
+# ("FinTech", "Biotech") are NOT demoted. (1 = filler / lower priority, 0 = on-topic.)
+_FILLER_CATEGORY_RE = re.compile(
+    r"(?<![a-z])(?:blockchain|tech)(?![a-z])|블록체인|기술", re.IGNORECASE
+)
+
+
+def _category_rank(col1: str) -> int:
+    """0 for an on-topic security category, 1 for Blockchain/Tech filler (W2)."""
+    return 1 if _FILLER_CATEGORY_RE.search(col1 or "") else 0
+
 
 def _digest_table_panels(content: str, limit: int = 3) -> List[Dict]:
-    """Build up to ``limit`` panels from the digest body highlights table.
+    """Build up to ``limit`` panels from the digest body **highlights table**.
 
-    Parses ``| category | source | title | severity |`` rows (skipping the
-    header / separator). Reuses :func:`_panel_from_source_title`, so rows with
-    no ASCII entity in the title are skipped. Returns ``[]`` when the table is
-    absent or carries no usable row.
+    W1: parsing is anchored to the highlights table — the contiguous
+    ``| category | source | title | severity |`` rows following the
+    ``| 분야 | 소스 | … |`` header, stopping at the first non-table line. This
+    excludes every secondary body table (risk summary, component, "대응 긴급도")
+    so their rows can never leak a garbage panel (e.g. "Critical Medium").
+
+    Reuses :func:`_panel_from_source_title`, so rows with no ASCII entity in the
+    title are skipped. Each panel is tagged with ``_category_rank`` (W2) so the
+    caller can demote Blockchain/Tech filler below on-topic security stories.
+    Returns ``[]`` when the highlights table is absent or carries no usable row.
 
     The default ``limit=3`` matches the visible slot count; :func:`_digest_panels`
     passes a larger ``limit`` so the candidate pool is deep enough to backfill a
     source-name fallback with a *real-entity* story (side-card rescue).
     """
     panels: List[Dict] = []
-    for m in _DIGEST_TABLE_ROW_RE.finditer(content or ""):
+    in_table = False
+    for line in (content or "").splitlines():
+        if not in_table:
+            if _DIGEST_TABLE_HEADER_RE.match(line):
+                in_table = True
+            continue
+        m = re.match(r"^\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|\s*$", line)
+        if not m:
+            break  # blank / non-table line ends the highlights table
         if len(panels) >= limit:
             break
         col1, source, title, col4 = (c.strip() for c in m.groups())
-        # Skip the header row and the |---|---| separator. Only the first
-        # (category|source|title|severity) table is the highlights table; the
-        # severity column (col4) is a sanity gate that it's the right table.
-        if _DIGEST_TABLE_SKIP_RE.search(col1) or _DIGEST_TABLE_SKIP_RE.search(source):
+        if set(col1) <= set("-: "):  # |---|---| separator row
             continue
         if not source or set(col4) <= set("-: "):
             continue
         panel = _panel_from_source_title(source, title, _severity_from_marker(col4))
         if panel is not None:
+            panel["_category_rank"] = _category_rank(col1)  # W2 backfill rank
             panels.append(panel)
     return panels
 
@@ -1259,10 +1311,22 @@ def _digest_panels(summary_card, content: str) -> List[Dict]:
     surfacing a different (real) story cannot introduce an overclaim.
     """
     highlights = summary_card.get("highlights") if isinstance(summary_card, dict) else None
+    hl_panels = _digest_highlight_panels(highlights)
+    table_panels = _digest_table_panels(content or "", limit=_BACKFILL_POOL)
+    # W2: rank the body-table BACKFILL by category (Security ahead of
+    # Blockchain/Tech filler), stable by document order. Editorial highlights
+    # are NOT reordered — they are curated/ranked already and always precede the
+    # backfill, so category ranking never demotes a lead story.
+    table_panels = [
+        p for _, p in sorted(
+            enumerate(table_panels),
+            key=lambda ip: (ip[1].get("_category_rank", 0), ip[0]),
+        )
+    ]
     # Dedupe candidates by headline, keeping the first (highest-ranked) one.
     seen: Set[str] = set()
     candidates: List[Dict] = []
-    for p in _digest_highlight_panels(highlights) + _digest_table_panels(content or "", limit=_BACKFILL_POOL):
+    for p in hl_panels + table_panels:
         key = p["headline"].lower()
         if key in seen:
             continue

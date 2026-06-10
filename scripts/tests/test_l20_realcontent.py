@@ -953,3 +953,152 @@ class TestNoAvoidableSourceNameSideCard:
                     )
                     break
         assert not failures, "Avoidable source-name side cards:\n" + "\n".join(failures)
+
+
+# ---------------------------------------------------------------------------
+# Backfill quality (plan .omc/plans/l20-digest-backfill-quality.md): W1 table
+# allowlist, W2 security-signal table ranking, W3 weak-token reject, W4
+# severity-join defense.
+# ---------------------------------------------------------------------------
+def _table(*rows):
+    """rows are (category_col1, source, title, severity_col4) tuples."""
+    head = "| 분야 | 소스 | 핵심 내용 | 영향도 |\n|------|------|----------|--------|\n"
+    return head + "".join(f"| {c} | {s} | {t} | {sev} |\n" for c, s, t, sev in rows)
+
+
+class TestW1TableAllowlist:
+    def test_admits_decorated_category_labels(self):
+        content = _table(
+            ("🔒 **Security**", "The Hacker News", "Ivanti EPMM RCE 취약점", "🟠 High"),
+            ("⛓️ **Blockchain**", "Cointelegraph", "Arthur Hayes BTC 발언", "🟡 Medium"),
+            ("💻 **Tech**", "GeekNews", "OpenAI Oracle 협력 철회", "🟡 Medium"),
+            ("🔒 **Security** (7)", "BleepingComputer", "WP Maps Pro 취약점 악용", "🟠 High"),
+        )
+        heads = [p["headline"] for p in _digest_table_panels(content, limit=6)]
+        assert "Ivanti EPMM" in heads          # Security admitted
+        assert any("Arthur" in h for h in heads)  # Blockchain admitted
+        assert any("OpenAI" in h for h in heads)  # Tech admitted
+        assert "Maps Pro" in heads             # decorated "(7)" Security admitted
+
+    def test_excludes_secondary_body_tables(self):
+        # The highlights table is followed (after a blank line) by a SEPARATE
+        # risk-summary table ("대응 긴급도"). W1 anchors parsing to the highlights
+        # table only, so the secondary table's rows (incl. a "Critical Medium"
+        # severity-join leak) are never parsed.
+        content = _table(
+            ("🔒 **Security**", "The Hacker News", "Ivanti EPMM RCE 취약점", "🟠 High"),
+        ) + (
+            "\n| 영역 | 현재 위험도 | 즉시 조치 |\n"
+            "|------|-------------|-----------|\n"
+            "| 대응 긴급도 | Critical 다수 | Critical 1건 Medium 다수 |\n"
+        )
+        heads = [p["headline"] for p in _digest_table_panels(content, limit=6)]
+        assert heads == ["Ivanti EPMM"], heads
+        assert not any("Critical" in h or "Medium" in h for h in heads)
+
+    def test_admits_diverse_categories_incl_korean(self):
+        # The highlights table legitimately uses many categories incl. Korean
+        # labels — none may be dropped (the bug a 3-stem allowlist caused).
+        content = _table(
+            ("☁️ **Cloud**", "AWS Security Blog", "Amazon GuardDuty 업데이트", "🟡 Medium"),
+            ("⚙️ **DevOps**", "The Hacker News", "Argo CD 취약점 공개", "🟠 High"),
+            ("🤖 **AI/ML**", "The Hacker News", "PromptArmor LLM 가드레일", "🟡 Medium"),
+            ("🔒 **보안**", "BleepingComputer", "Akira Ransomware 캠페인", "🔴 Critical"),
+        )
+        heads = [p["headline"] for p in _digest_table_panels(content, limit=6)]
+        assert len(heads) == 4, heads  # all categories admitted, none dropped
+
+    def test_loud_fail_corpus_has_nonempty_highlights_table(self):
+        # If a future generator renames the highlights-table header, the W1
+        # anchor silently empties the table and covers regress to source-name
+        # fallbacks. This guard fails LOUDLY in CI instead: every real digest
+        # post that contains the (category|source) header MUST yield >= 1 table
+        # panel.
+        import glob
+        import re
+        checked = 0
+        failures = []
+        for fn in sorted(glob.glob("_posts/2026-*.md")):
+            raw = open(fn, encoding="utf-8").read()
+            m = re.match(r"^---\n(.*?)\n---\n", raw, re.DOTALL)
+            if not m:
+                continue
+            content = raw[m.end():]
+            if not re.search(r"^\|\s*(?:분야|카테고리)\s*\|\s*(?:소스|출처)\s*\|", content, re.M):
+                continue  # no highlights table -> nothing to assert
+            checked += 1
+            if not _digest_table_panels(content, limit=6):
+                failures.append(fn.split("/")[-1][:10])
+        assert checked >= 100, f"expected the digest corpus, only checked {checked}"
+        # A header RENAME would zero out essentially ALL header-posts at once.
+        # A handful of legitimate empties (a 5-column "…|영향도|긴급도|" table
+        # variant the 4-column parser skips, covered by summary_card.highlights;
+        # or an all-Korean table) is expected — so the guard trips only on a
+        # mass regression, not these known edge cases.
+        assert len(failures) <= 5, (
+            f"{len(failures)}/{checked} header-posts yielded NO table panels "
+            f"(header rename / parser regression?): {failures}"
+        )
+
+
+class TestW34GoodHeadline:
+    def test_w3_weak_trailing_single_token_rejected(self):
+        for bad in ("Factories", "Critical", "Medium", "High", "Low"):
+            assert _is_good_headline(bad) is False, bad
+
+    def test_w4_severity_join_rejected(self):
+        for bad in ("Critical Medium", "High Low", "Critical High Medium"):
+            assert _is_good_headline(bad) is False, bad
+
+    def test_single_severity_word_in_real_phrase_kept(self):
+        # only a phrase made ENTIRELY of severity words is rejected
+        assert _is_good_headline("Critical Infrastructure") is True
+
+    def test_false_positive_guard_real_entities_kept(self):
+        for good in ("Ivanti", "Veeam", "Cloudflare", "Cisco Talos",
+                     "Hugging Face", "Palo Alto", "Recorded Future"):
+            assert _is_good_headline(good) is True, good
+
+
+class TestW2TableCategoryRanking:
+    def test_security_table_row_floats_above_blockchain_tech_filler(self):
+        # Thin highlights (1 real) so the side cards backfill from the table.
+        # A Blockchain filler row precedes a Security row in document order;
+        # the Security row must rank ahead among the table backfill (both carry
+        # the same severity marker, so only the category distinguishes them).
+        sc = {"highlights": [
+            {"source": "The Hacker News", "title": "Storm-2949 캠페인 분석"},
+        ]}
+        content = _table(
+            ("⛓️ **Blockchain**", "Cointelegraph", "Arthur Hayes BTC 발언", "🟡 Medium"),
+            ("🔒 **Security**", "The Hacker News", "Veeam Backup RCE 취약점", "🟡 Medium"),
+        )
+        panels = _digest_panels(sc, content)
+        heads = [p["headline"] for p in panels]
+        assert heads[0] == "Storm-2949"  # editorial highlight stays the hero
+        veeam = next(i for i, h in enumerate(heads) if "Veeam" in h)
+        arthur = next((i for i, h in enumerate(heads) if "Arthur" in h), 99)
+        assert veeam < arthur, heads  # Security floats above Blockchain filler
+
+    def test_filler_rank_is_letter_boundary_anchored(self):
+        # "FinTech"/"Biotech" CONTAIN "tech" but are on-topic — must NOT be
+        # demoted as filler; bare Blockchain/Tech (any decoration) must be.
+        from scripts.news.l20_dispatch import _category_rank
+        assert _category_rank("💻 **FinTech**") == 0
+        assert _category_rank("🧬 **Biotech**") == 0
+        assert _category_rank("🔒 **Security**") == 0
+        assert _category_rank("⛓️ **Blockchain**") == 1
+        assert _category_rank("💻 **Tech**") == 1
+        assert _category_rank("⛓️ **블록체인**") == 1
+
+    def test_editorial_highlight_not_demoted_by_table_category(self):
+        # A no-signal editorial highlight must NOT be pushed below a Security
+        # table-backfill row — editorial highlights dominate the table backfill.
+        sc = {"highlights": [
+            {"source": "The Hacker News", "title": "JDownloader Python 패키지 악용"},
+        ]}
+        content = _table(
+            ("🔒 **Security**", "The Hacker News", "Veeam Backup RCE 취약점", "🟡 Medium"),
+        )
+        panels = _digest_panels(sc, content)
+        assert panels[0]["headline"].startswith("JDownloader"), [p["headline"] for p in panels]
