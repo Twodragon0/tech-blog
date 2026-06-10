@@ -2,8 +2,8 @@
 # Source: _posts/2026-04-05-Week1_April_2026_Security_Digest.md
 #
 # Audit:
-#   - redirect_from has 5 entries (4/1..4/5). daily_count = 5.
-#   - daily_count_source: redirect_from.
+#   - redirect_from has 7 entries: 5 daily URLs (4/1..4/5) + 2 self-canonical
+#     variants. daily_count = 5 (the daily URLs). daily_count_source: redirect_from.
 #   - Schema permits weekly_rollup with 5..7 days (audit-driven relaxation
 #     from plan's strict ==7; April Week 1 only spans Tue..Fri).
 date: '2026-04-05'

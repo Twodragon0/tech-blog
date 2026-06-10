@@ -2,7 +2,8 @@
 # Source: _posts/2026-01-31-January_2026_Security_Digest_Monthly_Index.md
 #
 # Audit (see .omc/plans/rollup-cover-design-audit.md):
-#   - No redirect_from in this post. daily_count_source: index_table.
+#   - redirect_from has 2 entries (self-canonical variants only; a monthly index
+#     does not redirect the dailies). daily_count_source: index_table.
 #   - January digests are W4-only: 1/23..1/31 = 9 daily digests.
 #   - summary_card.highlights has 3 generic editorial items; we replace
 #     them with concrete monthly-trend headlines pulled from the

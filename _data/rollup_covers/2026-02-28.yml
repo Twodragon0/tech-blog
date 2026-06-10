@@ -2,7 +2,8 @@
 # Source: _posts/2026-02-28-February_2026_Security_Digest_Monthly_Index.md
 #
 # Audit:
-#   - No redirect_from. daily_count_source: index_table.
+#   - redirect_from has 2 entries (self-canonical variants only; a monthly index
+#     does not redirect the dailies). daily_count_source: index_table.
 #   - 22 daily digests across 4 weeks (W1=6, W2=3, W3=6, W4=7).
 #   - Render as 4 week-aggregated cells (not 22 day cells) to keep the
 #     strip readable. Each week-cell carries the dominant theme of its

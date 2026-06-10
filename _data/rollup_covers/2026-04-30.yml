@@ -2,8 +2,8 @@
 # Source: _posts/2026-04-30-Week4_April_2026_Security_Digest.md
 #
 # Audit:
-#   - redirect_from has 11 entries (4/20..4/30). daily_count = 11.
-#   - daily_count_source: redirect_from.
+#   - redirect_from has 13 entries: 11 daily URLs (4/20..4/30) + 2 self-canonical
+#     variants. daily_count = 11 (the daily URLs). daily_count_source: redirect_from.
 #   - weekly_rollup caps at 7 days; this post spans 11 days so kind = monthly_index.
 #   - Previously force-fit into digest_covers/ L22 3-band format — now corrected.
 date: '2026-04-30'
