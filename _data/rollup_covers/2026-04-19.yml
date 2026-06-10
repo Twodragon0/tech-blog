@@ -2,8 +2,8 @@
 # Source: _posts/2026-04-19-Week3_April_2026_Security_Digest.md
 #
 # Audit:
-#   - redirect_from has 7 entries (4/13..4/19). daily_count = 7.
-#   - daily_count_source: redirect_from.
+#   - redirect_from has 9 entries: 7 daily URLs (4/13..4/19) + 2 self-canonical
+#     variants. daily_count = 7 (the daily URLs). daily_count_source: redirect_from.
 date: '2026-04-19'
 slug: Week3_April_2026_Security_Digest
 kind: weekly_rollup
