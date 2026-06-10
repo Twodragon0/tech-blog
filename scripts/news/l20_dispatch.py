@@ -884,6 +884,54 @@ _ENTITY_ACRONYMS: frozenset = frozenset({
     "npm", "pip", "ssh", "tls", "dns", "gpt", "ios", "vm", "vms", "ot",
 })
 
+# Generic platform / region words that read as a noise *trailing* token on a
+# cover ("Showboat Linux" -> "Showboat", "Foo Cloud" -> "Foo"). They are NOT
+# distinctive story subjects on their own, so they are dropped from the 2-token
+# headline join and rejected as a lone headline.
+_GENERIC_TRAILING: frozenset = frozenset({
+    "linux", "windows", "android", "ios", "macos", "cloud", "ai", "ml", "api",
+    "web", "app", "mena", "apac", "emea",
+})
+
+# Weak lead words that pass the acronym/Capitalized filter but make a useless
+# headline on their own ("Sorry", a bare "New"/"Report"). Rejected as a lone
+# headline; a stronger following entity is preferred.
+_WEAK_HEADLINE_WORDS: frozenset = frozenset({
+    "sorry", "new", "first", "report", "update", "alert", "week", "summary",
+})
+
+
+def _common_prefix_len(a: str, b: str) -> int:
+    """Length of the case-insensitive common leading run of ``a`` and ``b``."""
+    n = 0
+    for x, y in zip(a.lower(), b.lower()):
+        if x != y:
+            break
+        n += 1
+    return n
+
+
+def _is_good_headline(h: str) -> bool:
+    """True iff ``h`` is a presentable, distinctive headline token/phrase.
+
+    A good headline is ASCII-only AND (>= 4 chars OR a CVE id OR a multi-word
+    phrase). A SINGLE token additionally must not be a bare acronym
+    (``AI``/``VPN``/``npm``), a generic platform/region word (``Linux``,
+    ``MENA``), or a weak lead word (``Sorry``, ``New``) — those overclaim
+    nothing but read as garbage on a cover.
+    """
+    h = (h or "").strip()
+    if not h or not h.isascii():
+        return False
+    has_space = " " in h
+    if not (len(h) >= 4 or _CVE_RE.match(h) or has_space):
+        return False
+    if not has_space:
+        tl = h.lower()
+        if tl in (_ENTITY_ACRONYMS | _GENERIC_TRAILING | _WEAK_HEADLINE_WORDS):
+            return False
+    return True
+
 
 def _entity_tokens(title: str) -> List[str]:
     """Distinctive ASCII entity tokens from a (possibly Korean) headline.
@@ -911,8 +959,29 @@ def _entity_tokens(title: str) -> List[str]:
     return out
 
 
-def _panel_from_source_title(src: str, ttl: str) -> Optional[Dict]:
-    """Build one ``{headline, subheadline}`` panel from a (source, title) pair.
+# Map a severity cell's emoji marker to an ASCII all-caps severity word. The
+# digest highlights table tags each row's impact with a colored dot
+# (🔴 critical / 🟠 high / 🟡 medium); anything else is unknown -> "" (the
+# cover then OMITS the severity line rather than asserting a fabricated level).
+_SEVERITY_BY_EMOJI: Dict[str, str] = {
+    "🔴": "CRITICAL",
+    "🟠": "HIGH",
+    "🟡": "MEDIUM",
+}
+
+
+def _severity_from_marker(cell: str) -> str:
+    """ASCII severity word for a table/highlight severity cell, else ``""``."""
+    for emoji, word in _SEVERITY_BY_EMOJI.items():
+        if emoji in (cell or ""):
+            return word
+    return ""
+
+
+def _panel_from_source_title(
+    src: str, ttl: str, severity: str = ""
+) -> Optional[Dict]:
+    """Build one ``{headline, subheadline, severity}`` panel from a pair.
 
     * headline = the lead 1-2 entity tokens (joins multi-word product names
       like ``"Hugging Face"`` when they fit), capped at ``_HEADLINE_MAX_CHARS``.
@@ -928,19 +997,84 @@ def _panel_from_source_title(src: str, ttl: str) -> Optional[Dict]:
     if not toks:
         return None
     non_cve = [t for t in toks if not _CVE_RE.match(t)]
-    if non_cve:
-        headline = non_cve[0]
-        if (
-            len(non_cve) > 1
-            and len(f"{non_cve[0]} {non_cve[1]}") <= _HEADLINE_MAX_CHARS
-        ):
-            headline = f"{non_cve[0]} {non_cve[1]}"
-    else:
-        headline = toks[0]
-    headline = _shorten(headline, _HEADLINE_MAX_CHARS)
-
     cve = _CVE_RE.search(_html.unescape(ttl))
     cve_str = cve.group(0).upper() if cve else ""
+
+    headline: str = ""
+    if non_cve:
+        # Lead candidate: first entity, optionally joined with the second token
+        # — but never glue a generic platform/region trailing word ("Showboat
+        # Linux" -> "Showboat", "Foo MENA" -> "Foo").
+        candidate = non_cve[0]
+        if (
+            len(non_cve) > 1
+            and non_cve[1].lower() not in _GENERIC_TRAILING
+            # Skip a near-duplicate brand restatement ("ChatGPhish ChatGPT"):
+            # a long shared prefix means token 2 just echoes token 1.
+            and _common_prefix_len(non_cve[0], non_cve[1]) < 4
+            and len(f"{non_cve[0]} {non_cve[1]}") <= _HEADLINE_MAX_CHARS
+        ):
+            candidate = f"{non_cve[0]} {non_cve[1]}"
+        # Trust the lead candidate only when it is good AND the LEAD token is
+        # not itself a generic/weak/acronym word — otherwise a phrase like
+        # "Linux Defender" would slip through on the strength of its space.
+        #
+        # Exception: a known cloud/product ACRONYM (aws, gcp, npm, …) IS a
+        # meaningful lead when the second token is a real entity — e.g.
+        # "AWS KY3P" is a recognisable vendor+product phrase. In that case
+        # keep the joined candidate even though the lead token alone would be
+        # flagged as "bad". Only reject the join when the lead is a *generic
+        # trailing* or *weak* word (linux, cloud, sorry, etc.).
+        lead_token_lower = non_cve[0].lower()
+        lead_is_acronym = lead_token_lower in _ENTITY_ACRONYMS
+        lead_is_generic = lead_token_lower in (_GENERIC_TRAILING | _WEAK_HEADLINE_WORDS)
+        lead_bad = lead_token_lower in (
+            _ENTITY_ACRONYMS | _GENERIC_TRAILING | _WEAK_HEADLINE_WORDS
+        )
+        # Allow "ACRONYM Product" joins (e.g. "AWS KY3P", "npm worm", "GCP
+        # IAM") when the second token itself passes _is_good_headline.
+        two_token_candidate = " " in candidate
+        acronym_product_join = (
+            two_token_candidate
+            and lead_is_acronym
+            and not lead_is_generic  # ios, ai, ml are in BOTH sets → still bad
+            and len(non_cve) > 1
+            and _is_good_headline(non_cve[1])
+        )
+        if _is_good_headline(candidate) and (not lead_bad or acronym_product_join):
+            headline = candidate
+        else:
+            # The lead entity is a bare acronym / generic / weak word (e.g.
+            # "AI", "Sorry", "Linux"). Scan for the first token that passes,
+            # preferring a Capitalized non-acronym over a lone acronym.
+            cap = next(
+                (t for t in non_cve
+                 if _is_good_headline(t) and t.lower() not in _ENTITY_ACRONYMS),
+                "",
+            )
+            acro = next((t for t in non_cve if _is_good_headline(t)), "")
+            headline = cap or acro
+
+    if not headline:
+        # No non-CVE entity passed. Prefer a CVE id, then an ASCII source as a
+        # last-resort headline (with a neutral descriptor), else give up so the
+        # caller keeps the filename-keyword fallback. NEVER emit a lone
+        # acronym / generic / weak word as the headline.
+        if cve_str:
+            headline = cve_str
+        elif src and not _has_hangul(src) and src.isascii():
+            return {
+                "headline": _shorten(src, _HEADLINE_MAX_CHARS),
+                "subheadline": "Security advisory",
+                "severity": severity,
+                # Mark as source-name fallback so _digest_panels can demote
+                # this to a side card when a real-entity story is available.
+                "_src_fallback": True,
+            }
+        else:
+            return None
+    headline = _shorten(headline, _HEADLINE_MAX_CHARS)
+
     # Don't echo the CVE in the subheadline when it is already the headline
     # (CVE-only highlight) — avoids "CVE-X / CVE-X - source".
     if cve_str and cve_str == headline.upper():
@@ -956,7 +1090,11 @@ def _panel_from_source_title(src: str, ttl: str) -> Optional[Dict]:
         # No ASCII source / CVE: use a neutral descriptor rather than echoing
         # the headline back (avoids a redundant "APT / APT" band).
         sub = "Security advisory"
-    return {"headline": headline, "subheadline": _shorten(sub, _SUB_MAX_CHARS)}
+    return {
+        "headline": headline,
+        "subheadline": _shorten(sub, _SUB_MAX_CHARS),
+        "severity": severity,
+    }
 
 
 def _digest_highlight_panels(highlights) -> List[Dict]:
@@ -972,9 +1110,10 @@ def _digest_highlight_panels(highlights) -> List[Dict]:
         if isinstance(h, dict):
             src = str(h.get("source", "") or "")
             ttl = str(h.get("title", "") or "")
+            sev = _severity_from_marker(str(h.get("severity", "") or ""))
         else:
-            src, ttl = "", str(h or "")
-        panel = _panel_from_source_title(src, ttl)
+            src, ttl, sev = "", str(h or ""), ""
+        panel = _panel_from_source_title(src, ttl, sev)
         if panel is not None:
             panels.append(panel)
     return panels
@@ -1010,7 +1149,7 @@ def _digest_table_panels(content: str) -> List[Dict]:
             continue
         if not source or set(col4) <= set("-: "):
             continue
-        panel = _panel_from_source_title(source, title)
+        panel = _panel_from_source_title(source, title, _severity_from_marker(col4))
         if panel is not None:
             panels.append(panel)
     return panels
@@ -1037,6 +1176,62 @@ def _digest_stats(content: str) -> Dict[str, Optional[int]]:
     return {"total": _grab(_DIGEST_TOTAL_RE), "security": _grab(_DIGEST_SECURITY_RE)}
 
 
+def _rescue_hero(panels: List[Dict]) -> List[Dict]:
+    """Promote the best real-entity story to the hero slot when the natural hero
+    is a source-name fallback (e.g. "The Hacker News") and a more informative
+    story is available in the side cards.
+
+    Trigger condition (all must be true):
+    - panels[0] has ``_src_fallback=True`` (headline == ASCII source name)
+    - At least one of panels[1:] does NOT have ``_src_fallback=True``
+
+    Promotion is targeted: we pick the side-card story with the best real entity
+    (prefer stories with a known severity; among equals, prefer the longer
+    headline as a proxy for specificity) and swap it into slot 0. The demoted
+    source-name story fills the vacated side-card slot.
+
+    If ALL panels are source-name fallbacks, or panels[0] already has a real
+    entity, return the list unchanged — no blind reshuffling.
+
+    This is honesty-neutral: visual routing follows the headline (unchanged by
+    this swap), all digest stories route only to always-honest classes, and the
+    scorer's :func:`resolve_digest_band_visuals` calls :func:`_digest_panels`
+    which calls this same function, so path-a stays byte-identical to path-b.
+    """
+    if not panels or not panels[0].get("_src_fallback"):
+        return panels
+
+    # Find the best non-source-fallback candidate from the side cards.
+    # Primary tiebreaker: severity (CRITICAL > HIGH > MEDIUM > unknown).
+    # Secondary tiebreaker: editorial rank (lower index wins, i.e. the story
+    # that appeared first in the highlights is considered more newsworthy).
+    _SEV_RANK = {"CRITICAL": 3, "HIGH": 2, "MEDIUM": 1, "": 0}
+
+    best_idx: Optional[int] = None
+    best_sev: int = -1
+    for i, p in enumerate(panels[1:], start=1):
+        if p.get("_src_fallback"):
+            continue
+        sev_score = _SEV_RANK.get((p.get("severity") or "").upper(), 0)
+        # Prefer higher severity; among equal severity, the first real-entity
+        # story wins (lower index = earlier editorial rank). Since we iterate
+        # left-to-right and only update on strict improvement, the first
+        # equal-severity story is kept automatically.
+        if sev_score > best_sev:
+            best_sev = sev_score
+            best_idx = i
+
+    if best_idx is None:
+        # All side cards are also source fallbacks; keep original order.
+        return panels
+
+    # Swap: bring the best real-entity story to slot 0, demote the
+    # source-name story to the vacated position.
+    result = list(panels)
+    result[0], result[best_idx] = result[best_idx], result[0]
+    return result
+
+
 def _digest_panels(summary_card, content: str) -> List[Dict]:
     """The ordered real-content panels for a digest, lead story first.
 
@@ -1056,6 +1251,9 @@ def _digest_panels(summary_card, content: str) -> List[Dict]:
                 continue
             seen.add(p["headline"].lower())
             panels.append(p)
+    # Hero rescue: if the natural hero is a source-name fallback but a better
+    # real-entity story is available in the side cards, swap it in.
+    panels = _rescue_hero(panels)
     return panels
 
 
@@ -1147,6 +1345,9 @@ def _apply_real_content(
             panel = panels[i]
             story["headline"] = panel["headline"]
             story["subheadline"] = panel["subheadline"]
+            # Real per-story severity (ASCII word) for the advisory gauge; ""
+            # when unknown so the renderer OMITS the severity line (no "TBD").
+            story["severity"] = panel.get("severity", "")
             # Re-route the visual (+ theme, + hero action) to the real story,
             # clamped to an honest, non-overclaiming class.
             new_visual = _honest_content_visual(

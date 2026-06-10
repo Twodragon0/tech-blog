@@ -25,16 +25,21 @@ from scripts.news.l20_dispatch import (
     _build_story,
     _DIGEST_CONTENT_HONEST,
     _digest_highlight_panels,
+    _digest_panels,
     _digest_stats,
     _digest_table_panels,
     _entity_tokens,
     _honest_content_visual,
+    _is_good_headline,
     _panel_from_source_title,
+    _rescue_hero,
+    _severity_from_marker,
     resolve_digest_band_visuals,
     route_visual_id,
     _HEADLINE_MAX_CHARS,
     _SUB_MAX_CHARS,
 )
+from scripts.lib.svg_l20_hero import render_l20_hero
 
 _DIGEST_TABLE = (
     "| 분야 | 소스 | 핵심 내용 | 영향도 |\n"
@@ -123,10 +128,19 @@ class TestDigestHighlightPanels:
         assert panels[0]["subheadline"] == "BleepingComputer"
 
     def test_no_redundant_subheadline_when_no_source(self):
+        # Fix A: a lone short acronym ("APT", len 3) is no longer a good
+        # headline, and with no ASCII source there is nothing to fall back to,
+        # so the slot is skipped (None) rather than echoing a weak "APT / APT".
         hl = [self._hl("", "APT 그룹 활동 관측")]
+        assert _digest_highlight_panels(hl) == []
+
+    def test_neutral_descriptor_when_strong_headline_no_source(self):
+        # A strong multi-word headline with no ASCII source gets the neutral
+        # descriptor, never an echo of the headline.
+        hl = [self._hl("", "SilentRoute Campaign 관측")]
         panels = _digest_highlight_panels(hl)
-        assert panels[0]["headline"] == "APT"
-        assert panels[0]["subheadline"] != "APT"  # neutral descriptor, not echo
+        assert panels[0]["headline"] == "SilentRoute Campaign"
+        assert panels[0]["subheadline"] == "Security advisory"
 
     def test_empty_highlights_returns_empty_list(self):
         assert _digest_highlight_panels(None) == []
@@ -364,3 +378,447 @@ class TestContentRoutingHonestyGuard:
     def test_always_pass_classes_pass_through_unchanged(self):
         for vid in self._always_pass_classes():
             assert _honest_content_visual(vid) == vid
+
+
+# ---------------------------------------------------------------------------
+# Headline quality (Fix A): garbled / bare-acronym headlines are rejected
+# ---------------------------------------------------------------------------
+import pytest  # noqa: E402
+
+
+class TestIsGoodHeadline:
+    @pytest.mark.parametrize("tok", [
+        "Showboat", "ChatGPhish", "Apache HTTP/2", "Ivanti", "Cisco",
+        "Defender", "CVE-2026-1234",
+    ])
+    def test_good_tokens(self, tok):
+        assert _is_good_headline(tok) is True
+
+    @pytest.mark.parametrize("tok", [
+        "Sorry", "AI", "VPN", "npm", "MENA", "Linux", "New", "",
+        "안녕하세요",  # non-ASCII never good
+    ])
+    def test_bad_tokens(self, tok):
+        assert _is_good_headline(tok) is False
+
+
+class TestHeadlineQuality:
+    """The known-bad raw digest titles must not produce garbage headlines.
+
+    A ``None`` panel means the slot stays on the filename-keyword fallback —
+    acceptable; what is NOT acceptable is a lone acronym / generic / weak word
+    becoming the displayed headline.
+    """
+    _BAD_LONE = {"sorry", "ai", "vpn", "npm", "mena", "linux"}
+
+    @pytest.mark.parametrize("ttl", [
+        "Sorry", "AI", "VPN", "npm", "MENA",
+    ])
+    def test_lone_bad_word_never_a_headline(self, ttl):
+        # With a Korean (non-ASCII) source the panel must be None (no garbage),
+        # because the only ASCII token is a rejected lone word.
+        p = _panel_from_source_title("한국소스", ttl)
+        assert p is None
+
+    @pytest.mark.parametrize("ttl,expected", [
+        ("Showboat Linux", "Showboat"),
+        ("ChatGPhish ChatGPT", "ChatGPhish"),
+        ("Linux Defender", "Defender"),
+    ])
+    def test_garbled_titles_cleaned(self, ttl, expected):
+        p = _panel_from_source_title("The Hacker News", ttl)
+        assert p is not None
+        assert p["headline"] == expected
+
+    @pytest.mark.parametrize("ttl", [
+        "Apache HTTP/2", "Ivanti EPMM", "Cisco Catalyst",
+        "Mirai ADB", "Turla Kazuar", "Hugging Face",
+    ])
+    def test_good_titles_unchanged(self, ttl):
+        p = _panel_from_source_title("The Hacker News", ttl)
+        assert p is not None
+        assert p["headline"] == ttl
+
+    def test_no_panel_ever_emits_a_bad_lone_headline(self):
+        for ttl in ("Sorry", "AI", "VPN", "npm", "MENA"):
+            p = _panel_from_source_title("The Hacker News", ttl)
+            # ASCII source -> falls back to source headline, never the bad word.
+            assert p is not None
+            assert p["headline"].lower() not in self._BAD_LONE
+
+
+class TestPanelFallback:
+    def test_korean_subject_non_ascii_source_returns_none(self):
+        assert _panel_from_source_title("한국소스", "봇넷 해체 작전") is None
+
+    def test_ascii_source_fallback_uses_source_and_advisory_sub(self):
+        # The only ASCII token is a rejected lone word ("Sorry"), so no entity
+        # passes; the ASCII source becomes the headline with a neutral sub.
+        p = _panel_from_source_title("The Hacker News", "Sorry 사과문 발표")
+        assert p is not None
+        assert p["headline"] == "The Hacker News"
+        assert p["subheadline"] == "Security advisory"
+
+    def test_zero_token_title_returns_none(self):
+        # An all-Korean title has no ASCII token at all -> skip the slot.
+        assert _panel_from_source_title("The Hacker News", "보안 속보 분석") is None
+
+
+# ---------------------------------------------------------------------------
+# Severity (Fix B): real severity instead of "SEVERITY: TBD"
+# ---------------------------------------------------------------------------
+class TestSeverityFromMarker:
+    @pytest.mark.parametrize("cell,expected", [
+        ("🔴 Critical", "CRITICAL"),
+        ("🟠 High", "HIGH"),
+        ("🟡 Medium", "MEDIUM"),
+        ("Low", ""),
+        ("", ""),
+        ("-", ""),
+    ])
+    def test_emoji_to_ascii(self, cell, expected):
+        assert _severity_from_marker(cell) == expected
+
+
+class TestSeverityPanelPlumbing:
+    def test_table_panel_carries_severity(self):
+        table = (
+            "| 분야 | 소스 | 핵심 내용 | 영향도 |\n"
+            "|------|------|----------|--------|\n"
+            "| Security | The Hacker News | Aeternum Botnet C2 | 🔴 Critical |\n"
+        )
+        panels = _digest_table_panels(table)
+        assert panels and panels[0].get("severity") == "CRITICAL"
+
+    def test_highlight_panel_carries_severity(self):
+        hl = [{"source": "The Hacker News", "title": "Aeternum Botnet C2",
+               "severity": "🟠 High"}]
+        panels = _digest_highlight_panels(hl)
+        assert panels and panels[0].get("severity") == "HIGH"
+
+    def test_apply_real_content_sets_story_severity(self):
+        stories = [
+            _build_story(headline="x", subheadline="x", index=0,
+                         severity_label="HIGH", action="READ"),
+            _build_story(headline="x", subheadline="x", index=1,
+                         severity_label="HIGH"),
+            _build_story(headline="x", subheadline="x", index=2,
+                         severity_label="MEDIUM"),
+        ]
+        post_info = {
+            "summary_card": {"highlights": [
+                {"source": "The Hacker News", "title": "Aeternum Botnet C2",
+                 "severity": "🟠 High"},
+            ]},
+            "content": "- **총 뉴스 수**: 12개\n- **보안 뉴스**: 2개\n",
+        }
+        _apply_real_content(stories, post_info)
+        assert stories[0].get("severity") == "HIGH"
+
+
+class TestRenderedSeverity:
+    def _stories_with_advisory(self):
+        stories = [
+            _build_story(headline="x", subheadline="x", index=0,
+                         severity_label="HIGH", action="READ"),
+            _build_story(headline="x", subheadline="x", index=1,
+                         severity_label="HIGH"),
+            _build_story(headline="x", subheadline="x", index=2,
+                         severity_label="MEDIUM"),
+        ]
+        post_info = {
+            "summary_card": {"highlights": [
+                {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견",
+                 "severity": "🟠 High"},
+            ]},
+            "content": "- **총 뉴스 수**: 30개\n- **보안 뉴스**: 5개\n",
+        }
+        _apply_real_content(stories, post_info)
+        return stories
+
+    def test_no_tbd_or_under_review_in_svg(self):
+        st = self._stories_with_advisory()
+        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2],
+                              "https://x", "Digest")
+        assert "SEVERITY: TBD" not in svg
+        assert "unspecified - under review" not in svg
+
+    def test_known_severity_line_present(self):
+        st = self._stories_with_advisory()
+        # Band 0 routes to security_advisory (botnet headline -> clamp) and has
+        # a known severity, so the gauge shows the ASCII severity word.
+        assert st[0]["visual"] == "security_advisory"
+        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2],
+                              "https://x", "Digest")
+        assert "SEVERITY: HIGH" in svg
+
+    def test_anchors_and_ascii_preserved(self):
+        st = self._stories_with_advisory()
+        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2],
+                              "https://x", "Digest")
+        # Scorer path-b anchors must survive (security_advisory + neutral).
+        assert "SECURITY ADVISORY" in svg
+        assert ">UPDATE<" in svg
+        assert svg.isascii()
+
+    def test_unknown_severity_omits_line(self):
+        # A security_advisory band with no severity must omit the line entirely.
+        st = [
+            _build_story(headline="malware threat advisory", subheadline="x",
+                         index=0, severity_label="HIGH", action="READ"),
+            _build_story(headline="update", subheadline="x", index=1,
+                         severity_label="HIGH"),
+            _build_story(headline="update", subheadline="x", index=2,
+                         severity_label="MEDIUM"),
+        ]
+        # No real content -> no severity set on the stories.
+        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2],
+                              "https://x", "Digest")
+        assert "SEVERITY: TBD" not in svg
+        assert "unspecified - under review" not in svg
+
+
+# ---------------------------------------------------------------------------
+# Honesty lockstep: scorer path-a (routed) == path-b (rendered fingerprint)
+# ---------------------------------------------------------------------------
+class TestHonestyLockstep:
+    def test_routed_equals_fingerprinted_no_stale_render(self):
+        from scripts import score_cover_honesty as sch
+
+        # Three DISTINCT band visuals (security_advisory / market / neutral) so
+        # the per-builder anchor fingerprinter can recover all three in order
+        # (it records the first occurrence per visual id).
+        title = "주간 보안 다이제스트"
+        excerpt = ""
+        filename = "2026-05-30-Tech_Security_Weekly_Digest_Botnet.md"
+        summary_card = {"highlights": [
+            {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견",
+             "severity": "🟠 High"},
+            {"source": "Cointelegraph", "title": "Bitcoin $71K 급등",
+             "severity": "🟡 Medium"},
+            {"source": "Microsoft", "title": "Teams 업데이트 배포",
+             "severity": "-"},
+        ]}
+        content = "- **총 뉴스 수**: 30개\n- **보안 뉴스**: 5개\n"
+
+        # path a: routing intent
+        routed = resolve_digest_band_visuals(
+            title, excerpt, filename, content=content, summary_card=summary_card)
+
+        # Build the SAME stories the generator would and render them.
+        stories = [
+            _build_story(headline="x", subheadline="x", index=0,
+                         severity_label="HIGH", action="READ"),
+            _build_story(headline="x", subheadline="x", index=1,
+                         severity_label="HIGH"),
+            _build_story(headline="x", subheadline="x", index=2,
+                         severity_label="MEDIUM"),
+        ]
+        _apply_real_content(stories, {"summary_card": summary_card,
+                                      "content": content})
+        svg = render_l20_hero("2026.05.30", stories[0], stories[1],
+                              stories[2], "https://x", "Digest")
+
+        # path b: fingerprint the rendered SVG
+        fingerprinted = sch._fingerprint_visual_ids(svg, n_bands=3)
+        assert routed == fingerprinted
+
+
+# ---------------------------------------------------------------------------
+# Vendor+product acronym join: "AWS KY3P" must survive intact
+# ---------------------------------------------------------------------------
+class TestAcronymProductJoin:
+    """The lead_bad guard must NOT strip a known cloud/vendor acronym when it
+    is paired with a real entity in a two-token join ("AWS KY3P", "GCP IAM").
+    """
+
+    def test_aws_ky3p_preserved(self):
+        """'AWS KY3P' is a recognisable vendor+product phrase and must appear
+        as the headline, NOT the bare product alone ("KY3P")."""
+        p = _panel_from_source_title(
+            "AWS Security Blog",
+            "AWS KY3P 보고서, 서드파티 공급업체 실사에 활용 가능",
+        )
+        assert p is not None
+        assert p["headline"] == "AWS KY3P"
+        assert not p.get("_src_fallback")
+
+    def test_npm_worm_preserved(self):
+        """'npm' is an acronym lead; joined with a real entity it should stay."""
+        p = _panel_from_source_title(
+            "The Hacker News",
+            "npm Worm, 주간 패키지 공급망 공격 최신 동향",
+        )
+        # npm + Worm → "npm Worm" (Worm passes _is_good_headline, not generic)
+        assert p is not None
+        assert p["headline"] == "npm Worm"
+        assert not p.get("_src_fallback")
+
+    def test_generic_trailing_still_stripped(self):
+        """A cloud/platform generic trailing word is still dropped even when
+        the lead is an acronym: 'npm Linux' → lone product scan, not 'npm Linux'."""
+        p = _panel_from_source_title(
+            "BleepingComputer",
+            "npm Linux 패키지 업데이트 권고",
+        )
+        # "Linux" is in _GENERIC_TRAILING → join blocked even with acronym lead.
+        # The fallback scan finds no good non-acronym cap → falls back to source.
+        assert p is not None
+        # headline must NOT be "npm Linux"
+        assert p["headline"] != "npm Linux"
+
+    def test_lone_acronym_lead_no_second_token_still_falls_back(self):
+        """A lone acronym with no second token still falls back to source."""
+        p = _panel_from_source_title(
+            "The Hacker News",
+            "VPN 해킹 사건 발생",
+        )
+        # "VPN" alone → lead_bad, no good second token → source fallback
+        assert p is not None
+        assert p.get("_src_fallback") is True
+        assert p["headline"] == "The Hacker News"
+
+
+# ---------------------------------------------------------------------------
+# Hero rescue: source-name hero replaced by best real-entity side card
+# ---------------------------------------------------------------------------
+class TestHeroRescue:
+    """When panels[0] is a source-name fallback and a real-entity story exists
+    in the side cards, _rescue_hero() must swap the best real-entity story into
+    slot 0 (the hero)."""
+
+    @staticmethod
+    def _make_panel(headline, src_fallback=False, severity=""):
+        return {
+            "headline": headline,
+            "subheadline": "sub",
+            "severity": severity,
+            "_src_fallback": src_fallback,
+        }
+
+    def test_rescue_promotes_first_real_entity(self):
+        panels = [
+            self._make_panel("The Hacker News", src_fallback=True),
+            self._make_panel("Storm-2949"),
+            self._make_panel("Exchange npm"),
+        ]
+        result = _rescue_hero(panels)
+        assert result[0]["headline"] == "Storm-2949"
+        assert result[1]["headline"] == "The Hacker News"
+        assert result[2]["headline"] == "Exchange npm"
+
+    def test_rescue_prefers_higher_severity(self):
+        panels = [
+            self._make_panel("BleepingComputer", src_fallback=True),
+            self._make_panel("Trellix", severity=""),
+            self._make_panel("ConsentFix OAuth", severity="HIGH"),
+        ]
+        result = _rescue_hero(panels)
+        # ConsentFix OAuth has higher severity → promoted over Trellix
+        assert result[0]["headline"] == "ConsentFix OAuth"
+
+    def test_no_rescue_when_hero_is_real_entity(self):
+        panels = [
+            self._make_panel("Ivanti EPMM"),  # NOT a source fallback
+            self._make_panel("The Hacker News", src_fallback=True),
+            self._make_panel("Storm-2949"),
+        ]
+        result = _rescue_hero(panels)
+        # Hero already real — no change
+        assert result[0]["headline"] == "Ivanti EPMM"
+
+    def test_no_rescue_when_all_are_source_fallbacks(self):
+        panels = [
+            self._make_panel("The Hacker News", src_fallback=True),
+            self._make_panel("BleepingComputer", src_fallback=True),
+            self._make_panel("AWS Security Blog", src_fallback=True),
+        ]
+        result = _rescue_hero(panels)
+        # Nothing to promote — order unchanged
+        assert result[0]["headline"] == "The Hacker News"
+
+    def test_no_rescue_with_empty_panels(self):
+        assert _rescue_hero([]) == []
+
+    def test_src_fallback_marker_set_for_source_name_panels(self):
+        """_panel_from_source_title must set _src_fallback=True when falling
+        back to the ASCII source name (no usable entity in the title)."""
+        p = _panel_from_source_title(
+            "The Hacker News",
+            "인터폴 작전 람즈, MENA 사이버범죄 네트워크 교란하며 201명 체포",
+        )
+        assert p is not None
+        assert p.get("_src_fallback") is True
+        assert p["headline"] == "The Hacker News"
+
+    def test_real_entity_panel_has_no_src_fallback_marker(self):
+        """A panel with a real entity must NOT have _src_fallback=True."""
+        p = _panel_from_source_title(
+            "The Hacker News",
+            "Ghostwriter, 우크라이나 정부 기관 대상 Prometheus 피싱 멀웨어 공격",
+        )
+        assert p is not None
+        assert not p.get("_src_fallback")
+        # Should produce "Ghostwriter" or "Ghostwriter Prometheus"
+        assert "Ghostwriter" in p["headline"]
+
+
+# ---------------------------------------------------------------------------
+# Integration: no May hero should be a bare source name when a real entity
+# exists in the day's side cards.
+# ---------------------------------------------------------------------------
+class TestNoSourceNameHero:
+    """End-to-end guard: for all 30 May 2026 digest posts, if the final hero
+    headline is a known source-name string, at least one of the side-card
+    panels must also be a source-name fallback (meaning no real entity was
+    available that day — the cover is genuinely unavoidable)."""
+
+    # Known news-source names that appear as source-fallback headlines.
+    _KNOWN_SOURCES = frozenset({
+        "BleepingComputer", "The Hacker News", "AWS Security Blog",
+        "Microsoft Security Blog", "SecurityWeek", "Krebs on Security",
+        "Dark Reading", "Threatpost", "CISA", "NIST", "Google Cloud Blog",
+        "Google Security Blog", "GitHub Security Blog", "The Record",
+        "Ars Technica", "Wired", "ZDNet", "TechCrunch", "Help Net Security",
+        "Risky Business", "SC Magazine", "Security Boulevard", "SecurityWeek",
+    })
+
+    def _load_may_posts(self):
+        import glob, re, yaml
+        posts = []
+        for fn in sorted(glob.glob("_posts/2026-05-*.md")):
+            with open(fn) as f:
+                raw = f.read()
+            m = re.match(r"^---\n(.*?)\n---\n", raw, re.DOTALL)
+            if not m:
+                continue
+            fm = yaml.safe_load(m.group(1))
+            content = raw[m.end():]
+            posts.append((fn.split("/")[-1][:10], fm.get("summary_card"), content))
+        return posts
+
+    def test_no_avoidable_source_name_hero(self):
+        """When the hero headline is a known source name, ALL side-card panels
+        must also be source-name fallbacks (meaning there was no real entity
+        available for any slot that day).  If a real-entity side card exists,
+        the hero rescue should have promoted it."""
+        failures = []
+        for datestr, summary_card, content in self._load_may_posts():
+            panels = _digest_panels(summary_card, content)
+            if not panels:
+                continue
+            hero = panels[0]
+            if hero["headline"] not in self._KNOWN_SOURCES:
+                continue  # hero is a real entity — OK
+            # Hero is a source name.  Check that all side cards are also src fallbacks.
+            side_real = [
+                p["headline"] for p in panels[1:]
+                if not p.get("_src_fallback")
+                and p["headline"] not in self._KNOWN_SOURCES
+            ]
+            if side_real:
+                failures.append(
+                    f"{datestr}: hero={hero['headline']!r} "
+                    f"but real-entity side cards={side_real}"
+                )
+        assert not failures, "Avoidable source-name heroes detected:\n" + "\n".join(failures)

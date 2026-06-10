@@ -707,13 +707,25 @@ def test_vb_security_advisory_no_fabricated_specifics() -> None:
         )
 
 
-def test_vb_security_advisory_signals_unspecified_severity() -> None:
-    """It DOES signal a security topic of unspecified severity — shield motif,
-    ADVISORY label, and a 'SEVERITY: TBD' (unassessed) reading."""
+def test_vb_security_advisory_omits_severity_when_unknown() -> None:
+    """Default (no severity supplied): the advisory still shows the shield +
+    ADVISORY label, but OMITS the severity line — never the fabricated
+    'SEVERITY: TBD' / 'unspecified - under review' reading (Fix B)."""
     out = svg_l20_hero.vb_security_advisory(800, 230, "amber")
     assert "SECURITY ADVISORY" in out, "missing SECURITY ADVISORY label"
-    assert "SEVERITY: TBD" in out, "missing unspecified-severity reading"
     assert "ADVISORY" in out
+    assert "SEVERITY: TBD" not in out, "must not assert a fabricated TBD level"
+    assert "unspecified - under review" not in out
+
+
+def test_vb_security_advisory_renders_known_severity() -> None:
+    """When a real post-reported severity is supplied, the gauge shows the
+    ASCII all-caps severity word (Fix B)."""
+    for word in ("CRITICAL", "HIGH", "MEDIUM"):
+        out = svg_l20_hero.vb_security_advisory(800, 230, "amber", severity=word)
+        assert f"SEVERITY: {word}" in out
+        assert "SEVERITY: TBD" not in out
+        assert out.isascii()
 
 
 def test_vb_security_advisory_routes_and_renders_via_dispatch() -> None:
