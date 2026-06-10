@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-09T00:31:46.458317+00:00",
+  "updated_at": "2026-06-10T00:39:24.286952+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/weekly-recap-linux-flaws-defender-0.html",
-      "title": "⚡ Weekly Recap: Linux Flaws, Defender 0-Days, Router Botnets, and Supply Chain C",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/ghost-cms-cve-2026-26980-exploited-to.html",
-      "title": "Ghost CMS CVE-2026-26980 Exploited to Hijack 700+ Sites for ClickFix Attacks",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/the-alert-firehose-finally-meets-its.html",
-      "title": "The Alert Firehose Finally Meets Its Match",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://research.checkpoint.com/2026/25th-may-threat-intelligence-report/",
-      "title": "25th May – Threat Intelligence Report",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/lazarus-deploys-remotepe-memory-only.html",
-      "title": "Lazarus Deploys RemotePE Memory-Only RAT Against Financial and Crypto Firms",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/chinese-language-phishing-services/",
-      "title": "2 PhaaS 2 Furious: The Evolution of Chinese-language Phishing Services",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-local-zones-in-istanbul-open-source-extenddb-kiro-web-and-more-may-25-2026/",
-      "title": "AWS Weekly Roundup: AWS Local Zones in Istanbul, open-source ExtendDB, Kiro Web,",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/05/25/why-kubernetes-policy-enforcement-happens-too-late-and-what-to-do-about-it/",
-      "title": "Why Kubernetes policy enforcement happens too late—and what to do about it",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/05/25/zero-downtime-migration-from-ingress-nginx-to-envoy-gateway/",
-      "title": "Zero-Downtime migration from ingress NGINX to Envoy Gateway",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/xrp-price-in-value-zone-near-140-as-whales-pull-170m-from-exchanges?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "XRP price trades in ‘value zone’ near $1.40 as whales pull $170M from exchanges",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/ledger-integrates-uae-backed-adi-token-as-gulf-blockchain-infrastructure-expands?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "UAE-linked ADI Chain gains Ledger support amid stablecoin growth",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/texas-primary-runoffs-crypto-pac-prediction-markets-newcomers?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Crypto PAC money pours into Texas primary runoffs, as prediction markets favor c",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/press-releases/coinquant-introduces-trading-infrastructure-for-the-agent-economy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "CoinQuant introduces trading infrastructure for the agent economy",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/squid-safe-labs-third-party-module-3-2-million-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Squid and Safe Labs say third-party module behind $3.2M exploit",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
-    {
-      "url": "https://arstechnica.com/tech-policy/2026/05/uss-big-bet-on-quantum-computing-may-not-be-entirely-legal/",
-      "title": "US's big bet on quantum computing may not be entirely legal",
-      "published_date": "2026-05-26",
-      "expires_at": "2026-06-02T00:32:07.090569+00:00"
-    },
     {
       "url": "https://www.microsoft.com/en-us/security/blog/2026/05/26/poisoned-search-results-gpu-mining-cryptojacking-campaign-abusing-screenconnect-microsoft-net-utilities/",
       "title": "From poisoned search results to GPU mining: A cryptojacking campaign abusing Scr",
@@ -1332,6 +1242,96 @@
       "title": "5 Software Supply Chain Security Best Practices for Development Teams",
       "published_date": "2026-06-09",
       "expires_at": "2026-06-16T00:31:46.458232+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/meta-to-use-off-site-business-data-for.html",
+      "title": "Meta to Use Off-Site Business Data for Feed and AI Personalization",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/veeam-backup-replication-rce-flaw-lets.html",
+      "title": "Veeam Backup & Replication RCE Flaw Lets Domain Users Run Remote Code",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/microsoft-restores-some-github-repos.html",
+      "title": "Microsoft Restores Some GitHub Repos, Keeps Others Offline as Miasma Probe Conti",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-defender-rogueplanet-zero-day-grants-system-privileges/",
+      "title": "Microsoft Defender 'RoguePlanet' zero-day grants SYSTEM privileges",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/winrar-flaw-exploited-by-russia-aligned.html",
+      "title": "WinRAR Flaw Exploited by Russia-Aligned Groups to Deploy Stealers in Ukraine",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-confidential-computing-apple-private-cloud-compute/",
+      "title": "NVIDIA Confidential Computing to Help Expand Apple’s Private Cloud Compute",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/",
+      "title": "Fluid, natural voice translation with Gemini 3.5 Live Translate",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://openai.com/index/nextdoor",
+      "title": "How engineers at Nextdoor use Codex to build without limits",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://openai.com/index/notion",
+      "title": "What Codex unlocks for Notion",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/scale-robot-reinforcement-learning-with-nvidia-isaac-lab-on-amazon-sagemaker-ai/",
+      "title": "Scale Robot Reinforcement Learning with NVIDIA Isaac Lab on Amazon SageMaker AI",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/cloud-fable-5-on-google-cloud/",
+      "title": "Claude Fable 5: Available on Google Cloud",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/gemini-for-government-your-blueprint-for-mission-impact/",
+      "title": "Gemini for Government: Your blueprint for mission impact",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-inference-gateway-prefix-caching-accelerates-ai-inference/",
+      "title": "Report: GKE Inference Gateway delivers up to 92% faster AI responses",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/storage-data-transfer/analyze-cloud-storage-estates-with-storage-insights-datasets/",
+      "title": "Storage Insights datasets: Enabling org-wide operational discovery with activity",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-to-measure-the-business-value-of-generative-ai/",
+      "title": "How to unlock true ROI in software development – a deep dive into the latest DOR",
+      "published_date": "2026-06-10",
+      "expires_at": "2026-06-17T00:39:24.286849+00:00"
     }
   ]
 }
