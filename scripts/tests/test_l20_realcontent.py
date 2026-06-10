@@ -822,3 +822,134 @@ class TestNoSourceNameHero:
                     f"but real-entity side cards={side_real}"
                 )
         assert not failures, "Avoidable source-name heroes detected:\n" + "\n".join(failures)
+
+
+# ---------------------------------------------------------------------------
+# Side-card rescue: generalises hero rescue to EVERY visible slot.
+# A source-name fallback must not occupy a visible slot when a real-entity
+# story is available anywhere in the day's candidate pool (highlights + body
+# table backfill).  _rescue_hero only swaps slot 0; _digest_panels must also
+# keep source-name fallbacks out of the side cards.
+# ---------------------------------------------------------------------------
+class TestSideCardRescue:
+    def _content(self, *rows):
+        head = (
+            "| 분야 | 소스 | 핵심 내용 | 영향도 |\n"
+            "|------|------|----------|--------|\n"
+        )
+        return head + "".join(f"| 🔒 Security | {s} | {t} | {sev} |\n" for s, t, sev in rows)
+
+    def test_side_card_src_fallback_replaced_by_real_table_story(self):
+        # highlight #2 has only a region word ("MENA") -> source-name fallback.
+        # The body table carries additional real-entity stories, so when 3 real
+        # entities exist the visible side cards must NOT show the bare source
+        # name — the fallback is dropped entirely.
+        summary_card = {"highlights": [
+            {"source": "The Hacker News", "title": "Ivanti EPMM CVE-2026-6973 RCE 공개"},
+            {"source": "The Hacker News", "title": "MENA 지역 사이버범죄 네트워크 교란 201명 체포"},
+        ]}
+        content = self._content(
+            ("The Hacker News", "Ivanti EPMM CVE-2026-6973 RCE 공개", "🟠 High"),
+            ("BleepingComputer", "WP Maps Pro 취약점 악용", "🟠 High"),
+            ("The Hacker News", "CISA SolarWinds Serv-U KEV 추가", "🟡 Medium"),
+        )
+        panels = _digest_panels(summary_card, content)
+        heads = [p["headline"] for p in panels]
+        assert "The Hacker News" not in heads, heads
+        # Real-entity backfill stories fill the slots instead.
+        assert "Ivanti EPMM" in heads
+        assert any("Maps Pro" in h or "SolarWinds" in h for h in heads)
+        # No visible panel is a source-name fallback when reals are available.
+        assert not any(p.get("_src_fallback") for p in panels), heads
+
+    def test_side_card_fallback_pushed_last_when_only_two_reals(self):
+        # 2 real entities + 1 source-name fallback, no extra table stories: the
+        # fallback fills the trailing slot, never the middle (ahead of a real).
+        summary_card = {"highlights": [
+            {"source": "The Hacker News", "title": "Storm-2949 캠페인 분석"},
+            {"source": "The Hacker News", "title": "MENA 지역 공격 급증"},          # src fallback
+            {"source": "The Hacker News", "title": "Exchange npm 패키지 악용"},
+        ]}
+        panels = _digest_panels(summary_card, "")
+        heads = [p["headline"] for p in panels]
+        assert heads[:2] == ["Storm-2949", "Exchange npm"], heads
+        assert panels[2].get("_src_fallback") is True, heads
+
+    def test_fallback_kept_when_no_real_entity_available(self):
+        # Every story has ASCII tokens that all fail _is_good_headline (a region
+        # word / bare acronym) -> only source-name fallbacks exist. The cover
+        # must still fill its slots (never go blank) with the fallbacks.
+        summary_card = {"highlights": [
+            {"source": "The Hacker News", "title": "MENA 지역 사이버범죄 네트워크 교란 201명 체포"},
+            {"source": "BleepingComputer", "title": "AI 도구 악용 사례 증가"},
+        ]}
+        panels = _digest_panels(summary_card, "")
+        assert panels, "must not be empty"
+        assert all(p.get("_src_fallback") for p in panels)
+
+    def test_real_entities_keep_editorial_order_fallback_last(self):
+        # real-entity panels keep their editorial order; a source-name fallback
+        # is pushed to the LAST slot, never ahead of a real story.
+        summary_card = {"highlights": [
+            {"source": "The Hacker News", "title": "Cisco Unified CM 취약점"},
+            {"source": "The Hacker News", "title": "VPN 장비 취약점 패치 권고"},   # src fallback (VPN acronym)
+            {"source": "AWS Security Blog", "title": "Amazon Cognito 설정 강화"},
+        ]}
+        panels = _digest_panels(summary_card, "")
+        # find the first fallback index — everything before it must be real
+        fb_idxs = [i for i, p in enumerate(panels) if p.get("_src_fallback")]
+        if fb_idxs:
+            first_fb = fb_idxs[0]
+            assert all(not p.get("_src_fallback") for p in panels[:first_fb])
+        heads = [p["headline"] for p in panels]
+        assert heads[0] == "Cisco Unified"  # editorial lead preserved
+
+
+# ---------------------------------------------------------------------------
+# End-to-end guard (May + June): a source-name fallback must never appear in a
+# visible slot ahead of a real-entity story for any real digest post.
+# ---------------------------------------------------------------------------
+class TestNoAvoidableSourceNameSideCard:
+    _KNOWN_SOURCES = TestNoSourceNameHero._KNOWN_SOURCES
+
+    def _load_posts(self, *globs):
+        import glob
+        import re
+        import yaml
+        posts = []
+        for g in globs:
+            for fn in sorted(glob.glob(g)):
+                with open(fn) as f:
+                    raw = f.read()
+                m = re.match(r"^---\n(.*?)\n---\n", raw, re.DOTALL)
+                if not m:
+                    continue
+                fm = yaml.safe_load(m.group(1))
+                posts.append((fn.split("/")[-1][:10], fm.get("summary_card"), raw[m.end():]))
+        return posts
+
+    def _is_fallback(self, p):
+        return bool(p.get("_src_fallback")) or p["headline"] in self._KNOWN_SOURCES
+
+    def test_real_entity_never_follows_a_source_name_fallback(self):
+        # Reals fill the visible slots first; a source-name fallback only fills a
+        # trailing slot once reals are exhausted. So a real story must NEVER
+        # appear after a fallback in the rendered order.
+        posts = self._load_posts("_posts/2026-05-*.md", "_posts/2026-06-*.md")
+        # Sanity: the load helper must actually find posts, else the guard below
+        # passes vacuously and masks a future regression.
+        assert len(posts) >= 30, f"expected the May+June digest corpus, got {len(posts)}"
+        failures = []
+        for datestr, summary_card, content in posts:
+            panels = _digest_panels(summary_card, content)
+            seen_fallback = False
+            for p in panels:
+                if self._is_fallback(p):
+                    seen_fallback = True
+                elif seen_fallback:
+                    failures.append(
+                        f"{datestr}: real card {p['headline']!r} after a "
+                        f"source-name fallback in {[q['headline'] for q in panels]}"
+                    )
+                    break
+        assert not failures, "Avoidable source-name side cards:\n" + "\n".join(failures)

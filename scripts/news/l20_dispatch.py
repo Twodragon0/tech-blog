@@ -34,7 +34,7 @@ import logging
 import os
 import re
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 
 # Module-level feature flag. Evaluated once at import time so callers may
 # override it for tests via ``monkeypatch.setattr(...)`` or by mutating the
@@ -1129,17 +1129,21 @@ _DIGEST_TABLE_ROW_RE = re.compile(r"^\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|([^|\n]*
 _DIGEST_TABLE_SKIP_RE = re.compile(r"분야|소스|핵심\s*내용|^[\s:\-]+$")
 
 
-def _digest_table_panels(content: str) -> List[Dict]:
-    """Build up to 3 panels from the digest body highlights table.
+def _digest_table_panels(content: str, limit: int = 3) -> List[Dict]:
+    """Build up to ``limit`` panels from the digest body highlights table.
 
     Parses ``| category | source | title | severity |`` rows (skipping the
     header / separator). Reuses :func:`_panel_from_source_title`, so rows with
     no ASCII entity in the title are skipped. Returns ``[]`` when the table is
     absent or carries no usable row.
+
+    The default ``limit=3`` matches the visible slot count; :func:`_digest_panels`
+    passes a larger ``limit`` so the candidate pool is deep enough to backfill a
+    source-name fallback with a *real-entity* story (side-card rescue).
     """
     panels: List[Dict] = []
     for m in _DIGEST_TABLE_ROW_RE.finditer(content or ""):
-        if len(panels) >= 3:
+        if len(panels) >= limit:
             break
         col1, source, title, col4 = (c.strip() for c in m.groups())
         # Skip the header row and the |---|---| separator. Only the first
@@ -1232,27 +1236,47 @@ def _rescue_hero(panels: List[Dict]) -> List[Dict]:
     return result
 
 
+# Candidate-pool depth for body-table backfill. 2x the 3 visible slots so the
+# pool survives dedup (rows that re-state a highlight) and source-name-fallback
+# skips and can still yield 3 real-entity stories for the side-card rescue.
+_BACKFILL_POOL = 6
+
+
 def _digest_panels(summary_card, content: str) -> List[Dict]:
     """The ordered real-content panels for a digest, lead story first.
 
     summary_card.highlights (editorially ranked) first, then body-table backfill
-    when fewer than 3 usable panels (thin posts / cron path), deduped by
-    headline. Single source of truth shared by the generator override and the
-    honesty scorer's routing replay, so both agree on the band visuals.
+    (a superset, for thin posts / the cron path), deduped by headline. A
+    source-name fallback (``_src_fallback`` — headline == bare source name) is
+    kept OUT of the 3 visible slots whenever a real-entity story is available:
+    real-entity panels fill the slots first (in editorial order), and a fallback
+    occupies a slot only once the reals are exhausted (so the cover never goes
+    blank). The hero is therefore the editorial-lead real story.
+
+    Single source of truth shared by the generator override and the honesty
+    scorer's routing replay, so both agree on the band visuals. The rescue is
+    honesty-neutral: digest stories route only to always-honest classes, so
+    surfacing a different (real) story cannot introduce an overclaim.
     """
     highlights = summary_card.get("highlights") if isinstance(summary_card, dict) else None
-    panels = _digest_highlight_panels(highlights)
-    if len(panels) < 3:
-        seen = {p["headline"].lower() for p in panels}
-        for p in _digest_table_panels(content or ""):
-            if len(panels) >= 3:
-                break
-            if p["headline"].lower() in seen:
-                continue
-            seen.add(p["headline"].lower())
-            panels.append(p)
-    # Hero rescue: if the natural hero is a source-name fallback but a better
-    # real-entity story is available in the side cards, swap it in.
+    # Dedupe candidates by headline, keeping the first (highest-ranked) one.
+    seen: Set[str] = set()
+    candidates: List[Dict] = []
+    for p in _digest_highlight_panels(highlights) + _digest_table_panels(content or "", limit=_BACKFILL_POOL):
+        key = p["headline"].lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        candidates.append(p)
+    # Real-entity stories first (editorial order preserved), source-name
+    # fallbacks last — generalises hero rescue to EVERY visible slot.
+    real = [p for p in candidates if not p.get("_src_fallback")]
+    fallback = [p for p in candidates if p.get("_src_fallback")]
+    panels = (real + fallback)[:3]
+    # Defence-in-depth: the partition already places any real story ahead of a
+    # fallback, so panels[0] is a fallback only when NO real story exists — in
+    # which case _rescue_hero is a no-op. Retained for symmetry / safety should
+    # the partition ever be relaxed.
     panels = _rescue_hero(panels)
     return panels
 
