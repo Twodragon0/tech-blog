@@ -837,28 +837,44 @@ def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
     )
 
 
-def vb_security_advisory(cx: int, cy: int, theme: str = "amber") -> str:
-    """Honest motif for a GENERIC security topic of UNSPECIFIED severity.
+def vb_security_advisory(cx: int, cy: int, theme: str = "amber", severity: str = "") -> str:
+    """Honest motif for a GENERIC security topic.
 
     For a digest "Vulnerability" / "Malware" / "CVE roundup" / "Threat"
-    section that is real-but-unspecified: there is a security topic, but the
-    post carries no specific CVE-id, exploit chain, or active-exploitation
-    claim. This builder signals exactly that and NOTHING more.
+    section: there is a security topic, but the post carries no specific
+    CVE-id, exploit chain, or active-exploitation claim. This builder signals
+    exactly that and NOTHING more.
+
+    ``severity`` (optional, ASCII all-caps ``CRITICAL`` / ``HIGH`` / ``MEDIUM``)
+    is the impact level the post actually reported for this story. When known,
+    the gauge renders ``SEVERITY: <level>``; when ``""`` (unassessed) the
+    severity line is OMITTED entirely — the cover never asserts a fabricated
+    "TBD" / "unspecified - under review" level.
 
     HONESTY CONSTRAINTS (hard): it must NOT fabricate specifics. There is
     deliberately no ``CVE-XXXX`` id, no "Active exploitation", no
     "PATCH UPSTREAM NOW", no attacker / victim / C2 / exploit-chain
-    narrative. The severity reads ``SEVERITY: TBD`` (i.e. unassessed) and the
-    headline label is ``SECURITY ADVISORY``. The gauge needle deliberately
-    parks at the neutral midpoint — it does not assert a high score.
+    narrative. The headline label is ``SECURITY ADVISORY``. The gauge needle
+    deliberately parks at the neutral midpoint — it does not assert a score
+    beyond the post-reported ``severity`` word (when one was supplied).
 
     Design: a centered shield outline (the universal "security topic" mark)
     with a check-style glyph, an ``ADVISORY`` badge, and a horizontal
-    severity gauge whose track is unfilled with a ``TBD`` marker. ASCII-only,
-    theme-aware, sized to sit comfortably inside the hq size band.
+    severity gauge. ASCII-only, theme-aware, sized to sit comfortably inside
+    the hq size band.
     """
     t = _theme(theme)
     a, soft, txt = t["accent"], t["accent_soft"], t["accent_text"]
+    # ASCII all-caps severity word, only if it is a known impact level. When
+    # unknown ("") the severity line is OMITTED — never "TBD" / "under review".
+    sev = (severity or "").strip().upper()
+    sev = sev if sev in {"CRITICAL", "HIGH", "MEDIUM", "LOW"} else ""
+    severity_line = (
+        f'<text x="0" y="44" font-family="Inter, monospace" font-size="11" '
+        f'font-weight="900" fill="{soft}">SEVERITY: {sev}</text>'
+        if sev
+        else ""
+    )
     return (
         f'<g transform="translate({cx},{cy})">'
         # Outer card frame
@@ -891,14 +907,15 @@ def vb_security_advisory(cx: int, cy: int, theme: str = "amber") -> str:
         f'<g stroke="{a}" stroke-width="1" opacity="0.4">'
         f'<line x1="47" y1="12" x2="47" y2="26"/><line x1="93" y1="12" x2="93" y2="26"/>'
         f'</g>'
-        # TBD marker parked at the neutral midpoint — asserts no score
+        # Neutral marker parked at the midpoint — asserts no score on its own.
         f'<g transform="translate(70,19)">'
         f'<circle cx="0" cy="0" r="6.5" fill="{a}">'
         f'<animate attributeName="opacity" values="0.7;1;0.7" dur="2.2s" repeatCount="indefinite"/></circle>'
         f'<circle cx="0" cy="0" r="2.4" fill="#0A0F1E"/>'
         f'</g>'
-        f'<text x="0" y="44" font-family="Inter, monospace" font-size="11" font-weight="900" fill="{soft}">SEVERITY: TBD</text>'
-        f'<text x="0" y="60" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{txt}" opacity="0.85">unspecified - under review</text>'
+        # Real post-reported severity word, or nothing when unassessed (never
+        # "TBD" / "unspecified - under review").
+        f'{severity_line}'
         f'</g>'
         # Bottom caption (benign, no call to patch)
         f'<text x="0" y="92" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">REVIEW ADVISORY DETAILS</text>'
@@ -929,6 +946,7 @@ def _render_visual(
     label: str = "",
     topic: str = "",
     band_index: int = 0,
+    severity: str = "",
 ) -> str:
     """Dispatch to the correct visual builder.
 
@@ -951,6 +969,10 @@ def _render_visual(
     # ignore them.
     if fn is vb_neutral:
         return vb_neutral(cx, cy, theme=theme, topic=topic, band_index=band_index)
+    # vb_security_advisory takes the real post-reported severity word so the
+    # gauge shows "SEVERITY: HIGH" (or omits the line when unassessed).
+    if fn is vb_security_advisory:
+        return vb_security_advisory(cx, cy, theme=theme, severity=severity)
     return fn(cx, cy, theme=theme)
 
 
@@ -1255,7 +1277,7 @@ def render_l20_hero(
     parts.append(_corner_brackets(32, 80, 600, 510, hero_accent, size=12))
     parts.append(_data_strip(54, 528, 280, hero_accent))
     # Hero embedded visual (centered around (332, 360))
-    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0))
+    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0, severity=hero.get("severity", "")))
     # Hero action tag
     parts.append('<g transform="translate(54,548)">')
     parts.append(f'<rect x="0" y="0" width="280" height="24" rx="3" fill="{hero_accent}" opacity="0.95"/>')
@@ -1295,7 +1317,7 @@ def render_l20_hero(
     )
     parts.append('</g>')
     parts.append(_corner_brackets(652, 80, 516, 248, tr_accent, size=9))
-    parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", ""), topic=top_right.get("headline", ""), band_index=1))
+    parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", ""), topic=top_right.get("headline", ""), band_index=1, severity=top_right.get("severity", "")))
     parts.append(_kpi_card(1094, 168, top_right["theme"], top_right["kpi_value"], top_right["kpi_label"], top_right["kpi_sub"]))
 
     # BOTTOM RIGHT panel
@@ -1323,7 +1345,7 @@ def render_l20_hero(
     )
     parts.append('</g>')
     parts.append(_corner_brackets(652, 344, 516, 246, br_accent, size=9))
-    parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", ""), topic=bottom_right.get("headline", ""), band_index=2))
+    parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", ""), topic=bottom_right.get("headline", ""), band_index=2, severity=bottom_right.get("severity", "")))
     # BR KPI card sits in the upper-right of the panel (cy=414 -> y 359..469) so
     # its lower edge clears the frame-anchored QR block: qr_block draws the
     # "scan / full post" label at y=486 (top ~479) and a 132x132 white rect at
