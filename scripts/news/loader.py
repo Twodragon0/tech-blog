@@ -252,6 +252,48 @@ def _filter_by_cutoff(items: List[Dict], cutoff: datetime) -> List[Dict]:
     return filtered
 
 
+# Topic diversity: primary-topic signals that mark an item as genuinely
+# ai/blockchain. When present, a BORDERLINE soft-security signal (exactly 2 soft
+# indicators) does NOT pull the item into the security bucket — only >=3 soft
+# indicators (or any STRONG indicator, below) does. Word-boundary anchored so
+# ambiguous substrings ("eth" in "method"/"ethics", "token" in "CSRF token",
+# "crypto" in "cryptography") do not raise a false primary signal.
+_AI_PRIMARY_RE = re.compile(
+    r"\b(?:anthropic|openai|claude|gpt|llm|gemini|deepmind|mistral|"
+    r"machine learning|neural network|hugging face)\b",
+    re.IGNORECASE,
+)
+_BLOCKCHAIN_PRIMARY_RE = re.compile(
+    r"\b(?:bitcoin|ethereum|defi|cryptocurrency|wallet|blockchain|"
+    r"stablecoin|nft|web3|solana)\b",
+    re.IGNORECASE,
+)
+
+# STRONG security indicators: a single one forces the security bucket — a CVE /
+# exploit / ransomware / malware story is a security story regardless of feed.
+_STRONG_SECURITY_INDICATORS = (
+    "cve-", "exploit", "malware", "악성코드", "ransomware", "랜섬웨어",
+)
+# SOFT indicators: only COUNT toward the >=2 (/ >=3 for on-topic ai/blockchain)
+# threshold — "attack"/"breach"/"vulnerability" appear in non-security topic
+# stories too, so a single soft mention must not reclassify.
+_SOFT_SECURITY_INDICATORS = (
+    "vulnerability", "취약점", "attack", "공격", "breach", "침해",
+)
+
+
+def _has_primary_topic_signal(text: str, category: str) -> bool:
+    """True iff ``text`` carries a strong primary-topic signal for ``category``
+    (ai / blockchain). Used to raise the soft-security-reclassification bar so a
+    single passing mention of "attack"/"breach" cannot erase an on-topic
+    ai/blockchain story."""
+    if category == "ai":
+        return bool(_AI_PRIMARY_RE.search(text))
+    if category == "blockchain":
+        return bool(_BLOCKCHAIN_PRIMARY_RE.search(text))
+    return False
+
+
 def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
     """Categorize news items with content-based reclassification."""
     categorized = defaultdict(list)
@@ -289,23 +331,25 @@ def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
                     category = "ai"
 
         if category not in ("security", "devsecops"):
-            security_indicators = [
-                "vulnerability",
-                "exploit",
-                "cve-",
-                "\ucde8\uc57d\uc810",
-                "malware",
-                "\uc545\uc131\ucf54\ub4dc",
-                "ransomware",
-                "\ub79c\uc12c\uc6e8\uc5b4",
-                "attack",
-                "\uacf5\uaca9",
-                "breach",
-                "\uce68\ud574",
-            ]
-            security_score = sum(1 for kw in security_indicators if kw in combined)
-            if security_score >= 2:
+            # A single STRONG indicator (CVE/exploit/malware/ransomware) forces
+            # security regardless of feed \u2014 a genuine incident is never diluted.
+            if any(kw in combined for kw in _STRONG_SECURITY_INDICATORS):
                 category = "security"
+            else:
+                # Soft indicators only count toward a threshold. On-topic
+                # ai/blockchain stories need a HIGHER bar (>=3) so a borderline
+                # pair of soft words does not drain them into the security
+                # bucket; cloud/devops/tech keep the >=2 bar.
+                soft_score = sum(
+                    1 for kw in _SOFT_SECURITY_INDICATORS if kw in combined
+                )
+                threshold = 2
+                if category in ("ai", "blockchain") and _has_primary_topic_signal(
+                    combined, category
+                ):
+                    threshold = 3
+                if soft_score >= threshold:
+                    category = "security"
 
         if category in ("security", "devsecops"):
             category = "security"

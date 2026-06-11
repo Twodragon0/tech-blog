@@ -20,6 +20,7 @@ from auto_publish_news import (
     _extract_trend_keyword,
     _filter_by_cutoff,
     _generate_ai_analysis_template,
+    _generate_blockchain_template,
     _generate_contextual_action_point,
     _generate_devops_template,
     _generate_executive_and_risk_sections,
@@ -36,6 +37,7 @@ from auto_publish_news import (
     extract_cve_id,
     filter_published_urls,
     generate_mitre_mapping,
+    generate_news_section,
     generate_risk_scorecard,
     select_top_news,
 )
@@ -1777,6 +1779,145 @@ class TestCategorizeNews:
         ]
         result = categorize_news(items)
         assert "security" in result
+
+    # --- Topic diversity (#2): keep on-topic ai/blockchain stories out of the
+    # security bucket when the security signal is only borderline (exactly 2
+    # indicators) AND the item has a strong primary-topic signal. A genuine
+    # security story (>=3 indicators) still reclassifies. cloud/devops/tech keep
+    # the >=2 bar. This preserves the security-digest identity while letting
+    # ai/blockchain content survive into the digest. ---
+    def test_blockchain_borderline_security_stays_blockchain(self):
+        # ethereum/defi primary signal + exactly 2 indicators (attack, breach)
+        items = [
+            self._item(
+                "Ethereum DeFi protocol attack analysis",
+                "cross-chain bridge breach review",
+                category="blockchain",
+            )
+        ]
+        result = categorize_news(items)
+        assert "blockchain" in result
+        assert "security" not in result
+
+    def test_ai_borderline_security_stays_ai(self):
+        # openai/claude primary signal + exactly 2 indicators (attack, breach)
+        items = [
+            self._item(
+                "OpenAI Claude model attack surface",
+                "agent breach mitigation",
+                category="ai",
+            )
+        ]
+        result = categorize_news(items)
+        assert "ai" in result
+        assert "security" not in result
+
+    def test_blockchain_three_indicators_still_security(self):
+        # 3+ indicators (vulnerability, exploit, malware) => genuine security
+        items = [
+            self._item(
+                "Ethereum wallet vulnerability exploit",
+                "malware drains funds",
+                category="blockchain",
+            )
+        ]
+        result = categorize_news(items)
+        assert "security" in result
+
+    def test_tech_borderline_security_still_reclassifies(self):
+        # non-ai/blockchain (tech) keeps the >=2 bar -> still security
+        items = [
+            self._item(
+                "Tech platform attack",
+                "data breach disclosed",
+                category="tech",
+            )
+        ]
+        result = categorize_news(items)
+        assert "security" in result
+
+    def test_blockchain_single_strong_indicator_forces_security(self):
+        # a STRONG indicator (exploit) forces security even at count 1, even on
+        # an on-topic blockchain story — genuine incidents are never diluted.
+        items = [
+            self._item(
+                "Ethereum wallet exploit drains funds",
+                "active in the wild",
+                category="blockchain",
+            )
+        ]
+        result = categorize_news(items)
+        assert "security" in result
+        assert "blockchain" not in result
+
+    def test_primary_signal_word_boundary_no_false_match(self):
+        # "method"/"together" contain "eth" but must NOT count as a blockchain
+        # primary signal -> a generic 2-soft-indicator item still reclassifies.
+        items = [
+            self._item(
+                "Network method attack",
+                "service breach disclosed together",
+                category="blockchain",
+            )
+        ]
+        result = categorize_news(items)
+        assert "security" in result  # no real primary signal -> >=2 bar applies
+
+
+# ===========================================================================
+# _generate_blockchain_template  (#3 — blockchain section template)
+# ===========================================================================
+
+
+class TestGenerateBlockchainTemplate:
+    """Tests for _generate_blockchain_template()."""
+
+    def _item(self, title, summary=""):
+        return {"title": title, "summary": summary, "url": f"https://x/{title}"}
+
+    def test_none_returns_template(self):
+        result = _generate_blockchain_template(None)
+        assert "#### 실무 적용 포인트" in result
+        assert ("멀티시그" in result or "스마트 컨트랙트" in result or "키 관리" in result)
+        _assert_no_banned(result, "blockchain None branch")
+
+    def test_smart_contract_branch(self):
+        result = _generate_blockchain_template(
+            self._item("DeFi smart contract reentrancy bug", "solidity audit")
+        )
+        assert "#### 실무 적용 포인트" in result
+        assert ("컨트랙트" in result or "DeFi" in result or "reentrancy" in result)
+
+    def test_exchange_hack_branch(self):
+        result = _generate_blockchain_template(
+            self._item("Crypto exchange bridge hack", "거래소 해킹 분석")
+        )
+        assert ("IoC" in result or "브리지" in result or "출금" in result)
+
+    def test_regulation_branch(self):
+        result = _generate_blockchain_template(
+            self._item("New stablecoin regulation", "CBDC 규제 법안")
+        )
+        assert ("규제" in result or "스테이블코인" in result or "AML" in result)
+
+    def test_generic_fallback_branch(self):
+        result = _generate_blockchain_template(
+            self._item("Bitcoin price rally", "시장 동향")
+        )
+        assert "#### 실무 적용 포인트" in result  # generic else still emits a block
+
+    def test_dispatched_for_blockchain_category(self):
+        # generate_news_section must route a blockchain item to the template.
+        section = generate_news_section(
+            {
+                "title": "Ethereum DeFi protocol smart contract audit",
+                "summary": "reentrancy 취약점 점검",
+                "category": "blockchain",
+                "url": "https://example.com/2026/eth",
+            },
+            "1",
+        )
+        assert "#### 실무 적용 포인트" in section
 
 
 # ===========================================================================

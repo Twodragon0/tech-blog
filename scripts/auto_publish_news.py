@@ -86,6 +86,7 @@ from scripts.news.content_generator import (  # noqa: E402,F401
     _extract_meaningful_topics,
     _extract_trend_keyword,
     _generate_ai_analysis_template,
+    _generate_blockchain_template,
     _generate_contextual_action_point,
     _generate_devops_template,
     _generate_executive_and_risk_sections,
