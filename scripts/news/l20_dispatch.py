@@ -975,6 +975,12 @@ def _entity_tokens(title: str) -> List[str]:
     return out
 
 
+def _ascii_word_tokens(s: str) -> set:
+    """Lowercased ASCII alphanumeric word tokens of ``s`` (for whole-word
+    source-name-echo comparison — not substring)."""
+    return set(re.findall(r"[a-z0-9]+", (s or "").lower()))
+
+
 # Map a severity cell's emoji marker to an ASCII all-caps severity word. The
 # digest highlights table tags each row's impact with a colored dot
 # (🔴 critical / 🟠 high / 🟡 medium); anything else is unknown -> "" (the
@@ -1106,11 +1112,31 @@ def _panel_from_source_title(
         # No ASCII source / CVE: use a neutral descriptor rather than echoing
         # the headline back (avoids a redundant "APT / APT" band).
         sub = "Security advisory"
-    return {
+    panel = {
         "headline": headline,
         "subheadline": _shorten(sub, _SUB_MAX_CHARS),
         "severity": severity,
     }
+    # Source-name echo: a MULTI-word headline whose tokens are WHOLLY contained
+    # in the row's source name carries no story information — it just echoes the
+    # publication (body-table source "Cloudflare Blog" -> headline "Cloudflare
+    # Blog"; "AWS Security Blog" -> "AWS Security"; "Tech World Monitor" ->
+    # "World Monitor"). Flag it _src_fallback so the side-card rescue demotes it
+    # below real stories. Constraints that protect real subjects:
+    #   - require >= 2 tokens: a lone vendor name ("Google", "Meta") may BE the
+    #     story subject reported on its own blog, so it is NOT demoted;
+    #   - whole-word containment (not substring → "Meta" vs "Metaverse Daily" is
+    #     kept); never for a CVE-id headline;
+    #   - any headline token NOT in the source (a real co-entity, "CISA Ivanti")
+    #     keeps the panel.
+    h_tokens = _ascii_word_tokens(headline)
+    if (
+        len(h_tokens) >= 2
+        and h_tokens <= _ascii_word_tokens(src)
+        and not _CVE_RE.match(headline)
+    ):
+        panel["_src_fallback"] = True
+    return panel
 
 
 def _digest_highlight_panels(highlights) -> List[Dict]:
