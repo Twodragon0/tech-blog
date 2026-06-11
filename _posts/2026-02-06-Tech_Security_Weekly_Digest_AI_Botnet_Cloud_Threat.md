@@ -45,9 +45,9 @@ summary_card:
     - "Botnet"
     - "Cloud"
   highlights:
-    - { source: "포인트 1", title: "2026-02-06 기술·보안 주간 다이제스트: CrashFix Python RAT, AISURU 31.4 Tbps DDoS, Codespaces RCE, BYOVD - 2026년 02월 06일 보안 뉴스: Cras" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "The Hacker News", title: "AISURU 봇넷 31.4 Tbps DDoS 기록 경신 - 역대 최대 규모" }
+    - { source: "The Hacker News", title: "CrashFix ClickFix 변종 Python RAT 배포 - 기업 시스템 타겟" }
+    - { source: "The Hacker News", title: "Codespaces RCE 취약점 - 클라우드 개발 환경 원격 코드 실행" }
 ---
 {% include ai-summary-card.html %}
 

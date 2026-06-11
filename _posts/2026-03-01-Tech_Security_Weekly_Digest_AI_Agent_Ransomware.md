@@ -34,9 +34,9 @@ summary_card:
     - "Agent"
     - "Ransomware"
   highlights:
-    - { source: "포인트 1", title: "NVIDIA Agentic AI 자율 네트워크 블루프린트, SK쉴더스 Gentlemen 랜섬웨어 위협 분석, AWS MCP Registry 구현 등 7건 심층 분석" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "SK쉴더스", title: "제조사 OT 보안 동향 및 Gentlemen 랜섬웨어 위협 분석" }
+    - { source: "NVIDIA", title: "Agentic AI 기반 통신 자율 네트워크 + AI-RAN 상용화 실증" }
+    - { source: "AWS Korea", title: "Agentic AI 플랫폼: MCP Registry로 에이전트 도구 통합 관리" }
 ---
 {% include ai-summary-card.html %}
 

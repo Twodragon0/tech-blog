@@ -34,9 +34,9 @@ summary_card:
     - "Blockchain"
     - "AI-Governance"
   highlights:
-    - { source: "포인트 1", title: "JWT 서명키 유출이 초래하는 인증 체계 붕괴 위험, 미-이스라엘 공습 후 이란 거래소 $1,030만 비트코인 유출, 금융분야 AI 7대 원칙과 글로벌 정책 동향 분석" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "SK쉴더스", title: "JWT 서명키 유출 — 전체 인증 체계 침해" }
+    - { source: "SK쉴더스", title: "금융 AI 7대 원칙 — 규제 컴플라이언스 지침" }
+    - { source: "SK쉴더스", title: "글로벌 랜섬웨어 트렌드 보고서 (2월)" }
 ---
 {% include ai-summary-card.html %}
 

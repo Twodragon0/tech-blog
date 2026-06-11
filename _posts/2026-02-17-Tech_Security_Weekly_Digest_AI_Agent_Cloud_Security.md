@@ -35,9 +35,9 @@ summary_card:
     - "Password-Manager"
     - "Serverless"
   highlights:
-    - { source: "포인트 1", title: "Infostealer 악성코드의 AI 에이전트 설정/토큰 탈취 신규 벡터, Bitwarden/Dashlane/LastPass 25개 패스워드 복구 공격, AWS AI 기반 서버리스 방어 심층 아키텍처 등 18건 분석" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "The Hacker News", title: "Infostealer가 AI 에이전트 설정 파일 및 게이트웨이 토큰 탈취" }
+    - { source: "The Hacker News", title: "Bitwarden/Dashlane/LastPass에서 25개 패스워드 복구 공격 발견" }
+    - { source: "AWS Security Blog", title: "서버리스 마이크로서비스를 위한 AI 기반 Defense-in-Depth" }
 ---
 {% include ai-summary-card.html %}
 

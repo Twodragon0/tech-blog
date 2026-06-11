@@ -34,9 +34,9 @@ summary_card:
     - "Botnet"
     - "Blockchain"
   highlights:
-    - { source: "포인트 1", title: "2026년 02월 27일 보안 뉴스: The Hacker News, AWS Security Blog 등 30건. AI, Botnet, Blockchain, Go 관련 DevSecOps 실무 위협 분석 및 대응 가이드" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "The Hacker News", title: "Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화 C2 봇넷" }
+    - { source: "AWS Security Blog", title: "AWS ISO 42001 AI 관리 시스템 첫 감시 감사 통과" }
+    - { source: "AWS Security Blog", title: "AWS Security Agent: 자동화 침투 테스트 멀티 에이전트 아키텍처" }
 ---
 {% include ai-summary-card.html %}
 

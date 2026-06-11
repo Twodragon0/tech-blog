@@ -30,9 +30,9 @@ summary_card:
     - "Cloud"
     - "Go"
   highlights:
-    - { source: "포인트 1", title: "2026년 02월 20일 테크 블로그 다이제스트: OpenAI Blog, Google AI Blog, AWS Machine Learning Blog 등 15건. AI, Data, Cloud, Go 관련 개발자 뉴스" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "OpenAI Blog", title: "AI Alignment 독립 연구 지원 확대 - 외부 안전성 검증 강화" }
+    - { source: "Google AI Blog", title: "Sundar Pichai CEO, AI가 가장 큰 꿈을 꾸게 하는 기술이라 선언" }
+    - { source: "Google AI Blog", title: "AI Impact Summit 2026 - 글로벌 AI 적용 사례 및 전략 공유" }
 redirect_from:
   - /posts/2026/02/Tech_Blog_Weekly_Digest_AI_Data_Cloud/
   - /posts/2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud/

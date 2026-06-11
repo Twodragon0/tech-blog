@@ -34,9 +34,9 @@ summary_card:
     - "Ransomware"
     - "Zero-Trust"
   highlights:
-    - { source: "포인트 1", title: "SK쉴더스 5대 보안 리포트 심층 분석 — Vertical AI 보안 구축, BlackField 랜섬웨어 코드 재활용 패턴, 제로트러스트 데이터 보안 전략, OT 보안 동향과 비트코인 급락·러시아 제재 우회 거래소" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "SK쉴더스 HeadLine 11월호", title: "Vertical AI 구축 — 보안 특화 AI로 위협 탐지 오탐률 감소, SOC 자동화 가속" }
+    - { source: "SK쉴더스 Ransomware 11월호", title: "BlackField 랜섬웨어 — Conti/LockBit 유출 코드 재활용, 빠른 변종 생성" }
+    - { source: "SK쉴더스 Special Report 11월호", title: "제로트러스트 데이터 보안 — 데이터 분류, DLP, 암호화 통합 전략" }
 ---
 {% include ai-summary-card.html %}
 
