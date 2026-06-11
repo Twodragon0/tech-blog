@@ -2810,6 +2810,8 @@ def generate_news_section(
         section += _generate_ai_analysis_template(item)
     elif category in ("cloud", "devops", "kubernetes"):
         section += _generate_devops_template(item)
+    elif category == "blockchain":
+        section += _generate_blockchain_template(item)
 
     section += "\n---\n\n"
     return section
@@ -3730,6 +3732,84 @@ def _pick_generic_devops_bullets(item: Optional[Dict]) -> str:
     # Non-crypto stable hash — stdlib hash() varies per run, so use a sum
     bucket = sum(ord(c) for c in seed) % len(_DEVOPS_FALLBACK_POOLS)
     return "\n".join(_DEVOPS_FALLBACK_POOLS[bucket]) + "\n"
+
+
+def _generate_blockchain_template(item: Optional[Dict] = None) -> str:
+    """Blockchain "실무 적용 포인트" block.
+
+    Keyword-routed like the security/devops templates (specific keywords before
+    general), so a blockchain story renders substantive, security-relevant
+    guidance instead of bare summary text. ``item is None`` returns a generic
+    fallback. Mirrors :func:`_generate_devops_template`."""
+    if item is None:
+        return """
+#### 실무 적용 포인트
+
+- 온체인 자산·키 관리 정책과 멀티시그/HSM 적용 현황 점검
+- 스마트 컨트랙트 감사 보고서와 알려진 취약 패턴(reentrancy 등) 대응 확인
+- 거래소·브리지 연동 시 출금 한도·이상거래 탐지 룰 재검증
+
+"""
+
+    text = f"{item.get('title', '')} {item.get('summary', '')}".lower()
+    template = "\n#### 실무 적용 포인트\n\n"
+
+    if any(
+        kw in text
+        for kw in ["smart contract", "스마트 컨트랙트", "defi", "reentrancy", "solidity"]
+    ):
+        template += _pick_variant(item, [
+            "- 스마트 컨트랙트 외부 감사(audit) 보고서와 reentrancy·정수 오버플로 대응 확인\n"
+            "- 업그레이드 가능 컨트랙트의 프록시 관리자 키를 멀티시그/타임락으로 보호\n"
+            "- DeFi 프로토콜 오라클 가격 조작(price manipulation) 방어 설계 점검\n",
+            "- 컨트랙트 배포 전 정적 분석(Slither)·퍼징(Echidna)을 CI 게이트에 연동\n"
+            "- 외부 호출(call) 후 상태 변경 순서(checks-effects-interactions) 패턴 검증\n"
+            "- DeFi 풀 유동성·청산 파라미터의 비정상 변경을 온체인 모니터링으로 탐지\n",
+        ])
+    elif any(
+        kw in text
+        for kw in ["exchange", "거래소", "bridge", "브리지", "cross-chain", "hack", "해킹"]
+    ):
+        template += _pick_variant(item, [
+            "- 사고 발표 후 공개된 IoC·악성 지갑 주소를 위협 인텔에 반영\n"
+            "- 브리지/거래소 핫월렛 출금 한도와 다중 승인(multisig) 정책 재검증\n"
+            "- 유사 공격 벡터(서명 검증 우회 등)에 대한 자사 연동 지점 점검\n",
+            "- 거래소 API 키 권한을 출금 비활성·읽기 전용으로 최소화하고 IP 화이트리스트 적용\n"
+            "- 크로스체인 브리지 검증자 집합·임계 서명(threshold signature) 구성 감사\n"
+            "- 이상거래 탐지 룰에 신규 사고 패턴을 추가하고 출금 지연(time-lock) 검토\n",
+        ])
+    elif any(
+        kw in text
+        for kw in ["regulation", "규제", "stablecoin", "스테이블코인", "cbdc", "etf", "법안"]
+    ):
+        template += _pick_variant(item, [
+            "- 신규 규제·가이드라인의 적용 범위와 자사 서비스 컴플라이언스 영향 분석\n"
+            "- 스테이블코인 준비금 증명(PoR)·감사 주기와 공시 요건 점검\n"
+            "- 자금세탁방지(AML)·여행규칙(Travel Rule) 대응 절차 최신화\n",
+            "- 규제 시행일 기준 내부 정책·약관 개정 일정과 책임자 승인 절차 수립\n"
+            "- 가상자산 사업자(VASP) 신고 요건과 지갑 주소 모니터링 보존 기간 검토\n"
+            "- 스테이블코인/ETF 관련 시장 변동성에 대비한 운영 리스크 시나리오 점검\n",
+        ])
+    elif any(kw in text for kw in ["wallet", "지갑", "custody", "수탁", "key", "키 관리"]):
+        template += _pick_variant(item, [
+            "- 개인키·시드 구문 저장 방식(HSM·하드웨어 지갑)과 백업 절차 점검\n"
+            "- 멀티시그 임계값(M-of-N) 구성과 서명자 권한 분리 현황 확인\n"
+            "- 수탁(custody) 출금 승인 워크플로우와 감사 로그 보존 검토\n",
+            "- 콜드/핫 월렛 자산 비율과 핫월렛 노출 한도를 리스크 기준으로 재산정\n"
+            "- 서명 단말 격리(air-gap)와 펌웨어 무결성 검증 주기 관리\n"
+            "- 키 분실·탈취 대비 사회공학 공격 대응 교육과 복구 절차 리허설\n",
+        ])
+    else:
+        template += _pick_variant(item, [
+            "- 온체인 트랜잭션 모니터링으로 자사 연관 주소의 이상 흐름 탐지\n"
+            "- 보유·연동 토큰의 스마트 컨트랙트 감사 이력과 알려진 위험 점검\n"
+            "- 블록체인 인프라(노드·RPC) 접근 제어와 키 관리 정책 재검증\n",
+            "- 블록체인 시장·정책 변화가 자사 자산 운용·리스크에 미치는 영향 분석\n"
+            "- 사용하는 프로토콜·체인의 거버넌스 변경·업그레이드 일정 추적\n"
+            "- 온체인 데이터를 위협 인텔에 연계해 악성 주소·믹서 사용 패턴 모니터링\n",
+        ])
+
+    return template
 
 
 def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
