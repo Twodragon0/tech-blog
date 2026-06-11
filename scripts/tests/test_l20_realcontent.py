@@ -179,6 +179,74 @@ class TestPanelFromSourceTitle:
 
 
 # ---------------------------------------------------------------------------
+# Source-name echo demotion: a headline whose tokens are wholly contained in the
+# row's source name carries no story info (it just echoes the publication) and
+# is flagged _src_fallback so the side-card rescue demotes it. Whole-word match
+# (not substring) so "Meta" vs source "Metaverse Daily" is NOT demoted.
+# ---------------------------------------------------------------------------
+class TestSourceEchoDemotion:
+    def test_exact_source_echo_demoted(self):
+        # 03-11 body-table case: source="Cloudflare Blog", title echoes it
+        p = _panel_from_source_title("Cloudflare Blog", "클라우드 보안 동향 Cloudflare Blog")
+        assert p is not None
+        assert p.get("_src_fallback") is True
+
+    def test_headline_subset_of_source_demoted(self):
+        # 06-09 case: headline "AWS Security" ⊆ source "AWS Security Blog"
+        p = _panel_from_source_title("AWS Security Blog", "5월 AWS Security 소식 정리")
+        assert p is not None
+        assert p["headline"] == "AWS Security"
+        assert p.get("_src_fallback") is True
+
+    def test_real_co_entity_not_demoted(self):
+        # headline has a token ("Ivanti") NOT in the source -> real story, kept
+        p = _panel_from_source_title("CISA", "CISA, Ivanti 취약점 긴급 권고 발표")
+        assert p is not None
+        assert "Ivanti" in p["headline"]
+        assert not p.get("_src_fallback")
+
+    def test_substring_not_whole_word_not_demoted(self):
+        # "Meta" is a substring of "Metaverse" but NOT a whole token -> kept
+        p = _panel_from_source_title("Metaverse Daily", "Meta 신규 정책 발표")
+        assert p is not None
+        assert p["headline"].startswith("Meta")
+        assert not p.get("_src_fallback")
+
+    def test_single_token_vendor_on_own_blog_not_demoted(self):
+        # A lone vendor name may BE the story subject reported on its own blog,
+        # so a single-token headline contained in the source is NOT demoted
+        # (only >= 2-token publication echoes are).
+        p = _panel_from_source_title("Google Cloud Blog", "Google 신규 클라우드 보안 기능")
+        assert p is not None
+        assert not p.get("_src_fallback")
+
+    def test_placeholder_source_not_demoted_by_containment(self):
+        # 02-27 class: source is the Korean placeholder, headline is a
+        # publication name from the title prose. Containment does NOT catch this
+        # (headline ⊄ "포인트 1") — it is a content-quality issue handled by the
+        # placeholder-source fix, not this cover-side demotion. Documents scope.
+        p = _panel_from_source_title("포인트 1", "보안 뉴스: The Hacker News, AWS Security Blog")
+        assert p is not None
+        assert not p.get("_src_fallback")  # NOT demoted here (deferred)
+
+    def test_end_to_end_source_echo_demoted_below_real(self):
+        sc = {"highlights": [
+            {"source": "The Hacker News", "title": "Storm-2949 캠페인 분석"},
+        ]}
+        # body table: a real story + a source-echo row
+        content = (
+            "| 분야 | 소스 | 핵심 내용 | 영향도 |\n|------|------|----------|--------|\n"
+            "| 🔒 **Security** | Cloudflare Blog | 클라우드 보안 동향 Cloudflare Blog | 🟡 Medium |\n"
+            "| 🔒 **Security** | BleepingComputer | WP Maps Pro 취약점 악용 | 🟠 High |\n"
+        )
+        panels = _digest_panels(sc, content)
+        heads = [p["headline"] for p in panels]
+        # the source-echo "Cloudflare Blog" must not precede a real story
+        assert "Cloudflare Blog" not in heads[:1]
+        assert any("Maps Pro" in h or "Storm-2949" in h for h in heads)
+
+
+# ---------------------------------------------------------------------------
 # Content-aware visual routing + honesty downgrade gate (Approach B)
 # ---------------------------------------------------------------------------
 class TestHonestContentVisual:
