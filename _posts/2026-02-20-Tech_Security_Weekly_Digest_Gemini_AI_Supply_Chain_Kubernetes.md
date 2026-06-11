@@ -34,9 +34,9 @@ summary_card:
     - "AI"
     - "Supply-Chain"
   highlights:
-    - { source: "포인트 1", title: "2026년 02월 20일 보안 뉴스: The Hacker News, Google Cloud, Snyk 등 29건. Gemini 3.1 Pro, AI 공급망 공격, Kubernetes Ingress NGINX 은퇴 관" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "The Hacker News", title: "PromptSpy 안드로이드 악성코드, Gemini AI 악용 최초 사례" }
+    - { source: "Snyk", title: "Clinejection - AI 봇을 공급망 공격 벡터로 전환" }
+    - { source: "Datadog Security Labs", title: "Kubernetes Ingress NGINX 은퇴 경고, 고위험 CVE 공개" }
 ---
 {% include ai-summary-card.html %}
 

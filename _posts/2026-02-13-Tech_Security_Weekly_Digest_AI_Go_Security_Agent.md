@@ -34,9 +34,9 @@ summary_card:
     - "Go"
     - "Security"
   highlights:
-    - { source: "포인트 1", title: "Gemini AI 악용 정찰, Lazarus npm·PyPI 악성 패키지, Copilot Studio 에이전트 리스크, FinOps 비용 절감 업데이트 등 2026-02-13 핵심 이슈 요약" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "The Hacker News", title: "Gemini AI를 악용한 국가 배후 정찰/공격 지원" }
+    - { source: "The Hacker News", title: "Lazarus의 npm·PyPI 악성 패키지 캠페인" }
+    - { source: "Microsoft Security Blog", title: "Copilot Studio 에이전트 보안 Top 10 리스크" }
 ---
 {% include ai-summary-card.html %}
 

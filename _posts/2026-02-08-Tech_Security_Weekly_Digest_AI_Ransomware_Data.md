@@ -46,9 +46,9 @@ summary_card:
     - "BlackField-Ransomware"
     - "Zero-Trust"
   highlights:
-    - { source: "포인트 1", title: "2026-02-08 기술·보안 주간 다이제스트: Signal 피싱 국가지원 공격, BlackField 랜섬웨어, - 2026년 02월 08일 보안 뉴스: 독일 BfV/BSI가 경고한 러시아 연계 Signal 피싱 공" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "독일 BfV/BSI", title: "러시아 연계 Signal 피싱 공격 - 정치인/군인/언론인 타겟" }
+    - { source: "SK쉴더스 EQST", title: "BlackField 랜섬웨어 - LockBit/Conti 코드 재활용 변종" }
+    - { source: "SK쉴더스 EQST", title: "사이버보안 특화 Vertical AI 구축 방안 분석" }
 ---
 {% include ai-summary-card.html %}
 

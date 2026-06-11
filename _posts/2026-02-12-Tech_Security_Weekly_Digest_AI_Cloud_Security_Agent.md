@@ -34,9 +34,9 @@ summary_card:
     - "Cloud"
     - "Security"
   highlights:
-    - { source: "포인트 1", title: "2026년 02월 12일 보안 뉴스: The Hacker News, Microsoft Security Blog 등 27건. AI, 클라우드, 보안, 에이전트 관련 DevSecOps 실무 위협 분석 및 대응 가이드" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "The Hacker News", title: "악성 Outlook 애드인 - 4,000+ Microsoft 계정 자격증명 탈취" }
+    - { source: "The Hacker News", title: "APT36/SideCopy 크로스플랫폼 RAT 캠페인 - 인도 정부 타겟" }
+    - { source: "The Hacker News", title: "60개 이상 벤더 OS 전반 보안 패치 일제 발표" }
 ---
 {% capture ai_categories_html %}
 <span class="category-tag security">Security</span>

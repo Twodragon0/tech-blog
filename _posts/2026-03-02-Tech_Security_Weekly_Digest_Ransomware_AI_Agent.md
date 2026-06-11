@@ -32,9 +32,9 @@ summary_card:
     - "Weekly-Digest"
     - "2026"
   highlights:
-    - { source: "포인트 1", title: "SK쉴더스 제로트러스트 가시성 분석 리포트, Trump Media 암호화폐 사업 확대, X 광고 정책 변경, Anthropic AI 교육 과정 공개 등 6건의 심층 분석" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "SK쉴더스", title: "Special Report — 제로트러스트 가시성 및 분석 (Visibility Analytics)" }
+    - { source: "Cointelegraph", title: "Trump Media, Truth Social 분사 검토 및 암호화폐 사업 확대" }
+    - { source: "Cointelegraph", title: "X(트위터), 암호화폐 유료 프로모션 허용 및 라벨링 정책 변경" }
 ---
 {% include ai-summary-card.html %}
 

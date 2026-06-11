@@ -33,9 +33,9 @@ summary_card:
     - "Go"
     - "AWS"
   highlights:
-    - { source: "포인트 1", title: "2026년 02월 26일 보안 뉴스: The Hacker News 등 23건. AI, Go, AWS, API 관련 DevSecOps 실무 위협 분석 및 대응 가이드" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "The Hacker News", title: "Google, 42개국 53개 조직 침해한 UNC2814 사이버 스파이 인프라 차단" }
+    - { source: "The Hacker News", title: "Claude Code에서 RCE 및 API 키 유출 취약점 다수 발견" }
+    - { source: "The Hacker News", title: "SLH 해킹 그룹, IT 헬프데스크 음성 피싱에 여성 모집 (건당 $500-$1,000)" }
 ---
 
 {% include ai-summary-card.html %}

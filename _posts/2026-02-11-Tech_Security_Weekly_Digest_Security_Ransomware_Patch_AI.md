@@ -52,9 +52,9 @@ summary_card:
     - "Ransomware"
     - "Patch"
   highlights:
-    - { source: "포인트 1", title: "2026년 02월 11일 보안 뉴스: The Hacker News 등 26건. 보안, 랜섬웨어, 패치, AI 관련 DevSecOps" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "The Hacker News", title: "북한 연계 IT 요원, LinkedIn 전문가 사칭으로 기업 침투" }
+    - { source: "The Hacker News", title: "Reynolds 랜섬웨어, BYOVD 드라이버 내장으로 EDR 무력화" }
+    - { source: "The Hacker News", title: "랜섬웨어에서 장기 잠복으로: 디지털 기생 공격의 부상" }
 ---
 
 {% include ai-summary-card.html %}

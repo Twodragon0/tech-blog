@@ -34,9 +34,9 @@ summary_card:
     - "Security"
     - "Zero-Day"
   highlights:
-    - { source: "포인트 1", title: "Dell RecoverPoint VM CVE-2026-22769 제로데이 실제 악용, VS Code 확장 4종(1.25억 설치) 치명적 취약점, Cellebrite 포렌식 도구 케냐 활동가 감시 사용 적발 등 202" }
-    - { source: "포인트 2", title: "실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다" }
-    - { source: "포인트 3", title: "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다" }
+    - { source: "The Hacker News", title: "Dell RecoverPoint VM 제로데이 CVE-2026-22769 실제 악용 중" }
+    - { source: "The Hacker News", title: "Grandstream GXP1600 VoIP 비인증 원격 코드 실행 취약점 노출" }
+    - { source: "The Hacker News", title: "VS Code 확장 4종에서 치명적 취약점 발견 (1.25억 설치)" }
 ---
 {% include ai-summary-card.html %}
 
