@@ -74,6 +74,21 @@ def test_lead_entity_prefers_proper_noun_over_cve():
     assert lead_entity("순수 한글 제목") == ""
 
 
+def test_lead_entity_inherits_cover_grade_honesty_filtering():
+    """Intentional decision: rollup day-cell tags share the L20 cover headline
+    quality guards (generic-word reject, severity-join reject) via the shared
+    ``build_lead_headline`` helper — no weak "Show Option"/"Critical High" tags
+    leak onto rollup covers."""
+    # A generic platform lead falls through to the real following entity.
+    assert lead_entity("Linux Defender 우회") == "Defender"
+    # An all-severity-word join is rejected -> empty tag (omit, don't fabricate).
+    assert lead_entity("Critical High 경보") == ""
+    # Both tokens generic filler ("Show Option") -> empty tag.
+    assert lead_entity("Show Option 기능") == ""
+    # Positive control: a real vendor+product bigram is preserved.
+    assert lead_entity("Ivanti EPMM 취약점") == "Ivanti EPMM"
+
+
 def test_daily_urls_from_redirects_picks_only_daily_paths():
     redirects = [
         "/posts/2026/04/01/Tech_Security_Weekly_Digest_Zero-Day/",

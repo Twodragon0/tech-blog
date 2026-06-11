@@ -29,11 +29,13 @@ from scripts.news.l20_dispatch import (
     _digest_stats,
     _digest_table_panels,
     _entity_tokens,
+    _GENERIC_HEADLINE_WORDS,
     _honest_content_visual,
     _is_good_headline,
     _panel_from_source_title,
     _rescue_hero,
     _severity_from_marker,
+    build_lead_headline,
     resolve_digest_band_visuals,
     route_visual_id,
     _HEADLINE_MAX_CHARS,
@@ -1170,3 +1172,115 @@ class TestW2TableCategoryRanking:
         )
         panels = _digest_panels(sc, content)
         assert panels[0]["headline"].startswith("JDownloader"), [p["headline"] for p in panels]
+
+
+# ---------------------------------------------------------------------------
+# Weak two-token headline quality (plan
+# .omc/plans/weak-two-token-headline-quality.md): FM1 clause-crossing join,
+# FM2 generic-word bigram, Hangul-glue safety, and the shared-helper clause
+# guard. DISPLAYED text only — visual routing + honesty scorer untouched.
+# ---------------------------------------------------------------------------
+class TestWeakBigramAndClause:
+    def test_generic_word_rejected_as_lone_headline(self):
+        # FM2 root: a lone generic capitalized English word reads as filler.
+        assert _is_good_headline("Show") is False
+        assert _is_good_headline("Option") is False
+
+    def test_real_subjects_still_pass(self):
+        # "Strategy" is the MSTR-rebrand entity and "Michael" is a real actor —
+        # neither is generic, so both remain valid headline tokens.
+        assert _is_good_headline("Strategy") is True
+        assert _is_good_headline("Michael") is True
+
+    def test_fm2_generic_bigram_not_emitted(self):
+        # "Show Option" (both generic) must never surface as the headline, nor
+        # may either lone generic word.
+        panel = _panel_from_source_title("Cointelegraph", "Show Option 기능 노출", "")
+        assert panel["headline"] not in {"Show Option", "Show", "Option"}
+
+    def test_legit_bigram_preserved(self):
+        # "Michael Saylor가 발언": the Hangul "가" abuts "Saylor"; the legit
+        # person bigram must survive (no false split on the glued particle).
+        panel = _panel_from_source_title("Src", "Michael Saylor가 발언", "")
+        assert panel["headline"] == "Michael Saylor"
+
+    def test_possessive_bigram_preserved_not_overfiltered(self):
+        # "X의 Y" possessive joins are usually real entity bigrams and MUST be
+        # kept (the generic-word reject must not over-filter these).
+        assert build_lead_headline("Anthropic의 Claude Mythos 제로데이") == "Anthropic Claude"
+        assert build_lead_headline("Broadcom의 VMware 인수 이후") == "Broadcom VMware"
+
+
+class TestRollupLeadParity:
+    """draft_rollup_spec.lead_entity must produce the same headline as the L20
+    panel path for the same title (one shared join helper, no drift)."""
+
+    PARITY_TITLES = [
+        "Strategy의 Michael Saylor, BTC 매수",
+        "Show Option 기능 노출",
+        "Michael Saylor가 발언",
+        "Arthur Hayes 발언",
+        "Ivanti EPMM 취약점",
+        "Cisco Catalyst 결함",
+        "Mirai ADB 봇넷",
+        "Hugging Face 모델",
+        "AWS KY3P 발표",
+        "npm Worm 공격",
+        "Maps Pro 출시",
+        "Cisco Unified 패치",
+    ]
+
+    def test_lead_entity_matches_shared_helper(self):
+        # Both the L20 panel join and the rollup tag delegate to the SHARED
+        # build_lead_headline, so they agree on the non-CVE path by design.
+        from scripts.draft_rollup_spec import lead_entity
+
+        for title in self.PARITY_TITLES:
+            shared = build_lead_headline(title)
+            assert lead_entity(title) == shared, title
+
+    def test_cve_only_title_diverges_as_designed(self):
+        # The one intentional divergence: a CVE-only title has no non-CVE entity,
+        # so the shared helper returns "" and each caller applies its own CVE
+        # fallback — the rollup tag uses the CVE id (toks[0]).
+        from scripts.draft_rollup_spec import lead_entity
+
+        cve_only = "CVE-2026-1234 단독 권고"
+        assert build_lead_headline(cve_only) == ""
+        assert lead_entity(cve_only) == "CVE-2026-1234"
+
+
+class TestCorpusNoGenericHero:
+    """Output-level corpus guard: no live digest hero/side-card headline is a
+    lone _GENERIC_HEADLINE_WORDS member. Asserts on dict outputs, NOT SVG."""
+
+    def _load_posts(self, *globs):
+        import glob
+        import re
+        import yaml
+
+        posts = []
+        for g in globs:
+            for fn in sorted(glob.glob(g)):
+                with open(fn) as f:
+                    raw = f.read()
+                m = re.match(r"^---\n(.*?)\n---\n", raw, re.DOTALL)
+                if not m:
+                    continue
+                fm = yaml.safe_load(m.group(1))
+                posts.append(
+                    (fn.split("/")[-1][:10], fm.get("summary_card"), raw[m.end():])
+                )
+        return posts
+
+    def test_no_generic_word_hero_or_side_card(self):
+        posts = self._load_posts("_posts/2026-05-*.md", "_posts/2026-06-*.md")
+        assert len(posts) >= 30, f"expected the May+June digest corpus, got {len(posts)}"
+        failures = []
+        for datestr, summary_card, content in posts:
+            for p in _digest_panels(summary_card, content):
+                if p["headline"].lower() in _GENERIC_HEADLINE_WORDS:
+                    failures.append(
+                        f"{datestr}: generic-word headline {p['headline']!r}"
+                    )
+        assert not failures, "Generic-word covers:\n" + "\n".join(failures)
