@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-11T00:39:42.263974+00:00",
+  "updated_at": "2026-06-12T00:40:24.026172+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/critical-gogs-rce-vulnerability-lets.html",
-      "title": "Critical Gogs RCE Vulnerability Lets Any Authenticated User Execute Arbitrary Co",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/why-and-how-to-migrate-to-a-transit-gateway-attached-aws-network-firewall/",
-      "title": "Why and how to migrate to a Transit Gateway-attached AWS Network Firewall",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/threat-actors-exploit-critical.html",
-      "title": "Threat Actors Exploit Critical FortiClient EMS Flaw to Deploy Credential Stealer",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-confirms-claude-mythos-class-models-will-roll-out-to-the-public/",
-      "title": "Anthropic confirms Claude Mythos-class models will roll out to the public",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/microsoft-slams-public-zero-day.html",
-      "title": "Microsoft Slams Public Zero-Day Disclosures Amid GitHub Researcher Account Remov",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-keynote-moment-videos/",
-      "title": "Catch up on 12 major I/O 2026 moments",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/icra-research-robotics-simulation-to-real-world/",
-      "title": "NVIDIA Research Advances Robotics From Simulation to the Real World",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-007-first-light-launch/",
-      "title": "The Name’s Gaming … Cloud Gaming: ‘007 First Light’ Launches on GeForce NOW",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://openai.com/index/endava",
-      "title": "How Endava builds an agentic organization with Codex",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/training-azerbaijani-language-models-on-amazon-sagemaker-ai/",
-      "title": "Training Azerbaijani language models on Amazon SageMaker AI",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/how-the-university-of-central-oklahoma-is-using-ai-to-streamline-analysis-of-complex-criminal-cases/",
-      "title": "How the University of Central Oklahoma is using AI to streamline analysis of com",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/devops-sre/how-google-sre-is-using-agentic-ai-to-improve-operations/",
-      "title": "AI in SRE: Where and how Google is deploying agentic AI to improve operations",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/ai-focused-innovations-in-dataflow/",
-      "title": "Evolving Dataflow to process massive datasets for machine learning",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/nano-banana-2-and-nano-banana-pro-are-generally-available/",
-      "title": "Nano Banana 2 and Nano Banana Pro are generally available, and already powering ",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/application-development/app-centric-maintenance-visibility-in-unified-maintenance/",
-      "title": "Go from resource-level to business-level maintenance in Google Cloud",
-      "published_date": "2026-05-29",
-      "expires_at": "2026-06-05T00:37:00.325814+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/05/chatgphish-vulnerability-turns-chatgpt.html",
       "title": "ChatGPhish Vulnerability Turns ChatGPT Web Summaries Into a Phishing Surface",
@@ -1242,6 +1152,96 @@
       "title": "Sim-to-Real과 Real-to-Sim: 유능한 Physical AI를 가능하게 하는 핵심 엔진",
       "published_date": "2026-06-11",
       "expires_at": "2026-06-18T00:39:42.263854+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html",
+      "title": "ShinyHunters Exploits Oracle PeopleSoft Zero-Day (CVE-2026-35273) to Breach Univ",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/new-greatxml-exploit-bypasses-windows.html",
+      "title": "New GreatXML Exploit Bypasses Windows BitLocker via Recovery Partition XML Files",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/the-gentlemen-ransomware-claims-478.html",
+      "title": "The Gentlemen Ransomware Claims 478 Victims, Can Spread Like a Worm",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/japanese-energy-firm-loses-drive-with-data-of-109-million-clients/",
+      "title": "Japanese energy firm loses drive with data of 10.9 million clients",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/cybersecurity-stars-awards-2026-winners.html",
+      "title": "Cybersecurity Stars Awards 2026: Winners Announced Across 95 Categories",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/",
+      "title": "Our new community investments in Virginia support local jobs and expand energy a",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-summer-sale-2026/",
+      "title": "Save Big and Play Bigger: GeForce NOW Summer Sale Brings Major Membership Saving",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/researcher-claims-hes-already-jailbroken-anthropics-guardrailed-claude-fable-5?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "AI researcher claims he's already bypassed Anthropic's Fable 5 guardrails",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/extract-data-with-on-demand-and-batch-pipelines-dynamically/",
+      "title": "Extract Data with On-demand and Batch Pipelines Dynamically",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/",
+      "title": "Evaluate AI agents systematically with Agent-EvalKit",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/powering-the-next-era-of-confidential-ai/",
+      "title": "Powering the next era of Confidential AI",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/dashboard-agents-in-looker/",
+      "title": "Transform dashboards into interactive data experiences with Looker agents",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/10-indispensable-prompts-our-team-refuses-to-build-without/",
+      "title": "10 Indispensable Prompts Our Team Refuses to Build Without",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/knco-agricultural-ai-chatbot-for-smart-farm-part2/",
+      "title": "Amazon Bedrock Vision LLM과 Amazon OpenSearch Service를 활용한 농약 제품 이미지 인식 시스템 구축기",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/codex-claudecode-harness/",
+      "title": "Amazon Bedrock 위에서 Codex와 Claude Code 함께 쓰기: Harness Engineering으로 구현해보기",
+      "published_date": "2026-06-12",
+      "expires_at": "2026-06-19T00:40:24.026057+00:00"
     }
   ]
 }
