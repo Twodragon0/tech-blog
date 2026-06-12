@@ -912,6 +912,13 @@ _SEVERITY_WORDS: frozenset = frozenset({"critical", "high", "medium", "low"})
 # detection is intentionally NOT attempted (false-positive risk on real actors).
 _WEAK_TRAILING: frozenset = frozenset({"factories"}) | _SEVERITY_WORDS
 
+# Generic capitalized English common words that read as filler bigrams on a
+# cover ("Show Option") and as useless lone headlines ("Show"). Consulted ONLY
+# in the single-token reject path of _is_good_headline (W3) and in the bigram
+# both-generic reject — NEVER for real story subjects. Deliberately EXCLUDES
+# real subjects like "strategy" (the MSTR-rebrand entity, a legit lone lead).
+_GENERIC_HEADLINE_WORDS: frozenset = frozenset({"show", "option"})
+
 
 def _common_prefix_len(a: str, b: str) -> int:
     """Length of the case-insensitive common leading run of ``a`` and ``b``."""
@@ -940,7 +947,13 @@ def _is_good_headline(h: str) -> bool:
         return False
     if not has_space:
         tl = h.lower()
-        if tl in (_ENTITY_ACRONYMS | _GENERIC_TRAILING | _WEAK_HEADLINE_WORDS | _WEAK_TRAILING):
+        if tl in (
+            _ENTITY_ACRONYMS
+            | _GENERIC_TRAILING
+            | _WEAK_HEADLINE_WORDS
+            | _WEAK_TRAILING
+            | _GENERIC_HEADLINE_WORDS
+        ):
             return False
     elif all(t.lower() in _SEVERITY_WORDS for t in h.split()):
         # W4: a multi-word headline made entirely of severity words
@@ -1000,6 +1013,89 @@ def _severity_from_marker(cell: str) -> str:
     return ""
 
 
+def build_lead_headline(title: str) -> str:
+    """Lead 1-2 entity-token headline for a (possibly Korean) ``title``.
+
+    Encapsulates the shared headline-resolution logic used by both the L20
+    digest panel builder and ``draft_rollup_spec.lead_entity``. Operates on the
+    NON-CVE entity tokens of ``title`` and returns ``""`` when nothing resolves
+    (the caller then applies its own CVE / source fallback). Carries every
+    existing guard verbatim: generic-trailing block, near-dup prefix, length
+    cap, the load-bearing ``acronym_product_join`` exception (keeps "AWS KY3P" /
+    "npm Worm"), and the ``_is_good_headline`` single-token fallthrough — PLUS a
+    both-generic bigram reject so two filler words never form a headline
+    ("Show Option"). Combined with the generic-word reject in ``_is_good_headline``
+    this keeps lone/paired filler words ("Show", "Option") off the cover.
+
+    Known limitation (deferred): a possessive lead like "Strategy의 Michael
+    Saylor" still yields "Strategy Michael" — recovering the person bigram
+    "Michael Saylor" would need surname detection, which this module
+    deliberately avoids (false-positive risk on real actors; see the wordlist
+    comments above).
+    """
+    toks = _entity_tokens(title)
+    non_cve = [t for t in toks if not _CVE_RE.match(t)]
+    if not non_cve:
+        return ""
+    # Lead candidate: first entity, optionally joined with the second token
+    # — but never glue a generic platform/region trailing word ("Showboat
+    # Linux" -> "Showboat", "Foo MENA" -> "Foo").
+    candidate = non_cve[0]
+    if (
+        len(non_cve) > 1
+        and non_cve[1].lower() not in _GENERIC_TRAILING
+        # Skip a near-duplicate brand restatement ("ChatGPhish ChatGPT"):
+        # a long shared prefix means token 2 just echoes token 1.
+        and _common_prefix_len(non_cve[0], non_cve[1]) < 4
+        and len(f"{non_cve[0]} {non_cve[1]}") <= _HEADLINE_MAX_CHARS
+        # Never join two generic filler words into a useless bigram
+        # ("Show Option") — see _GENERIC_HEADLINE_WORDS.
+        and not (
+            non_cve[0].lower() in _GENERIC_HEADLINE_WORDS
+            and non_cve[1].lower() in _GENERIC_HEADLINE_WORDS
+        )
+    ):
+        candidate = f"{non_cve[0]} {non_cve[1]}"
+    # Trust the lead candidate only when it is good AND the LEAD token is
+    # not itself a generic/weak/acronym word — otherwise a phrase like
+    # "Linux Defender" would slip through on the strength of its space.
+    #
+    # Exception: a known cloud/product ACRONYM (aws, gcp, npm, …) IS a
+    # meaningful lead when the second token is a real entity — e.g.
+    # "AWS KY3P" is a recognisable vendor+product phrase. In that case
+    # keep the joined candidate even though the lead token alone would be
+    # flagged as "bad". Only reject the join when the lead is a *generic
+    # trailing* or *weak* word (linux, cloud, sorry, etc.).
+    lead_token_lower = non_cve[0].lower()
+    lead_is_acronym = lead_token_lower in _ENTITY_ACRONYMS
+    lead_is_generic = lead_token_lower in (_GENERIC_TRAILING | _WEAK_HEADLINE_WORDS)
+    lead_bad = lead_token_lower in (
+        _ENTITY_ACRONYMS | _GENERIC_TRAILING | _WEAK_HEADLINE_WORDS
+    )
+    # Allow "ACRONYM Product" joins (e.g. "AWS KY3P", "npm worm", "GCP
+    # IAM") when the second token itself passes _is_good_headline.
+    two_token_candidate = " " in candidate
+    acronym_product_join = (
+        two_token_candidate
+        and lead_is_acronym
+        and not lead_is_generic  # ios, ai, ml are in BOTH sets → still bad
+        and len(non_cve) > 1
+        and _is_good_headline(non_cve[1])
+    )
+    if _is_good_headline(candidate) and (not lead_bad or acronym_product_join):
+        return candidate
+    # The lead entity is a bare acronym / generic / weak word (e.g.
+    # "AI", "Sorry", "Linux"). Scan for the first token that passes,
+    # preferring a Capitalized non-acronym over a lone acronym.
+    cap = next(
+        (t for t in non_cve
+         if _is_good_headline(t) and t.lower() not in _ENTITY_ACRONYMS),
+        "",
+    )
+    acro = next((t for t in non_cve if _is_good_headline(t)), "")
+    return cap or acro
+
+
 def _panel_from_source_title(
     src: str, ttl: str, severity: str = ""
 ) -> Optional[Dict]:
@@ -1018,64 +1114,10 @@ def _panel_from_source_title(
     toks = _entity_tokens(ttl)
     if not toks:
         return None
-    non_cve = [t for t in toks if not _CVE_RE.match(t)]
     cve = _CVE_RE.search(_html.unescape(ttl))
     cve_str = cve.group(0).upper() if cve else ""
 
-    headline: str = ""
-    if non_cve:
-        # Lead candidate: first entity, optionally joined with the second token
-        # — but never glue a generic platform/region trailing word ("Showboat
-        # Linux" -> "Showboat", "Foo MENA" -> "Foo").
-        candidate = non_cve[0]
-        if (
-            len(non_cve) > 1
-            and non_cve[1].lower() not in _GENERIC_TRAILING
-            # Skip a near-duplicate brand restatement ("ChatGPhish ChatGPT"):
-            # a long shared prefix means token 2 just echoes token 1.
-            and _common_prefix_len(non_cve[0], non_cve[1]) < 4
-            and len(f"{non_cve[0]} {non_cve[1]}") <= _HEADLINE_MAX_CHARS
-        ):
-            candidate = f"{non_cve[0]} {non_cve[1]}"
-        # Trust the lead candidate only when it is good AND the LEAD token is
-        # not itself a generic/weak/acronym word — otherwise a phrase like
-        # "Linux Defender" would slip through on the strength of its space.
-        #
-        # Exception: a known cloud/product ACRONYM (aws, gcp, npm, …) IS a
-        # meaningful lead when the second token is a real entity — e.g.
-        # "AWS KY3P" is a recognisable vendor+product phrase. In that case
-        # keep the joined candidate even though the lead token alone would be
-        # flagged as "bad". Only reject the join when the lead is a *generic
-        # trailing* or *weak* word (linux, cloud, sorry, etc.).
-        lead_token_lower = non_cve[0].lower()
-        lead_is_acronym = lead_token_lower in _ENTITY_ACRONYMS
-        lead_is_generic = lead_token_lower in (_GENERIC_TRAILING | _WEAK_HEADLINE_WORDS)
-        lead_bad = lead_token_lower in (
-            _ENTITY_ACRONYMS | _GENERIC_TRAILING | _WEAK_HEADLINE_WORDS
-        )
-        # Allow "ACRONYM Product" joins (e.g. "AWS KY3P", "npm worm", "GCP
-        # IAM") when the second token itself passes _is_good_headline.
-        two_token_candidate = " " in candidate
-        acronym_product_join = (
-            two_token_candidate
-            and lead_is_acronym
-            and not lead_is_generic  # ios, ai, ml are in BOTH sets → still bad
-            and len(non_cve) > 1
-            and _is_good_headline(non_cve[1])
-        )
-        if _is_good_headline(candidate) and (not lead_bad or acronym_product_join):
-            headline = candidate
-        else:
-            # The lead entity is a bare acronym / generic / weak word (e.g.
-            # "AI", "Sorry", "Linux"). Scan for the first token that passes,
-            # preferring a Capitalized non-acronym over a lone acronym.
-            cap = next(
-                (t for t in non_cve
-                 if _is_good_headline(t) and t.lower() not in _ENTITY_ACRONYMS),
-                "",
-            )
-            acro = next((t for t in non_cve if _is_good_headline(t)), "")
-            headline = cap or acro
+    headline: str = build_lead_headline(ttl)
 
     if not headline:
         # No non-CVE entity passed. Prefer a CVE id, then an ASCII source as a

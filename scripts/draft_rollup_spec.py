@@ -60,7 +60,11 @@ REPO = Path(__file__).resolve().parent.parent
 # scripts/news/__init__.py imports via the ``scripts.`` package, so the repo
 # root (parent of scripts/) must be on sys.path.
 sys.path.insert(0, str(REPO))
-from scripts.news.l20_dispatch import _CVE_RE, _entity_tokens  # noqa: E402
+from scripts.news.l20_dispatch import (  # noqa: E402
+    _CVE_RE,
+    _entity_tokens,
+    build_lead_headline,
+)
 
 ROLLUP_COVERS_DIR = REPO / "_data" / "rollup_covers"
 POSTS_DIR = REPO / "_posts"
@@ -203,12 +207,14 @@ def lead_entity(title: str) -> str:
     toks = _entity_tokens(title)
     if not toks:
         return ""
-    non_cve = [t for t in toks if not _CVE_RE.match(t)]
-    if non_cve:
-        lead = non_cve[0]
-        if len(non_cve) > 1 and len(f"{non_cve[0]} {non_cve[1]}") <= _HEADLINE_MAX_CHARS:
-            lead = f"{non_cve[0]} {non_cve[1]}"
-    else:
+    # Shared cover-grade headline logic (clause guard, generic-word reject,
+    # acronym-product join). Returns "" on the non-CVE path when nothing
+    # resolves; fall back to a leading CVE id as the tag in that case.
+    lead = build_lead_headline(title)
+    if not lead:
+        non_cve = [t for t in toks if not _CVE_RE.match(t)]
+        if non_cve:
+            return ""
         lead = toks[0]
     return _shorten(lead, _HEADLINE_MAX_CHARS)
 
