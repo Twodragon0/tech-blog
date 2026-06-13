@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-12T00:40:24.026172+00:00",
+  "updated_at": "2026-06-13T00:40:05.466867+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/chatgphish-vulnerability-turns-chatgpt.html",
-      "title": "ChatGPhish Vulnerability Turns ChatGPT Web Summaries Into a Phishing Surface",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/attackers-use-llm-agent-for-post.html",
-      "title": "Attackers Use LLM Agent for Post-Exploitation After Marimo CVE-2026-39987 Exploi",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/new-russian-linked-greyvibe-targets.html",
-      "title": "New Russian-Linked GREYVIBE Targets Ukraine with AI-Powered Cyberattacks",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/05/what-2000-exposed-vibe-coded-apps.html",
-      "title": "What 2,000 Exposed Vibe-Coded Apps Reveal About the Limits of Most Security Stac",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/29/microsoft-is-named-a-leader-in-the-2026-gartner-magic-quadrant-for-endpoint-protection/",
-      "title": "Microsoft is named a Leader in the 2026 Gartner® Magic Quadrant™ for Endpoint Pr",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/io-2026-vibe-coded-quiz/",
-      "title": "Take our I/O 2026 quiz, vibe coded in Google AI Studio.",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-3-5-videos/",
-      "title": "9 demos of Gemini Omni and Gemini 3.5 in action",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/enterprise-business-software-and-the-mixed-up-chameleon-problem-f16df333bc71?source=rss----3c87dc14372f---4",
-      "title": "Enterprise Business Software and the Mixed-Up Chameleon Problem",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://openai.com/index/boston-childrens-hospital",
-      "title": "Boston Children’s uses AI to unlock new diagnoses",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://openai.com/index/braintrust",
-      "title": "How Braintrust turns customer requests into code with Codex",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-to-build-an-ai-ready-security-program-for-the-public-sector/",
-      "title": "Cloud CISO Perspectives: How to build an AI-ready security program for the publi",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up/",
-      "title": "Cool stuff Google Cloud customers built, May edition: Agentic algorithms for sup",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/guide-to-gemini-enterprise-and-a2ui-integration/",
-      "title": "Developer's guide to Gemini Enterprise and A2UI integration",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/using-connected-sheets-to-analyze-bigquery-data/",
-      "title": "From petabytes to predictions: Easy BigQuery insights in Google Sheets",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/alloydb-hot-standby-faster-failovers-and-consistent-performance/",
-      "title": "AlloyDB Hot Standby: Faster failovers, consistent performance",
-      "published_date": "2026-05-30",
-      "expires_at": "2026-06-06T00:34:09.552531+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/palo-alto-globalprotect-vpn-auth-bypass-flaw-now-exploited-in-attacks/",
       "title": "Palo Alto GlobalProtect VPN auth bypass flaw now exploited in attacks",
@@ -1242,6 +1152,96 @@
       "title": "Amazon Bedrock 위에서 Codex와 Claude Code 함께 쓰기: Harness Engineering으로 구현해보기",
       "published_date": "2026-06-12",
       "expires_at": "2026-06-19T00:40:24.026057+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
+      "title": "Over 400 Arch Linux AUR Packages Hijacked to Deploy Infostealer and eBPF Rootkit",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/google-sues-chinese-smishing-network.html",
+      "title": "Google Sues Chinese Smishing Network Accused of Using Gemini AI in Phishing",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html",
+      "title": "China-Linked Hackers Backdoored Linux Login Software to Hide for Nearly a Decade",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html",
+      "title": "Agentjacking Attack Tricks AI Coding Agents Into Running Malicious Code",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/rethinking-mdr-as-attackers-and.html",
+      "title": "Rethinking MDR as Attackers and Defenders Embrace AI",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-blackwell-agentperf-artificial-analysis/",
+      "title": "NVIDIA Blackwell Leads on First Agentic AI Infrastructure Benchmark",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://openai.com/index/academy-courses-applying-ai-at-work",
+      "title": "New OpenAI Academy courses for the next era of work",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-supercharger-how-rocket-close-optimized-title-operations-with-agentic-ai/",
+      "title": "Building Supercharger: How Rocket Close optimized title operations with agentic ",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-meeting-prep-and-follow-up-assistant-with-amazon-quick-and-cisco-webex-mcp-servers/",
+      "title": "Build a meeting prep and follow-up assistant with Amazon Quick and Cisco Webex M",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/from-pdfs-to-insights-architecting-an-intelligent-document-processing-pipeline-with-aws-generative-ai-services/",
+      "title": "From PDFs to insights: Architecting an intelligent document processing pipeline ",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/",
+      "title": "Introducing the Open Knowledge Format",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-12-copilot-code-review-new-configurations-and-controls",
+      "title": "Copilot code review: New configurations and controls",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-12-github-actions-minimum-version-enforcement-timeline-for-self-hosted-runners",
+      "title": "GitHub Actions: Minimum version enforcement timeline for self-hosted runners",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/06/12/securing-ci-cd-for-an-open-source-project-locking-down-dependencies/",
+      "title": "Securing CI/CD for an open source project: Locking down dependencies",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/blockworks-acquires-messari",
+      "title": "Blockworks Acquires Messari in Deal Highlighting Crypto’s Data Consolidation Rac",
+      "published_date": "2026-06-13",
+      "expires_at": "2026-06-20T00:40:05.466757+00:00"
     }
   ]
 }
