@@ -21,8 +21,10 @@ import re
 
 
 from scripts.news.l20_dispatch import (
+    _AI_COMPOUND_ADJECTIVES,
     _apply_real_content,
     _build_story,
+    _DEFERRED_AI_ADJECTIVES,
     _DIGEST_CONTENT_HONEST,
     _digest_highlight_panels,
     _digest_panels,
@@ -1255,6 +1257,124 @@ class TestGenericHeadlineWordVetting:
         assert "vertical" not in _GENERIC_HEADLINE_WORDS
 
 
+class TestAiCompoundHeadline:
+    """FM2: '<CompoundAdjective> AI' (Agentic AI / Vertical AI) must survive as an
+    honest bigram instead of collapsing to a lone weak adjective. 'ai' is in
+    _GENERIC_TRAILING (so '<Foo> AI' -> 'Foo'); _AI_COMPOUND_ADJECTIVES is the
+    narrow, corpus-vetted override. All titles below are REAL corpus highlight
+    titles (see .omc/plans/fm2-ai-compound-adjective.md)."""
+
+    def test_agentic_ai_real_titles_kept_as_bigram(self):
+        for title in (
+            "Agentic AI 시스템의 Zero Trust NHI(비인간 ID) 관리 가이드 발표",
+            "Agentic AI 기반 통신 자율 네트워크 + AI-RAN 상용화 실증",
+            "Agentic AI 플랫폼: MCP Registry로 에이전트 도구 통합 관리",
+        ):
+            assert build_lead_headline(title) == "Agentic AI", title
+
+    def test_vertical_ai_real_titles_kept_as_bigram(self):
+        for title in (
+            "사이버보안 특화 Vertical AI 구축 방안 분석",
+            "Vertical AI 구축 — 보안 특화 AI로 위협 탐지 오탐률 감소, SOC 자동화 가속",
+        ):
+            assert build_lead_headline(title) == "Vertical AI", title
+
+    def test_double_ai_does_not_triple(self):
+        # tokens=[Vertical, AI, AI, SOC] — the join takes only [0]+[1], never "Vertical AI AI".
+        assert (
+            build_lead_headline(
+                "Vertical AI 구축 — 보안 특화 AI로 위협 탐지 오탐률 감소, SOC 자동화 가속"
+            )
+            == "Vertical AI"
+        )
+
+    def test_branch_does_not_fire_when_adjective_not_lead(self):
+        # Real negative: a stronger entity precedes the adjective -> the AI-compound
+        # branch must NOT fire; the strong lead wins (proves the branch is gated on
+        # non_cve[0], not on the mere presence of '<adj> AI').
+        assert build_lead_headline("OWASP Agentic AI 프레임워크, Kubernetes 보안 확인") == "OWASP Agentic"
+
+    def test_arbitrary_adjective_ai_still_strips(self):
+        # A >=4-char, non-allowlisted lead adjective + "AI" must NOT join into a
+        # bigram (only curated qualifiers do). It falls back to the lone token.
+        assert build_lead_headline("Responsible AI 거버넌스 프레임워크") == "Responsible"
+
+    def test_generalized_join_would_wreck_proper_noun_fragments(self):
+        # Why an allowlist, not a generalized "<Cap> AI" rule: these real titles
+        # must keep their proper-noun lead, never become "Gordon AI"/"Mythos AI".
+        assert build_lead_headline("Ask Gordon AI 비서의 이미지 메타데이터 기반 코드 실행 취약점") == "Ask Gordon"
+        assert build_lead_headline("Claude Mythos AI, 10,000개의 높은 심각도 결함 발견") == "Claude Mythos"
+
+
+class TestAiCompoundAdjectiveVetting:
+    """Per-word vetting + structural invariants for _AI_COMPOUND_ADJECTIVES
+    (mirrors TestGenericHeadlineWordVetting)."""
+
+    def test_seed_membership(self):
+        assert _AI_COMPOUND_ADJECTIVES == frozenset({"agentic", "vertical"})
+
+    def test_each_member_produces_good_bigram(self):
+        # Every allowlist member must yield an _is_good_headline bigram when joined
+        # to "AI" (keeps the list honest: no member that would render as junk).
+        for adj in _AI_COMPOUND_ADJECTIVES:
+            bigram = f"{adj.title()} AI"
+            assert _is_good_headline(bigram), bigram
+
+    def test_disjoint_from_generic_headline_words(self):
+        # A word must never be in both sets (contradictory routing).
+        assert _AI_COMPOUND_ADJECTIVES.isdisjoint(_GENERIC_HEADLINE_WORDS)
+
+    def test_disjoint_from_deferred(self):
+        # Shadow et al. are deferred (structurally distinct), never silently
+        # promoted into the join allowlist (that would be a no-op guard-silencer).
+        assert _AI_COMPOUND_ADJECTIVES.isdisjoint(_DEFERRED_AI_ADJECTIVES)
+
+
+class TestCorpusNoLoneAdjectiveAi:
+    """Self-healing guard: no committed digest panel may emit a lone adjective
+    immediately followed by a standalone 'AI' in its source title unless that
+    adjective is in _AI_COMPOUND_ADJECTIVES (would be a join bug) or explicitly
+    deferred in _DEFERRED_AI_ADJECTIVES (a structurally-distinct known case).
+    Converts allowlist-rot from silent to CI-blocking. Scope: the L20
+    summary_card highlight corpus; the rollup path shares build_lead_headline and
+    is covered separately by TestRollupLeadParity."""
+
+    def test_no_unvetted_lone_adjective_ai_panel(self):
+        import glob
+        import html as _html_mod
+        import re as _re
+        import yaml as _yaml
+
+        offenders = []
+        for fn in sorted(glob.glob("_posts/*.md")):
+            with open(fn) as f:
+                raw = f.read()
+            m = _re.match(r"^---\n(.*?)\n---\n", raw, _re.DOTALL)
+            if not m:
+                continue
+            fm = _yaml.safe_load(m.group(1))
+            sc = fm.get("summary_card")
+            if not isinstance(sc, dict):
+                continue
+            for hl in sc.get("highlights", []) or []:
+                title = hl.get("title", "") or ""
+                lead = build_lead_headline(title)
+                if not lead or " " in lead:
+                    continue
+                # literal title adjacency "<lead> AI" (AI standalone, not "OpenAI")
+                if _re.search(rf"\b{_re.escape(lead)}\s+AI\b", _html_mod.unescape(title)):
+                    low = lead.lower()
+                    if low in _AI_COMPOUND_ADJECTIVES or low in _DEFERRED_AI_ADJECTIVES:
+                        continue
+                    offenders.append(f"{fn.split('/')[-1][:10]}: lone {lead!r} <- {title[:60]!r}")
+        assert not offenders, (
+            "Unvetted lone-adjective+AI panel(s) — add the adjective to "
+            "_AI_COMPOUND_ADJECTIVES (if the join fixes the cover) or "
+            "_DEFERRED_AI_ADJECTIVES (if structurally distinct):\n"
+            + "\n".join(offenders)
+        )
+
+
 class TestRollupLeadParity:
     """draft_rollup_spec.lead_entity must produce the same headline as the L20
     panel path for the same title (one shared join helper, no drift)."""
@@ -1272,6 +1392,10 @@ class TestRollupLeadParity:
         "npm Worm 공격",
         "Maps Pro 출시",
         "Cisco Unified 패치",
+        # FM2: the AI-compound join is in the shared helper, so the rollup tag
+        # inherits it — these must produce "Agentic AI" / "Vertical AI" on BOTH paths.
+        "Agentic AI 시스템의 Zero Trust NHI 관리 가이드 발표",
+        "사이버보안 특화 Vertical AI 구축 방안 분석",
     ]
 
     def test_lead_entity_matches_shared_helper(self):
@@ -1282,6 +1406,13 @@ class TestRollupLeadParity:
         for title in self.PARITY_TITLES:
             shared = build_lead_headline(title)
             assert lead_entity(title) == shared, title
+
+    def test_fm2_ai_compound_inherited_by_rollup(self):
+        # Explicit: the rollup path yields the FM2 bigram, not a lone adjective.
+        from scripts.draft_rollup_spec import lead_entity
+
+        assert lead_entity("사이버보안 특화 Vertical AI 구축 방안 분석") == "Vertical AI"
+        assert lead_entity("Agentic AI 플랫폼: MCP Registry로 도구 통합") == "Agentic AI"
 
     def test_cve_only_title_diverges_as_designed(self):
         # The one intentional divergence: a CVE-only title has no non-CVE entity,

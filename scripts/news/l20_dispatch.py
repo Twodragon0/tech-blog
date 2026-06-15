@@ -925,12 +925,30 @@ _WEAK_TRAILING: frozenset = frozenset({"factories"}) | _SEVERITY_WORDS
 # lone lead. "show"/"option"/"command" all come from the same GeekNews macOS
 # keyboard-key line ("Show GN: 오른쪽 Option / Command 키...").
 #
-# NOT admitted (deferred): adjective-of-"AI" words like "agentic" ("Agentic AI",
-# real vendor sources HashiCorp/AWS/NVIDIA) and "vertical" ("Vertical AI"). These
-# are NOT clean filler — rejecting the lone adjective yields an empty/degraded
-# fallthrough, not a better cover. The adjective+"AI" case needs the dedicated
-# stripping rule tracked separately (FM2), not a generic-word reject here.
+# NOT admitted here: adjective-of-"AI" words like "agentic"/"vertical". They are
+# NOT clean filler (rejecting them yields an empty/degraded fallthrough); they are
+# handled by the FM2 join below (_AI_COMPOUND_ADJECTIVES), which KEEPS the honest
+# bigram "Agentic AI"/"Vertical AI" rather than dropping the cover.
 _GENERIC_HEADLINE_WORDS: frozenset = frozenset({"show", "option", "command"})
+
+# FM2 — curated compound-adjective qualifiers that form a recognizable AI *topic
+# name* when glued to a trailing bare "AI" ("Agentic AI", "Vertical AI"). "ai" is
+# in _GENERIC_TRAILING precisely so "<Foo> AI" strips to "Foo"; this allowlist is
+# the ONLY override, gated in build_lead_headline so arbitrary "<Foo> AI" still
+# strips (a generalized "<Cap> AI" join would wreck real proper-noun fragments —
+# "Ask Gordon AI" -> "Gordon AI", "Claude Mythos AI" -> "Mythos AI"). Each member
+# is corpus-vetted by TestAiCompoundAdjectiveVetting; the seed is the exact set of
+# lead-position "<adj> AI" highlight titles in the corpus (Agentic ×4, Vertical ×3).
+_AI_COMPOUND_ADJECTIVES: frozenset = frozenset({"agentic", "vertical"})
+
+# FM2 deferred — lone-adjective+"AI" cases the join above CANNOT reach because the
+# adjective is NOT the lead token. e.g. "Shadow AI" titles lead with "AI"
+# ("2025년 AI 보안 위협 현황: Shadow AI …"), so "Shadow" is non_cve[1] and its lone
+# rendering comes from the fallthrough cap-scan, not the lead-join. Adding "shadow"
+# to _AI_COMPOUND_ADJECTIVES is a verified NO-OP (does not change the cover) — it
+# would only silence the TestCorpusNoLoneAdjectiveAi guard. This positional case
+# needs a separate future rule; the guard exempts these so committed CI stays green.
+_DEFERRED_AI_ADJECTIVES: frozenset = frozenset({"shadow"})
 
 
 def _common_prefix_len(a: str, b: str) -> int:
@@ -1050,6 +1068,21 @@ def build_lead_headline(title: str) -> str:
     non_cve = [t for t in toks if not _CVE_RE.match(t)]
     if not non_cve:
         return ""
+    # FM2: keep "<CompoundAdjective> AI" as an honest bigram ("Agentic AI",
+    # "Vertical AI"). "ai" is in _GENERIC_TRAILING so the normal join below
+    # refuses it (leaving a weak lone "Agentic"/"Vertical"); this curated,
+    # allowlist-gated early return is the only override. Gated on non_cve[0] so a
+    # stronger preceding entity still wins ("OWASP Agentic AI" -> "OWASP Agentic")
+    # and arbitrary "<Foo> AI" still strips. Carries its own length cap + near-dup
+    # guard since it precedes those checks.
+    if (
+        len(non_cve) > 1
+        and non_cve[0].lower() in _AI_COMPOUND_ADJECTIVES
+        and non_cve[1].lower() == "ai"
+        and _common_prefix_len(non_cve[0], non_cve[1]) < 4
+        and len(f"{non_cve[0]} {non_cve[1]}") <= _HEADLINE_MAX_CHARS
+    ):
+        return f"{non_cve[0]} {non_cve[1]}"
     # Lead candidate: first entity, optionally joined with the second token
     # — but never glue a generic platform/region trailing word ("Showboat
     # Linux" -> "Showboat", "Foo MENA" -> "Foo").
