@@ -1,78 +1,6 @@
 {
-  "updated_at": "2026-06-14T00:37:10.813568+00:00",
+  "updated_at": "2026-06-15T00:39:22.435237+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/05/dutch-authorities-dismantle-botnet.html",
-      "title": "Dutch Authorities Dismantle Botnet Linked to 17 Million Infected Devices",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/wp-maps-pro-bug-exploited-to-create-admin-accounts-on-wordpress-sites/",
-      "title": "WP Maps Pro bug exploited to create admin accounts on WordPress sites",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/us-uk-central-bankers-offer-contrary-views-on-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "US, UK central bankers offer contrary views on stablecoins",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/strategys-michael-saylor-says-working-better-tees-up-btc-buy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Strategy's Michael Saylor teases BTC buy with 'working better' tweet",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/vietnam-proposes-allowing-smes-to-use-digital-assets-as-loan-collateral?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Vietnam proposes allowing SMEs to use digital assets as loan collateral",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/cosmos-based-gravity-bridge-halts-bridge-after-reported-54m-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Cosmos-based Gravity Bridge halts bridge after reported $5.4M exploit",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-dip-buyers-curb-selling-but-questionable-spot-futures-volumes-highlight-weakness?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin dip buyers curb selling but questionable spot, futures volumes highlight",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "World Monitor - Real-Time Global Intelligence Dashboard",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30054",
-      "title": "Show GN: 오른쪽 Option / Command 키로 한/영 전환을 할 수 있도록 도와주는 앱을 만들어 봤습니다. (macOS)",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30053",
-      "title": "AV2 비디오 표준 출시, 최종 v1.0 명세 공개",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30052",
-      "title": "Accenture, Ookla 인수 예정",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30051",
-      "title": "EY Canada가 사이버보안 보고서를 냈고 인용 대부분이 환각이었다",
-      "published_date": "2026-06-01",
-      "expires_at": "2026-06-08T00:34:24.846605+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/miasma-supply-chain-attack-compromises.html",
       "title": "Miasma Supply Chain Attack Compromises Red Hat npm Packages with Credential-Stea",
@@ -1242,6 +1170,96 @@
       "title": "거절된 이모지 제안들",
       "published_date": "2026-06-14",
       "expires_at": "2026-06-21T00:37:10.813461+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/fbi-disrupts-massive-ai-powered-phishing-service-using-a-million-urls/",
+      "title": "FBI disrupts massive AI-powered phishing service using a million URLs",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30485",
+      "title": "Arch Linux, 이제 악성코드 사고가 통제됐다고 판단: 1,500개 이상 패키지 영향",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://snyk.io/blog/fable-mythos-suspension-security-takeaways/",
+      "title": "When a Government Pulls an AI Model: What the Fable 5 and Mythos 5 Suspension Me",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-openai-partner-network",
+      "title": "Introducing the OpenAI Partner Network",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/amazon-warning-triggered-us-crackdown-on-anthropic-ai-models-reports?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Amazon warning triggered US crackdown on Anthropic AI models: Reports",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ethereum-quantum-proof-accounts-7-cents-researcher?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ethereum can quantum-proof accounts for just 7 cents, says Ethereum's Kohaku lea",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/humanity-protocol-hack-linked-north-korean-actors-quantstamp?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Humanity Protocol’s $36M hack tied to suspected North Korean hackers: Quantstamp",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/trump-says-iran-peace-deal-to-be-signed-sunday-contradicting-tehran?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Trump says Iran peace deal to be signed Sunday, contradicting Tehran",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/stanchart-looks-for-3-signs-of-btc-bottom-including-strategys-monday-news?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "StanChart looks for 3 signs of BTC bottom, including Strategy’s Monday news",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/06/14/bitcoin-shoots-higher-on-iran-deal-with-strait-of-hormuz-set-to-open",
+      "title": "Bitcoin shoots higher on Iran peace deal, with Strait of Hormuz set to open",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "title": "World Monitor - Real-Time Global Intelligence Dashboard",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30491",
+      "title": "소프트웨어는 죽는 게 아니라 진화 중이다",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30490",
+      "title": "Automerge로 멀티플레이어 팟캐스트 에디터 만들기",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30489",
+      "title": "Grit: 에이전트로 Git을 Rust로 다시 작성하기",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30488",
+      "title": "에이전트 코딩에 로컬 LLM 활용하기",
+      "published_date": "2026-06-15",
+      "expires_at": "2026-06-22T00:39:22.435134+00:00"
     }
   ]
 }
