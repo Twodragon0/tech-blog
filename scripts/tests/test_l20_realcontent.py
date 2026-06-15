@@ -1211,6 +1211,50 @@ class TestWeakBigramAndClause:
         assert build_lead_headline("Broadcom의 VMware 인수 이후") == "Broadcom VMware"
 
 
+class TestGenericHeadlineWordVetting:
+    """Per-word vetting contract for ``_GENERIC_HEADLINE_WORDS``.
+
+    Each admitted member must (a) be rejected as a LONE headline, yet (b) never
+    over-filter a real story subject when it appears mid-phrase. New filler words
+    are admitted only when they pass these checks against the live corpus
+    (see ``TestCorpusNoGenericHero`` for the corpus-level guard).
+    """
+
+    def test_command_rejected_as_lone_headline(self):
+        # "Command" joins "show"/"option" from the same GeekNews macOS
+        # keyboard-key line ("Show GN: 오른쪽 Option / Command 키...").
+        assert "command" in _GENERIC_HEADLINE_WORDS
+        assert _is_good_headline("Command") is False
+
+    def test_command_bigram_with_real_token_preserved(self):
+        # The lone reject must NOT kill a real "Command <Noun>" story phrase:
+        # only the bare filler word is generic, not the bigram.
+        assert build_lead_headline("Command Injection 취약점 공개") == "Command Injection"
+        assert build_lead_headline("Command Center 운영 사례") == "Command Center"
+
+    def test_geeknews_keyboard_line_yields_no_filler(self):
+        # The real source line that produced show/option/command must resolve to
+        # NONE of the three filler words (it has no real ASCII story subject).
+        title = "Show GN: 오른쪽 Option / Command 키로 한/영 전환"
+        assert build_lead_headline(title) not in {
+            "Show",
+            "Option",
+            "Command",
+            "Show Option",
+            "Show Command",
+            "Option Command",
+        }
+
+    def test_adjective_of_ai_words_deferred_not_admitted(self):
+        # "agentic"/"vertical" are the deferred adjective+"AI" case (FM2), NOT
+        # clean filler — they are intentionally NOT in the generic set. Guard
+        # against a well-meaning future edit folding them in here, which would
+        # degrade real "Agentic AI" (HashiCorp/AWS/NVIDIA) covers to empty
+        # fallthrough instead of fixing them properly.
+        assert "agentic" not in _GENERIC_HEADLINE_WORDS
+        assert "vertical" not in _GENERIC_HEADLINE_WORDS
+
+
 class TestRollupLeadParity:
     """draft_rollup_spec.lead_entity must produce the same headline as the L20
     panel path for the same title (one shared join helper, no drift)."""

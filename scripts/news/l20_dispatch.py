@@ -917,7 +917,20 @@ _WEAK_TRAILING: frozenset = frozenset({"factories"}) | _SEVERITY_WORDS
 # in the single-token reject path of _is_good_headline (W3) and in the bigram
 # both-generic reject — NEVER for real story subjects. Deliberately EXCLUDES
 # real subjects like "strategy" (the MSTR-rebrand entity, a legit lone lead).
-_GENERIC_HEADLINE_WORDS: frozenset = frozenset({"show", "option"})
+#
+# Each member is per-word vetted against the live digest corpus
+# (scripts/tests/test_l20_realcontent.py::TestGenericHeadlineWordVetting): a word
+# is admitted only when it appears as a *lone* filler headline backed by a
+# generic source (no real story subject) and never collides with a real-entity
+# lone lead. "show"/"option"/"command" all come from the same GeekNews macOS
+# keyboard-key line ("Show GN: 오른쪽 Option / Command 키...").
+#
+# NOT admitted (deferred): adjective-of-"AI" words like "agentic" ("Agentic AI",
+# real vendor sources HashiCorp/AWS/NVIDIA) and "vertical" ("Vertical AI"). These
+# are NOT clean filler — rejecting the lone adjective yields an empty/degraded
+# fallthrough, not a better cover. The adjective+"AI" case needs the dedicated
+# stripping rule tracked separately (FM2), not a generic-word reject here.
+_GENERIC_HEADLINE_WORDS: frozenset = frozenset({"show", "option", "command"})
 
 
 def _common_prefix_len(a: str, b: str) -> int:
