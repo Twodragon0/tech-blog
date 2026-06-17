@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-16T00:47:30.049506+00:00",
+  "updated_at": "2026-06-17T00:40:16.995299+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/06/google-june-2026-android-update-patches.html",
@@ -1260,6 +1260,96 @@
       "title": "How I learned Go in a Day with Antigravity 2.0 and How You Can Do the Same",
       "published_date": "2026-06-16",
       "expires_at": "2026-06-23T00:47:30.049398+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/google-vertex-ai-sdk-flaw-let-attackers.html",
+      "title": "Google Vertex AI SDK Flaw Let Attackers Hijack Model Uploads via Bucket Squattin",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/clickfix-campaigns-expand-malware.html",
+      "title": "ClickFix Campaigns Expand Malware Delivery With New Loaders and Fake Update Lure",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/new-rokarolla-android-malware-steals.html",
+      "title": "New Rokarolla Android Malware Steals PINs, SMS Codes, and Crypto Wallet Funds",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/malicious-jetbrains-marketplace-plugins-steal-ai-api-keys-from-developers/",
+      "title": "Malicious JetBrains Marketplace plugins steal AI API keys from developers",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/threat-tactic-spotlight-subdomain-takeover/",
+      "title": "Threat tactic spotlight: Subdomain takeover",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-xr-ai/",
+      "title": "Hands Free, AIs Forward: NVIDIA XR AI Brings Agents to AR Glasses",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/coherent-texas-ai-optical/",
+      "title": "Coherent Breaks Ground on Expanded Texas Facility, Scaling AI’s Optical Backbone",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/",
+      "title": "Unlocking UK house-building with AI-accelerated planning",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/hpe-ai-factory-agentic-enterprise/",
+      "title": "HPE AI Factory With NVIDIA Expands for the Era of Agents",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/blackwell-mlperf-training-6-0/",
+      "title": "Fastest, Largest, Strongest: NVIDIA Blackwell Sweeps MLPerf Training 6.0",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/google-named-a-leader-in-idc-marketscape-siem-2026-vendor-assessment/",
+      "title": "Google named a Leader in IDC MarketScape SIEM 2026 Vendor Assessment",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/systems/brazos-liquid-cooling-system-for-air-cooled-data-centers/",
+      "title": "Introducing Brazos: Bringing liquid cooling to air-cooled data centers",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/how-atlas-scales-hundreds-of-cloud-sql-databases/",
+      "title": "How Atlas scales hundreds of merchant databases with Cloud SQL Enterprise Plus e",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-explore-ai-and-interface-updates/",
+      "title": "Introducing new Explores and Merge Queries in Looker",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-siemens-sliced-the-elephant-modernizing-legacy-code-with-agentic-workflows/",
+      "title": "How Siemens \"slices the elephant,\" advancing agentic workflows for industrial so",
+      "published_date": "2026-06-17",
+      "expires_at": "2026-06-24T00:40:16.995178+00:00"
     }
   ]
 }
