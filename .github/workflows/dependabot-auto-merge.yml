@@ -1,7 +1,15 @@
 name: Dependabot Auto-Merge
 
-# Auto-approve and squash-merge low-risk Dependabot PRs once required
-# checks pass. Major-version bumps still need manual review.
+# Enable auto-merge (squash) for low-risk Dependabot PRs so they merge once
+# required checks pass. Major-version bumps still need manual review.
+#
+# We do NOT self-approve PRs here: the repo setting "Allow GitHub Actions to
+# create and approve pull requests" is disabled (by design — a bot approving
+# its own PR is a circular control with no independent review value), so a
+# `gh pr review --approve` step would fail with "GitHub Actions is not
+# permitted to approve pull requests". `gh pr merge --auto` does not require
+# that approval; it arms GitHub's auto-merge, which fires when required status
+# checks pass (and any required human review is satisfied).
 #
 # Triggers only when the PR author is dependabot[bot]. Uses the metadata
 # action to introspect update-type and refuses anything classified as
@@ -37,7 +45,7 @@ jobs:
 
       - name: Get Dependabot metadata
         id: meta
-        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98  # v2.4.0
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98  # v3.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -55,17 +63,6 @@ jobs:
           classification="$(python3 scripts/dependabot_classify_pr.py "$PR_TITLE")"
           echo "classification=$classification" >> "$GITHUB_OUTPUT"
           echo "Title-based classification: '$classification'"
-
-      - name: Approve PR (patch + minor only)
-        if: |
-          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
-          steps.meta.outputs.update-type == 'version-update:semver-minor' ||
-          steps.title_class.outputs.classification == 'version-update:semver-patch' ||
-          steps.title_class.outputs.classification == 'version-update:semver-minor'
-        run: gh pr review --approve "$PR_URL"
-        env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable auto-merge (patch + minor only)
         if: |
