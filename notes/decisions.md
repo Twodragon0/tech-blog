@@ -172,3 +172,28 @@ Decisions:
 Note: the "CodeQL" check itself failing on #381 was ALSO a large-diff
 false attribution (see memory `codeql_large_diff_false_attribution.md`) —
 it is not a required status, so the merge proceeded as UNSTABLE.
+
+---
+
+## 2026-06-18 — L20 digest 헤드라인 "Class D" 영구 deferred (한국어 소유격 "의")
+
+**결정**: `build_lead_headline()`(scripts/news/l20_dispatch.py)에서 한국어 소유격
+"의" 패턴으로 인한 weak 헤드라인(대표 사례 "Strategy Michael", from "Strategy의
+Michael Saylor")은 **결정론적으로 수정 불가**로 확정하고 영구 보류한다. 재시도 금지.
+
+**근거 (경험적)**: "의" 마커는 고쳐야 할 bad 케이스와, 반드시 보존해야 하는 good
+케이스에서 **byte-identical**이다:
+- bad:  `Strategy의 Michael Saylor` → "Strategy Michael" (원하지 않음)
+- good: `Anthropic의 Claude` → "Anthropic Claude" (보존 필요, test_l20_realcontent.py:1302)
+- good: `Broadcom의 VMware`  → "Broadcom VMware"  (보존 필요, :1303)
+
+"의" 기반 split/reorder 규칙은 위 good 케이스를 깨뜨리거나, surname/place 탐지를
+요구한다. surname/place 탐지는 실제 위협 행위자명 오탐 위험 때문에 모듈이 명시적으로
+금지한다(l20_dispatch.py:911-913, :1097-1101). 두 부류를 가르는 결정론적 신호가 없다.
+
+**대안**: 해당 스토리가 본문/하이라이트에서 약하면 source-fallback(`_src_fallback`)으로
+사이드카드 강등되어 자연히 가려진다. 헤드라인 추출을 더 공격적으로 만들 필요 없음.
+
+**관련**: 같은 감사에서 채택한 honest 수정은 Fix A(generic format noun "url"을
+`_GENERIC_TRAILING`에 추가 → "FBI URL" junk bigram 제거, TestUrlBigramReject).
+부제 content-descriptor + route_hint 디커플링은 PR #417 참조.
