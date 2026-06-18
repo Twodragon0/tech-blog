@@ -24,6 +24,7 @@ from scripts.news.l20_dispatch import (
     _AI_COMPOUND_ADJECTIVES,
     _apply_real_content,
     _build_story,
+    _content_descriptor,
     _DEFERRED_AI_ADJECTIVES,
     _DIGEST_CONTENT_HONEST,
     _digest_highlight_panels,
@@ -98,18 +99,28 @@ class TestDigestHighlightPanels:
     def _hl(self, source, title):
         return {"source": source, "title": title}
 
-    def test_builds_headline_and_source_subheadline(self):
+    def test_builds_headline_and_content_subheadline(self):
+        # The displayed subheadline is now a terse CONTENT summary built from the
+        # title's secondary ASCII entity (here "Teams"), not a bare source name.
+        # The source moves to route_hint, which drives visual routing so the
+        # honest visual class is unchanged.
         hl = [self._hl("The Hacker News", "MuddyWater가 Microsoft Teams를 악용")]
         panels = _digest_highlight_panels(hl)
         assert panels[0]["headline"] == "MuddyWater Microsoft"
-        assert panels[0]["subheadline"] == "The Hacker News"
+        assert panels[0]["subheadline"] == "Teams"
+        assert panels[0]["route_hint"] == "The Hacker News"
 
-    def test_cve_goes_to_subheadline_not_headline(self):
+    def test_cve_stays_out_of_headline_and_drives_routing(self):
+        # CVE id is never the headline; it lives in route_hint (the routing /
+        # attribution text) alongside the source. The DISPLAYED subheadline is a
+        # content descriptor from the title's secondary entity ("RCE").
         hl = [self._hl("The Hacker News", "Ivanti EPMM CVE-2026-6973 RCE 공개")]
         panels = _digest_highlight_panels(hl)
         assert panels[0]["headline"] == "Ivanti EPMM"
-        assert "CVE-2026-6973" in panels[0]["subheadline"]
-        assert "The Hacker News" in panels[0]["subheadline"]
+        assert "CVE-2026-6973" not in panels[0]["headline"]
+        assert "CVE-2026-6973" in panels[0]["route_hint"]
+        assert "The Hacker News" in panels[0]["route_hint"]
+        assert panels[0]["subheadline"] == "RCE"
 
     def test_ascii_only_and_length_caps(self):
         hl = [
@@ -177,9 +188,88 @@ class TestPanelFromSourceTitle:
         assert _panel_from_source_title("The Hacker News", "봇넷 해체 작전") is None
 
     def test_builds_panel(self):
+        # "WP Maps Pro 취약점": headline consumes the only ASCII entities
+        # (Maps, Pro; "WP" is a dropped 2-letter fragment), so no content
+        # descriptor remains and the subheadline falls back to the source.
         p = _panel_from_source_title("BleepingComputer", "WP Maps Pro 취약점")
         assert p["headline"] == "Maps Pro"
         assert p["subheadline"] == "BleepingComputer"
+        assert p["route_hint"] == "BleepingComputer"
+
+
+# ---------------------------------------------------------------------------
+# Content-descriptor subheadline: the displayed subheadline is a terse content
+# summary (title's secondary ASCII entities), NOT a bare source name. The
+# source/CVE text is preserved in route_hint, which drives visual routing so
+# the honest visual class is byte-identical to the pre-descriptor behaviour.
+# ---------------------------------------------------------------------------
+class TestContentDescriptorSubheadline:
+    def test_descriptor_surfaces_secondary_entities(self):
+        # "Google Vertex" headline -> subheadline summarises the rest of the
+        # title ("AI SDK Bucket"), not the publication.
+        d = _content_descriptor(
+            "Google Vertex AI SDK 결함으로 Bucket Squatting 통해 모델 업로드",
+            "Google Vertex",
+        )
+        assert d == "AI SDK Bucket"
+
+    def test_descriptor_excludes_headline_tokens(self):
+        d = _content_descriptor("Rokarolla Android PIN SMS 코드 탈취", "Rokarolla")
+        assert "Rokarolla" not in d
+        assert d == "Android PIN SMS"
+
+    def test_descriptor_empty_when_no_secondary_entity(self):
+        # Only one ASCII entity (the headline itself) -> empty, so the caller
+        # keeps the source attribution.
+        assert _content_descriptor("ClickFix 캠페인 악성코드 확대", "ClickFix") == ""
+
+    def test_descriptor_is_ascii_only(self):
+        d = _content_descriptor("TCLBANKER 뱅킹 트로이목마 WhatsApp 악용", "TCLBANKER")
+        assert _is_ascii(d)
+
+    def test_display_subheadline_falls_back_to_source(self):
+        p = _panel_from_source_title("The Hacker News", "ClickFix 캠페인 확대")
+        assert p["subheadline"] == "The Hacker News"  # no secondary entity
+        assert p["route_hint"] == "The Hacker News"
+
+    def test_route_hint_keeps_routing_byte_identical(self):
+        # The honest visual class must be derived from route_hint (source/CVE),
+        # NOT the new content subheadline — otherwise a descriptor keyword could
+        # flip the visual and the honesty class. resolve_digest_band_visuals
+        # (the scorer's replay path) and _apply_real_content must agree.
+        sc = {"highlights": [
+            {"source": "The Hacker News",
+             "title": "Google Vertex AI SDK 결함으로 Bucket Squatting 모델 업로드"},
+        ]}
+        panels = _digest_panels(sc, "")
+        p = panels[0]
+        routed_from_hint = _honest_content_visual(
+            route_visual_id(f"{p['headline']} {p['route_hint']}")
+        )
+        # resolve_digest_band_visuals routes the SAME way (lockstep).
+        visuals = resolve_digest_band_visuals(
+            "주간 보안 다이제스트", "", "2026-06-17-Tech_Security_Weekly_Digest.md", "", sc
+        )
+        assert visuals[0] == routed_from_hint
+
+    def test_decoupling_is_load_bearing(self):
+        # Proves keying off route_hint actually matters: a title whose CONTENT
+        # descriptor ("Botnet C2") routes to a DIFFERENT visual than its source
+        # attribution. If routing ever regressed to the displayed subheadline,
+        # the band would assert a C2/botnet motif the post evidence doesn't back.
+        sc = {"highlights": [
+            {"source": "The Hacker News", "title": "Acme Mirai Botnet C2 takedown"},
+        ]}
+        p = _digest_panels(sc, "")[0]
+        from_display = route_visual_id(f"{p['headline']} {p['subheadline']}")
+        from_hint = route_visual_id(f"{p['headline']} {p['route_hint']}")
+        assert from_display != from_hint, "test input no longer diverges; pick another"
+        # The cover routes from route_hint (honest), NOT the descriptor.
+        visuals = resolve_digest_band_visuals(
+            "주간 보안 다이제스트", "", "2026-06-18-Tech_Security_Weekly_Digest.md", "", sc
+        )
+        assert visuals[0] == _honest_content_visual(from_hint)
+        assert visuals[0] != _honest_content_visual(from_display)
 
 
 # ---------------------------------------------------------------------------
