@@ -1025,6 +1025,42 @@ def _ascii_word_tokens(s: str) -> set:
     return set(re.findall(r"[a-z0-9]+", (s or "").lower()))
 
 
+# Max ASCII content keywords surfaced as a digest panel subheadline — a terse
+# content summary derived from the highlight TITLE (e.g. "AI SDK Bucket"),
+# shown INSTEAD of a bare source name. Kept short so it sits well inside the
+# ~54ch subheadline legibility budget and reads as a topic line, not a
+# sentence. DISPLAY-ONLY: visual routing keys off ``route_hint`` (the original
+# source/CVE text), so the honest visual class is byte-identical to before.
+_SUBHEADLINE_CONTENT_MAX_TOKENS: int = 3
+
+
+def _content_descriptor(title: str, headline: str) -> str:
+    """Terse ASCII content summary from a (possibly Korean) highlight ``title``.
+
+    Returns the lead non-CVE ASCII entity tokens of ``title`` that are NOT
+    already in ``headline`` (the displayed card title), joined into a short
+    topic line — e.g. title "Google Vertex AI SDK ... Bucket Squatting" with
+    headline "Google Vertex" -> "AI SDK Bucket". Returns ``""`` when the title
+    carries no extra ASCII entity beyond the headline (the caller then keeps the
+    real source / CVE attribution). Display-only — never feeds visual routing,
+    so it cannot change the honest visual class.
+    """
+    head_words = {w.lower() for w in re.findall(r"\w+", headline or "")}
+    kept: List[str] = []
+    seen: Set[str] = set()
+    for tok in _entity_tokens(title):
+        if _CVE_RE.match(tok):
+            continue
+        tl = tok.lower()
+        if tl in head_words or tl in seen:
+            continue
+        seen.add(tl)
+        kept.append(tok)
+        if len(kept) >= _SUBHEADLINE_CONTENT_MAX_TOKENS:
+            break
+    return _clean_segment(" ".join(kept))
+
+
 # Map a severity cell's emoji marker to an ASCII all-caps severity word. The
 # digest highlights table tags each row's impact with a colored dot
 # (🔴 critical / 🟠 high / 🟡 medium); anything else is unknown -> "" (the
@@ -1176,6 +1212,9 @@ def _panel_from_source_title(
             return {
                 "headline": _shorten(src, _HEADLINE_MAX_CHARS),
                 "subheadline": "Security advisory",
+                # route_hint == subheadline here (no real entity to route from),
+                # so visual routing is unchanged.
+                "route_hint": "Security advisory",
                 "severity": severity,
                 # Mark as source-name fallback so _digest_panels can demote
                 # this to a side card when a real-entity story is available.
@@ -1191,18 +1230,27 @@ def _panel_from_source_title(
         cve_str = ""
     src_ascii = src if (src and not _has_hangul(src)) else ""
     if cve_str and src_ascii:
-        sub = f"{cve_str} - {src_ascii}"
+        route_sub = f"{cve_str} - {src_ascii}"
     elif cve_str:
-        sub = cve_str
+        route_sub = cve_str
     elif src_ascii:
-        sub = src_ascii
+        route_sub = src_ascii
     else:
         # No ASCII source / CVE: use a neutral descriptor rather than echoing
         # the headline back (avoids a redundant "APT / APT" band).
-        sub = "Security advisory"
+        route_sub = "Security advisory"
+    # DISPLAYED subheadline: a terse content summary from the title's secondary
+    # ASCII entities (e.g. "AI SDK Bucket") instead of a bare source name — the
+    # cover then reflects the story, not just the publication. ``route_hint``
+    # keeps the original source/CVE text so visual routing (and thus the honest
+    # visual class) is byte-identical to the pre-descriptor behaviour. When the
+    # title has no extra ASCII entity, fall back to the source/CVE attribution.
+    descriptor = _content_descriptor(ttl, headline)
+    display_sub = descriptor or route_sub
     panel = {
         "headline": headline,
-        "subheadline": _shorten(sub, _SUB_MAX_CHARS),
+        "subheadline": _shorten(display_sub, _SUB_MAX_CHARS),
+        "route_hint": route_sub,
         "severity": severity,
     }
     # Source-name echo: a MULTI-word headline whose tokens are WHOLLY contained
@@ -1516,8 +1564,12 @@ def resolve_digest_band_visuals(
     for i in range(min(3, len(visuals))):
         if i < len(panels) and panels[i] is not None:
             p = panels[i]
+            # Route from ``route_hint`` (the source/CVE text), NOT the displayed
+            # subheadline (now a content descriptor), so the honest visual class
+            # stays byte-identical to the pre-descriptor behaviour. Lockstep with
+            # _apply_real_content, which routes from the same field.
             visuals[i] = _honest_content_visual(
-                route_visual_id(f"{p['headline']} {p['subheadline']}")
+                route_visual_id(f"{p['headline']} {p.get('route_hint', p['subheadline'])}")
             )
     return visuals
 
@@ -1553,7 +1605,7 @@ def _apply_real_content(
             # Re-route the visual (+ theme, + hero action) to the real story,
             # clamped to an honest, non-overclaiming class.
             new_visual = _honest_content_visual(
-                route_visual_id(f"{panel['headline']} {panel['subheadline']}")
+                route_visual_id(f"{panel['headline']} {panel.get('route_hint', panel['subheadline'])}")
             )
             story["visual"] = new_visual
             story["theme"] = _THEME_BY_VISUAL.get(new_visual, story.get("theme", "blue"))

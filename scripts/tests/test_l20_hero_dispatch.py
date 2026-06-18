@@ -574,9 +574,12 @@ class TestRenderL20SvgStringRealContent:
         assert svg, "_render_l20_svg_string returned empty"
         texts = re.findall(r"<text[^>]*>([^<]+)</text>", svg)
         joined = "|".join(texts)
-        # Real lead entity + source from the body table (not "CVE"/"Patch"/"Go").
+        # Real lead entity from the body table (not "CVE"/"Patch"/"Go").
         assert "Ivanti EPMM" in joined
-        assert "The Hacker News" in joined
+        # The subheadline now surfaces a CONTENT descriptor from the title's
+        # secondary entity ("RCE"), not the bare source name (which moved to
+        # route_hint and drives visual routing only).
+        assert "RCE" in joined
         # Real collection count replaces the TBD KPI placeholder.
         assert "ITEMS" in joined and "29" in texts
         # ASCII-only invariant holds end-to-end (no Hangul leaked into <text>).
