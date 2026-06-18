@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-06-17T00:40:16.995299+00:00",
+  "updated_at": "2026-06-18T00:47:40.181823+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/google-june-2026-android-update-patches.html",
-      "title": "Google June 2026 Android Update Patches 124 Flaws, One Actively Exploited",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/gamaredon-exploits-winrar-to-deliver.html",
-      "title": "Gamaredon Exploits WinRAR to Deliver GammaWorm and GammaSteel Against Ukraine",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/oracle-weblogic-cve-2024-21182-added-to.html",
-      "title": "Oracle WebLogic CVE-2024-21182 Added to KEV Catalog After Active Exploitation",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/identify-unused-aws-kms-keys-and-prevent-accidental-key-deletions/",
-      "title": "Identify unused AWS KMS keys and prevent accidental key deletions",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsofts-coreutils-project-brings-linux-commands-to-windows/",
-      "title": "Microsoft's Coreutils project brings Linux commands to Windows",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/industrial-software-leaders-secure-autonomous-ai-engineers-nemoclaw/",
-      "title": "Industrial Software Leaders Build Secure, Autonomous AI Engineers With NVIDIA Ne",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/microsoft-build-windows-local-cloud-devices/",
-      "title": "NVIDIA Partners With Microsoft on Unified Stack for Agentic AI Deployment, From ",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://openai.com/index/travelers",
-      "title": "Travelers deploys AI-powered claims countrywide with OpenAI",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://openai.com/index/codex-for-every-role-tool-workflow",
-      "title": "Codex for every role, tool, and workflow",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://openai.com/index/advancing-youth-safety-and-opportunity-through-global-leadership",
-      "title": "Advancing youth safety and opportunity through global leadership",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/build-ai-agents-faster-with-gcs-google-cloud-storage-mcp-server/",
-      "title": "Connecting AI agents with unstructured data using Google Cloud Storage MCP Serve",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/introducing-spanner-graph-algorithms/",
-      "title": "Announcing Spanner Graph algorithms: Google-grade intelligence for connected dat",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/optimize-iceberg-and-spark-workloads-with-gcs-analytics-core/",
-      "title": "Accelerating data lakes: Optimizing Apache Iceberg and Spark with gcs-analytics-",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/experimenting-with-tpus-gke-managed-dranet-and-multi-cluster-inference-gateway/",
-      "title": "Experimenting with TPUs, GKE Managed DRANET, and Multi-cluster Inference Gateway",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/introducing-amazon-gamelift-servers-ddos-protection/",
-      "title": "Amazon GameLift Servers DDoS Protection 기능으로 플레이어 상시 보호",
-      "published_date": "2026-06-03",
-      "expires_at": "2026-06-10T00:44:07.469048+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/whatsapp-slack-notifications-could.html",
-      "title": "WhatsApp, Slack Notifications Could Hijack Google Gemini on Android",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/google-doubleclick-abused-in-new.html",
-      "title": "Google DoubleClick Abused in New Malspam Campaign to Deliver DesckVB RAT",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/beyond-zero-day-see-your-network-like.html",
-      "title": "Beyond the Zero-Day: See Your Network Like an Attacker | Webinar with HD Moore",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/microsoft-365-android-apps-let-any-app.html",
-      "title": "Microsoft 365 Android Apps Let Any App Steal Account Tokens via Leftover Debug F",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/autonomous-ai-tool-finds-2-year-old-rce.html",
-      "title": "Autonomous AI Tool Finds 2-Year-Old RCE Flaw in Redis (CVE-2026-23479)",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/cvpr-research-grasping-driving-agent-training/",
-      "title": "NVIDIA Research Unlocks Advanced Grasping, Smarter Autonomous Driving and Agent ",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/cvpr-physical-ai-research-agent-skills/",
-      "title": "NVIDIA Enables the Next Era Of Physical AI Research With Agent Skills For Autono",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://openai.com/index/introducing-new-capabilities-to-gpt-rosalind",
-      "title": "Introducing new capabilities to GPT-Rosalind",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/thrifting-tips/",
-      "title": "5 ways Google Search can level up your thrift and vintage shopping",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://openai.com/index/wasmer",
-      "title": "How Wasmer used Codex to build a Node.js runtime for the edge",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/serverless-managed-service-for-apache-spark-runtime-3-0-features/",
-      "title": "What’s new in serverless Managed Service for Apache Spark",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/improve-your-application-resilience-with-amazon-cognito-multi-region-replication/",
-      "title": "Improve your application resilience with Amazon Cognito multi-Region replication",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-03-github-copilot-in-visual-studio-code-may-releases",
-      "title": "GitHub Copilot in Visual Studio Code, May releases",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/06/03/inspektor-gadget-results-from-the-first-security-audit/",
-      "title": "Inspektor Gadget: Results from the first security audit",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/franklin-templeton-ceo-blockchain-wall",
-      "title": "Franklin Templeton CEO: Blockchains Threaten Wall Street’s Fee Machine, Not Its ",
-      "published_date": "2026-06-04",
-      "expires_at": "2026-06-11T00:44:25.888028+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/cisco-patches-cve-2026-20230-in-unified.html",
       "title": "Cisco Patches CVE-2026-20230 in Unified CM as Exploit Code Goes Public",
@@ -1350,6 +1170,96 @@
       "title": "How Siemens \"slices the elephant,\" advancing agentic workflows for industrial so",
       "published_date": "2026-06-17",
       "expires_at": "2026-06-24T00:40:16.995178+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/survey-94-of-incidents-involve.html",
+      "title": "Survey: 94% of Incidents Involve Anonymized Infrastructure. Teams Are Still Reac",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-rokarolla-android-malware-targets-217-banking-crypto-apps/",
+      "title": "New Rokarolla Android malware targets 217 banking, crypto apps",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/attackers-exploit-three-fortinet.html",
+      "title": "Attackers Exploit Three Fortinet FortiSandbox Flaws, One Patched Last Week",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/china-linked-sprysocks-backdoor-expands.html",
+      "title": "China-Linked SprySOCKS Backdoor Expands to Windows with Driver-Based Stealth",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/steam-workshop-abused-to-spread-malware-via-wallpaper-engine-app/",
+      "title": "Steam Workshop abused to spread malware via Wallpaper Engine app",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/",
+      "title": "Safeguard your agentic AI applications with the Amazon Bedrock Guardrails Invoke",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-container-caching-in-amazon-sagemaker-ai-for-faster-model-scaling/",
+      "title": "Introducing container caching in Amazon SageMaker AI for faster model scaling",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/parallelize-speculative-decoding-with-p-eagle-on-amazon-sagemaker-ai/",
+      "title": "Parallelize speculative decoding with P-EAGLE on Amazon SageMaker AI",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-customer-collaboration-is-shaping-the-future-of-genai-security-with-model-armor/",
+      "title": "How customer collaboration is shaping the future of GenAI security with Model Ar",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/amazon-s3-annotations-attach-rich-queryable-context-directly-to-your-objects/",
+      "title": "Amazon S3 annotations: attach rich, queryable context directly to your objects",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/mod-accelerate-using-kiro/",
+      "title": "에잇퍼센트의 Kiro CLI 기반 Amazon ECS 현대화 여정",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-16-github-models-is-no-longer-available-to-new-customers",
+      "title": "GitHub Models is no longer available to new customers",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/docker-content-trust-retirement-and-migration-guidance/",
+      "title": "Docker Content Trust: Retirement and Migration Guidance",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-16-github-code-quality-generally-available-july-20-2026",
+      "title": "GitHub Code Quality generally available July 20, 2026",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-16-organization-level-enablement-for-github-code-quality",
+      "title": "Organization-level enablement for GitHub Code Quality",
+      "published_date": "2026-06-18",
+      "expires_at": "2026-06-25T00:47:40.181716+00:00"
     }
   ]
 }
