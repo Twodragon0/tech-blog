@@ -891,6 +891,11 @@ _ENTITY_ACRONYMS: frozenset = frozenset({
 _GENERIC_TRAILING: frozenset = frozenset({
     "linux", "windows", "android", "ios", "macos", "cloud", "ai", "ml", "api",
     "web", "app", "mena", "apac", "emea",
+    # "url" is a generic format noun, never a story subject — same role as the
+    # existing "api"/"web". Drops the junk bigram "FBI URL" (06-15: "FBI, 백만 개
+    # URL 사용한 대규모 AI 기반 피싱…") to the lone-entity scan ("FBI") and rejects a
+    # bare "URL" lone headline. Corpus-vetted: TestUrlBigramReject.
+    "url",
 })
 
 # Weak lead words that pass the acronym/Capitalized filter but make a useless

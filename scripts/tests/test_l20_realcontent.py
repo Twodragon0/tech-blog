@@ -1347,6 +1347,48 @@ class TestGenericHeadlineWordVetting:
         assert "vertical" not in _GENERIC_HEADLINE_WORDS
 
 
+class TestUrlBigramReject:
+    """Per-word vetting contract for adding ``url`` to ``_GENERIC_TRAILING``.
+
+    'url' is a generic format noun, never a story subject — same role as the
+    pre-existing 'api'/'web'. Admission criteria mirror
+    ``TestGenericHeadlineWordVetting``: (a) rejected as a LONE headline, (b)
+    dropped as a trailing bigram token so a junk "<Acronym> URL" never renders,
+    yet (c) it must not over-filter any real story subject.
+    """
+
+    def test_url_in_generic_trailing(self):
+        from scripts.news.l20_dispatch import _GENERIC_TRAILING
+        assert "url" in _GENERIC_TRAILING
+
+    def test_url_rejected_as_lone_headline(self):
+        assert _is_good_headline("URL") is False
+
+    def test_fbi_url_junk_bigram_dropped(self):
+        # 06-15 real title. "FBI" (3 chars) is too short to be a lone headline
+        # and "URL" is now generic-trailing, so the junk bigram "FBI URL" no
+        # longer renders — build_lead_headline yields "" and the caller falls
+        # back to the source (demoted to a side card), surfacing real stories.
+        title = "FBI, 백만 개 URL 사용한 대규모 AI 기반 피싱 서비스 무력화"
+        h = build_lead_headline(title)
+        assert h != "FBI URL"
+        assert "URL" not in h
+
+    def test_fbi_url_highlight_demoted_to_source_fallback(self):
+        p = _panel_from_source_title(
+            "BleepingComputer", "FBI, 백만 개 URL 사용한 대규모 AI 기반 피싱 서비스 무력화"
+        )
+        assert p is not None
+        assert p.get("_src_fallback") is True
+
+    def test_url_does_not_over_filter_real_bigrams(self):
+        # The reject must only touch the generic 'url' token; real product /
+        # vendor bigrams are unaffected (regression guard).
+        assert build_lead_headline("Cisco Unified Communications 취약점") == "Cisco Unified"
+        assert build_lead_headline("Oracle WebLogic KEV 등재") == "Oracle WebLogic"
+        assert build_lead_headline("Google Vertex AI SDK 결함") == "Google Vertex"
+
+
 class TestAiCompoundHeadline:
     """FM2: '<CompoundAdjective> AI' (Agentic AI / Vertical AI) must survive as an
     honest bigram instead of collapsing to a lone weak adjective. 'ai' is in
