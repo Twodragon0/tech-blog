@@ -1211,7 +1211,17 @@ _DEFERRED_AI_ADJECTIVES: frozenset = frozenset({"shadow"})
 # exercises today; forward-looking entries (amazon connect, palo alto, …) are
 # deferred to a follow-up PR, each shipped with its exercising title + a
 # corpus-diff vetting assertion (see test_l20_realcontent.py::TestMultiWordVendorVetting).
-_MW_VENDOR_ENTITIES: frozenset = frozenset({("red", "hat"), ("amazon", "bedrock")})
+#
+# FM5 added ("arch","linux"): "Arch Linux" is a REAL distro entity that the
+# generic-trailing strip ("linux" ∈ _GENERIC_TRAILING) truncates to a lone
+# "Arch" (06-13/06-15 live covers). The forward-looking pattern done right —
+# admitted only WITH its exercising titles. NOT a blanket "<X> Linux" rule:
+# "Showboat Linux"/"CIFSwitch Linux" are malware+platform, not entities, so the
+# lone "Showboat"/"CIFSwitch" is CORRECT and must NOT promote (regression-guarded
+# in TestMultiWordVendorPromote).
+_MW_VENDOR_ENTITIES: frozenset = frozenset(
+    {("red", "hat"), ("amazon", "bedrock"), ("arch", "linux")}
+)
 
 
 def _promote_mw_vendor(candidate: str, title: str) -> str:
