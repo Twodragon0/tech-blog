@@ -10,6 +10,7 @@ last_modified_at: 2026-04-16T11:29:01+09:00
 description: "KISA 보호나라 최신 보안 공지 분석. 랜섬웨어 3-2-1 백업 전략, 리눅스 커널 루트킷 점검 가이드(chkrootkit·rkhunter 활용법), 이커머스 해킹 피해 악용 스미싱·피싱 주의 권고까지 DevSecOps 실무 중심의 단계별 대응 방안을 상세 정리합니다."
 excerpt: "KISA 보호나라 최신 보안 공지 분석. 랜섬웨어 3-2-1 백업 전략, 리눅스 커널 루트킷 점검 가이드(chkrootkit·rkhunter 활용법), 이커머스 해킹 피해 악용 스미싱·피싱 주의 권고까지 DevSecOps 실무 중심의 단계별 대응 방안을 상세 정리합니다."
 image: /assets/images/2026-01-22-KISA_Security_Advisory_Ransomware_Linux_Rootkit.svg
+cover_style: l20
 image_alt: KISA Security Advisory - Ransomware Prevention and Linux Rootkit Detection
   Guide
 layout: post
