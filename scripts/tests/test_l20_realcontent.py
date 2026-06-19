@@ -1426,6 +1426,139 @@ class TestRoundupAndSuffixReject:
         )
 
 
+class TestMultiWordVendorPromote:
+    """FM4: a resolved lead that TRUNCATES a curated multi-word vendor entity is
+    promoted to the full entity when that entity is literally present in the
+    title ("Miasma Red" -> "Red Hat", "AWS Amazon"/lone "Amazon" -> "Amazon
+    Bedrock"). Curated allowlist (_MW_VENDOR_ENTITIES), NOT a positional
+    heuristic — a "<token> <Capitalized>" rule flags ~134 covers (~132 real
+    two-entity stories). All firing titles below are REAL corpus highlight
+    titles. Display-text only: routing (route_hint) and honesty class unchanged.
+    """
+
+    def test_aws_amazon_bigram_promoted(self):
+        # 2026-04-21 real highlight: "AWS Amazon" truncates "Amazon Bedrock".
+        assert (
+            build_lead_headline(
+                "AWS 위클리 라운드업: Amazon Bedrock의 Claude Opus 4.7, AWS Internal 업데이트"
+            )
+            == "Amazon Bedrock"
+        )
+
+    def test_miasma_red_bigram_promoted(self):
+        # 2026-06-02 real highlight: "Miasma Red" truncates "Red Hat".
+        assert (
+            build_lead_headline(
+                "Miasma 공급망 공격, 자격증명 탈취 웜으로 Red Hat npm 패키지 손상"
+            )
+            == "Red Hat"
+        )
+
+    def test_lone_amazon_promoted(self):
+        # 2026-04-27 real highlight: lone "Amazon" (no bigram) also promotes when
+        # "Amazon Bedrock" is literally in the title.
+        assert (
+            build_lead_headline(
+                "에이전틱 AI와 Amazon Bedrock AgentCore를 활용한 전문가 팀 시뮬레이션"
+            )
+            == "Amazon Bedrock"
+        )
+
+    def test_full_entity_lead_is_idempotent(self):
+        # Promoting an already-full entity is a no-op (no double-promote).
+        assert build_lead_headline("Amazon Bedrock AgentCore가 출시") == "Amazon Bedrock"
+
+    def test_no_promote_without_literal_full_entity(self):
+        # "Amazon" with NO "Amazon Bedrock" in the title must NOT fabricate it.
+        assert build_lead_headline("Amazon, 새로운 클라우드 보안 기능 발표") != "Amazon Bedrock"
+
+    def test_unseeded_vendor_untouched(self):
+        # "Palo Alto" is not seeded this PR → normal lead-join, unchanged.
+        assert build_lead_headline("Palo Alto GlobalProtect VPN 취약점 공개") == "Palo Alto"
+
+    def test_normal_two_entity_untouched(self):
+        assert build_lead_headline("Cisco, Unified CM의 CVE-2026-20230 패치") == "Cisco Unified"
+
+    def test_sap_sapphire_untouched(self):
+        # FM3 regression guard still holds under FM4.
+        assert (
+            build_lead_headline("SAP SAPPHIRE 2026: Google Cloud 에이전틱 비전 공개")
+            == "SAP SAPPHIRE"
+        )
+
+    def test_promoted_headlines_route_neutral(self):
+        # Both promoted full entities carry no attack-class claim — honesty-safe.
+        assert route_visual_id("Amazon Bedrock") == "neutral"
+        assert route_visual_id("Red Hat") == "neutral"
+
+
+class TestMultiWordVendorVetting:
+    """Self-healing corpus guard for FM4 (mirrors TestCorpusNoLoneAdjectiveAi).
+
+    Seed is EXACTLY the two live-firing pairs this PR (no forward-looking
+    entries). The corpus invariant is PROPERTY-based, not a fixed count: daily
+    auto-published digests must not break it — only an ILLEGITIMATE promote
+    (full entity not literally in the title, or a non-seeded result) fails. This
+    converts allowlist-rot from silent to CI-blocking without coupling the test
+    to the (growing) corpus size.
+    """
+
+    def test_seed_is_exactly_the_two_live_pairs(self):
+        from scripts.news.l20_dispatch import _MW_VENDOR_ENTITIES
+
+        assert _MW_VENDOR_ENTITIES == frozenset({("red", "hat"), ("amazon", "bedrock")})
+
+    def test_heads_disjoint_from_generic_trailing(self):
+        from scripts.news.l20_dispatch import _GENERIC_TRAILING, _MW_VENDOR_ENTITIES
+
+        for head, _tail in _MW_VENDOR_ENTITIES:
+            assert head not in _GENERIC_TRAILING
+
+    def test_every_corpus_promote_is_legitimate(self):
+        # Walk every summary_card highlight title; for each, compute the lead WITH
+        # and WITHOUT the promote rule. Every delta MUST be a legitimate promote:
+        # the full entity is literally in the title AND the new lead is a seeded
+        # full entity. Also a positive control: the two named live defects fire.
+        import glob
+        import re as _re
+
+        import yaml as _yaml
+
+        from scripts.news import l20_dispatch as _L
+
+        seeded_full = {f"{h.title()} {t.title()}" for h, t in _L._MW_VENDOR_ENTITIES}
+        illegitimate = []
+        fired_dates = set()
+        orig = _L._promote_mw_vendor
+        try:
+            for fn in sorted(glob.glob("_posts/*.md")):
+                raw = open(fn).read()
+                m = _re.match(r"^---\n(.*?)\n---\n", raw, _re.DOTALL)
+                if not m:
+                    continue
+                sc = (_yaml.safe_load(m.group(1)) or {}).get("summary_card")
+                if not isinstance(sc, dict):
+                    continue
+                for hl in sc.get("highlights", []) or []:
+                    title = hl.get("title", "") or ""
+                    new = _L.build_lead_headline(title)
+                    _L._promote_mw_vendor = lambda c, t: ""
+                    try:
+                        old = _L.build_lead_headline(title)
+                    finally:
+                        _L._promote_mw_vendor = orig
+                    if new == old:
+                        continue
+                    fired_dates.add(fn.split("/")[-1][:10])
+                    if new not in seeded_full or new.lower() not in title.lower():
+                        illegitimate.append(f"{fn.split('/')[-1][:10]}: {old!r}->{new!r} <- {title[:50]!r}")
+        finally:
+            _L._promote_mw_vendor = orig
+        assert not illegitimate, "Illegitimate FM4 promote(s):\n" + "\n".join(illegitimate)
+        # positive control: the two named live defects are actually fixed
+        assert {"2026-06-02", "2026-04-21"}.issubset(fired_dates), fired_dates
+
+
 class TestAiCompoundHeadline:
     """FM2: '<CompoundAdjective> AI' (Agentic AI / Vertical AI) must survive as an
     honest bigram instead of collapsing to a lone weak adjective. 'ai' is in
