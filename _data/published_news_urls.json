@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-18T00:47:40.181823+00:00",
+  "updated_at": "2026-06-19T00:51:01.417757+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/cisco-patches-cve-2026-20230-in-unified.html",
-      "title": "Cisco Patches CVE-2026-20230 in Unified CM as Exploit Code Goes Public",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-advanced-capabilities-with-next-generation-infrastructure/",
-      "title": "Amazon Cognito unlocks advanced capabilities with next-generation infrastructure",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/claude-code-github-action-flaw-let-one.html",
-      "title": "Claude Code GitHub Action Flaw Let One Malicious Issue Hijack Repositories",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/agentic-ai-is-transforming-defense-but.html",
-      "title": "Agentic AI Is Transforming Defense, But Only Secure IT Infrastructure Will Maxim",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/threatsday-bulletin-ai-agents-gone.html",
-      "title": "ThreatsDay Bulletin: AI Agents Gone Wrong, Sketchy C2 Tools, ClickFix Tricks, JS",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-june-2026-games-list/",
-      "title": "Forecast: Fun Ahead — 18 Games Join in June to Stream on GeForce NOW",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://openai.com/index/endava-frontiers",
-      "title": "How Endava is redesigning software delivery around AI agents",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://openai.com/index/chatgpt-memory-dreaming",
-      "title": "Dreaming: Better memory for a more helpful ChatGPT",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/67-percent-banned-anthropic-accounts-ai-used-in-cyberattack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "About 67% of banned Anthropic accounts used AI to prep for cyberattacks",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-ultra-now-available-on-amazon-sagemaker-jumpstart/",
-      "title": "NVIDIA Nemotron 3 Ultra now available on Amazon SageMaker JumpStart",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/enhancements-to-managed-service-for-apache-spark-clusters/",
-      "title": "What's new for Managed Service for Apache Spark clusters",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/",
-      "title": "What’s new with Google Data Cloud",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/scaling-ai-agents-a-step-by-step-guide-to-deploying-adk-on-gke-autopilot/",
-      "title": "Scaling AI Agents: A Step-by-Step Guide to Deploying ADK on GKE Autopilot",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/aws-unified-operations/",
-      "title": "AWS Unified Operations: 주요 핵심 워크로드를 위한 복원력 있는 운영 구축",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-04-fix-with-copilot-for-failing-actions-now-in-pro-pro-and-max",
-      "title": "Fix with Copilot for failing Actions now in Pro, Pro+, and Max",
-      "published_date": "2026-06-05",
-      "expires_at": "2026-06-12T00:37:45.829242+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html",
       "title": "IronWorm and New Miasma Worm Variant Hit npm in Supply Chain Attacks",
@@ -1260,6 +1170,96 @@
       "title": "Organization-level enablement for GitHub Code Quality",
       "published_date": "2026-06-18",
       "expires_at": "2026-06-25T00:47:40.181716+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/f5-patches-two-critical-nginx-open.html",
+      "title": "F5 Patches Two Critical NGINX Open Source Flaws Enabling Remote Code Execution",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/orphaned-ai-agents-how-to-find-hidden.html",
+      "title": "Orphaned AI Agents: How to Find Hidden Access Risks Inside Your Network",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/threatsday-bulletin-claude-chat-abuse.html",
+      "title": "ThreatsDay Bulletin: Claude Chat Abuse, NastyC2 npm Packages, Device-Code Phishi",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/microsoft-details-windows-clipper.html",
+      "title": "Microsoft Details Windows Clipper Malware Campaign Using USB LNK Worm and Tor-Ba",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/inc-ransomware-claims-830-victims-since.html",
+      "title": "INC Ransomware Emerges as Major RaaS Threat in 2026 with 830+ Victims Since 2023",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ferc-large-load-interconnection/",
+      "title": "How FERC’s Large-Load Interconnection Actions Help Address Grid Stress, Improve ",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://openai.com/index/chatgpt-enterprise-spend-controls",
+      "title": "New usage analytics and updated spend controls for enterprises",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-ai-marketing-advertising-cannes-lions/",
+      "title": "At Cannes Lions, NVIDIA Partners Reshape Advertising and Marketing With AI",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-game-stores/",
+      "title": "Sync and Stream: GeForce NOW Connects to Members’ Game Libraries Across Devices",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://openai.com/index/improving-health-intelligence-in-chatgpt",
+      "title": "Improving health intelligence in ChatGPT",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/improving-ray-serve-llm-on-gke-throughput-latency/",
+      "title": "Scaling Ray Serve LLM on GKE: Performance without losing the developer experienc",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/scaling-the-next-generation-of-global-innovation-how-google-supports-top-startups-around-the-world/",
+      "title": "Scaling the Next Generation of Global Innovation: How Google Supports Top Startu",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/choice-compliance-and-collaboration-europes-path-to-open-digital-sovereignty/",
+      "title": "Choice, compliance, and collaboration: Europe’s path to open digital sovereignty",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/agent-factory-recap-100x-engineering-with-ai-agents-in-google-antigravity-20/",
+      "title": "Agent Factory Recap:  100X engineering with AI agents in Google Antigravity 2.0",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-g7-instances-accelerated-by-nvidia-rtx-pro-4500-blackwell-server-edition-gpus/",
+      "title": "Announcing Amazon EC2 G7 instances accelerated by NVIDIA RTX PRO 4500 Blackwell ",
+      "published_date": "2026-06-19",
+      "expires_at": "2026-06-26T00:51:01.417647+00:00"
     }
   ]
 }
