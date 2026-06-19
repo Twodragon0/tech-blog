@@ -390,6 +390,66 @@ def test_vb_neutral_variation_stays_ascii_and_attack_free() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Test 3d: FM6 neutral motif registry — per-motif honesty + variety harness.
+# The existing default-only renders above (fn with band_index 0 / no cover_seed)
+# exercise ONLY the first motif. This frozen-registry parametrized harness
+# enforces the honesty + ASCII + distinctness contract on EVERY motif, so a
+# future edit that drops the >UPDATE< anchor or leaks attack vocab from a
+# non-default motif fails CI loudly (the single-key + shared-anchor design
+# leaves the honesty gate unable to catch it — this test is the only guard).
+# ---------------------------------------------------------------------------
+
+_MOTIF_ARGS = ("#3A86FF", "#7FB2FF", "UPDATE", "#A78BFA")
+
+
+def test_neutral_motif_registry_is_frozen_tuple() -> None:
+    reg = svg_l20_hero._NEUTRAL_MOTIFS
+    assert isinstance(reg, tuple) and len(reg) >= 3, "registry must be a tuple of >=3 motifs"
+
+
+@pytest.mark.parametrize("idx", range(len(svg_l20_hero._NEUTRAL_MOTIFS)))
+def test_each_neutral_motif_emits_update_anchor(idx) -> None:
+    # Every motif MUST emit the >UPDATE< honesty anchor (fingerprints as the
+    # always-pass neutral claim class in score_cover_honesty).
+    out = svg_l20_hero._NEUTRAL_MOTIFS[idx](*_MOTIF_ARGS)
+    assert ">UPDATE<" in out, f"motif {idx} dropped the >UPDATE< anchor"
+
+
+@pytest.mark.parametrize("idx", range(len(svg_l20_hero._NEUTRAL_MOTIFS)))
+def test_each_neutral_motif_ascii_and_attack_free(idx) -> None:
+    out = svg_l20_hero._NEUTRAL_MOTIFS[idx](*_MOTIF_ARGS)
+    assert all(ord(c) < 128 for c in out), f"motif {idx} non-ASCII"
+    upper = out.upper()
+    for token in _ATTACK_VOCAB:
+        assert token.upper() not in upper, f"motif {idx} leaked attack vocab {token!r}"
+
+
+def test_neutral_motifs_are_pairwise_distinct() -> None:
+    bodies = [m(*_MOTIF_ARGS) for m in svg_l20_hero._NEUTRAL_MOTIFS]
+    assert len(set(bodies)) == len(bodies), "neutral motifs are not pairwise distinct"
+
+
+def test_cover_seed_rotation_yields_three_distinct_motifs() -> None:
+    # FM6 primary goal: the 3 bands of ONE cover share a cover_seed, so they
+    # render 3 CONSECUTIVE = DISTINCT motifs (no 3-identical-card cover). Holds
+    # for every seed offset because N>=3.
+    n = len(svg_l20_hero._NEUTRAL_MOTIFS)
+    for seed in range(n):
+        bands = [
+            svg_l20_hero.vb_neutral(800, 230, "blue", topic="", band_index=i, cover_seed=seed)
+            for i in range(3)
+        ]
+        assert len(set(bands)) == 3, f"seed {seed}: 3 bands not distinct"
+
+
+def test_cover_seed_is_deterministic() -> None:
+    # Same seed string -> same seed int -> reproducible regeneration.
+    s = svg_l20_hero._neutral_motif_seed("Veeam Backup|2026.06.10")
+    assert s == svg_l20_hero._neutral_motif_seed("Veeam Backup|2026.06.10")
+    assert isinstance(s, int)
+
+
+# ---------------------------------------------------------------------------
 # Test 4: Reference April-08 baseline invariants
 # ---------------------------------------------------------------------------
 
