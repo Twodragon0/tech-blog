@@ -197,3 +197,30 @@ Michael Saylor")은 **결정론적으로 수정 불가**로 확정하고 영구 
 **관련**: 같은 감사에서 채택한 honest 수정은 Fix A(generic format noun "url"을
 `_GENERIC_TRAILING`에 추가 → "FBI URL" junk bigram 제거, TestUrlBigramReject).
 부제 content-descriptor + route_hint 디커플링은 PR #417 참조.
+
+---
+
+## 2026-06-18 — Legacy honesty-baseline 커버는 baselined 유지 (regen/마이그레이션 안 함)
+
+**결정**: `scripts/cover_honesty_baseline.txt`에 grandfathered된 30건(L20 16 + L22 14)의
+legacy 커버를 honesty FAIL 해소 목적으로 **재생성하거나 L22→L20 마이그레이션하지 않는다.**
+현재 baseline을 영구 floor로 받아들인다.
+
+**근거 (경험적)**:
+- 이 커버들은 일반 long-form 보안 포스트(가이드/코스/사고분석)용이며, honesty FAIL 사유는
+  rich attack-chain 비주얼(`hub_spoke` HUB/RELAY/VICTIM, `data_exfil`, `cve_chain`,
+  `code_injection` C2_URL/exfil_keys 등)이 본문 evidence 토큰 없이 위협을 'assert'하기 때문.
+- **그러나 이 rich 스타일은 사용자가 품질 reference로 명시한 커버**(2026-01-14 AWS Cloud
+  Security IAM→EKS, 2026-01-14 ISMS-P)와 **동일**하다. 즉 honesty를 통과시키려 regen하면
+  references가 보존하려는 바로 그 비주얼을 honest-neutral로 벗겨내 일관성이 깨진다.
+- baseline은 grandfathered라 CI를 **막지 않는다**(svg-lint honesty gate는 NEW 회귀만 FAIL).
+- 보안 아키텍처/사고분석 글에서 attack-chain 비주얼은 illustrative로 적절하다고 본다.
+
+**적용**:
+- baseline 30건 = 영구 floor. "baseline 0" 추구하지 말 것.
+- 신규 digest 커버는 honesty-safe(neutral/advisory/market) 유지(자동 생성, 무인 cron).
+- 향후 누군가 "baseline 줄이자"고 하면 이 결정을 먼저 참조. regen은 시각 품질 저하 +
+  references 불일치 trade-off가 있음을 상기.
+- L22 14건 마이그레이션도 동일 사유로 보류(ralplan 분석 결론: 비용 대비 시각 손실).
+
+**관련**: false-orphan 오판 정정(image: 필드 기준 매칭), empirical-first 원칙.
