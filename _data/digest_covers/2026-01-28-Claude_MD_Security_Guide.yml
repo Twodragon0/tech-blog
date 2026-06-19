@@ -40,8 +40,9 @@ bands:
     label: NEVER
     sub: hardcode
   visual:
-    kind: lock_cve
-    cvss: HIGH
+    kind: shield
+    label: SECRETS
+    kpi: '3 rings : scan + mask + env'
   metric_b: 'Secret scan coverage : log masking coverage : pre-commit pass rate'
   detail_b: 'Run Gitleaks on every commit : use os.getenv not literals :
     mask_sensitive_info() in all log paths : validate agent inputs with zod/pydantic'
