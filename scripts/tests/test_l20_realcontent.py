@@ -1464,6 +1464,39 @@ class TestMultiWordVendorPromote:
             == "Amazon Bedrock"
         )
 
+    def test_arch_linux_promoted(self):
+        # FM5: 06-13/06-15 real highlights. "linux" in _GENERIC_TRAILING strips
+        # to a lone "Arch"; "Arch Linux" is a real distro entity in the title.
+        assert (
+            build_lead_headline(
+                "400개 이상의 Arch Linux AUR 패키지가 하이재킹되어 정보 탈취 악성코드 유포"
+            )
+            == "Arch Linux"
+        )
+        assert (
+            build_lead_headline(
+                "Arch Linux, 이제 악성코드 사고가 통제됐다고 판단: 1,500개 이상 패키지 영향"
+            )
+            == "Arch Linux"
+        )
+
+    def test_malware_plus_linux_not_promoted(self):
+        # CRITICAL: NOT a blanket "<X> Linux" promote. "Showboat"/"CIFSwitch" are
+        # the malware/vuln (the real subject); "Linux" is just the platform, so
+        # the lone lead is CORRECT and must NOT promote to a fabricated entity.
+        assert (
+            build_lead_headline(
+                "Showboat Linux 악성코드, SOCKS5 프록시 백도어로 중동 통신사 공격"
+            )
+            == "Showboat"
+        )
+        assert (
+            build_lead_headline(
+                "새로운 CIFSwitch Linux 취약점으로 여러 배포판에서 루트 권한 획득 가능"
+            )
+            == "CIFSwitch"
+        )
+
     def test_full_entity_lead_is_idempotent(self):
         # Promoting an already-full entity is a no-op (no double-promote).
         assert build_lead_headline("Amazon Bedrock AgentCore가 출시") == "Amazon Bedrock"
@@ -1503,10 +1536,14 @@ class TestMultiWordVendorVetting:
     to the (growing) corpus size.
     """
 
-    def test_seed_is_exactly_the_two_live_pairs(self):
+    def test_seed_is_exactly_the_curated_pairs(self):
         from scripts.news.l20_dispatch import _MW_VENDOR_ENTITIES
 
-        assert _MW_VENDOR_ENTITIES == frozenset({("red", "hat"), ("amazon", "bedrock")})
+        # FM4: red hat, amazon bedrock; FM5: arch linux — each a real entity with
+        # a live exercising cover, no unexercised forward-looking entries.
+        assert _MW_VENDOR_ENTITIES == frozenset(
+            {("red", "hat"), ("amazon", "bedrock"), ("arch", "linux")}
+        )
 
     def test_heads_disjoint_from_generic_trailing(self):
         from scripts.news.l20_dispatch import _GENERIC_TRAILING, _MW_VENDOR_ENTITIES
