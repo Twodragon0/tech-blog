@@ -533,6 +533,9 @@ _CONTENT_FILLER_TOKENS: frozenset = frozenset({
     "generation", "model", "top", "y", "overview", "intro", "introduction",
     "summary", "notes", "post", "part", "series", "edition", "review",
     "2025", "2026", "2024", "2023",
+    # Slugified-percent noise: "82_Percent" -> ["82", "Percent"]; the digit is
+    # dropped and the bare word "Percent" is not a topic on its own.
+    "percent",
 })
 
 # Minimum character length for a keyword to count as a meaningful headline
@@ -618,6 +621,175 @@ def _meaningful_content_keywords(
     return result[:6]
 
 
+# --- Content-post topic PHRASE extraction (multi-word headlines) ---
+# Single bare nouns ("Cloud", "Security", "AWS") read as garbled extraction on
+# a cover. The phrase extractor groups adjacent meaningful tokens into 2-3 word
+# topic phrases so each headline names a real topic
+# (e.g. "AWS WAF/CloudFront", "GitHub DevSecOps", "Compliance Monitoring").
+#
+# Broad topic words: real but too generic to distinguish a headline. Phrases
+# composed ONLY of these are demoted (used to fill remaining slots, never
+# preferred over a specific phrase). This keeps a truncated filename slug
+# ("Cloud Security Trends") from outranking the title's specific topics
+# ("VS Code", "Kubernetes", "CNCF"). Kept conservative — only words that are
+# never distinguishing on their own.
+_CONTENT_GENERIC_TOKENS: frozenset = frozenset({
+    "cloud", "security", "trends", "tech", "data", "system", "systems",
+    "network", "networks", "web", "app", "apps", "service", "services",
+    "platform", "architecture", "monitoring", "configuration", "verification",
+    "automated", "practices", "hardening",
+    "january", "february", "march", "april", "may", "june", "july", "august",
+    "september", "october", "november", "december",
+})
+
+# Title topic-token: a word plus inner brand/product chars (+ # . % / -). The
+# leading char must be alphanumeric so punctuation never starts a token.
+_TITLE_TOPIC_TOKEN_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9+#./%-]*")
+# Hangul run (syllables + jamo) used to split a Korean title into ASCII spans.
+_HANGUL_RUN_RE = re.compile(r"[가-힣ᄀ-ᇿ㄰-㆏]+")
+# Strong intra-title boundaries that separate distinct topics.
+_TITLE_PHRASE_SPLIT_RE = re.compile(r"[|,:;()\[\]•]+")
+# A phrase made of only a number + percent (e.g. "82%") — meaningful as a KPI,
+# but a weak standalone headline, so demoted below alpha topics.
+_PERCENT_ONLY_RE = re.compile(r"[0-9.]+%\Z")
+# Phrase word-count cap so a long ASCII run does not overflow the headline.
+_CONTENT_PHRASE_MAX_WORDS: int = 3
+
+
+def _is_content_topic_token(token: str) -> bool:
+    """True when ``token`` may stand inside a topic phrase.
+
+    Reuses the same drop rules as ``_meaningful_content_keywords._push``:
+    too-short, pure-digit, digit-led (course ordinals) and ``_CONTENT_FILLER_TOKENS``
+    are rejected. Digit-led tokens ending in ``%`` (e.g. ``"82%"``) ARE kept —
+    a clean meaningful numeric.
+    """
+    t = token.strip()
+    if len(t) < _CONTENT_KW_MIN_LEN:
+        return False
+    if t.isdigit():
+        return False
+    if t[0].isdigit():
+        return t.endswith("%")
+    if t.lower() in _CONTENT_FILLER_TOKENS:
+        return False
+    return True
+
+
+def _phrase_sig_tokens(phrase: str) -> Set[str]:
+    """Significant lowercase tokens of a phrase (for cross-phrase dedup)."""
+    return {
+        t.lower().rstrip("%")
+        for t in re.findall(r"[A-Za-z0-9%]+", phrase)
+        if not t.isdigit()
+    }
+
+
+def _phrase_is_specific(phrase: str) -> bool:
+    """True when any alpha token is NOT in ``_CONTENT_GENERIC_TOKENS``.
+
+    Brand / product / acronym words (AWS, CNCF, DataDog, Kubernetes) and any
+    non-generic noun make a phrase "specific"; a phrase of only broad words
+    ("Cloud Security") is generic.
+    """
+    return any(
+        t.lower() not in _CONTENT_GENERIC_TOKENS
+        for t in re.findall(r"[A-Za-z]+", phrase)
+    )
+
+
+def _title_topic_phrases(title: str) -> List[str]:
+    """ASCII topic phrases pulled from a (possibly Korean) post title.
+
+    A title's human-written words carry the real article topics. Hangul runs
+    and strong punctuation split the title into spans; each span's adjacent
+    ASCII topic tokens form one phrase (so ``"VS Code"`` stays joined,
+    ``"82%"`` survives). Returns phrases in title order.
+    """
+    if not title:
+        return []
+    spans = _TITLE_PHRASE_SPLIT_RE.split(_HANGUL_RUN_RE.sub("|", title))
+    phrases: List[str] = []
+    for span in spans:
+        toks = [
+            t for t in _TITLE_TOPIC_TOKEN_RE.findall(span)
+            if _is_content_topic_token(t)
+        ]
+        if toks:
+            phrases.append(_clean_segment(" ".join(toks[:_CONTENT_PHRASE_MAX_WORDS])))
+    return phrases
+
+
+def _slug_topic_phrases(filename: str, max_words: int = 2) -> List[str]:
+    """Group a filename slug's adjacent meaningful tokens into topic phrases.
+
+    Filler / digit-led tokens break a group, so course noise
+    ("8Batch", "6Week", "Course", "Practical") splits the slug into honest
+    topic chunks: ``AWS WAF`` ... ``GitHub DevSecOps``. Returns phrases in
+    slug order.
+    """
+    phrases: List[str] = []
+    cur: List[str] = []
+    for tok in _english_topics_from_filename(filename):
+        if _is_content_topic_token(tok):
+            cur.append(tok)
+            if len(cur) >= max_words:
+                phrases.append(" ".join(cur))
+                cur = []
+        elif cur:
+            phrases.append(" ".join(cur))
+            cur = []
+    if cur:
+        phrases.append(" ".join(cur))
+    return [_clean_segment(p) for p in phrases]
+
+
+def _content_topic_phrases(filename: str, title: str) -> List[str]:
+    """Select up to 3 DISTINCT multi-word-preferred topic phrases.
+
+    Sources: title phrases (real article topics) + filename-slug phrases
+    (backfill). Candidates are ranked so a specific multi-word phrase wins
+    over a generic or single-word one, but title order is preserved within a
+    rank. Phrases sharing a significant token are de-duplicated (case-
+    insensitive) so the three headlines cover distinct topics. ASCII-only and
+    ``_HEADLINE_MAX_CHARS``-capped, identical to the prior extractor.
+    """
+    candidates: List[str] = []
+    seen: Set[str] = set()
+    for phrase in _title_topic_phrases(title) + _slug_topic_phrases(filename, 2):
+        key = phrase.lower()
+        if phrase and key not in seen:
+            seen.add(key)
+            candidates.append(phrase)
+
+    def _rank(phrase: str) -> int:
+        if _PERCENT_ONLY_RE.fullmatch(phrase.strip()):
+            return 4  # bare "82%": weak headline, fill last
+        specific = _phrase_is_specific(phrase)
+        multi = len(phrase.split()) >= 2
+        if specific and multi:
+            return 0
+        if specific:
+            return 1
+        if multi:
+            return 2
+        return 3
+
+    order = sorted(range(len(candidates)), key=lambda i: (_rank(candidates[i]), i))
+    selected: List[str] = []
+    used_sig: Set[str] = set()
+    for i in order:
+        phrase = _shorten(candidates[i], _HEADLINE_MAX_CHARS)
+        sig = _phrase_sig_tokens(phrase)
+        if not sig or (sig & used_sig):
+            continue
+        selected.append(phrase)
+        used_sig |= sig
+        if len(selected) >= 3:
+            break
+    return selected
+
+
 def extract_content_stories(
     post_title: str,
     excerpt: str,
@@ -638,8 +810,19 @@ def extract_content_stories(
 
     The English-only guarantee and ``_HEADLINE_MAX_CHARS`` / ``_SUB_MAX_CHARS``
     length caps are preserved identical to :func:`extract_three_stories`.
+
+    Headlines are MULTI-WORD topic phrases (``_content_topic_phrases``) so a
+    cover shows real topics ("AWS WAF/CloudFront") instead of bare nouns
+    ("Cloud"). When the title/slug is too thin to yield phrases the helper
+    falls back to the single-keyword extractor so single-topic posts still
+    render three distinct stories.
     """
-    meaningful = _meaningful_content_keywords(filename, post_title)
+    meaningful = _content_topic_phrases(filename, post_title)
+    # Fallback: a title+slug with no groupable phrases (single bare topic, or
+    # an all-filler slug) yields < 1 phrase. Reuse the keyword extractor so the
+    # existing single-keyword / redundant-subtitle behavior is preserved.
+    if not meaningful:
+        meaningful = _meaningful_content_keywords(filename, post_title)
 
     # eyebrow_title used both for subheadline context and fallback labels.
     eyebrow_title = eyebrow.title()  # "SECURITY GUIDE" -> "Security Guide"

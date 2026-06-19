@@ -10,6 +10,7 @@ last_modified_at: 2026-04-16T11:29:01+09:00
 description: "2026년 1월 클라우드 보안 핵심 동향. CNCF 조사 Kubernetes 프로덕션 82% 달성, VS Code 터널 악용 위협 확대, CRI-O 보안 감사 완료, Net-NTLMv1 레인보우 테이블 공개 등 주요 이슈와 DevSecOps 실무 대응 방안 및 탐지 전략을 정리합니다."
 excerpt: "2026년 1월 클라우드 보안 핵심 동향. CNCF 조사 Kubernetes 프로덕션 82% 달성, VS Code 터널 악용 위협 확대, CRI-O 보안 감사 완료, Net-NTLMv1 레인보우 테이블 공개 등 주요 이슈와 DevSecOps 실무 대응 방안 및 탐지 전략을 정리합니다."
 image: /assets/images/2026-01-22-Cloud_Security_Trends_January_2026.svg
+cover_style: l20
 image_alt: Cloud Security Trends January 2026 - Kubernetes, VS Code Threats, CNCF
   Survey
 layout: post

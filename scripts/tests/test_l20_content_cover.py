@@ -26,8 +26,11 @@ from scripts.news.l20_dispatch import (
     _build_story,
     _CONTENT_HONEST_VISUALS,
     _content_eyebrow_from_category,
+    _content_topic_phrases,
     _meaningful_content_keywords,
     _pad_subheadline,
+    _slug_topic_phrases,
+    _title_topic_phrases,
     extract_content_stories,
     extract_three_stories,
     generate_l20_content_svg,
@@ -434,3 +437,144 @@ class TestExtractContentStories:
         )
         assert h["headline"] == "Ransomware"
         assert t["headline"] == "AI agent"
+
+
+# =====================================================================
+# Phrase-grouping: multi-word, content-based headlines (pilot fix)
+# =====================================================================
+
+# The 3 pilot posts: (title, post-filename, eyebrow). The post FILENAME (not the
+# image filename) is what generate_post_images.py passes as ``filename``, so the
+# tests mirror that.
+_PILOT_CSPM = (
+    "CSPM(DataDog) AWS 보안 가이드: 자동화된 보안 설정 검증 및 컴플라이언스 모니터링",
+    "2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Setup_"
+    "Verification_And_Compliance_Monitoring.md",
+    "SECURITY GUIDE",
+)
+_PILOT_TRENDS = (
+    "2026년 1월 클라우드 보안: Kubernetes 프로덕션 채택률 82% 도달, VS Code 위협, CNCF 조사",
+    "2026-01-22-Cloud_Security_Trends_January_2026_Kubernetes_82_Percent_"
+    "Production_VS_Code_Threats_CNCF_Survey.md",
+    "SECURITY GUIDE",
+)
+_PILOT_COURSE = (
+    "클라우드 보안 8기 6주차: AWS WAF/CloudFront 보안 아키텍처, DevSecOps",
+    "2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_"
+    "Architecture_And_GitHub_DevSecOps_Practical.md",
+    "SECURITY GUIDE",
+)
+_ALL_PILOTS = [
+    pytest.param(*_PILOT_CSPM, id="cspm"),
+    pytest.param(*_PILOT_TRENDS, id="trends"),
+    pytest.param(*_PILOT_COURSE, id="course"),
+]
+
+
+class TestContentTopicPhrases:
+    """The phrase extractor turns slug/title into meaningful multi-word topics."""
+
+    def test_title_phrases_keep_multiword_runs(self):
+        # ASCII runs survive Hangul; "VS Code" stays joined, "82%" survives.
+        phrases = _title_topic_phrases(_PILOT_TRENDS[0])
+        assert "VS Code" in phrases
+        assert "Kubernetes" in phrases
+        assert "CNCF" in phrases
+
+    def test_slug_phrases_group_adjacent_tokens(self):
+        # Course slug -> 2-word topic phrases, course-ordinal noise dropped.
+        phrases = _slug_topic_phrases(_PILOT_COURSE[1], 2)
+        assert "AWS WAF" in phrases
+        assert "GitHub DevSecOps" in phrases
+        # No course-ordinal noise tokens.
+        joined = " ".join(phrases).lower()
+        assert "8batch" not in joined and "6week" not in joined
+
+    @pytest.mark.parametrize("title,filename,eyebrow", _ALL_PILOTS)
+    def test_selected_phrases_are_three_distinct(self, title, filename, eyebrow):
+        phrases = _content_topic_phrases(filename, title)
+        assert len(phrases) == 3
+        lowered = [p.lower() for p in phrases]
+        assert len(set(lowered)) == 3, f"non-distinct phrases: {phrases!r}"
+
+    @pytest.mark.parametrize("title,filename,eyebrow", _ALL_PILOTS)
+    def test_no_bare_generic_single_word_headline(self, title, filename, eyebrow):
+        """Each pilot headline must be multi-word OR a specific proper noun —
+        never a bare generic single word like 'Cloud' / 'Security' (the bug)."""
+        _BARE_GENERIC = {"cloud", "security", "trends", "guide", "update", "aws"}
+        phrases = _content_topic_phrases(filename, title)
+        for p in phrases:
+            is_multiword = len(p.split()) >= 2
+            assert is_multiword or p.lower() not in _BARE_GENERIC, (
+                f"bare generic single-word headline: {p!r} in {phrases!r}"
+            )
+
+    @pytest.mark.parametrize("title,filename,eyebrow", _ALL_PILOTS)
+    def test_phrases_are_ascii_only(self, title, filename, eyebrow):
+        for p in _content_topic_phrases(filename, title):
+            assert p.isascii(), f"non-ASCII phrase: {p!r}"
+
+    def test_cspm_pilot_expected_topics(self):
+        phrases = _content_topic_phrases(_PILOT_CSPM[1], _PILOT_CSPM[0])
+        assert "CSPM DataDog" in phrases
+        assert "AWS Security" in phrases
+
+    def test_course_pilot_expected_topics(self):
+        phrases = _content_topic_phrases(_PILOT_COURSE[1], _PILOT_COURSE[0])
+        assert "AWS WAF/CloudFront" in phrases
+        assert "GitHub DevSecOps" in phrases
+
+    def test_trends_pilot_uses_title_topics_over_thin_slug(self):
+        # Image slug is truncated ("Cloud Security Trends"); the title's real
+        # topics (VS Code, Kubernetes, CNCF) must win.
+        phrases = _content_topic_phrases(_PILOT_TRENDS[1], _PILOT_TRENDS[0])
+        assert "VS Code" in phrases
+        assert "Kubernetes" in phrases
+        # "Kubernetes Percent" (slugified-percent noise) must NOT appear.
+        assert "Kubernetes Percent" not in phrases
+
+    def test_thin_post_falls_back_to_keyword_extractor(self):
+        # A single bare-topic post yields no groupable phrase, so
+        # extract_content_stories defers to _meaningful_content_keywords and
+        # still produces three non-empty stories.
+        h, t, b = extract_content_stories(
+            "Vulnerability", "", "2026-01-11-Vulnerability.md", eyebrow="SECURITY GUIDE"
+        )
+        for s in (h, t, b):
+            assert s["headline"]
+
+
+class TestPilotContentStoriesEndToEnd:
+    """extract_content_stories on the 3 pilots: multi-word, honest, ASCII."""
+
+    @pytest.mark.parametrize("title,filename,eyebrow", _ALL_PILOTS)
+    def test_headlines_multiword_or_proper_noun(self, title, filename, eyebrow):
+        h, t, b = extract_content_stories(title, "", filename, eyebrow=eyebrow)
+        _PROPER_NOUNS = {"kubernetes", "cncf", "owasp"}
+        for s in (h, t, b):
+            hl = s["headline"]
+            assert hl.isascii()
+            assert s["subheadline"].isascii()
+            # Sub never echoes the headline.
+            assert s["subheadline"].strip().lower() != hl.strip().lower()
+            # Multi-word OR a known specific proper noun (not a bare generic).
+            assert len(hl.split()) >= 2 or hl.lower() in _PROPER_NOUNS, (
+                f"headline not a meaningful topic phrase: {hl!r}"
+            )
+
+    @pytest.mark.parametrize("title,filename,eyebrow", _ALL_PILOTS)
+    def test_pilot_cover_honest_visual_class(self, tmp_path, title, filename, eyebrow):
+        # Every story routes to an honest (neutral/advisory/market) visual:
+        # a content guide cover never shows an attack/breach/C2 motif.
+        h, t, b = extract_content_stories(title, "", filename, eyebrow=eyebrow)
+        for idx, story in enumerate((h, t, b)):
+            built = _build_story(
+                headline=story["headline"],
+                subheadline=story["subheadline"],
+                index=idx,
+                severity_label="HIGH",
+                content_mode=True,
+            )
+            assert built["visual"] in _CONTENT_HONEST_VISUALS, (
+                f"dishonest visual {built['visual']!r} for {story['headline']!r}"
+            )
