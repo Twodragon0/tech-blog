@@ -12,6 +12,7 @@ description: AI Agent Tool Poisoning, Agentic Tool Chain Attack, Prompt Injectio
   서명키 유출 대응 등 2026년 에이전틱 AI 보안의 모든 것을 다루는 실무 가이드.
 excerpt: "2026년 에이전틱 AI 시대의 새로운 공격 벡터(Tool Poisoning·Tool Chain Attack·Prompt Injection)와 Google Chrome·CrowdStrike Falcon의 방어 아키텍처를 심층 분석합니다. LLM 취약점 진단, JWT 서명키 유출 대응 등 실무 가이드 포함."
 image: /assets/images/2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture.svg
+cover_style: l20
 image_alt: Agentic AI Security 2026 - Attack Vectors and Defense Architecture Guide
 layout: post
 tags:

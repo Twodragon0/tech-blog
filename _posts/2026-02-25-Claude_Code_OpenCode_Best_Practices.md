@@ -10,6 +10,7 @@ comments: true
 description: "Claude Code와 OpenCode 38가지 Best Practice 종합 실전 가이드. 컨텍스트 윈도우 최적화, CLAUDE.md 작성법, 에이전트 팀 운영 전략, 효과적인 프롬프팅 기법, Hook·Skills 활용법까지 공식 문서와 실무 경험을 바탕으로 체계적으로 정리한 레퍼런스입니다."
 excerpt: "Claude Code와 OpenCode 38가지 Best Practice 종합 실전 가이드. 컨텍스트 윈도우 최적화, CLAUDE.md 작성법, 에이전트 팀 운영 전략, 효과적인 프롬프팅 기법, Hook·Skills 활용법까지 공식 문서와 실무 경험을 바탕으로 체계적으로 정리한 레퍼런스입니다."
 image: /assets/images/2026-02-25-Claude_Code_OpenCode_Best_Practices.svg
+cover_style: l20
 image_alt: Claude Code and OpenCode Best Practices 38 Guide Agent Teams Context Window
 tags:
 - Claude-Code
