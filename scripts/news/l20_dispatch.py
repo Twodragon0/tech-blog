@@ -1200,6 +1200,47 @@ _AI_COMPOUND_ADJECTIVES: frozenset = frozenset({"agentic", "vertical"})
 # needs a separate future rule; the guard exempts these so committed CI stays green.
 _DEFERRED_AI_ADJECTIVES: frozenset = frozenset({"shadow"})
 
+# FM4 — curated multi-word vendor/product entities whose FIRST word, when it ends
+# up as a resolved-bigram token, truncates the full entity that is literally
+# present in the title. Promote the bigram to the full entity instead of leaving
+# the truncated fragment ("Miasma Red" -> "Red Hat"; "AWS Amazon" -> "Amazon
+# Bedrock"). Same curated-allowlist discipline as _AI_COMPOUND_ADJECTIVES (FM2):
+# a positional "<token> <Capitalized>" heuristic flags ~134 covers (~132 real
+# two-entity stories like "Cisco Unified"/"Palo Alto"), so ONLY corpus-vetted
+# literal pairs may fire. Seeded with EXACTLY the two pairs a live cover defect
+# exercises today; forward-looking entries (amazon connect, palo alto, …) are
+# deferred to a follow-up PR, each shipped with its exercising title + a
+# corpus-diff vetting assertion (see test_l20_realcontent.py::TestMultiWordVendorVetting).
+_MW_VENDOR_ENTITIES: frozenset = frozenset({("red", "hat"), ("amazon", "bedrock")})
+
+
+def _promote_mw_vendor(candidate: str, title: str) -> str:
+    """Full multi-word vendor entity when ``candidate`` truncates one present in
+    ``title``, else ``""``.
+
+    Fires only when a curated ``(head, tail)`` pair has its ``head`` among the
+    resolved candidate's tokens AND the literal ``"head tail"`` appears in the
+    title (case-insensitive) AND fits ``_HEADLINE_MAX_CHARS``. Returns the exact
+    cased substring from the title (preserves real casing, stops before any glued
+    Hangul particle), guaranteed ASCII since both tokens are ASCII vendor words.
+    Idempotent: promoting an already-full entity ("Amazon Bedrock") is a no-op.
+    """
+    cand_tokens = {t.lower() for t in candidate.split()}
+    title_low = title.lower()
+    for head, tail in _MW_VENDOR_ENTITIES:
+        if head not in cand_tokens:
+            continue
+        full = f"{head} {tail}"
+        if len(full) > _HEADLINE_MAX_CHARS:
+            continue
+        idx = title_low.find(full)
+        if idx < 0:
+            continue
+        matched = title[idx:idx + len(full)]
+        if matched.isascii():
+            return matched
+    return ""
+
 
 def _common_prefix_len(a: str, b: str) -> int:
     """Length of the case-insensitive common leading run of ``a`` and ``b``."""
@@ -1402,6 +1443,15 @@ def build_lead_headline(title: str) -> str:
         )
     ):
         candidate = f"{non_cve[0]} {non_cve[1]}"
+    # FM4: promote a resolved bigram that truncates a curated multi-word vendor
+    # entity to its full form when that form is literally in the title
+    # ("Miasma Red" -> "Red Hat", "AWS Amazon" -> "Amazon Bedrock"). Runs AFTER
+    # the FM2 AI-compound early-return and FM3 roundup/suffix logic, on the
+    # already-resolved candidate, and BEFORE the return below — text-only, the
+    # honesty/route class is unchanged (both promoted headlines route neutral).
+    _mw = _promote_mw_vendor(candidate, title)
+    if _mw:
+        return _mw
     # Trust the lead candidate only when it is good AND the LEAD token is
     # not itself a generic/weak/acronym word — otherwise a phrase like
     # "Linux Defender" would slip through on the strength of its space.
