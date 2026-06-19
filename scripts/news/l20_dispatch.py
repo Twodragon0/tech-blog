@@ -1354,6 +1354,13 @@ def build_lead_headline(title: str) -> str:
     non_cve = [t for t in toks if not _CVE_RE.match(t)]
     if not non_cve:
         return ""
+    # Korean roundup-list headline ("<Lead> 게시판: A 외 N건" / "... 외 25건"):
+    # the entity tokens after the lead are UNRELATED list items, so joining
+    # them produces a nonsense bigram ("ThreatsDay 게시판: Claude ..., NastyC2
+    # ... 외 25건" -> "ThreatsDay Claude"). For a roundup, keep ONLY the lead
+    # entity. Deliberately narrow (the "외 N건" tail is a distinctive roundup
+    # marker) so it never over-filters a normal two-entity story.
+    is_roundup = bool(re.search(r"외\s*\d+\s*건", title))
     # FM2: keep "<CompoundAdjective> AI" as an honest bigram ("Agentic AI",
     # "Vertical AI"). "ai" is in _GENERIC_TRAILING so the normal join below
     # refuses it (leaving a weak lone "Agentic"/"Vertical"); this curated,
@@ -1375,10 +1382,17 @@ def build_lead_headline(title: str) -> str:
     candidate = non_cve[0]
     if (
         len(non_cve) > 1
+        and not is_roundup
         and non_cve[1].lower() not in _GENERIC_TRAILING
         # Skip a near-duplicate brand restatement ("ChatGPhish ChatGPT"):
         # a long shared prefix means token 2 just echoes token 1.
         and _common_prefix_len(non_cve[0], non_cve[1]) < 4
+        # Skip a redundant suffix restatement where token 2 is the tail of
+        # token 1 ("GreatXML" + "XML" -> just "GreatXML"). The prefix guard
+        # above misses this since they share no leading run. Suffix-only (not
+        # full containment) so a real "<Acronym>-prefixed" event like "SAP
+        # SAPPHIRE" — where the SHORT token leads — is left untouched.
+        and not non_cve[0].lower().endswith(non_cve[1].lower())
         and len(f"{non_cve[0]} {non_cve[1]}") <= _HEADLINE_MAX_CHARS
         # Never join two generic filler words into a useless bigram
         # ("Show Option") — see _GENERIC_HEADLINE_WORDS.
