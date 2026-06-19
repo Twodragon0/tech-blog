@@ -25,7 +25,7 @@ THEMES palette.
 from __future__ import annotations
 
 import re
-from typing import Dict, Tuple
+from typing import Callable, Dict, Tuple
 
 from scripts.lib import svg_l22_generator as l22
 
@@ -708,12 +708,163 @@ def _neutral_topic_class(topic: str, band_index: int = 0) -> str:
     return _NEUTRAL_CLASS_ORDER[band_index % len(_NEUTRAL_CLASS_ORDER)]
 
 
+def _neutral_motif_seed(s: str) -> int:
+    """Deterministic 32-bit seed from a string (NOT Python's randomized hash).
+
+    Used to rotate which neutral motif a cover's bands draw, keyed on a
+    cover-constant string (the hero headline) so all 3 bands share one seed
+    and therefore render 3 CONSECUTIVE (= distinct) motifs, while a different
+    cover yields a different seed -> different motif set. Reproducible across
+    regenerations.
+    """
+    h = 0
+    for ch in (s or "").lower():
+        h = (h * 131 + ord(ch)) & 0xFFFFFFFF
+    return h
+
+
+def _neutral_hub(a: str, soft: str, hub_sub: str, hub_sub_color: str) -> str:
+    """Central UPDATE hub shared by EVERY neutral motif.
+
+    Emits the literal ``>UPDATE<`` text node that ``score_cover_honesty.py``
+    fingerprints as the always-pass ``neutral`` claim class. Every motif in
+    ``_NEUTRAL_MOTIFS`` MUST include this hub so the band stays fingerprintable
+    and honesty-classified ``neutral`` — the test harness
+    (``test_l20_hero_visual.py::TestNeutralMotifs``) enforces it per motif.
+    """
+    return (
+        f'<circle cx="0" cy="2" r="30" fill="#0A1326" stroke="{a}" stroke-width="2" filter="url(#softShadow)">'
+        f'<animate attributeName="r" values="28;33;28" dur="3.4s" repeatCount="indefinite"/></circle>'
+        f'<text x="0" y="-1" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="{soft}">UPDATE</text>'
+        f'<text x="0" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{hub_sub_color}">{hub_sub}</text>'
+    )
+
+
+def _motif_flow(a: str, soft: str, hub_sub: str, hub_sub_color: str) -> str:
+    """Stacked source cards -> UPDATE hub -> rising ACTIVITY sparkline."""
+    return (
+        f'<g font-family="Inter, monospace" font-size="8" font-weight="800">'
+        f'<g transform="translate(-150,-40)"><rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2"/>'
+        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">DIGEST</text></g>'
+        f'<g transform="translate(-150,-6)"><rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2" opacity="0.88"/>'
+        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">ECOSYSTEM</text></g>'
+        f'<g transform="translate(-150,28)"><rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2" opacity="0.76"/>'
+        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">RELEASE</text></g></g>'
+        f'<g stroke="{a}" stroke-width="1" stroke-dasharray="3 2" fill="none" opacity="0.6">'
+        f'<line x1="-74" y1="-28" x2="-8" y2="0"/><line x1="-74" y1="6" x2="-8" y2="2"/><line x1="-74" y1="40" x2="-8" y2="4"/></g>'
+        f'<g fill="{soft}"><circle r="2"><animateMotion path="M-74 -28 L-8 0" dur="2.2s" repeatCount="indefinite"/></circle>'
+        f'<circle r="2"><animateMotion path="M-74 6 L-8 2" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>'
+        f'<circle r="2"><animateMotion path="M-74 40 L-8 4" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></circle></g>'
+        + _neutral_hub(a, soft, hub_sub, hub_sub_color)
+        + f'<g transform="translate(56,-44)" filter="url(#softShadow)">'
+        f'<rect x="0" y="0" width="120" height="92" rx="6" fill="#0A0F1E" stroke="{a}" stroke-width="1.2"/>'
+        f'<text x="60" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="{soft}">ACTIVITY</text>'
+        f'<polyline points="12,72 30,60 46,64 62,48 80,52 98,34 108,30" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        f'<circle cx="108" cy="30" r="3" fill="{soft}"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>'
+        f'<g stroke="{a}" stroke-width="0.6" opacity="0.3"><line x1="12" y1="46" x2="108" y2="46"/><line x1="12" y1="62" x2="108" y2="62"/></g>'
+        f'<text x="60" y="86" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{a}">trend overview</text></g>'
+    )
+
+
+def _motif_mesh(a: str, soft: str, hub_sub: str, hub_sub_color: str) -> str:
+    """Connected node lattice -> UPDATE hub -> small NODES graph panel."""
+    links = []
+    nodes = []
+    for r in range(3):
+        for c in range(3):
+            x = -156 + c * 26
+            y = -36 + r * 36
+            if c < 2:
+                links.append(f'<line x1="{x}" y1="{y}" x2="{x + 26}" y2="{y}"/>')
+            if r < 2:
+                links.append(f'<line x1="{x}" y1="{y}" x2="{x}" y2="{y + 36}"/>')
+            op = 0.9 - 0.07 * (r + c)
+            nodes.append(
+                f'<circle cx="{x}" cy="{y}" r="3.4" fill="#0E1426" stroke="{a}" stroke-width="1.1" opacity="{op:.2f}"/>'
+            )
+    return (
+        f'<g stroke="{a}" stroke-width="0.8" opacity="0.35">' + "".join(links) + "</g>"
+        + "".join(nodes)
+        + f'<line x1="-104" y1="0" x2="-8" y2="2" stroke="{a}" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>'
+        + f'<g fill="{soft}"><circle r="2"><animateMotion path="M-104 0 L-8 2" dur="2.3s" repeatCount="indefinite"/></circle></g>'
+        + _neutral_hub(a, soft, hub_sub, hub_sub_color)
+        + f'<g transform="translate(56,-44)" filter="url(#softShadow)">'
+        f'<rect x="0" y="0" width="120" height="92" rx="6" fill="#0A0F1E" stroke="{a}" stroke-width="1.2"/>'
+        f'<text x="60" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="{soft}">NODES</text>'
+        f'<g stroke="{a}" stroke-width="1" opacity="0.5"><line x1="24" y1="40" x2="60" y2="28"/><line x1="60" y1="28" x2="96" y2="44"/><line x1="60" y1="28" x2="60" y2="64"/><line x1="24" y1="40" x2="60" y2="64"/></g>'
+        f'<g fill="{soft}"><circle cx="24" cy="40" r="3.5"/><circle cx="96" cy="44" r="3.5"/><circle cx="60" cy="64" r="3.5"/></g>'
+        f'<circle cx="60" cy="28" r="4.5" fill="{a}"/>'
+        f'<text x="60" y="86" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{a}">mesh overview</text></g>'
+    )
+
+
+def _motif_stack(a: str, soft: str, hub_sub: str, hub_sub_color: str) -> str:
+    """Layered horizontal strata -> UPDATE hub -> stacked LAYERS panel."""
+    bars = []
+    for i in range(4):
+        y = -42 + i * 22
+        w = 92 - i * 10
+        op = 0.9 - 0.12 * i
+        bars.append(
+            f'<rect x="-156" y="{y}" width="{w}" height="14" rx="3" fill="#0E1426" stroke="{a}" stroke-width="1.1" opacity="{op:.2f}"/>'
+        )
+    return (
+        "".join(bars)
+        + f'<g stroke="{a}" stroke-width="1" stroke-dasharray="3 2" fill="none" opacity="0.6">'
+        f'<line x1="-64" y1="-35" x2="-8" y2="0"/><line x1="-74" y1="9" x2="-8" y2="2"/><line x1="-84" y1="53" x2="-8" y2="4"/></g>'
+        + f'<g fill="{soft}"><circle r="2"><animateMotion path="M-74 9 L-8 2" dur="2.1s" repeatCount="indefinite"/></circle></g>'
+        + _neutral_hub(a, soft, hub_sub, hub_sub_color)
+        + f'<g transform="translate(56,-44)" filter="url(#softShadow)">'
+        f'<rect x="0" y="0" width="120" height="92" rx="6" fill="#0A0F1E" stroke="{a}" stroke-width="1.2"/>'
+        f'<text x="60" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="{soft}">LAYERS</text>'
+        f'<rect x="16" y="30" width="88" height="10" rx="2" fill="{a}" opacity="0.85"/>'
+        f'<rect x="16" y="46" width="70" height="10" rx="2" fill="{a}" opacity="0.6"/>'
+        f'<rect x="16" y="62" width="52" height="10" rx="2" fill="{a}" opacity="0.4"/>'
+        f'<text x="60" y="86" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{a}">stack overview</text></g>'
+    )
+
+
+def _motif_orbit(a: str, soft: str, hub_sub: str, hub_sub_color: str) -> str:
+    """Concentric orbit rings + orbiting nodes around the UPDATE hub + CYCLE panel."""
+    return (
+        f'<g fill="none" stroke="{a}" opacity="0.4">'
+        f'<ellipse cx="0" cy="2" rx="58" ry="44" stroke-width="1"/>'
+        f'<ellipse cx="0" cy="2" rx="92" ry="62" stroke-width="0.8" opacity="0.6"/></g>'
+        f'<g fill="{soft}">'
+        f'<circle r="3"><animateMotion path="M58 2 A58 44 0 1 1 -58 2 A58 44 0 1 1 58 2" dur="6s" repeatCount="indefinite"/></circle>'
+        f'<circle r="2.5"><animateMotion path="M-92 2 A92 62 0 1 0 92 2 A92 62 0 1 0 -92 2" dur="8s" repeatCount="indefinite"/></circle></g>'
+        f'<g fill="#0E1426" stroke="{a}" stroke-width="1.1">'
+        f'<circle cx="-58" cy="2" r="3.5"/><circle cx="58" cy="2" r="3.5"/><circle cx="0" cy="-42" r="3.5"/></g>'
+        + _neutral_hub(a, soft, hub_sub, hub_sub_color)
+        + f'<g transform="translate(70,-44)" filter="url(#softShadow)">'
+        f'<rect x="0" y="0" width="106" height="92" rx="6" fill="#0A0F1E" stroke="{a}" stroke-width="1.2"/>'
+        f'<text x="53" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="{soft}">CYCLE</text>'
+        f'<circle cx="53" cy="52" r="22" fill="none" stroke="{a}" stroke-width="6" opacity="0.3"/>'
+        f'<circle cx="53" cy="52" r="22" fill="none" stroke="{a}" stroke-width="6" stroke-dasharray="104 138" stroke-linecap="round" transform="rotate(-90 53 52)"/>'
+        f'<text x="53" y="86" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{a}">cycle overview</text></g>'
+    )
+
+
+# FM6 frozen registry: N structurally-distinct, honesty-class-`neutral` motifs.
+# The parametrized test (test_l20_hero_visual.py::TestNeutralMotifs) iterates
+# THIS tuple (count == N) asserting each motif emits >UPDATE<, is ASCII-only,
+# carries zero attack vocabulary, stays in the size band, and is pairwise
+# distinct. Adding/removing a motif here automatically resizes the test.
+_NEUTRAL_MOTIFS: Tuple[Callable[[str, str, str, str], str], ...] = (
+    _motif_flow,
+    _motif_mesh,
+    _motif_stack,
+    _motif_orbit,
+)
+
+
 def vb_neutral(
     cx: int,
     cy: int,
     theme: str = "blue",
     topic: str = "",
     band_index: int = 0,
+    cover_seed: int = 0,
 ) -> str:
     """Content-neutral digest / ecosystem motif.
 
@@ -734,55 +885,20 @@ def vb_neutral(
     """
     t = _theme(theme)
     a, soft = t["accent"], t["accent_soft"]
-    # LIGHT variation: the theme accent ``a`` still drives every structural
-    # stroke (so the base theme color invariant holds), and the coarse topic
-    # class only varies the hub sub-LABEL text + its color. This keeps the
-    # motif identical while making all-neutral covers visually distinguish.
+    # FM6: pick one of N structurally-distinct neutral motifs. The base theme
+    # accent ``a`` drives every motif's strokes (theme-color invariant holds);
+    # the coarse topic class only sets the hub sub-LABEL text + color (the
+    # content-aware layer). Motif index = (band_index + cover_seed) % N: the 3
+    # bands of one cover share a single cover_seed (derived from the hero
+    # headline in render_l20_hero) so they render 3 CONSECUTIVE = DISTINCT
+    # motifs, while a different cover_seed rotates the set so covers differ
+    # from each other. Deterministic + honesty-safe (every motif emits the
+    # shared >UPDATE< hub and carries no incident vocabulary).
     topic_class = _neutral_topic_class(topic, band_index)
     hub_sub, hub_sub_color = _NEUTRAL_TOPIC_CLASSES[topic_class]
-    return (
-        f'<g transform="translate({cx},{cy})">'
-        # Three stacked source cards on the left (layered documents / feeds)
-        f'<g font-family="Inter, monospace" font-size="8" font-weight="800">'
-        f'<g transform="translate(-150,-40)">'
-        f'<rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2"/>'
-        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">DIGEST</text></g>'
-        f'<g transform="translate(-150,-6)">'
-        f'<rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2" opacity="0.88"/>'
-        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">ECOSYSTEM</text></g>'
-        f'<g transform="translate(-150,28)">'
-        f'<rect x="0" y="0" width="76" height="24" rx="4" fill="#0E1426" stroke="{a}" stroke-width="1.2" opacity="0.76"/>'
-        f'<text x="38" y="15" text-anchor="middle" fill="{soft}">RELEASE</text></g>'
-        f'</g>'
-        # Connector lines into the hub
-        f'<g stroke="{a}" stroke-width="1" stroke-dasharray="3 2" fill="none" opacity="0.6">'
-        f'<line x1="-74" y1="-28" x2="-8" y2="0"/>'
-        f'<line x1="-74" y1="6" x2="-8" y2="2"/>'
-        f'<line x1="-74" y1="40" x2="-8" y2="4"/>'
-        f'</g>'
-        # Flowing data dots toward the hub
-        f'<g fill="{soft}">'
-        f'<circle r="2"><animateMotion path="M-74 -28 L-8 0" dur="2.2s" repeatCount="indefinite"/></circle>'
-        f'<circle r="2"><animateMotion path="M-74 6 L-8 2" dur="2s" begin="0.4s" repeatCount="indefinite"/></circle>'
-        f'<circle r="2"><animateMotion path="M-74 40 L-8 4" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></circle>'
-        f'</g>'
-        # Central UPDATE hub
-        f'<circle cx="0" cy="2" r="30" fill="#0A1326" stroke="{a}" stroke-width="2" filter="url(#softShadow)">'
-        f'<animate attributeName="r" values="28;33;28" dur="3.4s" repeatCount="indefinite"/></circle>'
-        f'<text x="0" y="-1" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="{soft}">UPDATE</text>'
-        f'<text x="0" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{hub_sub_color}">{hub_sub}</text>'
-        # Trend sparkline panel on the right (neutral activity, no alarm)
-        f'<g transform="translate(56,-44)" filter="url(#softShadow)">'
-        f'<rect x="0" y="0" width="120" height="92" rx="6" fill="#0A0F1E" stroke="{a}" stroke-width="1.2"/>'
-        f'<text x="60" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="{soft}">ACTIVITY</text>'
-        f'<polyline points="12,72 30,60 46,64 62,48 80,52 98,34 108,30" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
-        f'<circle cx="108" cy="30" r="3" fill="{soft}"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/></circle>'
-        f'<g stroke="{a}" stroke-width="0.6" opacity="0.3">'
-        f'<line x1="12" y1="46" x2="108" y2="46"/><line x1="12" y1="62" x2="108" y2="62"/></g>'
-        f'<text x="60" y="86" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="{a}">trend overview</text>'
-        f'</g>'
-        f'</g>'
-    )
+    idx = (band_index + cover_seed) % len(_NEUTRAL_MOTIFS)
+    body = _NEUTRAL_MOTIFS[idx](a, soft, hub_sub, hub_sub_color)
+    return f'<g transform="translate({cx},{cy})">{body}</g>'
 
 
 def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
@@ -947,6 +1063,7 @@ def _render_visual(
     topic: str = "",
     band_index: int = 0,
     severity: str = "",
+    cover_seed: int = 0,
 ) -> str:
     """Dispatch to the correct visual builder.
 
@@ -968,7 +1085,9 @@ def _render_visual(
     # topic/band hints for its LIGHT per-topic variation; the other builders
     # ignore them.
     if fn is vb_neutral:
-        return vb_neutral(cx, cy, theme=theme, topic=topic, band_index=band_index)
+        return vb_neutral(
+            cx, cy, theme=theme, topic=topic, band_index=band_index, cover_seed=cover_seed
+        )
     # vb_security_advisory takes the real post-reported severity word so the
     # gauge shows "SEVERITY: HIGH" (or omits the line when unassessed).
     if fn is vb_security_advisory:
@@ -1222,6 +1341,12 @@ def render_l20_hero(
     )
     title = _escape(post_title)
 
+    # FM6: one cover-constant seed (from the hero headline + date) shared by all
+    # 3 bands so vb_neutral renders 3 CONSECUTIVE = DISTINCT motifs within the
+    # cover, while a different cover yields a different seed -> different motif
+    # set. Deterministic -> regenerations are reproducible.
+    cover_seed = _neutral_motif_seed(f"{hero.get('headline', '')}|{date_str}")
+
     parts = []
     parts.append(
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" '
@@ -1283,7 +1408,7 @@ def render_l20_hero(
     parts.append(_corner_brackets(32, 80, 600, 510, hero_accent, size=12))
     parts.append(_data_strip(54, 528, 280, hero_accent))
     # Hero embedded visual (centered around (332, 360))
-    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0, severity=hero.get("severity", "")))
+    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0, severity=hero.get("severity", ""), cover_seed=cover_seed))
     # Hero action tag
     parts.append('<g transform="translate(54,548)">')
     parts.append(f'<rect x="0" y="0" width="280" height="24" rx="3" fill="{hero_accent}" opacity="0.95"/>')
@@ -1323,7 +1448,7 @@ def render_l20_hero(
     )
     parts.append('</g>')
     parts.append(_corner_brackets(652, 80, 516, 248, tr_accent, size=9))
-    parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", ""), topic=top_right.get("headline", ""), band_index=1, severity=top_right.get("severity", "")))
+    parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", ""), topic=top_right.get("headline", ""), band_index=1, severity=top_right.get("severity", ""), cover_seed=cover_seed))
     parts.append(_kpi_card(1094, 168, top_right["theme"], top_right["kpi_value"], top_right["kpi_label"], top_right["kpi_sub"]))
 
     # BOTTOM RIGHT panel
@@ -1351,7 +1476,7 @@ def render_l20_hero(
     )
     parts.append('</g>')
     parts.append(_corner_brackets(652, 344, 516, 246, br_accent, size=9))
-    parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", ""), topic=bottom_right.get("headline", ""), band_index=2, severity=bottom_right.get("severity", "")))
+    parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", ""), topic=bottom_right.get("headline", ""), band_index=2, severity=bottom_right.get("severity", ""), cover_seed=cover_seed))
     # BR KPI card sits in the upper-right of the panel (cy=414 -> y 359..469) so
     # its lower edge clears the frame-anchored QR block: qr_block draws the
     # "scan / full post" label at y=486 (top ~479) and a 132x132 white rect at
