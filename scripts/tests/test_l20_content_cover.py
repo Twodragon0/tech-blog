@@ -27,6 +27,7 @@ from scripts.news.l20_dispatch import (
     _CONTENT_HONEST_VISUALS,
     _content_eyebrow_from_category,
     _content_topic_phrases,
+    _humanize_eyebrow,
     _meaningful_content_keywords,
     _pad_subheadline,
     _slug_topic_phrases,
@@ -578,3 +579,120 @@ class TestPilotContentStoriesEndToEnd:
             assert built["visual"] in _CONTENT_HONEST_VISUALS, (
                 f"dishonest visual {built['visual']!r} for {story['headline']!r}"
             )
+
+
+# Real thin-slug posts whose title+filename yield < 3 distinct phrases. The
+# excerpt (the post's own Korean summary) embeds honest ASCII tech terms that
+# must backfill the headlines instead of the bland generic category fallback.
+_ROADMAP_EXCERPT = (
+    "roadmap.sh 2026년 DevSecOps 로드맵 완벽 분석. 93개 학습 항목, "
+    "OWASP Top 10:2025, NIST CSF 2.0 연계, GitHub Advanced Security, "
+    "AI/ML 보안 자동화, SAST/DAST/IAST 도구 스택, SBOM 공급망 보안 강화."
+)
+_AUTOMOTIVE_EXCERPT = (
+    "DevSecOps 자동차 보안 완벽 가이드. SDV 보안 아키텍처, 자동차 위협 분석, "
+    "DevSecOps 라이프사이클 통합, ISO 21434·UN R155/R156 규제 컴플라이언스, "
+    "SAST/DAST/SBOM 도구 스택까지 실무 정리."
+)
+
+
+class TestExcerptBackfill:
+    """A thin title+slug backfills honest ASCII topics from the excerpt
+    BEFORE resorting to generic category labels."""
+
+    def test_excerpt_phrases_used_when_slug_thin(self):
+        # roadmap post: title+slug -> only "DevSecOps Roadmap". The excerpt
+        # supplies real honest topics (NIST CSF, GitHub Advanced Security).
+        title = "2026 DevSecOps 로드맵 완벽 분석"
+        filename = "2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis.md"
+        phrases = _content_topic_phrases(filename, title, _ROADMAP_EXCERPT)
+        assert len(phrases) == 3
+        joined = " ".join(phrases).lower()
+        # At least one excerpt-only topic backfilled the thin slug.
+        assert "nist" in joined or "github advanced security" in joined, phrases
+
+    def test_excerpt_phrases_rank_after_title_slug(self):
+        # Title+slug topic ("DevSecOps Roadmap") still wins the hero slot;
+        # excerpt phrases only fill the remaining slots.
+        title = "2026 DevSecOps 로드맵 완벽 분석"
+        filename = "2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis.md"
+        phrases = _content_topic_phrases(filename, title, _ROADMAP_EXCERPT)
+        assert phrases[0].lower() == "devsecops roadmap"
+
+    def test_no_generic_fallback_when_excerpt_supplies_topics(self):
+        # The bug: thin slug -> "Devsecops Guide overview/topics". With excerpt
+        # backfill, no generic "<Eyebrow> overview/topics/reference" remains.
+        h, t, b = extract_content_stories(
+            "자동차 보안 완벽 가이드",
+            _AUTOMOTIVE_EXCERPT,
+            "2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.md",
+            eyebrow="DEVSECOPS GUIDE",
+        )
+        for s in (h, t, b):
+            hl = s["headline"].lower()
+            assert hl not in {
+                "devsecops guide overview",
+                "devsecops guide topics",
+                "devsecops guide reference",
+            }, f"generic fallback leaked despite excerpt: {s['headline']!r}"
+
+    def test_excerpt_backfill_headlines_ascii_only(self):
+        h, t, b = extract_content_stories(
+            "2026 DevSecOps 로드맵 완벽 분석",
+            _ROADMAP_EXCERPT,
+            "2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis.md",
+            eyebrow="DEVSECOPS GUIDE",
+        )
+        for s in (h, t, b):
+            assert s["headline"].isascii()
+            assert s["subheadline"].isascii()
+
+    def test_empty_excerpt_preserves_prior_behavior(self):
+        # No excerpt -> identical to the title+slug-only extraction.
+        title = "Kubernetes 82% 클러스터 보안"
+        filename = "2026-01-22-Cloud_Security_Trends_January_2026.md"
+        with_empty = _content_topic_phrases(filename, title, "")
+        no_arg = _content_topic_phrases(filename, title)
+        assert with_empty == no_arg
+
+
+class TestHumanizeEyebrow:
+    """The generic fallback label is correctly cased, never str.title()'d."""
+
+    @pytest.mark.parametrize(
+        "eyebrow,expected",
+        [
+            ("DEVSECOPS GUIDE", "DevSecOps Guide"),
+            ("DEVOPS GUIDE", "DevOps Guide"),
+            ("FINOPS GUIDE", "FinOps Guide"),
+            ("CLOUD GUIDE", "Cloud Guide"),
+            ("SECURITY GUIDE", "Security Guide"),
+            ("INCIDENT REPORT", "Incident Report"),
+            ("TECH GUIDE", "Tech Guide"),
+        ],
+    )
+    def test_known_eyebrows_canonical_case(self, eyebrow, expected):
+        assert _humanize_eyebrow(eyebrow) == expected
+
+    def test_never_produces_mangled_acronym(self):
+        # The bug was eyebrow.title() -> "Devsecops Guide".
+        assert _humanize_eyebrow("DEVSECOPS GUIDE") != "Devsecops Guide"
+
+    def test_unknown_eyebrow_restores_known_acronyms(self):
+        # An eyebrow not in the explicit map still keeps acronym casing.
+        assert _humanize_eyebrow("AWS GUIDE") == "AWS Guide"
+        assert _humanize_eyebrow("CSPM REFERENCE") == "CSPM Reference"
+
+    def test_empty_eyebrow_falls_back_to_tech_guide(self):
+        assert _humanize_eyebrow("") == "Tech Guide"
+
+    def test_generic_fallback_label_in_story_is_clean(self):
+        # When the title/slug/excerpt are ALL too thin, the padded generic
+        # fallback must use the canonical label, not the mangled one.
+        h, t, b = extract_content_stories(
+            "보안", "", "2026-01-01-Guide.md", eyebrow="DEVSECOPS GUIDE"
+        )
+        all_text = " ".join(
+            s["headline"] + " " + s["subheadline"] for s in (h, t, b)
+        )
+        assert "Devsecops" not in all_text, all_text
