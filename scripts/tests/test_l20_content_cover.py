@@ -24,6 +24,8 @@ import pytest
 
 from scripts.news.l20_dispatch import (
     _build_story,
+    _CONTENT_ARIA_PREFIX_BY_EYEBROW,
+    _CONTENT_FOOTER_BY_EYEBROW,
     _CONTENT_HONEST_VISUALS,
     _content_eyebrow_from_category,
     _content_topic_phrases,
@@ -84,6 +86,24 @@ class TestRenderDefaultsPreserveDigestBranding:
         assert ">WEEKLY DIGEST</text>" in svg
         assert "Weekly Digest  /  2026.01.11" in svg
 
+    def test_default_aria_label_is_weekly_digest_cover(self):
+        # The aria-label default MUST stay "Weekly digest cover ..." so the
+        # genuine digest covers (which call render_l20_hero without aria_prefix)
+        # remain byte-identical. Changing this default would drift 151 on-disk
+        # digest SVGs.
+        svg = render_l20_hero(
+            date_str="2026.01.11",
+            hero=_story("Vulnerability", action="READ THE FULL DIGEST"),
+            top_right=_story("Patch"),
+            bottom_right=_story("Advisory"),
+            url="https://tech.2twodragon.com/posts/2026/01/11/Sample/",
+            post_title="Weekly Security Digest - 2026.01.11",
+        )
+        assert (
+            'aria-label="Weekly digest cover 2026.01.11: '
+            "Vulnerability, Patch, Advisory\"" in svg
+        )
+
 
 # =====================================================================
 # Custom eyebrow/footer (content covers)
@@ -105,6 +125,23 @@ class TestRenderCustomEyebrowFooter:
         assert ">DEVSECOPS GUIDE</text>" in svg
         assert "DevSecOps Guide  /  2026.01.11" in svg
         assert "WEEKLY DIGEST" not in svg
+
+    def test_custom_aria_prefix_overrides_digest_wording(self):
+        # A content cover passes an honest aria_prefix; the a11y text must NOT
+        # falsely announce a weekly digest.
+        svg = render_l20_hero(
+            date_str="2026.01.11",
+            hero=_story("Container Hardening", action="READ THE FULL GUIDE"),
+            top_right=_story("Policy"),
+            bottom_right=_story("Runtime"),
+            url="https://tech.2twodragon.com/posts/2026/01/11/Sample/",
+            post_title="DevSecOps Guide - 2026.01.11",
+            eyebrow="DEVSECOPS GUIDE",
+            footer_label="DevSecOps Guide",
+            aria_prefix="DevSecOps guide cover",
+        )
+        assert 'aria-label="DevSecOps guide cover 2026.01.11: ' in svg
+        assert "Weekly digest cover" not in svg
 
 
 # =====================================================================
@@ -165,6 +202,10 @@ class TestGenerateL20ContentSvg:
 
         # L20 profile marker present.
         assert "profile: high-quality-cover (L20 Hero+2-Card)" in svg
+
+        # Honest aria-label: a content guide must NOT announce a weekly digest.
+        assert 'aria-label="DevSecOps guide cover ' in svg
+        assert "Weekly digest cover" not in svg
 
         # No Hangul anywhere in <text> (check-svg-quality gate requirement).
         for body in _texts(svg):
@@ -654,6 +695,35 @@ class TestExcerptBackfill:
         with_empty = _content_topic_phrases(filename, title, "")
         no_arg = _content_topic_phrases(filename, title)
         assert with_empty == no_arg
+
+
+class TestContentAriaPrefixMap:
+    """The honest aria-prefix map covers every eyebrow and is ASCII / no digest."""
+
+    def test_every_eyebrow_has_an_aria_prefix(self):
+        # Every footer eyebrow (the full eyebrow vocabulary) must have a
+        # matching honest aria prefix so generate_l20_content_svg never falls
+        # back to a missing-key default for a real category.
+        for eyebrow in _CONTENT_FOOTER_BY_EYEBROW:
+            assert eyebrow in _CONTENT_ARIA_PREFIX_BY_EYEBROW, eyebrow
+
+    @pytest.mark.parametrize(
+        "eyebrow,expected",
+        [
+            ("SECURITY GUIDE", "Security guide cover"),
+            ("DEVSECOPS GUIDE", "DevSecOps guide cover"),
+            ("CLOUD GUIDE", "Cloud guide cover"),
+            ("INCIDENT REPORT", "Incident report cover"),
+            ("TECH GUIDE", "Tech guide cover"),
+        ],
+    )
+    def test_prefix_wording(self, eyebrow, expected):
+        assert _CONTENT_ARIA_PREFIX_BY_EYEBROW[eyebrow] == expected
+
+    def test_prefixes_are_ascii_and_not_digest(self):
+        for prefix in _CONTENT_ARIA_PREFIX_BY_EYEBROW.values():
+            assert prefix.isascii(), prefix
+            assert "digest" not in prefix.lower(), prefix
 
 
 class TestHumanizeEyebrow:

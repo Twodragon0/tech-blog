@@ -2012,6 +2012,23 @@ _CONTENT_FOOTER_BY_EYEBROW: Dict[str, str] = {
     "TECH GUIDE": "Tech Guide",
 }
 
+# Honest ``aria-label`` prefix per eyebrow (ASCII, sentence-case). Replaces the
+# hardcoded "Weekly digest cover" default in ``render_l20_hero`` so a content
+# guide's a11y text does not falsely announce a weekly digest. Acronym casing
+# (DevSecOps/DevOps/FinOps) is preserved; only the trailing "Guide"/"Report"
+# word is lowercased to read naturally ("Security guide cover").
+_CONTENT_ARIA_PREFIX_BY_EYEBROW: Dict[str, str] = {
+    "SECURITY GUIDE": "Security guide cover",
+    "DEVSECOPS GUIDE": "DevSecOps guide cover",
+    "DEVOPS GUIDE": "DevOps guide cover",
+    "CLOUD GUIDE": "Cloud guide cover",
+    "KUBERNETES GUIDE": "Kubernetes guide cover",
+    "FINOPS GUIDE": "FinOps guide cover",
+    "BLOCKCHAIN GUIDE": "Blockchain guide cover",
+    "INCIDENT REPORT": "Incident report cover",
+    "TECH GUIDE": "Tech guide cover",
+}
+
 
 def _content_eyebrow_from_category(category) -> str:
     """Map a post ``category`` (str / list / comma string) to an eyebrow label.
@@ -2056,6 +2073,7 @@ def generate_l20_content_svg(post_info: Dict, output_path: Path) -> bool:
 
         eyebrow = _content_eyebrow_from_category(post_info.get("category", ""))
         footer_label = _CONTENT_FOOTER_BY_EYEBROW.get(eyebrow, "Tech Guide")
+        aria_prefix = _CONTENT_ARIA_PREFIX_BY_EYEBROW.get(eyebrow, "Tech guide cover")
         hero_action = (
             "READ THE FULL REPORT"
             if eyebrow == "INCIDENT REPORT"
@@ -2111,6 +2129,7 @@ def generate_l20_content_svg(post_info: Dict, output_path: Path) -> bool:
             post_title=cover_title,
             eyebrow=eyebrow,
             footer_label=footer_label,
+            aria_prefix=aria_prefix,
         )
 
         # Optional sanitizers: only used when the heavier module is on the

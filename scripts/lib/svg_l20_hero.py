@@ -1180,6 +1180,7 @@ def render_l20_hero(
     *,
     eyebrow: str = "WEEKLY DIGEST",
     footer_label: str = "Weekly Digest",
+    aria_prefix: str = "Weekly digest cover",
 ) -> str:
     """Render full L20 Hero+2-Card 1200x630 SVG.
 
@@ -1195,6 +1196,11 @@ def render_l20_hero(
             honest category label (e.g. ``"DEVSECOPS GUIDE"``).
         footer_label: italic footer label before ``"  /  {date}"``. Defaults to
             ``"Weekly Digest"`` for digest byte-identity.
+        aria_prefix: leading phrase of the ``aria-label`` (a11y). Defaults to
+            ``"Weekly digest cover"`` so existing digest callers stay
+            byte-identical; non-digest content covers pass an honest prefix
+            (e.g. ``"Security guide cover"``) so screen-reader text does not
+            falsely announce a weekly digest. ASCII-only.
     """
     # Hero panel
     hero_t = _theme(hero["theme"])
@@ -1211,7 +1217,7 @@ def render_l20_hero(
     br_accent = br_t["accent"]
 
     aria = _escape(
-        f"Weekly digest cover {date_str}: "
+        f"{aria_prefix} {date_str}: "
         f"{hero['headline']}, {top_right['headline']}, {bottom_right['headline']}"
     )
     title = _escape(post_title)
