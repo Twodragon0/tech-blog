@@ -744,19 +744,32 @@ def _slug_topic_phrases(filename: str, max_words: int = 2) -> List[str]:
     return [_clean_segment(p) for p in phrases]
 
 
-def _content_topic_phrases(filename: str, title: str) -> List[str]:
+def _content_topic_phrases(filename: str, title: str, excerpt: str = "") -> List[str]:
     """Select up to 3 DISTINCT multi-word-preferred topic phrases.
 
-    Sources: title phrases (real article topics) + filename-slug phrases
-    (backfill). Candidates are ranked so a specific multi-word phrase wins
-    over a generic or single-word one, but title order is preserved within a
-    rank. Phrases sharing a significant token are de-duplicated (case-
-    insensitive) so the three headlines cover distinct topics. ASCII-only and
+    Sources, in candidate order: title phrases (real article topics) +
+    filename-slug phrases (backfill) + EXCERPT phrases (deeper backfill). The
+    excerpt (the post's own Korean summary) embeds honest ASCII tech terms
+    ("OWASP Top", "NIST CSF", "SBOM"); reusing ``_title_topic_phrases`` on it
+    surfaces real topics when title+slug are too thin to fill three headlines.
+    Excerpt candidates are appended LAST so they rank AFTER title+slug phrases
+    of the same rank (the sort key is ``(rank, candidate_index)``) but BEFORE
+    the generic category fallback applied by ``extract_content_stories``.
+
+    Candidates are ranked so a specific multi-word phrase wins over a generic
+    or single-word one, but source order is preserved within a rank. Phrases
+    sharing a significant token are de-duplicated (case-insensitive) so the
+    three headlines cover distinct topics. ASCII-only and
     ``_HEADLINE_MAX_CHARS``-capped, identical to the prior extractor.
     """
     candidates: List[str] = []
     seen: Set[str] = set()
-    for phrase in _title_topic_phrases(title) + _slug_topic_phrases(filename, 2):
+    sources = (
+        _title_topic_phrases(title)
+        + _slug_topic_phrases(filename, 2)
+        + _title_topic_phrases(excerpt)
+    )
+    for phrase in sources:
         key = phrase.lower()
         if phrase and key not in seen:
             seen.add(key)
@@ -790,6 +803,52 @@ def _content_topic_phrases(filename: str, title: str) -> List[str]:
     return selected
 
 
+# Canonical casing for acronyms / brands that ``str.title()`` mangles
+# ("DEVSECOPS" -> "Devsecops"). Keys are lowercase; values are the correctly
+# cased token. Used by ``_humanize_eyebrow`` for any eyebrow label not already
+# covered by the explicit ``_CONTENT_FOOTER_BY_EYEBROW`` map.
+_LABEL_CANONICAL_CASE: Dict[str, str] = {
+    "devsecops": "DevSecOps",
+    "devops": "DevOps",
+    "finops": "FinOps",
+    "mlops": "MLOps",
+    "aws": "AWS",
+    "gcp": "GCP",
+    "ai": "AI",
+    "ml": "ML",
+    "cspm": "CSPM",
+    "owasp": "OWASP",
+    "cncf": "CNCF",
+    "iam": "IAM",
+    "waf": "WAF",
+    "sbom": "SBOM",
+    "iso": "ISO",
+    "sast": "SAST",
+    "dast": "DAST",
+    "iast": "IAST",
+    "nist": "NIST",
+    "sdv": "SDV",
+}
+
+
+def _humanize_eyebrow(eyebrow: str) -> str:
+    """Return a correctly-cased human label for an eyebrow string.
+
+    Prefers the explicit canonical map (``_CONTENT_FOOTER_BY_EYEBROW``:
+    "DEVSECOPS GUIDE" -> "DevSecOps Guide"). For an eyebrow not in that map,
+    title-cases each word but restores known acronyms via
+    ``_LABEL_CANONICAL_CASE`` so "AWS GUIDE" stays "AWS Guide" rather than
+    becoming "Aws Guide".
+    """
+    canonical = _CONTENT_FOOTER_BY_EYEBROW.get((eyebrow or "").strip().upper())
+    if canonical:
+        return canonical
+    words = []
+    for word in (eyebrow or "").split():
+        words.append(_LABEL_CANONICAL_CASE.get(word.lower(), word.title()))
+    return " ".join(words) or "Tech Guide"
+
+
 def extract_content_stories(
     post_title: str,
     excerpt: str,
@@ -817,15 +876,18 @@ def extract_content_stories(
     falls back to the single-keyword extractor so single-topic posts still
     render three distinct stories.
     """
-    meaningful = _content_topic_phrases(filename, post_title)
-    # Fallback: a title+slug with no groupable phrases (single bare topic, or
-    # an all-filler slug) yields < 1 phrase. Reuse the keyword extractor so the
-    # existing single-keyword / redundant-subtitle behavior is preserved.
+    meaningful = _content_topic_phrases(filename, post_title, excerpt)
+    # Fallback: a title+slug+excerpt with no groupable phrases (single bare
+    # topic, or all-filler) yields < 1 phrase. Reuse the keyword extractor so
+    # the existing single-keyword / redundant-subtitle behavior is preserved.
     if not meaningful:
         meaningful = _meaningful_content_keywords(filename, post_title)
 
     # eyebrow_title used both for subheadline context and fallback labels.
-    eyebrow_title = eyebrow.title()  # "SECURITY GUIDE" -> "Security Guide"
+    # Use the canonical correctly-cased label ("DevSecOps Guide", "FinOps
+    # Guide") rather than ``eyebrow.title()`` which mangles acronyms
+    # ("DEVSECOPS GUIDE" -> "Devsecops Guide").
+    eyebrow_title = _humanize_eyebrow(eyebrow)
 
     # Fallbacks: category-themed so a thin slug still reads accurately
     # (e.g. "Cloud Guide overview" rather than "Threat Analysis" on a
