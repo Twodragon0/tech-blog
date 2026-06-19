@@ -1389,6 +1389,43 @@ class TestUrlBigramReject:
         assert build_lead_headline("Google Vertex AI SDK 결함") == "Google Vertex"
 
 
+class TestRoundupAndSuffixReject:
+    """FM3: two narrow, corpus-vetted join rejects (each blast-radius 1 cover).
+
+    (a) Korean roundup-list headline ("<Lead> ... 외 N건"): the entity tokens
+        after the lead are UNRELATED list items, so the join glues a nonsense
+        bigram. Keep only the lead entity.
+    (b) Redundant suffix restatement (token2 is the tail of token1, e.g.
+        "GreatXML" + "XML"): the prefix near-dup guard misses it. Drop token2.
+
+    Both titles below are REAL 2026-06 corpus highlight titles. Regression
+    guards prove neither rule over-filters a normal two-entity story.
+    """
+
+    def test_roundup_list_keeps_lead_only(self):
+        # 06-19 real title. "ThreatsDay 게시판: Claude ..., NastyC2 ... 외 25건"
+        # — Claude/NastyC2 are separate list items, not a phrase with ThreatsDay.
+        title = "ThreatsDay 게시판: Claude 채팅 악용, NastyC2 npm 패키지, 디바이스 코드 피싱 외 25건"
+        assert build_lead_headline(title) == "ThreatsDay"
+
+    def test_suffix_redundant_join_dropped(self):
+        # 06-12 real title. "GreatXML" + "XML" is a redundant suffix restatement.
+        title = "새로운 GreatXML 익스플로잇, 복구 파티션 XML 파일을 통해 Windows BitLocker 우회"
+        assert build_lead_headline(title) == "GreatXML"
+
+    def test_roundup_does_not_over_filter_normal_story(self):
+        # No "외 N건" tail -> normal two-entity join is untouched.
+        assert build_lead_headline("Cisco, Unified CM의 CVE-2026-20230 패치") == "Cisco Unified"
+
+    def test_suffix_reject_does_not_touch_acronym_led_event(self):
+        # "SAP SAPPHIRE": the SHORT token leads (prefix relation), so the
+        # suffix-only guard must NOT fire — the real event name is preserved.
+        assert (
+            build_lead_headline("SAP SAPPHIRE 2026: Google Cloud 에이전틱 비전 공개")
+            == "SAP SAPPHIRE"
+        )
+
+
 class TestAiCompoundHeadline:
     """FM2: '<CompoundAdjective> AI' (Agentic AI / Vertical AI) must survive as an
     honest bigram instead of collapsing to a lone weak adjective. 'ai' is in
