@@ -442,6 +442,16 @@ def test_cover_seed_rotation_yields_three_distinct_motifs() -> None:
         assert len(set(bands)) == 3, f"seed {seed}: 3 bands not distinct"
 
 
+def test_hero_scale_emits_scale_transform_else_unchanged() -> None:
+    # scale > 1.0 (hero) wraps the motif in a scale() transform; scale == 1.0
+    # (side cards) keeps the original transform byte-identical (no churn).
+    scaled = svg_l20_hero.vb_neutral(332, 360, "blue", band_index=0, scale=1.4)
+    plain = svg_l20_hero.vb_neutral(800, 230, "blue", band_index=0, scale=1.0)
+    assert "scale(1.4)" in scaled, "hero scale transform missing"
+    assert "scale(" not in plain, "side-card motif must not carry a scale transform"
+    assert ">UPDATE<" in scaled and ">UPDATE<" in plain, "scaling dropped the anchor"
+
+
 def test_cover_seed_is_deterministic() -> None:
     # Same seed string -> same seed int -> reproducible regeneration.
     s = svg_l20_hero._neutral_motif_seed("Veeam Backup|2026.06.10")

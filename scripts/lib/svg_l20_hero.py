@@ -857,6 +857,12 @@ _NEUTRAL_MOTIFS: Tuple[Callable[[str, str, str, str], str], ...] = (
     _motif_orbit,
 )
 
+# The neutral motifs are authored at side-card scale (~516x248). The hero panel
+# is much larger (600x510), so vb_neutral enlarges the motif there to fill the
+# space. Tuned so the motif spans the hero interior without colliding with the
+# headline (y~146) above or the action tag (y~548) below.
+_HERO_NEUTRAL_SCALE: float = 1.4
+
 
 def vb_neutral(
     cx: int,
@@ -865,6 +871,7 @@ def vb_neutral(
     topic: str = "",
     band_index: int = 0,
     cover_seed: int = 0,
+    scale: float = 1.0,
 ) -> str:
     """Content-neutral digest / ecosystem motif.
 
@@ -898,6 +905,12 @@ def vb_neutral(
     hub_sub, hub_sub_color = _NEUTRAL_TOPIC_CLASSES[topic_class]
     idx = (band_index + cover_seed) % len(_NEUTRAL_MOTIFS)
     body = _NEUTRAL_MOTIFS[idx](a, soft, hub_sub, hub_sub_color)
+    # The motif is authored for the ~516x248 side-card scale; the hero panel is
+    # much larger (600x510) so it passes ``scale`` > 1 to enlarge the motif and
+    # fill the space. ``scale == 1.0`` emits the original transform unchanged so
+    # side-card bytes stay identical (no needless corpus churn).
+    if scale != 1.0:
+        return f'<g transform="translate({cx},{cy}) scale({scale:g})">{body}</g>'
     return f'<g transform="translate({cx},{cy})">{body}</g>'
 
 
@@ -1064,6 +1077,7 @@ def _render_visual(
     band_index: int = 0,
     severity: str = "",
     cover_seed: int = 0,
+    scale: float = 1.0,
 ) -> str:
     """Dispatch to the correct visual builder.
 
@@ -1086,7 +1100,7 @@ def _render_visual(
     # ignore them.
     if fn is vb_neutral:
         return vb_neutral(
-            cx, cy, theme=theme, topic=topic, band_index=band_index, cover_seed=cover_seed
+            cx, cy, theme=theme, topic=topic, band_index=band_index, cover_seed=cover_seed, scale=scale
         )
     # vb_security_advisory takes the real post-reported severity word so the
     # gauge shows "SEVERITY: HIGH" (or omits the line when unassessed).
@@ -1408,7 +1422,7 @@ def render_l20_hero(
     parts.append(_corner_brackets(32, 80, 600, 510, hero_accent, size=12))
     parts.append(_data_strip(54, 528, 280, hero_accent))
     # Hero embedded visual (centered around (332, 360))
-    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0, severity=hero.get("severity", ""), cover_seed=cover_seed))
+    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0, severity=hero.get("severity", ""), cover_seed=cover_seed, scale=_HERO_NEUTRAL_SCALE))
     # Hero action tag
     parts.append('<g transform="translate(54,548)">')
     parts.append(f'<rect x="0" y="0" width="280" height="24" rx="3" fill="{hero_accent}" opacity="0.95"/>')
