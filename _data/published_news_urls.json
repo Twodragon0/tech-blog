@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-20T00:42:04.333172+00:00",
+  "updated_at": "2026-06-21T00:44:16.427073+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/new-chatgpt-lockdown-mode-limits-tools.html",
-      "title": "New ChatGPT Lockdown Mode Limits Tools That Could Enable Data Exfiltration",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/free-apps-are-quietly-turning-smart-tvs.html",
-      "title": "Free Apps Are Quietly Turning Smart TVs Into Web-Scraping Proxies for AI",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/cisa-adds-actively-exploited-solarwinds.html",
-      "title": "CISA Adds Actively Exploited SolarWinds Serv-U DoS Flaw to KEV Catalog",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/ai-agent-uncovers-21-zero-days-in.html",
-      "title": "AI Agent Uncovers 21 Zero-Days in FFmpeg; Chrome Patches Record 429 Bugs",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/miasma-worm-hits-73-microsoft-github.html",
-      "title": "Miasma Worm Hits 73 Microsoft GitHub Repositories in Major Supply Chain Attack",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim-v2",
-      "title": "Five labs, five minds: building a multi-model finance drama on small models",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-most-oversold-since-2020-crash-can-btc-rebound-to-70k-next?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin most oversold since 2020 crash: Can BTC rebound to $70K next?",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/markets/2026/06/06/bitcoin-ether-eye-worst-weekly-rout-since-ftx-collapse-as-cryptos-shed-usd390-billion",
-      "title": "Bitcoin, ether eye worst weekly rout since FTX collapse as cryptos shed $390 bil",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/opinion/2026/06/06/meta-is-paying-creators-in-stablecoins-spending-them-is-someone-else-s-problem",
-      "title": "Meta is paying creators in Stablecoins. Spending them is someone else's problem",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/06/06/america-s-largest-banks-are-building-a-new-digital-currency-network-to-stop-a-massive-deposit-drain",
-      "title": "America’s largest banks are building a new digital currency network to stop a ma",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/06/06/a-crypto-pioneer-who-turned-a-usd20-million-family-stake-into-a-billion-dollar-fund-doubles-down-on-bitcoin",
-      "title": "A crypto pioneer who turned a $20 million family stake into a billion-dollar fun",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30242",
-      "title": "OpenLogi - Rust로 작성된 Logitech Options+ 대체 오픈소스",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30241",
-      "title": "Google, xAI 데이터 센터의 컴퓨팅 용량 사용료로 매달 9억2천만 달러를 SpaceX에 지불할 예정",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30240",
-      "title": "가장 작은 C++ 바이너리",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30239",
-      "title": "Zeroserve: eBPF로 스크립팅할 수 있는 무설정 웹 서버",
-      "published_date": "2026-06-07",
-      "expires_at": "2026-06-14T00:35:45.479172+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/microsoft/hands-on-with-intelligent-terminal-an-ai-powered-windows-terminal/",
       "title": "Hands on with Intelligent Terminal, an AI-powered Windows Terminal",
@@ -1260,6 +1170,96 @@
       "title": "디자이너에게 AI로 뭐든 만들어보라고 한다면",
       "published_date": "2026-06-20",
       "expires_at": "2026-06-27T00:42:04.333069+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/hackers-exploit-gravity-smtp-wordpress.html",
+      "title": "Hackers Exploit Gravity SMTP WordPress Plugin Bug to Expose API Keys",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-prinz-eugen-ransomware-prioritizes-recent-files-for-encryption/",
+      "title": "New Prinz Eugen ransomware prioritizes recent files for encryption",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-links-mastra-ai-supply-chain-attack-to-north-korean-hackers/",
+      "title": "Microsoft links Mastra AI supply chain attack to North Korean hackers",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/06/20/signals-meredith-whittaker-wants-you-to-remember-that-ai-chatbots-are-not-your-friends/",
+      "title": "Signal’s Meredith Whittaker wants you to remember that AI chatbots ‘are not your",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/french-president-urges-us-to-share-cutting-edge-ai-and-democracies-to-cooperate-on-regulation/",
+      "title": "French President Urges US to Share Cutting-Edge AI and Democracies to Cooperate ",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-rotations-into-altcoins-collapses-have-altseasons-disappeared?utm_source=rss&utm_medium=rss&utm_campaign=rss",
+      "title": "Bitcoin rotations into altcoins collapses: Have altseasons 'disappeared'?",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/features/crypto-industry-stablecoins-defi-mica?utm_source=rss&utm_medium=rss&utm_campaign=rss",
+      "title": "Crypto industry looks to stablecoins and DeFi revisions in MiCA 2.0",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/pudgy-penguins-expands-retail-footprint-with-target-trading-card-rollout?utm_source=rss&utm_medium=rss&utm_campaign=rss",
+      "title": "Pudgy Penguins expands retail footprint with Target trading card rollout",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/philippine-sec-rwa-tokenization-readiness?utm_source=rss&utm_medium=rss&utm_campaign=rss",
+      "title": "Philippine SEC signals readiness for RWA tokenization",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/crypto-kidnappers-who-robbed-a-minnesota-family-of-8m-plead-guilty?utm_source=rss&utm_medium=rss&utm_campaign=rss",
+      "title": "Crypto kidnappers who robbed a Minnesota family of $8M plead guilty",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30677",
+      "title": "open-code-review — Alibaba의 AI 코드 리뷰 도구",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30676",
+      "title": "DiffsHub",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30675",
+      "title": "LLM이 작성한 인시던트 보고서의 미래가 두렵다",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30674",
+      "title": "AI가 우리의 능력을 망치고 있는가? 초기 연구 결과는 부정적",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30673",
+      "title": "John Jumper, Google DeepMind 떠나 Anthropic 합류",
+      "published_date": "2026-06-21",
+      "expires_at": "2026-06-28T00:44:16.426978+00:00"
     }
   ]
 }
