@@ -21,7 +21,7 @@ google-generativeai>=0.3.0
 gTTS>=2.5.4
 edge-tts>=7.2.8
 # Coqui TTS currently does not publish wheels for Python 3.14+
-TTS>=0.20.0; python_version < "3.14"
+TTS>=0.22.0; python_version < "3.14"
 
 # 비디오/SVG 처리 (선택적)
 moviepy>=1.0.3
