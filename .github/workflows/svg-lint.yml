@@ -22,6 +22,7 @@ on:
       - 'scripts/check_l22_visual_variety.py'
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/score_cover_honesty.py'
+      - 'scripts/check_l20_sidecard_advisory.py'
       - 'scripts/cover_honesty_baseline.txt'
       - 'scripts/news/l20_dispatch.py'
       - 'scripts/check_svg_precommit.sh'
@@ -51,6 +52,7 @@ on:
       - 'scripts/check_l22_visual_variety.py'
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/score_cover_honesty.py'
+      - 'scripts/check_l20_sidecard_advisory.py'
       - 'scripts/cover_honesty_baseline.txt'
       - 'scripts/news/l20_dispatch.py'
       - 'scripts/check_svg_precommit.sh'
@@ -151,6 +153,13 @@ jobs:
           python3 scripts/score_cover_honesty.py --all \
             --baseline scripts/cover_honesty_baseline.txt \
             --strict
+
+      - name: L20 side-card advisory gate (no occluding shield in side cards)
+        id: sidecard_advisory
+        # Backstop for _demote_sidecard_advisory: a digest cover must never draw
+        # the hero-scale SECURITY ADVISORY panel in a side card (occludes the
+        # band headline). Catches a blogwatcher cron publishing via a stale path.
+        run: python3 scripts/check_l20_sidecard_advisory.py
 
       - name: SVG title/desc ASCII gate (no non-ASCII in <title> or <desc>)
         id: title_ascii

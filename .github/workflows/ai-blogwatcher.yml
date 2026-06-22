@@ -307,7 +307,11 @@ jobs:
           python3 scripts/check_cover_qr_urls.py --glob "${SVG}"
           python3 scripts/check_svg_title_ascii.py "${SVG}"
           python3 scripts/check_svg_quality.py --ci "${SVG}"
-          echo "OK: canonical QR URL + ASCII <title> + body-text quality gates passed."
+          # No hero-scale advisory shield in a side card (occludes the band
+          # headline + duplicates). The generator demotes side-card advisory to
+          # a neutral motif; this fails the cron if it ever regresses.
+          python3 scripts/check_l20_sidecard_advisory.py "${SVG}"
+          echo "OK: canonical QR URL + ASCII <title> + body-text quality + side-card advisory gates passed."
 
       - name: Validate new post
         if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
