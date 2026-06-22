@@ -84,11 +84,15 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install PyYAML + qrcode for digest-cover spec loader
+      - name: Install PyYAML + qrcode + frontmatter for digest-cover spec loader
         # qrcode is REQUIRED for byte-stable rendering: svg_l22_generator.gen_qr()
         # silently returns "" when qrcode is missing, causing ~15 KB drift vs on-disk.
-        # See PR with this commit for the root-cause investigation.
-        run: python3 -m pip install --upgrade pip PyYAML "qrcode[pil]"
+        # python-frontmatter is REQUIRED by the honesty scorer's routing-replay
+        # (_routed_visual_ids): without it the replay falls back to UNCLAMPED
+        # filename-keyword routing and falsely reports attack-class overclaims +
+        # STALE_RENDER for content-aware (clamped) digest covers. See PR with this
+        # commit for the root-cause investigation.
+        run: python3 -m pip install --upgrade pip PyYAML "qrcode[pil]" python-frontmatter
 
       - name: Run SVG compliance linter
         id: lint
