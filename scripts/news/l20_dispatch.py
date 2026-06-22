@@ -1032,6 +1032,12 @@ def _build_story(
     # about "Kubernetes" never renders the container-escape attack motif.
     if content_mode and visual not in _CONTENT_HONEST_VISUALS:
         visual = "neutral"
+    # Content covers build their side stories directly here (no later
+    # _apply_real_content pass), so the hero-scale advisory shield would
+    # occlude the side-band headline. Demote side-card advisory -> neutral,
+    # same rule digest covers apply in _apply_real_content. Honesty-safe.
+    if content_mode:
+        visual = _demote_sidecard_advisory(visual, index)
     # Theme: prefer visual-driven theme when content suggests it,
     # otherwise fall back to the index rotation.
     theme = _THEME_BY_VISUAL.get(visual, route_theme(str(index)))
