@@ -23,6 +23,7 @@ on:
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/score_cover_honesty.py'
       - 'scripts/check_l20_sidecard_advisory.py'
+      - 'scripts/check_orphan_cover_rasters.py'
       - 'scripts/cover_honesty_baseline.txt'
       - 'scripts/news/l20_dispatch.py'
       - 'scripts/check_svg_precommit.sh'
@@ -53,6 +54,7 @@ on:
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/score_cover_honesty.py'
       - 'scripts/check_l20_sidecard_advisory.py'
+      - 'scripts/check_orphan_cover_rasters.py'
       - 'scripts/cover_honesty_baseline.txt'
       - 'scripts/news/l20_dispatch.py'
       - 'scripts/check_svg_precommit.sh'
@@ -160,6 +162,13 @@ jobs:
         # the hero-scale SECURITY ADVISORY panel in a side card (occludes the
         # band headline). Catches a blogwatcher cron publishing via a stale path.
         run: python3 scripts/check_l20_sidecard_advisory.py
+
+      - name: Orphan cover raster gate (every raster has a base .svg)
+        id: orphan_rasters
+        # A cover rename leaves old-slug rasters (_og/_card) behind with no base
+        # .svg — dead weight that ships to prod. 45 such files were removed
+        # 2026-06-22; this gate prevents recurrence.
+        run: python3 scripts/check_orphan_cover_rasters.py
 
       - name: SVG title/desc ASCII gate (no non-ASCII in <title> or <desc>)
         id: title_ascii
