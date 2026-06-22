@@ -82,6 +82,7 @@ CLI usage::
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -350,6 +351,65 @@ def _gather_specs(args: argparse.Namespace) -> List[Path]:
     return paths
 
 
+# --- Ownership guard --------------------------------------------------------
+# Most _data/l20_covers/*.yml specs are VESTIGIAL: the cover they name is
+# canonically written by the cron digest path (auto_publish_news) or the
+# content_mode path (generate_l20_content_svg), NOT by this spec renderer.
+# WRITING those from a (stale) spec would CLOBBER the canonical cover (proven:
+# 2026-01-29 cron 'Security Update'+advisory vs spec 'n8n Workflow RCE'). This
+# guard makes WRITE operations only ever touch spec-OWNED covers.
+# See .omc/research/l20_canonical_writer_map.md + .omc/plans/l20-digest-spec-disposition.md.
+_DIGEST_SLUG_RE = re.compile(
+    r"(Tech_Security_Weekly_Digest|_Security_Digest_Monthly_Index|Weekly_Security"
+    r"|Weekly_Tech|Daily_Tech_Digest|_DevOps_Digest|Blockchain_Tech_Digest"
+    r"|Security_Cloud_Digest|AI_Cloud_Digest|DevOps_Blockchain_Digest"
+    r"|Security_Digest_|Tech_Blog_Weekly_Digest)"
+)
+_POSTS_DIR = REPO_ROOT / "_posts"
+# Competing spec systems: if a slug has a spec here, that system (not this one)
+# owns the cover. Non-recursive glob excludes _archive_* subdirs by design.
+_COMPETING_SPEC_DIRS = ("digest_covers", "rollup_covers", "l25_covers")
+
+
+def _owning_post_text(date: str, slug: str) -> Optional[str]:
+    """Return the markdown of the post whose image: is {date}-{slug}.svg, if any."""
+    target = f"/assets/images/{date}-{slug}.svg"
+    for p in _POSTS_DIR.glob(f"{date}-*.md"):
+        txt = p.read_text(encoding="utf-8", errors="ignore")
+        if target in txt:
+            return txt
+    return None
+
+
+def _competing_spec(date: str, slug: str) -> Optional[str]:
+    """Return the name of a competing spec system that owns this slug, else None."""
+    stem = f"{date}-{slug}.yml"
+    for d in _COMPETING_SPEC_DIRS:
+        if (REPO_ROOT / "_data" / d / stem).exists():
+            return d
+    return None
+
+
+def spec_ownership(spec: "Spec") -> str:
+    """Who canonically writes this cover — only 'spec' is writable by this tool.
+
+    Returns one of: 'cron' (digest cron path), 'content_mode' (cover_style: l20),
+    'digest_covers'/'rollup_covers'/'l25_covers' (another spec system owns it via
+    a competing spec for the same slug), or 'spec' (this l20 spec is the sole
+    canonical source). CONSERVATIVE: any non-'spec' result means writing here
+    would clobber another system's cover.
+    """
+    if _DIGEST_SLUG_RE.search(spec.slug):
+        return "cron"
+    txt = _owning_post_text(spec.date, spec.slug)
+    if txt and re.search(r"^cover_style:\s*l20\s*$", txt, re.MULTILINE):
+        return "content_mode"
+    competing = _competing_spec(spec.date, spec.slug)
+    if competing:
+        return competing
+    return "spec"
+
+
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Render L20 hero (HERO + 2 cards) weekly-digest covers from YAML specs.",
@@ -393,6 +453,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     drift: List[str] = []
     rendered = 0
+    skipped = 0
     for p in paths:
         try:
             spec = load_spec(p)
@@ -408,6 +469,33 @@ def main(argv: Optional[List[str]] = None) -> int:
             else:
                 print(f"  OK    {spec.filename}")
         else:
+            # Ownership guard: a real write must never clobber a cover whose
+            # canonical writer is the cron digest path or content_mode. Only
+            # spec-OWNED covers may be written here. (--dry-run is harmless and
+            # still renders for inspection.)
+            owner = spec_ownership(spec)
+            if owner != "spec" and not args.dry_run:
+                print(
+                    f"  SKIP {spec.filename}: {owner}-owned — refusing to clobber "
+                    f"the canonical {owner} cover",
+                    file=sys.stderr,
+                )
+                skipped += 1
+                if args.spec:  # explicit single-spec request → hard error
+                    writer = {
+                        "cron": "auto_publish_news (cron digest path)",
+                        "content_mode": "generate_l20_content_svg (cover_style: l20)",
+                        "digest_covers": "upgrade_digest_cover.py (L22 spec)",
+                        "rollup_covers": "upgrade_rollup_cover.py (rollup spec)",
+                        "l25_covers": "upgrade_l25_cover.py (L25 spec)",
+                    }.get(owner, owner)
+                    print(
+                        f"  This cover is owned by {writer}, not this l20 spec. "
+                        "See .omc/plans/l20-digest-spec-disposition.md",
+                        file=sys.stderr,
+                    )
+                    return 3
+                continue
             size = write(spec, dry_run=args.dry_run)
             tag = "[DRY] " if args.dry_run else ""
             print(f"  {tag}wrote {spec.filename}: {size} bytes")
@@ -419,7 +507,10 @@ def main(argv: Optional[List[str]] = None) -> int:
             return 1
         print(f"\n{len(paths)} specs OK")
         return 0
-    print(f"\n{rendered} spec(s) rendered")
+    msg = f"\n{rendered} spec(s) rendered"
+    if skipped:
+        msg += f"  ({skipped} skipped — cron/content-owned, not writable from a spec)"
+    print(msg)
     return 0
 
 
