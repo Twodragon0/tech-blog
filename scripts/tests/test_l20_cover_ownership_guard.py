@@ -52,3 +52,23 @@ def test_live_all_writes_only_spec_owned():
     spec-owned cover surviving the guard. Run in --check (read-only) so no
     bytes change: --check is unaffected by the guard and should not error."""
     assert u.main(["--all", "--check"]) in (0, 1)  # 0=no drift, 1=drift; never crash
+
+
+def test_load_drift_baseline_parses_comments_and_blanks(tmp_path):
+    f = tmp_path / "bl.txt"
+    f.write_text("# comment\n\n2026-01-22-Foo  # inline\n  2026-02-02-Bar\n", encoding="utf-8")
+    bl = u._load_drift_baseline(str(f))
+    assert bl == {"2026-01-22-Foo", "2026-02-02-Bar"}
+
+
+def test_load_drift_baseline_missing_file_is_empty():
+    assert u._load_drift_baseline(None) == set()
+    assert u._load_drift_baseline("/nonexistent/x.txt") == set()
+
+
+def test_live_l20_drift_gate_passes_with_baseline():
+    """Backstop: the committed l20-drift gate (5 spec-owned, 1 baselined) exits 0."""
+    assert u.main([
+        "--all", "--check",
+        "--baseline", "scripts/l20_drift_baseline.txt",
+    ]) == 0

@@ -441,7 +441,28 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         action="store_true",
         help="Re-render each spec and exit 1 if any on-disk SVG drifts",
     )
+    parser.add_argument(
+        "--baseline",
+        help="With --check: a file of slugs whose drift is grandfathered "
+        "(e.g. a rotted spec that would overclaim if regenerated). One slug per "
+        "line; '#' comments allowed.",
+    )
     return parser.parse_args(argv)
+
+
+def _load_drift_baseline(path: Optional[str]) -> set:
+    """Return the set of grandfathered (acceptable-drift) cover stems."""
+    if not path:
+        return set()
+    p = Path(path)
+    if not p.exists():
+        return set()
+    out = set()
+    for line in p.read_text(encoding="utf-8").splitlines():
+        line = line.split("#", 1)[0].strip()
+        if line:
+            out.add(line)
+    return out
 
 
 def main(argv: Optional[List[str]] = None) -> int:
@@ -451,6 +472,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         print("no specs to process")
         return 0
 
+    baseline = _load_drift_baseline(getattr(args, "baseline", None))
     drift: List[str] = []
     rendered = 0
     skipped = 0
@@ -462,10 +484,21 @@ def main(argv: Optional[List[str]] = None) -> int:
             return 2
 
         if args.check:
+            # Guard-aware: only DRIFT-check spec-owned covers. A cron/content/
+            # competing-spec cover's on-disk is written by another system, so it
+            # would always "drift" from this spec — that's expected, not a fault.
+            owner = spec_ownership(spec)
+            if owner != "spec":
+                print(f"  skip  {spec.filename} ({owner}-owned)")
+                continue
             issue = check(spec)
             if issue:
-                print(f"  {issue}", file=sys.stderr)
-                drift.append(issue)
+                stem = f"{spec.date}-{spec.slug}"
+                if stem in baseline:
+                    print(f"  DRIFT (baselined) {spec.filename}")
+                else:
+                    print(f"  {issue}", file=sys.stderr)
+                    drift.append(issue)
             else:
                 print(f"  OK    {spec.filename}")
         else:

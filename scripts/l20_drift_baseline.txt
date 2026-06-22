@@ -1,0 +1,12 @@
+# L20 spec-drift baseline — grandfathered (acceptable) drift for the l20-drift
+# gate (upgrade_l20_cover --all --check --baseline scripts/l20_drift_baseline.txt).
+#
+# Only spec-OWNED covers are drift-checked (the guard skips cron/content/L22-owned).
+# A slug here means its on-disk SVG legitimately differs from a FRESH spec render
+# and must NOT be regenerated. One slug ({date}-{slug}) per line; '#' comments OK.
+#
+# 2026-01-22 Security_Vendor_Blog_Weekly_Review: ROTTED spec. A fresh render makes
+# the hero assert code_injection/RCE, which the post lacks → honesty FAIL (verified
+# 2026-06-22). The on-disk cover is the honest version; regenerating would overclaim.
+# Keep baselined until the spec's hero visual is corrected to an honest class.
+2026-01-22-Security_Vendor_Blog_Weekly_Review
