@@ -9,7 +9,7 @@ Pillow>=11.3.0
 python-dotenv>=0.21.0
 
 # RSS 피드 파싱 (뉴스 수집)
-feedparser>=6.0.0
+feedparser>=6.0.12
 
 # Google OAuth 2.0 및 Gemini API (선택적)
 google-auth>=2.23.0
