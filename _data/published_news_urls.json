@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-21T00:44:16.427073+00:00",
+  "updated_at": "2026-06-22T00:44:08.326172+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/microsoft/hands-on-with-intelligent-terminal-an-ai-powered-windows-terminal/",
-      "title": "Hands on with Intelligent Terminal, an AI-powered Windows Terminal",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/c0xmo-botnet-spreads-via-dd-wrt-router-flaw-kills-rival-malware/",
-      "title": "C0XMO botnet spreads via DD-WRT router flaw, kills rival malware",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/silent-ransom-group-targets-law-firms-with-fake-it-support-calls/",
-      "title": "Silent Ransom Group targets law firms with fake IT support calls",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/06/07/the-worst-hacks-and-breaches-of-2026-so-far/",
-      "title": "Hacked, leaked, and held for ransom: the worst breaches of 2026 so far",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://www.securityweek.com/emphere-raises-2-1-million-for-ai-powered-vulnerability-remediation/",
-      "title": "Emphere Raises $2.1 Million for AI-Powered Vulnerability Remediation",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-and-doosan-group-physical-ai/",
-      "title": "NVIDIA and Doosan Group Collaborate to Advance Physical AI and AI Factory Infras",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/krafton-nc-t1-korea-gaming-pc-bang-rtx-spark/",
-      "title": "NVIDIA, KRAFTON, NC and Reigning ‘League of Legends’ Champions T1 Celebrate RTX ",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/build-small-hackathon/amazingdigitaldentures",
-      "title": "Amazing Digital Dentures (a failed project)",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/strategys-saylor-signals-btc-buy-as-preferred-dividend-pay-date-vote-looms?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Strategy’s Saylor signals BTC buy as preferred dividend pay date vote looms",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-risks-new-purge-with-bear-market-losses-still-35b-below-2022-total?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin risks new 'purge' with bear-market losses still $35B below 2022 total",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/what-happens-to-bitcoin-if-the-nasdaq-falls-further?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "What happens to Bitcoin if the Nasdaq falls further?",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/policy/2026/06/07/a-quick-review-of-the-ways-and-means-tax-bills-state-of-crypto",
-      "title": "A quick review of the Ways and Means tax bills: State of Crypto",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/06/06/michael-saylor-revives-bitcoin-buy-speculation-as-scrutiny-over-strategy-grows",
-      "title": "Michael Saylor revives bitcoin-buy speculation as scrutiny over Strategy grows",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30263",
-      "title": "취향(Taste)이 새로운 10x다",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30262",
-      "title": "Kubernetes Gateway API",
-      "published_date": "2026-06-08",
-      "expires_at": "2026-06-15T00:37:24.145645+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/one-character-linux-kernel-flaw-enables.html",
       "title": "One-Character Linux Kernel Flaw Enables Local Root Access, Exploits Now Public",
@@ -1260,6 +1170,66 @@
       "title": "John Jumper, Google DeepMind 떠나 Anthropic 합류",
       "published_date": "2026-06-21",
       "expires_at": "2026-06-28T00:44:16.426978+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/notorious-sandwich-attack-bot-jaredfromsubwayeth-exploited-for-75m?utm_source=rss&utm_medium=rss&utm_campaign=rss",
+      "title": "Notorious ‘sandwich attack’ bot Jaredfromsubway.eth exploited for $7.5M",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://unit42.paloaltonetworks.com/large-scale-credential-attacks/",
+      "title": "Threat Brief: Mitigating Large-Scale Credential Attacks",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/s-token-drops-5-as-3-former-execs-resign-from-sonic-labs-board?utm_source=rss&utm_medium=rss&utm_campaign=rss",
+      "title": "Sonic token drops 5% as 3 former execs resign from Sonic Labs board",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/06/20/ai-is-making-crypto-security-cheaper-faster-and-harder-to-ignore",
+      "title": "AI is making crypto security cheaper, faster and harder to ignore",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/06/20/how-strc-lost-its-par-the-timeline-behind-strategy-s-preferred-stock-meltdown",
+      "title": "How STRC lost its par: The timeline behind Strategy's preferred-stock meltdown",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30672",
+      "title": "머신러닝 연구의 선(Zen)과 예술",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30671",
+      "title": "ClickHouse 오픈소스 10년",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30670",
+      "title": "미국인들, SpaceX가 은퇴 저축에 미치는 영향에 불안",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30669",
+      "title": "정부의 합법적 온라인 발언 침묵 압박을 겨냥한 새 법안",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30668",
+      "title": "GPT-5.5, MIT 라이선스 GLM-5.2보다 환각률 3배",
+      "published_date": "2026-06-22",
+      "expires_at": "2026-06-29T00:44:08.326062+00:00"
     }
   ]
 }
