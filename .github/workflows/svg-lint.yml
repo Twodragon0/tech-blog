@@ -29,6 +29,7 @@ on:
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
+      - 'scripts/check_l20_spec_slug_consistency.py'
       - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
       - '_posts/**.md'
@@ -60,6 +61,7 @@ on:
       - 'scripts/check_svg_precommit.sh'
       - 'scripts/check_svg_title_ascii.py'
       - 'scripts/check_spec_slug_consistency.py'
+      - 'scripts/check_l20_spec_slug_consistency.py'
       - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
       - '_posts/**.md'
@@ -177,6 +179,14 @@ jobs:
       - name: Digest cover spec slug vs post image consistency gate
         id: spec_slug_consistency
         run: python3 scripts/check_spec_slug_consistency.py --all
+
+      - name: L20 spec slug case-sensitive consistency gate
+        id: l20_spec_slug
+        # `upgrade_l20_cover` derives the filename from the spec's date+slug; a
+        # CASE-only difference from the post image slug renders to a wrong-cased
+        # file (404 on Linux/Vercel). The digest gate above is case-insensitive
+        # and only covers _data/digest_covers, so this catches the l20 case rot.
+        run: python3 scripts/check_l20_spec_slug_consistency.py
 
       - name: KST-midnight filename-date URL safety gate
         id: kst_midnight
