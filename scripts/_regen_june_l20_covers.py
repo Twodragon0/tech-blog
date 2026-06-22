@@ -76,12 +76,16 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--glob", default="2026-06-*.md", help="post glob under _posts/")
     ap.add_argument("--only", default="", help="substring filter on post filename")
+    ap.add_argument("--exclude", default="", help="comma-separated substrings; skip posts matching any")
     ap.add_argument("--skip-raster", action="store_true")
     args = ap.parse_args()
 
     posts = sorted(POSTS.glob(args.glob))
     if args.only:
         posts = [p for p in posts if args.only in p.name]
+    if args.exclude:
+        bad = [s for s in args.exclude.split(",") if s]
+        posts = [p for p in posts if not any(s in p.name for s in bad)]
     if not posts:
         print("no posts matched")
         return 1
