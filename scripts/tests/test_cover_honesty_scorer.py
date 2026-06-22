@@ -767,3 +767,78 @@ def test_l20_score_regression_safe(tmp_path, monkeypatch):
     assert result["system"] == "L20"
     assert result["honesty"]["score"] == 60
     assert "motif_diversity" in result["quality"]  # L20 keeps the diversity term
+
+
+# ---------------------------------------------------------------------------
+# Env-robust routing-replay (frontmatter lib optional; fallback never overclaims)
+# ---------------------------------------------------------------------------
+_HONEST = {"neutral", "market", "security_advisory"}
+
+
+def test_load_post_fields_without_frontmatter(tmp_path, monkeypatch):
+    """_load_post_fields parses content + summary_card via PyYAML when the
+    frontmatter lib is absent (minimal CI env)."""
+    post = tmp_path / "2026-06-20-Tech_Security_Weekly_Digest_AI.md"
+    post.write_text(
+        "---\n"
+        'title: "T"\n'
+        "summary_card:\n"
+        "  highlights:\n"
+        '    - { source: "X", title: "Ivanti CVE" }\n'
+        "---\n\n"
+        "Body text - 보안 뉴스 5개\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(sch, "_frontmatter", None)
+    fields = sch._load_post_fields(post)
+    assert fields is not None
+    content, card = fields
+    assert "Body text" in content
+    assert isinstance(card, dict) and card["highlights"][0]["source"] == "X"
+
+
+def test_routed_visuals_identical_with_and_without_frontmatter(tmp_path, monkeypatch):
+    """The routing-replay must be byte-identical with and without the
+    frontmatter lib, so the honesty gate is environment-independent."""
+    post = tmp_path / "2026-06-20-Tech_Security_Weekly_Digest_AI_Patch_Apple.md"
+    post.write_text(
+        "---\n"
+        'title: "Weekly Digest"\n'
+        'excerpt: "Roundup"\n'
+        "summary_card:\n"
+        "  highlights:\n"
+        '    - { source: "The Hacker News", title: "Apple Patch" }\n'
+        '    - { source: "AWS", title: "AWS ISO" }\n'
+        '    - { source: "BleepingComputer", title: "Ransomware crew" }\n'
+        "---\n\n"
+        "- 총 뉴스 수: 12개\n- 보안 뉴스: 2개\n",
+        encoding="utf-8",
+    )
+    args = ("Weekly Digest", "Roundup", post.name, post)
+    monkeypatch.setattr(sch, "_frontmatter", None)
+    without = sch._routed_visual_ids(*args)
+    # restore a real frontmatter module if installed; else skip the parity half
+    import importlib
+    try:
+        fm = importlib.import_module("frontmatter")
+    except Exception:
+        pytest.skip("frontmatter lib not installed in this env")
+    monkeypatch.setattr(sch, "_frontmatter", fm)
+    with_fm = sch._routed_visual_ids(*args)
+    assert without == with_fm
+
+
+def test_routed_fallback_never_overclaims(monkeypatch):
+    """Last resort (post unloadable) clamps to honest classes: no attack visual
+    is ever asserted, and side bands carry no advisory shield."""
+    monkeypatch.setattr(sch, "_frontmatter", None)
+    # post=None forces the filename-keyword last resort.
+    visuals = sch._routed_visual_ids(
+        "Ransomware breach exfiltration C2 CVE chain",
+        "Ransomware crews exploit CVE for data exfiltration via C2",
+        "2026-06-20-Tech_Security_Weekly_Digest_Ransomware_CVE.md",
+        None,
+    )
+    assert all(v in _HONEST for v in visuals), visuals
+    # Side bands (index 1, 2) never carry the advisory shield (occlusion rule).
+    assert visuals[1] == "neutral" and visuals[2] == "neutral", visuals

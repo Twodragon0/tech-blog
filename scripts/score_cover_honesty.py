@@ -110,6 +110,8 @@ if str(REPO) not in sys.path:
 # Reuse-only imports (read-only): claim-class anchors + routing + quality proxies.
 from scripts.lib.svg_l20_hero import VISUAL_BUILDERS  # noqa: E402
 from scripts.news.l20_dispatch import (  # noqa: E402
+    _demote_sidecard_advisory,
+    _honest_content_visual,
     extract_three_stories,
     resolve_digest_band_visuals,
     route_visual_id,
@@ -119,6 +121,10 @@ try:  # Optional: lets the L20 routing-replay mirror the generator exactly.
     import frontmatter as _frontmatter  # type: ignore
 except Exception:  # pragma: no cover - frontmatter optional in minimal envs
     _frontmatter = None
+try:  # PyYAML is a hard dep (digest spec loader); used to parse front matter
+    import yaml as _yaml  # type: ignore  # when the frontmatter lib is absent.
+except Exception:  # pragma: no cover
+    _yaml = None
 from scripts.check_svg_title_ascii import _violations as _ascii_violations  # noqa: E402
 from scripts.check_svg_size_gate import (  # noqa: E402
     BANDS,
@@ -562,6 +568,41 @@ def _post_signals(post: Path) -> Tuple[str, str, str]:
 _BAND_NAMES = ("hero", "top_right", "bottom_right")
 
 
+def _load_post_fields(post: Optional[Path]) -> Optional[Tuple[str, object]]:
+    """Return ``(content, summary_card)`` for a post, or ``None`` if unloadable.
+
+    Prefers the ``frontmatter`` lib; when it is absent (minimal CI envs) falls
+    back to a manual front-matter split + PyYAML parse so the CONTENT-AWARE
+    clamped routing still runs. Without this, the replay dropped to unclamped
+    filename-keyword routing and falsely reported attack-class overclaims +
+    STALE_RENDER on honest, content-aware digest covers.
+    """
+    if post is None:
+        return None
+    if _frontmatter is not None:
+        try:
+            fm = _frontmatter.load(str(post))
+            return fm.content, fm.metadata.get("summary_card")
+        except Exception:  # pragma: no cover - defensive
+            return None
+    if _yaml is None:  # pragma: no cover - PyYAML is a hard dep in practice
+        return None
+    try:
+        raw = Path(post).read_text(encoding="utf-8")
+    except Exception:  # pragma: no cover - defensive
+        return None
+    # Split the leading "---\n ... \n---\n" YAML front-matter block.
+    m = re.match(r"^﻿?---\s*\n(.*?)\n---\s*\n(.*)$", raw, re.DOTALL)
+    if not m:
+        return None
+    try:
+        meta = _yaml.safe_load(m.group(1)) or {}
+    except Exception:  # pragma: no cover - malformed yaml
+        meta = {}
+    card = meta.get("summary_card") if isinstance(meta, dict) else None
+    return m.group(2), card
+
+
 def _routed_visual_ids(
     title: str,
     excerpt: str,
@@ -570,27 +611,36 @@ def _routed_visual_ids(
 ) -> List[str]:
     """Replay the generator routing intent for the 3 bands (path a).
 
-    When the owning ``post`` is available, mirror the generator's CONTENT-AWARE
+    When the owning ``post`` is loadable, mirror the generator's CONTENT-AWARE
     routing (``resolve_digest_band_visuals``): a band displaying a real story is
     routed from that story's entity, so the scored intent matches the on-disk
-    visual and no spurious STALE_RENDER is raised. Falls back to filename-keyword
-    routing when the post / front matter can't be loaded (older covers predating
-    the content-aware generator legitimately read as stale).
+    visual and no spurious STALE_RENDER is raised. The post is loaded via
+    :func:`_load_post_fields`, which works WITH or WITHOUT the ``frontmatter``
+    lib (env-robust).
+
+    Last resort (post genuinely unloadable): filename-keyword routing, but
+    CLAMPED to honest classes (``_honest_content_visual`` + the side-card
+    advisory demotion) so the fallback can NEVER assert an attack class the
+    post lacks — at worst it reads as STALE, never as a false overclaim.
     """
-    if post is not None and _frontmatter is not None:
+    fields = _load_post_fields(post)
+    if fields is not None:
         try:
-            fm = _frontmatter.load(str(post))
             return resolve_digest_band_visuals(
                 title,
                 excerpt,
                 filename,
-                content=fm.content,
-                summary_card=fm.metadata.get("summary_card"),
+                content=fields[0],
+                summary_card=fields[1],
             )
         except Exception:  # pragma: no cover - defensive: fall back to keywords
             pass
     stories = extract_three_stories(title, excerpt, filename)
-    return [route_visual_id(s.get("headline", "")) for s in stories]
+    visuals = [route_visual_id(s.get("headline", "")) for s in stories]
+    return [
+        _demote_sidecard_advisory(_honest_content_visual(v), i)
+        for i, v in enumerate(visuals)
+    ]
 
 
 def _fingerprint_visual_ids(
