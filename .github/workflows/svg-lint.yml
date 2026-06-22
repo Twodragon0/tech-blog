@@ -3,6 +3,7 @@ name: SVG Compliance Lint
 on:
   push:
     paths:
+      - '.github/workflows/svg-lint.yml'
       - 'assets/images/**.svg'
       - 'scripts/lint_svg_compliance.py'
       - 'scripts/upgrade_digest_cover.py'
@@ -31,6 +32,7 @@ on:
       - '_posts/**.md'
   pull_request:
     paths:
+      - '.github/workflows/svg-lint.yml'
       - 'assets/images/**.svg'
       - 'scripts/lint_svg_compliance.py'
       - 'scripts/upgrade_digest_cover.py'
