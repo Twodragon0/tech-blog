@@ -1858,6 +1858,33 @@ def _honest_content_visual(visual_id: str) -> str:
     return visual_id if visual_id in _DIGEST_CONTENT_HONEST else "security_advisory"
 
 
+def _demote_sidecard_advisory(visual_id: str, band_index: int) -> str:
+    """Side cards (band_index >= 1) never carry the ``security_advisory`` shield.
+
+    ``vb_security_advisory`` is authored at HERO scale: it draws its
+    ``SECURITY ADVISORY`` header ~82px ABOVE the visual centre. The hero band
+    (index 0) centres its visual at y360 with the headline at y146, so the
+    panel clears the headline with room to spare. The two side bands centre
+    their visuals at y230 / y490 with headlines at y140 / y404 — so the
+    advisory header lands at y148 / y408, directly ON the band headline and
+    subheadline, occluding them. Worse, when both side stories honesty-downgrade
+    to advisory the cover shows TWO identical shields (the user-reported
+    sameness).
+
+    Demoting a side-card advisory to ``neutral`` is honesty-safe — both are
+    always-honest classes and ``neutral`` asserts NO incident — and restores
+    per-band motif variety, since ``vb_neutral`` rotates its motif by
+    ``band_index + cover_seed`` (3 bands -> 3 distinct motifs). The hero keeps
+    the advisory panel where it fits. Applied identically in
+    :func:`resolve_digest_band_visuals` (scorer replay) and
+    :func:`_apply_real_content` (generator) so on-disk bytes and scored intent
+    never diverge.
+    """
+    if band_index >= 1 and visual_id == "security_advisory":
+        return "neutral"
+    return visual_id
+
+
 def resolve_digest_band_visuals(
     title: str,
     excerpt: str,
@@ -1895,6 +1922,11 @@ def resolve_digest_band_visuals(
             visuals[i] = _honest_content_visual(
                 route_visual_id(f"{p['headline']} {p.get('route_hint', p['subheadline'])}")
             )
+    # Side bands never carry the hero-scale advisory shield (occludes the band
+    # headline + duplicates when both sides downgrade). Lockstep with the
+    # generator's _apply_real_content.
+    for i in range(len(visuals)):
+        visuals[i] = _demote_sidecard_advisory(visuals[i], i)
     return visuals
 
 
@@ -1937,6 +1969,18 @@ def _apply_real_content(
                 # Follow the RESOLVED visual (not the raw headline) so a
                 # downgraded band shows "READ THE ADVISORY", not "PATCH NOW".
                 story["action"] = _action_for_visual(new_visual)
+
+    # Side bands never carry the hero-scale advisory shield: it occludes the
+    # band headline and duplicates when both sides downgrade. Demote to a
+    # diverse neutral motif (honesty-safe; vb_neutral rotates by band index).
+    # Covers panel AND non-panel bands; lockstep with resolve_digest_band_visuals.
+    for i, story in enumerate(stories):
+        demoted = _demote_sidecard_advisory(story.get("visual", ""), i)
+        if demoted != story.get("visual"):
+            story["visual"] = demoted
+            story["theme"] = _THEME_BY_VISUAL.get(demoted, story.get("theme", "blue"))
+            if "action" in story:
+                story["action"] = _action_for_visual(demoted)
 
     stats = _digest_stats(content)
     # KPI cards live on the two right panels (index 1, 2). Replace the

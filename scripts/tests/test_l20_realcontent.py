@@ -463,10 +463,34 @@ class TestApplyRealContent:
         # No band asserts an attack class from a one-line headline.
         for attack in ("cve_chain", "supply_chain_pipe", "hub_spoke", "ransomware_lock"):
             assert attack not in visuals
-        assert stories[0]["visual"] == "security_advisory"   # single CVE -> advisory
-        assert stories[2]["visual"] == "security_advisory"   # botnet -> advisory
+        assert stories[0]["visual"] == "security_advisory"   # single CVE -> advisory (hero keeps it)
+        # Side band (index 2): advisory is demoted to a neutral motif so the
+        # hero-scale shield never occludes the band headline / duplicates.
+        assert stories[2]["visual"] == "neutral"             # botnet -> advisory -> sidecard demote
         # Hero action follows the RESOLVED visual, not "PATCH UPSTREAM NOW".
         assert stories[0]["action"] == "READ THE ADVISORY"
+
+    def test_sidecard_advisory_demoted_to_neutral(self):
+        """Side bands (index >= 1) never carry the hero-scale advisory shield;
+        it is demoted to a diverse neutral motif (honesty-safe). The hero
+        (index 0) keeps advisory where the panel fits."""
+        stories = self._stories()
+        post_info = {
+            "summary_card": {"highlights": [
+                # All three downgrade to advisory (single CVE / generic / botnet).
+                {"source": "The Hacker News", "title": "Ivanti EPMM CVE-2026-6973 RCE"},
+                {"source": "The Hacker News", "title": "Acme Security Advisory 발표"},
+                {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견"},
+            ]},
+            "content": "- **총 뉴스 수**: 12개\n- **보안 뉴스**: 2개\n",
+        }
+        _apply_real_content(stories, post_info)
+        assert stories[0]["visual"] == "security_advisory"   # hero keeps advisory
+        assert stories[1]["visual"] == "neutral"             # side -> demoted
+        assert stories[2]["visual"] == "neutral"             # side -> demoted
+        # Demoted side bands follow neutral theme + action (no stale amber/advisory).
+        assert stories[1]["theme"] == "blue"
+        assert "advisory" not in stories[1].get("action", "").lower() or "action" not in stories[1]
 
     def test_thin_post_keeps_keyword_fallback(self):
         stories = self._stories()
