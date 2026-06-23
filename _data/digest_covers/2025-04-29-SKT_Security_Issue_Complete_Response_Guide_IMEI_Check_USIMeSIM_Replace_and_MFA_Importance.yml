@@ -16,8 +16,8 @@ bands:
     label: BREACH
     sub: rotate
   visual:
-    kind: lock_cve
-    cvss: USIM
+    kind: siem_panels
+    caption: USIM
   metric_b: 'SIM-swap surface : SMS-OTP bypass : carrier MFA enroll'
   detail_b: 'Replace USIM/eSIM : freeze carrier port-out : enroll authenticator app'
   mini:

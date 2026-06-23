@@ -38,8 +38,8 @@ bands:
     label: TUI
     sub: nav
   visual:
-    kind: network_nodes
-    label: K9s
+    kind: code_bars
+    caption: K9s
   metric_b: 'Pulse view CPU mem : xray RBAC : popeye sanity scan : skin custom'
   detail_b: 'kubectl alias replace : multi-context switch : log tail filter regex'
   mini:

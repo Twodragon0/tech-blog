@@ -36,8 +36,8 @@ bands:
     label: COST
     sub: opt
   visual:
-    kind: lock_cve
-    cvss: HUB
+    kind: code_bars
+    caption: COST
   metric_b: 'Rightsizing : savings'
   detail_b: 'Cost Hub : RI'
   mini:

@@ -37,8 +37,8 @@ bands:
     label: GAP
     sub: missing
   visual:
-    kind: lock_cve
-    cvss: PDB
+    kind: siem_panels
+    caption: PDB
   metric_b: 'Karpenter ignored PDB absence : drained all replicas in parallel'
   detail_b: 'Default disruption budget = 0 : no minAvailable guard : zero-replica window'
   mini:

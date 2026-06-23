@@ -15,8 +15,8 @@ bands:
     label: BLIND
     sub: spot
   visual:
-    kind: lock_cve
-    cvss: BYPASS
+    kind: shield
+    label: BYPASS
   metric_b: 'AI service data leak : unsanctioned SaaS upload : harmful/ad site drive-by'
   detail_b: 'Hybrid workforce no perimeter : split-tunnel VPN gaps : no URL categorization'
   mini:

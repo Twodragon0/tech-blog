@@ -18,8 +18,8 @@ bands:
     label: RISK
     sub: 9/10
   visual:
-    kind: lock_cve
-    cvss: AI
+    kind: shield
+    label: AI
   metric_b: 'Cross-account blast : KMS gap : public S3 detected too late'
   detail_b: 'GuardDuty default off : Macie data classify miss : IAM 0/0 policy'
   mini:
@@ -40,8 +40,8 @@ bands:
     label: GD
     sub: ext
   visual:
-    kind: network_nodes
-    label: GD-ETD
+    kind: siem_panels
+    caption: GD-ETD
   metric_b: 'Security Hub GA : auto compliance check : 40% false pos drop'
   detail_b: 'IAM Policy Autopilot : least-priv tune : Macie auto classify PII'
   mini:

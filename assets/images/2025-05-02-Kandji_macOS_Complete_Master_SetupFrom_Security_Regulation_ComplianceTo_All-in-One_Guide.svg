@@ -33,39 +33,34 @@
     
   </g>
   <g transform="translate(500,105)">
-    <circle r="78" fill="#E63946" fill-opacity="0.06"><animate attributeName="r" values="62;82;62" dur="3.4s" repeatCount="indefinite"/></circle>
-    <path d="M-22 -20 Q-22 -50 0 -50 Q22 -50 22 -20" stroke="#E63946" stroke-width="4" fill="none"/>
-    <rect x="-32" y="-22" width="64" height="60" rx="6" fill="#E63946" fill-opacity="0.2" stroke="#E63946" stroke-width="2.2" filter="url(#softShadow)"/>
-    <circle r="5" fill="#FCA5A5" cy="2"/>
-    <rect x="-3" y="2" width="6" height="18" fill="#FCA5A5"/>
-    <text y="60" text-anchor="middle" font-family="Inter, monospace" font-size="14" font-weight="900" fill="#E63946">CVSS MGMT</text>
-    <g fill="#FCA5A5" opacity="0.85">
-      <circle cx="-55" cy="-45" r="2.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>
-      <circle cx="55" cy="-45" r="2.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.1s" repeatCount="indefinite"/></circle>
-      <circle cx="-55" cy="45" r="2.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.3s" repeatCount="indefinite"/></circle>
-      <circle cx="55" cy="45" r="2.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.9s" repeatCount="indefinite"/></circle>
-      <circle cx="-72" cy="0" r="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.0s" repeatCount="indefinite"/></circle>
-      <circle cx="72" cy="0" r="2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2.5s" repeatCount="indefinite"/></circle>
+    <circle r="78" fill="#E63946" fill-opacity="0.05"><animate attributeName="r" values="68;84;68" dur="3.4s" repeatCount="indefinite"/></circle>
+    <path d="M0 -60 L55 -40 L50 25 Q40 55 0 65 Q-40 55 -50 25 L-55 -40 Z" fill="#E63946" fill-opacity="0.15" stroke="#E63946" stroke-width="2.4" filter="url(#softShadow)"/>
+    <path d="M0 -50 L45 -33 L40 22 Q32 46 0 55 Q-32 46 -40 22 L-45 -33 Z" fill="none" stroke="#FCA5A5" stroke-width="1" opacity="0.7"/>
+    <path d="M0 -40 L35 -26 L31 18 Q24 38 0 45 Q-24 38 -31 18 L-35 -26 Z" fill="none" stroke="#FCA5A5" stroke-width="0.6" opacity="0.5"/>
+    <g transform="translate(0,-5)" stroke="#FCA5A5" stroke-width="3" fill="none">
+      <path d="M-18 5 L-4 20 L22 -12"><animate attributeName="stroke-dasharray" values="0 80;80 0" dur="2.4s" repeatCount="indefinite"/></path>
     </g>
-    <g stroke="#FCA5A5" stroke-width="0.8" stroke-opacity="0.5" fill="none">
-      <path d="M-44 -30 L-38 -26"><animate attributeName="stroke-opacity" values="0;0.8;0" dur="2.2s" repeatCount="indefinite"/></path>
-      <path d="M44 -30 L38 -26"><animate attributeName="stroke-opacity" values="0;0.8;0" dur="2.4s" repeatCount="indefinite"/></path>
-      <path d="M-44 30 L-38 26"><animate attributeName="stroke-opacity" values="0;0.8;0" dur="2.0s" repeatCount="indefinite"/></path>
-      <path d="M44 30 L38 26"><animate attributeName="stroke-opacity" values="0;0.8;0" dur="2.6s" repeatCount="indefinite"/></path>
+    <g fill="#FCA5A5" opacity="0.7">
+      <circle cx="-40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
+      <circle cx="40" cy="-30" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.0s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="-30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="30" cy="35" r="2"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.9s" begin="0.9s" repeatCount="indefinite"/></circle>
     </g>
     <g fill="#FCA5A5" opacity="0.55">
-      <circle cx="-72" cy="-30" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" repeatCount="indefinite"/></circle>
-      <circle cx="72" cy="-30" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
-      <circle cx="-72" cy="30" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" begin="0.7s" repeatCount="indefinite"/></circle>
-      <circle cx="72" cy="30" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.3s" begin="1.0s" repeatCount="indefinite"/></circle>
-      <circle cx="-30" cy="-65" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></circle>
-      <circle cx="30" cy="-65" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
+      <circle cx="-65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="65" cy="0" r="1.4"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.9s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <circle cx="-50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.1s" begin="0.7s" repeatCount="indefinite"/></circle>
+      <circle cx="50" cy="-55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.3s" begin="1.0s" repeatCount="indefinite"/></circle>
+      <circle cx="-50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="1.7s" begin="0.3s" repeatCount="indefinite"/></circle>
+      <circle cx="50" cy="55" r="1.2"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.0s" begin="0.6s" repeatCount="indefinite"/></circle>
     </g>
-    <g stroke="#E63946" stroke-width="0.4" stroke-opacity="0.4" fill="none">
-      <line x1="-86" y1="0" x2="-74" y2="0"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" repeatCount="indefinite"/></line>
-      <line x1="74" y1="0" x2="86" y2="0"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.2s" begin="0.5s" repeatCount="indefinite"/></line>
+    <g stroke="#E63946" stroke-width="0.4" stroke-opacity="0.35" fill="none">
+      <path d="M-78 -68 L-66 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2s" repeatCount="indefinite"/></path>
+      <path d="M66 -68 L78 -68"><animate attributeName="stroke-opacity" values="0;0.6;0" dur="2.3s" begin="0.4s" repeatCount="indefinite"/></path>
     </g>
-    <text y="78" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FCA5A5" opacity="0.7">CVSS : critical scope</text>
+    <text x="-78" y="-72" text-anchor="start" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FCA5A5" opacity="0.7">verified</text>
+    <text y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#E63946">MGMT</text>
+    <text y="98" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#FCA5A5" opacity="0.7">3 rings : signed by CA</text>
   </g>
   <g transform="translate(870,105)" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="#1E0A14" stroke="#E63946" stroke-width="1.6" stroke-opacity="0.75"/>

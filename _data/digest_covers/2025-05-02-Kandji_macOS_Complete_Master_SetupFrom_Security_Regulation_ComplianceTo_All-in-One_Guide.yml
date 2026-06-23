@@ -21,8 +21,8 @@ bands:
     value: CIS
   theme: red
   visual:
-    cvss: MGMT
-    kind: lock_cve
+    kind: shield
+    label: MGMT
 - badge:
     label: KANDJI
     sub: engine

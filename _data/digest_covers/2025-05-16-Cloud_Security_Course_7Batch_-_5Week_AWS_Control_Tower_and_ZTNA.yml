@@ -18,8 +18,7 @@ bands:
     label: OPEN
     sub: trust
   visual:
-    kind: network_nodes
-    label: ORG
+    kind: router_mesh
   metric_b: 'Broad 0.0.0.0/0 SG rules : IGW exposed : no SCP boundary : org-wide blast'
   detail_b: 'Shadow accounts bypassing baseline : no tag enforcement : cost spike no alert'
   mini:
@@ -40,8 +39,8 @@ bands:
     label: OU
     sub: guard
   visual:
-    kind: lock_cve
-    cvss: CTRL
+    kind: shield
+    label: CTRL
   metric_b: 'SCPs at OU level forbid privileged actions org-wide : account factory baseline'
   detail_b: 'Service Control Policy deny-list for root, IAM, org-leave : CloudTrail enforced'
   mini:

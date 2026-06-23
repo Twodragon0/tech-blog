@@ -39,8 +39,8 @@ bands:
     label: DSOMM
     sub: opt
   visual:
-    kind: lock_cve
-    cvss: DSOMM
+    kind: compliance_grid
+    scorecard: DSOMM
   metric_b: 'SAST DAST SCA in CI : container scan : IaC policy : secret rotate'
   detail_b: 'Semgrep + Trivy + Checkov : OPA policy gate : Vault dynamic secret'
   mini:

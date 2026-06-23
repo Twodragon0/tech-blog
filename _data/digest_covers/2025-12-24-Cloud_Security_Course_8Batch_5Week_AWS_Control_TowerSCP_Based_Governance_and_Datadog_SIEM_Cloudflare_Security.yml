@@ -37,8 +37,8 @@ bands:
     label: DDOGS
     sub: ingest
   visual:
-    kind: lock_cve
-    cvss: SCP
+    kind: siem_panels
+    caption: SIEM
   metric_b: 'Account Factory : SCP'
   detail_b: 'CT Terraform : deny'
   mini:

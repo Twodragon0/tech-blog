@@ -17,7 +17,7 @@ hero:
 top_right:
   tag: K8S
   theme: amber
-  visual: hub_spoke
+  visual: neutral
   headline: K8s Control Plane Node Pod
   subheadline: Kubernetes Control Plane Node Pod architecture overview
   kpi_value: K8s
@@ -27,7 +27,7 @@ top_right:
 bottom_right:
   tag: RUNTIME
   theme: blue
-  visual: code_injection
+  visual: neutral
   headline: Trivy + Falco Runtime
   subheadline: Container runtime security with Trivy image scan and Falco threats
   kpi_value: TRV

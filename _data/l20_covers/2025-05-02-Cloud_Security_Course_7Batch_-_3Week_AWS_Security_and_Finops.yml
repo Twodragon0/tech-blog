@@ -6,7 +6,7 @@ url: https://tech.2twodragon.com/posts/2025/05/02/Cloud_Security_Course_7Batch_-
 hero:
   tag: AWS SECURITY
   theme: red
-  visual: hub_spoke
+  visual: neutral
   headline: IAM Org CloudTrail
   subheadline: AWS IAM Organizations CloudTrail GuardDuty Security Hub structure
   kpi_value: IAM

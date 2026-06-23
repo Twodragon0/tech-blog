@@ -17,8 +17,7 @@ bands:
     label: MISSING
     sub: align
   visual:
-    kind: network_nodes
-    label: SPOOF
+    kind: router_mesh
   metric_b: 'Brand impersonation : inbox collapses : ESP blocks sender IP : no auth signal'
   detail_b: 'MX lookup passes but SPF neutral : no DKIM signature : DMARC p=none only'
   mini:
@@ -39,8 +38,8 @@ bands:
     label: STACK
     sub: 3-layer
   visual:
-    kind: lock_cve
-    cvss: AUTH
+    kind: code_bars
+    caption: DNS AUTH
   metric_b: 'DKIM selector1._domainkey CNAME : RSA-2048 key pair : body hash verified'
   detail_b: 'DMARC p=quarantine : rua=mailto:dmarc-rua@ : alignment strict : pct=100'
   mini:
