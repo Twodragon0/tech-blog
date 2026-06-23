@@ -527,19 +527,39 @@ def _read_front_matter(text: str) -> str:
 
 
 def find_owning_post(svg_path: Path) -> Optional[Path]:
-    """Return the _posts/*.md whose ``image:`` front-matter points at ``svg_path``.
+    """Return the _posts/*.md that owns ``svg_path``.
 
-    Deterministic: scans posts in sorted order and matches by basename, so the
-    result is stable regardless of filesystem iteration order.
+    Two-pass, deterministic (posts scanned in sorted order so the result is
+    stable regardless of filesystem iteration order):
+
+    1. Primary: a post whose ``image:`` front-matter points at this SVG by
+       basename (the cover is the post's hero/OG image).
+    2. Fallback: a post whose BODY references the cover's stem via an inline
+       ``/assets/images/<stem>`` URL — the SVG itself or any derivative
+       (``<stem>_image.jpg``, ``<stem>_og.png``, ...). This catches covers
+       used as an inline body image rather than the front-matter ``image:``
+       (e.g. the Zscaler short-slug cover, whose ``_image.jpg`` is embedded in
+       the Complete_Block post body). Without it such covers read as a false
+       ``NO_POST`` even though they are live.
     """
     target = svg_path.name
-    for post in sorted(POSTS.glob("*.md")):
+    posts = sorted(POSTS.glob("*.md"))
+    texts: dict = {}
+    for post in posts:
         try:
-            fm = _read_front_matter(post.read_text(encoding="utf-8", errors="replace"))
+            text = post.read_text(encoding="utf-8", errors="replace")
         except OSError:
             continue
-        m = _IMAGE_FIELD_RE.search(fm)
+        texts[post] = text
+        m = _IMAGE_FIELD_RE.search(_read_front_matter(text))
         if m and Path(m.group(1).strip().strip("\"'")).name == target:
+            return post
+    # Fallback: inline body (or anywhere) reference to the cover's stem. Match
+    # the stem followed by '.' (extension) or '_' (derivative) so a longer slug
+    # that merely starts with this stem does not spuriously match.
+    stem_re = re.compile(r"/assets/images/" + re.escape(svg_path.stem) + r"[._]")
+    for post in posts:
+        if stem_re.search(texts.get(post, "")):
             return post
     return None
 

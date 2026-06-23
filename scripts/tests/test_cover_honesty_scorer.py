@@ -305,6 +305,41 @@ def test_no_post_when_image_unmapped(tmp_path, monkeypatch):
     assert result["verdict"] == "NO_POST"
 
 
+def test_owning_post_found_via_inline_body_img(tmp_path, monkeypatch):
+    """A cover whose stem is referenced by an inline body <img> (a derivative
+    like *_image.jpg) is owned by that post even when no post's image: front
+    matter points at the SVG. Prevents a false NO_POST (Zscaler short-slug case
+    — the SVG's _image.jpg is an inline body image in the Complete_Block post)."""
+    assets = tmp_path / "assets" / "images"
+    posts = tmp_path / "_posts"
+    assets.mkdir(parents=True)
+    posts.mkdir(parents=True)
+    # The cover SVG has no post pointing at it via image:.
+    cover = assets / "2026-06-02-Topic_Short.svg"
+    cover.write_text(_render_cover("neutral", "neutral", "neutral"), encoding="utf-8")
+    # A different post (image: points elsewhere) embeds the cover's _image.jpg
+    # derivative inline in its body.
+    post_md = (
+        "---\n"
+        'title: "Long Topic Guide"\n'
+        'excerpt: "Guide."\n'
+        "image: /assets/images/2026-06-02-Topic_Long_Hero.svg\n"
+        "---\n\n"
+        "Body intro.\n\n"
+        '<img src="{{ \'/assets/images/2026-06-02-Topic_Short_image.jpg\' '
+        '| relative_url }}" alt="inline">\n'
+    )
+    (posts / "2026-06-02-Topic_Long_Hero.md").write_text(post_md, encoding="utf-8")
+    monkeypatch.setattr(sch, "REPO", tmp_path)
+    monkeypatch.setattr(sch, "ASSETS", assets)
+    monkeypatch.setattr(sch, "POSTS", posts)
+
+    owner = sch.find_owning_post(cover)
+    assert owner is not None and owner.name == "2026-06-02-Topic_Long_Hero.md"
+    # And the cover is no longer a false NO_POST.
+    assert sch.score_file(cover)["verdict"] != "NO_POST"
+
+
 def test_non_l20_svg_skipped(tmp_path, monkeypatch):
     assets = tmp_path / "assets" / "images"
     posts = tmp_path / "_posts"
