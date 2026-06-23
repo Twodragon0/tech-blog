@@ -5,8 +5,7 @@
 # A slug here means its on-disk SVG legitimately differs from a FRESH spec render
 # and must NOT be regenerated. One slug ({date}-{slug}) per line; '#' comments OK.
 #
-# 2026-01-22 Security_Vendor_Blog_Weekly_Review: ROTTED spec. A fresh render makes
-# the hero assert code_injection/RCE, which the post lacks → honesty FAIL (verified
-# 2026-06-22). The on-disk cover is the honest version; regenerating would overclaim.
-# Keep baselined until the spec's hero visual is corrected to an honest class.
-2026-01-22-Security_Vendor_Blog_Weekly_Review
+# 2026-06-23: baseline is empty. The sole prior entry,
+# 2026-01-22-Security_Vendor_Blog_Weekly_Review, was resolved by correcting the
+# spec's hero visual code_injection -> neutral (honest class) and regenerating;
+# the fresh render now matches the honest on-disk SVG and passes the honesty gate.

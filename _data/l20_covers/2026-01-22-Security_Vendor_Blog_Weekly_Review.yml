@@ -6,7 +6,7 @@ url: https://tech.2twodragon.com/posts/2026/01/22/Security_Vendor_Blog_Weekly_Re
 hero:
   tag: VS CODE
   theme: red
-  visual: code_injection
+  visual: neutral
   headline: VS Code Tunnel Wave
   subheadline: VS Code remote tunnel abuse spreads to additional vendor advisories
   kpi_value: VSC
