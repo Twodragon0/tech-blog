@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-22T00:44:08.326172+00:00",
+  "updated_at": "2026-06-23T00:36:32.164633+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/one-character-linux-kernel-flaw-enables.html",
-      "title": "One-Character Linux Kernel Flaw Enables Local Root Access, Exploits Now Public",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/meta-blocks-nso-groups-new-whatsapp.html",
-      "title": "Meta Blocks NSO Group's New WhatsApp Phishing Attack, Files Contempt Order",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/icymi-may-2026-aws-security/",
-      "title": "ICYMI: May 2026 @AWS Security",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/critical-check-point-vpn-flaw-exploited.html",
-      "title": "Critical Check Point VPN Flaw Exploited to Bypass Passwords in IKEv1 Setups",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/ai-phishing-is-crushing-socs-with-alert.html",
-      "title": "AI Phishing Is Crushing SOCs with Alert Volume: How to Reduce Tier 1 Overload",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://blog.palantir.com/managing-elasticsearch-reindex-at-scale-performance-reliability-and-observability-cf948d0efd47?source=rss----3c87dc14372f---4",
-      "title": "Managing Elasticsearch Reindex at Scale: Performance, Reliability, and Observabi",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://openai.com/index/openai-submits-confidential-s-1",
-      "title": "Confidential submission of draft S-1 to the SEC",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/uk-sovereign-ai-advancements/",
-      "title": "How the UK Is Turning Sovereign AI Ambition Into Action With NVIDIA Technologies",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-and-lg-group-ai-factory/",
-      "title": "NVIDIA and LG Group Build an AI Factory to Advance Physical AI, Mobility and AI ",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://openai.com/index/built-to-benefit-everyone-our-plan",
-      "title": "Built to benefit everyone: our plan",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/modernizing-healthcare-how-alcidion-achieved-greater-stability-and-performance/",
-      "title": "Modernizing Healthcare: How Alcidion achieved greater stability and performance ",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-byom-for-amazon-rds-for-sql-server-aws-iot-device-sdk-for-swift-and-more-june-8-2026/",
-      "title": "AWS Weekly Roundup: BYOM for Amazon RDS for SQL Server, AWS IoT Device SDK for S",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/accelerating-physical-ai-with-aws-and-nvidia-building-production-ready-applications-with-simulation-and-real-world-learning/",
-      "title": "AWS와 NVIDIA로 Physical AI 가속화: 시뮬레이션과 실제 학습을 통한 프로덕션 레디 애플리케이션 구축",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/gloz-building-resume-based-translator-search-system-with-amazon-opensearch-service-2/",
-      "title": "GloZ의 Amazon OpenSearch Service를 기반으로 한 자연어 이력서 검색 시스템 구축 사례 — Part 2: 하이브리드 검색과",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/software-supply-chain-security-best-practices/",
-      "title": "5 Software Supply Chain Security Best Practices for Development Teams",
-      "published_date": "2026-06-09",
-      "expires_at": "2026-06-16T00:31:46.458232+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/meta-to-use-off-site-business-data-for.html",
       "title": "Meta to Use Off-Site Business Data for Feed and AI Personalization",
@@ -1230,6 +1140,96 @@
       "title": "GPT-5.5, MIT 라이선스 GLM-5.2보다 환각률 3배",
       "published_date": "2026-06-22",
       "expires_at": "2026-06-29T00:44:08.326062+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/shapedplugin-wordpress-pro-plugins.html",
+      "title": "ShapedPlugin WordPress Pro Plugins Backdoored in Supply Chain Attack",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/researchers-detail-difytap-flaws-in.html",
+      "title": "Researchers Detail DifyTap Flaws in Dify That Could Expose AI Chats Across Tenan",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html",
+      "title": "29-Year-Old Squid Proxy Bug 'Squidbleed' Can Leak Cleartext HTTP Requests",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/06/22/guarding-ai-memory/",
+      "title": "Guarding AI memory",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/new-oxloader-loader-uses-malicious.html",
+      "title": "New OXLOADER Loader Uses Malicious Google Ads to Deliver CastleStealer",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/06/22/video-engineering/adopting-av1-for-real-time-communication-rtc-meta/",
+      "title": "Adopting AV1 for Real-Time Communication (RTC) at Scale",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/jupiter-exascale-supercomputing-science/",
+      "title": "At ISC, JUPITER Shows What Exascale Science Looks Like",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nairr-scientific-research-ai-infrastructure/",
+      "title": "NAIRR Science Program Reshapes Scientific Research, Powered by NVIDIA AI Infrast",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-for-science-software-cuda/",
+      "title": "From Materials Simulation to Experimental Astronomy, New NVIDIA AI Software Unlo",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-vera-cpu-los-alamos-national-laboratory/",
+      "title": "NVIDIA Vera CPU Opens the Way for Agentic Scientific AI at Los Alamos National L",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/python-udf-in-bigquery-now-generally-available/",
+      "title": "Boost BigQuery with Python: Managed Python UDFs now generally available",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained/",
+      "title": "The Starter Tier for Google AI Studio explained",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/",
+      "title": "Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroV",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ny-summit-recap-local-zone-in-hanoi-grok-4-3-in-bedrock-price-reductions-and-more-june-22-2026/",
+      "title": "AWS Weekly Roundup: NY Summit recap, Local Zone in Hanoi, Grok 4.3 in Bedrock, p",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/dongwon-ai-shopping-assistant/",
+      "title": "동원F&B의 Amazon Bedrock AgentCore 기반 AI 쇼핑 어시스턴트로 쇼핑 경험 혁신 여정",
+      "published_date": "2026-06-23",
+      "expires_at": "2026-06-30T00:36:32.164526+00:00"
     }
   ]
 }
