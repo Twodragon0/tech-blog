@@ -1405,6 +1405,7 @@ def generate_post_content(
 ) -> str:
     """고품질 포스트 컨텐츠 생성"""
 
+    _reset_variant_dedup()  # per-post variant rotation (no cross-post leakage)
     date_str = date.strftime("%Y년 %m월 %d일")
     date_file = date.strftime("%Y-%m-%d")
     image_filename = (
@@ -1747,6 +1748,7 @@ def generate_tech_blog_content(
     Groups by topic: AI/ML, DevOps/Cloud, Open Source, General.
     Uses GeekNews Korean summaries prominently.
     """
+    _reset_variant_dedup()  # per-post variant rotation (no cross-post leakage)
     date_str = date.strftime("%Y년 %m월 %d일")
     date_file = date.strftime("%Y-%m-%d")
     image_filename = (
@@ -2180,20 +2182,60 @@ def _generate_key_points(item: Dict) -> str:
     return points
 
 
-def _pick_variant(item: Dict, variants: List[str]) -> str:
-    """Deterministically select one variant based on article identity.
+# Per-post registries so two DIFFERENT articles that hit the SAME keyword
+# branch don't render the IDENTICAL block (the '실무 포인트 반복 / 블록 중복'
+# regression flagged by check_posts.py). Reset per post via
+# _reset_variant_dedup(). ``_VARIANT_USED`` holds variant strings already
+# emitted; ``_VARIANT_CHOICE`` caches each (article, branch) -> choice so the
+# SAME article re-asking is idempotent (stable across regenerations).
+_VARIANT_USED: set = set()
+_VARIANT_CHOICE: dict = {}
 
-    Keeps the same article stable across regenerations while diversifying
-    output across different articles that share the same keyword branch.
+
+def _reset_variant_dedup() -> None:
+    """Clear the per-post variant-dedup registries.
+
+    Call once at the start of generating each post so variant rotation is
+    scoped to that post (and tests don't leak state into one another).
+    """
+    _VARIANT_USED.clear()
+    _VARIANT_CHOICE.clear()
+
+
+def _pick_variant(item: Dict, variants: List[str]) -> str:
+    """Deterministically select one variant based on article identity, avoiding
+    repeats WITHIN a post.
+
+    The ``md5(title|url)`` hash keeps a given article stable across
+    regenerations. To stop two DIFFERENT articles that hit the same keyword
+    branch from rendering the IDENTICAL block, a variant already emitted this
+    post is rotated off: starting at the hash index, the first not-yet-used
+    variant wins. The same article re-asking the same branch returns its cached
+    choice (idempotent). Falls back to the hash choice only when every variant
+    is already used (more colliding items than variants). Order within a post is
+    fixed, so output stays reproducible across regenerations.
     """
     if not variants:
         return ""
     if len(variants) == 1:
+        # Single-variant branch: nothing to rotate (authoring-level limitation).
         return variants[0]
-    key = f"{item.get('title', '')}|{item.get('url', '')}".encode("utf-8", "ignore")
-    digest = hashlib.md5(key).digest()
-    idx = int.from_bytes(digest[:4], "big") % len(variants)
-    return variants[idx]
+    item_key = f"{item.get('title', '')}|{item.get('url', '')}"
+    cache_key = (item_key, tuple(variants))
+    if cache_key in _VARIANT_CHOICE:
+        return _VARIANT_CHOICE[cache_key]
+    digest = hashlib.md5(item_key.encode("utf-8", "ignore")).digest()
+    start = int.from_bytes(digest[:4], "big") % len(variants)
+    n = len(variants)
+    chosen = variants[start]
+    for offset in range(n):
+        cand = variants[(start + offset) % n]
+        if cand not in _VARIANT_USED:
+            chosen = cand
+            break
+    _VARIANT_USED.add(chosen)
+    _VARIANT_CHOICE[cache_key] = chosen
+    return chosen
 
 
 def _generate_contextual_action_point(item: Dict) -> str:

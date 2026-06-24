@@ -17,7 +17,17 @@ from news.content_generator import (
     _generate_contextual_action_point,
     _generate_devops_template,
     _pick_variant,
+    _reset_variant_dedup,
 )
+
+
+@pytest.fixture(autouse=True)
+def _reset_variant_state():
+    """The per-post variant-dedup registry is module-global; reset before each
+    test so accumulated state never leaks across tests."""
+    _reset_variant_dedup()
+    yield
+    _reset_variant_dedup()
 
 
 def _item(title: str, category: str = "security", url: str = "") -> Dict:
@@ -37,6 +47,43 @@ class TestPickVariantDeterminism:
         first = _pick_variant(item, variants)
         for _ in range(10):
             assert _pick_variant(item, variants) == first
+
+
+class TestPickVariantDedup:
+    """Regression: two DIFFERENT articles hitting the same branch must not
+    render the IDENTICAL variant block within one post (the '실무 포인트
+    블록 중복' warning from check_posts.py)."""
+
+    def test_distinct_items_avoid_same_variant(self):
+        variants = ["A", "B", "C"]
+        # Build enough distinct items to fill all variants; none should repeat
+        # until the pool is exhausted.
+        chosen = [_pick_variant(_item(f"article {i}"), variants) for i in range(3)]
+        assert sorted(chosen) == ["A", "B", "C"], f"expected all 3 variants, got {chosen}"
+
+    def test_overflow_falls_back_without_crash(self):
+        variants = ["A", "B"]
+        # More colliding items than variants: first 2 distinct, rest reuse.
+        chosen = [_pick_variant(_item(f"article {i}"), variants) for i in range(4)]
+        assert set(chosen[:2]) == {"A", "B"}
+        assert all(c in {"A", "B"} for c in chosen)
+
+    def test_reset_clears_dedup_state(self):
+        variants = ["A", "B", "C"]
+        first_post = [_pick_variant(_item(f"a{i}"), variants) for i in range(3)]
+        _reset_variant_dedup()
+        second_post = [_pick_variant(_item(f"a{i}"), variants) for i in range(3)]
+        # After reset, the same items reproduce the same assignment.
+        assert first_post == second_post
+
+    def test_same_item_idempotent_across_calls_within_post(self):
+        variants = ["A", "B", "C"]
+        item = _item("repeat me")
+        first = _pick_variant(item, variants)
+        # Re-asking the same item+branch returns the cached choice, even after
+        # other items have consumed variants.
+        _pick_variant(_item("other"), variants)
+        assert _pick_variant(item, variants) == first
 
     def test_empty_variants_returns_empty_string(self):
         assert _pick_variant(_item("x"), []) == ""
