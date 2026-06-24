@@ -99,6 +99,49 @@ THEMES: Dict[str, Dict[str, str]] = {
 }
 
 
+# --- WCAG contrast helpers ---
+# Foreground candidates for tinted CTA buttons: near-black panel ink and white.
+_INK_DARK = "#0A0F1E"
+_INK_LIGHT = "#FFFFFF"
+_WCAG_AA = 4.5
+
+
+def _rel_luminance(hex_color: str) -> float:
+    """WCAG relative luminance of an ``#rrggbb`` color."""
+    h = hex_color.lstrip("#")
+    r, g, b = (int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+    def _lin(c: float) -> float:
+        c /= 255.0
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+
+    return 0.2126 * _lin(r) + 0.7152 * _lin(g) + 0.0722 * _lin(b)
+
+
+def _contrast_ratio(c1: str, c2: str) -> float:
+    """WCAG contrast ratio between two ``#rrggbb`` colors (>=1)."""
+    a, b = _rel_luminance(c1), _rel_luminance(c2)
+    hi, lo = max(a, b), min(a, b)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+def button_text_color(bg_hex: str) -> str:
+    """Pick the CTA-button label color (dark vs white) with the best contrast.
+
+    The hero action button fills with the per-topic theme accent, several of
+    which are light (amber/green/purple) — white labels on them fail WCAG AA
+    (the cover before/after review, 2026-06-24, flagged this). Return whichever
+    of near-black / white has the higher contrast on ``bg_hex``; for every
+    current THEMES accent that is the dark ink (>=4.58:1). The button renders
+    at full opacity so this ratio is what the reader actually sees.
+    """
+    return (
+        _INK_DARK
+        if _contrast_ratio(_INK_DARK, bg_hex) >= _contrast_ratio(_INK_LIGHT, bg_hex)
+        else _INK_LIGHT
+    )
+
+
 # --- Helpers ---
 def _strip_hangul(text: str) -> str:
     """Remove every Hangul run, collapsing surrounding whitespace.
@@ -994,6 +1037,14 @@ def vb_security_advisory(cx: int, cy: int, theme: str = "amber", severity: str =
     """
     t = _theme(theme)
     a, soft, txt = t["accent"], t["accent_soft"], t["accent_text"]
+    # The shield + checkmark are pinned to a FIXED green ("reviewed / advisory
+    # OK") regardless of the topic theme on the surrounding chrome. A topic
+    # theme recolors the card frame, ADVISORY badge, label and severity gauge
+    # (the cover-identity accent), but a *red* checkmark shield would read as a
+    # false alarm (red frame "danger" vs check glyph "OK") — so the shield holds
+    # its semantic green. See the cover before/after design review (2026-06-24).
+    _sg = THEMES["green"]
+    shield_a, shield_soft = _sg["accent"], _sg["accent_soft"]
     # ASCII all-caps severity word, only if it is a known impact level. When
     # unknown ("") the severity line is OMITTED — never "TBD" / "under review".
     sev = (severity or "").strip().upper()
@@ -1016,15 +1067,17 @@ def vb_security_advisory(cx: int, cy: int, theme: str = "amber", severity: str =
         f'<rect x="0" y="0" width="60" height="18" rx="3" fill="{a}" opacity="0.9"/>'
         f'<text x="30" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#0A0F1E">ADVISORY</text>'
         f'</g>'
-        # Centered shield outline with a calm pulse + neutral check glyph
+        # Centered shield outline with a calm pulse + neutral check glyph.
+        # Shield stroke/fill/check pinned GREEN (semantic "reviewed/OK") so it
+        # never reads as a red alarm under a red/topic-colored frame.
         f'<g transform="translate(-92,-46)">'
         f'<path d="M40 0 L78 14 L78 56 Q78 92 40 108 Q2 92 2 56 L2 14 Z" '
-        f'fill="none" stroke="{a}" stroke-width="2.4" stroke-linejoin="round">'
+        f'fill="none" stroke="{shield_a}" stroke-width="2.4" stroke-linejoin="round">'
         f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></path>'
         f'<path d="M40 8 L70 19 L70 54 Q70 84 40 98 Q10 84 10 54 L10 19 Z" '
-        f'fill="{a}" opacity="0.10"/>'
+        f'fill="{shield_a}" opacity="0.10"/>'
         # Neutral check mark inside the shield (status mark, not an alarm)
-        f'<path d="M26 54 L37 66 L56 40" fill="none" stroke="{soft}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">'
+        f'<path d="M26 54 L37 66 L56 40" fill="none" stroke="{shield_soft}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">'
         f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/></path>'
         f'</g>'
         # Right column: severity gauge (unfilled track, TBD marker)
@@ -1425,11 +1478,14 @@ def render_l20_hero(
     parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0, severity=hero.get("severity", ""), cover_seed=cover_seed, scale=_HERO_NEUTRAL_SCALE))
     # Hero action tag
     parts.append('<g transform="translate(54,548)">')
-    parts.append(f'<rect x="0" y="0" width="280" height="24" rx="3" fill="{hero_accent}" opacity="0.95"/>')
+    # Full-opacity fill so the rendered button bg == the theme accent, and the
+    # label color is contrast-picked against it (WCAG AA) — white labels failed
+    # AA on the light accents (amber/green/purple).
+    parts.append(f'<rect x="0" y="0" width="280" height="24" rx="3" fill="{hero_accent}"/>')
     parts.append(
         f'<text x="140" y="17" text-anchor="middle" '
         f'font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" '
-        f'fill="#FFFFFF">{_escape(hero["action"])}</text>'
+        f'fill="{button_text_color(hero_accent)}">{_escape(hero["action"])}</text>'
     )
     parts.append('</g>')
     parts.append(

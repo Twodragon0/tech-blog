@@ -806,3 +806,45 @@ def test_vb_security_advisory_routes_and_renders_via_dispatch() -> None:
     out = svg_l20_hero._render_visual("security_advisory", 800, 230, "amber")
     assert "SECURITY ADVISORY" in out
     assert out == svg_l20_hero.vb_security_advisory(800, 230, "amber")
+
+
+def test_advisory_shield_pinned_green_regardless_of_topic_theme() -> None:
+    """The shield + checkmark stay semantic green even when the topic theme
+    recolors the surrounding chrome — a red checkmark shield would read as a
+    false alarm (cover review 2026-06-24)."""
+    green = svg_l20_hero.THEMES["green"]["accent"]
+    for theme in ("red", "blue", "amber", "purple"):
+        out = svg_l20_hero.vb_security_advisory(800, 230, theme, severity="CRITICAL")
+        accent = svg_l20_hero.THEMES[theme]["accent"]
+        assert green in out, f"{theme}: shield green {green} missing"
+        # The topic accent still appears (frame/badge/gauge chrome).
+        assert accent in out, f"{theme}: topic accent {accent} missing from chrome"
+
+
+@pytest.mark.parametrize("theme", ["red", "blue", "amber", "green", "purple"])
+def test_hero_button_label_meets_wcag_aa(theme: str) -> None:
+    """The hero CTA button label must clear WCAG AA (4.5:1) on every theme
+    accent. White labels failed AA on the light accents; button_text_color
+    picks the contrast-correct ink and the rect renders at full opacity."""
+    accent = svg_l20_hero.THEMES[theme]["accent"]
+    ink = svg_l20_hero.button_text_color(accent)
+    ratio = svg_l20_hero._contrast_ratio(ink, accent)
+    assert ratio >= 4.5, f"{theme}: button label {ink} on {accent} only {ratio:.2f}:1"
+
+
+def test_hero_button_not_white_on_light_accent() -> None:
+    """Regression: the rendered hero button must not use a low-contrast white
+    label on a light accent (amber)."""
+    hero = {
+        "tag": "HIGH", "index": "01", "theme": "amber", "visual": "neutral",
+        "headline": "Ecosystem", "subheadline": "x", "kpi_value": "5",
+        "kpi_label": "ITEMS", "kpi_sub": "feed", "action": "READ THE FULL DIGEST",
+    }
+    side = dict(hero, index="02", theme="blue")
+    out = svg_l20_hero.render_l20_hero(
+        date_str="2026.02.01", hero=hero, top_right=side, bottom_right=side,
+        url="https://example.test/x", post_title="Weekly Digest - 2026.02.01",
+    )
+    # The amber accent button should carry the dark ink label, not white.
+    assert "READ THE FULL DIGEST" in out
+    assert svg_l20_hero.button_text_color("#FFB703") == "#0A0F1E"
