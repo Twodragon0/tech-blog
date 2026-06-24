@@ -36,8 +36,8 @@ bands:
     label: CONF
     sub: venues
   visual:
-    kind: lock_cve
-    cvss: CONF
+    kind: shield
+    label: CONF
   metric_b: 'AWSKRUG re:Invent : OWASP LLM top-10 : Datadog 2026'
   detail_b: 'OWASP AI/LLM risks : Datadog AI sec'
   mini:

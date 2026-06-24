@@ -9,13 +9,17 @@ cron run or edit re-introduces a dishonest/overclaiming cover and quietly append
 it to a baseline (instead of fixing the cover), the blocking gate would go green
 while the regression ships. This guard makes that re-population fail loudly.
 
+As of 2026-06-24 the two remaining legacy size-gate entries (SKT, 12-17
+Conference) were also brought in-band — SKT shrank when its honesty FAIL was
+fixed; the Conference band's fake-CVSS lock_cve was swapped to an honest shield
+(more honest AND ~410B smaller), landing it under the hq band. So ALL THREE
+baselines are now empty.
+
 Direction:
-  * honesty + l20-drift baselines: ``== 0`` entries (frozen empty; ANY new entry
-    trips — fix the cover, do not baseline it).
-  * size-gate baseline: ``<= SIZE_MAX`` entries (ratchet; it still holds
-    legitimate pre-existing legacy entries). Fixing a legacy oversize cover
-    should only ever DECREASE this — when it does, lower SIZE_MAX to match so the
-    ratchet keeps tightening.
+  * all three baselines: ``== 0`` entries (frozen empty; ANY new entry trips —
+    fix the cover, do not baseline it). size-gate keeps a ``<= SIZE_MAX`` ratchet
+    so a genuinely new legacy file can be grandfathered by raising SIZE_MAX in
+    the same, reviewable commit.
 
 If a change to any baseline is genuinely intentional, update the relevant
 constant here in the same commit so the intent is reviewable.
@@ -32,9 +36,10 @@ HONESTY_BASELINE = SCRIPTS / "cover_honesty_baseline.txt"
 L20_DRIFT_BASELINE = SCRIPTS / "l20_drift_baseline.txt"
 SIZE_BASELINE = SCRIPTS / "svg_size_gate_baseline.txt"
 
-# Frozen maxima. honesty/l20-drift are fully retired (0). size still carries
-# pre-existing legacy entries; ratchet down as they are fixed.
-SIZE_MAX = 2
+# Frozen maxima. All baselines fully retired to empty as of 2026-06-24. The size
+# ratchet stays a `<=` so a genuinely new legacy file can be grandfathered by
+# raising SIZE_MAX in the same reviewable commit.
+SIZE_MAX = 0
 
 
 def _entry_count(path: Path) -> int:
