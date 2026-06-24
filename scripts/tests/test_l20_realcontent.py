@@ -1822,3 +1822,79 @@ class TestCorpusNoGenericHero:
                         f"{datestr}: generic-word headline {p['headline']!r}"
                     )
         assert not failures, "Generic-word covers:\n" + "\n".join(failures)
+
+
+class TestTopicCoverTheme:
+    """The digest gallery was uniformly blue because the neutral hero band
+    hard-mapped to ``blue``. ``theme_for_topics`` now keys a per-cover identity
+    color to the post's content, and ``_apply_real_content`` recolors the
+    neutral hero to it. Palette only -> honesty class unchanged."""
+
+    def test_theme_for_topics_specific_first(self):
+        from scripts.news.l20_dispatch import theme_for_topics
+
+        # A threat topic wins over the ubiquitous "AI" generic token.
+        assert theme_for_topics(
+            "2026-04-02-Tech_Security_Weekly_Digest_AI_Malware.md"
+        ) == "red"
+        # CVE / patch -> amber.
+        assert theme_for_topics(
+            "2026-04-03-Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI.md"
+        ) == "amber"
+        # Crypto / blockchain -> green.
+        assert theme_for_topics(
+            "2026-05-25-Tech_Security_Weekly_Digest_AI_Ethereum_Blockchain.md"
+        ) == "green"
+        # Named infra/vendor -> blue.
+        assert theme_for_topics(
+            "2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir.md"
+        ) == "blue"
+
+    def test_theme_for_topics_generic_fallback(self):
+        from scripts.news.l20_dispatch import theme_for_topics
+
+        # Only generic tokens present -> generic tier decides (aws -> blue).
+        assert theme_for_topics(
+            "2026-01-01-Tech_Security_Weekly_Digest_AWS_Cloud.md"
+        ) == "blue"
+        # No mappable token at all -> blue default.
+        assert theme_for_topics("2026-01-01-Tech_Security_Weekly_Digest.md") == "blue"
+
+    def test_title_fallback_word_boundary_no_misfire(self):
+        from scripts.news.l20_dispatch import theme_for_topics
+
+        # Empty filename -> no slug tokens -> title fallback path. Short specific
+        # keys must NOT match inside unrelated words ("rat" in integration,
+        # "go" in Google, "rce" in source).
+        assert theme_for_topics("", "Cloud Migration Integration Guide") == "blue"
+        assert theme_for_topics("", "Google adapter rollout") == "blue"
+        # A real whole-word specific token in the title still maps.
+        assert theme_for_topics("", "Ransomware roundup") == "red"
+
+    def test_neutral_hero_adopts_cover_theme(self):
+        # A neutral hero band must take the supplied cover_theme, not blue.
+        hero = _build_story(
+            headline="Ecosystem Update", subheadline="x", index=0,
+            severity_label="HIGH", action="READ THE FULL DIGEST",
+        )
+        side1 = _build_story(headline="update", subheadline="x", index=1,
+                             severity_label="HIGH")
+        side2 = _build_story(headline="update", subheadline="x", index=2,
+                             severity_label="MEDIUM")
+        stories = [hero, side1, side2]
+        _apply_real_content(stories, {"content": ""}, cover_theme="red")
+        # Hero is neutral (no post content) -> recolored red.
+        assert stories[0]["visual"] == "neutral"
+        assert stories[0]["theme"] == "red"
+        # Side cards keep their semantic (blue) theme -> intra-cover contrast.
+        assert stories[1]["theme"] == "blue"
+
+    def test_cover_theme_does_not_change_claim_class(self):
+        # Recoloring is palette-only: the hero stays the neutral claim class
+        # regardless of the cover_theme passed.
+        for theme in ("red", "amber", "green", "purple", "blue"):
+            hero = _build_story(headline="Ecosystem Update", subheadline="x",
+                                index=0, severity_label="HIGH", action="GO")
+            _apply_real_content([hero], {"content": ""}, cover_theme=theme)
+            assert hero["visual"] == "neutral"
+            assert hero["theme"] == theme

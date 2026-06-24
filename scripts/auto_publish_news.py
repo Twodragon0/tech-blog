@@ -208,6 +208,7 @@ def _render_l20_svg_string(post_info: Dict) -> str:
             _date_str_from_filename,
             _post_url_from_filename,
             extract_three_stories,
+            theme_for_topics,
         )
     except Exception as _exc:
         logging.debug(f"L20 import failed, falling back: {_exc}")
@@ -218,6 +219,7 @@ def _render_l20_svg_string(post_info: Dict) -> str:
         excerpt = str(post_info.get("excerpt", "") or "")
         filename = str(post_info.get("filename", "") or "")
 
+        cover_theme = theme_for_topics(filename, title)
         h, tr, br = extract_three_stories(title, excerpt)
         hero_story = _build_story(
             headline=h["headline"],
@@ -225,6 +227,7 @@ def _render_l20_svg_string(post_info: Dict) -> str:
             index=0,
             severity_label="HIGH",
             action=_action_for(h["headline"]),
+            cover_theme=cover_theme,
         )
         tr_story = _build_story(
             headline=tr["headline"],
@@ -244,7 +247,9 @@ def _render_l20_svg_string(post_info: Dict) -> str:
         # (front matter + body highlights table), so the body-table backfill +
         # stats populate real content on the cron path too. Visual routing /
         # theme / action are left untouched (honesty class unchanged).
-        _apply_real_content([hero_story, tr_story, br_story], post_info)
+        _apply_real_content(
+            [hero_story, tr_story, br_story], post_info, cover_theme=cover_theme
+        )
         date_str = _date_str_from_filename(filename) or ""
         # Build a clean, ASCII <title> from the (often Korean) post title the
         # same way the L20 dispatch path does (l20_dispatch.py). Passing the

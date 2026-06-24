@@ -205,6 +205,45 @@ _SEVERITY_OVERRIDES: List[Tuple[str, str]] = [
     ("info", "blue"),
 ]
 
+# Topic-group -> theme palette ("cover identity color"). The digest gallery
+# was uniformly blue because every NEUTRAL band hard-mapped to "blue"
+# (_THEME_BY_VISUAL["neutral"]). This gives each cover a distinct accent keyed
+# to its lead topic. Honesty-neutral: the scorer fingerprints claim TEXT
+# (>UPDATE<, CVE REGRESSION CHAIN, ...), NOT the palette, so recoloring a
+# neutral band never changes its claim class. Only the neutral hero band uses
+# this; claim-bearing bands (cve_chain/security_advisory/...) keep the
+# semantic theme from _THEME_BY_VISUAL. Maps to the 5 THEMES palettes in
+# svg_l20_hero.THEMES (red/amber/green/purple/blue).
+#
+# Two tiers: SPECIFIC topics drive the color first (a "AI_Malware" digest is a
+# malware story -> red, matching the security-severity reading), and the
+# ubiquitous generic tokens ("ai", "aws", "cloud", ...) only decide the color
+# when no specific topic is present. Without this split, "ai" (present in ~half
+# the digest filenames) would swamp the gallery with a single color.
+_TOPIC_THEME_SPECIFIC: Dict[str, str] = {
+    # active-threat topics -> red (alert)
+    "malware": "red", "ransomware": "red", "botnet": "red", "threat": "red",
+    "stealer": "red", "trojan": "red", "backdoor": "red", "apt": "red",
+    "breach": "red", "rat": "red", "spyware": "red",
+    # vuln / patch topics -> amber (caution)
+    "cve": "amber", "vulnerability": "amber", "zero": "amber", "0day": "amber",
+    "patch": "amber", "exploit": "amber", "rce": "amber",
+    # crypto / blockchain + dev-language ecosystem -> green
+    "bitcoin": "green", "ethereum": "green", "blockchain": "green",
+    "crypto": "green", "go": "green", "rust": "green", "source": "green",
+    # AI-specific (named model/agent tech) -> purple
+    "agent": "purple", "llm": "purple", "gpt": "purple", "ml": "purple",
+    "model": "purple", "openai": "purple", "genai": "purple",
+    # named infra/vendor -> blue
+    "docker": "blue", "azure": "blue", "apple": "blue", "kubernetes": "blue",
+    "container": "blue", "k8s": "blue",
+}
+# Generic/ubiquitous tokens: used ONLY when no specific token is present.
+_TOPIC_THEME_GENERIC: Dict[str, str] = {
+    "ai": "purple", "aws": "blue", "cloud": "blue", "data": "blue",
+    "security": "blue", "update": "blue", "api": "blue", "open": "green",
+}
+
 
 def route_visual_id(topic: str) -> str:
     """Return the L20 visual_id that best matches ``topic``.
@@ -265,6 +304,45 @@ def route_theme(severity_or_index: str) -> str:
         if needle in s:
             return theme
     return "red"
+
+
+def theme_for_topics(filename: str = "", title: str = "") -> str:
+    """Pick a cover identity theme from the post's topic keywords.
+
+    Two-tier: the first SPECIFIC topic in the filename slug (read in slug
+    order) wins; if the slug carries only generic/ubiquitous tokens, the first
+    generic token decides; otherwise ``"blue"``. This keeps the ubiquitous
+    "ai" token from swamping the gallery while still mapping each cover to its
+    real content. Honesty-neutral: only recolors the neutral hero band (see
+    ``_TOPIC_THEME_SPECIFIC``); never changes a claim class, so the honesty
+    gate is unaffected.
+
+    Example::
+
+        2026-04-02-..._AI_Malware.md     -> "red"     (specific: malware)
+        2026-05-03-..._Ransomware_...md  -> "red"     (specific: ransomware)
+        2026-04-03-..._CVE_Patch_AWS.md  -> "amber"   (specific: cve)
+        2026-04-20-..._AI_Apple_AWS.md   -> "blue"    (specific: apple)
+        2026-04-30-..._AI_Malware...     -> falls to generic only if no
+                                            specific token is present
+    """
+    tokens = [t.lower() for t in _english_topics_from_filename(filename)]
+    for token in tokens:
+        theme = _TOPIC_THEME_SPECIFIC.get(token)
+        if theme:
+            return theme
+    for token in tokens:
+        theme = _TOPIC_THEME_GENERIC.get(token)
+        if theme:
+            return theme
+    # Title fallback (no mappable slug token). Word-boundary match so short
+    # keys do not misfire inside unrelated words ("rat" in "integration",
+    # "go" in "Google", "rce" in "source").
+    low = (title or "").lower()
+    for token, theme in _TOPIC_THEME_SPECIFIC.items():
+        if re.search(rf"\b{re.escape(token)}\b", low):
+            return theme
+    return "blue"
 
 
 # --- Story extraction ---
@@ -1018,6 +1096,7 @@ def _build_story(
     severity_label: str,
     action: Optional[str] = None,
     content_mode: bool = False,
+    cover_theme: Optional[str] = None,
 ) -> Dict:
     """Build a complete story dict ready for ``render_l20_hero``.
 
@@ -1026,6 +1105,11 @@ def _build_story(
             is clamped to ``"neutral"`` so the cover never shows a breach/C2
             motif on a benign guide post. Digest callers leave this False to
             preserve existing routing.
+        cover_theme: per-cover identity theme (from :func:`theme_for_topics`).
+            When supplied, the NEUTRAL hero band (index 0) adopts it instead of
+            the hard-coded blue so the digest gallery is not uniformly blue.
+            Honesty-neutral (palette only); claim-bearing bands and side cards
+            are unaffected, so existing routing/honesty classes are preserved.
     """
     visual = route_visual_id(headline)
     # Content covers: downgrade attack visuals to neutral so a guide post
@@ -1041,6 +1125,13 @@ def _build_story(
     # Theme: prefer visual-driven theme when content suggests it,
     # otherwise fall back to the index rotation.
     theme = _THEME_BY_VISUAL.get(visual, route_theme(str(index)))
+    # Per-cover identity color: a NEUTRAL hero band (index 0) would otherwise
+    # always render blue (_THEME_BY_VISUAL["neutral"]), making every all-neutral
+    # digest cover look identical. Recolor it to the post's topic theme. Only
+    # the neutral hero is affected (palette only -> honesty class unchanged);
+    # claim-bearing visuals keep their semantic theme.
+    if cover_theme and index == 0 and visual == "neutral":
+        theme = cover_theme
     kpi_value, kpi_label, kpi_sub = _infer_kpi(headline)
     # Market-routed bands: a USD figure is a PRICE, not an attack IMPACT.
     # ``_infer_kpi`` is generic and labels any "$71K" as IMPACT/estimated
@@ -1939,6 +2030,7 @@ def resolve_digest_band_visuals(
 def _apply_real_content(
     stories: List[Dict],
     post_info: Dict,
+    cover_theme: Optional[str] = None,
 ) -> None:
     """Override displayed headline/subheadline/visual/KPI from real post content.
 
@@ -1988,6 +2080,16 @@ def _apply_real_content(
             if "action" in story:
                 story["action"] = _action_for_visual(demoted)
 
+    # Per-cover identity color for the NEUTRAL hero band. _THEME_BY_VISUAL maps
+    # neutral -> blue, so every all-neutral digest cover rendered the same blue
+    # and the gallery looked identical. Recolor the hero (index 0) to the post's
+    # topic theme. Palette only: the honesty scorer fingerprints claim TEXT /
+    # visual class (replayed by resolve_digest_band_visuals), NOT the theme
+    # color, so the claim class is unchanged. Side cards keep their semantic
+    # theme so claim-bearing bands still read correctly.
+    if cover_theme and stories and stories[0].get("visual") == "neutral":
+        stories[0]["theme"] = cover_theme
+
     stats = _digest_stats(content)
     # KPI cards live on the two right panels (index 1, 2). Replace the
     # placeholder ``TBD / STATUS / NEW`` with real counts when available.
@@ -2027,12 +2129,14 @@ def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
 
         hero_dict, tr_dict, br_dict = extract_three_stories(title, excerpt, filename)
 
+        cover_theme = theme_for_topics(filename, title)
         hero_story = _build_story(
             headline=hero_dict["headline"],
             subheadline=hero_dict["subheadline"],
             index=0,
             severity_label="HIGH",
             action=_action_for(hero_dict["headline"]),
+            cover_theme=cover_theme,
         )
         tr_story = _build_story(
             headline=tr_dict["headline"],
@@ -2050,8 +2154,11 @@ def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:
         # Surface the post's REAL reported content (lead story entities, real
         # source attribution, real collection counts) over the generic
         # filename-keyword text + ``TBD`` KPI placeholders. Visual routing /
-        # theme / action are left untouched, so the honesty class is unchanged.
-        _apply_real_content([hero_story, tr_story, br_story], post_info)
+        # action are left untouched, so the honesty class is unchanged; only the
+        # neutral hero's palette is recolored to the post's topic theme.
+        _apply_real_content(
+            [hero_story, tr_story, br_story], post_info, cover_theme=cover_theme
+        )
 
         date_str = _date_str_from_filename(
             filename, fallback=str(post_info.get("date", "") or "")
