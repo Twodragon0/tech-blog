@@ -784,6 +784,62 @@ def check_duplicate_practical_points(content: str) -> List[str]:
     return issues
 
 
+_PRACTICAL_HEADER = "#### 실무 적용 포인트"
+
+
+def _practical_blocks(lines: List[str]):
+    """Yield (start, end_exclusive, bullet_tuple) for each practical-point block.
+
+    A block = the header line, the blank line(s) right after it, the run of
+    consecutive ``- `` bullets, and one absorbed trailing blank. Mirrors the
+    parsing in :func:`check_duplicate_practical_points` so detect/fix agree.
+    """
+    i, n = 0, len(lines)
+    while i < n:
+        if lines[i].strip() == _PRACTICAL_HEADER:
+            j = i + 1
+            while j < n and lines[j].strip() == "":
+                j += 1
+            bullets = []
+            while j < n and lines[j].lstrip().startswith("- "):
+                bullets.append(lines[j].strip())
+                j += 1
+            end = j + 1 if (j < n and lines[j].strip() == "") else j
+            yield (i, end, tuple(bullets))
+            i = end
+        else:
+            i += 1
+
+
+def fix_duplicate_practical_points(content: str, overlap: int = 2):
+    """Remove redundant '실무 적용 포인트' blocks, returning (new_content, removed).
+
+    A block is removed when its full bullet set already appeared (exact
+    duplicate) OR it shares >= ``overlap`` bullets with bullets seen in earlier
+    blocks (the _pick_variant collision repeats the same advice bullets across
+    two news items even when their context/impact bullets differ). The first
+    occurrence is always kept; everything else is untouched.
+    """
+    lines = content.split("\n")
+    seen_blocks: set = set()
+    seen_bullets: set = set()
+    drop: set = set()
+    removed = 0
+    for start, end, key in _practical_blocks(lines):
+        if not key:
+            continue
+        bset = set(key)
+        if key in seen_blocks or len(bset & seen_bullets) >= overlap:
+            drop.update(range(start, end))
+            removed += 1
+        else:
+            seen_blocks.add(key)
+            seen_bullets |= bset
+    if not drop:
+        return content, 0
+    return "\n".join(ln for idx, ln in enumerate(lines) if idx not in drop), removed
+
+
 def main():
     """메인 함수"""
     parser = argparse.ArgumentParser(
@@ -799,6 +855,9 @@ def main():
   
   # 특정 파일만 검증
   python3 scripts/check_posts.py _posts/2025-01-01-example.md
+
+  # 중복 '실무 적용 포인트' 블록 자동 제거 후 검증
+  python3 scripts/check_posts.py --fix
         """,
     )
 
@@ -809,6 +868,11 @@ def main():
         "--changed",
         action="store_true",
         help="Git 기준 변경된 포스트(_posts/*.md)만 검증",
+    )
+    parser.add_argument(
+        "--fix",
+        action="store_true",
+        help="자동 수정 가능한 이슈 수정 (중복 '실무 적용 포인트' 블록 제거)",
     )
     parser.add_argument("file", nargs="?", help="검증할 특정 파일 (선택사항)")
 
@@ -867,6 +931,7 @@ def main():
 
     all_issues = {}
     total_issues = 0
+    total_fixed = 0
 
     for post_file in post_files:
         if not post_file.exists():
@@ -878,6 +943,18 @@ def main():
 
         issues = []
         content = post_file.read_text(encoding="utf-8")
+
+        # --fix: remove redundant '실무 적용 포인트' blocks BEFORE checking so
+        # the post is written clean and the subsequent checks see fixed content.
+        if args.fix:
+            fixed_content, removed = fix_duplicate_practical_points(content)
+            if removed:
+                post_file.write_text(fixed_content, encoding="utf-8")
+                content = fixed_content
+                total_fixed += removed
+                if not args.detailed_only:
+                    print(f"  🔧 fixed: removed {removed} duplicate practical-point block(s)")
+
         front_matter, _ = extract_front_matter(content)
 
         # Front matter 검증
@@ -934,6 +1011,8 @@ def main():
     if not args.detailed_only:
         print(f"\n{'=' * 60}")
         print(f"Summary: {total_issues} total issues found in {len(all_issues)} files")
+        if args.fix:
+            print(f"Auto-fixed: {total_fixed} duplicate practical-point block(s)")
         print(f"{'=' * 60}\n")
 
     # 상세 리포트

@@ -13,6 +13,7 @@ from scripts.check_posts import (
     check_ai_summary_card,
     check_dummy_links,
     check_duplicate_practical_points,
+    fix_duplicate_practical_points,
     check_image_exists,
     check_image_files,
     check_image_paths,
@@ -283,6 +284,64 @@ class TestCheckDuplicatePracticalPoints:
         issues = check_duplicate_practical_points(content)
         # Only counted within the section, not across sections
         assert len(issues) == 1
+
+
+# ---------------------------------------------------------------------------
+# fix_duplicate_practical_points (--fix)
+# ---------------------------------------------------------------------------
+
+
+def _block(b1, b2, b3):
+    return f"#### 실무 적용 포인트\n\n- {b1}\n- {b2}\n- {b3}\n\n---\n\n"
+
+
+class TestFixDuplicatePracticalPoints:
+    def test_removes_exact_duplicate_block(self):
+        dup = _block("A 항목", "B 항목", "C 항목")
+        content = "intro\n\n" + dup + dup
+        fixed, removed = fix_duplicate_practical_points(content)
+        assert removed == 1
+        assert fixed.count("#### 실무 적용 포인트") == 1
+        # The fixed content must now be clean per the detector.
+        assert check_duplicate_practical_points(fixed) == []
+
+    def test_removes_partial_overlap_block(self):
+        # Two blocks sharing 2 of 3 bullets (the _pick_variant collision):
+        # different context/impact bullet, same advice middle bullets.
+        b_a = _block("ctx-1", "GPU 모니터링 연계", "VPC 분리 검토")
+        b_b = _block("ctx-2", "GPU 모니터링 연계", "VPC 분리 검토")
+        content = b_a + b_b
+        fixed, removed = fix_duplicate_practical_points(content)
+        assert removed == 1
+        assert check_duplicate_practical_points(fixed) == []
+
+    def test_keeps_distinct_blocks(self):
+        content = (
+            _block("A", "B", "C") + _block("D", "E", "F") + _block("G", "H", "I")
+        )
+        fixed, removed = fix_duplicate_practical_points(content)
+        assert removed == 0
+        assert fixed == content  # untouched
+
+    def test_no_dangling_header_after_removal(self):
+        dup = _block("X 항목", "Y 항목", "Z 항목")
+        content = dup + dup
+        fixed, _ = fix_duplicate_practical_points(content)
+        # Every remaining header must be followed by bullets (no orphan header).
+        lines = fixed.split("\n")
+        for i, ln in enumerate(lines):
+            if ln.strip() == "#### 실무 적용 포인트":
+                j = i + 1
+                while j < len(lines) and lines[j].strip() == "":
+                    j += 1
+                assert j < len(lines) and lines[j].lstrip().startswith("- ")
+
+    def test_idempotent(self):
+        dup = _block("P", "Q", "R")
+        once, _ = fix_duplicate_practical_points(dup + dup)
+        twice, removed2 = fix_duplicate_practical_points(once)
+        assert removed2 == 0
+        assert twice == once
 
 
 # ---------------------------------------------------------------------------
