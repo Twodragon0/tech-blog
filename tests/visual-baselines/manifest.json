@@ -46,8 +46,8 @@
   },
   "2026-03-23-Tech_Security_Weekly_Digest_Ransomware.svg": {
     "png": "2026-03-23-Tech_Security_Weekly_Digest_Ransomware.png",
-    "sha256": "c42e44c6f887fcb20900aeb332ef3bc95c0bd3aeb775d9691eab75dee9b491dd",
-    "bytes": 142361
+    "sha256": "7d4c70b9b0c1d3adbb59d25c4134e898e140a92793b932e81309a5eeead029bd",
+    "bytes": 144034
   },
   "2026-03-24-Tech_Security_Weekly_Digest_Malware_Data_AWS_AI.svg": {
     "png": "2026-03-24-Tech_Security_Weekly_Digest_Malware_Data_AWS_AI.png",
@@ -56,13 +56,13 @@
   },
   "2026-03-25-Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent.svg": {
     "png": "2026-03-25-Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent.png",
-    "sha256": "67dd4b53b336cdd007014d77dded5adb8c4f15d4be4febff901452c7e6db585d",
-    "bytes": 135340
+    "sha256": "d95ca8afb65d1d2f34489c60a590a1f8966799132a5da07f1adcc68e78153f26",
+    "bytes": 141961
   },
   "2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI.svg": {
     "png": "2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI.png",
-    "sha256": "437b41d5cc85814c190d8221fa94003d4f1b1d2d65ed1fdee083853e3e3802f3",
-    "bytes": 141201
+    "sha256": "3616cd56db0f4fef0a5c1ba1d260dbf85f8acf2203d4acfcb6d5e96df58a9194",
+    "bytes": 142130
   },
   "2026-03-27-Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps.svg": {
     "png": "2026-03-27-Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps.png",
@@ -76,8 +76,8 @@
   },
   "2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain.svg": {
     "png": "2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain.png",
-    "sha256": "cce2258e6f09fbd5c13fc166916568262479816f927c856c79a1c68a950d1873",
-    "bytes": 137796
+    "sha256": "87fcfb1f1fc6d059ff6ae959f76924513cdd5ee6233ec1b2da7ed9a1ddc1620a",
+    "bytes": 139599
   },
   "2026-03-30-March_2026_Security_Digest_Monthly_Index.svg": {
     "png": "2026-03-30-March_2026_Security_Digest_Monthly_Index.png",
@@ -126,8 +126,8 @@
   },
   "2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.svg": {
     "png": "2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.png",
-    "sha256": "993dc54ad52e5fd594502dde90ed8a64e4431825781b978b8f8b289c50dcc662",
-    "bytes": 140054
+    "sha256": "9b0a5cf6ccd9f237c3e73fffb44f4986d22cb52c1bef5d82a63bdec43500bb72",
+    "bytes": 146665
   },
   "2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.svg": {
     "png": "2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.png",
