@@ -56,7 +56,9 @@ whole 203-cover corpus on every `assets/images/**.svg` change.
 - **Regen path gotcha**: `generate_post_images.py --svg-only` has L20 DISABLED
   (`L20_HERO_ENABLED=False`) → L22 fallback. The real L20 generator is the cron
   path `auto_publish_news._render_l20_svg_string`; regenerate via
-  `scripts/_regen_june_l20_covers.py`. (memory: `l20-regen-path-gotcha`)
+  `scripts/regen_l20_digest_covers.py` (renamed from `_regen_june_l20_covers.py`
+  2026-06-24; see `scripts/docs/regen_l20_digest_covers.md`). (memory:
+  `l20-regen-path-gotcha`)
 - **Spec safety**: never L20-regenerate spec/rollup covers. Rollup posts
   (Week/Monthly_Index) don't match the `Weekly_Digest` glob; the 3 digest_covers
   specs (04-26/27/28) are reverted after a glob run. Verified spec-leak = 0.
