@@ -124,3 +124,14 @@ if [ -n "$STAGED_POSTS" ]; then
   fi
   echo "[pre-commit] KST-midnight check: passed."
 fi
+
+# 9. Auto-dedup duplicate '실무 적용 포인트' blocks in staged posts.
+#    The pre-2026-06-24 generator could repeat the same advice block across two
+#    news items (_pick_variant collision). This removes those repeats from
+#    staged posts and re-stages the cleaned content. Posts with UNSTAGED edits
+#    are skipped (won't sweep un-reviewed hunks). Non-blocking auto-fix.
+if [ -n "$STAGED_POSTS" ]; then
+  echo "[pre-commit] Deduping practical-point blocks in staged posts..."
+  python3 "$REPO_ROOT/scripts/check_posts.py" --fix --staged
+  echo "[pre-commit] Practical-point dedup: done."
+fi

@@ -874,6 +874,11 @@ def main():
         action="store_true",
         help="자동 수정 가능한 이슈 수정 (중복 '실무 적용 포인트' 블록 제거)",
     )
+    parser.add_argument(
+        "--staged",
+        action="store_true",
+        help="Git staged(_posts/*.md)만 대상. --fix와 함께 쓰면 수정 후 자동 re-stage",
+    )
     parser.add_argument("file", nargs="?", help="검증할 특정 파일 (선택사항)")
 
     args = parser.parse_args()
@@ -914,17 +919,72 @@ def main():
 
         return [PROJECT_ROOT / rel for rel in sorted(changed)]
 
+    def _resolve_staged_posts() -> list[Path]:
+        """Posts staged for commit (git diff --cached, added/copied/modified)."""
+        try:
+            result = subprocess.run(
+                ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM",
+                 "--", "_posts/*.md"],
+                cwd=PROJECT_ROOT, check=False, capture_output=True, text=True,
+            )
+        except OSError:
+            return []
+        out = []
+        for line in result.stdout.splitlines():
+            rel = line.strip()
+            if rel.endswith(".md") and rel.startswith("_posts/"):
+                out.append(PROJECT_ROOT / rel)
+        return out
+
+    def _has_unstaged_changes(path: Path) -> bool:
+        """True if the working tree differs from the index for ``path`` — auto-
+        fixing would otherwise sweep those un-reviewed hunks into the commit."""
+        rel = str(path.relative_to(PROJECT_ROOT)) if path.is_absolute() else str(path)
+        result = subprocess.run(
+            ["git", "diff", "--quiet", "--", rel],
+            cwd=PROJECT_ROOT, check=False,
+        )
+        return result.returncode != 0
+
+    def _git_add(path: Path) -> None:
+        rel = str(path.relative_to(PROJECT_ROOT)) if path.is_absolute() else str(path)
+        subprocess.run(["git", "add", "--", rel], cwd=PROJECT_ROOT, check=False)
+
     # 파일 목록
     if args.file:
         post_files = [Path(args.file)]
         if not post_files[0].is_absolute():
             post_files[0] = PROJECT_ROOT / post_files[0]
+    elif args.staged:
+        post_files = _resolve_staged_posts()
     elif args.changed:
         post_files = _resolve_changed_posts()
     else:
         post_files = sorted(POSTS_DIR.glob("*.md"))
         # Skip AGENTS.md (deepinit hierarchical AI guide, not a blog post)
         post_files = [p for p in post_files if p.name != "AGENTS.md"]
+
+    # Focused auto-fix fast path (pre-commit hook): dedup staged posts and
+    # re-stage, without running the full audit (other gates cover that).
+    if args.fix and args.staged:
+        fixed_total = 0
+        for post_file in post_files:
+            if not post_file.exists():
+                continue
+            if _has_unstaged_changes(post_file):
+                print(f"  ⏭️  skip auto-fix (has unstaged changes): {post_file.name}")
+                continue
+            new_content, removed = fix_duplicate_practical_points(
+                post_file.read_text(encoding="utf-8")
+            )
+            if removed:
+                post_file.write_text(new_content, encoding="utf-8")
+                _git_add(post_file)
+                fixed_total += removed
+                print(f"  🔧 {post_file.name}: removed {removed} block(s) (re-staged)")
+        print(f"Auto-fixed {fixed_total} duplicate practical-point block(s) "
+              f"in {len(post_files)} staged post(s).")
+        return
 
     if not args.detailed_only:
         print(f"📝 Found {len(post_files)} post files\n")
@@ -947,13 +1007,22 @@ def main():
         # --fix: remove redundant '실무 적용 포인트' blocks BEFORE checking so
         # the post is written clean and the subsequent checks see fixed content.
         if args.fix:
-            fixed_content, removed = fix_duplicate_practical_points(content)
-            if removed:
-                post_file.write_text(fixed_content, encoding="utf-8")
-                content = fixed_content
-                total_fixed += removed
-                if not args.detailed_only:
-                    print(f"  🔧 fixed: removed {removed} duplicate practical-point block(s)")
+            # In --staged mode, skip any post that also has UNSTAGED edits — auto-
+            # fixing + re-staging would otherwise sweep un-reviewed hunks into the
+            # commit. Such posts are reported (not silently passed).
+            if args.staged and _has_unstaged_changes(post_file):
+                print(f"  ⏭️  skip auto-fix (has unstaged changes): {post_file.name}")
+            else:
+                fixed_content, removed = fix_duplicate_practical_points(content)
+                if removed:
+                    post_file.write_text(fixed_content, encoding="utf-8")
+                    content = fixed_content
+                    total_fixed += removed
+                    if args.staged:
+                        _git_add(post_file)  # re-stage the cleaned content
+                    if not args.detailed_only:
+                        restaged = " (re-staged)" if args.staged else ""
+                        print(f"  🔧 fixed: removed {removed} duplicate practical-point block(s){restaged}")
 
         front_matter, _ = extract_front_matter(content)
 
