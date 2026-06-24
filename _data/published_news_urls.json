@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-23T00:36:32.164633+00:00",
+  "updated_at": "2026-06-24T00:32:42.438534+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/06/meta-to-use-off-site-business-data-for.html",
@@ -1230,6 +1230,96 @@
       "title": "동원F&B의 Amazon Bedrock AgentCore 기반 AI 쇼핑 어시스턴트로 쇼핑 경험 혁신 여정",
       "published_date": "2026-06-23",
       "expires_at": "2026-06-30T00:36:32.164526+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/fortibleed-targeted-fortigate-firewalls.html",
+      "title": "FortiBleed Targeted FortiGate Firewalls in 110 Million-Credential Harvesting Ope",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/fake-ai-agent-skill-passed-security.html",
+      "title": "Fake AI Agent Skill Passed Security Scans and Reportedly Reached 26,000 Agents",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/trump-order-sets-2030-deadline-for.html",
+      "title": "Trump Order Sets 2030 Deadline for Federal Post-Quantum Crypto Migration",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/github-updates-actionscheckout-to-block.html",
+      "title": "GitHub Updates actions/checkout to Block Common Pwn Request Attack Patterns",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/cisco-unified-cm-sme-flaw-cve-2026-20230-now-exploited-in-attacks/",
+      "title": "Cisco Unified CM flaw CVE-2026-20230 now exploited in attacks",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/",
+      "title": "NVIDIA and AWS Collaborate to Bring AI to Production at Scale",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://openai.com/index/gpt-5-immunology-mystery",
+      "title": "How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/06/23/production-engineering/how-meta-built-ultra-narrow-batteries-for-ai-glasses-meta-tech-podcast/",
+      "title": "How Meta Engineered Ultra-Narrow Batteries for AI Glasses",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-agent-toolkit-open-models-tools-skills-secure-runtime-ai-agents/",
+      "title": "How Businesses Are Building Specialized AI They Can Trust",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://openai.com/index/helping-build-shared-standards-for-advanced-ai",
+      "title": "Helping build shared standards for advanced AI",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/management-tools/query-logs-and-traces-with-sql-in-observability-analytics/",
+      "title": "Log Analytics is now Observability Analytics: Query logs and traces with SQL",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/verifiable-trust-in-the-ai-era-whats-new-in-confidential-computing/",
+      "title": "Verifiable, private AI: Google Cloud expands Confidential Computing frontiers",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/telecommunications/open-models-global-networks-how-att-and-gsma-are-accelerating-innovation-with-gemma/",
+      "title": "Open models, global networks: How AT&T and GSMA are accelerating telecom innovat",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-23-secret-scanning-adds-extended-metadata-for-replicate-secrets",
+      "title": "Secret scanning adds extended metadata for Replicate secrets",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-23-fetch-code-quality-findings-via-rest-api",
+      "title": "Fetch Code Quality findings via REST API",
+      "published_date": "2026-06-24",
+      "expires_at": "2026-07-01T00:32:42.438419+00:00"
     }
   ]
 }
