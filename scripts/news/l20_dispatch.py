@@ -1125,12 +1125,12 @@ def _build_story(
     # Theme: prefer visual-driven theme when content suggests it,
     # otherwise fall back to the index rotation.
     theme = _THEME_BY_VISUAL.get(visual, route_theme(str(index)))
-    # Per-cover identity color: a NEUTRAL hero band (index 0) would otherwise
-    # always render blue (_THEME_BY_VISUAL["neutral"]), making every all-neutral
-    # digest cover look identical. Recolor it to the post's topic theme. Only
-    # the neutral hero is affected (palette only -> honesty class unchanged);
-    # claim-bearing visuals keep their semantic theme.
-    if cover_theme and index == 0 and visual == "neutral":
+    # Per-cover identity color: an honest hero band (index 0) would otherwise
+    # always render its fixed palette (neutral -> blue, security_advisory ->
+    # amber), making the gallery repetitive. Recolor it to the post's topic
+    # theme. Only the two honest hero classes are affected (palette only ->
+    # honesty class unchanged); incident visuals keep their semantic theme.
+    if cover_theme and index == 0 and visual in ("neutral", "security_advisory"):
         theme = cover_theme
     kpi_value, kpi_label, kpi_sub = _infer_kpi(headline)
     # Market-routed bands: a USD figure is a PRICE, not an attack IMPACT.
@@ -2080,14 +2080,20 @@ def _apply_real_content(
             if "action" in story:
                 story["action"] = _action_for_visual(demoted)
 
-    # Per-cover identity color for the NEUTRAL hero band. _THEME_BY_VISUAL maps
-    # neutral -> blue, so every all-neutral digest cover rendered the same blue
-    # and the gallery looked identical. Recolor the hero (index 0) to the post's
-    # topic theme. Palette only: the honesty scorer fingerprints claim TEXT /
-    # visual class (replayed by resolve_digest_band_visuals), NOT the theme
-    # color, so the claim class is unchanged. Side cards keep their semantic
-    # theme so claim-bearing bands still read correctly.
-    if cover_theme and stories and stories[0].get("visual") == "neutral":
+    # Per-cover identity color for the hero band. _THEME_BY_VISUAL maps
+    # neutral -> blue and security_advisory -> amber, so all-neutral covers
+    # rendered the same blue and the (frequent) advisory-shield heroes all
+    # rendered the same amber — the gallery looked repetitive either way.
+    # Recolor the hero (index 0) to the post's topic theme for BOTH honest
+    # classes (neutral + security_advisory). Palette only: the honesty scorer
+    # fingerprints claim TEXT / visual class (replayed by
+    # resolve_digest_band_visuals), NOT the theme color, so the claim class is
+    # unchanged. Side cards keep their semantic theme so claim-bearing bands
+    # still read correctly. The advisory shield's own SEVERITY text comes from
+    # real content, so a red shield on a malware/APT post reads correctly.
+    if cover_theme and stories and stories[0].get("visual") in (
+        "neutral", "security_advisory"
+    ):
         stories[0]["theme"] = cover_theme
 
     stats = _digest_stats(content)

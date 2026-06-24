@@ -1898,3 +1898,26 @@ class TestTopicCoverTheme:
             _apply_real_content([hero], {"content": ""}, cover_theme=theme)
             assert hero["visual"] == "neutral"
             assert hero["theme"] == theme
+
+    def test_security_advisory_hero_adopts_cover_theme(self):
+        # An advisory-shield hero (security_advisory) must adopt the topic theme
+        # so the gallery is not a wall of identical amber shields. The class is
+        # unchanged (palette only) -> honesty gate unaffected.
+        hero = _build_story(headline="Security Advisory", subheadline="x",
+                            index=0, severity_label="HIGH", action="READ")
+        assert hero["visual"] == "security_advisory"  # routed before recolor
+        _apply_real_content([hero], {"content": ""}, cover_theme="red")
+        assert hero["visual"] == "security_advisory"  # class preserved
+        assert hero["theme"] == "red"                 # palette recolored
+
+    def test_build_story_advisory_hero_recolor(self):
+        # _build_story path (pre-real-content) also recolors an advisory hero.
+        hero = _build_story(headline="Security Advisory", subheadline="x",
+                            index=0, severity_label="HIGH", action="READ",
+                            cover_theme="green")
+        assert hero["visual"] == "security_advisory"
+        assert hero["theme"] == "green"
+        # A side advisory band (index>=1) is NOT recolored by cover_theme.
+        side = _build_story(headline="Security Advisory", subheadline="x",
+                            index=1, severity_label="HIGH", cover_theme="green")
+        assert side["theme"] != "green" or side["visual"] != "security_advisory"
