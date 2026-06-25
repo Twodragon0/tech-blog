@@ -1071,6 +1071,14 @@ def vb_security_advisory(cx: int, cy: int, theme: str = "amber", severity: str =
         # Shield stroke/fill/check pinned GREEN (semantic "reviewed/OK") so it
         # never reads as a red alarm under a red/topic-colored frame.
         f'<g transform="translate(-92,-46)">'
+        # 1px dark keyline ring UNDER the green outline: a wider near-black
+        # backing stroke leaves ~1px of dark on each side of the 2.4px green
+        # outline, giving the green shield a crisp dark moat so it stays
+        # separated from the surrounding card frame (often red, #E63946) at
+        # thumbnail scale. Static (no pulse), invisible on the flat dark card,
+        # only reads where the green meets the card's red ambient/vignette.
+        f'<path d="M40 0 L78 14 L78 56 Q78 92 40 108 Q2 92 2 56 L2 14 Z" '
+        f'fill="none" stroke="#060912" stroke-width="4.6" stroke-linejoin="round"/>'
         f'<path d="M40 0 L78 14 L78 56 Q78 92 40 108 Q2 92 2 56 L2 14 Z" '
         f'fill="none" stroke="{shield_a}" stroke-width="2.4" stroke-linejoin="round">'
         f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></path>'
