@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-24T00:32:42.438534+00:00",
+  "updated_at": "2026-06-25T00:36:23.371290+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/meta-to-use-off-site-business-data-for.html",
-      "title": "Meta to Use Off-Site Business Data for Feed and AI Personalization",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/veeam-backup-replication-rce-flaw-lets.html",
-      "title": "Veeam Backup & Replication RCE Flaw Lets Domain Users Run Remote Code",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/microsoft-restores-some-github-repos.html",
-      "title": "Microsoft Restores Some GitHub Repos, Keeps Others Offline as Miasma Probe Conti",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-defender-rogueplanet-zero-day-grants-system-privileges/",
-      "title": "Microsoft Defender 'RoguePlanet' zero-day grants SYSTEM privileges",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/winrar-flaw-exploited-by-russia-aligned.html",
-      "title": "WinRAR Flaw Exploited by Russia-Aligned Groups to Deploy Stealers in Ukraine",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-confidential-computing-apple-private-cloud-compute/",
-      "title": "NVIDIA Confidential Computing to Help Expand Apple’s Private Cloud Compute",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/",
-      "title": "Fluid, natural voice translation with Gemini 3.5 Live Translate",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://openai.com/index/nextdoor",
-      "title": "How engineers at Nextdoor use Codex to build without limits",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://openai.com/index/notion",
-      "title": "What Codex unlocks for Notion",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/scale-robot-reinforcement-learning-with-nvidia-isaac-lab-on-amazon-sagemaker-ai/",
-      "title": "Scale Robot Reinforcement Learning with NVIDIA Isaac Lab on Amazon SageMaker AI",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/cloud-fable-5-on-google-cloud/",
-      "title": "Claude Fable 5: Available on Google Cloud",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/gemini-for-government-your-blueprint-for-mission-impact/",
-      "title": "Gemini for Government: Your blueprint for mission impact",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-inference-gateway-prefix-caching-accelerates-ai-inference/",
-      "title": "Report: GKE Inference Gateway delivers up to 92% faster AI responses",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/storage-data-transfer/analyze-cloud-storage-estates-with-storage-insights-datasets/",
-      "title": "Storage Insights datasets: Enabling org-wide operational discovery with activity",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-to-measure-the-business-value-of-generative-ai/",
-      "title": "How to unlock true ROI in software development – a deep dive into the latest DOR",
-      "published_date": "2026-06-10",
-      "expires_at": "2026-06-17T00:39:24.286849+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/china-linked-jdy-botnet-expands-to-1500.html",
       "title": "China-Linked JDY Botnet Expands to 1,500+ Devices for Cyber Reconnaissance",
@@ -1320,6 +1230,96 @@
       "title": "Fetch Code Quality findings via REST API",
       "published_date": "2026-06-24",
       "expires_at": "2026-07-01T00:32:42.438419+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/cisa-warns-critical-lantronix-eds5000.html",
+      "title": "CISA Warns Critical Lantronix EDS5000 Flaw Is Being Actively Exploited",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/amadey-and-stealc-malware-network.html",
+      "title": "Amadey and StealC Malware Network Disrupted, 27M Stolen Credentials Recovered",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/restrict-aws-management-console-access-to-expected-networks-with-sign-in-resource-based-policies-and-rcps/",
+      "title": "Restrict AWS Management Console access to expected networks with sign-in resourc",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/google/google-releases-new-privacy-controls-for-activity-history-personalization/",
+      "title": "Google releases new privacy controls for activity history, personalization",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/cordyceps-cicd-flaws-expose-300-github.html",
+      "title": "Cordyceps CI/CD Flaws Expose 300+ GitHub Repositories to Supply-Chain Attacks",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip",
+      "title": "OpenAI and Broadcom unveil LLM-optimized inference chip",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/",
+      "title": "Huntington Bank: Redacting sensitive data from 400M+ documents with AWS",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-healthcare-appointment-agent-with-amazon-nova-2-sonic/",
+      "title": "Build a healthcare appointment agent with Amazon Nova 2 Sonic",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/ai-powered-bi-with-snowflake-and-amazon-quick/",
+      "title": "AI-powered BI with Snowflake and Amazon Quick",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-loka-built-a-natural-low-latency-voice-agent-with-amazon-nova-2-sonic/",
+      "title": "How Loka Built a Natural, Low-Latency Voice Agent with Amazon Nova 2 Sonic",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/storage-data-transfer/backup-and-dr-service-adds-cross-region-backups/",
+      "title": "Enhanced data resilience with cross-region backups in Backup and DR Service",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-24-self-service-credential-revocation-for-incident-response",
+      "title": "Self-service credential revocation for incident response",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-24-changes-to-model-selection-for-free-and-student-plans",
+      "title": "Changes to model selection for Free and Student plans",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/06/24/from-awareness-to-engineered-accessibility-in-open-source/",
+      "title": "From Awareness to Engineered Accessibility in Open Source",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://kubernetes.io/blog/2026/06/24/wg-device-management-spotlight-2026/",
+      "title": "Spotlight on WG Device Management",
+      "published_date": "2026-06-25",
+      "expires_at": "2026-07-02T00:36:23.371204+00:00"
     }
   ]
 }
