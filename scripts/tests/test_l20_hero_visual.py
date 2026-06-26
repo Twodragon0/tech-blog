@@ -808,6 +808,58 @@ def test_vb_security_advisory_routes_and_renders_via_dispatch() -> None:
     assert out == svg_l20_hero.vb_security_advisory(800, 230, "amber")
 
 
+def test_advisory_emblem_rotates_and_stays_honest() -> None:
+    """cover_seed rotates the central emblem among _ADVISORY_EMBLEM_COUNT honest
+    variants. Every variant must stay ASCII, well-formed, keep the SECURITY
+    ADVISORY claim label, the semantic-green emblem, and fabricate NO specifics
+    (the rotation is claim-invariant, so the honesty scorer is unaffected)."""
+    green = svg_l20_hero.THEMES["green"]["accent"]
+    n = svg_l20_hero._ADVISORY_EMBLEM_COUNT
+    seen = set()
+    for v in range(n):
+        # theme="red" is load-bearing for the `green in out` assertion below:
+        # under a red theme the ONLY source of the green token is the pinned
+        # emblem, so the check genuinely guards the semantic-green pin (it would
+        # pass via chrome accent under theme="green").
+        out = svg_l20_hero.vb_security_advisory(800, 230, "red", severity="HIGH", cover_seed=v)
+        seen.add(out)
+        assert out.isascii(), f"variant {v} non-ASCII"
+        try:
+            ET.fromstring(_wrap_svg(out))
+        except ET.ParseError as exc:
+            pytest.fail(f"advisory emblem variant {v} not well-formed: {exc}")
+        assert "SECURITY ADVISORY" in out, f"variant {v} missing claim label"
+        assert green in out, f"variant {v} dropped semantic-green emblem"
+        low = out.lower()
+        for token in _FABRICATED_SPECIFIC_VOCAB:
+            assert token.lower() not in low, f"variant {v} fabricated {token!r}"
+        # Geometry must stay inside the original shield's ~80x108 box (the caller
+        # wraps the emblem in translate(-92,-46)); a glyph spilling outside would
+        # overlap the severity gauge / card frame. Guard against future variants
+        # drifting out of bounds by checking every emblem coordinate.
+        emblem = svg_l20_hero._advisory_emblem(v, green, green)
+        coords = [float(m) for m in re.findall(r"(?<![#\w.])-?\d+(?:\.\d+)?", emblem)]
+        assert coords, f"variant {v} emitted no coordinates"
+        assert max(coords) <= 115, f"variant {v} coordinate {max(coords)} exceeds ~80x108 box"
+        assert min(coords) >= -5, f"variant {v} coordinate {min(coords)} below box origin"
+    assert len(seen) == n, f"emblem variants not distinct: {len(seen)} of {n}"
+
+
+def test_advisory_emblem_variant0_byte_identical_to_default() -> None:
+    """cover_seed=0 (and any seed where seed % N == 0) must render the original
+    shield+check emblem byte-identically, so default-seed callers and the
+    dispatch-equality contract stay green."""
+    default = svg_l20_hero.vb_security_advisory(800, 230, "amber", severity="HIGH")
+    seed0 = svg_l20_hero.vb_security_advisory(800, 230, "amber", severity="HIGH", cover_seed=0)
+    assert default == seed0
+    # A seed that is a multiple of the count also lands on variant 0.
+    assert (
+        svg_l20_hero.vb_security_advisory(800, 230, "amber", severity="HIGH",
+                                          cover_seed=svg_l20_hero._ADVISORY_EMBLEM_COUNT)
+        == seed0
+    )
+
+
 def test_advisory_shield_pinned_green_regardless_of_topic_theme() -> None:
     """The shield + checkmark stay semantic green even when the topic theme
     recolors the surrounding chrome — a red checkmark shield would read as a

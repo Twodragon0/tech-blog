@@ -1009,7 +1009,96 @@ def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
     )
 
 
-def vb_security_advisory(cx: int, cy: int, theme: str = "amber", severity: str = "") -> str:
+_ADVISORY_EMBLEM_COUNT = 4
+
+
+def _advisory_emblem(variant: int, shield_a: str, shield_soft: str) -> str:
+    """Central honest "review / advisory" emblem for ``vb_security_advisory``.
+
+    Rotated per-cover by ``cover_seed % _ADVISORY_EMBLEM_COUNT`` so two advisory
+    covers that share a theme colour and severity word still differ visually at
+    thumbnail scale. Every variant carries the SAME semantic claim — "there is a
+    security advisory; review it" — and asserts NOTHING more: no CVE-id, no
+    active-exploitation, no attacker / victim / C2 / exploit-chain. The emblem
+    holds the FIXED semantic green (``shield_a``/``shield_soft`` are pinned green
+    by the caller) so it never reads as a red false-alarm under a red card frame.
+    This is the advisory analogue of the ``vb_neutral`` motif rotation and is
+    claim-invariant, so ``score_cover_honesty.py`` (which fingerprints the
+    ``SECURITY ADVISORY`` text label, not the glyph geometry) is unaffected.
+
+    ``variant == 0`` is the original shield+check and is byte-identical to the
+    pre-rotation emblem, so default-seed callers and the dispatch-equality test
+    stay green.
+
+    All geometry sits inside the same ~80x108 box the original shield occupied
+    (the caller wraps it in ``translate(-92,-46)``), so the surrounding card
+    layout is unchanged. ASCII-only, no ``<text>``.
+    """
+    a, soft = shield_a, shield_soft
+    v = variant % _ADVISORY_EMBLEM_COUNT
+    if v == 1:
+        # Reviewed advisory DOCUMENT: page w/ folded corner, body lines, check.
+        return (
+            f'<path d="M8 4 H58 L72 18 V104 H8 Z" fill="none" stroke="#060912" '
+            f'stroke-width="4.6" stroke-linejoin="round"/>'
+            f'<path d="M8 4 H58 L72 18 V104 H8 Z" fill="none" stroke="{a}" '
+            f'stroke-width="2.4" stroke-linejoin="round">'
+            f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></path>'
+            f'<path d="M58 4 V18 H72" fill="none" stroke="{a}" stroke-width="2"/>'
+            f'<g stroke="{a}" stroke-width="2.4" opacity="0.5" stroke-linecap="round">'
+            f'<line x1="18" y1="38" x2="62" y2="38"/><line x1="18" y1="52" x2="62" y2="52"/>'
+            f'<line x1="18" y1="66" x2="48" y2="66"/></g>'
+            f'<path d="M22 88 L32 98 L52 76" fill="none" stroke="{soft}" stroke-width="3.2" '
+            f'stroke-linecap="round" stroke-linejoin="round">'
+            f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/></path>'
+        )
+    if v == 2:
+        # INSPECT / review: document lines under a magnifier with a check inside.
+        return (
+            f'<g stroke="{a}" stroke-width="2.4" opacity="0.4" stroke-linecap="round">'
+            f'<line x1="4" y1="16" x2="52" y2="16"/><line x1="4" y1="32" x2="44" y2="32"/>'
+            f'<line x1="4" y1="48" x2="56" y2="48"/></g>'
+            f'<circle cx="44" cy="60" r="26" fill="none" stroke="#060912" stroke-width="4.6"/>'
+            f'<circle cx="44" cy="60" r="26" fill="none" stroke="{a}" stroke-width="2.4">'
+            f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></circle>'
+            f'<circle cx="44" cy="60" r="18" fill="{a}" opacity="0.10"/>'
+            f'<line x1="63" y1="79" x2="78" y2="100" stroke="#060912" stroke-width="6.4" stroke-linecap="round"/>'
+            f'<line x1="63" y1="79" x2="78" y2="100" stroke="{a}" stroke-width="3.4" stroke-linecap="round"/>'
+            f'<path d="M34 60 L42 68 L56 50" fill="none" stroke="{soft}" stroke-width="3" '
+            f'stroke-linecap="round" stroke-linejoin="round">'
+            f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/></path>'
+        )
+    if v == 3:
+        # Advisory CHECKLIST clipboard: clip + three checked rows.
+        return (
+            f'<rect x="8" y="10" width="64" height="94" rx="6" fill="none" stroke="#060912" stroke-width="4.6"/>'
+            f'<rect x="8" y="10" width="64" height="94" rx="6" fill="none" stroke="{a}" stroke-width="2.4">'
+            f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></rect>'
+            f'<rect x="28" y="2" width="24" height="14" rx="3" fill="{a}" opacity="0.85"/>'
+            f'<g stroke="{soft}" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">'
+            f'<path d="M18 34 L22 38 L29 30"/><path d="M18 56 L22 60 L29 52"/><path d="M18 78 L22 82 L29 74"/>'
+            f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/></g>'
+            f'<g stroke="{a}" stroke-width="2.2" opacity="0.5" stroke-linecap="round">'
+            f'<line x1="35" y1="34" x2="62" y2="34"/><line x1="35" y1="56" x2="62" y2="56"/>'
+            f'<line x1="35" y1="78" x2="62" y2="78"/></g>'
+        )
+    # variant 0 — original shield + neutral check glyph (byte-identical).
+    return (
+        f'<path d="M40 0 L78 14 L78 56 Q78 92 40 108 Q2 92 2 56 L2 14 Z" '
+        f'fill="none" stroke="#060912" stroke-width="4.6" stroke-linejoin="round"/>'
+        f'<path d="M40 0 L78 14 L78 56 Q78 92 40 108 Q2 92 2 56 L2 14 Z" '
+        f'fill="none" stroke="{shield_a}" stroke-width="2.4" stroke-linejoin="round">'
+        f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></path>'
+        f'<path d="M40 8 L70 19 L70 54 Q70 84 40 98 Q10 84 10 54 L10 19 Z" '
+        f'fill="{shield_a}" opacity="0.10"/>'
+        f'<path d="M26 54 L37 66 L56 40" fill="none" stroke="{shield_soft}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">'
+        f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/></path>'
+    )
+
+
+def vb_security_advisory(
+    cx: int, cy: int, theme: str = "amber", severity: str = "", cover_seed: int = 0
+) -> str:
     """Honest motif for a GENERIC security topic.
 
     For a digest "Vulnerability" / "Malware" / "CVE roundup" / "Threat"
@@ -1067,26 +1156,15 @@ def vb_security_advisory(cx: int, cy: int, theme: str = "amber", severity: str =
         f'<rect x="0" y="0" width="60" height="18" rx="3" fill="{a}" opacity="0.9"/>'
         f'<text x="30" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#0A0F1E">ADVISORY</text>'
         f'</g>'
-        # Centered shield outline with a calm pulse + neutral check glyph.
-        # Shield stroke/fill/check pinned GREEN (semantic "reviewed/OK") so it
-        # never reads as a red alarm under a red/topic-colored frame.
+        # Centered honest emblem with a calm pulse, rotated per-cover by
+        # cover_seed (variant 0 = the original shield+check, byte-identical).
+        # Emblem stroke/fill/check pinned GREEN (semantic "reviewed/OK") so it
+        # never reads as a red alarm under a red/topic-colored frame. The dark
+        # keyline backing stroke (#060912, wider) leaves ~1px of dark moat on
+        # each side of the green outline so the emblem stays separated from the
+        # surrounding card frame (often red, #E63946) at thumbnail scale.
         f'<g transform="translate(-92,-46)">'
-        # 1px dark keyline ring UNDER the green outline: a wider near-black
-        # backing stroke leaves ~1px of dark on each side of the 2.4px green
-        # outline, giving the green shield a crisp dark moat so it stays
-        # separated from the surrounding card frame (often red, #E63946) at
-        # thumbnail scale. Static (no pulse), invisible on the flat dark card,
-        # only reads where the green meets the card's red ambient/vignette.
-        f'<path d="M40 0 L78 14 L78 56 Q78 92 40 108 Q2 92 2 56 L2 14 Z" '
-        f'fill="none" stroke="#060912" stroke-width="4.6" stroke-linejoin="round"/>'
-        f'<path d="M40 0 L78 14 L78 56 Q78 92 40 108 Q2 92 2 56 L2 14 Z" '
-        f'fill="none" stroke="{shield_a}" stroke-width="2.4" stroke-linejoin="round">'
-        f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/></path>'
-        f'<path d="M40 8 L70 19 L70 54 Q70 84 40 98 Q10 84 10 54 L10 19 Z" '
-        f'fill="{shield_a}" opacity="0.10"/>'
-        # Neutral check mark inside the shield (status mark, not an alarm)
-        f'<path d="M26 54 L37 66 L56 40" fill="none" stroke="{shield_soft}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">'
-        f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/></path>'
+        f'{_advisory_emblem(cover_seed, shield_a, shield_soft)}'
         f'</g>'
         # Right column: severity gauge (unfilled track, TBD marker)
         f'<g transform="translate(8,-44)">'
@@ -1166,7 +1244,9 @@ def _render_visual(
     # vb_security_advisory takes the real post-reported severity word so the
     # gauge shows "SEVERITY: HIGH" (or omits the line when unassessed).
     if fn is vb_security_advisory:
-        return vb_security_advisory(cx, cy, theme=theme, severity=severity)
+        return vb_security_advisory(
+            cx, cy, theme=theme, severity=severity, cover_seed=cover_seed
+        )
     return fn(cx, cy, theme=theme)
 
 
