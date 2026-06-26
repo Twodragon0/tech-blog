@@ -41,6 +41,12 @@ from auto_publish_news import (
     generate_risk_scorecard,
     select_top_news,
 )
+# NOTE: import from the SAME module object that exports the template functions
+# above (auto_publish_news re-exports from ``scripts.news.content_generator``).
+# Importing from the bare ``news.content_generator`` name would resolve to a
+# SEPARATE module object with its own variant-dedup registry, so the reset
+# would clear the wrong set and leak state across tests.
+from scripts.news.content_generator import _reset_variant_dedup
 
 # ---------------------------------------------------------------------------
 # Banned phrases - old generic text that must NEVER appear in any branch
@@ -1918,6 +1924,48 @@ class TestGenerateBlockchainTemplate:
             "1",
         )
         assert "#### 실무 적용 포인트" in section
+
+    # ------------------------------------------------------------------
+    # Regression: blockchain template must run _contextualize_practical_points
+    # (label prefix + 4th item-specific bullet), like security/devops.
+    # Previously it returned the raw template, so blockchain sections lacked
+    # uniqueness markers and identical generic blocks repeated within a digest.
+    # ------------------------------------------------------------------
+    def test_item_gets_label_and_fourth_bullet(self):
+        _reset_variant_dedup()
+        result = _generate_blockchain_template(
+            self._item("Bitcoin price rally hits new high", "시장 동향")
+        )
+        bullets = [line for line in result.splitlines() if line.startswith("- ")]
+        assert len(bullets) == 4, f"Expected 4 bullets, got {len(bullets)}"
+        assert bullets[0].startswith("- ["), f"First bullet lacks [label]: {bullets[0]!r}"
+
+    def test_none_item_keeps_three_bullets(self):
+        # No item → no seed → contextualize is a no-op (3 branch bullets).
+        result = _generate_blockchain_template(None)
+        bullets = [line for line in result.splitlines() if line.startswith("- ")]
+        assert len(bullets) == 3
+
+    def test_three_generic_items_render_distinct_blocks(self):
+        """Three generic (else-branch) blockchain items in one digest must not
+        repeat any practical-point bullet. The 3rd else-variant + the
+        item-specific 4th bullet together guarantee uniqueness."""
+        _reset_variant_dedup()
+        from collections import Counter
+
+        items = [
+            self._item("Bitcoin price rally A", "시장"),
+            self._item("Crypto market mood B", "동향"),
+            self._item("Token sentiment C", "분석"),
+        ]
+        bullets = []
+        for it in items:
+            result = _generate_blockchain_template(it)
+            bullets.extend(
+                line for line in result.splitlines() if line.startswith("- ")
+            )
+        dups = [b for b, c in Counter(bullets).items() if c >= 2]
+        assert not dups, f"Duplicate bullets across 3 generic sections: {dups}"
 
 
 # ===========================================================================

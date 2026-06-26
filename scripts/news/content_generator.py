@@ -3849,9 +3849,17 @@ def _generate_blockchain_template(item: Optional[Dict] = None) -> str:
             "- 블록체인 시장·정책 변화가 자사 자산 운용·리스크에 미치는 영향 분석\n"
             "- 사용하는 프로토콜·체인의 거버넌스 변경·업그레이드 일정 추적\n"
             "- 온체인 데이터를 위협 인텔에 연계해 악성 주소·믹서 사용 패턴 모니터링\n",
+            "- 자사 보유·취급 디지털 자산의 지갑 주소·거래 상대방 리스크를 정기 스코어링\n"
+            "- 체인 리오그·하드포크 등 네트워크 이벤트 대응 운영 플레이북 점검\n"
+            "- 스테이킹·브리지 등 외부 프로토콜 연동의 컨트랙트 권한·출금 한도 재검증\n",
         ])
 
-    return template
+    # Mirror the security/devops templates: stamp a [label] prefix on the first
+    # bullet and append an item-hash-selected 4th uniqueness bullet so two
+    # blockchain stories in the same branch (esp. the generic else) still
+    # render distinct sections. Without this, identical generic blocks would
+    # repeat verbatim across a digest's blockchain section.
+    return _contextualize_practical_points(template, item)
 
 
 def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
