@@ -113,18 +113,11 @@ from scripts.news.l20_dispatch import (  # noqa: E402
     _demote_sidecard_advisory,
     _honest_content_visual,
     extract_three_stories,
+    load_post_fields,
     resolve_digest_band_visuals,
     route_visual_id,
 )
 
-try:  # Optional: lets the L20 routing-replay mirror the generator exactly.
-    import frontmatter as _frontmatter  # type: ignore
-except Exception:  # pragma: no cover - frontmatter optional in minimal envs
-    _frontmatter = None
-try:  # PyYAML is a hard dep (digest spec loader); used to parse front matter
-    import yaml as _yaml  # type: ignore  # when the frontmatter lib is absent.
-except Exception:  # pragma: no cover
-    _yaml = None
 from scripts.check_svg_title_ascii import _violations as _ascii_violations  # noqa: E402
 from scripts.check_svg_size_gate import (  # noqa: E402
     BANDS,
@@ -599,28 +592,12 @@ def _load_post_fields(post: Optional[Path]) -> Optional[Tuple[str, object]]:
     """
     if post is None:
         return None
-    if _frontmatter is not None:
-        try:
-            fm = _frontmatter.load(str(post))
-            return fm.content, fm.metadata.get("summary_card")
-        except Exception:  # pragma: no cover - defensive
-            return None
-    if _yaml is None:  # pragma: no cover - PyYAML is a hard dep in practice
-        return None
-    try:
-        raw = Path(post).read_text(encoding="utf-8")
-    except Exception:  # pragma: no cover - defensive
-        return None
-    # Split the leading "---\n ... \n---\n" YAML front-matter block.
-    m = re.match(r"^﻿?---\s*\n(.*?)\n---\s*\n(.*)$", raw, re.DOTALL)
-    if not m:
-        return None
-    try:
-        meta = _yaml.safe_load(m.group(1)) or {}
-    except Exception:  # pragma: no cover - malformed yaml
-        meta = {}
-    card = meta.get("summary_card") if isinstance(meta, dict) else None
-    return m.group(2), card
+    # Delegate to the SHARED parser in l20_dispatch (single source of truth) so
+    # the scorer's routing replay parses ``summary_card`` byte-identically to the
+    # generator (cron + regen), which now reads the SAME helper. Observable
+    # behaviour is unchanged: frontmatter-lib first, PyYAML + same split regex
+    # fallback, ``None`` when unloadable.
+    return load_post_fields(path=post)
 
 
 def _routed_visual_ids(

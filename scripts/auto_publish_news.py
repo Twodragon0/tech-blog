@@ -208,6 +208,7 @@ def _render_l20_svg_string(post_info: Dict) -> str:
             _date_str_from_filename,
             _post_url_from_filename,
             extract_three_stories,
+            load_post_fields,
             theme_for_topics,
         )
     except Exception as _exc:
@@ -247,6 +248,17 @@ def _render_l20_svg_string(post_info: Dict) -> str:
         # (front matter + body highlights table), so the body-table backfill +
         # stats populate real content on the cron path too. Visual routing /
         # theme / action are left untouched (honesty class unchanged).
+        #
+        # Parse the editorially-ranked ``summary_card.highlights`` out of that
+        # in-memory front matter (via the SHARED parser the scorer uses) so the
+        # lead story surfaces even for digests with NO body highlights table —
+        # otherwise ``_digest_panels`` has no source and the hero keeps the
+        # generic-pool placeholder ("Security Update"). Honesty-neutral: the
+        # highlights only replace displayed text/KPI; routing replays identically
+        # via resolve_digest_band_visuals.
+        post_info["summary_card"] = (
+            load_post_fields(text=post_info.get("content", "")) or (None, None)
+        )[1]
         _apply_real_content(
             [hero_story, tr_story, br_story], post_info, cover_theme=cover_theme
         )

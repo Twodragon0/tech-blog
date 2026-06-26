@@ -23,6 +23,7 @@ on:
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/score_cover_honesty.py'
       - 'scripts/check_l20_sidecard_advisory.py'
+      - 'scripts/check_l20_generic_hero.py'
       - 'scripts/check_orphan_cover_rasters.py'
       - 'scripts/cover_honesty_baseline.txt'
       - 'scripts/news/l20_dispatch.py'
@@ -56,6 +57,7 @@ on:
       - 'scripts/check_svg_size_gate.py'
       - 'scripts/score_cover_honesty.py'
       - 'scripts/check_l20_sidecard_advisory.py'
+      - 'scripts/check_l20_generic_hero.py'
       - 'scripts/check_orphan_cover_rasters.py'
       - 'scripts/cover_honesty_baseline.txt'
       - 'scripts/news/l20_dispatch.py'
@@ -166,6 +168,15 @@ jobs:
         # the hero-scale SECURITY ADVISORY panel in a side card (occludes the
         # band headline). Catches a blogwatcher cron publishing via a stale path.
         run: python3 scripts/check_l20_sidecard_advisory.py
+
+      - name: L20 generic-pool hero gate (no placeholder hero headline)
+        id: generic_hero
+        # Backstop for the summary_card hero fix: a digest cover must never ship
+        # a generic-pool placeholder ("Security Update"/"Threat Analysis"/"Patch
+        # Advisory") as its hero headline. The cron + regen paths now surface the
+        # real lead story via load_post_fields; this catches a regression or a
+        # stale cron path. See .omc/plans/l20-digest-hero-generic-pool-fix.md.
+        run: python3 scripts/check_l20_generic_hero.py
 
       - name: Orphan cover raster gate (every raster has a base .svg)
         id: orphan_rasters

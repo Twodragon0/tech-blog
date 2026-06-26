@@ -17,6 +17,7 @@ API disabling and sys.path setup are handled by conftest.py.
 """
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import pytest
@@ -812,7 +813,11 @@ _HONEST = {"neutral", "market", "security_advisory"}
 
 def test_load_post_fields_without_frontmatter(tmp_path, monkeypatch):
     """_load_post_fields parses content + summary_card via PyYAML when the
-    frontmatter lib is absent (minimal CI env)."""
+    frontmatter lib is absent (minimal CI env).
+
+    The parse core lives in the shared ``l20_dispatch.load_post_fields`` (which
+    ``sch._load_post_fields`` delegates to) and imports ``frontmatter`` locally,
+    so the no-frontmatter path is forced by making that import fail."""
     post = tmp_path / "2026-06-20-Tech_Security_Weekly_Digest_AI.md"
     post.write_text(
         "---\n"
@@ -824,7 +829,7 @@ def test_load_post_fields_without_frontmatter(tmp_path, monkeypatch):
         "Body text - 보안 뉴스 5개\n",
         encoding="utf-8",
     )
-    monkeypatch.setattr(sch, "_frontmatter", None)
+    monkeypatch.setitem(sys.modules, "frontmatter", None)
     fields = sch._load_post_fields(post)
     assert fields is not None
     content, card = fields
@@ -850,15 +855,20 @@ def test_routed_visuals_identical_with_and_without_frontmatter(tmp_path, monkeyp
         encoding="utf-8",
     )
     args = ("Weekly Digest", "Roundup", post.name, post)
-    monkeypatch.setattr(sch, "_frontmatter", None)
+    # The shared parser (l20_dispatch.load_post_fields) imports ``frontmatter``
+    # locally; force the PyYAML fallback by making that import fail.
+    monkeypatch.setitem(sys.modules, "frontmatter", None)
     without = sch._routed_visual_ids(*args)
-    # restore a real frontmatter module if installed; else skip the parity half
+    # restore a real frontmatter module if installed; else skip the parity half.
+    # Remove the ``None`` sentinel first so import_module actually re-imports
+    # instead of re-raising on the cached None.
     import importlib
+    monkeypatch.delitem(sys.modules, "frontmatter", raising=False)
     try:
         fm = importlib.import_module("frontmatter")
     except Exception:
         pytest.skip("frontmatter lib not installed in this env")
-    monkeypatch.setattr(sch, "_frontmatter", fm)
+    monkeypatch.setitem(sys.modules, "frontmatter", fm)
     with_fm = sch._routed_visual_ids(*args)
     assert without == with_fm
 
@@ -866,7 +876,7 @@ def test_routed_visuals_identical_with_and_without_frontmatter(tmp_path, monkeyp
 def test_routed_fallback_never_overclaims(monkeypatch):
     """Last resort (post unloadable) clamps to honest classes: no attack visual
     is ever asserted, and side bands carry no advisory shield."""
-    monkeypatch.setattr(sch, "_frontmatter", None)
+    monkeypatch.setitem(sys.modules, "frontmatter", None)
     # post=None forces the filename-keyword last resort.
     visuals = sch._routed_visual_ids(
         "Ransomware breach exfiltration C2 CVE chain",

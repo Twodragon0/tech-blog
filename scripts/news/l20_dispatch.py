@@ -1876,6 +1876,71 @@ def _rescue_hero(panels: List[Dict]) -> List[Dict]:
 # skips and can still yield 3 real-entity stories for the side-card rescue.
 _BACKFILL_POOL = 6
 
+# Front-matter split regex, IDENTICAL to score_cover_honesty._load_post_fields,
+# so the shared parser below splits posts the same way the scorer does (no
+# divergence -> no spurious STALE_RENDER).
+_FRONTMATTER_SPLIT_RE = re.compile(r"^﻿?---\s*\n(.*?)\n---\s*\n(.*)$", re.DOTALL)
+
+
+def load_post_fields(
+    *, path: Optional["Path"] = None, text: Optional[str] = None
+) -> Optional[Tuple[str, object]]:
+    """Return ``(content, summary_card)`` for a post, or ``None`` if unloadable.
+
+    Single source of truth for parsing a digest post's ``summary_card`` out of
+    its front matter. MIRRORS ``score_cover_honesty._load_post_fields`` exactly:
+    prefer the ``frontmatter`` lib, then fall back to PyYAML + the SAME
+    front-matter split regex. Sharing this parser keeps the generator's panels
+    in lockstep with the scorer's routing replay (a divergent hand-rolled parse
+    would make on-disk visuals differ from scored intent -> spurious
+    STALE_RENDER on every regenerated cover).
+
+    Accepts EXACTLY ONE of:
+    - ``path``: a post ``Path`` on disk (the regen tool reads from disk);
+    - ``text``: the full rendered ``.md`` text incl. front matter (the cron path
+      holds this in-memory as ``post_info["content"]``).
+
+    Imports of ``frontmatter`` / ``yaml`` are local so this module stays
+    importable in minimal envs that lack them (env-robust, same as the scorer).
+    """
+    if path is None and text is None:
+        return None
+    try:  # Optional: mirrors the generator routing the scorer replays.
+        import frontmatter as _frontmatter  # type: ignore
+    except Exception:  # pragma: no cover - frontmatter optional in minimal envs
+        _frontmatter = None
+    if _frontmatter is not None:
+        try:
+            if path is not None:
+                fm = _frontmatter.load(str(path))
+            else:
+                fm = _frontmatter.loads(text or "")
+            return fm.content, fm.metadata.get("summary_card")
+        except Exception:  # pragma: no cover - defensive
+            return None
+    try:  # PyYAML fallback (frontmatter lib absent).
+        import yaml as _yaml  # type: ignore
+    except Exception:  # pragma: no cover
+        _yaml = None
+    if _yaml is None:  # pragma: no cover - PyYAML is a hard dep in practice
+        return None
+    if path is not None:
+        try:
+            raw = Path(path).read_text(encoding="utf-8")
+        except Exception:  # pragma: no cover - defensive
+            return None
+    else:
+        raw = text or ""
+    m = _FRONTMATTER_SPLIT_RE.match(raw)
+    if not m:
+        return None
+    try:
+        meta = _yaml.safe_load(m.group(1)) or {}
+    except Exception:  # pragma: no cover - malformed yaml
+        meta = {}
+    card = meta.get("summary_card") if isinstance(meta, dict) else None
+    return m.group(2), card
+
 
 def _digest_panels(summary_card, content: str) -> List[Dict]:
     """The ordered real-content panels for a digest, lead story first.

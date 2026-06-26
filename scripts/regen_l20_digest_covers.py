@@ -42,6 +42,7 @@ if str(REPO / "scripts") not in sys.path:
 
 from auto_publish_news import _render_l20_svg_string  # noqa: E402
 from _rebuild_all_l20_rasters import build_one  # noqa: E402
+from news.l20_dispatch import load_post_fields  # noqa: E402
 
 _TITLE_RE = re.compile(r'^title:\s*"?([^\n"]+)"?\s*$', re.MULTILINE)
 _EXCERPT_RE = re.compile(r'^excerpt:\s*"?([^\n"]+)"?\s*$', re.MULTILINE)
@@ -66,9 +67,16 @@ def _post_info(post_path: Path) -> dict:
     """Mirror the inline ``post_info_for_l20`` dict built in auto_publish_news.
 
     Same field-construction logic the cron uses (title/excerpt via the same
-    regexes + .strip(), filename, full content, no summary_card / category),
-    reading the already-published ``.md`` from disk instead of the cron's
-    in-memory ``post_content`` (identical for published posts).
+    regexes + .strip(), filename, full content), reading the already-published
+    ``.md`` from disk instead of the cron's in-memory ``post_content``
+    (identical for published posts).
+
+    ``summary_card`` is parsed via the SHARED parser
+    (``l20_dispatch.load_post_fields``) — the same helper the cron path and the
+    honesty scorer use — so the editorially-ranked lead story surfaces even for
+    digests with NO body highlights table (otherwise the hero keeps the
+    generic-pool placeholder). Reading the parsed summary_card here keeps regen
+    byte-identical to the cron render.
     """
     content = post_path.read_text(encoding="utf-8")
     info = {"title": "", "filename": post_path.name, "excerpt": "", "content": content}
@@ -78,6 +86,7 @@ def _post_info(post_path: Path) -> dict:
         info["title"] = m_title.group(1).strip()
     if m_excerpt:
         info["excerpt"] = m_excerpt.group(1).strip()
+    info["summary_card"] = (load_post_fields(path=post_path) or (None, None))[1]
     return info
 
 

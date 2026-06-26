@@ -39,8 +39,12 @@ from scripts.news.l20_dispatch import (
     _rescue_hero,
     _severity_from_marker,
     build_lead_headline,
+    extract_three_stories,
+    load_post_fields,
     resolve_digest_band_visuals,
     route_visual_id,
+    theme_for_topics,
+    _action_for,
     _HEADLINE_MAX_CHARS,
     _SUB_MAX_CHARS,
 )
@@ -1921,3 +1925,139 @@ class TestTopicCoverTheme:
         side = _build_story(headline="Security Advisory", subheadline="x",
                             index=1, severity_label="HIGH", cover_theme="green")
         assert side["theme"] != "green" or side["visual"] != "security_advisory"
+
+
+# ---------------------------------------------------------------------------
+# Generic-pool hero regression: a digest whose real lead story lives ONLY in
+# summary_card.highlights (NO body | 분야 | 소스 | table) used to render the
+# generic-pool placeholder ("Security Update") as the hero, because the cron
+# path passed only the raw content and never parsed summary_card. The shared
+# parser (load_post_fields) now surfaces the editorial lead story on the cron
+# and regen paths. See .omc/plans/l20-digest-hero-generic-pool-fix.md.
+# ---------------------------------------------------------------------------
+_GENERIC_POOL = {"Security Update", "Threat Analysis", "Patch Advisory"}
+
+# Hero headline <text> in render_l20_hero: x=54 y=146, the 31px/800 title.
+_HERO_TEXT_RE = re.compile(
+    r'<text x="54" y="146"[^>]*font-size="31"[^>]*>([^<]*)</text>'
+)
+
+
+def _render_cron(post_info: dict) -> str:
+    """Render an L20 digest cover the way the cron path does, in-process.
+
+    Mirrors auto_publish_news._render_l20_svg_string: build 3 bands, parse the
+    in-memory front matter's summary_card via the SHARED parser, then override
+    displayed content. Kept here (not importing the app module) so the test
+    asserts the l20_dispatch builders + shared parser directly.
+    """
+    title = str(post_info.get("title", "") or "")
+    excerpt = str(post_info.get("excerpt", "") or "")
+    filename = str(post_info.get("filename", "") or "")
+    cover_theme = theme_for_topics(filename, title)
+    h, tr, br = extract_three_stories(title, excerpt)
+    hero = _build_story(headline=h["headline"], subheadline=h["subheadline"],
+                        index=0, severity_label="HIGH",
+                        action=_action_for(h["headline"]), cover_theme=cover_theme)
+    tr_s = _build_story(headline=tr["headline"], subheadline=tr["subheadline"],
+                        index=1, severity_label="HIGH")
+    br_s = _build_story(headline=br["headline"], subheadline=br["subheadline"],
+                        index=2, severity_label="MEDIUM")
+    post_info["summary_card"] = (
+        load_post_fields(text=post_info.get("content", "")) or (None, None)
+    )[1]
+    _apply_real_content([hero, tr_s, br_s], post_info, cover_theme=cover_theme)
+    return render_l20_hero(
+        date_str="2026.02.04", hero=hero, top_right=tr_s, bottom_right=br_s,
+        url="https://tech.2twodragon.com/", post_title="Weekly Digest",
+    )
+
+
+# A digest with summary_card.highlights and NO body | 분야 | 소스 | table —
+# the table-less class that exposed the bug (5 of the 8 affected covers).
+_TABLELESS_DIGEST = (
+    "---\n"
+    "layout: post\n"
+    "title: '주간 보안 다이제스트: 제로데이 DNS 유출 AI 에이전트'\n"
+    "summary_card:\n"
+    "  highlights:\n"
+    "    - { source: \"Docker DockerDash\", title: \"Ask Gordon AI 비서 코드 실행 취약점 패치\" }\n"
+    "    - { source: \"CVE-2025-11953\", title: \"React Native CLI Metro4Shell RCE - CVSS 9.8\" }\n"
+    "    - { source: \"AWS IAM Identity Center\", title: \"멀티리전 복제 지원 보안 아키텍처 영향\" }\n"
+    "---\n"
+    "본문에 분야/소스 하이라이트 표가 없는 초기 다이제스트 형식입니다.\n"
+)
+
+
+class TestGenericPoolHeroFix:
+    def _info(self):
+        return {
+            "title": "주간 보안 다이제스트: 제로데이 DNS 유출 AI 에이전트",
+            "excerpt": "이번 주 보안 소식 정리",
+            "filename": "2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go.md",
+            "content": _TABLELESS_DIGEST,
+        }
+
+    def test_tableless_summary_card_hero_is_real_not_generic(self):
+        # (a) The rendered hero <text> must NOT be a generic-pool placeholder,
+        # and must equal the editorial lead highlight's resolved entity.
+        sc = load_post_fields(text=_TABLELESS_DIGEST)[1]
+        assert isinstance(sc, dict) and sc.get("highlights")
+        lead = _digest_panels(sc, "")[0]["headline"]
+        assert lead not in _GENERIC_POOL  # sanity: the panel resolves a real entity
+
+        svg = _render_cron(self._info())
+        m = _HERO_TEXT_RE.search(svg)
+        assert m is not None, "hero <text> not found in rendered SVG"
+        hero_text = m.group(1)
+        assert hero_text not in _GENERIC_POOL, (
+            f"hero rendered a generic-pool placeholder: {hero_text!r}"
+        )
+        assert hero_text == lead, (
+            f"hero {hero_text!r} != editorial lead entity {lead!r}"
+        )
+        assert _is_ascii(hero_text)
+
+    def test_honesty_lockstep_after_override(self):
+        # (b) The scorer's replay (resolve_digest_band_visuals) must return the
+        # SAME band visuals the generator sets on the stories via
+        # _apply_real_content — no spurious STALE_RENDER on the regenerated cover.
+        info = self._info()
+        sc = load_post_fields(text=info["content"])[1]
+        title, excerpt, filename = info["title"], info["excerpt"], info["filename"]
+
+        cover_theme = theme_for_topics(filename, title)
+        h, tr, br = extract_three_stories(title, excerpt)
+        stories = [
+            _build_story(headline=h["headline"], subheadline=h["subheadline"],
+                         index=0, severity_label="HIGH",
+                         action=_action_for(h["headline"]), cover_theme=cover_theme),
+            _build_story(headline=tr["headline"], subheadline=tr["subheadline"],
+                         index=1, severity_label="HIGH"),
+            _build_story(headline=br["headline"], subheadline=br["subheadline"],
+                         index=2, severity_label="MEDIUM"),
+        ]
+        post_info = dict(info)
+        post_info["summary_card"] = sc
+        _apply_real_content(stories, post_info, cover_theme=cover_theme)
+
+        replay = resolve_digest_band_visuals(title, excerpt, filename, "", sc)
+        assert [s["visual"] for s in stories] == replay
+
+    def test_parser_parity_path_vs_text_real_post(self):
+        # (c) load_post_fields(path=P) and load_post_fields(text=P.read_text())
+        # must agree for a real post, so cron (text) and regen (path) parse the
+        # summary_card identically (no generator/scorer divergence).
+        import glob
+        sample = None
+        for fn in sorted(glob.glob("_posts/2026-02-*.md")):
+            fields = load_post_fields(path=__import__("pathlib").Path(fn))
+            if fields and isinstance(fields[1], dict) and fields[1].get("highlights"):
+                sample = fn
+                break
+        assert sample is not None, "no real digest post with highlights found"
+        from pathlib import Path as _P
+        by_path = load_post_fields(path=_P(sample))
+        by_text = load_post_fields(text=_P(sample).read_text(encoding="utf-8"))
+        assert by_path is not None and by_text is not None
+        assert by_path[1] == by_text[1]  # identical summary_card
