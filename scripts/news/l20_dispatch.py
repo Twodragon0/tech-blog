@@ -2317,6 +2317,13 @@ def generate_l20_content_svg(post_info: Dict, output_path: Path) -> bool:
             else "READ THE FULL GUIDE"
         )
 
+        # Per-cover identity accent (digest parity): pick a topic theme from the
+        # slug/title so the content gallery is not uniformly blue, mirroring the
+        # digest path (auto_publish_news passes the same cover_theme). Only the
+        # honest index-0 hero band is recolored in _build_story; side cards keep
+        # their index rotation. Palette-only -> honesty class unchanged.
+        cover_theme = theme_for_topics(filename, title)
+
         # Use the content-specific extractor (filler-filtered, topic-aware
         # subheadlines) instead of the digest extractor so generic tokens
         # like "Latest", "Update", "Complete" never become story headlines.
@@ -2331,6 +2338,7 @@ def generate_l20_content_svg(post_info: Dict, output_path: Path) -> bool:
             severity_label="HIGH",
             action=hero_action,
             content_mode=True,
+            cover_theme=cover_theme,
         )
         tr_story = _build_story(
             headline=tr_dict["headline"],
@@ -2338,6 +2346,7 @@ def generate_l20_content_svg(post_info: Dict, output_path: Path) -> bool:
             index=1,
             severity_label="HIGH",
             content_mode=True,
+            cover_theme=cover_theme,
         )
         br_story = _build_story(
             headline=br_dict["headline"],
@@ -2345,6 +2354,7 @@ def generate_l20_content_svg(post_info: Dict, output_path: Path) -> bool:
             index=2,
             severity_label="MEDIUM",
             content_mode=True,
+            cover_theme=cover_theme,
         )
 
         date_str = _date_str_from_filename(
