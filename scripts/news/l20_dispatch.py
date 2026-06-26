@@ -1245,6 +1245,12 @@ _GENERIC_TRAILING: frozenset = frozenset({
 # headline; a stronger following entity is preferred.
 _WEAK_HEADLINE_WORDS: frozenset = frozenset({
     "sorry", "new", "first", "report", "update", "alert", "week", "summary",
+    # "cvss" is the severity-SCALE label (like the _SEVERITY_WORDS impact
+    # words): a highlight title that leads with "CVSS 9.9 - ..." carries its
+    # real subject in the source/body, not in the metric. Reject it as a lead
+    # so the panel falls through to the source entity instead of rendering a
+    # bare "CVSS" / "CVSS JavaScript" hero (2026-01-27, 2026-01-29).
+    "cvss",
 })
 
 # Severity words (the digest body-table impact column). A headline made ENTIRELY
@@ -1630,6 +1636,30 @@ def _panel_from_source_title(
         if cve_str:
             headline = cve_str
         elif src and not _has_hangul(src) and src.isascii():
+            # A CVE-bearing source is the real advisory SUBJECT (not a
+            # publication) — e.g. "MS Office Zero-Day (CVE-2026-21509)". When the
+            # title leads with a severity metric ("CVSS 9.9 - ...") and has no
+            # ASCII entity of its own, derive a clean entity headline from the
+            # source so the hero is a real subject instead of a bare source name
+            # (which _digest_panels would demote as a publication echo). Keep
+            # route_hint == "Security advisory" so the visual class is
+            # byte-identical to the bare-source fallback (honesty-invariant), and
+            # do NOT mark _src_fallback (a real subject must not be demoted).
+            src_cve_m = _CVE_RE.search(_html.unescape(src))
+            src_entity = build_lead_headline(src) if src_cve_m else ""
+            if src_entity:
+                src_name = src.split("(")[0].strip()
+                sub = (
+                    f"{src_cve_m.group(0).upper()} - {src_name}"
+                    if src_name
+                    else src_cve_m.group(0).upper()
+                )
+                return {
+                    "headline": _shorten(src_entity, _HEADLINE_MAX_CHARS),
+                    "subheadline": _shorten(sub, _SUB_MAX_CHARS),
+                    "route_hint": "Security advisory",
+                    "severity": severity,
+                }
             return {
                 "headline": _shorten(src, _HEADLINE_MAX_CHARS),
                 "subheadline": "Security advisory",

@@ -1375,6 +1375,52 @@ class TestGenericHeadlineWordVetting:
         assert "vertical" not in _GENERIC_HEADLINE_WORDS
 
 
+class TestCvssLeadReject:
+    """``cvss`` is the severity-SCALE label, never a story subject.
+
+    A highlight title that leads with a severity metric ("CVSS 9.9 - ...")
+    carries its real subject in the source/body. Admission criteria mirror
+    ``TestGenericHeadlineWordVetting``: (a) rejected as a LONE headline, (b)
+    never the lead of a bigram, (c) the panel falls through to the source
+    entity instead of rendering a bare "CVSS" / "CVSS JavaScript" hero.
+    """
+
+    def test_cvss_rejected_as_lone_headline(self):
+        assert _is_good_headline("CVSS") is False
+
+    def test_cvss_led_bigram_does_not_lead(self):
+        # "CVSS 9.9 - JavaScript ..." must not yield "CVSS" or "CVSS JavaScript";
+        # the next real token wins (2026-01-29).
+        h = build_lead_headline(
+            "CVSS 9.9 - JavaScript AST sandbox escape, Function constructor bypass"
+        )
+        assert h not in {"CVSS", "CVSS JavaScript"}
+        assert "CVSS" not in h
+        assert h == "JavaScript"
+
+    def test_cvss_only_ascii_title_yields_empty(self):
+        # Korean body after the metric → no ASCII entity → empty, so the panel
+        # builder falls through to the source (2026-01-27).
+        assert build_lead_headline("CVSS 7.8 긴급 패치 - 보안 기능 우회 취약점 실제 악용 중") == ""
+
+    def test_cve_bearing_source_supplies_real_hero_not_demoted(self):
+        # The lead highlight of 2026-01-27: title is a bare metric, but the
+        # CVE-bearing source is the real advisory subject. The panel must carry
+        # a real entity headline, NOT "CVSS", and must NOT be flagged
+        # _src_fallback (which would demote the lead off the hero slot).
+        p = _panel_from_source_title(
+            "MS Office Zero-Day (CVE-2026-21509)",
+            "CVSS 7.8 긴급 패치 - 보안 기능 우회 취약점 실제 악용 중",
+        )
+        assert p is not None
+        assert "CVSS" not in p["headline"]
+        assert p["headline"]  # non-empty real entity
+        assert not p.get("_src_fallback"), "CVE-bearing source subject must not be demoted"
+        # CVE surfaces in the subheadline; route stays the honest advisory class.
+        assert "CVE-2026-21509" in p["subheadline"]
+        assert p["route_hint"] == "Security advisory"
+
+
 class TestUrlBigramReject:
     """Per-word vetting contract for adding ``url`` to ``_GENERIC_TRAILING``.
 

@@ -14,10 +14,10 @@
 | `2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.svg` | 140.2 | `878330b10503b300` | 1 | tight |
 | `2026-02-05-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go.svg` | 148.9 | `878330b00103b300` | 1 | tight |
 | `2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day.svg` | 145.5 | `878330b101039300` | 1 | tight |
-| `2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent.svg` | 147.8 | `8783b0b10123b300` | 2 | tight |
 | `2026-02-21-Tech_Security_Weekly_Digest_Data_Rust_AI_Threat.svg` | 146.7 | `878330b00003b300` | 2 | tight |
 | `2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go.svg` | 139.9 | `87c330b00183b300` | 3 | tight |
 | `2026-03-21-Tech_Security_Weekly_Digest_Security_CVE_AI_Malware.svg` | 146.6 | `878310900123b300` | 4 | tight |
+| `2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent.svg` | 139.7 | `8783b0b10433b300` | 5 | tight |
 | `2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.svg` | 151.3 | `878230b70003b700` | 5 | tight |
 | `2026-03-22-Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple.svg` | 145.5 | `878310b70301b300` | 5 | tight |
 | `2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI.svg` | 151.6 | `878230b000039700` | 5 | tight |
