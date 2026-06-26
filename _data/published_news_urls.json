@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-25T00:36:23.371290+00:00",
+  "updated_at": "2026-06-26T00:37:58.251304+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/china-linked-jdy-botnet-expands-to-1500.html",
-      "title": "China-Linked JDY Botnet Expands to 1,500+ Devices for Cyber Reconnaissance",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/ivanti-fortinet-and-sap-release-patches.html",
-      "title": "Ivanti, Fortinet, and SAP Release Patches for Multiple Critical Vulnerabilities",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/unpatched-langflow-flaw-cve-2026-5027.html",
-      "title": "Unpatched Langflow Flaw CVE-2026-5027 Exploited for Unauthenticated RCE",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/cisa-adds-cisco-chrome-and-arista-flaws.html",
-      "title": "CISA Adds Cisco, Chrome, and Arista Flaws to KEV Catalog Amid Active Exploitatio",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/path-traversal-flaw-in-ai-dev-platform-langflow-exploited-in-attacks/",
-      "title": "Path traversal flaw in AI dev platform Langflow exploited in attacks",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://openai.com/index/using-codex-to-simulate-black-holes",
-      "title": "How an astrophysicist uses Codex to help simulate black holes",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://openai.com/index/openai-on-oracle-cloud",
-      "title": "Access OpenAI models and Codex through your Oracle cloud commitment",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/halos-os-robotaxi-safety/",
-      "title": "For Robotaxis, Safety Must Be Built In, Not Bolted On",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-local-gemma-diffusion/",
-      "title": "NVIDIA Accelerates Google DeepMind’s DiffusionGemma for Local AI",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://openai.com/index/prc-linked-influence-operations-ai-debates",
-      "title": "PRC-linked influence operations are targeting AI debates in the US",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/lighting-engine-for-apache-spark-performance-deep-dive/",
-      "title": "Deep dive: How Lightning Engine delivers 4.9x faster Apache Spark performance",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/choosing-your-surface-antigravity-20-antigravity-cli-antigravity-ide-or-antigravity-sdk/",
-      "title": "Choosing your surface: Antigravity 2.0, Antigravity CLI, Antigravity IDE, or Ant",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/now-available-amazon-ec2-m9g-and-m9gd-instances-powered-by-new-aws-graviton5-processors/",
-      "title": "Now available: Amazon EC2 M9g and M9gd instances powered by new AWS Graviton5 pr",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/design-against-prompt-injection-with-bedrock-agentcore/",
-      "title": "프롬프트 인젝션 방어: AgentCore 기반 다층 보안 설계 패턴",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/sim-to-real-and-real-to-sim-the-engine-behind-capable-physical-ai/",
-      "title": "Sim-to-Real과 Real-to-Sim: 유능한 Physical AI를 가능하게 하는 핵심 엔진",
-      "published_date": "2026-06-11",
-      "expires_at": "2026-06-18T00:39:42.263854+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html",
       "title": "ShinyHunters Exploits Oracle PeopleSoft Zero-Day (CVE-2026-35273) to Breach Univ",
@@ -1320,6 +1230,96 @@
       "title": "Spotlight on WG Device Management",
       "published_date": "2026-06-25",
       "expires_at": "2026-07-02T00:36:23.371204+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/06/25/photo-zip-campaign-targeting-hospitality-industry-delivers-node-js-implant-persistent-access/",
+      "title": "Photo ZIP campaign targeting hospitality industry delivers Node.js implant for p",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/chrome-ad-blocker-with-10m-installs.html",
+      "title": "Chrome Ad Blocker with 10M+ Installs Found with Dormant Script Injection Capabil",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-is-testing-desktop-like-claude-cowork-for-mobile/",
+      "title": "Anthropic is testing desktop-like Claude Cowork for mobile",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/poland-busts-sim-swapping-gang-tied-to-millions-in-crypto-theft/",
+      "title": "Poland busts SIM-swapping gang tied to millions in crypto theft",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/threatsday-bulletin-smart-tv-proxyware.html",
+      "title": "ThreatsDay Bulletin: Smart TV Proxyware, 24-Year curl Bug, AI Crime Forums + 13 ",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/",
+      "title": "Privacy-Aware Infrastructure in the AI-Native Era: An Asset Classification Case ",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/google-finance-updates-june-2026/",
+      "title": "Our latest Google Finance upgrades, including a new app",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-steam-summer-sale-2026/",
+      "title": "The Ultimate Summer Sale Pairing: Steam Sale Meets GeForce NOW Discounts",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://openai.com/index/how-agents-are-transforming-work",
+      "title": "How agents are transforming work",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/retrofit-dont-rebuild-agentic-overlays-for-transforming-legacy-enterprise-services/",
+      "title": "Retrofit, don’t rebuild: Agentic overlays for transforming legacy enterprise ser",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/stockstay-turla-intelligence-gathering/",
+      "title": "STOCKSTAY Another Day: The Latest Addition to Turla’s Intelligence Gathering App",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-25-copilot-code-review-analysis-depth-and-efficiency-updates",
+      "title": "Copilot code review: Analysis depth and efficiency updates",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-25-enterprise-managed-settings-now-support-strictknownmarketplaces-in-vs-code-and-the-cli",
+      "title": "Enterprise-managed settings now support strictKnownMarketplaces in VS Code and G",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/sbom-generation-for-container-workflows/",
+      "title": "How to Generate an SBOM for Container Workflows",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-25-saved-views-for-repository-issues-and-adjustable-row-heights-in-projects",
+      "title": "Saved views for repository issues – Public Preview and adjustable row heights in",
+      "published_date": "2026-06-26",
+      "expires_at": "2026-07-03T00:37:58.251187+00:00"
     }
   ]
 }
