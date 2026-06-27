@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-26T00:37:58.251304+00:00",
+  "updated_at": "2026-06-27T00:35:48.718281+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html",
-      "title": "ShinyHunters Exploits Oracle PeopleSoft Zero-Day (CVE-2026-35273) to Breach Univ",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/new-greatxml-exploit-bypasses-windows.html",
-      "title": "New GreatXML Exploit Bypasses Windows BitLocker via Recovery Partition XML Files",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/the-gentlemen-ransomware-claims-478.html",
-      "title": "The Gentlemen Ransomware Claims 478 Victims, Can Spread Like a Worm",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/japanese-energy-firm-loses-drive-with-data-of-109-million-clients/",
-      "title": "Japanese energy firm loses drive with data of 10.9 million clients",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/cybersecurity-stars-awards-2026-winners.html",
-      "title": "Cybersecurity Stars Awards 2026: Winners Announced Across 95 Categories",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/",
-      "title": "Our new community investments in Virginia support local jobs and expand energy a",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-summer-sale-2026/",
-      "title": "Save Big and Play Bigger: GeForce NOW Summer Sale Brings Major Membership Saving",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/researcher-claims-hes-already-jailbroken-anthropics-guardrailed-claude-fable-5?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "AI researcher claims he's already bypassed Anthropic's Fable 5 guardrails",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/extract-data-with-on-demand-and-batch-pipelines-dynamically/",
-      "title": "Extract Data with On-demand and Batch Pipelines Dynamically",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/",
-      "title": "Evaluate AI agents systematically with Agent-EvalKit",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/powering-the-next-era-of-confidential-ai/",
-      "title": "Powering the next era of Confidential AI",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/business-intelligence/dashboard-agents-in-looker/",
-      "title": "Transform dashboards into interactive data experiences with Looker agents",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/10-indispensable-prompts-our-team-refuses-to-build-without/",
-      "title": "10 Indispensable Prompts Our Team Refuses to Build Without",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/knco-agricultural-ai-chatbot-for-smart-farm-part2/",
-      "title": "Amazon Bedrock Vision LLM과 Amazon OpenSearch Service를 활용한 농약 제품 이미지 인식 시스템 구축기",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/codex-claudecode-harness/",
-      "title": "Amazon Bedrock 위에서 Codex와 Claude Code 함께 쓰기: Harness Engineering으로 구현해보기",
-      "published_date": "2026-06-12",
-      "expires_at": "2026-06-19T00:40:24.026057+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
       "title": "Over 400 Arch Linux AUR Packages Hijacked to Deploy Infostealer and eBPF Rootkit",
@@ -1320,6 +1230,96 @@
       "title": "Saved views for repository issues – Public Preview and adjustable row heights in",
       "published_date": "2026-06-26",
       "expires_at": "2026-07-03T00:37:58.251187+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/fbi-warns-russian-intelligence-hackers.html",
+      "title": "FBI Warns Russian Intelligence Hackers Target Signal Backup Recovery Keys",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/new-sharkloader-malware-deploys-cobalt.html",
+      "title": "New SharkLoader Malware Deploys Cobalt Strike in StrikeShark Cyberattacks",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/chinese-speaking-apt-deploys-new.html",
+      "title": "Chinese-Speaking APT Deploys New TinyRCT Backdoor in Southeast Asia Campaign",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/new-linux-pedit-cow-exploit-enables.html",
+      "title": "New Linux pedit COW Exploit Enables Root Access by Poisoning Cached Binaries",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/amazon-q-developer-flaw-could-let.html",
+      "title": "Amazon Q Developer Flaw Could Let Malicious Repos Run Code via MCP Configs",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol",
+      "title": "Previewing GPT-5.6 Sol: a next-generation model",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-interactive-pdf-text-extraction-from-amazon-s3/",
+      "title": "Build interactive PDF text extraction from Amazon S3",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-cara-pioneers-domain-specific-ai-for-enterprise-insurance-brokerages-with-aws/",
+      "title": "How Cara pioneers domain-specific AI for enterprise insurance brokerages with AW",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/production-grade-ai-agents-for-financial-compliance-lessons-from-stripe/",
+      "title": "Production-grade AI agents for financial compliance: Lessons from Stripe",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/securing-agentic-ai-whats-new-in-vpc-service-controls/",
+      "title": "Securing agentic AI with perimeter guardrails: What's new in VPC Service Control",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/management-tools/alert-with-sql-in-cloud-monitoring-observability-analytics/",
+      "title": "From query to action: Introducing SQL alerting in Cloud Monitoring Observability",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/single-llm-gw-arch/",
+      "title": "단일 LLM Gateway 아키텍처 : Claude Code와 Codex를 Amazon Bedrock을 통해 한 곳에서",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-26-track-total-merges-by-adoption-phase-in-enterprise-and-organization-reports",
+      "title": "Track total merges by adoption phase in enterprise and organization reports",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-26-mai-code-1-flash-for-copilot-business-and-copilot-enterprise",
+      "title": "MAI-Code-1-Flash for Copilot Business and Copilot Enterprise",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-06-26-github-desktop-3-6-worktrees-and-deeper-copilot-integration",
+      "title": "GitHub Desktop 3.6: Worktrees and deeper Copilot integration",
+      "published_date": "2026-06-27",
+      "expires_at": "2026-07-04T00:35:48.718177+00:00"
     }
   ]
 }
