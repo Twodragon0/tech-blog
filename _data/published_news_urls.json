@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-27T00:35:48.718281+00:00",
+  "updated_at": "2026-06-28T00:34:44.541800+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
-      "title": "Over 400 Arch Linux AUR Packages Hijacked to Deploy Infostealer and eBPF Rootkit",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/google-sues-chinese-smishing-network.html",
-      "title": "Google Sues Chinese Smishing Network Accused of Using Gemini AI in Phishing",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html",
-      "title": "China-Linked Hackers Backdoored Linux Login Software to Hide for Nearly a Decade",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html",
-      "title": "Agentjacking Attack Tricks AI Coding Agents Into Running Malicious Code",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/rethinking-mdr-as-attackers-and.html",
-      "title": "Rethinking MDR as Attackers and Defenders Embrace AI",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-blackwell-agentperf-artificial-analysis/",
-      "title": "NVIDIA Blackwell Leads on First Agentic AI Infrastructure Benchmark",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://openai.com/index/academy-courses-applying-ai-at-work",
-      "title": "New OpenAI Academy courses for the next era of work",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/building-supercharger-how-rocket-close-optimized-title-operations-with-agentic-ai/",
-      "title": "Building Supercharger: How Rocket Close optimized title operations with agentic ",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-meeting-prep-and-follow-up-assistant-with-amazon-quick-and-cisco-webex-mcp-servers/",
-      "title": "Build a meeting prep and follow-up assistant with Amazon Quick and Cisco Webex M",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/from-pdfs-to-insights-architecting-an-intelligent-document-processing-pipeline-with-aws-generative-ai-services/",
-      "title": "From PDFs to insights: Architecting an intelligent document processing pipeline ",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/",
-      "title": "Introducing the Open Knowledge Format",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-12-copilot-code-review-new-configurations-and-controls",
-      "title": "Copilot code review: New configurations and controls",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-12-github-actions-minimum-version-enforcement-timeline-for-self-hosted-runners",
-      "title": "GitHub Actions: Minimum version enforcement timeline for self-hosted runners",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/06/12/securing-ci-cd-for-an-open-source-project-locking-down-dependencies/",
-      "title": "Securing CI/CD for an open source project: Locking down dependencies",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/blockworks-acquires-messari",
-      "title": "Blockworks Acquires Messari in Deal Highlighting Crypto’s Data Consolidation Rac",
-      "published_date": "2026-06-13",
-      "expires_at": "2026-06-20T00:40:05.466757+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/critical-splunk-enterprise-flaw-lets.html",
       "title": "Critical Splunk Enterprise Flaw Lets Attackers Run Code Without Authentication",
@@ -1320,6 +1230,96 @@
       "title": "GitHub Desktop 3.6: Worktrees and deeper Copilot integration",
       "published_date": "2026-06-27",
       "expires_at": "2026-07-04T00:35:48.718177+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/ukraine-says-russian-intelligence-used.html",
+      "title": "Ukraine Says Russian Intelligence Used Fake Support Texts to Steal Messaging Cre",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/openai-limits-gpt-56-rollout-as-sol.html",
+      "title": "OpenAI Previews GPT-5.6 Sol With Restricted Access and Stronger Cyber Safeguards",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/clean-github-repo-tricks-ai-coding-agents-into-running-malware/",
+      "title": "Clean GitHub repo tricks AI coding agents into running malware",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/chinese-framework-powers-200000-scam-sites/",
+      "title": "Chinese Framework Powers 200,000 Scam Sites",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://www.darkreading.com/cyber-risk/third-party-breaches-teaches-education-lesson-vendor-risk",
+      "title": "Third-Party Breaches Teach Education Sector a Costly Lesson in Vendor Risk",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/yuma-bittensor-fund-institutional-tao-decentralized-ai?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "DCG-backed Yuma launches fund offering institutional exposure to Bittensor",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/performance-test-analysis-with-aws-devops-agent/",
+      "title": "AWS DevOps Agent 를 활용한 성능 테스트 결과 분석",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/eu-ai-act-compliance/",
+      "title": "What Does EU AI Act Compliance Require?",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/fidelity-bitcoin-long-term-security-halvings-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Fidelity rebuts claims Bitcoin becomes less secure after halvings",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-faces-fresh-capitulation-risk-as-50k-btc-moves-at-a-loss?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin faces fresh capitulation risk as 50K BTC moved at a loss",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/crypto-stocks-underperform-tech-market-slump?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Coinbase, Circle underperform Big Tech as crypto stock slump deepens",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/eu-lawmakers-assessing-defi-staking-nft-regulation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "EU lawmakers urge assessing DeFi, staking, NFT regulation",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/securitize-expects-to-raise-400m-ahead-of-public-debut?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Securitize expects to raise $400M ahead of public debut",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30900",
+      "title": "Go에서 과도한 nil 포인터 검사",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=30899",
+      "title": "Reddit 안티스팸 내부를 엿보다",
+      "published_date": "2026-06-28",
+      "expires_at": "2026-07-05T00:34:44.541694+00:00"
     }
   ]
 }
