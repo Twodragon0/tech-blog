@@ -15,11 +15,18 @@ name: Dependabot Auto-Merge
 # action to introspect update-type and refuses anything classified as
 # `version-update:semver-major`.
 #
-# Required repo settings:
-#   - Settings → General → "Allow auto-merge" enabled
-#   - Settings → Branches → main protection: required checks list MUST
-#     include the gates we depend on (Jekyll site CI, check-svg,
-#     lighthouse-ci, vitest, sentry-release).
+# CI gate (defense-in-depth):
+#   main has NO required status checks configured (verified 2026-06-30), so
+#   `gh pr merge --auto` alone would merge a dependency PR the instant it is
+#   mergeable — even with red CI. To close that hole WITHOUT depending on an
+#   external branch-protection setting, the "Wait for CI checks" step below
+#   blocks on `gh pr checks --watch --fail-fast` before arming auto-merge:
+#   a failing check fails that step, which skips the merge step, so a red
+#   dependency PR is never auto-merged. If required status checks are later
+#   added to main, this step is harmless (it just confirms the same checks).
+#
+# Recommended repo settings:
+#   - Settings → General → "Allow auto-merge" enabled (so `--auto` can arm).
 #
 # Author trust:
 #   We pin dependabot/fetch-metadata to a SHA so a renamed action repo
@@ -38,7 +45,10 @@ jobs:
   auto-merge:
     if: github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    # Long enough for the PR's CI (build + check-svg) to finish under the
+    # `gh pr checks --watch` gate below. If CI overruns this, the job times out
+    # and the merge step is skipped — fail-safe (PR stays open, never merged red).
+    timeout-minutes: 30
     steps:
       - name: Checkout (for fallback classifier script)
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
@@ -63,6 +73,30 @@ jobs:
           classification="$(python3 scripts/dependabot_classify_pr.py "$PR_TITLE")"
           echo "classification=$classification" >> "$GITHUB_OUTPUT"
           echo "Title-based classification: '$classification'"
+
+      # Gate: block until the PR's CI checks finish, failing fast on the first
+      # red check. This step failing fails the job, which SKIPS the merge step
+      # below — so a dependency PR with failing CI is never auto-merged even
+      # though main has no required status checks. Dependabot PRs are authored
+      # by dependabot[bot] (not GITHUB_TOKEN), so their pull_request checks run
+      # normally and there are real checks to watch.
+      - name: Wait for CI checks to pass (patch + minor only)
+        if: |
+          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
+          steps.meta.outputs.update-type == 'version-update:semver-minor' ||
+          steps.title_class.outputs.classification == 'version-update:semver-patch' ||
+          steps.title_class.outputs.classification == 'version-update:semver-minor'
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Give CI a moment to register check runs on the freshly-opened PR so
+          # `gh pr checks --watch` does not see "no checks" and pass vacuously.
+          sleep 30
+          # --watch polls until every check completes; --fail-fast exits non-zero
+          # on the first failure. A non-zero exit fails this step -> the merge
+          # step is skipped (fail-closed).
+          gh pr checks "$PR_URL" --watch --fail-fast --interval 30
 
       - name: Enable auto-merge (patch + minor only)
         if: |
