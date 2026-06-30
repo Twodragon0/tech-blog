@@ -47,13 +47,22 @@ jobs:
       - name: Run priority checks
         id: checks
         run: |
-          set -euo pipefail
-          message=$(python3 scripts/ops_health_orchestrator.py --skip-sentry --skip-pagespeed || true)
+          set -uo pipefail
+          # Capture the orchestrator's exit code instead of swallowing it with
+          # `|| true`. Non-zero means a BLOCKING lint-and-types failure (rc 1=P1,
+          # 2=P0); advisory service checks never set it. We still publish the
+          # report to Slack below, then fail in the trailing step so a broken
+          # lint/types state is a RED run, not a silent green. (Fix A-H2, audit.)
+          set +e
+          message=$(python3 scripts/ops_health_orchestrator.py --skip-sentry --skip-pagespeed)
+          rc=$?
+          set -e
           {
             echo "message<<EOF"
             echo "$message"
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
 
       - name: Post to Slack via AI Gateway
         if: env.AI_GATEWAY_URL != '' && env.AI_GATEWAY_TOKEN != '' && env.SLACK_CHANNEL_ID_OPS != ''
@@ -68,3 +77,14 @@ jobs:
             -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" \
             -H "Content-Type: application/json" \
             -d "$payload"
+
+      - name: Fail run if ops health checks reported a blocking issue
+        if: always()
+        env:
+          OPS_RC: ${{ steps.checks.outputs.rc }}
+        run: |
+          if [ "${OPS_RC:-0}" != "0" ]; then
+            echo "::error::ops_health_orchestrator exited ${OPS_RC} (blocking lint-and-types failure; see the Slack report)."
+            exit "${OPS_RC}"
+          fi
+          echo "ops health checks passed (rc=0)."

@@ -226,14 +226,25 @@ def check_github_actions(auto_recover: bool, rerun_limit: int) -> CheckResult:
             recommendation="Check gh CLI version and token scope.",
         )
 
-    # Exclude self (Ops Multi Agent Loop) to avoid circular failure detection
-    self_workflow = "Ops Multi Agent Loop"
+    # Exclude ALL autonomous ops-loop workflows from auto-rerun, not just the
+    # caller. Every loop workflow can invoke this orchestrator with
+    # --auto-recover-gha; if the exclusion covered only "Ops Multi Agent Loop"
+    # then a failed Ultrawork Loop / AI Ops On Demand / Ops Priority Loop could be
+    # rerun by a sibling loop, and the rerun itself re-runs auto-recover — an
+    # uncontrolled autonomous rerun chain with actions:write and no human gate.
+    # (Security fix A-H3, 2026-06-30 workflow audit.)
+    self_workflows = {
+        "Ops Multi Agent Loop",
+        "Ops Priority Loop",
+        "Ultrawork Loop",
+        "AI Ops On Demand",
+    }
     failed_runs = [
         run
         for run in runs
         if run.get("status") == "completed"
         and run.get("conclusion") not in {"success", "neutral", "skipped", "cancelled"}
-        and run.get("name") != self_workflow
+        and run.get("name") not in self_workflows
     ]
 
     rerun_attempts: list[str] = []
