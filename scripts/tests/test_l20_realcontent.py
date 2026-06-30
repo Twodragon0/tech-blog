@@ -25,6 +25,8 @@ from scripts.news.l20_dispatch import (
     _apply_real_content,
     _build_story,
     _content_descriptor,
+    _content_format_word,
+    _content_side_kpi,
     _DEFERRED_AI_ADJECTIVES,
     _DIGEST_CONTENT_HONEST,
     _digest_highlight_panels,
@@ -2234,3 +2236,103 @@ class TestGenericPoolHeroFix:
         by_text = load_post_fields(text=_P(sample).read_text(encoding="utf-8"))
         assert by_path is not None and by_text is not None
         assert by_path[1] == by_text[1]  # identical summary_card
+
+
+# ---------------------------------------------------------------------------
+# Content-cover honest KPI fallback (_content_format_word / _content_side_kpi)
+# ---------------------------------------------------------------------------
+# L20 CONTENT covers (guides/courses/research) have no incident metric, so a
+# side KPI card whose headline yields no real figure used to render the
+# "TBD / STATUS / NEW" placeholder. _content_side_kpi supplies an honest,
+# post-derived descriptor (content FORMAT + publish YEAR) instead.
+class TestContentFormatWord:
+    def test_format_keywords(self):
+        assert _content_format_word("Cloud Security Course 8Batch 6Week", "x.svg") == "COURSE"
+        assert _content_format_word("AI Coding Assistants Comparison Research Analysis", "x") == "STUDY"
+        assert _content_format_word("Cloud Security Trends January 2026", "x") == "TRENDS"
+        assert _content_format_word("AWS GCP Cloud Updates January 2026", "x") == "UPDATE"
+        assert _content_format_word("KISA Security Advisory Ransomware", "x") == "REPORT"
+
+    def test_default_is_guide(self):
+        # Plain guides + roadmaps (no specific format keyword) -> GUIDE.
+        assert _content_format_word("AWS Cloud Security Complete Guide", "x") == "GUIDE"
+        assert _content_format_word("2026 DevSecOps Roadmap Complete Guide", "x") == "GUIDE"
+
+    def test_value_is_ascii_and_within_kpi_cap(self):
+        # _kpi_card hard-caps the value at 6 chars; every word must fit + be ASCII.
+        for title in ("Course", "Comparison", "Trends", "Updates", "Advisory", "Anything"):
+            w = _content_format_word(title, "")
+            assert w.isascii() and len(w) <= 6
+
+
+class TestContentSideKpi:
+    def test_hero_has_no_kpi(self):
+        # index 0 (hero) has no KPI card -> None so the caller never overrides it.
+        assert _content_side_kpi(0, "AWS Guide", "2026-01-14-AWS_Guide.svg") is None
+
+    def test_card1_is_format(self):
+        v = _content_side_kpi(1, "AWS Cloud Security Complete Guide", "2026-01-14-AWS.svg")
+        assert v == ("GUIDE", "FORMAT", "reference")
+
+    def test_card2_is_publish_year(self):
+        v = _content_side_kpi(2, "AWS Cloud Security Complete Guide", "2026-01-14-AWS.svg")
+        assert v == ("2026", "YEAR", "published")
+
+    def test_card2_none_when_no_dated_filename(self):
+        # Year not derivable -> None so the caller keeps whatever _infer_kpi gave.
+        assert _content_side_kpi(2, "AWS Guide", "no-date-here.svg") is None
+
+
+class TestBuildStoryContentKpi:
+    def _kpi(self, story):
+        return (story["kpi_value"], story["kpi_label"], story["kpi_sub"])
+
+    def test_placeholder_replaced_by_content_kpi(self):
+        # A content band whose headline yields no figure: the TBD placeholder is
+        # replaced by the supplied honest descriptor.
+        story = _build_story(
+            headline="AWS Cloud Security",  # no CVE/CVSS/$/%/count
+            subheadline="x",
+            index=1,
+            severity_label="HIGH",
+            content_mode=True,
+            content_kpi=("GUIDE", "FORMAT", "reference"),
+        )
+        assert self._kpi(story) == ("GUIDE", "FORMAT", "reference")
+
+    def test_real_inferred_kpi_preserved_over_content_kpi(self):
+        # A REAL figure in the headline (here a CVE) must win over the content
+        # fallback -- only the TBD placeholder is overridden.
+        story = _build_story(
+            headline="Cisco FMC CVE-2026-20122 patch",
+            subheadline="x",
+            index=1,
+            severity_label="HIGH",
+            content_mode=True,
+            content_kpi=("GUIDE", "FORMAT", "reference"),
+        )
+        assert story["kpi_value"] == "CVE" and story["kpi_label"] == "ID"
+
+    def test_digest_path_unaffected_without_content_kpi(self):
+        # content_mode False (digest path) + no content_kpi: behaviour unchanged,
+        # placeholder kept for _apply_real_content to fill later.
+        story = _build_story(
+            headline="some headline",
+            subheadline="x",
+            index=1,
+            severity_label="HIGH",
+        )
+        assert self._kpi(story) == ("TBD", "STATUS", "NEW")
+
+    def test_content_kpi_ignored_when_none(self):
+        # content_mode True but no content_kpi supplied (e.g. hero idx 0) ->
+        # placeholder kept (no crash, no override).
+        story = _build_story(
+            headline="no figures here",
+            subheadline="x",
+            index=0,
+            severity_label="HIGH",
+            content_mode=True,
+            content_kpi=None,
+        )
+        assert self._kpi(story) == ("TBD", "STATUS", "NEW")

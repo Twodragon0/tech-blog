@@ -1088,6 +1088,57 @@ _CONTENT_HONEST_VISUALS: frozenset = frozenset({
 })
 
 
+# Content covers (guides/courses/research) carry no incident metric, so a side
+# KPI card whose headline yields no real figure (CVE/CVSS/$/%/count) falls back
+# to the ``("TBD", "STATUS", "NEW")`` placeholder from :func:`_infer_kpi`. The
+# rules below derive an HONEST content-format word instead — asserting only the
+# post's declared nature, never a fabricated metric. First match wins; the
+# default is the neutral ``GUIDE``.
+_CONTENT_FORMAT_RULES: Tuple[Tuple["re.Pattern[str]", str], ...] = (
+    (re.compile(r"\bcourse\b|\bbatch\b|\bweek\b", re.IGNORECASE), "COURSE"),
+    (re.compile(r"\bcomparison\b|\bvs\b|\bresearch\b", re.IGNORECASE), "STUDY"),
+    (re.compile(r"\btrends?\b", re.IGNORECASE), "TRENDS"),
+    (re.compile(r"\bupdates\b", re.IGNORECASE), "UPDATE"),
+    (re.compile(r"\badvisor|\bincident\b", re.IGNORECASE), "REPORT"),
+)
+
+
+def _content_format_word(title: str, filename: str) -> str:
+    """Honest ≤6-char content-format word from the title/filename keywords."""
+    hay = f"{title or ''} {filename or ''}"
+    for pat, word in _CONTENT_FORMAT_RULES:
+        if pat.search(hay):
+            return word
+    return "GUIDE"
+
+
+def _content_side_kpi(
+    index: int, title: str, filename: str
+) -> Optional[Tuple[str, str, str]]:
+    """Honest KPI triple for a CONTENT cover side card, or ``None``.
+
+    The two side cards (index 1, 2) of an L20 content cover would otherwise show
+    the ``TBD / STATUS / NEW`` placeholder because a guide/course headline has no
+    incident metric. This returns post-derived descriptors that assert nothing
+    the post lacks:
+
+    - index 1 -> the content FORMAT (GUIDE/COURSE/STUDY/REPORT/TRENDS/UPDATE);
+    - index 2 -> the publish YEAR from the ``YYYY-MM-DD-…`` filename.
+
+    Returns ``None`` for the hero (index 0 has no KPI card) and when the year is
+    not derivable, so the caller keeps whatever :func:`_infer_kpi` produced. This
+    is descriptor-only -- it never feeds visual routing, so the honest visual
+    class is unchanged.
+    """
+    if index == 1:
+        return (_content_format_word(title, filename), "FORMAT", "reference")
+    if index == 2:
+        m = _FILENAME_RE.match(Path(filename or "").name)
+        if m:
+            return (m.group(1), "YEAR", "published")
+    return None
+
+
 def _build_story(
     *,
     headline: str,
@@ -1097,6 +1148,7 @@ def _build_story(
     action: Optional[str] = None,
     content_mode: bool = False,
     cover_theme: Optional[str] = None,
+    content_kpi: Optional[Tuple[str, str, str]] = None,
 ) -> Dict:
     """Build a complete story dict ready for ``render_l20_hero``.
 
@@ -1133,6 +1185,18 @@ def _build_story(
     if cover_theme and index == 0 and visual in ("neutral", "security_advisory"):
         theme = cover_theme
     kpi_value, kpi_label, kpi_sub = _infer_kpi(headline)
+    # Content covers: when the headline yields no real figure, _infer_kpi
+    # returns the ``TBD / STATUS / NEW`` placeholder. Replace it with the
+    # caller-supplied honest descriptor (content FORMAT / publish YEAR) so a
+    # guide cover never renders "TBD". A REAL inferred KPI (CVE/CVSS/$/%/count
+    # found in the band headline) is preserved -- only the placeholder default
+    # is overridden. Descriptor-only -> visual routing / honesty class unchanged.
+    if (
+        content_mode
+        and content_kpi is not None
+        and (kpi_value, kpi_label, kpi_sub) == ("TBD", "STATUS", "NEW")
+    ):
+        kpi_value, kpi_label, kpi_sub = content_kpi
     # Market-routed bands: a USD figure is a PRICE, not an attack IMPACT.
     # ``_infer_kpi`` is generic and labels any "$71K" as IMPACT/estimated
     # (correct for a breach-cost figure on an attack visual). When the band
@@ -2545,6 +2609,7 @@ def generate_l20_content_svg(post_info: Dict, output_path: Path) -> bool:
             severity_label="HIGH",
             content_mode=True,
             cover_theme=cover_theme,
+            content_kpi=_content_side_kpi(1, title, filename),
         )
         br_story = _build_story(
             headline=br_dict["headline"],
@@ -2553,6 +2618,7 @@ def generate_l20_content_svg(post_info: Dict, output_path: Path) -> bool:
             severity_label="MEDIUM",
             content_mode=True,
             cover_theme=cover_theme,
+            content_kpi=_content_side_kpi(2, title, filename),
         )
 
         date_str = _date_str_from_filename(
