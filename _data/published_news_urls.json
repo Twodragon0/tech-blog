@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-29T00:34:49.758312+00:00",
+  "updated_at": "2026-06-30T00:35:28.303361+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/fbi-disrupts-massive-ai-powered-phishing-service-using-a-million-urls/",
-      "title": "FBI disrupts massive AI-powered phishing service using a million URLs",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30485",
-      "title": "Arch Linux, 이제 악성코드 사고가 통제됐다고 판단: 1,500개 이상 패키지 영향",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://snyk.io/blog/fable-mythos-suspension-security-takeaways/",
-      "title": "When a Government Pulls an AI Model: What the Fable 5 and Mythos 5 Suspension Me",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://openai.com/index/introducing-openai-partner-network",
-      "title": "Introducing the OpenAI Partner Network",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/amazon-warning-triggered-us-crackdown-on-anthropic-ai-models-reports?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Amazon warning triggered US crackdown on Anthropic AI models: Reports",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/ethereum-quantum-proof-accounts-7-cents-researcher?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Ethereum can quantum-proof accounts for just 7 cents, says Ethereum's Kohaku lea",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/humanity-protocol-hack-linked-north-korean-actors-quantstamp?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Humanity Protocol’s $36M hack tied to suspected North Korean hackers: Quantstamp",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/trump-says-iran-peace-deal-to-be-signed-sunday-contradicting-tehran?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Trump says Iran peace deal to be signed Sunday, contradicting Tehran",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/stanchart-looks-for-3-signs-of-btc-bottom-including-strategys-monday-news?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "StanChart looks for 3 signs of BTC bottom, including Strategy’s Monday news",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/markets/2026/06/14/bitcoin-shoots-higher-on-iran-deal-with-strait-of-hormuz-set-to-open",
-      "title": "Bitcoin shoots higher on Iran peace deal, with Strait of Hormuz set to open",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "World Monitor - Real-Time Global Intelligence Dashboard",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30491",
-      "title": "소프트웨어는 죽는 게 아니라 진화 중이다",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30490",
-      "title": "Automerge로 멀티플레이어 팟캐스트 에디터 만들기",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30489",
-      "title": "Grit: 에이전트로 Git을 Rust로 다시 작성하기",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30488",
-      "title": "에이전트 코딩에 로컬 LLM 활용하기",
-      "published_date": "2026-06-15",
-      "expires_at": "2026-06-22T00:39:22.435134+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/chinese-hackers-abused-google-workspace.html",
       "title": "Chinese Hackers Abused Google Workspace Rules to Steal Research and Defense Emai",
@@ -1302,6 +1212,96 @@
       "title": "캘리포니아, 7월 1일부터 스트리밍 광고 과도한 음량 금지",
       "published_date": "2026-06-29",
       "expires_at": "2026-07-06T00:34:49.758222+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/malicious-perplexity-chrome-extension.html",
+      "title": "Malicious Perplexity Chrome Extension Intercepted Searches and Address Bar Input",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/whatsapp-is-finally-getting-usernames.html",
+      "title": "WhatsApp is Finally Getting Usernames to Help Keep Phone Numbers Private",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/mustang-panda-uses-zoho-workdrive-as.html",
+      "title": "Mustang Panda Uses Zoho WorkDrive as Command Channel in Indian Government Attack",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/weekly-recap-linux-kernel-flaws-ai.html",
+      "title": "⚡ Weekly Recap: Linux Kernel Flaws, AI Malware Tricks, Turla Backdoor, Infosteal",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/what-the-june-2026-threat-technique-catalog-update-means-for-your-aws-environment/",
+      "title": "What the June 2026 Threat Technique Catalog update means for your AWS environmen",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/",
+      "title": "Claude Meets Blackwell Ultra: Anthropic’s Models Now Run on NVIDIA GB300 in Azur",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/full-stack-ai-explainer/",
+      "title": "Ask an AI expert: What exactly is the full stack?",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/palantir-secure-ai-us-agencies-nemotron-open-models/",
+      "title": "Open Models, Closed Environments: Palantir Brings Secure AI to US Agencies With ",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://openai.com/index/mapping-ai-jobs-transition-eu",
+      "title": "Mapping Europe’s AI Workforce Opportunity",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/genpage-towards-end-to-end-generative-homepage-construction-at-netflix-77146fba8a08?source=rss----2615bd06b42e---4",
+      "title": "GenPage: Towards End-to-End Generative Homepage Construction at Netflix",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/the-power-of-multi-model-spanner-for-the-agentic-era/",
+      "title": "Supercharging the agentic era with Spanner’s multi-model architecture",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/fraud-prevention-with-bigquery-graph/",
+      "title": "Scaling Network Analysis for Fraud Prevention with BigQuery Graph",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/deep-dive-into-bigquery-ai-agg-function/",
+      "title": "Synthesize the big picture and analyze trends with BigQuery's AI.AGG function",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-google-cloud-security-uses-ai-internally/",
+      "title": "Cloud CISO Perspectives: How Google Cloud Security uses AI internally",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/pro-russia-influence-ecosystem/",
+      "title": "The Bear Necessities: A Look at the Drivers, Dynamics, and Applications of the P",
+      "published_date": "2026-06-30",
+      "expires_at": "2026-07-07T00:35:28.303267+00:00"
     }
   ]
 }
