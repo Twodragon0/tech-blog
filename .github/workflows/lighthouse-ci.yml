@@ -210,16 +210,19 @@ jobs:
 
       - name: Compare LCP head vs base
         id: compare
-        continue-on-error: true
         run: |
           python3 scripts/dev/compare_lighthouse_runs.py \
             --base-dir lhci-base \
             --head-dir lhci-head \
             --threshold-lcp-ms 200 \
             --output-md lighthouse-comparison.md
-          # The script's exit code IS the gate.
-          # continue-on-error: true ensures a fallback measurement (GH Pages)
-          # or transient Vercel block never hard-blocks PR merge.
+          # The script's exit code IS the gate, and it is fail-safe by design:
+          # compare() returns 1 ONLY when a URL measured on BOTH sides regresses
+          # past the +200ms threshold; a missing/incomparable base (e.g. the
+          # GH Pages fallback or a transient Vercel block produced no base LHR)
+          # yields verdict "skip" and exit 0. So we do NOT use continue-on-error
+          # here — a real regression now blocks the PR, while the fallback case
+          # still passes. (Security fix C-H1, 2026-06-30 workflow audit.)
 
       - name: Upload Lighthouse artifacts
         if: always()

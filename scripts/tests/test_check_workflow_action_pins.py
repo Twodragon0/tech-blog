@@ -238,6 +238,21 @@ class TestFloatingTagWarning:
         rc = checker.main(["--warn-only", "--workflows-dir", str(tmp_path)])
         assert rc == 0
 
+    def test_floating_tag_blocks_by_default(self, tmp_path, monkeypatch):
+        """Security fix C-H2: a floating tag must FAIL (exit 1) without --warn-only.
+
+        Previously floating tags were warn-only and the gate passed, so the
+        supply-chain SHA-pin policy was unenforced. The repo is 100% SHA-pinned,
+        so this enforces the status quo.
+        """
+        monkeypatch.delenv("SKIP_PIN_CHECK", raising=False)
+        _make_workflow("w.yml", tmp_path, """\
+            steps:
+              - uses: actions/setup-python@v5
+        """)
+        rc = checker.main(["--workflows-dir", str(tmp_path)])
+        assert rc == 1
+
 
 # ---------------------------------------------------------------------------
 # test_skip_env_bypass — SKIP_PIN_CHECK=1 → exit 0 immediately

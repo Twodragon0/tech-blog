@@ -4,12 +4,13 @@ check_workflow_action_pins.py — GitHub Actions pin consistency checker.
 
 Scans .github/workflows/*.yml for `uses:` directives and validates:
   1. SHA consistency: same action used with the same 40-char SHA across all workflows.
-  2. SHA format: floating tags (@v1, @v2) flagged as warnings (CIA supply-chain best practice).
+  2. SHA format: floating tags (@v1, @v2) are a BLOCKING violation — every action
+     must be SHA-pinned (supply-chain best practice). Use --warn-only to downgrade.
   3. Existence (optional, --check-existence): GitHub API confirms each SHA is real.
 
 Exit codes:
   0 — all checks pass (or --warn-only)
-  1 — violations found
+  1 — violations found (inconsistent SHAs, floating tags, or non-existent SHAs)
 
 Environment variables:
   GITHUB_TOKEN       — Bearer token for GitHub API (avoids rate-limit on --check-existence)
@@ -255,10 +256,11 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[check-pins] Scanned {len(set(p.workflow for p in pins))} workflow(s), "
           f"found {len(pins)} action pin(s).")
 
-    # --- 1. Floating tag warnings ---
+    # --- 1. Floating tag violations (blocking unless --warn-only) ---
     floating = check_sha_format(pins)
     if floating:
-        print(f"\n[check-pins] WARNINGS — floating tags ({len(floating)}):")
+        label = "WARNINGS" if args.warn_only else "ERRORS"
+        print(f"\n[check-pins] {label} — floating tags, SHA pin required ({len(floating)}):")
         for w in floating:
             print(w)
 
@@ -289,8 +291,10 @@ def main(argv: list[str] | None = None) -> int:
             print("\n[check-pins] Nothing to fix — SHAs are already consistent.")
 
     # --- Summary ---
-    has_errors = bool(inconsistent or nonexistent)
-    if not has_errors and not floating:
+    # Floating tags are a blocking violation (every action must be SHA-pinned);
+    # --warn-only downgrades all of these to non-fatal. (Security fix C-H2.)
+    has_errors = bool(inconsistent or nonexistent or floating)
+    if not has_errors:
         print("\n[check-pins] All pins consistent. No floating tags.")
 
     if args.warn_only:
