@@ -1,0 +1,55 @@
+# March 2026 Security Digest Monthly Index — rollup cover spec.
+# Source: _posts/2026-03-30-March_2026_Security_Digest_Monthly_Index.md
+#
+# Audit:
+#   - redirect_from has 2 entries (self-canonical variants only; a monthly index
+#     does not redirect the dailies). daily_count_source: index_table.
+#   - 27 daily digests across 4 weeks (W1=6 [3/1..3/7], W2=5 [3/8..3/14],
+#     W3=8 [3/15..3/21, two 3/16 entries], W4=8 [3/22..3/29]). Total = 27,
+#     matching the post's 개요/통계 ("총 27개" / "총 발행 포스트 27개").
+#   - Render as 4 week-aggregated cells (not 27 day cells) to keep the strip
+#     readable, mirroring the February spec. Each week-cell carries the
+#     dominant theme of its headline issues from the source index table.
+#   - top_highlights / details pulled from "월간 주요 트렌드" + "통계"; sources
+#     are vendor/ecosystem advisories for the named CVEs and campaigns (no
+#     research-firm attribution is fabricated beyond what the post states).
+date: '2026-03-30'
+slug: March_2026_Security_Digest_Monthly_Index
+kind: monthly_index
+period_label: 'March 2026'
+period_short: MAR 2026
+daily_count: 27
+daily_count_source: index_table
+sfx: MR30
+title: '2026-03 Monthly Index: GlassWorm supply chain, Cisco FMC 0-day, AI agent threats'
+aria: |
+  March 2026 security digest monthly index covering 27 daily digests
+  across four weeks : GlassWorm supply chain GitHub token theft, Trivy
+  CI/CD breach with 47 poisoned npm packages, Cisco FMC zero-day
+  CVE-2026-20122, LiteLLM backdoor, AI agent prompt injection and sandbox
+  DNS exfiltration, Gentlemen ransomware, DPRK IT worker sanctions,
+  Kubernetes RBAC and AWS IAM Zero Trust.
+top_highlights:
+  - severity: HIGH
+    label: SUPPLY CHAIN
+    headline: 'GlassWorm GitHub Token Theft'
+    detail: 'Trivy CI/CD breach : 47 npm packages poisoned'
+    source: GitHub / npm Advisory
+  - severity: HIGH
+    label: ZERO-DAY PATCH
+    headline: 'Cisco FMC 0-Day CVE-2026-20122'
+    detail: 'Cisco FMC + Chrome 0-day + Oracle RCE : patch fast'
+    source: Cisco PSIRT / NVD
+  - severity: HIGH
+    label: AI SECURITY
+    headline: 'LiteLLM Backdoor + Agent Threats'
+    detail: 'AI sandbox DNS exfil : prompt injection : K8s RBAC'
+    source: Vendor Advisories
+days:
+  - { date: 'Week 1', severity: HIGH,   tag: 'AI Agent + Cisco CVE' }
+  - { date: 'Week 2', severity: MEDIUM, tag: 'Codex + AI Security' }
+  - { date: 'Week 3', severity: HIGH,   tag: 'GlassWorm + FMC 0-day' }
+  - { date: 'Week 4', severity: HIGH,   tag: 'Trivy npm + LiteLLM' }
+footer:
+  daily_digests: 27
+  categories: [security, devsecops]
