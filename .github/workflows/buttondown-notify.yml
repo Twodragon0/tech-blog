@@ -108,6 +108,11 @@ jobs:
         env:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
           SITE_URL: "https://tech.2twodragon.com"
+          # Pass the workflow_dispatch input via env (NOT inline ${{ }} in the
+          # shell) so a crafted post_path cannot inject shell commands: GitHub
+          # writes it as a literal string to the process env and the shell never
+          # re-parses it. (Security fix B-H1, 2026-06-30 workflow audit.)
+          POST_PATH: ${{ github.event.inputs.post_path }}
         run: |
           # 보안: API 키 검증
           if [ -z "$BUTTONDOWN_API_KEY" ]; then
@@ -118,9 +123,9 @@ jobs:
 
           # workflow_dispatch: 지정된 포스트 발송
           # push: git diff로 새 포스트 감지 후 발송
-          if [ -n "${{ github.event.inputs.post_path }}" ]; then
-            echo "📧 Manual dispatch: ${{ github.event.inputs.post_path }}"
-            python3 scripts/buttondown_notify.py "${{ github.event.inputs.post_path }}" || echo "⚠️ Buttondown notification failed (non-critical)"
+          if [ -n "$POST_PATH" ]; then
+            echo "📧 Manual dispatch: $POST_PATH"
+            python3 scripts/buttondown_notify.py "$POST_PATH" || echo "⚠️ Buttondown notification failed (non-critical)"
           else
             echo "📧 Processing posts detected by git diff..."
             python3 scripts/buttondown_notify_batch.py || echo "⚠️ Buttondown notification failed (non-critical)"

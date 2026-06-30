@@ -54,6 +54,11 @@ jobs:
 
       - name: Run font drift gate
         if: steps.label-check.outputs.skip == 'false'
+        # Pass the diff-derived file list via env, not inline ${{ }} in the
+        # shell, so a PR-controlled filename with shell metacharacters cannot
+        # break out of the argument. (Security fix M-01, 2026-06-30 audit.)
+        env:
+          CHANGED_FILES: ${{ steps.diff.outputs.changed }}
         run: |
           python3 scripts/dev/check_font_drift.py \
-            --changed-files '${{ steps.diff.outputs.changed }}'
+            --changed-files "$CHANGED_FILES"

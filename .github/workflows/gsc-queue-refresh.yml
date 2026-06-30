@@ -62,11 +62,17 @@ jobs:
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
           GSC_SITE_URL: ${{ vars.GSC_SITE_URL || 'https://tech.2twodragon.com' }}
+          # Pass the workflow_dispatch input via env, not inline ${{ }} in the
+          # shell, so a crafted limit value cannot inject commands. (Security
+          # fix M-01, 2026-06-30 workflow audit.)
+          LIMIT_INPUT: ${{ github.event.inputs.limit }}
         run: |
           set -o pipefail
           LIMIT_FLAG=""
-          if [ -n "${{ github.event.inputs.limit }}" ] && [ "${{ github.event.inputs.limit }}" != "0" ]; then
-            LIMIT_FLAG="--limit ${{ github.event.inputs.limit }}"
+          # Only honor a strictly-numeric, non-zero limit; reject anything else
+          # so the value can never carry shell metacharacters into the call.
+          if [[ "$LIMIT_INPUT" =~ ^[1-9][0-9]*$ ]]; then
+            LIMIT_FLAG="--limit $LIMIT_INPUT"
           fi
           # Capture the 1-line summary printed to stdout for the job summary
           SUMMARY=$(python3 scripts/gsc_inspect.py $LIMIT_FLAG | tail -n 1)

@@ -200,9 +200,12 @@ jobs:
         run: |
           echo "🔍 Checking front matter title/excerpt for unescaped inner double-quotes..."
           if [ "${{ github.event_name }}" == "pull_request" ]; then
-            CHANGED=$(git diff --name-only origin/main...HEAD -- '_posts/*.md' 2>/dev/null || true)
-            if [ -n "$CHANGED" ]; then
-              python3 scripts/validators/check_frontmatter_quotes.py $CHANGED
+            # Read changed paths into an array (newline-delimited) and pass them
+            # quoted, so a post filename containing shell metacharacters can't be
+            # word-split or injected. (Security fix M-02, 2026-06-30 audit.)
+            mapfile -t CHANGED < <(git diff --name-only origin/main...HEAD -- '_posts/*.md' 2>/dev/null || true)
+            if [ "${#CHANGED[@]}" -gt 0 ]; then
+              python3 scripts/validators/check_frontmatter_quotes.py "${CHANGED[@]}"
             else
               echo "No _posts/*.md changed, skipping"
             fi

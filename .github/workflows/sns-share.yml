@@ -76,5 +76,9 @@ jobs:
           LINKEDIN_PERSON_ID: ${{ secrets.LINKEDIN_PERSON_ID }}
           # Site URL
           SITE_URL: "https://tech.2twodragon.com"
+          # Pass the git-diff-derived filename via env, not inline ${{ }} in the
+          # shell, so a post filename with shell metacharacters cannot inject
+          # commands. (Security fix M-03, 2026-06-30 workflow audit.)
+          LATEST_POST: ${{ steps.check_posts.outputs.latest_post }}
         run: |
-          python scripts/share_sns.py "${{ steps.check_posts.outputs.latest_post }}"
+          python scripts/share_sns.py "$LATEST_POST"

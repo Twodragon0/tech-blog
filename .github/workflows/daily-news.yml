@@ -116,12 +116,18 @@ jobs:
       
       - name: Collect tech news from RSS
         id: collect
+        # Pass workflow_dispatch input via env, not inline ${{ }} in the shell,
+        # so a crafted value cannot inject commands. (Security fix M-02, audit.)
+        env:
+          HOURS_INPUT: ${{ github.event.inputs.hours || '24' }}
         run: |
-          HOURS="${{ github.event.inputs.hours || '24' }}"
+          # Sanitize to digits only; fall back to 24 on anything non-numeric.
+          HOURS="$HOURS_INPUT"
+          [[ "$HOURS" =~ ^[0-9]+$ ]] || HOURS=24
           echo "Collecting news from last $HOURS hours..."
 
           # RSS 수집 실행 (타임아웃 8분, 개별 피드 타임아웃 15초)
-          timeout 480 python3 scripts/collect_tech_news.py --hours $HOURS --output _data/collected_news.json --feed-timeout 15 || {
+          timeout 480 python3 scripts/collect_tech_news.py --hours "$HOURS" --output _data/collected_news.json --feed-timeout 15 || {
             echo "::warning::RSS collection timed out or failed, checking existing data..."
           }
 
@@ -166,10 +172,16 @@ jobs:
           # and strips Hangul consistently (the L22 path leaked Korean on
           # 2026-05-23..26 and tripped the unified SVG quality gate).
           # USE_L20_HERO defaults to "1" so we don't need to set it explicitly.
+          # workflow_dispatch inputs via env, not inline ${{ }} in the shell, so
+          # a crafted value cannot inject commands. (Security fix M-02, audit.)
+          DRY_RUN_INPUT: ${{ github.event.inputs.dry_run || 'false' }}
+          MAX_NEWS_INPUT: ${{ github.event.inputs.max_news || '15' }}
+          HOURS_INPUT: ${{ github.event.inputs.hours || '24' }}
         run: |
-          DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
-          MAX_NEWS="${{ github.event.inputs.max_news || '15' }}"
-          HOURS="${{ github.event.inputs.hours || '24' }}"
+          # Constrain free-text inputs to expected shapes before use.
+          DRY_RUN="$DRY_RUN_INPUT"; [ "$DRY_RUN" = "true" ] || DRY_RUN="false"
+          MAX_NEWS="$MAX_NEWS_INPUT"; [[ "$MAX_NEWS" =~ ^[0-9]+$ ]] || MAX_NEWS=15
+          HOURS="$HOURS_INPUT"; [[ "$HOURS" =~ ^[0-9]+$ ]] || HOURS=24
           TODAY=$(date +%Y-%m-%d)
 
           echo "📊 Debug Info:"
