@@ -1845,6 +1845,78 @@ def _digest_stats(content: str) -> Dict[str, Optional[int]]:
     return {"total": _grab(_DIGEST_TOTAL_RE), "security": _grab(_DIGEST_SECURITY_RE)}
 
 
+# A security-category label in the highlights-table col1 (English "Security" or
+# Korean "보안"). Used ONLY to count security-flagged rows for the KPI fallback.
+_DIGEST_TABLE_SECURITY_RE = re.compile(r"security|보안", re.IGNORECASE)
+
+
+def _digest_table_counts(content: str) -> Dict[str, Optional[int]]:
+    """Count highlights-table rows for the KPI fallback when stat markers are absent.
+
+    Many early digests (Jan–early-Feb) predate the ``총 뉴스 수`` / ``보안 뉴스``
+    collection-stat markers that :func:`_digest_stats` reads, so their KPI cards
+    fell back to the ``TBD`` placeholder. Their body still carries the
+    ``| 분야 | 소스 | … |`` highlights table, which IS an honest, post-present
+    count source. This counts:
+
+    - ``total``   -- every data row of that table (its real row count); and
+    - ``security`` -- rows whose category (col1) is Security / 보안.
+
+    Two format variants exist: the current 4-column table
+    (``분야|소스|핵심내용|영향도``) and the legacy 5-column table that adds a
+    ``긴급도`` (urgency) column. The shared :func:`_digest_table_panels` parser
+    hard-expects exactly 4 cells and bails on the 5-column form; this counter is
+    column-flexible (≥3 cells) so both variants are read.
+
+    Returns ``{"total": int|None, "security": int|None}`` -- ``None`` for both
+    when the highlights table is absent so the caller keeps the marker/inferred
+    KPI. This is COUNT-ONLY: it never extracts panels, so it cannot alter the
+    honesty scorer's panel/visual routing (which goes through
+    :func:`_digest_table_panels` / :func:`resolve_digest_band_visuals`).
+    """
+    total = 0
+    security = 0
+    in_table = False
+    for line in (content or "").splitlines():
+        if not in_table:
+            if _DIGEST_TABLE_HEADER_RE.match(line):
+                in_table = True
+            continue
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            break  # blank / non-table line ends the highlights table
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if not cells:
+            break
+        col1 = cells[0]
+        if set(col1) <= set("-: "):  # |---|---| separator row
+            continue
+        if len(cells) < 3:  # malformed / unrelated single-cell row
+            break
+        total += 1
+        if _DIGEST_TABLE_SECURITY_RE.search(col1):
+            security += 1
+    if total == 0:
+        return {"total": None, "security": None}
+    return {"total": total, "security": security}
+
+
+def _digest_cadence(post_info: Dict) -> str:
+    """Honest, count-free cadence word for a digest KPI card (≤6 chars).
+
+    Derived from the filename/title (``…Weekly_Digest…`` etc.), so it asserts
+    only what the post itself declares. Used when no collection count exists.
+    """
+    hay = f"{post_info.get('filename', '')} {post_info.get('title', '')}".lower()
+    if "weekly" in hay:
+        return "WEEKLY"
+    if "daily" in hay:
+        return "DAILY"
+    if "monthly" in hay:
+        return "MONTH"  # ``_kpi_card`` caps the value at 6 chars
+    return "DIGEST"
+
+
 def _rescue_hero(panels: List[Dict]) -> List[Dict]:
     """Promote the best real-entity story to the hero slot when the natural hero
     is a source-name fallback (e.g. "The Hacker News") and a more informative
@@ -2191,17 +2263,48 @@ def _apply_real_content(
     ):
         stories[0]["theme"] = cover_theme
 
-    stats = _digest_stats(content)
     # KPI cards live on the two right panels (index 1, 2). Replace the
-    # placeholder ``TBD / STATUS / NEW`` with real counts when available.
-    if len(stories) > 1 and stats.get("total"):
-        stories[1]["kpi_value"] = str(stats["total"])
-        stories[1]["kpi_label"] = "ITEMS"
-        stories[1]["kpi_sub"] = "24h feed"
-    if len(stories) > 2 and stats.get("security") is not None:
-        stories[2]["kpi_value"] = str(stats["security"])
-        stories[2]["kpi_label"] = "SECURITY"
-        stories[2]["kpi_sub"] = "flagged"
+    # placeholder ``TBD / STATUS / NEW`` with real counts. Source precedence
+    # (most → least authoritative, all post-present so honesty-safe):
+    #   1. ``총 뉴스 수`` / ``보안 뉴스`` collection-stat markers (the true feed
+    #      volume — superset of the highlighted rows);
+    #   2. the ``| 분야 | 소스 | … |`` highlights-table row counts (used for
+    #      early digests that predate the markers).
+    # When NEITHER source exists (no marker AND no highlights table) the digest
+    # carries no honest count, so the cards fall back to a count-free descriptor
+    # rather than a fabricated number or the ``TBD`` placeholder.
+    stats = _digest_stats(content)
+    tcounts = _digest_table_counts(content)
+    # Use ``is None`` (not truthiness) so an authoritative ``0`` marker — a
+    # genuinely empty feed — is respected rather than silently overridden by the
+    # table row count. ``total`` and ``security`` stay symmetric.
+    total = stats.get("total")
+    if total is None:
+        total = tcounts.get("total")
+    security = stats.get("security")
+    if security is None:
+        security = tcounts.get("security")
+
+    if len(stories) > 1:
+        if total is not None:
+            stories[1]["kpi_value"] = str(total)
+            stories[1]["kpi_label"] = "ITEMS"
+            stories[1]["kpi_sub"] = "24h feed"
+        else:
+            # No honest item count — show the digest cadence, not a number.
+            stories[1]["kpi_value"] = _digest_cadence(post_info)
+            stories[1]["kpi_label"] = "DIGEST"
+            stories[1]["kpi_sub"] = "news roundup"
+    if len(stories) > 2:
+        if security is not None:
+            stories[2]["kpi_value"] = str(security)
+            stories[2]["kpi_label"] = "SECURITY"
+            stories[2]["kpi_sub"] = "flagged"
+        else:
+            # No honest security count — show curation, not a number.
+            stories[2]["kpi_value"] = "MULTI"
+            stories[2]["kpi_label"] = "SOURCES"
+            stories[2]["kpi_sub"] = "curated feed"
 
 
 def generate_l20_digest_svg(post_info: Dict, output_path: Path) -> bool:

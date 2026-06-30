@@ -29,7 +29,9 @@ from scripts.news.l20_dispatch import (
     _DIGEST_CONTENT_HONEST,
     _digest_highlight_panels,
     _digest_panels,
+    _digest_cadence,
     _digest_stats,
+    _digest_table_counts,
     _digest_table_panels,
     _entity_tokens,
     _GENERIC_HEADLINE_WORDS,
@@ -421,6 +423,69 @@ class TestDigestStats:
 
 
 # ---------------------------------------------------------------------------
+# _digest_table_counts (KPI fallback for marker-less early digests)
+# ---------------------------------------------------------------------------
+# 5-column legacy highlights table (adds a 긴급도 / urgency column) — the format
+# used by Jan–early-Feb digests that the 4-cell ``_digest_table_panels`` parser
+# bails on. ``_digest_table_counts`` must read it.
+_DIGEST_TABLE_5COL = (
+    "| 분야 | 소스 | 핵심 내용 | 영향도 | 긴급도 |\n"
+    "|------|------|----------|--------|--------|\n"
+    "| 🔒 **Security** | The Hacker News | Microsoft AitM 피싱 | 🟠 High | 즉시 |\n"
+    "| 🤖 **AI** | OpenAI | PostgreSQL 스케일링 | 🟡 Medium | 검토 |\n"
+    "| 🔒 **보안** | BleepingComputer | VMware vCenter KEV | 🔴 Critical | 긴급 |\n"
+)
+
+
+class TestDigestTableCounts:
+    def test_counts_4col_table_total_and_security(self):
+        # _DIGEST_TABLE: 3 rows, 2 Security + 1 Blockchain.
+        counts = _digest_table_counts(_DIGEST_TABLE)
+        assert counts["total"] == 3
+        assert counts["security"] == 2
+
+    def test_counts_5col_legacy_table(self):
+        # The 4-cell panel parser bails on this; the counter must NOT.
+        counts = _digest_table_counts(_DIGEST_TABLE_5COL)
+        assert counts["total"] == 3
+        # English "Security" + Korean "보안" both count; "AI" does not.
+        assert counts["security"] == 2
+
+    def test_no_table_returns_none(self):
+        counts = _digest_table_counts("본문에 하이라이트 테이블 없음")
+        assert counts["total"] is None and counts["security"] is None
+
+    def test_stops_at_first_non_table_line(self):
+        body = _DIGEST_TABLE + "\n## 다음 섹션\n| 이슈 | 출처 | 영향도 | 권장 조치 |\n"
+        # Only the highlights table rows are counted; the trailing reference
+        # table after the blank line / heading is excluded.
+        assert _digest_table_counts(body)["total"] == 3
+
+    def test_panel_parser_untouched_by_counter(self):
+        # The shared panel parser still bails on the 5-col table (count-only
+        # helper must not have changed panel extraction / scorer routing).
+        assert _digest_table_panels(_DIGEST_TABLE_5COL) == []
+
+
+# ---------------------------------------------------------------------------
+# _digest_cadence (count-free KPI descriptor source)
+# ---------------------------------------------------------------------------
+class TestDigestCadence:
+    def test_weekly_daily_monthly_from_filename(self):
+        assert _digest_cadence({"filename": "2026-01-26-Tech_Security_Weekly_Digest_X.md"}) == "WEEKLY"
+        assert _digest_cadence({"filename": "2026-02-16-Daily_Tech_Digest_RSS.md"}) == "DAILY"
+        assert _digest_cadence({"filename": "2026-03-30-March_2026_Monthly_Index.md"}) == "MONTH"
+
+    def test_defaults_to_digest(self):
+        assert _digest_cadence({"filename": "2026-01-01-Some_Roundup.md", "title": ""}) == "DIGEST"
+
+    def test_ascii_only_and_within_cap(self):
+        for fn in ("Weekly", "Daily", "Monthly", "Other"):
+            v = _digest_cadence({"filename": fn})
+            assert v.isascii() and len(v) <= 6
+
+
+# ---------------------------------------------------------------------------
 # _apply_real_content (the override)
 # ---------------------------------------------------------------------------
 class TestApplyRealContent:
@@ -499,10 +564,72 @@ class TestApplyRealContent:
     def test_thin_post_keeps_keyword_fallback(self):
         stories = self._stories()
         original_hl = stories[1]["headline"]
-        post_info = {"summary_card": {}, "content": "no stats here"}
+        post_info = {"summary_card": {}, "content": "no stats here",
+                     "filename": "2026-01-26-Tech_Security_Weekly_Digest_X.md"}
         _apply_real_content(stories, post_info)
-        # No highlights, no table -> headlines unchanged; KPI placeholder kept.
+        # No highlights, no table -> headlines unchanged; KPI shows a count-free
+        # honest descriptor (cadence / curation), NOT the ``TBD`` placeholder.
         assert stories[1]["headline"] == original_hl
+        assert stories[1]["kpi_value"] == "WEEKLY" and stories[1]["kpi_label"] == "DIGEST"
+        assert stories[2]["kpi_value"] == "MULTI" and stories[2]["kpi_label"] == "SOURCES"
+        assert "TBD" not in (stories[1]["kpi_value"], stories[2]["kpi_value"])
+
+    def test_marker_takes_precedence_over_table(self):
+        # When both a marker AND a highlights table exist, the marker (true feed
+        # volume) wins; the table is only a fallback.
+        stories = self._stories()
+        post_info = {
+            "summary_card": {},
+            "content": "- **총 뉴스 수**: 28개\n- **보안 뉴스**: 9개\n" + _DIGEST_TABLE,
+        }
+        _apply_real_content(stories, post_info)
+        assert stories[1]["kpi_value"] == "28"   # marker total, not table's 3
+        assert stories[2]["kpi_value"] == "9"     # marker security, not table's 2
+
+    def test_table_fallback_when_no_marker(self):
+        # No markers -> the highlights-table row counts populate the KPIs.
+        stories = self._stories()
+        post_info = {"summary_card": {}, "content": _DIGEST_TABLE}
+        _apply_real_content(stories, post_info)
+        assert stories[1]["kpi_value"] == "3" and stories[1]["kpi_label"] == "ITEMS"
+        assert stories[2]["kpi_value"] == "2" and stories[2]["kpi_label"] == "SECURITY"
+
+    def test_table_fallback_reads_5col_legacy_table(self):
+        # The early 5-column digest format (the original TBD source) is fixed.
+        stories = self._stories()
+        post_info = {"summary_card": {}, "content": _DIGEST_TABLE_5COL}
+        _apply_real_content(stories, post_info)
+        assert stories[1]["kpi_value"] == "3"
+        assert stories[2]["kpi_value"] == "2"
+
+    def test_marker_security_wins_table_total_fallback(self):
+        # Mixed availability: security marker present but total marker absent ->
+        # total falls back to the table, security keeps the marker.
+        stories = self._stories()
+        post_info = {"summary_card": {}, "content": "- **보안 뉴스**: 10개\n" + _DIGEST_TABLE}
+        _apply_real_content(stories, post_info)
+        assert stories[1]["kpi_value"] == "3"    # table total (no total marker)
+        assert stories[2]["kpi_value"] == "10"    # security marker wins over table's 2
+
+    def test_zero_total_marker_respected_over_table(self):
+        # An authoritative ``총 뉴스 수: 0`` (empty feed) must NOT be overridden
+        # by the table row count — total/security stay symmetric on the 0 case.
+        stories = self._stories()
+        post_info = {"summary_card": {},
+                     "content": "- **총 뉴스 수**: 0개\n- **보안 뉴스**: 0개\n" + _DIGEST_TABLE}
+        _apply_real_content(stories, post_info)
+        assert stories[1]["kpi_value"] == "0" and stories[1]["kpi_label"] == "ITEMS"
+        assert stories[2]["kpi_value"] == "0" and stories[2]["kpi_label"] == "SECURITY"
+
+    def test_count_free_label_is_ascii(self):
+        stories = self._stories()
+        post_info = {"summary_card": {}, "content": "no stats",
+                     "filename": "2026-02-16-Daily_Tech_Digest.md"}
+        _apply_real_content(stories, post_info)
+        for s in (stories[1], stories[2]):
+            for key in ("kpi_value", "kpi_label", "kpi_sub"):
+                assert s[key].isascii()
+        assert stories[1]["kpi_value"] == "DAILY"
 
     def test_backfills_thin_summary_card_from_body_table(self):
         """1 summary_card highlight + body table -> all 3 panels real, deduped."""
