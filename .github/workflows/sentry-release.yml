@@ -113,9 +113,8 @@ jobs:
             exit 1
           fi
 
-          # Token 형식 확인
-          TOKEN_PREFIX="${SENTRY_AUTH_TOKEN:0:15}"
-          echo "Token prefix: ${TOKEN_PREFIX}..."
+          # Token 형식 확인 (B-H2: prefix도 로그에 출력하지 않음 —
+          # 시크릿 슬라이스는 GitHub 마스킹을 우회하므로 부분 노출도 누출)
           if [[ ! "$SENTRY_AUTH_TOKEN" =~ ^(sntryu_|sentry-release) ]]; then
             echo "⚠️  Token format unusual (expected sntryu_ or sentry-release prefix)"
           else

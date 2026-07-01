@@ -26,11 +26,9 @@ jobs:
   sentry-healthcheck:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # M-audit: 시크릿은 job-level이 아닌 이를 실제로 쓰는 step에만 노출.
+    # 비-시크릿(STRICT_SENTRY_APP, DEFAULT_BRANCH)만 job-level 유지.
     env:
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       STRICT_SENTRY_APP: ${{ github.event.inputs.strict_sentry_app || 'false' }}
       DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
 
@@ -39,6 +37,10 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
 
       - name: Validate required secrets
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         run: |
           set -euo pipefail
           missing=0
@@ -55,6 +57,10 @@ jobs:
 
       - name: Validate Sentry token and project access
         id: token
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         run: |
           set -euo pipefail
           project_url="https://sentry.io/api/0/projects/${SENTRY_ORG}/${SENTRY_PROJECT}/"
@@ -93,6 +99,8 @@ jobs:
 
       - name: Check GitHub App evidence for Sentry integration
         id: app
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           branch="${DEFAULT_BRANCH:-main}"
@@ -115,6 +123,8 @@ jobs:
 
       - name: Check recent Sentry Release workflow health
         id: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           run_json=$(gh run list --workflow "Sentry Release" --limit 1 --json conclusion,status,url,displayTitle)
