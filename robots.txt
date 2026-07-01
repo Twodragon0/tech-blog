@@ -1,8 +1,7 @@
 ---
 layout: null
 permalink: /robots.txt
-sitemap:
-  exclude: 'yes'
+sitemap: false
 ---
 # robots.txt for Twodragon's Tech Blog
 # https://tech.2twodragon.com

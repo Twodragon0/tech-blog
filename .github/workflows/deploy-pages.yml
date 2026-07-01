@@ -25,6 +25,10 @@ on:
       - 'tags-data.json'
       - 'sitemap.xml'
       - 'robots.txt'
+      - 'security.txt'
+      - 'well-known/**'
+      - 'llms.txt'
+      - 'llms-full.txt'
       - 'sw.js'
   workflow_dispatch:
 

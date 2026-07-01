@@ -1,8 +1,7 @@
 ---
 layout: null
 permalink: /llms-full.txt
-sitemap:
-  exclude: 'yes'
+sitemap: false
 ---
 # Twodragon's Tech Blog - Full Content
 

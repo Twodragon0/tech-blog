@@ -1,0 +1,17 @@
+---
+layout: null
+permalink: /.well-known/security.txt
+sitemap: false
+---
+# security.txt — Twodragon's Tech Blog (RFC 9116)
+# https://tech.2twodragon.com/.well-known/security.txt
+#
+# 보안 취약점을 발견하면 아래 채널로 비공개 신고해 주세요.
+# Please report security vulnerabilities privately via the channels below.
+
+Contact: https://github.com/Twodragon0/tech-blog/security/advisories/new
+Expires: 2027-07-01T00:00:00.000Z
+Preferred-Languages: ko, en
+Canonical: https://tech.2twodragon.com/.well-known/security.txt
+Canonical: https://tech.2twodragon.com/security.txt
+Policy: https://github.com/Twodragon0/tech-blog/blob/main/SECURITY.md
