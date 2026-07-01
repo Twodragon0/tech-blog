@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-06-30T00:35:28.303361+00:00",
+  "updated_at": "2026-07-01T00:37:13.332584+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/chinese-hackers-abused-google-workspace.html",
-      "title": "Chinese Hackers Abused Google Workspace Rules to Steal Research and Defense Emai",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/north-korean-hackers-are-turning.html",
-      "title": "North Korean Hackers Are Turning Developer Tools Into Malware Delivery Channels",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/litellm-vulnerability-chain-lets-low.html",
-      "title": "LiteLLM Vulnerability Chain Lets Low-Privilege Users Take Over AI Gateway Server",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/one-click-microsoft-365-copilot-flaw.html",
-      "title": "One-Click Microsoft 365 Copilot Flaw Could Have Let Attackers Steal Emails, File",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/weekly-recap-chrome-0-day-unifi.html",
-      "title": "⚡ Weekly Recap: Chrome 0-Day, UniFi Exploits, macOS Stealers, VPN Flaw and More",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/",
-      "title": "We’re strengthening our presence in Alabama through new investments and communit",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-gemma-4-models-on-amazon-bedrock/",
-      "title": "Introducing Gemma 4 models on Amazon Bedrock",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/ai-agent-failure-detection-and-root-cause-analysis-with-strands-evals/",
-      "title": "AI Agent Failure Detection and Root Cause Analysis with Strands Evals",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-context-rich-research-agents-with-deep-agents-and-bedrock-agentcore/",
-      "title": "Build context-rich research agents with Deep Agents and Bedrock AgentCore",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/06/15/hyperliquid-loses-anthropic-openai-markets-as-creator-shuts-down-project",
-      "title": "Hyperliquid loses Anthropic, OpenAI markets as creator shuts down project",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/new-data-agents-across-the-agentic-data-cloud/",
-      "title": "What’s new in data agents: Supercharging your AI workflows",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-the-4-lessons-that-guided-ai-threat-defense/",
-      "title": "Cloud CISO Perspectives: The 4 lessons that guided AI Threat Defense",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/graph-technologies-underpin-yahoo-system-of-action/",
-      "title": "Architecting a trusted agentic platform with graph technologies: A Yahoo case st",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/prc-targets-us-medical-research/",
-      "title": "Public and Private Medical Community Targeted by China-Nexus Threat Actor Pursui",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-i-learned-go-in-a-day-with-antigravity-20-and-how-you-can-do-the-same/",
-      "title": "How I learned Go in a Day with Antigravity 2.0 and How You Can Do the Same",
-      "published_date": "2026-06-16",
-      "expires_at": "2026-06-23T00:47:30.049398+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/google-vertex-ai-sdk-flaw-let-attackers.html",
       "title": "Google Vertex AI SDK Flaw Let Attackers Hijack Model Uploads via Bucket Squattin",
@@ -1302,6 +1212,96 @@
       "title": "The Bear Necessities: A Look at the Drivers, Dynamics, and Applications of the P",
       "published_date": "2026-06-30",
       "expires_at": "2026-07-07T00:35:28.303267+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html",
+      "title": "Microsoft Warns Poisoned MCP Tool Descriptions Can Make AI Agents Leak Data",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/rustduck-botnet-rebuilds-in-rust-to.html",
+      "title": "RustDuck Botnet Rebuilds in Rust to Hijack Routers and Servers for DDoS",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/langflow-rce-exploited-to-deploy-monero.html",
+      "title": "Langflow RCE Exploited to Deploy Monero Miner on Exposed AI App Endpoints",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/06/silent-swap-crypto-clipper-uses-fake.html",
+      "title": "Silent Swap Crypto Clipper Uses Fake Google Notes Extension to Replace Wallet Ad",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-to-restore-claude-fable-access-on-wednesday/",
+      "title": "Anthropic to restore Claude Fable access on Wednesday",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/claude-science-bionemo-agent-toolkit/",
+      "title": "NVIDIA BioNeMo Agent Toolkit Brings Accelerated AI to Life Sciences Researchers ",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/06/30/open-source/10-years-of-metas-commitment-to-python/",
+      "title": "10 Years of Meta’s Commitment to Python",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/inference-software-lowest-token-cost/",
+      "title": "How NVIDIA’s Inference Software Stack Powers the Lowest Token Cost",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-life-jaiveer-singh/",
+      "title": "How Jaiveer Singh Is Helping Robots — and Developers — Move Faster",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/vision-ai-agent-skills-omniverse-metropolis/",
+      "title": "Into the Omniverse: Three Workflows for Improving Vision AI Agent Accuracy With ",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/conversational-analytics-in-bigquery-now-ga/",
+      "title": "Conversational analytics in BigQuery brings trusted agentic reasoning to everyon",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/alloydb-omni-secure-hybrid-database-modernization-for-finance/",
+      "title": "Modernizing financial services with deployment freedom and transformational AI w",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/schrodinger-alphaevolve-molecular-discovery-accelerates-4x/",
+      "title": "How Schrödinger sped up molecular discovery by 4x with Alphaevolve",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-enterprise-agent-platform-remote-mcp-server/",
+      "title": "Build agents even faster with Gemini Enterprise Agent Platform’s fully-managed, ",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/what-google-cloud-announced-in-ai-this-month/",
+      "title": "What Google Cloud announced in AI this month",
+      "published_date": "2026-07-01",
+      "expires_at": "2026-07-08T00:37:13.332490+00:00"
     }
   ]
 }
