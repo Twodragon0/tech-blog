@@ -21,10 +21,12 @@ field) inside a ``run:`` block. This guard scans every workflow and fails loudly
 Scope / direction
 -----------------
 - Presence assertion: **any** forbidden context inside a ``run:`` body trips it.
-- Only ``run:`` script bodies are scanned. Passing a value via ``env:``
-  (``env: FOO: ${{ github.event.inputs.x }}``) is the CORRECT remediation and is
-  intentionally NOT flagged. ``if:``/``with:``/other keys are GitHub-expression
-  contexts (not a shell) and are out of scope.
+- Both ``run:`` shell bodies AND ``actions/github-script`` ``with: script:``
+  bodies are scanned (same CWE-94 injection class, different interpreter).
+  Passing a value via ``env:`` (``env: FOO: ${{ github.event.inputs.x }}``) is
+  the CORRECT remediation and is intentionally NOT flagged. ``if:`` and other
+  ``with:`` inputs are GitHub-expression contexts (not an interpreter) and are
+  out of scope.
 - Forbidden contexts are the injectable ones only. GitHub-controlled scalars that
   are NOT attacker-influenced shell metacharacter carriers — ``pull_request.number``
   (int), ``*.sha`` (hex), ``github.run_id``, ``github.event_name``,
@@ -65,8 +67,8 @@ _FORBIDDEN_RE = re.compile(
 )
 
 
-def _run_bodies(workflow: object):
-    """Yield ``(job_name, step_name, run_text)`` for every step-level ``run:``."""
+def _steps(workflow: object):
+    """Yield ``(job_name, step_dict)`` for every step in every job."""
     if not isinstance(workflow, dict):
         return
     jobs = workflow.get("jobs")
@@ -76,8 +78,34 @@ def _run_bodies(workflow: object):
         if not isinstance(job, dict):
             continue
         for step in job.get("steps") or []:
-            if isinstance(step, dict) and isinstance(step.get("run"), str):
-                yield job_name, step.get("name", "<unnamed>"), step["run"]
+            if isinstance(step, dict):
+                yield job_name, step
+
+
+def _run_bodies(workflow: object):
+    """Yield ``(job_name, step_name, run_text)`` for every step-level ``run:``."""
+    for job_name, step in _steps(workflow):
+        if isinstance(step.get("run"), str):
+            yield job_name, step.get("name", "<unnamed>"), step["run"]
+
+
+def _github_script_bodies(workflow: object):
+    """Yield ``(job_name, step_name, script)`` for every ``actions/github-script``
+    ``with: script:`` body.
+
+    ``github-script`` runs its ``script:`` as JavaScript after GitHub expands
+    ``${{ }}`` into the source text — the exact CWE-94 injection class as a
+    ``run:`` shell body, just a different interpreter. The ``run:``-only scan
+    would miss it, so it is checked here with the same forbidden-context list.
+    """
+    for job_name, step in _steps(workflow):
+        uses = str(step.get("uses", ""))
+        if "github-script" not in uses:
+            continue
+        with_block = step.get("with")
+        script = with_block.get("script") if isinstance(with_block, dict) else None
+        if isinstance(script, str):
+            yield job_name, step.get("name", "<unnamed>"), script
 
 
 def _scan(text: str):
@@ -117,4 +145,25 @@ class TestNoRunInputInterpolationGuard:
             "— this is a shell-injection vector (see commit 80dc060f). Route the "
             "value through an env: var on the step and reference it as a quoted "
             '"$VAR" instead. Offending sites:\n  - ' + "\n  - ".join(offenders)
+        )
+
+    def test_no_untrusted_context_in_github_script_bodies(self):
+        # G1: same injection class in actions/github-script JS bodies.
+        offenders = []
+        for wf in _workflow_files():
+            try:
+                doc = yaml.safe_load(wf.read_text(encoding="utf-8"))
+            except yaml.YAMLError as exc:
+                raise AssertionError(f"{wf.name} is not valid YAML: {exc}")
+            for job_name, step_name, script in _github_script_bodies(doc):
+                for expr in _scan(script):
+                    offenders.append(f"{wf.name} :: job '{job_name}' :: step '{step_name}' :: {expr}")
+
+        assert not offenders, (
+            "Untrusted ${{ }} context interpolated directly into an "
+            "actions/github-script `script:` body — GitHub expands it into the JS "
+            "source before execution (CWE-94, same class as shell injection). Read "
+            "the value from `process.env.*` (set via the step's env:) or "
+            "`context.payload.*` inside the script instead. Offending sites:\n  - "
+            + "\n  - ".join(offenders)
         )
