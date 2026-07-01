@@ -243,6 +243,9 @@ jobs:
 
       - name: Show Summary
         if: always()
+        env:
+          # 인젝션 방지: dispatch 입력은 env 경유로만 (test_ci_no_run_input_interpolation_guard).
+          IMAGE_TYPE_INPUT: ${{ github.event.inputs.image_type || 'post' }}
         run: |
           echo "## 📊 Image Generation Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -252,7 +255,7 @@ jobs:
           else
             echo "- **Mode**: SVG Fallback Only (no API cost)" >> $GITHUB_STEP_SUMMARY
           fi
-          echo "- **Type**: ${{ github.event.inputs.image_type || 'post' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Type**: $IMAGE_TYPE_INPUT" >> $GITHUB_STEP_SUMMARY
           echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ -d "assets/images" ]; then

@@ -336,6 +336,12 @@ jobs:
       
       - name: Summary
         if: always()
+        env:
+          # 인젝션 방지: dispatch 입력을 run 쉘에 ${{ }}로 직접 보간하지 않고
+          # env 경유로 전달 후 "$VAR"로 인용 참조 (test_ci_no_run_input_interpolation_guard).
+          HOURS_INPUT: ${{ github.event.inputs.hours || '24' }}
+          MAX_NEWS_INPUT: ${{ github.event.inputs.max_news || '15' }}
+          DRY_RUN_INPUT: ${{ github.event.inputs.dry_run || 'false' }}
         run: |
           echo "## 📰 Daily News Auto Publish Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -359,9 +365,9 @@ jobs:
 
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Configuration" >> $GITHUB_STEP_SUMMARY
-          echo "- Hours lookback: ${{ github.event.inputs.hours || '24' }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Max news: ${{ github.event.inputs.max_news || '15' }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Dry run: ${{ github.event.inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Hours lookback: $HOURS_INPUT" >> $GITHUB_STEP_SUMMARY
+          echo "- Max news: $MAX_NEWS_INPUT" >> $GITHUB_STEP_SUMMARY
+          echo "- Dry run: $DRY_RUN_INPUT" >> $GITHUB_STEP_SUMMARY
 
       - name: Notify on failure
         if: failure()

@@ -80,7 +80,10 @@ jobs:
       
       - name: Output Deployment Info
         if: success()
+        env:
+          # 인젝션 방지: dispatch 입력은 env 경유로만 (test_ci_no_run_input_interpolation_guard).
+          DEPLOYMENT_URL_INPUT: ${{ github.event.inputs.deployment_url || 'N/A' }}
         run: |
           echo "✅ Sentry Release created for Vercel deployment"
           echo "Release: ${{ steps.get_sha.outputs.sha }}"
-          echo "Deployment URL: ${{ github.event.inputs.deployment_url || 'N/A' }}"
+          echo "Deployment URL: $DEPLOYMENT_URL_INPUT"
