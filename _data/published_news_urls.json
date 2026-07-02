@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-07-01T00:37:13.332584+00:00",
+  "updated_at": "2026-07-02T00:35:56.622297+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/google-vertex-ai-sdk-flaw-let-attackers.html",
-      "title": "Google Vertex AI SDK Flaw Let Attackers Hijack Model Uploads via Bucket Squattin",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/clickfix-campaigns-expand-malware.html",
-      "title": "ClickFix Campaigns Expand Malware Delivery With New Loaders and Fake Update Lure",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/new-rokarolla-android-malware-steals.html",
-      "title": "New Rokarolla Android Malware Steals PINs, SMS Codes, and Crypto Wallet Funds",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/malicious-jetbrains-marketplace-plugins-steal-ai-api-keys-from-developers/",
-      "title": "Malicious JetBrains Marketplace plugins steal AI API keys from developers",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/threat-tactic-spotlight-subdomain-takeover/",
-      "title": "Threat tactic spotlight: Subdomain takeover",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-xr-ai/",
-      "title": "Hands Free, AIs Forward: NVIDIA XR AI Brings Agents to AR Glasses",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/coherent-texas-ai-optical/",
-      "title": "Coherent Breaks Ground on Expanded Texas Facility, Scaling AI’s Optical Backbone",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/",
-      "title": "Unlocking UK house-building with AI-accelerated planning",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/hpe-ai-factory-agentic-enterprise/",
-      "title": "HPE AI Factory With NVIDIA Expands for the Era of Agents",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/blackwell-mlperf-training-6-0/",
-      "title": "Fastest, Largest, Strongest: NVIDIA Blackwell Sweeps MLPerf Training 6.0",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/google-named-a-leader-in-idc-marketscape-siem-2026-vendor-assessment/",
-      "title": "Google named a Leader in IDC MarketScape SIEM 2026 Vendor Assessment",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/systems/brazos-liquid-cooling-system-for-air-cooled-data-centers/",
-      "title": "Introducing Brazos: Bringing liquid cooling to air-cooled data centers",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/how-atlas-scales-hundreds-of-cloud-sql-databases/",
-      "title": "How Atlas scales hundreds of merchant databases with Cloud SQL Enterprise Plus e",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-explore-ai-and-interface-updates/",
-      "title": "Introducing new Explores and Merge Queries in Looker",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-siemens-sliced-the-elephant-modernizing-legacy-code-with-agentic-workflows/",
-      "title": "How Siemens \"slices the elephant,\" advancing agentic workflows for industrial so",
-      "published_date": "2026-06-17",
-      "expires_at": "2026-06-24T00:40:16.995178+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/survey-94-of-incidents-involve.html",
       "title": "Survey: 94% of Incidents Involve Anonymized Infrastructure. Teams Are Still Reac",
@@ -1302,6 +1212,96 @@
       "title": "What Google Cloud announced in AI this month",
       "published_date": "2026-07-01",
       "expires_at": "2026-07-08T00:37:13.332490+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/unpatched-argo-cd-repo-server-flaw.html",
+      "title": "Unpatched Argo CD Repo-Server Flaw Could Let Attackers Take Over Kubernetes Clus",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/19-year-old-scattered-spider-suspect.html",
+      "title": "19-Year-Old Scattered Spider Suspect Extradited to Face U.S. Hacking Charges",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/seo-poisoned-software-sites-abuse.html",
+      "title": "SEO-Poisoned Software Sites Abuse ScreenConnect to Deploy AsyncRAT",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/veildrop-malware-chain-uses-blogger.html",
+      "title": "VEIL#DROP Malware Chain Uses Blogger Platform to Deliver PureLogs Stealer",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/ousaban-banking-trojan-targets-iberian.html",
+      "title": "Ousaban Banking Trojan Targets Iberian Bank Users with Fake PDF Lures",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/",
+      "title": "The latest AI news we announced in June 2026",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/07/01/data-infrastructure/metas-ai-storage-blueprint-at-scale/",
+      "title": "Meta’s AI Storage Blueprint at Scale",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/education/nyc-ai-summit/",
+      "title": "New York City educators and industry leaders gathered at Google’s offices to sha",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-and-partners-build-in-america-for-america/",
+      "title": "NVIDIA and Partners Build in America, for America",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/ais-bitcoin-moment-open-source-fight",
+      "title": "AI’s Bitcoin Moment: Why the Open-Source Fight Looks Like Crypto Back in 2014",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/socradar-powers-rapid-threat-detection-with-alloydb-and-gemini-enterprise/",
+      "title": "SOCRadar powers rapid threat detection with AlloyDB and Gemini Enterprise",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/boost-performance-and-lower-costs-with-alloydb-ai-functions/",
+      "title": "AlloyDB AI Functions - now with revolutionary performance boosts and cost saving",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-claude-apps-gateway-for-google-cloud/",
+      "title": "Get started with the Claude apps gateway for Google Cloud",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-in-2026-gartner-analytics-and-bi-platforms-mq/",
+      "title": "Google named a Leader in 2026 Gartner® Magic Quadrant™ for Analytics and Busines",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/new-idc-study-how-mandiant-transforms-security-into-a-competitive-advantage/",
+      "title": "New IDC study: The business value of Mandiant Consulting",
+      "published_date": "2026-07-02",
+      "expires_at": "2026-07-09T00:35:56.622197+00:00"
     }
   ]
 }
