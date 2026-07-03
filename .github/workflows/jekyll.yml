@@ -1,6 +1,9 @@
 name: Jekyll site CI
 
-# GitHub Pages 배포 워크플로우
+# Jekyll CI: 스크립트 테스트 + 빌드 검증 전용.
+# Pages 배포는 deploy-pages.yml이 단독 담당한다 (github-pages 환경을 두 워크플로가
+# 동시에 배포하며 "Deployment failed, try again later" 경합을 유발했던 문제 해소,
+# 2026-07-03). Vercel이 프로덕션, GH Pages는 백업 origin.
 # Free 티어 최적화: 캐싱, 조건부 실행, 병렬화
 
 on:
@@ -82,8 +85,6 @@ jobs:
     needs: [check-changes]
     permissions:
       contents: read
-      pages: write
-      id-token: write
       pull-requests: write
 
     steps:
@@ -97,10 +98,6 @@ jobs:
         with:
           ruby-version: '3.3'
           bundler-cache: true # 자동 캐싱 (비용 절감)
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # v6
 
       - name: Setup Node.js
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6
@@ -352,8 +349,9 @@ jobs:
           echo ""
           echo "🏗️  Building site with build.sh..."
           chmod +x build.sh
-          # Set baseurl for GitHub Pages (if configured)
-          export BASEURL="${{ steps.pages.outputs.base_path }}"
+          # CI validates the build only (no Pages deploy here). Build with an
+          # empty baseurl to mirror the Vercel production build.
+          export BASEURL=""
           if ./build.sh; then
             echo "✅ Build completed successfully"
           else
@@ -370,65 +368,6 @@ jobs:
           BUILD_TIME: ${{ github.event.head_commit.timestamp }}
           DEPLOYMENT_URL: ${{ github.event.repository.html_url }}
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
-        with:
-          path: _site
-
-  deploy:
-    # PR에서는 배포하지 않음 (비용 절감)
-    # CI 최적화: 관련 파일 변경 시에만 배포
-    # build 작업이 성공했을 때만 배포 (명시적 조건 추가)
-    if: |
-      github.event_name == 'push' && 
-      github.ref == 'refs/heads/main' &&
-      needs.check-changes.outputs.should-build == 'true' &&
-      needs.build.result == 'success'
-    
-    # 동시 배포 방지: 같은 브랜치의 배포는 큐에 대기
-    # cancel-in-progress: false로 설정하여 이전 빌드가 완료될 때까지 대기
-    concurrency:
-      group: pages-deploy-${{ github.ref }}
-      cancel-in-progress: false
-    
-    # 배포 job 타임아웃: GitHub Pages 배포는 최대 15분까지 소요될 수 있음
-    timeout-minutes: 15
-    
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: [check-changes, build]
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-      - name: Check build status
-        run: |
-          if [ "${{ needs.build.result }}" != "success" ]; then
-            echo "❌ Build job failed or was cancelled. Skipping deployment."
-            exit 1
-          fi
-          echo "✅ Build job succeeded. Proceeding with deployment."
-      
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128  # v5
-        # deploy-pages 액션 타임아웃: 10분 (600000ms)
-        # 액션 내부에서 deployment_queued 상태를 모니터링하며 대기
-        timeout-minutes: 10
-        continue-on-error: false
-      
-      - name: Deployment Info
-        if: success()
-        run: |
-          echo "✅ Deployed to GitHub Pages"
-          echo "URL: ${{ steps.deployment.outputs.page_url }}"
-          echo "Commit: ${{ github.sha }}"
-      
-      - name: Deployment Error
-        if: failure()
-        run: |
-          echo "❌ Deployment failed"
-          echo "Please check the logs above for details"
-          exit 1
+      # NOTE: no upload-pages-artifact / deploy job here on purpose.
+      # deploy-pages.yml is the single Pages deployer (see header). This
+      # workflow only proves the site builds + tests pass.
