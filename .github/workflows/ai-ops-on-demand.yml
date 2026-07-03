@@ -71,6 +71,9 @@ jobs:
     permissions:
       contents: read
 
+    # MEDIUM-2 (audit): 시크릿 값은 job-level에서 모든 step(Checkout/Setup/Install
+    # 포함)에 노출하지 않는다. 비-시크릿 토글과 if: 조건용 boolean만 job-level에 두고,
+    # 실제 시크릿은 이를 쓰는 step에만 부여한다.
     env:
       RUN_LINT_CHECKS: ${{ github.event.inputs.run_lint_checks || github.event.client_payload.run_lint_checks || 'true' }}
       RUN_VERCEL_CHECKS: ${{ github.event.inputs.run_vercel_checks || github.event.client_payload.run_vercel_checks || 'true' }}
@@ -78,15 +81,9 @@ jobs:
       RUN_SENTRY_CHECKS: ${{ github.event.inputs.run_sentry_checks || github.event.client_payload.run_sentry_checks || 'true' }}
       RUN_UIUX_CHECKS: ${{ github.event.inputs.run_uiux_checks || github.event.client_payload.run_uiux_checks || 'true' }}
       AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || github.event.client_payload.auto_recover_gha || 'true' }}
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-      PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
-      AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
-      SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
+      # if: 조건용 boolean (시크릿 값이 아님 — 존재 여부만 노출).
+      HAS_AI_GATEWAY: ${{ secrets.AI_GATEWAY_URL != '' && secrets.AI_GATEWAY_TOKEN != '' }}
+      HAS_SLACK_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS != '' }}
 
     steps:
       - name: Checkout
@@ -108,6 +105,13 @@ jobs:
 
       - name: Run on-demand checks
         id: checks
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail
           args=(--output reports/ops-roundtable.md --json-output reports/ops-roundtable.json)
@@ -131,11 +135,13 @@ jobs:
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
 
       - name: Post to Slack via AI Gateway
-        if: env.AI_GATEWAY_URL != '' && env.AI_GATEWAY_TOKEN != '' && env.SLACK_CHANNEL_ID_OPS != ''
+        if: env.HAS_AI_GATEWAY == 'true' && env.HAS_SLACK_OPS == 'true'
         shell: bash
         env:
+          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
           MESSAGE: ${{ steps.checks.outputs.message }}
-          TARGET_CHANNEL_ID: ${{ env.SLACK_CHANNEL_ID_OPS }}
+          TARGET_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
         run: |
           set -euo pipefail
           payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
