@@ -366,11 +366,22 @@ jobs:
             BRANCH="blogwatcher/digest-${TODAY}-${RUN_ID}"
             git checkout -b "$BRANCH"
             git push origin "$BRANCH"
-            gh pr create --base main --head "$BRANCH" \
+            # The untrusted digest is now quarantined on $BRANCH; main is NOT
+            # updated regardless of whether the PR opens. Try to open the review
+            # PR — if the org/repo blocks Actions from creating PRs, fail with
+            # actionable guidance rather than a cryptic error (verified E2E
+            # 2026-07-03: branch push succeeds, gh pr create needs the repo
+            # setting below or a PAT/App token).
+            if gh pr create --base main --head "$BRANCH" \
               --title "auto digest (blogwatcher external payload) - ${TODAY}" \
-              --body "Automated digest built from an external \`repository_dispatch\` payload. This path is untrusted (SSRF/feed-poisoning boundary), so it opens a PR instead of pushing to main. Review the post + cover and let CI go green before merging." \
-              || { echo "::error::gh pr create failed"; exit 1; }
-            echo "Opened review PR from $BRANCH (untrusted external-payload path)"
+              --body "Automated digest built from an external \`repository_dispatch\` payload. This path is untrusted (SSRF/feed-poisoning boundary), so it opens a PR instead of pushing to main. Review the post + cover and let CI go green before merging."; then
+              echo "Opened review PR from $BRANCH (untrusted external-payload path)"
+            else
+              echo "::error::Could not auto-open the review PR. The digest is safely quarantined on branch '${BRANCH}' (main was NOT updated)."
+              echo "::error::Fix: enable Settings → Actions → General → 'Allow GitHub Actions to create and approve pull requests', or use a PAT/App token. Meanwhile open it manually:"
+              echo "::error::  ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/main...${BRANCH}?expand=1"
+              exit 1
+            fi
           else
             # Trusted path (schedule / manual workflow_dispatch, repo RSS content)
             # keeps the existing direct push to main.
