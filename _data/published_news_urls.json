@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-07-02T00:35:56.622297+00:00",
+  "updated_at": "2026-07-03T02:06:10.568269+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/survey-94-of-incidents-involve.html",
-      "title": "Survey: 94% of Incidents Involve Anonymized Infrastructure. Teams Are Still Reac",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/new-rokarolla-android-malware-targets-217-banking-crypto-apps/",
-      "title": "New Rokarolla Android malware targets 217 banking, crypto apps",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/attackers-exploit-three-fortinet.html",
-      "title": "Attackers Exploit Three Fortinet FortiSandbox Flaws, One Patched Last Week",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/china-linked-sprysocks-backdoor-expands.html",
-      "title": "China-Linked SprySOCKS Backdoor Expands to Windows with Driver-Based Stealth",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/steam-workshop-abused-to-spread-malware-via-wallpaper-engine-app/",
-      "title": "Steam Workshop abused to spread malware via Wallpaper Engine app",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/",
-      "title": "Safeguard your agentic AI applications with the Amazon Bedrock Guardrails Invoke",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-container-caching-in-amazon-sagemaker-ai-for-faster-model-scaling/",
-      "title": "Introducing container caching in Amazon SageMaker AI for faster model scaling",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/parallelize-speculative-decoding-with-p-eagle-on-amazon-sagemaker-ai/",
-      "title": "Parallelize speculative decoding with P-EAGLE on Amazon SageMaker AI",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-customer-collaboration-is-shaping-the-future-of-genai-security-with-model-armor/",
-      "title": "How customer collaboration is shaping the future of GenAI security with Model Ar",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/amazon-s3-annotations-attach-rich-queryable-context-directly-to-your-objects/",
-      "title": "Amazon S3 annotations: attach rich, queryable context directly to your objects",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/mod-accelerate-using-kiro/",
-      "title": "에잇퍼센트의 Kiro CLI 기반 Amazon ECS 현대화 여정",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-16-github-models-is-no-longer-available-to-new-customers",
-      "title": "GitHub Models is no longer available to new customers",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/docker-content-trust-retirement-and-migration-guidance/",
-      "title": "Docker Content Trust: Retirement and Migration Guidance",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-16-github-code-quality-generally-available-july-20-2026",
-      "title": "GitHub Code Quality generally available July 20, 2026",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-16-organization-level-enablement-for-github-code-quality",
-      "title": "Organization-level enablement for GitHub Code Quality",
-      "published_date": "2026-06-18",
-      "expires_at": "2026-06-25T00:47:40.181716+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/f5-patches-two-critical-nginx-open.html",
-      "title": "F5 Patches Two Critical NGINX Open Source Flaws Enabling Remote Code Execution",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/orphaned-ai-agents-how-to-find-hidden.html",
-      "title": "Orphaned AI Agents: How to Find Hidden Access Risks Inside Your Network",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/threatsday-bulletin-claude-chat-abuse.html",
-      "title": "ThreatsDay Bulletin: Claude Chat Abuse, NastyC2 npm Packages, Device-Code Phishi",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/microsoft-details-windows-clipper.html",
-      "title": "Microsoft Details Windows Clipper Malware Campaign Using USB LNK Worm and Tor-Ba",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/inc-ransomware-claims-830-victims-since.html",
-      "title": "INC Ransomware Emerges as Major RaaS Threat in 2026 with 830+ Victims Since 2023",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ferc-large-load-interconnection/",
-      "title": "How FERC’s Large-Load Interconnection Actions Help Address Grid Stress, Improve ",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://openai.com/index/chatgpt-enterprise-spend-controls",
-      "title": "New usage analytics and updated spend controls for enterprises",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-ai-marketing-advertising-cannes-lions/",
-      "title": "At Cannes Lions, NVIDIA Partners Reshape Advertising and Marketing With AI",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-game-stores/",
-      "title": "Sync and Stream: GeForce NOW Connects to Members’ Game Libraries Across Devices",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://openai.com/index/improving-health-intelligence-in-chatgpt",
-      "title": "Improving health intelligence in ChatGPT",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/improving-ray-serve-llm-on-gke-throughput-latency/",
-      "title": "Scaling Ray Serve LLM on GKE: Performance without losing the developer experienc",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/scaling-the-next-generation-of-global-innovation-how-google-supports-top-startups-around-the-world/",
-      "title": "Scaling the Next Generation of Global Innovation: How Google Supports Top Startu",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/choice-compliance-and-collaboration-europes-path-to-open-digital-sovereignty/",
-      "title": "Choice, compliance, and collaboration: Europe’s path to open digital sovereignty",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/agent-factory-recap-100x-engineering-with-ai-agents-in-google-antigravity-20/",
-      "title": "Agent Factory Recap:  100X engineering with AI agents in Google Antigravity 2.0",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/announcing-amazon-ec2-g7-instances-accelerated-by-nvidia-rtx-pro-4500-blackwell-server-edition-gpus/",
-      "title": "Announcing Amazon EC2 G7 instances accelerated by NVIDIA RTX PRO 4500 Blackwell ",
-      "published_date": "2026-06-19",
-      "expires_at": "2026-06-26T00:51:01.417647+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html",
       "title": "Unpatchable 'usbliter8' Exploit Breaks Apple A12 and A13 SecureROM Boot Chain",
@@ -1302,6 +1122,96 @@
       "title": "New IDC study: The business value of Mandiant Consulting",
       "published_date": "2026-07-02",
       "expires_at": "2026-07-09T00:35:56.622197+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/google-disrupts-netnut-residential.html",
+      "title": "Google Disrupts NetNut Residential Proxy Network Spanning 2 Million Home Devices",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/ransomware-groups-turn-to-citrix-bleed.html",
+      "title": "Ransomware Groups Turn to Citrix Bleed 2, BYOVD, and Supply Chain Credentials",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-isnt-permanently-leaving-subscriptions-anthropic-says/",
+      "title": "Claude Fable 5 isn’t permanently leaving subscriptions, Anthropic says",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/threatsday-ai-compute-hijacking-apple.html",
+      "title": "ThreatsDay: AI Compute Hijacking, Apple Email Flaw, BlueHammer Ransomware + 14 S",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-relaunch-disappoints-users-with-nerfed-performance/",
+      "title": "Claude Fable relaunch disappoints users with nerfed performance",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-july-2026-games-list/",
+      "title": "Joyride Through July With 12 Games Coming to GeForce NOW",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-unlocks-ai-compute-at-scale-capital-partners-to-power-ai-infrastructure-buildout/",
+      "title": "NVIDIA Unlocks AI Compute at Scale, Inviting Partners to Power the AI Infrastruc",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/openai-5-percent-stake-us-government-trump-talks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "OpenAI weighs 5% stake for US government amid Trump talks: FT",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-amazon-bedrock-catches-ai-generated-phishing/",
+      "title": "How Amazon Bedrock catches AI-generated phishing",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/",
+      "title": "Best practices for multi-turn reinforcement learning in Amazon SageMaker AI",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/google-continued-disruption-residential-proxy-networks/",
+      "title": "Google’s Continued Disruption of Malicious Residential Proxy Networks",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-02-improved-accuracy-and-coverage-in-copilot-usage-metrics-reports",
+      "title": "Improved accuracy and coverage in Copilot usage metrics reports",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-02-upcoming-deprecation-of-gemini-2-5-pro-and-gemini-3-flash",
+      "title": "Upcoming deprecation of Gemini 2.5 Pro and Gemini 3 Flash",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-02-copilot-cli-no-longer-needs-a-personal-access-token-in-github-actions",
+      "title": "Copilot CLI no longer needs a personal access token in GitHub Actions",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-02-copilot-agent-session-streaming-is-now-in-public-preview",
+      "title": "Copilot agent session streaming is now in public preview",
+      "published_date": "2026-07-03",
+      "expires_at": "2026-07-10T02:06:10.568183+00:00"
     }
   ]
 }
