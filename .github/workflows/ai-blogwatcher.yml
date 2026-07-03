@@ -79,6 +79,9 @@ jobs:
     permissions:
       contents: write
       actions: read
+      # repository_dispatch (untrusted external payload) opens a PR instead of
+      # pushing to main; trusted schedule/dispatch still push directly.
+      pull-requests: write
 
     env:
       HOURS: ${{ github.event.inputs.hours || github.event.client_payload.hours || '24' }}
@@ -328,8 +331,13 @@ jobs:
           # but will fail immediately if today's auto-generated post regresses.
           pytest scripts/tests/test_briefing_stats.py -x --tb=short -q
 
-      - name: Commit and push
+      - name: Commit and publish
         if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'
+        env:
+          # gh pr create needs a token; EVENT_NAME/RUN_ID via env (no ${{ }} in run body).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -346,9 +354,26 @@ jobs:
 
           if git diff --staged --quiet; then
             echo "No changes to commit"
-          else
-            git commit -m "feat: auto publish digest via blogwatcher - ${TODAY}"
+            exit 0
+          fi
 
+          git commit -m "feat: auto publish digest via blogwatcher - ${TODAY}"
+
+          if [ "$EVENT_NAME" = "repository_dispatch" ]; then
+            # MEDIUM-1: an external repository_dispatch payload is untrusted
+            # (SSRF/feed-poisoning boundary). Do NOT push to main — open a PR so
+            # a human reviews and required CI runs before the digest goes live.
+            BRANCH="blogwatcher/digest-${TODAY}-${RUN_ID}"
+            git checkout -b "$BRANCH"
+            git push origin "$BRANCH"
+            gh pr create --base main --head "$BRANCH" \
+              --title "auto digest (blogwatcher external payload) - ${TODAY}" \
+              --body "Automated digest built from an external \`repository_dispatch\` payload. This path is untrusted (SSRF/feed-poisoning boundary), so it opens a PR instead of pushing to main. Review the post + cover and let CI go green before merging." \
+              || { echo "::error::gh pr create failed"; exit 1; }
+            echo "Opened review PR from $BRANCH (untrusted external-payload path)"
+          else
+            # Trusted path (schedule / manual workflow_dispatch, repo RSS content)
+            # keeps the existing direct push to main.
             for i in 1 2 3; do
               if git push; then
                 echo "Changes committed and pushed (attempt $i)"
