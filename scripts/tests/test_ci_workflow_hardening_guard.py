@@ -47,6 +47,38 @@ _HEAD_REF_RE = re.compile(
     r"github\.event\.pull_request\.head\.(ref|sha)\b|github\.head_ref\b"
 )
 
+# G4: attacker-controlled free-text contexts that must not be interpolated into
+# an action `with:` input value. Same untrusted set as the run:/github-script
+# injection guard (kept in sync deliberately). These are DATA sinks (Slack
+# payloads, comment bodies, ...), so this is defense-in-depth — not a
+# proven-exploitable injection like the run:/script: cases — but interpolating
+# an issue/PR title or comment body raw invites payload/markdown injection and
+# secondary shell exposure if a downstream action forwards it. Step outputs,
+# github.repository / run_id / sha / ref_name, and PR numbers are trusted and
+# intentionally allowed.
+_UNTRUSTED_CTX_RE = re.compile(
+    r"github\.event\.inputs\."
+    r"|github\.head_ref\b"
+    r"|github\.event\.pull_request\.head\.ref\b"
+    r"|github\.event\.pull_request\.(title|body)\b"
+    r"|github\.event\.issue\.(title|body)\b"
+    r"|github\.event\.comment\.body\b"
+    r"|github\.event\.review\.body\b"
+    r"|github\.event\.discussion\.(title|body)\b"
+)
+_EXPR_RE = re.compile(r"\$\{\{(.*?)\}\}", re.DOTALL)
+
+
+def _flatten_strings(value):
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for v in value.values():
+            yield from _flatten_strings(v)
+    elif isinstance(value, list):
+        for v in value:
+            yield from _flatten_strings(v)
+
 
 def _workflow_files():
     return sorted(WORKFLOW_DIR.glob("*.yml")) + sorted(WORKFLOW_DIR.glob("*.yaml"))
@@ -136,5 +168,36 @@ class TestWorkflowHardeningGuard:
             "— attacker-controlled code then runs with the read/write token and "
             "repo secrets (canonical GitHub Actions RCE). Do not check out the head "
             "ref under pull_request_target; use the base ref. Offending sites:\n  - "
+            + "\n  - ".join(offenders)
+        )
+
+    def test_no_untrusted_context_in_action_with_inputs(self):
+        # G4: defense-in-depth — untrusted free-text into a `with:` input value.
+        # (github-script `script:` bodies are the run:-equivalent injection and
+        # are covered by test_ci_no_run_input_interpolation_guard; skip them here.)
+        offenders = []
+        for wf in _workflow_files():
+            doc = _load(wf)
+            if not isinstance(doc, dict):
+                continue
+            for step in _steps(doc):
+                with_block = step.get("with")
+                if not isinstance(with_block, dict):
+                    continue
+                is_github_script = "github-script" in str(step.get("uses", ""))
+                for input_name, value in with_block.items():
+                    if is_github_script and input_name == "script":
+                        continue
+                    for s in _flatten_strings(value):
+                        for m in _EXPR_RE.finditer(s):
+                            if _UNTRUSTED_CTX_RE.search(m.group(1)):
+                                offenders.append(
+                                    f"{wf.name} :: input '{input_name}' :: {m.group(0).strip()}"
+                                )
+        assert not offenders, (
+            "Attacker-controlled free-text context interpolated into an action "
+            "`with:` input — route it through an env: var and have the step read "
+            "$VAR (or use the action's structured/templated fields) so a payload "
+            "cannot inject into the comment/Slack/webhook body. Offending sites:\n  - "
             + "\n  - ".join(offenders)
         )
