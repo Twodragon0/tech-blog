@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-07-04T02:03:25.130316+00:00",
+  "updated_at": "2026-07-05T02:10:54.901584+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/hackers-exploit-gravity-smtp-wordpress.html",
-      "title": "Hackers Exploit Gravity SMTP WordPress Plugin Bug to Expose API Keys",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/new-prinz-eugen-ransomware-prioritizes-recent-files-for-encryption/",
-      "title": "New Prinz Eugen ransomware prioritizes recent files for encryption",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/microsoft-links-mastra-ai-supply-chain-attack-to-north-korean-hackers/",
-      "title": "Microsoft links Mastra AI supply chain attack to North Korean hackers",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/06/20/signals-meredith-whittaker-wants-you-to-remember-that-ai-chatbots-are-not-your-friends/",
-      "title": "Signal’s Meredith Whittaker wants you to remember that AI chatbots ‘are not your",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://www.securityweek.com/french-president-urges-us-to-share-cutting-edge-ai-and-democracies-to-cooperate-on-regulation/",
-      "title": "French President Urges US to Share Cutting-Edge AI and Democracies to Cooperate ",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-rotations-into-altcoins-collapses-have-altseasons-disappeared?utm_source=rss&utm_medium=rss&utm_campaign=rss",
-      "title": "Bitcoin rotations into altcoins collapses: Have altseasons 'disappeared'?",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/features/crypto-industry-stablecoins-defi-mica?utm_source=rss&utm_medium=rss&utm_campaign=rss",
-      "title": "Crypto industry looks to stablecoins and DeFi revisions in MiCA 2.0",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/pudgy-penguins-expands-retail-footprint-with-target-trading-card-rollout?utm_source=rss&utm_medium=rss&utm_campaign=rss",
-      "title": "Pudgy Penguins expands retail footprint with Target trading card rollout",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/philippine-sec-rwa-tokenization-readiness?utm_source=rss&utm_medium=rss&utm_campaign=rss",
-      "title": "Philippine SEC signals readiness for RWA tokenization",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/crypto-kidnappers-who-robbed-a-minnesota-family-of-8m-plead-guilty?utm_source=rss&utm_medium=rss&utm_campaign=rss",
-      "title": "Crypto kidnappers who robbed a Minnesota family of $8M plead guilty",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30677",
-      "title": "open-code-review — Alibaba의 AI 코드 리뷰 도구",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30676",
-      "title": "DiffsHub",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30675",
-      "title": "LLM이 작성한 인시던트 보고서의 미래가 두렵다",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30674",
-      "title": "AI가 우리의 능력을 망치고 있는가? 초기 연구 결과는 부정적",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30673",
-      "title": "John Jumper, Google DeepMind 떠나 Anthropic 합류",
-      "published_date": "2026-06-21",
-      "expires_at": "2026-06-28T00:44:16.426978+00:00"
-    },
     {
       "url": "https://cointelegraph.com/news/notorious-sandwich-attack-bot-jaredfromsubwayeth-exploited-for-75m?utm_source=rss&utm_medium=rss&utm_campaign=rss",
       "title": "Notorious ‘sandwich attack’ bot Jaredfromsubway.eth exploited for $7.5M",
@@ -1212,6 +1122,90 @@
       "title": "Fable을 이기는 ‘짧은 목줄’ AI 코딩 방법",
       "published_date": "2026-07-04",
       "expires_at": "2026-07-11T02:03:25.130218+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/us-government-entity-paid-kairos-group.html",
+      "title": "U.S. Government Entity Paid Kairos $1 Million in Data-Theft Extortion Case",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/north-korean-hackers-publish-108.html",
+      "title": "North Korean Hackers Publish 108 Malicious Packages and Extensions in PolinRider",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/",
+      "title": "JadePuffer ransomware used AI agent to automate entire attack",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
+      "title": "Alibaba reportedly bans employees from using Claude Code",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/moonbeam-pivots-from-polkadot-to-base-unveils-ai-agent-framework?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Moonbeam to pivot from Polkadot to Base, unveils AI agent framework",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/kraken-lets-traders-use-tokenized-stocks-as-collateral-for-leveraged-trades?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Kraken lets traders use tokenized stocks as collateral for leveraged trades",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/world-cup-drives-prediction-markets-to-record-june-trading-volumes?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Kalshi hits record June trading volume as World Cup fuels prediction markets",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/revolut-usdt-delisting-regulatory-risk-concerns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Revolut to delist USDT in August, citing regulatory and risk concerns",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/tim-draper-denies-moving-bitcoin-250k-btc-prediction?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Tim Draper denies moving Bitcoin, reiterates $250,000 BTC prediction",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31138",
+      "title": "Command &amp; Conquer Generals, Fable로 macOS·iPhone·iPad 네이티브 포팅",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31136",
+      "title": "Linux htop/top 화면에 보이는 값들 해설 (2019)",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31135",
+      "title": "YouTube 크리에이터의 비공개 영상 유출",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31134",
+      "title": "MemNixFS - 리눅스 메모리 덤프를 파일시스템으로 변환해 조사하는 도구",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31133",
+      "title": "Show GN: Cluedoc: 코드베이스 이해를 돕는 문서 작성 에이전트 스킬",
+      "published_date": "2026-07-05",
+      "expires_at": "2026-07-12T02:10:54.901476+00:00"
     }
   ]
 }
