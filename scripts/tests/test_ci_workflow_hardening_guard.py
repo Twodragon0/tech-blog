@@ -171,6 +171,39 @@ class TestWorkflowHardeningGuard:
             + "\n  - ".join(offenders)
         )
 
+    def test_every_job_declares_timeout_minutes(self):
+        # Availability/cost guard (security-review 2026-07-05, the one material
+        # LOW). A job with no `timeout-minutes` inherits GitHub's 6-hour default
+        # ceiling: a hung step (network fetch, RSS collection, image gen, pip/apt
+        # install) pins a runner — wasted Actions minutes, delayed queues, and a
+        # write-credentialed runner (e.g. visual-baseline-refresh pushes to main)
+        # held open far longer than needed. All 40 jobs declared it when this
+        # guard was added; deleting one is an invisible regression branch
+        # protection cannot see. Direction: presence.
+        #
+        # EXCEPTION: reusable-workflow *caller* jobs (a job whose body is
+        # `uses: ./.github/workflows/x.yml`, not `steps:`) cannot set
+        # `timeout-minutes` — the timeout lives in the called workflow's own jobs.
+        offenders = []
+        for wf in _workflow_files():
+            doc = _load(wf)
+            if not isinstance(doc, dict):
+                continue
+            for job_name, job in (doc.get("jobs") or {}).items():
+                if not isinstance(job, dict):
+                    continue
+                if "uses" in job:  # reusable-workflow call — cannot set timeout here
+                    continue
+                if "timeout-minutes" not in job:
+                    offenders.append(f"{wf.name} :: job '{job_name}'")
+        assert not offenders, (
+            "These CI jobs declare no `timeout-minutes`, so a hung step can hold a "
+            "runner up to GitHub's 6-hour default (wasted minutes, delayed queues, "
+            "write-credentialed runners held open). Add `timeout-minutes:` under "
+            "`runs-on:` (tune per job; lint ~10, image gen ~30). Offending jobs:\n  - "
+            + "\n  - ".join(offenders)
+        )
+
     def test_no_untrusted_context_in_action_with_inputs(self):
         # G4: defense-in-depth — untrusted free-text into a `with:` input value.
         # (github-script `script:` bodies are the run:-equivalent injection and
