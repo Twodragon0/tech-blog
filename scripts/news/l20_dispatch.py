@@ -1529,6 +1529,66 @@ def _content_descriptor(title: str, headline: str) -> str:
     return _clean_segment(" ".join(kept))
 
 
+# summary_card.tags that carry NO topic signal — cadence/format/audience labels
+# and the year — so they never appear in a topic descriptor. Everything else is
+# a real subject tag (Kubernetes, Patch, Botnet, AI, ...). Compared lowercased.
+_NON_TOPIC_TAGS: frozenset = frozenset({
+    "security-weekly", "weekly-digest", "weekly", "daily", "digest",
+    "devsecops", "devops", "cloud-security", "security",
+    "2023", "2024", "2025", "2026", "2027", "2028",
+})
+
+# Max topic tags surfaced in a tag-derived subheadline — keeps it a terse topic
+# line, well inside the ``_SUB_MAX_CHARS`` legibility budget.
+_SUBHEADLINE_TAG_MAX: int = 3
+
+
+def _topic_tag_descriptor(tags) -> str:
+    """A terse ASCII topic line from a post's ``summary_card.tags``.
+
+    The digest subheadline fallback when a (Korean) highlight carries no ASCII
+    content of its own — instead of echoing the source publication name ("The
+    Hacker News") or a lone generic token ("AI"), the cover shows the digest's
+    own topic tags (e.g. "Patch Kubernetes Go"). DISPLAY-ONLY: never feeds
+    visual routing (callers keep ``route_hint`` = the original source/CVE text),
+    so the honest visual class is byte-identical. Drops cadence/format/year noise
+    tags and any non-ASCII tag; returns ``""`` when nothing topical remains (the
+    caller then keeps its existing descriptor / source attribution).
+    """
+    kept: List[str] = []
+    seen: Set[str] = set()
+    for t in (tags or []):
+        tok = str(t or "").strip()
+        if not tok or _has_hangul(tok) or not tok.isascii():
+            continue
+        tl = tok.lower()
+        if tl in _NON_TOPIC_TAGS or tl in seen:
+            continue
+        seen.add(tl)
+        kept.append(tok)
+        if len(kept) >= _SUBHEADLINE_TAG_MAX:
+            break
+    return _clean_segment(" ".join(kept))
+
+
+def _weak_descriptor(desc: str) -> bool:
+    """True when a content descriptor is too thin to stand as a subheadline.
+
+    Empty, or a single generic/weak token ("AI", "Update") that reads as a bare
+    label rather than a story summary — the caller then prefers a topic-tag line
+    IF one is available (never degrades a real token to a source name). A
+    multi-token descriptor ("Rust DDoS") or a distinctive single token
+    ("AsyncRAT", "Monero") is NOT weak and is always kept.
+    """
+    d = (desc or "").strip()
+    if not d:
+        return True
+    toks = d.split()
+    return len(toks) == 1 and toks[0].lower() in (
+        _GENERIC_TRAILING | _WEAK_HEADLINE_WORDS
+    )
+
+
 # Map a severity cell's emoji marker to an ASCII all-caps severity word. The
 # digest highlights table tags each row's impact with a colored dot
 # (🔴 critical / 🟠 high / 🟡 medium); anything else is unknown -> "" (the
@@ -1670,7 +1730,7 @@ def build_lead_headline(title: str) -> str:
 
 
 def _panel_from_source_title(
-    src: str, ttl: str, severity: str = ""
+    src: str, ttl: str, severity: str = "", topic_desc: str = ""
 ) -> Optional[Dict]:
     """Build one ``{headline, subheadline, severity}`` panel from a pair.
 
@@ -1758,10 +1818,22 @@ def _panel_from_source_title(
     # ASCII entities (e.g. "AI SDK Bucket") instead of a bare source name — the
     # cover then reflects the story, not just the publication. ``route_hint``
     # keeps the original source/CVE text so visual routing (and thus the honest
-    # visual class) is byte-identical to the pre-descriptor behaviour. When the
-    # title has no extra ASCII entity, fall back to the source/CVE attribution.
+    # visual class) is byte-identical to the pre-descriptor behaviour.
+    #
+    # Fallback order when the (Korean) title yields no strong content descriptor:
+    #   1. a CVE-bearing ``route_sub`` ("CVE-2026-1281 - Ivanti") is ALWAYS kept
+    #      — a concrete advisory id is more informative than a topic-tag line;
+    #   2. ``topic_desc`` — the digest's own topic tags ("Patch Kubernetes Go"),
+    #      passed down only on the digest paths, replaces a WEAK descriptor
+    #      (empty source-name echo, or a lone generic token like "AI"); else
+    #   3. ``route_sub`` — the real source attribution (the prior behaviour).
+    # ``topic_desc`` is empty for the unit-level callers and any non-digest path,
+    # so this reduces to ``descriptor or route_sub`` there (byte-identical).
     descriptor = _content_descriptor(ttl, headline)
-    display_sub = descriptor or route_sub
+    if topic_desc and _weak_descriptor(descriptor) and not _CVE_RE.search(route_sub):
+        display_sub = topic_desc
+    else:
+        display_sub = descriptor or route_sub
     panel = {
         "headline": headline,
         "subheadline": _shorten(display_sub, _SUB_MAX_CHARS),
@@ -1790,11 +1862,12 @@ def _panel_from_source_title(
     return panel
 
 
-def _digest_highlight_panels(highlights) -> List[Dict]:
+def _digest_highlight_panels(highlights, topic_desc: str = "") -> List[Dict]:
     """Build up to 3 panels from the front-matter ``summary_card.highlights``.
 
     ``highlights`` is a list of ``{source, title}`` dicts. Highlights with no
     ASCII entity are skipped (not padded). Returns ``[]`` when nothing usable.
+    ``topic_desc`` (the digest's topic-tag line) backfills a weak subheadline.
     """
     panels: List[Dict] = []
     for h in (highlights or []):
@@ -1806,7 +1879,7 @@ def _digest_highlight_panels(highlights) -> List[Dict]:
             sev = _severity_from_marker(str(h.get("severity", "") or ""))
         else:
             src, ttl, sev = "", str(h or ""), ""
-        panel = _panel_from_source_title(src, ttl, sev)
+        panel = _panel_from_source_title(src, ttl, sev, topic_desc)
         if panel is not None:
             panels.append(panel)
     return panels
@@ -1846,7 +1919,7 @@ def _category_rank(col1: str) -> int:
     return 1 if _FILLER_CATEGORY_RE.search(col1 or "") else 0
 
 
-def _digest_table_panels(content: str, limit: int = 3) -> List[Dict]:
+def _digest_table_panels(content: str, limit: int = 3, topic_desc: str = "") -> List[Dict]:
     """Build up to ``limit`` panels from the digest body **highlights table**.
 
     W1: parsing is anchored to the highlights table — the contiguous
@@ -1881,7 +1954,7 @@ def _digest_table_panels(content: str, limit: int = 3) -> List[Dict]:
             continue
         if not source or set(col4) <= set("-: "):
             continue
-        panel = _panel_from_source_title(source, title, _severity_from_marker(col4))
+        panel = _panel_from_source_title(source, title, _severity_from_marker(col4), topic_desc)
         if panel is not None:
             panel["_category_rank"] = _category_rank(col1)  # W2 backfill rank
             panels.append(panel)
@@ -2125,8 +2198,14 @@ def _digest_panels(summary_card, content: str) -> List[Dict]:
     surfacing a different (real) story cannot introduce an overclaim.
     """
     highlights = summary_card.get("highlights") if isinstance(summary_card, dict) else None
-    hl_panels = _digest_highlight_panels(highlights)
-    table_panels = _digest_table_panels(content or "", limit=_BACKFILL_POOL)
+    # Digest topic-tag line ("Patch Kubernetes Go") — backfills a weak highlight
+    # subheadline (source-name echo / lone generic token) so the cover reads as
+    # content, not a byline. Display-only; computed once and shared by both panel
+    # sources so the generator and the honesty scorer's replay stay in lockstep.
+    tags = summary_card.get("tags") if isinstance(summary_card, dict) else None
+    topic_desc = _topic_tag_descriptor(tags)
+    hl_panels = _digest_highlight_panels(highlights, topic_desc)
+    table_panels = _digest_table_panels(content or "", limit=_BACKFILL_POOL, topic_desc=topic_desc)
     # W2: rank the body-table BACKFILL by category (Security ahead of
     # Blockchain/Tech filler), stable by document order. Editorial highlights
     # are NOT reordered — they are curated/ranked already and always precede the

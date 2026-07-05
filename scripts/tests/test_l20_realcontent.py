@@ -42,6 +42,8 @@ from scripts.news.l20_dispatch import (
     _panel_from_source_title,
     _rescue_hero,
     _severity_from_marker,
+    _topic_tag_descriptor,
+    _weak_descriptor,
     build_lead_headline,
     extract_three_stories,
     load_post_fields,
@@ -286,6 +288,86 @@ class TestContentDescriptorSubheadline:
 # is flagged _src_fallback so the side-card rescue demotes it. Whole-word match
 # (not substring) so "Meta" vs source "Metaverse Daily" is NOT demoted.
 # ---------------------------------------------------------------------------
+class TestTopicTagDescriptorFallback:
+    """A (Korean) highlight with no ASCII content of its own used to render a
+    bare source name ("The Hacker News") or a lone generic token ("AI") as its
+    subheadline. The digest topic-tag line now backfills that WEAK case — but a
+    concrete CVE attribution and any real content descriptor are always kept, and
+    ``route_hint`` (visual routing) is never touched (honesty-invariant)."""
+
+    def test_topic_descriptor_drops_noise_keeps_topics(self):
+        d = _topic_tag_descriptor(
+            ["Security-Weekly", "Patch", "Kubernetes", "Go", "AI", "2026"]
+        )
+        assert d == "Patch Kubernetes Go"  # noise + year dropped, capped at 3
+
+    def test_topic_descriptor_empty_when_all_noise_or_hangul(self):
+        assert _topic_tag_descriptor(["Security-Weekly", "DevSecOps", "2026"]) == ""
+        assert _topic_tag_descriptor(["보안", "주간"]) == ""  # Hangul dropped
+        assert _topic_tag_descriptor(None) == ""
+
+    def test_weak_descriptor_classification(self):
+        assert _weak_descriptor("") is True          # source-echo case
+        assert _weak_descriptor("AI") is True         # lone generic token
+        assert _weak_descriptor("Update") is True     # lone weak token
+        assert _weak_descriptor("AsyncRAT") is False  # distinctive single token
+        assert _weak_descriptor("Rust DDoS") is False  # multi-token
+
+    def test_source_echo_replaced_by_topic_tags(self):
+        # No ASCII beyond the headline -> would echo "The Hacker News"; the topic
+        # line replaces it, but route_hint keeps the source (routing unchanged).
+        p = _panel_from_source_title(
+            "The Hacker News", "Scattered Spider 용의자 미국 송환",
+            topic_desc="Patch Kubernetes Go",
+        )
+        assert p["headline"] == "Scattered Spider"
+        assert p["subheadline"] == "Patch Kubernetes Go"
+        assert p["route_hint"] == "The Hacker News"  # honesty-invariant
+
+    def test_lone_generic_token_replaced_by_topic_tags(self):
+        # descriptor would be the lone generic "AI"; topic line is richer.
+        p = _panel_from_source_title(
+            "The Hacker News", "Microsoft MCP 도구가 AI 에이전트 데이터 유출",
+            topic_desc="AI Agent Data",
+        )
+        assert p["subheadline"] == "AI Agent Data"
+
+    def test_strong_descriptor_not_overridden(self):
+        # A real multi-token content descriptor wins over the topic line.
+        p = _panel_from_source_title(
+            "The Hacker News", "RustDuck Botnet, Rust DDoS 공격용 재구축",
+            topic_desc="AI Agent Data",
+        )
+        assert p["subheadline"] == "Rust DDoS"
+
+    def test_cve_attribution_preserved_over_topic_tags(self):
+        # A real-entity headline whose only extra ASCII is a CVE -> the CVE+source
+        # attribution lands in route_sub. That concrete id is more informative
+        # than a topic line, so the CVE guard keeps it (regression seen on the
+        # 02-14 / 02-05 covers where a real CVE was dropped for generic tags).
+        p = _panel_from_source_title(
+            "The Hacker News", "Ivanti EPMM 취약점 CVE-2026-1281 원격코드실행 공개",
+            topic_desc="Patch Kubernetes Go",
+        )
+        assert p["headline"] == "Ivanti EPMM"
+        assert "CVE-2026-1281" in p["subheadline"]
+        assert p["subheadline"] != "Patch Kubernetes Go"
+
+    def test_no_topic_desc_preserves_prior_behaviour(self):
+        # Default topic_desc="" (unit callers / non-digest path): unchanged.
+        p = _panel_from_source_title("The Hacker News", "Scattered Spider 송환")
+        assert p["subheadline"] == "The Hacker News"
+
+    def test_end_to_end_digest_uses_tags(self):
+        sc = {
+            "tags": ["Security-Weekly", "Patch", "Kubernetes", "Go", "2026"],
+            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+        }
+        panels = _digest_panels(sc, "")
+        assert panels[0]["subheadline"] == "Patch Kubernetes Go"
+        assert panels[0]["route_hint"] == "The Hacker News"  # routing unchanged
+
+
 class TestSourceEchoDemotion:
     def test_exact_source_echo_demoted(self):
         # 03-11 body-table case: source="Cloudflare Blog", title echoes it
