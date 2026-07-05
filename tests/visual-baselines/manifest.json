@@ -51,8 +51,8 @@
   },
   "2026-03-24-Tech_Security_Weekly_Digest_Malware_Data_AWS_AI.svg": {
     "png": "2026-03-24-Tech_Security_Weekly_Digest_Malware_Data_AWS_AI.png",
-    "sha256": "54e77d3703227c28367cf8c927577ef2b577c5e4b3016082e214dd48de3189cd",
-    "bytes": 149672
+    "sha256": "c3486a6160e512b763a8e525f6334f5bf914bbe7434cc512396c82f276212248",
+    "bytes": 149630
   },
   "2026-03-25-Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent.svg": {
     "png": "2026-03-25-Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent.png",
@@ -71,13 +71,13 @@
   },
   "2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day.svg": {
     "png": "2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day.png",
-    "sha256": "80b6355716b015e4faff3c5e0bf584e71898c112117f83a9915ef7802eb11a62",
-    "bytes": 141263
+    "sha256": "63323f1e34efa6b4ecc2279e8dcde841b8d57560c27bf673f35afae525fb2216",
+    "bytes": 141697
   },
   "2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain.svg": {
     "png": "2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain.png",
-    "sha256": "61a31a056ef86b32406298dd4b53fb9f3e11bc3f00d61e85b05e60d9cf342eab",
-    "bytes": 135473
+    "sha256": "88019ca1c9978051b0fa9cbe0103a568c2b05eefc7c7599d6ff5955be1556d86",
+    "bytes": 136881
   },
   "2026-03-30-March_2026_Security_Digest_Monthly_Index.svg": {
     "png": "2026-03-30-March_2026_Security_Digest_Monthly_Index.png",
@@ -146,7 +146,7 @@
   },
   "2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.svg": {
     "png": "2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.png",
-    "sha256": "7eb9763832022b528551d5e4cd2091c8873a6b8465cdaab885d8da5e9b56f9dd",
-    "bytes": 145386
+    "sha256": "6de1b3e130c3c9837818fa97a8f4f33096ec0e0bad04709cb3a07a97bc45a671",
+    "bytes": 148433
   }
 }
