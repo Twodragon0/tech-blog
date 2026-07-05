@@ -1867,15 +1867,21 @@ def _panel_from_source_title(
     # ``topic_desc`` is empty for the unit-level callers and any non-digest path,
     # so this reduces to ``descriptor or route_sub`` there (byte-identical).
     descriptor = _content_descriptor(ttl, headline)
-    if topic_desc and _weak_descriptor(descriptor) and not _CVE_RE.search(route_sub):
-        display_sub = topic_desc
-    else:
-        display_sub = descriptor or route_sub
+    base_sub = _shorten(descriptor or route_sub, _SUB_MAX_CHARS)  # the non-topic subheadline
+    topic_applied = bool(
+        topic_desc and _weak_descriptor(descriptor) and not _CVE_RE.search(route_sub)
+    )
+    display_sub = _shorten(topic_desc, _SUB_MAX_CHARS) if topic_applied else base_sub
     panel = {
         "headline": headline,
-        "subheadline": _shorten(display_sub, _SUB_MAX_CHARS),
+        "subheadline": display_sub,
         "route_hint": route_sub,
         "severity": severity,
+        # Dedup bookkeeping for _digest_panels (popped before return): whether the
+        # topic-tag line was used here, and the source/CVE subheadline to revert to
+        # if an earlier panel on the same cover already claimed the topic line.
+        "_topic_applied": topic_applied,
+        "_base_sub": base_sub,
     }
     # Source-name echo: a MULTI-word headline whose tokens are WHOLLY contained
     # in the row's source name carries no story information — it just echoes the
@@ -2241,6 +2247,11 @@ def _digest_panels(summary_card, content: str) -> List[Dict]:
     # sources so the generator and the honesty scorer's replay stay in lockstep.
     tags = summary_card.get("tags") if isinstance(summary_card, dict) else None
     topic_desc = _topic_tag_descriptor(tags)
+    # Lone-word filter: a single generic word ("AI") reads as a bare label, no
+    # better than the source byline it would replace — require >= 2 topic words
+    # for the line to be worth surfacing (else keep source/CVE attribution).
+    if len(topic_desc.split()) < 2:
+        topic_desc = ""
     hl_panels = _digest_highlight_panels(highlights, topic_desc)
     table_panels = _digest_table_panels(content or "", limit=_BACKFILL_POOL, topic_desc=topic_desc)
     # W2: rank the body-table BACKFILL by category (Security ahead of
@@ -2272,6 +2283,22 @@ def _digest_panels(summary_card, content: str) -> List[Dict]:
     # which case _rescue_hero is a no-op. Retained for symmetry / safety should
     # the partition ever be relaxed.
     panels = _rescue_hero(panels)
+    # Topic-line dedup: the topic-tag line is digest-level (identical for every
+    # panel), so if >1 weak panel claimed it the cover would show the SAME
+    # subheadline under several headlines (repetition worse than distinct source
+    # names). Keep it on the FIRST panel in display order; revert the rest to
+    # their own source/CVE subheadline. Then drop the private bookkeeping keys so
+    # the returned panels are byte-identical to the pre-dedup single-weak case.
+    topic_used = False
+    for p in panels:
+        if p.get("_topic_applied"):
+            if topic_used:
+                p["subheadline"] = p.get("_base_sub", p["subheadline"])
+            else:
+                topic_used = True
+    for p in panels:
+        p.pop("_topic_applied", None)
+        p.pop("_base_sub", None)
     return panels
 
 

@@ -391,6 +391,49 @@ class TestTopicTagDescriptorFallback:
         assert panels[0]["route_hint"] == "The Hacker News"  # routing unchanged
 
 
+class TestTopicTagDedupAndLoneWord:
+    """The digest-level topic line is identical for every panel, so >1 weak panel
+    would render it repeatedly (repetition worse than distinct source names). It
+    is deduped to the FIRST panel; the rest revert to their own source/CVE
+    attribution. A lone single-word topic line is filtered out entirely (too weak
+    to replace a byline)."""
+
+    def test_lone_word_topic_filtered_out(self):
+        # One allowed tag -> one-word topic "Malware": filtered out, so the weak
+        # panel keeps its source attribution instead of a bare "Malware" label.
+        sc = {
+            "tags": ["Security-Weekly", "Malware", "2026"],
+            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+        }
+        panels = _digest_panels(sc, "")
+        assert panels[0]["subheadline"] == "The Hacker News"  # NOT "Malware"
+
+    def test_topic_line_deduped_across_weak_panels(self):
+        # Two weak highlights (distinct ASCII headline, Korean rest -> weak
+        # descriptor) would both claim "Patch Kubernetes Go"; dedup keeps it once,
+        # the second reverts to its own source attribution.
+        sc = {
+            "tags": ["Security-Weekly", "Patch", "Kubernetes", "Go"],
+            "highlights": [
+                {"source": "The Hacker News", "title": "Scattered Spider 미국 송환"},
+                {"source": "BleepingComputer", "title": "Rhysida 랜섬웨어 그룹 공격"},
+            ],
+        }
+        panels = _digest_panels(sc, "")
+        subs = [p["subheadline"] for p in panels]
+        assert subs.count("Patch Kubernetes Go") == 1        # deduped, not twice
+        assert "BleepingComputer" in subs                    # second reverted
+
+    def test_no_private_dedup_keys_leak(self):
+        sc = {
+            "tags": ["Security-Weekly", "Patch", "Kubernetes", "Go"],
+            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+        }
+        panels = _digest_panels(sc, "")
+        for p in panels:
+            assert "_topic_applied" not in p and "_base_sub" not in p
+
+
 class TestSourceEchoDemotion:
     def test_exact_source_echo_demoted(self):
         # 03-11 body-table case: source="Cloudflare Blog", title echoes it
