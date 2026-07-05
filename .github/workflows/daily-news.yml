@@ -41,6 +41,7 @@ jobs:
   collect-and-publish:
     if: github.event_name != 'schedule' || vars.DAILY_NEWS_SCHEDULE != 'false'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     
     permissions:
       contents: write
@@ -380,6 +381,7 @@ jobs:
 
   weekly-source-check:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
     if: github.event_name == 'schedule' && github.event.schedule == '0 1 * * *'
