@@ -306,6 +306,29 @@ class TestTopicTagDescriptorFallback:
         assert _topic_tag_descriptor(["보안", "주간"]) == ""  # Hangul dropped
         assert _topic_tag_descriptor(None) == ""
 
+    def test_topic_descriptor_excludes_entity_tags(self):
+        # Allow-list guard: vendor/product/coin proper nouns are DROPPED so a
+        # story-specific entity from an unrelated digest item can't be
+        # mis-attributed to another panel. Only the generic theme survives.
+        assert _topic_tag_descriptor(["AWS", "Cloudflare", "Ransomware"]) == "Ransomware"
+        assert _topic_tag_descriptor(["Bitcoin", "Ethereum", "Blockchain"]) == "Blockchain"
+        assert _topic_tag_descriptor(["Fortinet", "Palantir", "SKT"]) == ""  # all entities
+        assert _topic_tag_descriptor(["CVE-2025-40551", "Patch"]) == "Patch"  # id dropped
+
+    def test_topic_descriptor_excludes_unknown_tags_conservatively(self):
+        # An unrecognised tag defaults to EXCLUDED (never surfaced as a topic).
+        assert _topic_tag_descriptor(["Totally-New-Vendor-2027"]) == ""
+
+    def test_topic_descriptor_shipped_covers_byte_identical(self):
+        # The two 2026-07 covers already on disk must not change: their topic
+        # lines are built entirely from generic (allow-listed) tags.
+        assert _topic_tag_descriptor(
+            ["Security-Weekly", "AI", "Agent", "Data", "Botnet", "2026"]
+        ) == "AI Agent Data"
+        assert _topic_tag_descriptor(
+            ["Security-Weekly", "Patch", "Kubernetes", "Go", "AI", "2026"]
+        ) == "Patch Kubernetes Go"
+
     def test_weak_descriptor_classification(self):
         assert _weak_descriptor("") is True          # source-echo case
         assert _weak_descriptor("AI") is True         # lone generic token

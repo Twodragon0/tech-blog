@@ -1542,6 +1542,41 @@ _NON_TOPIC_TAGS: frozenset = frozenset({
 # line, well inside the ``_SUB_MAX_CHARS`` legibility budget.
 _SUBHEADLINE_TAG_MAX: int = 3
 
+# GENERIC topic/category words that read as a *theme* line under any story panel
+# (compared lowercased). This is an ALLOW-list, not a denylist: only these tags
+# may form a topic-tag subheadline. Everything else — vendor/product/coin/actor
+# proper nouns (AWS, Cloudflare, Bitcoin, Fortinet, ...), specific CVE ids, and
+# any unrecognised tag — is EXCLUDED by default.
+#
+# Rationale (the "entity-tag mismatch" guard): a digest's ``tags`` aggregate ALL
+# of its stories, but a topic line is shown under ONE story's panel. Surfacing a
+# story-specific ENTITY (e.g. "PostgreSQL" from an unrelated item) under a
+# different headline mis-attributes it — the reader reads it as *that* story's
+# subject. Generic themes ("Ransomware", "Cloud", "Supply-Chain") describe the
+# digest as a whole and cannot mis-attribute, so only they are allowed.
+# Conservative by construction: an unknown tag falls back to the prior
+# source/CVE attribution (never a wrong entity). Display-only either way —
+# ``route_hint`` is untouched, so the honest visual class is unchanged.
+_TOPIC_ALLOW: frozenset = frozenset({
+    # threat / vulnerability themes
+    "malware", "ransomware", "botnet", "threat", "vulnerability", "cve",
+    "zero-day", "zero-trust", "supply-chain", "phishing", "aitm-phishing",
+    "prompt-injection", "rce", "incident-response", "security-incident",
+    "post-mortem", "compliance", "owasp", "sast", "waf", "iam", "jwt",
+    "mfa", "ztna", "authentication", "passkey", "otp", "endpoint-security",
+    "code-security", "nhi", "ot-security", "ics", "security-audit",
+    # AI themes
+    "ai", "ai-security", "ai-agent", "ai-agents", "agent", "agentic-ai",
+    "ai-agent-security", "ai-governance", "llm", "llm-security", "vertical-ai",
+    # cloud / infra / delivery themes
+    "cloud", "network", "container", "patch", "data", "api", "ci/cd",
+    "cost-optimization", "finops", "open-source",
+    # general-purpose platforms/tech (topic areas, not a single vendor)
+    "kubernetes", "k8s", "go", "docker", "rust",
+    # other generic domains
+    "blockchain",
+})
+
 
 def _topic_tag_descriptor(tags) -> str:
     """A terse ASCII topic line from a post's ``summary_card.tags``.
@@ -1551,9 +1586,11 @@ def _topic_tag_descriptor(tags) -> str:
     Hacker News") or a lone generic token ("AI"), the cover shows the digest's
     own topic tags (e.g. "Patch Kubernetes Go"). DISPLAY-ONLY: never feeds
     visual routing (callers keep ``route_hint`` = the original source/CVE text),
-    so the honest visual class is byte-identical. Drops cadence/format/year noise
-    tags and any non-ASCII tag; returns ``""`` when nothing topical remains (the
-    caller then keeps its existing descriptor / source attribution).
+    so the honest visual class is byte-identical. Keeps only GENERIC topic words
+    (``_TOPIC_ALLOW``) so a story-specific ENTITY tag from an unrelated item
+    cannot be mis-attributed to a different panel; drops noise/year/non-ASCII
+    and any unrecognised (entity) tag; returns ``""`` when nothing topical
+    remains (the caller then keeps its existing descriptor / source attribution).
     """
     kept: List[str] = []
     seen: Set[str] = set()
@@ -1562,7 +1599,7 @@ def _topic_tag_descriptor(tags) -> str:
         if not tok or _has_hangul(tok) or not tok.isascii():
             continue
         tl = tok.lower()
-        if tl in _NON_TOPIC_TAGS or tl in seen:
+        if tl in _NON_TOPIC_TAGS or tl in seen or tl not in _TOPIC_ALLOW:
             continue
         seen.add(tl)
         kept.append(tok)
