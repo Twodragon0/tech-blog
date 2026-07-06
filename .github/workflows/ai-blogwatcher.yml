@@ -94,10 +94,18 @@ jobs:
       BLOGWATCHER_NEWS_URL: ${{ github.event.client_payload.collected_news_url || '' }}
       BLOGWATCHER_NEWS_JSON: ${{ github.event.client_payload.collected_news_json || '' }}
       BLOGWATCHER_PAYLOAD: ${{ toJson(github.event.client_payload) }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      # SECRET PARTITION (MED-1, 2026-07-06 audit): the untrusted
+      # repository_dispatch path runs the AI pipeline over an externally-authored
+      # payload and is quarantined to a PR — but the PR partition protects `main`,
+      # NOT the secrets. Withhold all LLM keys on that path so a poisoned feed can
+      # never reach a live key (the untrusted digest publishes with no AI
+      # enrichment; enrichment happens on human review/merge). The trusted
+      # schedule/workflow_dispatch path is unaffected. Mirrored at the step-level
+      # env below; guarded by test_ci_blogwatcher_secret_partition_guard.py.
+      GEMINI_API_KEY: ${{ github.event_name != 'repository_dispatch' && secrets.GEMINI_API_KEY || '' }}
+      CLAUDE_API_KEY: ${{ github.event_name != 'repository_dispatch' && secrets.CLAUDE_API_KEY || '' }}
+      OPENAI_API_KEY: ${{ github.event_name != 'repository_dispatch' && secrets.OPENAI_API_KEY || '' }}
+      DEEPSEEK_API_KEY: ${{ github.event_name != 'repository_dispatch' && secrets.DEEPSEEK_API_KEY || '' }}
 
     steps:
       - name: Checkout repository
@@ -217,10 +225,13 @@ jobs:
       - name: Auto publish digest
         if: steps.check_news.outputs.has_enough_news == 'true'
         env:
-          GEMINI_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'gemini') && secrets.GEMINI_API_KEY || '' }}
-          CLAUDE_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'claude') && secrets.CLAUDE_API_KEY || '' }}
-          OPENAI_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'gpt-5.4' || env.USE_AI == 'codex-medium') && secrets.OPENAI_API_KEY || '' }}
-          DEEPSEEK_API_KEY: ${{ (env.USE_AI == 'auto' || env.USE_AI == 'deepseek') && secrets.DEEPSEEK_API_KEY || '' }}
+          # MED-1 secret partition: also gate the step-level re-declaration on the
+          # trusted-path check (the untrusted repository_dispatch payload must not
+          # reach a live key even here). Kept in lockstep with the job-level env.
+          GEMINI_API_KEY: ${{ github.event_name != 'repository_dispatch' && (env.USE_AI == 'auto' || env.USE_AI == 'gemini') && secrets.GEMINI_API_KEY || '' }}
+          CLAUDE_API_KEY: ${{ github.event_name != 'repository_dispatch' && (env.USE_AI == 'auto' || env.USE_AI == 'claude') && secrets.CLAUDE_API_KEY || '' }}
+          OPENAI_API_KEY: ${{ github.event_name != 'repository_dispatch' && (env.USE_AI == 'auto' || env.USE_AI == 'gpt-5.4' || env.USE_AI == 'codex-medium') && secrets.OPENAI_API_KEY || '' }}
+          DEEPSEEK_API_KEY: ${{ github.event_name != 'repository_dispatch' && (env.USE_AI == 'auto' || env.USE_AI == 'deepseek') && secrets.DEEPSEEK_API_KEY || '' }}
           # 2026-05-26: L22 ultra deprecated in favor of L20 family unification.
           # L20 Hero+2-Card now emits the same QR block at translate(1080,504)
           # via svg_l22_generator.qr_block, and strips Hangul consistently
