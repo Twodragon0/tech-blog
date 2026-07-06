@@ -1,66 +1,6 @@
 {
-  "updated_at": "2026-07-05T02:10:54.901584+00:00",
+  "updated_at": "2026-07-06T02:16:08.981252+00:00",
   "entries": [
-    {
-      "url": "https://cointelegraph.com/news/notorious-sandwich-attack-bot-jaredfromsubwayeth-exploited-for-75m?utm_source=rss&utm_medium=rss&utm_campaign=rss",
-      "title": "Notorious ‘sandwich attack’ bot Jaredfromsubway.eth exploited for $7.5M",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
-    {
-      "url": "https://unit42.paloaltonetworks.com/large-scale-credential-attacks/",
-      "title": "Threat Brief: Mitigating Large-Scale Credential Attacks",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/s-token-drops-5-as-3-former-execs-resign-from-sonic-labs-board?utm_source=rss&utm_medium=rss&utm_campaign=rss",
-      "title": "Sonic token drops 5% as 3 former execs resign from Sonic Labs board",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/tech/2026/06/20/ai-is-making-crypto-security-cheaper-faster-and-harder-to-ignore",
-      "title": "AI is making crypto security cheaper, faster and harder to ignore",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/markets/2026/06/20/how-strc-lost-its-par-the-timeline-behind-strategy-s-preferred-stock-meltdown",
-      "title": "How STRC lost its par: The timeline behind Strategy's preferred-stock meltdown",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30672",
-      "title": "머신러닝 연구의 선(Zen)과 예술",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30671",
-      "title": "ClickHouse 오픈소스 10년",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30670",
-      "title": "미국인들, SpaceX가 은퇴 저축에 미치는 영향에 불안",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30669",
-      "title": "정부의 합법적 온라인 발언 침묵 압박을 겨냥한 새 법안",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30668",
-      "title": "GPT-5.5, MIT 라이선스 GLM-5.2보다 환각률 3배",
-      "published_date": "2026-06-22",
-      "expires_at": "2026-06-29T00:44:08.326062+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/shapedplugin-wordpress-pro-plugins.html",
       "title": "ShapedPlugin WordPress Pro Plugins Backdoored in Supply Chain Attack",
@@ -1206,6 +1146,90 @@
       "title": "Show GN: Cluedoc: 코드베이스 이해를 돕는 문서 작성 에이전트 스킬",
       "published_date": "2026-07-05",
       "expires_at": "2026-07-12T02:10:54.901476+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/flipper-zero-firmware-development-continues-with-community-help/",
+      "title": "Flipper Zero firmware development continues with community help",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/sajo-erp-agentic-ai-strands-agents-sdk/",
+      "title": "사조시스템즈의 사내 ERP 데이터 기반 Agentic AI 구축 여정 – Strands Agents SDK와 Kiro 활용기",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/miricanvas-dual-vector-search-opensearch-3-3-upgrade-2/",
+      "title": "Amazon OpenSearch 3.3 업그레이드로 미리캔버스의 검색 성능 개선",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/miricanvas-dual-vector-search-opensearch-3-3-upgrade-1/",
+      "title": "Amazon OpenSearch Service로 미리캔버스의 듀얼 벡터 검색 도입과 성능 최적화",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/features/asia-express?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Dubai tops Asian crypto hubs, Taiwan passes crypto laws: Asia Express",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/south-africa-proposes-crypto-tax-draft-guidance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "South Africa proposes crypto tax guidance under existing framework",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/binance-outflows-1-23-billion-eth-withdrawals-3-year-high?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Binance outflows triple to $1.2B as ETH withdrawals hit 3-year high",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/vitalik-buterin-shares-top-priorities-for-new-lean-ethereum-roadmap?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Vitalik Buterin shares top priorities for new 'Lean Ethereum' strawmap",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-nears-635k-into-weekly-close-as-trader-warns-of-terrible-monday?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin nears $63.5K into weekly close as trader warns of 'terrible' Monday",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31169",
+      "title": "AI 시대, Figma를 다시 생각하다",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31168",
+      "title": "메모리 아끼면서 Cross Entropy Loss 계산하기",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31167",
+      "title": "라이브 데이터를 공유 가능한 영상으로 자동 변환하는 방법",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31166",
+      "title": "Figma는 다음에 무엇을 할 것인가?",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31165",
+      "title": "AI 코딩 시대의 개발자 역할 변화: 코딩 실행자에서 맥락·검증·제품화 설계자로",
+      "published_date": "2026-07-06",
+      "expires_at": "2026-07-13T02:16:08.981139+00:00"
     }
   ]
 }
