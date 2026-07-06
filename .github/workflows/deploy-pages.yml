@@ -31,6 +31,16 @@ on:
       - 'llms-full.txt'
       - 'sw.js'
   workflow_dispatch:
+  # Self-healing backup deploy: the AI BlogWatcher publishes the daily digest via
+  # a github-actions[bot] `git push` at 00:00 UTC (ai-blogwatcher.yml schedule).
+  # A GITHUB_TOKEN push does NOT trigger other workflows (GitHub recursion
+  # prevention), so that push never fires the `push:` trigger above and the GH
+  # Pages backup goes stale until the next human/PAT content push. This daily
+  # cron (30 min after the digest publish) rebuilds the backup so it stays in
+  # sync with Vercel regardless of who pushed. Guarded by
+  # scripts/tests/test_ci_pages_backup_schedule_guard.py.
+  schedule:
+    - cron: "30 0 * * *"  # 09:30 AM KST — 30 min after blogwatcher's 00:00 UTC digest
 
 permissions:
   contents: read
