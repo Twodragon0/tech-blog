@@ -30,7 +30,7 @@ The module has no top-level execution and is safe to import.
 
 from __future__ import annotations
 
-from typing import Dict, List
+from typing import Callable, Dict, List
 
 try:
     import qrcode
@@ -1165,6 +1165,42 @@ def v_ai_threat(cx: int, yc: int, accent: str, soft: str, caption: str = "AI THR
   <text x="0" y="50" text-anchor="middle" font-family="Inter,monospace" font-size="10" font-weight="800" fill="{a}">{caption}</text>
   <text x="0" y="64" text-anchor="middle" font-family="Inter,monospace" font-size="8" font-weight="700" fill="{s}" opacity="0.7">3 layers : 1 poison : injection</text>
 </g>'''
+
+
+# --- Claim-bearing band-visual registry (honesty lockstep) ---
+# The canonical map of L22 band visual_id -> its ``v_*`` builder. This is a
+# SUPERSET of the active router (``news.l22_dispatch.visual_dispatch``, 8 keys):
+# it also covers visuals used only by legacy on-disk covers, because the honesty
+# scorer must score EVERY visual_id it can encounter, not just the live-dispatch
+# subset. Colocated with the ``v_*`` definitions so the module DECLARES its
+# claim-bearing surface here (single source of truth), mirroring
+# ``svg_l20_hero.VISUAL_BUILDERS``. The scorer's ``CLAIM_CLASSES_L22`` MUST stay
+# key-for-key equal to this — asserted by
+# ``test_cover_honesty_scorer.test_l22_taxonomy_anchors_survive_render`` so a new
+# ``v_*`` builder without a scorer claim-class (or vice versa) fails loudly
+# instead of the prior hand-maintained test-side mirror rotting silently.
+VISUAL_BUILDERS: Dict[str, Callable[..., str]] = {
+    "lock_cve": v_lock_cve,
+    "browser_cve": v_browser_cve,
+    "network_nodes": v_network_nodes,
+    "botnet_p2p": v_botnet_p2p,
+    "wallet_forensic": v_wallet_forensic,
+    "kernel_lpe": v_kernel_lpe,
+    "ad_fraud": v_ad_fraud,
+    "supply_chain": v_supply_chain,
+    "shield": v_shield,
+    "code_bars": v_code_bars,
+    "bar_graph": v_bar_graph,
+    "price_chart": v_price_chart,
+    "senate_columns": v_senate_columns,
+    "router_mesh": v_router_mesh,
+    "cloud_k8s": v_cloud_k8s,
+    "compliance_grid": v_compliance_grid,
+    "identity_handshake": v_identity_handshake,
+    "siem_panels": v_siem_panels,
+    "attestation_chain": v_attestation_chain,
+    "ai_threat": v_ai_threat,
+}
 
 
 # --- Topic motif library (per-post signature accents) ---

@@ -550,20 +550,17 @@ def _write_l22(tmp_path, monkeypatch, *, slug, k0, k1, k2, body,
 
 
 def test_l22_taxonomy_anchors_survive_render():
-    """Every L22 claim-class anchor must be present in its rendered visual."""
+    """Every L22 claim-class anchor must be present in its rendered visual.
+
+    Lockstep is asserted against the generator's OWN canonical registry
+    (``svg_l22_generator.VISUAL_BUILDERS``), imported live — not a test-side
+    hand-maintained mirror. So a new ``v_*`` builder added to the generator
+    without a matching ``CLAIM_CLASSES_L22`` entry (or vice versa) fails here,
+    and the registry cannot rot independently of the definitions it lives beside.
+    Mirrors the L20 ``set(CLAIM_CLASSES) == set(VISUAL_BUILDERS)`` guard.
+    """
     import scripts.lib.svg_l22_generator as l22
-    builders = {
-        "lock_cve": l22.v_lock_cve, "browser_cve": l22.v_browser_cve,
-        "network_nodes": l22.v_network_nodes, "botnet_p2p": l22.v_botnet_p2p,
-        "wallet_forensic": l22.v_wallet_forensic, "kernel_lpe": l22.v_kernel_lpe,
-        "ad_fraud": l22.v_ad_fraud, "supply_chain": l22.v_supply_chain,
-        "shield": l22.v_shield, "code_bars": l22.v_code_bars,
-        "bar_graph": l22.v_bar_graph, "price_chart": l22.v_price_chart,
-        "senate_columns": l22.v_senate_columns, "router_mesh": l22.v_router_mesh,
-        "cloud_k8s": l22.v_cloud_k8s, "compliance_grid": l22.v_compliance_grid,
-        "identity_handshake": l22.v_identity_handshake, "siem_panels": l22.v_siem_panels,
-        "attestation_chain": l22.v_attestation_chain, "ai_threat": l22.v_ai_threat,
-    }
+    builders = l22.VISUAL_BUILDERS
     assert set(sch.CLAIM_CLASSES_L22) == set(builders)
     for vid, fn in builders.items():
         svg = fn(500, 105, "#fff", "#aaa")

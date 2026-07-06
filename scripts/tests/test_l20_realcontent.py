@@ -486,6 +486,27 @@ class TestTopicTagDedupAndLoneWord:
         panels = _digest_panels(sc, "")
         assert panels[0]["subheadline"] == "Patch Kubernetes"  # 2-word topic kept
 
+    def test_single_weak_panel_shape_byte_stable(self):
+        # GAP-4: the commit's "86 기존 커버 byte-동일" safety claim rests on a
+        # single-weak panel's returned dict being EXACTLY the pre-dedup shape —
+        # topic line on the (only) panel, its own source in route_hint, no leaked
+        # bookkeeping keys. A regression in _base_sub computation or the key pop
+        # would silently alter every single-weak cover. This locks the FULL dict
+        # shape (not just key absence, which test_no_private_dedup_keys_leak
+        # covers); if a field is intentionally added, update this guard.
+        sc = {
+            "tags": ["Security-Weekly", "Patch", "Kubernetes", "Go"],
+            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+        }
+        panels = _digest_panels(sc, "")
+        assert len(panels) == 1
+        assert panels[0] == {
+            "headline": "Scattered Spider",
+            "subheadline": "Patch Kubernetes Go",
+            "route_hint": "The Hacker News",
+            "severity": "",
+        }
+
 
 class TestSourceEchoDemotion:
     def test_exact_source_echo_demoted(self):
