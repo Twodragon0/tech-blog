@@ -433,6 +433,59 @@ class TestTopicTagDedupAndLoneWord:
         for p in panels:
             assert "_topic_applied" not in p and "_base_sub" not in p
 
+    def test_topic_line_deduped_across_three_weak_panels(self):
+        # GAP-1: the 2-panel test above cannot catch a broken ``topic_used`` latch
+        # that re-fires past the FIRST panel (an off-by-one or per-iteration reset
+        # would still pass with 2 panels if panels[0]/[1] behave). Three weak
+        # highlights would ALL claim the digest topic line; dedup must keep it on
+        # only panels[0], with panels[1] and panels[2] each reverting to their own
+        # distinct source attribution. This is the corpus-wide multi-panel case.
+        sc = {
+            "tags": ["Security-Weekly", "Patch", "Kubernetes", "Go"],
+            "highlights": [
+                {"source": "The Hacker News", "title": "Scattered Spider 미국 송환"},
+                {"source": "BleepingComputer", "title": "Rhysida 랜섬웨어 그룹 공격"},
+                {"source": "SecurityWeek", "title": "Volt Typhoon 침투 정황 포착"},
+            ],
+        }
+        panels = _digest_panels(sc, "")
+        assert len(panels) == 3
+        subs = [p["subheadline"] for p in panels]
+        assert subs[0] == "Patch Kubernetes Go"          # topic on FIRST only
+        assert subs.count("Patch Kubernetes Go") == 1    # never repeated (2nd/3rd)
+        assert subs[1] == "BleepingComputer"             # reverted to own source
+        assert subs[2] == "SecurityWeek"                 # reverted to own source
+
+    def test_route_hint_unchanged_under_dedup_revert(self):
+        # GAP-3: the commit's core honesty claim is "route_hint 불변 = honesty
+        # byte-safe". The dedup revert rewrites ``subheadline`` only; every panel's
+        # ``route_hint`` must stay its OWN source, so the honest visual class is
+        # byte-identical whether the topic line was applied (panel 0) or reverted
+        # (panel 1). A refactor that touched route_hint during revert would flip
+        # the routed visual on the reverted panel -> this test fails.
+        sc = {
+            "tags": ["Security-Weekly", "Patch", "Kubernetes", "Go"],
+            "highlights": [
+                {"source": "The Hacker News", "title": "Scattered Spider 미국 송환"},
+                {"source": "BleepingComputer", "title": "Rhysida 랜섬웨어 그룹 공격"},
+            ],
+        }
+        panels = _digest_panels(sc, "")
+        assert [p["route_hint"] for p in panels] == ["The Hacker News", "BleepingComputer"]
+
+    def test_two_word_topic_boundary_applied(self):
+        # GAP-2: the lone-word filter is ``len(topic_desc.split()) < 2 -> blank``.
+        # test_lone_word_topic_filtered_out covers the 1-word (blank) side; this
+        # covers the BOUNDARY on the OTHER side — exactly 2 words must be APPLIED.
+        # An off-by-one to ``<= 2`` (or ``< 3``) would blank every 2-word topic on
+        # real covers, which the 3-word fixtures elsewhere cannot detect.
+        sc = {
+            "tags": ["Security-Weekly", "Patch", "Kubernetes"],
+            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+        }
+        panels = _digest_panels(sc, "")
+        assert panels[0]["subheadline"] == "Patch Kubernetes"  # 2-word topic kept
+
 
 class TestSourceEchoDemotion:
     def test_exact_source_echo_demoted(self):

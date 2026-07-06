@@ -50,6 +50,12 @@ jobs:
               - '**_config.yml'
               - '**vercel.json'
               - '**.github/workflows/**'
+              # Python source/tests: a push touching ONLY scripts/** must still
+              # run the 'Run script unit tests' step (the cover dedup/lone-word,
+              # digest-KPI, honesty-replay regression tests live there). Without
+              # this the build job is skipped on script-only pushes and pytest
+              # never runs. Guarded by test_ci_digest_kpi_gate_guard.py.
+              - '**/*.py'
       
       - name: Set output
         id: set-output

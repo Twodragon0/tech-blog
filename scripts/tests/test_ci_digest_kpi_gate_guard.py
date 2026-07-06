@@ -72,6 +72,31 @@ def _unit_test_step_block(text: str) -> str:
     return "\n".join(lines[start:end])
 
 
+def _should_build_paths_block(text: str) -> str:
+    """Return the YAML lines of the ``should-build:`` paths-filter list.
+
+    Spans from the ``should-build:`` key to the next line at the same-or-shallower
+    indent (or EOF). Returns ``""`` when the key is absent. This is the
+    dorny/paths-filter list that decides whether the build job (and thus the
+    pytest step) runs on a ``push``.
+    """
+    lines = text.splitlines()
+    start = next(
+        (i for i, ln in enumerate(lines) if re.match(r"\s*should-build:\s*$", ln)),
+        None,
+    )
+    if start is None:
+        return ""
+    indent = len(lines[start]) - len(lines[start].lstrip())
+    end = start + 1
+    while end < len(lines):
+        ln = lines[end]
+        if ln.strip() and (len(ln) - len(ln.lstrip())) <= indent:
+            break
+        end += 1
+    return "\n".join(lines[start:end])
+
+
 def _command_text(block: str) -> str:
     """The step block with comment-only lines removed.
 
@@ -136,6 +161,47 @@ class TestDigestKpiGateGuard:
         )
         assert "|| true" not in cmd, (
             "the pytest run is neutralised with '|| true'; a FAIL would be swallowed."
+        )
+
+    def test_pytest_triggered_on_python_only_push(self):
+        """The build job's paths-filter must trigger on Python-only pushes.
+
+        The 'Run script unit tests' step existing is necessary but not
+        sufficient: on ``push`` the build job runs only when
+        ``check-changes.should-build`` is true, which is decided by the
+        dorny/paths-filter ``should-build:`` list. If that list omits a
+        Python-covering glob, a push that touches ONLY ``scripts/**`` skips the
+        build job entirely and pytest never runs — the cover dedup/lone-word,
+        digest-KPI and honesty-replay regressions could then merge green
+        (GAP-5, 2026-07-06 cover-invariant guard audit). PRs are unaffected
+        (the build job runs unconditionally on pull_request), so this closes the
+        direct-push hole specifically.
+
+        Presence assertion: any glob that matches ``.py`` files satisfies it
+        (``**/*.py`` today; ``scripts/**`` would also qualify). If the trigger is
+        intentionally reworked, update this guard in the same PR.
+        """
+        block = _should_build_paths_block(WORKFLOW.read_text(encoding="utf-8"))
+        assert block, (
+            "the should-build paths-filter list disappeared from jekyll.yml; the "
+            "build job trigger can no longer be reasoned about. If intentional, "
+            "update this guard."
+        )
+        entries = [
+            ln.strip().lstrip("-").strip().strip("'\"")
+            for ln in block.splitlines()
+            if ln.lstrip().startswith("-")
+        ]
+        covers_python = any(
+            e.endswith("*.py") or e in ("scripts/**", "**scripts/**", "**/scripts/**")
+            for e in entries
+        )
+        assert covers_python, (
+            "the should-build paths-filter no longer matches Python changes "
+            f"(entries: {entries}). A push touching only scripts/** would skip the "
+            "build job, so the script unit tests would not run in CI on direct "
+            "pushes. Re-add a Python glob (e.g. '**/*.py' or 'scripts/**'); if "
+            "intentional, update this guard."
         )
 
     def test_five_column_regression_test_named(self):
