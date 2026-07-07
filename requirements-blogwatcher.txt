@@ -1,0 +1,20 @@
+# Dependencies for the AI BlogWatcher auto-publish workflow
+# (.github/workflows/ai-blogwatcher.yml). Centralized here so the untrusted
+# repository_dispatch path installs a reviewed, floor-pinned dep set instead of
+# an inline `pip install pkg pkg ...` with no version constraint (2026-07-06
+# security audit, Item 2). Floors match scripts/requirements-ci.txt where they
+# overlap; feedparser / Pillow / qrcode[pil] are the blogwatcher-only extras.
+#
+# Convention: floor pins (>=), matching every other requirements file in the
+# repo (no hash-locking anywhere). Dependabot bumps these like any other dep.
+feedparser>=6.0.0
+requests>=2.28.0
+beautifulsoup4>=4.12.0
+python-frontmatter>=1.0.0
+PyYAML>=6.0.3
+pytest>=8.4.2
+pytest-cov>=4.0
+Pillow>=10.0
+# qrcode[pil] pulls Pillow for svg_l22_generator.gen_qr (cover QR) and the
+# check_cover_qr_urls.py canonical-URL gate.
+qrcode[pil]>=7.0

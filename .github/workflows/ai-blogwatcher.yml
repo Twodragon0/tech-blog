@@ -125,12 +125,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install feedparser requests beautifulsoup4 python-frontmatter PyYAML
-          pip install pytest pytest-cov
-          pip install "Pillow>=10.0"
-          # qrcode is required by svg_l22_generator.gen_qr (cover QR) and by the
+          # Floor-pinned, reviewed dep set (2026-07-06 audit Item 2). Replaces
+          # the prior inline unconstrained `pip install pkg pkg ...`. qrcode[pil]
+          # pulls Pillow for svg_l22_generator.gen_qr (cover QR) and the
           # check_cover_qr_urls.py canonical-URL gate below.
-          pip install "qrcode[pil]"
+          pip install -r requirements-blogwatcher.txt
 
       - name: Create directories
         run: mkdir -p _data data _posts assets/images
