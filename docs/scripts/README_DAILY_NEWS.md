@@ -1,6 +1,11 @@
 # Daily Tech News Collection System
 
-매일 자동으로 기술/보안 뉴스를 수집하고 블로그 초안을 생성하는 시스템입니다.
+기술/보안 뉴스를 수집하고 블로그 초안을 생성하는 시스템입니다.
+
+> **상태(2026-07 기준):** `daily-news.yml`의 GitHub `schedule` 트리거는
+> **deprecated(주석 처리)**되어 수동 `workflow_dispatch` 전용입니다. 매일
+> 스케줄 자동 발행은 `ai-blogwatcher.yml`(schedule `0 0 * * *`, 09:00 KST)이
+> 담당합니다. 아래의 스케줄 설명은 수동 실행 및 대체 워크플로 기준으로 읽으세요.
 
 ## 📋 개요
 
@@ -116,14 +121,15 @@ python3 scripts/generate_news_draft.py --dry-run
 
 ## ⚙️ GitHub Actions
 
-### 자동 실행
-- **스케줄**: 매일 오전 9시 (KST)
+### 수동 실행 (daily-news.yml)
 - **워크플로우**: `.github/workflows/daily-news.yml`
-- **게이트 변수**: `DAILY_NEWS_SCHEDULE=false` 설정 시 스케줄 실행 중지
+- **트리거**: `workflow_dispatch` 전용 — GitHub `schedule`는 **deprecated(주석 처리)**
+- **참고**: `DAILY_NEWS_SCHEDULE` 게이트 변수는 스케줄 블록이 비활성화되어 더 이상 유효하지 않음
 
-### AI BlogWatcher 자동 발행
+### AI BlogWatcher 자동 발행 (스케줄 담당)
 - **워크플로우**: `.github/workflows/ai-blogwatcher.yml`
-- **트리거**: `repository_dispatch` (`ai_blogwatcher`) 또는 수동 실행
+- **스케줄**: `0 0 * * *` (매일 09:00 KST)
+- **트리거**: `schedule`, `repository_dispatch` (`ai_blogwatcher`), 수동 실행
 - **스케줄**: UTC 18:00 (KST 03:00), `AI_BLOGWATCHER_SCHEDULE=true`일 때만 동작
 
 #### BlogWatcher payload format (권장)

@@ -203,10 +203,14 @@ SITE_URL: "https://tech.2twodragon.com"
 
 ## 7. Daily News (daily-news.yml)
 
+> **Deprecated:** GitHub `schedule` 트리거가 주석 처리되어 수동 `workflow_dispatch`
+> 전용입니다. 스케줄 자동 발행은 `ai-blogwatcher.yml`(schedule `0 0 * * *`, 09:00 KST)이
+> 담당합니다. 30일+ 미사용 시 제거 후보(2026-07-07 기준 마지막 실행 2026-03-02).
+
 ### 개요
 | 항목 | 값 |
 |------|-----|
-| **목적** | 기술/보안 뉴스 자동 수집 및 초안 생성 |
+| **목적** | 기술/보안 뉴스 자동 수집 및 초안 생성 (수동 전용, deprecated) |
 | **트리거** | workflow_dispatch |
 | **출력** | PR with draft posts |
 

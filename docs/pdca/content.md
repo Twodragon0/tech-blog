@@ -6,10 +6,10 @@
 
 | 항목 | 값 |
 |------|-----|
-| **워크플로우** | `daily-news.yml`, `generate-images.yml` |
-| **트리거** | schedule (daily), workflow_dispatch |
+| **워크플로우** | `ai-blogwatcher.yml` (스케줄 발행), `generate-images.yml`, `daily-news.yml` (deprecated, 수동 전용) |
+| **트리거** | ai-blogwatcher: schedule (`0 0 * * *`, 09:00 KST) + repository_dispatch / generate-images: workflow_dispatch / daily-news: workflow_dispatch (deprecated) |
 | **AI 서비스** | Gemini API |
-| **상태** | Active |
+| **상태** | Active (스케줄 발행은 daily-news.yml → ai-blogwatcher.yml로 이전) |
 
 ---
 
@@ -45,9 +45,13 @@
 
 ## Do (실행)
 
-### 1. 일일 뉴스 수집 (daily-news.yml)
+### 1. 일일 뉴스 수집 (ai-blogwatcher.yml, 스케줄 발행)
 
-**스케줄:**
+> **참고:** 스케줄 발행은 `daily-news.yml` → `ai-blogwatcher.yml`로 이전됨.
+> `daily-news.yml`의 `schedule` 트리거는 주석 처리(deprecated)되어 수동
+> `workflow_dispatch` 전용으로만 남아 있음.
+
+**스케줄 (ai-blogwatcher.yml):**
 ```yaml
 schedule:
   - cron: '0 0 * * *'  # 매일 KST 09:00

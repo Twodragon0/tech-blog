@@ -9,7 +9,7 @@
 #### 자동화된 작업
 | 시간 (KST) | 작업 | 워크플로우 | 모니터링 |
 |-----------|------|----------|---------|
-| 06:00 | 뉴스 수집 | daily-news.yml | GitHub Actions 로그 |
+| 09:00 | 뉴스 수집 및 다이제스트 자동 발행 | ai-blogwatcher.yml (schedule `0 0 * * *`) | GitHub Actions 로그 |
 | - | Sentry 이벤트 집계 | 자동 | Sentry Dashboard |
 | - | Vercel 로그 수집 | 자동 | Vercel Dashboard |
 

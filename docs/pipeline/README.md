@@ -96,7 +96,7 @@ docs/pipeline/
 | **Jekyll CI** | jekyll.yml | push, PR | 빌드 및 GitHub Pages 배포 |
 | **SNS Share** | sns-share.yml | push (_posts) | SNS 자동 공유 |
 | **Buttondown** | buttondown-notify.yml | push (_posts) | 이메일 뉴스레터 |
-| **Daily News** | daily-news.yml | schedule (daily) | 뉴스 수집 및 초안 생성 |
+| **Daily News** | daily-news.yml | workflow_dispatch (deprecated) | 뉴스 수집 및 초안 생성 (수동 전용, 스케줄 발행은 ai-blogwatcher.yml) |
 | **Ops Priority Loop** | ops-priority-loop.yml | schedule, workflow_dispatch | 우선순위 점검 및 Slack 알림 |
 | **Ultrawork Loop** | ultrawork-loop.yml | schedule, workflow_dispatch | 지속 점검 + 우선순위 산정 |
 | **AI Ops On Demand** | ai-ops-on-demand.yml | repository_dispatch, workflow_dispatch | 온디맨드 운영 점검 |
@@ -107,7 +107,7 @@ docs/pipeline/
 - `OPS_PRIORITY_LOOP_SCHEDULE=true` (Ops Priority)
 - `ULTRAWORK_LOOP_SCHEDULE=true` (Ultrawork Loop)
 - `AI_BLOGWATCHER_SCHEDULE=true` (BlogWatcher)
-- `DAILY_NEWS_SCHEDULE=false` (Daily News)
+- Daily News: `schedule` 트리거가 워크플로에서 주석 처리됨(deprecated). 수동 `workflow_dispatch` 전용이며 `DAILY_NEWS_SCHEDULE` 변수는 더 이상 유효하지 않음
 - `SLACK_CATEGORY_DIGEST_SCHEDULE=false` (Slack Digest)
 - `PROD_MONITORING_SCHEDULE=false` (Monitoring)
 - `SECURITY_AUDIT_SCHEDULE=false` (Security Audit)

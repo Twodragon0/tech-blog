@@ -26,7 +26,7 @@ docs/pdca/
 |------|-----------|----------|------------|
 | [빌드](build.md) | jekyll.yml | Active | - |
 | [배포](deploy.md) | vercel-deploy.yml, jekyll.yml | Active | - |
-| [콘텐츠](content.md) | daily-news.yml, generate-images.yml | Active | - |
+| [콘텐츠](content.md) | ai-blogwatcher.yml, generate-images.yml (daily-news.yml deprecated·수동 전용) | Active | - |
 | [알림/공유](notification.md) | sns-share.yml, buttondown-notify.yml | Active | - |
 | [모니터링](monitoring.md) | sentry-release.yml | Active | - |
 | [보안](security.md) | ci-optimization.yml | Active | - |
