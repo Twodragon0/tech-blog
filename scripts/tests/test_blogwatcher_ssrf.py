@@ -70,3 +70,45 @@ class TestValidateFetchUrl:
     def test_no_host_rejected(self):
         with pytest.raises(ValueError, match="no host"):
             nbp.validate_fetch_url("https:///path-only", [])
+
+
+class TestFailClosedAllowlist:
+    """MED-2: the env-driven fetch path (allowed_hosts=None) must fail closed
+    when BLOGWATCHER_ALLOWED_HOSTS is unset — an untrusted external URL must not
+    be fetched from an arbitrary public host just because the allowlist is
+    unconfigured. Explicit-list callers keep their existing semantics.
+    """
+
+    def test_env_unset_fails_closed(self, monkeypatch):
+        # No allowlist configured → refuse even a public host (fail-closed).
+        monkeypatch.delenv("BLOGWATCHER_ALLOWED_HOSTS", raising=False)
+        monkeypatch.setattr(nbp, "_resolves_to_public", lambda host: True)
+        with pytest.raises(ValueError, match="fail-closed|BLOGWATCHER_ALLOWED_HOSTS is not set"):
+            nbp.validate_fetch_url("https://feed.example/collected.json")
+
+    def test_env_blank_fails_closed(self, monkeypatch):
+        # Whitespace-only value normalizes to an empty allowlist → still closed.
+        monkeypatch.setenv("BLOGWATCHER_ALLOWED_HOSTS", "  , ")
+        monkeypatch.setattr(nbp, "_resolves_to_public", lambda host: True)
+        with pytest.raises(ValueError, match="fail-closed|is not set"):
+            nbp.validate_fetch_url("https://feed.example/collected.json")
+
+    def test_env_set_permits_matching_host(self, monkeypatch):
+        monkeypatch.setenv("BLOGWATCHER_ALLOWED_HOSTS", "trusted.io")
+        monkeypatch.setattr(nbp, "_resolves_to_public", lambda host: True)
+        parsed = nbp.validate_fetch_url("https://cdn.trusted.io/feed.json")
+        assert parsed.hostname == "cdn.trusted.io"
+
+    def test_env_set_rejects_other_host(self, monkeypatch):
+        monkeypatch.setenv("BLOGWATCHER_ALLOWED_HOSTS", "trusted.io")
+        monkeypatch.setattr(nbp, "_resolves_to_public", lambda host: True)
+        with pytest.raises(ValueError, match="allowlist"):
+            nbp.validate_fetch_url("https://evil.example/feed.json")
+
+    def test_explicit_empty_list_still_permissive(self, monkeypatch):
+        # Regression guard for the contract: an explicit [] is a deliberate
+        # opt-out (trusted callers/tests) and must NOT trigger fail-closed,
+        # regardless of the env var.
+        monkeypatch.delenv("BLOGWATCHER_ALLOWED_HOSTS", raising=False)
+        parsed = nbp.validate_fetch_url("https://8.8.8.8/feed.json", [])
+        assert parsed.hostname == "8.8.8.8"

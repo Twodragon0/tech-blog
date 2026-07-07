@@ -15,11 +15,11 @@ import requests
 
 
 def _allowed_hosts() -> List[str]:
-    """Optional strict host allowlist from BLOGWATCHER_ALLOWED_HOSTS (comma-sep).
+    """Strict host allowlist from BLOGWATCHER_ALLOWED_HOSTS (comma-sep).
 
-    Empty → no host restriction (only the unconditional private-IP block below
-    applies). Set it in the workflow to the blogwatcher feed's host to add
-    feed-poisoning defense-in-depth.
+    Empty → the env-driven fetch path fails closed (refuses the URL); see
+    validate_fetch_url. Set it in the workflow to the blogwatcher feed's host to
+    enable URL fetching with feed-poisoning defense-in-depth.
     """
     raw = os.getenv("BLOGWATCHER_ALLOWED_HOSTS", "")
     return [h.strip().lower() for h in raw.split(",") if h.strip()]
@@ -59,11 +59,22 @@ def validate_fetch_url(url: str, allowed_hosts: Optional[List[str]] = None):
     """Validate a payload URL before fetching it (SSRF / feed-poisoning guard).
 
     - scheme must be http/https (blocks file://, gopher://, etc.)
-    - if an allowlist is provided, host must match it (exact or subdomain)
+    - host must match the allowlist (exact or subdomain)
     - host must resolve only to public IPs (blocks internal/metadata SSRF)
+
+    Allowlist semantics (MED-2 fail-closed, 2026-07-06 audit):
+    - allowed_hosts=None (production default): read BLOGWATCHER_ALLOWED_HOSTS and
+      REFUSE the fetch when it is unset. The payload URL only ever originates
+      from an untrusted external repository_dispatch client_payload, so an
+      unconfigured allowlist must fail closed (refuse any host) rather than
+      silently trust every public host behind only the private-IP block.
+    - allowed_hosts=<explicit list>: honored verbatim. An explicit empty list is
+      a deliberate opt-out of host restriction, reserved for trusted callers and
+      tests; it does NOT trigger the fail-closed guard.
 
     Returns the parsed URL on success; raises ValueError otherwise.
     """
+    from_env = allowed_hosts is None
     allowed = allowed_hosts if allowed_hosts is not None else _allowed_hosts()
     parsed = urlparse(url)
     if parsed.scheme not in ("http", "https"):
@@ -71,6 +82,13 @@ def validate_fetch_url(url: str, allowed_hosts: Optional[List[str]] = None):
     host = (parsed.hostname or "").lower()
     if not host:
         raise ValueError("Payload URL has no host")
+    if from_env and not allowed:
+        raise ValueError(
+            "Refusing to fetch payload URL: BLOGWATCHER_ALLOWED_HOSTS is not set "
+            "(fail-closed, MED-2). The URL comes from an untrusted external "
+            "repository_dispatch payload; set BLOGWATCHER_ALLOWED_HOSTS to the "
+            "trusted feed host(s) to enable URL fetching."
+        )
     if allowed and not any(host == h or host.endswith("." + h) for h in allowed):
         raise ValueError(
             f"Payload URL host {host!r} not in BLOGWATCHER_ALLOWED_HOSTS allowlist"
