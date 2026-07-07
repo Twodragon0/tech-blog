@@ -67,6 +67,38 @@ These audio/video scripts have been migrated to `~/Desktop/online-course/scripts
 |--------|--------|
 | `regenerate_2026_04_plus_covers.py` | Superseded by `scripts/upgrade_digest_cover.py` reading `_data/digest_covers/*.yml` via the spec-driven `render_bands_svg` flow. This was a one-shot regen tool for 2026-04+ digest covers using the L22 ultra dispatch (`scripts.news.l22_dispatch.generate_l22_digest_svg`). Phase 3 of L22 deprecation plan (archived 2026-05-27). Terminal deletion scheduled for Phase 4 (≥1 week after Phase 3). |
 
+## One-Shot Cover/Content Migrations (Archived 2026-07-07)
+
+Verified zero-reference across the whole repo (no workflow, hook, cron, `import`, or subprocess call). Completed one-shot seeders/migrations superseded by the current spec-driven cover pipeline (`upgrade_{digest,rollup,l25}_cover.py`, L20 cron render) and unified fixers.
+
+| Script | Reason |
+|--------|--------|
+| `_seed_2025_l20_batch_f.py` | One-shot: seed L20 specs for 2025 batch F. Specs now committed + maintained by `upgrade_*_cover.py`. |
+| `_seed_2025_l20_batch_g.py` | One-shot L20 spec seeder (2025 batch G). |
+| `_seed_apr_23_24_l20.py` | One-shot L20 spec seeder (2026-04-23/24 digests). |
+| `_seed_april_orphans_l20.py` | One-shot L20 spec seeder (4 orphan April covers). |
+| `_seed_feb_l20_batch_d.py` | One-shot L20 spec seeder (Feb batch D). |
+| `_seed_feb_l20_batch_e.py` | One-shot L20 spec seeder (Feb batch E). |
+| `_seed_jan_l20_batch_a.py` | One-shot L20 spec seeder (Jan batch A). |
+| `_seed_jan_l20_batch_b.py` | One-shot L20 spec seeder (Jan batch B). |
+| `_seed_jan_l20_batch_c.py` | One-shot L20 spec seeder (Jan batch C). |
+| `_seed_march_l20.py` | One-shot L20 spec seeder (13 March 2026 posts). |
+| `_seed_may_23_26_l20.py` | One-shot L20 spec seeder (2026-05-23..26 digests). |
+| `convert_may_pinned_to_l20.py` | One-shot: convert 12 pinned L22 May covers to L20 (fixed date list). |
+| `convert_remaining_news_cards.py` | One-shot: convert remaining 9 posts to `news-card.html` (migration complete). |
+| `convert_summary_cards.py` | One-shot: migrate inline `ai-summary-card` HTML to include form (complete). |
+| `convert_to_news_cards.py` | One-shot: migrate weekly-digest posts to `news-card.html` (complete). |
+| `koreanize_weekly_digest_content.py` | One-shot Korean-ization of weekly digest content. |
+| `polish_weekly_digest_text.py` | One-shot weekly-digest text polish. |
+| `upgrade_2025_svgs_l25_single.py` | One-shot: upgrade 2025 legacy covers via L25-single (complete). |
+| `upgrade_2026_01_02_to_l20_hero.py` | One-shot: regenerate 15 Jan/Feb 2026 digest covers at L20 hero. |
+| `regenerate_all_svgs.py` | Superseded pre-L20 template regenerator (would overwrite covers with deprecated style). |
+| `regenerate_svgs.py` | Superseded pre-L20 template regenerator. |
+| `regenerate_visual_svgs.py` | Superseded keyword-routed visual regenerator (Step-0 deprecated keyword routing). |
+| `fix_svg_titles.py` | One-shot: insert missing `<title>` elements (superseded by generator + gates). |
+| `fix_svg_truncated_titles.py` | One-shot: repair "..."-truncated SVG title text. |
+| `_dedup_practical_blocks.py` | One-shot dedup wrapper; superseded by `python3 scripts/check_posts.py --fix`. |
+
 ## Using Archived Scripts
 
 If you need to use an archived script:
