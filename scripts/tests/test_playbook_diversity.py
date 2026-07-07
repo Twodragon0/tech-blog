@@ -408,6 +408,76 @@ class TestDevopsTemplateDiversity:
         )
 
 
+class TestContextualActionFallbackDiversity:
+    """The bare category-fallback returns (no keyword branch matched) must
+    rotate via `_pick_variant` instead of returning one hardcoded string —
+    regression for the '실무 포인트' repeating ~323x across digests."""
+
+    @staticmethod
+    def _collect_variants(items: List[Dict]) -> set:
+        return {_generate_contextual_action_point(it) for it in items}
+
+    @staticmethod
+    def _fallback_items(category: str) -> List[Dict]:
+        # Titles deliberately avoid every keyword checked by all branches
+        # (including substring matches like "act", "sec", "eth") so each
+        # branch's final bare-return fallback fires.
+        suffixes = ["alpha", "beta", "gamma", "delta", "epsilon"]
+        return [
+            _item(f"Quarterly research roundup {s}", category=category)
+            for s in suffixes
+        ]
+
+    def test_security_fallback_diversifies(self):
+        variants = self._collect_variants(self._fallback_items("security"))
+        assert len(variants) >= 2, (
+            f"security fallback collapsed to single variant: {variants}"
+        )
+
+    def test_ai_fallback_diversifies(self):
+        variants = self._collect_variants(self._fallback_items("ai"))
+        assert len(variants) >= 2, (
+            f"ai fallback collapsed to single variant: {variants}"
+        )
+
+    def test_cloud_fallback_diversifies(self):
+        variants = self._collect_variants(self._fallback_items("cloud"))
+        assert len(variants) >= 2, (
+            f"cloud fallback collapsed to single variant: {variants}"
+        )
+
+    def test_blockchain_fallback_diversifies(self):
+        variants = self._collect_variants(self._fallback_items("blockchain"))
+        assert len(variants) >= 2, (
+            f"blockchain fallback collapsed to single variant: {variants}"
+        )
+
+    def test_default_fallback_diversifies(self):
+        variants = self._collect_variants(self._fallback_items("tech"))
+        assert len(variants) >= 2, (
+            f"default fallback collapsed to single variant: {variants}"
+        )
+
+    def test_fallback_same_item_is_deterministic(self):
+        """The same article re-asking the same fallback branch must always
+        return the same tip (idempotent across regenerations)."""
+        item = _item("Quarterly research roundup alpha", category="cloud")
+        first = _generate_contextual_action_point(item)
+        for _ in range(10):
+            assert _generate_contextual_action_point(item) == first
+
+    def test_blockchain_fallback_variants_preserve_required_substring(self):
+        """Every blockchain fallback variant must retain '프로토콜' or
+        '스마트 컨트랙트' (asserted separately by
+        test_news_templates.py::test_blockchain_fallback)."""
+        variants = self._collect_variants(self._fallback_items("blockchain"))
+        assert len(variants) >= 2
+        for tip in variants:
+            assert "프로토콜" in tip or "스마트 컨트랙트" in tip, (
+                f"blockchain fallback variant missing required substring: {tip}"
+            )
+
+
 class TestAiTemplateDiversityExtra:
     """Additional diversity tests for newly-variant-ized AI branches."""
 

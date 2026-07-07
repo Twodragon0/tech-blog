@@ -2295,7 +2295,11 @@ def _generate_contextual_action_point(item: Dict) -> str:
                 "CVE 공개 후 KEV/EPSS 지표를 교차 확인하고 노출 자산 기준 패치 SLA를 재산정하세요.",
                 "CVE 익스플로잇 PoC 공개 여부를 모니터링하면서 핫픽스 적용과 탐지 룰 추가를 병행하세요.",
             ])
-        return "보안 영향도를 평가하고 필요 시 대응 조치를 수행하세요."
+        return _pick_variant(item, [
+            "보안 영향도를 평가하고 필요 시 대응 조치를 수행하세요.",
+            "관련 자산의 노출 범위를 점검하고 담당 조직에 조기 공유하세요.",
+            "보안팀과 영향도를 재확인하고 필요한 완화 조치의 우선순위를 정하세요.",
+        ])
 
     # AI category
     if category == "ai":
@@ -2350,7 +2354,11 @@ def _generate_contextual_action_point(item: Dict) -> str:
                 "신규 LLM 모델의 자사 워크로드 적합성을 응답 품질·비용·지연 3축 트레이드오프로 비교하세요.",
                 "모델 변경 시 프롬프트 호환성 회귀와 추론 비용 단가 변동을 동시에 측정하세요.",
             ])
-        return "AI/ML 파이프라인 및 서비스에 미치는 영향을 검토하세요."
+        return _pick_variant(item, [
+            "AI/ML 파이프라인 및 서비스에 미치는 영향을 검토하세요.",
+            "AI/ML 워크플로우 담당팀과 변경 영향을 공유하고 대응 여부를 검토하세요.",
+            "관련 모델·데이터 파이프라인에 미치는 파급 효과를 사전에 점검하세요.",
+        ])
 
     # Cloud / DevOps
     if category in ("cloud", "devops", "kubernetes"):
@@ -2392,7 +2400,11 @@ def _generate_contextual_action_point(item: Dict) -> str:
                 "클라우드 서비스 업데이트에 따른 네트워크/보안 기본값 변경 여부를 릴리스 노트로 추적하세요.",
                 "클라우드 인프라 구성 드리프트를 CSPM으로 지속 모니터링하고 규제 매핑을 갱신하세요.",
             ])
-        return "인프라 및 운영 환경 영향을 검토하세요."
+        return _pick_variant(item, [
+            "인프라 및 운영 환경 영향을 검토하세요.",
+            "운영 환경 설정과 배포 파이프라인에 미치는 영향을 사전에 점검하세요.",
+            "인프라팀과 변경 사항을 공유하고 필요한 대응 조치를 검토하세요.",
+        ])
 
     # Blockchain
     if category == "blockchain":
@@ -2472,9 +2484,17 @@ def _generate_contextual_action_point(item: Dict) -> str:
                 "이더리움 기반 서비스의 승인(approve) 오남용 탐지와 트랜잭션 모니터링 룰을 강화하세요.",
                 "스테이블코인 결제/브릿지의 접근 제어와 대규모 트랜잭션 모니터링 임계치를 재설정하세요.",
             ])
-        return "관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요."
+        return _pick_variant(item, [
+            "관련 프로토콜 및 스마트 컨트랙트 영향을 확인하세요.",
+            "연동 중인 프로토콜의 변경 사항과 스마트 컨트랙트 영향을 재확인하세요.",
+            "관련 프로토콜 업데이트가 스마트 컨트랙트 운영에 미치는 영향을 점검하세요.",
+        ])
 
-    return "실무 적용 전에 상세 내용을 확인하세요."
+    return _pick_variant(item, [
+        "실무 적용 전에 상세 내용을 확인하세요.",
+        "관련 팀과 세부 내용을 공유하고 적용 여부를 검토하세요.",
+        "실제 적용 전에 원문 내용을 재확인하고 영향 범위를 파악하세요.",
+    ])
 
 
 def _translate_to_korean_deepseek(
