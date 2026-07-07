@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-07-06T02:16:08.981252+00:00",
+  "updated_at": "2026-07-07T02:12:14.026037+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/shapedplugin-wordpress-pro-plugins.html",
-      "title": "ShapedPlugin WordPress Pro Plugins Backdoored in Supply Chain Attack",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/researchers-detail-difytap-flaws-in.html",
-      "title": "Researchers Detail DifyTap Flaws in Dify That Could Expose AI Chats Across Tenan",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html",
-      "title": "29-Year-Old Squid Proxy Bug 'Squidbleed' Can Leak Cleartext HTTP Requests",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/06/22/guarding-ai-memory/",
-      "title": "Guarding AI memory",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/new-oxloader-loader-uses-malicious.html",
-      "title": "New OXLOADER Loader Uses Malicious Google Ads to Deliver CastleStealer",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/06/22/video-engineering/adopting-av1-for-real-time-communication-rtc-meta/",
-      "title": "Adopting AV1 for Real-Time Communication (RTC) at Scale",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/jupiter-exascale-supercomputing-science/",
-      "title": "At ISC, JUPITER Shows What Exascale Science Looks Like",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nairr-scientific-research-ai-infrastructure/",
-      "title": "NAIRR Science Program Reshapes Scientific Research, Powered by NVIDIA AI Infrast",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ai-for-science-software-cuda/",
-      "title": "From Materials Simulation to Experimental Astronomy, New NVIDIA AI Software Unlo",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-vera-cpu-los-alamos-national-laboratory/",
-      "title": "NVIDIA Vera CPU Opens the Way for Agentic Scientific AI at Los Alamos National L",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/python-udf-in-bigquery-now-generally-available/",
-      "title": "Boost BigQuery with Python: Managed Python UDFs now generally available",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained/",
-      "title": "The Starter Tier for Google AI Studio explained",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/run-isolated-sandboxes-with-full-lifecycle-control-aws-lambda-introduces-microvms/",
-      "title": "Run isolated sandboxes with full lifecycle control: AWS Lambda introduces MicroV",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ny-summit-recap-local-zone-in-hanoi-grok-4-3-in-bedrock-price-reductions-and-more-june-22-2026/",
-      "title": "AWS Weekly Roundup: NY Summit recap, Local Zone in Hanoi, Grok 4.3 in Bedrock, p",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/dongwon-ai-shopping-assistant/",
-      "title": "동원F&B의 Amazon Bedrock AgentCore 기반 AI 쇼핑 어시스턴트로 쇼핑 경험 혁신 여정",
-      "published_date": "2026-06-23",
-      "expires_at": "2026-06-30T00:36:32.164526+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/fortibleed-targeted-fortigate-firewalls.html",
       "title": "FortiBleed Targeted FortiGate Firewalls in 110 Million-Credential Harvesting Ope",
@@ -1230,6 +1140,96 @@
       "title": "AI 코딩 시대의 개발자 역할 변화: 코딩 실행자에서 맥락·검증·제품화 설계자로",
       "published_date": "2026-07-06",
       "expires_at": "2026-07-13T02:16:08.981139+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/iran-linked-hackers-use-new-cavern-c2.html",
+      "title": "Iran-Linked Hackers Use New Cavern C2 Framework to Target Israeli Organizations",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/16-year-old-linux-kvm-flaw-lets-guest.html",
+      "title": "16-Year-Old Linux KVM Flaw Lets Guest VMs Escape to Host on Intel and AMD x86 Sy",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/threat-actors-probe-gitea-docker-flaw.html",
+      "title": "Threat Actors Probe Gitea Docker Flaw CVE-2026-20896 13 Days After Disclosure",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/monday-recap-proxy-botnets-browser.html",
+      "title": "⚡ Weekly Recap: Proxy Botnets, Browser Ransomware, AI Agent Tricks, Fake PoC Mal",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/how-to-evaluate-ai-soc-platform-in-2026.html",
+      "title": "How to Evaluate an AI SOC Platform in 2026: 6 Capabilities That Separate Leaders",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/open-models-icml-2026/",
+      "title": "How Open Models Are Driving AI Research",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nations-deploy-ai-strategic-priorities/",
+      "title": "How Nations Are Deploying AI for Strategic Priorities",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/terawulf-shares-rise-after-19b-anthropic-ai-lease-jv-sale?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "TeraWulf shares rise after $19B Anthropic AI lease, JV sale",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/from-hugging-face-to-amazon-sagemaker-studio-in-one-click-2/",
+      "title": "From Hugging Face to Amazon SageMaker Studio in one click",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/teaching-models-to-forget-selective-unlearning-with-amazon-nova/",
+      "title": "Teaching models to forget: Selective unlearning with Amazon Nova",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/shift-into-high-gear-with-agents-securing-the-software-defined-vehicle/",
+      "title": "Shift into high gear with agents: Securing the software-defined vehicle",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/",
+      "title": "AWS Weekly Roundup: Claude Sonnet 5 on AWS, Amazon WorkSpaces for AI agents, AWS",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/07/06/the-4-body-problem-of-sre-why-autonomous-operations-depend-on-context/",
+      "title": "The 4-body problem of SRE: Why autonomous operations depend on context",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/07/06/evolving-platform-engineering-for-ai-native-workloads/",
+      "title": "Evolving platform engineering for AI-native workloads",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://www.chainalysis.com/blog/comparing-blockchain-analytics-vendors/",
+      "title": "Breadth, Depth, And Quality: Why Comparing Blockchain Analytics Vendors by Clust",
+      "published_date": "2026-07-07",
+      "expires_at": "2026-07-14T02:12:14.025918+00:00"
     }
   ]
 }
