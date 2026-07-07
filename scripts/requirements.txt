@@ -5,7 +5,7 @@ python-frontmatter>=1.0.0
 lxml>=6.1.1
 tweepy>=4.14.0
 PyYAML>=6.0.3
-Pillow>=11.3.0
+Pillow>=11.3.0,<12.0  # moviepy 2.x requires pillow<12.0; ceiling prevents transitive break
 python-dotenv>=0.21.0
 
 # RSS 피드 파싱 (뉴스 수집)

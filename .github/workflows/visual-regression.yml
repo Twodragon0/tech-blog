@@ -22,7 +22,10 @@ env:
 
 jobs:
   visual-regression:
-    runs-on: ubuntu-latest
+    # Pinned to ubuntu-22.04 — must match visual-baseline-refresh.yml exactly.
+    # Mixing runner versions between baseline capture and PR verify produces
+    # false positives (ubuntu-latest is a moving target migrating toward 24.04).
+    runs-on: ubuntu-22.04
     timeout-minutes: 15
 
     steps:
