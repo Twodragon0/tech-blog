@@ -81,6 +81,25 @@ MEDIUM/guard 전부 수정 후, LOW 백로그가 실재하는지 fresh security-
 - `BLOGWATCHER_ALLOWED_HOSTS`는 **미설정을 안전 기본값**으로 유지(URL fetch 비활성).
   향후 URL fetch 필요 시 워크플로 env에 신뢰 호스트만 추가.
 
+### LOW 재평가 (07-06, MED 해소 후 독립 재감사)
+
+MED-1/MED-2 후 잔여 LOW가 실재하는지 독립 security-reviewer로 증거 기반 재평가.
+
+| 항목 | 실질 등급 | 판정 근거 | 조치 |
+|------|-----------|-----------|------|
+| HOURS/MAX_NEWS 미검증 | 무해 | int argparse + quoted argv(인젝션 불가), 극단값도 고정 피드셋 + 선택 cap + `timeout 480`/job 20min bounded | 불필요 |
+| force_publish | 무해 | same-day dedup 우회만, untrusted 경로 PR 격리 | 불필요 |
+| gemini heredoc | 무해 | single-quoted heredoc(보간 없음) + argv 프롬프트 + untrusted 경로 미실행(key '') | 불필요 |
+| apt/pip 미핀 | 실재(accept) | 오염 패키지 install-time 코드 실행 가능, blast radius는 ephemeral+PR게이트+시크릿파티션 제한 | **조치**(`89d45747`) |
+| 극단 HOURS 오버플로 (신규 INFO) | accept | `hours*3` > timedelta max → 파일 쓰기 전 클린 self-fail, 부작용 없음 | 불필요 |
+
+**Item 2 조치(`89d45747`):** 인라인 무제약 `pip install pkg pkg ...` → `requirements-blogwatcher.txt`
+(floor-pin, 저장소 전체 컨벤션 일치, 해시 미도입) + `-r` 교체. 설치 패키지 집합 불변,
+`uv pip compile --python-version 3.11` exit 0(CI 타깃 해석 성공)로 non-breaking 검증.
+전체 `--require-hashes`는 **의도적으로 채택 안 함** — 저장소 유일 해시파일(컨벤션 이탈)
++ bump마다 lock 재생성(활성 dependabot 상호작용) 부담이 LOW 등급 이득을 초과. `librsvg2-bin`(apt)은
+distro pkg라 미핀 유지(ephemeral 허용범위).
+
 ### 배운 것 (07-06)
 
 5. **트러스트 경계 ≠ 시크릿 경계.** PR 격리(MED-1의 07-01 조치)는 `main`을 보호하지만
@@ -88,6 +107,9 @@ MEDIUM/guard 전부 수정 후, LOW 백로그가 실재하는지 fresh security-
    *무엇을* 격리했는지 물을 것.
 6. **미구성 = fail-open은 조용한 취약점.** allowlist가 "선택적"이면 미설정 배포에서
    inert가 된다. 신뢰 경계 밖 입력을 다루는 게이트는 미구성 시 fail-closed가 기본.
+7. **하드닝 깊이는 등급·컨벤션에 비례.** LOW 항목에 저장소 유일 해시-lock을 도입하면
+   유지보수 부담이 이득을 초과. 컨벤션 일치 floor-pin이 정직한 최적점 — 보안은
+   "최대"가 아니라 "위험 대비 적정" 수준으로.
 
 ## 보류: GSC 색인 회복률 측정
 
