@@ -275,9 +275,6 @@ python3 scripts/generate_news_draft.py --use-ai --max-posts 10
 
 # Vercel 로그 확인
 ./scripts/check-vercel-logs.sh
-
-# API 사용량 확인
-python3 scripts/monitor_api_usage.py
 ```
 
 ### 코드 품질

@@ -297,7 +297,7 @@ Script documentation is in `docs/scripts/`:
 
 ## All Scripts Reference
 
-Complete reference of all 69 active Python scripts and 20 active shell scripts, organized by category.
+Complete reference of all 61 active Python scripts and 20 active shell scripts, organized by category.
 
 ### Post & Content Validation (4 scripts)
 
@@ -308,7 +308,7 @@ Complete reference of all 69 active Python scripts and 20 active shell scripts, 
 | `check_toc.py` | Verify table of contents in posts | `--auto-add` to generate TOC |
 | `add_toc_field.py` | Add TOC field to posts that lack it | `--force` to overwrite existing |
 
-### Link Management (8 scripts)
+### Link Management (7 scripts)
 
 | Script | Purpose | Key Options |
 |--------|---------|------------|
@@ -316,7 +316,6 @@ Complete reference of all 69 active Python scripts and 20 active shell scripts, 
 | `fix_all_mermaid_safari.py` | Safari Mermaid compatibility fixes | `--dry-run`, `--fix` |
 | `fix_dummy_links.py` | Remove dummy/placeholder links | `--dry-run` |
 | `fix_mermaid_charts_for_posts.py` | Fix Mermaid diagram syntax in posts | `--fix`, `--verbose` |
-| `fix_mermaid_dotted_arrows.py` | Fix dotted arrow syntax in Mermaid | `--fix` |
 | `fix_mermaid_syntax.py` | General Mermaid syntax fixes | `--check`, `--fix` |
 | `validate_all_reference_links.py` | Validate reference-style links | `--report` |
 | `verify_post_links.py` | Verify all post links are valid | `--verbose` |
@@ -362,7 +361,7 @@ Complete reference of all 69 active Python scripts and 20 active shell scripts, 
 
 > Note: `improve_scripts_for_audio_video.py` moved to `online-course/scripts/audio_video/`
 
-### News & Newsletter (10 scripts)
+### News & Newsletter (9 scripts)
 
 | Script | Purpose | Key Options |
 |--------|---------|------------|
@@ -373,11 +372,10 @@ Complete reference of all 69 active Python scripts and 20 active shell scripts, 
 | `buttondown_notify.py` | Buttondown email notifications | `--post-id`, `--draft` |
 | `buttondown_notify_batch.py` | Batch notifications | `--posts-dir`, `--dry-run` |
 | `trigger_buttondown_email.py` | Trigger email send | `--email-id`, `--confirm` |
-| `test_buttondown_email_send.py` | Test email sending | `--test-email` |
 | `test_buttondown_api.py` | Test Buttondown API | `--endpoint`, `--method` |
 | `preview_buttondown_email.py` | Preview email content | `--post-id`, `--html-output` |
 
-### Mermaid Management (5 scripts)
+### Mermaid Management (4 scripts)
 
 | Script | Purpose | Key Options |
 |--------|---------|------------|
@@ -385,7 +383,6 @@ Complete reference of all 69 active Python scripts and 20 active shell scripts, 
 | `validate_mermaid_charts.py` | Validate Mermaid charts | `--fix`, `--report` |
 | `validate_mermaid_syntax.py` | Check Mermaid syntax | `--verbose` |
 | `remove_mermaid_from_summary.py` | Clean Mermaid from summaries | `--fix` |
-| `check_mermaid_in_summary.py` | Check for Mermaid in summaries | `--report` |
 
 ### SNS/Social Sharing (3 scripts)
 
@@ -395,7 +392,7 @@ Complete reference of all 69 active Python scripts and 20 active shell scripts, 
 | `auto_publish_news.py` | Auto-publish news posts | `--schedule`, `--test` |
 | `linkedin_oauth.py` | LinkedIn OAuth setup | `--client-id`, `--client-secret` |
 
-### Utility Scripts (13 scripts)
+### Utility Scripts (8 scripts)
 
 | Script | Purpose | Key Options |
 |--------|---------|------------|
@@ -404,14 +401,9 @@ Complete reference of all 69 active Python scripts and 20 active shell scripts, 
 | `fix_summary_format.py` | Fix summary formatting | `--all`, `--fix` |
 | `remove_template_sections.py` | Remove template sections | `--sections` (comma-separated) |
 | `replace_code_blocks_with_links.py` | Replace code with links | `--dry-run`, `--min-lines` |
-| `replace_process_images_with_mermaid.py` | Convert to Mermaid | `--dry-run`, `--backup` |
-| `clean_tts_formatting.py` | Clean TTS text formatting | `--fix` |
 | `generate_all_scripts.py` | Generate all scripts | `--output-dir`, `--format` |
-| `generate_complete_content.py` | Generate complete content | `--all`, `--include-audio` |
-| `generate_complete_lecture.py` | Generate lecture content | `--course-id`, `--output` |
 | `generate_favicon.py` | Generate favicon | `--size`, `--output` |
 | `gemini_oauth_setup.py` | Setup Gemini OAuth | `--client-id` |
-| `monitor_api_usage.py` | Monitor API usage | `--api` (gemini/claude/deepseek), `--report` |
 
 ### Shell Scripts (20 scripts)
 

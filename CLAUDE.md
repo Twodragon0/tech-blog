@@ -396,7 +396,6 @@ Priority order for AI operations:
 **Cost Management Rules**:
 - Use Context Caching for DeepSeek API (up to 90% cost reduction)
 - Cache API responses for 7 days when possible
-- Monitor API usage with `scripts/monitor_api_usage.py`
 - Set rate limits to prevent unexpected costs
 - Use off-peak hours for DeepSeek API (50-75% discount)
 

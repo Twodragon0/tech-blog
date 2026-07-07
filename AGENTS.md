@@ -428,7 +428,6 @@ bundle audit --update
 
 ### Monitoring
 ```bash
-python3 scripts/monitor_api_usage.py   # Monitor API usage
 ./scripts/monitor_sentry_quota.sh      # Monitor Sentry quota
 ./scripts/check-vercel-logs.sh         # Check Vercel logs
 ```
