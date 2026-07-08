@@ -49,12 +49,14 @@ fi
 echo -e "${BLUE}할당량 정보${NC}"
 echo "   Free 티어 제한: ${FREE_TIER_LIMIT} 이벤트/월"
 echo "   현재 사용량: Sentry 대시보드에서 확인"
-echo "   남은 일수: $(date +%d)일"
+echo "   오늘: 이번 달 $(date +%d)일째"
 echo ""
 
 # 예상 사용량 계산
-DAYS_IN_MONTH=$(date -d "$(date +%Y-%m-01) +1 month -1 day" +%d 2>/dev/null || echo "30")
-CURRENT_DAY=$(date +%d)
+# 10# 접두사로 base-10 강제: date +%d는 08/09를 zero-pad로 반환하는데
+# bash 산술 $(())에서 8진수로 해석돼 "invalid octal" 크래시가 났었다.
+DAYS_IN_MONTH=$((10#$(date -d "$(date +%Y-%m-01) +1 month -1 day" +%d 2>/dev/null || echo "30")))
+CURRENT_DAY=$((10#$(date +%d)))
 DAYS_REMAINING=$((DAYS_IN_MONTH - CURRENT_DAY + 1))
 
 echo -e "${BLUE}예상 사용량 계산${NC}"
