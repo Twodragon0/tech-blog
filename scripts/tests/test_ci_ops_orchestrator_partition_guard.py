@@ -39,6 +39,32 @@ WORKFLOW = REPO_ROOT / ".github" / "workflows" / "ops-orchestrator.yml"
 # not the value, and are the sanctioned MED-2 boolean flags).
 SECRET_VALUE = re.compile(r":\s*\$\{\{\s*secrets\.[A-Z0-9_]+\s*\}\}")
 
+# ANY reference to a secret in an expression. Used by the allowlist check below
+# so that fallback forms like `${{ secrets.FOO || '' }}` (which SECRET_VALUE's
+# exact-shape regex would miss) are still caught as a value leak.
+SECRET_REF = re.compile(r"secrets\.[A-Z0-9_]+")
+# A sanctioned MED-2 presence flag leaks existence only: every secret token on
+# the line is compared with `!= ''` and no raw-value/`|| ''` form is present.
+PRESENCE_FLAG = re.compile(r"secrets\.[A-Z0-9_]+\s*!=\s*''")
+
+# Jobs that MUST stay contents:read only (reachable from the untrusted path or
+# lightweight): their permissions must equal exactly {contents: read}.
+READ_ONLY_JOBS = ("priority", "on_demand")
+
+
+def _job_env_secret_leaks(env_block: str) -> list[str]:
+    """Job-level env lines that expose a raw secret VALUE (allowlist approach).
+
+    A line is a LEAK if it references any `secrets.X` but is NOT a pure presence
+    flag (`secrets.X != ''`). This catches the exact `${{ secrets.X }}` form AND
+    fallback forms like `${{ secrets.X || '' }}` that a denylist regex misses.
+    """
+    leaks: list[str] = []
+    for ln in env_block.splitlines():
+        if SECRET_REF.search(ln) and not PRESENCE_FLAG.search(ln):
+            leaks.append(ln.strip())
+    return leaks
+
 
 def _load() -> dict:
     return yaml.safe_load(WORKFLOW.read_text(encoding="utf-8"))
@@ -92,12 +118,19 @@ class TestOpsOrchestratorPartitionGuard:
                     "multi_agent must keep actions:write + issues:write; found "
                     f"{sorted(elevated)}."
                 )
-            else:
-                assert not elevated, (
-                    f"job `{name}` has elevated permissions {sorted(elevated)} but only "
-                    "multi_agent may. This risks privilege escalation on a job "
-                    "reachable from untrusted input."
-                )
+
+    def test_read_only_jobs_have_exactly_contents_read(self):
+        # Equality check (not just "no actions/issues"): catches ANY new elevated
+        # key on the read-only jobs, e.g. id-token:write, pull-requests:write,
+        # packages:write — which an actions/issues-only check would miss.
+        jobs = _load()["jobs"]
+        for name in READ_ONLY_JOBS:
+            perms = jobs[name].get("permissions", {}) or {}
+            assert perms == {"contents": "read"}, (
+                f"job `{name}` permissions must equal exactly {{contents: read}}; "
+                f"found {perms}. Any extra grant widens the attack surface on a job "
+                "reachable from untrusted input (on_demand) or on the lightweight lane."
+            )
 
     def test_repository_dispatch_reaches_only_on_demand(self):
         jobs = _load()["jobs"]
@@ -121,21 +154,29 @@ class TestOpsOrchestratorPartitionGuard:
             f"actions:write+issues:write stay off the untrusted path. Gate: {gate!r}"
         )
 
-    def test_on_demand_secrets_are_step_scoped(self):
+    def test_read_only_jobs_secrets_are_step_scoped(self):
+        # MED-2 for BOTH untrusted (on_demand) and lightweight (priority) jobs:
+        # no raw secret VALUE at job-level env — only non-secret toggles and
+        # `secrets.X != ''` presence flags. Allowlist-based so fallback forms
+        # like `${{ secrets.X || '' }}` are also caught (denylist regex misses).
         text = WORKFLOW.read_text(encoding="utf-8")
-        env_block = _job_env_block(_job_block(text, "on_demand"))
-        leaked = [ln.strip() for ln in env_block.splitlines() if SECRET_VALUE.search(ln)]
-        assert not leaked, (
-            "on_demand job-level env exposes raw secret VALUE(s) to every step "
-            "(MED-2 regression — secrets must be step-scoped):\n  "
-            + "\n  ".join(leaked)
-        )
+        for name in READ_ONLY_JOBS:
+            env_block = _job_env_block(_job_block(text, name))
+            leaks = _job_env_secret_leaks(env_block)
+            assert not leaks, (
+                f"{name} job-level env exposes raw secret VALUE(s) to every step "
+                "(incl. checkout/install) — MED-2 regression, secrets must be "
+                "step-scoped:\n  " + "\n  ".join(leaks)
+            )
 
-    def test_on_demand_actually_uses_step_scoped_secrets(self):
-        # Positive check: the step-scoped secrets still exist somewhere in the job
-        # (guards against a "fix" that just deletes them).
-        job_text = _job_block(WORKFLOW.read_text(encoding="utf-8"), "on_demand")
-        assert SECRET_VALUE.search(job_text), (
-            "on_demand no longer references any step-scoped secret; expected "
-            "VERCEL/SENTRY/GITHUB + AI_GATEWAY/SLACK values on the steps that use them."
-        )
+    def test_read_only_jobs_actually_use_step_scoped_secrets(self):
+        # Positive check: step-scoped secrets still exist somewhere in each job
+        # (guards against a "fix" that just deletes them, killing Slack/checks).
+        text = WORKFLOW.read_text(encoding="utf-8")
+        for name in READ_ONLY_JOBS:
+            job_text = _job_block(text, name)
+            assert SECRET_VALUE.search(job_text), (
+                f"{name} no longer references any step-scoped secret; expected the "
+                "AI_GATEWAY/SLACK (and, for on_demand, VERCEL/SENTRY/GITHUB) values "
+                "on the steps that use them."
+            )
