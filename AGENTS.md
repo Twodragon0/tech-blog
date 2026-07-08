@@ -352,12 +352,11 @@ python3 scripts/auto_publish_news.py   # Template-based auto-publish
 
 ---
 
-## 9. GitHub Actions Workflows (21 total)
+## 9. GitHub Actions Workflows (18 total)
 
 | Workflow | File | Purpose |
 |----------|------|---------|
 | **AI Blogwatcher** | `ai-blogwatcher.yml` | Primary daily news auto-publish (replaces daily-news schedule) |
-| **AI Ops On-Demand** | `ai-ops-on-demand.yml` | Manual AI operations trigger |
 | **Buttondown Notify** | `buttondown-notify.yml` | Newsletter notification on new posts |
 | **Check SVG** | `check-svg.yml` | SVG quality and English-text validation |
 | **Daily News** | `daily-news.yml` | DEPRECATED schedule; manual dispatch only |
@@ -367,15 +366,13 @@ python3 scripts/auto_publish_news.py   # Template-based auto-publish
 | **Lighthouse** | `lighthouse.yml` | Core Web Vitals / Lighthouse audit |
 | **Monitoring** | `monitoring.yml` | Site uptime and health monitoring |
 | **Monthly Quality** | `monthly-quality-report.yml` | Monthly post quality report |
-| **Ops Multi-Agent Loop** | `ops-multi-agent-loop.yml` | Multi-agent operations loop |
-| **Ops Priority Loop** | `ops-priority-loop.yml` | Priority task operations loop |
+| **Ops Orchestrator** | `ops-orchestrator.yml` | Consolidated ops loop: multi_agent (6h), priority (daily), on_demand (repository_dispatch/manual) jobs |
 | **Security Audit** | `security-audit.yml` | Dependency and CSP security audit |
 | **Sentry Healthcheck** | `sentry-healthcheck.yml` | Sentry quota and health check |
 | **Sentry Release** | `sentry-release.yml` | Sentry release tracking on deploy |
 | **Slack Category Digest** | `slack-category-digest.yml` | Category digest to Slack |
 | **Slack Post Notify** | `slack-post-notify.yml` | New post notification to Slack |
 | **SNS Share** | `sns-share.yml` | Auto-share new posts to SNS on push |
-| **Ultrawork Loop** | `ultrawork-loop.yml` | Ultrawork automation loop |
 | **Vercel Deploy** | `vercel-deploy.yml` | Production Vercel deployment |
 
 ---

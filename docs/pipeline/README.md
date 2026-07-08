@@ -101,15 +101,13 @@ docs/pipeline/
 | **SNS Share** | sns-share.yml | push (_posts) | SNS 자동 공유 |
 | **Buttondown** | buttondown-notify.yml | push (_posts) | 이메일 뉴스레터 |
 | **Daily News** | daily-news.yml | workflow_dispatch (deprecated) | 뉴스 수집 및 초안 생성 (수동 전용, 스케줄 발행은 ai-blogwatcher.yml) |
-| **Ops Priority Loop** | ops-priority-loop.yml | schedule, workflow_dispatch | 우선순위 점검 및 Slack 알림 |
-| **Ultrawork Loop** | ultrawork-loop.yml | schedule, workflow_dispatch | 지속 점검 + 우선순위 산정 |
-| **AI Ops On Demand** | ai-ops-on-demand.yml | repository_dispatch, workflow_dispatch | 온디맨드 운영 점검 |
+| **Ops Orchestrator** | ops-orchestrator.yml | schedule (`0 */6`, `0 4`), workflow_dispatch (profile), repository_dispatch | 통합 운영 점검: multi_agent(6h)/priority(daily)/on_demand 잡 + Slack 알림 |
 | **BlogWatcher Publish** | ai-blogwatcher.yml | repository_dispatch, schedule* | BlogWatcher 기반 자동 발행 |
 | **Image Gen** | generate-images.yml | workflow_dispatch | AI 이미지 생성 |
 
 *schedule triggers can be gated by repo variables:
-- `OPS_PRIORITY_LOOP_SCHEDULE=true` (Ops Priority)
-- `ULTRAWORK_LOOP_SCHEDULE=true` (Ultrawork Loop)
+- `OPS_MULTI_AGENT_SCHEDULE != false` (Ops Orchestrator · multi_agent 6h cron, 기본 ON)
+- `OPS_PRIORITY_LOOP_SCHEDULE=true` (Ops Orchestrator · priority daily cron, 기본 OFF)
 - `AI_BLOGWATCHER_SCHEDULE=true` (BlogWatcher)
 - Daily News: `schedule` 트리거가 워크플로에서 주석 처리됨(deprecated). 수동 `workflow_dispatch` 전용이며 `DAILY_NEWS_SCHEDULE` 변수는 더 이상 유효하지 않음
 - `SLACK_CATEGORY_DIGEST_SCHEDULE=false` (Slack Digest)
