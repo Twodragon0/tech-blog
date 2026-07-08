@@ -107,7 +107,15 @@ describe('chat-widget.js', () => {
       document.removeEventListener(r.evt, r.handler, r.opts);
     }
     window.requestAnimationFrame = originalRAF;
-    Element.prototype.scrollTo = originalScrollTo;
+    // toggleChat() schedules a real `setTimeout(scrollToBottom, 100)` that can
+    // fire AFTER this afterEach when enough wall-clock elapses across the full
+    // suite. jsdom has no scrollTo, so restoring the original `undefined` made
+    // that stray call throw an uncaught "scrollTo is not a function" — all
+    // assertions still passed, but the vitest process exited 1 intermittently.
+    // Restore a no-op polyfill instead so the late timer is harmless (real
+    // timers are kept because other tests flush promises via setTimeout(r, 0)).
+    Element.prototype.scrollTo =
+      typeof originalScrollTo === 'function' ? originalScrollTo : () => {};
     delete window.DOMPurify;
     delete window.fetch;
     document.body.innerHTML = '';
