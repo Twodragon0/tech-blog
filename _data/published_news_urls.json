@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-07-07T02:12:14.026037+00:00",
+  "updated_at": "2026-07-08T01:53:31.389597+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/fortibleed-targeted-fortigate-firewalls.html",
-      "title": "FortiBleed Targeted FortiGate Firewalls in 110 Million-Credential Harvesting Ope",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/fake-ai-agent-skill-passed-security.html",
-      "title": "Fake AI Agent Skill Passed Security Scans and Reportedly Reached 26,000 Agents",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/trump-order-sets-2030-deadline-for.html",
-      "title": "Trump Order Sets 2030 Deadline for Federal Post-Quantum Crypto Migration",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/github-updates-actionscheckout-to-block.html",
-      "title": "GitHub Updates actions/checkout to Block Common Pwn Request Attack Patterns",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/cisco-unified-cm-sme-flaw-cve-2026-20230-now-exploited-in-attacks/",
-      "title": "Cisco Unified CM flaw CVE-2026-20230 now exploited in attacks",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/",
-      "title": "NVIDIA and AWS Collaborate to Bring AI to Production at Scale",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://openai.com/index/gpt-5-immunology-mystery",
-      "title": "How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/06/23/production-engineering/how-meta-built-ultra-narrow-batteries-for-ai-glasses-meta-tech-podcast/",
-      "title": "How Meta Engineered Ultra-Narrow Batteries for AI Glasses",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-agent-toolkit-open-models-tools-skills-secure-runtime-ai-agents/",
-      "title": "How Businesses Are Building Specialized AI They Can Trust",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://openai.com/index/helping-build-shared-standards-for-advanced-ai",
-      "title": "Helping build shared standards for advanced AI",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/management-tools/query-logs-and-traces-with-sql-in-observability-analytics/",
-      "title": "Log Analytics is now Observability Analytics: Query logs and traces with SQL",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/verifiable-trust-in-the-ai-era-whats-new-in-confidential-computing/",
-      "title": "Verifiable, private AI: Google Cloud expands Confidential Computing frontiers",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/telecommunications/open-models-global-networks-how-att-and-gsma-are-accelerating-innovation-with-gemma/",
-      "title": "Open models, global networks: How AT&T and GSMA are accelerating telecom innovat",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-23-secret-scanning-adds-extended-metadata-for-replicate-secrets",
-      "title": "Secret scanning adds extended metadata for Replicate secrets",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-23-fetch-code-quality-findings-via-rest-api",
-      "title": "Fetch Code Quality findings via REST API",
-      "published_date": "2026-06-24",
-      "expires_at": "2026-07-01T00:32:42.438419+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/cisa-warns-critical-lantronix-eds5000.html",
       "title": "CISA Warns Critical Lantronix EDS5000 Flaw Is Being Actively Exploited",
@@ -1230,6 +1140,96 @@
       "title": "Breadth, Depth, And Quality: Why Comparing Blockchain Analytics Vendors by Clust",
       "published_date": "2026-07-07",
       "expires_at": "2026-07-14T02:12:14.025918+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/redwing-maas-packages-android-bank.html",
+      "title": "RedWing MaaS Packages Android Bank Fraud as a Telegram Rental Service",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/rogue-agent-flaw-could-have-let.html",
+      "title": "Rogue Agent Flaw Could Have Let Attackers Hijack Google Dialogflow CX Chatbots",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/debull-tooling-abuses-microsoft-device.html",
+      "title": "DEBULL Tooling Abuses Microsoft Device-Code Flow to Target M365 Accounts",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/public-github-issue-could-trick-github.html",
+      "title": "Public GitHub Issue Could Trick GitHub Agentic Workflows Into Leaking Private Re",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/court-filing-reveals-windows-device-id.html",
+      "title": "Court Filing Reveals Windows Device ID Helped FBI Trace Alleged Scattered Spider",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-vera-max-single-threaded-cpu-at-scale/",
+      "title": "AI Innovators Adopt NVIDIA Vera — Why Max Single-Threaded CPU at Scale Matters",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
+      "title": "Expanding Managed Agents in Gemini API:  background tasks, remote MCP and more",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics/",
+      "title": "NVIDIA and Hugging Face Bring New Models and Frameworks to LeRobot for the Open ",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/enrich-your-datasets-with-business-context-migrating-from-legacy-topics-to-semantic-datasets-in-amazon-quick/",
+      "title": "Enrich your datasets with business context: Migrating from legacy Topics to sema",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/data-modeling-best-practices-for-amazon-quick-sight-multi-dataset-relationships/",
+      "title": "Data modeling best practices for Amazon Quick Sight multi-dataset relationships",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/20-questions-for-the-agentic-enterprise/",
+      "title": "20 questions for the Agentic Enterprise (and how Agent Platform can help)",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/publish-agents-in-gemini-enterprise-and-google-cloud-marketplace/",
+      "title": "A developer's guide to publishing agents in Gemini Enterprise and Google Cloud M",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/networking/bgp-route-policies-top-3-use-cases-by-customer-demand/",
+      "title": "BGP route policies: Top 3 use cases by customer demand",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/state-of-ai-infrastructure-report-overview/",
+      "title": "Report: 83% of organizations need to upgrade their infrastructure to support age",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/google-cloud-labs-accelerate-ai-with-cloud-run/",
+      "title": "Google Cloud Labs: Accelerate AI with Cloud Run",
+      "published_date": "2026-07-08",
+      "expires_at": "2026-07-15T01:53:31.389485+00:00"
     }
   ]
 }
