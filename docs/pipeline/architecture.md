@@ -128,7 +128,7 @@
    │       │    (Cursor/Claude)  │                                │
    │       │                     │                                │
    │       └─── News Draft ──────┘                                │
-   │            (daily-news.yml)                                  │
+   │            (daily-news.yml, deprecated)                      │
    │                                                              │
    └──────────────────────────────────────────────────────────────┘
                               │

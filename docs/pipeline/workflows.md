@@ -9,7 +9,7 @@
 ├── jekyll.yml              # 메인: Jekyll 빌드 및 GitHub Pages 배포
 ├── sns-share.yml           # SNS 자동 공유
 ├── buttondown-notify.yml   # 이메일 뉴스레터
-├── daily-news.yml          # 일일 뉴스 수집
+├── daily-news.yml          # 일일 뉴스 수집 (deprecated, 수동 전용 — schedule는 ai-blogwatcher.yml)
 ├── ops-priority-loop.yml   # Ops 우선순위 점검
 ├── ultrawork-loop.yml      # Ultrawork 지속 루프
 ├── ai-ops-on-demand.yml    # AI 온디맨드 운영 점검
@@ -330,7 +330,7 @@ SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 ### 필수 Secrets
 | Secret | 용도 | 워크플로우 |
 |--------|------|-----------|
-| GEMINI_API_KEY | AI 이미지/요약 | generate-images, daily-news |
+| GEMINI_API_KEY | AI 이미지/요약 | generate-images, daily-news (deprecated) |
 | SENTRY_* | 에러 추적 | sentry-release |
 | BUTTONDOWN_API_KEY | 이메일 | buttondown-notify |
 

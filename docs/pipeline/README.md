@@ -87,6 +87,10 @@ docs/pipeline/
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+> **참고:** 위 다이어그램의 "Daily News"는 `daily-news.yml`을 가리키며, 현재
+> deprecated(schedule 비활성, 수동 `workflow_dispatch` 전용)입니다. 정기 발행은
+> `ai-blogwatcher.yml`이 담당합니다.
+
 ## 워크플로우 요약
 
 ### 메인 워크플로우
@@ -129,7 +133,7 @@ docs/pipeline/
 |------|----------|----------------|
 | 빌드 | [build.md](../pdca/build.md) | jekyll.yml |
 | 배포 | [deploy.md](../pdca/deploy.md) | jekyll.yml, vercel-deploy.yml |
-| 콘텐츠 | [content.md](../pdca/content.md) | daily-news.yml, generate-images.yml |
+| 콘텐츠 | [content.md](../pdca/content.md) | ai-blogwatcher.yml, generate-images.yml (daily-news.yml deprecated·수동 전용) |
 | 알림 | [notification.md](../pdca/notification.md) | sns-share.yml, buttondown-notify.yml |
 | 모니터링 | [monitoring.md](../pdca/monitoring.md) | sentry-release.yml |
 | 보안 | [security.md](../pdca/security.md) | 전체 |

@@ -131,8 +131,8 @@ ls -la _drafts/
 
 #### RSS 피드 상태
 ```bash
-# 주간 피드 상태 체크 (월요일 자동 실행)
-# daily-news.yml의 check-sources job
+# 주간 피드 상태 체크 — daily-news.yml의 weekly-source-check job
+# (daily-news.yml schedule 트리거가 deprecated/비활성화되어 현재 자동 실행되지 않음)
 ```
 
 ### 점검 체크리스트
