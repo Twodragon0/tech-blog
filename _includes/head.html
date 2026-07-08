@@ -85,7 +85,19 @@
   <!-- hreflang removed: single-language blog (ko), client-side translation only -->
   
   <!-- AI Discoverability Meta Tags -->
+  {%- comment -%}
+    Security H-01: the GH Pages backup mirror (baseurl "/tech-blog") serves the same
+    HTML without vercel.json's HTTP security headers (CSP/HSTS/X-Frame-Options). We
+    cannot add those headers on GH Pages, so we keep the header-less origin OUT of
+    search — users always land on the header-protected Vercel prod. Canonical already
+    points to prod (see canonical_url above), so this de-indexes only the backup host.
+    Vercel prod (baseurl "") keeps the exact original tag — output byte-unchanged.
+  {%- endcomment -%}
+  {% if site.baseurl != "" %}
+  <meta name="robots" content="noindex, follow">
+  {% else %}
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  {% endif %}
 
   <!-- Open Graph -->
   <meta property="og:title" content="{{ share_title | escape }}">
