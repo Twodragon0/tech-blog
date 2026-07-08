@@ -87,8 +87,9 @@ docs/pipeline/
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-> **참고:** 위 다이어그램의 "Daily News"는 `daily-news.yml`을 가리키며, 현재
-> deprecated(schedule 비활성, 수동 `workflow_dispatch` 전용)입니다. 정기 발행은
+> **참고:** 위 다이어그램의 "Daily News"는 뉴스 수집·초안 생성 콘텐츠 소스를
+> 가리키는 개념적 표기입니다. 전담 워크플로우였던 `daily-news.yml`은
+> 2026-07-08 제거되었으며, 뉴스 수집 및 정기 발행은 전적으로
 > `ai-blogwatcher.yml`이 담당합니다.
 
 ## 워크플로우 요약
@@ -100,7 +101,6 @@ docs/pipeline/
 | **Jekyll CI** | jekyll.yml | push, PR | 빌드 및 GitHub Pages 배포 |
 | **SNS Share** | sns-share.yml | push (_posts) | SNS 자동 공유 |
 | **Buttondown** | buttondown-notify.yml | push (_posts) | 이메일 뉴스레터 |
-| **Daily News** | daily-news.yml | workflow_dispatch (deprecated) | 뉴스 수집 및 초안 생성 (수동 전용, 스케줄 발행은 ai-blogwatcher.yml) |
 | **Ops Orchestrator** | ops-orchestrator.yml | schedule (`0 */6`, `0 4`), workflow_dispatch (profile), repository_dispatch | 통합 운영 점검: multi_agent(6h)/priority(daily)/on_demand 잡 + Slack 알림 |
 | **BlogWatcher Publish** | ai-blogwatcher.yml | repository_dispatch, schedule* | BlogWatcher 기반 자동 발행 |
 | **Image Gen** | generate-images.yml | workflow_dispatch | AI 이미지 생성 |
@@ -109,7 +109,6 @@ docs/pipeline/
 - `OPS_MULTI_AGENT_SCHEDULE != false` (Ops Orchestrator · multi_agent 6h cron, 기본 ON)
 - `OPS_PRIORITY_LOOP_SCHEDULE=true` (Ops Orchestrator · priority daily cron, 기본 OFF)
 - `AI_BLOGWATCHER_SCHEDULE=true` (BlogWatcher)
-- Daily News: `schedule` 트리거가 워크플로에서 주석 처리됨(deprecated). 수동 `workflow_dispatch` 전용이며 `DAILY_NEWS_SCHEDULE` 변수는 더 이상 유효하지 않음
 - `SLACK_CATEGORY_DIGEST_SCHEDULE=false` (Slack Digest)
 - `PROD_MONITORING_SCHEDULE=false` (Monitoring)
 - `SECURITY_AUDIT_SCHEDULE=false` (Security Audit)
@@ -131,7 +130,7 @@ docs/pipeline/
 |------|----------|----------------|
 | 빌드 | [build.md](../pdca/build.md) | jekyll.yml |
 | 배포 | [deploy.md](../pdca/deploy.md) | jekyll.yml, vercel-deploy.yml |
-| 콘텐츠 | [content.md](../pdca/content.md) | ai-blogwatcher.yml, generate-images.yml (daily-news.yml deprecated·수동 전용) |
+| 콘텐츠 | [content.md](../pdca/content.md) | ai-blogwatcher.yml, generate-images.yml |
 | 알림 | [notification.md](../pdca/notification.md) | sns-share.yml, buttondown-notify.yml |
 | 모니터링 | [monitoring.md](../pdca/monitoring.md) | sentry-release.yml |
 | 보안 | [security.md](../pdca/security.md) | 전체 |
@@ -187,10 +186,7 @@ git add . && git commit -m "Add: 포스트 제목" && git push
 # 이미지 생성
 gh workflow run generate-images.yml
 
-# 뉴스 수집
-gh workflow run daily-news.yml
-
-# BlogWatcher 자동 발행
+# 뉴스 수집 / BlogWatcher 수동 발행
 gh workflow run ai-blogwatcher.yml
 ```
 

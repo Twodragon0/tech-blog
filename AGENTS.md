@@ -352,14 +352,13 @@ python3 scripts/auto_publish_news.py   # Template-based auto-publish
 
 ---
 
-## 9. GitHub Actions Workflows (18 total)
+## 9. GitHub Actions Workflows (17 total)
 
 | Workflow | File | Purpose |
 |----------|------|---------|
-| **AI Blogwatcher** | `ai-blogwatcher.yml` | Primary daily news auto-publish (replaces daily-news schedule) |
+| **AI Blogwatcher** | `ai-blogwatcher.yml` | Primary daily news auto-publish (daily-news.yml removed 2026-07-08) |
 | **Buttondown Notify** | `buttondown-notify.yml` | Newsletter notification on new posts |
 | **Check SVG** | `check-svg.yml` | SVG quality and English-text validation |
-| **Daily News** | `daily-news.yml` | DEPRECATED schedule; manual dispatch only |
 | **Deploy Pages** | `deploy-pages.yml` | GitHub Pages deployment (backup) |
 | **Generate Images** | `generate-images.yml` | Auto-generate post SVG images |
 | **Jekyll Build** | `jekyll.yml` | Jekyll build and test |

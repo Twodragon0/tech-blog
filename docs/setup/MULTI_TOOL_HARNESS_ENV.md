@@ -151,7 +151,7 @@ Set these via **Repo Settings → Secrets and variables → Actions → Reposito
 
 | Secret | Used by workflow | Purpose |
 |--------|------------------|---------|
-| `DEEPSEEK_API_KEY` | ai-blogwatcher.yml, daily-news.yml (deprecated) | Auto-publish digest |
+| `DEEPSEEK_API_KEY` | ai-blogwatcher.yml | Auto-publish digest |
 | `GEMINI_API_KEY` | ai-blogwatcher.yml | Image enhancement |
 | `OPENAI_API_KEY` | generate-images.yml | Cover regeneration |
 | `BUTTONDOWN_API_KEY` | buttondown-notify.yml | Newsletter dispatch |

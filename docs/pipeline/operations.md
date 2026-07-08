@@ -113,8 +113,8 @@ git push
 # 이미지 생성
 gh workflow run generate-images.yml
 
-# 뉴스 수집
-gh workflow run daily-news.yml
+# 뉴스 수집 (BlogWatcher 수동 실행)
+gh workflow run ai-blogwatcher.yml
 
 # SNS 공유 재시도
 gh workflow run sns-share.yml

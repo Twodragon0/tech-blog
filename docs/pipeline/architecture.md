@@ -128,7 +128,7 @@
    │       │    (Cursor/Claude)  │                                │
    │       │                     │                                │
    │       └─── News Draft ──────┘                                │
-   │            (daily-news.yml, deprecated)                      │
+   │            (ai-blogwatcher.yml)                              │
    │                                                              │
    └──────────────────────────────────────────────────────────────┘
                               │
@@ -189,7 +189,6 @@
    │                                                              │
    │   ai-blogwatcher.yml                                        │
    │   schedule: '0 0 * * *'  (KST 09:00)                        │
-   │   (daily-news.yml schedule는 deprecated, 수동 전용)          │
    │                                                              │
    └──────────────────────────────────────────────────────────────┘
                               │
@@ -228,7 +227,7 @@
    ┌──────────────────────────────────────────────────────────────┐
    │                                                              │
    │   Auto PR Creation                                           │
-   │   └── drafts/daily-news-{run_number}                        │
+   │   └── blogwatcher/digest-{date}-{run_id}                    │
    │                              │                               │
    │                              ▼                               │
    │   Manual Review                                              │

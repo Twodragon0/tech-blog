@@ -6,10 +6,10 @@
 
 | 항목 | 값 |
 |------|-----|
-| **워크플로우** | `ai-blogwatcher.yml` (스케줄 발행), `generate-images.yml`, `daily-news.yml` (deprecated, 수동 전용) |
-| **트리거** | ai-blogwatcher: schedule (`0 0 * * *`, 09:00 KST) + repository_dispatch / generate-images: workflow_dispatch / daily-news: workflow_dispatch (deprecated) |
+| **워크플로우** | `ai-blogwatcher.yml` (스케줄 발행), `generate-images.yml` |
+| **트리거** | ai-blogwatcher: schedule (`0 0 * * *`, 09:00 KST) + repository_dispatch / generate-images: workflow_dispatch |
 | **AI 서비스** | Gemini API |
-| **상태** | Active (스케줄 발행은 daily-news.yml → ai-blogwatcher.yml로 이전) |
+| **상태** | Active |
 
 ---
 
@@ -47,9 +47,8 @@
 
 ### 1. 일일 뉴스 수집 (ai-blogwatcher.yml, 스케줄 발행)
 
-> **참고:** 스케줄 발행은 `daily-news.yml` → `ai-blogwatcher.yml`로 이전됨.
-> `daily-news.yml`의 `schedule` 트리거는 주석 처리(deprecated)되어 수동
-> `workflow_dispatch` 전용으로만 남아 있음.
+> **참고:** 뉴스 수집 및 스케줄 발행 전담 워크플로우였던 `daily-news.yml`은
+> 2026-07-08 제거되었으며, `ai-blogwatcher.yml`이 전적으로 담당함.
 
 **스케줄 (ai-blogwatcher.yml):**
 ```yaml
@@ -131,8 +130,8 @@ ls -la _drafts/
 
 #### RSS 피드 상태
 ```bash
-# 주간 피드 상태 체크 — daily-news.yml의 weekly-source-check job
-# (daily-news.yml schedule 트리거가 deprecated/비활성화되어 현재 자동 실행되지 않음)
+# 주간 피드 상태 체크 — 전담 job은 daily-news.yml과 함께 제거됨(2026-07-08).
+# 현재 RSS 소스 상태는 ai-blogwatcher.yml 실행 로그로 확인.
 ```
 
 ### 점검 체크리스트

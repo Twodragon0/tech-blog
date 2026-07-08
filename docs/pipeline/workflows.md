@@ -9,7 +9,6 @@
 ├── jekyll.yml              # 메인: Jekyll 빌드 및 GitHub Pages 배포
 ├── sns-share.yml           # SNS 자동 공유
 ├── buttondown-notify.yml   # 이메일 뉴스레터
-├── daily-news.yml          # 일일 뉴스 수집 (deprecated, 수동 전용 — schedule는 ai-blogwatcher.yml)
 ├── ops-orchestrator.yml    # Ops 통합: multi_agent(6h)/priority(daily)/on_demand(dispatch) 잡
 ├── generate-images.yml     # AI 이미지 생성
 ├── sentry-release.yml      # Sentry 릴리스 관리
@@ -175,57 +174,7 @@ env:
 
 ---
 
-## 5. Daily News (daily-news.yml)
-
-> **Deprecated:** GitHub `schedule` 트리거가 주석 처리되어 수동 `workflow_dispatch`
-> 전용입니다. 스케줄 자동 발행은 `ai-blogwatcher.yml`(schedule `0 0 * * *`, 09:00 KST)이
-> 담당합니다. 30일+ 미사용 시 제거 후보(2026-07-07 기준 마지막 실행 2026-03-02).
-
-### 개요
-| 항목 | 값 |
-|------|-----|
-| **목적** | 기술/보안 뉴스 자동 수집 및 초안 생성 (수동 전용, deprecated) |
-| **트리거** | workflow_dispatch |
-| **출력** | PR with draft posts |
-
-### 스케줄 운영
-
-- 서버 상시 가동 환경에서는 GitHub schedule 대신 로컬 크론을 사용합니다.
-- 로컬 09:00 자동 포스팅/품질 점검 실행: `bash scripts/install_morning_cron.sh`
-- 실행 스크립트: `scripts/morning_autopost_cron.sh`
-- 하이브리드 동작: 크론이 로컬에서 포스팅/품질검증/커밋·푸시를 수행하고, 푸시 후 `slack-post-notify.yml`, `buttondown-notify.yml`, `monitoring.yml`를 GitHub Actions로 트리거합니다.
-- 크론 실행 시 malformed Liquid include 자동 정리(`scripts/fix_malformed_liquid_includes.py`)와 Ops roundtable(`scripts/ops_health_orchestrator.py`)를 함께 수행합니다.
-- AI 강화 모드는 `USE_AI=auto|claude|gemini|gpt-5.4|codex-medium|deepseek|none`로 제어하며, 기본값은 `auto`입니다.
-- `auto` 모드는 Claude 우선, Gemini 차선, OpenAI Codex/DeepSeek 폴백 순서로 동작합니다.
-
-### 수동 실행 옵션
-```yaml
-workflow_dispatch:
-  inputs:
-    hours: '24'        # 뉴스 수집 기간
-    sources: ''        # 특정 소스만 (비워두면 전체)
-    use_ai: 'true'     # AI 요약 사용 여부
-    max_posts: '10'    # 최대 초안 수
-```
-
-### 실행 흐름
-```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│  Collect News   │ ──▶ │ Generate Draft  │ ──▶ │   Create PR     │
-│                 │     │                 │     │                 │
-│ • RSS feeds     │     │ • Gemini API    │     │ • Auto PR       │
-│ • 15+ sources   │     │ • AI summary    │     │ • Review labels │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-```
-
-### 출력
-- `_data/collected_news.json`: 수집된 뉴스 데이터
-- `_drafts/*.md`: 생성된 초안
-- PR: `drafts/daily-news-{run_number}` 브랜치
-
----
-
-## 6. Generate Images (generate-images.yml)
+## 5. Generate Images (generate-images.yml)
 
 ### 개요
 | 항목 | 값 |
@@ -260,7 +209,7 @@ workflow_dispatch:
 
 ---
 
-## 7. Sentry Release (sentry-release.yml)
+## 6. Sentry Release (sentry-release.yml)
 
 ### 개요
 | 항목 | 값 |
@@ -283,7 +232,7 @@ SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
 ---
 
-## 8. AI Video Gen (ai-video-gen.yml)
+## 7. AI Video Gen (ai-video-gen.yml)
 
 ### 개요
 | 항목 | 값 |
@@ -304,7 +253,7 @@ SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 ### 필수 Secrets
 | Secret | 용도 | 워크플로우 |
 |--------|------|-----------|
-| GEMINI_API_KEY | AI 이미지/요약 | generate-images, daily-news (deprecated) |
+| GEMINI_API_KEY | AI 이미지/요약 | generate-images |
 | SENTRY_* | 에러 추적 | sentry-release |
 | BUTTONDOWN_API_KEY | 이메일 | buttondown-notify |
 
@@ -337,7 +286,7 @@ gh workflow run jekyll.yml
 gh workflow run generate-images.yml -f post_file="2026-01-22-Example.md" -f image_type="post"
 
 # 뉴스 수집
-gh workflow run daily-news.yml -f hours="48" -f use_ai="true"
+gh workflow run ai-blogwatcher.yml -f hours="48" -f mode="security"
 ```
 
 ### 실행 상태 확인

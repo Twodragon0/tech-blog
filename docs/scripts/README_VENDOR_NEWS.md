@@ -110,12 +110,11 @@ The following vendor sources were added to `collect_tech_news.py`:
 
 ### GitHub Actions
 
-> **Note:** `daily-news.yml`'s schedule trigger is deprecated (manual
-> `workflow_dispatch` only); scheduled publishing now runs through
-> `ai-blogwatcher.yml`. New automation steps should target that workflow
-> instead of adding to `daily-news.yml`.
+> **Note:** `daily-news.yml` was removed 2026-07-08. Scheduled publishing
+> runs through `ai-blogwatcher.yml`. New automation steps should target that
+> workflow.
 
-Add to `.github/workflows/daily-news.yml`:
+Add to `.github/workflows/ai-blogwatcher.yml`:
 
 ```yaml
 - name: Collect vendor news
