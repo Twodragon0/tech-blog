@@ -10,9 +10,7 @@
 ├── sns-share.yml           # SNS 자동 공유
 ├── buttondown-notify.yml   # 이메일 뉴스레터
 ├── daily-news.yml          # 일일 뉴스 수집 (deprecated, 수동 전용 — schedule는 ai-blogwatcher.yml)
-├── ops-priority-loop.yml   # Ops 우선순위 점검
-├── ultrawork-loop.yml      # Ultrawork 지속 루프
-├── ai-ops-on-demand.yml    # AI 온디맨드 운영 점검
+├── ops-orchestrator.yml    # Ops 통합: multi_agent(6h)/priority(daily)/on_demand(dispatch) 잡
 ├── generate-images.yml     # AI 이미지 생성
 ├── sentry-release.yml      # Sentry 릴리스 관리
 ├── ai-video-gen.yml        # 비디오 생성
@@ -129,79 +127,55 @@ env:
 
 ---
 
-## 4. Ops Priority Loop (ops-priority-loop.yml)
+## 4. Ops Orchestrator (ops-orchestrator.yml)
+
+> 이전의 `ops-multi-agent-loop.yml` / `ops-priority-loop.yml` / `ultrawork-loop.yml` /
+> `ai-ops-on-demand.yml` 4개를 단일 파일로 통합했다. 하나의 `on:`(두 cron +
+> `workflow_dispatch` profile + `repository_dispatch`)과 상호 배타적인 3개의
+> `if:`-게이트 잡으로 구성되며, 각 잡은 자신의 최소 권한과 시크릿 스코프를 그대로 유지한다
+> (동작 보존형 통합). 모든 잡은 `scripts/ops_health_orchestrator.py`를 호출한다.
 
 ### 개요
 | 항목 | 값 |
 |------|-----|
-| **목적** | 자동 점검 + 우선순위 산정 + Slack 알림 |
-| **트리거** | schedule, workflow_dispatch |
-| **게이트** | `OPS_PRIORITY_LOOP_SCHEDULE=true` |
-| **타임아웃** | 15분 |
+| **목적** | 운영 헬스 점검(lint/types, Vercel, GitHub Actions, Sentry, UI/UX) + Slack 알림 |
+| **트리거** | schedule(`0 */6`, `0 4`), `workflow_dispatch`(profile), `repository_dispatch`(`ai_ops_task`) |
+| **동시성** | `ops-orchestrator-${{ github.event_name }}-...` (잡별 독립 레인) |
 
-### 실행 내용
-- `scripts/ops_health_orchestrator.py --skip-sentry --skip-pagespeed` 실행
-- 기본 체크: lint/types, Vercel, GitHub Actions, UI/UX
-- ~~이전: `scripts/priority_ops_check.py` (→ `_archive/`로 이동됨)~~
+### 잡 구성 (3개, 상호 배타)
+| 잡 | 트리거 | 게이트 | 권한 | 시크릿 | 비고 |
+|----|--------|--------|------|--------|------|
+| `multi_agent` | 6h cron 또는 dispatch profile `full`/`multi-agent` | `OPS_MULTI_AGENT_SCHEDULE != 'false'` (기본 ON) | `contents:read`+`actions:write`+`issues:write` | job-level | 전체 roundtable + 아티팩트 + 실패 시 이슈 생성 |
+| `priority` | daily cron(`0 4`) 또는 dispatch profile `priority` | `OPS_PRIORITY_LOOP_SCHEDULE == 'true'` (기본 OFF) | `contents:read` | Slack만 | `--skip-sentry --skip-uiux`, ruff+mypy 설치, rc 캡처 후 non-zero면 RED |
+| `on_demand` | `repository_dispatch`(`ai_ops_task`) 또는 dispatch profile `full` | — | `contents:read` | **step-scoped** | 신뢰할 수 없는 경로에서 도달 가능한 유일한 잡. RUN_* = inputs → client_payload → 'true' |
+
+### 보안 불변식 (회귀 금지)
+- `actions:write` / `issues:write`는 **오직 `multi_agent`** 잡에만 존재하며,
+  신뢰할 수 없는 `repository_dispatch` 경로에서 **도달 불가**하다.
+- `on_demand`의 시크릿은 **step-scoped**(MED-2 하드닝)로, job-level env에는 비-시크릿
+  토글과 boolean has-secret 플래그(`secrets.X != ''`)만 둔다. 실제 시크릿 값은
+  이를 사용하는 step에만 부여한다.
+- 회귀 가드: `scripts/tests/test_ci_ops_orchestrator_partition_guard.py`.
 
 ### Slack 연동
 - AI Gateway 사용
 - Secrets: `AI_GATEWAY_URL`, `AI_GATEWAY_TOKEN`, `SLACK_CHANNEL_ID_OPS`
 
----
-
-## 5. Ultrawork Loop (ultrawork-loop.yml)
-
-### 개요
-| 항목 | 값 |
-|------|-----|
-| **목적** | 지속 점검 + 우선순위 산정 + Slack 알림 |
-| **트리거** | schedule, workflow_dispatch |
-| **게이트** | `ULTRAWORK_LOOP_SCHEDULE=true` |
-| **타임아웃** | 20분 |
-
-### 실행 내용
-- ~~`scripts/ultrawork_loop.py`~~ → `scripts/ops_health_orchestrator.py`로 통합됨
-- 기본 체크: lint/types, Vercel, GitHub Actions, Sentry, UI/UX
-- 이전 스크립트는 `_archive/`로 이동됨
-
-### Slack 연동
-- AI Gateway 사용
-- Secrets: `AI_GATEWAY_URL`, `AI_GATEWAY_TOKEN`, `SLACK_CHANNEL_ID_OPS`
-
----
-
-## 6. AI Ops On Demand (ai-ops-on-demand.yml)
-
-### 개요
-| 항목 | 값 |
-|------|-----|
-| **목적** | 온디맨드 점검 수행 후 Slack 보고 |
-| **트리거** | `repository_dispatch` (`ai_ops_task`), workflow_dispatch |
-| **타임아웃** | 15분 |
-
-### repository_dispatch payload 예시
-
+### repository_dispatch payload 예시 (on_demand)
 ```json
 {
   "event_type": "ai_ops_task",
   "client_payload": {
-    "run_post_checks": "true",
-    "run_image_checks": "true",
-    "run_vercel_checks": "false"
+    "run_lint_checks": "true",
+    "run_vercel_checks": "false",
+    "auto_recover_gha": "true"
   }
 }
 ```
 
-### 필요 Secrets
-```yaml
-BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
-SITE_URL: "https://tech.2twodragon.com"
-```
-
 ---
 
-## 7. Daily News (daily-news.yml)
+## 5. Daily News (daily-news.yml)
 
 > **Deprecated:** GitHub `schedule` 트리거가 주석 처리되어 수동 `workflow_dispatch`
 > 전용입니다. 스케줄 자동 발행은 `ai-blogwatcher.yml`(schedule `0 0 * * *`, 09:00 KST)이
@@ -251,7 +225,7 @@ workflow_dispatch:
 
 ---
 
-## 8. Generate Images (generate-images.yml)
+## 6. Generate Images (generate-images.yml)
 
 ### 개요
 | 항목 | 값 |
@@ -286,7 +260,7 @@ workflow_dispatch:
 
 ---
 
-## 9. Sentry Release (sentry-release.yml)
+## 7. Sentry Release (sentry-release.yml)
 
 ### 개요
 | 항목 | 값 |
@@ -309,7 +283,7 @@ SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
 ---
 
-## 10. AI Video Gen (ai-video-gen.yml)
+## 8. AI Video Gen (ai-video-gen.yml)
 
 ### 개요
 | 항목 | 값 |

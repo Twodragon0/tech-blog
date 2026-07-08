@@ -1,0 +1,424 @@
+name: Ops Orchestrator
+
+# Consolidates the former ops-multi-agent-loop.yml, ops-priority-loop.yml,
+# ultrawork-loop.yml and ai-ops-on-demand.yml into ONE file with three
+# mutually-exclusive, if:-gated jobs. Each job keeps its own least-privilege
+# permissions and secret scoping — the merge is behaviour-preserving.
+#
+# SECURITY (do not regress):
+#   * actions:write / issues:write live ONLY in the `multi_agent` job and are
+#     unreachable from the untrusted `repository_dispatch` path (that path only
+#     runs `on_demand`, which has contents:read).
+#   * `on_demand` keeps step-scoped secrets (MED-2 hardening, dd0fc74e): the
+#     job-level env carries only non-secret toggles + boolean has-secret flags;
+#     real secrets are declared on the individual steps that use them.
+# Guarded by scripts/tests/test_ci_ops_orchestrator_partition_guard.py.
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # multi_agent lane (default ON)
+    - cron: "0 4 * * *"     # priority lane (default OFF)
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: "Which ops profile to run"
+        required: false
+        default: "full"
+        type: choice
+        options:
+          - "full"          # multi_agent + on_demand
+          - "multi-agent"   # multi_agent only
+          - "priority"      # priority only
+      run_lint_checks:
+        description: "Run lint/type checks (on_demand)"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_vercel_checks:
+        description: "Run Vercel checks (on_demand)"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_github_actions_checks:
+        description: "Run GitHub Actions checks (on_demand)"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_sentry_checks:
+        description: "Run Sentry checks (on_demand)"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      run_uiux_checks:
+        description: "Run UI/UX checks (on_demand)"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      auto_recover_gha:
+        description: "Auto rerun failed GitHub Actions workflows"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+  repository_dispatch:
+    types: [ai_ops_task]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ops-orchestrator-${{ github.event_name }}-${{ github.event.schedule || github.event.action || github.ref }}
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # multi_agent — 6h cron OR dispatch profile full/multi-agent.
+  # Full roundtable: lint+vercel+gha+sentry+uiux, auto-recover, artifact + Slack
+  # + create-issue-on-failure. Elevated perms (actions:write, issues:write) and
+  # job-level secrets. NOT reachable from repository_dispatch.
+  # ---------------------------------------------------------------------------
+  multi_agent:
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '0 */6 * * *' && vars.OPS_MULTI_AGENT_SCHEDULE != 'false')
+      || (github.event_name == 'workflow_dispatch' && (github.event.inputs.profile == 'full' || github.event.inputs.profile == 'multi-agent'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      actions: write
+      issues: write
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
+      AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
+      SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+
+      - name: Setup Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6
+        with:
+          node-version: "20"
+
+      - name: Install CLI dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ruff mypy
+          npm i -g vercel
+          gh --version
+          vercel --version
+
+      - name: Run multi-agent roundtable checks
+        id: roundtable
+        env:
+          AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || 'true' }}
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          args=(--output reports/ops-roundtable.md --json-output reports/ops-roundtable.json)
+          if [ "${AUTO_RECOVER_GHA}" = "true" ]; then
+            args+=(--auto-recover-gha)
+          fi
+          python3 scripts/ops_health_orchestrator.py "${args[@]}"
+
+      - name: Upload roundtable report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
+        with:
+          name: ops-roundtable-report
+          path: reports/
+
+      - name: Add report to job summary
+        if: always()
+        run: |
+          if [ -f reports/ops-roundtable.md ]; then
+            cat reports/ops-roundtable.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Ops roundtable report was not generated." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Export report output
+        id: report
+        if: always()
+        run: |
+          if [ -f reports/ops-roundtable.md ]; then
+            {
+              echo "message<<EOF"
+              cat reports/ops-roundtable.md
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+          else
+            echo "message=Ops roundtable report missing." >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Post report to Slack via AI Gateway
+        if: always() && env.AI_GATEWAY_URL != '' && env.AI_GATEWAY_TOKEN != '' && env.SLACK_CHANNEL_ID_OPS != ''
+        env:
+          MESSAGE: ${{ steps.report.outputs.message }}
+          TARGET_CHANNEL_ID: ${{ env.SLACK_CHANNEL_ID_OPS }}
+        run: |
+          set -euo pipefail
+          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
+          curl -sS "${AI_GATEWAY_URL}/tools/invoke" \
+            -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "$payload"
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
+        with:
+          script: |
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const title = `🚨 Ops multi-agent loop failed (${new Date().toISOString().slice(0, 10)})`;
+            const body = [
+              'Ops multi-agent checks found unresolved P1/P0 issues.',
+              '',
+              `- Workflow run: ${runUrl}`,
+              '- Artifact: ops-roundtable-report',
+              '',
+              'Suggested actions:',
+              '- Review reports/ops-roundtable.md',
+              '- Triage Vercel/GitHub Actions/Sentry issues first',
+              '- Re-run workflow after fixes'
+            ].join('\n');
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'ops,automation'
+            });
+
+            const duplicate = issues.find((issue) => issue.title === title);
+            if (!duplicate) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['ops', 'automation', 'alert']
+              });
+            }
+
+  # ---------------------------------------------------------------------------
+  # priority — daily cron OR dispatch profile priority.
+  # Lightweight: only the blocking lint-and-types check matters; advisory
+  # service checks are skipped (--skip-sentry --skip-uiux). Slack secret only,
+  # contents:read. Gate default OFF (OPS_PRIORITY_LOOP_SCHEDULE == 'true').
+  # ---------------------------------------------------------------------------
+  priority:
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '0 4 * * *' && vars.OPS_PRIORITY_LOOP_SCHEDULE == 'true')
+      || (github.event_name == 'workflow_dispatch' && github.event.inputs.profile == 'priority')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    env:
+      RUN_VERCEL_CHECKS: "false"
+      # MED-2: 시크릿 값은 job-level에 두지 않고 존재 여부 boolean만 노출한다.
+      # 실제 값은 이를 사용하는 "Post to Slack" step에만 부여(on_demand와 동일 패턴).
+      HAS_AI_GATEWAY: ${{ secrets.AI_GATEWAY_URL != '' && secrets.AI_GATEWAY_TOKEN != '' }}
+      HAS_SLACK_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS != '' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+
+      - name: Setup Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        # ruff + mypy are required by the blocking lint-and-types check (the only
+        # check that can fail this run). Without them the lint step could not run.
+        run: python -m pip install --upgrade pip pyyaml ruff mypy
+
+      - name: Run priority checks
+        id: checks
+        run: |
+          set -uo pipefail
+          # Capture the orchestrator's exit code instead of swallowing it with
+          # `|| true`. Non-zero means a BLOCKING lint-and-types failure (rc 1=P1,
+          # 2=P0); advisory service checks never set it. We still publish the
+          # report to Slack below, then fail in the trailing step so a broken
+          # lint/types state is a RED run, not a silent green. (Fix A-H2, audit.)
+          set +e
+          message=$(python3 scripts/ops_health_orchestrator.py --skip-sentry --skip-uiux)
+          rc=$?
+          set -e
+          {
+            echo "message<<EOF"
+            echo "$message"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+
+      - name: Post to Slack via AI Gateway
+        if: env.HAS_AI_GATEWAY == 'true' && env.HAS_SLACK_OPS == 'true'
+        shell: bash
+        env:
+          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
+          MESSAGE: ${{ steps.checks.outputs.message }}
+          TARGET_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
+        run: |
+          set -euo pipefail
+          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
+          curl -sS "${AI_GATEWAY_URL}/tools/invoke" \
+            -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "$payload"
+
+      - name: Fail run if ops health checks reported a blocking issue
+        if: always()
+        env:
+          OPS_RC: ${{ steps.checks.outputs.rc }}
+        run: |
+          if [ "${OPS_RC:-0}" != "0" ]; then
+            echo "::error::ops_health_orchestrator exited ${OPS_RC} (blocking lint-and-types failure; see the Slack report)."
+            exit "${OPS_RC}"
+          fi
+          echo "ops health checks passed (rc=0)."
+
+  # ---------------------------------------------------------------------------
+  # on_demand — repository_dispatch (ai_ops_task) OR dispatch profile full.
+  # This is the ONLY job reachable from the untrusted repository_dispatch path.
+  # contents:read only; NO actions:write / issues:write. MED-2: secrets are
+  # STEP-SCOPED (never job-level) — job env carries only non-secret toggles and
+  # boolean has-secret flags. RUN_* fall back inputs -> client_payload -> 'true'.
+  # ---------------------------------------------------------------------------
+  on_demand:
+    if: >-
+      github.event_name == 'repository_dispatch'
+      || (github.event_name == 'workflow_dispatch' && github.event.inputs.profile == 'full')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+
+    # MEDIUM-2 (audit): 시크릿 값은 job-level에서 모든 step(Checkout/Setup/Install
+    # 포함)에 노출하지 않는다. 비-시크릿 토글과 if: 조건용 boolean만 job-level에 두고,
+    # 실제 시크릿은 이를 쓰는 step에만 부여한다.
+    env:
+      RUN_LINT_CHECKS: ${{ github.event.inputs.run_lint_checks || github.event.client_payload.run_lint_checks || 'true' }}
+      RUN_VERCEL_CHECKS: ${{ github.event.inputs.run_vercel_checks || github.event.client_payload.run_vercel_checks || 'true' }}
+      RUN_GITHUB_ACTIONS_CHECKS: ${{ github.event.inputs.run_github_actions_checks || github.event.client_payload.run_github_actions_checks || 'true' }}
+      RUN_SENTRY_CHECKS: ${{ github.event.inputs.run_sentry_checks || github.event.client_payload.run_sentry_checks || 'true' }}
+      RUN_UIUX_CHECKS: ${{ github.event.inputs.run_uiux_checks || github.event.client_payload.run_uiux_checks || 'true' }}
+      AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || github.event.client_payload.auto_recover_gha || 'true' }}
+      # if: 조건용 boolean (시크릿 값이 아님 — 존재 여부만 노출).
+      HAS_AI_GATEWAY: ${{ secrets.AI_GATEWAY_URL != '' && secrets.AI_GATEWAY_TOKEN != '' }}
+      HAS_SLACK_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS != '' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+
+      - name: Setup Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ruff mypy
+          npm i -g vercel
+          gh --version
+          vercel --version
+
+      - name: Run on-demand checks
+        id: checks
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          args=(--output reports/ops-roundtable.md --json-output reports/ops-roundtable.json)
+          if [ "${AUTO_RECOVER_GHA}" = "true" ]; then
+            args+=(--auto-recover-gha)
+          fi
+          mkdir -p reports
+          # Capture the orchestrator's exit code instead of swallowing it with
+          # `|| true`. Non-zero = BLOCKING lint-and-types failure (rc 1=P1, 2=P0);
+          # advisory checks never set it. Still publish to Slack below, then fail
+          # in the trailing step so a broken state is RED. (Fix A-H2, audit.)
+          set +e
+          message=$(python3 scripts/ops_health_orchestrator.py "${args[@]}")
+          rc=$?
+          set -e
+          {
+            echo "message<<EOF"
+            echo "$message"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+
+      - name: Post to Slack via AI Gateway
+        if: env.HAS_AI_GATEWAY == 'true' && env.HAS_SLACK_OPS == 'true'
+        shell: bash
+        env:
+          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
+          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
+          MESSAGE: ${{ steps.checks.outputs.message }}
+          TARGET_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
+        run: |
+          set -euo pipefail
+          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
+          curl -sS "${AI_GATEWAY_URL}/tools/invoke" \
+            -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "$payload"
+
+      - name: Fail run if ops health checks reported a blocking issue
+        if: always()
+        env:
+          OPS_RC: ${{ steps.checks.outputs.rc }}
+        run: |
+          if [ "${OPS_RC:-0}" != "0" ]; then
+            echo "::error::ops_health_orchestrator exited ${OPS_RC} (blocking lint-and-types failure; see the Slack report)."
+            exit "${OPS_RC}"
+          fi
+          echo "ops health checks passed (rc=0)."
