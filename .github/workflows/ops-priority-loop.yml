@@ -24,8 +24,6 @@ jobs:
       contents: read
 
     env:
-      RUN_POST_CHECKS: "true"
-      RUN_IMAGE_CHECKS: "true"
       RUN_VERCEL_CHECKS: "false"
       AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
       AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
@@ -42,7 +40,9 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-        run: python -m pip install --upgrade pip pyyaml
+        # ruff + mypy are required by the blocking lint-and-types check (the only
+        # check that can fail this run). Without them the lint step could not run.
+        run: python -m pip install --upgrade pip pyyaml ruff mypy
 
       - name: Run priority checks
         id: checks
@@ -54,7 +54,7 @@ jobs:
           # report to Slack below, then fail in the trailing step so a broken
           # lint/types state is a RED run, not a silent green. (Fix A-H2, audit.)
           set +e
-          message=$(python3 scripts/ops_health_orchestrator.py --skip-sentry --skip-pagespeed)
+          message=$(python3 scripts/ops_health_orchestrator.py --skip-sentry --skip-uiux)
           rc=$?
           set -e
           {
