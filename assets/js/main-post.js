@@ -296,7 +296,13 @@
       const scrollTimers = new WeakMap();
 
       const getTableContext = (table) => {
-        let current = table.previousElementSibling;
+        // 테이블이 이미 .table-wrapper 안으로 이동된 경우 previousElementSibling이
+        // 사라진다(테이블이 래퍼의 유일 자식). 그때는 래퍼의 앞 형제(원래 테이블
+        // 앞에 있던 헤딩)부터 탐색해야 risk/ops 분류가 동작한다.
+        const anchor = (table.parentElement && table.parentElement.classList.contains('table-wrapper'))
+          ? table.parentElement
+          : table;
+        let current = anchor.previousElementSibling;
         while (current) {
           if (/^H[1-6]$/.test(current.tagName)) {
             const heading = (current.textContent || '').trim();

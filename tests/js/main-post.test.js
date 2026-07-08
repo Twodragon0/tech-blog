@@ -120,21 +120,15 @@ describe('main-post.js', () => {
   });
 
   describe('table wrapper + risk/ops classification', () => {
-    // BUG FOUND BY THIS TEST SUITE (not fixed here — out of scope per task;
-    // flagged for lead review): wrapTables() calls
-    // `table.parentNode.insertBefore(wrapper, table); wrapper.appendChild(table);`
-    // BEFORE calling applyTableContextClasses(table, wrapper). By the time
-    // getTableContext(table) walks `table.previousElementSibling` to find
-    // the preceding heading, the table has already been moved inside the
-    // (empty) wrapper div, so it has no previous sibling and the walk
-    // always returns ''. Because addCellStateClasses() is gated behind
-    // `if (!context) return;`, this means table-risk-scorecard,
-    // table-ops-metrics, and ALL per-cell classes (level-high,
-    // urgency-critical, metric-value) are dead code in the live site today
-    // regardless of heading text or cell content. This test pins that
-    // actual behavior; if the move/classify order is ever fixed, update it
-    // to assert the classes ARE applied.
-    it('wraps a post-content table but never applies risk/ops classification, even with a matching heading and matching cell content', () => {
+    // REGRESSION GUARD (bug fixed): wrapTables() moves the table inside a
+    // .table-wrapper div (insertBefore + appendChild) before classifying it,
+    // so at classify time `table.previousElementSibling` is null. Previously
+    // getTableContext() walked from the table and always returned '', making
+    // table-risk-scorecard / table-ops-metrics / per-cell classes dead code.
+    // Fix: getTableContext() now anchors on the wrapper (table.parentElement)
+    // when the table is already inside .table-wrapper, so it finds the
+    // preceding heading. This test asserts the classification IS applied.
+    it('applies risk/ops classification to a wrapped table with a matching heading + cell content', () => {
       document.body.innerHTML = `
         <article class="post-content">
           <h2>보안 위험 스코어카드</h2>
@@ -148,12 +142,12 @@ describe('main-post.js', () => {
       const wrapper = table.parentElement;
       expect(wrapper.classList.contains('table-wrapper')).toBe(true);
 
-      // Would be true if getTableContext ran before the DOM move.
-      expect(wrapper.classList.contains('table-wrapper-risk-scorecard')).toBe(false);
-      expect(table.classList.contains('table-risk-scorecard')).toBe(false);
+      // Classification now runs correctly against the wrapper's preceding heading.
+      expect(wrapper.classList.contains('table-wrapper-risk-scorecard')).toBe(true);
+      expect(table.classList.contains('table-risk-scorecard')).toBe(true);
       const cells = table.querySelectorAll('td');
-      expect(cells[0].classList.contains('level-high')).toBe(false);
-      expect(cells[1].classList.contains('urgency-critical')).toBe(false);
+      expect(cells[0].classList.contains('level-high')).toBe(true);   // "HIGH"
+      expect(cells[1].classList.contains('urgency-critical')).toBe(true); // "P0"
     });
 
     it('does not wrap a table with no preceding heading in a risk/ops class, but still wraps it', () => {
