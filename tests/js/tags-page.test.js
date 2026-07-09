@@ -481,6 +481,80 @@ describe('tags-page.js', () => {
   });
 
   // =========================================================================
+  // Combined interactions: multi-select + search
+  // =========================================================================
+
+  it('multi-select stays intact while a search filters the cloud, and clearing the search restores hidden selected tags', async () => {
+    buildTagsFixture();
+    runScript();
+
+    const awsTag = document.querySelector('.tag[data-tag="aws"]');
+    const dockerTag = document.querySelector('.tag[data-tag="docker"]');
+    const kubernetesTag = document.querySelector('.tag[data-tag="kubernetes"]');
+
+    awsTag.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    dockerTag.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+
+    expect(awsTag.classList.contains('tag--selected')).toBe(true);
+    expect(dockerTag.classList.contains('tag--selected')).toBe(true);
+    expect(document.getElementById('tags-selected-badge').textContent).toBe('2개 선택됨');
+
+    const input = document.getElementById('tag-search');
+    input.value = 'doc'; // matches only "docker"
+    input.dispatchEvent(new Event('input'));
+    await wait(250);
+
+    // Selection state is untouched by search: both tags remain selected...
+    expect(awsTag.classList.contains('tag--selected')).toBe(true);
+    expect(dockerTag.classList.contains('tag--selected')).toBe(true);
+    expect(document.getElementById('tags-selected-badge').textContent).toBe('2개 선택됨');
+    // ...but search independently hides the non-matching selected tag ("aws")
+    // while the matching selected tag ("docker") stays visible.
+    expect(awsTag.style.display).toBe('none');
+    expect(dockerTag.style.display).toBe('');
+    expect(kubernetesTag.classList.contains('tag--dimmed')).toBe(true);
+    expect(kubernetesTag.style.display).toBe('none');
+
+    input.value = '';
+    input.dispatchEvent(new Event('input'));
+    await wait(250);
+
+    // Clearing the search reveals the previously search-hidden selected tag,
+    // and the selection itself (classes + badge + persisted pref) is unchanged.
+    expect(awsTag.style.display).toBe('');
+    expect(awsTag.classList.contains('tag--selected')).toBe(true);
+    expect(dockerTag.classList.contains('tag--selected')).toBe(true);
+    expect(document.getElementById('tags-selected-badge').textContent).toBe('2개 선택됨');
+    expect(JSON.parse(localStorage.getItem('tags-selected'))).toEqual(['aws', 'docker']);
+  });
+
+  it('a search query that hides a selected tag keeps it selected (class + persisted pref) and reveals it again once cleared', async () => {
+    buildTagsFixture();
+    runScript();
+
+    const awsTag = document.querySelector('.tag[data-tag="aws"]');
+    awsTag.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    expect(awsTag.classList.contains('tag--selected')).toBe(true);
+
+    const input = document.getElementById('tag-search');
+    input.value = 'zzz-no-match'; // matches nothing, including the selected "aws" tag
+    input.dispatchEvent(new Event('input'));
+    await wait(250);
+
+    expect(awsTag.style.display).toBe('none');
+    expect(awsTag.classList.contains('tag--selected')).toBe(true); // still selected, just hidden
+    expect(JSON.parse(localStorage.getItem('tags-selected'))).toEqual(['aws']); // pref untouched by search
+
+    input.value = '';
+    input.dispatchEvent(new Event('input'));
+    await wait(250);
+
+    expect(awsTag.style.display).toBe('');
+    expect(awsTag.classList.contains('tag--selected')).toBe(true);
+    expect(document.getElementById('tags-selected-badge').textContent).toBe('1개 선택됨');
+  });
+
+  // =========================================================================
   // Keyboard shortcuts
   // =========================================================================
 
@@ -648,6 +722,47 @@ describe('tags-page.js', () => {
   });
 
   // =========================================================================
+  // Combined interactions: multi-select + sort
+  // =========================================================================
+
+  it('multi-select classes and badge survive the DOM detach/re-append from toggling count -> alpha sort', () => {
+    buildTagsFixture();
+    runScript();
+
+    document
+      .querySelector('.tag[data-tag="aws"]')
+      .dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    document
+      .querySelector('.tag[data-tag="docker"]')
+      .dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+
+    expect(document.getElementById('tags-selected-badge').textContent).toBe('2개 선택됨');
+
+    document.querySelector('.tags-sort-btn[data-sort="count"]').click();
+
+    // applySortToDom('count') removes every .tag element from .tag-cloud and
+    // re-appends them in count order; selection state lives on the elements'
+    // own classList (not re-derived from a data structure), so it must
+    // survive the detach/re-append.
+    let awsTag = document.querySelector('.tag[data-tag="aws"]');
+    let dockerTag = document.querySelector('.tag[data-tag="docker"]');
+    let kubernetesTag = document.querySelector('.tag[data-tag="kubernetes"]');
+    expect(awsTag.classList.contains('tag--selected')).toBe(true);
+    expect(dockerTag.classList.contains('tag--selected')).toBe(true);
+    expect(kubernetesTag.classList.contains('tag--dimmed')).toBe(true);
+    expect(document.getElementById('tags-selected-badge').textContent).toBe('2개 선택됨');
+
+    document.querySelector('.tags-sort-btn[data-sort="alpha"]').click();
+
+    awsTag = document.querySelector('.tag[data-tag="aws"]');
+    dockerTag = document.querySelector('.tag[data-tag="docker"]');
+    expect(awsTag.classList.contains('tag--selected')).toBe(true);
+    expect(dockerTag.classList.contains('tag--selected')).toBe(true);
+    expect(document.getElementById('tags-selected-badge').textContent).toBe('2개 선택됨');
+    expect(JSON.parse(localStorage.getItem('tags-selected'))).toEqual(['aws', 'docker']);
+  });
+
+  // =========================================================================
   // Lazy-render: IntersectionObserver -> fetch -> renderSection
   // =========================================================================
 
@@ -749,6 +864,88 @@ describe('tags-page.js', () => {
 
     const awsSection = document.getElementById('aws');
     expect(awsSection.getAttribute('data-loaded')).toBeNull();
+  });
+
+  it('loadTagsData resolves null and resets its cached promise when the HTTP response is not ok', async () => {
+    buildTagsFixture();
+    window.fetch = stubFetch(null, { ok: false });
+    runScript();
+
+    const awsSection = document.getElementById('aws');
+    observer._trigger(awsSection);
+    await flushMicrotasks();
+
+    expect(window.fetch).toHaveBeenCalledTimes(1);
+    // renderSection saw data === null (the !r.ok branch throws, is caught,
+    // and resolves null) so the section is never marked loaded.
+    expect(awsSection.getAttribute('data-loaded')).toBeNull();
+
+    // The catch handler resets the cached promise to null, so a later
+    // trigger (e.g. scrolling a second section into view) retries the fetch
+    // instead of reusing the failed promise.
+    const dockerSection = document.getElementById('docker');
+    observer._trigger(dockerSection);
+    await flushMicrotasks();
+
+    expect(window.fetch).toHaveBeenCalledTimes(2);
+  });
+
+  it('renderSection no-ops when the tags-data.json response has no entry for the section tag slug', async () => {
+    buildTagsFixture();
+    var dataWithoutDocker = { aws: MOCK_DATA.aws, kubernetes: MOCK_DATA.kubernetes }; // no "docker" key
+    window.fetch = stubFetch(dataWithoutDocker);
+    runScript();
+
+    const dockerSection = document.getElementById('docker');
+    observer._trigger(dockerSection);
+    await flushMicrotasks();
+
+    expect(window.fetch).toHaveBeenCalledTimes(1);
+    // data[slug] is undefined, so renderSection's `if (!tagData) return;`
+    // guard fires: the section is never marked loaded and stays un-rendered.
+    expect(dockerSection.getAttribute('data-loaded')).toBeNull();
+    expect(dockerSection.querySelector('.tag-section-list')).toBeNull();
+  });
+
+  it('renders zero list items without throwing when tagData.posts is not an array', async () => {
+    buildTagsFixture();
+    var malformedData = {
+      aws: { related: ['Docker'], posts: null }, // posts missing/non-array
+    };
+    window.fetch = stubFetch(malformedData);
+    runScript();
+
+    const awsSection = document.getElementById('aws');
+    observer._trigger(awsSection);
+    await flushMicrotasks();
+
+    // Array.isArray(tagData.posts) is false, so the post-list loop is
+    // skipped entirely, but the section is still marked loaded and the
+    // (unrelated) related-pills branch still renders normally.
+    expect(awsSection.getAttribute('data-loaded')).toBe('1');
+    expect(awsSection.querySelectorAll('.tag-section-item').length).toBe(0);
+    expect(awsSection.querySelector('.tag-section-list')).not.toBeNull();
+    expect(awsSection.querySelector('.tag-related-pill[data-related-tag="docker"]')).not.toBeNull();
+  });
+
+  it('ensureSectionLoaded no-ops for a section element that lacks data-section-tag', async () => {
+    buildTagsFixture();
+    const strayNode = document.createElement('section');
+    strayNode.className = 'tag-section';
+    strayNode.id = 'stray';
+    strayNode.innerHTML = '<div class="tag-section-header">Stray</div>';
+    document.getElementById('tags-top').appendChild(strayNode);
+
+    window.fetch = stubFetch(MOCK_DATA);
+    runScript();
+
+    observer._trigger(strayNode);
+    await flushMicrotasks();
+
+    // `var slug = section.getAttribute('data-section-tag'); if (!slug) return;`
+    // fires before loadTagsData() is ever called.
+    expect(window.fetch).not.toHaveBeenCalled();
+    expect(strayNode.getAttribute('data-loaded')).toBeNull();
   });
 
   // =========================================================================
