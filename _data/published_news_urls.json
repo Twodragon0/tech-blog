@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-07-08T01:53:31.389597+00:00",
+  "updated_at": "2026-07-09T02:05:43.235966+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/cisa-warns-critical-lantronix-eds5000.html",
-      "title": "CISA Warns Critical Lantronix EDS5000 Flaw Is Being Actively Exploited",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/amadey-and-stealc-malware-network.html",
-      "title": "Amadey and StealC Malware Network Disrupted, 27M Stolen Credentials Recovered",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/restrict-aws-management-console-access-to-expected-networks-with-sign-in-resource-based-policies-and-rcps/",
-      "title": "Restrict AWS Management Console access to expected networks with sign-in resourc",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/google/google-releases-new-privacy-controls-for-activity-history-personalization/",
-      "title": "Google releases new privacy controls for activity history, personalization",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/cordyceps-cicd-flaws-expose-300-github.html",
-      "title": "Cordyceps CI/CD Flaws Expose 300+ GitHub Repositories to Supply-Chain Attacks",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://openai.com/index/openai-broadcom-jalapeno-inference-chip",
-      "title": "OpenAI and Broadcom unveil LLM-optimized inference chip",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/",
-      "title": "Huntington Bank: Redacting sensitive data from 400M+ documents with AWS",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-healthcare-appointment-agent-with-amazon-nova-2-sonic/",
-      "title": "Build a healthcare appointment agent with Amazon Nova 2 Sonic",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/ai-powered-bi-with-snowflake-and-amazon-quick/",
-      "title": "AI-powered BI with Snowflake and Amazon Quick",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-loka-built-a-natural-low-latency-voice-agent-with-amazon-nova-2-sonic/",
-      "title": "How Loka Built a Natural, Low-Latency Voice Agent with Amazon Nova 2 Sonic",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/storage-data-transfer/backup-and-dr-service-adds-cross-region-backups/",
-      "title": "Enhanced data resilience with cross-region backups in Backup and DR Service",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-24-self-service-credential-revocation-for-incident-response",
-      "title": "Self-service credential revocation for incident response",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-06-24-changes-to-model-selection-for-free-and-student-plans",
-      "title": "Changes to model selection for Free and Student plans",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/06/24/from-awareness-to-engineered-accessibility-in-open-source/",
-      "title": "From Awareness to Engineered Accessibility in Open Source",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
-    {
-      "url": "https://kubernetes.io/blog/2026/06/24/wg-device-management-spotlight-2026/",
-      "title": "Spotlight on WG Device Management",
-      "published_date": "2026-06-25",
-      "expires_at": "2026-07-02T00:36:23.371204+00:00"
-    },
     {
       "url": "https://www.microsoft.com/en-us/security/blog/2026/06/25/photo-zip-campaign-targeting-hospitality-industry-delivers-node-js-implant-persistent-access/",
       "title": "Photo ZIP campaign targeting hospitality industry delivers Node.js implant for p",
@@ -1230,6 +1140,96 @@
       "title": "Google Cloud Labs: Accelerate AI with Cloud Run",
       "published_date": "2026-07-08",
       "expires_at": "2026-07-15T01:53:31.389485+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/ai-coding-agents-found-triggering.html",
+      "title": "AI Coding Agents Found Triggering Endpoint Security Rules Built to Catch Attacke",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/new-hallusquatting-attack-could-trick.html",
+      "title": "New HalluSquatting Attack Could Trick AI Coding Assistants Into Installing Botne",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/ubiquiti-patches-critical-unifi-flaws.html",
+      "title": "Ubiquiti Patches Critical UniFi Flaws Across Connect, Talk, Access, Protect, and",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/designing-for-the-inevitable-system-prompt-leakage-and-mitigations-in-generative-ai-applications/",
+      "title": "Designing for the inevitable: System prompt leakage and mitigations in generativ",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/new-ghost-phishing-wave-is-breaking.html",
+      "title": "New Ghost Phishing Wave Is Breaking Traditional Email Security",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nemotron-langchain-agents-open-stack/",
+      "title": "NVIDIA Nemotron Achieves Benchmark-Leading Performance With LangChain Deep Agent",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://openai.com/index/government-national-security-partnerships",
+      "title": "Our approach to government and national security partnerships",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations",
+      "title": "Separating signal from noise in coding evaluations",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://openai.com/index/k-12-educators-practical-skills",
+      "title": "Helping K–12 educators build practical AI skills",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-apps-gateway-for-aws/",
+      "title": "Introducing Claude apps gateway for AWS",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/c4n-network-and-storage-optimized-vms/",
+      "title": "C4N, now GA: Delivering cloud’s highest per vCPU network and block storage I/O f",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/google-is-a-leader-in-gartner-magic-quadrant-for-ai-infra/",
+      "title": "Google Cloud named Leader in the 2026 Gartner® Magic Quadrant™ for AI Infrastruc",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/training-certifications/new-ways-keep-google-cloud-certifications-current/",
+      "title": "New ways to keep Google Cloud certifications current and boost your career",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/gemini-enterprise-for-education-named-a-commander-in-tambellini-starchart-2026-ai-agents-for-administrative-efficiencyagent-platforms/",
+      "title": "Gemini Enterprise for Education named a Commander in Tambellini StarChart™: 2026",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/meet-the-33-cybersecurity-startups-joining-the-gemini-startup-forum/",
+      "title": "Meet the 33 cybersecurity startups joining the Gemini Startup Forum",
+      "published_date": "2026-07-09",
+      "expires_at": "2026-07-16T02:05:43.235856+00:00"
     }
   ]
 }
