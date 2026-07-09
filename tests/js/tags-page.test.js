@@ -555,15 +555,15 @@ describe('tags-page.js', () => {
     expect(document.querySelector('.tag-cloud').classList.contains('sort-alpha')).toBe(false);
   });
 
-  it('switching count -> alpha re-sorts tags but does not restore removed letter dividers', () => {
+  it('switching count -> alpha re-sorts tags and restores the letter dividers', () => {
     // applySortToDom('count') detaches the divider elements from .tag-cloud
-    // and never reattaches them anywhere, so once you leave alpha sort the
-    // dividers are gone for good — switching back only re-sorts the tags.
-    // This test documents that actual (surprising) behavior rather than an
-    // assumed one.
+    // without reattaching them. Divider elements are now cached at module
+    // scope on first read, so switching back to alpha re-appends the same
+    // cached elements instead of losing them permanently.
     buildTagsFixture();
     runScript();
-    expect(document.querySelectorAll('.tag-cloud .tag-letter-divider').length).toBeGreaterThan(0);
+    const initialDividerCount = document.querySelectorAll('.tag-cloud .tag-letter-divider').length;
+    expect(initialDividerCount).toBeGreaterThan(0);
 
     document.querySelector('.tags-sort-btn[data-sort="count"]').click();
     expect(document.querySelectorAll('.tag-cloud .tag-letter-divider').length).toBe(0);
@@ -572,7 +572,17 @@ describe('tags-page.js', () => {
 
     expect(cloudOrder()).toEqual(['aws', 'docker', 'kubernetes']);
     expect(document.querySelector('.tag-cloud').classList.contains('sort-alpha')).toBe(true);
-    expect(document.querySelectorAll('.tag-cloud .tag-letter-divider').length).toBe(0);
+    expect(document.querySelectorAll('.tag-cloud .tag-letter-divider').length).toBe(initialDividerCount);
+
+    // Dividers must be correctly interleaved ahead of their letter group,
+    // not just present anywhere in the DOM.
+    const cloud = document.querySelector('.tag-cloud');
+    const orderedTags = Array.from(cloud.children).map((el) =>
+      el.classList.contains('tag-letter-divider')
+        ? 'divider:' + el.getAttribute('data-letter')
+        : el.getAttribute('data-tag')
+    );
+    expect(orderedTags).toEqual(['divider:A', 'aws', 'divider:D', 'docker', 'divider:K', 'kubernetes']);
   });
 
   // =========================================================================

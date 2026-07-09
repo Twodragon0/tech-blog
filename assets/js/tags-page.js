@@ -12,6 +12,7 @@
   var clearBtn    = document.getElementById('tags-clear-btn');
   var filterStatus = document.getElementById('tags-filter-status');
   var selectedBadge = document.getElementById('tags-selected-badge');
+  var cachedDividers = null;
 
   if (!input || !tagCloud) return;
 
@@ -236,11 +237,14 @@
 
   function applySortToDom(sortType) {
     var cloudTags = Array.prototype.slice.call(tagCloud.querySelectorAll('.tag[data-tag]'));
-    var dividers  = Array.prototype.slice.call(tagCloud.querySelectorAll('.tag-letter-divider'));
+    if (cachedDividers === null) {
+      cachedDividers = Array.prototype.slice.call(tagCloud.querySelectorAll('.tag-letter-divider'));
+    }
+    var dividers = cachedDividers;
 
     // Remove all tags and dividers from DOM temporarily
     cloudTags.forEach(function (t) { tagCloud.removeChild(t); });
-    dividers.forEach(function (d) { tagCloud.removeChild(d); });
+    dividers.forEach(function (d) { if (d.parentNode === tagCloud) tagCloud.removeChild(d); });
 
     if (sortType === 'count') {
       // Frequency sort: highest count first, no letter dividers
