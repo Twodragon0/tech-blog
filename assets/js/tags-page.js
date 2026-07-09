@@ -300,6 +300,11 @@
           setTimeout(function () { t.style.opacity = ''; }, i * 6);
         });
       });
+
+      // Re-appending cached divider elements does not reset any stale
+      // style.display set by a previous search filter; recompute visibility
+      // now that sort-alpha is (re)applied.
+      updateLetterDividers();
     }
   }
 

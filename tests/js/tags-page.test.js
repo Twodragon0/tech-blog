@@ -585,6 +585,68 @@ describe('tags-page.js', () => {
     expect(orderedTags).toEqual(['divider:A', 'aws', 'divider:D', 'docker', 'divider:K', 'kubernetes']);
   });
 
+  it('active search survives a count->alpha round trip without stale divider visibility', async () => {
+    // Regression test: updateLetterDividers() early-returns while sort-alpha
+    // is not set (count sort), so changing the search *while* sorted by
+    // count leaves the cached divider elements holding stale style.display
+    // from the previous alpha-mode search. Switching back to alpha must
+    // recompute divider visibility from the *current* search state instead
+    // of replaying the stale cached value.
+    buildTagsFixture();
+    runScript();
+
+    const input = document.getElementById('tag-search');
+    const dividerA = document.querySelector('.tag-cloud .tag-letter-divider[data-letter="A"]');
+    const dividerD = document.querySelector('.tag-cloud .tag-letter-divider[data-letter="D"]');
+    const dividerK = document.querySelector('.tag-cloud .tag-letter-divider[data-letter="K"]');
+
+    // Search for "aws": only the "A" letter group has a visible match.
+    input.value = 'aws';
+    input.dispatchEvent(new Event('input'));
+    await wait(250);
+
+    expect(dividerA.style.display).toBe('');
+    expect(dividerD.style.display).toBe('none');
+    expect(dividerK.style.display).toBe('none');
+
+    // Switch to count sort — dividers are detached from the DOM entirely,
+    // and sort-alpha is removed so updateLetterDividers() is inert while
+    // this mode is active.
+    document.querySelector('.tags-sort-btn[data-sort="count"]').click();
+
+    // While still in count mode, change the search: now only "docker"
+    // matches. Because sort-alpha isn't set, updateLetterDividers() (called
+    // by the input handler) early-returns — the cached divider elements'
+    // style.display is NOT updated to reflect this new search state yet.
+    input.value = 'docker';
+    input.dispatchEvent(new Event('input'));
+    await wait(250);
+
+    // Switch back to alpha sort.
+    document.querySelector('.tags-sort-btn[data-sort="alpha"]').click();
+
+    // The fix: applySortToDom's alpha branch calls updateLetterDividers()
+    // itself, recomputing from the *current* tag visibility rather than
+    // leaving the stale cached style.display in place.
+    expect(dividerA.style.display).toBe('none'); // aws is now search-hidden
+    expect(dividerD.style.display).toBe('');     // docker is now visible
+    expect(dividerK.style.display).toBe('none'); // kubernetes still hidden
+  });
+
+  it('a count->alpha round trip with no active search leaves every divider visible', () => {
+    buildTagsFixture();
+    runScript();
+
+    document.querySelector('.tags-sort-btn[data-sort="count"]').click();
+    document.querySelector('.tags-sort-btn[data-sort="alpha"]').click();
+
+    const dividers = document.querySelectorAll('.tag-cloud .tag-letter-divider');
+    expect(dividers.length).toBeGreaterThan(0);
+    dividers.forEach((div) => {
+      expect(div.style.display).not.toBe('none');
+    });
+  });
+
   // =========================================================================
   // Lazy-render: IntersectionObserver -> fetch -> renderSection
   // =========================================================================
