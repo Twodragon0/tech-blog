@@ -609,4 +609,213 @@ describe('archive-filter.js', () => {
     // value must leave it hidden.
     expect(kbdHint.style.display).toBe('none');
   });
+
+  // =========================================================================
+  // Combined filter + search interaction states
+  //
+  // The single-feature tests above exercise the category filter and the
+  // debounced search independently. applyFilters() ANDs them together
+  // (`matchFilter && matchSearch`), so these tests target the interaction
+  // states a per-feature test can't reach: both axes active at once,
+  // changing one axis while the other holds, and state restored from
+  // localStorage feeding into a later user action.
+  // =========================================================================
+
+  it('applies category filter AND search together — only items matching both survive', async () => {
+    vi.useFakeTimers();
+    buildArchiveFixture();
+    window.fetch = stubFetch({
+      2026: {
+        '01': [
+          makePost({ t: 'Zero Trust Guide', c: 'security' }),
+          makePost({ t: 'FinOps Basics', c: 'security' }),
+          makePost({ t: 'Zero Trust Cloud', c: 'cloud' }),
+          makePost({ t: 'Random Post', c: 'cloud' }),
+        ],
+      },
+    });
+    runScript();
+    await flushMicrotasks();
+
+    document.querySelector('.archive-filter[data-filter="security"]').click();
+
+    const searchInput = document.getElementById('archive-search');
+    searchInput.value = 'zero';
+    searchInput.dispatchEvent(new window.Event('input', { bubbles: true }));
+    vi.advanceTimersByTime(200);
+
+    const items = Array.from(document.querySelectorAll('.archive-item'));
+    const visible = items.filter((i) => !i.classList.contains('is-hidden'));
+
+    // "FinOps Basics" matches the filter but not the search; "Zero Trust
+    // Cloud" matches the search but not the filter. Neither is enough alone.
+    expect(visible.length).toBe(1);
+    expect(visible[0].getAttribute('data-title')).toBe('zero trust guide');
+    expect(document.getElementById('archive-visible-count').textContent).toBe('1');
+  });
+
+  it('clearing the search while a category filter is active keeps the filter applied', async () => {
+    vi.useFakeTimers();
+    buildArchiveFixture();
+    window.fetch = stubFetch({
+      2026: {
+        '01': [
+          makePost({ t: 'Zero Trust Guide', c: 'security' }),
+          makePost({ t: 'FinOps Basics', c: 'security' }),
+          makePost({ t: 'Zero Trust Cloud', c: 'cloud' }),
+        ],
+      },
+    });
+    runScript();
+    await flushMicrotasks();
+
+    document.querySelector('.archive-filter[data-filter="security"]').click();
+    const searchInput = document.getElementById('archive-search');
+    searchInput.value = 'zero';
+    searchInput.dispatchEvent(new window.Event('input', { bubbles: true }));
+    vi.advanceTimersByTime(200);
+
+    // Clear the search box — the category filter must remain in effect.
+    searchInput.value = '';
+    searchInput.dispatchEvent(new window.Event('input', { bubbles: true }));
+    vi.advanceTimersByTime(200);
+
+    const items = Array.from(document.querySelectorAll('.archive-item'));
+    const visible = items.filter((i) => !i.classList.contains('is-hidden'));
+
+    expect(visible.length).toBe(2);
+    visible.forEach((i) => expect(i.getAttribute('data-categories')).toContain('security'));
+    expect(
+      document.querySelector('.archive-filter[data-filter="security"]').classList.contains('active')
+    ).toBe(true);
+  });
+
+  it('switching the category filter while a search is active keeps the search applied', async () => {
+    vi.useFakeTimers();
+    buildArchiveFixture();
+    window.fetch = stubFetch({
+      2026: {
+        '01': [
+          makePost({ t: 'Zero Trust Guide', c: 'security' }),
+          makePost({ t: 'Zero Trust Cloud', c: 'cloud' }),
+        ],
+      },
+    });
+    runScript();
+    await flushMicrotasks();
+
+    document.querySelector('.archive-filter[data-filter="security"]').click();
+    const searchInput = document.getElementById('archive-search');
+    searchInput.value = 'zero';
+    searchInput.dispatchEvent(new window.Event('input', { bubbles: true }));
+    vi.advanceTimersByTime(200);
+
+    // Switching category buttons must not clear the in-flight search term —
+    // the click handler only touches currentFilter, never currentSearch.
+    document.querySelector('.archive-filter[data-filter="cloud"]').click();
+
+    expect(searchInput.value).toBe('zero');
+    const items = Array.from(document.querySelectorAll('.archive-item'));
+    const visible = items.filter((i) => !i.classList.contains('is-hidden'));
+    expect(visible.length).toBe(1);
+    expect(visible[0].getAttribute('data-categories')).toContain('cloud');
+  });
+
+  it('hides both month containers and shows the empty-state when a filter+search combo matches nothing', async () => {
+    vi.useFakeTimers();
+    buildArchiveFixture({ years: [{ year: '2026', months: ['01', '02'] }] });
+    window.fetch = stubFetch({
+      2026: {
+        '01': [makePost({ t: 'Alpha Post', c: 'security' })],
+        '02': [makePost({ t: 'Beta Post', c: 'cloud' })],
+      },
+    });
+    runScript();
+    await flushMicrotasks();
+
+    document.querySelector('.archive-filter[data-filter="security"]').click();
+    const searchInput = document.getElementById('archive-search');
+    searchInput.value = 'nonexistent-term';
+    searchInput.dispatchEvent(new window.Event('input', { bubbles: true }));
+    vi.advanceTimersByTime(200);
+
+    // Jan's post fails the search; Feb's post fails the filter — combined,
+    // every month (and the year) collapses, distinct from the single-axis
+    // month/year-hide tests above.
+    expect(document.querySelector('.archive-month[data-month="01"]').style.display).toBe('none');
+    expect(document.querySelector('.archive-month[data-month="02"]').style.display).toBe('none');
+    expect(document.querySelector('.archive-year[data-year="2026"]').style.display).toBe('none');
+    expect(document.querySelector('.archive-empty').style.display).toBe('');
+    expect(document.getElementById('archive-visible-count').textContent).toBe('0');
+  });
+
+  it('restores a saved filter+search combo from localStorage on init, then applies a further filter change on top of it', async () => {
+    window.localStorage.setItem('archive_filter', 'cloud');
+    window.localStorage.setItem('archive_search', 'alpha');
+    buildArchiveFixture();
+    window.fetch = stubFetch({
+      2026: {
+        '01': [
+          makePost({ t: 'Alpha One', c: 'cloud' }),
+          makePost({ t: 'Beta Two', c: 'cloud' }),
+          makePost({ t: 'Alpha Three', c: 'security' }),
+        ],
+      },
+    });
+    runScript();
+    await flushMicrotasks();
+
+    // Restored combo: cloud + "alpha" → only "Alpha One" matches both.
+    let visible = Array.from(document.querySelectorAll('.archive-item')).filter(
+      (i) => !i.classList.contains('is-hidden')
+    );
+    expect(visible.length).toBe(1);
+    expect(visible[0].getAttribute('data-title')).toBe('alpha one');
+
+    // User interaction layered on top of the restored state: switch to
+    // "all". The restored search term must remain in effect.
+    document.querySelector('.archive-filter[data-filter="all"]').click();
+
+    visible = Array.from(document.querySelectorAll('.archive-item')).filter(
+      (i) => !i.classList.contains('is-hidden')
+    );
+    expect(visible.length).toBe(2);
+    expect(document.getElementById('archive-search').value).toBe('alpha');
+    expect(window.localStorage.getItem('archive_filter')).toBe('all');
+    expect(window.localStorage.getItem('archive_search')).toBe('alpha');
+  });
+
+  it('tag-chip click narrows within an already-active category filter', async () => {
+    buildArchiveFixture();
+    window.fetch = stubFetch({
+      2026: {
+        '01': [
+          makePost({ t: 'Cloud Zero Trust', c: 'cloud', tags: ['zero-trust'] }),
+          makePost({ t: 'Security Zero Trust', c: 'security', tags: ['zero-trust'] }),
+          makePost({ t: 'Cloud Other', c: 'cloud', tags: ['other-tag'] }),
+        ],
+      },
+    });
+    runScript();
+    await flushMicrotasks();
+
+    document.querySelector('.archive-filter[data-filter="cloud"]').click();
+
+    const chip = document.querySelector(
+      '.archive-item[data-categories="cloud"] .archive-tag-chip[data-tag="zero-trust"]'
+    );
+    chip.dispatchEvent(new window.MouseEvent('click', { bubbles: true, cancelable: true }));
+
+    const items = Array.from(document.querySelectorAll('.archive-item'));
+    const visible = items.filter((i) => !i.classList.contains('is-hidden'));
+
+    // "Security Zero Trust" matches the chip-driven search but not the
+    // still-active "cloud" filter; "Cloud Other" matches the filter but not
+    // the search. Only the item matching both survives.
+    expect(visible.length).toBe(1);
+    expect(visible[0].getAttribute('data-title')).toBe('cloud zero trust');
+    expect(
+      document.querySelector('.archive-filter[data-filter="cloud"]').classList.contains('active')
+    ).toBe(true);
+  });
 });
