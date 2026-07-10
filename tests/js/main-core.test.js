@@ -312,4 +312,221 @@ describe('main-core.js', () => {
     expect(img.getAttribute('src')).toBe('https://example.com/orig.fallback.png');
     expect(img.hasAttribute('data-fallback')).toBe(false);
   });
+
+  // =========================================================================
+  // Idle-work / yield / chunk utilities (window.TechBlog)
+  // =========================================================================
+
+  it('scheduleIdleWork uses requestIdleCallback when available', () => {
+    const ric = vi.fn((cb) => cb());
+    window.requestIdleCallback = ric;
+    try {
+      runScript(documentHandlers);
+      expect(ric).toHaveBeenCalled();
+    } finally {
+      delete window.requestIdleCallback;
+    }
+  });
+
+  it('yieldToMain resolves via scheduler.yield when available', async () => {
+    runScript(documentHandlers);
+    const yielded = vi.fn(() => Promise.resolve());
+    window.scheduler = { yield: yielded };
+    try {
+      await window.TechBlog.yieldToMain();
+      expect(yielded).toHaveBeenCalledTimes(1);
+    } finally {
+      delete window.scheduler;
+    }
+  });
+
+  it('yieldToMain falls back to setTimeout without scheduler', async () => {
+    runScript(documentHandlers);
+    const promise = window.TechBlog.yieldToMain();
+    vi.runOnlyPendingTimers();
+    await promise;
+  });
+
+  it('runInChunks executes all tasks across multiple chunks', async () => {
+    runScript(documentHandlers);
+    const calls = [];
+    const tasks = Array.from({ length: 7 }, (_, i) => () => calls.push(i));
+    const promise = window.TechBlog.runInChunks(tasks, 3);
+    await vi.runAllTimersAsync();
+    await promise;
+    expect(calls).toEqual([0, 1, 2, 3, 4, 5, 6]);
+  });
+
+  // =========================================================================
+  // Theme toggle: saved theme, click/dblclick, system-preference listener
+  // =========================================================================
+
+  it('theme: explicit saved theme skips system-preference detection', () => {
+    localStorage.setItem('theme', 'dark');
+    try {
+      runScript(documentHandlers);
+      expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+    } finally {
+      localStorage.removeItem('theme');
+    }
+  });
+
+  it('theme toggle click flips data-theme + aria-pressed + dispatches themeChanged', () => {
+    document.body.innerHTML = '<button id="theme-toggle" aria-pressed="false"></button>';
+    localStorage.removeItem('theme');
+    runScript(documentHandlers);
+    const toggle = document.getElementById('theme-toggle');
+    const initial = document.documentElement.getAttribute('data-theme');
+    const eventSpy = vi.fn();
+    document.addEventListener('themeChanged', eventSpy);
+    try {
+      toggle.click();
+      const after = document.documentElement.getAttribute('data-theme');
+      expect(after).not.toBe(initial);
+      expect(toggle.getAttribute('aria-pressed')).toBe(after === 'dark' ? 'true' : 'false');
+      expect(localStorage.getItem('theme')).toBe(after);
+      expect(eventSpy).toHaveBeenCalledTimes(1);
+    } finally {
+      document.removeEventListener('themeChanged', eventSpy);
+      localStorage.removeItem('theme');
+    }
+  });
+
+  it('theme toggle dblclick resets to system preference', () => {
+    document.body.innerHTML = '<button id="theme-toggle"></button>';
+    localStorage.setItem('theme', 'dark');
+    window.matchMedia = vi.fn(() => ({
+      matches: true,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+    }));
+    try {
+      runScript(documentHandlers);
+      const toggle = document.getElementById('theme-toggle');
+      toggle.dispatchEvent(new MouseEvent('dblclick', { bubbles: true }));
+      expect(localStorage.getItem('theme')).toBe('system');
+      expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+      expect(toggle.getAttribute('aria-pressed')).toBe('true');
+    } finally {
+      localStorage.removeItem('theme');
+    }
+  });
+
+  it('theme: system preference change updates data-theme when no manual override', () => {
+    let changeHandler;
+    window.matchMedia = vi.fn(() => ({
+      matches: false,
+      addEventListener: (evt, cb) => { if (evt === 'change') changeHandler = cb; },
+      removeEventListener: () => {},
+    }));
+    localStorage.removeItem('theme');
+    runScript(documentHandlers);
+    expect(typeof changeHandler).toBe('function');
+    changeHandler({ matches: true });
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+  });
+
+  it('theme: system preference change is ignored when a manual theme is saved', () => {
+    let changeHandler;
+    window.matchMedia = vi.fn(() => ({
+      matches: false,
+      addEventListener: (evt, cb) => { if (evt === 'change') changeHandler = cb; },
+      removeEventListener: () => {},
+    }));
+    localStorage.setItem('theme', 'dark');
+    try {
+      runScript(documentHandlers);
+      changeHandler({ matches: false });
+      expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+    } finally {
+      localStorage.removeItem('theme');
+    }
+  });
+
+  // =========================================================================
+  // Firebase Dynamic Links URL cleanup
+  // =========================================================================
+
+  it('firebase links: apn param triggers cleanup via history.replaceState', () => {
+    window.history.pushState(null, '', '/?apn=1&utm_source=x');
+    const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
+    try {
+      runScript(documentHandlers);
+      expect(replaceStateSpy).toHaveBeenCalled();
+      const newUrl = replaceStateSpy.mock.calls[0][2];
+      expect(newUrl).not.toContain('apn=');
+      expect(newUrl).not.toContain('utm_source=');
+    } finally {
+      replaceStateSpy.mockRestore();
+      window.history.pushState(null, '', '/');
+    }
+  });
+
+  it('firebase links: link param to allowed domain returns before URL cleanup', () => {
+    const target = 'https://tech.2twodragon.com/posts/x';
+    window.history.pushState(null, '', '/?link=' + encodeURIComponent(target) + '&apn=1');
+    const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
+    try {
+      runScript(documentHandlers);
+      // The allowed-domain redirect branch `return`s immediately after calling
+      // location.replace(), so the later cleanup/replaceState code never runs.
+      expect(replaceStateSpy).not.toHaveBeenCalled();
+    } finally {
+      replaceStateSpy.mockRestore();
+      window.history.pushState(null, '', '/');
+    }
+  });
+
+  it('firebase links: link param to disallowed domain skips redirect but cleans URL', () => {
+    const target = 'https://evil.example.com/x';
+    window.history.pushState(null, '', '/?link=' + encodeURIComponent(target));
+    const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
+    try {
+      runScript(documentHandlers);
+      expect(replaceStateSpy).toHaveBeenCalled();
+    } finally {
+      replaceStateSpy.mockRestore();
+      window.history.pushState(null, '', '/');
+    }
+  });
+
+  it('firebase links: javascript: protocol in link param aborts without cleanup', () => {
+    const target = 'javascript:alert(1)';
+    window.history.pushState(null, '', '/?link=' + encodeURIComponent(target) + '&apn=1');
+    const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
+    try {
+      runScript(documentHandlers);
+      expect(replaceStateSpy).not.toHaveBeenCalled();
+    } finally {
+      replaceStateSpy.mockRestore();
+      window.history.pushState(null, '', '/');
+    }
+  });
+
+  it('firebase links: overlong link param aborts without redirect', () => {
+    const longLink = 'https://tech.2twodragon.com/' + 'a'.repeat(2100);
+    window.history.pushState(null, '', '/?link=' + encodeURIComponent(longLink) + '&apn=1');
+    const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
+    try {
+      runScript(documentHandlers);
+      // decodedLink.length > 2048 triggers an early `return` inside the
+      // try/catch, aborting before the paramsToRemove cleanup runs.
+      expect(replaceStateSpy).not.toHaveBeenCalled();
+    } finally {
+      replaceStateSpy.mockRestore();
+      window.history.pushState(null, '', '/');
+    }
+  });
+
+  it('firebase links: malformed link param is caught then URL is still cleaned', () => {
+    window.history.pushState(null, '', '/?link=%25E0%25A4%25A&apn=1');
+    const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
+    try {
+      runScript(documentHandlers);
+      expect(replaceStateSpy).toHaveBeenCalled();
+    } finally {
+      replaceStateSpy.mockRestore();
+      window.history.pushState(null, '', '/');
+    }
+  });
 });

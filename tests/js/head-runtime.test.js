@@ -37,6 +37,30 @@ function runScript() {
   new Function('window', 'document', SCRIPT_SOURCE)(window, document);
 }
 
+// jsdom lacks IntersectionObserver. This local stub tracks constructed
+// instances on `window.__ioInstances` so tests can manually `_trigger()`
+// the observe callback without a real scroll/layout.
+function stubIntersectionObserver() {
+  window.__ioInstances = [];
+  class StubIntersectionObserver {
+    constructor(cb) {
+      this._cb = cb;
+      window.__ioInstances.push(this);
+    }
+    observe(_target) {}
+    disconnect() {}
+    _trigger(target, isIntersecting = true) {
+      this._cb([{ isIntersecting, target }], this);
+    }
+  }
+  window.IntersectionObserver = StubIntersectionObserver;
+}
+
+function restoreIO() {
+  delete window.IntersectionObserver;
+  delete window.__ioInstances;
+}
+
 function setupConfigScript({
   gaId = '',
   adsenseClient = '',
@@ -82,12 +106,30 @@ describe('head-runtime.js', () => {
   });
 
   afterEach(() => {
+    // Interaction/load listeners registered by lazy loaders during this test
+    // are never self-removed unless their loadOnce() actually fired. Without
+    // this cleanup, stale closures (bound to this test's config) leak onto
+    // `window` and misfire in later tests once beforeEach resets the guard
+    // flags (e.g. __sentryLoadInitiated), corrupting document.head with
+    // duplicate scripts built from stale config.
+    addEventListenerSpy.mock.calls.forEach(([type, handler, options]) => {
+      try {
+        window.removeEventListener(type, handler, options);
+      } catch (_e) { /* ignore */ }
+    });
     addEventListenerSpy.mockRestore();
     window.matchMedia = originalMatchMedia;
     document.documentElement.removeAttribute('data-theme');
     document.body.classList.remove('loaded');
     document.body.innerHTML = '';
+    // Lazy loaders append <script>/<style> elements to document.head; clear
+    // them so later tests' querySelector() calls don't match stale nodes.
+    document.head.innerHTML = '';
     localStorage.clear();
+    delete window.IntersectionObserver;
+    delete window.__ioInstances;
+    delete window.Kakao;
+    delete window.dataLayer;
   });
 
   // =========================================================================
@@ -212,5 +254,351 @@ describe('head-runtime.js', () => {
     );
     // GA bails early on __gaLoadInitiated check, so no listeners.
     expect(interactionCalls).toHaveLength(0);
+  });
+
+  // =========================================================================
+  // applyTheme() — catch branch + 'system' saved-value branch
+  // =========================================================================
+
+  it('applyTheme: localStorage.getItem throwing falls back to light via catch', () => {
+    setupConfigScript();
+    const getItemSpy = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      throw new Error('storage disabled');
+    });
+    runScript();
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light');
+    getItemSpy.mockRestore();
+  });
+
+  it("applyTheme: saved === 'system' falls back to system preference (light)", () => {
+    setupConfigScript();
+    localStorage.setItem('theme', 'system');
+    runScript();
+    // beforeEach stub returns matches: false -> light
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light');
+  });
+
+  // =========================================================================
+  // bindCssFallback()
+  // =========================================================================
+
+  it('bindCssFallback: no-op when #main-stylesheet link is absent', () => {
+    setupConfigScript();
+    runScript();
+    // No error thrown, and no fallback <style> injected since onerror never wired.
+    expect(document.head.querySelector('style')).toBeNull();
+  });
+
+  it('bindCssFallback: injects fallback style and removes link on link error', () => {
+    document.body.innerHTML =
+      '<script id="head-runtime-script"></script>' +
+      '<link id="main-stylesheet" rel="stylesheet" href="/broken.css">';
+    runScript();
+    const link = document.getElementById('main-stylesheet');
+    expect(link.onerror).toBeTypeOf('function');
+    link.onerror();
+    expect(document.head.querySelector('style')).toBeTruthy();
+    expect(document.getElementById('main-stylesheet')).toBeNull();
+  });
+
+  // =========================================================================
+  // registerServiceWorker()
+  // =========================================================================
+
+  it('registerServiceWorker: no-op when serviceWorker is not in navigator', () => {
+    const originalDescriptor = Object.getOwnPropertyDescriptor(window.navigator, 'serviceWorker');
+    expect('serviceWorker' in navigator).toBe(false);
+    setupConfigScript();
+    runScript();
+    const loadCalls = addEventListenerSpy.mock.calls.filter((c) => c[0] === 'load');
+    expect(loadCalls).toHaveLength(0);
+    if (originalDescriptor) {
+      Object.defineProperty(window.navigator, 'serviceWorker', originalDescriptor);
+    }
+  });
+
+  it('registerServiceWorker: registers on load event and posts SKIP_WAITING when controller present', async () => {
+    const postMessage = vi.fn();
+    const registration = { addEventListener: vi.fn(), installing: null };
+    const register = vi.fn(() => Promise.resolve(registration));
+    Object.defineProperty(window.navigator, 'serviceWorker', {
+      value: { register, controller: { postMessage } },
+      configurable: true,
+    });
+    setupConfigScript();
+    runScript();
+    const loadCall = addEventListenerSpy.mock.calls.find((c) => c[0] === 'load');
+    expect(loadCall).toBeTruthy();
+    loadCall[1](); // invoke register()
+    expect(register).toHaveBeenCalledWith('/sw.js');
+    expect(postMessage).toHaveBeenCalledWith({ type: 'SKIP_WAITING' });
+    await Promise.resolve();
+    await Promise.resolve();
+    expect(registration.addEventListener).toHaveBeenCalledWith('updatefound', expect.any(Function));
+    delete window.navigator.serviceWorker;
+  });
+
+  it('registerServiceWorker: updatefound with activated newWorker + controller logs debug on localhost', async () => {
+    const newWorker = { addEventListener: vi.fn(), state: 'activated' };
+    const registration = { addEventListener: vi.fn(), installing: newWorker };
+    const register = vi.fn(() => Promise.resolve(registration));
+    Object.defineProperty(window.navigator, 'serviceWorker', {
+      value: { register, controller: { postMessage: vi.fn() } },
+      configurable: true,
+    });
+    const debugSpy = vi.spyOn(console, 'debug').mockImplementation(() => {});
+    setupConfigScript();
+    runScript();
+    const loadCall = addEventListenerSpy.mock.calls.find((c) => c[0] === 'load');
+    loadCall[1]();
+    await Promise.resolve();
+    await Promise.resolve();
+    const updatefoundCb = registration.addEventListener.mock.calls.find((c) => c[0] === 'updatefound')[1];
+    updatefoundCb();
+    expect(newWorker.addEventListener).toHaveBeenCalledWith('statechange', expect.any(Function));
+    const statechangeCb = newWorker.addEventListener.mock.calls.find((c) => c[0] === 'statechange')[1];
+    statechangeCb();
+    expect(debugSpy).toHaveBeenCalled();
+    debugSpy.mockRestore();
+    delete window.navigator.serviceWorker;
+  });
+
+  it('registerServiceWorker: updatefound with no installing worker bails without statechange', async () => {
+    const registration = { addEventListener: vi.fn(), installing: null };
+    const register = vi.fn(() => Promise.resolve(registration));
+    Object.defineProperty(window.navigator, 'serviceWorker', {
+      value: { register, controller: null },
+      configurable: true,
+    });
+    setupConfigScript();
+    runScript();
+    const loadCall = addEventListenerSpy.mock.calls.find((c) => c[0] === 'load');
+    loadCall[1]();
+    await Promise.resolve();
+    await Promise.resolve();
+    const updatefoundCb = registration.addEventListener.mock.calls.find((c) => c[0] === 'updatefound')[1];
+    // Should not throw even though installing is null.
+    expect(() => updatefoundCb()).not.toThrow();
+    delete window.navigator.serviceWorker;
+  });
+
+  // =========================================================================
+  // initConsoleFilter() — requestIdleCallback absent + retry-until-found
+  // =========================================================================
+
+  it('initConsoleFilter: calls window.initConsoleFilter immediately once available (setTimeout path)', () => {
+    vi.useFakeTimers();
+    delete window.initConsoleFilter;
+    const filterFn = vi.fn();
+    setupConfigScript();
+    runScript();
+    // No requestIdleCallback in jsdom -> setTimeout(initFilter, 100) scheduled.
+    window.initConsoleFilter = filterFn;
+    vi.advanceTimersByTime(100);
+    expect(filterFn).toHaveBeenCalled();
+    vi.useRealTimers();
+    delete window.initConsoleFilter;
+  });
+
+  it('initConsoleFilter: retries via setTimeout while window.initConsoleFilter stays undefined', () => {
+    vi.useFakeTimers();
+    delete window.initConsoleFilter;
+    setupConfigScript();
+    runScript();
+    // First scheduled attempt (100ms) finds nothing -> reschedules itself at 50ms.
+    vi.advanceTimersByTime(100);
+    expect(window.initConsoleFilter).toBeUndefined();
+    const filterFn = vi.fn();
+    window.initConsoleFilter = filterFn;
+    vi.advanceTimersByTime(50);
+    expect(filterFn).toHaveBeenCalled();
+    vi.useRealTimers();
+    delete window.initConsoleFilter;
+  });
+
+  // =========================================================================
+  // loadGoogleAnalytics() — interaction fires load() + onload gtag calls
+  // =========================================================================
+
+  it('loadGoogleAnalytics: click interaction loads script and onload pushes gtag calls', () => {
+    delete window.dataLayer;
+    setupConfigScript({ gaId: 'G-ABC' });
+    runScript();
+    window.dispatchEvent(new Event('click'));
+    const script = document.head.querySelector('script[src*="googletagmanager"]');
+    expect(script).toBeTruthy();
+    script.onload();
+    expect(Array.isArray(window.dataLayer)).toBe(true);
+    expect(window.dataLayer.length).toBeGreaterThan(0);
+    delete window.dataLayer;
+  });
+
+  it('loadGoogleAnalytics: second interaction event after fired is a no-op (loadOnce guard)', () => {
+    setupConfigScript({ gaId: 'G-ABC' });
+    runScript();
+    window.dispatchEvent(new Event('click'));
+    const scriptsAfterFirst = document.head.querySelectorAll('script[src*="googletagmanager"]').length;
+    window.dispatchEvent(new Event('scroll'));
+    const scriptsAfterSecond = document.head.querySelectorAll('script[src*="googletagmanager"]').length;
+    expect(scriptsAfterSecond).toBe(scriptsAfterFirst);
+  });
+
+  // =========================================================================
+  // loadKakaoSdk() — interaction fires load() + onload Kakao.init branches
+  // =========================================================================
+
+  it('loadKakaoSdk: interaction loads script and onload calls Kakao.init when not initialized', () => {
+    setupConfigScript({ kakaoAppKey: 'kakao-key' });
+    runScript();
+    window.dispatchEvent(new Event('touchstart'));
+    const script = document.head.querySelector('script[src*="kakao_js_sdk"]');
+    expect(script).toBeTruthy();
+    window.Kakao = { isInitialized: vi.fn(() => false), init: vi.fn() };
+    script.onload();
+    expect(window.Kakao.init).toHaveBeenCalledWith('kakao-key');
+    delete window.Kakao;
+  });
+
+  it('loadKakaoSdk: onload skips init when Kakao already initialized', () => {
+    setupConfigScript({ kakaoAppKey: 'kakao-key' });
+    runScript();
+    window.dispatchEvent(new Event('touchstart'));
+    const script = document.head.querySelector('script[src*="kakao_js_sdk"]');
+    window.Kakao = { isInitialized: vi.fn(() => true), init: vi.fn() };
+    script.onload();
+    expect(window.Kakao.init).not.toHaveBeenCalled();
+    delete window.Kakao;
+  });
+
+  it('loadKakaoSdk: onload swallows errors thrown by Kakao.isInitialized', () => {
+    setupConfigScript({ kakaoAppKey: 'kakao-key' });
+    runScript();
+    window.dispatchEvent(new Event('touchstart'));
+    const script = document.head.querySelector('script[src*="kakao_js_sdk"]');
+    window.Kakao = {
+      isInitialized: vi.fn(() => {
+        throw new Error('boom');
+      }),
+      init: vi.fn(),
+    };
+    expect(() => script.onload()).not.toThrow();
+    delete window.Kakao;
+  });
+
+  // =========================================================================
+  // loadSentry() — interaction fires load() + bundle onload chains init script
+  // =========================================================================
+
+  it('loadSentry: interaction loads bundle then chains sentry-init script on bundle onload', () => {
+    setupConfigScript({
+      sentryDsn: 'https://abc@sentry.io/1',
+      sentryProductionHost: 'tech.example.com',
+      sentryAllowedHosts: 'example.com',
+    });
+    runScript();
+    window.dispatchEvent(new Event('keydown'));
+    const bundleScript = document.head.querySelector('script[src*="browser.sentry-cdn.com"]');
+    expect(bundleScript).toBeTruthy();
+    bundleScript.onload();
+    const initScript = document.head.querySelector('script[src="/assets/js/sentry-init.js"]');
+    expect(initScript).toBeTruthy();
+    expect(initScript.dataset.sentryDsn).toBe('https://abc@sentry.io/1');
+    expect(initScript.dataset.productionHost).toBe('tech.example.com');
+    expect(initScript.dataset.allowedHosts).toBe('example.com');
+  });
+
+  // =========================================================================
+  // loadAdsense() — IntersectionObserver present/absent + onload/onerror
+  // =========================================================================
+
+  it('loadAdsense: with slot present, IntersectionObserver installs and load() fires on intersect', () => {
+    stubIntersectionObserver();
+    document.body.innerHTML =
+      '<script id="head-runtime-script" data-adsense-client="ca-pub-123"></script>' +
+      '<ins class="adsbygoogle"></ins>';
+    runScript();
+    const slot = document.querySelector('.adsbygoogle');
+    const io = [...window.__ioInstances][0];
+    io._trigger(slot);
+    const script = document.head.querySelector('script[src*="googlesyndication"]');
+    expect(script).toBeTruthy();
+    script.onload();
+    expect(window._adsenseLoaded).toBe(true);
+    restoreIO();
+  });
+
+  it('loadAdsense: onerror hides existing .adsbygoogle slots', () => {
+    stubIntersectionObserver();
+    document.body.innerHTML =
+      '<script id="head-runtime-script" data-adsense-client="ca-pub-123"></script>' +
+      '<ins class="adsbygoogle"></ins>';
+    runScript();
+    const slot = document.querySelector('.adsbygoogle');
+    const io = [...window.__ioInstances][0];
+    io._trigger(slot);
+    const script = document.head.querySelector('script[src*="googlesyndication"]');
+    script.onerror();
+    expect(slot.style.display).toBe('none');
+    expect(window._adsenseLoaded).toBe(false);
+    restoreIO();
+  });
+
+  it('loadAdsense: no slot yet in DOM watches via MutationObserver until it appears', () => {
+    stubIntersectionObserver();
+    setupConfigScript({ adsenseClient: 'ca-pub-123' });
+    runScript();
+    expect(document.querySelector('script[src*="googlesyndication"]')).toBeNull();
+    const ins = document.createElement('ins');
+    ins.className = 'adsbygoogle';
+    document.body.appendChild(ins);
+    // Flush MutationObserver microtask queue.
+    return Promise.resolve().then(() => {
+      const io = [...window.__ioInstances][0];
+      expect(io).toBeTruthy();
+      io._trigger(ins);
+      expect(document.head.querySelector('script[src*="googlesyndication"]')).toBeTruthy();
+      restoreIO();
+    });
+  });
+
+  it('loadAdsense: no IntersectionObserver falls back to load event listener', () => {
+    const originalIO = window.IntersectionObserver;
+    delete window.IntersectionObserver;
+    setupConfigScript({ adsenseClient: 'ca-pub-123' });
+    runScript();
+    const loadCall = addEventListenerSpy.mock.calls.find((c) => c[0] === 'load');
+    expect(loadCall).toBeTruthy();
+    loadCall[1]();
+    expect(document.head.querySelector('script[src*="googlesyndication"]')).toBeTruthy();
+    window.IntersectionObserver = originalIO;
+  });
+
+  // =========================================================================
+  // loadFontTier2()
+  // =========================================================================
+
+  it('loadFontTier2: __fontTier2Loaded guard prevents duplicate scheduling', () => {
+    window.__fontTier2Loaded = true;
+    const addEventListenerLoadCallsBefore = addEventListenerSpy.mock.calls.filter(
+      (c) => c[0] === 'load',
+    ).length;
+    setupConfigScript();
+    runScript();
+    const addEventListenerLoadCallsAfter = addEventListenerSpy.mock.calls.filter(
+      (c) => c[0] === 'load',
+    ).length;
+    // Guard returns before scheduling anything new for font tier2.
+    expect(addEventListenerLoadCallsAfter).toBe(addEventListenerLoadCallsBefore);
+  });
+
+  it('loadFontTier2: schedules via window load event when document.readyState is not complete', () => {
+    delete window.__fontTier2Loaded;
+    Object.defineProperty(document, 'readyState', { value: 'loading', configurable: true });
+    setupConfigScript();
+    runScript();
+    const loadCall = addEventListenerSpy.mock.calls.find((c) => c[0] === 'load');
+    expect(loadCall).toBeTruthy();
+    expect(() => loadCall[1]()).not.toThrow();
+    Object.defineProperty(document, 'readyState', { value: 'complete', configurable: true });
   });
 });
