@@ -455,4 +455,294 @@ describe('categories-page.js', () => {
     expect(window.fetch).toHaveBeenCalledTimes(1);
     expect(section.querySelectorAll('article.post-card').length).toBeGreaterThan(0);
   });
+
+  // =========================================================================
+  // buildPictureHtml branch coverage: avif/webp presence, card-variant
+  // presence, and the svg->_og.png src rewrite — none of the MOCK_DATA posts
+  // above set `img`, so these branches were entirely unexercised.
+  // =========================================================================
+
+  it('renders card+full-size avif/webp sources and rewrites svg src to _og.png when all image flags are true', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{
+          u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: 'security',
+          img: '/assets/images/cover.svg', ip: true, ia: true, ica: true, iw: true, icw: true,
+        }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    const img = section.querySelector('img');
+    expect(img.getAttribute('src')).toBe('/assets/images/cover_og.png');
+    const avifSource = section.querySelector('source[type="image/avif"]');
+    const webpSource = section.querySelector('source[type="image/webp"]');
+    expect(avifSource.getAttribute('srcset')).toMatch(/525w/);
+    expect(webpSource.getAttribute('srcset')).toMatch(/525w/);
+  });
+
+  it('renders single-source avif/webp without card variants and leaves a non-svg src untouched', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{
+          u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: 'security',
+          img: '/assets/images/cover.png', ip: true, ia: true, ica: false, iw: true, icw: false,
+        }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    const img = section.querySelector('img');
+    expect(img.getAttribute('src')).toBe('/assets/images/cover.png');
+    const avifSource = section.querySelector('source[type="image/avif"]');
+    const webpSource = section.querySelector('source[type="image/webp"]');
+    expect(avifSource.getAttribute('srcset')).not.toMatch(/525w/);
+    expect(webpSource.getAttribute('srcset')).not.toMatch(/525w/);
+  });
+
+  it('omits avif/webp sources and skips the svg->png rewrite when ip/ia/iw are all false', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{
+          u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: 'security',
+          img: '/assets/images/cover.svg', ip: false, ia: false, iw: false,
+        }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    const img = section.querySelector('img');
+    expect(img.getAttribute('src')).toBe('/assets/images/cover.svg');
+    expect(section.querySelector('source')).toBeNull();
+  });
+
+  it('omits the picture element entirely when the post has no img field', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{ u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: 'security' }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    expect(section.querySelector('.post-card-image')).toBeNull();
+  });
+
+  // =========================================================================
+  // buildExcerptHtml branch coverage: dash-separated summary/highlights with
+  // and without truncation, plain excerpts with and without truncation.
+  // Also exercises the no-category-badge and no-tags branches on the same
+  // post to avoid a proliferation of near-duplicate fixtures.
+  // =========================================================================
+
+  it('renders a dash-separated excerpt without truncation and omits badge/tags when absent', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{
+          u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: '',
+          ex: 'Short summary - short highlight',
+        }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    expect(section.querySelector('.excerpt-summary').textContent).toBe('Short summary');
+    expect(section.querySelector('.excerpt-highlights').textContent).toBe('short highlight');
+    expect(section.querySelector('.category-badge')).toBeNull();
+    expect(section.querySelector('.post-card-tags')).toBeNull();
+  });
+
+  it('truncates an overlong dash-separated summary and highlights', async () => {
+    buildCategoriesFixture(['security']);
+    const longSummary = 'S'.repeat(50);
+    const longHighlights = 'H'.repeat(90);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{
+          u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: 'security',
+          ex: longSummary + ' - ' + longHighlights,
+        }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    expect(section.querySelector('.excerpt-summary').textContent).toBe('S'.repeat(40) + '…');
+    expect(section.querySelector('.excerpt-highlights').textContent).toBe('H'.repeat(80) + '…');
+  });
+
+  it('renders a plain (non-dash) excerpt as-is when under the length limit', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{
+          u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: 'security',
+          ex: 'A plain excerpt with no dash separator',
+        }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    const p = section.querySelector('p.post-card-excerpt');
+    expect(p.textContent).toBe('A plain excerpt with no dash separator');
+  });
+
+  it('truncates an overlong plain (non-dash) excerpt', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{
+          u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: 'security',
+          ex: 'P'.repeat(150),
+        }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    const p = section.querySelector('p.post-card-excerpt');
+    expect(p.textContent).toBe('P'.repeat(120) + '…');
+  });
+
+  // =========================================================================
+  // Tag "+N more" badge branch: only rendered when `tn` exceeds the number
+  // of tags actually included in the payload.
+  // =========================================================================
+
+  it('does not render a "+more" tag badge when tn equals the tags length', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{
+          u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: 'security',
+          tags: ['a', 'b'], tn: 2,
+        }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    expect(section.querySelector('.tag--more')).toBeNull();
+  });
+
+  it('renders a "+N more" tag badge when tn exceeds the included tags length', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch({
+      security: {
+        posts: [{
+          u: '/posts/a', t: 'Post A', d: '2026-01-01', x: '2026-01-01', c: 'security',
+          tags: ['a'], tn: 5,
+        }],
+      },
+    });
+    runScript();
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section);
+    await flushMicrotasks();
+
+    expect(section.querySelector('.tag--more').textContent).toBe('+4');
+  });
+
+  // =========================================================================
+  // ensureLoaded / preload-listener / IntersectionObserver edge branches
+  // =========================================================================
+
+  it('does not fetch when a hash-targeted category-section lacks a data-category attribute', () => {
+    buildCategoriesFixture(['security']);
+    document.body.insertAdjacentHTML(
+      'beforeend',
+      '<section class="category-section" id="no-key"><div class="posts-list"></div></section>'
+    );
+    window.location.hash = '#no-key';
+    window.fetch = stubFetch(MOCK_DATA);
+
+    runScript();
+
+    expect(window.fetch).not.toHaveBeenCalled();
+  });
+
+  it('does not attach a preload click listener when no .category-grid element exists', () => {
+    document.body.innerHTML =
+      '<section class="category-section" data-category="security" id="security">' +
+      '<div class="posts-list"></div></section>';
+    window.fetch = stubFetch(MOCK_DATA);
+
+    expect(() => runScript()).not.toThrow();
+    expect(window.fetch).not.toHaveBeenCalled();
+  });
+
+  it('does not load the section when the intersection entry reports isIntersecting=false', async () => {
+    buildCategoriesFixture(['security']);
+    window.fetch = stubFetch(MOCK_DATA);
+    runScript();
+
+    const section = document.querySelector('.category-section[data-category="security"]');
+    observer._trigger(section, false);
+    await flushMicrotasks();
+
+    expect(window.fetch).not.toHaveBeenCalled();
+  });
+
+  it('falls back to requestIdleCallback to eagerly load all sections when IntersectionObserver is unsupported', async () => {
+    buildCategoriesFixture(['security', 'cloud']);
+    delete window.IntersectionObserver;
+    window.requestIdleCallback = vi.fn((cb) => cb());
+    window.fetch = stubFetch(MOCK_DATA);
+
+    runScript();
+    await flushMicrotasks();
+
+    expect(window.fetch).toHaveBeenCalledTimes(1);
+    const sec = document.querySelector('.category-section[data-category="security"]');
+    const cloud = document.querySelector('.category-section[data-category="cloud"]');
+    expect(sec.querySelectorAll('article.post-card').length).toBeGreaterThan(0);
+    expect(cloud.querySelectorAll('article.post-card').length).toBeGreaterThan(0);
+
+    delete window.requestIdleCallback;
+  });
+
+  it('falls back to setTimeout to eagerly load sections when requestIdleCallback is also unavailable', async () => {
+    buildCategoriesFixture(['security']);
+    delete window.IntersectionObserver;
+    delete window.requestIdleCallback;
+    window.fetch = stubFetch(MOCK_DATA);
+
+    vi.useFakeTimers();
+    runScript();
+    vi.advanceTimersByTime(1000);
+    vi.useRealTimers();
+    await flushMicrotasks();
+
+    expect(window.fetch).toHaveBeenCalledTimes(1);
+    const section = document.querySelector('.category-section[data-category="security"]');
+    expect(section.querySelectorAll('article.post-card').length).toBeGreaterThan(0);
+  });
 });
