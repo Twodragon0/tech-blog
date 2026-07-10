@@ -374,20 +374,6 @@
       return null;
     }
 
-    // Check if message is noise (including stack traces)
-    function isNoise(m) {
-      if (typeof m !== 'string') {
-        // Handle error objects and other types
-        var msgStr = (m && m.message) || (m && m.toString && m.toString()) || String(m);
-        // Also check stack trace
-        if (m && m.stack) {
-          msgStr += ' ' + m.stack;
-        }
-        m = msgStr;
-      }
-      return shouldFilter(m);
-    }
-
     // Safe logging with noise filtering and message enhancement
     function safeLog(originalFn, args, level) {
       var filteredArgs = [];
