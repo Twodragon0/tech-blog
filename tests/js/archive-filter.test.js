@@ -19,13 +19,13 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { stubFetch } from './_fixtures.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SCRIPT_PATH = resolve(__dirname, '../../assets/js/archive-filter.js');
-const SCRIPT_SOURCE = readFileSync(SCRIPT_PATH, 'utf8');
+const SCRIPT_SOURCE = readFileSync(SCRIPT_PATH, 'utf8') + `\n//# sourceURL=${pathToFileURL(SCRIPT_PATH).href}`;
 
 /** Drain enough microtask ticks for nested promise chains to settle. */
 async function flushMicrotasks(n = 8) {

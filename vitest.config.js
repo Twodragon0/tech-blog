@@ -9,5 +9,14 @@ export default defineConfig({
     environment: 'jsdom',
     include: ['tests/js/**/*.test.js'],
     globals: false,
+    coverage: {
+      // The source under test is executed via `new Function(source)` inside each
+      // test (see tests/js/*.test.js). v8 only attributes that eval'd code to a
+      // file when the source carries a `//# sourceURL=` trailer, which the test
+      // loaders append. Without it, coverage reports a misleading 0%.
+      provider: 'v8',
+      include: ['assets/js/**/*.js'],
+      reporter: ['text', 'json-summary'],
+    },
   },
 });

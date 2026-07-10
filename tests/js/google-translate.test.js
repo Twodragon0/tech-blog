@@ -31,12 +31,12 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SCRIPT_PATH = resolve(__dirname, '../../assets/js/google-translate.js');
-const SCRIPT_SOURCE = readFileSync(SCRIPT_PATH, 'utf8');
+const SCRIPT_SOURCE = readFileSync(SCRIPT_PATH, 'utf8') + `\n//# sourceURL=${pathToFileURL(SCRIPT_PATH).href}`;
 
 function setLocation({ protocol = 'https:', hostname = 'example.com', href = 'https://example.com/', pathname = '/' } = {}) {
   delete window.location;

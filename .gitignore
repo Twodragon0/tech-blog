@@ -135,6 +135,9 @@ _drafts/prompts/
 coverage.xml
 htmlcov/
 
+# Coverage artifacts (vitest / v8)
+coverage/
+
 # OMX (oh-my-codex) local state - not for commit
 .omx/
 tests/visual-diffs/
