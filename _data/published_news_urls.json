@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-07-11T01:52:47.738277+00:00",
+  "updated_at": "2026-07-12T01:53:14.932459+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/06/ukraine-says-russian-intelligence-used.html",
-      "title": "Ukraine Says Russian Intelligence Used Fake Support Texts to Steal Messaging Cre",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/06/openai-limits-gpt-56-rollout-as-sol.html",
-      "title": "OpenAI Previews GPT-5.6 Sol With Restricted Access and Stronger Cyber Safeguards",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/clean-github-repo-tricks-ai-coding-agents-into-running-malware/",
-      "title": "Clean GitHub repo tricks AI coding agents into running malware",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://www.securityweek.com/chinese-framework-powers-200000-scam-sites/",
-      "title": "Chinese Framework Powers 200,000 Scam Sites",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://www.darkreading.com/cyber-risk/third-party-breaches-teaches-education-lesson-vendor-risk",
-      "title": "Third-Party Breaches Teach Education Sector a Costly Lesson in Vendor Risk",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/yuma-bittensor-fund-institutional-tao-decentralized-ai?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "DCG-backed Yuma launches fund offering institutional exposure to Bittensor",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/performance-test-analysis-with-aws-devops-agent/",
-      "title": "AWS DevOps Agent 를 활용한 성능 테스트 결과 분석",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/eu-ai-act-compliance/",
-      "title": "What Does EU AI Act Compliance Require?",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/fidelity-bitcoin-long-term-security-halvings-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Fidelity rebuts claims Bitcoin becomes less secure after halvings",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-faces-fresh-capitulation-risk-as-50k-btc-moves-at-a-loss?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin faces fresh capitulation risk as 50K BTC moved at a loss",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/crypto-stocks-underperform-tech-market-slump?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Coinbase, Circle underperform Big Tech as crypto stock slump deepens",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/eu-lawmakers-assessing-defi-staking-nft-regulation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "EU lawmakers urge assessing DeFi, staking, NFT regulation",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/securitize-expects-to-raise-400m-ahead-of-public-debut?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Securitize expects to raise $400M ahead of public debut",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30900",
-      "title": "Go에서 과도한 nil 포인터 검사",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30899",
-      "title": "Reddit 안티스팸 내부를 엿보다",
-      "published_date": "2026-06-28",
-      "expires_at": "2026-07-05T00:34:44.541694+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/data-breach-exposes-up-to-142-million-email-logins-at-six-isps/",
       "title": "Data breach exposes up to 14.2 million email logins at six ISPs",
@@ -1230,6 +1140,96 @@
       "title": "CodeQL 2.26.0 adds Kotlin 2.4.0 support and AI prompt injection detection",
       "published_date": "2026-07-11",
       "expires_at": "2026-07-18T01:52:47.738171+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/compromised-jscrambler-8140-npm-release.html",
+      "title": "Compromised jscrambler 8.14.0 npm Release Drops Rust Infostealer During Install",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/hackers-weaponize-balochistan-police.html",
+      "title": "Hackers Weaponize Balochistan Police Portal in Multi-Group Espionage Campaigns",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/critical-zimbra-flaw-could-let-crafted_0483473395.html",
+      "title": "Critical Zimbra Flaw Could Let Crafted Emails Run Malicious Code in User Session",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/australia-warns-of-global-campaign-targeting-vulnerable-cms-platforms/",
+      "title": "Australia warns of global campaign targeting vulnerable CMS platforms",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/ghostcommit-hides-prompt-injection-in-images-to-fool-ai-agents-steal-secrets/",
+      "title": "'Ghostcommit' hides prompt injection in images to fool AI agents, steal secrets",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/bedrock-promptfoo-eval/",
+      "title": "Amazon Bedrock 모델 promptfoo 로 성능 평가하기",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/empery-digital-shares-rise-after-selling-bitcoin-treasury-to-fund-ai-data-center-project?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Empery Digital shares rise after selling Bitcoin treasury to fund AI data center",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/features/bitcoin-is-approaching-the-second-half-of-the-bear-market-jamie-coutts?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin nearing late stages of bear market: Jamie Coutts, Real Vision",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/ethereum-climbs-3-on-tokenization-boom-can-bulls-push-eth-price-past-1800?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ethereum climbs 3% on tokenization boom: Can bulls push ETH price past $1,800?",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/imf-stablecoins-fx-access-currency-runs?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Dollar stablecoins could improve FX access but amplify currency runs: IMF paper",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/robinhood-says-ai-agents-will-be-trading-for-crypto-users-soon?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Robinhood says its AI agent feature will ‘soon’ be assisting crypto traders",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31343",
+      "title": "Ghost Font - 사람은 읽지만 AI는 읽기 어려운 글꼴",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31342",
+      "title": "GPT-5.6, Grok 4.5, Claude, Muse Spark로 동일한 앱 4개를 만든 결과",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31341",
+      "title": "미국 여성 조정 선수, 캘리포니아에서 하와이까지 역사적 단독 항해 완주",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31340",
+      "title": "“신이 우리를 도왔고, AI도 그럴 것이다”: 테러 조직 Boko Haram의 프런티어 AI 활용 방식",
+      "published_date": "2026-07-12",
+      "expires_at": "2026-07-19T01:53:14.932355+00:00"
     }
   ]
 }
