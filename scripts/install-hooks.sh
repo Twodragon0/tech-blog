@@ -164,6 +164,21 @@ if [ -n "$STAGED_POSTS" ]; then
   fi
   echo "[pre-commit] KST-midnight check: passed."
 fi
+
+# 9. CSP inline-script sha256 regression gate (prep for CSP Path B)
+STAGED_HEAD_HTML=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_includes/head\.html$' || true)
+if [ -n "$STAGED_HEAD_HTML" ]; then
+  echo "[pre-commit] Checking CSP inline-script hashes in _includes/head.html..."
+  python3 "$REPO_ROOT/scripts/dev/check_csp_inline_hashes.py"
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] CSP inline-script hash drift found. Fix before committing."
+    echo "             If the inline-script change is intentional, regenerate the"
+    echo "             manifest: python3 scripts/dev/check_csp_inline_hashes.py --update"
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] CSP inline-script hash check: passed."
+fi
 HOOK
 
 chmod +x "$HOOK_FILE"

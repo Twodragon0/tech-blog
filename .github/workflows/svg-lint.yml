@@ -34,6 +34,9 @@ on:
       - 'scripts/l20_drift_baseline.txt'
       - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
+      - 'scripts/dev/check_csp_inline_hashes.py'
+      - 'scripts/dev/csp_inline_hashes.json'
+      - '_includes/head.html'
       - '_posts/**.md'
   pull_request:
     paths:
@@ -68,6 +71,9 @@ on:
       - 'scripts/l20_drift_baseline.txt'
       - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
+      - 'scripts/dev/check_csp_inline_hashes.py'
+      - 'scripts/dev/csp_inline_hashes.json'
+      - '_includes/head.html'
       - '_posts/**.md'
 
 concurrency:
@@ -213,6 +219,14 @@ jobs:
       - name: KST-midnight filename-date URL safety gate
         id: kst_midnight
         run: python3 scripts/check_kst_midnight.py --all
+
+      - name: CSP inline-script sha256 regression gate (prep for CSP Path B)
+        id: csp_inline_hashes
+        # Guards the two first-party inline <script> blocks in
+        # _includes/head.html (theme-init IIFE + deferred-CSS loader IIFE)
+        # against silent whitespace/content drift that would change the
+        # sha256 the future CSP Path B allow-list expects.
+        run: python3 scripts/dev/check_csp_inline_hashes.py
 
       - name: Upload lint report on failure
         if: failure() && steps.lint.outcome == 'failure'
