@@ -1,78 +1,6 @@
 {
-  "updated_at": "2026-07-12T01:53:14.932459+00:00",
+  "updated_at": "2026-07-13T01:55:50.588242+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/data-breach-exposes-up-to-142-million-email-logins-at-six-isps/",
-      "title": "Data breach exposes up to 14.2 million email logins at six ISPs",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://openai.com/index/hp-frontier-partnership",
-      "title": "HP Inc. launches Frontier strategic partnership with OpenAI",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/features/hodlers-digest-binance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Binance booted from EU, EthLabs rises up to save Ethereum: Hodler's Digest June ",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bis-warns-stablecoins-risk-fragmenting-global-financial-system?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "BIS warns stablecoins risk fragmenting global financial system",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/eu-watchdog-eba-details-big-crypto-fines-as-landmark-laws-bite?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "EU watchdog EBA details big crypto fines as landmark laws bite",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/binance-400m-weekly-net-outflows-mica-deadline-nears?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Binance posts over $400M in weekly net outflows as MiCA deadline nears",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/grayscales-pandl-strategy-sells-3b-bitcoin-confidence?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Grayscale's Pandl hopes Strategy sells $3B in Bitcoin to restore confidence",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30918",
-      "title": "Show GN: 아이디어부터 앱스토어까지 — Flutter/Flame 게임 출시 하네스 (Claude Code 플러그인)",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30917",
-      "title": "AI 슬롭과 온라인 소음에 대한 최고의 답은 Robin Williams에게서 나온다",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30915",
-      "title": "아시아 AI 스타트업들, Anthropic Mythos 대체 모델 출시",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30914",
-      "title": "공용 DNS 리졸버 선택 가이드",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=30913",
-      "title": "캘리포니아, 7월 1일부터 스트리밍 광고 과도한 음량 금지",
-      "published_date": "2026-06-29",
-      "expires_at": "2026-07-06T00:34:49.758222+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/06/malicious-perplexity-chrome-extension.html",
       "title": "Malicious Perplexity Chrome Extension Intercepted Searches and Address Bar Input",
@@ -1230,6 +1158,84 @@
       "title": "“신이 우리를 도왔고, AI도 그럴 것이다”: 테러 조직 Boko Haram의 프런티어 AI 활용 방식",
       "published_date": "2026-07-12",
       "expires_at": "2026-07-19T01:53:14.932355+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-temporarily-relaxes-gpt-56-sol-usage-limits/",
+      "title": "OpenAI temporarily relaxes GPT-5.6 Sol usage limits",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-stays-free-for-paid-users-until-july-19-as-anthropic-buys-more-time/",
+      "title": "Claude Fable 5 stays free for paid users until July 19 as Anthropic buys more ti",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/redhook-android-malware-now-uses-wireless-adb-for-shell-access/",
+      "title": "RedHook Android malware now uses Wireless ADB for shell access",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/features/ethereum-climbs-as-robinhood-l2-takes-off?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Robinhood L2 sparks ETH optimism, Saylor 'muddies waters.' Hodler's Digest, July",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/strategys-saylor-needs-clarity-in-btc-pivot-message-to-convince-investors-stanchart?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Strategy's Saylor needs clarity in BTC pivot message to convince investors: Stan",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/pakistan-crypto-chief-dialogue-islamic-ruling?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Pakistan crypto chief seeks dialogue after scholar rules against crypto payments",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ethereum-pos-energy-intensity-cambridge-study?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Cambridge study puts Ethereum near the lower end of PoS energy intensity",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitcoin-leaders-michael-saylor-and-adam-back-rebuff-bip-110-proposal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin bulls Michael Saylor, Adam Back slam BIP-110 Ordinals proposal",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://d2.naver.com/helloworld/1883072",
+      "title": "[AI 해커톤 후기] AI 시대의 해커톤과 인간의 역할: AI의 계획과 사람의 전략",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31384",
+      "title": "고객 이탈을 막는법 : 10년간 내가 배운 모든 것",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31383",
+      "title": "Postgres 19의 프로퍼티 그래프 이해하기",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31382",
+      "title": "책을 더 많이 읽는 방법",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31381",
+      "title": "AI 토큰은 데이터센터를 어떻게 여행하는가",
+      "published_date": "2026-07-13",
+      "expires_at": "2026-07-20T01:55:50.588117+00:00"
     }
   ]
 }
