@@ -23,9 +23,12 @@
     보안 헤더 설정:
     - Vercel.json에서 HTTP 헤더로 중앙 관리됩니다.
     - Content-Security-Policy (CSP)
-      * 'unsafe-eval'은 Google Translate, Google Ads 등 third-party 스크립트 호환성을 위해 필요합니다.
-      * 이는 정상적인 설정이며, third-party 스크립트의 eval() 사용을 허용합니다.
-      * 우리 사이트의 자체 코드에서는 eval()을 사용하지 않습니다.
+      * 우리 사이트의 자체 코드는 eval()을 사용하지 않습니다.
+      * (2026-07-13 실증) 헤드리스 Chrome 테스트 결과, 인용된 소비자(Google Translate, gtag/GA4,
+        AdSense 최상위 문서, mermaid) 어느 것도 최상위 문서에서 'unsafe-eval'을 필요로 하지 않음이 확인됨.
+        AdSense의 eval은 cross-origin 광고 iframe(Google 자체 CSP) 내부라 우리 정책과 무관.
+      * 따라서 enforcing CSP에서 'unsafe-eval' 제거가 가능. vercel.json의 Report-Only 엄격정책
+        위반 리포트를 확인한 뒤 승격 예정 (참조: csp_report_only_pipeline, mermaid_not_unsafe_eval_source).
     - X-Content-Type-Options
     - Referrer-Policy
     - Strict-Transport-Security

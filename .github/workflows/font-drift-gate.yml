@@ -29,10 +29,13 @@ jobs:
 
       - name: Check for override label
         id: label-check
+        # Pass PR-controlled label JSON via env, not inline ${{ }} in the shell,
+        # so a label with shell metacharacters cannot break out. (Security fix M-02, 2026-07-13 audit.)
+        env:
+          LABELS_JSON: ${{ toJson(github.event.pull_request.labels.*.name) }}
         run: |
-          LABELS='${{ toJson(github.event.pull_request.labels.*.name) }}'
-          echo "labels=$LABELS"
-          if echo "$LABELS" | grep -q 'font-drift-allowed'; then
+          echo "labels=$LABELS_JSON"
+          if echo "$LABELS_JSON" | grep -q 'font-drift-allowed'; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
             echo "Label 'font-drift-allowed' is set — skipping font drift gate."
           else

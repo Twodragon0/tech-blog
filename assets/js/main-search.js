@@ -23,7 +23,6 @@
       const style = document.createElement('style');
       style.id = 'search-enhanced-styles';
       style.textContent = `
-        .search-source-badge{font-size:.7rem;color:var(--color-text-secondary,#888);padding:4px 8px;text-align:right;opacity:.7}
         .search-category{background:var(--color-primary,#4a9eff);color:#fff;font-size:.7rem;padding:1px 6px;border-radius:3px;margin-right:4px}
         .search-tag{background:var(--color-bg-secondary,#f0f0f0);color:var(--color-text-secondary,#666);font-size:.65rem;padding:1px 5px;border-radius:3px;margin-right:3px}
         .search-result-item.active{background:var(--color-bg-secondary,#f5f5f5)}
@@ -35,9 +34,9 @@
     let searchData = [];
     let searchDataLoaded = false;
     let fuseInstance = null;
-    // serverSearchController removed — serverSearch() is disabled during the
-    // GH Pages permanent migration. See its body for context.
-    let searchDebounceTimer = null;
+    // Server-side full-text search (PostgreSQL FTS via /api/search) was fully
+    // removed during the GH Pages permanent migration; only client-side
+    // Fuse.js search remains.
     let activeResultIndex = -1;
 
     function getBaseUrl() {
@@ -114,23 +113,6 @@
       }).slice(0, 10);
     }
 
-    async function serverSearch(query) {
-      // Server-side full-text search via /api/search is disabled during the
-      // GH Pages permanent migration (api/* Vercel Functions deactivated).
-      // Client-side Fuse.js search continues to power the result list; this
-      // short-circuit prevents wasteful 404 fetches on every keystroke.
-      // Re-enable by reverting this function once /api/search is live again
-      // and `site.search_api_enabled` is flipped back to `true` in _config.yml.
-      return null;
-    }
-
-    function escapeHtml(str) {
-      if (!str) return '';
-      const d = document.createElement('div');
-      d.textContent = str;
-      return d.innerHTML;
-    }
-
     function safeUrl(url) {
       if (!url) return '#';
       if (url.startsWith('/')) return url;
@@ -173,19 +155,7 @@
       return content.substring(0, 120) + (content.length > 120 ? '...' : '');
     }
 
-    function mergeResults(serverResults, clientResults) {
-      const seen = new Set();
-      const merged = [];
-      for (const item of serverResults) {
-        if (!seen.has(item.url)) { seen.add(item.url); merged.push(item); }
-      }
-      for (const item of clientResults) {
-        if (!seen.has(item.url)) { seen.add(item.url); merged.push(item); }
-      }
-      return merged;
-    }
-
-    function renderResults(results, query, isServer) {
+    function renderResults(results, query) {
       activeResultIndex = -1;
       searchResults.textContent = '';
       if (!results || results.length === 0) {
@@ -195,12 +165,6 @@
         searchResults.appendChild(noResults);
         searchResults.style.display = 'block';
         return;
-      }
-      if (isServer) {
-        const badge = document.createElement('div');
-        badge.className = 'search-source-badge';
-        badge.textContent = 'Full-text search';
-        searchResults.appendChild(badge);
       }
       results.slice(0, 10).forEach(item => {
         const link = document.createElement('a');
@@ -250,27 +214,11 @@
       if (query.length < 2) {
         searchResults.textContent = '';
         searchResults.style.display = 'none';
-        clearTimeout(searchDebounceTimer);
         return;
       }
 
       const clientResults = clientSearch(query);
-      renderResults(clientResults, query, false);
-
-      clearTimeout(searchDebounceTimer);
-      searchDebounceTimer = setTimeout(() => {
-        serverSearch(query).then(serverResults => {
-          if (serverResults && serverResults.length > 0) {
-            renderResults(mergeResults(serverResults, clientResults), query, true);
-          }
-        }).catch(function(err) {
-          if (err && err.name !== 'AbortError') {
-            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-              console.warn('[Search] Server search failed:', err);
-            }
-          }
-        });
-      }, 300);
+      renderResults(clientResults, query);
     });
 
     searchInput.addEventListener('keydown', function(e) {

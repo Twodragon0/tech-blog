@@ -603,33 +603,6 @@ describe('main-search.js', () => {
   });
 
   // ------------------------------------------------------------------
-  // Debounced server-search branch (always a no-op today, but exercised
-  // to cover the setTimeout callback's `if (serverResults && ...)` guard)
-  // ------------------------------------------------------------------
-
-  it('the debounced server-search callback runs without re-rendering (server search disabled)', async () => {
-    vi.useFakeTimers();
-    try {
-      buildSearchDataFixture([{ title: 'debounce term', content: 'x', url: '/d1' }]);
-      buildSearchFixture();
-      runScript();
-      await vi.advanceTimersByTimeAsync(0); // let /search.json resolve
-
-      const input = document.getElementById('search-input');
-      const results = document.getElementById('search-results');
-      input.value = 'debounce';
-      input.dispatchEvent(new Event('input', { bubbles: true }));
-
-      const beforeHTML = results.innerHTML;
-      await vi.advanceTimersByTimeAsync(300);
-      // serverSearch() always resolves null, so renderResults() is not called again.
-      expect(results.innerHTML).toBe(beforeHTML);
-    } finally {
-      vi.useRealTimers();
-    }
-  });
-
-  // ------------------------------------------------------------------
   // Language dropdown: guard, toast creation, Google Translate link
   // ------------------------------------------------------------------
 

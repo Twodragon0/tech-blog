@@ -16,7 +16,7 @@ Instructions for Claude Code when working on this project.
   - Repo wins for project-scoped workflow behavior.
 - For deterministic automation, load global first and then repo overlay from the repository root.
 
-**Last updated**: 2026-03-09
+**Last updated**: 2026-07-13
 
 ## Quick Reference
 
