@@ -56,18 +56,18 @@ summary_card:
 
 ### 이번 주 하이라이트
 
-| 분야 | 소스 | 핵심 내용 | 영향도 |
-|------|------|----------|--------|
-| 🔒 **Security** | BleepingComputer | Flipper Zero 펌웨어 개발, 커뮤니티 도움으로 계속 진행 | 🟡 Medium |
-| ☁️ **Cloud** | AWS Korea Blog | 사조시스템즈의 사내 ERP 데이터 기반 Agentic AI 구축 여정 – Strands Agents SDK와 Kiro 활용기 | 🟡 Medium |
-| ☁️ **Cloud** | AWS Korea Blog | Amazon OpenSearch 3.3 업그레이드로 미리캔버스의 검색 성능 개선 | 🟠 High |
-| ☁️ **Cloud** | AWS Korea Blog | Amazon OpenSearch Service로 미리캔버스의 듀얼 벡터 검색 도입과 성능 최적화 | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | 두바이, 아시아 암호화폐 허브 1위…대만, 암호화폐 법안 통과: Asia Express | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | 남아프리카공화국, 기존 체계 하에 암호화폐 과세 지침 제안 | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | 바이낸스 자금 유출 3배 증가한 12억 달러, ETH 인출 3년래 최고치 기록 | 🟡 Medium |
-| 💻 **Tech** | GeekNews (긱뉴스) | AI 시대, Figma를 다시 생각하다 | 🟡 Medium |
-| 💻 **Tech** | GeekNews (긱뉴스) | 메모리 아끼면서 Cross Entropy Loss 계산하기 | 🟡 Medium |
-| 💻 **Tech** | GeekNews (긱뉴스) | 라이브 데이터를 공유 가능한 영상으로 자동 변환하는 방법 | 🟡 Medium |
+| 분류 | 핵심 이슈 | 심각도 | 출처 |
+|------|----------|--------|------|
+| 🔒 **Security** | Flipper Zero 펌웨어 개발, 커뮤니티 도움으로 계속 진행 | 🟡 Medium | BleepingComputer |
+| ☁️ **Cloud** | 사조시스템즈의 사내 ERP 데이터 기반 Agentic AI 구축 여정 – Strands Agents SDK와 Kiro 활용기 | 🟡 Medium | AWS Korea Blog |
+| ☁️ **Cloud** | Amazon OpenSearch 3.3 업그레이드로 미리캔버스의 검색 성능 개선 | 🟠 High | AWS Korea Blog |
+| ☁️ **Cloud** | Amazon OpenSearch Service로 미리캔버스의 듀얼 벡터 검색 도입과 성능 최적화 | 🟡 Medium | AWS Korea Blog |
+| ⛓️ **Blockchain** | 두바이, 아시아 암호화폐 허브 1위…대만, 암호화폐 법안 통과: Asia Express | 🟡 Medium | Cointelegraph |
+| ⛓️ **Blockchain** | 남아프리카공화국, 기존 체계 하에 암호화폐 과세 지침 제안 | 🟡 Medium | Cointelegraph |
+| ⛓️ **Blockchain** | 바이낸스 자금 유출 3배 증가한 12억 달러, ETH 인출 3년래 최고치 기록 | 🟡 Medium | Cointelegraph |
+| 💻 **Tech** | AI 시대, Figma를 다시 생각하다 | 🟡 Medium | GeekNews (긱뉴스) |
+| 💻 **Tech** | 메모리 아끼면서 Cross Entropy Loss 계산하기 | 🟡 Medium | GeekNews (긱뉴스) |
+| 💻 **Tech** | 라이브 데이터를 공유 가능한 영상으로 자동 변환하는 방법 | 🟡 Medium | GeekNews (긱뉴스) |
 
 ---
 
@@ -150,6 +150,31 @@ DevSecOps 실무자로서 이 뉴스는 다음과 같은 실무적 영향을 미
 - SLO 오류 예산 소진 속도를 보안 인시던트 지표와 상관 분석해 리스크 조기 감지
 - 사조시스템즈의 사내 ERP 데이터 기반 이슈의 공개 IoC·지표를 SIEM/보안 이벤트 룰에 반영하고 탐지 검증
 
+#### AI 에이전트 호출 흐름 (Agents-as-Tools 패턴)
+
+감독(Supervisor) 에이전트가 데이터 조회·Excel 생성·메일 발송을 담당하는 하위 에이전트를 도구처럼 호출하는 계층 구조입니다. 각 하위 에이전트 호출 경계에서 ERP 접근 권한·데이터 범위를 통제하는 것이 보안 관점의 핵심 포인트입니다.
+
+```mermaid
+sequenceDiagram
+    participant U as 사용자/트리거
+    participant S as 감독 에이전트 (Supervisor)
+    participant D as 데이터 조회 에이전트
+    participant E as Excel 생성 에이전트
+    participant M as 메일 발송 에이전트
+    participant ERP as 사내 ERP 시스템
+
+    U->>S: 분석 요청 (예: 차대 균형 검증)
+    S->>D: 도구 호출 - ERP 데이터 조회
+    D->>ERP: 회계 데이터 쿼리 (권한 범위 내)
+    ERP-->>D: 원본 데이터 반환
+    D-->>S: 정제된 데이터 반환
+    S->>E: 도구 호출 - 보고서 생성
+    E-->>S: Excel 보고서 반환
+    S->>M: 도구 호출 - 결과 메일 발송
+    M-->>S: 발송 완료 확인
+    S-->>U: 최종 결과 반환
+```
+
 ---
 
 ### 2.2 Amazon OpenSearch 3.3 업그레이드로 미리캔버스의 검색 성능 개선
@@ -175,6 +200,22 @@ DevSecOps 실무자로서 이 뉴스는 다음과 같은 실무적 영향을 미
 - 스테이징-프로덕션 파리티 점검으로 구성 차이에서 오는 운영 위험 제거
 - 변경 롤백 플랜(Runbook)을 워크플로우에 포함시켜 MTTR 단축
 - Amazon OpenSearch 3 사례를 내부 런북·체크리스트에 기록해 유사 상황 대응 시간 단축
+
+#### 무중단 업그레이드 전략 (신규 클러스터 + 도메인 스위칭)
+
+Rolling Upgrade 대신 신규 3.3 클러스터를 별도로 구성한 뒤 트래픽을 일괄 전환하고, 문제 발생 시 기존 클러스터로 즉시 복귀하는 전략을 택했습니다. 롤백 경로가 명확한 이 구조는 메이저 버전 업그레이드의 운영 리스크를 낮추는 참고 사례입니다.
+
+```mermaid
+flowchart TD
+    A[OpenSearch 2.19 기존 클러스터] --> B[신규 3.3 클러스터 구성]
+    B --> C[데이터 마이그레이션]
+    C --> D{검증 통과?}
+    D -- No --> C
+    D -- Yes --> E[트래픽 일괄 전환]
+    E --> F{운영 안정성 확인}
+    F -- 문제 발생 --> G[기존 2.19 클러스터로 즉시 롤백]
+    F -- 정상 --> H[3.3 클러스터로 전환 완료]
+```
 
 ---
 
@@ -274,8 +315,6 @@ DevSecOps 실무자로서 이 뉴스는 다음과 같은 실무적 영향을 미
 #### 요약
 
 바이낸스의 주간 순유출액이 12억 3천만 달러로 전주 대비 207% 증가했으며, ETH 인출량은 3년 만에 최고치를 기록했습니다.
-
-**실무 포인트**: 스마트 컨트랙트 기반 서비스의 접근 제어와 트랜잭션 모니터링을 점검하세요.
 
 
 #### 실무 적용 포인트

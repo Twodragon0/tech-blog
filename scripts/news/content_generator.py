@@ -2480,7 +2480,6 @@ def _generate_contextual_action_point(item: Dict) -> str:
             for kw in ["ethereum", "이더리움", "eth", "stablecoin", "스테이블코인"]
         ):
             return _pick_variant(item, [
-                "스마트 컨트랙트 기반 서비스의 접근 제어와 트랜잭션 모니터링을 점검하세요.",
                 "이더리움 기반 서비스의 승인(approve) 오남용 탐지와 트랜잭션 모니터링 룰을 강화하세요.",
                 "스테이블코인 결제/브릿지의 접근 제어와 대규모 트랜잭션 모니터링 임계치를 재설정하세요.",
             ])
