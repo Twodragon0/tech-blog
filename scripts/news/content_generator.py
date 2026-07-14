@@ -2836,11 +2836,8 @@ def generate_news_section(
     elif content_text:
         section += f"{content_text[:800]}...\n\n"
 
-    # Context-aware action point (skip if summary already contains 실무 포인트)
-    if "실무 포인트" not in (ko_summary or ""):
-        action_point = _generate_contextual_action_point(item)
-        if action_point:
-            section += f"**실무 포인트**: {action_point}\n\n"
+    # 실무 포인트/실무 적용 포인트 filler blocks are no longer emitted
+    # (editorial decision 2026-07-14).
 
     # 출처는 news-card에 포함되므로 별도 blockquote 생략
 
@@ -2863,16 +2860,13 @@ def generate_news_section(
                 section += key_points + "\n"
 
     # 카테고리별 상세 분석 템플릿
+    # NOTE: ai/cloud/devops/kubernetes/blockchain 템플릿은 '#### 실무 적용 포인트'
+    # 블록만 생성하므로 더 이상 emit 하지 않는다 (editorial decision 2026-07-14).
+    # 보안 카테고리 템플릿(권장 조치 등)은 유지한다.
     if category in ("security", "devsecops") and is_critical:
         section += _generate_security_analysis_template(item)
     elif category in ("security", "devsecops"):
         section += _generate_security_brief_template(item)
-    elif category == "ai":
-        section += _generate_ai_analysis_template(item)
-    elif category in ("cloud", "devops", "kubernetes"):
-        section += _generate_devops_template(item)
-    elif category == "blockchain":
-        section += _generate_blockchain_template(item)
 
     section += "\n---\n\n"
     return section

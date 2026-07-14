@@ -75,7 +75,6 @@ summary_card:
 |------|--------|------|
 | 전체 위험도 | 🟡 중간 | 보안 설정 점검 및 강화 필요 |
 
-
 ## 서론
 
 2026년 02월 10일 AI 및 클라우드 핵심 업데이트를 정리합니다. Meta의 기가와트급 AI 인프라, Google의 벤더 중립적 관찰성 전환, AWS의 Claude Opus 4.6 통합 등 DevSecOps 엔지니어가 주목해야 할 실무 적용 포인트를 중심으로 다룹니다.
@@ -89,7 +88,6 @@ summary_card:
 ### Meta Prometheus - 기가와트급 AI 클러스터 백엔드 집계
 
 Meta가 Prometheus AI 슈퍼클러스터를 위한 백엔드 집계(BAG, Backend Aggregation) 기술을 공개했습니다. 1기가와트 용량으로 수만 개의 GPU를 여러 데이터센터와 리전에 걸쳐 연결하며, DSF(Disaggregated Schedule Fabric)와 NSF(Non-Scheduled Fabric) 두 가지 네트워크 패브릭을 통합합니다.
-
 
 | 항목 | 세부 사항 |
 |------|----------|
@@ -110,7 +108,6 @@ DevSecOps 실무 시사점:
 
 OpenAI가 미 국방부 GenAI.mil 플랫폼에 ChatGPT를 통합한다고 발표했습니다. 300만 국방부 인원 대상, 100만 이상 고유 사용자를 보유한 이 플랫폼에는 이미 Google Gemini가 통합되어 있으며, Anthropic Claude, xAI Grok도 추가 예정입니다.
 
-
 | 항목 | 세부 사항 |
 |------|----------|
 | 플랫폼 | GenAI.mil (미 국방부 공식) |
@@ -128,7 +125,6 @@ OpenAI가 미 국방부 GenAI.mil 플랫폼에 ChatGPT를 통합한다고 발표
 ### Google Safer Internet Day - 아동/청소년 온라인 안전
 
 Google이 Safer Internet Day를 맞아 아동/청소년 대상 온라인 안전 기능을 강화했습니다. 가족 설정, 미디어 필터링, 개인정보 보호 도구 업데이트가 포함됩니다.
-
 
 | 항목 | 세부 사항 |
 |------|----------|
@@ -150,7 +146,6 @@ AI 안전성 정책 참조 포인트:
 ### Google Cloud - OTLP 네이티브 지원으로 벤더 중립적 관찰성 전환
 
 Google Cloud가 Cloud Monitoring에서 OpenTelemetry Protocol(OTLP) 메트릭을 네이티브로 지원한다고 발표했습니다. `telemetry.googleapis.com` 엔드포인트를 통해 직접 OTLP 데이터를 전송할 수 있으며, 벤더별 익스포터가 불필요해집니다.
-
 
 | 항목 | 세부 사항 |
 |------|----------|
@@ -187,7 +182,6 @@ DevSecOps 실무 적용:
 | AWS Network Firewall | 가격 인하 | 네트워크 보안 비용 절감 |
 | AWS Builder ID | Sign in with Apple 지원 | 개발자 UX 개선 |
 
-
 보안 주요 업데이트:
 
 | 기능 | 보안 이점 |
@@ -202,17 +196,7 @@ DevSecOps 실무 적용:
 
 ---
 
-## 실무 포인트
-
-- Meta Prometheus: 초대규모 AI 인프라 설계 시 페타비트급 네트워크 보안(TLS, mTLS, IPSec) + 분산 모델 무결성 검증 체계 필수
-- ChatGPT GenAI.mil: 정부/금융권 AI 도입 시 FedRAMP 수준 보안 기준 참조 (데이터 주권, 감사 로그, 다중 모델 전략)
-- Google OTLP: 벤더 중립적 관찰성 스택으로 마이그레이션 시작 권장. OpenTelemetry Collector 기반 통합 파이프라인 구축
-- AWS Claude Opus 4.6: Bedrock을 활용한 장문 보안 로그 분석, 침해 사고 조사 자동화
-- CloudFront mTLS: 제로트러스트 아키텍처의 핵심 구성 요소. CDN → Origin 간 상호 인증으로 MITM 공격 방지
-- OpenTelemetry 확장: Attribute 값 256배 확장으로 보안 컨텍스트 풍부화 (user_id, session_id, ip, geo 등)
-
 ---
-
 
 ---
 

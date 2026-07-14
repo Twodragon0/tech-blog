@@ -1912,8 +1912,10 @@ class TestGenerateBlockchainTemplate:
         )
         assert "#### 실무 적용 포인트" in result  # generic else still emits a block
 
-    def test_dispatched_for_blockchain_category(self):
-        # generate_news_section must route a blockchain item to the template.
+    def test_not_dispatched_for_blockchain_category(self):
+        # Editorial decision 2026-07-14: generate_news_section no longer emits
+        # the '#### 실무 적용 포인트' block for any category, even though the
+        # template builder itself still exists and is unit-tested above.
         section = generate_news_section(
             {
                 "title": "Ethereum DeFi protocol smart contract audit",
@@ -1923,7 +1925,8 @@ class TestGenerateBlockchainTemplate:
             },
             "1",
         )
-        assert "#### 실무 적용 포인트" in section
+        assert "#### 실무 적용 포인트" not in section
+        assert "**실무 포인트**" not in section
 
     # ------------------------------------------------------------------
     # Regression: blockchain template must run _contextualize_practical_points
