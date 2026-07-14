@@ -216,14 +216,14 @@ DevSecOps 파이프라인 관점에서 이 위협은 다음과 같은 실무적 
   title="2026년 5월에 발표한 최신 AI 뉴스"
   url="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/May_AI_Recap_still.max-600x600.format-webp.webp"
-  summary="2026년 5월, Google은 AI 기반 검색 및 클라우드 서비스 업데이트를 발표했으며, Gemini 모델의 새로운 기능이 추가되었습니다. 또한 OpenAI는 GPT-5의 일부 성능 개선 사항을 공개하고, AI 안전성 연구에 대한 협력 방안을 논의했습니다."
+  summary="2026년 5월 Google은 Gemini 3.5, Gemini Omni(영상 생성), Project Genie 등 새로운 AI 기능과 검색·클라우드·과학용 도구 업데이트를 발표했습니다."
   source="Google AI Blog"
   severity="Medium"
 %}
 
 #### 요약
 
-2026년 5월, Google은 AI 기반 검색 및 클라우드 서비스 업데이트를 발표했으며, Gemini 모델의 새로운 기능이 추가되었습니다. 또한 OpenAI는 GPT-5의 일부 성능 개선 사항을 공개하고, AI 안전성 연구에 대한 협력 방안을 논의했습니다.
+2026년 5월 Google은 Gemini 3.5, Gemini Omni(영상 생성), Project Genie 등 새로운 AI 기능과 검색·클라우드·과학용 도구 업데이트를 발표했습니다.
 
 ---
 
@@ -250,11 +250,14 @@ NVIDIA의 CEO Jensen Huang이 서울에서 AI 인프라 및 로봇 혁신을 주
   title="Thousand Token Wood: 3B 모델에서 멀티 에이전트 경제를 출시하다"
   url="https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim"
   image="https://cdn-thumbnails.huggingface.co/social-thumbnails/blog/build-small-hackathon/thousand-token-wood-sim.png"
+  summary="Hugging Face 해커톤에서 3B 소형 모델로 멀티 에이전트 경제 시뮬레이션 'Thousand Token Wood'를 구축한 사례를 소개합니다."
   source="Hugging Face Blog"
   severity="Medium"
 %}
 
 #### 요약
+
+Hugging Face 해커톤에서 3B 소형 모델로 멀티 에이전트 경제 시뮬레이션 'Thousand Token Wood'를 구축한 사례를 소개합니다.
 
 ---
 

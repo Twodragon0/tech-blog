@@ -251,11 +251,14 @@ Anthropic이 미국 정부의 국가 안보 지침에 따라 자사의 주력 AI
   title="Anthropic의 IPO 전 주가 하락, 미 정부가 자사의 가장 강력한 AI 모델을 중단시키며"
   url="https://www.coindesk.com/markets/2026/06/13/anthropic-s-pre-ipo-shares-fall-as-us-government-shuts-down-its-most-powerful-ai-model"
   image="https://cdn.sanity.io/images/s3y3vcno/production/f5e8e2558cc728a86d8769f5fab88b0d0a2a34a8-6000x4000.jpg"
+  summary="미국 정부가 Anthropic의 최강 AI 모델(Fable 5·Mythos 5) 접근을 차단하자 Anthropic의 IPO 전 장외 주가가 하락했다."
   source="CoinDesk"
   severity="Medium"
 %}
 
 #### 요약
+
+미국 정부가 Anthropic의 최강 AI 모델(Fable 5·Mythos 5) 접근을 차단하자 Anthropic의 IPO 전 장외 주가가 하락했다.
 
 ---
 

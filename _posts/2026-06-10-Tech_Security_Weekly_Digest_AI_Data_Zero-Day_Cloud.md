@@ -313,14 +313,14 @@ Anthropic의 최신 프론티어 모델인 Claude Fable 5가 Google Cloud에서 
   title="리포트: GKE Inference Gateway, AI 응답 속도 최대 92% 향상"
   url="https://cloud.google.com/blog/products/containers-kubernetes/gke-inference-gateway-prefix-caching-accelerates-ai-inference/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/1_-_Updated_Doc_chart.max-1000x1000.jpg"
-  summary="Google Kubernetes Engine (GKE) Inference Gateway가 실시간 모델 서버 메트릭을 기반으로 생성형 AI 워크로드를 지능적으로 라우팅하여 AI 응답 속도를 최대 92% 향상시킨다는 보고서가 발표되었습니다. 이는 비용이 많이 드는 가속기 유휴 시간을 최소화하고 인프라 효율성을 극대화하는 데 도움이 됩니다."
+  summary="Google Kubernetes Engine (GKE) Inference Gateway가 실시간 모델 서버 메트릭을 기반으로 생성형 AI 워크로드를 지능적으로 라우팅하여 AI 첫 토큰 응답 대기시간(TTFT)을 최대 약 92% 단축한다는 보고서가 발표되었습니다. 이는 비용이 많이 드는 가속기 유휴 시간을 최소화하고 인프라 효율성을 극대화하는 데 도움이 됩니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}
 
 #### 요약
 
-Google Kubernetes Engine (GKE) Inference Gateway가 실시간 모델 서버 메트릭을 기반으로 생성형 AI 워크로드를 지능적으로 라우팅하여 AI 응답 속도를 최대 92% 향상시킨다는 보고서가 발표되었습니다. 이는 비용이 많이 드는 가속기 유휴 시간을 최소화하고 인프라 효율성을 극대화하는 데 도움이 됩니다.
+Google Kubernetes Engine (GKE) Inference Gateway가 실시간 모델 서버 메트릭을 기반으로 생성형 AI 워크로드를 지능적으로 라우팅하여 AI 첫 토큰 응답 대기시간(TTFT)을 최대 약 92% 단축한다는 보고서가 발표되었습니다. 이는 비용이 많이 드는 가속기 유휴 시간을 최소화하고 인프라 효율성을 극대화하는 데 도움이 됩니다.
 
 ---
 

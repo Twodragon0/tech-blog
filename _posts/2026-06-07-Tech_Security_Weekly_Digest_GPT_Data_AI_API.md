@@ -223,11 +223,14 @@ mitre_attack:
   title="5개 연구소, 5가지 접근법: 소형 모델로 구축하는 멀티모델 금융 드라마"
   url="https://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim-v2"
   image="https://cdn-thumbnails.huggingface.co/social-thumbnails/blog/build-small-hackathon/thousand-token-wood-sim-v2.png"
+  summary="Hugging Face 소형 모델 해커톤에서 여러 팀이 소형 모델로 멀티모델 금융 시뮬레이션을 구축한 접근법을 소개합니다."
   source="Hugging Face Blog"
   severity="Medium"
 %}
 
 #### 요약
+
+Hugging Face 소형 모델 해커톤에서 여러 팀이 소형 모델로 멀티모델 금융 시뮬레이션을 구축한 접근법을 소개합니다.
 
 ---
 
@@ -256,11 +259,14 @@ mitre_attack:
   title="비트코인·이더, FTX 붕괴 이후 최악의 주간 하락세…암호화폐 시가총액 3900억 달러 증발"
   url="https://www.coindesk.com/markets/2026/06/06/bitcoin-ether-eye-worst-weekly-rout-since-ftx-collapse-as-cryptos-shed-usd390-billion"
   image="https://cdn.sanity.io/images/s3y3vcno/production/1c8a63f6ee7a414798e251b283ea2323da6d3264-4147x2765.jpg"
+  summary="비트코인과 이더가 FTX 붕괴 이후 최악의 주간 하락세를 보이며 암호화폐 시가총액 약 3,900억 달러가 증발했습니다."
   source="CoinDesk"
   severity="Medium"
 %}
 
 #### 요약
+
+비트코인과 이더가 FTX 붕괴 이후 최악의 주간 하락세를 보이며 암호화폐 시가총액 약 3,900억 달러가 증발했습니다.
 
 ---
 
@@ -270,11 +276,14 @@ mitre_attack:
   title="메타가 크리에이터들에게 스테이블코인으로 지급하고 있다. 이를 사용하는 것은 다른 사람의 문제다"
   url="https://www.coindesk.com/opinion/2026/06/06/meta-is-paying-creators-in-stablecoins-spending-them-is-someone-else-s-problem"
   image="https://cdn.sanity.io/images/s3y3vcno/production/cfaf9c075207a73ff2c9f56502c1b48c8c1fc2dc-3754x2250.jpg"
+  summary="메타가 크리에이터에게 스테이블코인으로 대금을 지급하지만, 이를 실제로 사용하는 문제는 별개라는 논평입니다."
   source="CoinDesk"
   severity="Medium"
 %}
 
 #### 요약
+
+메타가 크리에이터에게 스테이블코인으로 대금을 지급하지만, 이를 실제로 사용하는 문제는 별개라는 논평입니다.
 
 ---
 

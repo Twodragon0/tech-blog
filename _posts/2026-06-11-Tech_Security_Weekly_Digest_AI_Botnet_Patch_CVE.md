@@ -424,14 +424,14 @@ Morgan Stanley의 디지털 자산 전략 책임자 Amy Oldenburg는 Bitcoin의 
   title="Fold Holdings, 4500만 달러 상당 비트코인 매각해 부채 상환, 주가 일시 130% 이상 급등"
   url="https://bitcoinmagazine.com/news/fold-holdings-dumps-45m-in-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2025/12/Fold-Launches-Nationwide-Bitcoin-Services-Across-All-50-States-With-BitGo.jpg"
-  summary="Fold Holdings는 약 4,500만 달러 상당의 비트코인을 매도하여 담보 부채를 상환하고 성장 자금을 확보했으며, 이에 따라 주가가 일시적으로 130% 이상 급등했습니다. 회사는 현재 무부채 상태로 1,492 BTC의 재무부를 보유하고 있으며, 비트코인 리워드 및 금융 서비스 확장에 집중할 계획입니다."
+  summary="Fold Holdings는 약 4,500만 달러 상당의 비트코인을 매도하여 담보 부채를 상환하고 성장 자금을 확보했으며, 이에 따라 주가가 일시적으로 130% 이상 급등했습니다. 회사는 담보(secured) 부채를 상환해 담보 기준 무부채 상태가 되었고 약 1,492 BTC를 보유하고 있으며, 비트코인 리워드 및 금융 서비스 확장에 집중할 계획입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Fold Holdings는 약 4,500만 달러 상당의 비트코인을 매도하여 담보 부채를 상환하고 성장 자금을 확보했으며, 이에 따라 주가가 일시적으로 130% 이상 급등했습니다. 회사는 현재 무부채 상태로 1,492 BTC의 재무부를 보유하고 있으며, 비트코인 리워드 및 금융 서비스 확장에 집중할 계획입니다.
+Fold Holdings는 약 4,500만 달러 상당의 비트코인을 매도하여 담보 부채를 상환하고 성장 자금을 확보했으며, 이에 따라 주가가 일시적으로 130% 이상 급등했습니다. 회사는 담보(secured) 부채를 상환해 담보 기준 무부채 상태가 되었고 약 1,492 BTC를 보유하고 있으며, 비트코인 리워드 및 금융 서비스 확장에 집중할 계획입니다.
 
 ---
 
