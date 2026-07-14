@@ -221,14 +221,14 @@ DevSecOps 실무자에게 이번 위협은 **CI/CD 파이프라인, 컨테이너
   title="2026년 4월에 발표한 최신 AI 뉴스"
   url="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/April_2026_AI_Recap_still.max-600x600.format-webp.webp"
-  summary="2026년 4월, Google은 수중 촬영 영상과 모바일 AI 비디오 목업을 포함한 mp4 파일을 공개했습니다. 이는 최신 AI 뉴스의 일환으로 발표되었습니다."
+  summary="2026년 4월 Google은 Gemini Enterprise Agent Platform, 8세대 TPU, Gemma 4, Google Vids 등 한 달간의 주요 AI 업데이트를 정리해 발표했습니다."
   source="Google AI Blog"
   severity="Medium"
 %}
 
 #### 요약
 
-2026년 4월, Google은 수중 촬영 영상과 모바일 AI 비디오 목업을 포함한 mp4 파일을 공개했습니다. 이는 최신 AI 뉴스의 일환으로 발표되었습니다.
+2026년 4월 Google은 Gemini Enterprise Agent Platform, 8세대 TPU, Gemma 4, Google Vids 등 한 달간의 주요 AI 업데이트를 정리해 발표했습니다.
 
 ---
 

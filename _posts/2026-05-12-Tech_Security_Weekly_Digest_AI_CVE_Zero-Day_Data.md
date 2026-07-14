@@ -290,14 +290,14 @@ Labyrinth 1.1 버전이 출시되어 Messenger의 종단간 암호화 백업 신
   title="최신 Database Center를 만나보세요, 이제 Gemini 기반의 플릿 인텔리전스가 탑재되었습니다"
   url="https://cloud.google.com/blog/products/databases/database-center-improvements-from-next26/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/original_images/1._Fleet_Insights.gif"
-  summary="Google Cloud가 Database Center를 출시하며, Gemini 기반의 fleet intelligence 기능을 통해 분산된 데이터베이스 신호를 통합 관리할 수 있도록 지원한다. 이는 단일 창에서 모든 Google Cloud 관리형 데이터베이스 서비스를 모니터링, 문제 해결 및 최적화할 수 있게 해준다."
+  summary="Google Cloud가 기존 Database Center에 Gemini 기반 fleet intelligence 기능을 새로 추가하며, 분산된 데이터베이스 신호를 통합 관리할 수 있도록 지원한다. 이는 단일 창에서 모든 Google Cloud 관리형 데이터베이스 서비스를 모니터링, 문제 해결 및 최적화할 수 있게 해준다."
   source="Google Cloud Blog"
   severity="Medium"
 %}
 
 #### 요약
 
-Google Cloud가 Database Center를 출시하며, Gemini 기반의 fleet intelligence 기능을 통해 분산된 데이터베이스 신호를 통합 관리할 수 있도록 지원한다. 이는 단일 창에서 모든 Google Cloud 관리형 데이터베이스 서비스를 모니터링, 문제 해결 및 최적화할 수 있게 해준다.
+Google Cloud가 기존 Database Center에 Gemini 기반 fleet intelligence 기능을 새로 추가하며, 분산된 데이터베이스 신호를 통합 관리할 수 있도록 지원한다. 이는 단일 창에서 모든 Google Cloud 관리형 데이터베이스 서비스를 모니터링, 문제 해결 및 최적화할 수 있게 해준다.
 
 ---
 

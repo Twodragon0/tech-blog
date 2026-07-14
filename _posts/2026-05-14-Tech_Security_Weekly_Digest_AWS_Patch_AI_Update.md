@@ -392,14 +392,14 @@ GitHub Enterprise Server 3.21 릴리스 후보가 공개되었으며, 배포 효
   title="Coinbase CEO, 암호화폐 법안이 미국 금융을 재편할 수 있다고 밝혀 — 상원 목요일 표결"
   url="https://bitcoinmagazine.com/news/coinbase-ceo-says-crypto-bill-could"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Coinbase-CEO-Says-Crypto-Bill-Could-Rewire-American-Finance-—-Senate-Votes-Thursday.jpg"
-  summary="Coinbase CEO Brian Armstrong은 CLARITY Act가 미국 금융 시스템을 근본적으로 재편할 수 있다고 밝혔으며, 해당 법안은 목요일 상원 표결에 부쳐집니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다."
+  summary="Coinbase CEO Brian Armstrong은 CLARITY Act가 미국 금융 시스템을 근본적으로 재편할 수 있다고 밝혔으며, 해당 법안은 이번 주 상원 은행위원회 마크업(심의)에 부쳐지며, 전체 상원 표결은 6~7월로 예정되어 있습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Coinbase CEO Brian Armstrong은 CLARITY Act가 미국 금융 시스템을 근본적으로 재편할 수 있다고 밝혔으며, 해당 법안은 목요일 상원 표결에 부쳐집니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
+Coinbase CEO Brian Armstrong은 CLARITY Act가 미국 금융 시스템을 근본적으로 재편할 수 있다고 밝혔으며, 해당 법안은 이번 주 상원 은행위원회 마크업(심의)에 부쳐지며, 전체 상원 표결은 6~7월로 예정되어 있습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
 
 ---
 

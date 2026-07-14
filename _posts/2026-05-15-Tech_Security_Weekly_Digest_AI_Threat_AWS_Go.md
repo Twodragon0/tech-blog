@@ -195,7 +195,7 @@ DevSecOps 실무자 관점에서 이번 사건은 다음과 같은 직접적 영
   title="ThreatsDay 게시판: PAN-OS RCE, Mythos cURL 버그, AI 토크나이저 공격 및 10여 개 기사"
   url="https://thehackernews.com/2026/05/threatsday-bulletin-pan-os-rce-mythos.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjImYNT-qC7frGzEXeok3KDX_JNMKote6V1FVXIpkAoSEER2z1YyT8dpFq5RtRhBQ0cweEPbBIuioDWFf5rw_Mf-0V6rXR2ZrMh2ISDa7X7NlV9zIGsoLSAnyd_86eVkrR4wU24yxbuCYaAmyGFwlF77YCjvgU3n43P-yFT-pzjsmQ35Oaut1klg62bs_-i/s1600/threatsday-2.jpg"
-  summary="이번 주 ThreatsDay Bulletin은 PAN-OS RCE, Mythos cURL 버그, AI Tokenizer 공격 등 10개 이상의 보안 이슈를 다루고 있습니다. 공급망 공격이 악용되는 가운데, 사용자 속임수와 시스템 침해가 지속되며 절반은 새로운 위협, 나머지는 오래된 취약점이 반복되고 있습니다."
+  summary="이번 주 ThreatsDay Bulletin은 PAN-OS RCE, Anthropic의 Mythos AI 모델을 이용한 cURL 취약점 스캔(대부분 오탐), AI Tokenizer 공격 등 10건 이상의 보안 이슈를 다루고 있습니다. 공급망 공격이 악용되는 가운데, 사용자 속임수와 시스템 침해가 지속되며 절반은 새로운 위협, 나머지는 오래된 취약점이 반복되고 있습니다."
   source="The Hacker News"
   severity="Critical"
 %}

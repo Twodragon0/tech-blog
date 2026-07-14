@@ -100,7 +100,7 @@ redirect_from:
   title="연구진, 단일 Git Push로 악용 가능한 GitHub CVE-2026-3854 원격 코드 실행 취약점 발견"
   url="https://thehackernews.com/2026/04/researchers-discover-critical-github.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgztlzahKA2HwUQiNDerhbX2l415JinNIW5jaU5tgskPVHqpMhba_NorYL9SSWRzLdSPjSnsxZKQic97f8H2Bx2G0Dsjb58dcdFuZoL0c5Gno3BVvYa4vi62_PNr1Qh-kBYED7YbTPw3fqQklMmnoPV0b1KYaienKHzIAtBuktMqyVCxGU0u8Hkd-zzYeNU/s1600/github.jpg"
-  summary="보안 연구자들이 GitHub.com과 GitHub Enterprise Server에 영향을 미치는 치명적인 취약점 CVE-2026-3854(CVSS 점수 8.7)의 세부 내용을 공개했습니다. 이 결함은 명령 인젝션(Command Injection)으로, 저장소에 푸시 접근 권한이 있는 인증된 사용자가 단 한 번의 \”git push\” 명령으로 원격 코드 실행"
+  summary="보안 연구자들이 GitHub.com과 GitHub Enterprise Server에 영향을 미치는 심각도 '높음(High)' 등급의 취약점 CVE-2026-3854(CVSS 점수 8.7)의 세부 내용을 공개했습니다. 이 결함은 명령 인젝션(Command Injection)으로, 저장소에 푸시 접근 권한이 있는 인증된 사용자가 단 한 번의 \”git push\” 명령으로 원격 코드 실행"
   source="The Hacker News"
   severity="Critical"
 %}
@@ -250,14 +250,14 @@ VECT 2.0은 기존 랜섬웨어와 달리 **암호화 구현의 치명적 결함
   title="NVIDIA, Nemotron 3 Nano Omni 모델 출시… 비전, 오디오, 언어 통합으로 최대 9배 효율적인 AI 에이전트 구현"
   url="https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents/"
   image="https://blogs.nvidia.com/wp-content/uploads/2026/04/nemotron-3-nano-omni-featured-1920x1080-1-842x450.jpg"
-  summary="NVIDIA가 개방형 멀티모달 모델인 Nemotron 3 Nano Omni를 출시하여 비전, 오디오, 언어를 하나의 시스템으로 통합했습니다. 이 모델은 AI 에이전트가 데이터를 전달할 때 발생하는 시간과 맥락 손실을 최대 9배까지 줄여 더 빠르고 효율적인 응답을 가능하게 합니다."
+  summary="NVIDIA가 개방형 멀티모달 모델인 Nemotron 3 Nano Omni를 출시하여 비전, 오디오, 언어를 하나의 시스템으로 통합했습니다. 동일한 상호작용성 조건에서 다른 오픈 옴니 모델 대비 최대 9배 높은 처리량(throughput)을 제공해 더 빠르고 효율적인 응답을 가능하게 합니다."
   source="NVIDIA AI Blog"
   severity="Medium"
 %}
 
 #### 요약
 
-NVIDIA가 개방형 멀티모달 모델인 Nemotron 3 Nano Omni를 출시하여 비전, 오디오, 언어를 하나의 시스템으로 통합했습니다. 이 모델은 AI 에이전트가 데이터를 전달할 때 발생하는 시간과 맥락 손실을 최대 9배까지 줄여 더 빠르고 효율적인 응답을 가능하게 합니다.
+NVIDIA가 개방형 멀티모달 모델인 Nemotron 3 Nano Omni를 출시하여 비전, 오디오, 언어를 하나의 시스템으로 통합했습니다. 동일한 상호작용성 조건에서 다른 오픈 옴니 모델 대비 최대 9배 높은 처리량(throughput)을 제공해 더 빠르고 효율적인 응답을 가능하게 합니다.
 
 ---
 

@@ -263,14 +263,14 @@ AWS Transform이 BI 마이그레이션을 자동화하여 며칠 내에 Amazon Q
 {% include news-card.html
   title="GPT-5.2 및 GPT-5.2-Codex의 곧 지원 중단 예정"
   url="https://github.blog/changelog/2026-05-01-upcoming-deprecation-of-gpt-5-2-and-gpt-5-2-codex"
-  summary="GitHub Copilot 전반에서 GPT-5.2와 GPT-5.2-Codex 모델이 곧 지원 중단될 예정이며, Copilot 내 GPT-5.2-Codex는 일부 예외가 적용됩니다."
+  summary="GitHub Copilot 전반에서 GPT-5.2와 GPT-5.2-Codex 모델이 2026년 6월 5일부로 지원 중단될 예정입니다. GPT-5.2는 Copilot Code Review에서만 계속 사용 가능하다는 예외가 있고, GPT-5.2-Codex는 모든 환경에서 예외 없이 지원 중단됩니다."
   source="GitHub Changelog"
   severity="Medium"
 %}
 
 #### 요약
 
-GitHub Copilot 전반에서 GPT-5.2와 GPT-5.2-Codex 모델이 곧 지원 중단될 예정이며, Copilot 내 GPT-5.2-Codex는 일부 예외가 적용됩니다.
+GitHub Copilot 전반에서 GPT-5.2와 GPT-5.2-Codex 모델이 2026년 6월 5일부로 지원 중단될 예정입니다. GPT-5.2는 Copilot Code Review에서만 계속 사용 가능하다는 예외가 있고, GPT-5.2-Codex는 모든 환경에서 예외 없이 지원 중단됩니다.
 
 ---
 
