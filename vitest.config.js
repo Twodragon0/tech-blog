@@ -8,6 +8,10 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     include: ['tests/js/**/*.test.js'],
+    // Installs a no-op Element.prototype.scrollIntoView so leaked setTimeout
+    // callbacks (which jsdom cannot satisfy) never throw an unhandled error
+    // that flakes the whole run to exit 1. See tests/js/setup.js.
+    setupFiles: ['tests/js/setup.js'],
     globals: false,
     coverage: {
       // The source under test is executed via `new Function(source)` inside each
