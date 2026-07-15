@@ -38,6 +38,9 @@ on:
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
       - '_posts/**.md'
+      - 'vercel.json'
+      - 'assets/js/mermaid-init.js'
+      - 'scripts/tests/check_mermaid_csp_render.mjs'
   pull_request:
     paths:
       - '.github/workflows/svg-lint.yml'
@@ -75,6 +78,9 @@ on:
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
       - '_posts/**.md'
+      - 'vercel.json'
+      - 'assets/js/mermaid-init.js'
+      - 'scripts/tests/check_mermaid_csp_render.mjs'
 
 concurrency:
   group: svg-lint-${{ github.ref }}
@@ -235,3 +241,93 @@ jobs:
           name: svg-lint-report
           path: reports/svg-lint.json
           retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  # Mermaid CSP-render regression guard (SEPARATE from the Python lint job).
+  # Proves every mermaid diagram still renders under the ENFORCING CSP in
+  # vercel.json, which no longer grants 'unsafe-eval' to script-src (d018fe06).
+  # A future mermaid/dependency bump that reintroduces an eval/wasm-eval
+  # dependency breaks the render, and this job fails CI. See
+  # scripts/tests/check_mermaid_csp_render.mjs.
+  # ---------------------------------------------------------------------------
+  mermaid-changes:
+    # Gate so the (heavier) render job runs ONLY when a mermaid-relevant path
+    # changed: posts, the on-demand loader, the CSP source, the check script,
+    # or this workflow. GitHub Actions has no per-job `paths`, so we mirror the
+    # dorny/paths-filter pattern used by jekyll.yml.
+    runs-on: ubuntu-22.04
+    timeout-minutes: 3
+    permissions:
+      contents: read
+    outputs:
+      should-run: ${{ steps.filter.outputs.mermaid }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+        with:
+          fetch-depth: 2
+      - id: filter
+        uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d  # v4
+        with:
+          filters: |
+            mermaid:
+              - '_posts/**'
+              - 'assets/js/mermaid-init.js'
+              - 'vercel.json'
+              - 'scripts/tests/check_mermaid_csp_render.mjs'
+              - '.github/workflows/svg-lint.yml'
+
+  mermaid-csp-render:
+    needs: [mermaid-changes]
+    if: needs.mermaid-changes.outputs.should-run == 'true'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      JEKYLL_ENV: production
+      LANG: C.UTF-8
+      LC_ALL: C.UTF-8
+      LANGUAGE: C.UTF-8
+      # Mirror the Vercel/CI production build (empty baseurl). See jekyll.yml.
+      BASEURL: ""
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Ruby (Jekyll build)
+        uses: ruby/setup-ruby@89f90524b88a01fe6e0b732220432cc6142926af  # v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Setup Python (build.sh favicon/raster deps)
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: scripts/requirements-ci.txt
+
+      - name: Install Python dependencies
+        run: pip install --quiet -r scripts/requirements-ci.txt
+
+      - name: Install Node.js dependencies
+        run: npm ci || npm install
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Build site with build.sh (consistent with Vercel/CI)
+        run: |
+          bundle install --jobs 4 --retry 3
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Mermaid CSP-render guard (no 'unsafe-eval' in enforcing CSP)
+        run: node scripts/tests/check_mermaid_csp_render.mjs --verbose
