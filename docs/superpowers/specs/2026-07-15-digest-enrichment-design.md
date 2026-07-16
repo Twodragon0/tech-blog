@@ -47,7 +47,61 @@ Weekly-security-digest posts (181 of 236 posts) have two quality gaps:
 | Cost order: Gemini CLI (free) → local → API | CLAUDE.md §Cost Optimization | expansion uses Gemini CLI first |
 | Don't upload user content externally; public news only | org policy | fetch = read-only GET of public article URLs |
 
-## Architecture — two sequenced sub-projects
+## Empirical findings (from a real post — 2026-06-16 …AI_Go_Malware_Vulnerability)
+
+Reviewing the live post surfaced **structural defects** that must be fixed *before*
+enrichment (they are the source of the "중복 / 넘버링 / 체크리스트" complaints):
+
+1. **Numbering collision.** Top-level sections are `## 1. 보안 뉴스` … `## 7. 트렌드`.
+   Each item's deep analysis injects `## 1. 기술적 배경`, `## 2. 실무 영향`,
+   `## 3. 대응 체크리스트` at the **same `##` level**, colliding with and resetting the
+   section numbering. Item 1.3 uses `### 1.` while 1.1/1.2 use `## 1.` —
+   **inconsistent within one post**.
+2. **Heading-hierarchy duplication.** LLM analysis is spliced in un-normalized: it
+   contains its own `# DevSecOps … 관점 분석` **H1 inside the body** (competing with the
+   post-title H1) and repeats the same boilerplate phrasing per item.
+3. **Deep-analysis applied inconsistently.** Only items 1.1–1.3 have the
+   기술적 배경/실무 영향/대응 blocks; 2.x–5.x are bare `###` summaries.
+4. **Checklist redundancy.** Per-item `대응 체크리스트` (from LLM) **and** a global
+   `## 실무 체크리스트` P0/P1/P2 (`_generate_news_specific_checklist`,
+   `content_generator.py:4398`) both exist → duplicate guidance.
+5. **Title keyword mismatch.** Title lists "DNS 유출" but items are Google Workspace /
+   북한 개발자도구 / LiteLLM — title keywords don't match the actual content.
+
+**Root cause of 1–2:** the per-item deep analysis is LLM-generated free-form markdown
+spliced into the post with no heading-level normalization.
+
+## Architecture — three sequenced sub-projects
+
+### Sub-project 0 — Structural normalization & de-duplication (implement FIRST)
+
+Deterministic, no fetch/LLM, no hallucination risk. Directly fixes the user's cited
+complaints. Components:
+
+1. **Heading normalizer** for spliced LLM analysis: strip any `#`/`##` H1–H2 the LLM
+   emits inside an item body; demote the item's analysis sub-headings to a single
+   consistent level that does **not** collide with the section numbering (e.g. plain
+   `####` labels without the colliding `1./2./3.` prefix, or fold under the item's
+   `### N.M`). Guarantee: only the top-level section headings carry the `1..7`
+   numbering; per-item analysis never re-uses `## 1./2./3.`.
+2. **Consistency rule** for deep analysis: apply the 기술적 배경/실무 영향 blocks
+   **only to major / high-severity items** (severity ≥ threshold — e.g. items with a
+   CVE, active exploitation, or high risk-score), uniformly across all sections. Lower-
+   severity items get a concise summary only. No more "only section-1 items get them".
+   The per-item **대응 체크리스트 is removed** (see #4).
+3. **De-duplication**: remove repeated boilerplate phrasing/headings across items;
+   ensure title/서론/summary card don't restate the same sentence.
+4. **Checklist rationalization**: keep **only the global `## 실무 체크리스트` P0/P1/P2**
+   (`_generate_news_specific_checklist`). Remove the per-item `대응 체크리스트` blocks
+   entirely. Verify the P0/P1/P2 items are warranted, item-derived actions (not filler).
+5. **Title keyword accuracy**: title keywords must be drawn from the actual selected
+   items, not a mismatched set.
+
+Verification: regenerate the 5 pilot digests; assert (a) exactly one `1..N` numbering
+sequence at `##` level, (b) no `#` H1 inside body, (c) no duplicate heading text, (d)
+single checklist surface, (e) title keywords ⊆ item keywords.
+
+### Sub-project A — Source-grounded summary detail (implement second)
 
 ### Sub-project A — Source-grounded summary detail (implement first)
 
@@ -75,7 +129,7 @@ Components (each small, single-purpose):
    - Verify the expanded text's factual claims are supported by the fetched source.
    - Unsupported claim → reject expansion, fall back to the safe short summary.
 
-### Sub-project B — Body-level sequence diagrams (implement second)
+### Sub-project B — Body-level sequence diagrams (implement third)
 
 1. **`flow_detector`** (new function)
    - Decide whether an item describes a real sequence-able flow (attack chain,
@@ -131,14 +185,22 @@ Every failure mode degrades to **current behavior**, never to fabricated content
 
 ## Rollout
 
-1. Implement Sub-project A, verify on 5 pilot digests, review output quality.
-2. Implement Sub-project B, verify on the same 5.
-3. **Stop.** Wider backfill (remaining ~176 digests) is a separate spec, decided after
+1. **Sub-project 0** (structural: numbering, hierarchy, de-dup, checklist, title) —
+   generator fix + regenerate 5 pilot digests. Deterministic, ship first.
+2. Sub-project A (source-grounded detail) — verify on the same 5, review quality.
+3. Sub-project B (sequence diagrams) — verify on the same 5.
+4. **Stop.** Wider backfill (remaining ~176 digests) is a separate spec, decided after
    reviewing pilot quality + cost.
 
-## Open questions (resolved during brainstorming)
+## Open questions
 
+Resolved during brainstorming:
 - Diagram scope → per-item, only where flow exists. ✅
 - Summary detail source → fetch source article, Gemini-first evidence-based. ✅
 - Backfill scope → generator + 5 most recent digests (pilot). ✅
 - LLM strategy → Gemini CLI first + local fallback. ✅
+
+Resolved from empirical post review:
+- **Deep-analysis consistency** → apply deep blocks only to **major/high-severity
+  items** (severity ≥ threshold), uniformly across sections. ✅
+- **Checklist surface** → keep **global P0/P1/P2 only**; remove per-item 대응 체크리스트. ✅
