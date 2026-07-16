@@ -482,6 +482,15 @@ def _extract_digest_title_labels(
     return normalized_labels[:3]
 
 
+def _title_keywords_from_items(news_items: List[Dict]) -> set:
+    """The keyword set legitimately derivable from the selected items.
+
+    Wraps _extract_digest_title_labels so a structural guard can assert that
+    the title's keywords are a subset of what the items actually justify.
+    """
+    return set(_extract_digest_title_labels(news_items, mode="security"))
+
+
 # ---------------------------------------------------------------------------
 # Excerpt theme detection — 5 variants keyed on dominant signal keywords.
 # Priority order: more specific keywords first to avoid over-matching.
