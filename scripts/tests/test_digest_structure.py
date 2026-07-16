@@ -60,3 +60,25 @@ def test_deep_gate_false_for_low_severity_no_cve():
     assert _is_deep_analysis_item(
         {"title": "vendor renames product", "category": "security", "summary": "minor news"}
     ) is False
+
+
+def test_normalize_drops_per_item_checklist_block():
+    src = (
+        "#### 기술적 배경\n설명\n\n"
+        "#### 대응 체크리스트\n- [ ] 패치\n- [ ] 모니터링\n\n"
+        "#### 실무 영향\n영향\n"
+    )
+    out = _normalize_deep_analysis(src)
+    assert "대응 체크리스트" not in out
+    assert "- [ ] 패치" not in out
+    assert "#### 기술적 배경" in out  # non-checklist content kept
+    assert "#### 실무 영향" in out
+
+
+def test_security_template_has_no_recommended_actions_checklist():
+    from content_generator import _generate_security_analysis_template
+    tmpl = _generate_security_analysis_template(
+        {"title": "CVE-2026-1 RCE", "category": "security", "summary": "x", "content": "y"}
+    )
+    assert "권장 조치" not in tmpl
+    assert "- [ ]" not in tmpl

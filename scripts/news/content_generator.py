@@ -2774,19 +2774,32 @@ def _normalize_deep_analysis(text: str) -> str:
     that reset the top-level '## 1..N' section counter. This rewrites every
     ATX heading line to a single consistent '#### ' level and strips any
     leading 'N. ' / 'N) ' ordinal prefix. Non-heading lines are untouched.
+
+    It also drops any per-item checklist sub-block so the global
+    실무 체크리스트 is the single checklist surface.
     """
     if not text:
         return text
+    _CHECKLIST_MARKERS = ("체크리스트", "권장 조치")
     out_lines = []
+    skipping = False
     for line in text.split("\n"):
         m = re.match(r"^(#{1,6})\s+(.*)$", line)
-        if not m:
-            out_lines.append(line)
+        if m:
+            heading_text = re.sub(r"^\d+\s*[.)\-]\s*", "", m.group(2))
+            if any(mark in heading_text for mark in _CHECKLIST_MARKERS):
+                skipping = True
+                continue
+            skipping = False
+            out_lines.append(f"#### {heading_text}".rstrip())
             continue
-        heading_text = m.group(2)
-        # strip a leading ordinal like "1. ", "2) ", "3 - "
-        heading_text = re.sub(r"^\d+\s*[.)\-]\s*", "", heading_text)
-        out_lines.append(f"#### {heading_text}".rstrip())
+        if skipping:
+            # a horizontal rule ends the skipped region
+            if line.strip() == "---":
+                skipping = False
+                out_lines.append(line)
+            continue
+        out_lines.append(line)
     return "\n".join(out_lines)
 
 
@@ -3007,15 +3020,6 @@ def _generate_security_analysis_template(item: Dict) -> str:
             template += f"- **{tech}**\n"
         template += "\n"
 
-    template += """#### 권장 조치
-
-- [ ] 영향받는 시스템/소프트웨어 인벤토리 확인
-- [ ] 벤더 패치 및 보안 권고 확인
-- [ ] SIEM/EDR 탐지 룰 업데이트 검토
-- [ ] 필요시 네트워크 격리 또는 임시 완화 조치 적용
-- [ ] 보안팀 내 공유 및 모니터링 강화
-
-"""
     return template
 
 
