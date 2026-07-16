@@ -2754,6 +2754,31 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
     return fallback
 
 
+def _normalize_deep_analysis(text: str) -> str:
+    """Demote LLM-emitted headings so per-item deep analysis never collides
+    with the post's section numbering.
+
+    The enhancer prompt (enhancer.py) asks the model for '### 제목' + a
+    numbered list, but real output drifts to a body '# H1' and '## 1./2./3.'
+    that reset the top-level '## 1..N' section counter. This rewrites every
+    ATX heading line to a single consistent '#### ' level and strips any
+    leading 'N. ' / 'N) ' ordinal prefix. Non-heading lines are untouched.
+    """
+    if not text:
+        return text
+    out_lines = []
+    for line in text.split("\n"):
+        m = re.match(r"^(#{1,6})\s+(.*)$", line)
+        if not m:
+            out_lines.append(line)
+            continue
+        heading_text = m.group(2)
+        # strip a leading ordinal like "1. ", "2) ", "3 - "
+        heading_text = re.sub(r"^\d+\s*[.)\-]\s*", "", heading_text)
+        out_lines.append(f"#### {heading_text}".rstrip())
+    return "\n".join(out_lines)
+
+
 def generate_news_section(
     item: Dict, section_num: str, is_critical: bool = False
 ) -> str:
@@ -2820,7 +2845,7 @@ def generate_news_section(
     if is_critical and category in ("security", "devsecops"):
         enhanced = enhance_content_with_fallback(item)
         if enhanced:
-            section += enhanced + "\n\n"
+            section += _normalize_deep_analysis(enhanced) + "\n\n"
 
             # CVE가 있으면 MITRE 매핑 추가
             if cve_ids:
