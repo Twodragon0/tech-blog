@@ -84,15 +84,3 @@ def test_security_template_has_no_recommended_actions_checklist():
     assert "- [ ]" not in tmpl
 
 
-from content_generator import _title_keywords_from_items
-
-
-def test_title_keywords_subset_of_items():
-    items = [
-        {"title": "actively exploited zero-day patched", "summary": "", "category": "security"},
-        {"title": "AWS security update", "summary": "", "category": "cloud"},
-    ]
-    kws = _title_keywords_from_items(items)
-    assert isinstance(kws, set)
-    # a keyword the items never mention must not appear
-    assert "랜섬웨어" not in kws

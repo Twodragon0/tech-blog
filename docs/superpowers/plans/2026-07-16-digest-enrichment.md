@@ -347,65 +347,22 @@ git add scripts/news/content_generator.py scripts/tests/test_digest_structure.py
 git commit -m "fix(digest): single checklist surface — drop per-item 대응 체크리스트 / 권장 조치"
 ```
 
-### Task 4: Title-keyword accuracy — assert title labels come from actual items
+### Task 4: Title-keyword accuracy — satisfied by construction (no separate guard)
 
-**Files:**
-- Modify: `scripts/news/content_generator.py` — add `_title_keywords_from_items` helper; the existing `_extract_digest_title_labels` (line 437) already scans items, so this task adds a **guard** rather than a rewrite.
-- Test: `scripts/tests/test_digest_structure.py` (extend)
+**Status: no code change required.** Verification item (e) "title keywords ⊆ item
+keywords" is already satisfied **by construction**: the title theme is derived
+from the selected items via `_extract_digest_title_labels` (line 437) — there
+is no independent title-generation path that could diverge from the items, so
+there is nothing for a guard to catch.
 
-**Interfaces:**
-- Produces: `_title_keywords_from_items(news_items: List[Dict]) -> set[str]` — the normalized label set derivable from the selected items (reuses `_extract_digest_title_labels`). Used by the Task 5 guard to assert title keywords ⊆ item keywords.
-
-- [ ] **Step 1: Write the failing test**
-
-```python
-# append to scripts/tests/test_digest_structure.py
-from content_generator import _title_keywords_from_items
-
-
-def test_title_keywords_subset_of_items():
-    items = [
-        {"title": "actively exploited zero-day patched", "summary": "", "category": "security"},
-        {"title": "AWS security update", "summary": "", "category": "cloud"},
-    ]
-    kws = _title_keywords_from_items(items)
-    assert isinstance(kws, set)
-    # a keyword the items never mention must not appear
-    assert "랜섬웨어" not in kws
-```
-
-- [ ] **Step 2: Run test to verify it fails**
-
-Run: `python3 -m pytest scripts/tests/test_digest_structure.py -k title_keywords -q`
-Expected: FAIL — `ImportError`
-
-- [ ] **Step 3: Write minimal implementation**
-
-Add near `_extract_digest_title_labels` in `scripts/news/content_generator.py`:
-
-```python
-def _title_keywords_from_items(news_items: List[Dict]) -> set:
-    """The keyword set legitimately derivable from the selected items.
-
-    Wraps _extract_digest_title_labels so a structural guard can assert that
-    the title's keywords are a subset of what the items actually justify.
-    """
-    return set(_extract_digest_title_labels(news_items, mode="security"))
-```
-
-(If `_extract_digest_title_labels` has a different signature, match it — inspect line 437. It returns a list of labels; wrap in `set(...)`.)
-
-- [ ] **Step 4: Run tests to verify they pass**
-
-Run: `python3 -m pytest scripts/tests/test_digest_structure.py -q`
-Expected: PASS
-
-- [ ] **Step 5: Commit**
-
-```bash
-git add scripts/news/content_generator.py scripts/tests/test_digest_structure.py
-git commit -m "feat(digest): expose title-keyword set for structural guard"
-```
+A `_title_keywords_from_items` wrapper was drafted to let a structural guard
+assert this subset relationship, but it was removed as dead code (PR
+follow-up, 2026-07-16): the post-level guard (`check_digest_structure.py`,
+Task 5) checks the **rendered markdown body**, not the source `news_items`
+list, so it structurally cannot consume a helper that operates on
+`news_items`. No production caller ever existed for it. If a future change
+introduces a second, independent title-generation path, re-derive a real
+guard at that point — don't reintroduce the unused helper speculatively.
 
 ### Task 5: `check_digest_structure.py` — structural invariant guard
 
