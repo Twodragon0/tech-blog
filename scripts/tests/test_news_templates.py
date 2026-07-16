@@ -1074,14 +1074,18 @@ class TestGenerateSecurityAnalysisTemplate:
         result = _generate_security_analysis_template(self._item("Generic vuln"))
         assert "위협 분석" in result
 
-    def test_always_has_action_items(self):
+    def test_no_per_item_action_checklist(self):
+        # Sub-project 0 Task 3 (single checklist surface): the deterministic
+        # '#### 권장 조치' checkbox block was removed from this template so
+        # the global '## 실무 체크리스트' (P0/P1/P2) is the only checklist
+        # surface in a digest.
         result = _generate_security_analysis_template(self._item("Generic vuln"))
-        assert "권장 조치" in result
+        assert "권장 조치" not in result
 
-    def test_always_has_five_checkboxes(self):
+    def test_no_checkboxes(self):
         result = _generate_security_analysis_template(self._item("Generic vuln"))
         checkboxes = [l for l in result.split("\n") if l.strip().startswith("- [ ]")]
-        assert len(checkboxes) == 5
+        assert len(checkboxes) == 0
 
     def test_has_severity_field(self):
         result = _generate_security_analysis_template(self._item("Critical vuln"))

@@ -165,7 +165,22 @@ if [ -n "$STAGED_POSTS" ]; then
   echo "[pre-commit] KST-midnight check: passed."
 fi
 
-# 9. CSP inline-script sha256 regression gate (prep for CSP Path B)
+# 9. Digest structural invariant gate (Sub-project 0 — numbering/H1/checklist)
+STAGED_DIGEST_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/[^/]+Weekly_Digest[^/]*\.md$' || true)
+if [ -n "$STAGED_DIGEST_POSTS" ]; then
+  echo "[pre-commit] Checking digest post structural invariants..."
+  python3 "$REPO_ROOT/scripts/check_digest_structure.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Digest structural violation found. Fix before committing."
+    echo "             Digest posts need contiguous ## N. numbering, no body H1,"
+    echo "             and a single global ## 실무 체크리스트 (no per-item checklist)."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Digest structural check: passed."
+fi
+
+# 10. CSP inline-script sha256 regression gate (prep for CSP Path B)
 STAGED_HEAD_HTML=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_includes/head\.html$' || true)
 if [ -n "$STAGED_HEAD_HTML" ]; then
   echo "[pre-commit] Checking CSP inline-script hashes in _includes/head.html..."

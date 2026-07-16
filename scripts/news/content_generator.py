@@ -1612,7 +1612,7 @@ toc: true
         ]
 
         for i, item in enumerate(regular_security, 1):
-            is_critical = i <= 5  # 상위 5개 뉴스에 AI 강화 적용
+            is_critical = _is_deep_analysis_item(item)  # 심각도 기반(위치 무관)
             news_sections += generate_news_section(
                 item, f"{section_num}.{i}", is_critical=is_critical
             )
@@ -2143,6 +2143,17 @@ def _determine_severity(item: Dict) -> str:
     )
     category = item.get("category", "tech")
     return determine_severity(text, category)
+
+
+def _is_deep_analysis_item(item: Dict) -> bool:
+    """Gate for per-item deep analysis: high-severity or CVE-bearing items only.
+
+    Replaces the old positional `i <= 5` rule so the deep 기술 배경/실무 영향
+    blocks appear consistently based on risk, not list position.
+    """
+    if _extract_cve_ids(item):
+        return True
+    return _determine_severity(item) in ("Critical", "High")
 
 
 def _extract_cve_ids(item: Dict) -> List[str]:
@@ -2754,6 +2765,44 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
     return fallback
 
 
+def _normalize_deep_analysis(text: str) -> str:
+    """Demote LLM-emitted headings so per-item deep analysis never collides
+    with the post's section numbering.
+
+    The enhancer prompt (enhancer.py) asks the model for '### 제목' + a
+    numbered list, but real output drifts to a body '# H1' and '## 1./2./3.'
+    that reset the top-level '## 1..N' section counter. This rewrites every
+    ATX heading line to a single consistent '#### ' level and strips any
+    leading 'N. ' / 'N) ' ordinal prefix. Non-heading lines are untouched.
+
+    It also drops any per-item checklist sub-block so the global
+    실무 체크리스트 is the single checklist surface.
+    """
+    if not text:
+        return text
+    _CHECKLIST_MARKERS = ("체크리스트", "권장 조치")
+    out_lines = []
+    skipping = False
+    for line in text.split("\n"):
+        m = re.match(r"^(#{1,6})\s+(.*)$", line)
+        if m:
+            heading_text = re.sub(r"^\d+\s*[.)\-]\s*", "", m.group(2))
+            if any(mark in heading_text for mark in _CHECKLIST_MARKERS):
+                skipping = True
+                continue
+            skipping = False
+            out_lines.append(f"#### {heading_text}".rstrip())
+            continue
+        if skipping:
+            # a horizontal rule ends the skipped region
+            if line.strip() == "---":
+                skipping = False
+                out_lines.append(line)
+            continue
+        out_lines.append(line)
+    return "\n".join(out_lines)
+
+
 def generate_news_section(
     item: Dict, section_num: str, is_critical: bool = False
 ) -> str:
@@ -2820,7 +2869,7 @@ def generate_news_section(
     if is_critical and category in ("security", "devsecops"):
         enhanced = enhance_content_with_fallback(item)
         if enhanced:
-            section += enhanced + "\n\n"
+            section += _normalize_deep_analysis(enhanced) + "\n\n"
 
             # CVE가 있으면 MITRE 매핑 추가
             if cve_ids:
@@ -2971,15 +3020,6 @@ def _generate_security_analysis_template(item: Dict) -> str:
             template += f"- **{tech}**\n"
         template += "\n"
 
-    template += """#### 권장 조치
-
-- [ ] 영향받는 시스템/소프트웨어 인벤토리 확인
-- [ ] 벤더 패치 및 보안 권고 확인
-- [ ] SIEM/EDR 탐지 룰 업데이트 검토
-- [ ] 필요시 네트워크 격리 또는 임시 완화 조치 적용
-- [ ] 보안팀 내 공유 및 모니터링 강화
-
-"""
     return template
 
 
