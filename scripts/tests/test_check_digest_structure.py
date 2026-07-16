@@ -1,5 +1,7 @@
 import sys, os, tempfile
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+import pytest
+import check_digest_structure as cds
 from check_digest_structure import check_post
 
 _GOOD = """---
@@ -88,3 +90,43 @@ title: x
 
 def test_ignores_violations_inside_fenced_code_block():
     assert check_post(_write(_GOOD_WITH_CODE_FENCE)) == []
+
+
+# ---------------------------------------------------------------------------
+# CLI mode plumbing: digest-filename filter + --all exit code (Task A, PR
+# follow-up). Every mode must filter to filenames containing "Weekly_Digest"
+# — non-digest posts have different structure and would false-positive on
+# these checks, so they are always skipped, even when explicitly named.
+# ---------------------------------------------------------------------------
+
+
+def test_non_digest_post_skipped_even_if_malformed(tmp_path, monkeypatch):
+    # Malformed content (body H1) but a filename that is NOT a digest post.
+    non_digest = tmp_path / "2026-07-11-Some_Regular_Post.md"
+    non_digest.write_text(_BAD_H1, encoding="utf-8")
+
+    monkeypatch.setattr(sys, "argv", ["check_digest_structure.py", str(non_digest)])
+    with pytest.raises(SystemExit) as exc_info:
+        cds.main()
+    # Explicit-path mode filtered the non-digest file out -> nothing to
+    # check -> clean pass, regardless of its (malformed) content.
+    assert exc_info.value.code == 0
+
+
+def test_all_mode_temp_dir_one_clean_one_bad_exits_nonzero(tmp_path, monkeypatch):
+    posts_dir = tmp_path / "_posts"
+    posts_dir.mkdir()
+    (posts_dir / "2026-07-11-Tech_Security_Weekly_Digest_Clean.md").write_text(
+        _GOOD, encoding="utf-8"
+    )
+    (posts_dir / "2026-07-12-Tech_Security_Weekly_Digest_Bad.md").write_text(
+        _BAD_H1, encoding="utf-8"
+    )
+
+    monkeypatch.setattr(cds, "REPO", tmp_path)
+    monkeypatch.setattr(cds, "POSTS_DIR", posts_dir)
+    monkeypatch.setattr(sys, "argv", ["check_digest_structure.py", "--all"])
+
+    with pytest.raises(SystemExit) as exc_info:
+        cds.main()
+    assert exc_info.value.code != 0

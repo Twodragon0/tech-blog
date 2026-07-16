@@ -34,6 +34,7 @@ on:
       - 'scripts/l20_drift_baseline.txt'
       - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
+      - 'scripts/check_digest_structure.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -74,6 +75,7 @@ on:
       - 'scripts/l20_drift_baseline.txt'
       - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
+      - 'scripts/check_digest_structure.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -225,6 +227,22 @@ jobs:
       - name: KST-midnight filename-date URL safety gate
         id: kst_midnight
         run: python3 scripts/check_kst_midnight.py --all
+
+      - name: Digest structural invariant gate (PR-diff-scoped)
+        id: digest_structure
+        # PR-diff-scoped, NOT --all: only ~5 digest posts have been backfilled
+        # to satisfy this guard as of 2026-07-16. The ~176 legacy
+        # _posts/*Weekly_Digest*.md posts still have the structural defects
+        # and would fail --all. --changed only checks digest posts touched by
+        # this PR/push, mirroring the size-gate BASE-diff pattern above.
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="origin/${{ github.event.pull_request.base.ref }}"
+          else
+            BASE="HEAD~1"
+          fi
+          echo "[digest-structure] diff base: $BASE"
+          python3 scripts/check_digest_structure.py --changed "$BASE"
 
       - name: CSP inline-script sha256 regression gate (prep for CSP Path B)
         id: csp_inline_hashes
