@@ -38,3 +38,25 @@ def test_hash_in_prose_not_treated_as_heading():
     # a line that only starts with '#' at column 0 followed by space is a heading
     src = "C# 언어에 대한 설명\n"
     assert _normalize_deep_analysis(src) == src
+
+
+from content_generator import _is_deep_analysis_item
+
+
+def test_deep_gate_true_for_critical():
+    assert _is_deep_analysis_item(
+        {"title": "actively exploited zero-day", "category": "security",
+         "summary": "critical RCE under active attack"}
+    ) is True
+
+
+def test_deep_gate_true_when_cve_present():
+    assert _is_deep_analysis_item(
+        {"title": "patch CVE-2026-12345", "category": "security", "summary": "advisory"}
+    ) is True
+
+
+def test_deep_gate_false_for_low_severity_no_cve():
+    assert _is_deep_analysis_item(
+        {"title": "vendor renames product", "category": "security", "summary": "minor news"}
+    ) is False

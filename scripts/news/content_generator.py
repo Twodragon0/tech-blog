@@ -1612,7 +1612,7 @@ toc: true
         ]
 
         for i, item in enumerate(regular_security, 1):
-            is_critical = i <= 5  # 상위 5개 뉴스에 AI 강화 적용
+            is_critical = _is_deep_analysis_item(item)  # 심각도 기반(위치 무관)
             news_sections += generate_news_section(
                 item, f"{section_num}.{i}", is_critical=is_critical
             )
@@ -2143,6 +2143,17 @@ def _determine_severity(item: Dict) -> str:
     )
     category = item.get("category", "tech")
     return determine_severity(text, category)
+
+
+def _is_deep_analysis_item(item: Dict) -> bool:
+    """Gate for per-item deep analysis: high-severity or CVE-bearing items only.
+
+    Replaces the old positional `i <= 5` rule so the deep 기술 배경/실무 영향
+    blocks appear consistently based on risk, not list position.
+    """
+    if _extract_cve_ids(item):
+        return True
+    return _determine_severity(item) in ("Critical", "High")
 
 
 def _extract_cve_ids(item: Dict) -> List[str]:
