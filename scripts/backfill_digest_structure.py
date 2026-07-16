@@ -31,7 +31,72 @@ def _split_front_matter(text: str):
     return (m.group(1), m.group(2)) if m else ("", text)
 
 
-def transform_body(text: str) -> str:
+# --- Finding 1: prose '#### 권장 조치' advisory preservation ---
+#
+# _normalize_deep_analysis treats ANY heading containing '권장 조치' as the
+# start of a checklist to drop. That is correct for the LLM's per-item
+# CHECKBOX checklist ('- [ ] ...'), but _generate_security_brief_template
+# (content_generator.py) also emits a legitimate PROSE advisory under the
+# exact same heading ('- text', no checkbox). Per project decision, only
+# the checkbox form is the defect — prose must survive verbatim.
+_ADVISORY_HEADING_RE = re.compile(r"^####\s+권장 조치\s*$")
+_HEADING_ANY_RE = re.compile(r"^#{1,6}\s+")
+_CHECKBOX_BULLET_RE = re.compile(r"^-\s*\[.\]")
+_PROSE_BULLET_RE = re.compile(r"^-\s+(?!\[)")
+
+
+def _split_preserved_segments(lines):
+    """Partition an item-region buffer into segments, isolating any genuine
+    prose '#### 권장 조치' advisory block (heading + non-checkbox bullet
+    body) so it bypasses _normalize_deep_analysis verbatim instead of being
+    silently dropped.
+
+    Returns a list of (preserve: bool, chunk_lines) segments. Rejoining
+    every chunk in order (verbatim if preserve else routed through
+    _normalize_deep_analysis) reproduces the full buffer with only the
+    intended heading demotion / checkbox-checklist strip applied.
+    """
+    segments = []
+    current = []
+    i = 0
+    n = len(lines)
+    while i < n:
+        line = lines[i]
+        if _ADVISORY_HEADING_RE.match(line):
+            j = i + 1
+            while j < n and not _HEADING_ANY_RE.match(lines[j]):
+                j += 1
+            block = lines[i:j]
+            body = [ln for ln in block[1:] if ln.strip()]
+            has_checkbox = any(_CHECKBOX_BULLET_RE.match(ln.strip()) for ln in body)
+            has_prose_bullet = any(_PROSE_BULLET_RE.match(ln.strip()) for ln in body)
+            if has_prose_bullet and not has_checkbox:
+                if current:
+                    segments.append((False, current))
+                    current = []
+                segments.append((True, block))
+                i = j
+                continue
+        current.append(line)
+        i += 1
+    if current:
+        segments.append((False, current))
+    return segments
+
+
+# --- Finding 2: top-level section-boundary whitelist ---
+#
+# Any '## N. ...' heading that is neither a known section title nor an
+# expected in-item collision (the LLM's own '## N. 기술적 배경 / 실무 영향
+# 분석 / 대응 체크리스트' body headings _normalize_deep_analysis exists to
+# fix) is suspicious: it may be an un-whitelisted section boundary that
+# would otherwise get swept into item-region normalization. Warn (do not
+# hard-fail) so corpus drift is caught by a human.
+_GENERIC_TOP_RE = re.compile(r"^## \d+\.\s")
+_IN_ITEM_COLLISION_MARKERS = ("기술적 배경", "실무 영향", "대응", "권장")
+
+
+def transform_body(text: str, path: str = "<unknown>") -> str:
     """Apply heading normalization + per-item CHECKBOX-checklist strip to a post.
 
     Deep-analysis normalization (_normalize_deep_analysis: demote stray
@@ -58,26 +123,32 @@ def transform_body(text: str) -> str:
       real top-level section titles the generator emits (mirrors the
       previous 'protected' regex): '## 서론', '## 📊 빠른 참조', '## 경영진
       브리핑', '## 위험 스코어카드', '## 분석가 시점', '## N. <카테고리> 뉴스'
-      / '## N. 트렌드 분석', '## 실무 체크리스트', '## 참고 자료'.
+      / '## N. 트렌드 분석', '## N. GeekNews 하이라이트', '## N. Open Source',
+      '## 실무 체크리스트', '## 참고 자료'. Any OTHER '## N. ...' heading that
+      is not this whitelist and does not look like an in-item collision
+      (기술적 배경 / 실무 영향 / 대응 / 권장) triggers a stderr WARNING (not a
+      hard fail) naming the file + heading, so corpus drift in section
+      titles is caught by a human rather than silently swept into
+      normalization.
     - While in_item is True, lines are buffered and flushed through
-      _normalize_deep_analysis. While False, lines are emitted verbatim —
-      this is what preserves '### 이번 주 하이라이트' and everything else
-      that precedes a section's first item heading.
-
-    Known limitation: an in-item prose '#### 권장 조치' advisory (from
-    _generate_security_brief_template) WOULD be dropped by
-    _normalize_deep_analysis, which treats any heading containing '권장 조치'
-    as a checklist to skip. None of the 5 pilot posts contain this, so it
-    does not affect this backfill. The forward-generation path is unaffected
-    because that prose block is emitted by the brief template outside of
-    the _normalize_deep_analysis() call, not through it.
+      _normalize_deep_analysis, EXCEPT a genuine prose '#### 권장 조치'
+      advisory block (heading + non-checkbox '- ' bullets, emitted by
+      _generate_security_brief_template), which is preserved verbatim —
+      see _split_preserved_segments. _normalize_deep_analysis would
+      otherwise drop it, because it treats any heading containing
+      '권장 조치' as the start of a checklist to skip; only the LLM's
+      per-item CHECKBOX checklist ('- [ ] ...') is the actual defect. While
+      in_item is False, lines are emitted verbatim — this is what preserves
+      '### 이번 주 하이라이트' and everything else that precedes a section's
+      first item heading.
 
     Idempotent.
     """
     front, body = _split_front_matter(text)
     item_heading_re = re.compile(r"^### \d+\.\d+")
     top_section_re = re.compile(
-        r"^(## \d+\. (보안|AI/ML|클라우드|DevOps|블록체인|기타|트렌드)|"
+        r"^(## \d+\. (보안|AI/ML|클라우드|DevOps|블록체인|기타|트렌드|"
+        r"GeekNews|Open Source)|"
         r"## 실무 체크리스트|## 서론|## 분석가 시점|## 경영진 브리핑|"
         r"## 위험 스코어카드|## 참고 자료|## 📊)"
     )
@@ -86,9 +157,12 @@ def transform_body(text: str) -> str:
     in_item = False
 
     def flush():
-        if buf:
-            out.append(_normalize_deep_analysis("\n".join(buf)))
-            buf.clear()
+        if not buf:
+            return
+        for preserve, chunk in _split_preserved_segments(buf):
+            joined = "\n".join(chunk)
+            out.append(joined if preserve else _normalize_deep_analysis(joined))
+        buf.clear()
 
     for line in body.split("\n"):
         if item_heading_re.match(line):
@@ -99,10 +173,19 @@ def transform_body(text: str) -> str:
             flush()
             in_item = False
             out.append(line)
-        elif in_item:
-            buf.append(line)
         else:
-            out.append(line)
+            if _GENERIC_TOP_RE.match(line) and not any(
+                marker in line for marker in _IN_ITEM_COLLISION_MARKERS
+            ):
+                print(
+                    f"WARNING: {path}: unrecognized top-level section "
+                    f"heading not in whitelist: {line!r}",
+                    file=sys.stderr,
+                )
+            if in_item:
+                buf.append(line)
+            else:
+                out.append(line)
     flush()
     return front + "\n".join(out)
 
@@ -123,7 +206,7 @@ def main(argv) -> int:
     for path in files:
         with open(path, encoding="utf-8") as fh:
             original = fh.read()
-        new = transform_body(original)
+        new = transform_body(original, path)
         if new != original:
             changed += 1
             if args.dry_run:

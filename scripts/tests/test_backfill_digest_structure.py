@@ -75,3 +75,65 @@ def test_item_region_still_normalized_alongside_pre_item_subheading():
     assert "## 1. 기술적 배경" not in out
     assert "#### 기술적 배경" in out
     assert "- [ ] y" not in out
+
+
+# --- Finding 1: prose '#### 권장 조치' advisory must survive, while a
+# sibling deep-analysis collision in the same item is still demoted. ---
+
+_POST_WITH_PROSE_ADVISORY = """---
+title: y
+---
+## 1. 보안 뉴스
+### 1.1 항목
+# 어떤 분석
+#### 권장 조치
+
+- 관련 시스템 확인
+- 벤더 권고
+
+## 2. AI/ML 뉴스
+"""
+
+
+def test_prose_advisory_preserved():
+    out = transform_body(_POST_WITH_PROSE_ADVISORY)
+    assert "#### 권장 조치" in out
+    assert "- 관련 시스템 확인" in out
+    assert "- 벤더 권고" in out
+
+
+def test_sibling_h1_still_demoted_alongside_prose_advisory():
+    out = transform_body(_POST_WITH_PROSE_ADVISORY)
+    assert "\n# 어떤 분석" not in out
+    assert "#### 어떤 분석" in out
+
+
+def test_prose_advisory_preservation_is_idempotent():
+    once = transform_body(_POST_WITH_PROSE_ADVISORY)
+    assert transform_body(once) == once
+
+
+# --- Finding 2: tech-mode section titles must be recognized as top-level
+# boundaries, not swept into item-region normalization. ---
+
+_POST_TECH_MODE_OPEN_SOURCE = """---
+title: t
+---
+## 2. AI/ML 뉴스
+### 2.1 항목
+내용
+## 3. Open Source
+### 3.1 항목
+내용
+"""
+
+
+def test_tech_mode_open_source_boundary_recognized():
+    """'## 3. Open Source' follows an already-open item region (### 2.1).
+    The old whitelist didn't know this title, so it would be swept into
+    the item-region buffer and demoted/ordinal-stripped by
+    _normalize_deep_analysis instead of closing the region as its own
+    top-level heading."""
+    out = transform_body(_POST_TECH_MODE_OPEN_SOURCE)
+    assert "## 3. Open Source" in out
+    assert "#### Open Source" not in out
