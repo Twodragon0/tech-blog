@@ -439,9 +439,20 @@ title: x
 ### P0 (즉시)
 """
 
+# A clean post: global checklist with P0 checkboxes AFTER '## 실무 체크리스트',
+# and a low-severity item's prose advisory (`- `, no `[ ]`) which is KEPT.
+_GOOD = _GOOD.replace(
+    "#### 기술적 배경\n",
+    "#### 기술적 배경\n#### 권장 조치\n- 관련 시스템 목록 확인\n- 벤더 권고 확인\n",
+).replace("### P0 (즉시)\n", "### P0 (즉시)\n- [ ] 긴급 패치 확인\n")
+
 _BAD_H1 = _GOOD.replace("#### 기술적 배경", "# DevSecOps 관점 분석")
 _BAD_NUM = _GOOD.replace("## 2. AI/ML 뉴스", "## 1. 기술적 배경")
-_BAD_DUP_CL = _GOOD + "\n#### 대응 체크리스트\n- [ ] x\n"
+# per-item CHECKBOX checklist injected into the item body (BEFORE the global checklist)
+_BAD_DUP_CL = _GOOD.replace(
+    "## 2. AI/ML 뉴스",
+    "#### 대응 체크리스트\n- [ ] 패치\n- [ ] 모니터링\n## 2. AI/ML 뉴스",
+)
 
 
 def _write(txt):
@@ -450,6 +461,8 @@ def _write(txt):
 
 
 def test_clean_post_has_no_violations():
+    # prose `- ` advisory under '#### 권장 조치' is allowed; only checkbox
+    # per-item checklists are the defect.
     assert check_post(_write(_GOOD)) == []
 
 
@@ -461,8 +474,15 @@ def test_flags_numbering_collision():
     assert any("numbering" in v.lower() for v in check_post(_write(_BAD_NUM)))
 
 
-def test_flags_per_item_checklist():
-    assert any("체크리스트" in v for v in check_post(_write(_BAD_DUP_CL)))
+def test_flags_per_item_checkbox_checklist():
+    assert any("checklist" in v.lower() or "체크리스트" in v
+               for v in check_post(_write(_BAD_DUP_CL)))
+
+
+def test_does_not_flag_prose_advisory():
+    # '#### 권장 조치' followed by prose `- ` bullets (no `[ ]`) is kept.
+    prose = _GOOD  # already contains a prose 권장 조치 block
+    assert check_post(_write(prose)) == []
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
@@ -510,13 +530,18 @@ def check_post(path: str) -> list:
     if nums and nums != list(range(1, len(nums) + 1)):
         violations.append(f"broken section numbering: {nums}")
 
-    # (d) single checklist surface
+    # (d) single checklist surface. The defect is a CHECKBOX per-item checklist
+    # ('- [ ]') duplicating the global P0/P1/P2. Topic-specific prose advisory
+    # ('- ' bullets under '#### 권장 조치') is legitimate content and is kept.
     if body.count("## 실무 체크리스트") != 1:
         violations.append(f"expected exactly one 실무 체크리스트, found {body.count('## 실무 체크리스트')}")
+    # any checkbox item appearing BEFORE the global checklist lives in an item
+    # body → it is a per-item checklist (the empirical defect).
+    head = body.split("## 실무 체크리스트")[0]
+    if re.search(r"^\s*-\s*\[[ xX]?\]", head, re.MULTILINE):
+        violations.append("per-item checkbox checklist present in an item body (should be removed)")
     if "대응 체크리스트" in body:
-        violations.append("per-item 대응 체크리스트 present (should be removed)")
-    if re.search(r"^####\s+권장 조치", body, re.MULTILINE):
-        violations.append("per-item 권장 조치 checklist present (should be removed)")
+        violations.append("per-item 대응 체크리스트 heading present (should be removed)")
 
     return violations
 
@@ -648,20 +673,24 @@ def _split_front_matter(text: str):
 
 
 def transform_body(text: str) -> str:
-    """Apply heading normalization + per-item checklist strip to a full post.
+    """Apply heading normalization + per-item CHECKBOX-checklist strip to a post.
 
-    Only the item deep-analysis regions are affected: _normalize_deep_analysis
-    demotes stray #/##/### headings to #### and drops 대응 체크리스트/권장 조치
-    sub-blocks. Top-level '## N.' section headings and the global
-    '## 실무 체크리스트' use '## ' with no ordinal-collision, and are only
-    touched if they were themselves malformed. Idempotent.
+    Only the item deep-analysis regions are normalized: _normalize_deep_analysis
+    demotes stray #/##/### headings to #### and drops the LLM per-item checkbox
+    checklist (대응 체크리스트, `- [ ]`). The topic-specific PROSE advisory
+    ('#### 권장 조치' + `- ` bullets) from _generate_security_brief_template is
+    legitimate content and is PROTECTED (kept verbatim) — per the project
+    decision that only checkbox per-item checklists are the defect. Top-level
+    '## N.' section headings and the global '## 실무 체크리스트' are protected.
+    Idempotent.
     """
     front, body = _split_front_matter(text)
-    # Protect the true top-level section + global-checklist headings, normalize the rest.
+    # Protect the true top-level section + global-checklist headings + prose
+    # advisory headings; normalize everything else.
     protected = re.compile(
         r"^(## \d+\. (보안|AI/ML|클라우드|DevOps|블록체인|기타|트렌드)|## 실무 체크리스트|## 서론|"
         r"## 분석가 시점|## 경영진 브리핑|## 위험 스코어카드|## 참고 자료|### P[012] |#### 요약|"
-        r"### \d+\.\d+|## 📊)"
+        r"#### 권장 조치|### \d+\.\d+|## 📊)"
     )
     out = []
     buf = []
