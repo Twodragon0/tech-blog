@@ -57,3 +57,34 @@ def test_does_not_flag_prose_advisory():
     # '#### 권장 조치' followed by prose `- ` bullets (no `[ ]`) is kept.
     prose = _GOOD  # already contains a prose 권장 조치 block
     assert check_post(_write(prose)) == []
+
+
+# A fenced code EXAMPLE block whose contents look like violations
+# ('## 5. ...' numbering, '- [ ]' checkbox, '대응 체크리스트' heading) must be
+# ignored by ALL checks, not just the H1 check. Outside the fence, the post
+# has a single valid '## 실무 체크리스트' and no numbered headings at all
+# (so the numbering check has nothing to flag) — i.e. the ONLY occurrences
+# of these patterns anywhere in the body live inside the fence.
+_GOOD_WITH_CODE_FENCE = """---
+title: x
+---
+## 소개
+
+다음은 예시 포맷입니다.
+
+```markdown
+## 5. 예시 섹션
+- [ ] 예시 체크박스
+#### 대응 체크리스트
+```
+
+본문 설명이 이어집니다.
+
+## 실무 체크리스트
+### P0 (즉시)
+- [ ] 긴급 패치 확인
+"""
+
+
+def test_ignores_violations_inside_fenced_code_block():
+    assert check_post(_write(_GOOD_WITH_CODE_FENCE)) == []

@@ -14,18 +14,36 @@ def _body(text: str) -> str:
     return text[m.end():] if m else text
 
 
-def check_post(path: str) -> list:
-    with open(path, encoding="utf-8") as fh:
-        body = _body(fh.read())
-    lines = body.split("\n")
-    violations = []
+def _strip_code_fences(lines: list) -> list:
+    """Remove fenced code blocks (``` ... ```) from a list of lines.
 
-    # (b) no body H1
+    A line toggles fence state when its stripped form starts with three
+    backticks. Lines inside a fence, and the fence delimiter lines
+    themselves, are excluded from the result. This lets structural checks
+    ignore example content (headings, checkboxes, keywords) that only
+    appears inside a code/markdown EXAMPLE block.
+    """
+    out = []
     in_code = False
     for ln in lines:
         if ln.strip().startswith("```"):
             in_code = not in_code
-        if not in_code and re.match(r"^#\s+\S", ln):
+            continue
+        if not in_code:
+            out.append(ln)
+    return out
+
+
+def check_post(path: str) -> list:
+    with open(path, encoding="utf-8") as fh:
+        body = _body(fh.read())
+    lines = _strip_code_fences(body.split("\n"))
+    clean_body = "\n".join(lines)
+    violations = []
+
+    # (b) no body H1
+    for ln in lines:
+        if re.match(r"^#\s+\S", ln):
             violations.append(f"body H1 heading found: {ln.strip()[:60]}")
 
     # (a) numbering: '## N.' headings must be 1,2,3,... contiguous (ignore '## 실무 체크리스트' etc.)
@@ -37,14 +55,14 @@ def check_post(path: str) -> list:
     # (d) single checklist surface. The defect is a CHECKBOX per-item checklist
     # ('- [ ]') duplicating the global P0/P1/P2. Topic-specific prose advisory
     # ('- ' bullets under '#### 권장 조치') is legitimate content and is kept.
-    if body.count("## 실무 체크리스트") != 1:
-        violations.append(f"expected exactly one 실무 체크리스트, found {body.count('## 실무 체크리스트')}")
+    if clean_body.count("## 실무 체크리스트") != 1:
+        violations.append(f"expected exactly one 실무 체크리스트, found {clean_body.count('## 실무 체크리스트')}")
     # any checkbox item appearing BEFORE the global checklist lives in an item
     # body → it is a per-item checklist (the empirical defect).
-    head = body.split("## 실무 체크리스트")[0]
+    head = clean_body.split("## 실무 체크리스트")[0]
     if re.search(r"^\s*-\s*\[[ xX]?\]", head, re.MULTILINE):
         violations.append("per-item checkbox checklist present in an item body (should be removed)")
-    if "대응 체크리스트" in body:
+    if "대응 체크리스트" in clean_body:
         violations.append("per-item 대응 체크리스트 heading present (should be removed)")
 
     return violations
