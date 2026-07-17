@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T02:17:02.974201+00:00",
+  "updated_at": "2026-07-17T01:53:25.526949+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/07/google-disrupts-netnut-residential.html",
@@ -1236,6 +1236,96 @@
       "title": "Improvements to secret scanning and public monitoring",
       "published_date": "2026-07-16",
       "expires_at": "2026-07-23T02:17:02.974094+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/07/16/acr-stealer-two-observed-intrusion-chains-amid-increased-threat-activity/",
+      "title": "ACR Stealer: Two observed intrusion chains amid increased threat activity",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/two-scattered-spider-hackers-get-55.html",
+      "title": "Two Scattered Spider Hackers Get 5.5 Years Each for £29 Million TfL Hack",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/threatsday-game-cheat-spyware-24-hour.html",
+      "title": "ThreatsDay: Game Cheat Spyware, 24-Hour Ransomware, Chrome Sync Stalking + 12 Mo",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/n8n-token-exchange-flaw-could-let.html",
+      "title": "n8n Token Exchange Flaw Could Let Attackers Log In as Users From Another Issuer",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/new-telepuz-malware-spreads-via.html",
+      "title": "New TELEPUZ Malware Spreads via ClickFix to Steal Data and Run Commands",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://openai.com/index/why-teens-deserve-access-safe-ai",
+      "title": "Why teens deserve access to safe AI",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/connected-apps/",
+      "title": "Connect more of your apps to Search",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
+      "title": "Create, edit and star in videos with two Google Vids updates",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-onimusha-coming/",
+      "title": "Sharpen the Sword, Skip the Downloads — ‘Onimusha: Way of the Sword’ Is Coming t",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/our-approach-to-bioresilience/",
+      "title": "Our approach to bioresilience",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-the-gartner-magic-quadrant-for-conversational-ai/",
+      "title": "Google is a Leader and positioned furthest in Vision and highest in Execution in",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-ai-leverages-deep-context-defenders-advantage/",
+      "title": "Cloud CISO Perspectives: How AI leverages deep context as the defender’s advanta",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bridge-sql-and-python-with-bigquery/",
+      "title": "Bridging the gap between SQL and Python with BigQuery and the %%bqsql magic",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/what-we-learned-about-agent-teamwork/",
+      "title": "What 10 autonomous film crews taught us about agent teamwork",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/lessons-in-accelerating-foundation-model-upgrades/",
+      "title": "Three lessons in accelerating foundation model upgrades",
+      "published_date": "2026-07-17",
+      "expires_at": "2026-07-24T01:53:25.526830+00:00"
     }
   ]
 }
