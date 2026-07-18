@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-07-17T01:53:25.526949+00:00",
+  "updated_at": "2026-07-18T01:44:13.493481+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/google-disrupts-netnut-residential.html",
-      "title": "Google Disrupts NetNut Residential Proxy Network Spanning 2 Million Home Devices",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/ransomware-groups-turn-to-citrix-bleed.html",
-      "title": "Ransomware Groups Turn to Citrix Bleed 2, BYOVD, and Supply Chain Credentials",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-isnt-permanently-leaving-subscriptions-anthropic-says/",
-      "title": "Claude Fable 5 isn’t permanently leaving subscriptions, Anthropic says",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/threatsday-ai-compute-hijacking-apple.html",
-      "title": "ThreatsDay: AI Compute Hijacking, Apple Email Flaw, BlueHammer Ransomware + 14 S",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-relaunch-disappoints-users-with-nerfed-performance/",
-      "title": "Claude Fable relaunch disappoints users with nerfed performance",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-july-2026-games-list/",
-      "title": "Joyride Through July With 12 Games Coming to GeForce NOW",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-unlocks-ai-compute-at-scale-capital-partners-to-power-ai-infrastructure-buildout/",
-      "title": "NVIDIA Unlocks AI Compute at Scale, Inviting Partners to Power the AI Infrastruc",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/openai-5-percent-stake-us-government-trump-talks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "OpenAI weighs 5% stake for US government amid Trump talks: FT",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-amazon-bedrock-catches-ai-generated-phishing/",
-      "title": "How Amazon Bedrock catches AI-generated phishing",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/",
-      "title": "Best practices for multi-turn reinforcement learning in Amazon SageMaker AI",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/google-continued-disruption-residential-proxy-networks/",
-      "title": "Google’s Continued Disruption of Malicious Residential Proxy Networks",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-02-improved-accuracy-and-coverage-in-copilot-usage-metrics-reports",
-      "title": "Improved accuracy and coverage in Copilot usage metrics reports",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-02-upcoming-deprecation-of-gemini-2-5-pro-and-gemini-3-flash",
-      "title": "Upcoming deprecation of Gemini 2.5 Pro and Gemini 3 Flash",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-02-copilot-cli-no-longer-needs-a-personal-access-token-in-github-actions",
-      "title": "Copilot CLI no longer needs a personal access token in GitHub Actions",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-02-copilot-agent-session-streaming-is-now-in-public-preview",
-      "title": "Copilot agent session streaming is now in public preview",
-      "published_date": "2026-07-03",
-      "expires_at": "2026-07-10T02:06:10.568183+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/unpatched-flaws-disclosed-in-filesystem.html",
       "title": "Unpatched Flaws Disclosed in Filesystem Bundled Into Millions of Embedded Device",
@@ -1326,6 +1236,96 @@
       "title": "Three lessons in accelerating foundation model upgrades",
       "published_date": "2026-07-17",
       "expires_at": "2026-07-24T01:53:25.526830+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html",
+      "title": "New wp2shell WordPress Core Flaw Lets Unauthenticated Attackers Run Code",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/openssl-hollowbyte-flaw-could-freeze.html",
+      "title": "OpenSSL HollowByte Flaw Could Freeze Server Memory with 11-Byte TLS Requests",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/seven-malicious-vite-npm-packages-use.html",
+      "title": "Seven Malicious Vite npm Packages Use Blockchain C2 to Deliver a RAT",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/new-nadmesh-botnet-hunts-exposed-ai.html",
+      "title": "New NadMesh Botnet Hunts Exposed AI Services for Cloud Keys and Kubernetes Token",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/goldeneyedog-subgroup-linked-to.html",
+      "title": "GoldenEyeDog Subgroup Linked to DigiCert Breach and Code-Signing Certificate The",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-vera-rubin-post-training-intelligence-per-dollar/",
+      "title": "NVIDIA Vera Rubin Maximizes Intelligence per Dollar for Post-Training Workloads ",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://openai.com/index/a-scorecard-for-the-ai-age",
+      "title": "A scorecard for the AI age",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/in-house-llm-serving-at-netflix-a5a8e799ea2c?source=rss----2615bd06b42e---4",
+      "title": "In-House LLM Serving at Netflix",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/transform-your-sales-organization-with-amazon-quick-your-new-agentic-ai-teammate/",
+      "title": "Transform your sales organization with Amazon Quick: your new agentic AI teammat",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-mobile-layout-for-amazon-quick-dashboards/",
+      "title": "Introducing Mobile Layout for Amazon Quick dashboards",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/level-up-your-column-level-security-using-iam-data-governance-tags-in-bigquery/",
+      "title": "Level Up Your Column-level Security: Using IAM Data Governance Tags in BigQuery",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/13-demos-on-gemini-enterprise-agent-platform/",
+      "title": "13 hands-on demos to build on Gemini Enterprise Agent Platform",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/guide-to-ai-tokenomics-eleven-principles-for-token-efficient-software-engineering/",
+      "title": "Guide to AI Tokenomics: Eleven Principles for Token Efficient Software Engineeri",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-17-repository-level-github-copilot-usage-metrics-generally-available",
+      "title": "Repository-level GitHub Copilot usage metrics generally available",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-17-github-copilot-app-now-available-in-the-usage-metrics-api",
+      "title": "GitHub Copilot app now available in the usage metrics API",
+      "published_date": "2026-07-18",
+      "expires_at": "2026-07-25T01:44:13.493384+00:00"
     }
   ]
 }
