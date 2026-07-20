@@ -89,7 +89,13 @@ import content_generator
 
 def test_expansion_disabled_by_default(monkeypatch):
     monkeypatch.delenv("DIGEST_SOURCE_EXPANSION", raising=False)
-    # _maybe_source_expansion returns None when the flag is off
+    # Prove the flag SHORT-CIRCUITS before any fetch/LLM: wire fetch+expand to
+    # raise if called. With the flag off they must never be reached, so the
+    # call returns None without raising (and without a real HTTP attempt).
+    def _boom(*a, **k):
+        raise AssertionError("fetch/expand must not run when flag is off")
+    monkeypatch.setattr(content_generator, "_fetch_article_for", _boom)
+    monkeypatch.setattr(content_generator, "_expand_summary_for", _boom)
     assert content_generator._maybe_source_expansion(
         {"title": "t", "url": "https://x", "category": "security"}) is None
 
