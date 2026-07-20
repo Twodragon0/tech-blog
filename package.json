@@ -27,7 +27,7 @@
     "vitest": "^4.1.9"
   },
   "dependencies": {
-    "fuse.js": "^7.4.2"
+    "fuse.js": "^7.5.0"
   },
   "overrides": {
     "vite": "^6.4.3",
