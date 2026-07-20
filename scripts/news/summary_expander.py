@@ -7,10 +7,28 @@ unavailable — the caller keeps the existing short summary. No paid API here;
 uses the free Gemini CLI wrapper (enhancer._gemini_call, itself CLI-first).
 """
 import logging
+import re
 from typing import Callable, Dict, Optional
 
 _MAX_SOURCE_CHARS = 6000   # bound prompt size / cost
 _MIN_OUTPUT_CHARS = 120
+
+_CVE_RE = re.compile(r"CVE-\d{4}-\d+")
+_NUM_RE = re.compile(r"\d[\d,]{1,}")  # multi-digit numbers / stats
+
+
+def is_source_grounded(expanded: str, article_text: str) -> bool:
+    """Every CVE and multi-digit statistic asserted in `expanded` must also
+    appear in the source. Prevents the LLM inventing counts/identifiers."""
+    hay = article_text or ""
+    for cve in _CVE_RE.findall(expanded):
+        if cve not in hay:
+            return False
+    for num in _NUM_RE.findall(expanded):
+        norm = num.replace(",", "")
+        if norm not in hay.replace(",", ""):
+            return False
+    return True
 
 
 def _default_gemini(prompt: str, timeout: int = 35) -> str:
@@ -39,8 +57,12 @@ def expand_summary(item: Dict, article_text: str, *,
     try:
         out = gemini(prompt, timeout=35)
     except Exception as exc:
-        logging.info("summary_expander: LLM error (%s) — keeping short summary", exc)
+        logging.warning("summary_expander: LLM error (%s) — keeping short summary", exc)
         return None
     if not out or len(out.strip()) < _MIN_OUTPUT_CHARS:
         return None
-    return out.strip()
+    cleaned = out.strip()
+    if not is_source_grounded(cleaned, source):
+        logging.info("summary_expander: honesty gate rejected expansion — falling back")
+        return None
+    return cleaned

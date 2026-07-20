@@ -35,3 +35,28 @@ def test_returns_none_when_no_article_text():
     out = summary_expander.expand_summary({"title": "t", "url": "u"}, "",
                                           gemini=lambda p, timeout=35: "x")
     assert out is None
+
+
+def test_honesty_rejects_unsupported_cve():
+    assert summary_expander.is_source_grounded(
+        "CVE-2026-9999 관련 위협", "article without that cve") is False
+
+
+def test_honesty_rejects_unsupported_number():
+    assert summary_expander.is_source_grounded(
+        "총 622개의 취약점이 발견", "article mentions a few bugs, no counts") is False
+
+
+def test_honesty_accepts_grounded_text():
+    src = "The advisory covers CVE-2026-1234 affecting 3 products."
+    assert summary_expander.is_source_grounded(
+        "CVE-2026-1234 는 3 개 제품에 영향", src) is True
+
+
+def test_returns_none_when_llm_raises():
+    def boom(prompt, timeout=35):
+        raise RuntimeError("gemini cli failed")
+    out = summary_expander.expand_summary(
+        {"title": "t", "url": "u"}, "some real article text " * 30,
+        gemini=boom)
+    assert out is None
