@@ -852,6 +852,7 @@ def _generate_executive_and_risk_sections(
     news_items: List[Dict],
     mode: str = "security",
     counts: Optional[Dict[str, int]] = None,
+    honor_item_severity: bool = False,
 ) -> str:
     if counts is not None:
         # Use caller-supplied rendered-tag counts (post-render path: structural guarantee).
@@ -867,7 +868,7 @@ def _generate_executive_and_risk_sections(
             _korean_display_title(item, max_len=35) for item in news_items
         ]
         for item in news_items:
-            sev = _determine_severity(item)
+            sev = _effective_severity(item, honor_item_severity)
             if sev in _by_sev:
                 _by_sev[sev].append(_korean_display_title(item, max_len=35))
         # Fill to the required count using fallback titles when needed.
@@ -888,7 +889,7 @@ def _generate_executive_and_risk_sections(
         high_titles = []
 
         for item in news_items:
-            severity = _determine_severity(item)
+            severity = _effective_severity(item, honor_item_severity)
             title = _korean_display_title(item, max_len=35)
             if severity == "Critical":
                 critical_count += 1
@@ -2143,6 +2144,25 @@ def _determine_severity(item: Dict) -> str:
     )
     category = item.get("category", "tech")
     return determine_severity(text, category)
+
+
+def _effective_severity(item: Dict, honor_item_severity: bool = False) -> str:
+    """Severity for section tiering.
+
+    Default (honor_item_severity=False): re-derive from text via
+    ``_determine_severity`` — the historical behavior every cron caller and
+    test relies on, kept byte-identical.
+
+    Opt-in (honor_item_severity=True): trust the item's pre-parsed
+    ``severity`` when present (e.g. a legacy-post backfill that read the
+    reader-visible 영향도 emoji from the frozen highlights table), so the
+    generated sections agree with the emoji on the page instead of a fresh
+    text re-classification. Falls back to ``_determine_severity`` when the
+    item carries no severity.
+    """
+    if honor_item_severity and item.get("severity"):
+        return item["severity"]
+    return _determine_severity(item)
 
 
 def _is_deep_analysis_item(item: Dict) -> bool:
@@ -4474,7 +4494,9 @@ def _extract_trend_keyword(title: str, source: str) -> str:
     return translated
 
 
-def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
+def _generate_news_specific_checklist(
+    news_items: List[Dict], honor_item_severity: bool = False
+) -> str:
     """뉴스 기반 실무 체크리스트 생성"""
     content = "---\n\n## 실무 체크리스트\n\n"
 
@@ -4493,7 +4515,7 @@ def _generate_news_specific_checklist(news_items: List[Dict]) -> str:
             "kubernetes",
         ):
             continue
-        severity = _determine_severity(item)
+        severity = _effective_severity(item, honor_item_severity)
         title = _korean_display_title(item, max_len=50)
         cve_ids = _extract_cve_ids(item)
         cve_str = f" ({', '.join(cve_ids[:2])})" if cve_ids else ""
