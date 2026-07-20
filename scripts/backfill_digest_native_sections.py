@@ -524,15 +524,14 @@ def transform_text(
 def _preview(label: str, block: str) -> None:
     """Print a compact preview (heading + line count) of a generated block.
 
-    Avoids dumping the full body: the content is public (post's own headlines),
-    but a preview keeps dry-run output readable and sidesteps a false-positive
-    clear-text-logging flag on security-topic prose. Full text is visible via
-    `git diff` after apply.
+    Logs only the section label and line count — never any content substring —
+    so dry-run stays readable without piping post text through a log sink. The
+    content is public (the post's own headlines), but not echoing it keeps the
+    output terse and avoids a false clear-text-logging flag. Inspect the full
+    generated text via `git diff` after apply.
     """
-    lines = block.strip().splitlines()
-    first = next((ln for ln in lines if ln.strip()), "")
-    print(f"--- generated {label} ({len(lines)} lines) ---")
-    print(f"    {first[:80]}")
+    n = len(block.strip().splitlines())
+    print(f"--- generated {label} ({n} lines; see `git diff` for full text) ---")
 
 
 def main(argv: Optional[List[str]] = None) -> int:
