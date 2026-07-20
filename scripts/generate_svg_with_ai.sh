@@ -127,15 +127,16 @@ Requirements:
   claude -p "$(cat "$prompt_file")" --output-format text 2>/dev/null > "$raw_file" || true
 
   # Extract SVG from raw output (handles terminal escape sequences)
-  python3 -c "
+  SVG_RAW_FILE="$raw_file" SVG_OUT_FILE="$output_file" python3 -c "
+import os
 import re
-with open('$raw_file') as f:
+with open(os.environ['SVG_RAW_FILE']) as f:
     content = f.read()
 content = re.sub(r'\x1b[^a-zA-Z]*[a-zA-Z]', '', content)
 content = re.sub(r'\x1b\][^\x07\x1b]*[\x07\x1b]?', '', content)
 m = re.search(r'(<svg[\s\S]*?</svg>)', content)
 if m:
-    with open('$output_file', 'w') as f:
+    with open(os.environ['SVG_OUT_FILE'], 'w') as f:
         f.write(m.group(1))
 " 2>/dev/null
   rm -f "$raw_file" "$prompt_file"
@@ -154,13 +155,14 @@ generate_with_codex() {
   echo "  Using Codex CLI..." >&2
   codex -q --full-auto "$prompt" 2>/dev/null | tr -d '\r' > "$output_file"
 
-  python3 -c "
+  SVG_OUT_FILE="$output_file" python3 -c "
+import os
 import re
-with open('$output_file') as f:
+with open(os.environ['SVG_OUT_FILE']) as f:
     content = f.read()
 m = re.search(r'(<svg[\\s\\S]*?</svg>)', content)
 if m:
-    with open('$output_file', 'w') as f:
+    with open(os.environ['SVG_OUT_FILE'], 'w') as f:
         f.write(m.group(1))
 " 2>/dev/null || true
 }
@@ -178,13 +180,14 @@ generate_with_gemini() {
   echo "  Using Gemini CLI..." >&2
   gemini -p "$prompt" 2>/dev/null | tr -d '\r' > "$output_file"
 
-  python3 -c "
+  SVG_OUT_FILE="$output_file" python3 -c "
+import os
 import re
-with open('$output_file') as f:
+with open(os.environ['SVG_OUT_FILE']) as f:
     content = f.read()
 m = re.search(r'(<svg[\\s\\S]*?</svg>)', content)
 if m:
-    with open('$output_file', 'w') as f:
+    with open(os.environ['SVG_OUT_FILE'], 'w') as f:
         f.write(m.group(1))
 " 2>/dev/null || true
 }
@@ -206,15 +209,16 @@ validate_svg() {
   fi
 
   # Validate XML
-  if ! python3 -c "import xml.etree.ElementTree as ET; ET.parse('$svg_file')" 2>/dev/null; then
+  if ! SVG_FILE="$svg_file" python3 -c "import os, xml.etree.ElementTree as ET; ET.parse(os.environ['SVG_FILE'])" 2>/dev/null; then
     echo "FAIL: Invalid XML" >&2
     return 1
   fi
 
   # Check for Korean text
-  if python3 -c "
+  if SVG_FILE="$svg_file" python3 -c "
+import os
 import re
-with open('$svg_file') as f:
+with open(os.environ['SVG_FILE']) as f:
     if re.search(r'[\uac00-\ud7af\u1100-\u11ff\u3130-\u318f]', f.read()):
         exit(1)
 " 2>/dev/null; then
