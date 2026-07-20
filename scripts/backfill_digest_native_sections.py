@@ -17,15 +17,27 @@ the canonical generators rather than re-implementing any wording:
     scripts.news.content_generator._generate_executive_and_risk_sections
     scripts.news.content_generator._generate_news_specific_checklist
 
-Grounding source = the anchored highlights table with header
-``| 분야 | 소스 | 핵심 내용 | 영향도 |`` (parser pattern reused from
-scripts/backfill_placeholder_highlights.py, extended to also capture the
-분야/category and 영향도/severity columns). Severity counts are tallied from the
-visible 영향도 emojis and passed as ``counts=`` so the briefing numbers match
-the evidence on the page.
+Two grounding sources are supported, tried deterministically in order:
 
-Fail-closed: a post whose highlights table yields no usable row is SKIPPED
-entirely (never fabricated).
+1. The anchored ``### 이번 주 하이라이트`` highlights table with header
+   ``| 분야 | 소스 | 핵심 내용 | 영향도 |`` (parser pattern reused from
+   scripts/backfill_placeholder_highlights.py, extended to also capture the
+   분야/category and 영향도/severity columns). The row parser tolerates 4 OR
+   MORE columns — a 5-column ``| 분야 | 소스 | 핵심 내용 | 영향도 | 긴급도 |``
+   table reads the same first four fields and ignores trailing columns.
+   Severity counts are tallied from the visible 영향도 emojis and passed as
+   ``counts=`` so the briefing numbers match the evidence on the page.
+
+2. (April rollup fallback, used only when no highlights table exists) the
+   front-matter ``summary_card.highlights`` list (real headlines) combined
+   with the ``## 주요 CVE 요약`` markdown table. Each highlight becomes a
+   news_item; a highlight whose title names a CVE present in the CVE table
+   takes that CVE's severity (numeric CVSS band ≥9.0 Critical / ≥7.0 High /
+   ≥4.0 Medium / else Low, or a Korean severity word), non-CVE highlights map
+   to Medium.
+
+Fail-closed: a post with NEITHER a usable highlights table NOR
+summary_card.highlights+CVE data is SKIPPED entirely (never fabricated).
 
 Idempotent: exec/risk is guarded by ``"## 경영진 브리핑" not in body``; the
 checklist ``- `` → ``- [ ]`` conversion is a no-op once the boxes exist.
@@ -55,8 +67,16 @@ from scripts.news import content_generator  # noqa: E402
 # contiguous rows after this header (mirrors backfill_placeholder_highlights)
 # so secondary body tables (e.g. "| 분야 | 추진 현황 |") are never read.
 _HEADER_RE = re.compile(r"^\|\s*(?:분야|카테고리)\s*\|\s*(?:소스|출처)\s*\|")
-_ROW_RE = re.compile(r"^\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|\s*$")
+# A highlights row has 4 OR MORE columns. Always read the first four
+# (분야/소스/핵심 내용/영향도); any trailing columns (e.g. a 5th 긴급도 cell)
+# are matched by the tail ``\|.*$`` and ignored. The 4-column case still
+# matches exactly (tail collapses to the closing ``|`` + optional spaces).
+_ROW_RE = re.compile(r"^\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|.*$")
 _SEP_CHARS = set("-: ")
+
+# April rollup grounding: front-matter summary_card.highlights + CVE table.
+_CVE_ID_RE = re.compile(r"CVE-\d{4}-\d+")
+_CVE_HEADING = "## 주요 CVE 요약"
 
 _EXEC_HEADING = "## 경영진 브리핑"
 _CHECKLIST_HEADING = "## 실무 체크리스트"
@@ -161,6 +181,163 @@ def parse_highlights(body: str) -> List[Dict]:
     return items
 
 
+def _cvss_band_to_severity(score: float) -> str:
+    """Map a numeric CVSS base score to a severity band."""
+    if score >= 9.0:
+        return "Critical"
+    if score >= 7.0:
+        return "High"
+    if score >= 4.0:
+        return "Medium"
+    return "Low"
+
+
+def _severity_word_to_severity(cell: str) -> Optional[str]:
+    """Map a Korean/English severity WORD (used in some CVE tables in place of
+    a numeric CVSS score) to Critical/High/Medium/Low. Returns None when the
+    cell is neither a recognized word nor parseable — the caller decides the
+    fallback."""
+    low = cell.lower()
+    if "치명" in cell or "critical" in low:
+        return "Critical"
+    if "높음" in cell or "high" in low or "심각" in cell:
+        return "High"
+    if "중간" in cell or "medium" in low or "보통" in cell:
+        return "Medium"
+    if "낮음" in cell or "low" in low:
+        return "Low"
+    return None
+
+
+def _parse_cve_table(body: str) -> Dict[str, str]:
+    """Parse the ``## 주요 CVE 요약`` table into {CVE-ID: severity}.
+
+    The 3rd column is a CVSS score which may be numeric (e.g. ``7.8``) or a
+    Korean severity word (e.g. ``치명적``, ``높음``); both are supported. The
+    header may label it ``CVSS`` or ``심각도``. Rows without a CVE ID are
+    ignored."""
+    mapping: Dict[str, str] = {}
+    idx = body.find(_CVE_HEADING)
+    if idx == -1:
+        return mapping
+    section = body[idx + len(_CVE_HEADING):]
+    for line in section.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("## "):
+            break  # next section ends the CVE table
+        if not stripped.startswith("|"):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if len(cells) < 3:
+            continue
+        cve_match = _CVE_ID_RE.search(cells[0])
+        if not cve_match:
+            continue  # header / separator / non-CVE row
+        score_cell = cells[2]
+        num = re.search(r"\d+(?:\.\d+)?", score_cell)
+        if num and _severity_word_to_severity(score_cell) is None:
+            severity = _cvss_band_to_severity(float(num.group(0)))
+        else:
+            severity = _severity_word_to_severity(score_cell) or "High"
+        mapping[cve_match.group(0).upper()] = severity
+    return mapping
+
+
+def _infer_category_from_title(title: str) -> str:
+    """Best-effort category from a Korean headline sentence (April rollups
+    carry no explicit 분야 column). Short English tokens (``ai``, ``ml``,
+    ``k8s``) are matched on word boundaries so they do NOT fire inside larger
+    words (e.g. ``ai`` inside ``Mirai``). Defaults to ``security``.
+
+    Note: category only influences item SORTING inside the reused security-mode
+    generator (severity/counts drive the actual copy), so a miss here does not
+    alter the emitted 경영진 브리핑 / 위험 스코어카드 text."""
+    low = title.lower()
+
+    def has_word(*words: str) -> bool:
+        return any(
+            re.search(rf"(?<![a-z]){re.escape(w)}(?![a-z])", low) for w in words
+        )
+
+    if "쿠버네티스" in title or has_word("kubernetes", "k8s"):
+        return "kubernetes"
+    if "클라우드" in title or has_word("aws", "cloud", "azure", "gcp", "bedrock"):
+        return "cloud"
+    if has_word("docker", "devops", "ci/cd"):
+        return "devops"
+    if "에이전트" in title or has_word("ai", "llm", "agent", "ml"):
+        return "ai"
+    if any(k in title for k in ("암호화폐", "탈중앙", "블록체인")):
+        return "blockchain"
+    return "security"
+
+
+def _extract_summary_card_highlights(front: str) -> List[Dict[str, str]]:
+    """Read ``summary_card.highlights`` (list of {source, title}) from the YAML
+    front matter. Returns [] when absent or malformed."""
+    m = re.match(r"^---\n(.*?)\n---\n?$", front, re.DOTALL)
+    fm_text = m.group(1) if m else front
+    try:
+        import yaml
+
+        data = yaml.safe_load(fm_text) or {}
+    except Exception:
+        return []
+    card = data.get("summary_card") if isinstance(data, dict) else None
+    if not isinstance(card, dict):
+        return []
+    highlights = card.get("highlights")
+    if not isinstance(highlights, list):
+        return []
+    out: List[Dict[str, str]] = []
+    for h in highlights:
+        if isinstance(h, dict):
+            out.append(
+                {
+                    "source": str(h.get("source", "") or "").strip(),
+                    "title": str(h.get("title", "") or "").strip(),
+                }
+            )
+    return out
+
+
+def parse_summary_card_cve(front: str, body: str) -> List[Dict]:
+    """April rollup grounding: build news_items from summary_card.highlights,
+    with severity from the ``## 주요 CVE 요약`` table.
+
+    Requires BOTH a non-empty highlights list AND a non-empty CVE table
+    (``summary_card.highlights+CVE data``); otherwise returns [] (SKIP)."""
+    highlights = _extract_summary_card_highlights(front)
+    if not highlights:
+        return []
+    cve_sev = _parse_cve_table(body)
+    if not cve_sev:
+        return []
+    items: List[Dict] = []
+    for h in highlights:
+        title = h["title"]
+        if not title:
+            continue
+        cves = _CVE_ID_RE.findall(title)
+        if cves:
+            severity = next(
+                (cve_sev[c.upper()] for c in cves if c.upper() in cve_sev),
+                "High",  # CVE-bearing but absent from table (fallback)
+            )
+        else:
+            severity = "Medium"
+        items.append(
+            {
+                "title": title,
+                "summary": "",
+                "category": _infer_category_from_title(title),
+                "source": h["source"],
+                "severity": severity,
+            }
+        )
+    return items
+
+
 def _derive_counts(items: List[Dict]) -> Dict[str, int]:
     """Severity tally from the visible 영향도 emojis (authoritative for the
     briefing numbers)."""
@@ -196,6 +373,23 @@ def _insert_exec_risk(lines: List[str], block: str) -> Tuple[List[str], bool]:
     return lines[:insert_at] + block_lines + lines[insert_at:], True
 
 
+def _insert_exec_risk_april(lines: List[str], block: str) -> Tuple[List[str], bool]:
+    """Insert the exec/risk block for April rollups (which have NO highlights
+    table) right AFTER the ``## 개요`` section's trailing ``---`` separator, so
+    it sits between the overview and ``## 일별 다이제스트 인덱스``."""
+    oidx = _find_line(lines, "## 개요")
+    if oidx is None:
+        return lines, False
+    j = oidx + 1
+    while j < len(lines) and lines[j].strip() != "---":
+        j += 1
+    if j >= len(lines):
+        return lines, False
+    insert_at = j + 1  # right after the overview's '---'
+    block_lines = [""] + block.rstrip("\n").split("\n") + ["", "---"]
+    return lines[:insert_at] + block_lines + lines[insert_at:], True
+
+
 def _checklist_section_span(lines: List[str]) -> Optional[Tuple[int, int]]:
     """[start, end) line indices of the ## 실무 체크리스트 section (end = next
     ``## `` heading, or EOF)."""
@@ -220,10 +414,16 @@ def transform_text(
     """Return (new_text_or_None, info). ``None`` means SKIP (no usable table).
     ``info`` carries the generated section text for --dry-run review."""
     front, body = _split_front_matter(text)
+    # Try the highlights table first; fall back to the April
+    # summary_card+CVE source only when no highlights table yields rows.
     items = parse_highlights(body)
-    info: Dict[str, object] = {"items": len(items), "exec_added": False,
-                               "checklist_action": "none", "exec_block": "",
-                               "checklist_block": ""}
+    source = "highlights"
+    if not items:
+        items = parse_summary_card_cve(front, body)
+        source = "summary_card_cve"
+    info: Dict[str, object] = {"items": len(items), "source": source,
+                               "exec_added": False, "checklist_action": "none",
+                               "exec_block": "", "checklist_block": ""}
     if not items:
         info["skip"] = True
         return None, info
@@ -233,16 +433,35 @@ def transform_text(
     lines = body.split("\n")
 
     # --- Step 3: Executive + Risk (guarded) ---
-    if _EXEC_HEADING not in body:
+    # Skip if the post ALREADY carries a briefing surface (## 경영진 브리핑 or
+    # legacy ## 경영진 요약) OR a risk scorecard (any 스코어카드) — inserting the
+    # combined block would duplicate an existing surface.
+    has_briefing = any(m in body for m in (_EXEC_HEADING, "## 경영진 요약"))
+    has_risk = "스코어카드" in body
+    if not has_briefing and not has_risk:
         block = content_generator._generate_executive_and_risk_sections(
             items, "security", counts, honor_item_severity=True
         )
-        lines, ok = _insert_exec_risk(lines, block)
+        if source == "highlights":
+            lines, ok = _insert_exec_risk(lines, block)
+        else:
+            lines, ok = _insert_exec_risk_april(lines, block)
         if ok:
             info["exec_added"] = True
             info["exec_block"] = block.rstrip("\n")
 
     # --- Step 4: Checklist ---
+    # Only the highlights source manages the checklist. April rollups already
+    # carry a rich ``## 실무 우선순위 체크리스트`` (≥8 checkboxes); adding or
+    # replacing it would double the surface, so leave it untouched.
+    if source != "highlights":
+        new_body = "\n".join(lines)
+        new_text = front + new_body
+        if new_text == text:
+            info["nochange"] = True
+            return text, info
+        return new_text, info
+
     span = _checklist_section_span(lines)
     if span is not None:
         start, end = span
