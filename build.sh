@@ -129,12 +129,12 @@ fi
 # Inject Sentry DSN from Vercel env var (if set, overrides _config.yml)
 if [ -n "$SENTRY_DSN" ]; then
     log "Injecting Sentry DSN from environment variable..."
-    SENTRY_DSN_RE='^sentry_dsn:.*$' python3 -c "
-import os, re, sys
+    python3 -c "
+import re, sys
 with open('_config.yml', 'r') as f:
     content = f.read()
 dsn = sys.argv[1].strip().strip('\"').strip(\"'\")
-content = re.sub(os.environ['SENTRY_DSN_RE'], 'sentry_dsn: \"' + dsn + '\"', content, flags=re.MULTILINE)
+content = re.sub(r'^sentry_dsn:.*$', 'sentry_dsn: \"' + dsn + '\"', content, flags=re.MULTILINE)
 with open('_config.yml', 'w') as f:
     f.write(content)
 print('DSN injected: ' + dsn[:30] + '...' + dsn[-15:])
