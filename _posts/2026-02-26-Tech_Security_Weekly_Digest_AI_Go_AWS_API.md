@@ -77,6 +77,20 @@ summary_card:
 
 ---
 
+## 경영진 브리핑
+
+- **긴급 대응 필요**: Open WebUI + Docker Model Runner 제로 설정 통합 등 Critical 등급 위협 1건이 확인되었습니다.
+- **주요 모니터링 대상**: 잘못된 취약점 분류(Triage)가 비즈니스 위험 높이는 5가지 방법, 프로덕션 AI 에이전트 개발 가이드 공개 등 High 등급 위협 2건에 대한 탐지 강화가 필요합니다.
+
+## 위험 스코어카드
+
+| 영역 | 현재 위험도 | 즉시 조치 |
+|------|-------------|-----------|
+| 위협 대응 | High | 인터넷 노출 자산 점검 및 고위험 항목 우선 패치 |
+| 탐지/모니터링 | High | SIEM/EDR 경보 우선순위 및 룰 업데이트 |
+| 취약점 관리 | Critical | CVE 기반 패치 우선순위 선정 및 SLA 내 적용 |
+| AI/ML 보안 | Medium | AI 서비스 접근 제어 및 프롬프트 인젝션 방어 점검 |
+
 ![Security News Section Banner](/assets/images/section-security.svg)
 
 ## 1. 보안 뉴스
@@ -447,18 +461,18 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 
 ### P0 (즉시)
 
-- Open WebUI + Docker Model Runner 제로 설정 통합 관련 보안 영향도 확인 및 접근 제어 설정 점검
+- [ ] **Open WebUI + Docker Model Runner 제로 설정 통합** 관련 긴급 패치 및 영향도 확인
 
 ### P1 (7일 내)
 
-- 취약점 분류(Triage) 오류로 인한 비즈니스 위험 관련 보안 프로세스 검토 및 개선
+- [ ] **잘못된 취약점 분류(Triage)가 비즈니스 위험 높이는 5가지 방법** 관련 보안 검토 및 모니터링
+- [ ] **프로덕션 AI 에이전트 개발 가이드 공개** 관련 보안 검토 및 모니터링
 
 ### P2 (30일 내)
 
-- AI 에이전트 프로덕션 배포 Google Cloud 가이드 기반 자사 AI 에이전트 보안 아키텍처 검토
-- Claude Code/개발도구 보안 개발 환경 RCE 취약점 패치 및 API 키 관리 정책 점검
-
----
+- [ ] **Circle to Search AI 기반 시각 검색 기능 확장** 관련 AI 보안 정책 검토
+- [ ] 클라우드 인프라 보안 설정 정기 감사
+- [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
 
 ---
 

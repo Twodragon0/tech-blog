@@ -77,9 +77,13 @@ summary_card:
 
 ---
 
-## 경영진 요약
+## 경영진 브리핑
 
-### 위험 평가 스코어카드
+- **긴급 대응 필요**: Notepad++ 배포 인프라 침해 — 국가 지원 공급망 공격 (T1195.002), 수백만 개발자 노출, BlackField 랜섬웨어 — LockBit·Babuk·Conti 유출 코드 복합 재활용, 새로운 위협 빌딩 블록 등 Critical 등급 위협 3건이 확인되었습니다.
+- **주요 모니터링 대상**: JWT 서명키 유출 — HS256 대칭키 노출 시 토큰 위조·세션 하이재킹·권한 상승 공격 체인, 제로트러스트 데이터 보안 — 데이터 중심 접근으로 패러다임 전환, 암호화·분류·접근 제어 통합 등 High 등급 위협 2건에 대한 탐지 강화가 필요합니다.
+- 랜섬웨어 관련 위협이 확인되었으며, 백업 무결성 검증과 복구 절차 리허설을 권고합니다.
+
+## 위험 스코어카드
 
 | 위협 | 심각도 | 영향 범위 | 대응 시급성 | MITRE ATT&CK |
 |------|--------|-----------|------------|--------------|
@@ -91,7 +95,7 @@ summary_card:
 | Vertical AI SOC | Medium | 보안 운영 자동화 | 중기 | - |
 | HashiCorp 패스워드리스 | Medium | 접근 제어 현대화 | 중기 | - |
 
-### 핵심 요약
+## 핵심 요약
 
 공급망 공격의 신기원: 국가 지원 해킹 그룹이 Notepad++의 배포 인프라를 침해하여 전 세계 수백만 개발자를 대상으로 공급망 공격을 감행했습니다. 널리 사용되는 오픈소스 도구조차 국가 수준의 위협으로부터 안전하지 않다는 현실을 보여줍니다.
 
@@ -521,27 +525,27 @@ SK쉴더스 데이터 중심 제로트러스트 전략의 국내 적용:
 
 ### P0 - 즉시
 
-- Notepad++ 설치 현황 파악 및 해시 검증 ([공식 공지](https://notepad-plus-plus.org/news/hijacked-incident-info-update/))
-- EDR/SIEM에 Notepad++ 비정상 행위 및 랜섬웨어 탐지 쿼리 적용
-- Sinobi/Lynx IOC 반영 (SK쉴더스 KARA 리포트 참조)
-- 백업 무결성 검증 및 복구 테스트 수행
-- JWT 시크릿 긴급 점검: 소스코드/설정 파일 하드코딩 스캔 (trufflehog, gitleaks)
+- [ ] Notepad++ 설치 현황 파악 및 해시 검증 ([공식 공지](https://notepad-plus-plus.org/news/hijacked-incident-info-update/))
+- [ ] EDR/SIEM에 Notepad++ 비정상 행위 및 랜섬웨어 탐지 쿼리 적용
+- [ ] Sinobi/Lynx IOC 반영 (SK쉴더스 KARA 리포트 참조)
+- [ ] 백업 무결성 검증 및 복구 테스트 수행
+- [ ] JWT 시크릿 긴급 점검: 소스코드/설정 파일 하드코딩 스캔 (trufflehog, gitleaks)
 
 ### P1 - 이번 주
 
-- JWT 서명 알고리즘 감사: HS256 사용 서비스 -> RS256/ES256 전환 계획
-- Kubernetes 시크릿 관리 점검 (etcd 암호화 또는 VSO 도입)
-- RDP 접근 관리 현황 점검 (Boundary 0.21 패스워드리스 평가)
-- MITRE ATT&CK 커버리지 측정: 현재 탐지 룰의 매트릭스 커버리지율
-- 위협 인텔리전스 피드: Lynx/BlackField/Sinobi IOC 구독/갱신
+- [ ] JWT 서명 알고리즘 감사: HS256 사용 서비스 -> RS256/ES256 전환 계획
+- [ ] Kubernetes 시크릿 관리 점검 (etcd 암호화 또는 VSO 도입)
+- [ ] RDP 접근 관리 현황 점검 (Boundary 0.21 패스워드리스 평가)
+- [ ] MITRE ATT&CK 커버리지 측정: 현재 탐지 룰의 매트릭스 커버리지율
+- [ ] 위협 인텔리전스 피드: Lynx/BlackField/Sinobi IOC 구독/갱신
 
 ### P2 - 이번 달
 
-- 레드팀 프로그램 기획: Sinobi TTP 기반 시나리오 포함
-- 데이터 중심 제로트러스트 로드맵: 데이터 분류 -> 보호 -> 모니터링
-- Vertical AI 파일럿: SOC Tier 1 알림 분류 자동화 PoC
-- 공급망 보안 정책 수립: SBOM 관리, 코드 서명 검증 프로세스
-- OT 보안 점검: IT-OT 경계 보안 상태 확인
+- [ ] 레드팀 프로그램 기획: Sinobi TTP 기반 시나리오 포함
+- [ ] 데이터 중심 제로트러스트 로드맵: 데이터 분류 -> 보호 -> 모니터링
+- [ ] Vertical AI 파일럿: SOC Tier 1 알림 분류 자동화 PoC
+- [ ] 공급망 보안 정책 수립: SBOM 관리, 코드 서명 검증 프로세스
+- [ ] OT 보안 점검: IT-OT 경계 보안 상태 확인
 
 ---
 
