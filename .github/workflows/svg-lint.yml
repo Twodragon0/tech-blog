@@ -100,14 +100,14 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
         with:
           # Fetch enough history so the size-gate step can diff PR head
           # against the merge base of the target branch.
           fetch-depth: 0
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
         with:
           python-version: '3.11'
 
@@ -280,11 +280,11 @@ jobs:
     outputs:
       should-run: ${{ steps.filter.outputs.mermaid }}
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
         with:
           fetch-depth: 2
       - id: filter
-        uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d  # v4
+        uses: dorny/paths-filter@7b450fff21473bca461d4b92ce414b9d0420d706  # v4
         with:
           filters: |
             mermaid:
@@ -309,24 +309,24 @@ jobs:
       # Mirror the Vercel/CI production build (empty baseurl). See jekyll.yml.
       BASEURL: ""
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
         with:
           fetch-depth: 0
 
       - name: Setup Ruby (Jekyll build)
-        uses: ruby/setup-ruby@89f90524b88a01fe6e0b732220432cc6142926af  # v1
+        uses: ruby/setup-ruby@003a5c4d8d6321bd302e38f6f0ec593f77f06600  # v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
 
       - name: Setup Node.js
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020  # v6
         with:
           node-version: '20'
           cache: 'npm'
 
       - name: Setup Python (build.sh favicon/raster deps)
-        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1  # v6
         with:
           python-version: '3.11'
           cache: 'pip'
