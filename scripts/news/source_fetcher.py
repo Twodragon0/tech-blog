@@ -63,11 +63,13 @@ def fetch_article(url: str, *, cache_path: Optional[str] = None,
     cache = _load_cache(cache_path)
     key = _key(url)
     entry = cache.get(key)
-    if entry:
+    if isinstance(entry, dict):
         try:
-            if datetime.fromisoformat(entry["expires_at"]) > now:
+            if datetime.fromisoformat(entry.get("expires_at")) > now:
                 return entry.get("text") or None
-        except (KeyError, ValueError):
+        except (KeyError, ValueError, TypeError):
+            # malformed entry (missing/non-string expires_at, tz mismatch) →
+            # fall through and re-fetch; never raise to the caller (fail-closed)
             pass
     try:
         html = _http_get(url)
