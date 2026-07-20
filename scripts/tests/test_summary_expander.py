@@ -53,6 +53,19 @@ def test_honesty_accepts_grounded_text():
         "CVE-2026-1234 는 3 개 제품에 영향", src) is True
 
 
+def test_honesty_rejects_substring_number_false_ground():
+    # "42" is a contiguous substring of "1425" but not a real number token in
+    # the source — must NOT be accepted as grounded.
+    assert summary_expander.is_source_grounded(
+        "영향받은 시스템은 42대", "the incident involved 1425 hosts") is False
+
+
+def test_honesty_accepts_exact_number_token():
+    # Comma-normalized exact match: "1,000" (source) grounds "1000" (expansion).
+    assert summary_expander.is_source_grounded(
+        "총 1,000건", "reported 1000 cases") is True
+
+
 def test_returns_none_when_llm_raises():
     def boom(prompt, timeout=35):
         raise RuntimeError("gemini cli failed")

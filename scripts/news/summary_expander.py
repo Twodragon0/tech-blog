@@ -14,19 +14,22 @@ _MAX_SOURCE_CHARS = 6000   # bound prompt size / cost
 _MIN_OUTPUT_CHARS = 120
 
 _CVE_RE = re.compile(r"CVE-\d{4}-\d+")
-_NUM_RE = re.compile(r"\d[\d,]{1,}")  # multi-digit numbers / stats
+_NUM_RE = re.compile(r"\d[\d,]*\d|\d")  # full digit runs (comma-grouped), not substrings
 
 
 def is_source_grounded(expanded: str, article_text: str) -> bool:
-    """Every CVE and multi-digit statistic asserted in `expanded` must also
-    appear in the source. Prevents the LLM inventing counts/identifiers."""
+    """Every CVE and number asserted in `expanded` must also appear in the
+    source, as an EXACT token — not merely a substring of some other digit
+    run. Prevents the LLM inventing counts/identifiers (e.g. "42" must not
+    be accepted just because "1425" contains it)."""
     hay = article_text or ""
+    source_cves = set(_CVE_RE.findall(hay))
     for cve in _CVE_RE.findall(expanded):
-        if cve not in hay:
+        if cve not in source_cves:
             return False
+    source_nums = {n.replace(",", "") for n in _NUM_RE.findall(hay)}
     for num in _NUM_RE.findall(expanded):
-        norm = num.replace(",", "")
-        if norm not in hay.replace(",", ""):
+        if num.replace(",", "") not in source_nums:
             return False
     return True
 
