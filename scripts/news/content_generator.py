@@ -2803,6 +2803,38 @@ def _normalize_deep_analysis(text: str) -> str:
     return "\n".join(out_lines)
 
 
+def _fetch_article_for(url: str):
+    try:
+        from source_fetcher import fetch_article
+    except ImportError:
+        from scripts.news.source_fetcher import fetch_article
+    cache = os.path.join(
+        os.path.dirname(__file__), "..", "..", "_data", "source_articles_cache.json")
+    return fetch_article(url, cache_path=cache)
+
+
+def _expand_summary_for(item, article_text):
+    try:
+        from summary_expander import expand_summary
+    except ImportError:
+        from scripts.news.summary_expander import expand_summary
+    return expand_summary(item, article_text)
+
+
+def _maybe_source_expansion(item):
+    """Sub-project A entry: gated source-grounded expansion. Returns
+    normalized markdown or None (caller keeps current behavior)."""
+    if os.getenv("DIGEST_SOURCE_EXPANSION") != "1":
+        return None
+    article = _fetch_article_for(item.get("url", ""))
+    if not article:
+        return None
+    expanded = _expand_summary_for(item, article)
+    if not expanded:
+        return None
+    return _normalize_deep_analysis(expanded)
+
+
 def generate_news_section(
     item: Dict, section_num: str, is_critical: bool = False
 ) -> str:
@@ -2867,6 +2899,14 @@ def generate_news_section(
 
     # AI 강화 시도 (Critical/High 보안 뉴스만) - 3단계 폴백 체인 사용
     if is_critical and category in ("security", "devsecops"):
+        expanded = _maybe_source_expansion(item)
+        if expanded:
+            section += expanded + "\n\n"
+            if cve_ids:
+                section += generate_mitre_mapping(cve_ids[0], item)
+            section += "\n---\n\n"
+            return section
+
         enhanced = enhance_content_with_fallback(item)
         if enhanced:
             section += _normalize_deep_analysis(enhanced) + "\n\n"

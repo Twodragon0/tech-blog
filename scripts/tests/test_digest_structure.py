@@ -84,3 +84,24 @@ def test_security_template_has_no_recommended_actions_checklist():
     assert "- [ ]" not in tmpl
 
 
+import content_generator
+
+
+def test_expansion_disabled_by_default(monkeypatch):
+    monkeypatch.delenv("DIGEST_SOURCE_EXPANSION", raising=False)
+    # _maybe_source_expansion returns None when the flag is off
+    assert content_generator._maybe_source_expansion(
+        {"title": "t", "url": "https://x", "category": "security"}) is None
+
+
+def test_expansion_returns_normalized_when_enabled(monkeypatch):
+    monkeypatch.setenv("DIGEST_SOURCE_EXPANSION", "1")
+    monkeypatch.setattr(content_generator, "_fetch_article_for", lambda url: "SRC " * 50)
+    monkeypatch.setattr(content_generator, "_expand_summary_for",
+                        lambda item, txt: "## 1. 배경\n내용")  # H2 → must be demoted
+    out = content_generator._maybe_source_expansion(
+        {"title": "t", "url": "https://x", "category": "security"})
+    assert out is not None
+    assert "## 1. 배경" not in out and "#### 배경" in out
+
+
