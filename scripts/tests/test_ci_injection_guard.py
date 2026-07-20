@@ -1,6 +1,6 @@
 """
 Forked from claudesec scanner/tests/test_ci_no_code_injection_regression.py @
-5226f53 (2026-07-20). Self-contained.
+82f8f3d (2026-07-20). Self-contained.
 
 Regression guard: no CWE-94 (OWASP A03:2021 - Injection) code-injection sites
 where a bash variable is interpolated DIRECTLY into a `python3 -c "..."` /
@@ -27,18 +27,30 @@ locates every `python3 -c "..."` / `python -c "..."` invocation whose `-c`
 argument is DOUBLE-quoted, captures the program text up to the matching
 (unescaped) closing double quote - programs commonly span multiple lines, so
 the file is scanned as one joined text, not line-by-line - and flags the site
-if that captured body contains ANY unescaped `$`. Whole-line `#` comments are
-stripped first so a `$VAR` surviving only in a comment cannot trip the guard.
+if that captured body contains an unescaped, bash-EXPANDABLE `$` (see the
+detection rule below). Whole-line `#` comments are stripped first so a `$VAR`
+surviving only in a comment cannot trip the guard.
 
-Detection rule: "any unescaped `$`"
--------------------------------------
-Inside a bash double-quoted string, an unescaped `$` ALWAYS begins an
-expansion - there is no double-quoted context where a bare `$` is inert. That
-covers not just the named/braced/command-substitution forms (`$NAME`,
-`${...}`, `$(...)`) but every positional and special parameter too: `$1`..`$9`,
-`$0`, `$@`, `$*`, `$#`, `$?`, `$$`, `$!`, `$-`. A single "any unescaped `$`"
-rule (`has_unescaped_dollar`) subsumes all of these in one check. A `\\$`
-(backslash-escaped literal dollar) is correctly excluded.
+Detection rule: "unescaped, bash-EXPANDABLE `$`" (hardened + precise)
+--------------------------------------------------------------------
+The rule flags an unescaped `$` that bash would actually EXPAND inside a
+double-quoted string: `$` (not `\\$`) immediately followed by a name char,
+`{`, `(`, or a positional/special parameter char. That covers the named/
+braced/command-substitution forms (`$NAME`, `${...}`, `$(...)`) AND every
+positional and special parameter: `$1`..`$9`, `$0`, `$@`, `$*`, `$#`, `$?`,
+`$$`, `$!`, `$-`. An earlier version enumerated only named/braced/substitution
+shapes and MISSED the positional/special forms - demonstrated live via
+`set -- alpha; python3 -c "print('$1')"`, which leaks `alpha` exactly like
+`$NAME`. A still-earlier hardening over-corrected to "ANY unescaped `$`",
+which FALSE-flagged a bash-inert `$` (one before a quote, `)`, whitespace,
+`.`, or end-of-string - e.g. a regex end-anchor `r'...$'` inside a `-c` body
+is literal text, not an expansion; this fork's own `build.sh` has exactly this
+shape, `re.match(r'^sentry_dsn:.*$', line)`). The current rule
+(`has_unescaped_dollar` via `_DOLLAR_TOKEN_RE`) catches every real expansion
+without that false positive - this is a re-sync from this fork's prior "ANY
+unescaped `$`" rule (a standalone `_UNESCAPED_DOLLAR_RE` predicate, now
+removed in favor of one shared regex). A `\\$` (backslash-escaped literal
+dollar) is excluded.
 
 Regression-pin semantics
 -------------------------
@@ -117,13 +129,19 @@ def strip_comment_lines(text: str) -> str:
 # unescaped closing `"`. re.DOTALL so the body can span multiple lines.
 _PYC_RE = re.compile(r'python3?\s+-c\s+"((?:\\.|[^"\\])*)"', re.DOTALL)
 
-# The ACTUAL violation condition: any `$` in the captured body that is NOT
-# immediately preceded by a backslash.
-_UNESCAPED_DOLLAR_RE = re.compile(r"(?<!\\)\$")
-
-# Recognizable expansion TOKEN shapes, used only to render a readable
-# `relpath:construct` string in the violation report - NOT the detection
-# condition (that is `has_unescaped_dollar`, below).
+# The ACTUAL violation condition: an unescaped `$` that bash would actually
+# EXPAND inside a double-quoted string - i.e. `$` (not backslash-escaped)
+# immediately followed by a name char, `{`, `(`, or a positional/special
+# parameter char (`0-9 @ * # ? $ ! -`). This catches every real expansion
+# (`$NAME`, `${...}`, `$(...)`, `$1`, `$@`, `$*`, `$#`, `$?`, `$$`, `$!`, `$-`)
+# without flagging a `$` that bash leaves inert: `$` before a quote, `)`,
+# whitespace, `.`, or end-of-string is literal (e.g. a regex end-anchor
+# `r'...$'` inside a `-c` body is safe, not an expansion). `${[^}]*}` and
+# `$([^)]*)` are deliberately non-nested (sufficient for the flat
+# interpolations this guard targets; a nested `${a:-$(b)}` still matches on
+# its boundary and still flags the site). This regex is BOTH the detection
+# condition (`has_unescaped_dollar`) and the source of the readable
+# `relpath:construct` report string (`violating_constructs`).
 _DOLLAR_TOKEN_RE = re.compile(
     r"(?<!\\)\$(?:\{[^}]*\}|\([^)]*\)|[A-Za-z_][A-Za-z0-9_]*|[0-9@*#?$!-])"
 )
@@ -142,9 +160,13 @@ def find_double_quoted_c_bodies(text: str) -> list:
 
 
 def has_unescaped_dollar(body: str) -> bool:
-    """True if `body` contains ANY unescaped `$` - the actual violation
-    condition."""
-    return bool(_UNESCAPED_DOLLAR_RE.search(body))
+    """True if `body` contains an unescaped `$` that bash would EXPAND - the
+    actual violation condition (see `_DOLLAR_TOKEN_RE`). Covers named vars,
+    `${...}`, `$(...)`, and every positional/special parameter (`$1`, `$@`,
+    ...) in one rule. It deliberately does NOT flag a bash-inert `$` (before
+    a quote/`)`/space/`.`/EOL, e.g. a regex end-anchor `r'...$'`), which is
+    literal text, not an expansion - avoiding that false positive."""
+    return bool(_DOLLAR_TOKEN_RE.search(body))
 
 
 def violating_constructs(body: str) -> list:
@@ -449,6 +471,32 @@ class TestInjectionDetectorMutation(unittest.TestCase):
             "False positive: an escaped `\\$` (literal dollar) was flagged "
             "as an expansion.",
         )
+
+    def test_quiet_on_regex_end_anchor_dollar(self):
+        # A `$` that bash does NOT expand - here a regex end-anchor before a
+        # quote (`...$'`). Inside a double-quoted -c body bash leaves this `$`
+        # literal (it is not followed by a name char/`{`/`(`/special param),
+        # so it is safe and must not be flagged. Real-world case: this fork's
+        # own build.sh `re.match(r'^sentry_dsn:.*$', line)`.
+        for body in (
+            "import re; re.match(r'^sentry_dsn:.*$', line)",  # before a quote
+            "print('cost is 5 dollars$')",                    # before a quote
+            "x = a $ b",                                       # before whitespace
+            "print('end$')",                                  # before quote/EOL-ish
+        ):
+            self.assertFalse(
+                has_unescaped_dollar(body),
+                f"False positive: a bash-inert `$` was flagged in: {body!r}",
+            )
+
+    def test_fires_on_every_special_param(self):
+        # Every positional/special parameter bash DOES expand must still fire.
+        for tok in ("$1", "$0", "$9", "$@", "$*", "$#", "$?", "$$", "$!", "$-"):
+            body = f"print('{tok}')"
+            self.assertTrue(
+                has_unescaped_dollar(body),
+                f"Mutation FAILED: bash-expandable {tok!r} was not detected.",
+            )
 
     def test_quiet_on_env_var_read(self):
         # The documented-safe fix: no `$` in the body at all.
