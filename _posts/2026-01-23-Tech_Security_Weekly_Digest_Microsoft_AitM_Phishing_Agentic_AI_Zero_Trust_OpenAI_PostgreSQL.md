@@ -236,51 +236,51 @@ OpenAI 방식을 한국 조직에 적용 시 이점:
 
 ---
 
-## 4. 기타 주목할 뉴스
+## 3. 기타 주목할 뉴스
 
-### 4.1 HashiCorp, AWS Kiro Powers 런치 파트너
+### 3.1 HashiCorp, AWS Kiro Powers 런치 파트너
 
 AWS의 새로운 AI 코딩 환경 Kiro의 확장 기능 Kiro powers가 발표되었으며, HashiCorp이 Terraform power로 런치 파트너가 되었습니다.
 
-### 4.2 Capital One, Brex $5.15B 인수
+### 3.2 Capital One, Brex $5.15B 인수
 
 Capital One이 핀테크 기업 Brex를 $5.15B에 인수한다고 발표. 기업 지출 관리 시장의 대형 M&A.
 
-### 4.3 Claude Code 사용 중 계정 차단 사례
+### 3.3 Claude Code 사용 중 계정 차단 사례
 
 개인 프로젝트에서 Claude Code CLI로 CLAUDE.md 파일 생성 자동화 중 계정이 예고 없이 비활성화된 사례가 보고됨. AI 도구 사용 시 이용약관 주의 필요.
 
 ---
 
-## 5. DevSecOps 실무 체크리스트
+## 실무 체크리스트
 
 이번 주 뉴스를 바탕으로 한 즉시 점검 가능한 항목들:
 
 ### 긴급 (이번 주 내 조치)
 
-- 피싱 방지 MFA 도입 상태 점검: FIDO2/Passkey 지원 여부 확인
-- SharePoint 외부 공유 설정 감사: Anyone 링크 비활성화
-- 받은편지함 규칙 모니터링 설정: 의심스러운 규칙 자동 알림
+- [ ] 피싱 방지 MFA 도입 상태 점검: FIDO2/Passkey 지원 여부 확인
+- [ ] SharePoint 외부 공유 설정 감사: Anyone 링크 비활성화
+- [ ] 받은편지함 규칙 모니터링 설정: 의심스러운 규칙 자동 알림
 
 ### 중요 (이번 달 내 계획)
 
-- Agentic AI 보안 정책 수립: NHI 관리 체계 검토
-- 동적 시크릿 관리 도입: Vault 또는 유사 솔루션 검토
-- PostgreSQL 스케일링 아키텍처 검토: Connection pooling, Read replica 구성
+- [ ] Agentic AI 보안 정책 수립: NHI 관리 체계 검토
+- [ ] 동적 시크릿 관리 도입: Vault 또는 유사 솔루션 검토
+- [ ] PostgreSQL 스케일링 아키텍처 검토: Connection pooling, Read replica 구성
 
 ### 권장 (분기 내 검토)
 
-- AI 도구 활용 SRE 자동화: Gemini CLI 또는 유사 도구 파일럿
-- LLM 추론 인프라 최적화: vLLM 도입 검토
-- AI 생성 콘텐츠 검증 체계: 내부 문서/코드 리뷰 프로세스
+- [ ] AI 도구 활용 SRE 자동화: Gemini CLI 또는 유사 도구 파일럿
+- [ ] LLM 추론 인프라 최적화: vLLM 도입 검토
+- [ ] AI 생성 콘텐츠 검증 체계: 내부 문서/코드 리뷰 프로세스
 
 ---
 
-## 6. Threat Hunting 가이드
+## 4. Threat Hunting 가이드
 
 이번 주 주요 위협에 대한 능동적 위협 헌팅(Threat Hunting) 쿼리 및 절차를 제공합니다.
 
-### 6.1 AitM 피싱 공격 헌팅
+### 4.1 AitM 피싱 공격 헌팅
 
 #### Hunting Hypothesis (가설)
 "우리 조직 내에 이미 AitM 피싱으로 계정이 탈취되었으나 아직 탐지되지 않은 사용자가 있을 수 있다."
@@ -309,7 +309,7 @@ Step 4: Vault Audit Log 이상 패턴
 }
 ```
 
-### 6.3 Threat Hunting 보고서 템플릿
+### 4.3 Threat Hunting 보고서 템플릿
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
