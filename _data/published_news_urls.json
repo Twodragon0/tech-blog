@@ -1,90 +1,6 @@
 {
-  "updated_at": "2026-07-19T01:51:10.911104+00:00",
+  "updated_at": "2026-07-20T02:07:36.119295+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/us-government-entity-paid-kairos-group.html",
-      "title": "U.S. Government Entity Paid Kairos $1 Million in Data-Theft Extortion Case",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/north-korean-hackers-publish-108.html",
-      "title": "North Korean Hackers Publish 108 Malicious Packages and Extensions in PolinRider",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/jadepuffer-ransomware-used-ai-agent-to-automate-entire-attack/",
-      "title": "JadePuffer ransomware used AI agent to automate entire attack",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/07/04/alibaba-reportedly-bans-employees-from-using-claude-code/",
-      "title": "Alibaba reportedly bans employees from using Claude Code",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/moonbeam-pivots-from-polkadot-to-base-unveils-ai-agent-framework?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Moonbeam to pivot from Polkadot to Base, unveils AI agent framework",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/kraken-lets-traders-use-tokenized-stocks-as-collateral-for-leveraged-trades?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Kraken lets traders use tokenized stocks as collateral for leveraged trades",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/world-cup-drives-prediction-markets-to-record-june-trading-volumes?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Kalshi hits record June trading volume as World Cup fuels prediction markets",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/revolut-usdt-delisting-regulatory-risk-concerns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Revolut to delist USDT in August, citing regulatory and risk concerns",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/tim-draper-denies-moving-bitcoin-250k-btc-prediction?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Tim Draper denies moving Bitcoin, reiterates $250,000 BTC prediction",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31138",
-      "title": "Command &amp; Conquer Generals, Fable로 macOS·iPhone·iPad 네이티브 포팅",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31136",
-      "title": "Linux htop/top 화면에 보이는 값들 해설 (2019)",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31135",
-      "title": "YouTube 크리에이터의 비공개 영상 유출",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31134",
-      "title": "MemNixFS - 리눅스 메모리 덤프를 파일시스템으로 변환해 조사하는 도구",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31133",
-      "title": "Show GN: Cluedoc: 코드베이스 이해를 돕는 문서 작성 에이전트 스킬",
-      "published_date": "2026-07-05",
-      "expires_at": "2026-07-12T02:10:54.901476+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/flipper-zero-firmware-development-continues-with-community-help/",
       "title": "Flipper Zero firmware development continues with community help",
@@ -1326,6 +1242,96 @@
       "title": "100만 개 키워드가 보여준, AI가 검색에 미치는 영향",
       "published_date": "2026-07-19",
       "expires_at": "2026-07-26T01:51:10.911009+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html",
+      "title": "Critical NGINX Vulnerability Can Crash Workers and May Allow Remote Code Executi",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/uac-0145-uses-clickfix-captchas-to.html",
+      "title": "UAC-0145 Uses ClickFix CAPTCHAs to Infect Ukrainian Devices wih Malware",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/sonicwall-sma-zero-days-exploited.html",
+      "title": "SonicWall SMA Zero-Days Exploited Before Disclosure to Gain Root Access",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-abuse-vipnet-software-to-target-russian-govt-agencies/",
+      "title": "Hackers abuse ViPNet software to target Russian govt agencies",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/navigating-legacy-codebases-with-kiro-code-intelligence/",
+      "title": "십만 줄 코드베이스, AST로 길을 찾다 — Kiro Code Intelligence로 대규모 코드베이스를 이해하는 법",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/japanese-logistics-company-eyes-jpyc-stablecoin-to-pay-drivers?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Japanese logistics company eyes JPYC stablecoin to pay drivers",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/south-korea-probed-40-cases-of-crypto-manipulation-over-2-years?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "South Korea probed 40 cases of crypto manipulation over 2 years",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/will-the-us-get-finally-clarity-this-week-bitcoin-80k-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Will the US get CLARITY this week? Bitcoin’s new $80K target: Hodler’s Digest, J",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/saylor-turns-up-heat-with-110-reasons-why-bip-110-is-a-bad-idea?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Saylor turns up heat with ‘110 reasons’ why BIP-110 is a bad idea",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/federal-agencies-miss-genius-act-deadline?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "US agencies miss GENIUS Act deadline for final stablecoin rules",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31609",
+      "title": "합성 소비자, 실전 활용 가능성을 입증하다",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31608",
+      "title": "태스크 이코노미 - 데이터가 만드는 다음 1조 달러 시장",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31606",
+      "title": "데이터가 유일한 해자다",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31605",
+      "title": "IPTV보다 더 좋고 저렴한 Castor",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31604",
+      "title": "Supabase가 조사한 2026년 스타트업 현황",
+      "published_date": "2026-07-20",
+      "expires_at": "2026-07-27T02:07:36.119185+00:00"
     }
   ]
 }
