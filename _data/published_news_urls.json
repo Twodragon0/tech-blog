@@ -1,90 +1,6 @@
 {
-  "updated_at": "2026-07-20T02:07:36.119295+00:00",
+  "updated_at": "2026-07-21T01:51:36.233119+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/flipper-zero-firmware-development-continues-with-community-help/",
-      "title": "Flipper Zero firmware development continues with community help",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/sajo-erp-agentic-ai-strands-agents-sdk/",
-      "title": "사조시스템즈의 사내 ERP 데이터 기반 Agentic AI 구축 여정 – Strands Agents SDK와 Kiro 활용기",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/miricanvas-dual-vector-search-opensearch-3-3-upgrade-2/",
-      "title": "Amazon OpenSearch 3.3 업그레이드로 미리캔버스의 검색 성능 개선",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/miricanvas-dual-vector-search-opensearch-3-3-upgrade-1/",
-      "title": "Amazon OpenSearch Service로 미리캔버스의 듀얼 벡터 검색 도입과 성능 최적화",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/features/asia-express?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Dubai tops Asian crypto hubs, Taiwan passes crypto laws: Asia Express",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/south-africa-proposes-crypto-tax-draft-guidance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "South Africa proposes crypto tax guidance under existing framework",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/binance-outflows-1-23-billion-eth-withdrawals-3-year-high?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Binance outflows triple to $1.2B as ETH withdrawals hit 3-year high",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/vitalik-buterin-shares-top-priorities-for-new-lean-ethereum-roadmap?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Vitalik Buterin shares top priorities for new 'Lean Ethereum' strawmap",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-nears-635k-into-weekly-close-as-trader-warns-of-terrible-monday?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin nears $63.5K into weekly close as trader warns of 'terrible' Monday",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31169",
-      "title": "AI 시대, Figma를 다시 생각하다",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31168",
-      "title": "메모리 아끼면서 Cross Entropy Loss 계산하기",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31167",
-      "title": "라이브 데이터를 공유 가능한 영상으로 자동 변환하는 방법",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31166",
-      "title": "Figma는 다음에 무엇을 할 것인가?",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31165",
-      "title": "AI 코딩 시대의 개발자 역할 변화: 코딩 실행자에서 맥락·검증·제품화 설계자로",
-      "published_date": "2026-07-06",
-      "expires_at": "2026-07-13T02:16:08.981139+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/iran-linked-hackers-use-new-cavern-c2.html",
       "title": "Iran-Linked Hackers Use New Cavern C2 Framework to Target Israeli Organizations",
@@ -1332,6 +1248,96 @@
       "title": "Supabase가 조사한 2026년 스타트업 현황",
       "published_date": "2026-07-20",
       "expires_at": "2026-07-27T02:07:36.119185+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/fakegit-campaign-uses-7600-github.html",
+      "title": "FakeGit Campaign Uses 7,600 GitHub Repositories to Spread SmartLoader Malware",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/exposed-server-reveals-ai-assisted.html",
+      "title": "Exposed Server Reveals AI-Assisted Phishing Toolkit Behind WebDAV Malware Campai",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/introducing-the-amazon-guardduty-investigation-agent-on-demand-ai-powered-threat-assessment/",
+      "title": "Introducing the Amazon GuardDuty investigation agent: on-demand AI-powered threa",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/hollowgraph-malware-hides-c2-and-stolen.html",
+      "title": "HollowGraph Malware Hides C2 and Stolen Files in Microsoft 365 Events Dated 2050",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/weekly-recap-wordpress-rce-sonicwall-0.html",
+      "title": "⚡ Weekly Recap: WordPress RCE, SonicWall 0-Days, AI Service Attacks, SharePoint ",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/siggraph-news-2026/",
+      "title": "At SIGGRAPH, NVIDIA Advances Graphics and Simulation With Agentic and Physical A",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/bristol-myers-squibb-building-life-science-industrys-most-advanced-ai-factory-on-nvidia-vera-rubin/",
+      "title": "Bristol Myers Squibb Building Life Science Industry’s Most Advanced AI Factory o",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://openai.com/index/safety-alignment-long-horizon-models",
+      "title": "Safety and alignment in an era of long-horizon models",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/custom-os-installation-now-available-on-aws-deepracer-devices/",
+      "title": "Custom OS installation now available on AWS DeepRacer devices",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-specialized-agent-workflows-for-your-business-with-amazon-quick-and-nvidia-nemo-agent-toolkit/",
+      "title": "Build specialized agent workflows for your business with Amazon Quick and NVIDIA",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/partners/panasonic-automotive-vskipgen-runs-on-axion-based-c4a-metal/",
+      "title": "Accelerating automotive innovation with C4A-metal and Panasonic Automotive vSkip",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/serverless/cloud-run-multi-region-services-enhanced-for-high-availability/",
+      "title": "Making highly available, multi-region Cloud Run services just got easier",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-one-click-lambda-setup-prompt-openai-gpt-5-6-models-on-bedrock-and-more-july-20-2026/",
+      "title": "AWS Weekly Roundup: One-click Lambda setup prompt, OpenAI GPT-5.6 models on Bedr",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-20-ai-credit-pools-for-cost-centers-in-the-billing-ui",
+      "title": "AI credit pools for cost centers in the billing UI",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available",
+      "title": "GitHub Code Quality is now generally available",
+      "published_date": "2026-07-21",
+      "expires_at": "2026-07-28T01:51:36.232980+00:00"
     }
   ]
 }
