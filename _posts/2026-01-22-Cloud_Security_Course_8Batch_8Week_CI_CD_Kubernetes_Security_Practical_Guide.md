@@ -99,6 +99,23 @@ summary_card:
 
 ---
 
+## 학습 목표
+
+이번 8주차 과정을 마치면 다음을 할 수 있습니다.
+
+- Network Policies·RBAC·Pod Security Standards로 Kubernetes 클러스터의 네트워크 및 접근 제어를 구성할 수 있다.
+- SAST·DAST 코드 스캔과 Trivy·Snyk 이미지 스캔, Vault·Secrets Manager 기반 Secret 관리를 CI/CD 파이프라인에 통합할 수 있다.
+- GPG 서명·Attestation을 통한 파이프라인 무결성 검증을 적용할 수 있다.
+- Cursor·Claude API·GitHub Copilot을 활용해 AI 기반 보안 검증을 CI/CD 워크플로우에 통합할 수 있다.
+- 보안이 강화된 CI/CD 파이프라인과 Kubernetes 보안 환경을 직접 구축할 수 있다.
+
+## 사전 요구사항
+
+- 클라우드 보안 과정 8기 7주차(Docker & Kubernetes 보안)까지의 내용 이해를 권장합니다.
+- Kubernetes 클러스터(또는 Minikube)와 GitHub Actions 등 CI/CD 실행 환경이 필요합니다.
+
+---
+
 ## 1. Kubernetes 네트워크 및 보안
 
 Kubernetes 네트워크 보안은 클러스터 보안의 핵심입니다. 네트워크 정책부터 접근 제어까지 다층 방어 전략을 적용해야 합니다.

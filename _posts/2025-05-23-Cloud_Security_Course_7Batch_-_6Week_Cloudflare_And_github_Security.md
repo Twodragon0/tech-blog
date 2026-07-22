@@ -55,6 +55,20 @@ redirect_from:
 
 클라우드 시큐리티 7기 6주차에서는 AWS WAF, Cloudflare, GitHub 보안 자동화를 다룹니다. 웹 애플리케이션 방화벽부터 DDoS 방어, 코드 보안 스캐닝까지 다층 방어 전략의 실무 적용을 제공합니다.
 
+## 학습 목표
+
+이번 6주차 과정을 마치면 다음을 할 수 있습니다.
+
+- AWS WAF의 SQL Injection·XSS·Rate Limiting·Geo-blocking 규칙과 Managed Rule Group을 설계할 수 있다.
+- Cloudflare의 DDoS 보호·WAF·SSL/TLS(TLS 1.3, HSTS) 등 종합 보안 정책을 구성할 수 있다.
+- GitHub Dependabot·CodeQL·Secret Scanning으로 코드 보안 자동화를 적용할 수 있다.
+- DVWA 실습 환경에서 취약점을 재현하고 WAF 규칙으로 방어를 검증할 수 있다.
+
+## 사전 요구사항
+
+- 클라우드 시큐리티 과정 7기의 이전 주차 내용과 기본적인 AWS 계정 사용 경험을 권장합니다.
+- AWS WAF·Cloudflare·GitHub 계정과 DVWA 실습 환경 구성이 필요합니다.
+
 ## 서론
 
 안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 보안 과정 7기의 Application 보안 및 Cloudflare 및 GitHub 활용을 다루고자 합니다. 이 과정은 게더 타운에서 진행되며, 각 세션은 20분 강의 후 5분 휴식으로 구성되어 있습니다. 이러한 구성은 온라인 강의의 특성 상 눈의 피로를 줄이고, 멘티 분들의 집중력을 최대화하기 위함입니다. 여러분들과 함께 다양한 AWS 보안 모니터링 및 대응 관련 주제를 깊이 있게 다루어 보고자 합니다.
