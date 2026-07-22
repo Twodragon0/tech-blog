@@ -230,17 +230,24 @@ CMD ["node", "server.js"]
 
 ### Docker 컨테이너 보안 체크
 
-- Dockerfile에서 비루트 사용자(`USER 1000:1000`) 설정 확인
-- `readOnlyRootFilesystem: true` 설정으로 파일시스템 보호
-- `capabilities.drop: ALL` 로 불필요한 권한 제거
-- Trivy 또는 Snyk으로 이미지 취약점 스캔 실행
-- 민감 정보를 환경 변수 대신 Kubernetes Secrets로 관리
+- [ ] Dockerfile에서 비루트 사용자(`USER 1000:1000`) 설정 확인
+- [ ] `readOnlyRootFilesystem: true` 설정으로 파일시스템 보호
+- [ ] `capabilities.drop: ALL` 로 불필요한 권한 제거
+- [ ] Trivy 또는 Snyk으로 이미지 취약점 스캔 실행
+- [ ] 민감 정보를 환경 변수 대신 Kubernetes Secrets로 관리
 
 ### Kubernetes 보안 체크
 
-- Pod Security Standards 정책 Namespace에 적용
-- Network Policies로 Pod 간 불필요한 통신 차단
-- RBAC 최소 권한 원칙 검토 및 적용
-- Kubernetes Audit 로그 활성화 여부 확인
-- External Secrets Operator 또는 Sealed Secrets로 Secret 외부 관리
+- [ ] Pod Security Standards 정책 Namespace에 적용
+- [ ] Network Policies로 Pod 간 불필요한 통신 차단
+- [ ] RBAC 최소 권한 원칙 검토 및 적용
+- [ ] Kubernetes Audit 로그 활성화 여부 확인
+- [ ] External Secrets Operator 또는 Sealed Secrets로 Secret 외부 관리
+
+## 관련 강의
+
+같은 클라우드 시큐리티 과정 8기의 앞뒤 주차입니다.
+
+- [8기 6주차: AWS WAF/CloudFront 보안 아키텍처와 GitHub DevSecOps 실습]({% post_url 2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical %})
+- [8기 8주차: CI/CD와 Kubernetes 보안 실습 가이드]({% post_url 2026-01-22-Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide %})
 

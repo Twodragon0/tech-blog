@@ -529,12 +529,12 @@ gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[] | {number, state, s
 
 ### Cloudflare 보안
 
-- SSL/TLS 설정 (TLS 1.3, HSTS 활성화)
-- WAF 규칙 활성화 (OWASP Core Rule Set)
-- DDoS 보호 설정 확인
-- Bot Management 규칙 구성
-- Rate Limiting 설정
-- Page Rules 보안 정책 적용
+- [ ] SSL/TLS 설정 (TLS 1.3, HSTS 활성화)
+- [ ] WAF 규칙 활성화 (OWASP Core Rule Set)
+- [ ] DDoS 보호 설정 확인
+- [ ] Bot Management 규칙 구성
+- [ ] Rate Limiting 설정
+- [ ] Page Rules 보안 정책 적용
 
 ### GitHub 보안
 
@@ -563,6 +563,13 @@ gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[] | {number, state, s
 - Cloudflare Analytics 모니터링
 - GitHub Security Alerts 검토 프로세스
 - 정기 보안 검토 일정 수립
+
+## 관련 강의
+
+같은 클라우드 시큐리티 과정 7기의 앞뒤 주차입니다.
+
+- [7기 3주차: AWS 보안과 FinOps]({% post_url 2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops %})
+- [7기 7주차: Docker와 Kubernetes 이해]({% post_url 2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding %})
 
 ---
 

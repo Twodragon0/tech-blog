@@ -505,12 +505,19 @@ https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-regi
 
 ### 즉시 실행 가능한 액션 아이템
 
-- **1주차**: Trivy를 CI/CD 파이프라인에 통합
-- **2주차**: Falco DaemonSet 배포 및 알림 설정
-- **3주차**: Network Policy 기본 Deny-All 적용
-- **4주차**: Pod Security Standards (Restricted) 활성화
-- **2개월차**: User Namespaces 활성화 (Kubernetes 1.32+)
-- **3개월차**: External Secrets Operator 도입
+- [ ] **1주차**: Trivy를 CI/CD 파이프라인에 통합
+- [ ] **2주차**: Falco DaemonSet 배포 및 알림 설정
+- [ ] **3주차**: Network Policy 기본 Deny-All 적용
+- [ ] **4주차**: Pod Security Standards (Restricted) 활성화
+- [ ] **2개월차**: User Namespaces 활성화 (Kubernetes 1.32+)
+- [ ] **3개월차**: External Secrets Operator 도입
+
+### 관련 강의
+
+같은 클라우드 시큐리티 과정 7기의 앞뒤 주차입니다.
+
+- [7기 6주차: Cloudflare와 GitHub 보안]({% post_url 2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security %})
+- [7기 9주차: DevSecOps 통합]({% post_url 2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration %})
 
 ---
 
