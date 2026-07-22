@@ -1,0 +1,3647 @@
+{
+  "2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage.md": {
+    "total": 90,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 5
+    }
+  },
+  "2025-05-02-Cloud_Security_Course_7Batch_-_3Week_AWS_Security_And_Finops.md": {
+    "total": 89,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 7,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 2
+    }
+  },
+  "2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.md": {
+    "total": 81,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 0,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-05-09-Cloud_Security_Course_7Batch_-_4Week_AWS_Vulnerability_Inspection_And_ISMS_Response_Guide.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security.md": {
+    "total": 86,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 0,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 5,
+      "length": 5
+    }
+  },
+  "2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS.md": {
+    "total": 81,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding.md": {
+    "total": 89,
+    "scores": {
+      "front_matter": 14,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 5
+    }
+  },
+  "2025-05-30-Kubernetes_Minikube_and_K9s_Practice_Guide.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 0,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-06-13-Cloud_Security_Course_7Batch_-_9Week_DevSecOps_Integration.md": {
+    "total": 97,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 2
+    }
+  },
+  "2025-09-10-npm_Ecosystem_Large_scale_Security_Breach_20_Download_Package_Malware_Infection.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2025-09-16-AWS_reInforce_2025_Cloud_Security_Current_and_Future.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2025-09-17-NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2025-10-03-AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.md": {
+    "total": 87,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 2,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-10-31-AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-11-04-Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo.md": {
+    "total": 89,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 4
+    }
+  },
+  "2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer.md": {
+    "total": 88,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 0,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 3
+    }
+  },
+  "2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.md": {
+    "total": 88,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 3
+    }
+  },
+  "2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 0,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-12-19-Cloud_Security_8Batch_4Week_Integration_Security_Vulnerability_Inspection_And_ISMS-P_Certification_Response.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 14,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-01-01-Tesla_FSD_2026_Complete_Guide_Model_Y_Juniper_Security_DevSecOps.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-01-03-OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security.md": {
+    "total": 80,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 7,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 14,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_And_Best_Practice.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 14,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 8,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical.md": {
+    "total": 80,
+    "scores": {
+      "front_matter": 11,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis.md": {
+    "total": 86,
+    "scores": {
+      "front_matter": 11,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 5
+    }
+  },
+  "2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_In_Environment_Management_System_Establishment_And_Protection_Measures_Implementation.md": {
+    "total": 81,
+    "scores": {
+      "front_matter": 14,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 8,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-01-14-AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Setup_Verification_And_Compliance_Monitoring.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-01-14-GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 7,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 13,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 7,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 8,
+      "cross_refs": 5,
+      "length": 2
+    }
+  },
+  "2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.md": {
+    "total": 81,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 8,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-01-22-AWS_GCP_Cloud_Updates_January_2026_EC2_G7e_X8i_Bangkok_Region_European_Sovereign_Cloud.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-01-22-Cloud_Security_Course_8Batch_8Week_CI_CD_Kubernetes_Security_Practical_Guide.md": {
+    "total": 87,
+    "scores": {
+      "front_matter": 12,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 7,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 3
+    }
+  },
+  "2026-01-22-Cloud_Security_Trends_January_2026_Kubernetes_82_Percent_Production_VS_Code_Threats_CNCF_Survey.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-01-22-KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-01-22-KISA_Security_Advisory_Ransomware_Prevention_Linux_Rootkit_Detection_Guide_Analysis.md": {
+    "total": 88,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 3
+    }
+  },
+  "2026-01-22-Security_Vendor_Blog_Weekly_Review.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-01-23-Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 0,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-01-24-Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker.md": {
+    "total": 80,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 5
+    }
+  },
+  "2026-01-25-Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 13,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks.md": {
+    "total": 80,
+    "scores": {
+      "front_matter": 12,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e.md": {
+    "total": 81,
+    "scores": {
+      "front_matter": 13,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-01-28-Claude_MD_Security_Guide.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-01-28-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-01-31-January_2026_Security_Digest_Monthly_Index.md": {
+    "total": 49,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 7,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture.md": {
+    "total": 87,
+    "scores": {
+      "front_matter": 13,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 4
+    }
+  },
+  "2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-02-02-Weekly_Security_Threat_Intelligence_Digest.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-02-Weekly_Tech_AI_Blockchain_Digest.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-03-Weekly_Security_DevOps_Digest.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Comparison.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-02-04-Tech_Security_Weekly_Digest_AI_Docker_Data_Go.md": {
+    "total": 87,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 8,
+      "cross_refs": 5,
+      "length": 4
+    }
+  },
+  "2026-02-05-AI_Content_Creator_Workflow_2026_Blog_Video_Music_Animation.md": {
+    "total": 81,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-05-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go.md": {
+    "total": 99,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 5,
+      "length": 5
+    }
+  },
+  "2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-02-07-Tech_Security_Weekly_Digest_AI_Malware_Go_Security.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-02-08-Tech_Security_Weekly_Digest_AI_Ransomware_Data.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.md": {
+    "total": 90,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 8,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-12-Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-02-13-Tech_Security_Weekly_Digest_AI_Go_Security_Agent.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 12,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-16-Daily_Tech_Digest_RSS_Roundup.md": {
+    "total": 81,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-02-18-Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-02-19-Tech_Security_Weekly_Digest_AWS_Security_Zero-Day_CVE.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud.md": {
+    "total": 97,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 2
+    }
+  },
+  "2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-21-Tech_Security_Weekly_Digest_Data_Rust_AI_Threat.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-02-22-Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-02-23-Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-02-24-Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-25-Claude_Code_OpenCode_Best_Practices.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-25-Tech_Security_Weekly_Digest_AI_Malware_Ransomware_LLM.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-26-Tech_Security_Weekly_Digest_AI_Go_AWS_API.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-27-Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-28-AI_Agent_Security_Architecture_Design_Guide.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-02-28-February_2026_Security_Digest_Monthly_Index.md": {
+    "total": 53,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2026-02-28-Tech_Security_Weekly_Digest_Go_AI_Malware.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-01-Tech_Security_Weekly_Digest_AI_Agent_Ransomware.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-02-Tech_Security_Weekly_Digest_Ransomware_AI_Agent.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-04-Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-03-05-Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-06-Tech_Security_Weekly_Digest_Security_Threat_AI_AWS.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-07-Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-08-Tech_Security_Weekly_Digest_AI_Security.md": {
+    "total": 83,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-03-09-Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-10-Tech_Security_Weekly_Digest_AI_Malware_Security_Data.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-11-Tech_Security_Weekly_Digest_AI_Agent_Data_Malware.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-12-Tech_Security_Weekly_Digest_AI_Malware_AWS_Patch.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-15-Tech_Security_Weekly_Digest_AWS_AI_Bitcoin.md": {
+    "total": 81,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 7,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-03-17-Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-18-Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-19-Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-20-Tech_Security_Weekly_Digest_Malware_Data_Security_Threat.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-21-Tech_Security_Weekly_Digest_Security_CVE_AI_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-22-Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple.md": {
+    "total": 91,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 8,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-03-23-Tech_Security_Weekly_Digest_Ransomware.md": {
+    "total": 82,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-03-24-Tech_Security_Weekly_Digest_Malware_Data_AWS_AI.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-25-Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI.md": {
+    "total": 80,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-03-27-Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps.md": {
+    "total": 81,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day.md": {
+    "total": 85,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain.md": {
+    "total": 84,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-03-30-March_2026_Security_Digest_Monthly_Index.md": {
+    "total": 53,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2026-03-31-Tech_Security_Weekly_Digest_Vulnerability_Patch_AI_GPT.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-01-Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-02-Tech_Security_Weekly_Digest_AI_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-03-Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-04-Tech_Security_Weekly_Digest_Go_AI_Data_Security.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-05-Tech_Security_Weekly_Digest_AWS_AI_Security_Malware.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-04-05-Week1_April_2026_Security_Digest.md": {
+    "total": 91,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2026-04-06-Tech_Security_Weekly_Digest_Patch_AI.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-04-07-Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-08-Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-09-Tech_Security_Weekly_Digest_Cloud_Botnet_AI_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-10-Tech_Security_Weekly_Digest_AI_Malware_Go_Agent.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-11-Tech_Security_Weekly_Digest_AI_Go_CVE_Update.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-12-Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-04-12-Week2_April_2026_Security_Digest.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-04-13-Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-04-14-Tech_Security_Weekly_Digest_Malware_Vulnerability_AI_Data.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-15-Tech_Security_Weekly_Digest_AI_AWS_Agent_Patch.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-16-Tech_Security_Weekly_Digest_AI_Malware_CVE_Patch.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-17-Tech_Security_Weekly_Digest_Botnet_Threat_AI_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-18-Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-19-Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet.md": {
+    "total": 91,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 8,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-04-19-Week3_April_2026_Security_Digest.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-04-21-Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-22-Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-23-Tech_Security_Weekly_Digest_AI_Docker_Go_API.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-24-Tech_Security_Weekly_Digest_Malware_AI_Go_Threat.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-25-Tech_Security_Weekly_Digest_Patch_Security_Threat_Data.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-26-Tech_Security_Weekly_Digest_Malware_Threat_AWS_Go.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-04-27-Tech_Security_Weekly_Digest_AI_Agent.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-04-28-Tech_Security_Weekly_Digest_Data_AI_Malware_AWS.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-29-Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-04-30-Tech_Security_Weekly_Digest_AI_Malware_Rust.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-04-30-Week4_April_2026_Security_Digest.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-05-01-Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-02-Tech_Security_Weekly_Digest_AI_Go_Security_AWS.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-03-Tech_Security_Weekly_Digest_Ransomware_Azure_CVE_Vulnerability.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-05-04-Tech_Security_Weekly_Digest_AI_Data_CVE_Malware.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-05-05-Tech_Security_Weekly_Digest_AI_Patch_AWS.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-06-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-07-Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-08-Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-05-09-Tech_Security_Weekly_Digest_Vulnerability_AI_Threat.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-10-Tech_Security_Weekly_Digest_Malware_Patch_AI_Agent.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-05-12-Tech_Security_Weekly_Digest_AI_CVE_Zero-Day_Data.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-05-13-Tech_Security_Weekly_Digest_AI_Vulnerability_Security_Agent.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-14-Tech_Security_Weekly_Digest_AWS_Patch_AI_Update.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-15-Tech_Security_Weekly_Digest_AI_Threat_AWS_Go.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-05-16-Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-17-Tech_Security_Weekly_Digest_CVE_Vulnerability_Azure_Botnet.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-05-18-Tech_Security_Weekly_Digest_Zero-Day_CVE_AI_Blockchain.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-05-19-Tech_Security_Weekly_Digest_Cloud_AI_Malware_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-20-Tech_Security_Weekly_Digest_AI_AWS_CVE_Vulnerability.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-21-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-22-Tech_Security_Weekly_Digest_AI_AWS_Malware_Threat.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-23-Tech_Security_Weekly_Digest_Ransomware_AI_Malware_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-24-Tech_Security_Weekly_Digest_AI_Malware_AWS_Bitcoin.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-05-25-Tech_Security_Weekly_Digest_AI_Ethereum_Blockchain.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-05-26-Tech_Security_Weekly_Digest_AI_AWS_Botnet_CVE.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-27-Tech_Security_Weekly_Digest_AI_AWS_CVE_Patch.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-28-Tech_Security_Weekly_Digest_AI_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-29-Tech_Security_Weekly_Digest_Vulnerability_Go_AWS_Threat.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-30-Tech_Security_Weekly_Digest_Vulnerability_GPT_CVE_LLM.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-05-31-Tech_Security_Weekly_Digest_CVE_Vulnerability_AI.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-06-01-Tech_Security_Weekly_Digest_Botnet.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-06-02-Tech_Security_Weekly_Digest_AI_Update_Data_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-03-Tech_Security_Weekly_Digest_Patch_Update_AWS_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-04-Tech_Security_Weekly_Digest_Go_AI_Zero-Day_CVE.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-05-Tech_Security_Weekly_Digest_CVE_Patch_Go_AI.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-06-Tech_Security_Weekly_Digest_AI_Threat.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-07-Tech_Security_Weekly_Digest_GPT_Data_AI_API.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-06-08-Tech_Security_Weekly_Digest_AI_Malware_Botnet_Vulnerability.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-06-09-Tech_Security_Weekly_Digest_AWS_Security_AI.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-10-Tech_Security_Weekly_Digest_AI_Data_Zero-Day_Cloud.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-11-Tech_Security_Weekly_Digest_AI_Botnet_Patch_CVE.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-12-Tech_Security_Weekly_Digest_Zero-Day_CVE_ML_AI.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-13-Tech_Security_Weekly_Digest_AI_Go_Agent.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-14-Tech_Security_Weekly_Digest_AI_Go.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-06-15-Tech_Security_Weekly_Digest_AI_Security_Go_Ethereum.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-06-16-Tech_Security_Weekly_Digest_AI_Go_Malware_Vulnerability.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-17-Tech_Security_Weekly_Digest_AI_Go_Update_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-18-Tech_Security_Weekly_Digest_Malware_Patch_AWS_AI.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-19-Tech_Security_Weekly_Digest_Patch_AWS_AI_Agent.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-20-Tech_Security_Weekly_Digest_Patch_AI_Apple_Security.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-06-21-Tech_Security_Weekly_Digest_API_Ransomware_AI_Bitcoin.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-06-22-Tech_Security_Weekly_Digest_Threat_AI_Security.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-06-23-Tech_Security_Weekly_Digest_AI_AWS_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-24-Tech_Security_Weekly_Digest_AI_Security_Agent_Update.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-25-Tech_Security_Weekly_Digest_Malware_AWS_Go_AI.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-26-Tech_Security_Weekly_Digest_AI_Threat.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-27-Tech_Security_Weekly_Digest_Malware_AI_GPT.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-06-28-Tech_Security_Weekly_Digest_AI_GPT_Malware_Agent.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-06-29-Tech_Security_Weekly_Digest_AI_Data_Ethereum_AWS.md": {
+    "total": 91,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-06-30-Tech_Security_Weekly_Digest_Go_AI_AWS_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-01-Tech_Security_Weekly_Digest_AI_Agent_Data_Botnet.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-02-Tech_Security_Weekly_Digest_Patch_Kubernetes_Go_AI.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-03-Tech_Security_Weekly_Digest_Go_AI_Ransomware_Threat.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-04-Tech_Security_Weekly_Digest_Patch_AWS_AI_Malware.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-07-05-Tech_Security_Weekly_Digest_AI_Data_Go_Ransomware.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-07-06-Tech_Security_Weekly_Digest_AI_Agent_AWS.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-07-07-Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-08-Tech_Security_Weekly_Digest_Agent_Go_Data_AI.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-09-Tech_Security_Weekly_Digest_AI_Security_Agent_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-10-Tech_Security_Weekly_Digest_AWS.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-11-Tech_Security_Weekly_Digest_Security_Threat_AWS_Patch.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-12-Tech_Security_Weekly_Digest_Rust_AI_Agent.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-07-13-Tech_Security_Weekly_Digest_AI_GPT_Malware.md": {
+    "total": 88,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 6,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-07-14-Tech_Security_Weekly_Digest_AI_Security_Malware_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-15-Tech_Security_Weekly_Digest_Zero-Day_Patch_AWS_Security.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-16-Tech_Security_Weekly_Digest_Botnet_LLM_Malware_Update.md": {
+    "total": 95,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 5
+    }
+  },
+  "2026-07-17-Tech_Security_Weekly_Digest_AI_Threat_Ransomware_Malware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-18-Tech_Security_Weekly_Digest_AI_Blockchain_Cloud_Kubernetes.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-19-Tech_Security_Weekly_Digest_Update_Patch_AWS_Malware.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-07-20-Tech_Security_Weekly_Digest_Vulnerability_AI_Malware_Zero-Day.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-07-21-Tech_Security_Weekly_Digest_AI_Malware_Threat_Agent.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-22-Tech_Security_Weekly_Digest_AI_Apple_AWS_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  }
+}
