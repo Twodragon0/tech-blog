@@ -39,8 +39,12 @@ Two grounding sources are supported, tried deterministically in order:
 Fail-closed: a post with NEITHER a usable highlights table NOR
 summary_card.highlights+CVE data is SKIPPED entirely (never fabricated).
 
-Idempotent: exec/risk is guarded by ``"## 경영진 브리핑" not in body``; the
-checklist ``- `` → ``- [ ]`` conversion is a no-op once the boxes exist.
+Idempotent: exec/risk is guarded by ``_has_briefing``/``_has_risk`` (which
+also recognize the legacy ``## Executive Summary`` / ``> **경영진 브리핑**`` /
+``### 위험도 평가`` surfaces, not just the canonical native headings); a fresh
+checklist is only inserted when the post has NO checklist surface at all
+(``_has_checklist``), and the ``- `` → ``- [ ]`` conversion is a no-op once the
+boxes exist.
 
 Usage:
     python3 scripts/backfill_digest_native_sections.py --dry-run _posts/a.md _posts/b.md
@@ -85,6 +89,48 @@ _REFS_HEADING = "## 참고 자료"
 # Convert a plain bullet ("- text") to a checkbox ("- [ ] text"); skip lines
 # that are ALREADY a checkbox so the conversion is idempotent.
 _BULLET_RE = re.compile(r"^(\s*)-\s+(?!\[[ xX]?\])(.+)$")
+
+# --- Duplicate-surface guards --------------------------------------------
+# Legacy digests carry the executive/risk/checklist surfaces under a variety
+# of narrative headings (## Executive Summary, a "> **경영진 브리핑**:"
+# blockquote, ### 위험도 평가, ## 실행/조치/보안 운영 체크리스트, numbered
+# "## N. 실무 체크리스트", etc.). The canonical native headings this script
+# inserts (## 경영진 브리핑 / ## 위험 스코어카드 / ## 실무 체크리스트) do NOT
+# byte-match those legacy variants, so a naive insert would DUPLICATE a
+# surface the post already has. These detectors recognize the legacy forms so
+# the guarded inserts short-circuit instead of doubling the section.
+_BRIEFING_BLOCKQUOTE_RE = re.compile(r"^>\s*\*\*경영진 브리핑\*\*", re.MULTILINE)
+# Any heading (H2-H4) whose text contains "체크리스트" — canonical or legacy.
+_CHECKLIST_HEADING_RE = re.compile(r"^#{2,4}\s+.*체크리스트", re.MULTILINE)
+
+
+def _has_briefing(body: str) -> bool:
+    """True when the post already carries an executive-briefing surface, in
+    either the canonical (## 경영진 브리핑), the legacy-H2 (## 경영진 요약 /
+    ## Executive Summary) or the narrative-blockquote (> **경영진 브리핑**:)
+    form. Broader than the old ``## 경영진 브리핑`` check so the exec/risk
+    insert never duplicates a legacy narrative summary."""
+    if any(m in body for m in (_EXEC_HEADING, "## 경영진 요약", "## Executive Summary")):
+        return True
+    return bool(_BRIEFING_BLOCKQUOTE_RE.search(body))
+
+
+def _has_risk(body: str) -> bool:
+    """True when the post already carries a risk-assessment surface, in either
+    the canonical (## 위험 스코어카드 / any 스코어카드) or the legacy H3
+    (### 위험도 평가 / ### 위험 평가 스코어카드) form. Keeps the original bare
+    ``스코어카드`` substring check (superset of the old guard, so byte-invariant
+    on already-enriched posts) and adds the legacy ``위험도 평가`` surface."""
+    return ("스코어카드" in body) or ("위험도 평가" in body)
+
+
+def _has_checklist(body: str) -> bool:
+    """True when the post already carries ANY checklist heading (H2-H4), e.g.
+    the canonical ## 실무 체크리스트, a numbered ## N. 실무 체크리스트, or a
+    legacy ## 실행/조치/보안 운영 체크리스트 / ### 대응 체크리스트. Used to
+    short-circuit the fresh-checklist insert so a second checklist surface is
+    never appended."""
+    return bool(_CHECKLIST_HEADING_RE.search(body))
 
 
 def _split_front_matter(text: str) -> Tuple[str, str]:
@@ -436,8 +482,8 @@ def transform_text(
     # Skip if the post ALREADY carries a briefing surface (## 경영진 브리핑 or
     # legacy ## 경영진 요약) OR a risk scorecard (any 스코어카드) — inserting the
     # combined block would duplicate an existing surface.
-    has_briefing = any(m in body for m in (_EXEC_HEADING, "## 경영진 요약"))
-    has_risk = "스코어카드" in body
+    has_briefing = _has_briefing(body)
+    has_risk = _has_risk(body)
     if not has_briefing and not has_risk:
         block = content_generator._generate_executive_and_risk_sections(
             items, "security", counts, honor_item_severity=True
@@ -486,8 +532,16 @@ def transform_text(
             lines = lines[:start] + repl + lines[end:]
             info["checklist_action"] = f"regenerated (was {n_boxes} boxes)"
             info["checklist_block"] = gen.rstrip("\n")
+    elif _has_checklist(body):
+        # A checklist surface already exists in a NON-canonical form — a
+        # numbered "## N. 실무 체크리스트", a legacy "## 실행/조치/보안 운영
+        # 체크리스트", or an H3 "### 대응 체크리스트". These do not startswith
+        # the exact "## 실무 체크리스트" heading, so the span lookup missed
+        # them, but inserting a fresh canonical checklist here would DUPLICATE
+        # the surface. Skip the insert (never add a second checklist).
+        info["checklist_action"] = "skipped (existing checklist surface)"
     else:
-        # no ## 실무 체크리스트 yet → insert before ## 참고 자료 (or at EOF).
+        # no checklist section of any kind → insert before ## 참고 자료 (or EOF).
         # Emit the SAME normalized shape the regenerate branch would leave
         # (leading + trailing '---' separators, generator's own leading '---'
         # stripped) so a re-run — which now sees the heading and, when the
