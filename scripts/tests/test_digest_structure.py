@@ -84,3 +84,30 @@ def test_security_template_has_no_recommended_actions_checklist():
     assert "- [ ]" not in tmpl
 
 
+import content_generator
+
+
+def test_expansion_disabled_by_default(monkeypatch):
+    monkeypatch.delenv("DIGEST_SOURCE_EXPANSION", raising=False)
+    # Prove the flag SHORT-CIRCUITS before any fetch/LLM: wire fetch+expand to
+    # raise if called. With the flag off they must never be reached, so the
+    # call returns None without raising (and without a real HTTP attempt).
+    def _boom(*a, **k):
+        raise AssertionError("fetch/expand must not run when flag is off")
+    monkeypatch.setattr(content_generator, "_fetch_article_for", _boom)
+    monkeypatch.setattr(content_generator, "_expand_summary_for", _boom)
+    assert content_generator._maybe_source_expansion(
+        {"title": "t", "url": "https://x", "category": "security"}) is None
+
+
+def test_expansion_returns_normalized_when_enabled(monkeypatch):
+    monkeypatch.setenv("DIGEST_SOURCE_EXPANSION", "1")
+    monkeypatch.setattr(content_generator, "_fetch_article_for", lambda url: "SRC " * 50)
+    monkeypatch.setattr(content_generator, "_expand_summary_for",
+                        lambda item, txt: "## 1. 배경\n내용")  # H2 → must be demoted
+    out = content_generator._maybe_source_expansion(
+        {"title": "t", "url": "https://x", "category": "security"})
+    assert out is not None
+    assert "## 1. 배경" not in out and "#### 배경" in out
+
+

@@ -154,3 +154,4 @@ _site_test/
 
 # Build/lint report artifacts
 reports/
+_data/source_articles_cache.json
