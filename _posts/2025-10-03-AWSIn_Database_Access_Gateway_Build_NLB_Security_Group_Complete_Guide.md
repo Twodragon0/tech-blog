@@ -74,6 +74,12 @@ redirect_from:
 
 데이터베이스 접근 게이트웨이는 Zero Trust 아키텍처를 통해 보안을 강화합니다.
 
+## 사전 준비
+
+- AWS 계정과 대상 데이터베이스(RDS·ElastiCache·DocumentDB·Redshift 등)가 배포된 VPC 환경이 필요합니다.
+- Terraform 실행 환경과 인프라를 배포할 수 있는 IAM 권한이 필요합니다.
+- Network Load Balancer와 Security Group을 생성·수정할 수 있는 네트워크 구성 권한이 필요합니다.
+
 ## 배경: 왜 데이터베이스 접근 게이트웨이가 필요한가?
 
 많은 기업에서 여러 팀이 수십 개의 데이터베이스를 사용합니다:

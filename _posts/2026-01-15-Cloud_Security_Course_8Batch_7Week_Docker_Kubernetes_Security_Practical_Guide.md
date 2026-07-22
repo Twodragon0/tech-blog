@@ -99,6 +99,23 @@ summary_card:
 
 ---
 
+## 학습 목표
+
+이번 7주차 과정을 마치면 다음을 할 수 있습니다.
+
+- Docker 이미지·컨테이너의 개념과 VM 대비 컨테이너 격리 원리를 설명할 수 있다.
+- Trivy·Snyk 이미지 스캔, 비루트 사용자 실행, 읽기 전용 파일시스템 등 컨테이너 보안 모범 사례를 적용할 수 있다.
+- Kubernetes Secrets와 External Secrets Operator·Sealed Secrets의 차이를 이해하고 Secret을 안전하게 관리할 수 있다.
+- Pod Security Standards·Network Policies·RBAC 최소 권한으로 Kubernetes 클러스터 보안 아키텍처를 설계할 수 있다.
+- Minikube 실습 환경에서 위 보안 설정을 직접 구성하고 검증할 수 있다.
+
+## 사전 요구사항
+
+- 클라우드 보안 과정 8기 6주차(AWS WAF/CloudFront·GitHub DevSecOps)까지의 내용 이해를 권장합니다.
+- 로컬 실습을 위한 Docker와 Minikube/kubectl 실행 환경이 필요합니다.
+
+---
+
 ## 1. Docker/Container/Kubernetes 기본 이해
 
 컨테이너와 Kubernetes를 이해하기 전에 기본 개념을 명확히 하는 것이 중요합니다.

@@ -157,10 +157,80 @@ def validate_length(content: str) -> int:
     return int(lines / 100)
 
 
-def validate_post(filepath: Path) -> dict[str, object]:
-    """포스트 품질 검증"""
-    content = filepath.read_text(encoding="utf-8")
+INDEX_TAG = "monthly-index"
 
+# Both authoring styles for dated digest links must be counted:
+DATED_LINK = re.compile(r"/posts/\d{4}/\d{2}/\d{2}/")  # raw permalink (how indexes are written)
+POST_URL = re.compile(r"{%\s*post_url")  # Liquid form (future-proof)
+
+
+def is_index_post(content: str, filename: str) -> bool:
+    """True iff the post is a monthly-index aggregator page.
+
+    Authoritative signal: the `monthly-index` front-matter tag. Scanned only
+    within the front-matter window so a body mention of the word cannot
+    trigger a false positive.
+    """
+    fm_block = content[:1100]  # same window validate_front_matter uses
+    m = re.search(r"^tags:\s*(.+)$", fm_block, re.MULTILINE)
+    if m and INDEX_TAG in m.group(1):
+        return True
+    return False
+
+
+def index_signal_drift(content: str, filename: str) -> str:
+    """Non-scoring drift warning: tag vs filename disagreement."""
+    tag = is_index_post(content, filename)
+    fname = "Monthly_Index" in filename
+    if tag != fname:
+        return (
+            f"Index signal drift: tag monthly-index={tag} but "
+            f"filename Monthly_Index={fname}"
+        )
+    return ""
+
+
+def validate_index_coverage(content: str) -> int:
+    """디제스트 링크 커버리지 (35점) — 인덱스 페이지의 핵심 산출물.
+
+    Counts dated digest links in BOTH raw permalink and Liquid post_url styles.
+    """
+    links = len(DATED_LINK.findall(content)) + len(POST_URL.findall(content))
+    in_table = bool(re.search(r"\|\s*(날짜|주제|링크)\s*\|", content))
+    score = 0
+    if links >= 5:
+        score += 25  # substantive coverage
+    elif links >= 1:
+        score += links * 5  # partial
+    if in_table:
+        score += 10  # organized as a navigable table
+    return min(35, score)
+
+
+def validate_index_structure(content: str) -> tuple[int, int]:
+    """주차별 구조 (20점) + 편집 섹션 (10점)."""
+    weekly = len(re.findall(r"^##\s*\d+\s*주차", content, re.MULTILINE))
+    weekly_score = 20 if weekly >= 3 else weekly * 7  # ≥3 weekly buckets = full
+    editorial = sum(
+        kw in content for kw in ("## 개요", "월간 주요 트렌드", "## 통계")
+    )
+    editorial_score = round(editorial / 3 * 10)
+    return min(20, weekly_score), editorial_score
+
+
+def validate_index_excerpt(content: str) -> int:
+    """요약문 품질 (10점) — 실질적 요약을 보상, 스텁을 억제."""
+    fm = content[:1100]
+    score = 0
+    for field in ("excerpt:", "description:"):
+        m = re.search(rf'^{field}\s*"?(.+?)"?\s*$', fm, re.MULTILINE)
+        if m and 120 <= len(m.group(1)) <= 400:
+            score += 5
+    return score
+
+
+def _score_general(filepath: Path, content: str) -> dict[str, object]:
+    """일반 포스트 채점 (기존 validate_post 본문 그대로)."""
     fm_score, fm_warning = validate_front_matter(content)
 
     scores = {
@@ -185,6 +255,44 @@ def validate_post(filepath: Path) -> dict[str, object]:
         "lines": len(content.split("\n")),
         "warnings": [fm_warning] if fm_warning else [],
     }
+
+
+def _score_index(filepath: Path, content: str) -> dict[str, object]:
+    """월간 인덱스 페이지 전용 채점 (100점) — 완결성/최신성/링크 커버리지 측정."""
+    fm_score, fm_warning = validate_front_matter(content)
+    weekly_score, editorial_score = validate_index_structure(content)
+
+    scores = {
+        "front_matter": fm_score,
+        "ai_summary": validate_ai_summary(content),
+        "digest_link_coverage": validate_index_coverage(content),
+        "weekly_structure": weekly_score,
+        "editorial_sections": editorial_score,
+        "excerpt_quality": validate_index_excerpt(content),
+    }
+
+    total = sum(scores.values())
+
+    warnings = [fm_warning] if fm_warning else []
+    drift = index_signal_drift(content, filepath.name)
+    if drift:
+        warnings.append(drift)
+
+    return {
+        "file": filepath.name,
+        "total": total,
+        "scores": scores,
+        "lines": len(content.split("\n")),
+        "warnings": warnings,
+    }
+
+
+def validate_post(filepath: Path) -> dict[str, object]:
+    """포스트 품질 검증 — 장르에 따라 채점 규칙을 분기."""
+    content = filepath.read_text(encoding="utf-8")
+    if is_index_post(content, filepath.name):
+        return _score_index(filepath, content)
+    return _score_general(filepath, content)
 
 
 FRACTIONAL_BLOCKS = "█▉▊▋▌▍▎▏"

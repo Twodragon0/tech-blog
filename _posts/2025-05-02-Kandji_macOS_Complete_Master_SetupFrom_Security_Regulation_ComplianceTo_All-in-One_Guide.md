@@ -64,6 +64,11 @@ summary_card:
 
 ### 주요 기능 요약
 
+## 사전 준비
+
+- Kandji 테넌트와 API 토큰(Bearer)이 필요합니다. 본 가이드의 FileVault 복구키 조회·컴플라이언스 스크립트가 Kandji API를 사용합니다.
+- Apple Business Manager에 등록된 macOS/iOS 디바이스와 MDM 정책을 배포할 관리자 권한이 필요합니다.
+
 ## 2. macOS 보안 설정
 
 ### 2.1 FileVault 전체 디스크 암호화
