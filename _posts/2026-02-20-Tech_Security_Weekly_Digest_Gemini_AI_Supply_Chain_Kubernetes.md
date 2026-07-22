@@ -724,24 +724,24 @@ UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유
 
 ### P0 (즉시)
 
-- PromptSpy 관련 모바일 보안 정책 점검 및 MDM 사이드로딩 차단
-- Clinejection 관련 AI 코딩 에이전트 실행 권한 및 GitHub Actions 캐시 보안 검토
-- Massiv 안드로이드 트로이목마 관련 모바일 뱅킹 보안 강화
-- Chrome CVE-2026-2441 CSS 제로데이 패치 즉시 적용
+- [ ] PromptSpy 관련 모바일 보안 정책 점검 및 MDM 사이드로딩 차단
+- [ ] Clinejection 관련 AI 코딩 에이전트 실행 권한 및 GitHub Actions 캐시 보안 검토
+- [ ] Massiv 안드로이드 트로이목마 관련 모바일 뱅킹 보안 강화
+- [ ] Chrome CVE-2026-2441 CSS 제로데이 패치 즉시 적용
 
 ### P1 (7일 내)
 
-- CVE-2026-26119 Windows Admin Center 패치 적용
-- Kubernetes Ingress NGINX 사용 현황 전수 조사 및 마이그레이션 계획 수립
-- Ingress NGINX 최신 고위험 CVE 4종 패치 적용
-- SIEM 탐지 룰 업데이트 (PromptSpy IOC, Massiv IOC 등)
+- [ ] CVE-2026-26119 Windows Admin Center 패치 적용
+- [ ] Kubernetes Ingress NGINX 사용 현황 전수 조사 및 마이그레이션 계획 수립
+- [ ] Ingress NGINX 최신 고위험 CVE 4종 패치 적용
+- [ ] SIEM 탐지 룰 업데이트 (PromptSpy IOC, Massiv IOC 등)
 
 ### P2 (30일 내)
 
-- AI 에이전트 보안 가이드라인 수립 (PromptSpy, Clinejection 사례 반영)
-- Gateway API 기반 Ingress 컨트롤러 마이그레이션 실행
-- 공격 표면 인벤토리 갱신 (AI 에이전트 포함)
-- 접근 제어 감사
+- [ ] AI 에이전트 보안 가이드라인 수립 (PromptSpy, Clinejection 사례 반영)
+- [ ] Gateway API 기반 Ingress 컨트롤러 마이그레이션 실행
+- [ ] 공격 표면 인벤토리 갱신 (AI 에이전트 포함)
+- [ ] 접근 제어 감사
 
 ---
 

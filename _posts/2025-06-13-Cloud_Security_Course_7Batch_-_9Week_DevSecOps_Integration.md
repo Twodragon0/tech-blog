@@ -48,11 +48,11 @@ summary_card:
 
 ### 실습 체크리스트
 
-- 실습 환경 구성 완료
-- 보안 설정 적용 확인
-- 테스트 및 검증 수행
-- 실습 리소스 정리 (비용 방지)
-- 학습 내용 문서화
+- [ ] 실습 환경 구성 완료
+- [ ] 보안 설정 적용 확인
+- [ ] 테스트 및 검증 수행
+- [ ] 실습 리소스 정리 (비용 방지)
+- [ ] 학습 내용 문서화
 
 ## Executive Summary
 
@@ -213,6 +213,11 @@ Plan 단계:
 
 ---
 
+## 관련 강의
+
+같은 클라우드 시큐리티 과정 7기의 이전 주차입니다.
+
+- [7기 7주차: Docker와 Kubernetes 이해]({% post_url 2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding %})
 
 ---
 

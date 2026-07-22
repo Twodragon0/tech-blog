@@ -241,5 +241,126 @@ def test_idempotent_highlights_checklist_convert():
     assert twice == once  # stable
 
 
+# --- (f) legacy-surface duplicate guards ---------------------------------
+# Class D digests carry the briefing/risk surfaces in a NARRATIVE form
+# (## Executive Summary + a "> **경영진 브리핑**:" blockquote + ### 위험도 평가)
+# that the old guard ("## 경영진 브리핑" in body / "스코어카드" in body) did NOT
+# recognize, so the exec/risk block would be inserted a SECOND time. These
+# tests pin the broadened guard.
+
+_LEGACY_NARRATIVE_BODY = """
+## Executive Summary
+
+> **경영진 브리핑**: 이번 주 핵심 위협 한 줄 요약.
+
+### 위험도 평가
+
+| 항목 | 위험도 | 설명 |
+|------|--------|------|
+| 취약점 | 높음 | vCenter |
+
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 취약점 | CISA | vCenter CVE-2024-1 긴급 패치 | 🔴 |
+| AI 보안 | HashiCorp | 에이전틱 제로트러스트 | 🟡 |
+
+---
+
+## 6. 실무 체크리스트
+
+### 6.1 이번 주 필수 점검 항목
+
+- 기존 항목 하나
+- 기존 항목 둘
+
+## 참고 자료
+
+- link
+"""
+
+
+def test_guard_recognizes_executive_summary_and_risk():
+    # Unit: the broadened detectors fire on the legacy narrative surfaces.
+    assert mod._has_briefing(_LEGACY_NARRATIVE_BODY) is True
+    assert mod._has_risk(_LEGACY_NARRATIVE_BODY) is True
+
+
+def test_legacy_narrative_no_exec_reinsert():
+    # (1) A post with ## Executive Summary + "> **경영진 브리핑**" blockquote
+    # + ### 위험도 평가 must NOT get a second briefing/risk block.
+    text = _FRONT_MIN + _LEGACY_NARRATIVE_BODY
+    new_text, info = mod.transform_text(text)
+    assert new_text is not None
+    assert info["exec_added"] is False
+    # native canonical headings never inserted (would duplicate the narrative)
+    assert "## 경영진 브리핑" not in new_text
+    assert "## 위험 스코어카드" not in new_text
+    # the existing Executive Summary / 위험도 평가 surfaces survive verbatim
+    assert new_text.count("## Executive Summary") == 1
+    assert new_text.count("### 위험도 평가") == 1
+
+
+def test_risk_guard_recognizes_위험도평가_h3():
+    # (2) ### 위험도 평가 (no 스코어카드 token) is a risk surface.
+    assert mod._has_risk("본문\n### 위험도 평가\n| a | b |\n") is True
+    # ### 위험 평가 스코어카드 is also recognized (via bare 스코어카드).
+    assert mod._has_risk("### 위험 평가 스코어카드\n") is True
+    # a post with neither is not.
+    assert mod._has_risk("## 개요\n일반 본문.\n") is False
+
+
+def test_legacy_numbered_checklist_not_duplicated():
+    # A legacy "## N. 실무 체크리스트" must not spawn a second
+    # "## 실무 체크리스트"; the fresh-insert path is skipped.
+    text = _FRONT_MIN + _LEGACY_NARRATIVE_BODY
+    new_text, info = mod.transform_text(text)
+    assert new_text is not None
+    # exactly one checklist surface (the pre-existing numbered one)
+    assert new_text.count("실무 체크리스트") == 1
+    assert "## 6. 실무 체크리스트" in new_text
+    assert info["checklist_action"] == "skipped (existing checklist surface)"
+
+
+def test_fresh_post_still_inserts_briefing_and_risk():
+    # (3) regression: a post with a highlights table and NONE of the
+    # briefing/risk/checklist surfaces still gets the native sections.
+    fresh_body = """
+## 📊 빠른 참조
+
+### 이번 주 하이라이트
+
+| 분야 | 소스 | 핵심 내용 | 영향도 |
+|------|------|----------|--------|
+| 취약점 | CISA | vCenter CVE-2024-1 긴급 패치 | 🔴 |
+| AI 보안 | HashiCorp | 에이전틱 제로트러스트 | 🟡 |
+
+---
+
+## 서론
+
+본문.
+
+## 참고 자료
+
+- link
+"""
+    text = _FRONT_MIN + fresh_body
+    assert mod._has_briefing(fresh_body) is False
+    assert mod._has_risk(fresh_body) is False
+    assert mod._has_checklist(fresh_body) is False
+    new_text, info = mod.transform_text(text)
+    assert new_text is not None
+    assert info["exec_added"] is True
+    assert "## 경영진 브리핑" in new_text
+    assert "## 위험 스코어카드" in new_text
+    # no prior checklist → a fresh canonical checklist is inserted (once)
+    assert info["checklist_action"] == "inserted"
+    assert new_text.count("## 실무 체크리스트") == 1
+
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-q"]))
