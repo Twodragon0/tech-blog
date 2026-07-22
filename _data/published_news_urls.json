@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-07-21T01:51:36.233119+00:00",
+  "updated_at": "2026-07-22T01:50:20.291879+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/iran-linked-hackers-use-new-cavern-c2.html",
-      "title": "Iran-Linked Hackers Use New Cavern C2 Framework to Target Israeli Organizations",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/16-year-old-linux-kvm-flaw-lets-guest.html",
-      "title": "16-Year-Old Linux KVM Flaw Lets Guest VMs Escape to Host on Intel and AMD x86 Sy",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/threat-actors-probe-gitea-docker-flaw.html",
-      "title": "Threat Actors Probe Gitea Docker Flaw CVE-2026-20896 13 Days After Disclosure",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/monday-recap-proxy-botnets-browser.html",
-      "title": "⚡ Weekly Recap: Proxy Botnets, Browser Ransomware, AI Agent Tricks, Fake PoC Mal",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/how-to-evaluate-ai-soc-platform-in-2026.html",
-      "title": "How to Evaluate an AI SOC Platform in 2026: 6 Capabilities That Separate Leaders",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/open-models-icml-2026/",
-      "title": "How Open Models Are Driving AI Research",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nations-deploy-ai-strategic-priorities/",
-      "title": "How Nations Are Deploying AI for Strategic Priorities",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/terawulf-shares-rise-after-19b-anthropic-ai-lease-jv-sale?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "TeraWulf shares rise after $19B Anthropic AI lease, JV sale",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/from-hugging-face-to-amazon-sagemaker-studio-in-one-click-2/",
-      "title": "From Hugging Face to Amazon SageMaker Studio in one click",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/teaching-models-to-forget-selective-unlearning-with-amazon-nova/",
-      "title": "Teaching models to forget: Selective unlearning with Amazon Nova",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/shift-into-high-gear-with-agents-securing-the-software-defined-vehicle/",
-      "title": "Shift into high gear with agents: Securing the software-defined vehicle",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-sonnet-5-on-aws-amazon-workspaces-for-ai-agents-aws-service-availability-updates-and-more-july-6-2026/",
-      "title": "AWS Weekly Roundup: Claude Sonnet 5 on AWS, Amazon WorkSpaces for AI agents, AWS",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/07/06/the-4-body-problem-of-sre-why-autonomous-operations-depend-on-context/",
-      "title": "The 4-body problem of SRE: Why autonomous operations depend on context",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/07/06/evolving-platform-engineering-for-ai-native-workloads/",
-      "title": "Evolving platform engineering for AI-native workloads",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
-    {
-      "url": "https://www.chainalysis.com/blog/comparing-blockchain-analytics-vendors/",
-      "title": "Breadth, Depth, And Quality: Why Comparing Blockchain Analytics Vendors by Clust",
-      "published_date": "2026-07-07",
-      "expires_at": "2026-07-14T02:12:14.025918+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/redwing-maas-packages-android-bank.html",
       "title": "RedWing MaaS Packages Android Bank Fraud as a Telegram Rental Service",
@@ -1338,6 +1248,96 @@
       "title": "GitHub Code Quality is now generally available",
       "published_date": "2026-07-21",
       "expires_at": "2026-07-28T01:51:36.232980+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/apple-fixes-hide-my-email-bug-that.html",
+      "title": "Apple Fixes Hide My Email Bug That Exposed Real Addresses in Mail Logs",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/aws-kiro-flaw-let-poisoned-web-page.html",
+      "title": "AWS Kiro Flaw Let a Poisoned Web Page Rewrite Its Config and Run Code",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/google-launches-gemini-35-flash-cyber.html",
+      "title": "Google Launches Gemini 3.5 Flash Cyber AI to Find and Fix Software Vulnerabiliti",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html",
+      "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public Po",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/qilin-ransomware-attackers-exploit-pan.html",
+      "title": "Qilin Ransomware Attackers Exploit PAN-OS Authentication Bypass for Initial Acce",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/wistron-manufacturing-texas/",
+      "title": "Built in Fort Worth: Wistron Opens Advanced Manufacturing Plant to Produce NVIDI",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-chatgpt-small-business-program",
+      "title": "Introducing the ChatGPT for small business program",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/vera-rubin/",
+      "title": "NVIDIA Vera Rubin Driving Performance Per Watt, Lowest Token Cost for Partners W",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/introducing-gemini-36-flash-35-flash-lite-and-35-flash-cyber/",
+      "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-spectrum-six-arrives-in-gigascale-ai-factories/",
+      "title": "Built for Vera Rubin, NVIDIA Spectrum-6 Arrives in Gigascale AI Factories",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/why-ai-apps-fail-in-production/",
+      "title": "Why AI apps fail in production (And how Google solved it)",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/supercharge-pgvector-4x-faster-hnsw-with-alloydb/",
+      "title": "Supercharging pgvector: 4x faster HNSW vector search with AlloyDB",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/find-and-fix-software-vulnerabilities-with-codemender/",
+      "title": "Now in preview: Find and fix software vulnerabilities with CodeMender",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/generosity-under-conditions-hardening-google-cloud-access-management/",
+      "title": "Generosity Under Conditions: Hardening Google Cloud Access Management",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/production-ready-diffusion-model-validation/",
+      "title": "AWS 환경에서 프로덕션-레디 확산 언어 모델(DLM) 검증하기",
+      "published_date": "2026-07-22",
+      "expires_at": "2026-07-29T01:50:20.291759+00:00"
     }
   ]
 }
