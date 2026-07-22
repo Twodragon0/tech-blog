@@ -548,20 +548,20 @@ Citi 경영진이 비트코인을 자사 뱅킹 시스템에 통합하고 수탁
 
 ### P0 (즉시)
 
-- Aeternum C2 Botnet: 블록체인 RPC 아웃바운드 트래픽 탐지 룰 SIEM에 추가
-- 엔드포인트에서 Polygon/Ethereum RPC 엔드포인트(Infura, Alchemy)로의 비인가 연결 차단 검토
+- [ ] Aeternum C2 Botnet: 블록체인 RPC 아웃바운드 트래픽 탐지 룰 SIEM에 추가
+- [ ] 엔드포인트에서 Polygon/Ethereum RPC 엔드포인트(Infura, Alchemy)로의 비인가 연결 차단 검토
 
 ### P1 (7일 내)
 
-- AWS Security Agent 아키텍처 참고하여 자사 자동화 침투 테스트 도입 로드맵 수립
-- MCP 연동 데이터베이스 접근에 대한 IAM 최소 권한 정책 검토
-- Docker Model Runner vLLM macOS 지원 → 로컬 AI 개발 환경 보안 정책 업데이트
+- [ ] AWS Security Agent 아키텍처 참고하여 자사 자동화 침투 테스트 도입 로드맵 수립
+- [ ] MCP 연동 데이터베이스 접근에 대한 IAM 최소 권한 정책 검토
+- [ ] Docker Model Runner vLLM macOS 지원 → 로컬 AI 개발 환경 보안 정책 업데이트
 
 ### P2 (30일 내)
 
-- ISO 42001 AI 관리 시스템 요건 기반 자사 AI 거버넌스 갭 분석 수행
-- 비트코인/디지털 자산 관련 미국 SEC 규제 변화 모니터링 체계 구축
-- 클라우드 데이터베이스 MCP 연동 시 에이전트 쿼리 감사 로그 수집 아키텍처 설계
+- [ ] ISO 42001 AI 관리 시스템 요건 기반 자사 AI 거버넌스 갭 분석 수행
+- [ ] 비트코인/디지털 자산 관련 미국 SEC 규제 변화 모니터링 체계 구축
+- [ ] 클라우드 데이터베이스 MCP 연동 시 에이전트 쿼리 감사 로그 수집 아키텍처 설계
 
 ---
 
