@@ -194,6 +194,25 @@ if [ -n "$STAGED_HEAD_HTML" ]; then
   fi
   echo "[pre-commit] CSP inline-script hash check: passed."
 fi
+
+# 11. Post quality-score gate — block commits of posts below the quality floor.
+#     Mirrors scripts/pre-commit-quality-check.sh (validate_post_quality.py, 100-pt).
+#     Only staged _posts/*.md are scored; fail < 60, warn < 80.
+STAGED_QUALITY_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/[^/]+\.md$' || true)
+if [ -n "$STAGED_QUALITY_POSTS" ]; then
+  echo "[pre-commit] Scoring staged post quality (fail < 60, warn < 80)..."
+  echo "$STAGED_QUALITY_POSTS" \
+    | tr '\n' '\0' \
+    | xargs -0 python3 "$REPO_ROOT/scripts/validate_post_quality.py" \
+        --fail-below 60 --warn-below 80 --quiet
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Post quality below floor (60). Fix before committing."
+    echo "             Inspect a file: python3 scripts/validate_post_quality.py <file>"
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Post quality: passed."
+fi
 HOOK
 
 chmod +x "$HOOK_FILE"
