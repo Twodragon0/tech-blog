@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-07-22T01:50:20.291879+00:00",
+  "updated_at": "2026-07-23T08:28:42.040763+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/redwing-maas-packages-android-bank.html",
-      "title": "RedWing MaaS Packages Android Bank Fraud as a Telegram Rental Service",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/rogue-agent-flaw-could-have-let.html",
-      "title": "Rogue Agent Flaw Could Have Let Attackers Hijack Google Dialogflow CX Chatbots",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/debull-tooling-abuses-microsoft-device.html",
-      "title": "DEBULL Tooling Abuses Microsoft Device-Code Flow to Target M365 Accounts",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/public-github-issue-could-trick-github.html",
-      "title": "Public GitHub Issue Could Trick GitHub Agentic Workflows Into Leaking Private Re",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/court-filing-reveals-windows-device-id.html",
-      "title": "Court Filing Reveals Windows Device ID Helped FBI Trace Alleged Scattered Spider",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-vera-max-single-threaded-cpu-at-scale/",
-      "title": "AI Innovators Adopt NVIDIA Vera — Why Max Single-Threaded CPU at Scale Matters",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
-      "title": "Expanding Managed Agents in Gemini API:  background tasks, remote MCP and more",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics/",
-      "title": "NVIDIA and Hugging Face Bring New Models and Frameworks to LeRobot for the Open ",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/enrich-your-datasets-with-business-context-migrating-from-legacy-topics-to-semantic-datasets-in-amazon-quick/",
-      "title": "Enrich your datasets with business context: Migrating from legacy Topics to sema",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/data-modeling-best-practices-for-amazon-quick-sight-multi-dataset-relationships/",
-      "title": "Data modeling best practices for Amazon Quick Sight multi-dataset relationships",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/20-questions-for-the-agentic-enterprise/",
-      "title": "20 questions for the Agentic Enterprise (and how Agent Platform can help)",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/publish-agents-in-gemini-enterprise-and-google-cloud-marketplace/",
-      "title": "A developer's guide to publishing agents in Gemini Enterprise and Google Cloud M",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/networking/bgp-route-policies-top-3-use-cases-by-customer-demand/",
-      "title": "BGP route policies: Top 3 use cases by customer demand",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/state-of-ai-infrastructure-report-overview/",
-      "title": "Report: 83% of organizations need to upgrade their infrastructure to support age",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/google-cloud-labs-accelerate-ai-with-cloud-run/",
-      "title": "Google Cloud Labs: Accelerate AI with Cloud Run",
-      "published_date": "2026-07-08",
-      "expires_at": "2026-07-15T01:53:31.389485+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/ai-coding-agents-found-triggering.html",
-      "title": "AI Coding Agents Found Triggering Endpoint Security Rules Built to Catch Attacke",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/new-hallusquatting-attack-could-trick.html",
-      "title": "New HalluSquatting Attack Could Trick AI Coding Assistants Into Installing Botne",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/ubiquiti-patches-critical-unifi-flaws.html",
-      "title": "Ubiquiti Patches Critical UniFi Flaws Across Connect, Talk, Access, Protect, and",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/designing-for-the-inevitable-system-prompt-leakage-and-mitigations-in-generative-ai-applications/",
-      "title": "Designing for the inevitable: System prompt leakage and mitigations in generativ",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/new-ghost-phishing-wave-is-breaking.html",
-      "title": "New Ghost Phishing Wave Is Breaking Traditional Email Security",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nemotron-langchain-agents-open-stack/",
-      "title": "NVIDIA Nemotron Achieves Benchmark-Leading Performance With LangChain Deep Agent",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://openai.com/index/government-national-security-partnerships",
-      "title": "Our approach to government and national security partnerships",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations",
-      "title": "Separating signal from noise in coding evaluations",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://openai.com/index/k-12-educators-practical-skills",
-      "title": "Helping K–12 educators build practical AI skills",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-apps-gateway-for-aws/",
-      "title": "Introducing Claude apps gateway for AWS",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/c4n-network-and-storage-optimized-vms/",
-      "title": "C4N, now GA: Delivering cloud’s highest per vCPU network and block storage I/O f",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/google-is-a-leader-in-gartner-magic-quadrant-for-ai-infra/",
-      "title": "Google Cloud named Leader in the 2026 Gartner® Magic Quadrant™ for AI Infrastruc",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/training-certifications/new-ways-keep-google-cloud-certifications-current/",
-      "title": "New ways to keep Google Cloud certifications current and boost your career",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/gemini-enterprise-for-education-named-a-commander-in-tambellini-starchart-2026-ai-agents-for-administrative-efficiencyagent-platforms/",
-      "title": "Gemini Enterprise for Education named a Commander in Tambellini StarChart™: 2026",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/meet-the-33-cybersecurity-startups-joining-the-gemini-startup-forum/",
-      "title": "Meet the 33 cybersecurity startups joining the Gemini Startup Forum",
-      "published_date": "2026-07-09",
-      "expires_at": "2026-07-16T02:05:43.235856+00:00"
-    },
     {
       "url": "https://asec.ahnlab.com/ko/94415/",
       "title": "2026년 6월 다크웹 위협 행위자 동향 보고서",
@@ -1338,6 +1158,96 @@
       "title": "AWS 환경에서 프로덕션-레디 확산 언어 모델(DLM) 검증하기",
       "published_date": "2026-07-22",
       "expires_at": "2026-07-29T01:50:20.291759+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/check-point-patches-exploited.html",
+      "title": "Check Point Patches Exploited SmartConsole Flaw Allowing Full Admin Access",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-smartconsole-zero-day-exploited-in-attacks/",
+      "title": "Check Point warns of SmartConsole zero-day exploited in attacks",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/94553/",
+      "title": "Kimsuky 그룹의 외교 관련 종사자 사칭 공격 사례 (PebbleDash, PrxClient)",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/github-cuts-public-bug-bounty-payouts.html",
+      "title": "GitHub Cuts Public Bug Bounty Payouts, Moves Top Rewards to VIP Tier",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/ubuntu-snap-confine-flaw-could-give.html",
+      "title": "Ubuntu snap-confine Flaw Could Give Local Users Root on Default Desktop Installs",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/naval-postgraduate-school-dgx-ai-supercomputer/",
+      "title": "NVIDIA AI Supercomputer Comes Online at Naval Postgraduate School",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/accelerating-the-frontiers-of-scientific-discovery-googles-40m-commitment-to-the-genesis-mission/",
+      "title": "Accelerating the frontiers of scientific discovery: Google’s $40M commitment to ",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/medical-physics-simulation-open-source/",
+      "title": "NVIDIA Open Sources First GPU-Accelerated Medical Physics Simulation Framework",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community",
+      "title": "Building AI infrastructure with the Effingham County community",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://openai.com/index/how-news-organizations-are-using-ai",
+      "title": "How news organizations are using AI to advance their vital missions",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/how-checkout-com-tallies-data-with-cloud-composer-3/",
+      "title": "From maintenance to innovation: Checking in on Checkout.com’s Cloud Composer 3 m",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/accelerating-frontiers-of-scientific-discovery-40-million-dollar-commitment-genesis-mission/",
+      "title": "Accelerating the frontiers of scientific discovery: Google’s $40M commitment to ",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/financial-cloud-guide-a-to-z-part2/",
+      "title": "금융 클라우드 길라잡이 A to Z Part 2 – 연구개발망 예외와 망분리 개선 로드맵",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/financial-cloud-guide-a-to-z-part1/",
+      "title": "금융 클라우드 길라잡이 A to Z Part 1 – 전자금융감독규정으로 풀어보는 클라우드 도입 첫걸음",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-22-new-copilot-usage-metrics-impact-dashboard",
+      "title": "New Copilot usage metrics impact dashboard",
+      "published_date": "2026-07-23",
+      "expires_at": "2026-07-30T08:28:42.040645+00:00"
     }
   ]
 }
