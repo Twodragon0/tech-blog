@@ -855,18 +855,14 @@
     }
   },
   "2026-01-31-January_2026_Security_Digest_Monthly_Index.md": {
-    "total": 49,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
-      "executive_summary": 0,
-      "risk_scorecard": 0,
-      "sections": 7,
-      "checklists": 0,
-      "tables": 7,
-      "code_blocks": 10,
-      "cross_refs": 0,
-      "length": 0
+      "digest_link_coverage": 35,
+      "weekly_structure": 7,
+      "editorial_sections": 10,
+      "excerpt_quality": 10
     }
   },
   "2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack.md": {
@@ -1425,18 +1421,14 @@
     }
   },
   "2026-02-28-February_2026_Security_Digest_Monthly_Index.md": {
-    "total": 53,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
-      "executive_summary": 0,
-      "risk_scorecard": 0,
-      "sections": 7,
-      "checklists": 0,
-      "tables": 10,
-      "code_blocks": 10,
-      "cross_refs": 0,
-      "length": 1
+      "digest_link_coverage": 35,
+      "weekly_structure": 20,
+      "editorial_sections": 10,
+      "excerpt_quality": 10
     }
   },
   "2026-02-28-Tech_Security_Weekly_Digest_Go_AI_Malware.md": {
@@ -1875,18 +1867,14 @@
     }
   },
   "2026-03-30-March_2026_Security_Digest_Monthly_Index.md": {
-    "total": 53,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
-      "executive_summary": 0,
-      "risk_scorecard": 0,
-      "sections": 7,
-      "checklists": 0,
-      "tables": 10,
-      "code_blocks": 10,
-      "cross_refs": 0,
-      "length": 1
+      "digest_link_coverage": 35,
+      "weekly_structure": 20,
+      "editorial_sections": 10,
+      "excerpt_quality": 10
     }
   },
   "2026-03-31-Tech_Security_Weekly_Digest_Vulnerability_Patch_AI_GPT.md": {
@@ -3630,6 +3618,21 @@
     }
   },
   "2026-07-22-Tech_Security_Weekly_Digest_AI_Apple_AWS_Go.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-23-Tech_Security_Weekly_Digest_Patch_Zero-Day_AI.md": {
     "total": 94,
     "scores": {
       "front_matter": 15,
