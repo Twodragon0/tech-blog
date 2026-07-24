@@ -73,6 +73,17 @@ AWS 보안 아키텍처의 4대 핵심 구성요소(VPC, IAM, S3, GuardDuty)를 
 <figcaption>AWS VPC 보안 아키텍처 다이어그램 - Python diagrams로 생성</figcaption>
 </figure>
 
+## 사전 요구사항
+
+이 주차는 클라우드 시큐리티 과정 8기의 연속 강의이며, 아래를 알고 있으면 내용을 수월하게 따라올 수 있습니다.
+
+- **AWS 계정과 CLI 기본**: 본문에서 `aws cloudtrail lookup-events`, `aws s3api list-objects-v2` 등 AWS CLI 명령을 직접 실행합니다.
+- **AWS 기초 개념**: 리전, 서브넷, 보안 그룹 등 VPC·IAM·S3의 기본 용어에 익숙하면 좋습니다.
+- **로그/쿼리 도구(선택)**: 본문에는 Splunk SPL, Azure Sentinel KQL 위협 헌팅 쿼리 예시가 포함됩니다.
+- **선행 주차**: 같은 과정 8기 1주차 [인프라의 본질부터 보안의 미래까지]({% post_url 2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo %})의 흐름을 이어받습니다.
+
+> 대상 독자: 클라우드 아키텍트, DevOps 엔지니어, 클라우드 관리자.
+
 ## MITRE ATT&CK 매핑
 
 ### AWS 보안 서비스별 MITRE ATT&CK 커버리지

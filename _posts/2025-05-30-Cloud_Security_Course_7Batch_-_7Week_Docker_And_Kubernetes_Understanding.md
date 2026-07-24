@@ -97,6 +97,17 @@ redirect_from:
 - 실전 사례 및 문제 해결 방법
 - 보안 모범 사례 및 권장 사항
 
+## 사전 요구사항
+
+이 주차는 클라우드 시큐리티 과정 7기의 연속 강의로, 아래를 갖추면 실습을 원활히 따라올 수 있습니다.
+
+- **리눅스 셸/CLI 기본**: 본문에서 `docker`(pull, run, ps, logs), `kubectl`(get, apply), `trivy image` 명령을 직접 실행하므로 터미널 사용에 익숙해야 합니다.
+- **YAML 문법 이해**: Pod, Deployment, Service, NetworkPolicy 등 Kubernetes 매니페스트를 YAML로 다룹니다.
+- **로컬 실습 환경**: 컨테이너 보안 실습은 Minikube와 K9s를 기준으로 진행합니다.
+- **선행 주차**: 같은 과정 7기 6주차 [Cloudflare와 GitHub 보안]({% post_url 2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security %})까지의 흐름을 이어받습니다.
+
+> 대상 독자: 클라우드 보안 전문가, DevOps 엔지니어, 보안 담당자.
+
 ## 1. Docker 기초 이해
 
 ### 1.1 Docker란?
