@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-07-23T08:28:42.040763+00:00",
+  "updated_at": "2026-07-25T01:52:44.574926+00:00",
   "entries": [
-    {
-      "url": "https://asec.ahnlab.com/ko/94415/",
-      "title": "2026년 6월 다크웹 위협 행위자 동향 보고서",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/94414/",
-      "title": "2026년 6월 다크웹 이슈 동향 보고서",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/94410/",
-      "title": "2026년 6월 다크웹 침해사고 동향 보고서",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/dormant-github-accounts-help-attackers.html",
-      "title": "Dormant GitHub Accounts Help Attackers Blend In While Mapping Corporate Orgs",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/introducing-oauth-support-for-aws-mcp-server/",
-      "title": "Introducing OAuth Support for AWS MCP Server",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-toronto-expansion/",
-      "title": "GeForce NOW Turns Up the Heat With New GeForce RTX 5080-Powered Toronto Server",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
-      "title": "GPT-5.6 is now the preferred model in Microsoft 365 Copilot",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work",
-      "title": "ChatGPT is now a partner for your most ambitious work",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://openai.com/index/bio-bug-bounty",
-      "title": "GPT-5.5 Bio Bug Bounty",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://openai.com/index/gpt-5-6",
-      "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/google-cloud-run-sandboxes-are-in-public-preview/",
-      "title": "Safely run AI-generated code in Cloud Run sandboxes",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/alphaevolve-is-available-for-everyone/",
-      "title": "Solve harder problems with AlphaEvolve, now available to everyone on Google Clou",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/autopilot-clusters-with-gke-managed-dranet-gpus-and-tpus/",
-      "title": "Autopilot Clusters with GKE managed DRANET: GPUs and TPUs",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/aws-s2s-vpn-zero-downtime-operation/",
-      "title": "AWS Site-to-Site VPN 무중단 운영의 정석 : BGP와 Lifecycle Control로 유지보수 장애 예방하기",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/real-time-contextual-advertising-with-elemental-inference-and-bedrock/",
-      "title": "AWS Elemental Inference를 활용한 실시간 문맥 광고(Contextual Advertising) 솔루션",
-      "published_date": "2026-07-10",
-      "expires_at": "2026-07-17T02:03:59.283587+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html",
       "title": "URGENT - Progress Tells ShareFile Customers to Shut Down Storage Zone Controller",
@@ -1248,6 +1158,96 @@
       "title": "New Copilot usage metrics impact dashboard",
       "published_date": "2026-07-23",
       "expires_at": "2026-07-30T08:28:42.040645+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html",
+      "title": "BlueNoroff Zoom Phishing Kit Profiles Crypto Wallets Before Malware Delivery",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/accelerating-aws-network-firewall-troubleshooting-with-aws-devops-agent/",
+      "title": "Accelerating AWS Network Firewall troubleshooting with AWS DevOps Agent",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/certighost-exploit-lets-low-privileged.html",
+      "title": "Certighost Exploit Lets Low-Privileged Active Directory Users Impersonate a Doma",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/chatgpt-agentforger-flaw-could-deploy.html",
+      "title": "ChatGPT AgentForger Flaw Could Deploy Rogue Workspace Agents via a Phishing Link",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/bing-images-flaws-let-crafted-svgs-run.html",
+      "title": "Bing Images Flaws Let Crafted SVGs Run Commands as SYSTEM on Microsoft's Servers",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-summit-korea-partners-and-nvidia/",
+      "title": "At AI Summit, South Korea Outlines Its AI Future With NVIDIA and Partners",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/",
+      "title": "Introducing Claude Opus 5 on AWS: Anthropic’s most capable Opus model",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-an-explainable-next-best-product-recommendation-system-for-banking-on-aws/",
+      "title": "Build an explainable next-best-product recommendation system for banking on AWS",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/get-started-with-openai-gpt-5-6-sol-terra-and-luna-on-amazon-bedrock/",
+      "title": "Get started with OpenAI GPT-5.6 Sol, Terra, and Luna on Amazon Bedrock",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/okf-v0-2-adds-trust-signals/",
+      "title": "Open Knowledge format v0.2 tackles agentic trust",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/updated-cyber-threat-actor-naming-system/",
+      "title": "Updated Cyber Threat Actor Naming System",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/agentic-ai-needs-guardrails-not-guesswork/",
+      "title": "Agentic AI Needs Guardrails, Not Guesswork",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot",
+      "title": "Claude Opus 5 is now available in GitHub Copilot",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/07/24/my-lfx-mentorship-journey-with-kgateway/",
+      "title": "My LFX mentorship journey with kgateway",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/07/24/opentelemetry-has-graduated-now-what/",
+      "title": "OpenTelemetry has graduated… Now what?",
+      "published_date": "2026-07-25",
+      "expires_at": "2026-08-01T01:52:44.574811+00:00"
     }
   ]
 }
