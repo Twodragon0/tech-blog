@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-07-25T01:52:44.574926+00:00",
+  "updated_at": "2026-07-26T01:55:33.752262+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/urgent-progress-tells-sharefile.html",
-      "title": "URGENT - Progress Tells ShareFile Customers to Shut Down Storage Zone Controller",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/injective-labs-github-compromise-pushes.html",
-      "title": "Injective Labs GitHub Compromise Pushes Wallet-Key-Stealing npm Packages",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/six-new-u-boot-flaws-could-let.html",
-      "title": "Six New U-Boot Flaws Could Let Malicious Images Crash Devices or Run Code at Boo",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/laser-attack-resets-tangem-wallet.html",
-      "title": "Laser Attack Resets Tangem Wallet Passwords on Cards That Can't Be Patched",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/new-modbeacon-rat-uses-grpc-streaming.html",
-      "title": "New MODBEACON RAT Uses gRPC Streaming for Encrypted C2 Traffic",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://openai.com/index/deutsche-telekom",
-      "title": "How Deutsche Telekom is rewiring telecommunications with AI",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/terawulf-3-5-billion-debt-raise-anthropic-data-center?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "TeraWulf eyes $3.5B debt raise for Anthropic-linked data center: Report",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/fine-tune-nvidia-nemotron-3-models-with-amazon-sagemaker-ai-serverless-model-customization/",
-      "title": "Fine-tune NVIDIA Nemotron 3 models with Amazon SageMaker AI serverless model cus",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/real-time-dental-image-verification-with-amazon-sagemaker-ai-at-henry-schein-one/",
-      "title": "Real-time dental image verification with Amazon SageMaker AI at Henry Schein One",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-stardog-and-amazon-bedrock-agentcore/",
-      "title": "Build a semantic layer for agentic AI on AWS with Stardog and Amazon Bedrock Age",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/contributing-to-uk-financial-sector-resilience-as-a-critical-third-party/",
-      "title": "Contributing to U.K. financial sector resilience as a critical third party",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/evaluate-agent-performance/",
-      "title": "Frontier and Center: Who evaluates the evaluations?",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
-      "title": "What’s new with Google Cloud",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/oracle-database-at-aws-network/",
-      "title": "Oracle Database@AWS 네트워크 구성 가이드",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-10-codeql-2-26-0-adds-kotlin-2-4-0-support-and-ai-prompt-injection-detection",
-      "title": "CodeQL 2.26.0 adds Kotlin 2.4.0 support and AI prompt injection detection",
-      "published_date": "2026-07-11",
-      "expires_at": "2026-07-18T01:52:47.738171+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/compromised-jscrambler-8140-npm-release.html",
-      "title": "Compromised jscrambler 8.14.0 npm Release Drops Rust Infostealer During Install",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/hackers-weaponize-balochistan-police.html",
-      "title": "Hackers Weaponize Balochistan Police Portal in Multi-Group Espionage Campaigns",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/critical-zimbra-flaw-could-let-crafted_0483473395.html",
-      "title": "Critical Zimbra Flaw Could Let Crafted Emails Run Malicious Code in User Session",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/australia-warns-of-global-campaign-targeting-vulnerable-cms-platforms/",
-      "title": "Australia warns of global campaign targeting vulnerable CMS platforms",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/ghostcommit-hides-prompt-injection-in-images-to-fool-ai-agents-steal-secrets/",
-      "title": "'Ghostcommit' hides prompt injection in images to fool AI agents, steal secrets",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/bedrock-promptfoo-eval/",
-      "title": "Amazon Bedrock 모델 promptfoo 로 성능 평가하기",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/empery-digital-shares-rise-after-selling-bitcoin-treasury-to-fund-ai-data-center-project?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Empery Digital shares rise after selling Bitcoin treasury to fund AI data center",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/features/bitcoin-is-approaching-the-second-half-of-the-bear-market-jamie-coutts?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin nearing late stages of bear market: Jamie Coutts, Real Vision",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/ethereum-climbs-3-on-tokenization-boom-can-bulls-push-eth-price-past-1800?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Ethereum climbs 3% on tokenization boom: Can bulls push ETH price past $1,800?",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/imf-stablecoins-fx-access-currency-runs?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Dollar stablecoins could improve FX access but amplify currency runs: IMF paper",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/robinhood-says-ai-agents-will-be-trading-for-crypto-users-soon?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Robinhood says its AI agent feature will ‘soon’ be assisting crypto traders",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31343",
-      "title": "Ghost Font - 사람은 읽지만 AI는 읽기 어려운 글꼴",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31342",
-      "title": "GPT-5.6, Grok 4.5, Claude, Muse Spark로 동일한 앱 4개를 만든 결과",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31341",
-      "title": "미국 여성 조정 선수, 캘리포니아에서 하와이까지 역사적 단독 항해 완주",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31340",
-      "title": "“신이 우리를 도왔고, AI도 그럴 것이다”: 테러 조직 Boko Haram의 프런티어 AI 활용 방식",
-      "published_date": "2026-07-12",
-      "expires_at": "2026-07-19T01:53:14.932355+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-temporarily-relaxes-gpt-56-sol-usage-limits/",
       "title": "OpenAI temporarily relaxes GPT-5.6 Sol usage limits",
@@ -1248,6 +1068,96 @@
       "title": "OpenTelemetry has graduated… Now what?",
       "published_date": "2026-07-25",
       "expires_at": "2026-08-01T01:52:44.574811+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/malvertising-sends-malware-in-pieces.html",
+      "title": "Malvertising Sends Malware in Pieces, Then Makes the Browser Build the Executabl",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/steam-forum-clickfix-attacks-infect-gamers-with-xmrig-cryptominers/",
+      "title": "Steam forum ClickFix attacks infect gamers with XMRig cryptominers",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/fastjson-1x-rce-vulnerability-targeted.html",
+      "title": "Fastjson 1.x RCE Vulnerability Targeted in Attacks With No Patched Available",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/researcher-publishes-gitlab-rce-poc.html",
+      "title": "Researcher Publishes GitLab RCE PoC Letting Authenticated Users Run Commands as ",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/ctm360-research-reveals-how-insurance.html",
+      "title": "CTM360 Research Reveals How Insurance Phishing Has Evolved Into Real-Time Accoun",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/robinhood-cryptocom-prediction-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Robinhood in talks with Crypto.com over prediction markets: WSJ",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitcoin-policy-institute-state-department-program?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin advocacy group to join US State Department’s ‘digital freedom’ program",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/wise-resubmit-occ-charter-application-genius-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Wise to resubmit US charter application under GENIUS Act",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/north-korea-bank-hacking-ring-crypto-laundering-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "North Korea arrests bank hacking ring tied to crypto laundering: Report",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/fidelity-push-senate-passage-of-clarity-act?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Fidelity joins push for Senate passage of CLARITY Act",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31819",
+      "title": "하드 드라이브가 늘 가득 차는 이유",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31818",
+      "title": "인터페이스가 화면을 벗어나고 있다 - 채팅, 음성, 에이전트형 AI가 바꾸는 UX",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31817",
+      "title": "Hannah Fry, 2026년 수학 대중화 공로로 Leelavati Prize 수상",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31816",
+      "title": "neko-master - 네트워크 트래픽 시각화 및 분석용 대시보드",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=31815",
+      "title": "stinkpot - SQLite 기반 Bash 셸 히스토리 검색기",
+      "published_date": "2026-07-26",
+      "expires_at": "2026-08-02T01:55:33.752150+00:00"
     }
   ]
 }
