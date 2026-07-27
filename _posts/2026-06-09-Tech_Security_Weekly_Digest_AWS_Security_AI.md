@@ -314,14 +314,14 @@ Alcidion은 AlloyDB를 도입하여 임상 정보학 분야에서 더 큰 안정
 {% include news-card.html
   title="AWS와 NVIDIA로 Physical AI 가속화: 시뮬레이션과 실제 학습을 통한 프로덕션 레디 애플리케이션 구축"
   url="https://aws.amazon.com/ko/blogs/tech/accelerating-physical-ai-with-aws-and-nvidia-building-production-ready-applications-with-simulation-and-real-world-learning/"
-  summary="이 글은 AWS Open Source Blog의 ”Accelerating physical AI with AWS and NVIDIA: building production-ready applications with simulation and real-world learning by Srinivas Nidamarthi, Alex Mevec, Ali Shahrok"
+  summary="AWS와 NVIDIA가 시뮬레이션과 실제 환경 학습을 결합하여 프로덕션 레디 수준의 Physical AI 애플리케이션을 구축하는 방법을 소개합니다. 로봇 등 물리 세계와 상호작용하는 AI 시스템을 개발하고 배포하기 위한 접근 방식을 다룹니다."
   source="AWS Korea Blog"
   severity="High"
 %}
 
 #### 요약
 
-이 글은 AWS Open Source Blog의 “Accelerating physical AI with AWS and NVIDIA: building production-ready applications with simulation and real-world learning by Srinivas Nidamarthi, Alex Mevec, Ali Shahrokni, Brian Kreitzer 등이 확인되었습니다.
+AWS와 NVIDIA가 시뮬레이션과 실제 환경 학습을 결합하여 프로덕션 레디 수준의 Physical AI 애플리케이션을 구축하는 방법을 소개합니다. 로봇 등 물리 세계와 상호작용하는 AI 시스템을 개발하고 배포하기 위한 접근 방식을 다룹니다.
 
 ---
 
