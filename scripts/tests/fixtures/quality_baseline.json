@@ -3646,5 +3646,50 @@
       "cross_refs": 0,
       "length": 4
     }
+  },
+  "2026-07-25-Tech_Security_Weekly_Digest_Malware_AWS_Agent_AI.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-07-26-Tech_Security_Weekly_Digest_Malware_Vulnerability_Patch_AI.md": {
+    "total": 92,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-07-27-Tech_Security_Weekly_Digest_AI.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
   }
 }
