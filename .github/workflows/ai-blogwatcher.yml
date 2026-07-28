@@ -362,6 +362,18 @@ jobs:
           git add "_data/published_news_urls.json" 2>/dev/null || true
           git add "data/collected_news.json" 2>/dev/null || true
 
+          # Self-heal the post-quality baseline. A cron-added digest missing from
+          # scripts/tests/fixtures/quality_baseline.json leaves
+          # test_regen_quality_baseline red on main (and every rebased PR).
+          # Refresh it and stage it into THIS digest commit so both the trusted
+          # push-to-main and untrusted PR paths stay green. Non-blocking: a regen
+          # failure must never stop the digest from publishing.
+          if python3 scripts/regen_quality_baseline.py; then
+            git add "scripts/tests/fixtures/quality_baseline.json" 2>/dev/null || true
+          else
+            echo "::warning::regen_quality_baseline failed; digest will publish but the quality baseline may go stale (main CI may need a manual 'python3 scripts/regen_quality_baseline.py' refresh)."
+          fi
+
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
