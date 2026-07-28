@@ -125,15 +125,33 @@ if [ -n "$STAGED_POSTS" ]; then
   echo "[pre-commit] KST-midnight check: passed."
 fi
 
-# 9. Auto-dedup duplicate '실무 적용 포인트' blocks in staged posts.
-#    The pre-2026-06-24 generator could repeat the same advice block across two
-#    news items (_pick_variant collision). This removes those repeats from
-#    staged posts and re-stages the cleaned content. Posts with UNSTAGED edits
-#    are skipped (won't sweep un-reviewed hunks). Non-blocking auto-fix.
-if [ -n "$STAGED_POSTS" ]; then
-  echo "[pre-commit] Deduping practical-point blocks in staged posts..."
-  python3 "$REPO_ROOT/scripts/check_posts.py" --fix --staged
-  echo "[pre-commit] Practical-point dedup: done."
+# 9. Digest structural invariant gate (Sub-project 0 — numbering/H1/checklist)
+STAGED_DIGEST_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/[^/]+Weekly_Digest[^/]*\.md$' || true)
+if [ -n "$STAGED_DIGEST_POSTS" ]; then
+  echo "[pre-commit] Checking digest post structural invariants..."
+  python3 "$REPO_ROOT/scripts/check_digest_structure.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Digest structural violation found. Fix before committing."
+    echo "             Digest posts need contiguous ## N. numbering, no body H1,"
+    echo "             and a single global ## 실무 체크리스트 (no per-item checklist)."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Digest structural check: passed."
+fi
+
+# 9b. Digest untranslated-English gate (translation-fallback regression guard)
+if [ -n "$STAGED_DIGEST_POSTS" ]; then
+  echo "[pre-commit] Checking digest posts for untranslated English..."
+  python3 "$REPO_ROOT/scripts/check_digest_untranslated.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Untranslated English found in a digest 요약/summary= field."
+    echo "             Translate the flagged prose to Korean (preserve proper"
+    echo "             nouns / CVE IDs). Cited English titles are not flagged."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Digest untranslated-English check: passed."
 fi
 
 # 10. CSP inline-script sha256 regression gate (prep for CSP Path B)
@@ -168,21 +186,4 @@ if [ -n "$STAGED_QUALITY_POSTS" ]; then
     exit 1
   fi
   echo "[pre-commit] Post quality: passed."
-fi
-
-# 12. Digest untranslated-English gate — block digests whose 요약/summary=
-#     fields fell back to raw English (translation API unavailable on the
-#     repository_dispatch publish path). Cited English titles are not flagged.
-STAGED_DIGEST_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/[^/]+Weekly_Digest[^/]*\.md$' || true)
-if [ -n "$STAGED_DIGEST_POSTS" ]; then
-  echo "[pre-commit] Checking digest posts for untranslated English..."
-  python3 "$REPO_ROOT/scripts/check_digest_untranslated.py" --staged
-  if [ $? -ne 0 ]; then
-    echo "[pre-commit] Untranslated English found in a digest 요약/summary= field."
-    echo "             Translate the flagged prose to Korean (preserve proper"
-    echo "             nouns / CVE IDs). Cited English titles are not flagged."
-    echo "             To bypass (not recommended): git commit --no-verify"
-    exit 1
-  fi
-  echo "[pre-commit] Digest untranslated-English check: passed."
 fi
