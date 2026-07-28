@@ -35,6 +35,7 @@ on:
       - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
       - 'scripts/check_digest_structure.py'
+      - 'scripts/check_digest_untranslated.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -76,6 +77,7 @@ on:
       - 'scripts/check_rollup_spec_consistency.py'
       - 'scripts/check_kst_midnight.py'
       - 'scripts/check_digest_structure.py'
+      - 'scripts/check_digest_untranslated.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -243,6 +245,21 @@ jobs:
           fi
           echo "[digest-structure] diff base: $BASE"
           python3 scripts/check_digest_structure.py --changed "$BASE"
+
+      - name: Digest untranslated-English gate (PR-diff-scoped)
+        id: digest_untranslated
+        # PR-diff-scoped: only checks digest posts touched by this PR/push, so
+        # the whole legacy corpus (already Korean) is not re-scanned. Guards the
+        # repository_dispatch translation-fallback regression where LLM keys are
+        # zeroed and 요약/summary= fall back to raw English RSS text.
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="origin/${{ github.event.pull_request.base.ref }}"
+          else
+            BASE="HEAD~1"
+          fi
+          echo "[digest-untranslated] diff base: $BASE"
+          python3 scripts/check_digest_untranslated.py --changed "$BASE"
 
       - name: CSP inline-script sha256 regression gate (prep for CSP Path B)
         id: csp_inline_hashes

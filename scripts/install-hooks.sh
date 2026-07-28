@@ -180,6 +180,20 @@ if [ -n "$STAGED_DIGEST_POSTS" ]; then
   echo "[pre-commit] Digest structural check: passed."
 fi
 
+# 9b. Digest untranslated-English gate (translation-fallback regression guard)
+if [ -n "$STAGED_DIGEST_POSTS" ]; then
+  echo "[pre-commit] Checking digest posts for untranslated English..."
+  python3 "$REPO_ROOT/scripts/check_digest_untranslated.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Untranslated English found in a digest 요약/summary= field."
+    echo "             Translate the flagged prose to Korean (preserve proper"
+    echo "             nouns / CVE IDs). Cited English titles are not flagged."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Digest untranslated-English check: passed."
+fi
+
 # 10. CSP inline-script sha256 regression gate (prep for CSP Path B)
 STAGED_HEAD_HTML=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_includes/head\.html$' || true)
 if [ -n "$STAGED_HEAD_HTML" ]; then
