@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-27T02:04:54.456494+00:00",
+  "updated_at": "2026-07-28T01:47:33.678682+00:00",
   "entries": [
     {
       "url": "https://research.checkpoint.com/2026/ai-security-report-2026/",
@@ -1170,6 +1170,96 @@
       "title": "런던 개트윅 공항, 로봇 주차 서비스 출시",
       "published_date": "2026-07-27",
       "expires_at": "2026-08-03T02:04:54.456396+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/nvidia-forms-37-member-open-secure-ai.html",
+      "title": "NVIDIA Forms 37-Member Open Secure AI Alliance and Open-Sources NOOA Framework",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/94648/",
+      "title": "Not Every Fox is Silver: Inside an AtlasRAT Loader Chain",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/dysphoria-iot-botnet-adds-blockchain-c2.html",
+      "title": "Dysphoria IoT Botnet Adds Blockchain C2 and Victim Relays After JackSkid Disrupt",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/public-exploit-released-for-patched.html",
+      "title": "Public Exploit Released for Patched vBulletin Pre-Auth Code Execution Flaw",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-target-us-firms-in-fastjson-rce-zero-day-attacks/",
+      "title": "Hackers target US firms in FastJson RCE zero-day attacks",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/ai-sovereignty-is-your-alpha-how-to-avoid-transferring-your-alpha-to-a-hosted-model-provider-774a1b35bf98?source=rss----3c87dc14372f---4",
+      "title": "AI Sovereignty is Your Alpha: How to Avoid Transferring Your Alpha to a Hosted M",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/",
+      "title": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
+      "title": "How AI is expanding what people do at work",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/",
+      "title": "Beyond RAG: Task-aware knowledge compression for enterprise AI on AWS",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/deepgram-enhances-amazon-sagemaker-ai-support-with-aws-iam-temporary-delegation/",
+      "title": "Deepgram enhances Amazon SageMaker AI support with AWS IAM Temporary Delegation",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/sap-google-cloud/sap-and-google-cloud-launch-bdc-connect-for-bigquery/",
+      "title": "Announcing general availability of SAP Business Data Cloud Connect for BigQuery",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cyber-snapshot-report-enterprise-resilience-key-to-toolchain-success/",
+      "title": "Cyber Snapshot Report: Go beyond the toolchain and build enterprise resilience",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/modernizing-the-skies-noaa-google-cloud-collaborate-advance-weather-forecasting/",
+      "title": "Modernizing the skies: NOAA and Google Cloud collaborate to advance weather fore",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-july-27-2026/",
+      "title": "AWS Weekly Roundup: Local Zone in Athens, Claude Opus 5 on AWS, Lambda durable e",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-07-27-manage-github-copilot-app-access-with-a-dedicated-policy",
+      "title": "Manage GitHub Copilot app access with a dedicated policy",
+      "published_date": "2026-07-28",
+      "expires_at": "2026-08-04T01:47:33.678547+00:00"
     }
   ]
 }
