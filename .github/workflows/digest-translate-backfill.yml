@@ -1,0 +1,163 @@
+name: Digest Translate Backfill
+
+# 재발 방지 B단계 — TRUSTED post-processing translator.
+#
+# The untrusted `repository_dispatch` publish path in ai-blogwatcher.yml zeroes
+# out all LLM keys (MED-1 secret partition), so any digest it publishes with an
+# English-only translation fallback lands untranslated. This job runs in a
+# TRUSTED context (schedule / manual dispatch ONLY — never repository_dispatch)
+# WITH the keys available, translates those English 요약/summary=/title= spans
+# back to Korean (scripts/retranslate_digest.py), and opens a review PR.
+#
+# Why this is safe even though the post text originated from untrusted RSS:
+# the key is never exposed to a dispatch requester (this workflow cannot be
+# triggered by repository_dispatch, and the translate step is additionally
+# guarded on github.event_name); the LLM output can only become validated
+# Korean post text (no tool/network/eval surface); and retranslate_digest.py
+# validates every translation (Hangul present, bounded length) before writing.
+# See notes/digest-retranslate-security.md.
+
+on:
+  schedule:
+    # 01:30 UTC (10:30 KST) — ~90 min after the ai-blogwatcher publish cron
+    # (0 0 * * *) so a freshly-published digest is already committed.
+    - cron: "30 1 * * *"
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Translate digests changed within this many recent commits"
+        required: false
+        default: "5"
+      dry_run:
+        description: "Dry run (no write, no PR)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions: {}
+
+concurrency:
+  group: digest-translate-backfill
+  cancel-in-progress: false
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  translate-backfill:
+    # Belt-and-suspenders: this workflow has no repository_dispatch trigger, but
+    # pin the whole job to the trusted event types so a future edit that adds one
+    # can never run the secret-injecting steps below.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    env:
+      SINCE: ${{ github.event.inputs.since || '5' }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+        with:
+          fetch-depth: 10
+
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+          cache-dependency-path: "requirements-blogwatcher.txt"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          # requests (DeepSeek/Gemini REST) comes from the reviewed, floor-pinned
+          # blogwatcher dep set.
+          pip install -r requirements-blogwatcher.txt
+
+      - name: Retranslate untranslated digests
+        id: translate
+        env:
+          # SECRET PARTITION (mirrors ai-blogwatcher.yml MED-1): inject the LLM
+          # keys ONLY on the trusted event types. Even though this workflow has no
+          # repository_dispatch trigger, the guard makes a future misconfiguration
+          # fail-closed (empty key -> retranslate_digest.py is a clean no-op).
+          GEMINI_API_KEY: ${{ github.event_name != 'repository_dispatch' && secrets.GEMINI_API_KEY || '' }}
+          DEEPSEEK_API_KEY: ${{ github.event_name != 'repository_dispatch' && secrets.DEEPSEEK_API_KEY || '' }}
+          # Force auto mode so both backends are eligible (config._AI_MODE).
+          AUTO_PUBLISH_USE_AI: "auto"
+        run: |
+          set -euo pipefail
+          # Only strictly-numeric SINCE is honored (no shell metacharacters).
+          if [[ "${SINCE}" =~ ^[0-9]+$ ]] && [ "${SINCE}" -gt 0 ]; then
+            BASE="HEAD~${SINCE}"
+          else
+            BASE="HEAD~5"
+          fi
+          echo "Scanning digests changed vs ${BASE} ..."
+
+          ARGS=(--changed "${BASE}")
+          if [ "${DRY_RUN}" = "true" ]; then
+            ARGS+=(--dry-run)
+          fi
+
+          # retranslate_digest.py masks nothing sensitive to stdout and is a
+          # clean no-op when no key is present.
+          python3 scripts/retranslate_digest.py "${ARGS[@]}"
+
+          if [ "${DRY_RUN}" != "true" ] && ! git diff --quiet -- _posts; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open review PR with translations
+        if: steps.translate.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          TODAY=$(date -u +%Y-%m-%d)
+          BRANCH="digest-retranslate/${TODAY}-${RUN_ID}"
+          git checkout -b "$BRANCH"
+          git add -u _posts/
+          git commit -m "fix: 미번역 영문 다이제스트 요약/제목 한국어 재번역 (${TODAY})"
+          git push origin "$BRANCH"
+
+          # Do NOT push to main — open a PR so CI (digest gates) runs first.
+          # Mirror the blogwatcher graceful-degrade: if the repo blocks Actions
+          # from opening PRs, leave the branch pushed and print how to open it.
+          if gh pr create --base main --head "$BRANCH" \
+            --title "fix: 미번역 다이제스트 한국어 재번역 (${TODAY})" \
+            --body "재발 방지 B단계 — trusted scheduled translator retranslated English-fallback 요약/summary=/title= spans back to Korean. Translations are output-validated (Hangul + bounded length). Review the diff and let CI go green before merging."; then
+            echo "Opened retranslate review PR from $BRANCH"
+          else
+            echo "::error::Could not auto-open the PR. Translations are on branch '${BRANCH}' (main NOT updated)."
+            echo "::error::Fix: enable Settings → Actions → General → 'Allow GitHub Actions to create and approve pull requests', or use a PAT/App token. Open manually:"
+            echo "::error::  ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/main...${BRANCH}?expand=1"
+            exit 1
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Digest Translate Backfill"
+            echo ""
+            echo "- Event: ${{ github.event_name }}"
+            echo "- Since: ${SINCE} commit(s)"
+            echo "- Dry run: ${DRY_RUN}"
+            echo "- Changes: ${{ steps.translate.outputs.changed }}"
+          } >> "$GITHUB_STEP_SUMMARY"
