@@ -128,7 +128,7 @@ DevSecOps 실무자에게 이번 패치 대량 발표는 다음과 같은 현실
 {% include news-card.html
   title="놓치셨다면: 2026년 6월 AWS Security 소식"
   url="https://aws.amazon.com/blogs/security/icymi-june-2026-aws-security/"
-  summary="AWS Security의 2026년 6월 월간 다이제스트에서는 최신 보안 기능, 규정 준수 업데이트, 전문가 블로그 게시물, 새로운 서비스 기능, 코드 샘플 및 워크숍이 소개되었으며, identity and access management, threat intelligence, network security, AI-powered security toolin"
+  summary="AWS Security의 2026년 6월 월간 다이제스트에서는 최신 보안 기능, 규정 준수 업데이트, 전문가 블로그 게시물, 새로운 서비스 기능, 코드 샘플 및 워크숍이 소개되었으며, ID 및 접근 관리, 위협 인텔리전스, 네트워크 보안, AI 기반 보안 도구 등을 다룹니다."
   source="AWS Security Blog"
   severity="Critical"
 %}
@@ -296,14 +296,14 @@ Google Cloud에서 Claude를 엔터프라이즈 프로덕션 환경에 맞게 �
 {% include news-card.html
   title="Amazon CloudWatch에서 OpenTelemetry 및 PromQL 지원 소개"
   url="https://aws.amazon.com/ko/blogs/tech/introducing-opentelemetry-promql-support-in-amazon-cloudwatch/"
-  summary="본 게시글은 Introducing OpenTelemetry and PromQL support in Amazon CloudWatch by Rodrigue Koffi를 2026년 7월 정식 출시(GA) 시점의 원문을 번역했습니다."
+  summary="Amazon CloudWatch가 OpenTelemetry와 PromQL 지원을 정식 출시(GA)했습니다. 이를 통해 표준 OpenTelemetry 계측과 PromQL 쿼리를 활용해 지표를 수집하고 분석할 수 있습니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}
 
 #### 요약
 
-본 게시글은 Introducing OpenTelemetry and PromQL support in Amazon CloudWatch by Rodrigue Koffi를 2026년 7월 정식 출시(GA) 시점의 원문을 번역했습니다.
+Amazon CloudWatch가 OpenTelemetry와 PromQL 지원을 정식 출시(GA)했습니다. 이를 통해 표준 OpenTelemetry 계측과 PromQL 쿼리를 활용해 지표를 수집하고 분석할 수 있습니다.
 
 
 ---
