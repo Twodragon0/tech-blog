@@ -353,6 +353,16 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           TODAY=$(date +%Y-%m-%d)
+
+          # Canonicalize proper nouns (비트코인 -> Bitcoin ...) in the new digest
+          # body BEFORE staging, so the committed digest is already compliant and
+          # the svg-lint proper-noun gate stays green on the direct-push path.
+          # Body-text only (front matter untouched); deny-by-default allow-list.
+          # Non-blocking: a failure must never stop the digest from publishing.
+          for f in "_posts/${TODAY}"*Weekly_Digest*.md; do
+            [ -f "$f" ] && python3 scripts/check_digest_proper_nouns.py --fix "$f" || true
+          done
+
           git add "_posts/${TODAY}"*.md 2>/dev/null || true
           git add "assets/images/${TODAY}"*.svg 2>/dev/null || true
           git add "assets/images/${TODAY}"*.png 2>/dev/null || true

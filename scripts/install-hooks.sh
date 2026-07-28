@@ -194,6 +194,22 @@ if [ -n "$STAGED_DIGEST_POSTS" ]; then
   echo "[pre-commit] Digest untranslated-English check: passed."
 fi
 
+# 9c. Digest proper-noun canonicalization gate — enforce English-canonical
+#     proper nouns in digest bodies (deny-by-default allow-list). Prevents the
+#     intra-document 비트코인/Bitcoin mixing. Cited titles / code / CVE exempt.
+if [ -n "$STAGED_DIGEST_POSTS" ]; then
+  echo "[pre-commit] Checking digest proper-noun canonicalization..."
+  python3 "$REPO_ROOT/scripts/check_digest_proper_nouns.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Non-canonical (Hangul) proper noun found in a digest body."
+    echo "             Use English canonical spellings (e.g. 비트코인 -> Bitcoin),"
+    echo "             or auto-fix: python3 scripts/check_digest_proper_nouns.py --fix --staged"
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Digest proper-noun check: passed."
+fi
+
 # 10. CSP inline-script sha256 regression gate (prep for CSP Path B)
 STAGED_HEAD_HTML=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_includes/head\.html$' || true)
 if [ -n "$STAGED_HEAD_HTML" ]; then
