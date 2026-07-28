@@ -187,3 +187,20 @@ if [ -n "$STAGED_QUALITY_POSTS" ]; then
   fi
   echo "[pre-commit] Post quality: passed."
 fi
+
+# 12. Digest untranslated-English gate — block digests whose 요약/summary=
+#     fields fell back to raw English (translation API unavailable on the
+#     repository_dispatch publish path). Cited English titles are not flagged.
+STAGED_DIGEST_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/[^/]+Weekly_Digest[^/]*\.md$' || true)
+if [ -n "$STAGED_DIGEST_POSTS" ]; then
+  echo "[pre-commit] Checking digest posts for untranslated English..."
+  python3 "$REPO_ROOT/scripts/check_digest_untranslated.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Untranslated English found in a digest 요약/summary= field."
+    echo "             Translate the flagged prose to Korean (preserve proper"
+    echo "             nouns / CVE IDs). Cited English titles are not flagged."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Digest untranslated-English check: passed."
+fi
