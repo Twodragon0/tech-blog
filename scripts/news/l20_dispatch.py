@@ -1358,14 +1358,23 @@ _GENERIC_HEADLINE_WORDS: frozenset = frozenset({"show", "option", "command"})
 # lead-position "<adj> AI" highlight titles in the corpus (Agentic ×4, Vertical ×3).
 _AI_COMPOUND_ADJECTIVES: frozenset = frozenset({"agentic", "vertical"})
 
-# FM2 deferred — lone-adjective+"AI" cases the join above CANNOT reach because the
-# adjective is NOT the lead token. e.g. "Shadow AI" titles lead with "AI"
-# ("2025년 AI 보안 위협 현황: Shadow AI …"), so "Shadow" is non_cve[1] and its lone
-# rendering comes from the fallthrough cap-scan, not the lead-join. Adding "shadow"
-# to _AI_COMPOUND_ADJECTIVES is a verified NO-OP (does not change the cover) — it
-# would only silence the TestCorpusNoLoneAdjectiveAi guard. This positional case
-# needs a separate future rule; the guard exempts these so committed CI stays green.
-_DEFERRED_AI_ADJECTIVES: frozenset = frozenset({"shadow"})
+# FM2 deferred — lone-"<word> AI" cases where the lone rendering is CORRECT and a
+# compound join would be WRONG, so the word must NOT go in _AI_COMPOUND_ADJECTIVES.
+# _DEFERRED is consumed ONLY by TestCorpusNoLoneAdjectiveAi (build_lead_headline
+# does not read it), so adding a word here is a guaranteed cover NO-OP — it vets
+# the lone lead as intended and keeps CI green without changing any render.
+# Two structurally-distinct reasons a word lands here:
+#   - "shadow": NOT the lead token. "Shadow AI" titles lead with "AI"
+#     ("2025년 AI 보안 위협 현황: Shadow AI …"), so "Shadow" is non_cve[1]; its lone
+#     rendering comes from the fallthrough cap-scan, not the lead-join.
+#     A separate positional rule is still owed.
+#   - "claude": a real-entity BRAND (Anthropic's Claude), not a generic type
+#     adjective like agentic/vertical. It IS the lead token in "Claude AI, …"
+#     (2026-07-29 digest), but lone "Claude" is an honest, recognizable hero —
+#     joining to "Claude AI" is exactly the proper-noun-fragment breakage the
+#     _AI_COMPOUND_ADJECTIVES comment warns against ("Claude Mythos AI" -> "Mythos
+#     AI"). So the lone lead is CORRECT; we vet it, not join it.
+_DEFERRED_AI_ADJECTIVES: frozenset = frozenset({"shadow", "claude"})
 
 # FM4 — curated multi-word vendor/product entities whose FIRST word, when it ends
 # up as a resolved-bigram token, truncates the full entity that is literally
