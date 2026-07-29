@@ -340,20 +340,20 @@ Google의 최신 Flash 모델인 Gemini 3.6 Flash가 GitHub Copilot에서 사용
 
 ## 5. 블록체인 뉴스
 
-### 5.1 비트코인은 Proof Of Node에 의해 변경되지 않는다
+### 5.1 Bitcoin은 Proof Of Node에 의해 변경되지 않는다
 
 {% include news-card.html
-  title="비트코인은 Proof Of Node에 의해 변경되지 않는다"
+  title="Bitcoin은 Proof Of Node에 의해 변경되지 않는다"
   url="https://bitcoinmagazine.com/technical/bitcoin-is-not-changed-by-proof-of-node"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/tn-6.webp"
-  summary="비트코인 매거진은 Proof of Node 제안이 비트코인을 변경하지 않는다고 주장하며, 비트코인 거래의 임의 데이터를 제한하려는 이 제안은 경제적 노드, 프로토콜 개발자, 해시레이트의 지지를 받지 못한다고 설명합니다. 2017년 UASF 사례는 노드의 성공이 광범위한 투자자와 개발자의 지지가 있을 때만 가능함을 보여줍니다."
+  summary="Bitcoin 매거진은 Proof of Node 제안이 Bitcoin을 변경하지 않는다고 주장하며, Bitcoin 거래의 임의 데이터를 제한하려는 이 제안은 경제적 노드, 프로토콜 개발자, 해시레이트의 지지를 받지 못한다고 설명합니다. 2017년 UASF 사례는 노드의 성공이 광범위한 투자자와 개발자의 지지가 있을 때만 가능함을 보여줍니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인 매거진은 Proof of Node 제안이 비트코인을 변경하지 않는다고 주장하며, 비트코인 거래의 임의 데이터를 제한하려는 이 제안은 경제적 노드, 프로토콜 개발자, 해시레이트의 지지를 받지 못한다고 설명합니다. 2017년 UASF 사례는 노드의 성공이 광범위한 투자자와 개발자의 지지가 있을 때만 가능함을 보여줍니다.
+Bitcoin 매거진은 Proof of Node 제안이 Bitcoin을 변경하지 않는다고 주장하며, Bitcoin 거래의 임의 데이터를 제한하려는 이 제안은 경제적 노드, 프로토콜 개발자, 해시레이트의 지지를 받지 못한다고 설명합니다. 2017년 UASF 사례는 노드의 성공이 광범위한 투자자와 개발자의 지지가 있을 때만 가능함을 보여줍니다.
 
 
 ---

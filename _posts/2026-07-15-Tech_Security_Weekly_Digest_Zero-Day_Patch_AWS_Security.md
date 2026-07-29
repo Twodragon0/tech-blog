@@ -96,7 +96,7 @@ summary_card:
   title="Microsoft, 활성 공격 중인 제로데이 2건 포함 역대 최다 622개 결함 패치"
   url="https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi34s_9ywUXjSc5OtF7-fDiAqSa3H-UHpJfACXyULY5ziUlM67mCJHWee9tluTiGm7ZRhMy36SLal2CUjqwJHZ8vdHuFstRwJhPGLAXe49as-o3nRE-QAyRs2mx3og8eVdWdnzzr9LwGMXckMix80XOQPsWiE30xqqYGG3PNjjpVTCpLsnW77pCk_3MyKQ/s1600/ms=patch.jpg"
-  summary="마이크로소프트가 기록적인 622개의 취약점을 패치한 Patch Tuesday를 발표했으며, 이 중 두 개의 제로데이는 현재 활발히 공격에 악용되고 있습니다. 이번 업데이트는 이전 최고치였던 6월의 약 200개를 크게 웃도는 수준이며, 마이크로소프트는 두 건의 활성 결함을 사고 대응팀의 기여로 인정했습니다."
+  summary="Microsoft가 기록적인 622개의 취약점을 패치한 Patch Tuesday를 발표했으며, 이 중 두 개의 제로데이는 현재 활발히 공격에 악용되고 있습니다. 이번 업데이트는 이전 최고치였던 6월의 약 200개를 크게 웃도는 수준이며, Microsoft는 두 건의 활성 결함을 사고 대응팀의 기여로 인정했습니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -384,38 +384,38 @@ GitHub의 Dependabot이 버전 업데이트 시 새로운 릴리스가 레지스
 
 ---
 
-### 5.2 비트코인 소프트포크, '정크 데이터' 단속 시도했지만 이미 실패한 이유
+### 5.2 Bitcoin 소프트포크, '정크 데이터' 단속 시도했지만 이미 실패한 이유
 
 {% include news-card.html
-  title="비트코인 소프트포크, '정크 데이터' 단속 시도했지만 이미 실패한 이유"
+  title="Bitcoin 소프트포크, '정크 데이터' 단속 시도했지만 이미 실패한 이유"
   url="https://bitcoinmagazine.com/technical/the-bitcoin-softfork-that-tried-to-police-junk-data-and-why-its-already-failing"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/tn-3.webp"
-  summary="비트코인의 진정한 힘은 수수료를 지불하는 누구나 원장에 기록할 수 있다는 점에 있지만, BIP-110 지지자들은 데이터가 많은 트랜잭션을 제한하려는 소프트포크를 시도하고 있습니다. 그러나 이 제안에 대한 반발이 거세지면서 이미 실패하고 있는 것으로 보입니다. 이는 비트코인의 검열 저항성과 개방성이라는 핵심 가치가 위협받고 있음을 보여줍니다."
+  summary="Bitcoin의 진정한 힘은 수수료를 지불하는 누구나 원장에 기록할 수 있다는 점에 있지만, BIP-110 지지자들은 데이터가 많은 트랜잭션을 제한하려는 소프트포크를 시도하고 있습니다. 그러나 이 제안에 대한 반발이 거세지면서 이미 실패하고 있는 것으로 보입니다. 이는 Bitcoin의 검열 저항성과 개방성이라는 핵심 가치가 위협받고 있음을 보여줍니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인의 진정한 힘은 수수료를 지불하는 누구나 원장에 기록할 수 있다는 점에 있지만, BIP-110 지지자들은 데이터가 많은 트랜잭션을 제한하려는 소프트포크를 시도하고 있습니다. 그러나 이 제안에 대한 반발이 거세지면서 이미 실패하고 있는 것으로 보입니다. 이는 비트코인의 검열 저항성과 개방성이라는 핵심 가치가 위협받고 있음을 보여줍니다.
+Bitcoin의 진정한 힘은 수수료를 지불하는 누구나 원장에 기록할 수 있다는 점에 있지만, BIP-110 지지자들은 데이터가 많은 트랜잭션을 제한하려는 소프트포크를 시도하고 있습니다. 그러나 이 제안에 대한 반발이 거세지면서 이미 실패하고 있는 것으로 보입니다. 이는 Bitcoin의 검열 저항성과 개방성이라는 핵심 가치가 위협받고 있음을 보여줍니다.
 
 
 ---
 
-### 5.3 CleanSpark, 비트코인 채굴업체, 컴퓨팅 전환 위해 66억 달러 데이터센터 임대 계약 체결
+### 5.3 CleanSpark, Bitcoin 채굴업체, 컴퓨팅 전환 위해 66억 달러 데이터센터 임대 계약 체결
 
 {% include news-card.html
-  title="CleanSpark, 비트코인 채굴업체, 컴퓨팅 전환 위해 66억 달러 데이터센터 임대 계약 체결"
+  title="CleanSpark, Bitcoin 채굴업체, 컴퓨팅 전환 위해 66억 달러 데이터센터 임대 계약 체결"
   url="https://bitcoinmagazine.com/news/cleanspark-signs-6-billion-center-lease"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/CleanSpark-Signs-6.6-Billion-Data-Center-Lease-as-Bitcoin-Miner-Pivots-to-Compute.jpg"
-  summary="CleanSpark가 Nasdaq 상장 비트코인 채굴 기업으로, 조지아주 Sandersville 캠퍼스에서 미공개 고신용 글로벌 기술 기업과 20년간 66억 달러 규모의 데이터센터 임대 계약을 체결했습니다. 이는 순수 비트코인 채굴에서 하이퍼스케일 클라이언트를 위한 고성능 컴퓨팅으로 전환하는 가장 큰 움직임입니다."
+  summary="CleanSpark가 Nasdaq 상장 Bitcoin 채굴 기업으로, 조지아주 Sandersville 캠퍼스에서 미공개 고신용 글로벌 기술 기업과 20년간 66억 달러 규모의 데이터센터 임대 계약을 체결했습니다. 이는 순수 Bitcoin 채굴에서 하이퍼스케일 클라이언트를 위한 고성능 컴퓨팅으로 전환하는 가장 큰 움직임입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-CleanSpark가 Nasdaq 상장 비트코인 채굴 기업으로, 조지아주 Sandersville 캠퍼스에서 미공개 고신용 글로벌 기술 기업과 20년간 66억 달러 규모의 데이터센터 임대 계약을 체결했습니다. 이는 순수 비트코인 채굴에서 하이퍼스케일 클라이언트를 위한 고성능 컴퓨팅으로 전환하는 가장 큰 움직임입니다.
+CleanSpark가 Nasdaq 상장 Bitcoin 채굴 기업으로, 조지아주 Sandersville 캠퍼스에서 미공개 고신용 글로벌 기술 기업과 20년간 66억 달러 규모의 데이터센터 임대 계약을 체결했습니다. 이는 순수 Bitcoin 채굴에서 하이퍼스케일 클라이언트를 위한 고성능 컴퓨팅으로 전환하는 가장 큰 움직임입니다.
 
 
 ---

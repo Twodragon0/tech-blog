@@ -60,7 +60,7 @@ summary_card:
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | 리눅스 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨 | 🟠 High |
+| 🔒 **Security** | The Hacker News | Linux 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨 | 🟠 High |
 | 🔒 **Security** | The Hacker News | Meta, NSO 그룹의 새로운 WhatsApp 피싱 공격 차단 및 법정 모독 명령 신청 | 🟠 High |
 | 🔒 **Security** | AWS Security Blog | 놓치신 분들을 위해: 2026년 5월 AWS Security 소식 | 🔴 Critical |
 | 🤖 **AI/ML** | Palantir Blog | 대규모 Elasticsearch 재인덱싱 관리: 성능, 신뢰성 및 관찰 가능성 | 🟡 Medium |
@@ -76,7 +76,7 @@ summary_card:
 ## 경영진 브리핑
 
 - **긴급 대응 필요**: 놓치신 분들을 위해: 2026년 5월 AWS Security 소식 등 Critical 등급 위협 1건이 확인되었습니다.
-- **주요 모니터링 대상**: 리눅스 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨, Meta, NSO 그룹의 새로운 WhatsApp 피싱 공격 차단 및 법정 모독 명령 신청, AWS와 NVIDIA로 Physical AI 가속화: 시뮬레이션과 실제 학습을 통한 프로덕션 레디 애플리케이션 구축 등 High 등급 위협 5건에 대한 탐지 강화가 필요합니다.
+- **주요 모니터링 대상**: Linux 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨, Meta, NSO 그룹의 새로운 WhatsApp 피싱 공격 차단 및 법정 모독 명령 신청, AWS와 NVIDIA로 Physical AI 가속화: 시뮬레이션과 실제 학습을 통한 프로덕션 레디 애플리케이션 구축 등 High 등급 위협 5건에 대한 탐지 강화가 필요합니다.
 - 공급망 보안 위협이 확인되었으며, 서드파티 의존성 검토와 SBOM 업데이트를 권고합니다.
 
 ## 위험 스코어카드
@@ -90,14 +90,14 @@ summary_card:
 
 ## 분석가 시점
 
-이번 주기를 한 줄로 정리하면 `CVE-2026-1234` 같은 단일 커널 결함이 로컬 루트 권한 상승을 가능하게 한 시점이며, **WhatsApp 피싱 공격을 차단한 Meta의 법적 대응**과 **AWS의 5월 보안 업데이트**가 이를 뒷받침한다. DevSecOps 실무자가 이번 주기에 가장 먼저 봐야 할 신호는 **리눅스 커널 패치의 우선순위 재조정**이다. 공개된 익스플로잇이 존재하는 상황에서 `unprivileged_userfaultfd` 비활성화나 eBPF 제한과 같은 사전 방어 조치를 즉시 검토해야 하며, 동시에 AWS IAM 권한 경계와 S3 버킷 정책을 재점검해 클라우드 측면의 공격 표면을 최소화해야 한다.
+이번 주기를 한 줄로 정리하면 `CVE-2026-1234` 같은 단일 커널 결함이 로컬 루트 권한 상승을 가능하게 한 시점이며, **WhatsApp 피싱 공격을 차단한 Meta의 법적 대응**과 **AWS의 5월 보안 업데이트**가 이를 뒷받침한다. DevSecOps 실무자가 이번 주기에 가장 먼저 봐야 할 신호는 **Linux 커널 패치의 우선순위 재조정**이다. 공개된 익스플로잇이 존재하는 상황에서 `unprivileged_userfaultfd` 비활성화나 eBPF 제한과 같은 사전 방어 조치를 즉시 검토해야 하며, 동시에 AWS IAM 권한 경계와 S3 버킷 정책을 재점검해 클라우드 측면의 공격 표면을 최소화해야 한다.
 
 ## 1. 보안 뉴스
 
-### 1.1 리눅스 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨
+### 1.1 Linux 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨
 
 {% include news-card.html
-  title="리눅스 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨"
+  title="Linux 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨"
   url="https://thehackernews.com/2026/06/one-character-linux-kernel-flaw-enables.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA8UsvPZqRGiHkumM_jxIGyax3NmK9lBR-XAaVK3Stujz8_bExONh9gAroIEXnLQo9KaXb2MpyZsqb2kcfaUxNJJtFhiSpCZjHDzOtgt-sZczb2rx2eRi-rqMiqFtfs0lq6iqJd74J3aoFRN-azg51ZhnQq84Ve1y_-AMXudSuiePM0mi1UHwTh0MHtIE/s1600/linux.jpg"
   summary="보안 연구진이 Linux kernel의 nf_tables 패킷 필터링 코드에서 발견된 use-after-free 취약점 CVE-2026-23111에 대한 상세한 working exploit을 공개했습니다. 이 취약점은 권한이 없는 로컬 사용자가 root 권한을 획득하고 컨테이너를 탈출할 수 있게 하며, 2026년 2월 5일 upstream에서 패치되었습니다"
@@ -388,10 +388,10 @@ Sam Bankman-Fried가 도널드 트럼프 대통령에게 공식적으로 사면�
 
 ---
 
-### 5.3 Strive (ASST), 평균 63,900달러에 비트코인 32개 매수, 총 보유량 19,032 BTC로 증가
+### 5.3 Strive (ASST), 평균 63,900달러에 Bitcoin 32개 매수, 총 보유량 19,032 BTC로 증가
 
 {% include news-card.html
-  title="Strive (ASST), 평균 63,900달러에 비트코인 32개 매수, 총 보유량 19,032 BTC로 증가"
+  title="Strive (ASST), 평균 63,900달러에 Bitcoin 32개 매수, 총 보유량 19,032 BTC로 증가"
   url="https://bitcoinmagazine.com/news/strive-buys-32-bitcoin-at-63900-average"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Strive-Buys-32-Bitcoin-at-63900-Average-Bringing-Total-Holdings-to-19032-BTC.jpg"
   summary="Strive (ASST)가 미국 증권거래위원회에 제출한 Form 8-K에 따르면, 2026년 6월 2일부터 7일 사이에 평균 63,900달러에 32 Bitcoin을 매수하여 약 210만 달러를 지출했습니다. 이번 매수로 Strive의 총 Bitcoin 보유량은 19,032 BTC로 증가했습니다."
@@ -437,7 +437,7 @@ Strive (ASST)가 미국 증권거래위원회에 제출한 Form 8-K에 따르면
 
 ### P1 (7일 내)
 
-- [ ] **리눅스 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨** (CVE-2026-23111) 관련 보안 검토 및 모니터링
+- [ ] **Linux 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨** (CVE-2026-23111) 관련 보안 검토 및 모니터링
 - [ ] **Meta, NSO 그룹의 새로운 WhatsApp 피싱 공격 차단 및 법정 모독 명령 신청** 관련 보안 검토 및 모니터링
 - [ ] **AI 피싱이 알림 폭주로 SOC를 압도하다: 티어 1 과부하 줄이는 방법** 관련 보안 검토 및 모니터링
 - [ ] **AWS와 NVIDIA로 Physical AI 가속화: 시뮬레이션과 실제 학습을 통한 프로덕션 레디 애플리케이션 구축** 관련 보안 검토 및 모니터링

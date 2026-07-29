@@ -231,14 +231,14 @@ Deutsche Telekom은 OpenAI를 활용해 AI 기반 통신사로 전환 중이며,
   title="TeraWulf, Anthropic 연계 데이터센터 위해 35억 달러 부채 조달 검토: 보고서"
   url="https://cointelegraph.com/news/terawulf-3-5-billion-debt-raise-anthropic-data-center?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://s3-images.ctmedia.io/media/article-covers/hi-what-is-decentralized-web-hosting-and-how-does-it-work22.jpg"
-  summary="비트코인 채굴 기업 TeraWulf가 Morgan Stanley 주도로 35억 달러의 부채 조달을 추진 중이며, 이 자금은 AI 기업 Anthropic에 임대된 켄터키 데이터 센터 캠퍼스에 사용될 예정이다."
+  summary="Bitcoin 채굴 기업 TeraWulf가 Morgan Stanley 주도로 35억 달러의 부채 조달을 추진 중이며, 이 자금은 AI 기업 Anthropic에 임대된 켄터키 데이터 센터 캠퍼스에 사용될 예정이다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인 채굴 기업 TeraWulf가 Morgan Stanley 주도로 35억 달러의 부채 조달을 추진 중이며, 이 자금은 AI 기업 Anthropic에 임대된 켄터키 데이터 센터 캠퍼스에 사용될 예정이다.
+Bitcoin 채굴 기업 TeraWulf가 Morgan Stanley 주도로 35억 달러의 부채 조달을 추진 중이며, 이 자금은 AI 기업 Anthropic에 임대된 켄터키 데이터 센터 캠퍼스에 사용될 예정이다.
 
 ---
 
@@ -398,20 +398,20 @@ Circle(CRCL)이 OCC의 최종 승인을 받아 전국 신탁은행을 설립하�
 
 ---
 
-### 5.3 Metaplanet, 비트코인 담보 디지털 신용을 일본에 도입하기 위한 공동 연구 발표
+### 5.3 Metaplanet, Bitcoin 담보 디지털 신용을 일본에 도입하기 위한 공동 연구 발표
 
 {% include news-card.html
-  title="Metaplanet, 비트코인 담보 디지털 신용을 일본에 도입하기 위한 공동 연구 발표"
+  title="Metaplanet, Bitcoin 담보 디지털 신용을 일본에 도입하기 위한 공동 연구 발표"
   url="https://bitcoinmagazine.com/news/metaplanet-announces-joint-study-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Metaplanet-Acquires-Siiibo-Securities-in-Push-to-Build-Bitcoin-Financial-Ecosystem.jpg"
-  summary="Metaplanet이 비트코인 전략을 재무부 축적을 넘어 확장하며, 일본 부채 시장을 재편할 수 있는 토큰화된 비트코인 담보 신용 상품을 탐구하기 위한 공동 연구를 발표했습니다. 이 연구는 비트코인 기반 디지털 신용을 일본에 도입하는 것을 목표로 합니다."
+  summary="Metaplanet이 Bitcoin 전략을 재무부 축적을 넘어 확장하며, 일본 부채 시장을 재편할 수 있는 토큰화된 Bitcoin 담보 신용 상품을 탐구하기 위한 공동 연구를 발표했습니다. 이 연구는 Bitcoin 기반 디지털 신용을 일본에 도입하는 것을 목표로 합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Metaplanet이 비트코인 전략을 재무부 축적을 넘어 확장하며, 일본 부채 시장을 재편할 수 있는 토큰화된 비트코인 담보 신용 상품을 탐구하기 위한 공동 연구를 발표했습니다. 이 연구는 비트코인 기반 디지털 신용을 일본에 도입하는 것을 목표로 합니다.
+Metaplanet이 Bitcoin 전략을 재무부 축적을 넘어 확장하며, 일본 부채 시장을 재편할 수 있는 토큰화된 Bitcoin 담보 신용 상품을 탐구하기 위한 공동 연구를 발표했습니다. 이 연구는 Bitcoin 기반 디지털 신용을 일본에 도입하는 것을 목표로 합니다.
 
 ---
 

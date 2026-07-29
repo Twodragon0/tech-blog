@@ -358,38 +358,38 @@ Runtime Enforcement, Not Runtime Advice는 에이전틱 시스템에서 런타�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 스위스 은행 BancaStato, Sygnum 및 Avaloq 통해 비트코인 거래 시작
+### 5.1 스위스 은행 BancaStato, Sygnum 및 Avaloq 통해 Bitcoin 거래 시작
 
 {% include news-card.html
-  title="스위스 은행 BancaStato, Sygnum 및 Avaloq 통해 비트코인 거래 시작"
+  title="스위스 은행 BancaStato, Sygnum 및 Avaloq 통해 Bitcoin 거래 시작"
   url="https://bitcoinmagazine.com/news/swiss-bank-bancastato-launches-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/Swiss-Bank-BancaStato-Launches-Bitcoin-Trading-Through-Sygnum-and-Avaloq.jpg"
-  summary="스위스 은행 BancaStato가 Sygnum의 인프라를 통해 기존 뱅킹 앱에서 규제된 비트코인 거래 서비스를 시작했습니다. 이는 Sygnum과 Avaloq의 협력을 통해 이루어졌으며, 스위스 은행들의 암호화폐 채택 사례를 추가했습니다."
+  summary="스위스 은행 BancaStato가 Sygnum의 인프라를 통해 기존 뱅킹 앱에서 규제된 Bitcoin 거래 서비스를 시작했습니다. 이는 Sygnum과 Avaloq의 협력을 통해 이루어졌으며, 스위스 은행들의 암호화폐 채택 사례를 추가했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-스위스 은행 BancaStato가 Sygnum의 인프라를 통해 기존 뱅킹 앱에서 규제된 비트코인 거래 서비스를 시작했습니다. 이는 Sygnum과 Avaloq의 협력을 통해 이루어졌으며, 스위스 은행들의 암호화폐 채택 사례를 추가했습니다.
+스위스 은행 BancaStato가 Sygnum의 인프라를 통해 기존 뱅킹 앱에서 규제된 Bitcoin 거래 서비스를 시작했습니다. 이는 Sygnum과 Avaloq의 협력을 통해 이루어졌으며, 스위스 은행들의 암호화폐 채택 사례를 추가했습니다.
 
 
 ---
 
-### 5.2 나스닥 상장사 Zhibao Technology, PIPE 파이낸싱 제안으로 비트코인 3,500개 인수 예정
+### 5.2 나스닥 상장사 Zhibao Technology, PIPE 파이낸싱 제안으로 Bitcoin 3,500개 인수 예정
 
 {% include news-card.html
-  title="나스닥 상장사 Zhibao Technology, PIPE 파이낸싱 제안으로 비트코인 3,500개 인수 예정"
+  title="나스닥 상장사 Zhibao Technology, PIPE 파이낸싱 제안으로 Bitcoin 3,500개 인수 예정"
   url="https://bitcoinmagazine.com/news/zhibao-technology-to-take-3500-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Bitcoin-Network-Activity-Hits-Highest-Level-Since-2024-CryptoQuant-.jpg"
-  summary="나스닥 상장사 Zhibao Technology가 3,500 비트코인을 수취하는 2억 2천만 달러 규모의 PIPE 자금 조달을 제안했습니다. 이는 중국 보험 기술 기업이 비트코인 재무를 구축하는 최신 상장사로 전환하는 움직임입니다."
+  summary="나스닥 상장사 Zhibao Technology가 3,500 Bitcoin을 수취하는 2억 2천만 달러 규모의 PIPE 자금 조달을 제안했습니다. 이는 중국 보험 기술 기업이 Bitcoin 재무를 구축하는 최신 상장사로 전환하는 움직임입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-나스닥 상장사 Zhibao Technology가 3,500 비트코인을 수취하는 2억 2천만 달러 규모의 PIPE 자금 조달을 제안했습니다. 이는 중국 보험 기술 기업이 비트코인 재무를 구축하는 최신 상장사로 전환하는 움직임입니다.
+나스닥 상장사 Zhibao Technology가 3,500 Bitcoin을 수취하는 2억 2천만 달러 규모의 PIPE 자금 조달을 제안했습니다. 이는 중국 보험 기술 기업이 Bitcoin 재무를 구축하는 최신 상장사로 전환하는 움직임입니다.
 
 
 ---
@@ -417,7 +417,7 @@ Bitcoin Magazine의 보고서에 따르면 미국 내 crypto 업계 종사자 �
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [대규모 인프라 보안: Pinterest의 Resource Provisioner Pipeline(RPP) 소개](https://medium.com/pinterest-engineering/securing-infrastructure-at-scale-introducing-pinterests-resource-provisioner-pipeline-rpp-8283bb12cbe5?source=rss----4c5a5f6279b6---4) | Pinterest Engineering | Pinterest가 분산된 멀티 리포지토리 아키텍처에서 인프라를 안전하게 관리하기 위해 자체 Terraform 실행 엔진인 Resource Provisioner Pipeline (RPP)을 설계했습니다. RPP는 대규모 조직에서 Infrastructure as Code (IaC)를 운영할 때 발생하는 보안 및 물류적 문제를 해결합니다 |
-| [Ask GN: 구글 크롬 확장 프로그램 개인적으로 만들어서 쓰고 계신것 있으신가요?](https://news.hada.io/topic?id=31727) | GeekNews (긱뉴스) | 아래 2개 확장 프로그램 개인적으로 만들어서 유용하게 쓰고 있는데, 긱뉴스 사용자 분들은 혹시 개인적으로 만드셔서 쓰고 계신 확장 프로그램이 있으신지 궁금합니다. 있으시면 확장, 깃허브 링크 올려주시면 좋을것 같습니다 |
+| [Ask GN: Google 크롬 확장 프로그램 개인적으로 만들어서 쓰고 계신것 있으신가요?](https://news.hada.io/topic?id=31727) | GeekNews (긱뉴스) | 아래 2개 확장 프로그램 개인적으로 만들어서 유용하게 쓰고 있는데, 긱뉴스 사용자 분들은 혹시 개인적으로 만드셔서 쓰고 계신 확장 프로그램이 있으신지 궁금합니다. 있으시면 확장, GitHub 링크 올려주시면 좋을것 같습니다 |
 | [GigaToken - 언어 모델 토큰화를 약 1,000배 가속](https://news.hada.io/topic?id=31724) | GeekNews (긱뉴스) | 다양한 CPU와 널리 쓰이는 토크나이저를 지원하며, 텍스트를 GB/s 단위로 처리하는 Tiktoken 과 HuggingFace Tokenizers 대체 도구 정규식 엔진이 맡던 사전 토큰화를 SIMD 로 최적화하고 분기·스레드 통신·Python 상호작용을 줄이며, 이전에 본 단어의 토큰 매핑을 효율적으로 캐싱함 |
 
 

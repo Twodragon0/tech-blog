@@ -205,7 +205,7 @@ IBM QRadar (AQL) — East-West 트래픽 이상 탐지:
 
 #### 요약
 
-Trump Media & Technology Group(DJT)이 소셜 미디어 플랫폼 Truth Social의 분사(Spin-out)를 검토 중이라고 밝혔다. 배경에는 그룹 차원의 암호화폐·핀테크 사업 확대 전략이 있다. 현재 Trump Media는 "Truth.Fi"라는 브랜드로 비트코인 연동 ETF 및 암호화폐 투자 포트폴리오 출시를 추진 중이며, 미디어 사업과 디지털 자산 사업의 법인 분리를 통해 각 부문에 최적화된 자본 조달 구조를 만들려는 의도로 해석된다.
+Trump Media & Technology Group(DJT)이 소셜 미디어 플랫폼 Truth Social의 분사(Spin-out)를 검토 중이라고 밝혔다. 배경에는 그룹 차원의 암호화폐·핀테크 사업 확대 전략이 있다. 현재 Trump Media는 "Truth.Fi"라는 브랜드로 Bitcoin 연동 ETF 및 암호화폐 투자 포트폴리오 출시를 추진 중이며, 미디어 사업과 디지털 자산 사업의 법인 분리를 통해 각 부문에 최적화된 자본 조달 구조를 만들려는 의도로 해석된다.
 
 2025년 DJT 주가는 Trump 전 대통령의 정치적 행보에 크게 연동되었으며, Truth Social의 독립 법인화는 암호화폐 사업의 독립적 밸류에이션을 가능하게 하는 효과가 있다. 단, Truth Social의 월간 활성 사용자(MAU)가 주요 소셜 플랫폼 대비 여전히 제한적이라는 점은 분사 후 독자 생존 가능성에 대한 의문을 남긴다.
 

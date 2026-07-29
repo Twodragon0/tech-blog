@@ -319,20 +319,20 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
 
 ---
 
-### 4.3 비트코인, 이란 최고지도자 사망 후 $68K로 회복
+### 4.3 Bitcoin, 이란 최고지도자 사망 후 $68K로 회복
 
 {%- include news-card.html
-  title="[블록체인] 비트코인, 이란 최고지도자 사망 후 $68K로 회복"
+  title="[블록체인] Bitcoin, 이란 최고지도자 사망 후 $68K로 회복"
   url="https://cointelegraph.com/news/bitcoin-recovers-to-68k-following-reported-death-of-iranian-supreme-leader?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-03/019ca7ab-9219-72a5-8214-96388e93d1fa.jpeg"
-  summary="비트코인, 이란 최고지도자 사망 후 $68K로 회복 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Bitcoin, 이란 최고지도자 사망 후 $68K로 회복 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
   source="Cointelegraph"
   severity="Medium"
 -%}
 
 #### 요약
 
-이란 최고지도자 하메네이가 미-이스라엘 공습으로 사망한 후, 비트코인은 $63,000 저점에서 24시간 내에 $68,200까지 $5,000 반등했습니다. 시장은 하메네이 사망을 미-이란 긴장 완화 신호로 해석했습니다. 다만 비트코인은 2월 한 달간 약 15% 하락하여 역대 세 번째로 나쁜 2월 성적을 기록했으며, 연초 대비 약 23% 하락해 2018년 이후 최악의 1분기를 향하고 있습니다.
+이란 최고지도자 하메네이가 미-이스라엘 공습으로 사망한 후, Bitcoin은 $63,000 저점에서 24시간 내에 $68,200까지 $5,000 반등했습니다. 시장은 하메네이 사망을 미-이란 긴장 완화 신호로 해석했습니다. 다만 Bitcoin은 2월 한 달간 약 15% 하락하여 역대 세 번째로 나쁜 2월 성적을 기록했으며, 연초 대비 약 23% 하락해 2018년 이후 최악의 1분기를 향하고 있습니다.
 
 ---
 
