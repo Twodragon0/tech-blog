@@ -62,9 +62,9 @@ summary_card:
 | 🔒 **Security** | 해커들, 다중 그룹 정찰 캠페인에서 Balochistan Police Portal 무기화 | 🔴 Critical | The Hacker News |
 | 🔒 **Security** | 중요한 Zimbra 취약점으로 조작된 이메일이 사용자 세션에서 악성 코드를 실행할 수 있음 | 🔴 Critical | The Hacker News |
 | ☁️ **Cloud** | Amazon Bedrock 모델 promptfoo 로 성능 평가하기 | 🟡 Medium | AWS Korea Blog |
-| ⛓️ **Blockchain** | Empery Digital, 비트코인 재고 매각해 AI 데이터센터 프로젝트 자금 조달 후 주가 상승 | 🟠 High | Cointelegraph |
-| ⛓️ **Blockchain** | 비트코인, 약세장 후반부에 근접 중: Jamie Coutts, Real Vision | 🟡 Medium | Cointelegraph |
-| ⛓️ **Blockchain** | 이더리움, 토큰화 붐에 3% 상승: 강세론자들이 ETH 가격을 1,800달러 이상으로 끌어올릴 수 있을까? | 🟡 Medium | Cointelegraph |
+| ⛓️ **Blockchain** | Empery Digital, Bitcoin 재고 매각해 AI 데이터센터 프로젝트 자금 조달 후 주가 상승 | 🟠 High | Cointelegraph |
+| ⛓️ **Blockchain** | Bitcoin, 약세장 후반부에 근접 중: Jamie Coutts, Real Vision | 🟡 Medium | Cointelegraph |
+| ⛓️ **Blockchain** | Ethereum, 토큰화 붐에 3% 상승: 강세론자들이 ETH 가격을 1,800달러 이상으로 끌어올릴 수 있을까? | 🟡 Medium | Cointelegraph |
 | 💻 **Tech** | Ghost Font - 사람은 읽지만 AI는 읽기 어려운 글꼴 | 🟡 Medium | GeekNews (긱뉴스) |
 | 💻 **Tech** | GPT-5.6, Grok 4.5, Claude, Muse Spark로 동일한 앱 4개를 만든 결과 | 🟡 Medium | GeekNews (긱뉴스) |
 | 💻 **Tech** | 미국 여성 조정 선수, 캘리포니아에서 하와이까지 역사적 단독 항해 완주 | 🟡 Medium | GeekNews (긱뉴스) |
@@ -74,7 +74,7 @@ summary_card:
 ## 경영진 브리핑
 
 - **긴급 대응 필요**: 해커들, 다중 그룹 정찰 캠페인에서 Balochistan Police Portal 무기화, 중요한 Zimbra 취약점으로 조작된 이메일이 사용자 세션에서 악성 코드를 실행할 수 있음 등 Critical 등급 위협 2건이 확인되었습니다.
-- **주요 모니터링 대상**: Empery Digital, 비트코인 재고 매각해 AI 데이터센터 프로젝트 자금 조달 후 주가 상승 등 High 등급 위협 1건에 대한 탐지 강화가 필요합니다.
+- **주요 모니터링 대상**: Empery Digital, Bitcoin 재고 매각해 AI 데이터센터 프로젝트 자금 조달 후 주가 상승 등 High 등급 위협 1건에 대한 탐지 강화가 필요합니다.
 
 ## 위험 스코어카드
 
@@ -228,10 +228,10 @@ DevSecOps 관점에서 이번 사례는 다음과 같은 실무적 함의를 가
 
 ## 3. 블록체인 뉴스
 
-### 3.1 Empery Digital, 비트코인 재고 매각해 AI 데이터센터 프로젝트 자금 조달 후 주가 상승
+### 3.1 Empery Digital, Bitcoin 재고 매각해 AI 데이터센터 프로젝트 자금 조달 후 주가 상승
 
 {% include news-card.html
-  title="Empery Digital, 비트코인 재고 매각해 AI 데이터센터 프로젝트 자금 조달 후 주가 상승"
+  title="Empery Digital, Bitcoin 재고 매각해 AI 데이터센터 프로젝트 자금 조달 후 주가 상승"
   url="https://cointelegraph.com/news/empery-digital-shares-rise-after-selling-bitcoin-treasury-to-fund-ai-data-center-project?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://s3-images.ctmedia.io/media/article-covers/hi-vaneck-warns-why-bitcoin-treasury-companies-could-face-capital-erosion.jpg"
   summary="Empery Digital이 AI 데이터 센터 프로젝트 자금을 확보하기 위해 보유 중인 Bitcoin을 매각한 후 주가가 상승했습니다. 이번 매각은 주요 주주가 회사의 Bitcoin 전략 포기를 요구하고 CEO와 이사회의 사임을 압박한 지 몇 달 만에 이루어졌습니다."
@@ -245,37 +245,37 @@ Empery Digital이 AI 데이터 센터 프로젝트 자금을 확보하기 위해
 
 ---
 
-### 3.2 비트코인, 약세장 후반부에 근접 중: Jamie Coutts, Real Vision
+### 3.2 Bitcoin, 약세장 후반부에 근접 중: Jamie Coutts, Real Vision
 
 {% include news-card.html
-  title="비트코인, 약세장 후반부에 근접 중: Jamie Coutts, Real Vision"
+  title="Bitcoin, 약세장 후반부에 근접 중: Jamie Coutts, Real Vision"
   url="https://cointelegraph.com/features/bitcoin-is-approaching-the-second-half-of-the-bear-market-jamie-coutts?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://s3-images.ctmedia.io/media/article-covers/interview-10-07-2027.jpg"
-  summary="Real Vision의 수석 암호화폐 애널리스트 Jamie Coutts는 비트코인이 2032~2033년까지 100만 달러에 도달할 것이라고 말하기에는 너무 이르지만, 향후 2~3년 내에 25만 달러까지 상승할 가능성이 있다고 밝혔습니다. 그는 비트코인이 약세장의 후반부에 접어들고 있다고 분석했습니다."
+  summary="Real Vision의 수석 암호화폐 애널리스트 Jamie Coutts는 Bitcoin이 2032~2033년까지 100만 달러에 도달할 것이라고 말하기에는 너무 이르지만, 향후 2~3년 내에 25만 달러까지 상승할 가능성이 있다고 밝혔습니다. 그는 Bitcoin이 약세장의 후반부에 접어들고 있다고 분석했습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-Real Vision의 수석 암호화폐 애널리스트 Jamie Coutts는 비트코인이 2032~2033년까지 100만 달러에 도달할 것이라고 말하기에는 너무 이르지만, 향후 2~3년 내에 25만 달러까지 상승할 가능성이 있다고 밝혔습니다. 그는 비트코인이 약세장의 후반부에 접어들고 있다고 분석했습니다.
+Real Vision의 수석 암호화폐 애널리스트 Jamie Coutts는 Bitcoin이 2032~2033년까지 100만 달러에 도달할 것이라고 말하기에는 너무 이르지만, 향후 2~3년 내에 25만 달러까지 상승할 가능성이 있다고 밝혔습니다. 그는 Bitcoin이 약세장의 후반부에 접어들고 있다고 분석했습니다.
 
 ---
 
-### 3.3 이더리움, 토큰화 붐에 3% 상승: 강세론자들이 ETH 가격을 1,800달러 이상으로 끌어올릴 수 있을까?
+### 3.3 Ethereum, 토큰화 붐에 3% 상승: 강세론자들이 ETH 가격을 1,800달러 이상으로 끌어올릴 수 있을까?
 
 {% include news-card.html
-  title="이더리움, 토큰화 붐에 3% 상승: 강세론자들이 ETH 가격을 1,800달러 이상으로 끌어올릴 수 있을까?"
+  title="Ethereum, 토큰화 붐에 3% 상승: 강세론자들이 ETH 가격을 1,800달러 이상으로 끌어올릴 수 있을까?"
   url="https://cointelegraph.com/markets/ethereum-climbs-3-on-tokenization-boom-can-bulls-push-eth-price-past-1800?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://s3-images.ctmedia.io/media/article-covers/hi-major-alts-that-compete-with-ether-are-surging-why2.jpg"
-  summary="이더리움(ETH)이 토큰화 붐에 힘입어 3% 상승했지만, 온체인 및 파생상품 데이터가 약해 $1,800 돌파는 불확실하며 $1,700 재시험 가능성에 노출되어 있습니다."
+  summary="Ethereum(ETH)이 토큰화 붐에 힘입어 3% 상승했지만, 온체인 및 파생상품 데이터가 약해 $1,800 돌파는 불확실하며 $1,700 재시험 가능성에 노출되어 있습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-이더리움(ETH)이 토큰화 붐에 힘입어 3% 상승했지만, 온체인 및 파생상품 데이터가 약해 $1,800 돌파는 불확실하며 $1,700 재시험 가능성에 노출되어 있습니다.
+Ethereum(ETH)이 토큰화 붐에 힘입어 3% 상승했지만, 온체인 및 파생상품 데이터가 약해 $1,800 돌파는 불확실하며 $1,700 재시험 가능성에 노출되어 있습니다.
 
 ---
 

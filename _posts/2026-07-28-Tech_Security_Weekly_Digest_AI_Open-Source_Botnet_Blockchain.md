@@ -400,20 +400,20 @@ Coinbase의 최고 정책 책임자 Faryar Shirzad는 Crypto Clarity Act를 "매
 
 ---
 
-### 5.3 비트코인 ETF, 지난주 말 약 5억 달러 유출로 시장 심리 역전
+### 5.3 Bitcoin ETF, 지난주 말 약 5억 달러 유출로 시장 심리 역전
 
 {% include news-card.html
-  title="비트코인 ETF, 지난주 말 약 5억 달러 유출로 시장 심리 역전"
+  title="Bitcoin ETF, 지난주 말 약 5억 달러 유출로 시장 심리 역전"
   url="https://bitcoinmagazine.com/markets/bitcoin-etfs-see-investor-reversal"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/Bitcoin-ETFs-See-Outflows.jpg"
-  summary="지난주 말 미국 비트코인 ETF에서 약 4억 7500만 달러가 유출되며 7일 연속 순유입 행진이 마감됐고, 블랙록의 iShares Bitcoin Trust가 대부분의 거래를 처리한 것으로 나타났다."
+  summary="지난주 말 미국 Bitcoin ETF에서 약 4억 7500만 달러가 유출되며 7일 연속 순유입 행진이 마감됐고, 블랙록의 iShares Bitcoin Trust가 대부분의 거래를 처리한 것으로 나타났다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-지난주 말 미국 비트코인 ETF에서 약 4억 7500만 달러가 유출되며 7일 연속 순유입 행진이 마감됐고, 블랙록의 iShares Bitcoin Trust가 대부분의 거래를 처리한 것으로 나타났다.
+지난주 말 미국 Bitcoin ETF에서 약 4억 7500만 달러가 유출되며 7일 연속 순유입 행진이 마감됐고, 블랙록의 iShares Bitcoin Trust가 대부분의 거래를 처리한 것으로 나타났다.
 
 
 ---
@@ -423,7 +423,7 @@ Coinbase의 최고 정책 책임자 Faryar Shirzad는 Crypto Clarity Act를 "매
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [더 작고 강해진 Kanana SLM 개발](https://tech.kakao.com/posts/826) | 카카오 기술 블로그 | 안녕하세요. 카카오의 AI 모델 개발을 담당하는 카나나 LLM 조직에서 언어모델을 개발하고 있는 Kaya, Ryan, Wavy 입니다 |
-| [Microsoft, 경쟁 플랫폼보다 뛰어난 AI 보안 도구 공개](https://arstechnica.com/security/2026/07/microsoft-unveils-ai-security-tools-it-says-outperform-competing-platforms/) | Ars Technica | 마이크로소프트가 경쟁 플랫폼보다 성능이 뛰어나다고 주장하는 새로운 AI 보안 도구를 공개했습니다. 이 도구들은 경쟁사 제품보다 비용이 적게 들면서도 더 나은 성능을 제공한다고 회사 측은 밝혔습니다 |
+| [Microsoft, 경쟁 플랫폼보다 뛰어난 AI 보안 도구 공개](https://arstechnica.com/security/2026/07/microsoft-unveils-ai-security-tools-it-says-outperform-competing-platforms/) | Ars Technica | Microsoft가 경쟁 플랫폼보다 성능이 뛰어나다고 주장하는 새로운 AI 보안 도구를 공개했습니다. 이 도구들은 경쟁사 제품보다 비용이 적게 들면서도 더 나은 성능을 제공한다고 회사 측은 밝혔습니다 |
 | [온라인 포인트 쿼리를 위한 데이터 레이크 인덱싱](https://engineering.atspotify.com/2026/7/indexing-the-data-lake-for-online-point-queries/) | Spotify Engineering | Spotify는 온라인 서비스를 위해 대규모 데이터를 저지연으로 접근할 필요가 있으며, 이를 위해 Data Lake를 대상으로 한 Online Point Queries를 위한 인덱싱 방법을 개발했다. 이 접근법은 데이터 레이크 내에서 특정 데이터 포인트를 빠르게 조회할 수 있도록 설계되었다. |
 
 

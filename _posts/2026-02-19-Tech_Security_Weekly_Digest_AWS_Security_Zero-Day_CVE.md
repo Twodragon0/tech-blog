@@ -393,42 +393,42 @@ Kyverno 1.17은 차세대 Common Expression Language(CEL) 정책 엔진의 안�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Ledn — 비트코인 담보 채권 1억 8800만 달러 업계 최초 발행
+### 5.1 Ledn — Bitcoin 담보 채권 1억 8800만 달러 업계 최초 발행
 
 {%- include news-card.html
-  title="[블록체인] Ledn — 비트코인 담보 채권 1억 8800만 달러 업계 최초 발행"
+  title="[블록체인] Ledn — Bitcoin 담보 채권 1억 8800만 달러 업계 최초 발행"
   url="https://bitcoinmagazine.com/news/ledn-sells-188m-bitcoin-backed-bonds"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Ledn-Sells-188M-Bitcoin-Backed-Bonds-in-First-of-Its-Kind-Deal.jpg"
-  summary="암호화폐 대출업체 Ledn Inc.가 비트코인 연계 대출을 담보로 한 증권화 채권 1억 8800만 달러를 판매했습니다. 비트코인 담보 채권 발행의 업계 최초 사례로, 기관 투자자의 암호화폐 자산 활용 방식에 새로운 모델을 제시합니다."
+  summary="암호화폐 대출업체 Ledn Inc.가 Bitcoin 연계 대출을 담보로 한 증권화 채권 1억 8800만 달러를 판매했습니다. Bitcoin 담보 채권 발행의 업계 최초 사례로, 기관 투자자의 암호화폐 자산 활용 방식에 새로운 모델을 제시합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
 #### 요약
 
-암호화폐 대출업체 Ledn Inc.가 비트코인 연계 대출을 담보로 한 증권화 채권 1억 8800만 달러를 판매했습니다. 비트코인 담보 채권 발행의 업계 최초 사례로, 기관 투자자의 암호화폐 자산 활용 방식에 새로운 모델을 제시합니다.
+암호화폐 대출업체 Ledn Inc.가 Bitcoin 연계 대출을 담보로 한 증권화 채권 1억 8800만 달러를 판매했습니다. Bitcoin 담보 채권 발행의 업계 최초 사례로, 기관 투자자의 암호화폐 자산 활용 방식에 새로운 모델을 제시합니다.
 
 #### 핵심 포인트
 
-- 암호화폐 대출업체 Ledn Inc.가 비트코인 연계 대출 담보 증권화 채권 1억 8800만 달러를 공식 판매
-- 비트코인 담보 채권 발행의 업계 최초 사례로, TradFi와 DeFi의 접점 확대
+- 암호화폐 대출업체 Ledn Inc.가 Bitcoin 연계 대출 담보 증권화 채권 1억 8800만 달러를 공식 판매
+- Bitcoin 담보 채권 발행의 업계 최초 사례로, TradFi와 DeFi의 접점 확대
 
 ---
 
-### 5.2 FutureBit Apollo III — 미국산 가정용 비트코인 채굴기 출시
+### 5.2 FutureBit Apollo III — 미국산 가정용 Bitcoin 채굴기 출시
 
 {%- include news-card.html
-  title="[블록체인] FutureBit Apollo III — 미국산 가정용 비트코인 채굴기 출시"
+  title="[블록체인] FutureBit Apollo III — 미국산 가정용 Bitcoin 채굴기 출시"
   url="https://bitcoinmagazine.com/news/futurebit-apollo-iii-home-bitcoin-miner"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/FutureBit-launches-Apollo-III-U.S.-Engineered-Home-Bitcoin-Miner.jpg"
-  summary="FutureBit이 Apollo III를 출시했습니다. 고성능 채굴기와 풀 비트코인 노드를 하나의 데스크톱 장치에 결합한 새로운 가정용 비트코인 채굴 시스템으로, 미국 내 설계·제조를 강조합니다."
+  summary="FutureBit이 Apollo III를 출시했습니다. 고성능 채굴기와 풀 Bitcoin 노드를 하나의 데스크톱 장치에 결합한 새로운 가정용 Bitcoin 채굴 시스템으로, 미국 내 설계·제조를 강조합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
 #### 요약
 
-FutureBit이 Apollo III를 출시했습니다. 고성능 채굴기와 풀 비트코인 노드를 하나의 데스크톱 장치에 결합한 새로운 가정용 비트코인 채굴 시스템으로, 미국 내 설계·제조를 강조합니다.
+FutureBit이 Apollo III를 출시했습니다. 고성능 채굴기와 풀 Bitcoin 노드를 하나의 데스크톱 장치에 결합한 새로운 가정용 Bitcoin 채굴 시스템으로, 미국 내 설계·제조를 강조합니다.
 
 ---
 

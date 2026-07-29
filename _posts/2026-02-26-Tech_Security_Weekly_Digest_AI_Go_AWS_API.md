@@ -73,7 +73,7 @@ summary_card:
 | 🤖 AI/ML | AWS ML Blog | vLLM 기반 다중 LoRA 추론으로 수십 개 파인튜닝 모델 효율적 서빙 | 🟡 Medium |
 | ☁️ Cloud | Google Cloud | 프로덕션 AI 에이전트 개발 가이드 공개 | 🟠 High |
 | ⚙️ DevOps | Docker Blog | Open WebUI + Docker Model Runner 제로 설정 통합 | 🔴 Critical |
-| 💰 Blockchain | Bitcoin Magazine | Morgan Stanley, 비트코인 거래·대출·수탁 사업 확대 계획 발표 | 🟡 Medium |
+| 💰 Blockchain | Bitcoin Magazine | Morgan Stanley, Bitcoin 거래·대출·수탁 사업 확대 계획 발표 | 🟡 Medium |
 
 ---
 
@@ -370,47 +370,47 @@ CNCF가 2026년 하반기 Kubernetes Community Days(KCDs) 전체 일정을 발�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Morgan Stanley, 비트코인 거래·대출·수탁 사업 확대 계획
+### 5.1 Morgan Stanley, Bitcoin 거래·대출·수탁 사업 확대 계획
 
 {%- include news-card.html
-  title="[블록체인] Morgan Stanley, 비트코인 거래·대출·수탁 사업 확대 계획"
+  title="[블록체인] Morgan Stanley, Bitcoin 거래·대출·수탁 사업 확대 계획"
   url="https://bitcoinmagazine.com/news/morgan-stanley-plans-for-bitcoin-trading"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Pics-7.jpg"
-  summary="Morgan Stanley, 비트코인 거래·대출·수탁 사업 확대 계획 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Morgan Stanley, Bitcoin 거래·대출·수탁 사업 확대 계획 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
 #### 요약
 
-Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 계획을 발표했습니다. 자체 암호화폐 수탁(Custody) 및 거래소 솔루션 출시를 포함하여, 비트코인 거래·대출·수탁 전반에 걸친 서비스를 확장할 예정입니다.
+Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 계획을 발표했습니다. 자체 암호화폐 수탁(Custody) 및 거래소 솔루션 출시를 포함하여, Bitcoin 거래·대출·수탁 전반에 걸친 서비스를 확장할 예정입니다.
 
 #### 핵심 포인트
 
 - Morgan Stanley가 자체 암호화폐 수탁 및 거래소 솔루션 출시 계획 발표
-- 기존 자산 관리 고객 대상 비트코인 거래·대출 서비스 확대
+- 기존 자산 관리 고객 대상 Bitcoin 거래·대출 서비스 확대
 - 글로벌 금융기관의 디지털 자산 시장 진출 가속화
 
 ---
 
-### 5.2 비트코인 7% 이상 급등, $69,000 돌파
+### 5.2 Bitcoin 7% 이상 급등, $69,000 돌파
 
 {%- include news-card.html
-  title="[블록체인] 비트코인 7% 이상 급등, $69,000 돌파"
+  title="[블록체인] Bitcoin 7% 이상 급등, $69,000 돌파"
   url="https://bitcoinmagazine.com/markets/bitcoin-price-roars-7-to-69000"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Bitcoin-Price-Roars-8-to-69000-as-Market-Tests-Post-Capitulation-Range.jpg"
-  summary="비트코인 7% 이상 급등, $69,000 돌파 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Bitcoin 7% 이상 급등, $69,000 돌파 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
 #### 요약
 
-비트코인 가격이 하루 만에 8% 이상 상승하여 $69,000을 돌파했습니다. 수개월간의 매도세 이후 가장 강력한 일일 상승 중 하나이며, 항복 매도(Capitulation) 이후 가격 범위를 시험하는 중입니다.
+Bitcoin 가격이 하루 만에 8% 이상 상승하여 $69,000을 돌파했습니다. 수개월간의 매도세 이후 가장 강력한 일일 상승 중 하나이며, 항복 매도(Capitulation) 이후 가격 범위를 시험하는 중입니다.
 
 #### 핵심 포인트
 
-- 비트코인 일일 8% 이상 상승, $69,000 돌파
+- Bitcoin 일일 8% 이상 상승, $69,000 돌파
 - 수개월간 매도세 이후 가장 강력한 반등 신호
 - 항복 매도 후 회복 구간 진입 여부 시장 주시
 
@@ -451,7 +451,7 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
 | APT/사이버 스파이 | 2건 | 중국 연계 사이버 스파이 캠페인, 42개국 침해, 음성 피싱 여성 모집 |
 | 개발도구 보안 | 1건 | AI 코딩 도구 원격 코드 실행, 자격증명 유출 취약점 |
 | AI 에이전트 프로덕션 | 3건 | 프로덕션 에이전트 개발 가이드, 다중 파인튜닝 모델 서빙, 셀프 호스팅 AI 통합 |
-| 암호화폐 시장 | 2건 | 글로벌 금융기관 비트코인 사업 확대, 비트코인 급등 반등 신호 |
+| 암호화폐 시장 | 2건 | 글로벌 금융기관 Bitcoin 사업 확대, Bitcoin 급등 반등 신호 |
 
 이번 주기의 핵심 트렌드는 APT 사이버 스파이 캠페인입니다. UNC2814의 GRIDTIDE 캠페인이 42개국 53개 조직을 침해한 사례와 SLH 그룹의 IT 헬프데스크 대상 음성 피싱 수법이 확인되었습니다. 개발도구 보안 측면에서는 Claude Code에서 RCE 및 API 키 유출 취약점이 발견되어 개발 환경 보안 점검이 시급합니다.
 

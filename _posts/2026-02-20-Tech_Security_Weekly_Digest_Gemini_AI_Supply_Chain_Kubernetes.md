@@ -560,22 +560,22 @@ Rust 프로젝트가 3년 연속 Google Summer of Code에 참여한다고 발표
 
 ## 6. 블록체인 뉴스
 
-### 6.1 비트코인 라이트닝 네트워크, 월간 거래량 10억 달러 돌파
+### 6.1 Bitcoin 라이트닝 네트워크, 월간 거래량 10억 달러 돌파
 
 {%- include news-card.html
-  title="[블록체인] 비트코인 라이트닝 네트워크, 월간 거래량 10억 달러 돌파"
+  title="[블록체인] Bitcoin 라이트닝 네트워크, 월간 거래량 10억 달러 돌파"
   url="https://cointelegraph.com/news/bitcoin-lightning-network-1b-monthly-volume"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-02/019c77b1-52d4-779a-9396-2139521238f7.jpg"
-  summary="비트코인 라이트닝 네트워크, 월간 거래량 10억 달러 돌파 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Bitcoin 라이트닝 네트워크, 월간 거래량 10억 달러 돌파 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="Cointelegraph"
   severity="Medium"
 -%}
 
-비트코인 라이트닝 네트워크의 월간 거래량이 11.7억 달러를 돌파하며 처음으로 10억 달러 벽을 넘었습니다. AI 에이전트 결제 실험 확산이 새로운 수요를 창출하고 있으며, 소액 결제 인프라로서의 입지가 빠르게 강화되고 있습니다.
+Bitcoin 라이트닝 네트워크의 월간 거래량이 11.7억 달러를 돌파하며 처음으로 10억 달러 벽을 넘었습니다. AI 에이전트 결제 실험 확산이 새로운 수요를 창출하고 있으며, 소액 결제 인프라로서의 입지가 빠르게 강화되고 있습니다.
 
 #### 핵심 포인트
 
-- 비트코인 라이트닝 네트워크 월간 거래량 11.7억 달러 돌파
+- Bitcoin 라이트닝 네트워크 월간 거래량 11.7억 달러 돌파
 - AI 에이전트 결제 실험 확산에 따른 거래량 증가 전망
 - 개인과 기업의 라이트닝 네트워크 채택 가속화
 
@@ -623,44 +623,44 @@ SEC 리더십이 ETHDenver에서 토큰화 증권과 기존 증권법의 상호�
 
 ---
 
-### 6.4 비트코인 ETF, 최근 유출에도 530억 달러 순유입 유지
+### 6.4 Bitcoin ETF, 최근 유출에도 530억 달러 순유입 유지
 
 {%- include news-card.html
-  title="[블록체인] 비트코인 ETF, 최근 유출에도 530억 달러 순유입 유지"
+  title="[블록체인] Bitcoin ETF, 최근 유출에도 530억 달러 순유입 유지"
   url="https://cointelegraph.com/news/bitcoin-etfs-53b-net-inflows-after-selloff"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-01/019b92cc-d609-7af6-b3a8-9b3f85736edf.jpg"
-  summary="비트코인 ETF, 최근 유출에도 530억 달러 순유입 유지 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Bitcoin ETF, 최근 유출에도 530억 달러 순유입 유지 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="Cointelegraph"
   severity="Medium"
 -%}
 
-비트코인 ETF가 최근 유출에도 불구하고 530억 달러의 순유입을 유지하고 있습니다. 기관 투자자의 지속적인 관심이 단기 가격 변동과 별개로 유지되는 흐름입니다.
+Bitcoin ETF가 최근 유출에도 불구하고 530억 달러의 순유입을 유지하고 있습니다. 기관 투자자의 지속적인 관심이 단기 가격 변동과 별개로 유지되는 흐름입니다.
 
 #### 핵심 포인트
 
-- 현물 비트코인 ETF, 최근 유출에도 530억 달러 순유입 유지
-- 기관 투자자의 장기적 비트코인 ETF 신뢰 확인
+- 현물 Bitcoin ETF, 최근 유출에도 530억 달러 순유입 유지
+- 기관 투자자의 장기적 Bitcoin ETF 신뢰 확인
 - 단기 매도 압력에도 누적 유입 규모는 견고
 
 ---
 
-### 6.5 UAE, 조용히 4억 5300만 달러 규모의 비트코인 준비금 축적
+### 6.5 UAE, 조용히 4억 5300만 달러 규모의 Bitcoin 준비금 축적
 
 {%- include news-card.html
-  title="[블록체인] UAE, 조용히 4억 5300만 달러 규모의 비트코인 준비금 축적"
+  title="[블록체인] UAE, 조용히 4억 5300만 달러 규모의 Bitcoin 준비금 축적"
   url="https://bitcoinmagazine.com/news/the-uae-453-million-bitcoin-reserve"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/The-UAE-Has-Quietly-Built-Up-a-453-Million-Bitcoin-Reserve-Arkham-.jpg"
-  summary="UAE, 조용히 4억 5300만 달러 규모의 비트코인 준비금 축적 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="UAE, 조용히 4억 5300만 달러 규모의 Bitcoin 준비금 축적 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
-UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유하고 있음이 확인되며 국가 차원의 비트코인 준비금 전략이 드러났습니다. 중동 지역 기관 투자자의 암호화폐 채택이 조용하지만 의미 있는 속도로 진행되고 있음을 보여주는 사례입니다.
+UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유하고 있음이 확인되며 국가 차원의 Bitcoin 준비금 전략이 드러났습니다. 중동 지역 기관 투자자의 암호화폐 채택이 조용하지만 의미 있는 속도로 진행되고 있음을 보여주는 사례입니다.
 
 #### 핵심 포인트
 
 - UAE 왕실 연계 채굴 업체, 6,782 BTC(4.53억 달러) 보유 확인
-- 국가 차원의 비트코인 준비금 축적 전략 드러남
+- 국가 차원의 Bitcoin 준비금 축적 전략 드러남
 - 중동 지역의 암호화폐 기관 투자 확대 추세
 
 ---

@@ -387,20 +387,20 @@ SBI Holdings가 싱가포르 통화청(MAS)의 승인을 받아 싱가포르의 
 
 ---
 
-### 5.3 비트코인 채굴 대기업 Foundry, BIP-110 소프트 포크 투표 요청
+### 5.3 Bitcoin 채굴 대기업 Foundry, BIP-110 소프트 포크 투표 요청
 
 {% include news-card.html
-  title="비트코인 채굴 대기업 Foundry, BIP-110 소프트 포크 투표 요청"
+  title="Bitcoin 채굴 대기업 Foundry, BIP-110 소프트 포크 투표 요청"
   url="https://bitcoinmagazine.com/news/foundry-asks-bitcoin-miners-vote-bip-110"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/Bitcoin-Mining-Giant-Foundry-Asks-Miners-To-Vote-on-BIP-110-Soft-Fork.jpg"
-  summary="비트코인 채굴 대기업 Foundry Digital이 자사의 채굴 풀을 이용하는 고객들에게 BIP-110 소프트 포크에 대한 투표를 요청했습니다. 이는 Bitcoin Magazine이 Mathew Di Salvo와 Micah Zimmerman의 기사를 통해 보도한 내용입니다."
+  summary="Bitcoin 채굴 대기업 Foundry Digital이 자사의 채굴 풀을 이용하는 고객들에게 BIP-110 소프트 포크에 대한 투표를 요청했습니다. 이는 Bitcoin Magazine이 Mathew Di Salvo와 Micah Zimmerman의 기사를 통해 보도한 내용입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인 채굴 대기업 Foundry Digital이 자사의 채굴 풀을 이용하는 고객들에게 BIP-110 소프트 포크에 대한 투표를 요청했습니다. 이는 Bitcoin Magazine이 Mathew Di Salvo와 Micah Zimmerman의 기사를 통해 보도한 내용입니다.
+Bitcoin 채굴 대기업 Foundry Digital이 자사의 채굴 풀을 이용하는 고객들에게 BIP-110 소프트 포크에 대한 투표를 요청했습니다. 이는 Bitcoin Magazine이 Mathew Di Salvo와 Micah Zimmerman의 기사를 통해 보도한 내용입니다.
 
 
 ---

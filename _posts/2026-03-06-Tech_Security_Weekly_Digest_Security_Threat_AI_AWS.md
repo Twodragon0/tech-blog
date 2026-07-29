@@ -514,18 +514,18 @@ CNCF에서 발표한 분석에 따르면, 10년 전 마이크로서비스 배포
 
 ## 5. 블록체인 뉴스
 
-### 5.1 비트코인 컨센서스 클린업 — BIP 54 소프트포크 제안
+### 5.1 Bitcoin 컨센서스 클린업 — BIP 54 소프트포크 제안
 
 {%- include news-card.html
-  title="[블록체인] 비트코인 컨센서스 클린업 — BIP 54 소프트포크 제안"
+  title="[블록체인] Bitcoin 컨센서스 클린업 — BIP 54 소프트포크 제안"
   url="https://bitcoinmagazine.com/print/the-core-issue-consensus-cleanup"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/03/Core-Issue-Article-Header-2400x1256-Poinsot-1-fotor-20260305161511.webp"
-  summary="비트코인 컨센서스 클린업 — BIP 54 소프트포크 제안 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Bitcoin 컨센서스 클린업 — BIP 54 소프트포크 제안 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
-Bitcoin Magazine가 BIP 54 소프트포크 제안을 심층 분석했습니다. 이 제안은 비트코인 핵심 합의 프로토콜에 존재하는 4가지 미해결 버그를 수정하기 위한 것으로, 네트워크의 장기적 안정성과 보안 강화를 목표로 합니다.
+Bitcoin Magazine가 BIP 54 소프트포크 제안을 심층 분석했습니다. 이 제안은 Bitcoin 핵심 합의 프로토콜에 존재하는 4가지 미해결 버그를 수정하기 위한 것으로, 네트워크의 장기적 안정성과 보안 강화를 목표로 합니다.
 
 ---
 
@@ -685,4 +685,4 @@ AI 분야에서는 GPT-5.4의 네이티브 컴퓨터 사용 기능 출시가 가
 
 - [Coruna iOS 익스플로잇, 핵티비스트 DDoS, 보안 대응 우선순위](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
 - [Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
-- [AI 에이전트 보안 위협, Saylor 비트코인 매수, Agent Safehouse](/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/) — 2026-03-09
+- [AI 에이전트 보안 위협, Saylor Bitcoin 매수, Agent Safehouse](/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/) — 2026-03-09

@@ -413,20 +413,20 @@ Chainalysis 분석에 따르면 동남아 기반 인신매매 관련 서비스�
 
 ---
 
-### 5.2 태국, 파생상품 시장에서 비트코인·디지털 자산 제도화 추진
+### 5.2 태국, 파생상품 시장에서 Bitcoin·디지털 자산 제도화 추진
 
 {%- include news-card.html
-  title="[블록체인] 태국, 파생상품 시장에서 비트코인·디지털 자산 제도화 추진"
+  title="[블록체인] 태국, 파생상품 시장에서 Bitcoin·디지털 자산 제도화 추진"
   url="https://bitcoinmagazine.com/news/thailand-moves-to-cement-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Thailand-Moves-to-Cement-Bitcoin-and-Digital-Assets-in-Regulated-Derivatives-Market.jpg"
-  summary="태국이 파생상품·자본시장 내 비트코인 및 디지털 자산을 규제된 기준 자산으로 인정하는 방향을 추진하고 있습니다. 제도권 편입이 가속될 경우 거래소·수탁·리스크 관리 기준이 함께 강화될 가능성이 큽니다."
+  summary="태국이 파생상품·자본시장 내 Bitcoin 및 디지털 자산을 규제된 기준 자산으로 인정하는 방향을 추진하고 있습니다. 제도권 편입이 가속될 경우 거래소·수탁·리스크 관리 기준이 함께 강화될 가능성이 큽니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
 #### 요약
 
-태국이 파생상품·자본시장 내 비트코인 및 디지털 자산을 규제된 기준 자산으로 인정하는 방향을 추진하고 있습니다. 제도권 편입이 가속될 경우 거래소·수탁·리스크 관리 기준이 함께 강화될 가능성이 큽니다.
+태국이 파생상품·자본시장 내 Bitcoin 및 디지털 자산을 규제된 기준 자산으로 인정하는 방향을 추진하고 있습니다. 제도권 편입이 가속될 경우 거래소·수탁·리스크 관리 기준이 함께 강화될 가능성이 큽니다.
 
 #### 핵심 포인트
 

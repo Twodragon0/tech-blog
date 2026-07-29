@@ -514,24 +514,24 @@ Microsoft가 2026년 2월 .NET 및 .NET Framework 최신 서비스 업데이트�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Goldman Sachs, 비트코인 ETF 11억 달러 보유 공시
+### 5.1 Goldman Sachs, Bitcoin ETF 11억 달러 보유 공시
 
 {%- include news-card.html
-  title="[블록체인] Goldman Sachs, 비트코인 ETF 11억 달러 보유 공시"
+  title="[블록체인] Goldman Sachs, Bitcoin ETF 11억 달러 보유 공시"
   url="https://bitcoinmagazine.com/news/goldman-sachs-position-in-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Goldman-Sachs-Discloses-1.1-Billion-Position-in-Bitcoin-ETF-Holdings-.jpg"
-  summary="Goldman Sachs가 SEC 공시를 통해 비트코인 ETF에 11억 달러 규모의 포지션을 보유하고 있음을 밝혔습니다. 전통 금융 대형 기관의 암호화폐 노출이 확대되는 추세를 보여주는 사례입니다."
+  summary="Goldman Sachs가 SEC 공시를 통해 Bitcoin ETF에 11억 달러 규모의 포지션을 보유하고 있음을 밝혔습니다. 전통 금융 대형 기관의 암호화폐 노출이 확대되는 추세를 보여주는 사례입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
 #### 요약
 
-Goldman Sachs가 SEC 공시를 통해 비트코인 ETF에 11억 달러 규모의 포지션을 보유하고 있음을 밝혔습니다. 전통 금융 대형 기관의 암호화폐 노출이 확대되는 추세를 보여주는 사례입니다.
+Goldman Sachs가 SEC 공시를 통해 Bitcoin ETF에 11억 달러 규모의 포지션을 보유하고 있음을 밝혔습니다. 전통 금융 대형 기관의 암호화폐 노출이 확대되는 추세를 보여주는 사례입니다.
 
 #### 핵심 포인트
 
-- Goldman Sachs가 비트코인 현물 ETF에 11억 달러 투자 공시, 기관 자금 유입 가속화 신호
+- Goldman Sachs가 Bitcoin 현물 ETF에 11억 달러 투자 공시, 기관 자금 유입 가속화 신호
 - 대형 기관의 ETF 보유는 암호화폐 시장 안정성에 긍정적 영향을 줄 수 있으나, 규제 변화에 따른 동반 매도 리스크도 동시에 증가
 
 ---
