@@ -82,13 +82,20 @@
 1. **Phase 1 — 코드 + 가드 (신규 강제):** ✅ **완료 (PR #472)**. `check_digest_proper_nouns.py`
    + 테스트 29 + pre-commit(9c)/svg-lint CI/blogwatcher `--fix` wiring. 신규 digest canonical 보장.
 2. **Phase 2a — 구조-clean 레거시 37개:** ✅ **완료 (PR #473)**, 742→해당분 치환, 오변환 0, 게이트 전부 green.
-3. **Phase 2b — 구조-defective 98개: ⏸ deferred.**
+3. **Phase 2b — 구조-defective 98개: ⏸ deferred (전용 캠페인 권장).**
    - **발견(empirical):** `--fix --all`은 135개를 바꾸지만 그 중 **98개는 pre-existing 구조 결함**
      (넘버링/H1/체크리스트, 레거시 176개 미백필)이 있어, staging 시 digest **구조 게이트**(pre-commit
      step 9 + svg-lint `--changed`)가 red가 된다. proper-noun 스왑 자체는 구조와 무관(증명: 실패
      파일 diff는 `비트코인→Bitcoin` 단일 스왑)이지만 게이트가 함께 스캔.
-   - **순서 의존:** 98개는 **구조 백필 먼저 → proper-noun 백필** 순서 필요. 구조 백필은 별도 대형
-     작업(CLAUDE.md 176 레거시). Bitcoin 혼용 상당수가 이 98개에 있어 아직 미정리.
+   - **순서 의존:** 98개는 **구조 백필 먼저 → proper-noun 백필** 순서 필요.
+   - **실현성 파일럿(2026-07-29):** 구조 백필은 단순 정규화가 아니다.
+     (a) 위반 대부분이 "실무 체크리스트 found 0"(누락) → `backfill_digest_native_sections.py`로
+     본문 근거 기반 **섹션 생성** 필요(결정적이나 콘텐츠 생성). (b) `backfill_digest_structure.py`
+     dry-run이 레거시 뉴스 헤딩(`## 1. AISLE AI…`, `## 2. CVE…`)을 "whitelist에 없는 헤딩"으로
+     경고 → 98개가 **이질적 구조**라 정규화기가 clean 처리 못 함.
+   - **권장:** 이질적 98개 공개 포스트의 구조 백필+콘텐츠 생성은 슬롭/파손 위험이 커 **단일 세션
+     blast 금지**. 소스 파티션(발행 연월/구조 유형별) 전용 캠페인으로 per-post 검증하며 스테이지드
+     진행(ultragoal/autopilot). Bitcoin 혼용 상당수가 이 98개에 잔존.
 4. **측정:** Phase 2b 완료 후 §1 표 재측정 → 혼용 0 목표.
 
 ### Phase 2 부수 발견 (2026-07-29)
