@@ -341,6 +341,20 @@ jobs:
           # but will fail immediately if today's auto-generated post regresses.
           pytest scripts/tests/test_briefing_stats.py -x --tb=short -q
 
+      - name: Lone-adjective cover pre-flight (warn — vetting needed)
+        if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
+        run: |
+          # Surface an unvetted lone-adjective+AI cover panel (e.g. "Claude AI" ->
+          # lone "Claude") at PUBLISH time. TestCorpusNoLoneAdjectiveAi would
+          # otherwise fail on main only AFTER this cron pushes (silent, delayed).
+          # WARN, do NOT block: vetting (join vs defer in l20_dispatch) is a human
+          # decision, and the digest must still publish. The maintainer gets the
+          # exact word + remediation here instead of a cryptic later CI failure.
+          POST_FILE="${{ steps.check_post.outputs.post_file }}"
+          if ! python3 scripts/check_digest_lone_adjective.py "$POST_FILE"; then
+            echo "::warning::Unvetted lone-adjective+AI cover panel in ${POST_FILE}. main's TestCorpusNoLoneAdjectiveAi will go red until you vet the word in scripts/news/l20_dispatch.py (_AI_COMPOUND_ADJECTIVES to join, or _DEFERRED_AI_ADJECTIVES if the lone lead is a correct brand)."
+          fi
+
       - name: Commit and publish
         if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'
         env:
