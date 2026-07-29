@@ -77,11 +77,26 @@
 
 ---
 
-## 4. 롤아웃 (레거시 194개 분리)
+## 4. 롤아웃 (레거시 194개 분리) — 진행 현황
 
-1. **Phase 1 — 코드 + 가드 (신규 강제):** 스크립트·테스트·wiring 머지. 이 시점부터 신규 digest는 canonical 보장. **레거시 미변경.**
-2. **Phase 2 — 레거시 백필 (opt-in, 별도 PR):** `--fix`를 194개에 배치 적용하되 **소스 파티션**으로 리뷰 (Bitcoin 112건 혼용부터). 인용 제목 마스킹을 실제 포스트로 RUN 검증 후 (`feedback_cover_empirical_first`). honesty/커버에 영향 없음(본문 텍스트만).
-3. **측정:** 백필 후 §1 표 재측정 → 혼용 0 확인.
+1. **Phase 1 — 코드 + 가드 (신규 강제):** ✅ **완료 (PR #472)**. `check_digest_proper_nouns.py`
+   + 테스트 29 + pre-commit(9c)/svg-lint CI/blogwatcher `--fix` wiring. 신규 digest canonical 보장.
+2. **Phase 2a — 구조-clean 레거시 37개:** ✅ **완료 (PR #473)**, 742→해당분 치환, 오변환 0, 게이트 전부 green.
+3. **Phase 2b — 구조-defective 98개: ⏸ deferred.**
+   - **발견(empirical):** `--fix --all`은 135개를 바꾸지만 그 중 **98개는 pre-existing 구조 결함**
+     (넘버링/H1/체크리스트, 레거시 176개 미백필)이 있어, staging 시 digest **구조 게이트**(pre-commit
+     step 9 + svg-lint `--changed`)가 red가 된다. proper-noun 스왑 자체는 구조와 무관(증명: 실패
+     파일 diff는 `비트코인→Bitcoin` 단일 스왑)이지만 게이트가 함께 스캔.
+   - **순서 의존:** 98개는 **구조 백필 먼저 → proper-noun 백필** 순서 필요. 구조 백필은 별도 대형
+     작업(CLAUDE.md 176 레거시). Bitcoin 혼용 상당수가 이 98개에 있어 아직 미정리.
+4. **측정:** Phase 2b 완료 후 §1 표 재측정 → 혼용 0 목표.
+
+### Phase 2 부수 발견 (2026-07-29)
+- 마스킹 정교화: 뉴스카드 `title=`/`summary=` 속성값은 인용 제목이 **아님** → canonical 대상
+  (`(?<!=)` 규칙). 안 그러면 산문은 Bitcoin, 카드는 비트코인으로 **문서 내 불일치**.
+- 마크다운 링크/표의 인용 기사 제목(9건)도 canonical화됨 — owner "전부 영문" 정책에 부합해 as-is 수용.
+- 크론 발행 digest가 main 코퍼스 테스트를 깨는 패턴 재확인(07-29 "Claude AI" lone-adjective 커버
+  가드 → `_DEFERRED_AI_ADJECTIVES`에 claude vet, PR #474). baseline stale(#471)과 동류.
 
 ---
 
