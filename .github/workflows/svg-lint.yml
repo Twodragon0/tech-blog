@@ -36,6 +36,7 @@ on:
       - 'scripts/check_kst_midnight.py'
       - 'scripts/check_digest_structure.py'
       - 'scripts/check_digest_untranslated.py'
+      - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -78,6 +79,7 @@ on:
       - 'scripts/check_kst_midnight.py'
       - 'scripts/check_digest_structure.py'
       - 'scripts/check_digest_untranslated.py'
+      - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -260,6 +262,21 @@ jobs:
           fi
           echo "[digest-untranslated] diff base: $BASE"
           python3 scripts/check_digest_untranslated.py --changed "$BASE"
+
+      - name: Digest proper-noun canonicalization gate (PR-diff-scoped)
+        id: digest_proper_nouns
+        # PR-diff-scoped, NOT --all: 135 legacy digests still use Hangul proper
+        # nouns (Phase 2 backfill pending). --changed only checks digests touched
+        # by this PR/push. Enforces English-canonical proper nouns (deny-by-default
+        # allow-list) so new digests never reintroduce 비트코인/Bitcoin mixing.
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="origin/${{ github.event.pull_request.base.ref }}"
+          else
+            BASE="HEAD~1"
+          fi
+          echo "[digest-proper-nouns] diff base: $BASE"
+          python3 scripts/check_digest_proper_nouns.py --changed "$BASE"
 
       - name: CSP inline-script sha256 regression gate (prep for CSP Path B)
         id: csp_inline_hashes
