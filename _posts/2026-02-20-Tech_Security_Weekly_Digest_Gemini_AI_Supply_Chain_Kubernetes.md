@@ -76,7 +76,7 @@ summary_card:
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 Security | The Hacker News | PromptSpy 안드로이드 악성코드, Gemini AI 악용 최초 사례 | 🔴 Critical |
+| 🔒 Security | The Hacker News | PromptSpy Android 악성코드, Gemini AI 악용 최초 사례 | 🔴 Critical |
 | 🔒 DevSecOps | Snyk | Clinejection - AI 봇을 공급망 공격 벡터로 전환 | 🔴 Critical |
 | 🔒 Security | Datadog Security Labs | Kubernetes Ingress NGINX 은퇴 경고, 고위험 CVE 공개 | 🟠 High |
 | 🔒 Security | The Hacker News | Microsoft CVE-2026-26119 Windows Admin Center 권한상승 | 🟠 High |
@@ -88,22 +88,22 @@ summary_card:
 
 ## 1. 보안 뉴스
 
-### 1.1 PromptSpy 안드로이드 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화
+### 1.1 PromptSpy Android 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화
 
 {%- include news-card.html
-  title="[보안] PromptSpy 안드로이드 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화"
+  title="[보안] PromptSpy Android 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화"
   url="https://thehackernews.com/2026/02/promptspy-android-malware-abuses-google.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidDhkNjYF9Khe4u-ECtSVv3ezo7dUK80WV06lgCNtOdV51GuCKCMmxgdm10lbAhP7MRPVY7Pq5yMuiYPAJ0Opk2xPijnkjHOWfPqiD9oR6k56GqDX6l5IgjYa_9ZTnvxvN6KnazUB0LBZ3aZMOnVrtoodDr-Hx_JTTNjMyzm-u1alcCL6VXeqoeTl12jFE/s1700-e365/android-ai.jpg"
-  summary="PromptSpy 안드로이드 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="PromptSpy Android 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="The Hacker News"
   severity="High"
 -%}
 
-Google Gemini AI를 런타임에 악용하는 최초의 안드로이드 악성코드가 발견됐습니다. VNC 원격 접근과 PIN 가로채기 기능을 탑재하고 Chase Bank 피싱 페이지로 위장 배포되어, AI 서비스가 새로운 공격 표면으로 전용되는 실제 사례를 보여줍니다.
+Google Gemini AI를 런타임에 악용하는 최초의 Android 악성코드가 발견됐습니다. VNC 원격 접근과 PIN 가로채기 기능을 탑재하고 Chase Bank 피싱 페이지로 위장 배포되어, AI 서비스가 새로운 공격 표면으로 전용되는 실제 사례를 보여줍니다.
 
 #### 핵심 포인트
 
-- Google Gemini AI를 런타임에 악용하는 최초의 안드로이드 악성코드
+- Google Gemini AI를 런타임에 악용하는 최초의 Android 악성코드
 - VNC 모듈로 피해자 기기에 원격 접근 및 실시간 화면 제어 가능
 - 잠금화면 PIN/비밀번호 가로채기, 패턴 잠금을 영상으로 캡처
 - 특정 화면 영역에 투명 사각형 오버레이로 삭제 차단
@@ -192,13 +192,13 @@ Microsoft가 Windows Admin Center의 권한 상승 취약점 CVE-2026-26119에 �
 
 ---
 
-### 1.4 가짜 IPTV 앱, 모바일 뱅킹 사용자 대상 Massiv 안드로이드 악성코드 유포
+### 1.4 가짜 IPTV 앱, 모바일 뱅킹 사용자 대상 Massiv Android 악성코드 유포
 
 {%- include news-card.html
-  title="[보안] 가짜 IPTV 앱, 모바일 뱅킹 사용자 대상 Massiv 안드로이드 악성코드 유포"
+  title="[보안] 가짜 IPTV 앱, 모바일 뱅킹 사용자 대상 Massiv Android 악성코드 유포"
   url="https://thehackernews.com/2026/02/fake-iptv-apps-spread-massiv-android.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj67LPvqhfl_NCfP1wUAUN8p7ISQ_x3wCwavSYjJJkMl9jkcDnk0gP2Om7d1O0UqaQnwqeU4GzTfpLxUok2ei5tiNhArCqldBzaS6yzNe_mudDAbzllZcD1BA0FOfbn1LQRSiK36eB69u4hfK_Pa0XA0eZti_KN8Q43d_k1xRmp_LQCW6gA9ZWNvdrBx_py/s1700-e365/android-banking.jpg"
-  summary="가짜 IPTV 앱, 모바일 뱅킹 사용자 대상 Massiv 안드로이드 악성코드 유포 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="가짜 IPTV 앱, 모바일 뱅킹 사용자 대상 Massiv Android 악성코드 유포 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -207,7 +207,7 @@ Microsoft가 Windows Admin Center의 권한 상승 취약점 CVE-2026-26119에 �
 
 #### 핵심 포인트
 
-- 'Massiv' 안드로이드 트로이 목마가 가짜 IPTV 앱으로 위장 배포
+- 'Massiv' Android 트로이 목마가 가짜 IPTV 앱으로 위장 배포
 - 기기 탈취(Device Take Over) 공격으로 모바일 뱅킹 직접 표적
 - 합법적인 IPTV 앱 마켓플레이스를 통한 배포 경로 활용
 
@@ -726,7 +726,7 @@ UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유
 
 - [ ] PromptSpy 관련 모바일 보안 정책 점검 및 MDM 사이드로딩 차단
 - [ ] Clinejection 관련 AI 코딩 에이전트 실행 권한 및 GitHub Actions 캐시 보안 검토
-- [ ] Massiv 안드로이드 트로이목마 관련 모바일 뱅킹 보안 강화
+- [ ] Massiv Android 트로이목마 관련 모바일 뱅킹 보안 강화
 - [ ] Chrome CVE-2026-2441 CSS 제로데이 패치 즉시 적용
 
 ### P1 (7일 내)

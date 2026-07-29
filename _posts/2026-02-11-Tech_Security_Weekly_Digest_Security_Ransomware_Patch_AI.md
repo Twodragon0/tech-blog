@@ -649,4 +649,4 @@ FTX 사기 혐의로 유죄 판결을 받은 샘 뱅크먼-프리드가 재심�
 
 - [공급망 침해 사례, Windows 보안 업데이트, APT36 분석](/posts/2026/02/12/Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent/) — 2026-02-12
 - [Signal 피싱 국가지원 공격, BlackField 랜섬웨어, 데이터 보안](/posts/2026/02/08/Tech_Security_Weekly_Digest_AI_Ransomware_Data/) — 2026-02-08
-- [클라우드 보안 위협, 안드로이드 악성코드, 업데이트 리스크 분석](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
+- [클라우드 보안 위협, Android 악성코드, 업데이트 리스크 분석](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
