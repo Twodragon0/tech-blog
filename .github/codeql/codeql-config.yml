@@ -1,3 +1,21 @@
+# ⚠️  UNUSED UNDER DEFAULT SETUP — editing this file has NO EFFECT.
+#
+# CodeQL on this repo runs via GitHub **default setup** (Settings → Code
+# security → CodeQL analysis = Default; verified 2026-07-28 via
+# `gh api repos/OWNER/REPO/code-scanning/default-setup` → state: configured).
+# Default setup ignores custom config files entirely — it only lets you pick a
+# query suite. So the paths-ignore / query-filters below are NOT applied.
+#
+# To suppress a false-positive alert today: dismiss it
+# (reason=false positive). Dismissals persist by alert fingerprint across
+# re-analyses, so the FP does not reappear unless the flagged lines change
+# materially. See notes/codeql-setup-and-fp-suppression.md for the current
+# CodeQL setup, the dismissed env-key-heuristic FPs (#276/#282/#283), and the
+# advanced-setup migration path that WOULD make this file live again.
+#
+# This file is kept (not deleted) as the ready-made config for that future
+# advanced-setup migration. Until then, treat it as documentation only.
+# ---------------------------------------------------------------------------
 # CodeQL Configuration for tech-blog
 # Excludes deprecated files and configures query suites
 
