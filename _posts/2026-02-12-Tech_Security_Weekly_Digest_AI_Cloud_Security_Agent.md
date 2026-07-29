@@ -372,10 +372,10 @@ summary_card:
 기관 자금 유입 기대가 높아질수록 거래소/커스터디/지갑 인프라에 대한 공격 유인이 커집니다.
 
 
-### 5.2 텔레그램 지갑 입금 기능 확대
+### 5.2 Telegram 지갑 입금 기능 확대
 
 {%- include news-card.html
-  title="[블록체인] 텔레그램 지갑 입금 기능 확대"
+  title="[블록체인] Telegram 지갑 입금 기능 확대"
   url="https://bitcoinmagazine.com/news/moonpay-launches-crypto-deposits-feature"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/MoonPay-Launches-Crypto-Deposits-Feature-to-Enable-Cross-Chain-Funding-in-Wallet-in-Telegram.jpg"
   summary="사용자 접근성이 올라가면 피싱과 주소 변조 공격도 함께 증가하므로, 사용자 안내와 거래 검증 UX 강화가 필수입니다."

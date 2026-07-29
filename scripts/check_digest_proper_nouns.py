@@ -54,6 +54,15 @@ ENTITIES = {
     "아마존": "Amazon",
     "깃허브": "GitHub",
     "클라우드플레어": "Cloudflare",
+    # 2026-07-29 corpus-vetted additions (post-researcher measurement): genuine
+    # Hangul/English mixing with NO substring-collision trap. Deliberately EXCLUDES
+    # 애플 (→애플리케이션/application collision, ~0 genuine), 리플 (→리플래시/리플리카),
+    # 메타 (→메타데이터/메타버스), 윈도우 (→컨텍스트 윈도우 homonym), 시스코
+    # (→샌프란시스코) — each needs a bespoke exclusion, tracked in
+    # notes/digest-proper-noun-policy.md; and domestic-only 네이버/카카오 (never
+    # written in English) + already-English-canonical OpenAI/Nvidia/Ubuntu/…
+    "안드로이드": "Android",   # 6 files mixed; always standalone ("안드로이드 악성/펌웨어")
+    "텔레그램": "Telegram",     # mixed; always standalone ("텔레그램 봇/기반/지갑")
 }
 
 # Common Korean particles (josa) that legitimately attach to a noun. When one of

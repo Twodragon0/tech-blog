@@ -48,8 +48,27 @@
 | 아마존(웹서비스) | Amazon (AWS) |
 | 깃허브 | GitHub |
 | 클라우드플레어 | Cloudflare |
+| 안드로이드 | Android |
+| 텔레그램 | Telegram |
 
-> allow-list는 **deny-by-default**: 목록에 없는 한글 토큰은 절대 자동 치환/플래그하지 않는다 (`l20_topic_tag_entity_guard`의 entity 오매칭 교훈). 신규 엔티티는 데이터로 혼용 ≥ 임계치 확인 후 목록에 추가.
+> allow-list는 **deny-by-default**: 목록에 없는 한글 토큰은 절대 자동 치환/플래그하지 않는다 (`l20_topic_tag_entity_guard`의 entity 오매칭 교훈). 신규 엔티티는 데이터로 혼용 ≥ 임계치 확인 + **substring 트랩 검증** 후 목록에 추가.
+
+### allow-list 확장 조사 (2026-07-29, post-researcher 실측)
+
+corpus 실측 결과 안드로이드(6건 혼용)·텔레그램(2건)만 안전 추가. **substring 트랩이 raw
+count를 부풀리므로 반드시 word-boundary 실측 필요** (naive grep 금지):
+
+| 후보 | 판정 | 근거 |
+|------|------|------|
+| 안드로이드→Android, 텔레그램→Telegram | **ADD** | 진짜 혼용 + 독립 토큰(충돌 없음) |
+| 애플→Apple | **REJECT** | raw 최다지만 ~0 genuine — 애플리케이션(application)이 94/96 파일 지배 |
+| 리플→Ripple | **REJECT** | 100% 리플래시(reflash)/리플리카(replica) 노이즈, genuine 0 |
+| 네이버, 카카오 | **REJECT** | 국내 브랜드, 영문 표기 자체가 corpus에 없음(혼용 없음) |
+| OpenAI·Nvidia·TensorFlow·Ubuntu·RedHat·Discord | **REJECT** | 이미 100% 영문 canonical, 고칠 결함 없음 |
+| 메타→Meta | **DEFER** | 실 신호 있으나 메타데이터/메타버스/메타문자에 묻힘 → 전용 제외 규칙 필요 |
+| 윈도우→Windows | **DEFER** | "컨텍스트/안정화 윈도우"(window) **동음이의어** — regex로 못 고침 |
+| 시스코→Cisco | **DEFER** | 샌프란시스코 tail-substring 제외 필요, 볼륨 극소 |
+| 솔라나·크롬·삼성·파이어폭스 | **DEFER** | 혼용 0~1, 신호 부족 |
 
 ---
 
