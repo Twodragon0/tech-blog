@@ -129,6 +129,40 @@ def test_all_entities_rewrite():
         assert n == 1
 
 
+# --- 2026-07-30 additions: 메타/시스코 canonical + substring-trap guards --------
+
+
+def test_meta_company_is_canonicalized_with_josa():
+    # 메타의/메타가/메타 (standalone) are the company Meta.
+    new, n = fix_body("메타의 광고 랭킹과 메타가 발표한 정책, 그리고 메타 광고.")
+    assert new == "Meta의 광고 랭킹과 Meta가 발표한 정책, 그리고 Meta 광고."
+    assert n == 3
+
+
+def test_meta_compound_words_are_not_touched():
+    # 메타 + Hangul-non-josa (데/버/분/문) is a compound noun, never Meta.
+    body = "메타데이터를 메타버스에서 메타분석하고 메타문자를 처리."
+    assert find_violations(body) == []
+    new, n = fix_body(body)
+    assert new == body and n == 0
+
+
+def test_cisco_is_canonicalized_but_san_francisco_is_not():
+    body = "시스코가 분기 실적을 발표했고 샌프란시스코 지사도 언급했다."
+    v = find_violations(body)
+    assert v == [("시스코", "Cisco", 1)]  # 샌프란시스코 embedded → not flagged
+    new, n = fix_body(body)
+    assert new == "Cisco가 분기 실적을 발표했고 샌프란시스코 지사도 언급했다."
+    assert n == 1
+
+
+def test_window_homonym_stays_deferred():
+    # 윈도우 is intentionally NOT in ENTITIES (context/exploit window homonym).
+    assert "윈도우" not in ENTITIES
+    body = "1M 토큰 컨텍스트 윈도우를 갖춘 모델과 윈도우 Defender."
+    assert find_violations(body) == []
+
+
 # --- front matter is never touched -----------------------------------------
 
 
