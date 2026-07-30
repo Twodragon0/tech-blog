@@ -293,19 +293,19 @@ AWS가 인스턴스 유형, 자동 스케일링 정책, 동시성 설정을 구�
 
 ## 3. 블록체인 뉴스
 
-### 3.1 비트코인 약세: $71,800 저항선 유지, 하방 리스크 지속
+### 3.1 Bitcoin 약세: $71,800 저항선 유지, 하방 리스크 지속
 
 {%- include news-card.html
-  title="[블록체인] 비트코인 약세: $71,800 저항선 유지, 하방 리스크 지속"
+  title="[블록체인] Bitcoin 약세: $71,800 저항선 유지, 하방 리스크 지속"
   url="https://bitcoinmagazine.com/markets/bitcoin-bears-dominate-failure-to-break-71800-keeps-downside-risk-alive"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/bullish-price-thumbnail-1.webp"
-  summary="비트코인이 $71,800 저항선 돌파에 실패하며, 주요 지지선은 $65,650에 형성되어 있습니다. 이 지지선이 무너지면 $63,000, 이후 피보나치 레벨 $57,800까지 하락 가능성이 있습니다. 상방은 $71,800~$74,500 구간에서 막혀 있습니다."
+  summary="Bitcoin이 $71,800 저항선 돌파에 실패하며, 주요 지지선은 $65,650에 형성되어 있습니다. 이 지지선이 무너지면 $63,000, 이후 피보나치 레벨 $57,800까지 하락 가능성이 있습니다. 상방은 $71,800~$74,500 구간에서 막혀 있습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
 
-비트코인이 $71,800 저항선 돌파에 실패하며, 주요 지지선은 $65,650에 형성되어 있습니다. 이 지지선이 무너지면 $63,000, 이후 피보나치 레벨 $57,800까지 하락 가능성이 있습니다. 상방은 $71,800~$74,500 구간에서 막혀 있습니다.
+Bitcoin이 $71,800 저항선 돌파에 실패하며, 주요 지지선은 $65,650에 형성되어 있습니다. 이 지지선이 무너지면 $63,000, 이후 피보나치 레벨 $57,800까지 하락 가능성이 있습니다. 상방은 $71,800~$74,500 구간에서 막혀 있습니다.
 
 보안 시사점: 시장 불확실성이 높아지면 암호화폐 투자자를 대상으로 한 피싱/스캠 활동이 증가합니다. 가짜 거래소 사이트 및 투자 사기 캠페인을 지속 모니터링하세요.
 
@@ -318,13 +318,13 @@ AWS가 인스턴스 유형, 자동 스케일링 정책, 동시성 설정을 구�
   title="[블록체인] Payjoin Foundation, 501(c)(3) 지위 획득"
   url="https://bitcoinmagazine.com/business/payjoin-foundation-gains-501c3-status-enabling-tax-deductible-donations-for-bitcoin-privacy-development"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/tn-3.webp"
-  summary="Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부터 501(c)(3) 면세 지위를 획득했습니다. 이를 통해 프라이버시를 강화하는 비트코인 프로토콜 개발에 세금 공제 기부가 가능해졌으며, 프라이버시와 수수료 효율성을 모두 개선하는 Payjoin 트랜잭션 도입이 가속화될 전망입니다."
+  summary="Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부터 501(c)(3) 면세 지위를 획득했습니다. 이를 통해 프라이버시를 강화하는 Bitcoin 프로토콜 개발에 세금 공제 기부가 가능해졌으며, 프라이버시와 수수료 효율성을 모두 개선하는 Payjoin 트랜잭션 도입이 가속화될 전망입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
 
 
-Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부터 501(c)(3) 면세 지위를 획득했습니다. 이를 통해 프라이버시를 강화하는 비트코인 프로토콜 개발에 세금 공제 기부가 가능해졌으며, 프라이버시와 수수료 효율성을 모두 개선하는 Payjoin 트랜잭션 도입이 가속화될 전망입니다.
+Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부터 501(c)(3) 면세 지위를 획득했습니다. 이를 통해 프라이버시를 강화하는 Bitcoin 프로토콜 개발에 세금 공제 기부가 가능해졌으며, 프라이버시와 수수료 효율성을 모두 개선하는 Payjoin 트랜잭션 도입이 가속화될 전망입니다.
 
 
 ---
@@ -351,7 +351,7 @@ Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부�
 
 ---
 
-## 조치 체크리스트
+## 실무 체크리스트
 
 ### P0 (즉시 조치)
 
@@ -395,7 +395,7 @@ Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부�
 
 <!-- related-posts:v1 -->
 
-- [클라우드 보안 위협, 안드로이드 악성코드, 업데이트 리스크 분석](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
+- [클라우드 보안 위협, Android 악성코드, 업데이트 리스크 분석](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
 - [Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
 - [APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
 
