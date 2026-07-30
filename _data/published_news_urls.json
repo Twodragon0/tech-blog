@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-29T01:49:21.979335+00:00",
+  "updated_at": "2026-07-30T01:32:17.622298+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/07/tuxbot-v3-evolution-shows-signs-of-llm.html",
@@ -1170,6 +1170,96 @@
       "title": "GitHub Copilot app usage metrics now expand across report rollups",
       "published_date": "2026-07-29",
       "expires_at": "2026-08-05T01:49:21.979251+00:00"
+    },
+    {
+      "url": "https://www.recordedfuture.com/blog/ai-generated-extortion",
+      "title": "Dealing with AI-Generated Extortion",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/critical-rails-flaw-could-let.html",
+      "title": "Critical Rails Flaw Could Let Unauthenticated Attackers Read Server Files via Im",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/ruflo-mcp-flaw-lets-unauthenticated.html",
+      "title": "Ruflo MCP Flaw Lets Unauthenticated Attackers Run Commands and Poison AI Memory",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/three-critical-vmware-flaws-allow-auth.html",
+      "title": "Three Critical VMware Flaws Allow Auth Bypass, Code Execution, and VM Escape",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/amazon-identifies-north-korean-hacker-group-behind-open-source-supply-chain-attacks/",
+      "title": "Amazon identifies North Korean hacker group behind open-source supply chain atta",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+      "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://openai.com/index/chatgpt-for-academic-researchers",
+      "title": "Accelerating scientific discovery with ChatGPT for Academic Researchers",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/moonpay-launches-ai-payment-vault-for-chatgpt-and-claude-with-crypto-transaction-support?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "MoonPay vault enables ChatGPT and Claude users to authorize crypto transactions",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/authenticate-with-private-key-jwt-using-amazon-bedrock-agentcore-identity/",
+      "title": "Authenticate with Private Key JWT using Amazon Bedrock AgentCore Identity",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/generate-autonomous-business-insights-with-ai-agent-and-mcp-servers/",
+      "title": "Generate Autonomous Business Insights with AI Agent and MCP Servers",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/introducing-the-borderless-lakehouse/",
+      "title": "The borderless Lakehouse: Bring AWS, Databricks and Snowflake data to your AI ag",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-adds-agentic-workflows-for-data-monitoring-and-insights/",
+      "title": "Automate data monitoring and root-cause analysis with Looker Agentic Workflows",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/whats-new-in-gemini-enterprise-agent-platform/",
+      "title": "What’s new in Gemini Enterprise Agent Platform",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/automate-agent-development-lifecycles-with-gemini-enterprise/",
+      "title": "Automate your agent development lifecycle using any coding agent",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/amazon-bedrock-agentcore-customer-service-refund-automation/",
+      "title": "2주 만에 Strands SDK와 Amazon Bedrock AgentCore로 구현한 어스얼라이언스의 CS 환불 자동응답 에이전트 시스템",
+      "published_date": "2026-07-30",
+      "expires_at": "2026-08-06T01:32:17.622211+00:00"
     }
   ]
 }
