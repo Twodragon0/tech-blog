@@ -57,12 +57,26 @@ ENTITIES = {
     # 2026-07-29 corpus-vetted additions (post-researcher measurement): genuine
     # Hangul/English mixing with NO substring-collision trap. Deliberately EXCLUDES
     # 애플 (→애플리케이션/application collision, ~0 genuine), 리플 (→리플래시/리플리카),
-    # 메타 (→메타데이터/메타버스), 윈도우 (→컨텍스트 윈도우 homonym), 시스코
-    # (→샌프란시스코) — each needs a bespoke exclusion, tracked in
-    # notes/digest-proper-noun-policy.md; and domestic-only 네이버/카카오 (never
-    # written in English) + already-English-canonical OpenAI/Nvidia/Ubuntu/…
+    # and domestic-only 네이버/카카오 (never written in English) +
+    # already-English-canonical OpenAI/Nvidia/Ubuntu/… — tracked in
+    # notes/digest-proper-noun-policy.md.
     "안드로이드": "Android",   # 6 files mixed; always standalone ("안드로이드 악성/펌웨어")
     "텔레그램": "Telegram",     # mixed; always standalone ("텔레그램 봇/기반/지갑")
+    # 2026-07-30 additions: previously DEFERRED on a naive-substring premise, but
+    # the josa+word-boundary matcher (_ENTITY_RE) already resolves their compound
+    # noise, so NO bespoke exclusion is needed. Verified with the real matcher on
+    # the digest corpus (see notes/digest-proper-noun-policy.md §2 re-measurement).
+    "메타": "Meta",       # 21/21 genuine (메타의 광고, 메타가 크리에이터, 메타의 파이썬).
+                          # 메타데이터/메타버스/메타분석/메타문자 = 메타+Hangul-non-josa →
+                          # already excluded by the lookahead (0 leaks).
+    "시스코": "Cisco",     # 2/2 genuine (시스코가 분기 실적, 시스코 Unified). 샌프란시스코 =
+                          # 시스코 embedded in a larger Hangul token → already excluded by the
+                          # (?<![가-힣…]) lookbehind (0 leaks).
+    # 윈도우 (→Windows) STAYS DEFERRED: genuine homonym. The "window" sense
+    # (컨텍스트/안정화/슬라이딩/익스플로잇 윈도우, "블록 N 윈도우", "유지보수 기간(윈도우)")
+    # cannot be regex-separated from the OS sense — a deny-prefix still leaves ~25%
+    # false positives (intervening numbers/parens defeat the prefix anchor). Any
+    # genuine Windows mixing must be fixed per-post by hand, not auto-canonicalized.
 }
 
 # Common Korean particles (josa) that legitimately attach to a noun. When one of

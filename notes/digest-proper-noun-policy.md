@@ -50,6 +50,8 @@
 | 클라우드플레어 | Cloudflare |
 | 안드로이드 | Android |
 | 텔레그램 | Telegram |
+| 메타 | Meta |
+| 시스코 | Cisco |
 
 > allow-list는 **deny-by-default**: 목록에 없는 한글 토큰은 절대 자동 치환/플래그하지 않는다 (`l20_topic_tag_entity_guard`의 entity 오매칭 교훈). 신규 엔티티는 데이터로 혼용 ≥ 임계치 확인 + **substring 트랩 검증** 후 목록에 추가.
 
@@ -65,10 +67,32 @@ count를 부풀리므로 반드시 word-boundary 실측 필요** (naive grep 금
 | 리플→Ripple | **REJECT** | 100% 리플래시(reflash)/리플리카(replica) 노이즈, genuine 0 |
 | 네이버, 카카오 | **REJECT** | 국내 브랜드, 영문 표기 자체가 corpus에 없음(혼용 없음) |
 | OpenAI·Nvidia·TensorFlow·Ubuntu·RedHat·Discord | **REJECT** | 이미 100% 영문 canonical, 고칠 결함 없음 |
-| 메타→Meta | **DEFER** | 실 신호 있으나 메타데이터/메타버스/메타문자에 묻힘 → 전용 제외 규칙 필요 |
-| 윈도우→Windows | **DEFER** | "컨텍스트/안정화 윈도우"(window) **동음이의어** — regex로 못 고침 |
-| 시스코→Cisco | **DEFER** | 샌프란시스코 tail-substring 제외 필요, 볼륨 극소 |
+| 메타→Meta | ~~DEFER~~ → **ADD (2026-07-30)** | 아래 재측정 참조 — 예외 불요 |
+| 윈도우→Windows | **DEFER (확정)** | "컨텍스트/안정화 윈도우"(window) **동음이의어** — 아래 재측정 참조 |
+| 시스코→Cisco | ~~DEFER~~ → **ADD (2026-07-30)** | 아래 재측정 참조 — 예외 불요 |
 | 솔라나·크롬·삼성·파이어폭스 | **DEFER** | 혼용 0~1, 신호 부족 |
+
+### DEFER 재측정 (2026-07-30, 실제 가드 매처로 검증) — 메타·시스코 ADD, 윈도우 확정 DEFER
+
+**결정적 발견:** 위 DEFER 근거는 **naive substring count** 기반이었으나, 가드의 실제
+매처 `_ENTITY_RE` = `(?<![가-힣A-Za-z0-9]){ko}(?=$|[^가-힣]|josa)` 는 word-boundary +
+josa 룩어헤드라 **접미 복합어·임베디드 substring을 이미 제외**한다. 디제스트 코퍼스에서
+매처를 시뮬레이션한 결과:
+
+| 후보 | 매처 hits | genuine | 노이즈 누출 | 결정 |
+|------|----------:|--------:|-----------:|------|
+| 메타→Meta | 21 | 21 (메타의 광고·메타가 크리에이터·메타의 파이썬) | 0 (메타데이터/버스/분석/문자 = 메타+Hangul-non-josa → 룩어헤드가 이미 제외) | **ADD, 예외 불요** |
+| 시스코→Cisco | 2 | 2 (시스코가 분기·Unified) | 0 (샌프란시스코 = 임베디드 → 룩비하인드가 이미 제외) | **ADD, 예외 불요** |
+| 윈도우→Windows | 29 | ~10 (Parallels/Defender/사내) | ~19 (컨텍스트 윈도우 등) | **DEFER 확정** |
+
+**윈도우 확정 DEFER 근거:** window 어의(뜻)는 **선행 수식어**(컨텍스트/안정화/슬라이딩/
+익스플로잇/유지보수 기간/블록 N)에 실리므로 룩어헤드로 못 잡는다. deny-prefix
+negative-lookbehind를 설계·실측했으나 개재 토큰(숫자·괄호: "블록 961632 윈도우",
+"유지보수 기간(윈도우)")이 prefix 앵커를 무력화해 **KEPT 12건 중 3건(~25%) FP** 잔존.
+deny-by-default·no-FP 원칙상 자동 canonical화 불가 → genuine Windows 혼용은 per-post 수동.
+
+구현: `ENTITIES`에 `메타/시스코` 추가 + 회귀 테스트 4건(josa canonical·복합어 불변·
+샌프란시스코 불변·윈도우 미포함). 예외 코드는 추가하지 않음(기존 매처로 충분).
 
 ---
 
