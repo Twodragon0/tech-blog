@@ -129,7 +129,10 @@ fi
 STAGED_DIGEST_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/[^/]+Weekly_Digest[^/]*\.md$' || true)
 if [ -n "$STAGED_DIGEST_POSTS" ]; then
   echo "[pre-commit] Checking digest post structural invariants..."
-  python3 "$REPO_ROOT/scripts/check_digest_structure.py" --staged
+  # --ratchet: fail only on violations NEW vs HEAD. The legacy corpus carries
+  # pre-existing defects pending a staged backfill campaign; without the ratchet
+  # the gate also blocks unrelated improvements to those posts.
+  python3 "$REPO_ROOT/scripts/check_digest_structure.py" --staged --ratchet
   if [ $? -ne 0 ]; then
     echo "[pre-commit] Digest structural violation found. Fix before committing."
     echo "             Digest posts need contiguous ## N. numbering, no body H1,"
