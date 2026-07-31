@@ -152,7 +152,12 @@ deny-by-default·no-FP 원칙상 자동 canonical화 불가 → genuine Windows 
 1. **Phase 1 — 코드 + 가드 (신규 강제):** ✅ **완료 (PR #472)**. `check_digest_proper_nouns.py`
    + 테스트 29 + pre-commit(9c)/svg-lint CI/blogwatcher `--fix` wiring. 신규 digest canonical 보장.
 2. **Phase 2a — 구조-clean 레거시 37개:** ✅ **완료 (PR #473)**, 742→해당분 치환, 오변환 0, 게이트 전부 green.
-3. **Phase 2b — 구조-defective 98개: ⏸ deferred (전용 캠페인 권장).**
+3. **Phase 2b — 구조-defective 98개: ▶ 진행 중 (블로커 해소됨, 2026-07-31).**
+   - **블로커 해소:** 아래 "구조 게이트 diff 래칫" 참조. **순서 의존이 사라졌다** — 구조 백필을
+     선행하지 않고도 proper-noun 백필을 진행할 수 있다.
+   - 완료: 2월 파일럿(02-17) · 3월 파일럿(03-15) · **4월 파티션 23개** (코퍼스 98 → 75).
+   - 잔여 75개(5·6·7월 중심)는 동일 절차로 파티션 진행.
+   - **아래는 래칫 도입 전의 기록 (원인 분석으로 보존):**
    - **발견(empirical):** `--fix --all`은 135개를 바꾸지만 그 중 **98개는 pre-existing 구조 결함**
      (넘버링/H1/체크리스트, 레거시 176개 미백필)이 있어, staging 시 digest **구조 게이트**(pre-commit
      step 9 + svg-lint `--changed`)가 red가 된다. proper-noun 스왑 자체는 구조와 무관(증명: 실패
@@ -167,6 +172,32 @@ deny-by-default·no-FP 원칙상 자동 canonical화 불가 → genuine Windows 
      blast 금지**. 소스 파티션(발행 연월/구조 유형별) 전용 캠페인으로 per-post 검증하며 스테이지드
      진행(ultragoal/autopilot). Bitcoin 혼용 상당수가 이 98개에 잔존.
 4. **측정:** Phase 2b 완료 후 §1 표 재측정 → 혼용 0 목표.
+
+### 구조 게이트 diff 래칫 (2026-07-31) — Phase 2b 블로커 해소
+
+**진단:** Phase 2b가 막힌 원인은 proper-noun 작업이 어려워서가 아니라, `check_digest_structure`가
+**파일 단위**라 pre-existing 결함이 그 포스트의 *무관한* 개선까지 전부 막았기 때문이다.
+
+**실측(2026-04-02):** 고유명사 `--fix`만 적용 → 구조 위반 **6 → 6 불변**, diff는 순수
+`비트코인→Bitcoin` 스왑. 그런데 staging 시 게이트가 red. 즉 게이트가 **자기가 유발하지 않은
+결함으로 개선을 차단**하고 있었다.
+
+**해법:** `--ratchet`. base 리비전(`--staged`→HEAD, `--changed`→merge-base)의 위반과
+multiset 비교해 **신규 위반만** 실패시킨다.
+
+| 상황 | 결과 |
+|------|------|
+| 레거시 포스트의 무관한 개선 | **통과** (pre-existing은 grandfathered로 *보고*, 은폐 아님) |
+| 레거시/신규 불문 구조 회귀 | **실패** |
+| 신규 파일(base 없음) | 전 위반이 신규 → 종전대로 엄격 |
+
+baseline 파일(`cover_honesty_baseline.txt` 방식) 대신 래칫을 택한 이유: 동기화할 상태가 없고,
+grandfather된 포스트도 **계속 보호**된다(baseline은 등록 파일의 이후 회귀까지 통과시킴).
+
+배선은 pre-commit + svg-lint CI 양쪽. `.githooks/pre-commit`은 `install-hooks.sh`가 heredoc으로
+생성하므로 **생성기 소스도 함께** 수정해야 한다(`githooks_hookspath_gotcha`). 회귀 가드
+`test_ci_digest_structure_ratchet_guard.py`가 게이트 제거 / `--ratchet` 제거 / `--all` 회귀
+3방향을 모두 탐지하며, 배선 제거 시 실제로 실패함을 음성 테스트로 확인했다.
 
 ### Phase 2 부수 발견 (2026-07-29)
 - 마스킹 정교화: 뉴스카드 `title=`/`summary=` 속성값은 인용 제목이 **아님** → canonical 대상
