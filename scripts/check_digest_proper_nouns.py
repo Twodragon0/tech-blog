@@ -91,13 +91,30 @@ _JOSA = [
 ]
 _JOSA_ALT = "|".join(sorted(_JOSA, key=len, reverse=True))
 
+# Per-entity deny lookahead: a trailing context that proves the Hangul form is
+# NOT the entity. Only add one after measuring a real corpus false positive.
+#
+# 메타: also a productive Sino-Korean prefix ("meta-"). The compound-noun senses
+# (메타데이터/메타버스/메타분석) are already excluded because 데이터/버스/분석 are
+# Hangul, but the HYPHENATED prefix (메타-하네스 = "meta-harness") passes the
+# [^가-힣] branch and would be rewritten to the nonsense "Meta-하네스".
+# Measured 2026-07-31 across the digest corpus: entity+hyphen occurs 4x total —
+# 메타-하네스 x2 (2026-07-30, prefix sense) and 비트코인-REIT x2 (2026-06-18,
+# genuine Bitcoin). So the rule must be per-entity: a blanket hyphen exclusion
+# would silently skip the two legitimate 비트코인-REIT rewrites.
+_ENTITY_DENY = {
+    "메타": r"[-–—]",
+}
+
 # Per-entity matcher: the Hangul form, NOT embedded in a larger Hangul/Latin
 # token, and followed by end-of-string, a non-Hangul char, or a known particle.
 # 구글링 fails all three lookahead branches (링 is Hangul and not a particle),
 # so a derived word is never rewritten.
 _ENTITY_RE = {
     ko: re.compile(
-        rf"(?<![가-힣A-Za-z0-9]){re.escape(ko)}(?=$|[^가-힣]|(?:{_JOSA_ALT}))"
+        rf"(?<![가-힣A-Za-z0-9]){re.escape(ko)}"
+        + (rf"(?!{_ENTITY_DENY[ko]})" if ko in _ENTITY_DENY else "")
+        + rf"(?=$|[^가-힣]|(?:{_JOSA_ALT}))"
     )
     for ko in ENTITIES
 }
