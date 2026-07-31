@@ -338,10 +338,10 @@ GitHub Blog의 Copilot Applied Science에서 코딩 에이전트를 활용해 �
 
 ## 5. 블록체인 뉴스
 
-### 5.1 뉴햄프셔의 비트코인 담보 지방채, 무디스 신용등급으로 발행 가까워져
+### 5.1 뉴햄프셔의 Bitcoin 담보 지방채, 무디스 신용등급으로 발행 가까워져
 
 {% include news-card.html
-  title="뉴햄프셔의 비트코인 담보 지방채, 무디스 신용등급으로 발행 가까워져"
+  title="뉴햄프셔의 Bitcoin 담보 지방채, 무디스 신용등급으로 발행 가까워져"
   url="https://bitcoinmagazine.com/news/new-hampshires-bitcoin-municipal-bond"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/03/New-Hampshires-Bitcoin-Backed-Municipal-Bond-Moves-Closer-With-Moodys-Rating.jpg"
   summary="Moody's가 Ba2 등급을 부여하며 New Hampshire의 최초 Bitcoin-Backed Municipal Bond 발행이 가까워졌습니다. 이 채권은 납세자 위험 없이 Bitcoin 담보에 연동된 수익과 함께 투자자에게 수익률을 제공합니다."
@@ -378,14 +378,14 @@ Afroman이 Bitcoin 2026 컨퍼런스의 연사로 공식 확정되었습니다. 
   title="Satoshi의 2010년 양자 대응이 2026년 스트레스 테스트를 앞두고 있으며 Google은 타임라인이 예상보다 가까울 수 있다고 경고"
   url="https://bitcoinmagazine.com/news/satoshis-2010-quantum-response-stress-test"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/03/Satoshis-2010-Quantum-Response-Is-Getting-a-2026-Stress-Test-as-Google-Warns-Timeline-May-Be-Closer-Than-Expected.jpg"
-  summary="비트코인 창시자 사토시의 2010년 양자 컴퓨팅 대응 방안이 2026년 스트레스 테스트를 앞두고 있으며, Google 연구에 따르면 암호화 관련 양자 컴퓨팅의 실현 시점이 예상보다 빠를 수 있다고 경고했습니다."
+  summary="Bitcoin 창시자 사토시의 2010년 양자 컴퓨팅 대응 방안이 2026년 스트레스 테스트를 앞두고 있으며, Google 연구에 따르면 암호화 관련 양자 컴퓨팅의 실현 시점이 예상보다 빠를 수 있다고 경고했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인 창시자 사토시의 2010년 양자 컴퓨팅 대응 방안이 2026년 스트레스 테스트를 앞두고 있으며, Google 연구에 따르면 암호화 관련 양자 컴퓨팅의 실현 시점이 예상보다 빠를 수 있다고 경고했습니다.
+Bitcoin 창시자 사토시의 2010년 양자 컴퓨팅 대응 방안이 2026년 스트레스 테스트를 앞두고 있으며, Google 연구에 따르면 암호화 관련 양자 컴퓨팅의 실현 시점이 예상보다 빠를 수 있다고 경고했습니다.
 
 ---
 

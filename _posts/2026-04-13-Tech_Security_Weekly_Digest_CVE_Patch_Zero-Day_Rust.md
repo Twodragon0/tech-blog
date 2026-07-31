@@ -68,7 +68,7 @@ summary_card:
 | 🔒 **Security** | The Hacker News | Adobe, 악용 중인 Acrobat Reader 취약점 CVE-2026-34621 패치 배포 | 🔴 Critical |
 | ⛓️ **Blockchain** | Bitcoin Magazine | 혁명의 유물, 2부: 허위 이익과 자유 | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | Justin Sun, WLFI에 항의하며 플랫폼은 소송으로 대응 위협 | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | Strategy의 Michael Saylor, 비트코인 추가 매수 예고 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Strategy의 Michael Saylor, Bitcoin 추가 매수 예고 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | Pro Max 5x 요금제, 중간 사용에도 1.5시간 만에 할당량 소진 문제 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | 스페인에서 Cloudflare의 축구 관련 차단으로 Docker Pull 실패 발생 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | 월 20달러 기술 스택으로 여러 개의 월 1만 달러 MRR 회사를 운영하는 방법 | 🟡 Medium |
@@ -138,7 +138,7 @@ Marimo는 데이터 과학 및 머신러닝 워크플로우를 위한 인기 오
 DevSecOps 팀에게 이 취약점은 다음과 같은 직접적 영향을 미칩니다:
 - **운영 중인 Marimo 인스턴스 노출**: 데이터 과학 팀이나 ML 엔지니어링 파이프라인에서 Marimo를 프로덕션 또는 개발 환경에 배포한 경우, 해당 서버가 외부 또는 내부 공격에 노출될 수 있습니다.
 - **자격증명 및 비밀정보 유출**: 공격 대상이 자격증명 탈취에 집중하고 있으므로, Marimo 서버에 저장된 API 키, 데이터베이스 비밀번호, 클라우드 액세스 키 등이 유출될 위험이 큽니다.
-- **컨테이너 및 클라우드 환경 확산**: Marimo가 컨테이너(도커)나 쿠버네티스 환경에서 실행되는 경우, 호스트 시스템이나 클러스터 내 다른 포드로의 권한 상승이 가능할 수 있습니다.
+- **컨테이너 및 클라우드 환경 확산**: Marimo가 컨테이너(Docker)나 Kubernetes 환경에서 실행되는 경우, 호스트 시스템이나 클러스터 내 다른 포드로의 권한 상승이 가능할 수 있습니다.
 - **공급망 공격 위험**: Marimo를 의존하는 데이터 처리 파이프라인이 오염될 경우, 분석 결과나 ML 모델이 조작될 수 있습니다.
 
 ## 3. 대응 체크리스트
@@ -222,10 +222,10 @@ Justin Sun이 WLFI 플랫폼의 장기 토큰 록업 기간과 스마트 컨트�
 
 ---
 
-### 2.3 Strategy의 Michael Saylor, 비트코인 추가 매수 예고
+### 2.3 Strategy의 Michael Saylor, Bitcoin 추가 매수 예고
 
 {% include news-card.html
-  title="Strategy의 Michael Saylor, 비트코인 추가 매수 예고"
+  title="Strategy의 Michael Saylor, Bitcoin 추가 매수 예고"
   url="https://cointelegraph.com/news/strategy-saylor-signal-bitcoin-purchase?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDgyNmMtMjczYy03N2Y3LThiNzYtMjAyZDFjMjRmOWZmLmpwZw==.jpg"
   summary="Strategy의 Michael Saylor는 기업이 2020년 이후 105건의 Bitcoin 거래를 완료했으며, 회사채와 주식 발행을 통해 BTC를 지속적으로 매집하는 역발상 전략을 펼치고 있음을 시사했습니다."
@@ -254,12 +254,12 @@ Strategy의 Michael Saylor는 기업이 2020년 이후 105건의 Bitcoin 거래�
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
 | **공급망 공격 및 RCE 취약점** | 3건 | CPUID 웹사이트 해킹·STX RAT 유포, Marimo 사전 인증 RCE 적극 악용, Adobe Acrobat CVE-2026-34621 |
-| **비트코인 및 블록체인 동향** | 5건 | Bitcoin Magazine 혁명유물(허위이익·자유), Justin Sun/WLFI 분쟁, Michael Saylor 비트코인 추가 매수 예고, Bitcoin 거버넌스·투자 전략 |
+| **Bitcoin 및 블록체인 동향** | 5건 | Bitcoin Magazine 혁명유물(허위이익·자유), Justin Sun/WLFI 분쟁, Michael Saylor Bitcoin 추가 매수 예고, Bitcoin 거버넌스·투자 전략 |
 | **인프라 가용성 및 비용 최적화** | 3건 | Cloudflare 차단으로 Docker Pull 장애(스페인), 월 $20 기술 스택으로 MRR $10K 운영, Pro Max 토큰 할당량 소진 문제 |
 | **보안 언어 및 패치 전략** | 2건 | Adobe Acrobat Reader 제로데이(CVE-2026-34621) 긴급 패치, Google Pixel 10 베이스밴드 Rust 도입 |
 | **기타** | 2건 | 추가 보안 뉴스 및 블록체인 해설 포함 |
 
-이번 주기의 핵심 트렌드는 **공급망 공격 및 RCE 취약점**(3건)입니다. CPUID 공식 사이트 해킹을 통한 STX RAT 유포, Marimo 사전 인증 RCE 적극 악용, Adobe Acrobat Reader 제로데이 패치 등 소프트웨어 공급망과 원격 코드 실행 위협이 집중되었습니다. **비트코인 및 블록체인 동향**(5건)에서는 Justin Sun/WLFI 분쟁, Michael Saylor 추가 매수 예고, Bitcoin Magazine 심층 기고 등이 주목되며, **인프라 가용성 및 비용 최적화**(3건)에서는 Cloudflare 차단의 Docker Hub 파급 효과와 극단적 린 스택 운영 사례가 실무 시사점을 제공합니다.
+이번 주기의 핵심 트렌드는 **공급망 공격 및 RCE 취약점**(3건)입니다. CPUID 공식 사이트 해킹을 통한 STX RAT 유포, Marimo 사전 인증 RCE 적극 악용, Adobe Acrobat Reader 제로데이 패치 등 소프트웨어 공급망과 원격 코드 실행 위협이 집중되었습니다. **Bitcoin 및 블록체인 동향**(5건)에서는 Justin Sun/WLFI 분쟁, Michael Saylor 추가 매수 예고, Bitcoin Magazine 심층 기고 등이 주목되며, **인프라 가용성 및 비용 최적화**(3건)에서는 Cloudflare 차단의 Docker Hub 파급 효과와 극단적 린 스택 운영 사례가 실무 시사점을 제공합니다.
 
 ---
 

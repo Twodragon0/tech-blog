@@ -230,14 +230,14 @@ AWS가 제시한 포스트퀀텀 암호화(PQC) 마이그레이션 계획의 핵
   title="공간(과 인생) 정리를 위한 8가지 Gemini 팁"
   url="https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Spring_Cleaning_hero.max-600x600.format-webp.webp"
-  summary="구글의 AI 비서 Gemini가 공간과 생활을 정리하는 데 도움을 주는 8가지 팁을 소개했다. 문서와 이메일 아이콘이 흘러나오는 노트북, 체크리스트를 보며 웃는 사람, Gemini Live를 활성화하는 사용자 등의 일러스트가 포함된 내용이다."
+  summary="Google의 AI 비서 Gemini가 공간과 생활을 정리하는 데 도움을 주는 8가지 팁을 소개했다. 문서와 이메일 아이콘이 흘러나오는 노트북, 체크리스트를 보며 웃는 사람, Gemini Live를 활성화하는 사용자 등의 일러스트가 포함된 내용이다."
   source="Google AI Blog"
   severity="Medium"
 %}
 
 #### 요약
 
-구글의 AI 비서 Gemini가 공간과 생활을 정리하는 데 도움을 주는 8가지 팁을 소개했다. 문서와 이메일 아이콘이 흘러나오는 노트북, 체크리스트를 보며 웃는 사람, Gemini Live를 활성화하는 사용자 등의 일러스트가 포함된 내용이다.
+Google의 AI 비서 Gemini가 공간과 생활을 정리하는 데 도움을 주는 8가지 팁을 소개했다. 문서와 이메일 아이콘이 흘러나오는 노트북, 체크리스트를 보며 웃는 사람, Gemini Live를 활성화하는 사용자 등의 일러스트가 포함된 내용이다.
 
 ---
 
@@ -346,10 +346,10 @@ OpenAI의 최신 모델인 GPT-5.5가 GitHub Copilot에 일반 공급되기 시�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 VanEck, 비트코인 펀딩비 마이너스 전환 및 해시레이트 하락 속 이중 강세 신호 포착
+### 5.1 VanEck, Bitcoin 펀딩비 마이너스 전환 및 해시레이트 하락 속 이중 강세 신호 포착
 
 {% include news-card.html
-  title="VanEck, 비트코인 펀딩비 마이너스 전환 및 해시레이트 하락 속 이중 강세 신호 포착"
+  title="VanEck, Bitcoin 펀딩비 마이너스 전환 및 해시레이트 하락 속 이중 강세 신호 포착"
   url="https://bitcoinmagazine.com/news/vaneck-flags-dual-bullish-for-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/Morgan-Stanleys-Spot-Bitcoin-ETF-Tops-139M-in-Assets-Within-Nine-Days.jpg"
   summary="VanEck은 Bitcoin의 funding rate가 깊은 음수로 전환되고 hash rate가 하락하는 가운데, 이는 투자자들의 신중한 심리를 반영할 뿐 패닉 매도는 아니라고 분석하며 강력한 강세 신호를 지목했습니다. 이러한 패턴은 역사적으로 강한 수익률로 이어져 왔습니다."

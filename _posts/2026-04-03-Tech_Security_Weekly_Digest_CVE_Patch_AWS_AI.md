@@ -389,10 +389,10 @@ Bitcoin Magazine가 Bitcoin 2026에서 'How Real Is The Quantum Threat?' 패널 
 
 ---
 
-### 5.2 MARA, 11억 달러 비트코인 매각 및 부채 감축 노력 후 지속적인 구조조정 실시
+### 5.2 MARA, 11억 달러 Bitcoin 매각 및 부채 감축 노력 후 지속적인 구조조정 실시
 
 {% include news-card.html
-  title="MARA, 11억 달러 비트코인 매각 및 부채 감축 노력 후 지속적인 구조조정 실시"
+  title="MARA, 11억 달러 Bitcoin 매각 및 부채 감축 노력 후 지속적인 구조조정 실시"
   url="https://bitcoinmagazine.com/news/mara-conducts-ongoing-layoffs"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/MARA-Conducts-Ongoing-Layoffs-Following-1.1B-Bitcoin-Sale-and-Debt-Reduction-Push.jpg"
   summary="MARA Holdings는 부채 감축을 위해 11억 달러 상당의 Bitcoin을 매각한 후 여러 부서에서 지속적인 감원을 진행하고 있습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman에 의해 보도되었습니다."

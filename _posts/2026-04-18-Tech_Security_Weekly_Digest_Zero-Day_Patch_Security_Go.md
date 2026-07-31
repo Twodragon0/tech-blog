@@ -349,20 +349,20 @@ Kubernetes가 12주년을 맞이하며 다양한 환경에서 현대 인프라�
 
 ---
 
-### 5.2 양자 컴퓨터가 당신의 비트코인을 노릴 때: 기존 재산법이 예측하는 결과
+### 5.2 양자 컴퓨터가 당신의 Bitcoin을 노릴 때: 기존 재산법이 예측하는 결과
 
 {% include news-card.html
-  title="양자 컴퓨터가 당신의 비트코인을 노릴 때: 기존 재산법이 예측하는 결과"
+  title="양자 컴퓨터가 당신의 Bitcoin을 노릴 때: 기존 재산법이 예측하는 결과"
   url="https://bitcoinmagazine.com/legal/when-quantum-computers-come-for-your-bitcoin-what-classical-property-law-says-happens-next"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/quantumcourtroom.webp"
-  summary="Bitcoin Magazine가 양자 컴퓨터를 활용한 비트코인 가상 도난 사례의 법적 측면과 관련 법률을 검토했습니다. 이 글은 Colin Crossman이 작성했으며 Bitcoin Magazine에 처음 게재되었습니다."
+  summary="Bitcoin Magazine가 양자 컴퓨터를 활용한 Bitcoin 가상 도난 사례의 법적 측면과 관련 법률을 검토했습니다. 이 글은 Colin Crossman이 작성했으며 Bitcoin Magazine에 처음 게재되었습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Bitcoin Magazine가 양자 컴퓨터를 활용한 비트코인 가상 도난 사례의 법적 측면과 관련 법률을 검토했습니다. 이 글은 Colin Crossman이 작성했으며 Bitcoin Magazine에 처음 게재되었습니다.
+Bitcoin Magazine가 양자 컴퓨터를 활용한 Bitcoin 가상 도난 사례의 법적 측면과 관련 법률을 검토했습니다. 이 글은 Colin Crossman이 작성했으며 Bitcoin Magazine에 처음 게재되었습니다.
 
 ---
 

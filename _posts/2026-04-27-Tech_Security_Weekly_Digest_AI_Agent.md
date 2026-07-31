@@ -234,7 +234,7 @@ Western Union CEO Devin McGranahan는 회사가 5월에 자체 스테이블코�
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [Show GN: Fairy - 개발자 프로젝트와 오픈소스를 후원하는 서비스](https://news.hada.io/topic?id=28944) | GeekNews (긱뉴스) | 안녕하세요. GeekNews를 운영하는 하다 팀입니다 |
-| [Show GN: slaude - 흔적 안 남기는 일회용 Claude Code](https://news.hada.io/topic?id=28942) | GeekNews (긱뉴스) | 신뢰가 가지 않는 리눅스 서버에 잠깐 들어가서 Claude Code를 쓰고 나오고 싶을 때마다, OAuth 토큰이 ~/.claude/.credentials.json 으로 박히고 세션 캐시에 대화 로그가 쌓이는 게 계속 마음에 걸렸습니다. 회사 공용 GPU 서버, 잠깐 빌린 클라우드 VM, 고객사 환경 등 한 번 쓰고 나갈 환경인데 흔적은 영구히 남 |
+| [Show GN: slaude - 흔적 안 남기는 일회용 Claude Code](https://news.hada.io/topic?id=28942) | GeekNews (긱뉴스) | 신뢰가 가지 않는 Linux 서버에 잠깐 들어가서 Claude Code를 쓰고 나오고 싶을 때마다, OAuth 토큰이 ~/.claude/.credentials.json 으로 박히고 세션 캐시에 대화 로그가 쌓이는 게 계속 마음에 걸렸습니다. 회사 공용 GPU 서버, 잠깐 빌린 클라우드 VM, 고객사 환경 등 한 번 쓰고 나갈 환경인데 흔적은 영구히 남 |
 | [tailscale 개인 사용자 무제한 디바이스 접속 가능](https://news.hada.io/topic?id=28941) | GeekNews (긱뉴스) | Personal Plus 플랜 종료 Personal Plus의 유료 기능이 무료료 전환 최대 6명 사용자 무제한 디바이스 기존 유료 요금은 모두 좌석 기반(seat-based) 요금제로 전환 |
 
 ---
