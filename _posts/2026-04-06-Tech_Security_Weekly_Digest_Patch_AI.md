@@ -232,7 +232,7 @@ Bitcoin과 미국 달러는 상호 강화하는 공생 관계에 있다고 BPI�
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [Awesome Design.MD - 유명 웹사이트 디자인 시스템을 내 사이트에 적용하기](https://news.hada.io/topic?id=28246) | GeekNews (긱뉴스) | DESIGN.md 는 Google Stitch가 도입한 개념 으로, AI 에이전트가 읽고 일관된 UI를 생성하기 위한 텍스트 디자인 문서 Figma, JSON 스키마, 별도 툴링 없이 마크다운 파일 하나 만 프로젝트 루 |
-| [rtk - LLM 토큰 소비를 60~90% 줄여주는 CLI 프록시](https://news.hada.io/topic?id=28245) | GeekNews (긱뉴스) | AI 코딩 도구가 실행하는 CLI 명령어 출력을 LLM에 전달하기 전에 필터링·압축 해 토큰을 60~90% 절감 하는 단일 Rust 바이너리(윈/맥/리눅스) git, grep, ls, cargo test 등 100개 이상의 명령어 를 지원하며, 명령어 출력을 LLM 컨텍스트에 전달하 |
+| [rtk - LLM 토큰 소비를 60~90% 줄여주는 CLI 프록시](https://news.hada.io/topic?id=28245) | GeekNews (긱뉴스) | AI 코딩 도구가 실행하는 CLI 명령어 출력을 LLM에 전달하기 전에 필터링·압축 해 토큰을 60~90% 절감 하는 단일 Rust 바이너리(윈/맥/Linux) git, grep, ls, cargo test 등 100개 이상의 명령어 를 지원하며, 명령어 출력을 LLM 컨텍스트에 전달하 |
 | [BrowserStack에서 사용자 이메일 주소가 유출되고 있음](https://news.hada.io/topic?id=28244) | GeekNews (긱뉴스) | 서비스별로 고유 이메일 주소를 생성해 추적 한 결과, BrowserStack 전용 주소로 제3자 발신 메일이 도착함 BrowserStack 오픈소스 프로그램 가입 후, Apollo.io를 통해 발송된 외부 메일 이 해당 주소로 수신됨 Apollo.io는 처음엔 공개 정보 기반 |
 
 ---

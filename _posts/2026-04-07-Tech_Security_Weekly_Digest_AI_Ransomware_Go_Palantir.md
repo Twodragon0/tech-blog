@@ -355,7 +355,7 @@ Polymarket이 거래 시스템 개편과 자체 스테이블코인 출시를 포
 
 ---
 
-### 5.3 Second's Bark, 전 Blockstream 개발자들을 끌어들이며 비트코인 결제의 새로운 시대를 자랑하다
+### 5.3 Second's Bark, 전 Blockstream 개발자들을 끌어들이며 Bitcoin 결제의 새로운 시대를 자랑하다
 
 {% include news-card.html
   title="Second's Bark, 전 Blockstream 개발자들을 끌어들이며 비트코인 결제의 새로운 시대를 자랑하다"

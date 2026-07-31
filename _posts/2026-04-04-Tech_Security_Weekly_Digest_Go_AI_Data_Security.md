@@ -72,7 +72,7 @@ summary_card:
 | ⚙️ **DevOps** | GitHub Changelog | Copilot cloud agent를 위한 조직 러너 제어 | 🟠 High |
 | ⚙️ **DevOps** | GitHub Changelog | GPT-5.1 Codex, GPT-5.1-Codex-Max, GPT-5.1-Codex-Mini 지원 중단 | 🟡 Medium |
 | ⚙️ **DevOps** | GitHub Engineering B | diff 라인 성능 향상의 어려운 여정 | 🟡 Medium |
-| ⛓️ **Blockchain** | Bitcoin Magazine | Charles Schwab, 새로운 'Schwab Crypto' 계정으로 직접 비트코인 거래 가능성 암시 | 🟡 Medium |
+| ⛓️ **Blockchain** | Bitcoin Magazine | Charles Schwab, 새로운 'Schwab Crypto' 계정으로 직접 Bitcoin 거래 가능성 암시 | 🟡 Medium |
 
 ---
 
@@ -283,27 +283,27 @@ GitHub Blog에 따르면 성능 향상을 위한 길은 종종 단순함에서 �
 
 ## 4. 블록체인 뉴스
 
-### 4.1 Charles Schwab, 새로운 'Schwab Crypto' 계정으로 직접 비트코인 거래 가능성 암시
+### 4.1 Charles Schwab, 새로운 'Schwab Crypto' 계정으로 직접 Bitcoin 거래 가능성 암시
 
 {% include news-card.html
-  title="Charles Schwab, 새로운 'Schwab Crypto' 계정으로 직접 비트코인 거래 가능성 암시"
+  title="Charles Schwab, 새로운 'Schwab Crypto' 계정으로 직접 Bitcoin 거래 가능성 암시"
   url="https://bitcoinmagazine.com/news/charles-schwab-direct-bitcoin-trading"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/Charles-Schwab-Teases-Direct-Bitcoin-Trading-Push-With-New-'Schwab-Crypto-Account.jpg"
-  summary="Charles Schwab가 'Schwab Crypto' 계좌를 통해 고객이 직접 비트코인을 매수 및 매도할 수 있는 신규 상품 출시를 계획하고 있습니다. 이는 Charles Schwab가 디지털 자산 영역으로 더욱 깊이 진출하는 것을 의미합니다."
+  summary="Charles Schwab가 'Schwab Crypto' 계좌를 통해 고객이 직접 Bitcoin을 매수 및 매도할 수 있는 신규 상품 출시를 계획하고 있습니다. 이는 Charles Schwab가 디지털 자산 영역으로 더욱 깊이 진출하는 것을 의미합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Charles Schwab가 'Schwab Crypto' 계좌를 통해 고객이 직접 비트코인을 매수 및 매도할 수 있는 신규 상품 출시를 계획하고 있습니다. 이는 Charles Schwab가 디지털 자산 영역으로 더욱 깊이 진출하는 것을 의미합니다.
+Charles Schwab가 'Schwab Crypto' 계좌를 통해 고객이 직접 Bitcoin을 매수 및 매도할 수 있는 신규 상품 출시를 계획하고 있습니다. 이는 Charles Schwab가 디지털 자산 영역으로 더욱 깊이 진출하는 것을 의미합니다.
 
 ---
 
-### 4.2 잭 도시, "Bitcoin Day" 발표로 비트코인 수도꼭지 부활 예고
+### 4.2 잭 도시, "Bitcoin Day" 발표로 Bitcoin 수도꼭지 부활 예고
 
 {% include news-card.html
-  title="잭 도시, \”Bitcoin Day\” 발표로 비트코인 수도꼭지 부활 예고"
+  title="잭 도시, \”Bitcoin Day\” 발표로 Bitcoin 수도꼭지 부활 예고"
   url="https://bitcoinmagazine.com/news/jack-dorsey-reveals-bitcoin-faucet"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/Jack-Dorsey-Reveals-Bitcoin-Faucet-Revival-with-Bitcoin-Day-Announcement.jpg"
   summary="Jack Dorsey가 \”Bitcoin Day\”와 연계해 Gavin Andresen의 2010년 방식과 유사한 Bitcoin faucet 부활 가능성을 시사했습니다. 이 소식은 Bitcoin Magazine에 Micah Zimmerman이 기고한 내용입니다."
@@ -317,10 +317,10 @@ Jack Dorsey가 "Bitcoin Day"와 연계해 Gavin Andresen의 2010년 방식과 �
 
 ---
 
-### 4.3 Riot Platforms, 채굴 전략을 AI 인프라로 전환하며 1분기에 비트코인 3,778개 매각
+### 4.3 Riot Platforms, 채굴 전략을 AI 인프라로 전환하며 1분기에 Bitcoin 3,778개 매각
 
 {% include news-card.html
-  title="Riot Platforms, 채굴 전략을 AI 인프라로 전환하며 1분기에 비트코인 3,778개 매각"
+  title="Riot Platforms, 채굴 전략을 AI 인프라로 전환하며 1분기에 Bitcoin 3,778개 매각"
   url="https://bitcoinmagazine.com/news/riot-platforms-sells-3778-bitcoin-in-q1"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/Riot-Platforms-Sells-3778-Bitcoin-in-Q1-as-Miner-Strategy-Shifts-Toward-AI-Infrastructure.jpg"
   summary="Riot Platforms가 채굴에서 AI 인프라로의 전환을 위해 1분기에 3,778 BTC를 생산량의 2.5배 이상 매각했습니다. 이는 Bitcoin Magazine에 Micah Zimmerman이 작성한 기사로 소개되었습니다."
