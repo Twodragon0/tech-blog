@@ -267,11 +267,14 @@ def check_dummy_links(content: str) -> List[str]:
     """더미 링크 확인"""
     issues = []
 
-    # 더미 링크 패턴
+    # 더미 링크 패턴. 마지막 항목은 마크다운 링크의 '대상'에만 적용한다:
+    # 산문에 등장하는 단어(예: Lorem Ipsum Loader를 설명하는 "더미 텍스트")는
+    # 링크가 아니므로 플래그하지 않는다. 2026-07-31 코퍼스 실측 — bare-word
+    # 패턴의 유일한 매치가 그 오탐 1건이었고, 링크 대상 매치는 0건이었다.
     dummy_patterns = [
         r"github\.com/example(?:/[^\s\)]*)?",
         r"https?://[^\s\)]*(?:dummy|placeholder)[^\s\)]*",
-        r"\b(?:더미|dummy|placeholder)\b",
+        r"\]\([^)]*(?:더미|dummy|placeholder)[^)]*\)",
     ]
 
     for pattern in dummy_patterns:
