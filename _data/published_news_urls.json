@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-07-30T01:32:17.622298+00:00",
+  "updated_at": "2026-07-31T01:58:42.641138+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/tuxbot-v3-evolution-shows-signs-of-llm.html",
-      "title": "TuxBot v3 Evolution Shows Signs of LLM-Assisted IoT Botnet Development",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/okobot-malware-framework-injects-seed.html",
-      "title": "OkoBot Malware Framework Injects Seed Phrase Phishing Into Ledger and Trezor App",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/firefox-chrome-adobe-and-vmware-updates.html",
-      "title": "Firefox, Chrome, Adobe, and VMware Updates Fix Multiple Critical Security Flaws",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/dutch-police-bust-investment-fraud-ring-stealing-over-100-million/",
-      "title": "Dutch police bust investment fraud ring stealing over €100 million",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/sase-has-ai-blind-spot-inspecting.html",
-      "title": "SASE Has An AI Blind Spot. Inspecting Packets Is No Longer Enough.",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/jetson-thor-robotics-edge-ai-agent/",
-      "title": "NVIDIA Introduces New Jetson Thor Computers to Advance Mainstream Robotics and E",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/07/15/ai-research/exploring-hierarchical-interest-representation-for-meta-ads-deep-funnel-optimization/",
-      "title": "Exploring Hierarchical Interest Representation For Meta Ads Deep Funnel Optimiza",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://openai.com/index/advancing-ai-safety-through-state-and-federal-action",
-      "title": "The US is advancing AI safety through state and federal action",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/japan-ecosystem-2026/",
-      "title": "NVIDIA and Japan Bring Full-Stack AI and Robotics to Every Industry",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://openai.com/index/unlocking-self-improvement-gpt-red",
-      "title": "GPT-Red: Unlocking Self-Improvement for Robustness",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/networking/idc-on-the-right-networking-approach-for-agentic-ai/",
-      "title": "IDC: Why the right networking approach is foundational to agentic AI",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/analyze-and-govern-gemini-enterprise-at-scale-with-bigquery/",
-      "title": "How to Analyze and Govern Gemini Enterprise App Usage at Scale with BigQuery",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/how-alloydb-overcomes-indexing-limitations-with-ai-functions/",
-      "title": "How to solve PostgreSQL multilingual full-text search limitations with AlloyDB A",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/exposed-cloud-functions-harden/",
-      "title": "The Risk of Exposed Cloud Functions and How to Harden",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-15-improvements-to-secret-scanning-and-public-monitoring",
-      "title": "Improvements to secret scanning and public monitoring",
-      "published_date": "2026-07-16",
-      "expires_at": "2026-07-23T02:17:02.974094+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/07/16/acr-stealer-two-observed-intrusion-chains-amid-increased-threat-activity/",
-      "title": "ACR Stealer: Two observed intrusion chains amid increased threat activity",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/two-scattered-spider-hackers-get-55.html",
-      "title": "Two Scattered Spider Hackers Get 5.5 Years Each for £29 Million TfL Hack",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/threatsday-game-cheat-spyware-24-hour.html",
-      "title": "ThreatsDay: Game Cheat Spyware, 24-Hour Ransomware, Chrome Sync Stalking + 12 Mo",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/n8n-token-exchange-flaw-could-let.html",
-      "title": "n8n Token Exchange Flaw Could Let Attackers Log In as Users From Another Issuer",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/new-telepuz-malware-spreads-via.html",
-      "title": "New TELEPUZ Malware Spreads via ClickFix to Steal Data and Run Commands",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://openai.com/index/why-teens-deserve-access-safe-ai",
-      "title": "Why teens deserve access to safe AI",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/connected-apps/",
-      "title": "Connect more of your apps to Search",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
-      "title": "Create, edit and star in videos with two Google Vids updates",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-onimusha-coming/",
-      "title": "Sharpen the Sword, Skip the Downloads — ‘Onimusha: Way of the Sword’ Is Coming t",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/our-approach-to-bioresilience/",
-      "title": "Our approach to bioresilience",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-the-gartner-magic-quadrant-for-conversational-ai/",
-      "title": "Google is a Leader and positioned furthest in Vision and highest in Execution in",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-ai-leverages-deep-context-defenders-advantage/",
-      "title": "Cloud CISO Perspectives: How AI leverages deep context as the defender’s advanta",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bridge-sql-and-python-with-bigquery/",
-      "title": "Bridging the gap between SQL and Python with BigQuery and the %%bqsql magic",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/what-we-learned-about-agent-teamwork/",
-      "title": "What 10 autonomous film crews taught us about agent teamwork",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/lessons-in-accelerating-foundation-model-upgrades/",
-      "title": "Three lessons in accelerating foundation model upgrades",
-      "published_date": "2026-07-17",
-      "expires_at": "2026-07-24T01:53:25.526830+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/new-wp2shell-wordpress-core-flaw-lets.html",
       "title": "New wp2shell WordPress Core Flaw Lets Unauthenticated Attackers Run Code",
@@ -1260,6 +1080,96 @@
       "title": "2주 만에 Strands SDK와 Amazon Bedrock AgentCore로 구현한 어스얼라이언스의 CS 환불 자동응답 에이전트 시스템",
       "published_date": "2026-07-30",
       "expires_at": "2026-08-06T01:32:17.622211+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/dprk-linked-macos-malvertising-uses.html",
+      "title": "DPRK-Linked macOS Malvertising Uses Fake Updates to Deliver Crypto-Stealing Malw",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/balancing-speed-and-safety-a-control-framework-for-ai-coding-agents/",
+      "title": "Balancing speed and safety: A control framework for AI coding agents",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
+      "title": "Anthropic's Claude breached 3 orgs, uploaded PyPI malware during tests",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/threatsday-ai-powered-hacking-370.html",
+      "title": "ThreatsDay: AI-Powered Hacking, 370 Chrome Flaws, SonicWall Attacks, DNS Hijacki",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/07/azure-cosmos-db-flaw-exposed-platform.html",
+      "title": "Azure Cosmos DB Flaw Exposed Platform-Wide Key That Could Access Any Database",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
+      "title": "Gemini Robotics ER 2: powering robotics with video understanding, task orchestra",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-back-to-school-2026/",
+      "title": "Best in Class: Stream PC Games and Study on the Same Laptop With GeForce NOW",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+      "title": "Advancing the price-performance frontier with GPT-5.6",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/genrec-towards-llm-native-recommendation-at-netflix-f20be6f643e3?source=rss----2615bd06b42e---4",
+      "title": "GenRec: Towards LLM-Native Recommendation at Netflix",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/deploying-kimi-k3-on-aws/",
+      "title": "Deploying Kimi K3 on AWS",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/alloydb-adds-group-authentication-to-secure-enterprise-scale-and-ai-agents/",
+      "title": "AlloyDB adds group authentication to secure enterprise scale and AI agents",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise/",
+      "title": "Batten Down Your Packages: Mitigation Guidance for Supply Chain Compromise",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/how-karrot-built-a-large-scale-signing-key-management-system-with-aws-cloudhsm-part3/",
+      "title": "당근이 AWS CloudHSM으로 대규모 서명키 관리 시스템을 구축한 방법 – 3부: 서명 시스템 구현, 트러블슈팅, 무중단 키 전환",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/how-karrot-built-a-large-scale-signing-key-management-system-with-aws-cloudhsm-part2/",
+      "title": "당근이 AWS CloudHSM으로 대규모 서명키 관리 시스템을 구축한 방법– 2부: CloudHSM 아키텍처와 다계층 접근 제어",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/how-karrot-built-a-large-scale-signing-key-management-system-with-aws-cloudhsm-part1/",
+      "title": "당근이 AWS CloudHSM으로 대규모 서명키 관리 시스템을 구축한 방법 – 1부: 서명키 보안의 중요성과 서비스 선택",
+      "published_date": "2026-07-31",
+      "expires_at": "2026-08-07T01:58:42.641038+00:00"
     }
   ]
 }
