@@ -130,3 +130,52 @@ def test_all_mode_temp_dir_one_clean_one_bad_exits_nonzero(tmp_path, monkeypatch
     with pytest.raises(SystemExit) as exc_info:
         cds.main()
     assert exc_info.value.code != 0
+
+
+# --- ratchet: legacy defects grandfathered, regressions still blocked --------
+#
+# Rationale: the legacy corpus carries pre-existing structural defects awaiting a
+# staged backfill campaign. A file-scoped gate blocks UNRELATED improvements to
+# those posts (e.g. a pure 비트코인→Bitcoin proper-noun swap). The ratchet compares
+# against the base revision so only NEW violations fail.
+
+
+def test_new_violations_grandfathers_preexisting():
+    base = check_post(_write(_BAD_H1))
+    current = check_post(_write(_BAD_H1))
+    assert base  # sanity: the fixture really is defective
+    assert cds.new_violations(current, base) == []
+
+
+def test_new_violations_flags_added_defect():
+    base = check_post(_write(_BAD_H1))
+    # same pre-existing H1 defect PLUS a newly broken numbering
+    current = check_post(_write(_BAD_H1.replace("## 2. AI/ML 뉴스", "## 1. 기술적 배경")))
+    fresh = cds.new_violations(current, base)
+    assert len(fresh) == 1 and "numbering" in fresh[0].lower()
+
+
+def test_new_violations_treats_missing_base_as_all_new():
+    # A brand-new post has no base revision: every violation must be reported,
+    # so newly authored posts are still held to the full standard.
+    current = check_post(_write(_BAD_H1))
+    assert cds.new_violations(current, None) == current
+
+
+def test_new_violations_is_multiset_not_set():
+    # Two identical messages pre-existing, three now => exactly one is new.
+    base = ["body H1 heading found: # x", "body H1 heading found: # x"]
+    current = base + ["body H1 heading found: # x"]
+    assert cds.new_violations(current, base) == ["body H1 heading found: # x"]
+
+
+def test_ratchet_requires_a_diff_scoped_mode(monkeypatch, capsys):
+    # --ratchet without --staged/--changed has no base revision to compare to.
+    monkeypatch.setattr(sys, "argv", ["check_digest_structure.py", "--ratchet", "--all"])
+    with pytest.raises(SystemExit) as exc:
+        cds.main()
+    assert exc.value.code != 0
+
+
+def test_check_text_and_check_post_agree():
+    assert cds.check_text(_BAD_H1) == check_post(_write(_BAD_H1))
