@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-02T01:55:41.542548+00:00",
+  "updated_at": "2026-08-03T01:57:49.477472+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html",
@@ -1170,6 +1170,96 @@
       "title": "Lexxy - Rails를 위한 현대적인 리치 텍스트 에디터",
       "published_date": "2026-08-02",
       "expires_at": "2026-08-09T01:55:41.542456+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-teases-astra-its-next-major-ai-model-after-it-solves-10-long-standing-math-problems/",
+      "title": "OpenAI teases Astra, its next major AI model, after it solves 10 long-standing m",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/",
+      "title": "COLDCARD wallet RNG flaw likely linked to $88 million Bitcoin theft",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/google/google-chrome-may-soon-block-new-tab-hijacker-extensions-by-default/",
+      "title": "Google Chrome may soon block New Tab hijacker extensions by default",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/coldcard-exploit-sparks-bitcoin-flight-clarity-act-no-vote-or-no-vote-hodlers-digest-august-2?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Coldcard exploit sparks Bitcoin flight, ‘bullish’ crypto consolidation: Hodler’s",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://blog.cloudflare.com/agents-week-welcome/",
+      "title": "Welcome to Agents Week",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/strategy-leaves-preferred-strc-dividend-at-12-price-still-below-par?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Strategy leaves preferred STRC dividend at 12% as price still below par",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bnb-chain-legal-action-ex-employee-memecoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "BNB Chain pursues legal action after ex-employee’s memecoin launch",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/coldcard-biggest-sub-1-btc-transfer-ftx-cryptoquant?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Coldcard hack sparks biggest sub-1 BTC move since FTX: CryptoQuant",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Here’s what happened in crypto today",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/trump-media-2628-btc-crypto-com-4261-btc-holdings?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Trump Media sells another 2,628 BTC, holdings fall to 4,261 BTC",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32083",
+      "title": "Show GN: Reccoo – 윈도우 소리를 녹음해 주는 귀여운 픽셀 친구",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32081",
+      "title": "64비트 어셈블리의 기술",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32079",
+      "title": "Google이 RSS 피드 확산을 무너뜨리는 데 기여한 과정(2023)",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32078",
+      "title": "agent-device - AI 에이전트가 iOS/Android 기기를 제어하도록 돕는 CLI",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32077",
+      "title": "C에서 sizeof가 놀라울 정도로 파싱하기 어려운 이유",
+      "published_date": "2026-08-03",
+      "expires_at": "2026-08-10T01:57:49.477370+00:00"
     }
   ]
 }
