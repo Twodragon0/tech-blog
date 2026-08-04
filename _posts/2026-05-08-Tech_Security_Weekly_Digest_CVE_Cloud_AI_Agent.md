@@ -408,31 +408,31 @@ Crypto prediction markets는 블록체인 기술을 활용해 실시간 이벤�
   title="ANTPOOL, Block Inc, F2Pool, Foundry, Spiderpool, MARA Foundation 및 DMND가 Stratum v2 워킹 그룹에 합류"
   url="https://bitcoinmagazine.com/news/antpool-block-inc-f2pool-foundry-spiderpool-dmnd-join-stratum-v2-working-group"
   image="https://bitcoinmagazine.com/wp-content/uploads/2025/07/BM-TN.webp"
-  summary="ANTPOOL, Block Inc, F2Pool, Foundry, Spiderpool, MARA Foundation 및 DMND가 Stratum v2 Working Group에 합류했습니다. 이 그룹은 비트코인 채굴 프로토콜 개선을 목표로 하며, 새로운 멤버들의 참여로 확장되었습니다. 해당 소식은 Bitcoin Magazine을 통해 보도되었습니다."
+  summary="ANTPOOL, Block Inc, F2Pool, Foundry, Spiderpool, MARA Foundation 및 DMND가 Stratum v2 Working Group에 합류했습니다. 이 그룹은 Bitcoin 채굴 프로토콜 개선을 목표로 하며, 새로운 멤버들의 참여로 확장되었습니다. 해당 소식은 Bitcoin Magazine을 통해 보도되었습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-ANTPOOL, Block Inc, F2Pool, Foundry, Spiderpool, MARA Foundation 및 DMND가 Stratum v2 Working Group에 합류했습니다. 이 그룹은 비트코인 채굴 프로토콜 개선을 목표로 하며, 새로운 멤버들의 참여로 확장되었습니다. 해당 소식은 Bitcoin Magazine을 통해 보도되었습니다.
+ANTPOOL, Block Inc, F2Pool, Foundry, Spiderpool, MARA Foundation 및 DMND가 Stratum v2 Working Group에 합류했습니다. 이 그룹은 Bitcoin 채굴 프로토콜 개선을 목표로 하며, 새로운 멤버들의 참여로 확장되었습니다. 해당 소식은 Bitcoin Magazine을 통해 보도되었습니다.
 
 ---
 
-### 5.3 비트코인 강세론자들, 12월까지 11만5000달러 목표: 데이터가 기대를 뒷받침하나?
+### 5.3 Bitcoin 강세론자들, 12월까지 11만5000달러 목표: 데이터가 기대를 뒷받침하나?
 
 {% include news-card.html
-  title="비트코인 강세론자들, 12월까지 11만5000달러 목표: 데이터가 기대를 뒷받침하나?"
+  title="Bitcoin 강세론자들, 12월까지 11만5000달러 목표: 데이터가 기대를 뒷받침하나?"
   url="https://cointelegraph.com/markets/bitcoin-bulls-target-115k-by-december-does-data-back-the-expectation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9wYXlsb2FkLmNvaW50ZWxlZ3JhcGguY29tL2FwaS9hcnRpY2xlLWNvdmVycy9maWxlL0hJJTIwSXMlMjB0aGUlMjAyMDIxJTIwYnVsbCUyMHJ1biUyMG11Y2glMjBsaWtlJTIwd2hhdCUyMGhhcHBlbmVkJTIwaW4lMjAyMDE3JTIwYW5kJTIwMTMtMy5qcGc/cHJlZml4PW1lZGlhJTJGYXJ0aWNsZS1jb3ZlcnM=.jpg"
-  summary="비트코인 옵션 시장에서 강세론자들이 연말까지 115,000달러를 목표로 하고 있지만, 트레이더들의 낙관론이 과도해지고 있는지 의문이 제기됩니다. 데이터가 이러한 기대를 뒷받침하는지 분석이 필요합니다."
+  summary="Bitcoin 옵션 시장에서 강세론자들이 연말까지 115,000달러를 목표로 하고 있지만, 트레이더들의 낙관론이 과도해지고 있는지 의문이 제기됩니다. 데이터가 이러한 기대를 뒷받침하는지 분석이 필요합니다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인 옵션 시장에서 강세론자들이 연말까지 115,000달러를 목표로 하고 있지만, 트레이더들의 낙관론이 과도해지고 있는지 의문이 제기됩니다. 데이터가 이러한 기대를 뒷받침하는지 분석이 필요합니다.
+Bitcoin 옵션 시장에서 강세론자들이 연말까지 115,000달러를 목표로 하고 있지만, 트레이더들의 낙관론이 과도해지고 있는지 의문이 제기됩니다. 데이터가 이러한 기대를 뒷받침하는지 분석이 필요합니다.
 
 ---
 

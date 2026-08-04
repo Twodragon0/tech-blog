@@ -379,10 +379,10 @@ nvptx64-nvidia-cuda 타겟은 NVIDIA GPU를 위한 컴파일 대상이며, 최�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 스테이블코인, 라틴아메리카 암호화폐 구매에서 비트코인 추월 — Bitso
+### 5.1 스테이블코인, 라틴아메리카 암호화폐 구매에서 Bitcoin 추월 — Bitso
 
 {% include news-card.html
-  title="스테이블코인, 라틴아메리카 암호화폐 구매에서 비트코인 추월 — Bitso"
+  title="스테이블코인, 라틴아메리카 암호화폐 구매에서 Bitcoin 추월 — Bitso"
   url="https://cointelegraph.com/news/stablecoins-surpass-bitcoin-latin-america-crypto-purchases-bitso-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9wYXlsb2FkLmx1bS10cmkub3JnL2FwaS9hcnRpY2xlLWNvdmVycy9maWxlL0hJLUxhdGluLUFtZXJpY2EtaXMtcmVhZHktZm9yLWNyeXB0by0lRTIlODAlOTQtanVzdC1pbnRlZ3JhdGUtaXQtd2l0aC10aGVpci1wYXltZW50LXN5c3RlbXMyMS5qcGc/cHJlZml4PW1lZGlhJTJGYXJ0aWNsZS1jb3ZlcnM=.jpg"
   summary="Bitso의 보고서에 따르면 라틴 아메리카의 암호화폐 구매에서 Stablecoins가 Bitcoin을 추월했습니다. 이는 달러 연동 Stablecoins이 인플레이션 영향을 받는 지역 경제에서 일상적인 금융 용도로 채택되고 있음을 보여줍니다."

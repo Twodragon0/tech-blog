@@ -218,7 +218,7 @@ DevSecOps 실무자에게 **가장 큰 위협은 공급망 전반의 취약점 �
 - **CI/CD 파이프라인 위험**: cURL은 거의 모든 빌드 환경, 컨테이너 이미지, IaC 도구에서 사용. Mythos Bug가 패키지 매니저 업데이트나 이미지 빌드 시 트리거되면 전체 배포 파이프라인이 오염될 수 있음.
 - **AI/ML 모델 보안**: AI Tokenizer 공격은 모델 추론 API, 챗봇, 코드 생성 도구 등에 직접 영향. DevSecOps는 모델 버전 관리, 입력 검증, 출력 필터링을 기존 보안 프레임워크에 통합해야 함.
 - **운영 환경 노출**: PAN-OS RCE는 방화벽 자체가 공격 경로가 되는 사례. 네트워크 장비의 CI/CD 연동(예: Ansible, Terraform)이 증가하면서 장비 설정 변경 시 취약점이 재유입될 가능성.
-- **인적 요소**: "가짜 헬프데스크"와 "포럼 게시글"은 사회공학적 공격. 개발자, 운영자가 신뢰하는 외부 소스(스택오버플로우, 깃허브 이슈)를 통해 악성코드가 유입될 수 있음.
+- **인적 요소**: "가짜 헬프데스크"와 "포럼 게시글"은 사회공학적 공격. 개발자, 운영자가 신뢰하는 외부 소스(스택오버플로우, GitHub 이슈)를 통해 악성코드가 유입될 수 있음.
 
 ## 3. 대응 체크리스트
 
@@ -386,27 +386,27 @@ GitHub Copilot app이 기술 프리뷰로 출시되었으며, GitHub 네이티�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Onramp, 1250만 달러 시리즈 A 투자 유치… 다기관 비트코인 보관 플랫폼 확장
+### 5.1 Onramp, 1250만 달러 시리즈 A 투자 유치… 다기관 Bitcoin 보관 플랫폼 확장
 
 {% include news-card.html
-  title="Onramp, 1250만 달러 시리즈 A 투자 유치… 다기관 비트코인 보관 플랫폼 확장"
+  title="Onramp, 1250만 달러 시리즈 A 투자 유치… 다기관 Bitcoin 보관 플랫폼 확장"
   url="https://bitcoinmagazine.com/news/onramp-raises-12-5m-series-a"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Onramp-Raises-12.5M-Series-A-to-Scale-Multi-Institution-Bitcoin-Custody-Platform.jpg"
-  summary="Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투자를 유치하여 기관용 비트코인 커스터디 플랫폼을 확장합니다. 이번 투자는 다중 기관 비트코인 보관 서비스의 규모를 키우는 데 사용될 예정입니다."
+  summary="Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투자를 유치하여 기관용 Bitcoin 커스터디 플랫폼을 확장합니다. 이번 투자는 다중 기관 Bitcoin 보관 서비스의 규모를 키우는 데 사용될 예정입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투자를 유치하여 기관용 비트코인 커스터디 플랫폼을 확장합니다. 이번 투자는 다중 기관 비트코인 보관 서비스의 규모를 키우는 데 사용될 예정입니다.
+Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투자를 유치하여 기관용 Bitcoin 커스터디 플랫폼을 확장합니다. 이번 투자는 다중 기관 Bitcoin 보관 서비스의 규모를 키우는 데 사용될 예정입니다.
 
 ---
 
-### 5.2 부켈레의 미래형 BINAES 도서관, 재생된 수도에서 책과 비트코인, 가족 놀이를 융합하다
+### 5.2 부켈레의 미래형 BINAES 도서관, 재생된 수도에서 책과 Bitcoin, 가족 놀이를 융합하다
 
 {% include news-card.html
-  title="부켈레의 미래형 BINAES 도서관, 재생된 수도에서 책과 비트코인, 가족 놀이를 융합하다"
+  title="부켈레의 미래형 BINAES 도서관, 재생된 수도에서 책과 Bitcoin, 가족 놀이를 융합하다"
   url="https://bitcoinmagazine.com/culture/bukeles-futuristic-binaes-library-blends-books-bitcoin-and-family-play-in-revitalized-capital"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/2-1.webp"
   summary="엘살바도르의 BINAES 도서관은 중국 기부로 건립되었으며, Bitcoin과 가족 놀이 공간을 결합한 미래지향적 시설입니다. Miss Bitcoin의 주도로 6층에는 첨단 기술이 도입되었고, LEGO와 Star Wars 컬렉션 등이 갖춰져 엘살바도르를 문화적 선도국가로 자리매김하고 있습니다."
@@ -443,7 +443,7 @@ Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투�
 |------|------|----------|
 | [ODW #6: Git 자동화 관점에서 본 MCP와 에이전트 스킬의 장단점](https://techblog.lycorp.co.jp/ko/git-automation-mcp-vs-agent-skills-pros-and-cons) | LINE Engineering | 안녕하세요. 서비스에 필요한 AI 모델과 솔루션을 개발하는 AI Lab 팀의 한길로입니다 |
 | [제로데이 익스플로잇, Windows 11 기본 BitLocker 보호 완전히 무력화](https://arstechnica.com/security/2026/05/zero-day-exploit-completely-defeats-default-windows-11-bitlocker-protections/) | Ars Technica | Windows 11의 기본 BitLocker 보호를 완전히 무력화하는 Zero-day 익스플로잇이 발견되었습니다. 익스플로잇의 정확한 작동 방식은 아직 명확히 밝혀지지 않았으며, Microsoft는 현재 이를 조사 중이라고 밝혔습니다 |
-| [Cisco, 하루 만에 사상 최대 매출과 4,000명 감원 발표](https://arstechnica.com/information-technology/2026/05/cisco-announces-record-revenue-and-4000-layoffs-in-the-same-day/) | Ars Technica | 시스코가 분기 최대 매출을 발표한 동시에 4,000명의 직원을 해고한다고 밝혔습니다. CFO는 이번 구조조정이 비용 절감을 위한 것이 아니라고 설명했습니다 |
+| [Cisco, 하루 만에 사상 최대 매출과 4,000명 감원 발표](https://arstechnica.com/information-technology/2026/05/cisco-announces-record-revenue-and-4000-layoffs-in-the-same-day/) | Ars Technica | Cisco가 분기 최대 매출을 발표한 동시에 4,000명의 직원을 해고한다고 밝혔습니다. CFO는 이번 구조조정이 비용 절감을 위한 것이 아니라고 설명했습니다 |
 
 ---
 

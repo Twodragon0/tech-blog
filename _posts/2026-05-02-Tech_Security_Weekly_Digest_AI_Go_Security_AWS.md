@@ -71,7 +71,7 @@ redirect_from:
 | ⚙️ **DevOps** | Docker Blog | Docker의 Virtual Agent 팀: Coding Agent Sandboxes 팀이 에이전트 함대를 활용하여 더 빠르게 출시하는 방법 | 🟡 Medium |
 | ⛓️ **Blockchain** | Bitcoin Magazine | NYSE의 강타에서 ‘돈을 위한 하나의 앱’으로: Exodus, 자기 수탁이 일상생활을 뒷받침할 수 있다고 확신 | 🟡 Medium |
 | ⛓️ **Blockchain** | Bitcoin Magazine | Exodus (EXOD), UFC 공식 계약 체결 및 개정된 자체 수탁 머니 앱 발표 | 🟡 Medium |
-| ⛓️ **Blockchain** | Bitcoin Magazine | Galoy, 미국 은행업 진출 가속화… 올인원 비트코인 플랫폼 출시 | 🟡 Medium |
+| ⛓️ **Blockchain** | Bitcoin Magazine | Galoy, 미국 은행업 진출 가속화… 올인원 Bitcoin 플랫폼 출시 | 🟡 Medium |
 
 ---
 
@@ -326,10 +326,10 @@ Exodus (EXOD)가 오마하에서 주주와 고객 앞에서 공식 UFC 후원 �
 
 ---
 
-### 4.3 Galoy, 미국 은행업 진출 가속화… 올인원 비트코인 플랫폼 출시
+### 4.3 Galoy, 미국 은행업 진출 가속화… 올인원 Bitcoin 플랫폼 출시
 
 {% include news-card.html
-  title="Galoy, 미국 은행업 진출 가속화… 올인원 비트코인 플랫폼 출시"
+  title="Galoy, 미국 은행업 진출 가속화… 올인원 Bitcoin 플랫폼 출시"
   url="https://bitcoinmagazine.com/news/galoy-pushes-deeper-into-u-s-banking"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Galoy-Pushes-Deeper-Into-U.S.-Banking-With-All-in-One-Bitcoin-Platform.jpg"
   summary="Galoy가 미국 은행 및 신용협동조합을 위해 대출, 결제, 보관 기능을 통합한 Bitcoin 기반 올인원 뱅킹 플랫폼을 확대 출시하고 있습니다. 이 플랫폼은 기존 코어 시스템을 대대적으로 개편하지 않고도 Bitcoin 네이티브 서비스를 제공할 수 있도록 지원합니다."
