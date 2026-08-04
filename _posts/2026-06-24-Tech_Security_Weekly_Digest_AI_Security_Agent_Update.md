@@ -76,7 +76,7 @@ summary_card:
 
 ## 경영진 브리핑
 
-- **주요 모니터링 대상**: Craig Raw가 비트코인 최고의 지갑 중 하나를 무료로 만들었지만, Apple이 6월 30일까지 이를 막을 수도 있다 등 High 등급 위협 1건에 대한 탐지 강화가 필요합니다.
+- **주요 모니터링 대상**: Craig Raw가 Bitcoin 최고의 지갑 중 하나를 무료로 만들었지만, Apple이 6월 30일까지 이를 막을 수도 있다 등 High 등급 위협 1건에 대한 탐지 강화가 필요합니다.
 - 공급망 보안 위협이 확인되었으며, 서드파티 의존성 검토와 SBOM 업데이트를 권고합니다.
 
 ## 위험 스코어카드
@@ -381,10 +381,10 @@ Omdia의 2026년 소프트웨어 공급망 보안 보고서에 따르면 SBOM을
 
 ---
 
-### 5.2 Craig Raw가 비트코인 최고의 지갑 중 하나를 무료로 만들었지만, Apple이 6월 30일까지 이를 막을 수도 있다
+### 5.2 Craig Raw가 Bitcoin 최고의 지갑 중 하나를 무료로 만들었지만, Apple이 6월 30일까지 이를 막을 수도 있다
 
 {% include news-card.html
-  title="Craig Raw가 비트코인 최고의 지갑 중 하나를 무료로 만들었지만, Apple이 6월 30일까지 이를 막을 수도 있다"
+  title="Craig Raw가 Bitcoin 최고의 지갑 중 하나를 무료로 만들었지만, Apple이 6월 30일까지 이를 막을 수도 있다"
   url="https://bitcoinmagazine.com/news/craig-raw-apple-might-kill-it-by-june-30"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Craig-Raw-Built-One-of-Bitcoins-Best-Wallets-for-Free.-Apple-Might-Kill-It-by-June-30.jpg"
   summary="Craig Raw가 무료로 개발한 Bitcoin 지갑 Sparrow Wallet이 Apple의 개발자 계정 종료 위협에 직면했습니다. Apple은 가짜 Sparrow Wallet 사기 방지 앱을 제출한 Raw의 계정을 6월 30일자로 해지할 가능성이 있습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman이 보도했습니다."

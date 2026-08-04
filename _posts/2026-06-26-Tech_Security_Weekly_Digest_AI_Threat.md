@@ -115,7 +115,7 @@ Microsoft Threat Intelligence가 식별한 이 캠페인은 호텔, 리조트 �
 DevSecOps 관점에서 이 캠페인은 다음과 같은 실무적 영향을 미칩니다:
 
 - **CI/CD 파이프라인 보안**: Node.js 패키지(npm) 의존성 검증 필요. 악성 패키지 삽입 가능성 증가
-- **컨테이너 보안**: Node.js 기반 임플란트가 도커 이미지 빌드 과정에 삽입될 위험
+- **컨테이너 보안**: Node.js 기반 임플란트가 Docker 이미지 빌드 과정에 삽입될 위험
 - **엔드포인트 탐지 한계**: LNK 파일과 ZIP 아카이브는 일반적인 EDR에서 간과되기 쉬움
 - **클라우드 환경 위험**: Node.js 임플란트가 클라우드 인스턴스에서 실행될 경우 데이터 유출 가능성
 - **공급망 위협**: 환대 산업의 POS 시스템, 예약 시스템 등과 연결된 API 취약점 활용 가능
@@ -341,10 +341,10 @@ GitHub이 VS Code와 GitHub Copilot CLI에서 기업이 사용자 플러그인 �
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Trezor Academy, 아프리카 비트코인 경제 다큐멘터리 공개 및 교육 기부금 접수
+### 5.1 Trezor Academy, 아프리카 Bitcoin 경제 다큐멘터리 공개 및 교육 기부금 접수
 
 {% include news-card.html
-  title="Trezor Academy, 아프리카 비트코인 경제 다큐멘터리 공개 및 교육 기부금 접수"
+  title="Trezor Academy, 아프리카 Bitcoin 경제 다큐멘터리 공개 및 교육 기부금 접수"
   url="https://bitcoinmagazine.com/news/trezor-academy-releases-documentary"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Screenshot-2026-06-25-at-3.27.16-PM.png"
   summary="Trezor Academy가 아프리카 전역의 Bitcoin 도입을 조명한 다큐멘터리를 공개하고, 글로벌 사우스의 Bitcoin 교육 이니셔티브를 지원하기 위한 기부 프로그램을 시작했습니다."

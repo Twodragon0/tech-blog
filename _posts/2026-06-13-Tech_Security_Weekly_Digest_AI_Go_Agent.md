@@ -62,7 +62,7 @@ summary_card:
 |------|------|----------|--------|
 | 🔒 **Security** | The Hacker News | 400개 이상의 Arch Linux AUR 패키지가 하이재킹되어 정보 탈취 악성코드와 eBPF 루트킷 유포 | 🟠 High |
 | 🔒 **Security** | The Hacker News | Google, 중국 스미싱 네트워크가 피싱에 Gemini AI 사용했다며 고소 | 🟠 High |
-| 🔒 **Security** | The Hacker News | 중국 연계 해커들, 리눅스 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉 | 🟠 High |
+| 🔒 **Security** | The Hacker News | 중국 연계 해커들, Linux 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉 | 🟠 High |
 | 🤖 **AI/ML** | NVIDIA AI Blog | NVIDIA Blackwell, 최초의 에이전틱 AI 인프라 벤치마크에서 선두 | 🟡 Medium |
 | 🤖 **AI/ML** | OpenAI Blog | 새로운 OpenAI Academy 코스, 차세대 업무 시대를 열다 | 🟡 Medium |
 | 🤖 **AI/ML** | AWS Machine Learning | Building Supercharger: Rocket Close가 에이전틱 AI로 타이틀 운영을 최적화한 방법 | 🟡 Medium |
@@ -75,7 +75,7 @@ summary_card:
 
 ## 경영진 브리핑
 
-- **주요 모니터링 대상**: 400개 이상의 Arch Linux AUR 패키지가 하이재킹되어 정보 탈취 악성코드와 eBPF 루트킷 유포, Google, 중국 스미싱 네트워크가 피싱에 Gemini AI 사용했다며 고소, 중국 연계 해커들, 리눅스 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉 등 High 등급 위협 5건에 대한 탐지 강화가 필요합니다.
+- **주요 모니터링 대상**: 400개 이상의 Arch Linux AUR 패키지가 하이재킹되어 정보 탈취 악성코드와 eBPF 루트킷 유포, Google, 중국 스미싱 네트워크가 피싱에 Gemini AI 사용했다며 고소, 중국 연계 해커들, Linux 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉 등 High 등급 위협 5건에 대한 탐지 강화가 필요합니다.
 - 제로데이 취약점이 보고되었으며, 임시 완화 조치 적용과 벤더 패치 일정 확인이 시급합니다.
 
 ## 위험 스코어카드
@@ -166,10 +166,10 @@ DevSecOps 파이프라인과 보안 운영에 다음과 같은 직접적 영향�
 
 ---
 
-### 1.3 중국 연계 해커들, 리눅스 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉
+### 1.3 중국 연계 해커들, Linux 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉
 
 {% include news-card.html
-  title="중국 연계 해커들, 리눅스 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉"
+  title="중국 연계 해커들, Linux 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉"
   url="https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxJqmKAQv_I_7JkmQwoIVSx2BkRPUEb9TTNOd2RkNqTg3tcLyZszN8KiXfUUeIBSPSoxjzMAn2inE6TL791l5B_CbQaHqG708c2tgN-kSUmz_fTuewdcrWHS8u-xdWKIr6fEhx2W7_JDszsJ1oXO9v47JxU81490QKz0ZRL2OOFoljevoD8f6OMozfMZU/s1600/linux-backdoor.jpg"
   summary="중국과 연계된 해커 그룹 Velvet Ant가 Linux 로그인 시스템의 PAM과 OpenSSH 구성 요소를 백도어하여 거의 10년 동안 탐지되지 않았습니다. Sygnia에 따르면 이 그룹은 일반적인 정리 작업으로 제거할 수 없는 위치에 접근 권한을 심었으며, 특정 네트워크를 표적으로 삼았습니다."
@@ -342,10 +342,10 @@ Blockworks가 약 1,000만 달러에 Messari를 인수하며 두 주요 암호�
 
 ---
 
-### 5.2 SpaceX, 18,712 BTC 보유로 공식 비트코인 공개 순위 8위 등극
+### 5.2 SpaceX, 18,712 BTC 보유로 공식 Bitcoin 공개 순위 8위 등극
 
 {% include news-card.html
-  title="SpaceX, 18,712 BTC 보유로 공식 비트코인 공개 순위 8위 등극"
+  title="SpaceX, 18,712 BTC 보유로 공식 Bitcoin 공개 순위 8위 등극"
   url="https://bitcoinmagazine.com/news/spacex-officially-join-bitcoin-leaderboard"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/SpaceX-Officially-Joins-Public-Bitcoin-Leaderboard-as-8th-Largest-Holder-With-18712-BTC.jpg"
   summary="SpaceX가 18,712 BTC(약 12억 9천만 달러)를 보유하며 공개 Bitcoin 기업 보유 순위에서 8위에 올랐습니다. 이는 일론 머스크의 SpaceX가 Nasdaq에 SPCX 티커로 상장되면서 공개된 정보입니다."
@@ -409,7 +409,7 @@ Sam Bankman-Fried의 FTX 사기 혐의에 대한 유죄 판결과 25년형을 �
 
 - [ ] **400개 이상의 Arch Linux AUR 패키지가 하이재킹되어 정보 탈취 악성코드와 eBPF 루트킷 유포** 관련 보안 검토 및 모니터링
 - [ ] **Google, 중국 스미싱 네트워크가 피싱에 Gemini AI 사용했다며 고소** 관련 보안 검토 및 모니터링
-- [ ] **중국 연계 해커들, 리눅스 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉** 관련 보안 검토 및 모니터링
+- [ ] **중국 연계 해커들, Linux 로그인 소프트웨어에 백도어 심어 거의 10년간 은닉** 관련 보안 검토 및 모니터링
 - [ ] **공격자와 방어자가 AI를 수용함에 따라 MDR을 재고하다** 관련 보안 검토 및 모니터링
 - [ ] **GitHub Actions: 셀프 호스팅 러너 최소 버전 적용 일정** 관련 보안 검토 및 모니터링
 

@@ -60,7 +60,7 @@ summary_card:
 | 🔒 **Security** | The Hacker News | 해커들이 Gravity SMTP 워드프레스 플러그인 버그를 악용해 API 키를 노출시키다 | 🟠 High |
 | 🔒 **Security** | BleepingComputer | 새로운 Prinz Eugen 랜섬웨어, 최근 파일 우선 암호화 | 🟡 Medium |
 | 🔒 **Security** | BleepingComputer | Microsoft, Mastra AI 공급망 공격을 북한 해커와 연결 | 🟠 High |
-| ⛓️ **Blockchain** | Cointelegraph | 비트코인에서 알트코인으로의 자금 이동이 붕괴: 알트시즌이 '사라졌나'? | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Bitcoin에서 알트코인으로의 자금 이동이 붕괴: 알트시즌이 '사라졌나'? | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | 암호화폐 업계, MiCA 2.0에서 스테이블코인과 DeFi 개정안 주목 | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | Pudgy Penguins, Target 거래 카드 출시로 소매 영역 확장 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | open-code-review — Alibaba의 AI 코드 리뷰 도구 | 🟡 Medium |
@@ -204,20 +204,20 @@ DevSecOps 실무자에게 이번 공격은 다음과 같은 직접적인 영향�
 
 ## 2. 블록체인 뉴스
 
-### 2.1 비트코인에서 알트코인으로의 자금 이동이 붕괴: 알트시즌이 '사라졌나'?
+### 2.1 Bitcoin에서 알트코인으로의 자금 이동이 붕괴: 알트시즌이 '사라졌나'?
 
 {% include news-card.html
-  title="비트코인에서 알트코인으로의 자금 이동이 붕괴: 알트시즌이 '사라졌나'?"
+  title="Bitcoin에서 알트코인으로의 자금 이동이 붕괴: 알트시즌이 '사라졌나'?"
   url="https://cointelegraph.com/markets/bitcoin-rotations-into-altcoins-collapses-have-altseasons-disappeared?utm_source=rss&utm_medium=rss&utm_campaign=rss"
   image="https://s3-images.ctmedia.io/media/article-covers/hi-btc-the-most-popular-crypto-for-purchases-but-bch-and-dash-for-selling.jpg"
-  summary="비트코인의 시장 점유율이 주요 지지선 위를 유지하며 알트코인으로의 자본 이동이 붕괴되고 있습니다. 이는 Bitcoin이 알트코인으로부터 자금을 계속 흡수하여 광범위한 altseason을 지연시킬 수 있음을 시사합니다."
+  summary="Bitcoin의 시장 점유율이 주요 지지선 위를 유지하며 알트코인으로의 자본 이동이 붕괴되고 있습니다. 이는 Bitcoin이 알트코인으로부터 자금을 계속 흡수하여 광범위한 altseason을 지연시킬 수 있음을 시사합니다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인의 시장 점유율이 주요 지지선 위를 유지하며 알트코인으로의 자본 이동이 붕괴되고 있습니다. 이는 Bitcoin이 알트코인으로부터 자금을 계속 흡수하여 광범위한 altseason을 지연시킬 수 있음을 시사합니다.
+Bitcoin의 시장 점유율이 주요 지지선 위를 유지하며 알트코인으로의 자본 이동이 붕괴되고 있습니다. 이는 Bitcoin이 알트코인으로부터 자금을 계속 흡수하여 광범위한 altseason을 지연시킬 수 있음을 시사합니다.
 
 ---
 

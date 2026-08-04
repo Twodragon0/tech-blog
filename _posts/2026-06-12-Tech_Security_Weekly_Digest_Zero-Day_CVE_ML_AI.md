@@ -208,7 +208,7 @@ DevSecOps 환경에서는 **CI/CD 파이프라인 및 컨테이너 레지스트�
 ### 3. 대응 체크리스트
 
 - [ ] **네트워크 세그먼테이션 강화**: 개발/스테이징/프로덕션 환경 간 방화벽 규칙을 재검토하고, SMB/RDP 등 불필요한 프로토콜을 차단하거나 VPN/VPN+ZTNA로 대체
-- [ **자격 증명 및 비밀 관리 감사**: CI/CD 파이프라인과 쿠버네티스 시크릿에 저장된 모든 서비스 계정의 권한을 최소 권한 원칙으로 재구성하고, 주기적인 순환 정책 적용
+- [ **자격 증명 및 비밀 관리 감사**: CI/CD 파이프라인과 Kubernetes 시크릿에 저장된 모든 서비스 계정의 권한을 최소 권한 원칙으로 재구성하고, 주기적인 순환 정책 적용
 - [ ] **이상 행동 탐지 규칙 업데이트**: 웜 확산 패턴(예: 단시간 내 다수의 내부 IP로 SMB 연결 시도)을 SIEM/SOAR에 사용자 정의 탐지 룰로 추가
 - [ ] **복구 절차 정기 훈련**: 암호화 및 데이터 유출 시나리오를 포함한 랜섬웨어 대응 훈련을 분기별로 실시하고, 백업 데이터의 오프라인 보관 및 복원 시간(SLA) 측정
 - [ ] **공급망 보안 강화**: 컨테이너 이미지 스캔(CVE 취약점)과 소프트웨어 구성 분석(SBOM)을 CI/CD 게이트에 통합하여 승인되지 않은 라이브러리 사용 차단
@@ -374,54 +374,54 @@ GitHub의 AI 사용량 보고서가 업데이트되어 표준 보고 필드에�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 부켈레의 개혁으로 엘살바도르가 최고의 조세 피난처로 부상: 해외 소득 및 비트코인 수익에 0% 세율, 최소한의 실체만 필요
+### 5.1 부켈레의 개혁으로 엘살바도르가 최고의 조세 피난처로 부상: 해외 소득 및 Bitcoin 수익에 0% 세율, 최소한의 실체만 필요
 
 {% include news-card.html
-  title="부켈레의 개혁으로 엘살바도르가 최고의 조세 피난처로 부상: 해외 소득 및 비트코인 수익에 0% 세율, 최소한의 실체만 필요"
+  title="부켈레의 개혁으로 엘살바도르가 최고의 조세 피난처로 부상: 해외 소득 및 Bitcoin 수익에 0% 세율, 최소한의 실체만 필요"
   url="https://bitcoinmagazine.com/business/bukeles-reform-makes-el-salvador-a-top-tax-haven-0-on-foreign-income-and-bitcoin-gains-with-minimal-presence"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/tn-2.webp"
-  summary="엘살바도르의 Bukele 개혁으로 해외 소득과 비트코인 수익에 대해 0% 세율이 적용되며 최소한의 물리적 존재만으로도 세금 혜택을 누릴 수 있어 최고의 조세 피난처로 부상했습니다. 비트코인 자본 이득세, 재산세, 상속세가 없고 기술 기업에 경쟁력 있는 인센티브를 제공하여 기업가와 가족을 대상으로 하는 비트코인 친화적 관할권으로 자리 잡았습니다."
+  summary="엘살바도르의 Bukele 개혁으로 해외 소득과 Bitcoin 수익에 대해 0% 세율이 적용되며 최소한의 물리적 존재만으로도 세금 혜택을 누릴 수 있어 최고의 조세 피난처로 부상했습니다. Bitcoin 자본 이득세, 재산세, 상속세가 없고 기술 기업에 경쟁력 있는 인센티브를 제공하여 기업가와 가족을 대상으로 하는 Bitcoin 친화적 관할권으로 자리 잡았습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-엘살바도르의 Bukele 개혁으로 해외 소득과 비트코인 수익에 대해 0% 세율이 적용되며 최소한의 물리적 존재만으로도 세금 혜택을 누릴 수 있어 최고의 조세 피난처로 부상했습니다. 비트코인 자본 이득세, 재산세, 상속세가 없고 기술 기업에 경쟁력 있는 인센티브를 제공하여 기업가와 가족을 대상으로 하는 비트코인 친화적 관할권으로 자리 잡았습니다.
+엘살바도르의 Bukele 개혁으로 해외 소득과 Bitcoin 수익에 대해 0% 세율이 적용되며 최소한의 물리적 존재만으로도 세금 혜택을 누릴 수 있어 최고의 조세 피난처로 부상했습니다. Bitcoin 자본 이득세, 재산세, 상속세가 없고 기술 기업에 경쟁력 있는 인센티브를 제공하여 기업가와 가족을 대상으로 하는 Bitcoin 친화적 관할권으로 자리 잡았습니다.
 
 ---
 
-### 5.2 미국, 다크웹 연계 3억 8900만 달러 규모 비트코인 및 암호화폐 자금세탁 사건으로 남성 2명 기소
+### 5.2 미국, 다크웹 연계 3억 8900만 달러 규모 Bitcoin 및 암호화폐 자금세탁 사건으로 남성 2명 기소
 
 {% include news-card.html
-  title="미국, 다크웹 연계 3억 8900만 달러 규모 비트코인 및 암호화폐 자금세탁 사건으로 남성 2명 기소"
+  title="미국, 다크웹 연계 3억 8900만 달러 규모 Bitcoin 및 암호화폐 자금세탁 사건으로 남성 2명 기소"
   url="https://bitcoinmagazine.com/news/u-s-charges-two-men-389-million-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/U.S.-Charges-Two-Men-for-389-Million-Bitcoin-and-Crypto-Money-Laundering-Scheme-Tied-to-Dark-Web.jpg"
-  summary="미국 연방 검찰이 다크 웹과 연계된 약 3억 8900만 달러 규모의 비트코인 및 암호화폐 세탁 사건과 관련해 두 명의 동유럽인을 기소했습니다. 이들은 암호화폐 믹싱 서비스이자 사이버 범죄 플랫폼인 AudiA6를 운영하며 약 4억 달러에 달하는 비트코인을 세탁한 혐의를 받고 있습니다."
+  summary="미국 연방 검찰이 다크 웹과 연계된 약 3억 8900만 달러 규모의 Bitcoin 및 암호화폐 세탁 사건과 관련해 두 명의 동유럽인을 기소했습니다. 이들은 암호화폐 믹싱 서비스이자 사이버 범죄 플랫폼인 AudiA6를 운영하며 약 4억 달러에 달하는 Bitcoin을 세탁한 혐의를 받고 있습니다."
   source="Bitcoin Magazine"
   severity="High"
 %}
 
 #### 요약
 
-미국 연방 검찰이 다크 웹과 연계된 약 3억 8900만 달러 규모의 비트코인 및 암호화폐 세탁 사건과 관련해 두 명의 동유럽인을 기소했습니다. 이들은 암호화폐 믹싱 서비스이자 사이버 범죄 플랫폼인 AudiA6를 운영하며 약 4억 달러에 달하는 비트코인을 세탁한 혐의를 받고 있습니다.
+미국 연방 검찰이 다크 웹과 연계된 약 3억 8900만 달러 규모의 Bitcoin 및 암호화폐 세탁 사건과 관련해 두 명의 동유럽인을 기소했습니다. 이들은 암호화폐 믹싱 서비스이자 사이버 범죄 플랫폼인 AudiA6를 운영하며 약 4억 달러에 달하는 Bitcoin을 세탁한 혐의를 받고 있습니다.
 
 ---
 
-### 5.3 BitGo, Lightning Earn 출시로 기관이 Lightning Network에서 비트코인 활용 가능
+### 5.3 BitGo, Lightning Earn 출시로 기관이 Lightning Network에서 Bitcoin 활용 가능
 
 {% include news-card.html
-  title="BitGo, Lightning Earn 출시로 기관이 Lightning Network에서 비트코인 활용 가능"
+  title="BitGo, Lightning Earn 출시로 기관이 Lightning Network에서 Bitcoin 활용 가능"
   url="https://bitcoinmagazine.com/news/bitgo-launches-lightning-earn"
   image="https://bitcoinmagazine.com/wp-content/uploads/2025/12/BitGo-Enables-Lightning-Network-Payments-Directly-from-Custody.jpg"
-  summary="BitGo가 Lightning Earn을 출시하여 기관 투자자들이 Amboss Rails와의 통합을 통해 Lightning Network에 유동성을 제공하고 BTC로 수수료를 얻을 수 있게 했습니다. 이 서비스는 기관이 보유한 비트코인을 Lightning Network에서 활용할 수 있도록 지원합니다."
+  summary="BitGo가 Lightning Earn을 출시하여 기관 투자자들이 Amboss Rails와의 통합을 통해 Lightning Network에 유동성을 제공하고 BTC로 수수료를 얻을 수 있게 했습니다. 이 서비스는 기관이 보유한 Bitcoin을 Lightning Network에서 활용할 수 있도록 지원합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-BitGo가 Lightning Earn을 출시하여 기관 투자자들이 Amboss Rails와의 통합을 통해 Lightning Network에 유동성을 제공하고 BTC로 수수료를 얻을 수 있게 했습니다. 이 서비스는 기관이 보유한 비트코인을 Lightning Network에서 활용할 수 있도록 지원합니다.
+BitGo가 Lightning Earn을 출시하여 기관 투자자들이 Amboss Rails와의 통합을 통해 Lightning Network에 유동성을 제공하고 BTC로 수수료를 얻을 수 있게 했습니다. 이 서비스는 기관이 보유한 Bitcoin을 Lightning Network에서 활용할 수 있도록 지원합니다.
 
 ---
 

@@ -379,10 +379,10 @@ JetBrains IDE 업데이트에서 GitHub의 조직 및 엔터프라이즈 에이�
 
 ---
 
-### 5.2 트럼프, 양자컴퓨팅 행정명령 서명 — 비트코인에 미칠 영향은?
+### 5.2 트럼프, 양자컴퓨팅 행정명령 서명 — Bitcoin에 미칠 영향은?
 
 {% include news-card.html
-  title="트럼프, 양자컴퓨팅 행정명령 서명 — 비트코인에 미칠 영향은?"
+  title="트럼프, 양자컴퓨팅 행정명령 서명 — Bitcoin에 미칠 영향은?"
   url="https://bitcoinmagazine.com/news/trump-signs-quantum-computing-orders"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/Bernstein-Pushes-Back-on-Bitcoin-Quantum-Threat-Fears-Says-Its-Not-a-Crisis-Report.jpg"
   summary="도널드 트럼프가 양자 컴퓨팅 관련 행정명령에 서명하면서 미국의 양자 컴퓨팅 및 포스트퀀텀 암호화 일정이 가속화될 전망입니다. 이는 Bitcoin의 보안 체계에 잠재적 영향을 미칠 수 있어 업계의 주목을 받고 있습니다."

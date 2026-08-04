@@ -197,7 +197,7 @@ HD Moore의 메시지는 전통적인 패치 중심 보안 패러다임의 한�
 
 DevSecOps 팀에게 이는 **"패치 속도 경쟁에서 패배를 인정하고, 방어 전략을 전환하라"** 는 신호다.
 
-- **CI/CD 파이프라인 보안**: 빌드 서버, 아티팩트 저장소(Artifactory, ECR), 쿠버네티스 클러스터 간의 통신 경로가 공격자의 진입점이 될 수 있다. 예를 들어, 취약한 컨테이너 이미지가 프로덕션에 배포되더라도, 네트워크 정책으로 해당 컨테이너의 외부 통신을 차단하면 피해를 최소화할 수 있다.
+- **CI/CD 파이프라인 보안**: 빌드 서버, 아티팩트 저장소(Artifactory, ECR), Kubernetes 클러스터 간의 통신 경로가 공격자의 진입점이 될 수 있다. 예를 들어, 취약한 컨테이너 이미지가 프로덕션에 배포되더라도, 네트워크 정책으로 해당 컨테이너의 외부 통신을 차단하면 피해를 최소화할 수 있다.
 - **IaC(Infrastructure as Code) 감사**: Terraform, CloudFormation 등으로 정의된 네트워크 규칙(보안 그룹, NACL, 서브넷 라우팅)이 실제로 최소 권한 원칙을 따르는지 지속적으로 검증해야 한다. "허용(Allow)이 아닌 거부(Deny)가 기본"인지 확인.
 - **모니터링 우선순위**: 로그 분석 시 "누가 로그인했는가"보다 "비정상적인 네트워크 연결(예: 데이터베이스 서버가 갑자기 외부 IP로 아웃바운드)"에 더 집중해야 한다. EDR/XDR 솔루션을 네트워크 레이어와 연동하여 횡적 이동 탐지 강화.
 
@@ -321,14 +321,14 @@ Amazon Cognito가 다중 리전 복제 기능을 출시하여 사용자 데이�
   title="Inspektor Gadget: 첫 번째 보안 감사 결과"
   url="https://www.cncf.io/blog/2026/06/03/inspektor-gadget-results-from-the-first-security-audit/"
   image="https://www.cncf.io/wp-content/uploads/2026/05/Dragonfly-15.png"
-  summary="Inspektor Gadget, 쿠버네티스 가시성 및 리눅스 호스트 검사를 위한 오픈소스 eBPF 기반 툴킷, Open Source Technology Improvement Fund(OSTIF)의 조정과 자금 지원으로 첫 번째 독립적인 보안 감사를 완료했습니다."
+  summary="Inspektor Gadget, Kubernetes 가시성 및 Linux 호스트 검사를 위한 오픈소스 eBPF 기반 툴킷, Open Source Technology Improvement Fund(OSTIF)의 조정과 자금 지원으로 첫 번째 독립적인 보안 감사를 완료했습니다."
   source="CNCF Blog"
   severity="High"
 %}
 
 #### 요약
 
-Inspektor Gadget, 쿠버네티스 가시성 및 리눅스 호스트 검사를 위한 오픈소스 eBPF 기반 툴킷, Open Source Technology Improvement Fund(OSTIF)의 조정과 자금 지원으로 첫 번째 독립적인 보안 감사를 완료했습니다.
+Inspektor Gadget, Kubernetes 가시성 및 Linux 호스트 검사를 위한 오픈소스 eBPF 기반 툴킷, Open Source Technology Improvement Fund(OSTIF)의 조정과 자금 지원으로 첫 번째 독립적인 보안 감사를 완료했습니다.
 
 ---
 
@@ -368,10 +368,10 @@ Blockware가 Megan Brooks-Anderson을 새로운 CEO로 임명했습니다. 그�
 
 ---
 
-### 5.3 비트코인 ATM: 탄광 속의 카나리아
+### 5.3 Bitcoin ATM: 탄광 속의 카나리아
 
 {% include news-card.html
-  title="비트코인 ATM: 탄광 속의 카나리아"
+  title="Bitcoin ATM: 탄광 속의 카나리아"
   url="https://bitcoinmagazine.com/markets/bitcoin-atms-the-canary-in-the-coal-mine"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/bitcoinATMban.jpeg"
   summary="미국 주 규제 당국이 Bitcoin ATM 운영업체를 금지하거나 과도한 규제를 부과하는 조치를 조용히 시행하기 시작했다는 내용이 Bitcoin Magazine에 게재되었다. 이 기사는 Michelle Weekley가 작성했으며, Bitcoin ATM이 규제 환경 변화를 감지하는 '카나리아' 역할을 한다고 지적한다."

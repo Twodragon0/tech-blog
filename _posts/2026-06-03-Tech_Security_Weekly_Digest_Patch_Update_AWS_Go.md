@@ -400,10 +400,10 @@ GitHub Copilot SDK가 정식 출시되어 안정적인 API와 프로덕션 지�
 
 ---
 
-### 5.2 민주당 샌더스와 워런, 노동부에 비트코인 401(k) 규정 철회 촉구
+### 5.2 민주당 샌더스와 워런, 노동부에 Bitcoin 401(k) 규정 철회 촉구
 
 {% include news-card.html
-  title="민주당 샌더스와 워런, 노동부에 비트코인 401(k) 규정 철회 촉구"
+  title="민주당 샌더스와 워런, 노동부에 Bitcoin 401(k) 규정 철회 촉구"
   url="https://bitcoinmagazine.com/news/sanders-and-warren-push-bitcoin-401k-rule"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Pics-48.jpg"
   summary="미국 상원의원 Bernie Sanders와 Elizabeth Warren이 Donald Trump 행정부의 노동부에 대해 Bitcoin 및 기타 암호화폐를 퇴직 계좌에 포함시키는 제안된 규칙을 철회할 것을 촉구하고 있습니다. 이들은 해당 규칙이 근로자들의 은퇴 저축을 위험에 빠뜨릴 수 있다고 주장하며 반대 입장을 표명했습니다."

@@ -372,31 +372,31 @@ AI 에이전트의 빠른 도입에도 불구하고 40%의 조직이 보안 및 
   title="1971년 유치원의 초인플레이션"
   url="https://bitcoinmagazine.com/bitcoin-books/the-hyperinflation-of-1971-at-the-kindergarten"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/ChatGPT-Image-Jun-4-2026-05_30_39-PM.png"
-  summary="비트코인 매거진의 칼럼 ”The Hyperinflation of 1971 at the Kindergarten”은 유치원생 수준에서 초인플레이션을 설명하며, 비트코인이 법정화폐처럼 가치가 훼손될 수 없는 이유를 다루고 있습니다. 이 글은 Bitcoin: The Honest Money에서 발췌되었으며, Alex v. Frankenberg가 작성했습니다."
+  summary="Bitcoin 매거진의 칼럼 ”The Hyperinflation of 1971 at the Kindergarten”은 유치원생 수준에서 초인플레이션을 설명하며, Bitcoin이 법정화폐처럼 가치가 훼손될 수 없는 이유를 다루고 있습니다. 이 글은 Bitcoin: The Honest Money에서 발췌되었으며, Alex v. Frankenberg가 작성했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인 매거진의 칼럼 "The Hyperinflation of 1971 at the Kindergarten"은 유치원생 수준에서 초인플레이션을 설명하며, 비트코인이 법정화폐처럼 가치가 훼손될 수 없는 이유를 다루고 있습니다. 이 글은 Bitcoin: The Honest Money에서 발췌되었으며, Alex v. Frankenberg가 작성했습니다.
+Bitcoin 매거진의 칼럼 "The Hyperinflation of 1971 at the Kindergarten"은 유치원생 수준에서 초인플레이션을 설명하며, Bitcoin이 법정화폐처럼 가치가 훼손될 수 없는 이유를 다루고 있습니다. 이 글은 Bitcoin: The Honest Money에서 발췌되었으며, Alex v. Frankenberg가 작성했습니다.
 
 ---
 
-### 5.2 역대 5번째로 나쁜 비트코인 가격 움직임 — 99.8% 확률로 매수 중
+### 5.2 역대 5번째로 나쁜 Bitcoin 가격 움직임 — 99.8% 확률로 매수 중
 
 {% include news-card.html
-  title="역대 5번째로 나쁜 비트코인 가격 움직임 — 99.8% 확률로 매수 중"
+  title="역대 5번째로 나쁜 Bitcoin 가격 움직임 — 99.8% 확률로 매수 중"
   url="https://bitcoinmagazine.com/markets/5th-worst-bitcoin-price-action-ever-im-buying-at-99-8-probability"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/5th-Worst-Bitcoin-Price-Action-Ever.jpg"
-  summary="비트코인 가격이 압박을 받고 있지만, 다섯 가지 데이터 포인트는 공포가 수년 만에 최고의 축적 기회를 만들고 있음을 시사합니다. Bitcoin Magazine의 Matt Crosby는 현재의 가격 움직임이 역대 다섯 번째로 나쁜 수준이라며 99.8% 확률로 매수한다고 밝혔습니다."
+  summary="Bitcoin 가격이 압박을 받고 있지만, 다섯 가지 데이터 포인트는 공포가 수년 만에 최고의 축적 기회를 만들고 있음을 시사합니다. Bitcoin Magazine의 Matt Crosby는 현재의 가격 움직임이 역대 다섯 번째로 나쁜 수준이라며 99.8% 확률로 매수한다고 밝혔습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인 가격이 압박을 받고 있지만, 다섯 가지 데이터 포인트는 공포가 수년 만에 최고의 축적 기회를 만들고 있음을 시사합니다. Bitcoin Magazine의 Matt Crosby는 현재의 가격 움직임이 역대 다섯 번째로 나쁜 수준이라며 99.8% 확률로 매수한다고 밝혔습니다.
+Bitcoin 가격이 압박을 받고 있지만, 다섯 가지 데이터 포인트는 공포가 수년 만에 최고의 축적 기회를 만들고 있음을 시사합니다. Bitcoin Magazine의 Matt Crosby는 현재의 가격 움직임이 역대 다섯 번째로 나쁜 수준이라며 99.8% 확률로 매수한다고 밝혔습니다.
 
 ---
 

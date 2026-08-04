@@ -95,7 +95,7 @@ summary_card:
   title="Meta, 오프사이트 비즈니스 데이터를 피드 및 AI 개인화에 활용 예정"
   url="https://thehackernews.com/2026/06/meta-to-use-off-site-business-data-for.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjpQhSgYELKe_2HC7BB5NcjkNvIdsBgzfzSoH7tF0EmyFq9_vXEMFYWH9cczwGUWAxITkKt0TCwTLTyeIz82mfdCBmT1Hez5SO6z5zNEmx-laLfzVEy323arr0yCMHhTWv7igdUMtmriAIGIcIcjhaXfId5iCpwUSQxEaFMP0DqA5Oov8KyEFqoWWKgh21d/s1600/facebook.jpg"
-  summary="메타가 타사 비즈니스 데이터를 활용해 사용자 피드와 AI 챗봇 응답을 개인화하겠다고 발표했습니다. 기존에는 타겟 광고에만 사용되던 이 데이터가 이제 피드와 AI 개인화 영역으로 확장됩니다."
+  summary="Meta가 타사 비즈니스 데이터를 활용해 사용자 피드와 AI 챗봇 응답을 개인화하겠다고 발표했습니다. 기존에는 타겟 광고에만 사용되던 이 데이터가 이제 피드와 AI 개인화 영역으로 확장됩니다."
   source="The Hacker News"
   severity="Medium"
 %}
@@ -191,7 +191,7 @@ mitre_attack:
   title="Microsoft, Miasma 조사 계속되며 일부 GitHub 리포지토리 복구, 일부는 오프라인 유지"
   url="https://thehackernews.com/2026/06/microsoft-restores-some-github-repos.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS-7rxJRihxTgaEj0a_mk4hVtMdwpHB8Gfd5ZgctcXcjOdEnSEJr9Qao5B5kpk2QBpumULMvNi1ZPptGJnA3NhAres2k9CGwhCQTfMciEcl2otHHvKxU9j9AkTyAgANeYS_CCY9WOip8lBCi6cq8JgPr_oqnuw-lpp53u881dYUrH8KzU8xLNPK6Lube-x/s1600/ms-worm.jpg"
-  summary="마이크로소프트는 최근 보안 사고로 73개의 오픈소스 프로젝트가 정보 탈취 코드에 감염되자 일부 GitHub 리포지토리를 일시적으로 제거했습니다. 회사는 고객과 생태계 보호를 최우선으로 하며, Miasma 조사가 계속되는 동안 일부 리포지토리는 오프라인 상태를 유지하고 있습니다."
+  summary="Microsoft는 최근 보안 사고로 73개의 오픈소스 프로젝트가 정보 탈취 코드에 감염되자 일부 GitHub 리포지토리를 일시적으로 제거했습니다. 회사는 고객과 생태계 보호를 최우선으로 하며, Miasma 조사가 계속되는 동안 일부 리포지토리는 오프라인 상태를 유지하고 있습니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -411,20 +411,20 @@ GitHub code scanning이 이제 6개월 이상 푸시나 풀 리퀘스트가 없�
 
 ---
 
-### 5.3 전통 금융, 기관들의 비트코인 저가 매수로 암호화폐로 몰려들다: Axios
+### 5.3 전통 금융, 기관들의 Bitcoin 저가 매수로 암호화폐로 몰려들다: Axios
 
 {% include news-card.html
-  title="전통 금융, 기관들의 비트코인 저가 매수로 암호화폐로 몰려들다: Axios"
+  title="전통 금융, 기관들의 Bitcoin 저가 매수로 암호화폐로 몰려들다: Axios"
   url="https://bitcoinmagazine.com/markets/traditional-finance-rushing-to-crypto"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Traditional-Finance-is-Rushing-Into-Crypto-as-Institutions-Buy-Bitcoins-Dip-Axios.jpg"
-  summary="Axios에 따르면 전통 금융(TradFi) 기관들이 비트코인 가격 하락을 매수 기회로 삼으며 암호화폐에 대한 회의론을 버리고 있으며, 이러한 변화는 2026년에 가속화되고 있습니다."
+  summary="Axios에 따르면 전통 금융(TradFi) 기관들이 Bitcoin 가격 하락을 매수 기회로 삼으며 암호화폐에 대한 회의론을 버리고 있으며, 이러한 변화는 2026년에 가속화되고 있습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Axios에 따르면 전통 금융(TradFi) 기관들이 비트코인 가격 하락을 매수 기회로 삼으며 암호화폐에 대한 회의론을 버리고 있으며, 이러한 변화는 2026년에 가속화되고 있습니다.
+Axios에 따르면 전통 금융(TradFi) 기관들이 Bitcoin 가격 하락을 매수 기회로 삼으며 암호화폐에 대한 회의론을 버리고 있으며, 이러한 변화는 2026년에 가속화되고 있습니다.
 
 ---
 
@@ -433,7 +433,7 @@ Axios에 따르면 전통 금융(TradFi) 기관들이 비트코인 가격 하락
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [하나를 넘어 확장하기: Airbnb가 멀티 프로덕트 세상을 위해 데이터 아키텍처를 진화시킨 방법](https://medium.com/airbnb-engineering/scaling-beyond-one-how-airbnb-evolved-its-data-architecture-for-a-multi-product-world-6125645d470c?source=rss----53c7c27702d5---4) | Airbnb Engineering | Airbnb는 2025년 Summer Release를 통해 Homes, Experiences, Services로 확장하며 데이터 인프라를 진화시켰습니다. 데이터 엔지니어와 분석 엔지니어는 새로운 제품군을 통합하기 위해 일관되고 유연한 데이터 모델링 프레임워크를 구축했습니다. 이는 10년 된 기존 아키텍처를 빠르게 개편한 결과입니다 |
-| [안드로이드 빌드 대기 시간 없애기](https://d2.naver.com/helloworld/4372269) | 네이버 D2 | 네이버 사내 기술 교류 행사인 NAVER ENGINEERING DAY 2026(5월)에서 발표되었던 세션을 공개합니다. 발표 내용 사내 Pod 오케스트레이션 툴인 N3R과 GitHub ARC를 결합하여, 리소스 소모가 큰 안드로이드 빌드 환경을 동적으로 할당하고 CI/CD 병목 현상을 해결한 시스템 개발 경험을 공유합니다 |
+| [Android 빌드 대기 시간 없애기](https://d2.naver.com/helloworld/4372269) | 네이버 D2 | 네이버 사내 기술 교류 행사인 NAVER ENGINEERING DAY 2026(5월)에서 발표되었던 세션을 공개합니다. 발표 내용 사내 Pod 오케스트레이션 툴인 N3R과 GitHub ARC를 결합하여, 리소스 소모가 큰 Android 빌드 환경을 동적으로 할당하고 CI/CD 병목 현상을 해결한 시스템 개발 경험을 공유합니다 |
 | [빠르게 움직이는 조직에서, TAM은 어떻게 문제를 해결할까?](https://toss.tech/article/tam-connect-2025) | 토스 기술 블로그 | 토스와 카카오페이 Technical Account Manager들의 만남, 그 후기를 들려드립니다 |
 
 ---

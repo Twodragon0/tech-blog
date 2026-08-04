@@ -365,20 +365,20 @@ GitHub Copilot의 사용량 기반 요금제가 모든 사용자에게 적용되
 
 ## 5. 블록체인 뉴스
 
-### 5.1 CME Group, 24시간 암호화폐 선물 및 옵션 거래 개시, 비트코인 변동성 계약 출시
+### 5.1 CME Group, 24시간 암호화폐 선물 및 옵션 거래 개시, Bitcoin 변동성 계약 출시
 
 {% include news-card.html
-  title="CME Group, 24시간 암호화폐 선물 및 옵션 거래 개시, 비트코인 변동성 계약 출시"
+  title="CME Group, 24시간 암호화폐 선물 및 옵션 거래 개시, Bitcoin 변동성 계약 출시"
   url="https://bitcoinmagazine.com/news/cme-group-goes-live-with-24-7-crypto"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/CME-Group-Goes-Live-With-247-Crypto-Futures-and-Options-Launches-Bitcoin-Volatility-Contracts.jpg"
-  summary="CME Group이 CME Globex 플랫폼에서 연중무휴 24시간 암호화폐 선물 및 옵션 거래를 시작했으며, 비트코인 변동성 계약도 함께 출시했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다."
+  summary="CME Group이 CME Globex 플랫폼에서 연중무휴 24시간 암호화폐 선물 및 옵션 거래를 시작했으며, Bitcoin 변동성 계약도 함께 출시했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-CME Group이 CME Globex 플랫폼에서 연중무휴 24시간 암호화폐 선물 및 옵션 거래를 시작했으며, 비트코인 변동성 계약도 함께 출시했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
+CME Group이 CME Globex 플랫폼에서 연중무휴 24시간 암호화폐 선물 및 옵션 거래를 시작했으며, Bitcoin 변동성 계약도 함께 출시했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
 
 ---
 
@@ -399,10 +399,10 @@ Coinbase의 Faryar Shirzad는 CLARITY Act가 이번 달 상원 표결을 앞두�
 
 ---
 
-### 5.3 Strategy가 비트코인 32개를 매도했다… 그리고 그건 좋은 일이다
+### 5.3 Strategy가 Bitcoin 32개를 매도했다… 그리고 그건 좋은 일이다
 
 {% include news-card.html
-  title="Strategy가 비트코인 32개를 매도했다… 그리고 그건 좋은 일이다"
+  title="Strategy가 Bitcoin 32개를 매도했다… 그리고 그건 좋은 일이다"
   url="https://bitcoinmagazine.com/bitcoin-for-corporations/strategy-sells-bitcoin-thats-good"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Strategy-Sold-32-Bitcoin.-And-Thats-a-Good-Thing.jpg"
   summary="Strategy가 32 BTC를 매도했지만, 이는 Bitcoin treasury 모델을 강화할 수 있는 긍정적인 신호로 평가됩니다. Michael Saylor의 ”절대 비트코인을 팔지 말라”는 원칙과 달리 이번 매도는 전략적 결정으로 보입니다. 이 소식은 Bitcoin Magazine의 Nick Ward 기사에서 처음 보도되었습니다."
