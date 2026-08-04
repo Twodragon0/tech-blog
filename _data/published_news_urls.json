@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-03T01:57:49.477472+00:00",
+  "updated_at": "2026-08-04T01:33:46.497093+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html",
-      "title": "Critical NGINX Vulnerability Can Crash Workers and May Allow Remote Code Executi",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/uac-0145-uses-clickfix-captchas-to.html",
-      "title": "UAC-0145 Uses ClickFix CAPTCHAs to Infect Ukrainian Devices wih Malware",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/sonicwall-sma-zero-days-exploited.html",
-      "title": "SonicWall SMA Zero-Days Exploited Before Disclosure to Gain Root Access",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-abuse-vipnet-software-to-target-russian-govt-agencies/",
-      "title": "Hackers abuse ViPNet software to target Russian govt agencies",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/navigating-legacy-codebases-with-kiro-code-intelligence/",
-      "title": "십만 줄 코드베이스, AST로 길을 찾다 — Kiro Code Intelligence로 대규모 코드베이스를 이해하는 법",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/japanese-logistics-company-eyes-jpyc-stablecoin-to-pay-drivers?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Japanese logistics company eyes JPYC stablecoin to pay drivers",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/south-korea-probed-40-cases-of-crypto-manipulation-over-2-years?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "South Korea probed 40 cases of crypto manipulation over 2 years",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/will-the-us-get-finally-clarity-this-week-bitcoin-80k-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Will the US get CLARITY this week? Bitcoin’s new $80K target: Hodler’s Digest, J",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/saylor-turns-up-heat-with-110-reasons-why-bip-110-is-a-bad-idea?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Saylor turns up heat with ‘110 reasons’ why BIP-110 is a bad idea",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/federal-agencies-miss-genius-act-deadline?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "US agencies miss GENIUS Act deadline for final stablecoin rules",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31609",
-      "title": "합성 소비자, 실전 활용 가능성을 입증하다",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31608",
-      "title": "태스크 이코노미 - 데이터가 만드는 다음 1조 달러 시장",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31606",
-      "title": "데이터가 유일한 해자다",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31605",
-      "title": "IPTV보다 더 좋고 저렴한 Castor",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31604",
-      "title": "Supabase가 조사한 2026년 스타트업 현황",
-      "published_date": "2026-07-20",
-      "expires_at": "2026-07-27T02:07:36.119185+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/fakegit-campaign-uses-7600-github.html",
       "title": "FakeGit Campaign Uses 7,600 GitHub Repositories to Spread SmartLoader Malware",
@@ -1260,6 +1170,96 @@
       "title": "C에서 sizeof가 놀라울 정도로 파싱하기 어려운 이유",
       "published_date": "2026-08-03",
       "expires_at": "2026-08-10T01:57:49.477370+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/18-malicious-npm-packages-deliver-cross.html",
+      "title": "18 Malicious npm Packages Deliver Cross-Platform RAT to Alibaba Tool Users",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/google-password-manager-attacks-could.html",
+      "title": "Google Password Manager Attacks Could Let Malware Hijack Passkey-Protected Accou",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/inc-ransomware-emerges-as-dominant.html",
+      "title": "INC Ransomware Emerges as Dominant Actor Exploiting SonicWall SMA 1000 Flaws",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hotel-wi-fi-attacks-use-custom-malware-to-breach-microsoft-365-accounts/",
+      "title": "Hotel Wi-Fi attacks use custom malware to breach Microsoft 365 accounts",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-pass-ta-key-attacks-let-malware-hijack-google-synced-passkeys/",
+      "title": "New Pass-ta-key attacks let malware hijack Google-synced passkeys",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/08/03/ml-applications/training-gem-at-llm-scale-meta-ads-recommendation-foundation-model/",
+      "title": "GEM Training: How Meta Doubled the Efficiency of Its LLM-Scale Ads Foundation Mo",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://openai.com/index/continuous-voice-interaction-with-gpt-live",
+      "title": "How we built a realtime system for responsive voice AI in six months",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/from-weeks-to-minutes-how-formula-1-uses-agentic-ai-on-aws-to-accelerate-data-operations/",
+      "title": "From weeks to minutes: How Formula 1® uses agentic AI on AWS to accelerate data ",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/automated-reasoning-policy-refinement-in-amazon-bedrock/",
+      "title": "Automated Reasoning policy refinement in Amazon Bedrock",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/infrastructure-modernization/mainframe-migration-and-modernization-with-ai/",
+      "title": "Real-world mainframe modernization with AI: A safe, scalable path from mainframe",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/sap-google-cloud/cortex-framework-v7-power-ai-agents-with-sap-data-faster/",
+      "title": "Cortex Framework v7 is GA: Build agentic workflows without disrupting SAP operat",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/unify-public-and-private-data-with-data-commons-on-spanner-graph/",
+      "title": "Unifying public and private data: Scale knowledge graphs with Data Commons on Sp",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/behind-the-scenes-how-we-build-test-and-scale-google-agent-skills/",
+      "title": "Behind the scenes: How we build, test, and scale Google Agent Skills",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-price-reduction-of-gpt-models-in-bedrock-cloudwatch-managed-collectors-for-prometheus-metrics-and-more-august-3-2026/",
+      "title": "AWS Weekly Roundup: Price reduction of GPT models in Bedrock, CloudWatch managed",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-03-enterprise-team-specialization-for-managed-settings",
+      "title": "Enterprise team specialization for managed settings",
+      "published_date": "2026-08-04",
+      "expires_at": "2026-08-11T01:33:46.496987+00:00"
     }
   ]
 }
