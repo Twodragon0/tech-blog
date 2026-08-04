@@ -1,5 +1,19 @@
 name: SVG Quality Check
 
+# Trigger scope must cover everything this workflow's steps depend on, because
+# the steps scan the WHOLE corpus (check_svg_quality.py over assets/images/), not
+# just the changed files. When the trigger is narrower than the scan, a regression
+# stays hidden until some unrelated change happens to touch a filtered path — and
+# that PR then inherits a failure it did not cause.
+#
+# Observed 2026-07-13 → 08-04: commit 6bbe71af restored 4 README architecture SVGs
+# without <title>, main went red, and because no filtered path changed for three
+# weeks the workflow never ran. PR #481 (touching scripts/check_posts.py) tripped
+# the trigger and inherited the 4 pre-existing FAILs. Fixed in #489.
+#
+# Two-part fix: (1) the daily `schedule:` scans main regardless of paths, so a
+# corpus regression surfaces within 24h; (2) `paths` lists every script the steps
+# invoke plus this workflow file, so editing the gate runs the gate.
 on:
   push:
     branches:
@@ -8,6 +22,9 @@ on:
       - 'assets/images/*.svg'
       - 'scripts/check_posts.py'
       - 'scripts/check_cover_qr_urls.py'
+      - 'scripts/check_svg_quality.py'
+      - 'scripts/verify_images_unified.py'
+      - '.github/workflows/check-svg.yml'
   pull_request:
     branches:
       - main
@@ -15,6 +32,15 @@ on:
       - 'assets/images/*.svg'
       - 'scripts/check_posts.py'
       - 'scripts/check_cover_qr_urls.py'
+      - 'scripts/check_svg_quality.py'
+      - 'scripts/verify_images_unified.py'
+      - '.github/workflows/check-svg.yml'
+  schedule:
+    # 03:15 UTC = 12:15 KST. Free slot: the blogwatcher digest (00:00), the Pages
+    # backup deploy (00:30), monitoring (01:00), translate-backfill (01:30),
+    # googlebot monitor (02:00) and the Sentry healthcheck (02:30) have all
+    # settled, and the ops-orchestrator lanes (*/6h, 04:00) do not collide.
+    - cron: '15 3 * * *'
   workflow_dispatch: {}
 
 permissions: {}
