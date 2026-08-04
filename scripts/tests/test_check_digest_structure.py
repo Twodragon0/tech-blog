@@ -61,6 +61,23 @@ def test_does_not_flag_prose_advisory():
     assert check_post(_write(prose)) == []
 
 
+def test_does_not_flag_대응_체크리스트_in_prose():
+    # "대응 체크리스트" as incidental PROSE (e.g. a reference-table cell) is NOT
+    # a per-item checklist heading → must not be flagged. Only ##/###/#### headings
+    # are the defect. False positive surfaced on the 2026-02-08 digest.
+    prose = _GOOD.replace(
+        "## 2. AI/ML 뉴스",
+        "## 2. AI/ML 뉴스\n| CISA Guide | 랜섬웨어 사고 대응 체크리스트 |",
+    )
+    assert not any("대응 체크리스트" in v for v in check_post(_write(prose)))
+
+
+def test_flags_per_item_대응_체크리스트_heading():
+    # A real per-item '#### 대응 체크리스트' heading (no checkbox) is still caught.
+    bad = _GOOD.replace("## 2. AI/ML 뉴스", "#### 대응 체크리스트\n본문.\n## 2. AI/ML 뉴스")
+    assert any("대응 체크리스트" in v for v in check_post(_write(bad)))
+
+
 # A fenced code EXAMPLE block whose contents look like violations
 # ('## 5. ...' numbering, '- [ ]' checkbox, '대응 체크리스트' heading) must be
 # ignored by ALL checks, not just the H1 check. Outside the fence, the post

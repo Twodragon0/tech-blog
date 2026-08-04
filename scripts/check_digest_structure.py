@@ -84,7 +84,12 @@ def check_text(text: str) -> list:
     head = clean_body.split("## 실무 체크리스트")[0]
     if re.search(r"^\s*-\s*\[[ xX]?\]", head, re.MULTILINE):
         violations.append("per-item checkbox checklist present in an item body (should be removed)")
-    if "대응 체크리스트" in clean_body:
+    # Heading-anchored, NOT a bare substring: the defect is a per-item
+    # "대응 체크리스트" HEADING (## / ### / ####). A bare substring also matched
+    # incidental prose like a reference-table cell "랜섬웨어 사고 대응 체크리스트"
+    # (false positive surfaced on 2026-02-08). Front-matter excerpts are already
+    # excluded by _body(); this narrows the remaining body-prose false positives.
+    if re.search(r"^#{2,4}\s+.*대응 체크리스트", clean_body, re.MULTILINE):
         violations.append("per-item 대응 체크리스트 heading present (should be removed)")
 
     return violations
