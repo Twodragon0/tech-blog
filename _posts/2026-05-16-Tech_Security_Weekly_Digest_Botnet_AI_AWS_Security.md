@@ -115,7 +115,7 @@ DevSecOps 관점에서 이 위협은 **공급망 공격**, **CI/CD 파이프라�
 ## 2. 실무 영향 분석
 
 - **CI/CD 파이프라인 보안 위협 증가**: Kazuar의 모듈형 특성은 CI/CD 파이프라인 내 빌드 에이전트나 테스트 환경에 백도어를 심는 데 악용될 수 있음. P2P 통신은 내부 네트워크를 통해 봇넷을 확산시키는 데 이상적
-- **컨테이너 환경 취약점**: 쿠버네티스 클러스터 내 파드 간 P2P 통신은 정상적인 마이크로서비스 트래픽으로 위장하기 쉬움. 런타임 보안 탐지가 어려워짐
+- **컨테이너 환경 취약점**: Kubernetes 클러스터 내 파드 간 P2P 통신은 정상적인 마이크로서비스 트래픽으로 위장하기 쉬움. 런타임 보안 탐지가 어려워짐
 - **코드 서명 및 무결성 검증 우회**: 모듈형 구조는 코드 서명 검증을 우회하고 악성 플러그인을 동적으로 로드할 수 있어, 기존의 정적 분석 기반 보안 도구가 무력화됨
 - **DevSecOps 파이프라인 내 탐지 지연**: 전통적인 시그니처 기반 탐지로는 P2P 기반 변종 탐지가 어려워, 보안 팀의 대응 시간이 지연됨
 
@@ -208,7 +208,7 @@ DevSecOps 실무자에게 이 프레임워크는 **CI/CD 파이프라인에 AI �
 DevSecOps 환경에서 이는 **파이프라인 무결성**과 **운영 보안**에 직접적인 위협이 된다.
 
 - **CI/CD 파이프라인 내 취약점**: 빌드 서버에서 PowerShell이나 MSBuild가 정상적으로 실행되므로, 공급망 공격 시 악성 스크립트가 탐지되지 않고 주입될 수 있다.
-- **컨테이너 및 인프라 관리 도구 남용**: kubectl, docker, helm 등도 유사한 LotL 벡터가 될 수 있으며, 이는 쿠버네티스 환경에서의 권한 상승 및 데이터 유출로 이어진다.
+- **컨테이너 및 인프라 관리 도구 남용**: kubectl, docker, helm 등도 유사한 LotL 벡터가 될 수 있으며, 이는 Kubernetes 환경에서의 권한 상승 및 데이터 유출로 이어진다.
 - **모니터링 사각지대**: 기존 보안 솔루션은 "정상 도구"의 비정상적 사용 패턴을 식별하지 못하며, DevSecOps 팀은 로그 양의 폭증으로 실제 위협을 놓칠 위험이 있다.
 - **규정 준수 위험**: 신뢰 도구 남용은 규정 감사에서 발견되지 않을 수 있으며, 사후 분석 시에도 정상 활동으로 오인될 가능성이 높다.
 
@@ -345,10 +345,10 @@ Docker가 MCP 서버 관리를 위한 Custom Catalogs와 Profiles 기능을 정�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 비트코인 오픈, 2026년 6월 8일 이벤트를 위해 상징적인 Glen Abbey Golf Club으로 향하다
+### 5.1 Bitcoin 오픈, 2026년 6월 8일 이벤트를 위해 상징적인 Glen Abbey Golf Club으로 향하다
 
 {% include news-card.html
-  title="비트코인 오픈, 2026년 6월 8일 이벤트를 위해 상징적인 Glen Abbey Golf Club으로 향하다"
+  title="Bitcoin 오픈, 2026년 6월 8일 이벤트를 위해 상징적인 Glen Abbey Golf Club으로 향하다"
   url="https://bitcoinmagazine.com/culture/bitcoin-open-heads-to-iconic-glen-abbey-golf-club-for-june-8-2026-event"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/tnpregrass.webp"
   summary="Bitcoin Open이 2026년 6월 8일, 온타리오주 오크빌의 상징적인 Glen Abbey Golf Club에서 개최된다고 발표했다. 이 행사는 팀 스크램블 골프 토너먼트와 저녁 Texas Hold'em 포커 토너먼트로 구성되며, Glen Abbey Golf Club의 개장 50주년이 되는 해에 열린다."
@@ -362,27 +362,27 @@ Bitcoin Open이 2026년 6월 8일, 온타리오주 오크빌의 상징적인 Gle
 
 ---
 
-### 5.2 아부다비 무바달라, 2026년 1분기 비트코인 ETF 지분 16% 늘려 5억6600만 달러로 확대
+### 5.2 아부다비 무바달라, 2026년 1분기 Bitcoin ETF 지분 16% 늘려 5억6600만 달러로 확대
 
 {% include news-card.html
-  title="아부다비 무바달라, 2026년 1분기 비트코인 ETF 지분 16% 늘려 5억6600만 달러로 확대"
+  title="아부다비 무바달라, 2026년 1분기 Bitcoin ETF 지분 16% 늘려 5억6600만 달러로 확대"
   url="https://bitcoinmagazine.com/news/abu-dhabis-mubadala-raises-bitcoin-stake"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Abu-Dhabis-Mubadala-Raises-Bitcoin-ETF-Stake-16-to-566-Million-in-Q1-2026.jpg"
-  summary="아부다비의 무바달라 투자회사가 2026년 1분기 블랙록의 iShares Bitcoin Trust 지분을 16% 늘려 5억 6600만 달러 규모로 확대했다. 이 소식은 비트코인 매거진이 보도했다."
+  summary="아부다비의 무바달라 투자회사가 2026년 1분기 블랙록의 iShares Bitcoin Trust 지분을 16% 늘려 5억 6600만 달러 규모로 확대했다. 이 소식은 Bitcoin 매거진이 보도했다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-아부다비의 무바달라 투자회사가 2026년 1분기 블랙록의 iShares Bitcoin Trust 지분을 16% 늘려 5억 6600만 달러 규모로 확대했다. 이 소식은 비트코인 매거진이 보도했다.
+아부다비의 무바달라 투자회사가 2026년 1분기 블랙록의 iShares Bitcoin Trust 지분을 16% 늘려 5억 6600만 달러 규모로 확대했다. 이 소식은 Bitcoin 매거진이 보도했다.
 
 ---
 
-### 5.3 Gemini 주가, Winklevoss 쌍둥이가 회사 미래에 1억 달러 비트코인 베팅하며 급등
+### 5.3 Gemini 주가, Winklevoss 쌍둥이가 회사 미래에 1억 달러 Bitcoin 베팅하며 급등
 
 {% include news-card.html
-  title="Gemini 주가, Winklevoss 쌍둥이가 회사 미래에 1억 달러 비트코인 베팅하며 급등"
+  title="Gemini 주가, Winklevoss 쌍둥이가 회사 미래에 1억 달러 Bitcoin 베팅하며 급등"
   url="https://bitcoinmagazine.com/news/gemini-stock-jumps-after-winklevoss-twins"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/New-York-Sues-Coinbase-and-Gemini-Over-Alleged-Illegal-Prediction-Market-Gambling-Operations.jpg"
   summary="Winklevoss 쌍둥이가 Gemini에 1억 달러 규모의 Bitcoin 투자를 발표하고, Q1 실적에서 전년 대비 42%의 매출 성장을 보고하면서 Gemini 주가가 상승했습니다. 이 소식은 Bitcoin Magazine에 Micah Zimmerman이 기고한 내용입니다."

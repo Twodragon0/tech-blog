@@ -173,20 +173,20 @@ DevSecOps 관점에서 이 취약점은 **CI/CD 파이프라인의 민감 데이
   title="주간 요약: AI 기반 피싱, Android 스파이 도구, Linux 익스플로잇, GitHub RCE 등"
   url="https://thehackernews.com/2026/05/weekly-recap-ai-powered-phishing.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_j3mVDqxMVjGlF1qpGV3nSUfIhHsxGDl7Nt6QQFwRUA-qOtj22zKVcE7B7UTCcjLdUrsjLPB5N7TiX8Hzjx8Hq8LPy_GdAfcO_AqMwDDWRyQ6dWdeXzFOQa1KYm8rUUDCgwCbR9kN7OCheQyc0Ijz2MuXGkY6bsqHwlBtV34Q6xH2VAPRDUjFFThKk46X/s1600/CYBERRECAP.jpg"
-  summary="이번 주 보안 소식에서는 AI 기반 피싱, 안드로이드 스파이 도구, 리눅스 익스플로잇, GitHub RCE 등이 주요 이슈로 떠올랐습니다. 공격자들은 패치보다 빠르게 움직이며 SaaS 세션 내 점거, 신뢰된 커밋을 통한 코드 삽입 등 침투에서 점령으로 전략을 전환하고 있습니다."
+  summary="이번 주 보안 소식에서는 AI 기반 피싱, Android 스파이 도구, Linux 익스플로잇, GitHub RCE 등이 주요 이슈로 떠올랐습니다. 공격자들은 패치보다 빠르게 움직이며 SaaS 세션 내 점거, 신뢰된 커밋을 통한 코드 삽입 등 침투에서 점령으로 전략을 전환하고 있습니다."
   source="The Hacker News"
   severity="Critical"
 %}
 
-# DevSecOps 관점 분석: AI 기반 피싱, 안드로이드 스파이 도구, 리눅스 익스플로잇, GitHub RCE
+# DevSecOps 관점 분석: AI 기반 피싱, Android 스파이 도구, Linux 익스플로잇, GitHub RCE
 
 ## 1. 기술적 배경 및 위협 분석
 
 이번 주 보안 뉴스는 **공격자들이 패치보다 빠르게 움직이며, 침투 단계를 넘어 '점령(occupation)' 단계로 진화**했음을 보여준다. 주요 위협은 다음과 같다:
 
 - **AI 기반 피싱**: 생성형 AI를 활용해 문법적으로 완벽하고, 개인화된 피싱 이메일을 대량 생성. 기존의 스팸 필터나 사용자 교육으로 탐지하기 어려워짐.
-- **안드로이드 스파이 도구**: 정상 앱으로 위장한 스파이웨어가 SMS, 통화 기록, 위치 정보를 탈취. 특히 MDM(모바일 기기 관리) 우회 기술이 포함됨.
-- **리눅스 커널 익스플로잇**: 최신 커널 버전에서 권한 상승 취약점(CVE-2026-XXXX)이 발견됨. 컨테이너 환경에서 호스트 시스템 탈출로 이어질 수 있음.
+- **Android 스파이 도구**: 정상 앱으로 위장한 스파이웨어가 SMS, 통화 기록, 위치 정보를 탈취. 특히 MDM(모바일 기기 관리) 우회 기술이 포함됨.
+- **Linux 커널 익스플로잇**: 최신 커널 버전에서 권한 상승 취약점(CVE-2026-XXXX)이 발견됨. 컨테이너 환경에서 호스트 시스템 탈출로 이어질 수 있음.
 - **GitHub RCE**: 오픈소스 CI/CD 파이프라인(예: GitHub Actions)의 잘못된 설정을 통해 원격 코드 실행이 가능. 신뢰된 커밋으로 위장한 악성 코드가 배포됨.
 
 **핵심 인사이트**: 공격자는 이제 **SaaS 세션 하이재킹, 신뢰된 저장소에 악성 코드 주입, 패치 전 제로데이 익스플로잇**을 동시에 사용하며, 탐지 회피와 지속적 접근 유지에 집중하고 있다.
@@ -198,7 +198,7 @@ DevSecOps 실무자에게 이번 위협은 **CI/CD 파이프라인, 컨테이너
 | 영향 영역 | 구체적 위협 | 우선순위 |
 |-----------|------------|----------|
 | **CI/CD 파이프라인** | GitHub Actions에서의 RCE로 인한 악성 코드 자동 배포 | 🔴 긴급 |
-| **컨테이너 환경** | 리눅스 커널 익스플로잇을 통한 컨테이너 탈출 | 🟠 높음 |
+| **컨테이너 환경** | Linux 커널 익스플로잇을 통한 컨테이너 탈출 | 🟠 높음 |
 | **SaaS 연동** | AI 피싱으로 획득한 세션 토큰으로 SaaS 제어판 장악 | 🔴 긴급 |
 | **모바일 엔드포인트** | 스파이 도구로 개발자 인증 정보 탈취 | 🟡 중간 |
 
@@ -207,7 +207,7 @@ DevSecOps 실무자에게 이번 위협은 **CI/CD 파이프라인, 컨테이너
 ## 3. 대응 체크리스트
 
 - [ ] **CI/CD 파이프라인 입력 검증 강화**: GitHub Actions, Jenkins 등에서 외부 PR(pull request)에 대해 서명 확인 및 취약점 스캐닝을 필수로 적용. `actions/checkout` 시 서명 검증 옵션 활성화.
-- [ ] **컨테이너 런타임 보안 설정**: 리눅스 커널 취약점 대응을 위해 `seccomp`, `AppArmor` 프로필을 적용하고, 컨테이너에 `CAP_SYS_ADMIN` 등 민감한 capability 할당 금지.
+- [ ] **컨테이너 런타임 보안 설정**: Linux 커널 취약점 대응을 위해 `seccomp`, `AppArmor` 프로필을 적용하고, 컨테이너에 `CAP_SYS_ADMIN` 등 민감한 capability 할당 금지.
 - [ ] **SaaS 세션 하이재킹 탐지**: AI 피싱에 대응하기 위해 SaaS 로그인 시 **디바이스 핑거프린팅**과 **비정상 위치/시간 로그인 탐지**를 활성화. MFA를 모든 SaaS 계정에 적용.
 - [ ] **모바일 디바이스 관리(MDM) 정책 강화**: 개발자 디바이스에 대해 앱 설치 출처 제한, VPN 강제 터널링, 원격 초기화 정책을 적용하고 정기적 취약점 스캔
 
@@ -355,10 +355,10 @@ GitHub Actions 워크플로우에서 CI 의존성을 효율적으로 보호하�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 비트코인 자금 지원 ‘Satoshi Scholarship’으로 Lomond School, 전 세계 학생들에게 문 열다
+### 5.1 Bitcoin 자금 지원 ‘Satoshi Scholarship’으로 Lomond School, 전 세계 학생들에게 문 열다
 
 {% include news-card.html
-  title="비트코인 자금 지원 'Satoshi Scholarship'으로 Lomond School, 전 세계 학생들에게 문 열다"
+  title="Bitcoin 자금 지원 'Satoshi Scholarship'으로 Lomond School, 전 세계 학생들에게 문 열다"
   url="https://bitcoinmagazine.com/news/bitcoin-funded-satoshi-scholarship-opens"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Bitcoin-Funded-'Satoshi-Scholarship-Opens-Lomond-School-Doors-to-Global-Students.jpg"
   summary="Lomond School이 Bitcoin으로 전액 지원되는 'Satoshi Scholarship'을 도입하여 전 세계 학생들에게 문호를 열었습니다. 이는 캠퍼스를 Bitcoin 기반 교육의 실험장으로 전환하는 움직임의 일환입니다. 해당 소식은 Bitcoin Magazine에 Micah Zimmerman이 기고했습니다."
@@ -389,20 +389,20 @@ Lomond School이 Bitcoin으로 전액 지원되는 'Satoshi Scholarship'을 도�
 
 ---
 
-### 5.3 Strategy (MSTR), 실적 발표 앞두고 비트코인 매수 중단, 주가 이틀 만에 10% 이상 급등
+### 5.3 Strategy (MSTR), 실적 발표 앞두고 Bitcoin 매수 중단, 주가 이틀 만에 10% 이상 급등
 
 {% include news-card.html
-  title="Strategy (MSTR), 실적 발표 앞두고 비트코인 매수 중단, 주가 이틀 만에 10% 이상 급등"
+  title="Strategy (MSTR), 실적 발표 앞두고 Bitcoin 매수 중단, 주가 이틀 만에 10% 이상 급등"
   url="https://bitcoinmagazine.com/news/strategy-mstr-pauses-bitcoin-buys-earnings"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Pics-40.jpg"
-  summary="Strategy (MSTR)가 실적 발표를 앞두고 비트코인 매수를 중단했으며, 이 소식 이후 주가가 2일 만에 10% 이상 급등했습니다. 투자자들은 회사의 손실과 자본 조달 능력의 지속 가능성에 주목하고 있습니다."
+  summary="Strategy (MSTR)가 실적 발표를 앞두고 Bitcoin 매수를 중단했으며, 이 소식 이후 주가가 2일 만에 10% 이상 급등했습니다. 투자자들은 회사의 손실과 자본 조달 능력의 지속 가능성에 주목하고 있습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Strategy (MSTR)가 실적 발표를 앞두고 비트코인 매수를 중단했으며, 이 소식 이후 주가가 2일 만에 10% 이상 급등했습니다. 투자자들은 회사의 손실과 자본 조달 능력의 지속 가능성에 주목하고 있습니다.
+Strategy (MSTR)가 실적 발표를 앞두고 Bitcoin 매수를 중단했으며, 이 소식 이후 주가가 2일 만에 10% 이상 급등했습니다. 투자자들은 회사의 손실과 자본 조달 능력의 지속 가능성에 주목하고 있습니다.
 
 ---
 

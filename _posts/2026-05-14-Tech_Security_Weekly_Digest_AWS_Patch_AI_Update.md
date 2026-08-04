@@ -137,7 +137,7 @@ CI/CD 파이프라인에 GuardDuty 결과를 통합하고, Terraform/Pulumi 같�
   title="Microsoft의 MDASH AI 시스템, 패치 화요일에 수정된 16개 Windows 결함 발견"
   url="https://thehackernews.com/2026/05/microsofts-mdash-ai-system-finds-16.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1Iq16GS3jdGiIU24GHBkwg6unk05ctdgYwXO5df8zRu1qko95_XhszCjq6jlEIRozLsrtZHgi5GqDZnS1Sw_KDzUzsagwP0If3VswmYHsnuYwVseU2lapxQiPpItTdAiv-CCdTFR87ZVOu65buyvmvzmdWuJPKHuPA4DSo58HQIMAV__2ymsmRe2g3UVe/s1600/windows-ai.jpg"
-  summary="마이크로소프트가 MDASH라는 새로운 멀티모델 AI 기반 시스템을 공개하여 대규모 취약점 발견 및 수정을 지원하고 있으며, 일부 고객이 제한된 비공개 프리뷰로 테스트 중입니다. MDASH는 모델에 구애받지 않는 시스템으로, 각기 다른 취약점에 맞춤형 AI 에이전트를 사용합니다. 이 시스템은 최근 Patch Tuesday에서 수정된 16개의 Windows 결"
+  summary="Microsoft가 MDASH라는 새로운 멀티모델 AI 기반 시스템을 공개하여 대규모 취약점 발견 및 수정을 지원하고 있으며, 일부 고객이 제한된 비공개 프리뷰로 테스트 중입니다. MDASH는 모델에 구애받지 않는 시스템으로, 각기 다른 취약점에 맞춤형 AI 에이전트를 사용합니다. 이 시스템은 최근 Patch Tuesday에서 수정된 16개의 Windows 결"
   source="The Hacker News"
   severity="High"
 %}
@@ -375,14 +375,14 @@ GitHub Enterprise Server 3.21 릴리스 후보가 공개되었으며, 배포 효
   title="상원, 명확성 법안 표결 앞두고 친비트코인 성향 케빈 워시를 연준 의장으로 확정"
   url="https://bitcoinmagazine.com/news/senate-confirms-bitcoin-friendly-warsh"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Senate-Confirms-Bitcoin-Friendly-Kevin-Warsh-As-Fed-Chair-Ahead-of-Clarity-Act-Vote.jpg"
-  summary="미국 상원이 비트코인 친화적인 전 연준 위원 Kevin Warsh를 연준 의장으로 승인했습니다. 이는 암호화폐 시장 구조에 관한 Clarity Act 투표를 하루 앞둔 시점으로, 미국 통화 정책의 변화 가능성을 예고합니다."
+  summary="미국 상원이 Bitcoin 친화적인 전 연준 위원 Kevin Warsh를 연준 의장으로 승인했습니다. 이는 암호화폐 시장 구조에 관한 Clarity Act 투표를 하루 앞둔 시점으로, 미국 통화 정책의 변화 가능성을 예고합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-미국 상원이 비트코인 친화적인 전 연준 위원 Kevin Warsh를 연준 의장으로 승인했습니다. 이는 암호화폐 시장 구조에 관한 Clarity Act 투표를 하루 앞둔 시점으로, 미국 통화 정책의 변화 가능성을 예고합니다.
+미국 상원이 Bitcoin 친화적인 전 연준 위원 Kevin Warsh를 연준 의장으로 승인했습니다. 이는 암호화폐 시장 구조에 관한 Clarity Act 투표를 하루 앞둔 시점으로, 미국 통화 정책의 변화 가능성을 예고합니다.
 
 ---
 

@@ -229,14 +229,14 @@ Bernstein 분석가들은 Figure Technology Solutions의 1분기 실적이 대�
   title="Saylor가 BTC 매수 신호를 보내는 가운데, 소매 보유자들은 STRC 배당 투표 압박을 받다"
   url="https://cointelegraph.com/news/saylor-signals-btc-buy-as-retail-holders-get-push-on-strc-dividend-vote?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9taWNoYWVsLXNheWxvcnMtYmlnLWJldC1pbnN0aXR1dGlvbmFsLWludmVzdG1lbnRzLXJvbGUtaW4tYml0Y29pbnMtcHJpY2UtMi5qcGc=.jpg"
-  summary="Michael Saylor가 추가 비트코인 매수 의사를 밝히며, 소매 투자자들에게 STRC 배당금 지급을 위한 대리 투표 참여를 촉구했습니다."
+  summary="Michael Saylor가 추가 Bitcoin 매수 의사를 밝히며, 소매 투자자들에게 STRC 배당금 지급을 위한 대리 투표 참여를 촉구했습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-Michael Saylor가 추가 비트코인 매수 의사를 밝히며, 소매 투자자들에게 STRC 배당금 지급을 위한 대리 투표 참여를 촉구했습니다.
+Michael Saylor가 추가 Bitcoin 매수 의사를 밝히며, 소매 투자자들에게 STRC 배당금 지급을 위한 대리 투표 참여를 촉구했습니다.
 
 ---
 

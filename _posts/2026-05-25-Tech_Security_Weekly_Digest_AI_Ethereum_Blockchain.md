@@ -55,9 +55,9 @@ summary_card:
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
 | 🔒 **Security** | BleepingComputer | Ghost CMS SQL injection 취약점, 대규모 ClickFix 캠페인에서 악용돼 | 🟠 High |
-| ⛓️ **Blockchain** | Cointelegraph | Buterin, 이더리움 재단 비판에 반박하며 중립성 재확약 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Buterin, Ethereum 재단 비판에 반박하며 중립성 재확약 | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | FTX 법률 회사 Fenwick & West, 피해자들에게 5400만 달러 지급 합의 | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | Tom Lee의 이더리움 포트폴리오, ETH 가격 전망 악화로 73억 5천만 달러 하락 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Tom Lee의 Ethereum 포트폴리오, ETH 가격 전망 악화로 73억 5천만 달러 하락 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | omarchy는 배포판이 아니다 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | FBI는 미국 번호판 판독기에 ‘준실시간’ 접근을 원한다 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | 미국 기술기업, 네덜란드 규제 당국자 이름을 상원에 공유 | 🟡 Medium |
@@ -131,20 +131,20 @@ mitre_attack:
 
 ## 2. 블록체인 뉴스
 
-### 2.1 Buterin, 이더리움 재단 비판에 반박하며 중립성 재확약
+### 2.1 Buterin, Ethereum 재단 비판에 반박하며 중립성 재확약
 
 {% include news-card.html
-  title="Buterin, 이더리움 재단 비판에 반박하며 중립성 재확약"
+  title="Buterin, Ethereum 재단 비판에 반박하며 중립성 재확약"
   url="https://cointelegraph.com/news/buterin-fires-back-ef-critics-neutrality?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy92aXRhbGlrLXBvcnRyYWl0LTAwMi5qcGc=.jpg"
-  summary="이더리움 창시자 비탈릭 부테린이 이더리움 재단 비판자들에게 반박하며 중립성 재확약을 강조했다. 그는 이더리움 재단이 전체 ETH 유통량의 1% 미만을 보유한 반면, 다른 프로토콜 재단들은 보통 자체 토큰 공급량의 10-50%를 보유한다고 밝혔다."
+  summary="Ethereum 창시자 비탈릭 부테린이 Ethereum 재단 비판자들에게 반박하며 중립성 재확약을 강조했다. 그는 Ethereum 재단이 전체 ETH 유통량의 1% 미만을 보유한 반면, 다른 프로토콜 재단들은 보통 자체 토큰 공급량의 10-50%를 보유한다고 밝혔다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-이더리움 창시자 비탈릭 부테린이 이더리움 재단 비판자들에게 반박하며 중립성 재확약을 강조했다. 그는 이더리움 재단이 전체 ETH 유통량의 1% 미만을 보유한 반면, 다른 프로토콜 재단들은 보통 자체 토큰 공급량의 10-50%를 보유한다고 밝혔다.
+Ethereum 창시자 비탈릭 부테린이 Ethereum 재단 비판자들에게 반박하며 중립성 재확약을 강조했다. 그는 Ethereum 재단이 전체 ETH 유통량의 1% 미만을 보유한 반면, 다른 프로토콜 재단들은 보통 자체 토큰 공급량의 10-50%를 보유한다고 밝혔다.
 
 ---
 
@@ -165,10 +165,10 @@ FTX의 법률 자문사인 Fenwick & West가 FTX 붕괴 피해자들에게 5400�
 
 ---
 
-### 2.3 Tom Lee의 이더리움 포트폴리오, ETH 가격 전망 악화로 73억 5천만 달러 하락
+### 2.3 Tom Lee의 Ethereum 포트폴리오, ETH 가격 전망 악화로 73억 5천만 달러 하락
 
 {% include news-card.html
-  title="Tom Lee의 이더리움 포트폴리오, ETH 가격 전망 악화로 73억 5천만 달러 하락"
+  title="Tom Lee의 Ethereum 포트폴리오, ETH 가격 전망 악화로 73억 5천만 달러 하락"
   url="https://cointelegraph.com/markets/tom-lees-ethereum-portfolio-sitting-on-73b-in-unrealized-losses?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1jcnlwdG8tcHJpY2VzLWFyZW50LXN1cmdpbmctYW55dGltZS1zb29uLWV0aGVyZXVtLmpwZw==.jpg"
   summary="Tom Lee의 Ethereum 포트폴리오는 ETH 가격 전망 악화로 73억 5천만 달러의 손실을 기록했다. ETH의 약세 차트 패턴은 25% 하락한 1,600달러를 가리키며, 앞으로 몇 주간 BitMine에 100억 달러 이상의 평가 손실 위험이 있다."

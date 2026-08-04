@@ -141,15 +141,41 @@ def _merge_base(base: str) -> str:
         return base
 
 
+def _kind(violation: str) -> str:
+    """The violation's KIND, with any embedded post content stripped.
+
+    Some messages quote the offending content ("body H1 heading found: # DevSecOps
+    관점 분석: AI 기반 피싱, 안드로이드 …", "broken section numbering: [1, 1, 2]").
+    Comparing whole strings makes the ratchet content-sensitive: editing a
+    *defective* line for an unrelated reason changes the message, so the same
+    single defect reads as "one violation disappeared + one new violation appeared".
+
+    Measured 2026-08-04 on 2026-05-05: a pure 안드로이드→Android / 리눅스→Linux
+    proper-noun swap kept the defect set identical (6 before, 6 after) yet reported
+    "+1 new" — the exact class of spurious block the ratchet exists to remove.
+
+    Keying on the kind and counting per kind keeps regressions visible: adding a
+    4th body H1 to a post that already has 3 still trips (count 4 > 3). What it
+    deliberately stops flagging is a *reworded* instance of an already-present
+    defect, which is not a regression.
+    """
+    return violation.split(": ", 1)[0]
+
+
 def new_violations(current: list, base: list) -> list:
-    """Multiset difference current - base. base=None (file is new) => all are new."""
+    """Violations in *current* with no counterpart of the same kind in *base*.
+
+    Multiset difference over ``_kind()`` rather than raw strings. base=None (the
+    file does not exist at the base revision) => every violation is new.
+    """
     if base is None:
         return list(current)
-    remaining = Counter(base)
+    remaining = Counter(_kind(v) for v in base)
     out = []
     for v in current:
-        if remaining[v] > 0:
-            remaining[v] -= 1
+        k = _kind(v)
+        if remaining[k] > 0:
+            remaining[k] -= 1
         else:
             out.append(v)
     return out

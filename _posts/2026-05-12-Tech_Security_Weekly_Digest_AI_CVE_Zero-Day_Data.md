@@ -198,7 +198,7 @@ mitre_attack:
   title="해커들이 AI를 사용해 최초로 알려진 제로데이 2FA 우회 공격을 대규모 악용에 활용"
   url="https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgF329-zAoI4gwIW3h3gRYiDJjcRSyWPM4DLHFQwNNGfLTVaROqIfQZ0QB1FwWGmvMGuyNAF9Q6QBYcwLsqMsCka5Lqu82CzUbrBULnUDQwtY_4z6KiOEKSETes6as77XfUCaJVBUOCovZz8jajp6vBp9AAjHiS7BEviANEH0FxmzZwdrTapD3R-gPQWKJ1/s1600/ai-hacker.jpg"
-  summary="구글이 인공지능(AI) 시스템을 활용해 개발된 것으로 추정되는 최초의 제로데이 2FA 우회 공격을 발견했다고 밝혔습니다. 이는 취약점 발견과 익스플로잇 생성에 AI가 악의적인 목적으로 실제 환경에서 사용된 첫 사례입니다. 해당 활동은 사이버 범죄 위협 행위자에 의한 것으로 보입니다."
+  summary="Google이 인공지능(AI) 시스템을 활용해 개발된 것으로 추정되는 최초의 제로데이 2FA 우회 공격을 발견했다고 밝혔습니다. 이는 취약점 발견과 익스플로잇 생성에 AI가 악의적인 목적으로 실제 환경에서 사용된 첫 사례입니다. 해당 활동은 사이버 범죄 위협 행위자에 의한 것으로 보입니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -370,10 +370,10 @@ Safari 26.5가 출시되어 :open 가상 클래스, random()의 element-scoped �
 
 ---
 
-### 4.3 쿠버네티스 업그레이드에서 엔지니어링 시간을 되찾는 방법
+### 4.3 Kubernetes 업그레이드에서 엔지니어링 시간을 되찾는 방법
 
 {% include news-card.html
-  title="쿠버네티스 업그레이드에서 엔지니어링 시간을 되찾는 방법"
+  title="Kubernetes 업그레이드에서 엔지니어링 시간을 되찾는 방법"
   url="https://www.cncf.io/blog/2026/05/11/how-to-get-engineering-time-back-from-kubernetes-upgrades/"
   image="https://www.cncf.io/wp-content/uploads/2026/04/Avery_ScholarshipRecipient-7.jpg"
   summary="Kubernetes 업그레이드는 강력한 기능을 제공하지만, 조직이 오픈소스의 빠른 변화 속도를 따라잡기 어렵게 만드는 복잡성과 유지보수 문제를 야기합니다. 이에 따라 엔지니어링 시간을 확보하기 위한 전략이 필요합니다."
@@ -423,20 +423,20 @@ Kubernetes 업그레이드는 강력한 기능을 제공하지만, 조직이 오
 
 ---
 
-### 5.3 Strategy (MSTR), Saylor의 잠재적 BTC 매각 방어 이후 4,300만 달러 규모의 비트코인 추가 매수
+### 5.3 Strategy (MSTR), Saylor의 잠재적 BTC 매각 방어 이후 4,300만 달러 규모의 Bitcoin 추가 매수
 
 {% include news-card.html
-  title="Strategy (MSTR), Saylor의 잠재적 BTC 매각 방어 이후 4,300만 달러 규모의 비트코인 추가 매수"
+  title="Strategy (MSTR), Saylor의 잠재적 BTC 매각 방어 이후 4,300만 달러 규모의 Bitcoin 추가 매수"
   url="https://bitcoinmagazine.com/news/strategy-mstr-buys-43-million-more-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/01/Strategy-MSTR-Stock-Soars-10-Above-189-as-Bitcoin-Nears-100000-1.jpg"
-  summary="Strategy (MSTR)가 Michael Saylor가 처음으로 비트코인 보유량 일부를 매각할 가능성을 언급한 지 며칠 만에 535 BTC를 4,300만 달러에 추가 매수했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다."
+  summary="Strategy (MSTR)가 Michael Saylor가 처음으로 Bitcoin 보유량 일부를 매각할 가능성을 언급한 지 며칠 만에 535 BTC를 4,300만 달러에 추가 매수했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Strategy (MSTR)가 Michael Saylor가 처음으로 비트코인 보유량 일부를 매각할 가능성을 언급한 지 며칠 만에 535 BTC를 4,300만 달러에 추가 매수했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
+Strategy (MSTR)가 Michael Saylor가 처음으로 Bitcoin 보유량 일부를 매각할 가능성을 언급한 지 며칠 만에 535 BTC를 4,300만 달러에 추가 매수했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
 
 ---
 
@@ -444,7 +444,7 @@ Strategy (MSTR)가 Michael Saylor가 처음으로 비트코인 보유량 일부�
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Linux, 2주 만에 또 다시 심각한 취약점 발견](https://arstechnica.com/security/2026/05/linux-bitten-by-second-severe-vulnerability-in-as-many-weeks/) | Ars Technica | 리눅스에서 2주 만에 두 번째 심각한 취약점이 발견되었습니다. 프로덕션 버전 패치가 배포 중이므로 즉시 설치해야 합니다 |
+| [Linux, 2주 만에 또 다시 심각한 취약점 발견](https://arstechnica.com/security/2026/05/linux-bitten-by-second-severe-vulnerability-in-as-many-weeks/) | Ars Technica | Linux에서 2주 만에 두 번째 심각한 취약점이 발견되었습니다. 프로덕션 버전 패치가 배포 중이므로 즉시 설치해야 합니다 |
 | [CUDA-oxide: Nvidia의 공식 Rust-to-CUDA 컴파일러](https://news.hada.io/topic?id=29414) | GeekNews (긱뉴스) | cuda-oxide 는 안전에 가까운 관용적 Rust로 SIMT GPU 커널을 작성하고 표준 Rust 코드를 PTX로 직접 컴파일하는 실험적 컴파일러임 DSL이나 외국어 바인딩 없이 Rust 만 사용하며, 소유권·트레이트·제네릭 이해를 전제로 하고 async 장은 .await 지식도 |
 | [Gmail 가입, 이제 QR 코드를 스캔하고 문자 메시지를 보내는 흐름이 나타남](https://news.hada.io/topic?id=29412) | GeekNews (긱뉴스) | Google 새 계정 생성에서 기존처럼 SMS를 받는 대신, 스마트폰으로 QR 코드 를 스캔해 Google에 SMS를 보내는 흐름이 나타남 직접 시도한 사용자에게는 QR 코드 없는 등록이 불가능했고, 휴대전화가 Google에 SMS를 보내 전화번호 를 확인하는 방식으로 동작함 |
 

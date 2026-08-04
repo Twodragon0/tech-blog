@@ -399,20 +399,20 @@ Bitcoin Magazine의 Nick Ward는 eBay가 GameStop 대신 Bitcoin 결제를 도�
 
 ---
 
-### 5.2 Boltz, 비수탁형 USDC 스왑 출시, 비트코인을 Circle의 규제 달러에 직접 연결
+### 5.2 Boltz, 비수탁형 USDC 스왑 출시, Bitcoin을 Circle의 규제 달러에 직접 연결
 
 {% include news-card.html
-  title="Boltz, 비수탁형 USDC 스왑 출시, 비트코인을 Circle의 규제 달러에 직접 연결"
+  title="Boltz, 비수탁형 USDC 스왑 출시, Bitcoin을 Circle의 규제 달러에 직접 연결"
   url="https://bitcoinmagazine.com/business/boltz-launches-non-custodial-usdc-swaps-bridging-bitcoin-directly-to-circles-regulated-dollar"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Gemini_Generated_Image_l4r3qal4r3qal4r3.webp"
-  summary="Boltz가 Circle의 CCTP를 활용해 비트코인을 Circle의 규제 달러인 USDC로 신뢰 없이 교환할 수 있는 Non-Custodial 스왑을 출시했습니다. 이 서비스는 Lightning을 포함한 Bitcoin 레이어와 Stripe, Coinbase, Visa 등 글로벌 기관이 수용하는 규제 스테이블코인 간의 즉각적인 이동을 계정이나 수탁 없이 가"
+  summary="Boltz가 Circle의 CCTP를 활용해 Bitcoin을 Circle의 규제 달러인 USDC로 신뢰 없이 교환할 수 있는 Non-Custodial 스왑을 출시했습니다. 이 서비스는 Lightning을 포함한 Bitcoin 레이어와 Stripe, Coinbase, Visa 등 글로벌 기관이 수용하는 규제 스테이블코인 간의 즉각적인 이동을 계정이나 수탁 없이 가"
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Boltz가 Circle의 CCTP를 활용해 비트코인을 Circle의 규제 달러인 USDC로 신뢰 없이 교환할 수 있는 Non-Custodial 스왑을 출시했습니다. 이 서비스는 Lightning을 포함한 Bitcoin 레이어와 Stripe, Coinbase, Visa 등 글로벌 기관이 수용하는 규제 스테이블코인 간의 즉각적인 이동을 계정이나 수탁 없이 가능하게 합니다.
+Boltz가 Circle의 CCTP를 활용해 Bitcoin을 Circle의 규제 달러인 USDC로 신뢰 없이 교환할 수 있는 Non-Custodial 스왑을 출시했습니다. 이 서비스는 Lightning을 포함한 Bitcoin 레이어와 Stripe, Coinbase, Visa 등 글로벌 기관이 수용하는 규제 스테이블코인 간의 즉각적인 이동을 계정이나 수탁 없이 가능하게 합니다.
 
 ---
 

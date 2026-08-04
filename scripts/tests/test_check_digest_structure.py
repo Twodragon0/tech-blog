@@ -186,6 +186,48 @@ def test_new_violations_is_multiset_not_set():
     assert cds.new_violations(current, base) == ["body H1 heading found: # x"]
 
 
+def test_new_violations_ignores_reworded_instance_of_same_defect():
+    # A violation message that quotes post content must not make the ratchet
+    # content-sensitive: editing a DEFECTIVE line for an unrelated reason (here a
+    # 안드로이드→Android proper-noun swap inside an offending body H1) keeps the
+    # defect set identical, so nothing is new. Measured on 2026-05-05: the swap
+    # kept 6 violations at 6 yet reported "+1 new" before this fix.
+    base = ["body H1 heading found: # 관점 분석: 안드로이드 스파이 도구"]
+    current = ["body H1 heading found: # 관점 분석: Android 스파이 도구"]
+    assert cds.new_violations(current, base) == []
+
+
+def test_new_violations_still_counts_an_additional_instance_per_kind():
+    # Rewording is forgiven, but an EXTRA instance of the same kind is not: a post
+    # that had 2 body H1s and now has 3 is a regression regardless of the wording.
+    base = ["body H1 heading found: # a", "body H1 heading found: # b"]
+    current = [
+        "body H1 heading found: # a2",
+        "body H1 heading found: # b2",
+        "body H1 heading found: # c",
+    ]
+    assert len(cds.new_violations(current, base)) == 1
+
+
+def test_new_violations_still_flags_a_different_kind_after_rewording():
+    # Kind-keyed comparison must not let a genuinely new KIND ride along with a
+    # reworded pre-existing one.
+    base = ["body H1 heading found: # old"]
+    current = [
+        "body H1 heading found: # new wording",
+        "broken section numbering: [1, 1, 2]",
+    ]
+    fresh = cds.new_violations(current, base)
+    assert len(fresh) == 1 and "numbering" in fresh[0].lower()
+
+
+def test_kind_handles_messages_without_embedded_content():
+    # Colon-free messages key on the whole string, so they still match exactly.
+    msg = "per-item checkbox checklist present in an item body (should be removed)"
+    assert cds._kind(msg) == msg
+    assert cds.new_violations([msg], [msg]) == []
+
+
 def test_ratchet_requires_a_diff_scoped_mode(monkeypatch, capsys):
     # --ratchet without --staged/--changed has no base revision to compare to.
     monkeypatch.setattr(sys, "argv", ["check_digest_structure.py", "--ratchet", "--all"])

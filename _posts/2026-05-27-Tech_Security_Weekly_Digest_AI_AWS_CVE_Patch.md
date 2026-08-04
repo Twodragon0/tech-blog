@@ -400,10 +400,10 @@ TeraWulf Inc.가 켄터키주에 1 GW 규모의 AI 데이터 센터 부지를 �
 
 ---
 
-### 5.2 스마터 웹 컴퍼니, 재무부 전략 강화 속 비트코인 10개 추가 매수…보유량 2,869 BTC로 증가
+### 5.2 스마터 웹 컴퍼니, 재무부 전략 강화 속 Bitcoin 10개 추가 매수…보유량 2,869 BTC로 증가
 
 {% include news-card.html
-  title="스마터 웹 컴퍼니, 재무부 전략 강화 속 비트코인 10개 추가 매수…보유량 2,869 BTC로 증가"
+  title="스마터 웹 컴퍼니, 재무부 전략 강화 속 Bitcoin 10개 추가 매수…보유량 2,869 BTC로 증가"
   url="https://bitcoinmagazine.com/news/smarter-web-company-adds-10-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Smarter-Web-Company-Adds-10-Bitcoin-Lifts-Holdings-to-2869-BTC-Amid-Treasury-Push.jpg"
   summary="런던 상장 기업 The Smarter Web Company가 부채 기반 전략을 통해 10 BTC를 추가 매수하여 총 보유량을 2,869 BTC로 늘렸으며, 이는 Bitcoin 중심의 재무 전략 확장의 일환입니다."
@@ -417,20 +417,20 @@ TeraWulf Inc.가 켄터키주에 1 GW 규모의 AI 데이터 센터 부지를 �
 
 ---
 
-### 5.3 Strive의 SATA, BTC 매수 증가 속 비트코인 채굴 일일 공급량 전체를 일시적으로 흡수
+### 5.3 Strive의 SATA, BTC 매수 증가 속 Bitcoin 채굴 일일 공급량 전체를 일시적으로 흡수
 
 {% include news-card.html
-  title="Strive의 SATA, BTC 매수 증가 속 비트코인 채굴 일일 공급량 전체를 일시적으로 흡수"
+  title="Strive의 SATA, BTC 매수 증가 속 Bitcoin 채굴 일일 공급량 전체를 일시적으로 흡수"
   url="https://bitcoinmagazine.com/news/strives-sata-swallows-entire-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Strives-SATA-Briefly-Swallows-the-Entire-Bitcoin-Mining-Daily-Supply-As-BTC-Purchases-Ramp-Up.jpg"
-  summary="Strive의 SATA 우선주가 비트코인 채굴 일일 공급량의 100% 이상을 일시적으로 흡수하며 주요 BTC 축적 수단으로 부상했다. 이는 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 보도한 내용이다."
+  summary="Strive의 SATA 우선주가 Bitcoin 채굴 일일 공급량의 100% 이상을 일시적으로 흡수하며 주요 BTC 축적 수단으로 부상했다. 이는 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 보도한 내용이다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Strive의 SATA 우선주가 비트코인 채굴 일일 공급량의 100% 이상을 일시적으로 흡수하며 주요 BTC 축적 수단으로 부상했다. 이는 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 보도한 내용이다.
+Strive의 SATA 우선주가 Bitcoin 채굴 일일 공급량의 100% 이상을 일시적으로 흡수하며 주요 BTC 축적 수단으로 부상했다. 이는 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 보도한 내용이다.
 
 ---
 
