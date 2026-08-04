@@ -3736,5 +3736,80 @@
       "cross_refs": 0,
       "length": 4
     }
+  },
+  "2026-07-31-Tech_Security_Weekly_Digest_Update_Malware_AI_Agent.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-08-01-Tech_Security_Weekly_Digest_Go_Malware_AWS_Security.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
+  },
+  "2026-08-02-Tech_Security_Weekly_Digest_Bitcoin_AI_Update_Malware.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2026-08-03-Tech_Security_Weekly_Digest_AI_Bitcoin_Go_Agent.md": {
+    "total": 90,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 8,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2026-08-04-Tech_Security_Weekly_Digest_Malware_Go_AWS_Ransomware.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 4
+    }
   }
 }
