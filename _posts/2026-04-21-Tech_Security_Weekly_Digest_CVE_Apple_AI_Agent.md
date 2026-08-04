@@ -341,10 +341,10 @@ C# Dev Kit 팀이 C++ Node.js addons를 C#과 Native AOT로 대체하여 Python 
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Alcoa, 가동 중단된 뉴욕 제련소를 NYDIG에 비트코인 채굴용으로 매각 임박
+### 5.1 Alcoa, 가동 중단된 뉴욕 제련소를 NYDIG에 Bitcoin 채굴용으로 매각 임박
 
 {% include news-card.html
-  title="Alcoa, 가동 중단된 뉴욕 제련소를 NYDIG에 비트코인 채굴용으로 매각 임박"
+  title="Alcoa, 가동 중단된 뉴욕 제련소를 NYDIG에 Bitcoin 채굴용으로 매각 임박"
   url="https://bitcoinmagazine.com/news/alcoa-nears-sale-of-idle-new-york"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/Pics-34.jpg"
   summary="Alcoa가 뉴욕주에 있는 가동 중단된 알루미늄 제련소를 Bitcoin 채굴 회사 NYDIG에 매각하기 위한 협상을 진행 중입니다. 이 거래는 Bitcoin Magazine을 통해 처음 보도되었습니다."
@@ -358,10 +358,10 @@ Alcoa가 뉴욕주에 있는 가동 중단된 알루미늄 제련소를 Bitcoin 
 
 ---
 
-### 5.2 제이슨 로어리, 비트코인 전략 전문성으로 미 인도태평양사령부 사령관 특별보좌관 임명
+### 5.2 제이슨 로어리, Bitcoin 전략 전문성으로 미 인도태평양사령부 사령관 특별보좌관 임명
 
 {% include news-card.html
-  title="제이슨 로어리, 비트코인 전략 전문성으로 미 인도태평양사령부 사령관 특별보좌관 임명"
+  title="제이슨 로어리, Bitcoin 전략 전문성으로 미 인도태평양사령부 사령관 특별보좌관 임명"
   url="https://bitcoinmagazine.com/politics/jason-lowery-appointed-special-assistant-to-u-s-indo-pacific-command-commander-bringing-bitcoin-strategic-expertise"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/tn-1.webp"
   summary="미국 우주군 출신 제이슨 로어리가 미국 인도-태평양 사령부 사령관의 특별 보좌관으로 임명되었습니다. 그는 Bitcoin을 전력 투사 기술로 보는 독특한 관점을 바탕으로 전략적 우선순위에 대해 자문할 예정입니다."

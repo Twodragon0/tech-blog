@@ -246,7 +246,10 @@ jobs:
             BASE="HEAD~1"
           fi
           echo "[digest-structure] diff base: $BASE"
-          python3 scripts/check_digest_structure.py --changed "$BASE"
+          # --ratchet: only violations NEW vs the merge base fail. Pre-existing
+          # legacy defects are reported as grandfathered (never silently dropped)
+          # so unrelated improvements can land while regressions still break CI.
+          python3 scripts/check_digest_structure.py --changed "$BASE" --ratchet
 
       - name: Digest untranslated-English gate (PR-diff-scoped)
         id: digest_untranslated

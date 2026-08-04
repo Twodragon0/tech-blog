@@ -318,20 +318,20 @@ Bitcoin Policy Institute는 양자 컴퓨팅 발전이 Bitcoin의 암호화에 �
 
 ---
 
-### 5.2 TD Cowen, 비트코인 재무부 기업들에 대한 커버리지 개시, PBTC 섹터를 투자 가능한 주식 범주로 규정
+### 5.2 TD Cowen, Bitcoin 재무부 기업들에 대한 커버리지 개시, PBTC 섹터를 투자 가능한 주식 범주로 규정
 
 {% include news-card.html
-  title="TD Cowen, 비트코인 재무부 기업들에 대한 커버리지 개시, PBTC 섹터를 투자 가능한 주식 범주로 규정"
+  title="TD Cowen, Bitcoin 재무부 기업들에 대한 커버리지 개시, PBTC 섹터를 투자 가능한 주식 범주로 규정"
   url="https://bitcoinmagazine.com/news/td-cowen-initiates-coverage-on-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/TD-Cowen-Initiates-Coverage-on-Bitcoin-Treasury-Companies-Frames-PBTC-Sector-as-Investable-Equity-Category.jpg"
-  summary="투자은행 TD Cowen이 세 개의 공개 Bitcoin treasury 기업에 대한 애널리스트 커버리지를 시작했으며, PBTC 섹터를 투자 가능한 주식 범주로 규정했습니다. 또한 TD Cowen은 비트코인이 올해 약 14만 달러에 도달할 것으로 전망했습니다."
+  summary="투자은행 TD Cowen이 세 개의 공개 Bitcoin treasury 기업에 대한 애널리스트 커버리지를 시작했으며, PBTC 섹터를 투자 가능한 주식 범주로 규정했습니다. 또한 TD Cowen은 Bitcoin이 올해 약 14만 달러에 도달할 것으로 전망했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-투자은행 TD Cowen이 세 개의 공개 Bitcoin treasury 기업에 대한 애널리스트 커버리지를 시작했으며, PBTC 섹터를 투자 가능한 주식 범주로 규정했습니다. 또한 TD Cowen은 비트코인이 올해 약 14만 달러에 도달할 것으로 전망했습니다.
+투자은행 TD Cowen이 세 개의 공개 Bitcoin treasury 기업에 대한 애널리스트 커버리지를 시작했으며, PBTC 섹터를 투자 가능한 주식 범주로 규정했습니다. 또한 TD Cowen은 Bitcoin이 올해 약 14만 달러에 도달할 것으로 전망했습니다.
 
 ---
 

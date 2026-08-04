@@ -401,10 +401,10 @@ Kubernetes v1.36에서는 컨트롤러의 Staleness 문제를 완화하고 관�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 비트코인이 전통 금융을 재편하고 있다고 업계 리더들이 말하다
+### 5.1 Bitcoin이 전통 금융을 재편하고 있다고 업계 리더들이 말하다
 
 {% include news-card.html
-  title="비트코인이 전통 금융을 재편하고 있다고 업계 리더들이 말하다"
+  title="Bitcoin이 전통 금융을 재편하고 있다고 업계 리더들이 말하다"
   url="https://bitcoinmagazine.com/news/bitcoin-will-reshape-traditional-finance"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/GDOH2808-scaled.jpg"
   summary="Bitcoin 2026 컨퍼런스에서 업계 리더들은 Bitcoin이 경쟁사 간 협력을 통해 전통 금융에 필요한 도구와 인프라를 구축하며 제도적 성장을 주도하고 있다고 밝혔습니다. 이는 Bitcoin이 주류 금융으로 자리잡는 과정을 보여줍니다."
@@ -418,20 +418,20 @@ Bitcoin 2026 컨퍼런스에서 업계 리더들은 Bitcoin이 경쟁사 간 협
 
 ---
 
-### 5.2 이번에는 다르다: 비트코인 4년 주기, David Bailey, 나카모토를 다루는 최초의 다큐멘터리 제작 중
+### 5.2 이번에는 다르다: Bitcoin 4년 주기, David Bailey, 나카모토를 다루는 최초의 다큐멘터리 제작 중
 
 {% include news-card.html
-  title="이번에는 다르다: 비트코인 4년 주기, David Bailey, 나카모토를 다루는 최초의 다큐멘터리 제작 중"
+  title="이번에는 다르다: Bitcoin 4년 주기, David Bailey, 나카모토를 다루는 최초의 다큐멘터리 제작 중"
   url="https://bitcoinmagazine.com/news/this-time-is-different-bitcoin-documentary"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/TTID-Thumbnail-C.png"
-  summary="Bitcoin Magazine가 제작 중인 다큐멘터리 'This Time Is Different'는 비트코인의 4년 주기와 David Bailey가 Nakamoto Inc.를 설립하고 상장 및 시장 변동을 겪는 과정을 다룰 예정이다."
+  summary="Bitcoin Magazine가 제작 중인 다큐멘터리 'This Time Is Different'는 Bitcoin의 4년 주기와 David Bailey가 Nakamoto Inc.를 설립하고 상장 및 시장 변동을 겪는 과정을 다룰 예정이다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Bitcoin Magazine가 제작 중인 다큐멘터리 'This Time Is Different'는 비트코인의 4년 주기와 David Bailey가 Nakamoto Inc.를 설립하고 상장 및 시장 변동을 겪는 과정을 다룰 예정이다.
+Bitcoin Magazine가 제작 중인 다큐멘터리 'This Time Is Different'는 Bitcoin의 4년 주기와 David Bailey가 Nakamoto Inc.를 설립하고 상장 및 시장 변동을 겪는 과정을 다룰 예정이다.
 
 ---
 

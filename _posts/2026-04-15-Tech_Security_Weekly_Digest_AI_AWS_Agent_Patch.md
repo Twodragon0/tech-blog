@@ -383,14 +383,14 @@ Presidio Bitcoin이 Bitcoin을 양자 안전하게 만드는 연구 현황을 �
   title="Bitcoin은 여전히 주권 도구인가"
   url="https://bitcoinmagazine.com/conference/is-bitcoin-still-a-sovereign-tool"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/NAKAMOTO_Day3_1230_How_Real_is_the_Quantum_Threat_1x1.jpg"
-  summary="Bitcoin 2026 컨퍼런스에서 'Is Bitcoin Still a Sovereign Tool?'이라는 제목의 패널 토론이 Matt Odell, Bruce Fenton 등이 참여해 진행될 예정이다. 이 토론에서는 비트코인이 개인의 자유와 주권 도구로서의 역할을 여전히 유지하고 있는지에 대한 논의가 이루어질 것이다."
+  summary="Bitcoin 2026 컨퍼런스에서 'Is Bitcoin Still a Sovereign Tool?'이라는 제목의 패널 토론이 Matt Odell, Bruce Fenton 등이 참여해 진행될 예정이다. 이 토론에서는 Bitcoin이 개인의 자유와 주권 도구로서의 역할을 여전히 유지하고 있는지에 대한 논의가 이루어질 것이다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Bitcoin 2026 컨퍼런스에서 'Is Bitcoin Still a Sovereign Tool?'이라는 제목의 패널 토론이 Matt Odell, Bruce Fenton 등이 참여해 진행될 예정이다. 이 토론에서는 비트코인이 개인의 자유와 주권 도구로서의 역할을 여전히 유지하고 있는지에 대한 논의가 이루어질 것이다.
+Bitcoin 2026 컨퍼런스에서 'Is Bitcoin Still a Sovereign Tool?'이라는 제목의 패널 토론이 Matt Odell, Bruce Fenton 등이 참여해 진행될 예정이다. 이 토론에서는 Bitcoin이 개인의 자유와 주권 도구로서의 역할을 여전히 유지하고 있는지에 대한 논의가 이루어질 것이다.
 
 ---
 
