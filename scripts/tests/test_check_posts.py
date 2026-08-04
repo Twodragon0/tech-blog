@@ -80,10 +80,17 @@ class TestCheckDummyLinks:
         issues = check_dummy_links(content)
         assert any("placeholder" in i for i in issues)
 
-    def test_detects_korean_dummy_word(self):
-        content = "This is a 더미 link."
+    def test_detects_korean_dummy_link_target(self):
+        content = "자세한 내용은 [문서](더미)를 참고."
         issues = check_dummy_links(content)
         assert any("더미" in i for i in issues)
+
+    def test_ignores_dummy_word_in_prose(self):
+        # Regression: the checker reports "dummy LINK", so a prose sentence that
+        # merely contains the word is not a finding. Real corpus case (2026-06-17
+        # digest) describing the Lorem Ipsum Loader malware family.
+        content = "**Lorem Ipsum Loader**: 더미 텍스트(lorem ipsum)를 활용한 난독화 기법."
+        assert check_dummy_links(content) == []
 
     def test_clean_content_returns_no_issues(self):
         content = "Visit https://real-site.com/actual-path for more info."

@@ -147,6 +147,26 @@ def test_meta_compound_words_are_not_touched():
     assert new == body and n == 0
 
 
+def test_meta_hyphenated_prefix_is_not_touched():
+    # 메타- is the productive "meta-" prefix, not the company. Regression for the
+    # 2026-07-30 digest ("에이전트 메타-하네스" = agent meta-harness), which the
+    # cron's auto --fix step would otherwise have published as "Meta-하네스".
+    body = "오픈소스 에이전트 메타-하네스인 Ruflo와 메타-러닝 기법."
+    assert find_violations(body) == []
+    new, n = fix_body(body)
+    assert new == body and n == 0
+
+
+def test_hyphen_deny_is_per_entity_not_blanket():
+    # A blanket entity+hyphen exclusion would wrongly skip these: 비트코인-REIT is
+    # genuine Bitcoin (2026-06-18 digest). Only 메타 carries the prefix sense.
+    body = "Cardone Capital의 비트코인-REIT 하이브리드 상품."
+    assert find_violations(body) == [("비트코인", "Bitcoin", 1)]
+    new, n = fix_body(body)
+    assert new == "Cardone Capital의 Bitcoin-REIT 하이브리드 상품."
+    assert n == 1
+
+
 def test_cisco_is_canonicalized_but_san_francisco_is_not():
     body = "시스코가 분기 실적을 발표했고 샌프란시스코 지사도 언급했다."
     v = find_violations(body)
