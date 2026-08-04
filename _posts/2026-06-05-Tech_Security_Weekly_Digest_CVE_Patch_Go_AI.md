@@ -96,7 +96,7 @@ summary_card:
   title="Cisco, 익스플로잇 코드 공개로 Unified CM의 CVE-2026-20230 패치"
   url="https://thehackernews.com/2026/06/cisco-patches-cve-2026-20230-in-unified.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6_xkmI_c8KreZ4cr2oC9gHJERU9xWsLGDrCNCaB11IQVGmJ-r0MYUjqGllvOFc0IVwGYBqnzLJl96WBTSVXUr5Z8KRym9SsnoUlNN6oEditbTFqW3kTfOhujPEPN-KIzGJmxaJGh9mCvY1TadCVfJJfIBoTjbXn2TCcbQE8NHsKhe8ld53YHYsG5MTYg/s1600/cisco-flaw.jpg"
-  summary="시스코가 Unified CM에서 네트워크상의 인증되지 않은 공격자가 파일을 쓰고 루트 권한을 획득할 수 있는 취약점(CVE-2026-20230)을 패치했습니다. 이 취약점은 서버사이드 리퀘스트 포저리(SSRF) 유형이며, 개념 증명(PoC) 익스플로잇 코드가 이미 공개되었습니다. Cisco PSIRT는 아직 이 결함이 공격에 악용된 사례는 확인되지 않았다고"
+  summary="Cisco가 Unified CM에서 네트워크상의 인증되지 않은 공격자가 파일을 쓰고 루트 권한을 획득할 수 있는 취약점(CVE-2026-20230)을 패치했습니다. 이 취약점은 서버사이드 리퀘스트 포저리(SSRF) 유형이며, 개념 증명(PoC) 익스플로잇 코드가 이미 공개되었습니다. Cisco PSIRT는 아직 이 결함이 공격에 악용된 사례는 확인되지 않았다고"
   source="The Hacker News"
   severity="High"
 %}
@@ -371,44 +371,44 @@ GitHub Copilot이 백만 토큰 규모의 확장된 컨텍스트 윈도우와 �
 
 ## 5. 블록체인 뉴스
 
-### 5.1 비트코인 하락세, 기관 채택 서사 시험대에… Pompliano는 여전히 낙관적
+### 5.1 Bitcoin 하락세, 기관 채택 서사 시험대에… Pompliano는 여전히 낙관적
 
 {% include news-card.html
-  title="비트코인 하락세, 기관 채택 서사 시험대에… Pompliano는 여전히 낙관적"
+  title="Bitcoin 하락세, 기관 채택 서사 시험대에… Pompliano는 여전히 낙관적"
   url="https://bitcoinmagazine.com/news/bitcoin-as-pompliano-stays-bullish"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Strive-ASST-Adds-185-Million-in-Bitcoin-as-Holdings-Reach-19000-BTC.jpg"
-  summary="비트코인의 최근 하락세가 기관 채택 논리를 시험하고 있지만, Anthony Pompliano는 이번 조정이 정상적인 자본 순환과 비트코인의 주류 금융 자산으로의 성숙을 반영한다고 주장합니다."
+  summary="Bitcoin의 최근 하락세가 기관 채택 논리를 시험하고 있지만, Anthony Pompliano는 이번 조정이 정상적인 자본 순환과 Bitcoin의 주류 금융 자산으로의 성숙을 반영한다고 주장합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인의 최근 하락세가 기관 채택 논리를 시험하고 있지만, Anthony Pompliano는 이번 조정이 정상적인 자본 순환과 비트코인의 주류 금융 자산으로의 성숙을 반영한다고 주장합니다.
+Bitcoin의 최근 하락세가 기관 채택 논리를 시험하고 있지만, Anthony Pompliano는 이번 조정이 정상적인 자본 순환과 Bitcoin의 주류 금융 자산으로의 성숙을 반영한다고 주장합니다.
 
 ---
 
-### 5.2 2026년 비트코인 프라이버시: 실용 가이드
+### 5.2 2026년 Bitcoin 프라이버시: 실용 가이드
 
 {% include news-card.html
-  title="2026년 비트코인 프라이버시: 실용 가이드"
+  title="2026년 Bitcoin 프라이버시: 실용 가이드"
   url="https://bitcoinmagazine.com/guides/bitcoin-privacy-in-2026-a-practical-guide"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/tn.webp"
-  summary="비트코인은 설계상 가명성을 제공하지만, 거래소와 데이터 유출로 인한 실질적 위협에 대응하기 위해 더 강력한 보호 조치가 필요합니다. 전문가들은 2026년의 주요 프라이버시 솔루션으로 Sparrow Wallet, Bisq, Boltz를 온체인 및 오프체인 환경에서 강조합니다. 이 가이드는 Bitcoin Magazine에 게재된 Juan Galt의 글입니다."
+  summary="Bitcoin은 설계상 가명성을 제공하지만, 거래소와 데이터 유출로 인한 실질적 위협에 대응하기 위해 더 강력한 보호 조치가 필요합니다. 전문가들은 2026년의 주요 프라이버시 솔루션으로 Sparrow Wallet, Bisq, Boltz를 온체인 및 오프체인 환경에서 강조합니다. 이 가이드는 Bitcoin Magazine에 게재된 Juan Galt의 글입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인은 설계상 가명성을 제공하지만, 거래소와 데이터 유출로 인한 실질적 위협에 대응하기 위해 더 강력한 보호 조치가 필요합니다. 전문가들은 2026년의 주요 프라이버시 솔루션으로 Sparrow Wallet, Bisq, Boltz를 온체인 및 오프체인 환경에서 강조합니다. 이 가이드는 Bitcoin Magazine에 게재된 Juan Galt의 글입니다.
+Bitcoin은 설계상 가명성을 제공하지만, 거래소와 데이터 유출로 인한 실질적 위협에 대응하기 위해 더 강력한 보호 조치가 필요합니다. 전문가들은 2026년의 주요 프라이버시 솔루션으로 Sparrow Wallet, Bisq, Boltz를 온체인 및 오프체인 환경에서 강조합니다. 이 가이드는 Bitcoin Magazine에 게재된 Juan Galt의 글입니다.
 
 ---
 
-### 5.3 비트코인으로 집 산다: Better와 Coinbase, 최초의 Fannie Mae 담보 BTC 모기지 체결
+### 5.3 Bitcoin으로 집 산다: Better와 Coinbase, 최초의 Fannie Mae 담보 BTC 모기지 체결
 
 {% include news-card.html
-  title="비트코인으로 집 산다: Better와 Coinbase, 최초의 Fannie Mae 담보 BTC 모기지 체결"
+  title="Bitcoin으로 집 산다: Better와 Coinbase, 최초의 Fannie Mae 담보 BTC 모기지 체결"
   url="https://bitcoinmagazine.com/news/bitcoin-buys-a-home-better-and-coinbase"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Bitcoin-Buys-a-Home-Better-and-Coinbase-Close-First-Fannie-Mae-Backed-BTC-Mortgage.jpg"
   summary="Better와 Coinbase가 Fannie Mae의 지원을 받는 첫 번째 모기지 대출을 성사시켰으며, 이는 주택 구매자가 Bitcoin을 담보로 사용할 수 있도록 합니다. 이 대출은 Bitcoin을 활용한 다운페이먼트 대출 상품으로, 기존 금융 시스템과 암호화폐의 결합을 보여줍니다."

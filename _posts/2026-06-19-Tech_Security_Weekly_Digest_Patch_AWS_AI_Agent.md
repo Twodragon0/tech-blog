@@ -376,37 +376,37 @@ GitHub Copilot code review가 이제 리포지토리 수준의 AGENTS.md 파일�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 BlackRock 임원, 비트코인 "무시하기엔 너무 크다" 언급하며 새로운 비트코인 프리미엄 수익 ETF 논의
+### 5.1 BlackRock 임원, Bitcoin "무시하기엔 너무 크다" 언급하며 새로운 Bitcoin 프리미엄 수익 ETF 논의
 
 {% include news-card.html
-  title="BlackRock 임원, 비트코인 ”무시하기엔 너무 크다” 언급하며 새로운 비트코인 프리미엄 수익 ETF 논의"
+  title="BlackRock 임원, Bitcoin ”무시하기엔 너무 크다” 언급하며 새로운 Bitcoin 프리미엄 수익 ETF 논의"
   url="https://bitcoinmagazine.com/news/blackrock-executive-calls-bitcoin-too-big"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/BlackRock-Posts-Massive-Bitcoin-ETF-Inflows-as-Morgan-Stanley-Debuts-MSBT-With-Strong-Early-Demand.jpg"
-  summary="BlackRock의 임원이 비트코인을 ”무시하기엔 너무 큰 자산”이라고 평가하며, 새로운 Bitcoin Premium Income ETF에 대해 논의했습니다. 이 ETF는 보유한 현물 Bitcoin ETF에 커버드콜 전략을 적용해 월별 수익을 창출합니다."
+  summary="BlackRock의 임원이 Bitcoin을 ”무시하기엔 너무 큰 자산”이라고 평가하며, 새로운 Bitcoin Premium Income ETF에 대해 논의했습니다. 이 ETF는 보유한 현물 Bitcoin ETF에 커버드콜 전략을 적용해 월별 수익을 창출합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-BlackRock의 임원이 비트코인을 "무시하기엔 너무 큰 자산"이라고 평가하며, 새로운 Bitcoin Premium Income ETF에 대해 논의했습니다. 이 ETF는 보유한 현물 Bitcoin ETF에 커버드콜 전략을 적용해 월별 수익을 창출합니다.
+BlackRock의 임원이 Bitcoin을 "무시하기엔 너무 큰 자산"이라고 평가하며, 새로운 Bitcoin Premium Income ETF에 대해 논의했습니다. 이 ETF는 보유한 현물 Bitcoin ETF에 커버드콜 전략을 적용해 월별 수익을 창출합니다.
 
 ---
 
-### 5.2 STRC는 비트코인 코스튬을 입은 정크 크레딧이며, 리테일이 88억 달러를 보유 중
+### 5.2 STRC는 Bitcoin 코스튬을 입은 정크 크레딧이며, 리테일이 88억 달러를 보유 중
 
 {% include news-card.html
-  title="STRC는 비트코인 코스튬을 입은 정크 크레딧이며, 리테일이 88억 달러를 보유 중"
+  title="STRC는 Bitcoin 코스튬을 입은 정크 크레딧이며, 리테일이 88억 달러를 보유 중"
   url="https://bitcoinmagazine.com/markets/strc-is-junk-credit-in-a-bitcoin-costume-and-retail-is-holding-8-8-billion-of-it"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/STRC-fotor-2026061813245.png"
-  summary="STRC는 비트코인을 가장한 정크 신용 상품이며, 소매 투자자들이 88억 달러 규모의 해당 증권을 보유하고 있습니다. Strategy의 STRC와 SATA 등 세 가지 증권은 비트코인 담보, 세금 혜택, 11.5% 수익률을 내세우며 마케팅되고 있지만, 구매자의 82.7%가 개인 투자자입니다."
+  summary="STRC는 Bitcoin을 가장한 정크 신용 상품이며, 소매 투자자들이 88억 달러 규모의 해당 증권을 보유하고 있습니다. Strategy의 STRC와 SATA 등 세 가지 증권은 Bitcoin 담보, 세금 혜택, 11.5% 수익률을 내세우며 마케팅되고 있지만, 구매자의 82.7%가 개인 투자자입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-STRC는 비트코인을 가장한 정크 신용 상품이며, 소매 투자자들이 88억 달러 규모의 해당 증권을 보유하고 있습니다. Strategy의 STRC와 SATA 등 세 가지 증권은 비트코인 담보, 세금 혜택, 11.5% 수익률을 내세우며 마케팅되고 있지만, 구매자의 82.7%가 개인 투자자입니다.
+STRC는 Bitcoin을 가장한 정크 신용 상품이며, 소매 투자자들이 88억 달러 규모의 해당 증권을 보유하고 있습니다. Strategy의 STRC와 SATA 등 세 가지 증권은 Bitcoin 담보, 세금 혜택, 11.5% 수익률을 내세우며 마케팅되고 있지만, 구매자의 82.7%가 개인 투자자입니다.
 
 ---
 

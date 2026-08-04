@@ -62,9 +62,9 @@ summary_card:
 | 🔒 **Security** | The Hacker News | 무료 앱들이 조용히 스마트 TV를 AI용 웹 스크래핑 프록시로 전환하고 있다 | 🟡 Medium |
 | 🔒 **Security** | The Hacker News | CISA, 적극적으로 악용되는 SolarWinds Serv-U DoS 결함을 KEV 카탈로그에 추가 | 🔴 Critical |
 | 🤖 **AI/ML** | Hugging Face Blog | 5개 연구소, 5가지 접근법: 소형 모델로 구축하는 멀티모델 금융 드라마 | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | 비트코인, 2020년 폭락 이후 최대 과매도 구간 진입: BTC가 다음 목표인 7만 달러로 반등할 수 있을까? | 🟡 Medium |
-| ⛓️ **Blockchain** | CoinDesk | 비트코인·이더, FTX 붕괴 이후 최악의 주간 하락세…암호화폐 시가총액 3900억 달러 증발 | 🟡 Medium |
-| ⛓️ **Blockchain** | CoinDesk | 메타가 크리에이터들에게 스테이블코인으로 지급하고 있다. 이를 사용하는 것은 다른 사람의 문제다 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Bitcoin, 2020년 폭락 이후 최대 과매도 구간 진입: BTC가 다음 목표인 7만 달러로 반등할 수 있을까? | 🟡 Medium |
+| ⛓️ **Blockchain** | CoinDesk | Bitcoin·이더, FTX 붕괴 이후 최악의 주간 하락세…암호화폐 시가총액 3900억 달러 증발 | 🟡 Medium |
+| ⛓️ **Blockchain** | CoinDesk | Meta가 크리에이터들에게 스테이블코인으로 지급하고 있다. 이를 사용하는 것은 다른 사람의 문제다 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | OpenLogi - Rust로 작성된 Logitech Options+ 대체 오픈소스 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | Google, xAI 데이터 센터의 컴퓨팅 용량 사용료로 매달 9억2천만 달러를 SpaceX에 지불할 예정 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | 가장 작은 C++ 바이너리 | 🟡 Medium |
@@ -236,54 +236,54 @@ Hugging Face 소형 모델 해커톤에서 여러 팀이 소형 모델로 멀티
 
 ## 3. 블록체인 뉴스
 
-### 3.1 비트코인, 2020년 폭락 이후 최대 과매도 구간 진입: BTC가 다음 목표인 7만 달러로 반등할 수 있을까?
+### 3.1 Bitcoin, 2020년 폭락 이후 최대 과매도 구간 진입: BTC가 다음 목표인 7만 달러로 반등할 수 있을까?
 
 {% include news-card.html
-  title="비트코인, 2020년 폭락 이후 최대 과매도 구간 진입: BTC가 다음 목표인 7만 달러로 반등할 수 있을까?"
+  title="Bitcoin, 2020년 폭락 이후 최대 과매도 구간 진입: BTC가 다음 목표인 7만 달러로 반등할 수 있을까?"
   url="https://cointelegraph.com/markets/bitcoin-most-oversold-since-2020-crash-can-btc-rebound-to-70k-next?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1ob3ctYml0Y29pbi1wcmljZS1jb3VsZC1zcGFyay1iaWdnZXN0LWJyZWFrb3V0LmpwZw==.jpg"
-  summary="비트코인의 RSI가 2020년 폭락 이후 가장 과매도 상태를 기록하며, 이전 패턴과 유사한 흐름을 보이고 있다. 이는 2020년과 2026년 2월에 각각 50%와 30% 반등을 앞두고 나타난 신호와 일치해, BTC가 다시 70,000달러까지 회복할 가능성이 제기된다."
+  summary="Bitcoin의 RSI가 2020년 폭락 이후 가장 과매도 상태를 기록하며, 이전 패턴과 유사한 흐름을 보이고 있다. 이는 2020년과 2026년 2월에 각각 50%와 30% 반등을 앞두고 나타난 신호와 일치해, BTC가 다시 70,000달러까지 회복할 가능성이 제기된다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인의 RSI가 2020년 폭락 이후 가장 과매도 상태를 기록하며, 이전 패턴과 유사한 흐름을 보이고 있다. 이는 2020년과 2026년 2월에 각각 50%와 30% 반등을 앞두고 나타난 신호와 일치해, BTC가 다시 70,000달러까지 회복할 가능성이 제기된다.
+Bitcoin의 RSI가 2020년 폭락 이후 가장 과매도 상태를 기록하며, 이전 패턴과 유사한 흐름을 보이고 있다. 이는 2020년과 2026년 2월에 각각 50%와 30% 반등을 앞두고 나타난 신호와 일치해, BTC가 다시 70,000달러까지 회복할 가능성이 제기된다.
 
 ---
 
-### 3.2 비트코인·이더, FTX 붕괴 이후 최악의 주간 하락세…암호화폐 시가총액 3900억 달러 증발
+### 3.2 Bitcoin·이더, FTX 붕괴 이후 최악의 주간 하락세…암호화폐 시가총액 3900억 달러 증발
 
 {% include news-card.html
-  title="비트코인·이더, FTX 붕괴 이후 최악의 주간 하락세…암호화폐 시가총액 3900억 달러 증발"
+  title="Bitcoin·이더, FTX 붕괴 이후 최악의 주간 하락세…암호화폐 시가총액 3900억 달러 증발"
   url="https://www.coindesk.com/markets/2026/06/06/bitcoin-ether-eye-worst-weekly-rout-since-ftx-collapse-as-cryptos-shed-usd390-billion"
   image="https://cdn.sanity.io/images/s3y3vcno/production/1c8a63f6ee7a414798e251b283ea2323da6d3264-4147x2765.jpg"
-  summary="비트코인과 이더가 FTX 붕괴 이후 최악의 주간 하락세를 보이며 암호화폐 시가총액 약 3,900억 달러가 증발했습니다."
+  summary="Bitcoin과 이더가 FTX 붕괴 이후 최악의 주간 하락세를 보이며 암호화폐 시가총액 약 3,900억 달러가 증발했습니다."
   source="CoinDesk"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인과 이더가 FTX 붕괴 이후 최악의 주간 하락세를 보이며 암호화폐 시가총액 약 3,900억 달러가 증발했습니다.
+Bitcoin과 이더가 FTX 붕괴 이후 최악의 주간 하락세를 보이며 암호화폐 시가총액 약 3,900억 달러가 증발했습니다.
 
 ---
 
-### 3.3 메타가 크리에이터들에게 스테이블코인으로 지급하고 있다. 이를 사용하는 것은 다른 사람의 문제다
+### 3.3 Meta가 크리에이터들에게 스테이블코인으로 지급하고 있다. 이를 사용하는 것은 다른 사람의 문제다
 
 {% include news-card.html
-  title="메타가 크리에이터들에게 스테이블코인으로 지급하고 있다. 이를 사용하는 것은 다른 사람의 문제다"
+  title="Meta가 크리에이터들에게 스테이블코인으로 지급하고 있다. 이를 사용하는 것은 다른 사람의 문제다"
   url="https://www.coindesk.com/opinion/2026/06/06/meta-is-paying-creators-in-stablecoins-spending-them-is-someone-else-s-problem"
   image="https://cdn.sanity.io/images/s3y3vcno/production/cfaf9c075207a73ff2c9f56502c1b48c8c1fc2dc-3754x2250.jpg"
-  summary="메타가 크리에이터에게 스테이블코인으로 대금을 지급하지만, 이를 실제로 사용하는 문제는 별개라는 논평입니다."
+  summary="Meta가 크리에이터에게 스테이블코인으로 대금을 지급하지만, 이를 실제로 사용하는 문제는 별개라는 논평입니다."
   source="CoinDesk"
   severity="Medium"
 %}
 
 #### 요약
 
-메타가 크리에이터에게 스테이블코인으로 대금을 지급하지만, 이를 실제로 사용하는 문제는 별개라는 논평입니다.
+Meta가 크리에이터에게 스테이블코인으로 대금을 지급하지만, 이를 실제로 사용하는 문제는 별개라는 논평입니다.
 
 ---
 

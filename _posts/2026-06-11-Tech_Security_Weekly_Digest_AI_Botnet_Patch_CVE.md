@@ -205,7 +205,7 @@ Langflow는 AI 애플리케이션을 구축하기 위한 오픈소스 로우코�
 **DevSecOps 관점에서의 주요 영향:**
 - **공급망 리스크**: 오픈소스 AI 플랫폼을 사용하는 조직은 패치가 제공되지 않은 상태에서 직접적인 위험에 노출
 - **CI/CD 파이프라인**: Langflow가 배포 파이프라인에 통합된 경우, 취약점을 통해 빌드 환경, 시크릿 저장소, 코드 저장소로의 측면 이동 가능
-- **컨테이너/쿠버네티스 환경**: 컨테이너 내에서 실행 중인 Langflow 인스턴스는 호스트 시스템 또는 클러스터 내 다른 서비스로의 탈출 경로가 될 수 있음
+- **컨테이너/Kubernetes 환경**: 컨테이너 내에서 실행 중인 Langflow 인스턴스는 호스트 시스템 또는 클러스터 내 다른 서비스로의 탈출 경로가 될 수 있음
 - **규정 준수**: AI 애플리케이션의 민감 데이터 처리 특성상 GDPR, HIPAA 등 규정 위반 가능성
 
 ## 3. 대응 체크리스트
@@ -384,10 +384,10 @@ GitHub이 Copilot Chat과 Copilot cloud agent 간의 핸드오프 경험을 개�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Strategy (MSTR) CEO, 비트코인 매각은 후퇴가 아닌 시장 '예방접종'이라고 밝혀
+### 5.1 Strategy (MSTR) CEO, Bitcoin 매각은 후퇴가 아닌 시장 '예방접종'이라고 밝혀
 
 {% include news-card.html
-  title="Strategy (MSTR) CEO, 비트코인 매각은 후퇴가 아닌 시장 '예방접종'이라고 밝혀"
+  title="Strategy (MSTR) CEO, Bitcoin 매각은 후퇴가 아닌 시장 '예방접종'이라고 밝혀"
   url="https://bitcoinmagazine.com/news/strategy-mstr-ceo-says-bitcoin-sale"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Strategy-MSTR-CEO-Says-Bitcoin-Sale-Was-About-Market-Inoculation-Not-a-Retreat.jpg"
   summary="Strategy (MSTR)의 CEO Phong Le는 2022년 이후 첫 Bitcoin 매각이 후퇴가 아닌 시장 '접종(inoculation)'을 위한 의도된 테스트였다고 밝혔습니다. 이는 운영 유연성을 입증하고 투자자들에게 프로세스가 작동한다는 신뢰를 주기 위한 것이었습니다."
@@ -401,10 +401,10 @@ Strategy (MSTR)의 CEO Phong Le는 2022년 이후 첫 Bitcoin 매각이 후퇴�
 
 ---
 
-### 5.2 Morgan Stanley의 비트코인 임원, 교육이 아닌 제품이 월스트리트의 진정한 장애물이라고 밝혀
+### 5.2 Morgan Stanley의 Bitcoin 임원, 교육이 아닌 제품이 월스트리트의 진정한 장애물이라고 밝혀
 
 {% include news-card.html
-  title="Morgan Stanley의 비트코인 임원, 교육이 아닌 제품이 월스트리트의 진정한 장애물이라고 밝혀"
+  title="Morgan Stanley의 Bitcoin 임원, 교육이 아닌 제품이 월스트리트의 진정한 장애물이라고 밝혀"
   url="https://bitcoinmagazine.com/news/morgan-stanley-bitcoin-executive-education"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Morgan-Stanleys-Bitcoin-Executive-Says-Education-—-Not-Products-—-Is-Wall-Streets-Real-Obstacle.jpg"
   summary="Morgan Stanley의 디지털 자산 전략 책임자 Amy Oldenburg는 Bitcoin의 주류 채택에 가장 큰 장애물은 제품 가용성이 아닌 투자자와 자문가의 교육이라고 말했습니다. 이 내용은 Bitcoin Magazine에 Micah Zimmerman이 기고한 기사에서 인용되었습니다."
@@ -418,20 +418,20 @@ Morgan Stanley의 디지털 자산 전략 책임자 Amy Oldenburg는 Bitcoin의 
 
 ---
 
-### 5.3 Fold Holdings, 4500만 달러 상당 비트코인 매각해 부채 상환, 주가 일시 130% 이상 급등
+### 5.3 Fold Holdings, 4500만 달러 상당 Bitcoin 매각해 부채 상환, 주가 일시 130% 이상 급등
 
 {% include news-card.html
-  title="Fold Holdings, 4500만 달러 상당 비트코인 매각해 부채 상환, 주가 일시 130% 이상 급등"
+  title="Fold Holdings, 4500만 달러 상당 Bitcoin 매각해 부채 상환, 주가 일시 130% 이상 급등"
   url="https://bitcoinmagazine.com/news/fold-holdings-dumps-45m-in-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2025/12/Fold-Launches-Nationwide-Bitcoin-Services-Across-All-50-States-With-BitGo.jpg"
-  summary="Fold Holdings는 약 4,500만 달러 상당의 비트코인을 매도하여 담보 부채를 상환하고 성장 자금을 확보했으며, 이에 따라 주가가 일시적으로 130% 이상 급등했습니다. 회사는 담보(secured) 부채를 상환해 담보 기준 무부채 상태가 되었고 약 1,492 BTC를 보유하고 있으며, 비트코인 리워드 및 금융 서비스 확장에 집중할 계획입니다."
+  summary="Fold Holdings는 약 4,500만 달러 상당의 Bitcoin을 매도하여 담보 부채를 상환하고 성장 자금을 확보했으며, 이에 따라 주가가 일시적으로 130% 이상 급등했습니다. 회사는 담보(secured) 부채를 상환해 담보 기준 무부채 상태가 되었고 약 1,492 BTC를 보유하고 있으며, Bitcoin 리워드 및 금융 서비스 확장에 집중할 계획입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Fold Holdings는 약 4,500만 달러 상당의 비트코인을 매도하여 담보 부채를 상환하고 성장 자금을 확보했으며, 이에 따라 주가가 일시적으로 130% 이상 급등했습니다. 회사는 담보(secured) 부채를 상환해 담보 기준 무부채 상태가 되었고 약 1,492 BTC를 보유하고 있으며, 비트코인 리워드 및 금융 서비스 확장에 집중할 계획입니다.
+Fold Holdings는 약 4,500만 달러 상당의 Bitcoin을 매도하여 담보 부채를 상환하고 성장 자금을 확보했으며, 이에 따라 주가가 일시적으로 130% 이상 급등했습니다. 회사는 담보(secured) 부채를 상환해 담보 기준 무부채 상태가 되었고 약 1,492 BTC를 보유하고 있으며, Bitcoin 리워드 및 금융 서비스 확장에 집중할 계획입니다.
 
 ---
 
@@ -439,7 +439,7 @@ Fold Holdings는 약 4,500만 달러 상당의 비트코인을 매도하여 담�
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [안드로이드 빌드 대기 시간 없애기](https://d2.naver.com/helloworld/4372269) | 네이버 D2 | 네이버 사내 기술 교류 행사인 NAVER ENGINEERING DAY 2026(5월)에서 발표되었던 세션을 공개합니다. 발표 내용 사내 Pod 오케스트레이션 툴인 N3R과 GitHub ARC를 결합하여, 리소스 소모가 큰 안드로이드 빌드 환경을 동적으로 할당하고 CI/CD 병목 현상을 해결한 시스템 개발 경험을 공유합니다 |
+| [Android 빌드 대기 시간 없애기](https://d2.naver.com/helloworld/4372269) | 네이버 D2 | 네이버 사내 기술 교류 행사인 NAVER ENGINEERING DAY 2026(5월)에서 발표되었던 세션을 공개합니다. 발표 내용 사내 Pod 오케스트레이션 툴인 N3R과 GitHub ARC를 결합하여, 리소스 소모가 큰 Android 빌드 환경을 동적으로 할당하고 CI/CD 병목 현상을 해결한 시스템 개발 경험을 공유합니다 |
 | [Android 앱의 의도치 않은 변경 방지하기](https://d2.naver.com/helloworld/3431313) | 네이버 D2 | 네이버 사내 기술 교류 행사인 NAVER ENGINEERING DAY 2026(5월)에서 발표되었던 세션을 공개합니다. 발표 내용 Android 앱 및 라이브러리 개발자가 외부 라이브러리 업데이트 시 발생하는 의도치 않은 변경을 사전에 감지하고, Baseline 기반의 방어 체계를 구축하는 방법을 소개합니다 |
 | [도메인 전문가 인코딩: Spotify 데이터 어시스턴트의 컨텍스트 레이어](https://engineering.atspotify.com/2026/6/encoding-your-domain-expert-the-context-layer-behind-spotifys-data-assistant/) | Spotify Engineering | Spotify의 데이터 어시스턴트는 도메인 전문가의 지식을 인코딩한 컨텍스트 레이어를 활용하여, 기존에 대시보드를 찾아야 했던 데이터 문제 해결 방식을 개선합니다. 이 접근법은 사용자가 복잡한 데이터 탐색 과정 없이도 필요한 정보를 얻을 수 있도록 지원합니다 |
 

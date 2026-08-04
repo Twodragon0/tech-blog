@@ -86,7 +86,7 @@ summary_card:
   title="악명 높은 '샌드위치 공격' 봇 Jaredfromsubway.eth, 750만 달러 규모 익스플로잇 피해"
   url="https://cointelegraph.com/news/notorious-sandwich-attack-bot-jaredfromsubwayeth-exploited-for-75m?utm_source=rss&utm_medium=rss&utm_campaign=rss"
   image="https://s3-images.ctmedia.io/media/article-covers/hi-how-cybercriminals-are-exploiting-digital-twins-for-social-engineering.jpg"
-  summary="Jaredfromsubway.eth 봇이 750만 달러 규모의 익스플로잇을 당했다. 이 봇은 2024년 11월부터 2025년 10월까지 이더리움에서 발생한 샌드위치 어택의 70%를 담당했던 악명 높은 존재였다."
+  summary="Jaredfromsubway.eth 봇이 750만 달러 규모의 익스플로잇을 당했다. 이 봇은 2024년 11월부터 2025년 10월까지 Ethereum에서 발생한 샌드위치 어택의 70%를 담당했던 악명 높은 존재였다."
   source="Cointelegraph"
   severity="High"
 %}
@@ -95,7 +95,7 @@ summary_card:
 
 ## 1. 기술적 배경 및 위협 분석
 
-Jaredfromsubway.eth는 이더리움 네트워크에서 **MEV(Maximal Extractable Value) 기반 샌드위치 공격**을 자동화한 악성 봇으로, 2024년 11월~2025년 10월 기간 동안 이더리움 샌드위치 공격의 약 70%를 담당했습니다. 샌드위치 공격은 사용자의 트랜잭션 전후에 악의적인 트랜잭션을 끼워넣어 가격 슬리피지를 유발하고 차익을 취하는 방식입니다.
+Jaredfromsubway.eth는 Ethereum 네트워크에서 **MEV(Maximal Extractable Value) 기반 샌드위치 공격**을 자동화한 악성 봇으로, 2024년 11월~2025년 10월 기간 동안 Ethereum 샌드위치 공격의 약 70%를 담당했습니다. 샌드위치 공격은 사용자의 트랜잭션 전후에 악의적인 트랜잭션을 끼워넣어 가격 슬리피지를 유발하고 차익을 취하는 방식입니다.
 
 이번 사건은 해당 봇 자체가 **취약점(스마트 컨트랙트 로직 결함 또는 프라이빗 키 유출)** 을 통해 750만 달러 규모로 탈취당한 사례입니다. 공격자는 봇의 MEV 수익을 가로채거나 봇이 사용하는 유동성 풀을 조작했을 가능성이 높습니다. 이는 **공격 도구가 역으로 공격받는** 전형적인 **공급망 보안 위협** 사례입니다.
 

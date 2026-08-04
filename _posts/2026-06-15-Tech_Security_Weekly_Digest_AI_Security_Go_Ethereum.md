@@ -63,7 +63,7 @@ summary_card:
 | 🔒 **Security** | Snyk Blog | 정부가 AI 모델을 철회할 때: Fable 5와 Mythos 5 중단이 보안팀에 주는 의미 | 🟡 Medium |
 | 🤖 **AI/ML** | OpenAI Blog | OpenAI Partner Network 소개 | 🟡 Medium |
 | 🤖 **AI/ML** | Cointelegraph | Amazon 경고가 Anthropic AI 모델에 대한 미국 규제 강화로 이어져: 보도 | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | Ethereum의 Kohaku 리드, 이더리움 계정 양자내성 확보 비용 단 7센트 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Ethereum의 Kohaku 리드, Ethereum 계정 양자내성 확보 비용 단 7센트 | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | Humanity Protocol의 3600만 달러 해킹, 북한 해커 연루 의심: Quantstamp | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | 트럼프, 이란 평화협정 일요일 체결 발언…테헤란과 상반된 입장 | 🟡 Medium |
 | 💻 **Tech** | Tech World Monitor | World Monitor - 실시간 글로벌 인텔리전스 대시보드 | 🟡 Medium |
@@ -233,23 +233,23 @@ OpenAI가 Partner Network을 출범하며 글로벌 파트너들의 기업 AI �
   title="Amazon 경고가 Anthropic AI 모델에 대한 미국 규제 강화로 이어져: 보도"
   url="https://cointelegraph.com/news/amazon-warning-triggered-us-crackdown-on-anthropic-ai-models-reports?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9iZXdhcmUtb2YtZmFibGUtMy5qcGc=.jpg"
-  summary="아마존 CEO 앤디 재시(Andy Jassy)와 다른 기술 기업들의 요청으로 트럼프 행정부가 금요일 Anthropic의 Fable 5와 Mythos 5 AI 모델에 대한 외국인 접근을 중단시켰다."
+  summary="Amazon CEO 앤디 재시(Andy Jassy)와 다른 기술 기업들의 요청으로 트럼프 행정부가 금요일 Anthropic의 Fable 5와 Mythos 5 AI 모델에 대한 외국인 접근을 중단시켰다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-아마존 CEO 앤디 재시(Andy Jassy)와 다른 기술 기업들의 요청으로 트럼프 행정부가 금요일 Anthropic의 Fable 5와 Mythos 5 AI 모델에 대한 외국인 접근을 중단시켰다.
+Amazon CEO 앤디 재시(Andy Jassy)와 다른 기술 기업들의 요청으로 트럼프 행정부가 금요일 Anthropic의 Fable 5와 Mythos 5 AI 모델에 대한 외국인 접근을 중단시켰다.
 
 ---
 
 ## 3. 블록체인 뉴스
 
-### 3.1 Ethereum의 Kohaku 리드, 이더리움 계정 양자내성 확보 비용 단 7센트
+### 3.1 Ethereum의 Kohaku 리드, Ethereum 계정 양자내성 확보 비용 단 7센트
 
 {% include news-card.html
-  title="Ethereum의 Kohaku 리드, 이더리움 계정 양자내성 확보 비용 단 7센트"
+  title="Ethereum의 Kohaku 리드, Ethereum 계정 양자내성 확보 비용 단 7센트"
   url="https://cointelegraph.com/news/ethereum-quantum-proof-accounts-7-cents-researcher?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1jcnlwdG9jdXJyZW5jeS12cy1xdWFudHVtLWNvbXB1dGluZy5qcGc=.jpg"
   summary="Ethereum의 Kohaku 리드에 따르면, SPHINCS- 제안을 통해 Ethereum 계정을 양자 내성으로 보호하는 비용이 단 7센트로 낮아질 수 있습니다. 이 제안은 네트워크가 장기적인 해결책을 모색하는 동안 사후 양자 서명 검증 비용을 줄이는 것을 목표로 합니다."

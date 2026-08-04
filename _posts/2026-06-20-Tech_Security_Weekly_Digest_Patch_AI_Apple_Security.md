@@ -68,7 +68,7 @@ summary_card:
 | 🤖 **AI/ML** | AWS Machine Learning | Adobe Marketing Agent for Amazon Quick의 인사이트로 캠페인 워크플로우 가속화 | 🟠 High |
 | ☁️ **Cloud** | Google Cloud Blog | Google Cloud의 새로운 기능 | 🟠 High |
 | ⚙️ **DevOps** | GitHub Changelog | Copilot 사용량 메트릭 API에 사용자별 AI 크레딧 소비량 추가 | 🟡 Medium |
-| ⛓️ **Blockchain** | Bitcoin Magazine | JPMorgan: 비트코인 채굴 비용이 '악화'됐으며 BTC가 생산 비용 아래에서 거래 중 | 🟡 Medium |
+| ⛓️ **Blockchain** | Bitcoin Magazine | JPMorgan: Bitcoin 채굴 비용이 '악화'됐으며 BTC가 생산 비용 아래에서 거래 중 | 🟡 Medium |
 | ⛓️ **Blockchain** | Bitcoin Magazine | 예측 시장 Kalshi, 수익 20억 달러 돌파하며 IPO 추진 | 🟠 High |
 | ⛓️ **Blockchain** | Bitcoin Magazine | Kevin Warsh는 여전히 달러를 관리해야 하지만, Bitcoin은 자동으로 작동한다 | 🟡 Medium |
 
@@ -293,20 +293,20 @@ GitHub의 Copilot usage metrics API가 이제 사용자별 일일 AI credits 소
 
 ## 5. 블록체인 뉴스
 
-### 5.1 JPMorgan: 비트코인 채굴 비용이 '악화'됐으며 BTC가 생산 비용 아래에서 거래 중
+### 5.1 JPMorgan: Bitcoin 채굴 비용이 '악화'됐으며 BTC가 생산 비용 아래에서 거래 중
 
 {% include news-card.html
-  title="JPMorgan: 비트코인 채굴 비용이 '악화'됐으며 BTC가 생산 비용 아래에서 거래 중"
+  title="JPMorgan: Bitcoin 채굴 비용이 '악화'됐으며 BTC가 생산 비용 아래에서 거래 중"
   url="https://bitcoinmagazine.com/news/jpmorgan-bitcoin-mining-costs-worsened"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/JPMorgan-Bitcoin-Mining-Costs-Have-Worsened-as-BTC-Trades-Below-Production-Cost.jpg"
-  summary="JPMorgan은 BTC가 예상 생산 비용인 78,000달러보다 약 19% 낮은 가격에 거래되면서 비트코인 채굴 경제성이 악화되었다고 밝혔습니다. 이로 인해 상장 채굴 기업들은 사상 최대 규모의 코인 매도에 나섰으며, 업계의 약 20%가 수익성을 잃은 상황입니다."
+  summary="JPMorgan은 BTC가 예상 생산 비용인 78,000달러보다 약 19% 낮은 가격에 거래되면서 Bitcoin 채굴 경제성이 악화되었다고 밝혔습니다. 이로 인해 상장 채굴 기업들은 사상 최대 규모의 코인 매도에 나섰으며, 업계의 약 20%가 수익성을 잃은 상황입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-JPMorgan은 BTC가 예상 생산 비용인 78,000달러보다 약 19% 낮은 가격에 거래되면서 비트코인 채굴 경제성이 악화되었다고 밝혔습니다. 이로 인해 상장 채굴 기업들은 사상 최대 규모의 코인 매도에 나섰으며, 업계의 약 20%가 수익성을 잃은 상황입니다.
+JPMorgan은 BTC가 예상 생산 비용인 78,000달러보다 약 19% 낮은 가격에 거래되면서 Bitcoin 채굴 경제성이 악화되었다고 밝혔습니다. 이로 인해 상장 채굴 기업들은 사상 최대 규모의 코인 매도에 나섰으며, 업계의 약 20%가 수익성을 잃은 상황입니다.
 
 ---
 

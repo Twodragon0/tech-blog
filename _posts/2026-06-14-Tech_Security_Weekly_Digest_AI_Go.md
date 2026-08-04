@@ -62,7 +62,7 @@ summary_card:
 | 🤖 **AI/ML** | Cointelegraph | Anthropic의 Mythos AI, Zcash에서 더 이상 '심각한' 버그 발견 못 해: Wilcox | 🟡 Medium |
 | 🤖 **AI/ML** | Cointelegraph | Anthropic, Fable 5, Mythos 5 접근 중단, 미국 지침 인용 | 🟡 Medium |
 | 🤖 **AI/ML** | CoinDesk | Anthropic의 IPO 전 주가 하락, 미 정부가 자사의 가장 강력한 AI 모델을 중단시키며 | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | Saylor, Strategy의 디지털 신용 사업에 비트코인 매각이 필요하다고 밝혀 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Saylor, Strategy의 디지털 신용 사업에 Bitcoin 매각이 필요하다고 밝혀 | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | Morpho의 1억 7500만 달러 조달, 암호화폐 VC 자금 흐름을 보여주다 | 🟡 Medium |
 | ⛓️ **Blockchain** | Cointelegraph | ETH 선물에서 약세 신호가 번쩍였지만, 스테이커들의 회복력은 근본적인 강세를 시사 | 🟡 Medium |
 | 💻 **Tech** | GeekNews (긱뉴스) | murrdb/murr - ML/AI 워크로드용 서브 밀리초 캐시 | 🟡 Medium |
@@ -264,10 +264,10 @@ Anthropic이 미국 정부의 국가 안보 지침에 따라 자사의 주력 AI
 
 ## 3. 블록체인 뉴스
 
-### 3.1 Saylor, Strategy의 디지털 신용 사업에 비트코인 매각이 필요하다고 밝혀
+### 3.1 Saylor, Strategy의 디지털 신용 사업에 Bitcoin 매각이 필요하다고 밝혀
 
 {% include news-card.html
-  title="Saylor, Strategy의 디지털 신용 사업에 비트코인 매각이 필요하다고 밝혀"
+  title="Saylor, Strategy의 디지털 신용 사업에 Bitcoin 매각이 필요하다고 밝혀"
   url="https://cointelegraph.com/news/saylor-strategys-bitcoin-sale-defend-digital-credit-products?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS13aG8taXMtbWljaGFlbC1qLXNheWxvci11cy1mbGFnLmpwZw==.jpg"
   summary="Strategy의 Michael Saylor는 최근 Bitcoin 매각이 회사의 ”never sell” 원칙과 충돌하는 것처럼 보이지만, 이는 Strategy의 digital credit 비즈니스 운영 방식의 일환이라고 설명했습니다."
