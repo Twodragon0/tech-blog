@@ -167,6 +167,29 @@ def test_hyphen_deny_is_per_entity_not_blanket():
     assert n == 1
 
 
+def test_meta_space_separated_prefix_noun_is_not_touched():
+    # The prefix sense also occurs SPACE-separated: "메타 주제" = a meta-level theme,
+    # not the company. The hyphen deny alone let this through because a space also
+    # satisfies the [^가-힣] lookahead branch. Sourced from 2026-02-02, which is
+    # OUTSIDE the guard's scope — so this deny is preventive (the author demonstrably
+    # writes the phrase, and blogwatcher runs --fix at publish time).
+    body = '"AI의 한계와 인간의 역할"이라는 메타 주제입니다.'
+    assert find_violations(body) == []
+    new, n = fix_body(body)
+    assert new == body and n == 0
+
+
+def test_meta_space_deny_is_enumerated_not_blanket():
+    # A blanket "메타 + space" exclusion would wrongly skip the genuine company use
+    # (2026-07-16: "메타 광고의 깊은 퍼널 최적화" = Meta's ad funnel). The deny is a
+    # measured enumeration of prefix nouns, so this still canonicalizes.
+    body = "메타 광고의 깊은 퍼널 최적화를 위한 계층적 관심 표현 탐구."
+    assert find_violations(body) == [("메타", "Meta", 1)]
+    new, n = fix_body(body)
+    assert new == "Meta 광고의 깊은 퍼널 최적화를 위한 계층적 관심 표현 탐구."
+    assert n == 1
+
+
 def test_cisco_is_canonicalized_but_san_francisco_is_not():
     body = "시스코가 분기 실적을 발표했고 샌프란시스코 지사도 언급했다."
     v = find_violations(body)

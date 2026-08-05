@@ -142,7 +142,7 @@ DevSecOps 실무자 관점에서 이번 동향은 다음과 같은 영향을 미
 
 BreachForums는 사이버 범죄 생태계에서 **취약점 거래, 유출 데이터 유통, 공격 도구 공유**의 핵심 허브 역할을 해왔다. 이번 보고서에서 확인된 운영자 교체 및 내부 갈등은 포럼의 **일시적 혼란**을 의미하지만, 위협이 감소했다고 보기는 어렵다. 오히려 다음과 같은 위협이 지속되거나 심화될 수 있다:
 
-- **운영자 교체기 악용**: 새로운 운영자(L)가 기존 정책을 변경하거나, 보안 취약점이 노출될 경우 공격자들이 **탈중앙화된 채널(텔레그램, 매트릭스)** 로 이동하거나 **새로운 포럼**을 생성할 가능성이 높다.
+- **운영자 교체기 악용**: 새로운 운영자(L)가 기존 정책을 변경하거나, 보안 취약점이 노출될 경우 공격자들이 **탈중앙화된 채널(Telegram, 매트릭스)** 로 이동하거나 **새로운 포럼**을 생성할 가능성이 높다.
 - **내부 갈등 정보 유출**: HasanBroker와 diencracked 간의 갈등이 공개되면서, **포럼 내부 운영 방식, 사용자 IP, 거래 내역** 등이 추가로 유출될 위험이 있다. 이는 기업의 **과거 침해 사고 재조사** 필요성을 높인다.
 - **지배 구조 불안정**: 운영자 교체는 **포럼 신뢰도 하락**으로 이어질 수 있으나, 반대로 **기존 데이터베이스의 완전한 유출**이나 **포럼 폐쇄 전 대규모 데이터 덤프**가 발생할 가능성도 배제할 수 없다.
 
@@ -352,44 +352,44 @@ GitHub Copilot이 처음 방문하는 리포지토리의 홈페이지에서 해�
 
 ## 5. 블록체인 뉴스
 
-### 5.1 JPMorgan, 비트코인의 진정한 위협은 Strategy(MSTR)가 아닌 프라이빗 블록체인이라고 밝혀
+### 5.1 JPMorgan, Bitcoin의 진정한 위협은 Strategy(MSTR)가 아닌 프라이빗 블록체인이라고 밝혀
 
 {% include news-card.html
-  title="JPMorgan, 비트코인의 진정한 위협은 Strategy(MSTR)가 아닌 프라이빗 블록체인이라고 밝혀"
+  title="JPMorgan, Bitcoin의 진정한 위협은 Strategy(MSTR)가 아닌 프라이빗 블록체인이라고 밝혀"
   url="https://bitcoinmagazine.com/news/jpmorgan-says-the-real-threat-to-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/JPMorgan-Says-the-Real-Threat-to-Bitcoin-Isnt-Strategy-MSTR-—-Its-Private-Blockchains.jpg"
-  summary="JPMorgan은 Strategy(MSTR)의 비트코인 매도가 단기적 우려에 불과하지만, 장기적으로는 은행과 기관들이 퍼블릭 네트워크 대신 프라이빗 블록체인을 채택함으로써 암호화폐 생태계 전반의 활동과 자본 흐름이 감소하는 것이 더 큰 위협이라고 분석했습니다."
+  summary="JPMorgan은 Strategy(MSTR)의 Bitcoin 매도가 단기적 우려에 불과하지만, 장기적으로는 은행과 기관들이 퍼블릭 네트워크 대신 프라이빗 블록체인을 채택함으로써 암호화폐 생태계 전반의 활동과 자본 흐름이 감소하는 것이 더 큰 위협이라고 분석했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-JPMorgan은 Strategy(MSTR)의 비트코인 매도가 단기적 우려에 불과하지만, 장기적으로는 은행과 기관들이 퍼블릭 네트워크 대신 프라이빗 블록체인을 채택함으로써 암호화폐 생태계 전반의 활동과 자본 흐름이 감소하는 것이 더 큰 위협이라고 분석했습니다.
+JPMorgan은 Strategy(MSTR)의 Bitcoin 매도가 단기적 우려에 불과하지만, 장기적으로는 은행과 기관들이 퍼블릭 네트워크 대신 프라이빗 블록체인을 채택함으로써 암호화폐 생태계 전반의 활동과 자본 흐름이 감소하는 것이 더 큰 위협이라고 분석했습니다.
 
 ---
 
-### 5.2 비트코인의 새로운 부채 시스템이 첫 번째 중대한 시험에 직면하다
+### 5.2 Bitcoin의 새로운 부채 시스템이 첫 번째 중대한 시험에 직면하다
 
 {% include news-card.html
-  title="비트코인의 새로운 부채 시스템이 첫 번째 중대한 시험에 직면하다"
+  title="Bitcoin의 새로운 부채 시스템이 첫 번째 중대한 시험에 직면하다"
   url="https://bitcoinmagazine.com/markets/bitcoins-new-debt-machine-is-facing"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/Bitcoins-New-Debt-Machine-is-Facing-Its-First-Major-Test.jpg"
-  summary="비트코인 담보 우선주가 6월 첫 주요 스트레스 테스트를 겪었으며, Strategy의 STRC와 Strive의 SATA는 급격한 매도 이후 반등하며 기업 비트코인 금융 모델에 대한 신뢰를 강화했습니다."
+  summary="Bitcoin 담보 우선주가 6월 첫 주요 스트레스 테스트를 겪었으며, Strategy의 STRC와 Strive의 SATA는 급격한 매도 이후 반등하며 기업 Bitcoin 금융 모델에 대한 신뢰를 강화했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-비트코인 담보 우선주가 6월 첫 주요 스트레스 테스트를 겪었으며, Strategy의 STRC와 Strive의 SATA는 급격한 매도 이후 반등하며 기업 비트코인 금융 모델에 대한 신뢰를 강화했습니다.
+Bitcoin 담보 우선주가 6월 첫 주요 스트레스 테스트를 겪었으며, Strategy의 STRC와 Strive의 SATA는 급격한 매도 이후 반등하며 기업 Bitcoin 금융 모델에 대한 신뢰를 강화했습니다.
 
 ---
 
-### 5.3 뉴햄프셔 의회, 1억 달러 비트코인 담보 채권 거부
+### 5.3 뉴햄프셔 의회, 1억 달러 Bitcoin 담보 채권 거부
 
 {% include news-card.html
-  title="뉴햄프셔 의회, 1억 달러 비트코인 담보 채권 거부"
+  title="뉴햄프셔 의회, 1억 달러 Bitcoin 담보 채권 거부"
   url="https://bitcoinmagazine.com/news/new-hampshire-council-rejects-100-million"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/New-Hampshire-Council-Rejects-100-Million-Bitcoin-Backed-Bond.jpg"
   summary="뉴햄프셔 주 행정위원회가 3대 2 표결로 1억 달러 규모의 Bitcoin-backed municipal bond 발행 제안을 거부했습니다. 지지자들은 이 채권이 납세자에게 위험을 초래하지 않으며 세계 최초의 사례가 될 것이라고 주장했지만, 위원회는 이를 받아들이지 않았습니다."

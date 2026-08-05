@@ -108,8 +108,8 @@ summary_card:
 RedWing은 Telegram 기반의 MaaS(Malware-as-a-Service) 모델로, 기존 Oblivion 악성코드의 변종으로 추정됩니다. 주요 기술적 특징은 다음과 같습니다:
 
 - **원격 접근 트로이목마(RAT) 기능**: SMS 가로채기, 키로깅, 화면 캡처를 통해 OTP(일회용 비밀번호) 및 금융 인증 정보 탈취
-- **저숙련 공격자 지원**: 사전 구축된 텔레그램 봇 인터페이스로 공격 명령 자동화, 별도 인프라 없이 즉시 사용 가능
-- **안드로이드 취약점 악용**: 접근성 서비스(AccessibilityService) 권한 탈취를 통해 화면 제어 및 입력 가로채기 수행
+- **저숙련 공격자 지원**: 사전 구축된 Telegram 봇 인터페이스로 공격 명령 자동화, 별도 인프라 없이 즉시 사용 가능
+- **Android 취약점 악용**: 접근성 서비스(AccessibilityService) 권한 탈취를 통해 화면 제어 및 입력 가로채기 수행
 - **월 300달러 구독제**: 공급망 공격보다는 개인 타겟팅에 최적화된 저비용-고효율 모델
 
 이러한 위협은 기존의 단순 피싱을 넘어, 실시간 2FA(이중 인증) 우회가 가능하다는 점에서 심각합니다.
@@ -139,7 +139,7 @@ DevSecOps 환경에서 RedWing의 영향은 다음과 같습니다:
   title="Rogue Agent 결함으로 공격자가 Google Dialogflow CX 챗봇을 탈취할 수 있었던 문제"
   url="https://thehackernews.com/2026/07/rogue-agent-flaw-could-have-let.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9i8xIVWZcplpj-QuKnJKGAJjGi0Xq-q2R_luyy-HYXWkpsAPTYASmVbm2w2DoNOQkA81fyu0OQsbflhLykcYQpv66UDBeRxU1v5-xq7kQDQMS0cmvsCFmZI36jfyGxh6xrroU4hNhH_8_nOyXV_WG07om2t4riI-HP4wzE3HJr2KJ3-sUnKxbTNhV84k/s1600/google-chatbots.jpg"
-  summary="구글 Dialogflow CX의 치명적인 취약점으로, 동일한 Google Cloud 프로젝트 내에서 Code Block이 활성화된 다른 에이전트를 공격자가 장악할 수 있었습니다. 이를 통해 실시간 대화를 읽고 사용자 데이터를 탈취하며 비밀번호 재입력을 요청하는 메시지를 보낼 수 있었으며, 보안 업체 Varonis가 발견했습니다."
+  summary="Google Dialogflow CX의 치명적인 취약점으로, 동일한 Google Cloud 프로젝트 내에서 Code Block이 활성화된 다른 에이전트를 공격자가 장악할 수 있었습니다. 이를 통해 실시간 대화를 읽고 사용자 데이터를 탈취하며 비밀번호 재입력을 요청하는 메시지를 보낼 수 있었으며, 보안 업체 Varonis가 발견했습니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -377,20 +377,20 @@ GitHub Secret Scanning이 이제 지원되는 비밀 유형에 대해 확장된 
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Polymarket, Spark 기반 Lightning Network 통해 비트코인 즉시 입금 지원
+### 5.1 Polymarket, Spark 기반 Lightning Network 통해 Bitcoin 즉시 입금 지원
 
 {% include news-card.html
-  title="Polymarket, Spark 기반 Lightning Network 통해 비트코인 즉시 입금 지원"
+  title="Polymarket, Spark 기반 Lightning Network 통해 Bitcoin 즉시 입금 지원"
   url="https://bitcoinmagazine.com/news/polymarket-turns-instant-bitcoin-deposits"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/Polymarket-Turns-On-Instant-Bitcoin-Deposits-Via-Lightning-Network-Powered-by-Spark.jpg"
-  summary="Polymarket이 Spark를 활용해 Lightning Network를 통한 즉시 비트코인 입금 기능을 활성화했습니다. 이 기능은 사용자가 자체 보관 방식으로 비트코인을 즉시 입금할 수 있도록 지원합니다."
+  summary="Polymarket이 Spark를 활용해 Lightning Network를 통한 즉시 Bitcoin 입금 기능을 활성화했습니다. 이 기능은 사용자가 자체 보관 방식으로 Bitcoin을 즉시 입금할 수 있도록 지원합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Polymarket이 Spark를 활용해 Lightning Network를 통한 즉시 비트코인 입금 기능을 활성화했습니다. 이 기능은 사용자가 자체 보관 방식으로 비트코인을 즉시 입금할 수 있도록 지원합니다.
+Polymarket이 Spark를 활용해 Lightning Network를 통한 즉시 Bitcoin 입금 기능을 활성화했습니다. 이 기능은 사용자가 자체 보관 방식으로 Bitcoin을 즉시 입금할 수 있도록 지원합니다.
 
 ---
 

@@ -66,7 +66,7 @@ summary_card:
 | 🔒 **Security** | The Hacker News | Amazon Bedrock, LangSmith, SGLang의 AI 결함으로 데이터 유출 및 RCE 가능성 발생 | 🔴 Critical |
 | 🔒 **Security** | AWS Security Blog | AWS, 독일 참여 보험사와 두 번째 GDV 커뮤니티 감사 완료 | 🟡 Medium |
 | 🔒 **Security** | The Hacker News | LeakNet 랜섬웨어, 해킹된 사이트를 통해 ClickFix 사용 및 Deno 인메모리 로더 배포 | 🟡 Medium |
-| 🤖 **AI/ML** | Meta Engineering Blog | Ranking Engineer Agent (REA): 메타의 광고 랭킹 혁신을 가속화하는 자율 AI 에이전트 | 🟡 Medium |
+| 🤖 **AI/ML** | Meta Engineering Blog | Ranking Engineer Agent (REA): Meta의 광고 랭킹 혁신을 가속화하는 자율 AI 에이전트 | 🟡 Medium |
 | 🤖 **AI/ML** | NVIDIA AI Blog | NVIDIA RTX 가속 컴퓨터가 이제 Apple Vision Pro에 직접 연결됩니다 | 🟡 Medium |
 | 🤖 **AI/ML** | Palantir Blog | 호주에서 Palantir에 대한 기록 바로잡기 | 🟡 Medium |
 | ☁️ **Cloud** | Google Cloud Blog | 다중 클러스터 GKE Inference Gateway 소개: 전 세계 AI 워크로드 확장 | 🟡 Medium |
@@ -177,10 +177,10 @@ DevSecOps 관점에서 이 공격은 **개발/운영 환경의 경계 허물어�
 
 ## 2. AI/ML 뉴스
 
-### 2.1 Ranking Engineer Agent (REA): 메타의 광고 랭킹 혁신을 가속화하는 자율 AI 에이전트
+### 2.1 Ranking Engineer Agent (REA): Meta의 광고 랭킹 혁신을 가속화하는 자율 AI 에이전트
 
 {% include news-card.html
-  title="Ranking Engineer Agent (REA): 메타의 광고 랭킹 혁신을 가속화하는 자율 AI 에이전트"
+  title="Ranking Engineer Agent (REA): Meta의 광고 랭킹 혁신을 가속화하는 자율 AI 에이전트"
   url="https://engineering.fb.com/2026/03/17/developer-tools/ranking-engineer-agent-rea-autonomous-ai-system-accelerating-meta-ads-ranking-innovation/"
   summary="Meta의 Ranking Engineer Agent(REA)는 광고 랭킹 모델을 위한 머신러닝(ML) 라이프사이클 전반의 핵심 단계를 자율적으로 실행합니다. REA는 가설 생성부터 훈련 작업 실행, 실패 디버깅, 결과 반복에 이르는 ML 실험 능력을 갖추고 있어 수동 개입 필요성을 줄입니다. 향후 게시글에서 REA의 추가 능력에 대해 다룰 예정입니다."
   source="Meta Engineering Blog"
@@ -335,20 +335,20 @@ Bitrefill이 이번 달 해킹 공격을 공개했으며, 이로 인해 자금�
 
 ---
 
-### 5.3 Strategy(MSTR)가 BlackRock의 IBIT보다 더 많은 비트코인을 보유할 전망
+### 5.3 Strategy(MSTR)가 BlackRock의 IBIT보다 더 많은 Bitcoin을 보유할 전망
 
 {% include news-card.html
-  title="Strategy(MSTR)가 BlackRock의 IBIT보다 더 많은 비트코인을 보유할 전망"
+  title="Strategy(MSTR)가 BlackRock의 IBIT보다 더 많은 Bitcoin을 보유할 전망"
   url="https://bitcoinmagazine.com/news/strategy-mstr-more-bitcoin-than-blackrock"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/03/Strategy-MSTR-is-About-to-Have-More-Bitcoin-Than-BlackRocks-IBIT-.jpg"
-  summary="MicroStrategy(MSTR)가 BlackRock의 iShares Bitcoin Trust(IBIT)가 보유한 비트코인 수량을 곧 추월할 것으로 보입니다. 이 소식은 Bitcoin Magazine를 통해 Micah Zimmerman이 보도했습니다."
+  summary="MicroStrategy(MSTR)가 BlackRock의 iShares Bitcoin Trust(IBIT)가 보유한 Bitcoin 수량을 곧 추월할 것으로 보입니다. 이 소식은 Bitcoin Magazine를 통해 Micah Zimmerman이 보도했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-MicroStrategy(MSTR)가 BlackRock의 iShares Bitcoin Trust(IBIT)가 보유한 비트코인 수량을 곧 추월할 것으로 보입니다. 이 소식은 Bitcoin Magazine를 통해 Micah Zimmerman이 보도했습니다.
+MicroStrategy(MSTR)가 BlackRock의 iShares Bitcoin Trust(IBIT)가 보유한 Bitcoin 수량을 곧 추월할 것으로 보입니다. 이 소식은 Bitcoin Magazine를 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 
@@ -388,7 +388,7 @@ MicroStrategy(MSTR)가 BlackRock의 iShares Bitcoin Trust(IBIT)가 보유한 비
 
 ### P2 (30일 내)
 
-- **Ranking Engineer Agent (REA): 메타의 광고 랭킹 혁신을 가속화하는 자율 AI 에이전트** 관련 AI 보안 정책 검토
+- **Ranking Engineer Agent (REA): Meta의 광고 랭킹 혁신을 가속화하는 자율 AI 에이전트** 관련 AI 보안 정책 검토
 - 클라우드 인프라 보안 설정 정기 감사
 - 암호화폐/블록체인 관련 컴플라이언스 점검
 ## 이번 주 다이제스트

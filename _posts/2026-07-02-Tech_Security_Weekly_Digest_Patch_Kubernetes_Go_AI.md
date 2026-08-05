@@ -65,7 +65,7 @@ summary_card:
 | 🔒 **Security** | The Hacker News | 19세 Scattered Spider 용의자, 미국 해킹 혐의로 미국 송환 | 🟡 Medium |
 | 🔒 **Security** | The Hacker News | SEO에 중독된 소프트웨어 사이트, ScreenConnect 악용해 AsyncRAT 유포 | 🟡 Medium |
 | 🤖 **AI/ML** | Google AI Blog | 2026년 6월에 발표한 최신 AI 뉴스 | 🟡 Medium |
-| 🤖 **AI/ML** | Meta Engineering Blo | 메타의 대규모 AI 스토리지 청사진 | 🟡 Medium |
+| 🤖 **AI/ML** | Meta Engineering Blo | Meta의 대규모 AI 스토리지 청사진 | 🟡 Medium |
 | 🤖 **AI/ML** | Google AI Blog | 뉴욕시 교육자와 업계 리더들이 Google 사무소에 모여 교실에서의 AI 미래를 논의했다 | 🟡 Medium |
 | ☁️ **Cloud** | Google Cloud Blog | SOCRadar, AlloyDB 및 Gemini Enterprise로 신속한 위협 탐지 강화 | 🟡 Medium |
 | ☁️ **Cloud** | Google Cloud Blog | AlloyDB AI Functions - 이제 혁신적인 성능 향상과 비용 절감 효과 제공 | 🟡 Medium |
@@ -207,21 +207,21 @@ DevSecOps 파이프라인 및 운영 환경에 미치는 주요 위험:
   title="2026년 6월에 발표한 최신 AI 뉴스"
   url="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/260701_ICYMI-June-AI_Thumb.max-600x600.format-webp.webp"
-  summary="2026년 6월, 구글은 Pixel Drop 업데이트를 통해 새로운 AI 기능들을 발표했습니다. 이번 업데이트는 Pixel 기기 사용자들을 위한 다양한 AI 기반 개선 사항을 포함하고 있습니다."
+  summary="2026년 6월, Google은 Pixel Drop 업데이트를 통해 새로운 AI 기능들을 발표했습니다. 이번 업데이트는 Pixel 기기 사용자들을 위한 다양한 AI 기반 개선 사항을 포함하고 있습니다."
   source="Google AI Blog"
   severity="Medium"
 %}
 
 #### 요약
 
-2026년 6월, 구글은 Pixel Drop 업데이트를 통해 새로운 AI 기능들을 발표했습니다. 이번 업데이트는 Pixel 기기 사용자들을 위한 다양한 AI 기반 개선 사항을 포함하고 있습니다.
+2026년 6월, Google은 Pixel Drop 업데이트를 통해 새로운 AI 기능들을 발표했습니다. 이번 업데이트는 Pixel 기기 사용자들을 위한 다양한 AI 기반 개선 사항을 포함하고 있습니다.
 
 ---
 
-### 2.2 메타의 대규모 AI 스토리지 청사진
+### 2.2 Meta의 대규모 AI 스토리지 청사진
 
 {% include news-card.html
-  title="메타의 대규모 AI 스토리지 청사진"
+  title="Meta의 대규모 AI 스토리지 청사진"
   url="https://engineering.fb.com/2026/07/01/data-infrastructure/metas-ai-storage-blueprint-at-scale/"
   summary="최근 몇 년간 AI 모델 성능과 학습 데이터셋 크기가 기하급수적으로 증가했으며, 최첨단 모델 출시 주기는 수개월에서 수주로 단축되었습니다. Meta는 이러한 AI 혁신의 속도와 계산 비용 최적화를 위해 안정적이고 빠른 스토리지 접근이 중요하다고 강조하며, 대규모 AI 스토리지 청사진을 제시했습니다."
   source="Meta Engineering Blog"
@@ -391,7 +391,7 @@ Bitcoin Magazine의 The 2036 Issue에서 Frank Corva가 Jeff Booth와의 인터�
 
 ---
 
-### 5.3 Moody’s, 트럼프 명령 이후 비트코인 및 디지털 자산에 대한 양자 위협 경고
+### 5.3 Moody’s, 트럼프 명령 이후 Bitcoin 및 디지털 자산에 대한 양자 위협 경고
 
 {% include news-card.html
   title="Moody's, 트럼프 명령 이후 비트코인 및 디지털 자산에 대한 양자 위협 경고"
@@ -443,7 +443,7 @@ Moody's는 트럼프 대통령의 양자 컴퓨팅 행정명령이 Bitcoin과 �
 - [ ] **VEIL#DROP 멀웨어 체인, Blogger 플랫폼 활용해 PureLogs Stealer 유포** 관련 보안 검토 및 모니터링
 - [ ] **Ousaban Banking Trojan, 가짜 PDF 미끼로 이베리아 은행 사용자 노려** 관련 보안 검토 및 모니터링
 - [ ] **NVIDIA와 파트너사, 미국을 위해 미국에서 제작하다** 관련 보안 검토 및 모니터링
-- [ ] **AI의 비트코인 순간: 오픈소스 싸움이 2014년의 암호화폐를 닮은 이유** 관련 보안 검토 및 모니터링
+- [ ] **AI의 Bitcoin 순간: 오픈소스 싸움이 2014년의 암호화폐를 닮은 이유** 관련 보안 검토 및 모니터링
 
 ### P2 (30일 내)
 
