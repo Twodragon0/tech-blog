@@ -219,29 +219,31 @@ hcl
 
 ---
 
-## 10. 이번 주 DevSecOps 실천 체크리스트
+## 실무 체크리스트
+
+**이번 주 DevSecOps 실천**
 
 ### 긴급 (0-24시간)
 
-- Microsoft Office 긴급 패치 적용
-- Grist-Core 사용 시 즉시 업데이트
-- IoT 기기 네트워크 격리 검토
+- [ ] Microsoft Office 긴급 패치 적용
+- [ ] Grist-Core 사용 시 즉시 업데이트
+- [ ] IoT 기기 네트워크 격리 검토
 
 ### 높음 (1-7일)
 
-- Oracle Critical Patch Update 적용 계획
-- IoT 기기 인벤토리 및 보안 점검
-- AI 에이전트 사용 시 보안 가이드라인 수립
+- [ ] Oracle Critical Patch Update 적용 계획
+- [ ] IoT 기기 인벤토리 및 보안 점검
+- [ ] AI 에이전트 사용 시 보안 가이드라인 수립
 
 ### 보통 (1-4주)
 
-- AWS G7e 인스턴스 AI 워크로드 마이그레이션 검토
-- ChatGPT 컨테이너 활용 정책 수립
-- Kimi K2.5 등 오픈소스 AI 모델 평가
+- [ ] AWS G7e 인스턴스 AI 워크로드 마이그레이션 검토
+- [ ] ChatGPT 컨테이너 활용 정책 수립
+- [ ] Kimi K2.5 등 오픈소스 AI 모델 평가
 
 ---
 
-## 11. 결론 및 다음 주 전망
+## 2. 결론 및 다음 주 전망
 
 ### 이번 주 핵심 요약
 

@@ -449,7 +449,7 @@ Terraform 상태 파일에는 리소스 ID, IP 주소, 자격 증명 등 민감 
 
 ---
 
-## 5. FinOps 보안 통합 뉴스
+#### 5. FinOps 보안 통합 뉴스
 
 ### 5.1 FinOps Foundation, 클라우드 비용 최적화와 보안 통합 프레임워크 발표
 
@@ -470,9 +470,9 @@ Terraform 상태 파일에는 리소스 ID, IP 주소, 자격 증명 등 민감 
 
 ---
 
-## 요약 및 핵심 시사점
+#### 요약 및 핵심 시사점
 
-### 이번 주 핵심 키워드
+#### 이번 주 핵심 키워드
 
 | 키워드 | 주요 내용 | 대응 우선순위 |
 |--------|----------|--------------|
@@ -484,7 +484,9 @@ Terraform 상태 파일에는 리소스 ID, IP 주소, 자격 증명 등 민감 
 | **클라우드 보안** | GKE Autopilot 정책 우회, Azure Entra ID 레거시 인증 | P1 - 7일 이내 |
 | **AI 보안 강화** | 프롬프트 격리, 다국어 탈옥 방어 | P1 - 7일 이내 |
 
-### DevSecOps 팀 액션 아이템
+## 실무 체크리스트
+
+**DevSecOps 팀 액션 아이템**
 
 ```bash
 # 1. IngressNightmare 취약점 점검
@@ -506,7 +508,7 @@ grep -r "actions/cache@\|actions/upload-artifact@" .github/workflows/
 az ad sign-in-activity list --filter "clientAppUsed eq 'Exchange ActiveSync'"
 ```
 
-### 다음 주 주목할 이벤트
+## 다음 주 주목할 이벤트
 
 - **KubeCon EU 2026** (3월 31일 ~ 4월 3일): Kubernetes 보안 관련 신규 발표 예정
 - **NIST AI RMF 2.0 드래프트**: AI 리스크 관리 프레임워크 업데이트 공개 검토 시작

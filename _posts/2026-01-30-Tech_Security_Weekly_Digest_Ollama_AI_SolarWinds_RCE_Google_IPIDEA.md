@@ -296,7 +296,7 @@ SDK-Based Proxy Infection Process:
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 
-## 5. OT/에너지 시스템 사이버보안 실태 (OMICRON 조사)
+## 4. OT/에너지 시스템 사이버보안 실태 (OMICRON 조사)
 
 ### 조사 개요
 
@@ -347,7 +347,7 @@ Internet → [Firewall L1] → IT Network (VLAN 10-30)
 
 ---
 
-## 6. 추가 뉴스
+## 5. 추가 뉴스
 
 ### SK Shieldus 1월 보고서
 
@@ -380,33 +380,35 @@ Mozilla가 AI 독점에 반대하는 "AI Rebel Alliance"를 결성했습니다. 
 
 ---
 
-## 7. DevSecOps 실무 가이드
+## 실무 체크리스트
+
+**DevSecOps 가이드**
 
 ### P0 - 긴급 (0-24시간)
 
-- SolarWinds WHD 패치: WHD 2026.1 즉시 적용 (CVSS 9.8 x4건)
-- SolarWinds WHD 격리: 패치 불가 시 외부 접근 즉시 차단, WAF 규칙 적용
-- Ollama 접근 제어: 인터넷 노출 인스턴스 확인 및 인증/방화벽 적용
-- IPIDEA IoC 스캔: 내부 네트워크에서 IPIDEA 관련 도메인/프로세스 탐지
+- [ ] SolarWinds WHD 패치: WHD 2026.1 즉시 적용 (CVSS 9.8 x4건)
+- [ ] SolarWinds WHD 격리: 패치 불가 시 외부 접근 즉시 차단, WAF 규칙 적용
+- [ ] Ollama 접근 제어: 인터넷 노출 인스턴스 확인 및 인증/방화벽 적용
+- [ ] IPIDEA IoC 스캔: 내부 네트워크에서 IPIDEA 관련 도메인/프로세스 탐지
 
 ### P1 - 높음 (1-7일)
 
-- Ollama 보안 강화: 리버스 프록시 + 인증, rate limiting, 불필요 API 엔드포인트 차단
-- IPIDEA 감염 장비: Android TV 박스 및 모바일 장비 점검, Play Protect 강제 활성화
-- OT/ICS IDS 배포: 에너지 시설 네트워크 IDS 배포 (30분 내 가시성 확보)
-- IT/OT 세그멘테이션: 플랫 네트워크 구조 세그멘테이션 계획 수립
+- [ ] Ollama 보안 강화: 리버스 프록시 + 인증, rate limiting, 불필요 API 엔드포인트 차단
+- [ ] IPIDEA 감염 장비: Android TV 박스 및 모바일 장비 점검, Play Protect 강제 활성화
+- [ ] OT/ICS IDS 배포: 에너지 시설 네트워크 IDS 배포 (30분 내 가시성 확보)
+- [ ] IT/OT 세그멘테이션: 플랫 네트워크 구조 세그멘테이션 계획 수립
 
 ### P2 - 보통 (1-4주)
 
-- AI 위협 탐지 파이프라인: Microsoft 워크플로우 참고하여 자체 TTP 추출 자동화 구축
-- OT 자산 인벤토리: 미등록 장비(IP 카메라, 프린터) 발굴 및 관리 체계 수립
-- OT 취약점 패치: CVE-2015-5374 등 미패치 장비 업데이트 또는 보상 통제 적용
-- AI 도구 데이터 정책: CISA 사례 참고, AI 도구에 민감 데이터 업로드 금지 정책 수립
-- JWT 보안 점검: JWT 서명 키 관리 상태 점검 및 키 교체 정책 수립
+- [ ] AI 위협 탐지 파이프라인: Microsoft 워크플로우 참고하여 자체 TTP 추출 자동화 구축
+- [ ] OT 자산 인벤토리: 미등록 장비(IP 카메라, 프린터) 발굴 및 관리 체계 수립
+- [ ] OT 취약점 패치: CVE-2015-5374 등 미패치 장비 업데이트 또는 보상 통제 적용
+- [ ] AI 도구 데이터 정책: CISA 사례 참고, AI 도구에 민감 데이터 업로드 금지 정책 수립
+- [ ] JWT 보안 점검: JWT 서명 키 관리 상태 점검 및 키 교체 정책 수립
 
 ---
 
-## 8. 참고 자료
+## 6. 참고 자료
 
 | 분류 | 자료 | URL |
 |------|------|-----|

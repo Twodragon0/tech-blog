@@ -735,14 +735,14 @@
     }
   },
   "2026-01-24-Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker.md": {
-    "total": 80,
+    "total": 90,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 0,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -780,14 +780,14 @@
     }
   },
   "2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e.md": {
-    "total": 81,
+    "total": 91,
     "scores": {
       "front_matter": 13,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -825,14 +825,14 @@
     }
   },
   "2026-01-29-Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent.md": {
-    "total": 83,
+    "total": 93,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -840,14 +840,14 @@
     }
   },
   "2026-01-30-Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA.md": {
-    "total": 84,
+    "total": 94,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -896,14 +896,14 @@
     }
   },
   "2026-02-01-Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet.md": {
-    "total": 83,
+    "total": 93,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -1477,14 +1477,14 @@
     }
   },
   "2026-03-04-Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin.md": {
-    "total": 83,
+    "total": 93,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -1537,14 +1537,14 @@
     }
   },
   "2026-03-07-Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps.md": {
-    "total": 85,
+    "total": 95,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
