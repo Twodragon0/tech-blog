@@ -14,9 +14,10 @@ this module converts markers instead:
     R3  item-region '- [ ] x'                          ->  '- x'
     R4  remaining top-level '## N.' sections           ->  renumbered 1..N
     R5  '## N. 실무 체크리스트'                         ->  '## 실무 체크리스트'
+    R6  global-checklist plain '- x'                   ->  '- [ ] x'
 
-APPLY ORDER: R5, R1, R2, R3, R4. Two hard constraints, both found empirically by
-the unit tests (the first draft had them backwards):
+APPLY ORDER: R5, R1, R2, R3, R6, R4. Constraints found empirically by the unit
+tests and by CI (the first draft had the first two backwards and lacked R6):
 
   * R5 BEFORE R1 — TOP_SECTION_RE only recognizes the UNNUMBERED
     '## 실무 체크리스트', so while the legacy numbered form is still present R1
@@ -28,8 +29,19 @@ the unit tests (the first draft had them backwards):
     leaves a gap: '## 1. 보안' + '## 3. 실무 체크리스트' + '## 7. AI/ML' becomes
     [1, 3] (still broken) instead of [1, 2].
 
+  * R6 AFTER R5 — R6 anchors on the canonical '## 실무 체크리스트' heading, which
+    R5 is what produces for the numbered legacy form.
+
 R1 vs R2 is order-INDEPENDENT: _RESP_HEADING_RE spans '#{1,4}', so it catches the
-heading whether or not R1 has already demoted it to '####'.
+heading whether or not R1 has already demoted it to '####'. R3 vs R6 likewise:
+their scopes are disjoint (item regions vs the global checklist section).
+
+WHY R6 EXISTS: R3 strips the per-item checkboxes, and in the legacy corpus those
+were the ONLY '- [ ]' in the file — so validate_post_quality.validate_checklists
+(which scores the document-wide count) dropped 2026-03-22 from 91 to 83 and broke
+the frozen quality baseline. Rather than regenerate the baseline to accept the
+drop, R6 converges the legacy global checklist on the form the CURRENT generator
+already emits ('- [ ]', verified on the 2026-08-01/08-04 digests).
 
 backfill_digest_structure.py and scripts/news/** are NOT modified. See
 docs/superpowers/specs/2026-08-04-digest-structure-backfill-design.md and
@@ -166,6 +178,48 @@ def renumber_sections(text: str) -> str:
     return front + "\n".join(out)
 
 
+_CHECKLIST_HEADING_RE = re.compile(r"^##\s+실무 체크리스트\s*$")
+_TOP_HEADING_RE = re.compile(r"^##\s+")
+_PLAIN_BULLET_RE = re.compile(r"^-\s+(?!\[)(.*)$")
+
+
+def checkbox_global_checklist(text: str) -> str:
+    """R6: inside the global '## 실무 체크리스트', plain '- x' becomes '- [ ] x'.
+
+    Not cosmetic — it resolves a genuine conflict between two gates:
+
+      * check_digest_structure treats a per-item '- [ ]' as a defect (R3 removes
+        the marker), and in the legacy corpus those per-item boxes were the ONLY
+        checkboxes in the file.
+      * validate_post_quality.validate_checklists scores the document-wide '- [ ]'
+        count (>=5 -> full 10). So R3 alone dropped 2026-03-22 from 91 to 83 and
+        broke the frozen quality baseline.
+
+    The fix is to converge on the canonical form instead of accepting the drop:
+    the current generator emits '- [ ]' under '## 실무 체크리스트' (verified on the
+    2026-08-01 and 2026-08-04 digests); only the legacy posts use plain bullets
+    there. Marker-only, so still lossless.
+
+    Scoped to column-0 bullets in that one section — nested bullets and every
+    other section are untouched. Runs after R5 so the heading is already canonical.
+    """
+    front, body = _split_front_matter(text)
+    out = []
+    in_checklist = False
+    for line in body.split("\n"):
+        if _CHECKLIST_HEADING_RE.match(line):
+            in_checklist = True
+            out.append(line)
+            continue
+        if in_checklist and _TOP_HEADING_RE.match(line):
+            in_checklist = False
+            out.append(line)
+            continue
+        m = _PLAIN_BULLET_RE.match(line) if in_checklist else None
+        out.append(f"- [ ] {m.group(1)}" if m else line)
+    return front + "\n".join(out)
+
+
 _NUMBERED_CHECKLIST_RE = re.compile(r"^##\s+\d+\.\s*(실무 체크리스트)\s*$")
 
 
@@ -189,10 +243,11 @@ def canonicalize_checklist_heading(text: str) -> str:
 
 # See the APPLY ORDER note in the module docstring — R5 must lead, R4 must trail.
 _RULES = (
-    canonicalize_checklist_heading,  # R5 — first: unblocks R1 and frees R4's index
+    canonicalize_checklist_heading,  # R5 — first: unblocks R1/R6 and frees R4's index
     demote_item_headings,            # R1
     boldify_response_checklist,      # R2 (order vs R1 is irrelevant)
     unbox_item_checkboxes,           # R3
+    checkbox_global_checklist,       # R6 — after R5 (needs canonical heading)
     renumber_sections,               # R4 — last: counts only genuine sections
 )
 

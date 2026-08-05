@@ -15,6 +15,7 @@ from restore_digest_structure import (  # noqa: E402
     TOP_SECTION_RE,
     boldify_response_checklist,
     canonicalize_checklist_heading,
+    checkbox_global_checklist,
     demote_item_headings,
     lossless_tokens,
     main,
@@ -162,6 +163,49 @@ def test_leaves_plain_checklist_heading_alone():
 def test_does_not_touch_other_numbered_sections():
     out = canonicalize_checklist_heading(_FM + "## 3. 보안 뉴스\n")
     assert "## 3. 보안 뉴스" in out
+
+
+# --- R6: global checklist plain bullet -> checkbox ---------------------------
+
+
+def test_checkboxes_global_checklist_bullets():
+    """R3가 per-item 체크박스를 없애면 레거시 파일에는 '- [ ]' 가 하나도 남지 않아
+    validate_post_quality.validate_checklists 점수가 떨어진다(03-22: 91→83).
+    현재 생성기는 전역 체크리스트에 '- [ ]' 를 쓰므로 레거시를 그 형태로 수렴시킨다.
+    """
+    body = "## 실무 체크리스트\n\n### P0 (즉시)\n\n- **긴급 패치** 확인\n- 모니터링 강화\n"
+    out = checkbox_global_checklist(_FM + body)
+    assert "- [ ] **긴급 패치** 확인" in out
+    assert "- [ ] 모니터링 강화" in out
+
+
+def test_does_not_double_box_existing_checkboxes():
+    body = "## 실무 체크리스트\n- [ ] 이미 체크박스\n"
+    out = checkbox_global_checklist(_FM + body)
+    assert "- [ ] 이미 체크박스" in out
+    assert "- [ ] [ ]" not in out
+
+
+def test_does_not_touch_bullets_outside_the_checklist_section():
+    body = "## 1. 보안 뉴스\n- 일반 불릿\n## 실무 체크리스트\n- 체크리스트 항목\n"
+    out = checkbox_global_checklist(_FM + body)
+    assert "- 일반 불릿" in out  # 다른 섹션은 불변
+    assert "- [ ] 체크리스트 항목" in out
+
+
+def test_checklist_section_closes_at_next_top_heading():
+    body = "## 실무 체크리스트\n- 항목\n## 참고 자료\n- 링크\n"
+    out = checkbox_global_checklist(_FM + body)
+    assert "- [ ] 항목" in out
+    assert "- 링크" in out and "- [ ] 링크" not in out
+
+
+def test_does_not_box_nested_bullets():
+    # 들여쓴 하위 불릿은 체크박스로 바꾸지 않는다 (canonical 생성기는 column-0만 씀).
+    body = "## 실무 체크리스트\n- 상위 항목\n  - 하위 설명\n"
+    out = checkbox_global_checklist(_FM + body)
+    assert "- [ ] 상위 항목" in out
+    assert "  - 하위 설명" in out
 
 
 # --- transform(): composition, lossless invariant, order --------------------
