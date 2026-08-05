@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-04T01:33:46.497093+00:00",
+  "updated_at": "2026-08-05T01:47:55.444337+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/fakegit-campaign-uses-7600-github.html",
-      "title": "FakeGit Campaign Uses 7,600 GitHub Repositories to Spread SmartLoader Malware",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/exposed-server-reveals-ai-assisted.html",
-      "title": "Exposed Server Reveals AI-Assisted Phishing Toolkit Behind WebDAV Malware Campai",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/introducing-the-amazon-guardduty-investigation-agent-on-demand-ai-powered-threat-assessment/",
-      "title": "Introducing the Amazon GuardDuty investigation agent: on-demand AI-powered threa",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/hollowgraph-malware-hides-c2-and-stolen.html",
-      "title": "HollowGraph Malware Hides C2 and Stolen Files in Microsoft 365 Events Dated 2050",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/weekly-recap-wordpress-rce-sonicwall-0.html",
-      "title": "⚡ Weekly Recap: WordPress RCE, SonicWall 0-Days, AI Service Attacks, SharePoint ",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/siggraph-news-2026/",
-      "title": "At SIGGRAPH, NVIDIA Advances Graphics and Simulation With Agentic and Physical A",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/bristol-myers-squibb-building-life-science-industrys-most-advanced-ai-factory-on-nvidia-vera-rubin/",
-      "title": "Bristol Myers Squibb Building Life Science Industry’s Most Advanced AI Factory o",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://openai.com/index/safety-alignment-long-horizon-models",
-      "title": "Safety and alignment in an era of long-horizon models",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/custom-os-installation-now-available-on-aws-deepracer-devices/",
-      "title": "Custom OS installation now available on AWS DeepRacer devices",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-specialized-agent-workflows-for-your-business-with-amazon-quick-and-nvidia-nemo-agent-toolkit/",
-      "title": "Build specialized agent workflows for your business with Amazon Quick and NVIDIA",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/partners/panasonic-automotive-vskipgen-runs-on-axion-based-c4a-metal/",
-      "title": "Accelerating automotive innovation with C4A-metal and Panasonic Automotive vSkip",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/serverless/cloud-run-multi-region-services-enhanced-for-high-availability/",
-      "title": "Making highly available, multi-region Cloud Run services just got easier",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-one-click-lambda-setup-prompt-openai-gpt-5-6-models-on-bedrock-and-more-july-20-2026/",
-      "title": "AWS Weekly Roundup: One-click Lambda setup prompt, OpenAI GPT-5.6 models on Bedr",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-20-ai-credit-pools-for-cost-centers-in-the-billing-ui",
-      "title": "AI credit pools for cost centers in the billing UI",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available",
-      "title": "GitHub Code Quality is now generally available",
-      "published_date": "2026-07-21",
-      "expires_at": "2026-07-28T01:51:36.232980+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/apple-fixes-hide-my-email-bug-that.html",
       "title": "Apple Fixes Hide My Email Bug That Exposed Real Addresses in Mail Logs",
@@ -1260,6 +1170,96 @@
       "title": "Enterprise team specialization for managed settings",
       "published_date": "2026-08-04",
       "expires_at": "2026-08-11T01:33:46.496987+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/08/04/chaindrop-supply-chain-compromise-anatomy-self-propagating-worm/",
+      "title": "ChainDrop supply chain compromise: Anatomy of a self-propagating worm",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/greatness-phaas-adds-device-code.html",
+      "title": "Greatness PhaaS Adds Device Code Phishing to Bypass MFA and Steal Tokens",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/",
+      "title": "OpenAI, Anthropic AI agents targeted real people and systems in cyber tests",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/keyv-linked-npm-worm-poisons-hundreds.html",
+      "title": "Keyv-Linked npm Worm Poisons Hundreds of Packages, Plants Claude Code and VS Cod",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/fake-adobe-and-zoom-updates-install.html",
+      "title": "Fake Adobe and Zoom Updates Install ScreenConnect for Persistent Remote Access",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://openai.com/index/third-party-cyber-evaluations-involving-openai-models",
+      "title": "Third-party cyber evaluations involving OpenAI models",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nsf-state-regional-ai-hub-program/",
+      "title": "NVIDIA Joins NSF State and Regional AI Hubs Program to Expand AI Research and Ed",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/alpamayo-2-super-open-model-now-available/",
+      "title": "NVIDIA Alpamayo 2 Super, the Frontier Open Model for Robotaxis and Autonomous Ve",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-storage-fms/",
+      "title": "As AI Increases Demands on Memory, Storage Steps Up",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance-contributions/",
+      "title": "AI Leaders Propose SAFE Guidelines for Cybersecurity Transparency",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/deep-dive-on-new-ai-powered-database-agents/",
+      "title": "Introducing Database Operations Agents: The future of autonomous database manage",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/retail/how-target-rebuilt-retail-discovery-with-spanner-graph/",
+      "title": "How Target is enhancing retail discovery and cutting database maintenance by 50%",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/automating-postgres-translations-with-database-migration-service/",
+      "title": "Multiple result sets: How Database Migration Service automates SQL server to Pos",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/financial-services/unlocking-agility-in-banking-with-an-api-ready-ecosystem-at-deutsche-bank/",
+      "title": "How Deutsche Bank unlocked agility with an API-ready ecosystem",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/chrome-enterprise/future-mode-part-2-the-foundation-for-securing-agentic-browsing/",
+      "title": "Future Mode Part 2: The foundation for securing agentic browsing",
+      "published_date": "2026-08-05",
+      "expires_at": "2026-08-12T01:47:55.444243+00:00"
     }
   ]
 }
