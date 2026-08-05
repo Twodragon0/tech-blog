@@ -99,9 +99,9 @@ summary_card:
   severity="Medium"
 %}
 
-# DevSecOps 관점에서의 AWS 크립토 마이닝 탐지 및 방지 분석
+#### DevSecOps 관점에서의 AWS 크립토 마이닝 탐지 및 방지 분석
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 크립토 마이닝 공격은 공격자가 탈취한 AWS 자격 증명을 이용해 고성능 컴퓨팅 리소스(EC2, ECS, Lambda)를 악용하는 클라우드 특화 위협이다. AWS 환경에서는 주로 다음과 같은 경로로 발생한다:
 
@@ -111,7 +111,7 @@ summary_card:
 
 GuardDuty는 **CryptoCurrency:EC2/BitcoinTool.B!DNS**와 같은 탐지 규칙을 통해 DNS 쿼리 패턴, 비정상 네트워크 트래픽, CPU 사용률 급증 등을 분석한다. 특히 AWS의 위협 인텔리전스와 머신러닝 기반 이상 탐지를 활용해 기존 시그니처 기반 탐지의 한계를 보완한다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 DevSecOps 관점에서 이 위협은 세 가지 핵심 영역에 영향을 미친다:
 
@@ -121,13 +121,13 @@ DevSecOps 관점에서 이 위협은 세 가지 핵심 영역에 영향을 미�
 
 CI/CD 파이프라인에 GuardDuty 결과를 통합하고, Terraform/Pulumi 같은 IaC 도구로 사전 예방 정책을 코드화하는 것이 중요하다. 예를 들어, EC2 인스턴스에 불필요한 퍼블릭 IP 할당을 제한하는 정책을 IaC에 포함시킬 수 있다.
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] **GuardDuty 활성화 및 자동 대응 설정**: GuardDuty를 모든 리전에 활성화하고, 탐지 시 EventBridge → Lambda → 자동 격리(보안 그룹 차단, 인스턴스 중지) 워크플로우를 구축
+- **GuardDuty 활성화 및 자동 대응 설정**: GuardDuty를 모든 리전에 활성화하고, 탐지 시 EventBridge → Lambda → 자동 격리(보안 그룹 차단, 인스턴스 중지) 워크플로우를 구축
 - [ **IAM 권한 최소화 및 자격 증명 모니터링**: IAM Access Analyzer로 권한 오버프로비저닝을 정기적으로 감사하고, GitHub Secrets Scanning이나 AWS Secrets Manager로 시크릿 노출을 실시간 탐지
-- [ ] **네트워크 아웃바운드 제어**: VPC Flow Logs 분석과 함께, 허용된 도메인만 접근 가능한 DNS 필터링(예: Route 53 Resolver DNS Firewall) 적용 및 불필요한 이그레스 트래픽 차단
-- [ ] **비용 이상 알림 구축**: AWS Budgets와 Cost Anomaly Detection을 연동해 일일/주간 비용 임계치 초과 시 자동 알림 및 리소스 격리 트리거 설정
-- [ ] **CI/CD 파이프라인 보안 강화**: CodeBuild/CodePipeline에 `aws:SourceIdentity` 조건 키를 적용하고, 파이프라인 내 임시 자격 증명만 사용하도록 IAM Role 기반 인증으로 전환
+- **네트워크 아웃바운드 제어**: VPC Flow Logs 분석과 함께, 허용된 도메인만 접근 가능한 DNS 필터링(예: Route 53 Resolver DNS Firewall) 적용 및 불필요한 이그레스 트래픽 차단
+- **비용 이상 알림 구축**: AWS Budgets와 Cost Anomaly Detection을 연동해 일일/주간 비용 임계치 초과 시 자동 알림 및 리소스 격리 트리거 설정
+- **CI/CD 파이프라인 보안 강화**: CodeBuild/CodePipeline에 `aws:SourceIdentity` 조건 키를 적용하고, 파이프라인 내 임시 자격 증명만 사용하도록 IAM Role 기반 인증으로 전환
 
 ---
 
@@ -142,9 +142,9 @@ CI/CD 파이프라인에 GuardDuty 결과를 통합하고, Terraform/Pulumi 같�
   severity="High"
 %}
 
-# Microsoft MDASH AI 시스템 분석 (DevSecOps 관점)
+#### Microsoft MDASH AI 시스템 분석 (DevSecOps 관점)
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 Microsoft의 MDASH(Multi-model Agentic Scanning Harness)는 다중 AI 모델 기반의 취약점 발견 및 자동 수정 시스템으로, 기존의 정적/동적 분석 도구와 달리 **모델-비구속적(model-agnostic)** 접근법을 취합니다. 각 취약점 유형별로 특화된 AI 에이전트가 독립적으로 동작하며, 16개의 Windows 취약점을 발견한 사례에서 알 수 있듯이 **기존 시그니처 기반 탐지의 한계를 극복**합니다.
 
@@ -152,7 +152,7 @@ DevSecOps 관점에서 중요한 점은 MDASH가 **CI/CD 파이프라인 내에�
 
 위협 측면에서는 MDASH가 **제로데이 취약점 발견 가능성을 높이지만**, 동시에 공격자들이 유사한 AI 기반 시스템을 활용할 경우 **공격 속도와 정확도가 급증**할 수 있다는 점을 고려해야 합니다. 또한 AI 모델의 **환각(hallucination) 및 오탐(false positive)** 문제는 여전히 해결해야 할 과제입니다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 DevSecOps 실무자에게 MDASH는 다음과 같은 영향을 미칩니다:
 
@@ -163,13 +163,13 @@ DevSecOps 실무자에게 MDASH는 다음과 같은 영향을 미칩니다:
 
 특히 **멀티모델 아키텍처**는 기존 단일 AI 도구보다 유연하지만, 모델 간 결과 충돌이나 중복 분석 문제를 해결하기 위한 **조정(Orchestration) 레이어**가 중요해집니다.
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] MDASH 도입 검토 시 **파이프라인 내 AI 에이전트 통합을 위한 PoC 계획** 수립 (기존 SAST/DAST 도구와 병행 테스트)
-- [ ] AI 모델 결과의 **오탐률 측정 및 임계치 설정** 프로세스 정의 (예: CVSS 7.0 이상만 자동 차단)
-- [ ] MDASH 에이전트별 **권한 모델 및 격리 정책** 수립 (에이전트가 소스코드에 접근하는 범위 제한)
-- [ ] AI 기반 취약점 발견 결과에 대한 **인간 검증 워크플로우** 설계 (자동화된 확인 후 수동 승인 단계 포함)
-- [ ] MDASH 로그 및 결정 과정에 대한 **감사 추적성 확보** 방안 마련 (규제 준수 및 사후 분석용)
+- MDASH 도입 검토 시 **파이프라인 내 AI 에이전트 통합을 위한 PoC 계획** 수립 (기존 SAST/DAST 도구와 병행 테스트)
+- AI 모델 결과의 **오탐률 측정 및 임계치 설정** 프로세스 정의 (예: CVSS 7.0 이상만 자동 차단)
+- MDASH 에이전트별 **권한 모델 및 격리 정책** 수립 (에이전트가 소스코드에 접근하는 범위 제한)
+- AI 기반 취약점 발견 결과에 대한 **인간 검증 워크플로우** 설계 (자동화된 확인 후 수동 승인 단계 포함)
+- MDASH 로그 및 결정 과정에 대한 **감사 추적성 확보** 방안 마련 (규제 준수 및 사후 분석용)
 
 ---
 
@@ -183,13 +183,13 @@ DevSecOps 실무자에게 MDASH는 다음과 같은 영향을 미칩니다:
   severity="Medium"
 %}
 
-# DevSecOps 관점 분석: AWS Responsible AI GRC User Guide
+#### DevSecOps 관점 분석: AWS Responsible AI GRC User Guide
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 AWS가 금융 서비스 산업(FSI)을 대상으로 업데이트한 Responsible AI GRC 사용자 가이드는 AI 모델의 생애주기 전반에 걸친 거버넌스, 위험, 규정 준수 프레임워크를 제시한다. 주요 기술적 배경으로는 AI/ML 파이프라인의 자동화(포트폴리오 관리, 모기지 재조정, 보험료 협상)가 증가하면서 **모델 편향성, 데이터 프라이버시 위반, 규제 미준수** 등의 위협이 대두된다. 특히 DevSecOps 관점에서 CI/CD 파이프라인에 AI 모델이 통합될 경우, 모델 버전 관리 부재, 학습 데이터의 무결성 손상, 배포 후 모델 드리프트 등이 심각한 보안 위험으로 작용할 수 있다. 또한 FSI는 GDPR, PCI DSS, SOX 등 엄격한 규제를 받으므로, AI 결정에 대한 **설명 가능성(Explainability)** 및 **감사 가능성(Auditability)** 확보가 필수적이다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 DevSecOps 실무자에게 이 가이드는 **AI 모델을 코드(Code), 인프라(Infrastructure), 규정(Compliance)과 동등한 수준의 관리 대상**으로 취급해야 함을 시사한다. 기존 DevSecOps 파이프라인에 AI GRC를 통합하려면:
 - **모델 보안 스캐닝** (편향성, 적대적 공격 취약점)을 CI/CD 게이트에 추가
@@ -199,13 +199,13 @@ DevSecOps 실무자에게 이 가이드는 **AI 모델을 코드(Code), 인프�
 
 이로 인해 파이프라인 복잡성이 증가하지만, 사고 발생 시 규제 제재와 평판 손실을 예방할 수 있다.
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] CI/CD 파이프라인에 **AI 모델 보안 스캐너** (예: AWS SageMaker Clarify)를 통합하여 편향성 및 적대적 공격 취약점을 사전 탐지
-- [ ] **모델 배포 전 규정 준수 검증 자동화** (AWS Config 규칙 + Lambda를 활용한 GDPR/PCI DSS 체크)
-- [ ] **모델 드리프트 탐지 및 롤백 자동화** (Amazon SageMaker Model Monitor + CloudWatch Events 기반 알림 및 자동 롤백)
-- [ ] **모든 AI 관련 결정에 대한 감사 추적** (AWS CloudTrail + SageMaker 추론 로그를 중앙 로깅 시스템에 연동)
-- [ ] **DevSecOps 팀 대상 Responsible AI 교육** (모델 편향성, 데이터 프라이버시, 규제 대응 절차 포함)
+- CI/CD 파이프라인에 **AI 모델 보안 스캐너** (예: AWS SageMaker Clarify)를 통합하여 편향성 및 적대적 공격 취약점을 사전 탐지
+- **모델 배포 전 규정 준수 검증 자동화** (AWS Config 규칙 + Lambda를 활용한 GDPR/PCI DSS 체크)
+- **모델 드리프트 탐지 및 롤백 자동화** (Amazon SageMaker Model Monitor + CloudWatch Events 기반 알림 및 자동 롤백)
+- **모든 AI 관련 결정에 대한 감사 추적** (AWS CloudTrail + SageMaker 추론 로그를 중앙 로깅 시스템에 연동)
+- **DevSecOps 팀 대상 Responsible AI 교육** (모델 편향성, 데이터 프라이버시, 규제 대응 절차 포함)
 
 ---
 

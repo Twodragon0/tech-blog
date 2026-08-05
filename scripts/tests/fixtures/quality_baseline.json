@@ -2748,14 +2748,14 @@
     }
   },
   "2026-05-25-Tech_Security_Weekly_Digest_AI_Ethereum_Blockchain.md": {
-    "total": 92,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 10,
+      "checklists": 6,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
