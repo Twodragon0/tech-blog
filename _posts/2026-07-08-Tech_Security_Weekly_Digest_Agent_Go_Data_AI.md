@@ -101,9 +101,9 @@ summary_card:
   severity="High"
 %}
 
-# RedWing MaaS Android Bank Fraud 분석 (DevSecOps 관점)
+#### RedWing MaaS Android Bank Fraud 분석 (DevSecOps 관점)
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 RedWing은 Telegram 기반의 MaaS(Malware-as-a-Service) 모델로, 기존 Oblivion 악성코드의 변종으로 추정됩니다. 주요 기술적 특징은 다음과 같습니다:
 
@@ -114,7 +114,7 @@ RedWing은 Telegram 기반의 MaaS(Malware-as-a-Service) 모델로, 기존 Obliv
 
 이러한 위협은 기존의 단순 피싱을 넘어, 실시간 2FA(이중 인증) 우회가 가능하다는 점에서 심각합니다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 DevSecOps 환경에서 RedWing의 영향은 다음과 같습니다:
 
@@ -123,13 +123,13 @@ DevSecOps 환경에서 RedWing의 영향은 다음과 같습니다:
 - **규제 준수 리스크 증가**: GDPR, PSD2 등 금융 규제에서 요구하는 강력한 인증 체계가 무력화될 가능성
 - **사용자 신뢰 손실**: 앱 스토어 평점 하락 및 법적 소송 위험
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] **모바일 앱 보안 강화**: 금융 앱에 런타임 무결성 검사(루트/에뮬레이터 탐지) 및 접근성 서비스 악용 탐지 로직 추가
-- [ ] **CI/CD 파이프라인 내 모바일 보안 테스트 자동화**: OWASP MASVS 기반 정적/동적 분석 도구(예: MobSF, Drozer)를 통합하여 악성코드 변종 탐지
-- [ ] **운영 환경 모니터링 확장**: 모바일 디바이스 이상 행동(비정상 SMS 전송, 접근성 서비스 활성화)을 SIEM에 수집하고 알림 규칙 설정
-- [ ] **2FA 우회 대비**: SMS OTP 대신 FIDO2 기반 하드웨어 키 또는 생체 인증 도입 검토 (앱 내부 인증 흐름 변경)
-- [ ] **사용자 보안 교육 강화**: 앱 내에서 "접근성 서비스 권한 요청 시 의심" 등 구체적인 피싱 시나리오를 포함한 시뮬레이션 교육 실시
+- **모바일 앱 보안 강화**: 금융 앱에 런타임 무결성 검사(루트/에뮬레이터 탐지) 및 접근성 서비스 악용 탐지 로직 추가
+- **CI/CD 파이프라인 내 모바일 보안 테스트 자동화**: OWASP MASVS 기반 정적/동적 분석 도구(예: MobSF, Drozer)를 통합하여 악성코드 변종 탐지
+- **운영 환경 모니터링 확장**: 모바일 디바이스 이상 행동(비정상 SMS 전송, 접근성 서비스 활성화)을 SIEM에 수집하고 알림 규칙 설정
+- **2FA 우회 대비**: SMS OTP 대신 FIDO2 기반 하드웨어 키 또는 생체 인증 도입 검토 (앱 내부 인증 흐름 변경)
+- **사용자 보안 교육 강화**: 앱 내에서 "접근성 서비스 권한 요청 시 의심" 등 구체적인 피싱 시나리오를 포함한 시뮬레이션 교육 실시
 
 ---
 
@@ -144,9 +144,9 @@ DevSecOps 환경에서 RedWing의 영향은 다음과 같습니다:
   severity="Critical"
 %}
 
-# DevSecOps 관점 분석: Google Dialogflow CX Rogue Agent Flaw
+#### DevSecOps 관점 분석: Google Dialogflow CX Rogue Agent Flaw
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 해당 취약점은 Google Dialogflow CX의 **Code Block 기능**에서 발생한 권한 분리 실패로, 동일한 GCP 프로젝트 내에서 하나의 에이전트에 편집 권한을 가진 공격자가 다른 Code Block 기반 에이전트를 **가로챌 수 있는** 문제입니다. 이는 **Agent-to-Agent 권한 경계가 부재**했기 때문이며, 공격자는 다음을 수행할 수 있었습니다:
 
@@ -156,7 +156,7 @@ DevSecOps 환경에서 RedWing의 영향은 다음과 같습니다:
 
 핵심은 **동일 프로젝트 내 리소스 간 격리 실패**로, 이는 마이크로서비스 아키텍처에서 흔히 발생하는 **수평적 권한 상승(Horizontal Privilege Escalation)** 패턴입니다. Code Block이 서로 다른 에이전트 간에 공유되는 실행 컨텍스트를 가졌을 가능성이 높습니다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 DevSecOps 관점에서 이 취약점은 **CI/CD 파이프라인 전반에 걸친 보안 통제의 허점**을 드러냅니다:
 
@@ -167,13 +167,13 @@ DevSecOps 관점에서 이 취약점은 **CI/CD 파이프라인 전반에 걸친
 
 특히 **CI/CD 파이프라인에서 자동화된 보안 스캔**이 Agent 레벨까지 확장되지 않았다면 이 취약점은 프로덕션 환경까지 무사히 통과했을 것입니다.
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] **Agent별 IAM 역할 최소화**: Dialogflow CX 에이전트 간 `dialogflow.agents.update` 권한을 분리하고, 프로젝트 단위가 아닌 에이전트 단위로 서비스 계정을 할당
-- [ ] **Code Block 실행 컨텍스트 격리 확인**: GCP 감사 로그(audit logs)를 통해 Code Block이 서로 다른 샌드박스에서 실행되는지 주기적으로 검증
-- [ ] **대화 데이터 암호화 및 접근 통제**: Dialogflow CX의 `sessionInfo.parameters`와 같은 민감 데이터가 Code Block 내에서 암호화되어 저장/전송되도록 CMEK(고객 관리 암호화 키) 적용
-- [ ] **CI/CD 파이프라인에 Agent 보안 스캔 추가**: `gcloud alpha dialogflow cx agents list` 명령어를 활용해 모든 에이전트의 Code Block 설정을 정기적으로 스캔하고, 정책 위반 시 빌드 실패 처리
-- [ ] **비정상 Agent 행동 탐지 규칙 수립**: Agent 간 예상치 못한 대화 전송 또는 대량의 session 조회가 발생할 경우 Cloud Monitoring 알림 설정
+- **Agent별 IAM 역할 최소화**: Dialogflow CX 에이전트 간 `dialogflow.agents.update` 권한을 분리하고, 프로젝트 단위가 아닌 에이전트 단위로 서비스 계정을 할당
+- **Code Block 실행 컨텍스트 격리 확인**: GCP 감사 로그(audit logs)를 통해 Code Block이 서로 다른 샌드박스에서 실행되는지 주기적으로 검증
+- **대화 데이터 암호화 및 접근 통제**: Dialogflow CX의 `sessionInfo.parameters`와 같은 민감 데이터가 Code Block 내에서 암호화되어 저장/전송되도록 CMEK(고객 관리 암호화 키) 적용
+- **CI/CD 파이프라인에 Agent 보안 스캔 추가**: `gcloud alpha dialogflow cx agents list` 명령어를 활용해 모든 에이전트의 Code Block 설정을 정기적으로 스캔하고, 정책 위반 시 빌드 실패 처리
+- **비정상 Agent 행동 탐지 규칙 수립**: Agent 간 예상치 못한 대화 전송 또는 대량의 session 조회가 발생할 경우 Cloud Monitoring 알림 설정
 
 ---
 
@@ -188,9 +188,9 @@ DevSecOps 관점에서 이 취약점은 **CI/CD 파이프라인 전반에 걸친
   severity="High"
 %}
 
-# DEBULL Tooling의 Microsoft Device-Code Flow 악용 사례 분석
+#### DEBULL Tooling의 Microsoft Device-Code Flow 악용 사례 분석
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 해당 공격은 **Microsoft Device-Code Flow**의 설계 특성을 악용한 피싱 캠페인이다. Device-Code Flow는 일반적으로 브라우저가 제한된 디바이스(예: IoT, CLI)에서 인증을 위해 사용되며, 사용자가 별도의 디바이스에서 코드를 입력해 로그인하는 방식이다. 공격자는 다음과 같은 기술적 허점을 활용했다:
 
@@ -200,7 +200,7 @@ DevSecOps 관점에서 이 취약점은 **CI/CD 파이프라인 전반에 걸친
 
 이 공격은 MFA(다중 인증)가 적용된 계정도 우회 가능하다는 점에서 심각하다. 사용자는 정상적인 Microsoft 로그인 과정을 거치므로, 기존의 피싱 탐지 로직(URL 평판, 가짜 페이지 감지)이 무력화된다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 DevSecOps 실무자 관점에서 이 위협은 **CI/CD 파이프라인, 자동화 스크립트, 서비스 계정**에 직접적인 영향을 미친다:
 
@@ -209,13 +209,13 @@ DevSecOps 실무자 관점에서 이 위협은 **CI/CD 파이프라인, 자동�
 - **사용자 교육의 한계**: 합법적인 Microsoft 페이지를 사용하므로, 전통적인 피싱 인식 교육만으로는 대응 불가
 - **제로 트러스트 원칙 위반**: Device-Code Flow는 디바이스 검증 없이 코드만으로 인증되므로, 네트워크 위치 기반 보안 정책이 무력화됨
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] **Device-Code Flow 사용 제한**: Azure AD 조건부 액세스 정책에서 Device-Code Flow를 차단하거나, 특정 신뢰 디바이스/앱에만 허용
-- [ ] **로그 모니터링 강화**: Azure AD 로그에서 `deviceCode` 인증 유형의 비정상적인 빈도나 지리적 불일치를 탐지하는 커스텀 알림 규칙 생성
-- [ ] **세션 토큰 수명 단축**: M365 서비스의 접근 토큰 만료 시간을 최소화하고, 리프레시 토큰 재사용을 방지하는 정책 적용
-- [ ] **CI/CD 파이프라인 인증 방식 전환**: Device-Code Flow를 사용하는 자동화 스크립트를 OAuth 2.0 클라이언트 자격 증명(Client Credentials) 방식으로 마이그레이션
-- [ ] **사용자 인식 개선**: "합법적인 로그인 화면이라도 의심스러운 코드 입력 요청"에 대한 시나리오 기반 보안 교육 실시
+- **Device-Code Flow 사용 제한**: Azure AD 조건부 액세스 정책에서 Device-Code Flow를 차단하거나, 특정 신뢰 디바이스/앱에만 허용
+- **로그 모니터링 강화**: Azure AD 로그에서 `deviceCode` 인증 유형의 비정상적인 빈도나 지리적 불일치를 탐지하는 커스텀 알림 규칙 생성
+- **세션 토큰 수명 단축**: M365 서비스의 접근 토큰 만료 시간을 최소화하고, 리프레시 토큰 재사용을 방지하는 정책 적용
+- **CI/CD 파이프라인 인증 방식 전환**: Device-Code Flow를 사용하는 자동화 스크립트를 OAuth 2.0 클라이언트 자격 증명(Client Credentials) 방식으로 마이그레이션
+- **사용자 인식 개선**: "합법적인 로그인 화면이라도 의심스러운 코드 입력 요청"에 대한 시나리오 기반 보안 교육 실시
 
 ---
 

@@ -2853,14 +2853,14 @@
     }
   },
   "2026-06-01-Tech_Security_Weekly_Digest_Botnet.md": {
-    "total": 92,
+    "total": 90,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 10,
+      "checklists": 8,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -3048,14 +3048,14 @@
     }
   },
   "2026-06-14-Tech_Security_Weekly_Digest_AI_Go.md": {
-    "total": 93,
+    "total": 91,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 10,
+      "checklists": 8,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -3153,14 +3153,14 @@
     }
   },
   "2026-06-21-Tech_Security_Weekly_Digest_API_Ransomware_AI_Bitcoin.md": {
-    "total": 93,
+    "total": 91,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 10,
+      "checklists": 8,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -3168,14 +3168,14 @@
     }
   },
   "2026-06-22-Tech_Security_Weekly_Digest_Threat_AI_Security.md": {
-    "total": 92,
+    "total": 90,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 10,
+      "checklists": 8,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -3273,14 +3273,14 @@
     }
   },
   "2026-06-29-Tech_Security_Weekly_Digest_AI_Data_Ethereum_AWS.md": {
-    "total": 91,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 10,
+      "checklists": 8,
       "tables": 10,
       "code_blocks": 9,
       "cross_refs": 0,
@@ -3363,14 +3363,14 @@
     }
   },
   "2026-07-05-Tech_Security_Weekly_Digest_AI_Data_Go_Ransomware.md": {
-    "total": 93,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 10,
+      "checklists": 6,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -3378,14 +3378,14 @@
     }
   },
   "2026-07-06-Tech_Security_Weekly_Digest_AI_Agent_AWS.md": {
-    "total": 92,
+    "total": 90,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 10,
+      "checklists": 8,
       "tables": 10,
       "code_blocks": 9,
       "cross_refs": 0,
