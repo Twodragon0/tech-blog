@@ -104,9 +104,9 @@ redirect_from:
   severity="High"
 %}
 
-# DevSecOps 실무자 관점에서의 PyTorch Lightning 공급망 공격 분석
+#### DevSecOps 실무자 관점에서의 PyTorch Lightning 공급망 공격 분석
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 해당 공격은 PyTorch Lightning 패키지(pypi)의 유지보수자 계정 또는 CI/CD 파이프라인이 탈취되어 악성 버전 2.6.2, 2.6.3이 배포된 전형적인 **공급망 공격(Supply Chain Attack)** 입니다. 공격자는 정상적인 패키지 업데이트 과정을 악용하여 인증 정보 탈취를 목적으로 한 악성 코드를 삽입했습니다. 주요 특징은 다음과 같습니다.
 
@@ -116,7 +116,7 @@ redirect_from:
 
 이와 유사한 Intercom-client 공격도 동일한 전략으로 추정되며, 두 사례 모두 **패키지 서명 검증 부재**, **변경 이력 추적 불가**, **단일 실패 지점(유지보수자 계정)** 등의 취약점을 공유합니다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 DevSecOps 실무자 입장에서 이번 사건은 다음과 같은 즉각적이고 장기적인 영향을 미칩니다.
 
@@ -125,13 +125,13 @@ DevSecOps 실무자 입장에서 이번 사건은 다음과 같은 즉각적이�
 - **의존성 트리 확산**: PyTorch Lightning에 의존하는 상위 패키지(예: Lightning-Fabric, PyTorch Lightning Bolts)까지 영향 범위가 확대될 수 있음
 - **사고 대응 복잡성**: 악성 버전이 이미 설치된 환경을 식별하고, 유출된 자격 증명을 모두 교체해야 하는 대규모 사고 대응 필요
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] **패키지 버전 고정 및 해시 검증 설정**: `requirements.txt` 또는 `pyproject.toml`에 PyTorch Lightning 버전을 `==2.6.1` 이하로 고정하고, `pip install --require-hashes` 옵션으로 패키지 해시를 사전 검증하도록 CI/CD 파이프라인에 적용
-- [ ] **사내 PyPI 미러/프록시 구축**: 외부 PyPI에 직접 접근하지 않고, 사내 저장소(예: Nexus, Artifactory)를 통해 패키지 다운로드 시 자동 취약점 스캔 및 서명 검증 정책 적용
-- [ ] **CI/CD 시크릿 순환 및 감사 로그 분석**: 악성 버전이 설치된 기간(2026년 4월 30일 이후) 동안 실행된 모든 CI/CD 파이프라인 로그를 분석하고, 사용된 모든 API 키, 토큰, 인증서를 즉시 교체
-- [ ] **공급망 보안 툴 도입**: Dependabot, Snyk, Trivy 등으로 의존성 트리에서 악성 패키지가 발견된 경우 자동 차단 및 알림 설정
-- [ ] **사고 대응 훈련 시나리오 업데이트**: 공급망 공격 시나리오를 포함한 모의 훈련을 정기적으로 실시하여 패키지 변조 탐지, 격리, 복구 절차를 숙지
+- **패키지 버전 고정 및 해시 검증 설정**: `requirements.txt` 또는 `pyproject.toml`에 PyTorch Lightning 버전을 `==2.6.1` 이하로 고정하고, `pip install --require-hashes` 옵션으로 패키지 해시를 사전 검증하도록 CI/CD 파이프라인에 적용
+- **사내 PyPI 미러/프록시 구축**: 외부 PyPI에 직접 접근하지 않고, 사내 저장소(예: Nexus, Artifactory)를 통해 패키지 다운로드 시 자동 취약점 스캔 및 서명 검증 정책 적용
+- **CI/CD 시크릿 순환 및 감사 로그 분석**: 악성 버전이 설치된 기간(2026년 4월 30일 이후) 동안 실행된 모든 CI/CD 파이프라인 로그를 분석하고, 사용된 모든 API 키, 토큰, 인증서를 즉시 교체
+- **공급망 보안 툴 도입**: Dependabot, Snyk, Trivy 등으로 의존성 트리에서 악성 패키지가 발견된 경우 자동 차단 및 알림 설정
+- **사고 대응 훈련 시나리오 업데이트**: 공급망 공격 시나리오를 포함한 모의 훈련을 정기적으로 실시하여 패키지 변조 탐지, 격리, 복구 절차를 숙지
 
 ---
 
@@ -146,9 +146,9 @@ DevSecOps 실무자 입장에서 이번 사건은 다음과 같은 즉각적이�
   severity="Medium"
 %}
 
-# DevSecOps 실무자 관점 보안 뉴스 분석
+#### DevSecOps 실무자 관점 보안 뉴스 분석
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 본 뉴스레터는 4가지 주요 위협을 강조합니다:
 
@@ -157,7 +157,7 @@ DevSecOps 실무자 입장에서 이번 사건은 다음과 같은 즉각적이�
 - **600K Roblox 계정 탈취**: 크리덴셜 스터핑 공격으로 약 60만 개 계정이 유출되었습니다. 이는 사용자 비밀번호 재사용 관행과 취약한 인증 체계를 악용한 사례입니다.
 - **비밀번호 없는 서버 100만 대 이상**: 인터넷에 노출된 Redis, MongoDB, Elasticsearch 등이 기본 인증 없이 운영 중입니다. 이는 클라우드/온프레미스 환경의 설정 오류(Configuration Drift) 문제를 단적으로 보여줍니다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 DevSecOps 관점에서 다음 영향을 고려해야 합니다:
 
@@ -166,13 +166,13 @@ DevSecOps 관점에서 다음 영향을 고려해야 합니다:
 - **인증 체계 취약**: Roblox 사례는 MFA 도입 및 세션 관리 개선 필요성을 재확인. DevSecOps는 IaC(Infrastructure as Code) 내 인증 정책 자동화 검증 필수
 - **설정 오류 탐지**: 비밀번호 없는 서버 문제는 Terraform/Ansible 등 IaC 코드 리뷰와 정기적 클라우드 보안 스캐닝(예: AWS Config, Azure Policy)으로 예방 가능
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] **CI/CD 파이프라인에 SMS/피싱 탐지 게이트 추가**: 의존성 스캔(Snyk, Trivy)과 함께 개발자 이메일/메신저 기반 피싱 시뮬레이션 교육 도입
-- [ ] **OpenEMR 등 의료 시스템 대상 DAST/SAST 스캔 주기적 실행**: 취약점 발견 시 패치 적용 자동화 파이프라인 구축 및 HIPAA 규정 준수 확인
-- [ ] **모든 서비스에 MFA 강제 적용 및 세션 관리 감사 로깅 활성화**: IaC 코드에 MFA 정책을 포함하고, 비정상 로그인 시 알림 설정
-- [ ] **클라우드/온프레미스 인프라 대상 비밀번호 누락 서버 주간 스캔**: AWS Trusted Advisor, Azure Security Center, 자체 스크립트를 활용한 설정 오류 자동 탐지 및 수정 워크플로우 구축
-- [ ] **개발자 로컬 환경 보안 강화**: 악성 npm/PyPI 패키지 차단을 위한 사설 레지스트리 사용 및 `npm audit`, `pip-audit`을 pre-commit 훅에 포함
+- **CI/CD 파이프라인에 SMS/피싱 탐지 게이트 추가**: 의존성 스캔(Snyk, Trivy)과 함께 개발자 이메일/메신저 기반 피싱 시뮬레이션 교육 도입
+- **OpenEMR 등 의료 시스템 대상 DAST/SAST 스캔 주기적 실행**: 취약점 발견 시 패치 적용 자동화 파이프라인 구축 및 HIPAA 규정 준수 확인
+- **모든 서비스에 MFA 강제 적용 및 세션 관리 감사 로깅 활성화**: IaC 코드에 MFA 정책을 포함하고, 비정상 로그인 시 알림 설정
+- **클라우드/온프레미스 인프라 대상 비밀번호 누락 서버 주간 스캔**: AWS Trusted Advisor, Azure Security Center, 자체 스크립트를 활용한 설정 오류 자동 탐지 및 수정 워크플로우 구축
+- **개발자 로컬 환경 보안 강화**: 악성 npm/PyPI 패키지 차단을 위한 사설 레지스트리 사용 및 `npm audit`, `pip-audit`을 pre-commit 훅에 포함
 
 ---
 
@@ -187,9 +187,9 @@ DevSecOps 관점에서 다음 영향을 고려해야 합니다:
   severity="High"
 %}
 
-# DevSecOps 실무자 관점 분석: DEEP#DOOR Python Backdoor
+#### DevSecOps 실무자 관점 분석: DEEP#DOOR Python Backdoor
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 DEEP#DOOR는 Python 기반의 백도어 프레임워크로, 공격 체인이 `install_obf.bat` 배치 스크립트 실행으로 시작됩니다. 이 스크립트는 Windows 보안 제어(예: Windows Defender, AMSI, UAC)를 비활성화한 후, 난독화된 Python 페이로드를 동적으로 추출하여 실행합니다. 주요 특징은 다음과 같습니다.
 
@@ -199,7 +199,7 @@ DEEP#DOOR는 Python 기반의 백도어 프레임워크로, 공격 체인이 `in
 
 DevSecOps 관점에서 이 위협은 **공급망 공격(Supply Chain Attack)과 CI/CD 파이프라인 침투** 가능성이 있습니다. Python 패키지 의존성, 내부 도구 스크립트, 또는 개발자 워크스테이션을 통해 유입될 경우, 클라우드 인프라 자격 증명이 노출되어 전체 환경이 위험에 빠질 수 있습니다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 | 영향 영역 | 구체적 위험 | DevSecOps 대응 필요성 |
 |-----------|-------------|----------------------|
@@ -210,13 +210,13 @@ DevSecOps 관점에서 이 위협은 **공급망 공격(Supply Chain Attack)과 
 
 특히 **Python 기반**이라는 점에서, 파이프라인에서 사용하는 `pip install` 또는 `requirements.txt`를 통한 의존성 오염(예: typo-squatting)이 주요 진입 경로가 될 수 있습니다.
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] **CI/CD 파이프라인 Python 의존성 스캐닝 강화**: `pip-audit`, `safety` 또는 `Trivy`를 사용하여 모든 Python 패키지의 취약점 및 알려진 악성 패키지 탐지
-- [ ] **클라우드 자격 증명 순환 및 최소 권한 정책 적용**: 모든 서비스 계정(Service Account)에 대해 90일 주기 키 순환 정책 시행, `aws iam rotate-access-key` 등 자동화 스크립트 배포
-- [ ] **터널링 서비스 차단 정책 수립**: 방화벽/프록시에서 알려진 터널링 서비스 도메인(ngrok.com, serveo.net 등) 아웃바운드 차단 및 TLS 트래픽 복호화 검사
-- [ ] **엔드포인트 보안 설정 강화**: Windows Defender 실시간 보호 비활성화 방지 정책(Group Policy) 적용, PowerShell 스크립트 실행 제한(`ExecutionPolicy Restricted`)
-- [ ] **비정상 Python 프로세스 모니터링 알림 구축**: `sysmon` 또는 OSQuery를 통해 `python.exe -c` 인라인 실행, 배치 스크립트(`*.bat`) 실행 시 경보 발생
+- **CI/CD 파이프라인 Python 의존성 스캐닝 강화**: `pip-audit`, `safety` 또는 `Trivy`를 사용하여 모든 Python 패키지의 취약점 및 알려진 악성 패키지 탐지
+- **클라우드 자격 증명 순환 및 최소 권한 정책 적용**: 모든 서비스 계정(Service Account)에 대해 90일 주기 키 순환 정책 시행, `aws iam rotate-access-key` 등 자동화 스크립트 배포
+- **터널링 서비스 차단 정책 수립**: 방화벽/프록시에서 알려진 터널링 서비스 도메인(ngrok.com, serveo.net 등) 아웃바운드 차단 및 TLS 트래픽 복호화 검사
+- **엔드포인트 보안 설정 강화**: Windows Defender 실시간 보호 비활성화 방지 정책(Group Policy) 적용, PowerShell 스크립트 실행 제한(`ExecutionPolicy Restricted`)
+- **비정상 Python 프로세스 모니터링 알림 구축**: `sysmon` 또는 OSQuery를 통해 `python.exe -c` 인라인 실행, 배치 스크립트(`*.bat`) 실행 시 경보 발생
 
 ---
 

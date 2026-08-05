@@ -90,9 +90,9 @@ summary_card:
   severity="High"
 %}
 
-# DevSecOps 관점 Ghost CMS SQL Injection 취약점 분석
+#### DevSecOps 관점 Ghost CMS SQL Injection 취약점 분석
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 
 Ghost CMS는 Node.js 기반의 오픈소스 블로그 플랫폼으로, 경량화된 구조와 Markdown 지원으로 인기가 높다. 이번에 발견된 CVE-2026-26980은 SQL Injection 취약점으로, 공격자가 인증 없이 악의적인 SQL 쿼리를 주입할 수 있는 심각한 결함이다. 해당 취약점을 통해 공격자는 데이터베이스에서 사용자 세션, API 키, 개인정보 등을 탈취할 수 있다.
 
@@ -101,7 +101,7 @@ Ghost CMS는 Node.js 기반의 오픈소스 블로그 플랫폼으로, 경량화
 2. 피해자가 감염된 사이트 방문 시 JavaScript가 실행되어 ClickFix 페이로드 전달
 3. 사용자의 브라우저에서 추가 악성코드 다운로드 및 실행
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 
 DevSecOps 실무자 관점에서 이 취약점은 **CI/CD 파이프라인, 운영 환경, 모니터링 체계** 전반에 걸쳐 영향을 미친다:
 
@@ -110,13 +110,13 @@ DevSecOps 실무자 관점에서 이 취약점은 **CI/CD 파이프라인, 운�
 - **모니터링**: 데이터베이스에 삽입된 악성 JavaScript는 정적 분석으로 탐지하기 어렵고, 동적 분석(런타임 모니터링)이 필수적이다.
 - **공급망 보안**: Ghost CMS는 npm 패키지로 배포되므로, 취약점 패치가 릴리스되기 전까지 모든 의존성 관리가 중요하다.
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 
-- [ ] Ghost CMS 인스턴스의 현재 버전 확인 후, 공식 패치가 출시되면 즉시 업데이트 (CVE-2026-26980 패치 확인)
-- [ ] WAF에 SQL Injection 방어 규칙 추가 및 ClickFix 관련 JavaScript 패턴 탐지 룰 적용
-- [ ] 데이터베이스 입력값 검증 강화: ORM 사용 시 Prepared Statement 강제, 입력값 화이트리스트 필터링 구현
-- [ ] CI/CD 파이프라인에서 취약점 스캐너(예: Trivy, Snyk)를 통해 Ghost CMS 이미지 스캔 후 배포 차단
-- [ ] 운영 환경에서 데이터베이스 쿼리 로그 및 JavaScript 실행 로그 모니터링 강화, 이상 징후(예: 갑작스러운 세션 생성) 알림 설정
+- Ghost CMS 인스턴스의 현재 버전 확인 후, 공식 패치가 출시되면 즉시 업데이트 (CVE-2026-26980 패치 확인)
+- WAF에 SQL Injection 방어 규칙 추가 및 ClickFix 관련 JavaScript 패턴 탐지 룰 적용
+- 데이터베이스 입력값 검증 강화: ORM 사용 시 Prepared Statement 강제, 입력값 화이트리스트 필터링 구현
+- CI/CD 파이프라인에서 취약점 스캐너(예: Trivy, Snyk)를 통해 Ghost CMS 이미지 스캔 후 배포 차단
+- 운영 환경에서 데이터베이스 쿼리 로그 및 JavaScript 실행 로그 모니터링 강화, 이상 징후(예: 갑작스러운 세션 생성) 알림 설정
 
 #### MITRE ATT&CK 매핑
 
