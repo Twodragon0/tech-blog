@@ -156,9 +156,9 @@ index=llm_api sourcetype=api:request
 
 ![Cloud Infrastructure News Section Banner](/assets/images/section-cloud.svg)
 
-## 5. 2026년 클라우드 전략: 5가지 핵심 변화
+#### 5. 2026년 클라우드 전략: 5가지 핵심 변화
 
-### 한국 영향 분석
+#### 한국 영향 분석
 
 국내 클라우드 전환 현황 (2025년 기준):
 - 클라우드 도입률: 대기업 78%, 중견기업 54%, 중소기업 32%
@@ -202,15 +202,15 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 
 ---
 
-## 6. 실무 체크리스트
+## 실무 체크리스트
 
 ### 6.1 이번 주 필수 점검 항목
 
-- AI 에이전트 보안: 조직 내 NHI 인벤토리 작성 및 동적 자격증명 전환 계획
-- Chrome 보안 업데이트: Enterprise 환경 Chrome 최신 버전 배포
-- Terraform 업그레이드: Stacks 기능 활용을 위한 버전 업그레이드 검토
-- LLM 보안 강화: Prompt Injection 방어 레이어 구현 상태 점검
-- 보안 도구 감사: 현재 사용 중인 보안 도구 목록화 및 통합 기회 식별
+- [ ] AI 에이전트 보안: 조직 내 NHI 인벤토리 작성 및 동적 자격증명 전환 계획
+- [ ] Chrome 보안 업데이트: Enterprise 환경 Chrome 최신 버전 배포
+- [ ] Terraform 업그레이드: Stacks 기능 활용을 위한 버전 업그레이드 검토
+- [ ] LLM 보안 강화: Prompt Injection 방어 레이어 구현 상태 점검
+- [ ] 보안 도구 감사: 현재 사용 중인 보안 도구 목록화 및 통합 기회 식별
 
 ### 6.3 종합 참고 자료 (Comprehensive References)
 
@@ -273,11 +273,11 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 
 ---
 
-## 결론
+#### 결론
 
 2026년 1월 26일의 핵심 트렌드는 AI 에이전트 보안과 인프라 자동화의 진화입니다. HashiCorp의 Zero Trust for Agentic Systems는 AI가 조직의 핵심 워크플로우에 깊이 통합되면서 발생하는 새로운 보안 패러다임을 제시합니다.
 
-### 핵심 인사이트
+#### 핵심 인사이트
 
 | 영역 | 변화 | 실무 영향 |
 |------|------|----------|
@@ -286,7 +286,7 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 | 인프라 코드 | 복잡성 해결 위한 추상화 레이어 등장 | Terraform Stacks로 모노레포 통합 |
 | LLM 보안 | Prompt Injection 방어가 필수 요소 | 다층 방어 아키텍처 구현 필요 |
 
-### 이번 주 액션 아이템
+#### 이번 주 액션 아이템
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
@@ -295,7 +295,7 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 ---
 
 
-## 참고 문헌
+#### 참고 문헌
 
 1. HashiCorp. (2026). "Zero Trust for Agentic Systems: Managing Non-Human Identities at Scale". [Link](https://www.hashicorp.com/blog/zero-trust-for-agentic-systems-managing-non-human-identities-at-scale)
 2. Google. (2025). "Using AI to stop tech support scams in Chrome". [Link](https://security.googleblog.com/2025/05/using-ai-to-stop-tech-support-scams-in.html)
@@ -305,7 +305,7 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 
 ---
 
-## 🔗 관련 포스트
+#### 🔗 관련 포스트
 
 <!-- related-posts:v1 -->
 

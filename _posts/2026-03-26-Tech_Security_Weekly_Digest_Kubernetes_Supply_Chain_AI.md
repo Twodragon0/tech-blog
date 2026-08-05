@@ -100,13 +100,13 @@ summary_card:
   severity="Critical"
 %}
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 Kubernetes 1.28~1.31 버전에서 RBAC(Role-Based Access Control) 인가 모듈의 바인딩 평가 로직에 결함이 발견되었습니다. 공격자는 특수하게 조작된 API 요청을 통해 ClusterRoleBinding의 권한 범위를 우회하여, 네임스페이스 수준의 권한만 가진 사용자가 클러스터 전체 관리자 권한을 획득할 수 있습니다. 이 취약점은 **인증된 사용자라면 누구나 악용 가능**하다는 점에서 특히 위험합니다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 멀티테넌트 Kubernetes 환경에서 이 취약점의 영향은 치명적입니다. 하나의 네임스페이스에 격리된 개발자나 서비스 계정이 클러스터 전체의 Secret, ConfigMap, Pod를 조회/수정/삭제할 수 있게 됩니다. 특히 CI/CD 파이프라인에서 사용하는 서비스 계정이 탈취될 경우, 전체 배포 환경이 위협받을 수 있습니다.
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 - **Kubernetes 버전 즉시 업그레이드**: 영향받는 1.28~1.31 버전에서 패치된 최신 마이너 버전으로 업그레이드합니다.
 - **RBAC 바인딩 전수 감사**: `kubectl get clusterrolebindings -o json`으로 모든 바인딩을 검토하고, 과도한 권한이 부여된 바인딩을 식별합니다.
 - **Admission Controller로 방어 계층 추가**: OPA/Gatekeeper 또는 Kyverno를 활용하여 ClusterRoleBinding 생성/수정을 제한하는 정책을 배포합니다.
@@ -245,6 +245,7 @@ jobs:
 
 AI 에이전트가 기업 환경에 빠르게 도입되면서, 프롬프트 인젝션(Prompt Injection) 공격이 새로운 보안 위협으로 부상하고 있습니다. 2026년 3월 기준, OWASP는 AI 에이전트를 대상으로 한 **간접 프롬프트 인젝션(Indirect Prompt Injection)** 기법을 OWASP Top 10 for LLMs의 1위 위협으로 지정했습니다. 이 공격은 이메일, 웹 페이지, 문서 등 외부 데이터 소스에 악성 프롬프트를 삽입하여 AI 에이전트가 의도하지 않은 동작을 수행하도록 유도합니다.
 
+```python
 # AI 에이전트 프롬프트 인젝션 방어 필터 예시
 import re
 from typing import List
@@ -423,21 +424,21 @@ GitOps 환경에서 ArgoCD와 Kyverno를 조합한 보안 정책 자동화가 �
 
 ### P0 (즉시)
 
-- **Kubernetes RBAC 우회 취약점(CVE-2026-0421)** 긴급 패치 및 영향도 확인
-- Kubernetes 1.28~1.31 버전 사용 여부 확인 및 업그레이드 계획 수립
+- [ ] **Kubernetes RBAC 우회 취약점(CVE-2026-0421)** 긴급 패치 및 영향도 확인
+- [ ] Kubernetes 1.28~1.31 버전 사용 여부 확인 및 업그레이드 계획 수립
 
 ### P1 (7일 내)
 
-- **SLSA/SBOM 도입 현황 점검** 및 빌드 파이프라인 Provenance 생성 설정
-- **AI 에이전트 프롬프트 인젝션 방어** 체계 점검 및 입력 검증 필터 배포
-- **Cilium/eBPF 네트워크 정책** 업데이트 및 L7 정책 적용 검토
-- **Dependabot/Renovate 설정 점검** 및 Critical CVE 자동 머지 정책 구성
+- [ ] **SLSA/SBOM 도입 현황 점검** 및 빌드 파이프라인 Provenance 생성 설정
+- [ ] **AI 에이전트 프롬프트 인젝션 방어** 체계 점검 및 입력 검증 필터 배포
+- [ ] **Cilium/eBPF 네트워크 정책** 업데이트 및 L7 정책 적용 검토
+- [ ] **Dependabot/Renovate 설정 점검** 및 Critical CVE 자동 머지 정책 구성
 
 ### P2 (30일 내)
 
-- **MCP 서버 보안** 가이드라인 적용 및 인증/인가 체계 구현
-- **ArgoCD + Kyverno** 기반 GitOps 보안 정책 자동화 도입
-- 클라우드 인프라 보안 설정 정기 감사
+- [ ] **MCP 서버 보안** 가이드라인 적용 및 인증/인가 체계 구현
+- [ ] **ArgoCD + Kyverno** 기반 GitOps 보안 정책 자동화 도입
+- [ ] 클라우드 인프라 보안 설정 정기 감사
 
 ## 요약 및 다음 단계
 

@@ -350,3 +350,91 @@ def test_shared_regexes_have_not_drifted():
         assert member in TOP_SECTION_RE.pattern, (
             f"TOP_SECTION_RE 에 {member!r} 가 없다 — backfill 쪽과 불일치."
         )
+
+
+# --- R0: code-fence protection ---------------------------------------------
+# Empirically required: without it R1 rewrote bash/yaml/python comments
+# ('# 예시' -> '#### 예시') inside fenced blocks of 2026-03-11 and 2026-03-27
+# during the tier-B/C batches. check_digest_structure._strip_code_fences already
+# ignores fence interiors, so the transformer must too — otherwise it edits code
+# the gate never asked about.
+
+_FENCED_ITEM = (
+    "## 1. 보안 뉴스\n"
+    "### 1.1 기사\n"
+    "```bash\n"
+    "# 현재 인터넷 노출 자산 목록 추출 예시\n"
+    "curl -s https://example.invalid/api\n"
+    "```\n"
+    "본문.\n"
+)
+
+
+def test_r1_does_not_demote_comments_inside_a_code_fence():
+    out = demote_item_headings(_FM + _FENCED_ITEM)
+    assert "# 현재 인터넷 노출 자산 목록 추출 예시" in out
+    assert "#### 현재 인터넷 노출 자산 목록 추출 예시" not in out
+
+
+def test_r2_does_not_boldify_inside_a_code_fence():
+    body = "### 1.1 기사\n```markdown\n## 대응 체크리스트\n```\n"
+    out = boldify_response_checklist(_FM + body)
+    assert "## 대응 체크리스트" in out
+    assert "**대응 체크리스트**" not in out
+
+
+def test_r3_does_not_unbox_inside_a_code_fence():
+    body = "## 1. 보안 뉴스\n### 1.1 기사\n```markdown\n- [ ] 예시 항목\n```\n"
+    out = unbox_item_checkboxes(_FM + body)
+    assert "- [ ] 예시 항목" in out
+
+
+def test_r4_does_not_renumber_inside_a_code_fence():
+    body = "## 1. 보안 뉴스\n```markdown\n## 7. 예시 섹션\n```\n## 5. AI/ML 뉴스\n"
+    out = renumber_sections(_FM + body)
+    assert "## 7. 예시 섹션" in out   # example content untouched
+    assert "## 2. AI/ML 뉴스" in out  # real section still renumbered
+
+
+def test_r5_does_not_canonicalize_inside_a_code_fence():
+    body = "```markdown\n## 9. 실무 체크리스트\n```\n"
+    out = canonicalize_checklist_heading(_FM + body)
+    assert "## 9. 실무 체크리스트" in out
+
+
+def test_r6_does_not_box_bullets_inside_a_code_fence():
+    body = "## 실무 체크리스트\n```bash\n- 예시 불릿\n```\n- 실제 항목\n"
+    out = checkbox_global_checklist(_FM + body)
+    assert "- 예시 불릿" in out
+    assert "- [ ] 예시 불릿" not in out
+    assert "- [ ] 실제 항목" in out
+
+
+def test_indented_closing_fence_closes_the_block():
+    """2026-02-08 uses '  ```' to close. The gate toggles on the STRIPPED line,
+    so the transformer must too — otherwise the fence never closes and the rest
+    of the post is silently treated as code and left untransformed.
+    """
+    body = (
+        "## 1. 보안 뉴스\n"
+        "### 1.1 기사\n"
+        "```bash\n"
+        "  # 예시 주석\n"
+        "  ```\n"
+        "# 실제 H1\n"
+    )
+    out = demote_item_headings(_FM + body)
+    assert "  # 예시 주석" in out       # inside the fence: verbatim
+    assert "#### 실제 H1" in out        # after the indented closer: transformed
+
+
+def test_transform_leaves_fenced_blocks_byte_identical():
+    fenced = (
+        "```python\n"
+        "# GuardDuty 고위험 결과 자동 대응 Lambda 예시\n"
+        "def handler(event, context):\n"
+        "    return {'ok': True}\n"
+        "```\n"
+    )
+    out = transform(_FM + "## 1. 보안 뉴스\n### 1.1 기사\n" + fenced)
+    assert fenced in out

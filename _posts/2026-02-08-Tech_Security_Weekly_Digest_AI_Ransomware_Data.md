@@ -175,7 +175,7 @@ SK쉴더스 EQST 리포트는 실무 중심의 상세한 분석과 기술적 가
 
 ![Blockchain Web3 News Section Banner](/assets/images/section-blockchain.svg)
 
-## 2. 블록체인 뉴스
+## 1. 블록체인 뉴스
 
 ### 2.1 FOMC 금리 인하 기대감 증가
 
@@ -233,7 +233,7 @@ Tether가 터키 당국과 협력하여 불법 온라인 베팅 사이트와 연
 
 ---
 
-## 3. 기타 주목할 뉴스
+## 2. 기타 주목할 뉴스
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
@@ -242,7 +242,7 @@ Tether가 터키 당국과 협력하여 불법 온라인 베팅 사이트와 연
 
 ---
 
-## 4. 한국 규제 준수 매핑
+## 3. 한국 규제 준수 매핑
 
 이번 주 위협에 대한 한국 규제 대응 요구사항입니다.
 
@@ -276,7 +276,7 @@ ISMS-P (BlackField 랜섬웨어 관련)
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 
-## 5. 보안 메트릭 및 KPI
+## 4. 보안 메트릭 및 KPI
 
 | 메트릭 | 정의 | 측정 방법 | 목표 | 벤치마크 |
 |--------|------|----------|------|---------|
@@ -291,7 +291,7 @@ ISMS-P (BlackField 랜섬웨어 관련)
 
 ---
 
-## 6. 업종별 시나리오 분석
+## 5. 업종별 시나리오 분석
 
 ### 시나리오 1: 정부/공공기관 - Signal 피싱 기반 정보 탈취
 
@@ -303,7 +303,7 @@ ISMS-P (BlackField 랜섬웨어 관련)
 
 ---
 
-## 7. 트렌드 분석
+## 6. 트렌드 분석
 
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 | 전주 대비 |
 |--------|-------------|------------|----------|
@@ -331,7 +331,7 @@ BlackField 랜섬웨어의 등장은 LockBit, Conti, BlackCat 등 주요 랜섬�
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 
-## 8. 보안 운영 대시보드
+## 7. 보안 운영 대시보드
 
 <!-- 긴 코드 블록 제거됨 (가독성 향상) -->
 
@@ -353,17 +353,17 @@ BlackField 랜섬웨어의 등장은 LockBit, Conti, BlackCat 등 주요 랜섬�
 
 ---
 
-## 9. 실무 체크리스트
+## 실무 체크리스트
 
 ### P0 (즉시)
 
-- Signal 피싱 대응 - 전사 긴급 공지: QR 코드 스캔 요청 시 응하지 말 것, Signal 연결된 기기 점검 안내
+- [ ] Signal 피싱 대응 - 전사 긴급 공지: QR 코드 스캔 요청 시 응하지 말 것, Signal 연결된 기기 점검 안내
 ```bash
   # Signal 프로세스 및 네트워크 연결 빠른 확인
   ps aux | grep -i signal
   lsof -iTCP -sTCP:ESTABLISHED -n -P | grep -i signal
   ```
-- **BlackField 랜섬웨어 IOC 등록** - SIEM에 BlackField IOC(파일 해시, C2 도메인, .blackfield 확장자) 등록, 백업 시스템 정상 작동 확인
+- [ ] **BlackField 랜섬웨어 IOC 등록** - SIEM에 BlackField IOC(파일 해시, C2 도메인, .blackfield 확장자) 등록, 백업 시스템 정상 작동 확인
 ```bash
   # 백업 검증 및 랜섬웨어 삭제 명령 모니터링
   restic check --repo /backup/immutable 2>/dev/null || echo "Backup check needed"
@@ -372,9 +372,9 @@ BlackField 랜섬웨어의 등장은 LockBit, Conti, BlackCat 등 주요 랜섬�
 
 ### P1 (7일 내)
 
-- **Signal/메시징 앱 보안 정책** - 사용 가이드라인 문서화, 고위험 직군 대상 맞춤형 보안 교육, Phishing 시뮬레이션에 QR 코드 시나리오 추가
-- **랜섬웨어 대응 플레이북 업데이트** - BlackField 변종 특징(코드 재활용, 탐지 회피) 반영, 격리 절차 재점검, Tabletop Exercise 실시
-- **제로트러스트 데이터 보안 현황 점검** - 데이터 분류 체계 재검토, DLP 정책 점검
+- [ ] **Signal/메시징 앱 보안 정책** - 사용 가이드라인 문서화, 고위험 직군 대상 맞춤형 보안 교육, Phishing 시뮬레이션에 QR 코드 시나리오 추가
+- [ ] **랜섬웨어 대응 플레이북 업데이트** - BlackField 변종 특징(코드 재활용, 탐지 회피) 반영, 격리 절차 재점검, Tabletop Exercise 실시
+- [ ] **제로트러스트 데이터 보안 현황 점검** - 데이터 분류 체계 재검토, DLP 정책 점검
 ```bash
   # AWS S3 데이터 분류 태그 점검
   aws s3api list-buckets --query "Buckets[].Name" --output text | tr '\t' '\n' | \
@@ -383,15 +383,15 @@ BlackField 랜섬웨어의 등장은 LockBit, Conti, BlackCat 등 주요 랜섬�
     aws s3api get-bucket-tagging --bucket "$bucket" 2>/dev/null || echo "  No tags"
   done
   ```
-- Vertical AI 보안 요구사항 검토 - AI 도구 도입 시 Prompt Injection, Data Poisoning 방어 점검
+- [ ] Vertical AI 보안 요구사항 검토 - AI 도구 도입 시 Prompt Injection, Data Poisoning 방어 점검
 
 ### P2 (30일 내)
 
-- 데이터 중심 제로트러스트 아키텍처 도입 로드맵 수립 - 데이터 인벤토리 구축, IRM/DLP/CASB 솔루션 선정, ABAC 정책 설계
-- 메시징 앱 보안 가이드라인 전사 배포 - 허용/금지 앱 목록 정의, MDM 강제 차단 정책 적용
-- 공격 표면 인벤토리 갱신 - 외부 노출 자산 스캔, 섀도우 IT 탐지, EPSS 기반 패치 우선순위 조정
-- Immutable 백업 솔루션 도입 - WORM 스토리지 또는 Object Lock 기능 활용, 오프라인 백업 전략 수립
-- 국가지원 위협 TTP 대응 체계 강화 - MITRE ATT&CK 매트릭스 기반 탐지 규칙 추가, Threat Hunting 활동 강화
+- [ ] 데이터 중심 제로트러스트 아키텍처 도입 로드맵 수립 - 데이터 인벤토리 구축, IRM/DLP/CASB 솔루션 선정, ABAC 정책 설계
+- [ ] 메시징 앱 보안 가이드라인 전사 배포 - 허용/금지 앱 목록 정의, MDM 강제 차단 정책 적용
+- [ ] 공격 표면 인벤토리 갱신 - 외부 노출 자산 스캔, 섀도우 IT 탐지, EPSS 기반 패치 우선순위 조정
+- [ ] Immutable 백업 솔루션 도입 - WORM 스토리지 또는 Object Lock 기능 활용, 오프라인 백업 전략 수립
+- [ ] 국가지원 위협 TTP 대응 체계 강화 - MITRE ATT&CK 매트릭스 기반 탐지 규칙 추가, Threat Hunting 활동 강화
 
 ---
 
