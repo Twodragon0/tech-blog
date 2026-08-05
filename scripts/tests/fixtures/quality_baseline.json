@@ -765,14 +765,14 @@
     }
   },
   "2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks.md": {
-    "total": 80,
+    "total": 90,
     "scores": {
       "front_matter": 12,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -810,14 +810,14 @@
     }
   },
   "2026-01-28-Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE.md": {
-    "total": 83,
+    "total": 93,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -1016,14 +1016,14 @@
     }
   },
   "2026-02-06-Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat.md": {
-    "total": 84,
+    "total": 94,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -1046,14 +1046,14 @@
     }
   },
   "2026-02-08-Tech_Security_Weekly_Digest_AI_Ransomware_Data.md": {
-    "total": 84,
+    "total": 94,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
@@ -1597,14 +1597,14 @@
     }
   },
   "2026-03-11-Tech_Security_Weekly_Digest_AI_Agent_Data_Malware.md": {
-    "total": 84,
+    "total": 94,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 9,
       "cross_refs": 0,
@@ -1612,14 +1612,14 @@
     }
   },
   "2026-03-12-Tech_Security_Weekly_Digest_AI_Malware_AWS_Patch.md": {
-    "total": 85,
+    "total": 95,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
