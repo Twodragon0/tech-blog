@@ -254,7 +254,7 @@ AWS CloudTrail과 GuardDuty를 통합하여 클라우드 환경의 위협을 실
 <summary>GuardDuty 고위험 결과 자동 대응 Lambda 함수 예시 (click to expand)</summary>
 
 ```python
-#### GuardDuty 고위험 결과 자동 대응 Lambda 예시
+# GuardDuty 고위험 결과 자동 대응 Lambda 예시
 import json
 import boto3
 import os
@@ -384,7 +384,7 @@ GCP Workload Identity Federation을 적용하면 서비스 계정 키 관리 부
 - Attribute Condition 설정으로 특정 리포지토리/브랜치만 인증 허용
 
 ```yaml
-#### GitHub Actions에서 GCP Workload Identity Federation 사용 예시
+# GitHub Actions에서 GCP Workload Identity Federation 사용 예시
 name: Deploy to GCP
 on:
   push:
@@ -500,7 +500,7 @@ FinOps(Financial Operations) 관점에서 클라우드 비용 최적화는 단�
 <summary>Karpenter NodePool Spot/Graviton 혼합 전략 설정 예시 (click to expand)</summary>
 
 ```yaml
-#### Karpenter NodePool - Spot/Graviton 혼합 전략 예시
+# Karpenter NodePool - Spot/Graviton 혼합 전략 예시
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:

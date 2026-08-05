@@ -16,6 +16,11 @@ this module converts markers instead:
     R5  '## N. 실무 체크리스트'                         ->  '## 실무 체크리스트'
     R6  global-checklist plain '- x'                   ->  '- [ ] x'
 
+R0 (a precondition, not a rewrite): fenced code blocks are verbatim and do not
+move any rule's state machine — see _fence_flags. Added after the tier-B/C
+batches caught R1 rewriting '# 예시' comments to '#### 예시' inside bash / yaml /
+python fences of 2026-03-11 and 2026-03-27.
+
 APPLY ORDER: R5, R1, R2, R3, R6, R4. Constraints found empirically by the unit
 tests and by CI (the first draft had the first two backwards and lacked R6):
 
@@ -81,6 +86,28 @@ TOP_SECTION_RE = re.compile(
 _ANY_HEADING_RE = re.compile(r"^(#{1,4})\s+(.*)$")
 
 
+def _fence_flags(lines: list) -> list:
+    """R0: True for every line the rules must leave verbatim.
+
+    Mirrors check_digest_structure._strip_code_fences: state toggles on the
+    STRIPPED line (2026-02-08 closes its blocks with '  ```'), and both the
+    delimiters and the interior are excluded. Without this, R1 rewrote bash /
+    yaml / python comments ('# 예시' -> '#### 예시') inside fenced examples of
+    2026-03-11 and 2026-03-27 — content the gate never flagged, since it ignores
+    fence interiors. Fenced lines also do not move the item-region state
+    machine, for the same reason.
+    """
+    flags = []
+    in_code = False
+    for ln in lines:
+        if ln.strip().startswith("```"):
+            in_code = not in_code
+            flags.append(True)
+            continue
+        flags.append(in_code)
+    return flags
+
+
 def demote_item_headings(text: str) -> str:
     """R1: inside an item region, demote a stray #/##/### heading to ####.
 
@@ -90,9 +117,14 @@ def demote_item_headings(text: str) -> str:
     The item heading itself is the region delimiter, not part of the body.
     """
     front, body = _split_front_matter(text)
+    lines = body.split("\n")
+    fenced = _fence_flags(lines)
     out = []
     in_item = False
-    for line in body.split("\n"):
+    for i, line in enumerate(lines):
+        if fenced[i]:
+            out.append(line)
+            continue
         if ITEM_HEADING_RE.match(line):
             in_item = True
             out.append(line)
@@ -120,9 +152,11 @@ def boldify_response_checklist(text: str) -> str:
     removing the heading that made it a second checklist surface.
     """
     front, body = _split_front_matter(text)
+    lines = body.split("\n")
+    fenced = _fence_flags(lines)
     out = []
-    for line in body.split("\n"):
-        m = _RESP_HEADING_RE.match(line)
+    for i, line in enumerate(lines):
+        m = None if fenced[i] else _RESP_HEADING_RE.match(line)
         out.append(f"**{m.group(1)}**" if m else line)
     return front + "\n".join(out)
 
@@ -137,9 +171,14 @@ def unbox_item_checkboxes(text: str) -> str:
     '## 실무 체크리스트' are the intended deliverable and must survive.
     """
     front, body = _split_front_matter(text)
+    lines = body.split("\n")
+    fenced = _fence_flags(lines)
     out = []
     in_item = False
-    for line in body.split("\n"):
+    for i, line in enumerate(lines):
+        if fenced[i]:
+            out.append(line)
+            continue
         if ITEM_HEADING_RE.match(line):
             in_item = True
             out.append(line)
@@ -166,10 +205,12 @@ def renumber_sections(text: str) -> str:
     does not consume an index.
     """
     front, body = _split_front_matter(text)
+    lines = body.split("\n")
+    fenced = _fence_flags(lines)
     out = []
     n = 0
-    for line in body.split("\n"):
-        m = _NUMBERED_TOP_RE.match(line)
+    for i, line in enumerate(lines):
+        m = None if fenced[i] else _NUMBERED_TOP_RE.match(line)
         if m:
             n += 1
             out.append(f"## {n}. {m.group(2)}")
@@ -204,9 +245,14 @@ def checkbox_global_checklist(text: str) -> str:
     other section are untouched. Runs after R5 so the heading is already canonical.
     """
     front, body = _split_front_matter(text)
+    lines = body.split("\n")
+    fenced = _fence_flags(lines)
     out = []
     in_checklist = False
-    for line in body.split("\n"):
+    for i, line in enumerate(lines):
+        if fenced[i]:
+            out.append(line)
+            continue
         if _CHECKLIST_HEADING_RE.match(line):
             in_checklist = True
             out.append(line)
@@ -234,9 +280,11 @@ def canonicalize_checklist_heading(text: str) -> str:
     after R4 makes it consume a section index.
     """
     front, body = _split_front_matter(text)
+    lines = body.split("\n")
+    fenced = _fence_flags(lines)
     out = []
-    for line in body.split("\n"):
-        m = _NUMBERED_CHECKLIST_RE.match(line)
+    for i, line in enumerate(lines):
+        m = None if fenced[i] else _NUMBERED_CHECKLIST_RE.match(line)
         out.append(f"## {m.group(1)}" if m else line)
     return front + "\n".join(out)
 
