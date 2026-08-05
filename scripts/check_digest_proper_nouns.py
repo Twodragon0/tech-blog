@@ -102,8 +102,25 @@ _JOSA_ALT = "|".join(sorted(_JOSA, key=len, reverse=True))
 # 메타-하네스 x2 (2026-07-30, prefix sense) and 비트코인-REIT x2 (2026-06-18,
 # genuine Bitcoin). So the rule must be per-entity: a blanket hyphen exclusion
 # would silently skip the two legitimate 비트코인-REIT rewrites.
+#
+# 2026-08-04 — the prefix sense also occurs SPACE-separated, which the hyphen
+# deny alone lets through (a space also satisfies the [^가-힣] branch). Measured
+# across ALL of _posts/, 메타 + separator + token occurs 4x:
+#
+#   SPACE  + 광고의     x3  (2026-07-16, digest)      genuine Meta — must rewrite
+#   SPACE  + 주제입니다  x1  (2026-02-02, NON-digest)  prefix ("메타 주제")
+#   HYPHEN + 하네스     x2  (2026-07-30, digest)      prefix (denied above)
+#
+# NOTE on evidence strength: 2026-02-02-Weekly_Tech_AI_Blockchain_Digest.md is
+# OUTSIDE this guard's scope (_is_digest_post requires "Weekly_Digest" in the
+# filename), so 메타 주제 is NOT a measured false positive *of the guard*. It is
+# kept as a narrow, PREVENTIVE deny because it proves the author does write that
+# phrase, and ai-blogwatcher.yml runs --fix automatically at publish time: the day
+# a cron digest uses it, the body would be silently corrupted to "Meta 주제".
+# The deny is an enumeration of the specific prefix noun, not a blanket "메타 +
+# space" rule — a blanket rule would wrongly skip the 3 genuine 메타 광고 rewrites.
 _ENTITY_DENY = {
-    "메타": r"[-–—]",
+    "메타": r"[-–—]|\s*주제",
 }
 
 # Per-entity matcher: the Hangul form, NOT embedded in a larger Hangul/Latin

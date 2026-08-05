@@ -222,14 +222,14 @@ flowchart TD
   title="두바이, 아시아 암호화폐 허브 1위…대만, 암호화폐 법안 통과: Asia Express"
   url="https://cointelegraph.com/features/asia-express?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://s3-images.ctmedia.io/media/article-covers/asia-express-3.jpg"
-  summary="두바이가 아시아 암호화폐 허브 중 선두를 차지했으며, 대만이 암호화폐 관련 법률을 통과시켰습니다. 일본의 SBI Crypto는 세계 12위 규모의 비트코인 채굴 풀을 폐쇄했고, 러시아는 EU 제재에도 불구하고 디지털 루블 출시를 준비 중입니다."
+  summary="두바이가 아시아 암호화폐 허브 중 선두를 차지했으며, 대만이 암호화폐 관련 법률을 통과시켰습니다. 일본의 SBI Crypto는 세계 12위 규모의 Bitcoin 채굴 풀을 폐쇄했고, 러시아는 EU 제재에도 불구하고 디지털 루블 출시를 준비 중입니다."
   source="Cointelegraph"
   severity="Medium"
 %}
 
 #### 요약
 
-두바이가 아시아 암호화폐 허브 중 선두를 차지했으며, 대만이 암호화폐 관련 법률을 통과시켰습니다. 일본의 SBI Crypto는 세계 12위 규모의 비트코인 채굴 풀을 폐쇄했고, 러시아는 EU 제재에도 불구하고 디지털 루블 출시를 준비 중입니다.
+두바이가 아시아 암호화폐 허브 중 선두를 차지했으며, 대만이 암호화폐 관련 법률을 통과시켰습니다. 일본의 SBI Crypto는 세계 12위 규모의 Bitcoin 채굴 풀을 폐쇄했고, 러시아는 EU 제재에도 불구하고 디지털 루블 출시를 준비 중입니다.
 
 ---
 

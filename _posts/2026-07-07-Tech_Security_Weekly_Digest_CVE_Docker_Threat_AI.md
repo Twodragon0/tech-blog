@@ -381,10 +381,10 @@ Platform Engineering 1.0은 Golden paths를 통한 배포 가속화와 Internal 
 
 ---
 
-### 5.3 USDT, 비트코인으로 복귀: RGB와 UTEXO가 프라이빗 라이트닝 결제를 가능하게 하다
+### 5.3 USDT, Bitcoin으로 복귀: RGB와 UTEXO가 프라이빗 라이트닝 결제를 가능하게 하다
 
 {% include news-card.html
-  title="USDT, 비트코인으로 복귀: RGB와 UTEXO가 프라이빗 라이트닝 결제를 가능하게 하다"
+  title="USDT, Bitcoin으로 복귀: RGB와 UTEXO가 프라이빗 라이트닝 결제를 가능하게 하다"
   url="https://bitcoinmagazine.com/business/usdt-returns-to-bitcoin-rgb-and-utexo-enable-private-lightning-settlements"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/tdn.webp"
   summary="Tether가 지원하는 UTEXO가 Bitcoin 네이티브 USDT를 곧 출시할 예정(7월 중 예상)이며, 클라이언트 측 검증을 통해 Tron이나 Ethereum 대비 수수료와 중개자를 대폭 줄일 것으로 기대됩니다. RGB와 UTEXO는 Lightning Network에서 비공개 결제를 가능하게 합니다. 이는 USDT가 Bitcoin 생태계로 복귀했음을 의미합니다."

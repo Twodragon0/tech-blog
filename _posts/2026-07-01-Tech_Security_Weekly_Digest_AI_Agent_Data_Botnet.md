@@ -65,7 +65,7 @@ summary_card:
 | 🔒 **Security** | The Hacker News | RustDuck Botnet, Rust로 재구축되어 DDoS 공격용 라우터와 서버를 하이재킹하다 | 🟠 High |
 | 🔒 **Security** | The Hacker News | Langflow RCE 취약점 악용, 노출된 AI 앱 엔드포인트에 Monero 채굴기 배포 | 🔴 Critical |
 | 🤖 **AI/ML** | NVIDIA AI Blog | NVIDIA BioNeMo Agent Toolkit, Claude Science에서 생명과학 연구자들에게 가속화된 AI 제공 | 🟡 Medium |
-| 🤖 **AI/ML** | Meta Engineering Blo | 메타의 파이썬 헌신 10년 | 🟠 High |
+| 🤖 **AI/ML** | Meta Engineering Blo | Meta의 파이썬 헌신 10년 | 🟠 High |
 | 🤖 **AI/ML** | NVIDIA AI Blog | NVIDIA의 추론 소프트웨어 스택이 최저 토큰 비용을 구현하는 방법 | 🟠 High |
 | ☁️ **Cloud** | Google Cloud Blog | BigQuery의 대화형 분석으로 모두가 신뢰할 수 있는 에이전틱 추론을 사용할 수 있습니다 | 🟡 Medium |
 | ☁️ **Cloud** | Google Cloud Blog | AlloyDB Omni로 배포 자유와 혁신적 AI를 활용한 금융 서비스 현대화 | 🟡 Medium |
@@ -77,7 +77,7 @@ summary_card:
 ## 경영진 브리핑
 
 - **긴급 대응 필요**: Langflow RCE 취약점 악용, 노출된 AI 앱 엔드포인트에 Monero 채굴기 배포 등 Critical 등급 위협 1건이 확인되었습니다.
-- **주요 모니터링 대상**: Microsoft, 오염된 MCP 도구 설명이 AI 에이전트의 데이터 유출을 초래할 수 있다고 경고, RustDuck Botnet, Rust로 재구축되어 DDoS 공격용 라우터와 서버를 하이재킹하다, 메타의 파이썬 헌신 10년 등 High 등급 위협 6건에 대한 탐지 강화가 필요합니다.
+- **주요 모니터링 대상**: Microsoft, 오염된 MCP 도구 설명이 AI 에이전트의 데이터 유출을 초래할 수 있다고 경고, RustDuck Botnet, Rust로 재구축되어 DDoS 공격용 라우터와 서버를 하이재킹하다, Meta의 파이썬 헌신 10년 등 High 등급 위협 6건에 대한 탐지 강화가 필요합니다.
 
 ## 위험 스코어카드
 
@@ -96,7 +96,7 @@ summary_card:
   title="Microsoft, 오염된 MCP 도구 설명이 AI 에이전트의 데이터 유출을 초래할 수 있다고 경고"
   url="https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbjfrraZ05p0kN5CedcQSOZYouoHGrdpCvi9TGxEZM_9zlXc_juWZ1F8VsvjV9c-iD7Ejgj0V6b0uYwOb9mLpb7ALcOVk53m2ppmg6mDI3qwANc8KZFMt3X7H7fT_Eym3OJijFmr0CZS6yJNTtf4kef0gOYtbx6A3LYa15PNzpzJuOg-nd6orLosZzfQ8/s1600/ms-ai.jpg"
-  summary="마이크로소프트의 새로운 연구는 공격자가 독이 포함된 MCP 도구 설명만으로 사용자를 대신해 작업하는 AI 에이전트를 하이재킹해 회사 데이터를 외부로 유출할 수 있음을 보여줍니다. 이 과정에서 에이전트는 규칙을 위반하지 않으며 모든 단계가 일상적으로 보여 기본 설정에서는 경보가 울리지 않을 수 있습니다. 해당 연구는 Microsoft Incident Resp"
+  summary="Microsoft의 새로운 연구는 공격자가 독이 포함된 MCP 도구 설명만으로 사용자를 대신해 작업하는 AI 에이전트를 하이재킹해 회사 데이터를 외부로 유출할 수 있음을 보여줍니다. 이 과정에서 에이전트는 규칙을 위반하지 않으며 모든 단계가 일상적으로 보여 기본 설정에서는 경보가 울리지 않을 수 있습니다. 해당 연구는 Microsoft Incident Resp"
   source="The Hacker News"
   severity="High"
 %}
@@ -155,7 +155,7 @@ DevSecOps 관점에서 이 위협은 **CI/CD 파이프라인과 AI 에이전트 
 
 ## 1. 기술적 배경 및 위협 분석
 
-RustDuck은 Rust 언어로 재구축된 2단계 멀웨어로, 가정용 라우터, IP 카메라, 안드로이드 박스, 취약한 서버를 하이재킹하여 DDoS 봇넷을 형성합니다. 2026년 2월부터 QiAnXin XLab이 추적 중이며, 현재 규모보다 **진화 속도**가 핵심 위협입니다.
+RustDuck은 Rust 언어로 재구축된 2단계 멀웨어로, 가정용 라우터, IP 카메라, Android 박스, 취약한 서버를 하이재킹하여 DDoS 봇넷을 형성합니다. 2026년 2월부터 QiAnXin XLab이 추적 중이며, 현재 규모보다 **진화 속도**가 핵심 위협입니다.
 
 - **Rust 선택의 의미**: Rust는 메모리 안전성과 고성능을 제공하여 C/C++ 기반 멀웨어보다 탐지 회피에 유리하며, 크로스 플랫폼 컴파일로 다양한 IoT/서버 환경에서 동작 가능합니다.
 - **2단계 구조**: 초기 침투(1단계) 후 페이로드 다운로드(2단계)를 통해 정적 분석을 우회하고, 명령 제어(C2) 서버와의 통신을 암호화합니다.
@@ -251,10 +251,10 @@ NVIDIA는 BioNeMo Agent Toolkit을 통해 생명과학 연구자들이 GPU 가�
 
 ---
 
-### 2.2 메타의 파이썬 헌신 10년
+### 2.2 Meta의 파이썬 헌신 10년
 
 {% include news-card.html
-  title="메타의 파이썬 헌신 10년"
+  title="Meta의 파이썬 헌신 10년"
   url="https://engineering.fb.com/2026/06/30/open-source/10-years-of-metas-commitment-to-python/"
   summary="올해는 Meta가 Python Software Foundation(PSF)의 후원사로서 10년째를 맞는 해입니다. Python은 세계에서 가장 영향력 있는 프로그래밍 언어 중 하나이며, Meta는 엔지니어링 전반에 걸쳐 이를 사용하고 있습니다."
   source="Meta Engineering Blog"
@@ -390,20 +390,20 @@ GitHub 블로그에 따르면, 릴리스 페이지에 사이드바 목차가 추
 
 ## 5. 블록체인 뉴스
 
-### 5.1 도널드 트럼프 대통령, 콜드 스토리지에 보관된 5천만 달러 이상의 비트코인 공개
+### 5.1 도널드 트럼프 대통령, 콜드 스토리지에 보관된 5천만 달러 이상의 Bitcoin 공개
 
 {% include news-card.html
-  title="도널드 트럼프 대통령, 콜드 스토리지에 보관된 5천만 달러 이상의 비트코인 공개"
+  title="도널드 트럼프 대통령, 콜드 스토리지에 보관된 5천만 달러 이상의 Bitcoin 공개"
   url="https://bitcoinmagazine.com/news/president-donald-trump-50-million-bitcoin"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/President-Donald-Trump-Discloses-More-Than-50-Million-in-Bitcoin-Held-in-Cold-Storage.jpg"
-  summary="도널드 트럼프 대통령의 2025년 재무 공개에서 5천만 달러 이상의 자체 보관 비트코인이 콜드 스토리지에 보유된 것으로 드러났으며, 라이선싱과 World Liberty Financial과 관련된 암호화폐 관련 수익 및 수입이 10억 달러를 초과하는 것으로 보고되었습니다."
+  summary="도널드 트럼프 대통령의 2025년 재무 공개에서 5천만 달러 이상의 자체 보관 Bitcoin이 콜드 스토리지에 보유된 것으로 드러났으며, 라이선싱과 World Liberty Financial과 관련된 암호화폐 관련 수익 및 수입이 10억 달러를 초과하는 것으로 보고되었습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-도널드 트럼프 대통령의 2025년 재무 공개에서 5천만 달러 이상의 자체 보관 비트코인이 콜드 스토리지에 보유된 것으로 드러났으며, 라이선싱과 World Liberty Financial과 관련된 암호화폐 관련 수익 및 수입이 10억 달러를 초과하는 것으로 보고되었습니다.
+도널드 트럼프 대통령의 2025년 재무 공개에서 5천만 달러 이상의 자체 보관 Bitcoin이 콜드 스토리지에 보유된 것으로 드러났으며, 라이선싱과 World Liberty Financial과 관련된 암호화폐 관련 수익 및 수입이 10억 달러를 초과하는 것으로 보고되었습니다.
 
 ---
 
@@ -474,7 +474,7 @@ Visa, Mastercard, Stripe, Coinbase 등 140개 이상의 기업이 합류하여 �
 
 - [ ] **Microsoft, 오염된 MCP 도구 설명이 AI 에이전트의 데이터 유출을 초래할 수 있다고 경고** 관련 보안 검토 및 모니터링
 - [ ] **RustDuck Botnet, Rust로 재구축되어 DDoS 공격용 라우터와 서버를 하이재킹하다** 관련 보안 검토 및 모니터링
-- [ ] **메타의 파이썬 헌신 10년** 관련 보안 검토 및 모니터링
+- [ ] **Meta의 파이썬 헌신 10년** 관련 보안 검토 및 모니터링
 - [ ] **NVIDIA의 추론 소프트웨어 스택이 최저 토큰 비용을 구현하는 방법** 관련 보안 검토 및 모니터링
 - [ ] **Schrödinger, Alphaevolve로 분자 발견 속도 4배 향상** 관련 보안 검토 및 모니터링
 

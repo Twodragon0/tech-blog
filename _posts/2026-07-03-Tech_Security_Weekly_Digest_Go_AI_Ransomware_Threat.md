@@ -350,20 +350,20 @@ GitHub Actions에서 Copilot CLI를 사용할 때 더 이상 개인 액세스 �
 
 ## 5. 블록체인 뉴스
 
-### 5.1 Wavespace, Lightning 및 NWC 기반 MiCA 규정 준수 자체 보관 비트코인 직불카드 출시
+### 5.1 Wavespace, Lightning 및 NWC 기반 MiCA 규정 준수 자체 보관 Bitcoin 직불카드 출시
 
 {% include news-card.html
-  title="Wavespace, Lightning 및 NWC 기반 MiCA 규정 준수 자체 보관 비트코인 직불카드 출시"
+  title="Wavespace, Lightning 및 NWC 기반 MiCA 규정 준수 자체 보관 Bitcoin 직불카드 출시"
   url="https://bitcoinmagazine.com/business/wavespace-launches-mica-compliant-self-custodial-bitcoin-debit-card-powered-by-lightning-and-nwc"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/07/tn.webp"
-  summary="Wavespace가 MiCA 규정을 준수하는 비트코인 전용 네오뱅크로, 자체 보관형 wavecard®를 출시했습니다. 이 카드는 Nostr Wallet Connect를 통해 사용자의 Lightning 노드에서 자동으로 잔액을 충전하여, 보관형 선불 충전의 위험을 제거합니다."
+  summary="Wavespace가 MiCA 규정을 준수하는 Bitcoin 전용 네오뱅크로, 자체 보관형 wavecard®를 출시했습니다. 이 카드는 Nostr Wallet Connect를 통해 사용자의 Lightning 노드에서 자동으로 잔액을 충전하여, 보관형 선불 충전의 위험을 제거합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}
 
 #### 요약
 
-Wavespace가 MiCA 규정을 준수하는 비트코인 전용 네오뱅크로, 자체 보관형 wavecard®를 출시했습니다. 이 카드는 Nostr Wallet Connect를 통해 사용자의 Lightning 노드에서 자동으로 잔액을 충전하여, 보관형 선불 충전의 위험을 제거합니다.
+Wavespace가 MiCA 규정을 준수하는 Bitcoin 전용 네오뱅크로, 자체 보관형 wavecard®를 출시했습니다. 이 카드는 Nostr Wallet Connect를 통해 사용자의 Lightning 노드에서 자동으로 잔액을 충전하여, 보관형 선불 충전의 위험을 제거합니다.
 
 ---
 
