@@ -100,15 +100,15 @@ summary_card:
   severity="Critical"
 %}
 
-## 1. 기술적 배경 및 위협 분석
+#### 1. 기술적 배경 및 위협 분석
 AWS는 2026년 4월부터 장기 IAM 액세스 키에 대한 보안 경고를 강화하며, IAM Identity Center(구 AWS SSO) 기반의 단기 자격 증명(Short-lived credentials) 사용을 강력히 권고하고 있습니다. Zero Trust 모델에서 "절대 신뢰하지 말고, 항상 검증하라"는 원칙은 AWS 환경에서 **IAM Identity Center + SCP(Service Control Policies) + VPC 엔드포인트 정책**의 조합으로 구현됩니다.
 
 핵심 위협은 장기 액세스 키의 유출입니다. GitHub 공개 저장소에서 노출된 AWS 액세스 키를 통한 무단 접근 사례가 2026년 1분기에만 전년 대비 45% 증가했습니다. SCP를 활용한 조직 수준의 권한 경계 설정은 개별 계정의 보안 설정 오류를 보완하는 안전망 역할을 합니다.
 
-## 2. 실무 영향 분석
+#### 2. 실무 영향 분석
 IAM Identity Center로의 전환은 단순한 인증 방식 변경이 아닌, 조직의 전체 접근 제어 아키텍처를 재설계하는 작업입니다. 특히 멀티 어카운트 환경에서 SCP를 통한 가드레일 설정은 개발팀의 자율성을 보장하면서도 보안 경계를 유지하는 데 필수적입니다. 기존에 프로그래밍 방식으로 장기 키를 사용하던 워크로드는 IAM Roles Anywhere 또는 OIDC Federation으로의 전환이 필요합니다.
 
-## 3. 대응 체크리스트
+**3. 대응 체크리스트**
 - **장기 IAM 액세스 키 인벤토리 생성**: `aws iam list-access-keys`로 모든 사용자의 액세스 키 목록을 생성하고, 90일 이상 사용된 키를 식별합니다.
 - **IAM Identity Center 활성화 및 설정**: 조직의 AWS Organizations에서 IAM Identity Center를 활성화하고, IdP(Identity Provider)를 연동합니다.
 - **SCP 기반 가드레일 배포**: 루트 사용자 사용 금지, 특정 리전 외 서비스 사용 금지, CloudTrail 비활성화 금지 등의 SCP를 배포합니다.
@@ -254,7 +254,7 @@ AWS CloudTrail과 GuardDuty를 통합하여 클라우드 환경의 위협을 실
 <summary>GuardDuty 고위험 결과 자동 대응 Lambda 함수 예시 (click to expand)</summary>
 
 ```python
-# GuardDuty 고위험 결과 자동 대응 Lambda 예시
+#### GuardDuty 고위험 결과 자동 대응 Lambda 예시
 import json
 import boto3
 import os
@@ -384,7 +384,7 @@ GCP Workload Identity Federation을 적용하면 서비스 계정 키 관리 부
 - Attribute Condition 설정으로 특정 리포지토리/브랜치만 인증 허용
 
 ```yaml
-# GitHub Actions에서 GCP Workload Identity Federation 사용 예시
+#### GitHub Actions에서 GCP Workload Identity Federation 사용 예시
 name: Deploy to GCP
 on:
   push:
@@ -500,7 +500,7 @@ FinOps(Financial Operations) 관점에서 클라우드 비용 최적화는 단�
 <summary>Karpenter NodePool Spot/Graviton 혼합 전략 설정 예시 (click to expand)</summary>
 
 ```yaml
-# Karpenter NodePool - Spot/Graviton 혼합 전략 예시
+#### Karpenter NodePool - Spot/Graviton 혼합 전략 예시
 apiVersion: karpenter.sh/v1
 kind: NodePool
 metadata:
@@ -588,21 +588,21 @@ spec:
 
 ### P0 (즉시)
 
-- **AWS 장기 IAM 액세스 키 인벤토리** 생성 및 IAM Identity Center 전환 계획 수립
-- **GCP 서비스 계정 키 사용 현황** 점검 및 Workload Identity Federation 적용
+- [ ] **AWS 장기 IAM 액세스 키 인벤토리** 생성 및 IAM Identity Center 전환 계획 수립
+- [ ] **GCP 서비스 계정 키 사용 현황** 점검 및 Workload Identity Federation 적용
 
 ### P1 (7일 내)
 
-- **CloudTrail + GuardDuty 통합** 설정 및 고위험 결과 자동 대응 구성
-- **Terraform 보안 스캔 파이프라인** 구축 (tfsec/checkov CI/CD 통합)
-- **Spot/Graviton 적합 워크로드 식별** 및 비용 최적화 PoC 수행
-- **SCP 기반 가드레일** 배포 (CloudTrail 비활성화 방지, 리전 제한)
+- [ ] **CloudTrail + GuardDuty 통합** 설정 및 고위험 결과 자동 대응 구성
+- [ ] **Terraform 보안 스캔 파이프라인** 구축 (tfsec/checkov CI/CD 통합)
+- [ ] **Spot/Graviton 적합 워크로드 식별** 및 비용 최적화 PoC 수행
+- [ ] **SCP 기반 가드레일** 배포 (CloudTrail 비활성화 방지, 리전 제한)
 
 ### P2 (30일 내)
 
-- **FinOps 대시보드 구축** 및 팀별 비용 할당 태그 강제화
-- **OPA/Conftest 기반 Policy as Code** 라이브러리 구축
-- 클라우드 인프라 보안 설정 정기 감사
+- [ ] **FinOps 대시보드 구축** 및 팀별 비용 할당 태그 강제화
+- [ ] **OPA/Conftest 기반 Policy as Code** 라이브러리 구축
+- [ ] 클라우드 인프라 보안 설정 정기 감사
 
 ## 요약 및 다음 단계
 
