@@ -337,88 +337,88 @@ npm token create --read-only --cidr=10.0.0.0/8
 
 1. CISA (Cybersecurity & Infrastructure Security Agency)
    - NPM Supply Chain Attack Advisory (2025-11)
-   - URL: https://www.cisa.gov/news-events/alerts/2025/11/15/npm-supply-chain-attack
+   - URL: [cisa.gov](https://www.cisa.gov/news-events/alerts/2025/11/15/npm-supply-chain-attack)
 
 2. NIST (National Institute of Standards and Technology)
    - NIST SP 800-161 Rev. 1: Cybersecurity Supply Chain Risk Management
-   - URL: https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final
+   - URL: [csrc.nist.gov](https://csrc.nist.gov/publications/detail/sp/800-161/rev-1/final)
 
 3. NPM Security Team
    - NPM Security Best Practices
-   - URL: https://docs.npmjs.com/security
+   - URL: [docs.npmjs.com/security](https://docs.npmjs.com/security)
 
 4. MITRE ATT&CK Framework
    - T1195: Supply Chain Compromise
-   - URL: https://attack.mitre.org/techniques/T1195/
+   - URL: [attack.mitre.org/techniques/T1195](https://attack.mitre.org/techniques/T1195/)
 
 ### 3.2 기술 분석 리포트
 
 5. GitLab Vulnerability Research Team
    - Shai-Hulud Technical Analysis (2025-09)
-   - URL: https://about.gitlab.com/blog/2025/09/17/npm-shai-hulud-analysis/
+   - URL: [about.gitlab.com](https://about.gitlab.com/blog/2025/09/17/npm-shai-hulud-analysis/)
 
 6. Socket.dev Research
    - NPM 자가 복제 웜의 부상 (The Rise of Self-Replicating Worms in NPM)
-   - URL: https://socket.dev/blog/shai-hulud-worm-analysis
+   - URL: [socket.dev/blog/shai-hulud-worm-analysis](https://socket.dev/blog/shai-hulud-worm-analysis)
 
 7. Snyk Research
    - NPM 생태계 보안 리포트 2025 (NPM Ecosystem Security Report 2025)
-   - URL: https://snyk.io/reports/npm-ecosystem-security-2025/
+   - URL: [snyk.io/reports/npm-ecosystem-security-2025](https://snyk.io/reports/npm-ecosystem-security-2025/)
 
 8. Aqua Security
    - 공급망 공격의 Dead Man's Switch (Dead Man's Switch in Supply Chain Attacks)
-   - URL: https://blog.aquasec.com/dead-mans-switch-supply-chain
+   - URL: [blog.aquasec.com/dead-mans-switch-supply-chain](https://blog.aquasec.com/dead-mans-switch-supply-chain)
 
 ### 3.3 오픈소스 도구
 
 9. Socket.dev CLI
-   - GitHub: https://socket.dev/
+   - GitHub: [socket.dev](https://socket.dev/)
    - 실시간 공급망 위협 탐지 도구
 
 10. Snyk
-    - GitHub: https://github.com/snyk/snyk
+    - GitHub: [github.com/snyk/snyk](https://github.com/snyk/snyk)
     - 종합 취약점 스캔 도구
 
 11. OSV Scanner (Google)
-    - GitHub: https://github.com/google/osv-scanner
+    - GitHub: [github.com/google/osv-scanner](https://github.com/google/osv-scanner)
     - OSV 데이터베이스 기반 취약점 스캔 도구
 
 12. Syft (Anchore)
-    - GitHub: https://github.com/anchore/syft
+    - GitHub: [github.com/anchore/syft](https://github.com/anchore/syft)
     - SBOM 생성 도구
 
 13. Grype (Anchore)
-    - GitHub: https://github.com/anchore/grype
+    - GitHub: [github.com/anchore/grype](https://github.com/anchore/grype)
     - 취약점 스캔 도구
 
 14. lockfile-lint
-    - GitHub: https://github.com/lirantal/lockfile-lint
+    - GitHub: [github.com/lirantal/lockfile-lint](https://github.com/lirantal/lockfile-lint)
     - lockfile 무결성 검증 도구
 
 ### 3.4 법규 및 컴플라이언스
 
 15. 개인정보보호법 (한국)
-    - 법제처: https://www.law.go.kr/법령/개인정보보호법
+    - 법제처: [law.go.kr/법령/개인정보보호법](https://www.law.go.kr/법령/개인정보보호법)
 
 16. 정보통신망법 (한국)
-    - 법제처: https://www.law.go.kr/법령/정보통신망이용촉진및정보보호등에관한법률
+    - 법제처: [law.go.kr/법령/정보통신망이용촉진및정보보호등에관한법률](https://www.law.go.kr/법령/정보통신망이용촉진및정보보호등에관한법률)
 
 17. 전자금융거래법 (한국)
-    - 법제처: https://www.law.go.kr/법령/전자금융거래법
+    - 법제처: [law.go.kr/법령/전자금융거래법](https://www.law.go.kr/법령/전자금융거래법)
 
 18. GDPR (EU)
-    - Official Text: https://gdpr.eu/
+    - Official Text: [gdpr.eu](https://gdpr.eu/)
 
 ### 3.5 사고 사례 연구
 
 19. Nx / s1ngularity 공격 포스트모템
-    - URL: https://nx.dev/blog/s1ngularity-postmortem
+    - URL: [nx.dev/blog/s1ngularity-postmortem](https://nx.dev/blog/s1ngularity-postmortem)
 
 20. SolarWinds 공급망 공격 (참고 사례)
-    - CISA 분석: https://www.cisa.gov/solarwinds
+    - CISA 분석: [cisa.gov/solarwinds](https://www.cisa.gov/solarwinds)
 
 21. Log4j 취약점 (참고 사례)
-    - NIST: https://nvd.nist.gov/vuln/detail/CVE-2021-44228
+    - NIST: [nvd.nist.gov/vuln/detail/CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)
 
 ### 3.6 학술 논문 및 연구
 
@@ -432,21 +432,21 @@ npm token create --read-only --cidr=10.0.0.0/8
 
 24. "의존성 혼동: Apple, Microsoft 등 수십 개 기업을 해킹한 방법" (Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies)
     - 저자: Alex Birsan
-    - URL: https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610
+    - URL: [medium.com](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610)
 
 ### 3.7 추가 학습 자료
 
 25. OWASP CI/CD 보안 위험 Top 10 (OWASP Top 10 CI/CD Security Risks)
-    - URL: https://owasp.org/www-project-top-10-ci-cd-security-risks/
+    - URL: [owasp.org/www-project-top-10-ci-cd-security-risks](https://owasp.org/www-project-top-10-ci-cd-security-risks/)
 
 26. SLSA 프레임워크 - 소프트웨어 아티팩트 공급망 레벨 (Supply-chain Levels for Software Artifacts)
-    - URL: https://slsa.dev/
+    - URL: [slsa.dev](https://slsa.dev/)
 
 27. Sigstore (코드 서명)
-    - URL: https://www.sigstore.dev/
+    - URL: [sigstore.dev](https://www.sigstore.dev/)
 
 28. CycloneDX (SBOM 표준)
-    - URL: https://cyclonedx.org/
+    - URL: [cyclonedx.org](https://cyclonedx.org/)
 
 ---
 

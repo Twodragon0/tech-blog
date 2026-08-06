@@ -439,9 +439,9 @@ cat /var/log/falco/events.txt | \
 - Pod 상태, Network Policy, ImagePullBackOff 이벤트를 순서대로 확인
 
 <!-- Full troubleshooting commands were intentionally omitted for readability. Reference:
-https://kubernetes.io/docs/tasks/debug/
-https://kubernetes.io/docs/concepts/services-networking/network-policies/
-https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+[kubernetes.io/docs/tasks/debug](https://kubernetes.io/docs/tasks/debug/)
+[kubernetes.io](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
+[kubernetes.io](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
 -->
 
 
@@ -451,12 +451,12 @@ https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-regi
 
 | 리소스 | URL | 설명 |
 |--------|-----|------|
-| Kubernetes 공식 문서 | https://kubernetes.io/docs/ | K8s 전체 레퍼런스 |
-| Docker 공식 문서 | https://docs.docker.com/ | Docker 엔진 및 Compose |
-| CIS Kubernetes Benchmark | https://www.cisecurity.org/benchmark/kubernetes | 보안 베스트 프랙티스 |
-| OWASP Kubernetes Top 10 | https://owasp.org/www-project-kubernetes-top-ten/ | 주요 보안 위협 |
-| Falco 문서 | https://falco.org/docs/ | 런타임 보안 |
-| Trivy 문서 | https://aquasecurity.github.io/trivy/ | 이미지 스캔 |
+| Kubernetes 공식 문서 | [kubernetes.io/docs](https://kubernetes.io/docs/) | K8s 전체 레퍼런스 |
+| Docker 공식 문서 | [docs.docker.com](https://docs.docker.com/) | Docker 엔진 및 Compose |
+| CIS Kubernetes Benchmark | [cisecurity.org/benchmark/kubernetes](https://www.cisecurity.org/benchmark/kubernetes) | 보안 베스트 프랙티스 |
+| OWASP Kubernetes Top 10 | [owasp.org/www-project-kubernetes-top-ten](https://owasp.org/www-project-kubernetes-top-ten/) | 주요 보안 위협 |
+| Falco 문서 | [falco.org/docs](https://falco.org/docs/) | 런타임 보안 |
+| Trivy 문서 | [aquasecurity.github.io/trivy](https://aquasecurity.github.io/trivy/) | 이미지 스캔 |
 
 ### 4.2 보안 도구
 
@@ -489,9 +489,9 @@ https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-regi
 
 #### 커뮤니티
 
-- **Kubernetes Slack**: https://slack.k8s.io/
-- **CNCF Slack - #falco**: https://cloud-native.slack.com/
-- **Reddit - r/kubernetes**: https://www.reddit.com/r/kubernetes/
+- **Kubernetes Slack**: [slack.k8s.io](https://slack.k8s.io/)
+- **CNCF Slack - #falco**: [cloud-native.slack.com](https://cloud-native.slack.com/)
+- **Reddit - r/kubernetes**: [reddit.com/r/kubernetes](https://www.reddit.com/r/kubernetes/)
 
 ### 4.4 인증 자격증 가이드
 
