@@ -56,13 +56,15 @@ summary_card:
 ---
 {% include ai-summary-card.html %}
 
-### 보안 점검 체크리스트
+## 실무 체크리스트
 
-- 언급된 CVE/취약점에 대한 패치 적용 여부 확인
-- 영향받는 시스템 및 소프트웨어 버전 점검
-- 보안 모니터링 규칙 업데이트
-- 관련 보안 정책 검토 및 갱신
-- 팀 내 보안 공지 공유 완료
+**보안 점검**
+
+- [ ] 언급된 CVE/취약점에 대한 패치 적용 여부 확인
+- [ ] 영향받는 시스템 및 소프트웨어 버전 점검
+- [ ] 보안 모니터링 규칙 업데이트
+- [ ] 관련 보안 정책 검토 및 갱신
+- [ ] 팀 내 보안 공지 공유 완료
 
 ---
 
@@ -171,7 +173,7 @@ OpenSSL은 지구상에서 가장 많이 검토되고 감사된 암호화 라이
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 
-## 2. CVE-2026-24858: Fortinet FortiCloud SSO 제로데이
+#### 2. CVE-2026-24858: Fortinet FortiCloud SSO 제로데이
 
 ### 2.1 취약점 요약
 
@@ -199,7 +201,7 @@ OpenSSL은 지구상에서 가장 많이 검토되고 감사된 암호화 라이
 
 ![Security News Section Banner](/assets/images/section-security.svg)
 
-## 3. CVE-2026-24304: Azure Resource Manager CVSS 9.9
+#### 3. CVE-2026-24304: Azure Resource Manager CVSS 9.9
 
 ### 3.1 취약점 요약
 
@@ -224,7 +226,7 @@ OpenSSL은 지구상에서 가장 많이 검토되고 감사된 암호화 라이
 
 ---
 
-## 4. 참고 자료 (References)
+#### 4. 참고 자료 (References)
 
 ### 4.1 AI 보안 및 연구
 
@@ -312,7 +314,7 @@ OpenSSL은 지구상에서 가장 많이 검토되고 감사된 암호화 라이
 
 ---
 
-## 🔗 관련 포스트
+#### 🔗 관련 포스트
 
 <!-- related-posts:v1 -->
 

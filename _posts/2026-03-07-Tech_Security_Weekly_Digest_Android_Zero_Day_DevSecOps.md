@@ -54,13 +54,15 @@ summary_card:
 | 인프라 취약점 | High | VMware/Cisco KEV 항목 우선 조치 및 검증 |
 | 컨테이너/K8s 보안 | High | 런타임 탐지 정책 업데이트, 이미지 신뢰성 검증 |
 
-## 실행 체크리스트
+## 실무 체크리스트
 
-- Android/VMware/Cisco 고위험 자산 패치 상태 점검
-- 인터넷 노출 자산 취약점 재스캔 및 결과 공유
-- K8s 런타임 이상행위 탐지 룰 최신화
-- CI/CD 의존성 보안 스캔 주기 단축
-- 사고 대응 연락망 및 격리 절차 리허설
+**실행**
+
+- [ ] Android/VMware/Cisco 고위험 자산 패치 상태 점검
+- [ ] 인터넷 노출 자산 취약점 재스캔 및 결과 공유
+- [ ] K8s 런타임 이상행위 탐지 룰 최신화
+- [ ] CI/CD 의존성 보안 스캔 주기 단축
+- [ ] 사고 대응 연락망 및 격리 절차 리허설
 
 ## 서론
 
@@ -323,7 +325,7 @@ Microsoft가 OAuth 남용 스캠에 대해 경고했습니다. 피싱 이메일�
 
 ![DevSecOps Section Banner](/assets/images/section-devsecops.svg)
 
-## 2. DevSecOps 뉴스
+#### 2. DevSecOps 뉴스
 
 ### 2.1 Datadog DevSecOps 2026 보고서: 87% 조직이 공격 가능 취약점 보유
 
@@ -401,7 +403,7 @@ Datadog의 State of DevSecOps 2026 보고서가 발표되었습니다. 조사 �
 
 ![AI Section Banner](/assets/images/section-ai.svg)
 
-## 3. AI/ML 뉴스
+## 2. AI/ML 뉴스
 
 ### 3.1 AI 기반 사이버 공격 89% 증가
 
@@ -476,7 +478,7 @@ Recorded Future는 2026년을 러시아 외 지역 랜섬웨어 조직이 러시
 
 ![Cloud Section Banner](/assets/images/section-cloud.svg)
 
-## 4. 클라우드/K8s 뉴스
+## 3. 클라우드/K8s 뉴스
 
 ### 4.1 VoidLink: AI로 제작된 K8s 인식형 악성코드
 
@@ -558,7 +560,7 @@ AI 기반 워크로드의 증가로 보안 연결, 워크로드 아이덴티티,
 
 ![Blockchain Section Banner](/assets/images/section-blockchain.svg)
 
-## 5. 블록체인 뉴스
+## 4. 블록체인 뉴스
 
 ### 5.1 GENIUS Act: 미국 스테이블코인 규제 프레임워크 구체화
 
@@ -616,7 +618,7 @@ EU의 MiCA(Markets in Crypto-Assets Regulation)가 전면 시행에 들어갔습
 
 ---
 
-## 7. 트렌드 분석
+## 5. 트렌드 분석
 
 | 트렌드 | 분야 | 방향 | 실무 시사점 |
 |--------|------|------|------------|
