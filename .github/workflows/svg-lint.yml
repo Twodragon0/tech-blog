@@ -37,6 +37,7 @@ on:
       - 'scripts/check_digest_structure.py'
       - 'scripts/check_digest_untranslated.py'
       - 'scripts/check_digest_proper_nouns.py'
+      - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -80,6 +81,7 @@ on:
       - 'scripts/check_digest_structure.py'
       - 'scripts/check_digest_untranslated.py'
       - 'scripts/check_digest_proper_nouns.py'
+      - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -280,6 +282,15 @@ jobs:
           fi
           echo "[digest-proper-nouns] diff base: $BASE"
           python3 scripts/check_digest_proper_nouns.py --changed "$BASE"
+
+      - name: Digest canonical checklist heading gate
+        id: digest_checklist_heading
+        # --all, unlike the three gates above: the 601 -> 0 structure campaign
+        # (#494-#502) left the corpus at 0 violations (184/184 measured
+        # 2026-08-06), so there is no legacy debt to scope around and any hit
+        # is fresh drift — including one arriving via a cron push that never
+        # ran the pre-commit hook.
+        run: python3 scripts/check_digest_checklist_heading.py --all
 
       - name: CSP inline-script sha256 regression gate (prep for CSP Path B)
         id: csp_inline_hashes
