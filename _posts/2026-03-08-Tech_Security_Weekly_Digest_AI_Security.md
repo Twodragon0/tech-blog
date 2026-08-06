@@ -323,13 +323,16 @@ Go 언어에 UUID 생성·파싱 기능을 표준 라이브러리(`unique/uuid`)
 
 ## 참고 자료
 
-| 리소스 | 링크 |
-|--------|------|
-| CISA KEV | [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
-| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
-| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
-| OWASP Top 10 for LLM | [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
-| NIST AI RMF | [NIST AI RMF](https://www.nist.gov/system/files/documents/2023/01/26/AI-RMF-001.pdf) |
+| 리소스 | 링크 | 용도 |
+|--------|------|------|
+| CISA KEV | [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | 실제 악용 확인된 취약점 목록 — 패치 우선순위 기준 |
+| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) | 공격 전술·기법 매핑 — 탐지 룰 설계 |
+| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) | 취약점 악용 확률 점수 — CVSS 보완 |
+| OWASP Top 10 for LLM | [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | LLM 애플리케이션 상위 위험 — AI 서비스 위협 모델링 |
+| NIST AI RMF | [NIST AI RMF](https://www.nist.gov/system/files/documents/2023/01/26/AI-RMF-001.pdf) | AI 위험 관리 프레임워크 — 거버넌스 통제 설계 |
+| The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 2건 인용 |
+| Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+| GeekNews | [news.hada.io](https://news.hada.io) | 본문 3건 인용 |
 
 ---
 

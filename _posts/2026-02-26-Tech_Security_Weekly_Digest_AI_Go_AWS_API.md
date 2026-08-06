@@ -478,11 +478,11 @@ Bitcoin 가격이 하루 만에 8% 이상 상승하여 $69,000을 돌파했습�
 
 ## 참고 자료
 
-| 리소스 | 링크 |
-|--------|------|
-| CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
-| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
-| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+| 리소스 | 링크 | 용도 |
+|--------|------|------|
+| CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | 실제 악용 확인된 취약점 목록 — 패치 우선순위 기준 |
+| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) | 공격 전술·기법 매핑 — 탐지 룰 설계 |
+| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) | 취약점 악용 확률 점수 — CVSS 보완 |
 
 ---
 

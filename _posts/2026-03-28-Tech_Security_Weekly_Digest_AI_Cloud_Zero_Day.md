@@ -535,12 +535,24 @@ Solana 네트워크가 새로운 합의 메커니즘을 도입하여 네트워�
 
 ## 참고 자료
 
-| 리소스 | 링크 |
-|--------|------|
-| CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
-| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
-| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
-| OWASP Top 10 for LLM | [owasp.org/www-project-top-10-for-large-language-model-applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
+| 리소스 | 링크 | 용도 |
+|--------|------|------|
+| CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | 실제 악용 확인된 취약점 목록 — 패치 우선순위 기준 |
+| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) | 공격 전술·기법 매핑 — 탐지 룰 설계 |
+| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) | 취약점 악용 확률 점수 — CVSS 보완 |
+| OWASP Top 10 for LLM | [owasp.org/www-project-top-10-for-large-language-model-applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | LLM 애플리케이션 상위 위험 — AI 서비스 위협 모델링 |
+| Microsoft Security Blog | [microsoft.com](https://www.microsoft.com) | 본문 1건 인용 |
+| The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 4건 인용 |
+| Google DeepMind Blog | [deepmind.google](https://deepmind.google) | 본문 1건 인용 |
+| OpenAI Blog | [openai.com](https://openai.com) | 본문 1건 인용 |
+| NVIDIA AI Blog | [developer.nvidia.com](https://developer.nvidia.com) | 본문 1건 인용 |
+| Google Cloud Blog | [cloud.google.com](https://cloud.google.com) | 본문 1건 인용 |
+| AWS Blog | [aws.amazon.com](https://aws.amazon.com) | 본문 1건 인용 |
+| Azure Blog | [azure.microsoft.com](https://azure.microsoft.com) | 본문 1건 인용 |
+| CNCF Blog | [cncf.io](https://www.cncf.io) | 본문 1건 인용 |
+| GitHub Blog | [github.blog](https://github.blog) | 본문 1건 인용 |
+| Argo Project Blog | [blog.argoproj.io](https://blog.argoproj.io) | 본문 1건 인용 |
+| Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
 
 ---
 

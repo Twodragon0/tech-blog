@@ -479,6 +479,16 @@ GitOps 환경에서 ArgoCD와 Kyverno를 조합한 보안 정책 자동화가 �
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
 | SLSA Framework | [slsa.dev](https://slsa.dev/) |
 | OWASP Top 10 for LLMs | [owasp.org/www-project-top-10-for-large-language-model-applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
+| Kubernetes Blog | [kubernetes.io](https://kubernetes.io) |
+| Isovalent Blog | [isovalent.com](https://isovalent.com) |
+| OWASP | [owasp.org](https://owasp.org) |
+| MCP Security | [modelcontextprotocol.io](https://modelcontextprotocol.io) |
+| Google Cloud Blog | [cloud.google.com](https://cloud.google.com) |
+| NIST | [csrc.nist.gov](https://csrc.nist.gov) |
+| GitHub Blog | [github.blog](https://github.blog) |
+| Tekton Blog | [tekton.dev](https://tekton.dev) |
+| Argo Project Blog | [blog.argoproj.io](https://blog.argoproj.io) |
+| OpenZeppelin Blog | [blog.openzeppelin.com](https://blog.openzeppelin.com) |
 
 ---
 

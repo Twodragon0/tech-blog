@@ -289,11 +289,15 @@ Strategy의 Michael Saylor는 기업이 2020년 이후 105건의 Bitcoin 거래�
 
 ## 참고 자료
 
-| 리소스 | 링크 |
-|--------|------|
-| CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
-| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
-| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+| 리소스 | 링크 | 용도 |
+|--------|------|------|
+| CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | 실제 악용 확인된 취약점 목록 — 패치 우선순위 기준 |
+| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) | 공격 전술·기법 매핑 — 탐지 룰 설계 |
+| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) | 취약점 악용 확률 점수 — CVSS 보완 |
+| The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 2건 인용 |
+| BleepingComputer | [bleepingcomputer.com](https://www.bleepingcomputer.com) | 본문 1건 인용 |
+| Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 1건 인용 |
+| Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 2건 인용 |
 
 ---
 
