@@ -1,4 +1,6 @@
+import re
 import sys, os, tempfile
+from pathlib import Path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import pytest
 import check_digest_structure as cds
@@ -238,3 +240,83 @@ def test_ratchet_requires_a_diff_scoped_mode(monkeypatch, capsys):
 
 def test_check_text_and_check_post_agree():
     assert cds.check_text(_BAD_H1) == check_post(_write(_BAD_H1))
+
+
+# --- scorer/gate agreement invariant ----------------------------------------
+#
+# validate_post_quality.validate_checklists scores the DOCUMENT-WIDE '- [ ]'
+# count, while this gate wants per-item checkboxes gone and only the global
+# '## 실무 체크리스트' boxed (R3 removes, R6 restores). Those two only agree so
+# long as every checkbox in a digest lives under the global heading — which is
+# what R3+R6 converged the corpus on (measured 2026-08-06: doc-wide == section
+# count for all 185 digests, and no checkbox hides inside a code fence).
+#
+# Pinning that equality is what makes "scope the scorer to the global section"
+# unnecessary: scoping is a provable no-op while this holds, and it would zero
+# the 66 non-digest posts that legitimately checklist under other headings.
+# The day this fails, the scorer and the gate have started disagreeing again.
+
+
+def _fence_stripped(text: str) -> str:
+    out, in_fence = [], False
+    for line in text.split("\n"):
+        if line.strip().startswith("```"):
+            in_fence = not in_fence
+            continue
+        if not in_fence:
+            out.append(line)
+    return "\n".join(out)
+
+
+def _global_checklist_section(clean_body: str) -> str:
+    m = re.search(r"^## 실무 체크리스트[ \t]*$", clean_body, re.MULTILINE)
+    if not m:
+        return ""
+    rest = clean_body[m.end():]
+    nxt = re.search(r"^## ", rest, re.MULTILINE)
+    return rest[: nxt.start()] if nxt else rest
+
+
+def test_every_digest_checkbox_lives_under_the_global_checklist():
+    repo = Path(__file__).resolve().parent.parent.parent
+    offenders = {}
+    for p in sorted((repo / "_posts").glob("*Weekly_Digest*.md")):
+        clean = _fence_stripped(p.read_text(encoding="utf-8"))
+        doc_wide = len(re.findall(r"- \[ \]", clean))
+        in_section = len(re.findall(r"- \[ \]", _global_checklist_section(clean)))
+        if doc_wide != in_section:
+            offenders[p.name] = f"doc-wide={doc_wide} in-section={in_section}"
+    assert offenders == {}, offenders
+
+
+def test_fenced_checkboxes_do_not_inflate_any_digest_score():
+    """A '- [ ]' inside a code fence would score but is not a real checklist."""
+    repo = Path(__file__).resolve().parent.parent.parent
+    offenders = {}
+    for p in sorted((repo / "_posts").glob("*Weekly_Digest*.md")):
+        raw = p.read_text(encoding="utf-8")
+        if len(re.findall(r"- \[ \]", raw)) != len(
+            re.findall(r"- \[ \]", _fence_stripped(raw))
+        ):
+            offenders[p.name] = "fenced checkbox inflates the document-wide count"
+    assert offenders == {}, offenders
+
+
+def test_placement_helpers_actually_detect_a_violation():
+    """Proof the two corpus guards above are not vacuously green."""
+    item_box = (
+        "## 1. 보안\n\n### 1.1 기사\n\n- [ ] 항목별 조치\n\n"
+        "## 실무 체크리스트\n\n- [ ] 전역 조치\n"
+    )
+    clean = _fence_stripped(item_box)
+    assert len(re.findall(r"- \[ \]", clean)) == 2
+    assert len(re.findall(r"- \[ \]", _global_checklist_section(clean))) == 1
+
+    trailing_box = "## 실무 체크리스트\n\n- [ ] 전역\n\n## 참고 자료\n\n- [ ] 나중 항목\n"
+    clean = _fence_stripped(trailing_box)
+    assert len(re.findall(r"- \[ \]", clean)) == 2
+    assert len(re.findall(r"- \[ \]", _global_checklist_section(clean))) == 1
+
+    fenced = "## 실무 체크리스트\n\n- [ ] 전역\n\n```markdown\n- [ ] 예시\n```\n"
+    assert len(re.findall(r"- \[ \]", fenced)) == 2
+    assert len(re.findall(r"- \[ \]", _fence_stripped(fenced))) == 1
