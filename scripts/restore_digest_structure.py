@@ -312,17 +312,71 @@ _MARKER_RE = re.compile(
     re.MULTILINE,
 )
 _NUMERIC_RE = re.compile(r"^\d+\.?$")
+_HEADING_LINE_RE = re.compile(r"^[ \t]*#{1,6}[ \t]+")
+
+
+def _audit_fence_flags(lines: list) -> list:
+    """Second opinion on R0's verbatim region, for the lossless audit ONLY.
+
+    Deliberately a separate definition from `_fence_flags`, not a call to it: if
+    the audit reused the rules' own detector, a regression in fence DETECTION
+    would move both sides together and the invariant would stay blind by
+    construction — exactly the blindness this audit exists to remove. Kept in
+    lockstep by test_audit_fence_flags_agree_with_rule_flags over the corpus.
+    """
+    flags, in_code = [], False
+    for line in lines:
+        if line.strip().startswith("```"):
+            in_code = not in_code
+            flags.append(True)
+            continue
+        flags.append(in_code)
+    return flags
 
 
 def lossless_tokens(text: str) -> collections.Counter:
-    """Whitespace-separated tokens with markdown markers stripped.
+    """Context-aware token multiset: what a transform must leave untouched.
 
-    Numeric-only tokens are excluded because R4/R5 change section numbers by
-    design. Everything else must survive a transform unchanged — that equality is
-    the lossless contract, and main() enforces it per file before writing.
+    A flat "strip every marker, count the rest" multiset is marker-BLIND, and
+    that blindness hid a real corruption: R1 rewrote '# 예시' to '#### 예시'
+    inside fenced bash/yaml examples (2026-03-11, 2026-03-27). Only the marker
+    changed, so the multiset matched and the invariant passed while the post was
+    damaged — the defect had to be found by hand (PR #500). The global numeric
+    exclusion had the same shape of hole: deleting a standalone number from a
+    table cell was invisible.
+
+    So markers and numbers are compared where they are ALLOWED to change, and
+    verbatim where they are not:
+
+    * front matter — no rule touches it: compared line-verbatim.
+    * fenced lines (R0's verbatim region) — compared line-verbatim, markers
+      included, so any marker mis-conversion inside a fence trips the abort.
+    * outside fences — markers are erased (R1/R2/R3/R6 change them by design),
+      and a numeric-only token is dropped ONLY when it is the leading 'N.' slot
+      of a heading, which is the one number R4/R5 own. Numbers anywhere else
+      (prose, tables, '### 9.1' item numbers) must survive.
+
+    main() enforces equality per file before writing.
     """
-    stripped = _MARKER_RE.sub(" ", text)
-    return collections.Counter(t for t in stripped.split() if not _NUMERIC_RE.match(t))
+    front, body = _split_front_matter(text)
+    counter: collections.Counter = collections.Counter()
+
+    for line in front.split("\n"):
+        if line.strip():
+            counter[f"\x00fm\x00{line}"] += 1
+
+    lines = body.split("\n")
+    fenced = _audit_fence_flags(lines)
+    for i, line in enumerate(lines):
+        if fenced[i]:
+            if line.strip():
+                counter[f"\x00fence\x00{line}"] += 1
+            continue
+        tokens = _MARKER_RE.sub(" ", line).split()
+        if tokens and _HEADING_LINE_RE.match(line) and _NUMERIC_RE.match(tokens[0]):
+            tokens = tokens[1:]
+        counter.update(tokens)
+    return counter
 
 
 def _is_digest_post(path: Path) -> bool:
