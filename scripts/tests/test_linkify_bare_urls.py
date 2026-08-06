@@ -172,3 +172,55 @@ def test_nested_url_inside_a_query_string_is_not_split():
     src = "- https://r.example.com/redirect?to=https://target.example/page\n"
     out = t(src)
     assert out.count("](") == 1, out
+
+
+# --- --check gate mode -------------------------------------------------------
+
+
+def test_check_reports_offender_and_exits_1(tmp_path, capsys):
+    p = tmp_path / "2026-08-06-X.md"
+    p.write_text(_FM + "참고: https://kubernetes.io/docs/tasks/debug/\n", encoding="utf-8")
+    assert lb.main([str(p), "--check"]) == 1
+    out = capsys.readouterr().out
+    assert "FAIL" in out and "kubernetes.io" in out
+
+
+def test_check_exits_0_when_clean(tmp_path, capsys):
+    p = tmp_path / "2026-08-06-X.md"
+    p.write_text(_FM + "참고: [k8s](https://kubernetes.io/docs/)\n", encoding="utf-8")
+    assert lb.main([str(p), "--check"]) == 0
+
+
+def test_check_does_not_write(tmp_path):
+    p = tmp_path / "2026-08-06-X.md"
+    src = _FM + "참고: https://kubernetes.io/docs/tasks/debug/\n"
+    p.write_text(src, encoding="utf-8")
+    lb.main([str(p), "--check"])
+    assert p.read_text(encoding="utf-8") == src
+
+
+def test_corpus_is_clean_under_the_gate():
+    """Measured 2026-08-06 after PR #509: 0 bare URLs corpus-wide."""
+    offenders = [
+        p.name
+        for p in sorted((REPO / "_posts").glob("*.md"))
+        if lb.transform(p.read_text(encoding="utf-8")) != p.read_text(encoding="utf-8")
+    ]
+    assert offenders == [], offenders
+
+
+def _noncomment(text: str) -> str:
+    return "\n".join(ln for ln in text.splitlines() if not ln.strip().startswith("#"))
+
+
+@pytest.mark.parametrize("rel", [".githooks/pre-commit", "scripts/install-hooks.sh"])
+def test_wired_into_precommit(rel):
+    import re as _re
+
+    text = (REPO / rel).read_text(encoding="utf-8")
+    assert _re.search(r'linkify_bare_urls\.py"?\s+--check', _noncomment(text)), rel
+
+
+def test_wired_into_ci():
+    wf = (REPO / ".github/workflows/svg-lint.yml").read_text(encoding="utf-8")
+    assert "linkify_bare_urls.py --check" in _noncomment(wf)

@@ -23,6 +23,7 @@ Usage:
 import argparse
 import glob
 import re
+import subprocess
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
@@ -100,32 +101,88 @@ def transform(text: str) -> str:
     return front + "\n".join(out)
 
 
+_POST_PATH_RE = re.compile(r"^_posts/[^/]+\.md$")
+
+
+def bare_urls(text: str) -> list:
+    """URLs the transform would linkify — the gate's offender list."""
+    found = []
+    for original, rewritten in zip(text.split("\n"), transform(text).split("\n")):
+        if original == rewritten:
+            continue
+        found.extend(re.findall(r"\]\((https?://[^)]+)\)", rewritten))
+    return found
+
+
+def _git_paths(cmd: list) -> list:
+    try:
+        out = subprocess.check_output(cmd, cwd=str(REPO), stderr=subprocess.DEVNULL, text=True)
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return []
+    paths = []
+    for line in out.splitlines():
+        p = line.strip()
+        if _POST_PATH_RE.match(p) and (REPO / p).exists():
+            paths.append(REPO / p)
+    return sorted(paths)
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="Wrap bare URLs in markdown links.")
     ap.add_argument("paths", nargs="*")
     ap.add_argument("--posts-glob")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument(
+        "--check",
+        action="store_true",
+        help="report bare URLs and exit 1 without writing (gate mode)",
+    )
+    ap.add_argument("--staged", action="store_true")
+    ap.add_argument("--all", action="store_true")
     args = ap.parse_args(argv)
 
     files = [Path(p) for p in (args.paths or [])]
     if args.posts_glob:
         files += [Path(p) for p in sorted(glob.glob(args.posts_glob))]
+    if args.staged:
+        files += _git_paths(["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"])
+    if args.all:
+        files += sorted((REPO / "_posts").glob("*.md"))
     if not files:
         print("[linkify-urls] no post files to process.")
         return 0
 
-    changed = 0
+    changed, rc = 0, 0
     for f in files:
         original = f.read_text(encoding="utf-8")
         new = transform(original)
         if new == original:
             continue
         changed += 1
-        if args.dry_run:
+        if args.check:
+            rc = 1
+            print(f"FAIL {f}")
+            for url in bare_urls(original):
+                print(f"  - bare URL: {url}")
+        elif args.dry_run:
             print(f"DRY  {f}")
         else:
             f.write_text(new, encoding="utf-8")
             print(f"FIXED {f}")
+
+    if args.check:
+        if rc:
+            print(
+                "\n[linkify-urls] FAIL — bare URLs render as PLAIN TEXT: this site's "
+                "kramdown is configured without GFM input, so they are not "
+                "auto-linked and a reader cannot follow them. Fix with:\n"
+                "  python3 scripts/linkify_bare_urls.py <post>",
+                file=sys.stderr,
+            )
+        else:
+            print(f"[linkify-urls] OK — {len(files)} post(s), 0 bare URLs.")
+        return rc
+
     verb = "would rewrite" if args.dry_run else "rewrote"
     print(f"[linkify-urls] {verb} {changed}/{len(files)} post(s).")
     return 0
