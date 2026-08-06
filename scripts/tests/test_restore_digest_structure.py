@@ -10,6 +10,8 @@ import os
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from restore_digest_structure import (  # noqa: E402
     TOP_SECTION_RE,
@@ -250,6 +252,127 @@ def test_transform_resolves_all_four_kinds():
 def test_transform_is_idempotent():
     once = transform(_FM + _DEFECTIVE)
     assert transform(once) == once
+
+
+# --- lossless_tokens: marker-context sensitivity -----------------------------
+#
+# The multiset alone is marker-blind: `_MARKER_RE` erases heading/bullet markers
+# everywhere, so a marker MIS-conversion inside a code fence ('# 예시' ->
+# '#### 예시', the R0 defect of PR #500) leaves the token multiset identical and
+# the invariant passes while the post is corrupted. And the numeric exclusion was
+# global, so deleting a standalone number from a table was invisible too.
+# Markers may legitimately change ONLY outside fences; numbers may legitimately
+# change ONLY in a heading's leading 'N.' slot (R4/R5).
+
+
+def test_fence_interior_heading_marker_change_is_caught():
+    orig = _FM + "```bash\n# 예시 주석\n```\n"
+    damaged = _FM + "```bash\n#### 예시 주석\n```\n"
+    assert lossless_tokens(orig) != lossless_tokens(damaged)
+
+
+def test_fence_interior_bullet_marker_change_is_caught():
+    orig = _FM + "```\n- item\n```\n"
+    damaged = _FM + "```\n- [ ] item\n```\n"
+    assert lossless_tokens(orig) != lossless_tokens(damaged)
+
+
+def test_fence_interior_text_change_is_still_caught():
+    orig = _FM + "```\n# 예시 주석\n```\n"
+    damaged = _FM + "```\n# 다른 주석\n```\n"
+    assert lossless_tokens(orig) != lossless_tokens(damaged)
+
+
+def test_standalone_number_deletion_outside_headings_is_caught():
+    orig = _FM + "| 항목 | 3 |\n"
+    damaged = _FM + "| 항목 | |\n"
+    assert lossless_tokens(orig) != lossless_tokens(damaged)
+
+
+@pytest.mark.parametrize(
+    "orig,new",
+    [
+        ("### 제목\n", "#### 제목\n"),                       # R1 demote
+        ("### 대응 체크리스트\n", "**대응 체크리스트**\n"),   # R2 boldify
+        ("- [ ] 조치\n", "- 조치\n"),                         # R3 unbox
+        ("- 조치\n", "- [ ] 조치\n"),                         # R6 checkbox
+        ("## 9. 보안\n", "## 3. 보안\n"),                     # R4 renumber
+        ("## 9. 실무 체크리스트\n", "## 실무 체크리스트\n"),  # R5 unnumber
+        ("## 9. 보안\n", "#### 9. 보안\n"),                   # R5-then-R1 demote
+    ],
+)
+def test_intended_rule_effects_do_not_trip_the_invariant(orig, new):
+    assert lossless_tokens(_FM + orig) == lossless_tokens(_FM + new)
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        "### 9.1 항목\n",       # item sub-number is not the heading number slot
+        "발행 2026 년\n",       # prose number
+        "| 건수 | 12 |\n",      # table number
+    ],
+)
+def test_unchanged_content_never_trips_the_invariant(line):
+    assert lossless_tokens(_FM + line) == lossless_tokens(_FM + line)
+
+
+def test_invariant_backstops_an_r0_regression(monkeypatch, tmp_path, capsys):
+    """If fence protection regresses, the invariant must ABORT — not write.
+
+    This is the PR #500 defect replayed: with R0 disabled, R1 demotes the bash
+    comment inside the fence. Before the tightening the multiset still matched
+    and the file was written corrupted.
+    """
+    import restore_digest_structure as mod
+
+    post = tmp_path / "2026-08-06-Tech_Blog_Weekly_Digest_x.md"
+    post.write_text(
+        _FM
+        + "## 1. 보안\n\n### 1.1 기사\n\n```bash\n# 예시 주석\necho hi\n```\n\n"
+        "## 실무 체크리스트\n\n- [ ] 조치\n",
+        encoding="utf-8",
+    )
+    original = post.read_text(encoding="utf-8")
+
+    monkeypatch.setattr(mod, "_fence_flags", lambda lines: [False] * len(lines))
+    rc = mod.main([str(post)])
+
+    assert rc == 1, "a fence-interior marker rewrite must abort"
+    assert "lossless invariant violated" in capsys.readouterr().err
+    assert post.read_text(encoding="utf-8") == original, "must not write on abort"
+
+
+def test_audit_fence_flags_agree_with_rule_flags():
+    """The two detectors are separate on purpose — they must not DRIFT.
+
+    Disagreement would abort real posts (false positive), so this pins them to
+    the corpus while keeping the audit independent of `_fence_flags` edits.
+    """
+    import pathlib
+
+    import restore_digest_structure as mod
+
+    repo = pathlib.Path(__file__).resolve().parent.parent.parent
+    disagreeing = []
+    for p in sorted((repo / "_posts").glob("*Weekly_Digest*.md")):
+        lines = p.read_text(encoding="utf-8").split("\n")
+        if mod._audit_fence_flags(lines) != mod._fence_flags(lines):
+            disagreeing.append(p.name)
+    assert disagreeing == [], disagreeing
+
+
+def test_corpus_transform_stays_lossless_under_the_tightened_invariant():
+    """Every digest must still pass — the tightening must not abort real posts."""
+    import pathlib
+
+    repo = pathlib.Path(__file__).resolve().parent.parent.parent
+    offenders = []
+    for p in sorted((repo / "_posts").glob("*Weekly_Digest*.md")):
+        t = p.read_text(encoding="utf-8")
+        if lossless_tokens(t) != lossless_tokens(transform(t)):
+            offenders.append(p.name)
+    assert offenders == [], offenders
 
 
 def test_r1_and_r2_are_order_independent():
