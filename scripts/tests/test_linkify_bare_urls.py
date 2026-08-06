@@ -178,11 +178,16 @@ def test_nested_url_inside_a_query_string_is_not_split():
 
 
 def test_check_reports_offender_and_exits_1(tmp_path, capsys):
+    url = "https://kubernetes.io/docs/tasks/debug/"
     p = tmp_path / "2026-08-06-X.md"
-    p.write_text(_FM + "참고: https://kubernetes.io/docs/tasks/debug/\n", encoding="utf-8")
+    p.write_text(_FM + f"참고: {url}\n", encoding="utf-8")
     assert lb.main([str(p), "--check"]) == 1
     out = capsys.readouterr().out
-    assert "FAIL" in out and "kubernetes.io" in out
+    # Assert the whole reported line, not a host substring: a bare
+    # `"kubernetes.io" in out` reads as URL-substring validation (CodeQL
+    # py/incomplete-url-substring-sanitization) and is a weaker assertion.
+    assert "FAIL" in out
+    assert f"  - bare URL: {url}" in out
 
 
 def test_check_exits_0_when_clean(tmp_path, capsys):
