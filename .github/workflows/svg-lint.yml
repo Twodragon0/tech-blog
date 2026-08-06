@@ -38,6 +38,7 @@ on:
       - 'scripts/check_digest_untranslated.py'
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
+      - 'scripts/linkify_bare_urls.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -82,6 +83,7 @@ on:
       - 'scripts/check_digest_untranslated.py'
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
+      - 'scripts/linkify_bare_urls.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -291,6 +293,14 @@ jobs:
         # is fresh drift — including one arriving via a cron push that never
         # ran the pre-commit hook.
         run: python3 scripts/check_digest_checklist_heading.py --all
+
+      - name: Bare-URL gate (unlinked https:// in post prose)
+        id: bare_url_gate
+        # kramdown here has no GFM input, so a plain https:// renders as TEXT —
+        # verified on built output, not inferred. --all: the corpus is at 0
+        # after PR #509, so any hit is fresh. Guides, not cron digests, are the
+        # recurrence path, so there is deliberately no blogwatcher step.
+        run: python3 scripts/linkify_bare_urls.py --check --all
 
       - name: CSP inline-script sha256 regression gate (prep for CSP Path B)
         id: csp_inline_hashes

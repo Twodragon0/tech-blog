@@ -224,3 +224,20 @@ if [ -n "$STAGED_QUALITY_POSTS" ]; then
   fi
   echo "[pre-commit] Post quality: passed."
 fi
+
+# 12. Bare-URL gate — a plain https:// in prose renders as TEXT, not a link.
+#     This site's kramdown has no GFM input, so it does not auto-link. All 8
+#     posts fixed in PR #509 were hand-written guides, never cron digests, so
+#     the recurrence path is human authoring — hence pre-commit + CI, no cron.
+STAGED_ANY_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/[^/]+\.md$' || true)
+if [ -n "$STAGED_ANY_POSTS" ]; then
+  echo "[pre-commit] Checking staged posts for bare (unlinked) URLs..."
+  python3 "$REPO_ROOT/scripts/linkify_bare_urls.py" --check --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Bare URL found — readers cannot click it."
+    echo "             Auto-fix: python3 scripts/linkify_bare_urls.py <post>"
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Bare-URL check: passed."
+fi
