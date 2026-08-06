@@ -644,6 +644,10 @@ spec:
 | AWS IAM Identity Center | [docs.aws.amazon.com/singlesignon](https://docs.aws.amazon.com/singlesignon/) |
 | GCP Workload Identity | [cloud.google.com/iam/docs/workload-identity-federation](https://cloud.google.com/iam/docs/workload-identity-federation) |
 | FinOps Foundation | [finops.org](https://www.finops.org/) |
+| AWS Security Blog | [aws.amazon.com](https://aws.amazon.com) |
+| Google Cloud Blog | [cloud.google.com](https://cloud.google.com) |
+| AWS Blog | [aws.amazon.com](https://aws.amazon.com) |
+| HashiCorp Blog | [hashicorp.com](https://www.hashicorp.com) |
 
 ---
 

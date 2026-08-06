@@ -455,13 +455,17 @@ Krebs on Security의 분석이 AI 에이전트가 만들어내는 새로운 공�
 
 ## 참고 자료
 
-| 리소스 | 링크 |
-|--------|------|
-| CISA KEV | [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
-| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
-| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
-| OWASP Top 10 for LLM | [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) |
-| NIST AI RMF | [NIST AI RMF](https://www.nist.gov/system/files/documents/2023/01/26/AI-RMF-001.pdf) |
+| 리소스 | 링크 | 용도 |
+|--------|------|------|
+| CISA KEV | [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | 실제 악용 확인된 취약점 목록 — 패치 우선순위 기준 |
+| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) | 공격 전술·기법 매핑 — 탐지 룰 설계 |
+| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) | 취약점 악용 확률 점수 — CVSS 보완 |
+| OWASP Top 10 for LLM | [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | LLM 애플리케이션 상위 위험 — AI 서비스 위협 모델링 |
+| NIST AI RMF | [NIST AI RMF](https://www.nist.gov/system/files/documents/2023/01/26/AI-RMF-001.pdf) | AI 위험 관리 프레임워크 — 거버넌스 통제 설계 |
+| Krebs on Security | [krebsonsecurity.com](https://krebsonsecurity.com) | 본문 1건 인용 |
+| Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+| LINE Engineering Blog | [techblog.lycorp.co.jp](https://techblog.lycorp.co.jp) | 본문 1건 인용 |
+| GeekNews | [news.hada.io](https://news.hada.io) | 본문 2건 인용 |
 
 ---
 

@@ -637,11 +637,14 @@ def audit_agent_io(func):
 ### 보안 기준 및 프레임워크
 
 | 리소스 | 링크 | 활용 목적 |
-|--------|------|----------|
+|--------|------|------|
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | 적극 악용 취약점 목록 |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) | 공격 전술·기법 분류 |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) | 취약점 악용 확률 점수 |
 | OWASP LLM Top 10 | [owasp.org/www-project-top-10-for-large-language-model-applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | AI/LLM 보안 위협 분류 |
+| The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 2건 인용 |
+| AWS Security Blog | [aws.amazon.com](https://aws.amazon.com) | 본문 1건 인용 |
+| Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
 
 ### 공급망 보안 참고자료
 
