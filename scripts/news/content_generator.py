@@ -2904,7 +2904,12 @@ def generate_news_section(
             clean_image = image.split("?")[0] if "?" in image else image
             card_parts.append('  image="%s"' % _sanitize_liquid_param(clean_image))
         if ko_summary:
-            card_summary = _sanitize_liquid_param(ko_summary[:200])
+            # Boundary-aware, NOT ko_summary[:200]: the raw slice cut readers off
+            # mid-word ("…지원하는 방식으로 확") on 128 of 1,756 corpus cards, whose
+            # lengths cluster exactly on the cap. _korean_brief_summary already
+            # boundary-cuts at 220, so a blind 200 re-cut undid that work; the
+            # excerpt and table-summary paths have always used this helper.
+            card_summary = _sanitize_liquid_param(_truncate_korean_sentence(ko_summary, 200))
             card_parts.append('  summary="%s"' % card_summary)
         card_parts.append('  source="%s"' % _sanitize_liquid_param(source))
         card_parts.append('  severity="%s"' % severity)
