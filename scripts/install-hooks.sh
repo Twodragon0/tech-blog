@@ -213,6 +213,24 @@ if [ -n "$STAGED_DIGEST_POSTS" ]; then
   echo "[pre-commit] Digest proper-noun check: passed."
 fi
 
+# 9d. Canonical checklist heading gate — exactly one '## 실무 체크리스트' H2.
+#     Step 9 counts the raw substring, so '### 실무 체크리스트' (demoted) and
+#     '## 실무 체크리스트 (P0)' (suffixed) pass it. No ratchet: the corpus is
+#     at 0 violations (measured 2026-08-06, 184/184), so any hit is new drift.
+if [ -n "$STAGED_DIGEST_POSTS" ]; then
+  echo "[pre-commit] Checking digest canonical checklist heading..."
+  python3 "$REPO_ROOT/scripts/check_digest_checklist_heading.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Non-canonical global checklist heading in a digest."
+    echo "             Canonical form is exactly: ## 실무 체크리스트"
+    echo "             Numbered ('## N. …') forms auto-fix with:"
+    echo "               python3 scripts/restore_digest_structure.py <post>"
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Digest checklist heading check: passed."
+fi
+
 # 10. CSP inline-script sha256 regression gate (prep for CSP Path B)
 STAGED_HEAD_HTML=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_includes/head\.html$' || true)
 if [ -n "$STAGED_HEAD_HTML" ]; then
