@@ -564,16 +564,16 @@ AI 피싱 공격 특징:
 ### 6.4 추가 읽을거리
 
 1. "Bypassing MFA: A Deep Dive" (2024) - SANS Institute
-   - https://www.sans.org/white-papers/bypassing-mfa/
+   - [sans.org/white-papers/bypassing-mfa](https://www.sans.org/white-papers/bypassing-mfa/)
 
 2. "The State of Passkeys 2025" - FIDO Alliance
-   - https://fidoalliance.org/state-of-passkeys-2025/
+   - [fidoalliance.org/state-of-passkeys-2025](https://fidoalliance.org/state-of-passkeys-2025/)
 
 3. "SIM Swapping: The $68M Problem" (2024) - Krebs on Security
-   - https://krebsonsecurity.com/2024/08/sim-swapping-the-68m-problem/
+   - [krebsonsecurity.com](https://krebsonsecurity.com/2024/08/sim-swapping-the-68m-problem/)
 
 4. "AI Phishing Attacks Surge 93%" (2025) - Verizon DBIR
-   - https://www.verizon.com/business/resources/reports/dbir/
+   - [verizon.com/business/resources/reports/dbir](https://www.verizon.com/business/resources/reports/dbir/)
 
 ## 결론
 

@@ -320,8 +320,8 @@ contract FailSafeVault is Pausable, Ownable {
 
 <!-- Full sample intentionally shortened for readability.
 Reference:
-https://docs.openzeppelin.com/contracts/4.x/api/security
-https://docs.openzeppelin.com/contracts/4.x/access-control
+[docs.openzeppelin.com/contracts/4.x/api/security](https://docs.openzeppelin.com/contracts/4.x/api/security)
+[docs.openzeppelin.com/contracts/4.x/access-control](https://docs.openzeppelin.com/contracts/4.x/access-control)
 -->
 
 ### 4.3 보안 체크리스트

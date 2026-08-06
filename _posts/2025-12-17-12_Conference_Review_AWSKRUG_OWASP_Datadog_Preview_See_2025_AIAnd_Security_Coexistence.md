@@ -219,49 +219,49 @@ AWS re:Invent 2025에서 발표된 Security Agent, Security Hub GA, GuardDuty Ex
 #### AWS 공식 문서
 1. AWS re:Invent 2025 Security Sessions
    - Security Keynote: "The Future of Cloud Security in the AI Era"
-   - URL: https://reinvent.awsevents.com/learn/security/
+   - URL: [reinvent.awsevents.com/learn/security](https://reinvent.awsevents.com/learn/security/)
    - 핵심 내용: Security Agent, GuardDuty Extended, IAM Policy Autopilot 발표
 
 2. AWS Security Hub Documentation
-   - URL: https://docs.aws.amazon.com/securityhub/
+   - URL: [docs.aws.amazon.com/securityhub](https://docs.aws.amazon.com/securityhub/)
    - 활용: 멀티 어카운트 보안 통합 관리 가이드
 
 3. AWS GuardDuty Extended Threat Detection
-   - URL: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_extended.html
+   - URL: [docs.aws.amazon.com](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_extended.html)
    - 활용: EKS Runtime Monitoring 설정 방법
 
 4. AWS IAM Policy Autopilot
-   - URL: https://docs.aws.amazon.com/iam/latest/UserGuide/policy-autopilot.html
+   - URL: [docs.aws.amazon.com](https://docs.aws.amazon.com/iam/latest/UserGuide/policy-autopilot.html)
    - 활용: 최소 권한 정책 자동 생성 실습
 
 5. AWS Well-Architected Framework - Security Pillar
-   - URL: https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/
+   - URL: [docs.aws.amazon.com](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/)
    - 활용: 보안 아키텍처 설계 원칙 및 모범 사례
 
 #### OWASP 공식 자료
 6. OWASP Top 10 - 2025 Preview
-   - URL: https://owasp.org/www-project-top-ten/
+   - URL: [owasp.org/www-project-top-ten](https://owasp.org/www-project-top-ten/)
    - 핵심 내용: AI 기반 공격 포함 예정
 
 7. OWASP AI Security and Privacy Guide
-   - URL: https://owasp.org/www-project-ai-security-and-privacy-guide/
+   - URL: [owasp.org](https://owasp.org/www-project-ai-security-and-privacy-guide/)
    - 활용: LLM 공격 기법 및 방어 전략
 
 8. OWASP Software Component Verification Standard (SCVS)
-   - URL: https://owasp.org/www-project-software-component-verification-standard/
+   - URL: [owasp.org](https://owasp.org/www-project-software-component-verification-standard/)
    - 활용: SBOM 구축 및 Supply Chain 보안
 
 #### Datadog 공식 자료
 9. Datadog Security Monitoring Documentation
-   - URL: https://docs.datadoghq.com/security/
+   - URL: [docs.datadoghq.com/security](https://docs.datadoghq.com/security/)
    - 활용: SIEM, CSPM, ASM 통합 설정 가이드
 
 10. Datadog Cloud Security Posture Management (CSPM)
-    - URL: https://docs.datadoghq.com/security/cspm/
+    - URL: [docs.datadoghq.com/security/cspm](https://docs.datadoghq.com/security/cspm/)
     - 활용: 클라우드 설정 오류 자동 탐지
 
 11. Datadog Application Security Management (ASM)
-    - URL: https://docs.datadoghq.com/security/application_security/
+    - URL: [docs.datadoghq.com/security/application_security](https://docs.datadoghq.com/security/application_security/)
     - 활용: 런타임 애플리케이션 보호
 
 ### 4.2 컨퍼런스 세션 및 발표 자료
@@ -297,183 +297,183 @@ AWS re:Invent 2025에서 발표된 Security Agent, Security Hub GA, GuardDuty Ex
 ### 4.3 산업 리포트 및 통계
 
 18. Gartner Magic Quadrant for SIEM (2025)
-    - URL: https://www.gartner.com/en/documents/magic-quadrant-siem
+    - URL: [gartner.com/en/documents/magic-quadrant-siem](https://www.gartner.com/en/documents/magic-quadrant-siem)
     - 핵심 내용: SIEM 시장 동향, 주요 벤더 평가
 
 19. Forrester Wave: Cloud Security Posture Management (2025)
-    - URL: https://www.forrester.com/wave/cloud-security-posture-management
+    - URL: [forrester.com](https://www.forrester.com/wave/cloud-security-posture-management)
     - 핵심 내용: CSPM 시장 분석, 구매 가이드
 
 20. Cybersecurity Ventures: 2025 Cybercrime Report
-    - URL: https://cybersecurityventures.com/cybercrime-report/
+    - URL: [cybersecurityventures.com/cybercrime-report](https://cybersecurityventures.com/cybercrime-report/)
     - 핵심 통계: 93% 보안 리더가 AI 공격 예상
 
 21. Verizon Data Breach Investigations Report (DBIR) 2025
-    - URL: https://www.verizon.com/business/resources/reports/dbir/
+    - URL: [verizon.com/business/resources/reports/dbir](https://www.verizon.com/business/resources/reports/dbir/)
     - 핵심 내용: 데이터 침해 사고 분석, 공격 벡터 통계
 
 22. Cloudflare Post-Quantum Cryptography Report
-    - URL: https://blog.cloudflare.com/post-quantum-cryptography-report/
+    - URL: [blog.cloudflare.com](https://blog.cloudflare.com/post-quantum-cryptography-report/)
     - 핵심 통계: 전체 트래픽의 52% Post-quantum 암호화 적용
 
 ### 4.4 기술 표준 및 프레임워크
 
 23. NIST Cybersecurity Framework 2.0
-    - URL: https://www.nist.gov/cyberframework
+    - URL: [nist.gov/cyberframework](https://www.nist.gov/cyberframework)
     - 활용: 보안 프레임워크 구축 기준
 
 24. NIST Post-Quantum Cryptography Standardization
-    - URL: https://csrc.nist.gov/projects/post-quantum-cryptography
+    - URL: [csrc.nist.gov/projects/post-quantum-cryptography](https://csrc.nist.gov/projects/post-quantum-cryptography)
     - 활용: Post-quantum 알고리즘 선택 가이드
 
 25. Zero Trust Architecture - NIST SP 800-207
-    - URL: https://csrc.nist.gov/publications/detail/sp/800-207/final
+    - URL: [csrc.nist.gov/publications/detail/sp/800-207/final](https://csrc.nist.gov/publications/detail/sp/800-207/final)
     - 활용: Zero Trust 아키텍처 설계 원칙
 
 26. CIS AWS Foundations Benchmark
-    - URL: https://www.cisecurity.org/benchmark/amazon_web_services
+    - URL: [cisecurity.org/benchmark/amazon_web_services](https://www.cisecurity.org/benchmark/amazon_web_services)
     - 활용: AWS 보안 설정 체크리스트
 
 27. ISO/IEC 27001:2022 Information Security Management
-    - URL: https://www.iso.org/standard/27001
+    - URL: [iso.org/standard/27001](https://www.iso.org/standard/27001)
     - 활용: 정보보안 관리 체계 구축
 
 ### 4.5 오픈소스 도구 및 프로젝트
 
 28. Trivy - Container Vulnerability Scanner
-    - GitHub: https://github.com/aquasecurity/trivy
+    - GitHub: [github.com/aquasecurity/trivy](https://github.com/aquasecurity/trivy)
     - 활용: 컨테이너 이미지 취약점 스캔
 
 29. Syft - SBOM Generation Tool
-    - GitHub: https://github.com/anchore/syft
+    - GitHub: [github.com/anchore/syft](https://github.com/anchore/syft)
     - 활용: 소프트웨어 Bill of Materials 자동 생성
 
 30. TruffleHog - Secret Scanner
-    - GitHub: https://github.com/trufflesecurity/trufflehog
+    - GitHub: [github.com/trufflesecurity/trufflehog](https://github.com/trufflesecurity/trufflehog)
     - 활용: Git 히스토리에서 시크릿 탐지
 
 31. Checkov - IaC Security Scanner
-    - GitHub: https://github.com/bridgecrewio/checkov
+    - GitHub: [github.com/bridgecrewio/checkov](https://github.com/bridgecrewio/checkov)
     - 활용: Terraform, CloudFormation 보안 스캔
 
 32. OWASP ZAP - Web Application Security Scanner
-    - URL: https://www.zaproxy.org/
+    - URL: [zaproxy.org](https://www.zaproxy.org/)
     - 활용: DAST (동적 애플리케이션 보안 테스트)
 
 33. Falco - Cloud Native Runtime Security
-    - URL: https://falco.org/
+    - URL: [falco.org](https://falco.org/)
     - 활용: Kubernetes 런타임 위협 탐지
 
 ### 4.6 한국 보안 커뮤니티 및 자료
 
 34. KISA (한국인터넷진흥원) 보안공지
-    - URL: https://www.kisa.or.kr/
+    - URL: [kisa.or.kr](https://www.kisa.or.kr/)
     - 활용: 국내 보안 동향, 취약점 공지
 
 35. AWSKRUG (AWS Korea User Group)
-    - URL: https://www.facebook.com/groups/awskrug
+    - URL: [facebook.com/groups/awskrug](https://www.facebook.com/groups/awskrug)
     - 활용: AWS 한국 사용자 커뮤니티, 정기 세미나
 
 36. GDGKR (Google Developer Group Korea)
-    - URL: https://gdg.community.dev/
+    - URL: [gdg.community.dev](https://gdg.community.dev/)
     - 활용: 클라우드 및 보안 기술 공유
 
 37. 한국정보보호학회 (KIISC)
-    - URL: https://www.kiisc.or.kr/
+    - URL: [kiisc.or.kr](https://www.kiisc.or.kr/)
     - 활용: 학술 연구, 보안 컨퍼런스
 
 38. 개인정보보호위원회 - 개인정보보호법
-    - URL: https://www.pipc.go.kr/
+    - URL: [pipc.go.kr](https://www.pipc.go.kr/)
     - 활용: 개인정보보호 규정 및 가이드라인
 
 ### 4.7 교육 및 자격증
 
 39. AWS Certified Security - Specialty
-    - URL: https://aws.amazon.com/certification/certified-security-specialty/
+    - URL: [aws.amazon.com](https://aws.amazon.com/certification/certified-security-specialty/)
     - 활용: AWS 보안 전문가 자격증
 
 40. Certified Information Systems Security Professional (CISSP)
-    - URL: https://www.isc2.org/Certifications/CISSP
+    - URL: [isc2.org/Certifications/CISSP](https://www.isc2.org/Certifications/CISSP)
     - 활용: 국제 정보보안 전문가 자격증
 
 41. Certified Kubernetes Security Specialist (CKS)
-    - URL: https://www.cncf.io/certification/cks/
+    - URL: [cncf.io/certification/cks](https://www.cncf.io/certification/cks/)
     - 활용: Kubernetes 보안 전문가 자격증
 
 42. OWASP Top 10 Training
-    - URL: https://owasp.org/www-project-top-ten/
+    - URL: [owasp.org/www-project-top-ten](https://owasp.org/www-project-top-ten/)
     - 활용: 웹 애플리케이션 보안 교육
 
 ### 4.8 블로그 및 뉴스 사이트
 
 43. AWS Security Blog
-    - URL: https://aws.amazon.com/blogs/security/
+    - URL: [aws.amazon.com/blogs/security](https://aws.amazon.com/blogs/security/)
     - 활용: AWS 보안 최신 동향, 모범 사례
 
 44. Krebs on Security
-    - URL: https://krebsonsecurity.com/
+    - URL: [krebsonsecurity.com](https://krebsonsecurity.com/)
     - 활용: 보안 사고 분석, 뉴스
 
 45. The Hacker News
-    - URL: https://thehackernews.com/
+    - URL: [thehackernews.com](https://thehackernews.com/)
     - 활용: 최신 보안 뉴스, 취약점 공지
 
 46. Dark Reading
-    - URL: https://www.darkreading.com/
+    - URL: [darkreading.com](https://www.darkreading.com/)
     - 활용: 기업 보안 전략, 트렌드 분석
 
 47. SANS Internet Storm Center
-    - URL: https://isc.sans.edu/
+    - URL: [isc.sans.edu](https://isc.sans.edu/)
     - 활용: 위협 인텔리전스, 실시간 보안 동향
 
 ### 4.9 실습 환경 및 랩
 
 48. AWS Workshop Studio
-    - URL: https://workshops.aws/
+    - URL: [workshops.aws](https://workshops.aws/)
     - 활용: AWS 보안 서비스 실습 (무료)
 
 49. Datadog Learning Center
-    - URL: https://learn.datadoghq.com/
+    - URL: [learn.datadoghq.com](https://learn.datadoghq.com/)
     - 활용: Datadog 플랫폼 실습
 
 50. TryHackMe - Cloud Security Rooms
-    - URL: https://tryhackme.com/
+    - URL: [tryhackme.com](https://tryhackme.com/)
     - 활용: 클라우드 보안 실습 (게이미피케이션)
 
 51. OWASP WebGoat
-    - URL: https://owasp.org/www-project-webgoat/
+    - URL: [owasp.org/www-project-webgoat](https://owasp.org/www-project-webgoat/)
     - 활용: 웹 애플리케이션 보안 실습 환경
 
 ### 4.10 관련 GitHub 저장소
 
 52. AWS Security Reference Architecture
-    - GitHub: https://docs.aws.amazon.com//aws-security-reference-architecture-examples
+    - GitHub: [docs.aws.amazon.com](https://docs.aws.amazon.com//aws-security-reference-architecture-examples)
     - 활용: AWS 보안 아키텍처 참고 구현
 
 53. Awesome Cloud Security
-    - GitHub: https://github.com/4ndersonLin/awesome-cloud-security
+    - GitHub: [github.com/4ndersonLin/awesome-cloud-security](https://github.com/4ndersonLin/awesome-cloud-security)
     - 활용: 클라우드 보안 리소스 큐레이션
 
 54. Kubernetes Security - Best Practice Guide
-    - GitHub: https://github.com/kabachook/k8s-security
+    - GitHub: [github.com/kabachook/k8s-security](https://github.com/kabachook/k8s-security)
     - 활용: Kubernetes 보안 가이드
 
 55. SecLists - Security Tester's Companion
-    - GitHub: https://github.com/danielmiessler/SecLists
+    - GitHub: [github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists)
     - 활용: 보안 테스트 페이로드 모음
 
 ### 4.11 팟캐스트 및 비디오
 
 56. AWS re:Invent YouTube Channel
-    - URL: https://www.youtube.com/@AWSEventsChannel
+    - URL: [youtube.com/@AWSEventsChannel](https://www.youtube.com/@AWSEventsChannel)
     - 활용: re:Invent 세션 다시보기
 
 57. Darknet Diaries Podcast
-    - URL: https://darknetdiaries.com/
+    - URL: [darknetdiaries.com](https://darknetdiaries.com/)
     - 활용: 보안 사건 스토리텔링
 
 58. Kubernetes Security Podcast
-    - URL: https://kubernetessecuritypodcast.com/
+    - URL: [kubernetessecuritypodcast.com](https://kubernetessecuritypodcast.com/)
     - 활용: 컨테이너 보안 최신 동향
 
 ### 4.12 추가 참고 도구

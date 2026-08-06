@@ -338,8 +338,8 @@ TTL: 3600
 
 다음 도구들을 사용하여 설정을 검증할 수 있습니다:
 
-- MXToolbox: https://mxtoolbox.com/spf.aspx
-- DMARC Analyzer: https://www.dmarcanalyzer.com/
+- MXToolbox: [mxtoolbox.com/spf.aspx](https://mxtoolbox.com/spf.aspx)
+- DMARC Analyzer: [dmarcanalyzer.com](https://www.dmarcanalyzer.com/)
 - Google Postmaster Tools: Gmail 전달률 확인
 
 ### 7.2 명령줄 도구

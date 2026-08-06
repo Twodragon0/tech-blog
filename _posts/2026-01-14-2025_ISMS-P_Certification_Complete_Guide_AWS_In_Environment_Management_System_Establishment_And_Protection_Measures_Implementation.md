@@ -130,8 +130,8 @@ summary_card:
 - 보안 운영: `CloudTrail`, `CloudWatch`, `Security Hub`, `GuardDuty`, `Config`, `Inspector`
 
 <!-- Full ASCII architecture omitted for readability. Reference:
-https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html
-https://docs.aws.amazon.com/whitepapers/latest/introduction-devsecops-aws/welcome.html
+[docs.aws.amazon.com](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html)
+[docs.aws.amazon.com](https://docs.aws.amazon.com/whitepapers/latest/introduction-devsecops-aws/welcome.html)
 -->
 
 #### CloudTrail 로그 설정
