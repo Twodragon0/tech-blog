@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-06T01:47:30.637210+00:00",
+  "updated_at": "2026-08-07T02:12:40.862870+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/check-point-patches-exploited.html",
-      "title": "Check Point Patches Exploited SmartConsole Flaw Allowing Full Admin Access",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-smartconsole-zero-day-exploited-in-attacks/",
-      "title": "Check Point warns of SmartConsole zero-day exploited in attacks",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/94553/",
-      "title": "Kimsuky 그룹의 외교 관련 종사자 사칭 공격 사례 (PebbleDash, PrxClient)",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/github-cuts-public-bug-bounty-payouts.html",
-      "title": "GitHub Cuts Public Bug Bounty Payouts, Moves Top Rewards to VIP Tier",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/ubuntu-snap-confine-flaw-could-give.html",
-      "title": "Ubuntu snap-confine Flaw Could Give Local Users Root on Default Desktop Installs",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/naval-postgraduate-school-dgx-ai-supercomputer/",
-      "title": "NVIDIA AI Supercomputer Comes Online at Naval Postgraduate School",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/accelerating-the-frontiers-of-scientific-discovery-googles-40m-commitment-to-the-genesis-mission/",
-      "title": "Accelerating the frontiers of scientific discovery: Google’s $40M commitment to ",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/medical-physics-simulation-open-source/",
-      "title": "NVIDIA Open Sources First GPU-Accelerated Medical Physics Simulation Framework",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community",
-      "title": "Building AI infrastructure with the Effingham County community",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://openai.com/index/how-news-organizations-are-using-ai",
-      "title": "How news organizations are using AI to advance their vital missions",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/how-checkout-com-tallies-data-with-cloud-composer-3/",
-      "title": "From maintenance to innovation: Checking in on Checkout.com’s Cloud Composer 3 m",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/accelerating-frontiers-of-scientific-discovery-40-million-dollar-commitment-genesis-mission/",
-      "title": "Accelerating the frontiers of scientific discovery: Google’s $40M commitment to ",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/financial-cloud-guide-a-to-z-part2/",
-      "title": "금융 클라우드 길라잡이 A to Z Part 2 – 연구개발망 예외와 망분리 개선 로드맵",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/financial-cloud-guide-a-to-z-part1/",
-      "title": "금융 클라우드 길라잡이 A to Z Part 1 – 전자금융감독규정으로 풀어보는 클라우드 도입 첫걸음",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-22-new-copilot-usage-metrics-impact-dashboard",
-      "title": "New Copilot usage metrics impact dashboard",
-      "published_date": "2026-07-23",
-      "expires_at": "2026-07-30T08:28:42.040645+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html",
       "title": "BlueNoroff Zoom Phishing Kit Profiles Crypto Wallets Before Malware Delivery",
@@ -1260,6 +1170,96 @@
       "title": "Governance Is a Developer Experience Problem",
       "published_date": "2026-08-06",
       "expires_at": "2026-08-13T01:47:30.637120+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/new-zapscape-kvm-flaw-could-let.html",
+      "title": "New Zapscape KVM Flaw Could Let Privileged L1 Guest Code Escape to Linux Hosts",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/cisco-patches-12-sd-wan-and-ios-xe.html",
+      "title": "Cisco Patches 12 SD-WAN and IOS XE Flaws, Including Three 9.8 CVSS Score Bugs",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/automate-certificates-with-acme-support-in-aws-certificate-manager/",
+      "title": "Automate certificates with ACME support in AWS Certificate Manager",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/new-interrupt-injection-attack-can.html",
+      "title": "New Interrupt Injection Attack Can Bypass Spectre v2 Defenses on Intel and AMD C",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/threatsday-odysseus-rce-samsung-one.html",
+      "title": "ThreatsDay: Odysseus RCE, Samsung One-Click Takeover, iCloud Backdoor Fight + 27",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-august-2026-games-list/",
+      "title": "GeForce NOW Shakes Up August With 26 New Games",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/open-world-models-physical-ai/",
+      "title": "Into the Omniverse: How Open World Models Push the Frontier of Physical AI",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt",
+      "title": "Improving GPT‑5.6 Sol in ChatGPT—and expanding access to GPT-5.6 Luna for free u",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://openai.com/index/openai-and-apa-partner-to-advance-responsible-ai",
+      "title": "Working with the American Psychological Association on youth mental health and A",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/securing-ai-agents-with-temporal-policies-in-amazon-bedrock-agentcore/",
+      "title": "Securing AI agents with temporal policies in Amazon Bedrock AgentCore",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/privacy-first-medical-ai-with-medperf-and-google-cloud/",
+      "title": "Advancing brain tumor research with privacy-first AI",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/training-certifications/free-gemini-enterrprise-training/",
+      "title": "Your agentic summer: No-cost lessons from Google experts to build and scale agen",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/hybrid-cloud/state-of-ai-infrastructure-report-on-hybrid-cloud-and-gdc/",
+      "title": "Digital sovereignty in the age of AI: You don’t have to choose between control a",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-performance-optimizations/",
+      "title": "Agentic Future Ready With BigQuery: Continually Improving Price-Performance, Zer",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/unc6671-targets-financial-services-and-enterprise-cloud-environments/",
+      "title": "UNC6671 Rebrands: Multi-Brand Vishing Extortion Targets Financial Services and E",
+      "published_date": "2026-08-07",
+      "expires_at": "2026-08-14T02:12:40.862751+00:00"
     }
   ]
 }
