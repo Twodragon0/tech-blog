@@ -23,7 +23,12 @@ from pathlib import Path
 
 import yaml
 
-POSTS_DIR = Path(__file__).resolve().parent.parent / "_posts"
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO))
+
+from scripts.news_card_patterns import count_cards  # noqa: E402
+
+POSTS_DIR = REPO / "_posts"
 
 SERIES_PREFIX = {
     "security": "주간 보안 다이제스트",
@@ -131,8 +136,26 @@ def extract_theme(fm: dict, body: str, mode: str) -> str:
 
 
 def extract_total(fm: dict, body: str) -> int:
-    """Count news-card includes; fall back to highlights or default 5."""
-    count = body.count("{% include news-card.html")
+    """Count the news items the post renders; fall back to highlights or 5.
+
+    The generator's own ``(N건)`` comes from ``total = sum(stats.values())`` —
+    every collected item (``content_generator.py:1419``). This backfill cannot
+    see that historical pool, so it approximates N from the rendered body, and
+    the approximation should count every rendered news item.
+
+    A literal ``body.count("{% include news-card.html")`` counted neither the
+    282 ``{%- include`` cards nor the 64 spotlight items (C11). It read 0 cards
+    for all 31 whitespace-control posts and silently fell through to the
+    3-entry ``highlights`` fallback — which is why e.g. 2026-02-05 claims
+    "(3건)" while rendering 16 cards + 2 spotlight items.
+
+    Spotlight items count because they are distinct news items, not a restyled
+    view of the cards: they render title/url/source/summary under their own
+    numbered section ("기타 주목할 뉴스", migrated from tables in ``b6fe65a5``),
+    and 0 of the 64 reuse a news-card URL (measured 2026-08-07). Counting them
+    moves N toward the generator's "items covered" meaning, not away from it.
+    """
+    count = count_cards(body)
     if count >= 1:
         return count
     sc = fm.get("summary_card") or {}

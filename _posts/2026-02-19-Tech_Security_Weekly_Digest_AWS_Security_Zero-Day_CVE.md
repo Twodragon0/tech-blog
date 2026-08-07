@@ -121,7 +121,7 @@ Dell RecoverPoint for Virtual Machines에서 발견된 제로데이 취약점(CV
   title="[보안] Grandstream GXP1600 VoIP 전화기 비인증 원격 코드 실행 취약점"
   url="https://thehackernews.com/2026/02/grandstream-gxp1600-voip-phones-exposed.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJkDWw2o7gwfV4NseVpa6WnSALfRD1COOQfDjRYsORg5EN_NXyMNj43q0uSXkGZbgNC6kUJx-suEri4OMmg1v9UULThdAImIdK04DyIkj4iabnRcDqfl2bUXFWz-nsGeR7y8W0YC1ykqt3VauFhW7saH9iblk6kA8KTEKcG74A4fPWPf9BAmH4ifiiu2Hv/s1700-e365/root.jpg"
-  summary="사이버보안 연구원들이 Grandstream GXP1600 시리즈 VoIP 폰에서 인증 없이 원격 코드 실행이 가능한 치명적 보안 취약점을 공개했습니다. CVE-2026-2329로 추적되는 이 취약점은 CVSS 9.3점(Critical)으로, 스택 기반 버퍼 오버플로우를 통해 공격자가 네트워크에 접근 가능한 경우 별도 인증 없이 장치를 완전히 장악할 수..."
+  summary="사이버보안 연구원들이 Grandstream GXP1600 시리즈 VoIP 폰에서 인증 없이 원격 코드 실행이 가능한 치명적 보안 취약점을 공개했습니다."
   source="The Hacker News"
   severity="Critical"
 -%}
@@ -173,7 +173,7 @@ Dell RecoverPoint for Virtual Machines에서 발견된 제로데이 취약점(CV
   title="[보안] Cellebrite 포렌식 도구, 케냐 활동가 감시에 사용 적발"
   url="https://thehackernews.com/2026/02/citizen-lab-finds-cellebrite-tool-used.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcKg1ustDlFg4Z8PIFRlPPO6LEfnuCsAZRD59FSKmiMZuhKtTrL6mOL43EJt1_iczcPYcYlwaEqf8xNFE6suEy3qtcXhv3vBAizeuenRGoan22ouXKyetDLoHME-y3wr0vKLr0OFAPkOuEjVjhokDssNgQpXnvauTbjQvDo2p31Cwv7s0qmr7pMG-ajXSY/s1700-e365/sam.jpg"
-  summary="Citizen Lab의 새로운 연구에 따르면, 케냐 경찰이 이스라엘 회사 Cellebrite가 제조한 상업용 모바일 포렌식 추출 도구를 사용하여 저명한 반체제 활동가의 휴대폰을 불법적으로 분석한 증거가 발견되었습니다. 해당 활동가는 경찰 구금 중 디바이스를 압수당했으며, Citizen Lab은 포렌식 아티팩트 분석을 통해 Cellebrite UFED..."
+  summary="Citizen Lab의 새로운 연구에 따르면, 케냐 경찰이 이스라엘 회사 Cellebrite가 제조한 상업용 모바일 포렌식 추출 도구를 사용하여 저명한 반체제 활동가의 휴대폰을 불법적으로 분석한 증거가 발견되었습니다."
   source="The Hacker News"
   severity="Medium"
 -%}
@@ -310,7 +310,7 @@ Google이 인도에서 개최한 AI Impact Summit 2026에서 AI 기술의 사회
   title="[클라우드] Google Cloud MCP — AI 에이전트와 데이터베이스 통합 확대"
   url="https://cloud.google.com/blog/products/databases/managed-mcp-servers-for-google-cloud-databases/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/Gemini_Generated_Image_jcq8tgjcq8tgjcq8.max-2600x2600.png"
-  summary="커스텀 에이전트와 챗봇을 포함한 AI 애플리케이션을 구축하는 개발자를 위해, 오픈소스 Model Context Protocol(MCP) 표준은 데이터와 도구에 일관되고 안전하게 접근할 수 있게 합니다. Google이 2025년 말 도입한 관리형 MCP 지원을 확대하여 Cloud Spanner, AlloyDB, BigQuery 등 주요 데이터베이스와 AI..."
+  summary="커스텀 에이전트와 챗봇을 포함한 AI 애플리케이션을 구축하는 개발자를 위해, 오픈소스 Model Context Protocol(MCP) 표준은 데이터와 도구에 일관되고 안전하게 접근할 수 있게 합니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}

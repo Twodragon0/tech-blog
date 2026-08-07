@@ -25,17 +25,28 @@ import rewind_truncated_summaries as rw  # noqa: E402
 _FM = '---\nlayout: post\ntitle: "x"\n---\n\n'
 
 
-def _card(summary, **extra):
+def _card(summary, include="news-card", open_ws="", close_ws="", **extra):
     attrs = "".join(f'  {k}="{v}"\n' for k, v in extra.items())
     return (
-        "{% include news-card.html\n"
+        f"{{%{open_ws} include {include}.html\n"
         '  title="제목"\n'
         '  url="https://example.com/a"\n'
         f'  summary="{summary}"\n'
         f"{attrs}"
         '  source="Example"\n'
-        "%}\n"
+        f"{close_ws}%}}\n"
     )
+
+
+# Every shape the corpus actually uses (C11). `\s` does not match `-`, so all
+# 282 `{%-` cards and all 64 spotlight items were invisible until 2026-08-07.
+_CARD_SHAPES = {
+    "plain": {},
+    "whitespace_control": {"open_ws": "-", "close_ws": "-"},
+    "dash_open_only": {"open_ws": "-"},
+    "spotlight": {"include": "news-spotlight-item"},
+    "spotlight_dash": {"include": "news-spotlight-item", "open_ws": "-", "close_ws": "-"},
+}
 
 
 def _truncated(head="가" * 150):
@@ -66,6 +77,14 @@ def test_rewind_keeps_the_sentence_period():
     assert new.endswith("다.")
 
 
+@pytest.mark.parametrize("shape,kwargs", sorted(_CARD_SHAPES.items()))
+def test_every_card_shape_is_reached(shape, kwargs):
+    """C11 recall: a `{%-` or spotlight card must be rewound like a plain one."""
+    out = rw.transform(_FM + _card(_truncated(), **kwargs))
+    assert '경고합니다."' in out, shape
+    assert "Java 바이트 스트림 역" not in out, shape
+
+
 # --- what must NOT change ----------------------------------------------------
 
 
@@ -82,6 +101,35 @@ def test_short_summary_is_left_alone():
 
 def test_properly_terminated_long_summary_is_left_alone():
     src = _FM + _card("가" * 200 + "라고 밝혔습니다.")
+    assert rw.transform(src) == src
+
+
+# --- trailing ellipsis is truncation, not termination ------------------------
+
+
+@pytest.mark.parametrize("marker", ["...", "…"])
+def test_ellipsis_cut_summary_is_rewound_despite_ending_in_a_period(marker):
+    """9 corpus cards end this way; `endswith(".")` had skipped them all."""
+    body = "공격자가 원격 코드 실행에 성공했다고 밝혔습니다. " + "가" * 180
+    assert len(body + marker) >= rw.TRUNCATION_SUSPECT_LEN, "fixture must be in band"
+    out = rw.transform(_FM + _card(body + marker))
+    assert "밝혔습니다.\"" in out
+    assert marker not in out.split('summary="')[1].split('"\n')[0]
+
+
+def test_ellipsis_summary_with_no_complete_sentence_is_left_alone():
+    src = _FM + _card("가" * 210 + "...")
+    assert rw.transform(src) == src
+
+
+def test_ellipsis_rewind_is_idempotent():
+    once = rw.transform(_FM + _card("완성했습니다. " + "가" * 200 + "..."))
+    assert rw.transform(once) == once
+
+
+def test_mid_text_ellipsis_does_not_trigger_a_rewind():
+    """Only a TRAILING marker is truncation evidence."""
+    src = _FM + _card("중간에 ... 이 있지만 문장은 완성되었습니다. " + "가" * 170 + "종료입니다.")
     assert rw.transform(src) == src
 
 

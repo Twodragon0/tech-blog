@@ -23,17 +23,28 @@ import backfill_card_summary_period as bf  # noqa: E402
 _FM = '---\nlayout: post\ntitle: "x"\n---\n\n'
 
 
-def _card(summary, **extra):
+def _card(summary, include="news-card", open_ws="", close_ws="", **extra):
     attrs = "".join(f'  {k}="{v}"\n' for k, v in extra.items())
     return (
-        "{% include news-card.html\n"
+        f"{{%{open_ws} include {include}.html\n"
         '  title="제목"\n'
         '  url="https://example.com/a"\n'
         f'  summary="{summary}"\n'
         f"{attrs}"
         '  source="Example"\n'
-        "%}\n"
+        f"{close_ws}%}}\n"
     )
+
+
+# Every shape the corpus actually uses (C11). `\s` does not match `-`, so the
+# `{%-` rows were invisible to this script until 2026-08-07.
+_CARD_SHAPES = {
+    "plain": {},
+    "whitespace_control": {"open_ws": "-", "close_ws": "-"},
+    "dash_open_only": {"open_ws": "-"},
+    "spotlight": {"include": "news-spotlight-item"},
+    "spotlight_dash": {"include": "news-spotlight-item", "open_ws": "-", "close_ws": "-"},
+}
 
 
 # --- what gets fixed ---------------------------------------------------------
@@ -48,6 +59,13 @@ def test_multi_sentence_summary_gains_only_the_final_period():
     src = _FM + _card("A가 발생했습니다. B가 확인됐습니다")
     out = bf.transform(src)
     assert 'summary="A가 발생했습니다. B가 확인됐습니다."' in out
+
+
+@pytest.mark.parametrize("shape,kwargs", sorted(_CARD_SHAPES.items()))
+def test_every_card_shape_is_reached(shape, kwargs):
+    """C11 recall: a `{%-` or spotlight card must be fixed like a plain one."""
+    out = bf.transform(_FM + _card("공격자가 서버를 장악했습니다", **kwargs))
+    assert 'summary="공격자가 서버를 장악했습니다."' in out, shape
 
 
 # --- what must NOT change ----------------------------------------------------

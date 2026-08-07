@@ -21,24 +21,34 @@ Usage:
 """
 import argparse
 import glob
-import re
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO))
+
+from scripts.news_card_patterns import CARD_RE as _CARD_RE  # noqa: E402
+from scripts.news_card_patterns import SUMMARY_RE as _SUMMARY_RE  # noqa: E402
 
 # Below this a summary was never near the old 200-char cap, so a missing final
 # period is a headline-shaped source, not truncation — not this script's job.
 TRUNCATION_SUSPECT_LEN = 195
 
-_CARD_RE = re.compile(r"\{%\s*include\s+news-card\.html.*?%\}", re.DOTALL)
-_SUMMARY_RE = re.compile(r'(\bsummary=")(.*?)("(?=\s+\w+="|\s*%\}|\s*$))', re.DOTALL)
 _TERMINATED = (".", "!", "?")
+
+# A trailing ellipsis is the OPPOSITE of a terminator: it is the marker an
+# earlier generator appended when it cut a summary at the 200-char cap. Because
+# it ends in ".", the plain `endswith(_TERMINATED)` guard read it as a finished
+# sentence and skipped the card. Those 9 cards all sit in the `{%-` blind spot,
+# so this only became reachable once the include pattern was fixed.
+_TRUNCATION_MARKERS = ("...", "…")
 
 
 def rewind(text: str) -> str:
     """Drop the trailing partial sentence. Returns a prefix, or text unchanged."""
-    if not text or text.endswith(_TERMINATED):
+    if not text:
+        return text
+    if text.endswith(_TERMINATED) and not text.endswith(_TRUNCATION_MARKERS):
         return text
     idx = text.rfind("다.")
     return text[: idx + 2] if idx > 0 else text
