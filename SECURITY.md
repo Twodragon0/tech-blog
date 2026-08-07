@@ -1,7 +1,18 @@
 # 🛡️ Security Policy & Guidelines
 
 이 문서는 프로젝트의 보안 정책, 취약점 대응 절차, 그리고 개발 가이드라인을 정의합니다.
-이 리포지토리는 내부 전용(Internal Only)이며, 모든 기여자는 아래의 보안 표준(OWASP, ISMS-P)을 준수해야 합니다.
+이 리포지토리는 **공개(Public)** 저장소이며, 모든 기여자는 아래의 보안 표준(OWASP, ISMS-P)을 준수해야 합니다.
+기여 절차는 [CONTRIBUTING.md](CONTRIBUTING.md), 커뮤니티 규범은 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)를 참조하세요.
+
+### 적용 범위 (Scope)
+
+| 대상 | 지원 |
+| :--- | :--- |
+| `main` 브랜치의 사이트 코드 (`_layouts/`, `_includes/`, `assets/`, `api/`) | ✅ |
+| 자동화 스크립트 (`scripts/`) 및 GitHub Actions 워크플로 | ✅ |
+| 배포된 사이트 <https://tech.2twodragon.com> | ✅ |
+| 이 저장소를 포크한 제3자 사이트 | ❌ |
+| 제3자 서비스 자체의 취약점 (Vercel, GitHub, Giscus 등) | ❌ — 해당 벤더에 직접 신고 |
 
 ---
 
@@ -10,8 +21,13 @@
 보안 취약점을 발견했을 경우, 공개된 Issue 트래커에 올리는 것을 **금지**합니다. 대신 아래 절차를 따라주세요.
 
 ### 신고 채널
-* **GitHub**: `Security` 탭 > `Report a vulnerability` (Private Reporting) — **권장**
+* **GitHub 비공개 보안 자문 — 권장**:
+  <https://github.com/Twodragon0/tech-blog/security/advisories/new>
+  (`Security` 탭 > `Report a vulnerability`)
 * **이메일**: 리포지토리 관리자에게 직접 연락 (GitHub 프로필 참조)
+
+신고에는 재현 절차, 영향 범위, 가능하다면 PoC를 포함해 주세요.
+공개 시점은 패치 완료 후 관리자와 협의해 조율합니다(coordinated disclosure).
 
 ### 대응 타임라인 (SLA)
 심각도에 따라 다음 기한 내에 패치를 완료해야 합니다.

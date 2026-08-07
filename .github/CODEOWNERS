@@ -1,0 +1,24 @@
+# CODEOWNERS — 자동 리뷰어 지정
+#
+# 이 파일은 PR에 리뷰어를 자동으로 요청합니다.
+# 브랜치 보호의 "Require review from Code Owners"는 의도적으로 켜지 않습니다:
+# blogwatcher 크론이 GITHUB_TOKEN으로 main에 직접 push 하기 때문에
+# 코드오너 필수 리뷰를 켜면 자동 발행이 막힙니다.
+# (근거: notes/ 및 branch-protection 조사 — 봇 양립에는 GitHub App/PAT 필요)
+
+# 기본 소유자
+*                       @Twodragon0
+
+# 보안에 민감한 영역 — 변경 시 반드시 눈으로 확인
+/SECURITY.md            @Twodragon0
+/.github/workflows/     @Twodragon0
+/.github/dependabot.yml @Twodragon0
+/.githooks/             @Twodragon0
+/api/                   @Twodragon0
+/_includes/head.html    @Twodragon0
+/vercel.json            @Twodragon0
+
+# 품질 게이트 — 완화되면 코퍼스 전체가 조용히 망가집니다
+/scripts/tests/         @Twodragon0
+/scripts/check_*.py     @Twodragon0
+/scripts/validate_*.py  @Twodragon0

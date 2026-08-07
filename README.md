@@ -401,8 +401,33 @@ GitHub Actions 워크플로우를 통해 새 포스트가 푸시되면 자동으
 
 ## 📄 라이선스
 
-이 블로그의 모든 콘텐츠는 개인의 학습과 지식 공유를 목적으로 작성되었습니다.
+소스 코드는 [MIT 라이선스](LICENSE)로 배포됩니다.
+블로그 포스트 본문은 개인의 학습과 지식 공유를 목적으로 작성되었으며,
+인용 시 출처를 밝혀주세요.
 
 ## 🤝 기여
 
-버그 리포트나 개선 제안은 [Issues](https://github.com/Twodragon0/tech-blog/issues)를 통해 제안해주세요.
+기여를 환영합니다. 먼저 [CONTRIBUTING.md](CONTRIBUTING.md)의 개발 환경 준비와
+검증 절차를 확인해 주세요.
+
+| 무엇을 하고 싶나요 | 어디로 |
+| :--- | :--- |
+| 포스트의 사실 오류·오탈자 정정 | [정정 요청](https://github.com/Twodragon0/tech-blog/issues/new?template=post_correction.yml) |
+| 사이트 버그 신고 | [버그 리포트](https://github.com/Twodragon0/tech-blog/issues/new?template=bug_report.yml) |
+| 기능·자동화 개선 제안 | [개선 제안](https://github.com/Twodragon0/tech-blog/issues/new?template=enhancement.yml) |
+| 주제 제안·질문·논의 | [Discussions](https://github.com/Twodragon0/tech-blog/discussions) |
+| **보안 취약점** | [비공개 보안 자문](https://github.com/Twodragon0/tech-blog/security/advisories/new) — 공개 이슈 금지 |
+
+관련 문서: [행동 강령](CODE_OF_CONDUCT.md) · [보안 정책](SECURITY.md) · [지원 채널](SUPPORT.md)
+
+## 🔐 보안 · 품질 현황
+
+| 항목 | 상태 |
+| :--- | :--- |
+| CodeQL 코드 스캔 | 기본 설정, 주간 실행 (actions / javascript / typescript / python / ruby) |
+| Secret scanning + Push protection | 활성화 — 시크릿이 포함된 push는 차단됩니다 |
+| Dependabot | 보안 업데이트 + 주간 버전 업데이트 (bundler / npm / github-actions / pip ×2) |
+| Actions SHA 핀 검사 | [`action-pin-check.yml`](.github/workflows/action-pin-check.yml) |
+| 비공개 취약점 신고 | 활성화 |
+| pre-commit 품질 게이트 | 12단계 (SVG·포스트 구조·CSP 해시·품질 점수·맨 URL) |
+| 테스트 | `pytest scripts/tests/` (커버리지 하한 40%) + `vitest` |

@@ -1,5 +1,21 @@
 # Dependabot configuration
-# Automatic security + version updates for bundler, npm, github-actions, pip
+# Automatic security + version updates for bundler, npm, github-actions, pip.
+#
+# Coverage must stay in sync with the dependency graph. Every manifest GitHub
+# detects should be claimed by exactly one entry below; otherwise it shows up
+# in Insights > Dependency graph but never receives an update PR.
+#
+#   Gemfile / Gemfile.lock          -> bundler  "/"
+#   package.json / package-lock.json-> npm      "/"
+#   .github/workflows/*.yml         -> github-actions "/"
+#   requirements-blogwatcher.txt    \
+#   requirements-gsc.txt             |-> pip    "/"
+#   requirements-visual.txt         /
+#   scripts/requirements.txt        \
+#   scripts/requirements-ci.txt     /-> pip    "/scripts"
+#
+# Reviewers are intentionally NOT set here — the `reviewers` key is deprecated
+# and .github/CODEOWNERS assigns review on every PR instead.
 version: 2
 updates:
   # Ruby (Bundler) updates
@@ -11,14 +27,17 @@ updates:
       time: "09:00"
       timezone: "Asia/Seoul"
     open-pull-requests-limit: 5
+    groups:
+      ruby-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
     labels:
       - "dependencies"
       - "ruby"
     commit-message:
       prefix: "deps(ruby)"
       include: "scope"
-    reviewers:
-      - "Twodragon0"
 
   # JavaScript (npm) updates
   - package-ecosystem: "npm"
@@ -29,6 +48,11 @@ updates:
       time: "09:00"
       timezone: "Asia/Seoul"
     open-pull-requests-limit: 5
+    groups:
+      js-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
     labels:
       - "dependencies"
       - "javascript"
@@ -61,7 +85,7 @@ updates:
       prefix: "deps(actions)"
       include: "scope"
 
-  # Python (pip) updates
+  # Python (pip) updates — automation scripts
   - package-ecosystem: "pip"
     directory: "/scripts"
     schedule:
@@ -70,6 +94,36 @@ updates:
       time: "09:00"
       timezone: "Asia/Seoul"
     open-pull-requests-limit: 3
+    groups:
+      py-scripts-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+    labels:
+      - "dependencies"
+      - "python"
+    commit-message:
+      prefix: "deps(py)"
+      include: "scope"
+
+  # Python (pip) updates — root-level workflow requirement sets.
+  # requirements-blogwatcher.txt / requirements-gsc.txt / requirements-visual.txt
+  # are installed by GitHub Actions (ai-blogwatcher, gsc-queue-refresh,
+  # visual-regression). Without this entry they appear in the dependency graph
+  # but receive no version or security update PRs.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Seoul"
+    open-pull-requests-limit: 3
+    groups:
+      py-root-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
     labels:
       - "dependencies"
       - "python"
