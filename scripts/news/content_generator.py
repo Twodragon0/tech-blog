@@ -2677,6 +2677,30 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
     return fallback
 
 
+_SENTENCE_ENDING_RE = re.compile(
+    r"(습니다|합니다|입니다|됩니다|있습니다|없습니다|했다|한다|된다|이다|"
+    r"았다|었다|였다|밝혔다|나타났다|보인다|요)$"
+)
+
+
+def _restore_sentence_period(text: str) -> str:
+    """Put back the sentence-final period that ellipsis cleanup stripped.
+
+    ``.strip(" .")`` exists to clear ellipsis residue, but it also eats a
+    legitimate final period, so every Korean-path summary reached the news card
+    unterminated. 14 corpus cards show it, and the rate is rising (2026-04 x3,
+    05 x2, 06 x2, 07 x7).
+
+    A period is restored ONLY after a Korean sentence-ending morpheme. Summaries
+    whose SOURCE is a headline end on a noun ("…취약점 탐지, 검증, 수정 제안");
+    bolting a period onto those would be wrong Korean, and rewriting them needs
+    the original article, so they are left exactly as they are.
+    """
+    if not text or text.endswith((".", "!", "?")):
+        return text
+    return f"{text}." if _SENTENCE_ENDING_RE.search(text) else text
+
+
 def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
     summary = (item.get("summary", "") or "").strip()
     content_text = (item.get("content", "") or "").strip()
@@ -2706,12 +2730,16 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
             generated = _gemini_call(prompt, timeout=15)
             if generated:
                 generated = re.sub(r"\s+", " ", generated)
-                generated = generated.replace("...", " ").replace("…", " ").strip(" .")
+                generated = _restore_sentence_period(
+                    generated.replace("...", " ").replace("…", " ").strip(" .")
+                )
                 if len(generated) >= 25:
                     KOREAN_SUMMARY_CACHE[cache_key] = generated
                     return generated
 
-        concise = " ".join(selected).replace("...", " ").replace("…", " ").strip(" .")
+        concise = _restore_sentence_period(
+            " ".join(selected).replace("...", " ").replace("…", " ").strip(" .")
+        )
         if len(concise) > 220:
             concise = _truncate_korean_sentence(concise, 220)
         KOREAN_SUMMARY_CACHE[cache_key] = concise
