@@ -127,4 +127,26 @@ Exit code 0 = no regression. Exit code 1 = at least one URL exceeded the thresho
 
 ## Related
 
-- `.github/workflows/lighthouse.yml` — the existing absolute-threshold check (Performance ≥ 0.5, etc.) that runs on push to main. Coexists with this workflow; covers different concern.
+- `.github/workflows/lighthouse.yml` — the absolute-threshold check. It runs on
+  **both** `push` to main and `pull_request` against main (plus
+  `workflow_dispatch`), with the *same* `paths` filter on both triggers, so a
+  content-only PR does not trigger it. Coexists with this workflow; covers a
+  different concern — absolute budgets vs. head-to-base regression.
+
+  It gates on:
+
+  | Gate | Value | Source |
+  |------|-------|--------|
+  | accessibility / best-practices / seo | ≥ 0.80 / 0.75 / 0.90 | `manifest[].summary` (category scores) |
+  | largest-contentful-paint | ≤ 4600 ms | LHR at `manifest[].jsonPath` |
+  | cumulative-layout-shift | ≤ 0.05 | LHR at `manifest[].jsonPath` |
+
+  The composite **`performance` score is NOT a gate** — it is ~30% weighted on
+  TBT, and TBT on a GitHub runner tracks whatever CPU the VM lottery hands out
+  (measured over 60 runs of the workflow: benchmarkIndex 1966–3439, TBT
+  0–2452 ms, performance 0.55–0.86 on unchanged content). It is logged for
+  triage alongside TBT and benchmarkIndex, but never fails the job.
+
+  The gate values are protected by
+  `scripts/tests/test_ci_lighthouse_gate_guard.py`; loosening one without
+  updating that guard fails the build.

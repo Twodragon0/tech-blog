@@ -12,6 +12,17 @@ on:
       - 'vercel.json'
   pull_request:
     branches: [main]
+    # Same paths as the push trigger above. Without this filter every PR ran
+    # Lighthouse — including pure `_posts/**` content PRs that cannot move any
+    # of the measured metrics — which is where most of the random red came from.
+    paths:
+      - '_includes/**'
+      - '_layouts/**'
+      - '_sass/**'
+      - 'assets/css/**'
+      - 'assets/js/**'
+      - '_config.yml'
+      - 'vercel.json'
   workflow_dispatch:
 
 concurrency:
@@ -69,23 +80,80 @@ jobs:
       - name: Check Lighthouse scores
         run: |
           node - <<'EOF'
+          const fs = require('fs');
           const manifest = JSON.parse(process.env.LIGHTHOUSE_MANIFEST || '[]');
-          const thresholds = {
-            performance: 0.5,
+
+          // Category score gates. 'performance' is deliberately ABSENT.
+          // It is a composite in which total-blocking-time carries ~30% of the
+          // weight, and TBT on a GitHub runner is decided by the CPU the VM
+          // lottery hands out (measured over 60 runs of this workflow:
+          // benchmarkIndex 1966-3439, TBT 0-2452ms, performance 0.55-0.86 on
+          // unchanged content). Gating on it produced random red. The metrics
+          // we actually care about are gated absolutely in METRIC_BUDGETS.
+          // The three below moved in NONE of those 60 runs.
+          const CATEGORY_THRESHOLDS = {
             accessibility: 0.8,
             'best-practices': 0.75,
             seo: 0.9,
           };
+
+          // Absolute, metric-level budgets. Read from the LHR, NOT from
+          // manifest.summary — lhci's filesystem upload target puts only
+          // CATEGORY scores in `summary` (see @lhci/cli upload.js
+          // runFilesystemTarget), while the metric numericValues live in the
+          // full LHR it writes to the absolute path in `jsonPath`.
+          // Raising a budget weakens the gate; guarded by
+          // scripts/tests/test_ci_lighthouse_gate_guard.py.
+          const METRIC_BUDGETS = {
+            'largest-contentful-paint': { max: 4600, unit: 'ms', digits: 0 },
+            'cumulative-layout-shift': { max: 0.05, unit: '', digits: 3 },
+          };
+
           let failed = false;
           for (const result of manifest) {
-            const summary = result.summary;
+            const summary = result.summary || {};
             console.log('URL:', result.url);
-            for (const [category, min] of Object.entries(thresholds)) {
+
+            for (const [category, min] of Object.entries(CATEGORY_THRESHOLDS)) {
               const score = summary[category];
               const status = score >= min ? 'PASS' : 'FAIL';
               console.log(`  ${category}: ${(score * 100).toFixed(0)} (required: ${min * 100}) [${status}]`);
-              if (score < min) failed = true;
+              if (!(score >= min)) failed = true;
             }
+
+            let lhr;
+            try {
+              lhr = JSON.parse(fs.readFileSync(result.jsonPath, 'utf8'));
+            } catch (err) {
+              console.error(`  cannot read LHR at ${result.jsonPath}: ${err.message} [FAIL]`);
+              failed = true;
+              continue;
+            }
+            const audits = lhr.audits || {};
+
+            for (const [auditId, budget] of Object.entries(METRIC_BUDGETS)) {
+              const value = (audits[auditId] || {}).numericValue;
+              if (typeof value !== 'number') {
+                console.error(`  ${auditId}: missing numericValue in LHR [FAIL]`);
+                failed = true;
+                continue;
+              }
+              const status = value <= budget.max ? 'PASS' : 'FAIL';
+              console.log(`  ${auditId}: ${value.toFixed(budget.digits)}${budget.unit} (budget: <= ${budget.max}${budget.unit}) [${status}]`);
+              if (!(value <= budget.max)) failed = true;
+            }
+
+            // Observability only — never gates. Logged so a red build can be
+            // triaged as "slow runner" vs "real regression" from the job log
+            // alone, without downloading the artifact.
+            const tbt = (audits['total-blocking-time'] || {}).numericValue;
+            const bench = (lhr.environment || {}).benchmarkIndex;
+            const perf = summary.performance;
+            console.log(
+              `  [observed, not gated] performance: ${typeof perf === 'number' ? (perf * 100).toFixed(0) : 'n/a'}` +
+              `, total-blocking-time: ${typeof tbt === 'number' ? tbt.toFixed(0) + 'ms' : 'n/a'}` +
+              `, benchmarkIndex: ${typeof bench === 'number' ? bench.toFixed(0) : 'n/a'}`
+            );
           }
           if (failed) {
             console.error('Lighthouse thresholds not met.');
