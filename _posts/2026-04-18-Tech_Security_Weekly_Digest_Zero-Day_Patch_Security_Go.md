@@ -284,7 +284,7 @@ Google Cloud는 개발자 경험 가속화를 위해 커뮤니티 신호를 전�
 {% include news-card.html
   title="Eximbay의 AWS Kiro 기반 AX 표준화 여정"
   url="https://aws.amazon.com/ko/blogs/tech/eximbay-aws-kiro-ax-journey/"
-  summary="생성형 AI를 도입한 조직 대부분이 공통적으로 마주치는 질문이 있습니다. \”개인의 생산성 향상이 확인됐는데, 왜 조직 전체의 업무 방식은 달라지지 않는가?\” 엑심베이는 이 질문을 AX(AI Transformation)의 출발점으로 삼았습니다"
+  summary="생성형 AI를 도입한 조직 대부분이 공통적으로 마주치는 질문이 있습니다. \”개인의 생산성 향상이 확인됐는데, 왜 조직 전체의 업무 방식은 달라지지 않는가?\” 엑심베이는 이 질문을 AX(AI Transformation)의 출발점으로 삼았습니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}

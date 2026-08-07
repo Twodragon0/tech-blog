@@ -314,7 +314,7 @@ Google Cloud는 4월 22일 라스베이거스에서 Google Cloud Next를 개최�
 {% include news-card.html
   title="키다리스튜디오의 QA 테스트 케이스 생성 자동화 — Amazon Bedrock과 LangGraph 활용 사례"
   url="https://aws.amazon.com/ko/blogs/tech/amazon-bedrock-langgraph-qa-automation/"
-  summary="소개 웹툰/웹소설 플랫폼을 운영하는 키다리스튜디오는 레진코믹스, 봄툰 등 다수의 콘텐츠 플랫폼을 서비스하고 있습니다. 플랫폼의 품질을 보장하기 위해 QA 엔지니어링팀은 매 릴리스마다 수백 개의 테스트 케이스(TC)를 수동으로 작성해왔습니다"
+  summary="소개 웹툰/웹소설 플랫폼을 운영하는 키다리스튜디오는 레진코믹스, 봄툰 등 다수의 콘텐츠 플랫폼을 서비스하고 있습니다. 플랫폼의 품질을 보장하기 위해 QA 엔지니어링팀은 매 릴리스마다 수백 개의 테스트 케이스(TC)를 수동으로 작성해왔습니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}

@@ -129,7 +129,7 @@ DevSecOps 실무자에게 이 소식은 **CI/CD 파이프라인에 AI 보안 게
   title="모든 Fox가 Silver는 아니다: AtlasRAT 로더 체인 내부"
   url="https://asec.ahnlab.com/ko/94648/"
   image="https://asec.ahnlab.com/wp-content/uploads/2025/08/malware.webp"
-  summary="요약 AtlasRAT은 Windows 기반 원격 접근 악성코드다. 보고서는 AGE Flash Player로 위장한 Delphi 실행 파일에서 시작되는 4단계 인메모리 로더 체인과 최종 RAT 기능을 분석했다"
+  summary="요약 AtlasRAT은 Windows 기반 원격 접근 악성코드다. 보고서는 AGE Flash Player로 위장한 Delphi 실행 파일에서 시작되는 4단계 인메모리 로더 체인과 최종 RAT 기능을 분석했다."
   source="안랩 ASEC 블로그"
   severity="High"
 %}
