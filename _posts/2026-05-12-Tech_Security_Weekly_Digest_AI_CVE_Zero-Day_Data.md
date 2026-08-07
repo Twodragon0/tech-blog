@@ -100,7 +100,7 @@ redirect_from:
   title="TeamPCP, Checkmarx Jenkins AST 플러그인을 손상시키다, KICS 공급망 공격 몇 주 후"
   url="https://thehackernews.com/2026/05/teampcp-compromises-checkmarx-jenkins.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiq0A3_8O89uC968dpFnFxE4v3J4fpr5nEqC-2QiSJ_rtZlgPocPYIaowCvCMeONhcrFiaoSdBVeNsuTa2ipAZZ3HBMUDcfO8DZ06pughteYJItHhMLeBr_jnfLL-5WX6xBE_EjIfPDGjCYyDCa6aImjimPNl7FtM1evdnTUVEk54x9pczRaFlmEZy1Cv8B/s1600/Jenkins.jpg"
-  summary="Checkmarx는 Jenkins AST 플러그인의 변조된 버전이 Jenkins Marketplace에 게시된 것을 확인했습니다. 보안 회사는 사용자들에게 2025년 12월 17일에 게시된 버전 2.0.13-829.vc72453fa_1c16 이상을 사용하고 있는지 확인할 것을 권고했습니다. 이번 사건은 최근 KICS 공급망 공격 이후 발생한 또 다른 보안 "
+  summary="Checkmarx는 Jenkins AST 플러그인의 변조된 버전이 Jenkins Marketplace에 게시된 것을 확인했습니다. 보안 회사는 사용자들에게 2025년 12월 17일에 게시된 버전 2.0.13-829.vc72453fa_1c16 이상을 사용하고 있는지 확인할 것을 권고했습니다."
   source="The Hacker News"
   severity="High"
 %}

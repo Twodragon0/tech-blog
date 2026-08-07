@@ -138,7 +138,7 @@ sequenceDiagram
   title="해커들, 다중 그룹 정찰 캠페인에서 Balochistan Police Portal 무기화"
   url="https://thehackernews.com/2026/07/hackers-weaponize-balochistan-police.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimRVwRIhs54UhNHyRll9YzVxICmTpgqwjAK1Sy7vYt6FAzb9oImcFpuM0J8dOWdtdjCdlROkternhP9r5jZD9HNvwVwcyRzhesdYgbVjUpJk7p4rxDDJSdEUibs1Gk-Ihy1bTcxs8fA7kgG49ImfTWEZO6068Ui-_X6sTTraCg8lFuucYJrUJi2RhdXyG2/s1600/pakistan.jpg"
-  summary="보안 연구원들은 2024년 2월부터 2026년 4월까지 중국 및 인도와 연계된 것으로 의심되는 위협 행위자들이 파키스탄의 여러 법 집행 기관을 대상으로 지속적인 사이버 스파이 활동을 펼쳤다고 밝혔습니다. 이 과정에서 Balochistan Police의 포털이 무기화되었으며, 침해된 서버에는 범죄자 및 시민 데이터를 관리하는 웹 애플리케이션이 포함되어 있었습"
+  summary="보안 연구원들은 2024년 2월부터 2026년 4월까지 중국 및 인도와 연계된 것으로 의심되는 위협 행위자들이 파키스탄의 여러 법 집행 기관을 대상으로 지속적인 사이버 스파이 활동을 펼쳤다고 밝혔습니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -215,7 +215,7 @@ DevSecOps 관점에서 이번 사례는 다음과 같은 실무적 함의를 가
 {% include news-card.html
   title="Amazon Bedrock 모델 promptfoo 로 성능 평가하기"
   url="https://aws.amazon.com/ko/blogs/tech/bedrock-promptfoo-eval/"
-  summary="들어가며 ”프롬프트를 바꿨는데, 정말 더 나아진 걸까?” 생성형 AI 애플리케이션을 개발하는 엔지니어라면 누구나 한 번쯤 마주치는 질문입니다. 프롬프트 한 줄을 수정하거나 모델을 교체할 때마다 품질이 좋아졌는지 확신하기 어렵고, 여러 모델을 두고 어느 쪽이 서비스에 더 맞는지 판단하려면 같은 질문을 양쪽에 던져 결과를 일일이 눈으로 비교해야 합니다"
+  summary="들어가며 ”프롬프트를 바꿨는데, 정말 더 나아진 걸까?” 생성형 AI 애플리케이션을 개발하는 엔지니어라면 누구나 한 번쯤 마주치는 질문입니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}

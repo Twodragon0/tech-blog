@@ -96,7 +96,7 @@ summary_card:
   title="Microsoft, 오염된 MCP 도구 설명이 AI 에이전트의 데이터 유출을 초래할 수 있다고 경고"
   url="https://thehackernews.com/2026/06/microsoft-warns-poisoned-mcp-tool.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbjfrraZ05p0kN5CedcQSOZYouoHGrdpCvi9TGxEZM_9zlXc_juWZ1F8VsvjV9c-iD7Ejgj0V6b0uYwOb9mLpb7ALcOVk53m2ppmg6mDI3qwANc8KZFMt3X7H7fT_Eym3OJijFmr0CZS6yJNTtf4kef0gOYtbx6A3LYa15PNzpzJuOg-nd6orLosZzfQ8/s1600/ms-ai.jpg"
-  summary="Microsoft의 새로운 연구는 공격자가 독이 포함된 MCP 도구 설명만으로 사용자를 대신해 작업하는 AI 에이전트를 하이재킹해 회사 데이터를 외부로 유출할 수 있음을 보여줍니다. 이 과정에서 에이전트는 규칙을 위반하지 않으며 모든 단계가 일상적으로 보여 기본 설정에서는 경보가 울리지 않을 수 있습니다. 해당 연구는 Microsoft Incident Resp"
+  summary="Microsoft의 새로운 연구는 공격자가 독이 포함된 MCP 도구 설명만으로 사용자를 대신해 작업하는 AI 에이전트를 하이재킹해 회사 데이터를 외부로 유출할 수 있음을 보여줍니다. 이 과정에서 에이전트는 규칙을 위반하지 않으며 모든 단계가 일상적으로 보여 기본 설정에서는 경보가 울리지 않을 수 있습니다."
   source="The Hacker News"
   severity="High"
 %}

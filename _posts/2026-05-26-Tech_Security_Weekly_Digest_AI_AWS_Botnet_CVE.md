@@ -191,7 +191,7 @@ mitre_attack:
   title="Alert Firehose가 드디어 맞수를 만나다"
   url="https://thehackernews.com/2026/05/the-alert-firehose-finally-meets-its.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhULc1VvUr1LQ1qZPTiw_sPmN3JbNIk0OSlxHRT0MFdY2kM5Z7psdZtrctiSOybvu8i1sCwcMeSUtXxHb0xBkQ2lCUt2l_kKmhp93ydvN4-E-qObRkmiFK2s-jOPqipBTGfBnv4o-d9nLuPIL2JMGO6FhCFsFV2NkBlARzWW9ScqccGvAVHzM9o-6MDwn4/s1600/corelight-main.jpg"
-  summary="사이버 보안 전문가들은 Network Detection and Response(NDR)가 여전히 시끄럽고 데이터가 많다고 평가하지만, 에이전틱 AI(agentic AI) 기능을 갖춘 NDR을 운영하는 팀들은 이를 통해 위협을 조기에 탐지하고, 신속히 분류하며, 오탐(false positive)을 줄이고 있다고 보고합니다. NDR에 대한 부정적 인식은 과거 "
+  summary="사이버 보안 전문가들은 Network Detection and Response(NDR)가 여전히 시끄럽고 데이터가 많다고 평가하지만, 에이전틱 AI(agentic AI) 기능을 갖춘 NDR을 운영하는 팀들은 이를 통해 위협을 조기에 탐지하고, 신속히 분류하며, 오탐(false positive)을 줄이고 있다고 보고합니다."
   source="The Hacker News"
   severity="Medium"
 %}
@@ -232,7 +232,7 @@ DevSecOps 실무자에게 이 변화는 **운영 효율성**과 **보안 거버�
   title="PhaaS 2 Furious: 중국어 피싱 서비스의 진화"
   url="https://cloud.google.com/blog/topics/threat-intelligence/chinese-language-phishing-services/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/phaas-fig1.max-1000x1000.png"
-  summary="러시아어 사용 위협 행위자들이 전통적으로 phishing-as-a-service(PhaaS) 환경을 지배해 왔지만, 중국어 언더그라운드에서 경쟁 생태계가 빠르게 성장하고 있습니다. Google Threat Intelligence Group(GTIG)은 중국 언더그라운드의 12개 현행 PhaaS 서비스를 분석했으며, 이들은 모두 성숙한 서비스로 대부분 해당 "
+  summary="러시아어 사용 위협 행위자들이 전통적으로 phishing-as-a-service(PhaaS) 환경을 지배해 왔지만, 중국어 언더그라운드에서 경쟁 생태계가 빠르게 성장하고 있습니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}

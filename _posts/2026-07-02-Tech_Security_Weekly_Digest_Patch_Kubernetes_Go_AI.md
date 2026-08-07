@@ -164,7 +164,7 @@ Scattered Spider(일명 UNC3944)는 주로 **사회공학 기법과 MFA 우회 �
   title="SEO에 중독된 소프트웨어 사이트, ScreenConnect 악용해 AsyncRAT 유포"
   url="https://thehackernews.com/2026/07/seo-poisoned-software-sites-abuse.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbKfADFEhazeaRztmVJkTBhFqZxALUDBwsOV_25bWjZ6Qm3pCBoSSawssWOOJC2ZQ7M6hrUDRXLfR5gcpWRkkaSdNtSPCz-FLrG5Dy4-Y-IzEMt_souSqJuc3JK9FNQ9p2-dT7Ojf3ufzPkWBpLNyDAVeeuYS7Ya-BJWT4MmAHz7OjHvwjMSCfF5Jvahyphenhyphenj/s1600/SEO-MALWARE.jpg"
-  summary="알려지지 않은 위협 행위자들이 ScreenConnect 원격 접속 도구를 악용하여 AsyncRAT을 배포하고 실행하고 있습니다. Kaspersky는 이 활동이 스푸핑된 웹사이트에 호스팅된 악성 설치 프로그램 아카이브를 유포하는 ”대규모의 다중 도메인, 다중 언어” 캠페인의 일환이라고 밝혔습니다. 이 설치 프로그램들은 OBS Studio, DNS Jumper"
+  summary="알려지지 않은 위협 행위자들이 ScreenConnect 원격 접속 도구를 악용하여 AsyncRAT을 배포하고 실행하고 있습니다. Kaspersky는 이 활동이 스푸핑된 웹사이트에 호스팅된 악성 설치 프로그램 아카이브를 유포하는 ”대규모의 다중 도메인, 다중 언어” 캠페인의 일환이라고 밝혔습니다."
   source="The Hacker News"
   severity="Medium"
 %}
@@ -311,7 +311,7 @@ Anthropic의 Claude Code가 Google Cloud와 통합되어, 개발자는 환경 �
   title="기업은 자동 모델 선택을 기본값으로 설정 가능"
   url="https://github.blog/changelog/2026-07-01-enterprises-can-default-to-auto-model-selection"
   image="https://github.blog/wp-content/uploads/2026/07/616003449-884dafc4-1024-44cb-895c-12c017040dcf.jpg"
-  summary="GitHub 블로그에 따르면, 기업 관리자는 이제 enterprise managed-settings.json에서 모델을 auto로 설정하여 Copilot의 자동 모델 선택을 새 대화의 기본값으로 지정할 수 있습니다. 이 설정은 .github-private/.github/copilot/managed-settings.json 파일에 auto를 추가하여 적용됩니"
+  summary="GitHub 블로그에 따르면, 기업 관리자는 이제 enterprise managed-settings.json에서 모델을 auto로 설정하여 Copilot의 자동 모델 선택을 새 대화의 기본값으로 지정할 수 있습니다."
   source="GitHub Changelog"
   severity="High"
 %}

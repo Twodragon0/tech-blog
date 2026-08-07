@@ -125,7 +125,7 @@ DevSecOps 실무자에게 이 공격은 **소프트웨어 공급망과 클라우
   title="Microsoft, Linux 서버에서 Cron을 통해 지속되는 쿠키 제어 PHP 웹 셸 상세 공개"
   url="https://thehackernews.com/2026/04/microsoft-details-cookie-controlled-php.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_2zEf8l08MTElI1sGlJPVVWtscud2RAXdsivOvcby3pO4NUWMBioT3FNaFL7Bw0GeEqnX_WqY10FVqXhVNBTOrl0UMPoyun7AvshwpvfJIdfdJ0yJ1V2mz7ZHQDE9motXuuW6urvTJYu0kLGvpZf10Qx1hNeobD4YV25tJY9nvNoW9Sqd8nSsWK7NWQP0/s1600/php-linux.jpg"
-  summary="Microsoft Defender Security Research Team에 따르면 위협 행위자들이 Linux 서버에서 PHP 기반 웹 셸의 제어 채널로 HTTP cookie를 활용하고 원격 코드 실행을 달성하는 사례가 증가하고 있습니다. 이러한 웹 셸은 URL 매개변수가 아닌 공격자가 제공한 cookie 값을 통해 실행을 제어하며, Cron을 이용해 지속"
+  summary="Microsoft Defender Security Research Team에 따르면 위협 행위자들이 Linux 서버에서 PHP 기반 웹 셸의 제어 채널로 HTTP cookie를 활용하고 원격 코드 실행을 달성하는 사례가 증가하고 있습니다."
   source="The Hacker News"
   severity="Critical"
 %}

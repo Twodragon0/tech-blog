@@ -97,7 +97,7 @@ summary_card:
   title="WhatsApp, Slack 알림으로 Android에서 Google Gemini 하이재킹 가능"
   url="https://thehackernews.com/2026/06/whatsapp-slack-notifications-could.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCJpW9I-QTgQOkP7AV3rwUtEOEs96ek2ySR06Go-xq5AThZV84qY3mDN1Dkh0oQ-94jZHc7zB21ax9ljU0dW2LtsSW5p7xuuX9ARsvoIZQTGaMSkESGxTjl-PgTy8hrnsI8ucVZpENLEuMa9QzoUYVmfp4aug4OnEZq3XeL3ZELNZVELSegpS398l8vKg/s1600/gemini-prompt.jpg"
-  summary="Android에서 WhatsApp, Slack, SMS, Signal, Instagram, Messenger 등에서 오는 악성 알림 하나로 Google Gemini 음성 비서가 하이재킹되어 연결된 창 열기, 상사 메시지 위조, Zoom 통화 강제 참여, 장기 기억 오염 등이 가능했습니다. 이를 위해 휴대폰에 악성 앱이 설치될 필요는 없었으며, Gemini가"
+  summary="Android에서 WhatsApp, Slack, SMS, Signal, Instagram, Messenger 등에서 오는 악성 알림 하나로 Google Gemini 음성 비서가 하이재킹되어 연결된 창 열기, 상사 메시지 위조, Zoom 통화 강제 참여, 장기 기억 오염 등이 가능했습니다."
   source="The Hacker News"
   severity="Medium"
 %}
@@ -178,7 +178,7 @@ DevSecOps 파이프라인에 미치는 주요 영향은 다음과 같습니다.
   title="제로데이를 넘어서: 공격자처럼 네트워크를 보는 법 | HD Moore와 함께하는 웨비나"
   url="https://thehackernews.com/2026/06/beyond-zero-day-see-your-network-like.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzZPASJ7ymlBpeDWq_d-byWp58FpBR6tdX6QfLJFFoGRHK9xB5mTbx0guIcMFKFYV87inRtJyM-cKJXI0Td5fVtpC1ITBFmp2myS2wBynVSF3rZP2jZWH6uR-_14ZEalErJASiKWVDJ_TD551AC0pN5A3Mu8y-Z1zW5mKvFMOmdLzrdWnhYCif0FR1lOE/s1600/hd.jpg"
-  summary="HD Moore가 진행한 웨비나에서 Zero-Day 공격과 AI 기반 익스플로잇이 패치 속도를 앞지르는 현실을 강조하며, 네트워크의 구조적 취약점을 공격자의 시각으로 파악해야 한다고 주장했습니다. 더 이상 모든 취약점을 적시에 패치하는 것은 불가능하므로, 침해를 가정하고 공격이 발생했을 때 피해 범위를 통제할 수 있는 네트워크 설계가 중요하다고 설명했습니다"
+  summary="HD Moore가 진행한 웨비나에서 Zero-Day 공격과 AI 기반 익스플로잇이 패치 속도를 앞지르는 현실을 강조하며, 네트워크의 구조적 취약점을 공격자의 시각으로 파악해야 한다고 주장했습니다."
   source="The Hacker News"
   severity="Critical"
 %}

@@ -134,7 +134,7 @@ Anthropic의 Claude Mythos Preview가 **HAWK-256** 서명 체계에 대한 end-t
   title="Tengu Botnet, 방어자가 프로세스를 종료하면 손상된 Linux 장치를 재부팅한다"
   url="https://thehackernews.com/2026/07/tengu-botnet-reboots-compromised-linux.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0zv7PihU6xAba7-fb5OY-Xv5YIEPM1HhmCu2ET65l5TSKYrPh6q4pYVQRNJtHb9RkvO1oNsBBrsxs50Hm_GRnPKCu4XoG1hhtPOoeGILfRHN99ICGSO72NOGQ6AdUc_haCrQvHRUn4YiyFmCy99WgH1v4-4GRLirZzsV1b5MmCjfTX3a2yWmg1tWOr38/s1600/tengu-botnet.jpg"
-  summary="Tengu라는 새로운 Mirai 기반 봇넷이 방어자가 주요 프로세스를 종료할 때 손상된 Linux 장치의 하드웨어 watchdog을 이용해 재부팅을 트리거하며, 이를 통해 다른 지속성 메커니즘이 다시 실행될 기회를 얻습니다. Nozomi Networks Labs는 Telnet 자격 증명 무차별 대입을 통해 드로퍼가 허니팟에 도달하는 것을 관찰했으며, Ten"
+  summary="Tengu라는 새로운 Mirai 기반 봇넷이 방어자가 주요 프로세스를 종료할 때 손상된 Linux 장치의 하드웨어 watchdog을 이용해 재부팅을 트리거하며, 이를 통해 다른 지속성 메커니즘이 다시 실행될 기회를 얻습니다."
   source="The Hacker News"
   severity="Critical"
 %}

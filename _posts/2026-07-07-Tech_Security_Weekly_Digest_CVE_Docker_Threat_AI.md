@@ -142,7 +142,7 @@ DevSecOps 실무자 관점에서 이 위협은 다음과 같은 영향을 미칩
   title="16년 된 Linux KVM 취약점으로 Intel 및 AMD x86 시스템에서 게스트 VM이 호스트로 탈출 가능"
   url="https://thehackernews.com/2026/07/16-year-old-linux-kvm-flaw-lets-guest.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjG42lgj1grtq5EQICr-9RYvPU59uHFRBluzVoZ3TZLXEXBcF5bOPerpb_Ck-e6oNz6P4MO1VAiqbBXuPbImhng1CoRnRYHWSZTGOloHmYB5khhpCK5wW348uMgqmWIjTQPnOwCGV7OiPXJoJDWV0n1IPGP80hADXD3AnmRKbTb8jxyGQenhlgIpvNo29I/s1600/linux-kvm.jpg"
-  summary="16년 된 Linux KVM 하이퍼바이저의 use-after-free 취약점(CVE-2026-53359, 'Januscape')이 게스트 VM에서 호스트 커널의 shadow-page 상태를 손상시킬 수 있습니다. 이 결함은 Intel과 AMD x86 시스템 모두에 영향을 미치는 KVM의 shadow MMU 코드에 존재하며, 공개된 PoC는 호스트를 패닉 상"
+  summary="16년 된 Linux KVM 하이퍼바이저의 use-after-free 취약점(CVE-2026-53359, 'Januscape')이 게스트 VM에서 호스트 커널의 shadow-page 상태를 손상시킬 수 있습니다."
   source="The Hacker News"
   severity="High"
 %}
@@ -335,7 +335,7 @@ SRE의 4-body 문제는 자율 운영이 성공하려면 단순한 자동화가 
   title="AI 네이티브 워크로드를 위한 플랫폼 엔지니어링의 진화"
   url="https://www.cncf.io/blog/2026/07/06/evolving-platform-engineering-for-ai-native-workloads/"
   image="https://www.cncf.io/wp-content/uploads/2026/07/Blog-Default-28.jpg"
-  summary="Platform Engineering 1.0은 Golden paths를 통한 배포 가속화와 Internal Developer Platforms(IDPs)를 통한 개발자 인지 부하 감소 등 실질적인 가치를 제공했습니다. 셀프서비스 인프라는 개발자들이 티켓 제출에 소모하던 시간을 절약해 주었고, 파이프라인은 표준화된 배포 방식을 제공했습니다. 이제 이러한 접근"
+  summary="Platform Engineering 1.0은 Golden paths를 통한 배포 가속화와 Internal Developer Platforms(IDPs)를 통한 개발자 인지 부하 감소 등 실질적인 가치를 제공했습니다. 셀프서비스 인프라는 개발자들이 티켓 제출에 소모하던 시간을 절약해 주었고, 파이프라인은 표준화된 배포 방식을 제공했습니다."
   source="CNCF Blog"
   severity="Medium"
 %}

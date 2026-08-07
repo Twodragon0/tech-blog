@@ -250,7 +250,7 @@ NVIDIA의 Vera CPU가 에이전틱 AI(agentic AI) 시대에 필요한 빠른 코
 {% include news-card.html
   title="기술 심층 분석: AgentCore 결제와 에이전틱 커머스의 혁신"
   url="https://aws.amazon.com/blogs/machine-learning/technical-deep-dive-agentcore-payments-and-innovation-in-agentic-commerce/"
-  summary="Amazon Bedrock AgentCore payments가 프리뷰로 출시되어 유료 외부 서비스에 대한 즉시 결제와 수동 청구 설정 없이 사용 가능하며, 소액 결제를 경제적으로 처리하는 스테이블코인 지원 및 에이전트 예산과 거래 한도를 세밀하게 제어할 수 있는 지출 가드레일을 제공합니다. 이 게시물에서는 AgentCore payments의 기술적 심층 분"
+  summary="Amazon Bedrock AgentCore payments가 프리뷰로 출시되어 유료 외부 서비스에 대한 즉시 결제와 수동 청구 설정 없이 사용 가능하며, 소액 결제를 경제적으로 처리하는 스테이블코인 지원 및 에이전트 예산과 거래 한도를 세밀하게 제어할 수 있는 지출 가드레일을 제공합니다."
   source="AWS Machine Learning Blog"
   severity="High"
 %}
@@ -318,7 +318,7 @@ IT 리더들은 Generative AI(GenAI)의 급속한 채택으로 브라우저가 �
 {% include news-card.html
   title="Part 3: Kiro로 RDS/Aurora 장애 분석 자동화하기 — 매일 자동으로 보고서 받기"
   url="https://aws.amazon.com/ko/blogs/tech/part-3-automate-rds-aurora-issue-analysis-with-kiro/"
-  summary="이 글은 ”Kiro로 RDS/Aurora 장애 분석 자동화하기” 시리즈의 세 번째 글입니다. Part 1: ”Kiro로 RDS/Aurora 장애 분석 자동화하기 — IDE에서 분석하기” Part 2: ”Kiro로 RDS/Aurora 장애 분석 자동화하기 — 터미널에서 분석하기” Part 3 (해당글): ”Kiro로 RDS/Aurora 장애 분석 자동화하기 "
+  summary="이 글은 ”Kiro로 RDS/Aurora 장애 분석 자동화하기” 시리즈의 세 번째 글입니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}

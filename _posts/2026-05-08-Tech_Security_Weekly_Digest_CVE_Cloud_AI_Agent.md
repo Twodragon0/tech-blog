@@ -100,7 +100,7 @@ redirect_from:
   title="Ivanti EPMM CVE-2026-6973 RCE가 활발히 악용 중, 관리자 수준 접근 권한 부여"
   url="https://thehackernews.com/2026/05/ivanti-epmm-cve-2026-6973-rce-under.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX-v9Rdn-UppGqdbm0oFYXNg6myRCPn8r-d4BXVN0e2r2hqrYbGPUwOKafMbwKlojjbck4C8Ez6dxZ7WcLF45PNphvCo1K4OGhXl0u9fWanVMbO62iZoWMQJrplTa6VaXfI2rhQL40PoDK0ZNh2jqDJGBc9LylbIE92LWSNEIkVUhSpkGyAfV7g-DVZlU1/s1600/ivanti.jpg"
-  summary="Ivanti가 Endpoint Manager Mobile(EPMM)의 고위험 취약점 CVE-2026-6973(CVSS 7.2)이 제한적인 실제 공격에서 악용되고 있다고 경고했습니다. 이 취약점은 부적절한 입력 검증으로 인해 발생하며, 원격으로 인증된 관리자 수준의 사용자가 원격 코드 실행(RCE)을 통해 관리자 권한을 획득할 수 있도록 합니다. 영향을 받는"
+  summary="Ivanti가 Endpoint Manager Mobile(EPMM)의 고위험 취약점 CVE-2026-6973(CVSS 7.2)이 제한적인 실제 공격에서 악용되고 있다고 경고했습니다. 이 취약점은 부적절한 입력 검증으로 인해 발생하며, 원격으로 인증된 관리자 수준의 사용자가 원격 코드 실행(RCE)을 통해 관리자 권한을 획득할 수 있도록 합니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -150,7 +150,7 @@ mitre_attack:
   title="PCPJack 자격 증명 탈취기가 5개 CVE를 악용해 클라우드 시스템 전반에 웜처럼 확산"
   url="https://thehackernews.com/2026/05/pcpjack-credential-stealer-exploits-5.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2N74T5rZvfRcHqUhwtyI3hbxAAQnB-RQQqpiGSIJqdplaQaZcjvqLR80d3pIjwJyGtAO5V0Ji6_3w4V4Ww901x4aSGY_Id3lzqXNdGUMbprz80zXoKzHVoIBqyhVBU_LvIMyJHV5MHaMWvZuWgREFmqG4jOdBLpW4gBtgKCrnfRS4mIXemDQ9U_fRERQf/s1600/clouds.jpg"
-  summary="사이버 보안 연구진이 클라우드 인프라를 노리는 새로운 자격 증명 탈취 프레임워크 PCPJack을 공개했으며, 이는 5개의 CVE를 악용해 웜처럼 확산됩니다. PCPJack은 클라우드, 컨테이너, 개발자, 생산성, 금융 서비스에서 자격 증명을 수집한 후 공격자 제어 인프라를 통해 데이터를 유출합니다. 또한 이 프레임워크는 환경에서 TeamPCP와 관련된 모든"
+  summary="사이버 보안 연구진이 클라우드 인프라를 노리는 새로운 자격 증명 탈취 프레임워크 PCPJack을 공개했으며, 이는 5개의 CVE를 악용해 웜처럼 확산됩니다. PCPJack은 클라우드, 컨테이너, 개발자, 생산성, 금융 서비스에서 자격 증명을 수집한 후 공격자 제어 인프라를 통해 데이터를 유출합니다."
   source="The Hacker News"
   severity="High"
 %}
@@ -305,7 +305,7 @@ Gemini 3.1 Flash-Lite가 Gemini Enterprise Agent Platform에서 정식 출시되
 {% include news-card.html
   title="새로운 Bigtable 인메모리 계층으로 서브 밀리초 읽기 지연 시간 구현"
   url="https://cloud.google.com/blog/products/databases/scaling-real-time-performance-with-bigtable-in-memory-tier/"
-  summary="Google Cloud Next '26에서 발표된 Bigtable in-memory tier는 완전 관리형 클라우드 데이터베이스 서비스에 새로운 계층을 추가하여 시간에 민감한 데이터에 대해 서브 밀리초 읽기 지연 시간을 제공하고, 포인트 읽기 처리량을 비용 대비 약 10배 향상시켜 TCO를 절감합니다. 또한 단일 행에서 초당 최대 12만 쿼리를 지원하는 핫"
+  summary="Google Cloud Next '26에서 발표된 Bigtable in-memory tier는 완전 관리형 클라우드 데이터베이스 서비스에 새로운 계층을 추가하여 시간에 민감한 데이터에 대해 서브 밀리초 읽기 지연 시간을 제공하고, 포인트 읽기 처리량을 비용 대비 약 10배 향상시켜 TCO를 절감합니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}

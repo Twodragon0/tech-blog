@@ -144,7 +144,7 @@ index=security sourcetype=syslog ("exploit" OR "remote code execution" OR "shell
   title="주간 보안 뉴스 요약: Vercel 해킹, Push 사기, QEMU 악용, 신종 Android RAT 등장 및 기타 소식"
   url="https://thehackernews.com/2026/04/weekly-recap-vercel-hack-push-fraud.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirkQSoHlNZvcdjrevc7r-D8mPj49i3XRimQjk-HtEVDYVX4vKEcW4JLiTblV5oI8MtUib2Q5iFerdt0x4_mGDvMJqsDd2wX6QNQxM25Wnrq-MRYADw1YuJly5yoSTIz_ToqlWsAKA2hLwru4Crx8aSguTETpDl4mjRfrCg0G8Cca5Rk0Am6FCwRCNPIqBy/s1600/recap-april.jpg"
-  summary="Vercel 해킹, Push Fraud, QEMU 악용, 새로운 Android RAT 등장 등 다양한 보안 사건이 발생했습니다. 공격자들은 타사 도구, 신뢰받는 다운로드 경로, 브라우저 확장 프로그램, 업데이트 채널과 같은 정상적인 요소를 악용하여 접근 권한을 얻고 있습니다. 이는 시스템을 파괴하기보다 신뢰를 왜곡시키는 방식으로 공격 패러다임이 변화하고 있"
+  summary="Vercel 해킹, Push Fraud, QEMU 악용, 새로운 Android RAT 등장 등 다양한 보안 사건이 발생했습니다. 공격자들은 타사 도구, 신뢰받는 다운로드 경로, 브라우저 확장 프로그램, 업데이트 채널과 같은 정상적인 요소를 악용하여 접근 권한을 얻고 있습니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -275,7 +275,7 @@ Amazon SageMaker AI에서 NVIDIA RTX PRO 6000 Blackwell Server Edition GPU로 �
 {% include news-card.html
   title="AWS 위클리 라운드업: Amazon Bedrock의 Claude Opus 4.7, AWS Interconnect GA 등 (2026년 4월 20일)"
   url="https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-opus-4-7-in-amazon-bedrock-aws-interconnect-ga-and-more-april-20-2026/"
-  summary="Amazon Bedrock에 향상된 에이전트 코딩 기능과 1M 토큰 컨텍스트 윈도우를 갖춘 Claude Opus 4.7이 출시되었습니다. 또한 AWS Interconnect가 멀티클라우드 프라이빗 연결성과 새로운 라스트 마일 옵션으로 정식 출시되었으며, Secrets Manager의 포스트-퀀텀 TLS와 새로운 C8in/C8ib EC2 인스턴스 등이 소개되"
+  summary="Amazon Bedrock에 향상된 에이전트 코딩 기능과 1M 토큰 컨텍스트 윈도우를 갖춘 Claude Opus 4.7이 출시되었습니다."
   source="AWS Blog"
   severity="Medium"
 %}

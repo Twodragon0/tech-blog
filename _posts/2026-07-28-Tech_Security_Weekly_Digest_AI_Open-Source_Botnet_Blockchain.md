@@ -97,7 +97,7 @@ summary_card:
   title="NVIDIA, 37개 회원으로 구성된 Open Secure AI Alliance 결성 및 NOOA 프레임워크 오픈소스화"
   url="https://thehackernews.com/2026/07/nvidia-forms-37-member-open-secure-ai.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEij-O7sLARD9c2QGCheTeoamew1jlKiNe2KRKqw4_8f6VTxZo0MHNIQdizHhyphenhyphen-Bchq9tTzlYBJrJcJDhhhzNB17wPMHDT00pAikN61fAgOh7AdibxKPt5fQ_1KwMvkUXx1J7IzZBbtONSSIAOjRV74KSkmlsKYB7hFWy17AaQu02BqwngqCzlubslSbKvg/s1600/nvidia.jpg"
-  summary="NVIDIA가 36개 조직과 함께 Open Secure AI Alliance를 결성하고 NOOA 프레임워크를 오픈소스로 공개했습니다. 이 연합은 Microsoft, Cisco, Cloudflare, CrowdStrike, Hugging Face, IBM, Palo Alto Networks, Red Hat, Linux 재단 등 클라우드, 보안, 엔터프라이즈 "
+  summary="NVIDIA가 36개 조직과 함께 Open Secure AI Alliance를 결성하고 NOOA 프레임워크를 오픈소스로 공개했습니다."
   source="The Hacker News"
   severity="Critical"
 %}

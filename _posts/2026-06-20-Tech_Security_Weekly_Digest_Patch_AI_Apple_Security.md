@@ -97,7 +97,7 @@ summary_card:
   title="패치 불가능한 'usbliter8' 익스플로잇, Apple A12 및 A13 SecureROM 부트 체인 해제"
   url="https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIM725Ni41-PBwM_6zXNdsydP1eZO7oSsWIlAqpwdOu9dOcZM6ZI1iaqwSsL3yZKT4lbFRM-eZVq3ARKDbLRnid1pJ0Us3XX135nD0tV71gb1lnADzig_vE9c6CAiJdlJ-Wco11InBKUyGX9V5nRFn9qZxuxeJKCzsCV4tQTfFIgU3F05Wnp2VfsxyTPs/s1600/apple-chip.jpg"
-  summary="보안 연구팀 Paradigm Shift가 Apple A12 및 A13 칩의 SecureROM 내에서 임의 코드 실행을 가능하게 하는 'usbliter8' 익스플로잇을 공개했습니다. 이 취약점은 제조 시 실리콘에 각인되어 소프트웨어 업데이트로는 패치가 불가능하며, 해당 기기는 사용 기간 내내 이 결함을 안고 가게 됩니다. 원격 공격은 아니며 물리적 접근이 필"
+  summary="보안 연구팀 Paradigm Shift가 Apple A12 및 A13 칩의 SecureROM 내에서 임의 코드 실행을 가능하게 하는 'usbliter8' 익스플로잇을 공개했습니다. 이 취약점은 제조 시 실리콘에 각인되어 소프트웨어 업데이트로는 패치가 불가능하며, 해당 기기는 사용 기간 내내 이 결함을 안고 가게 됩니다."
   source="The Hacker News"
   severity="High"
 %}
@@ -187,7 +187,7 @@ DevSecOps 실무자에게 이 위협은 **CI/CD 파이프라인과 프로덕션 
   title="AutoJack 공격으로 한 웹 페이지가 AI 에이전트를 하이재킹해 호스트 코드 실행 가능"
   url="https://thehackernews.com/2026/06/autojack-attack-lets-one-web-page.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3wJOg5Y5vAn_dM0DcIB6SwV2B34iO0H-moeyuWLJ_DF1KgEEZMBGtKPDXYk0pL4wclWbnSmOB74sqReSZoGI2_SwUSzKSscUxEdvuJFx_sCIfU7UplU2k5s4UA0cOVAZT_s80PDTek6OGfrsnE8f6QxrQU58rBqPiuk_J__Yja3YNzZLzd-6s8Ji1PBhc/s1600/agent.jpg"
-  summary="Microsoft 연구진이 AutoJack이라는 익스플로잇 체인을 공개했으며, 이는 AI 브라우징 에이전트를 피해자 시스템에서 원격 코드 실행을 수행하는 도구로 전환시킵니다. 공격자의 웹 페이지를 로드하도록 에이전트를 유도하면 해당 페이지의 JavaScript가 동일 머신의 권한 있는 로컬 서비스에 접근해 호스트에서 프로세스를 생성할 수 있으며, 추가 사용"
+  summary="Microsoft 연구진이 AutoJack이라는 익스플로잇 체인을 공개했으며, 이는 AI 브라우징 에이전트를 피해자 시스템에서 원격 코드 실행을 수행하는 도구로 전환시킵니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -244,7 +244,7 @@ Amazon Bedrock AgentCore의 Web Search 기능이 정식 출시되었습니다. �
 {% include news-card.html
   title="Adobe Marketing Agent for Amazon Quick의 인사이트로 캠페인 워크플로우 가속화"
   url="https://aws.amazon.com/blogs/machine-learning/accelerate-campaign-workflow-with-insights-from-adobe-marketing-agent-for-amazon-quick/"
-  summary="이 게시물은 Model Context Protocol (MCP)을 사용하여 Adobe Marketing Agent for Amazon Quick를 활성화하는 방법을 보여줍니다. 통합 구성, Adobe 자격 증명 인증, Amazon Quick에서 최신 인사이트를 얻는 과정을 안내하며, 샘플 워크플로는 audience rankings, loyalty segme"
+  summary="이 게시물은 Model Context Protocol (MCP)을 사용하여 Adobe Marketing Agent for Amazon Quick를 활성화하는 방법을 보여줍니다."
   source="AWS Machine Learning Blog"
   severity="High"
 %}

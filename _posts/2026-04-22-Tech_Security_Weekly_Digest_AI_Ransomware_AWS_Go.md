@@ -193,7 +193,7 @@ Forescout Research Vedere Labs는 Lantronix와 Silex의 Serial-to-IP 컨버터�
 {% include news-card.html
   title="Facebook Groups 검색 현대화로 커뮤니티 지식의 힘을 발휘하다"
   url="https://engineering.fb.com/2026/04/21/ml-applications/modernizing-the-facebook-groups-search-to-unlock-the-power-of-community-knowledge/"
-  summary="Facebook은 커뮤니티 콘텐츠 검색의 주요 문제점을 해결하기 위해 새로운 hybrid retrieval architecture를 도입하고 automated model-based evaluation을 구현했습니다. 이를 통해 Facebook Groups Search를 근본적으로 변환하여 사용자가 관련성 높은 커뮤니티 지식을 더욱 신뢰성 있게 발견하고 검증"
+  summary="Facebook은 커뮤니티 콘텐츠 검색의 주요 문제점을 해결하기 위해 새로운 hybrid retrieval architecture를 도입하고 automated model-based evaluation을 구현했습니다."
   source="Meta Engineering Blog"
   severity="Medium"
 %}

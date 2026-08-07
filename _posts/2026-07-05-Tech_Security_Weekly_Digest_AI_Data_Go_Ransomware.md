@@ -131,7 +131,7 @@ DevSecOps 파이프라인에서 이 사례가 시사하는 점:
   title="북한 해커, PolinRider 캠페인에서 108개의 악성 패키지 및 확장 프로그램 유포"
   url="https://thehackernews.com/2026/07/north-korean-hackers-publish-108.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwdeBqtwl7nqoAp8TPhZmmr3mUTCcfxluYa7QukD2sI1AjCWoOko2YtQUrCtOLH-tJlYi2lXUA5E3RF51L26gZGyR7sT0GXu73OMB94HhINz5kajaR8-txb-tYNj2Hsm62zVwTaw7Rew6Wazf8eQgo_boWq7DjqbN1jjp5OmwSZ2yG7Y9e04hFVaroUSu6/s1600/go-code.jpg"
-  summary="북한 해커 그룹이 Contagious Interview 캠페인과 연계되어 PolinRider 활동의 일환으로 npm, Packagist, Go, Google Chrome 등에서 108개의 악성 패키지와 브라우저 확장 프로그램을 게시한 것으로 확인되었습니다. 이 캠페인은 여전히 활성 상태이며, 위협 행위자들이 관리자 계정을 탈취함에 따라 새로운 악성 패키지가"
+  summary="북한 해커 그룹이 Contagious Interview 캠페인과 연계되어 PolinRider 활동의 일환으로 npm, Packagist, Go, Google Chrome 등에서 108개의 악성 패키지와 브라우저 확장 프로그램을 게시한 것으로 확인되었습니다."
   source="The Hacker News"
   severity="Medium"
 %}

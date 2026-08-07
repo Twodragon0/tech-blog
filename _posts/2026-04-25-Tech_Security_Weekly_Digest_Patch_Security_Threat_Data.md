@@ -246,7 +246,7 @@ Google의 AI 비서 Gemini가 공간과 생활을 정리하는 데 도움을 주
 {% include news-card.html
   title="Visier와 Amazon Quick으로 워크포스 AI 에이전트 구축하기"
   url="https://aws.amazon.com/blogs/machine-learning/building-workforce-ai-agents-with-visier-and-amazon-quick/"
-  summary="Visier Workforce AI 플랫폼과 Amazon Quick를 Model Context Protocol (MCP)로 연결하여 모든 지식 근로자에게 통합된 에이전트 작업 공간을 제공하는 방법을 보여줍니다. Visier는 실시간 인력 데이터와 조직적 맥락을 기반으로 작업 공간을 구성하며, 사용자는 도구 전환 없이 대화형 결과에 대해 조치를 취할 수 있습"
+  summary="Visier Workforce AI 플랫폼과 Amazon Quick를 Model Context Protocol (MCP)로 연결하여 모든 지식 근로자에게 통합된 에이전트 작업 공간을 제공하는 방법을 보여줍니다."
   source="AWS Machine Learning Blog"
   severity="High"
 %}

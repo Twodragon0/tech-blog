@@ -140,7 +140,7 @@ DevSecOps 실무자에게 이번 위협은 다음과 같은 직접적 영향을 
   title="가짜 AI 에이전트 스킬이 보안 검사를 통과해 26,000개 에이전트에 도달한 것으로 알려져"
   url="https://thehackernews.com/2026/06/fake-ai-agent-skill-passed-security.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgb14v3ddlfpybc15jRbk-cwHI-0S8BAzdp8Ix83L5ZCZ4AB8gCySG7J4tZr4od9q3Jbuic1a4J29VAvRcdSQag_-ju1o9ae9yCcL6XV_jRDVhgd31E5BljiThpXcfHu_gdsmSySY8o0WyjuUoSQ5CGOyKO3cKXVDYeGKa1b1up2VM5ZJE6_PjPNCVOD_M/s1600/skills.jpg"
-  summary="보안 업체 AIR가 가짜 AI 에이전트 스킬을 제작해 유명 스킬 마켓플레이스와 Instagram 광고를 통해 유포한 결과, 일부 기업 계정을 포함해 약 26,000개의 에이전트에 도달했습니다. 이 스킬은 모든 보안 스캐너에서 안전하다고 판정받았으며, 실제로는 사용자 이메일 주소만 수집하는 무해한 페이로드였습니다. 이 실험은 현재 보안 검사 체계의 허점을 드"
+  summary="보안 업체 AIR가 가짜 AI 에이전트 스킬을 제작해 유명 스킬 마켓플레이스와 Instagram 광고를 통해 유포한 결과, 일부 기업 계정을 포함해 약 26,000개의 에이전트에 도달했습니다. 이 스킬은 모든 보안 스캐너에서 안전하다고 판정받았으며, 실제로는 사용자 이메일 주소만 수집하는 무해한 페이로드였습니다."
   source="The Hacker News"
   severity="Medium"
 %}
@@ -178,7 +178,7 @@ DevSecOps 실무자에게 이 사건은 **AI 에이전트 보안을 기존 소�
   title="트럼프 행정명령, 연방 양자내성암호 전환 시한 2030년으로 설정"
   url="https://thehackernews.com/2026/06/trump-order-sets-2030-deadline-for.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoC7KFWoDGkSi-UzAyKNUkw-Ogs4oy2tCOAYXiYAAkqEUC1WMotLAE1GUwoWApfXK3prWVctTP05aLGjru0hDBfJkZ1NzPiFeI1VObgSNCx4egTrYhKIUt4m1S14eQ6_GpdffFBL4Ak3Mgjw7UiiBethv1lmyd_OaPIfhk_b-zuMjxCHLZtih8Tk6MtRg/s1600/unitedstates.jpg"
-  summary="트럼프 대통령이 6월 22일 행정명령에 서명하여 연방 기관들이 고가치 자산과 고영향 시스템을 post-quantum cryptography로 전환하도록 2030년 12월 31일(키 수립)과 2031년 12월 31일(디지털 서명)의 기한을 설정했습니다. EO 14409는 국가 안보 시스템을 별도 트랙으로 분리했으며, 이 기한은 아직 실현되지 않은 위협에 대비"
+  summary="트럼프 대통령이 6월 22일 행정명령에 서명하여 연방 기관들이 고가치 자산과 고영향 시스템을 post-quantum cryptography로 전환하도록 2030년 12월 31일(키 수립)과 2031년 12월 31일(디지털 서명)의 기한을 설정했습니다."
   source="The Hacker News"
   severity="Medium"
 %}
@@ -216,7 +216,7 @@ DevSecOps 실무자에게 이번 행정명령은 다음과 같은 핵심 과제�
   title="NVIDIA와 AWS, AI를 대규모로 프로덕션에 도입하기 위해 협력"
   url="https://blogs.nvidia.com/blog/nvidia-aws-ai-production-scale/"
   image="https://blogs.nvidia.com/wp-content/uploads/2026/06/logo-lockup-tech-blog-aws-1920x1080-2-842x450.jpg"
-  summary="NVIDIA와 AWS가 협력하여 AI 시스템의 대규모 프로덕션 배포를 위한 인프라를 제공합니다. 이 협력은 Amazon OpenSearch와 Amazon EC2 전반에서 NVIDIA AI 인프라를 활용하여 낮은 지연 시간의 추론, 빠른 벡터 검색, 강력한 GPU 가격 대비 성능을 지원합니다. 이를 통해 기업들은 운영 복잡성 증가 없이 확장 가능한 AI 배포"
+  summary="NVIDIA와 AWS가 협력하여 AI 시스템의 대규모 프로덕션 배포를 위한 인프라를 제공합니다. 이 협력은 Amazon OpenSearch와 Amazon EC2 전반에서 NVIDIA AI 인프라를 활용하여 낮은 지연 시간의 추론, 빠른 벡터 검색, 강력한 GPU 가격 대비 성능을 지원합니다."
   source="NVIDIA AI Blog"
   severity="Medium"
 %}
@@ -351,7 +351,7 @@ GitHub Blog에 따르면, 코드 품질 결과를 위한 Repository-level REST A
 {% include news-card.html
   title="SBOM이란 무엇이며, 왜 이것 없이는 배포할 수 없나요?"
   url="https://www.docker.com/blog/what-is-an-sbom/"
-  summary="Omdia의 2026년 소프트웨어 공급망 보안 보고서에 따르면 SBOM을 생성하는 조직의 73%가 취약점 완화 효율성 향상을 경험했지만, 86%는 여전히 생성 과정에 어려움을 겪고 있습니다. 이러한 인식된 가치와 운영상의 어려움 사이의 격차가 대부분의 팀이 직면한 문제입니다. 컨테이너화된 애플리케이션을 구축하고 보호하는 팀은 SBOM이 무엇인지 이해하는 것"
+  summary="Omdia의 2026년 소프트웨어 공급망 보안 보고서에 따르면 SBOM을 생성하는 조직의 73%가 취약점 완화 효율성 향상을 경험했지만, 86%는 여전히 생성 과정에 어려움을 겪고 있습니다. 이러한 인식된 가치와 운영상의 어려움 사이의 격차가 대부분의 팀이 직면한 문제입니다."
   source="Docker Blog"
   severity="Medium"
 %}

@@ -302,7 +302,7 @@ Lightning Engine은 Apache Spark 성능을 4.9배 향상시켜 데이터 처리 
   title="표면 선택하기: Antigravity 2.0, Antigravity CLI, Antigravity IDE 또는 Antigravity SDK"
   url="https://cloud.google.com/blog/topics/developers-practitioners/choosing-your-surface-antigravity-20-antigravity-cli-antigravity-ide-or-antigravity-sdk/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/antigravity-new-chat.max-1000x1000.png"
-  summary="Antigravity 2.0은 여러 자율 에이전트를 병렬로 조율하는 데스크톱 앱이며, Antigravity CLI는 명령줄 워크플로우와 헤드리스 실행을 위한 터미널 인터페이스입니다. Antigravity IDE는 에이전트와 함께 코드를 작성할 수 있는 개발자용 편집기이고, Antigravity SDK는 Antigravity Harness를 사용하는 맞춤형 "
+  summary="Antigravity 2.0은 여러 자율 에이전트를 병렬로 조율하는 데스크톱 앱이며, Antigravity CLI는 명령줄 워크플로우와 헤드리스 실행을 위한 터미널 인터페이스입니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}

@@ -171,7 +171,7 @@ sequenceDiagram
 {% include news-card.html
   title="Amazon OpenSearch 3.3 업그레이드로 미리캔버스의 검색 성능 개선"
   url="https://aws.amazon.com/ko/blogs/tech/miricanvas-dual-vector-search-opensearch-3-3-upgrade-2/"
-  summary="부제: derived source와 Lucene 10.3으로 stored fields 병목을 해소하고, 무중단·안전 롤백 전략으로 메이저 버전을 올린 이야기 본 게시글은 미리디의 김민석, 최시온, 이동진, 김백규님과 함께 작성하였습니다. 미리디의 미리캔버스 소개 미리캔버스는 ”누구나 쉽게, 함께 만드는 디자인”을 지향하는 실시간 협업 디자인 플랫폼입니다"
+  summary="부제: derived source와 Lucene 10.3으로 stored fields 병목을 해소하고, 무중단·안전 롤백 전략으로 메이저 버전을 올린 이야기 본 게시글은 미리디의 김민석, 최시온, 이동진, 김백규님과 함께 작성하였습니다."
   source="AWS Korea Blog"
   severity="High"
 %}
@@ -203,7 +203,7 @@ flowchart TD
 {% include news-card.html
   title="Amazon OpenSearch Service로 미리캔버스의 듀얼 벡터 검색 도입과 성능 최적화"
   url="https://aws.amazon.com/ko/blogs/tech/miricanvas-dual-vector-search-opensearch-3-3-upgrade-1/"
-  summary="부제: 4,000만 건 디자인 리소스의 의미 기반 검색을 위한 듀얼 벡터 설계, 그리고 OpenSearch 2.19에서 마주한 메모리와 IOPS 병목과의 싸움 본 게시글은 미리디의 김민석, 최시온, 이동진, 김백규님과 함께 작성하였습니다. 미리디의 미리캔버스 소개 미리캔버스는 ”누구나 쉽게, 함께 만드는 디자인”을 지향하는 실시간 협업 디자인 플랫폼입니다"
+  summary="부제: 4,000만 건 디자인 리소스의 의미 기반 검색을 위한 듀얼 벡터 설계, 그리고 OpenSearch 2.19에서 마주한 메모리와 IOPS 병목과의 싸움 본 게시글은 미리디의 김민석, 최시온, 이동진, 김백규님과 함께 작성하였습니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}

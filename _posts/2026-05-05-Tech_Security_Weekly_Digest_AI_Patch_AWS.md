@@ -254,7 +254,7 @@ Gemini API에서 Webhooks를 사용하여 장기 실행 작업의 지연 시간�
 {% include news-card.html
   title="BI를 넘어서: Amazon Quick의 데이터셋 Q&A 기능이 이끄는 차세대 데이터 의사결정"
   url="https://aws.amazon.com/blogs/machine-learning/beyond-bi-how-the-dataset-qa-feature-of-amazon-quick-powers-the-next-generation-of-data-decisions/"
-  summary="Amazon Quick의 Dataset Q&A 기능은 기존 대시보드가 해결하지 못하는 임시적이고 다차원적인 질문에 실시간으로 대응하여 데이터 의사결정의 병목 현상을 해소합니다. 비즈니스 리더들은 일상적인 운영 대시보드에 의존하지만, 예상치 못한 분석 요구가 발생하면 BI 팀이 새 뷰를 구축할 때까지 기다려야 했던 문제를 개선합니다. 이 기능은 사전 정의된 "
+  summary="Amazon Quick의 Dataset Q&A 기능은 기존 대시보드가 해결하지 못하는 임시적이고 다차원적인 질문에 실시간으로 대응하여 데이터 의사결정의 병목 현상을 해소합니다. 비즈니스 리더들은 일상적인 운영 대시보드에 의존하지만, 예상치 못한 분석 요구가 발생하면 BI 팀이 새 뷰를 구축할 때까지 기다려야 했던 문제를 개선합니다."
   source="AWS Machine Learning Blog"
   severity="High"
 %}

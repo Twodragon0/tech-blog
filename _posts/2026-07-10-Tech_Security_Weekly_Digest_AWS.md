@@ -254,7 +254,7 @@ ChatGPT Work는 사용자의 앱과 파일을 넘나들며 장시간 프로젝�
   title="Cloud Run 샌드박스에서 AI 생성 코드를 안전하게 실행하기"
   url="https://cloud.google.com/blog/topics/developers-practitioners/google-cloud-run-sandboxes-are-in-public-preview/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/original_images/sandbox_1000_-_100_ok.gif"
-  summary="Google Cloud에서 AI가 생성한 코드나 신뢰할 수 없는 바이너리를 안전하게 실행하기 위해 Cloud Run 샌드박스를 사용하는 방법이 제시되었습니다. 이는 호스트 애플리케이션, 데이터, 클라우드 자격 증명을 위험에 빠뜨리지 않으면서 AI 프로그램을 신뢰할 수 있는 프로그램과 완전히 분리된 환경에서 실행할 수 있도록 합니다. 기존에는 복잡한 샌드박스"
+  summary="Google Cloud에서 AI가 생성한 코드나 신뢰할 수 없는 바이너리를 안전하게 실행하기 위해 Cloud Run 샌드박스를 사용하는 방법이 제시되었습니다. 이는 호스트 애플리케이션, 데이터, 클라우드 자격 증명을 위험에 빠뜨리지 않으면서 AI 프로그램을 신뢰할 수 있는 프로그램과 완전히 분리된 환경에서 실행할 수 있도록 합니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}

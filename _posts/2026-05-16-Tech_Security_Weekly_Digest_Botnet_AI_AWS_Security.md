@@ -134,7 +134,7 @@ DevSecOps 관점에서 이 위협은 **공급망 공격**, **CI/CD 파이프라�
 {% include news-card.html
   title="AWS AI 보안 프레임워크: 적절한 통제, 적절한 계층, 적절한 단계에서 AI 보안 확보"
   url="https://aws.amazon.com/blogs/security/the-aws-ai-security-framework-securing-ai-with-the-right-controls-at-the-right-layers-at-the-right-phases/"
-  summary="AWS AI Security Framework는 AI 워크로드가 프로토타입에서 프로덕션, 확장 단계로 진화함에 따라 보안을 처음부터 강화하도록 설계되었습니다. 보안 리더는 무료 SHIP engagement를 통해 현재 상태를 평가하고 우선순위 로드맵을 수립할 수 있습니다. 이 프레임워크는 적절한 통제를 적절한 계층과 단계에 적용하여 AI 보안을 신속하게 확"
+  summary="AWS AI Security Framework는 AI 워크로드가 프로토타입에서 프로덕션, 확장 단계로 진화함에 따라 보안을 처음부터 강화하도록 설계되었습니다. 보안 리더는 무료 SHIP engagement를 통해 현재 상태를 평가하고 우선순위 로드맵을 수립할 수 있습니다."
   source="AWS Security Blog"
   severity="Medium"
 %}

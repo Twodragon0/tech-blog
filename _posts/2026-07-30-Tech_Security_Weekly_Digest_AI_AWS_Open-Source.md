@@ -133,7 +133,7 @@ DevSecOps 실무자에게 이 위협은 CI/CD 파이프라인 및 보안 거버�
   title="중요 Rails 취약점으로 인증되지 않은 공격자가 이미지 업로드를 통해 서버 파일을 읽을 수 있어"
   url="https://thehackernews.com/2026/07/critical-rails-flaw-could-let.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwRhCsS9eOb_YSXM57bDGZOPg4d9kipGTxFJ2_jC48mztPkE1_sZzuBe7ArzC4jl1TiWM9JiY20pu5uorCtSNIlmaX3EwT0trxI_HjmT_3dAJftY49-4bna-J5wnZlxs9CccsarbhZ9_L2Rxo9xtZbIszYc2mLKh0UdxKJsGftqHPggGLvtkrwWfD2-Wk/s1600/rails.jpg"
-  summary="Ruby on Rails가 인증되지 않은 공격자가 조작된 이미지 업로드를 통해 서버 파일을 읽을 수 있는 치명적인 Active Storage 취약점(CVE-2026-66066, CVSS 9.5)에 대한 수정 사항을 발표했습니다. 이 결함은 Rails 프로세스 환경과 secret_key_base, Rails 마스터 키, 데이터베이스 비밀번호, 클라우드 스토리"
+  summary="Ruby on Rails가 인증되지 않은 공격자가 조작된 이미지 업로드를 통해 서버 파일을 읽을 수 있는 치명적인 Active Storage 취약점(CVE-2026-66066, CVSS 9.5)에 대한 수정 사항을 발표했습니다."
   source="The Hacker News"
   severity="High"
 %}

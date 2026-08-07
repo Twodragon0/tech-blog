@@ -172,7 +172,7 @@ DevSecOps 관점에서 이 사고는 다음과 같은 실무적 영향을 미칩
   title="정부가 AI 모델을 철회할 때: Fable 5와 Mythos 5 중단이 보안팀에 주는 의미"
   url="https://snyk.io/blog/fable-mythos-suspension-security-takeaways/"
   image="https://res.cloudinary.com/snyk/image/upload/v1646599410/wordpress-sync/blog-feature-security-alert-purple.jpg"
-  summary="2026년 6월 12일, 미국 수출 통제 지시에 따라 Anthropic이 특정 jailbreak 보고를 이유로 Claude Fable 5와 Mythos 5를 전 세계적으로 비활성화했습니다. 이번 사건은 보안 팀이 일상적으로 사용하는 코드 분석 기능이 트리거로 지목되었으며, 보안 커뮤니티는 이에 대해 다양한 해석을 내놓고 있습니다. 보안 팀은 이번 조치에서 "
+  summary="2026년 6월 12일, 미국 수출 통제 지시에 따라 Anthropic이 특정 jailbreak 보고를 이유로 Claude Fable 5와 Mythos 5를 전 세계적으로 비활성화했습니다. 이번 사건은 보안 팀이 일상적으로 사용하는 코드 분석 기능이 트리거로 지목되었으며, 보안 커뮤니티는 이에 대해 다양한 해석을 내놓고 있습니다."
   source="Snyk Blog"
   severity="Medium"
 %}

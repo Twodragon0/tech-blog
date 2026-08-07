@@ -223,7 +223,7 @@ DevSecOps 파이프라인에서 모바일 AI 에이전트 도입 시 다음과 �
 {% include news-card.html
   title="AI 네이티브 시대의 프라이버시 인식 인프라: 자산 분류 사례 연구"
   url="https://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/"
-  summary="프라이버시 통제 시스템이 효과적으로 작동하려면 데이터에 대한 정확한 이해가 필수적이며, 이는 ”age” 필드처럼 맥락에 따라 의미가 달라질 수 있어 복잡성을 야기합니다. AI-Native 시대의 Privacy-Aware Infrastructure 구축을 위해서는 이러한 데이터 분류(Asset Classification)가 선행되어야 함을 사례 연구를 통해 "
+  summary="프라이버시 통제 시스템이 효과적으로 작동하려면 데이터에 대한 정확한 이해가 필수적이며, 이는 ”age” 필드처럼 맥락에 따라 의미가 달라질 수 있어 복잡성을 야기합니다."
   source="Meta Engineering Blog"
   severity="High"
 %}
@@ -257,7 +257,7 @@ Google Finance가 새로운 앱을 포함한 최신 업그레이드를 발표했
   title="궁극의 여름 세일 조합: Steam 세일과 GeForce NOW 할인 만남"
   url="https://blogs.nvidia.com/blog/geforce-now-thursday-steam-summer-sale-2026/"
   image="https://blogs.nvidia.com/wp-content/uploads/2026/06/gfn-thursday-6-25-no-copy-kv-1536x920-1-842x450.jpg"
-  summary="이번 GFN Thursday에서는 Steam Summer Sale과 GeForce NOW 멤버십 할인이 결합된 이중 혜택이 제공됩니다. 또한 Devolver 라인업에 Dark Scrolls가 합류하고, Square Enix의 The Adventures of Elliot: The Millennium Tales도 추가됩니다. 클라우드 게이밍의 가치를 극대화할 "
+  summary="이번 GFN Thursday에서는 Steam Summer Sale과 GeForce NOW 멤버십 할인이 결합된 이중 혜택이 제공됩니다. 또한 Devolver 라인업에 Dark Scrolls가 합류하고, Square Enix의 The Adventures of Elliot: The Millennium Tales도 추가됩니다."
   source="NVIDIA AI Blog"
   severity="High"
 %}

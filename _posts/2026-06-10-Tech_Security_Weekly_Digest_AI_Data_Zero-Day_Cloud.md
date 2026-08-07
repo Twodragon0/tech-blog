@@ -228,7 +228,7 @@ DevSecOps 실무자에게 이 사건은 **코드 저장소의 무결성 보증**
   title="NVIDIA Confidential Computing, Apple의 Private Cloud Compute 확장 지원"
   url="https://blogs.nvidia.com/blog/nvidia-confidential-computing-apple-private-cloud-compute/"
   image="https://blogs.nvidia.com/wp-content/uploads/2026/06/nvidia-confidential-computing-apple-pcc-842x450.jpeg"
-  summary="NVIDIA의 Confidential Computing 기술이 적용된 GPU가 Apple의 Private Cloud Compute(PCC)에서 기밀 추론을 위해 사용되며, Apple 데이터 센터를 넘어 Google Cloud로 확장되고 있습니다. Apple WWDC에서 공개된 이 기술은 Apple과 Google이 공동 구축한 Apple Foundation "
+  summary="NVIDIA의 Confidential Computing 기술이 적용된 GPU가 Apple의 Private Cloud Compute(PCC)에서 기밀 추론을 위해 사용되며, Apple 데이터 센터를 넘어 Google Cloud로 확장되고 있습니다."
   source="NVIDIA AI Blog"
   severity="Medium"
 %}
