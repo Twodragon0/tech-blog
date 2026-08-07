@@ -147,6 +147,24 @@ Exit code 0 = no regression. Exit code 1 = at least one URL exceeded the thresho
   0–2452 ms, performance 0.55–0.86 on unchanged content). It is logged for
   triage alongside TBT and benchmarkIndex, but never fails the job.
 
+  The step **fails closed**: an empty or absent manifest (Lighthouse measured
+  nothing) exits 1 rather than reporting success on a run that asserted nothing.
+  An unreadable LHR at `jsonPath` likewise fails rather than skipping the metric
+  budgets.
+
   The gate values are protected by
   `scripts/tests/test_ci_lighthouse_gate_guard.py`; loosening one without
   updating that guard fails the build.
+
+  **Known residual flake.** Replaying 60 real `lighthouse-results` artifacts
+  through this gate, 5 (8.3%) breach the 4600 ms LCP budget (6921–9695 ms). The
+  cause is *not* a cold cache, a slow server or a slow CPU: those runs' observed
+  (unthrottled) metrics are indistinguishable from a passing run's — e.g. run
+  `31150603094` (observed FCP 147 ms, benchmarkIndex 3294) simulated LCP
+  4297 ms, while run `31151236111` (observed FCP 147 ms, benchmarkIndex 3293)
+  simulated 9693 ms. The spread is produced inside Lighthouse's Lantern
+  *simulation* of a ~1.66 MB page over the mobile preset (1.6 Mbps / 150 ms RTT
+  / 4× CPU), which is bistable for this page. A warm-cache prerun of the kind
+  used by `lighthouse-ci.yml` does not address it — outliers skew toward the
+  *fastest* runners (median benchmarkIndex 3293 vs 2250 for passing runs).
+  Reducing the page's transfer weight is the real fix.

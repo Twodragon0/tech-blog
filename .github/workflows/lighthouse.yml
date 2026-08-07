@@ -83,6 +83,15 @@ jobs:
           const fs = require('fs');
           const manifest = JSON.parse(process.env.LIGHTHOUSE_MANIFEST || '[]');
 
+          // Fail closed. An absent/empty manifest means Lighthouse measured
+          // nothing, so none of the gates below can be asserted -- without this
+          // the loop would simply not execute and the step would report
+          // "All Lighthouse thresholds met." on a run that checked nothing.
+          if (!Array.isArray(manifest) || manifest.length === 0) {
+            console.error('Lighthouse produced no manifest — nothing was measured, so nothing can be asserted. Failing closed.');
+            process.exit(1);
+          }
+
           // Category score gates. 'performance' is deliberately ABSENT.
           // It is a composite in which total-blocking-time carries ~30% of the
           // weight, and TBT on a GitHub runner is decided by the CPU the VM

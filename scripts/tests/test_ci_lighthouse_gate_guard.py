@@ -232,6 +232,21 @@ class TestLighthouseGateConfig:
                 "regression from the job log alone."
             )
 
+    def test_empty_manifest_fails_closed(self):
+        """An empty manifest must not report success.
+
+        The gates all live inside ``for (const result of manifest)``. With an
+        empty manifest that loop body never runs, so without an explicit
+        length check the step prints "All Lighthouse thresholds met." and exits
+        0 on a run that measured nothing at all.
+        """
+        code = _uncommented(_check_script(_workflow()))
+        assert re.search(r"manifest\.length\s*===?\s*0", code), (
+            "the empty-manifest fail-closed check was removed; a Lighthouse run "
+            "that produced no manifest would pass the gate green while asserting "
+            "nothing. If intentional, update this guard."
+        )
+
     def test_step_not_neutralized(self):
         step = _check_step(_workflow())
         assert step.get("continue-on-error") is not True, (
@@ -348,6 +363,37 @@ class TestLighthouseGateBehaviour:
     def test_category_regression_fails(self):
         r = _run_gate(_GOOD_LHR, dict(_GOOD_SUMMARY, accessibility=0.5))
         assert r.returncode == 1, f"accessibility 0.50 was not caught:\n{r.stdout}"
+
+    def test_empty_manifest_exits_nonzero(self):
+        script = _check_script(_workflow())
+        r = subprocess.run(
+            ["node", "-"],
+            input=script,
+            capture_output=True,
+            text=True,
+            env={"PATH": __import__("os").environ["PATH"],
+                 "LIGHTHOUSE_MANIFEST": "[]"},
+        )
+        assert r.returncode == 1, (
+            "an empty manifest passed the gate — the step would report success "
+            f"having asserted nothing:\n{r.stdout}\n{r.stderr}"
+        )
+        assert "All Lighthouse thresholds met." not in r.stdout
+
+    def test_absent_manifest_env_exits_nonzero(self):
+        """The action sets `manifest` to '' when it produced no manifest.json."""
+        script = _check_script(_workflow())
+        r = subprocess.run(
+            ["node", "-"],
+            input=script,
+            capture_output=True,
+            text=True,
+            env={"PATH": __import__("os").environ["PATH"],
+                 "LIGHTHOUSE_MANIFEST": ""},
+        )
+        assert r.returncode == 1, (
+            f"an empty LIGHTHOUSE_MANIFEST passed the gate:\n{r.stdout}\n{r.stderr}"
+        )
 
     def test_unreadable_lhr_fails_closed(self):
         """A missing LHR must not silently pass the metric budgets."""
