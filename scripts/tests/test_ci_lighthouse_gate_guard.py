@@ -16,24 +16,29 @@ So the gate was rebuilt around things that actually mean something:
 
 * the composite ``performance`` floor is GONE (it was measuring the runner),
 * ``accessibility`` / ``best-practices`` / ``seo`` stay blocking,
-* absolute metric budgets (LCP, CLS) are read from the LHR at ``jsonPath``
-  -- NOT from ``manifest.summary``, which only carries category scores,
+* one absolute metric budget -- CLS -- is read from the LHR at ``jsonPath``
+  rather than from ``manifest.summary``, which only carries category scores,
+* LCP is measured and LOGGED but deliberately NOT gated, because it is bimodal
+  on this runner for reasons CI does not control (see
+  :meth:`TestLighthouseGateConfig.test_lcp_stays_observable_but_ungated`),
 * the ``pull_request`` trigger got the same ``paths`` filter the ``push``
   trigger already had, so content-only PRs stop running Lighthouse at all.
 
-Each of those can be undone silently: raise a budget "just a little", drop a
-category threshold, delete the paths filter, or refactor the check step so the
-budget constants are still there but nothing reads ``jsonPath`` any more (a
-vacuous gate). This guard makes any of that fail loudly and reviewably.
+Each of those can be undone silently: raise the CLS budget "just a little", drop
+a category threshold, delete the paths filter, drop the LCP log line that is the
+evidence trail for re-deriving a budget, or refactor the check step so the budget
+constants are still there but nothing reads ``jsonPath`` any more (a vacuous
+gate). This guard makes any of that fail loudly and reviewably.
 
 Maps to OWASP CICD-SEC-1 (Insufficient Flow Control) / NIST SSDF PW.4.
 
 Direction
 ---------
 * Category thresholds are FLOORS -> asserted ``>=`` (raising them stays green).
-* Metric budgets are CEILINGS -> asserted ``<=`` (tightening stays green,
+* The CLS budget is a CEILING -> asserted ``<=`` (tightening stays green,
   loosening trips).
-* The paths filter and the jsonPath wiring are PRESENCE assertions.
+* The paths filter, the jsonPath wiring and the LCP log line are PRESENCE
+  assertions. The LCP *budget* is an ABSENCE assertion.
 
 If a change here is intentional, update this guard in the same PR and say why.
 """
@@ -53,8 +58,7 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "lighthouse.yml"
 
-# Direction: ceilings. Loosening (raising) must fail.
-MAX_LCP_MS = 4600
+# Direction: ceiling. Loosening (raising) must fail.
 MAX_CLS = 0.05
 # Direction: floors. Weakening (lowering) must fail.
 MIN_CATEGORY_SCORES = {
@@ -180,25 +184,69 @@ class TestLighthouseGateConfig:
                 "the gate. If intentional, update this guard."
             )
 
-    def test_metric_budgets_not_loosened(self):
+    def test_cls_budget_not_loosened(self):
         code = _uncommented(_check_script(_workflow()))
-        lcp = re.search(
-            r"'largest-contentful-paint':\s*\{\s*max:\s*([\d.]+)", code
-        )
         cls = re.search(
             r"'cumulative-layout-shift':\s*\{\s*max:\s*([\d.]+)", code
         )
-        assert lcp, "the largest-contentful-paint budget was removed"
-        assert cls, "the cumulative-layout-shift budget was removed"
-        assert float(lcp.group(1)) <= MAX_LCP_MS, (
-            f"the LCP budget was raised to {lcp.group(1)}ms (ceiling: "
-            f"{MAX_LCP_MS}ms). Raising it is how this gate stops catching a real "
-            "regression. If intentional, update this guard and say why."
+        assert cls, (
+            "the cumulative-layout-shift budget was removed. CLS is the one "
+            "metric that is stable on this runner (0.000-0.014 across 60 runs), "
+            "so it is the only absolute budget the gate can carry."
         )
         assert float(cls.group(1)) <= MAX_CLS, (
             f"the CLS budget was raised to {cls.group(1)} (ceiling: {MAX_CLS}). "
             "Measured CLS never exceeded 0.014 over 60 runs, so a raise means "
             "something regressed. If intentional, update this guard."
+        )
+
+    def test_lcp_stays_observable_but_ungated(self):
+        """LCP must be LOGGED, and must NOT be a budget.
+
+        Why LCP is not gated: it is bimodal on this runner and the split is not
+        caused by anything CI controls. Over 60 real runs of this workflow, 55
+        measured 4218-4373ms and 5 measured 6921-9695ms. Runs `31150603094` and
+        `31151236111` have the same observed FCP (147ms) and effectively the same
+        benchmarkIndex (3294 vs 3293), yet simulate 4297ms vs 9693ms — a 5396ms
+        gap produced entirely inside Lighthouse's Lantern simulation of a ~1.66MB
+        page over the mobile preset. A warm-cache prerun does not address it:
+        outliers skew toward the FASTEST runners (median benchmarkIndex 3293 vs
+        2250) and the fastest observed loads (median observed FCP 176ms vs
+        1335ms), which is the opposite of a cold-start signature. Any budget
+        placed between the two modes reds ~8.3% of runs while catching nothing.
+
+        Why it must still be logged: these job-log values are the only running
+        record of LCP once the gate stops asserting it. Reducing the page's
+        transfer weight is the real fix, and re-deriving a budget afterwards
+        needs this data. If the log line goes, the evidence trail goes with it.
+
+        Direction: presence assertions on BOTH sides — the log must exist, and
+        LCP must not reappear in METRIC_BUDGETS without a fresh measurement.
+        """
+        code = _uncommented(_check_script(_workflow()))
+        assert re.search(r"audits\['largest-contentful-paint'\]", code), (
+            "largest-contentful-paint is no longer read from the LHR, so it can "
+            "no longer be logged. That log is the only record from which an LCP "
+            "budget can be recomputed after transfer weight comes down."
+        )
+        assert re.search(
+            r"\[observed, not gated\][^\n]*largest-contentful-paint"
+            r"|largest-contentful-paint:\s*\$\{typeof lcp",
+            code,
+        ), (
+            "largest-contentful-paint dropped out of the '[observed, not gated]' "
+            "log line. Keep it: it is the evidence trail for re-deriving the "
+            "budget later."
+        )
+        assert not re.search(
+            r"'largest-contentful-paint':\s*\{\s*max:", code
+        ), (
+            "an LCP budget was re-added to METRIC_BUDGETS. LCP is bimodal on "
+            f"this runner (55/60 runs 4218-4373ms, 5/60 runs 6921-9695ms with "
+            "identical observed inputs), so a budget between the modes reds "
+            "~8.3% of runs for no signal. Re-add one only with a fresh "
+            "measurement showing the bimodality is gone — and update this guard "
+            "in the same PR."
         )
 
     def test_budgets_are_read_from_the_lhr(self):
@@ -332,6 +380,10 @@ class TestLighthouseGateBehaviour:
         assert "benchmarkIndex: 2180" in r.stdout, r.stdout
         assert "total-blocking-time: 672ms" in r.stdout, r.stdout
         assert "performance: 64" in r.stdout, r.stdout
+        assert "largest-contentful-paint: 4298ms" in r.stdout, (
+            "LCP must appear in the observability log even though it is not "
+            f"gated:\n{r.stdout}"
+        )
 
     def test_high_tbt_alone_does_not_fail(self):
         """The exact regression this rework targets.
@@ -348,12 +400,22 @@ class TestLighthouseGateBehaviour:
             f"the gate:\n{r.stdout}\n{r.stderr}"
         )
 
-    def test_lcp_over_budget_fails(self):
-        # 9693ms — the real outlier measured on run 31151236111.
+    def test_lcp_outlier_is_logged_but_does_not_fail(self):
+        """LCP is observability, not a gate.
+
+        9693ms is the real value measured on run 31151236111, whose observed
+        inputs were indistinguishable from the passing run 31150603094. It must
+        be visible in the log and must NOT red the build.
+        """
         r = _run_gate(_mutate(largest_contentful_paint=9693.3), _GOOD_SUMMARY)
-        assert r.returncode == 1, f"LCP 9693ms was not caught:\n{r.stdout}"
-        assert "largest-contentful-paint: 9693ms" in r.stdout
-        assert "[FAIL]" in r.stdout
+        assert r.returncode == 0, (
+            "the LCP outlier failed the gate — LCP is bimodal on this runner and "
+            f"is intentionally ungated:\n{r.stdout}\n{r.stderr}"
+        )
+        assert "largest-contentful-paint: 9693ms" in r.stdout, (
+            f"the outlier value was not logged:\n{r.stdout}"
+        )
+        assert "[FAIL]" not in r.stdout, r.stdout
 
     def test_cls_over_budget_fails(self):
         r = _run_gate(_mutate(cumulative_layout_shift=0.21), _GOOD_SUMMARY)

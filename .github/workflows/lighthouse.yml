@@ -113,8 +113,19 @@ jobs:
           // full LHR it writes to the absolute path in `jsonPath`.
           // Raising a budget weakens the gate; guarded by
           // scripts/tests/test_ci_lighthouse_gate_guard.py.
+          //
+          // LCP is deliberately NOT a budget here. It is bimodal on this
+          // runner: over 60 real runs of this workflow, 55 measured
+          // 4218-4373ms and 5 measured 6921-9695ms, and the split is not
+          // caused by anything the CI controls. Runs 31150603094 and
+          // 31151236111 have the SAME observed FCP (147ms) and the same
+          // benchmarkIndex (3294 vs 3293) yet simulate 4297ms vs 9693ms — the
+          // spread is produced inside Lighthouse's Lantern simulation of a
+          // ~1.66MB page over the mobile preset (1.6Mbps / 150ms RTT / 4x CPU).
+          // Any budget between the two modes reds ~8.3% of runs for no signal.
+          // LCP is logged below instead, so the numbers keep accumulating and
+          // the budget can be recomputed once transfer weight comes down.
           const METRIC_BUDGETS = {
-            'largest-contentful-paint': { max: 4600, unit: 'ms', digits: 0 },
             'cumulative-layout-shift': { max: 0.05, unit: '', digits: 3 },
           };
 
@@ -154,12 +165,17 @@ jobs:
 
             // Observability only — never gates. Logged so a red build can be
             // triaged as "slow runner" vs "real regression" from the job log
-            // alone, without downloading the artifact.
+            // alone, without downloading the artifact. `largest-contentful-paint`
+            // is here rather than in METRIC_BUDGETS on purpose (see above); it
+            // MUST keep being printed, because these logged values are the only
+            // record from which an LCP budget can later be recomputed.
+            const lcp = (audits['largest-contentful-paint'] || {}).numericValue;
             const tbt = (audits['total-blocking-time'] || {}).numericValue;
             const bench = (lhr.environment || {}).benchmarkIndex;
             const perf = summary.performance;
             console.log(
               `  [observed, not gated] performance: ${typeof perf === 'number' ? (perf * 100).toFixed(0) : 'n/a'}` +
+              `, largest-contentful-paint: ${typeof lcp === 'number' ? lcp.toFixed(0) + 'ms' : 'n/a'}` +
               `, total-blocking-time: ${typeof tbt === 'number' ? tbt.toFixed(0) + 'ms' : 'n/a'}` +
               `, benchmarkIndex: ${typeof bench === 'number' ? bench.toFixed(0) : 'n/a'}`
             );

@@ -138,33 +138,56 @@ Exit code 0 = no regression. Exit code 1 = at least one URL exceeded the thresho
   | Gate | Value | Source |
   |------|-------|--------|
   | accessibility / best-practices / seo | ≥ 0.80 / 0.75 / 0.90 | `manifest[].summary` (category scores) |
-  | largest-contentful-paint | ≤ 4600 ms | LHR at `manifest[].jsonPath` |
   | cumulative-layout-shift | ≤ 0.05 | LHR at `manifest[].jsonPath` |
 
-  The composite **`performance` score is NOT a gate** — it is ~30% weighted on
-  TBT, and TBT on a GitHub runner tracks whatever CPU the VM lottery hands out
-  (measured over 60 runs of the workflow: benchmarkIndex 1966–3439, TBT
-  0–2452 ms, performance 0.55–0.86 on unchanged content). It is logged for
-  triage alongside TBT and benchmarkIndex, but never fails the job.
+  Logged for triage but **not gated**: `performance`, `largest-contentful-paint`,
+  `total-blocking-time`, `benchmarkIndex` — all on one `[observed, not gated]`
+  line per URL.
 
   The step **fails closed**: an empty or absent manifest (Lighthouse measured
   nothing) exits 1 rather than reporting success on a run that asserted nothing.
   An unreadable LHR at `jsonPath` likewise fails rather than skipping the metric
-  budgets.
+  budget.
 
   The gate values are protected by
   `scripts/tests/test_ci_lighthouse_gate_guard.py`; loosening one without
-  updating that guard fails the build.
+  updating that guard fails the build. Replaying 60 real `lighthouse-results`
+  artifacts through the gate as configured: **0 red**.
 
-  **Known residual flake.** Replaying 60 real `lighthouse-results` artifacts
-  through this gate, 5 (8.3%) breach the 4600 ms LCP budget (6921–9695 ms). The
-  cause is *not* a cold cache, a slow server or a slow CPU: those runs' observed
-  (unthrottled) metrics are indistinguishable from a passing run's — e.g. run
-  `31150603094` (observed FCP 147 ms, benchmarkIndex 3294) simulated LCP
-  4297 ms, while run `31151236111` (observed FCP 147 ms, benchmarkIndex 3293)
-  simulated 9693 ms. The spread is produced inside Lighthouse's Lantern
-  *simulation* of a ~1.66 MB page over the mobile preset (1.6 Mbps / 150 ms RTT
-  / 4× CPU), which is bistable for this page. A warm-cache prerun of the kind
-  used by `lighthouse-ci.yml` does not address it — outliers skew toward the
-  *fastest* runners (median benchmarkIndex 3293 vs 2250 for passing runs).
-  Reducing the page's transfer weight is the real fix.
+### Why `performance` is not gated
+
+The composite score is ~30% weighted on TBT, and TBT on a GitHub runner tracks
+whatever CPU the VM lottery hands out. Measured over 60 runs of this workflow on
+unchanged content: benchmarkIndex 1966–3439, TBT 0–2452 ms, performance
+0.55–0.86. Run `29005388708` (2026-07-09) scored 30 and went red on nothing.
+
+### Why `largest-contentful-paint` is not gated (yet)
+
+LCP is **bimodal** on this runner and the split is not caused by anything CI
+controls. Over the same 60 runs, 55 measured 4218–4373 ms and 5 measured
+6921–9695 ms. The outliers are not a cold cache, a slow server or a slow CPU —
+their *observed* (unthrottled) metrics are indistinguishable from a passing run's:
+
+| | run `31150603094` | run `31151236111` |
+|---|---|---|
+| observed FCP | 147 ms | 147 ms |
+| benchmarkIndex | 3294 | 3293 |
+| **simulated LCP** | **4297 ms** | **9693 ms** |
+
+The 5396 ms gap is produced inside Lighthouse's Lantern *simulation* of a
+~1.66 MB page over the mobile preset (1.6 Mbps / 150 ms RTT / 4× CPU), which is
+bistable for this page — the worst outlier amplifies observed FCP 42×. A
+warm-cache prerun of the kind `lighthouse-ci.yml` uses does **not** address it:
+outliers skew toward the *fastest* runners (median benchmarkIndex 3293 vs 2250,
+median observed FCP 176 ms vs 1335 ms), the opposite of a cold-start signature.
+
+Any budget placed between the two modes reds ~8.3% of runs while catching
+nothing, so LCP is logged instead of gated.
+
+**Re-adding an LCP budget.** Reduce the page's transfer weight first — the
+`assets/fonts/` set is ~1374 KB across 4 files, and tier-2 (972 KB) declares the
+same `unicode-range` as tier-1 (402 KB), so all four land before FCP. Once
+weight is down, collect a fresh sample from the `[observed, not gated]` log
+lines, confirm the bimodality is gone, then set the budget and update
+`test_ci_lighthouse_gate_guard.py::test_lcp_stays_observable_but_ungated` in the
+same PR. Do not re-add a budget from the old numbers.
