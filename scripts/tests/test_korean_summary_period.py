@@ -104,3 +104,19 @@ def test_helper_is_idempotent():
 )
 def test_restore_sentence_period_unit(raw, expected):
     assert cg._restore_sentence_period(raw) == expected
+
+
+# --- `요` false positive (shipped in PR #511, caught during the backfill) -----
+
+
+@pytest.mark.parametrize(
+    "noun",
+    ["개선하기 위한 주요", "가장 중요", "보안이 필요", "시간이 소요", "예상 수요"],
+)
+def test_noun_ending_in_요_does_not_gain_a_period(noun):
+    """A bare `요$` alternative matched 주요/중요/필요 — plain nouns, not endings.
+
+    Measured on the corpus: the only summary ending in `요` was "…주요", i.e.
+    the alternative had zero legitimate hits and one false positive.
+    """
+    assert cg._restore_sentence_period(noun) == noun

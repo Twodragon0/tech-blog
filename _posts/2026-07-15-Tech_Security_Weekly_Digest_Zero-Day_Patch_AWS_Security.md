@@ -169,7 +169,7 @@ DevSecOps 실무자 관점에서 이번 업데이트는 다음과 같은 영향�
   title="모든 Fox가 Silver는 아니다: AtlasRAT 로더 체인 내부"
   url="https://asec.ahnlab.com/ko/94478/"
   image="https://asec.ahnlab.com/wp-content/uploads/2025/08/malware.webp"
-  summary="요약 AtlasRAT의 공개 분석 사례는 제한적이며, 본 보고서는 기존 공개 보고서에 없던 4단계 로더 체인과 RAT 기능을 문서화했다. 체인은 전 단계에서 메모리 내 실행으로 동작하며, 디스크 기록을 최소화한다"
+  summary="요약 AtlasRAT의 공개 분석 사례는 제한적이며, 본 보고서는 기존 공개 보고서에 없던 4단계 로더 체인과 RAT 기능을 문서화했다. 체인은 전 단계에서 메모리 내 실행으로 동작하며, 디스크 기록을 최소화한다."
   source="안랩 ASEC 블로그"
   severity="Medium"
 %}

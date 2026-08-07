@@ -130,7 +130,7 @@ DevSecOps 실무자로서 이 뉴스는 다음과 같은 실무적 영향을 미
 {% include news-card.html
   title="사조시스템즈의 사내 ERP 데이터 기반 Agentic AI 구축 여정 – Strands Agents SDK와 Kiro 활용기"
   url="https://aws.amazon.com/ko/blogs/tech/sajo-erp-agentic-ai-strands-agents-sdk/"
-  summary="이번 블로그는 AWS DEVCRAFT 2026 (2026.3.26 ~ 4.9, AWS 코리아 오피스) 해커톤 프로그램에 참여하여 진행한 프로젝트를 기반으로 작성되었습니다. DEVCRAFT는 AWS SA와 고객사 개발팀이 함께 실제 비즈니스 과제를 2주간 집중 개발하는 프로그램입니다"
+  summary="이번 블로그는 AWS DEVCRAFT 2026 (2026.3.26 ~ 4.9, AWS 코리아 오피스) 해커톤 프로그램에 참여하여 진행한 프로젝트를 기반으로 작성되었습니다. DEVCRAFT는 AWS SA와 고객사 개발팀이 함께 실제 비즈니스 과제를 2주간 집중 개발하는 프로그램입니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}

@@ -213,7 +213,7 @@ NVIDIA는 차세대 CPU와 GPU 설계를 가속화하기 위해 Vera CPU를 활�
 {% include news-card.html
   title="개인 생산성에서 멈춘 Claude Code, 조직의 생산성으로 – 영상 10개로 완성하는 Claude Code on Amazon Bedrock 학습 플랜"
   url="https://aws.amazon.com/ko/blogs/tech/claude-code-on-amazon-bedrock-training/"
-  summary="AI 코딩 도구, 이제 다들 하나쯤 쓰고 계실 겁니다. 문제는 그 다음입니다"
+  summary="AI 코딩 도구, 이제 다들 하나쯤 쓰고 계실 겁니다. 문제는 그 다음입니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}

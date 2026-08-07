@@ -171,7 +171,7 @@ mitre_attack:
 {% include news-card.html
   title="2026년 4월 APT 그룹 동향 보고서"
   url="https://asec.ahnlab.com/ko/93743/"
-  summary="목적 및 범위 본 보고서는 국가 지원을 받는 것으로 추정되는 국가 주도 위협 그룹의 사이버 간첩(Cyber Espionage)과 비밀 파괴공작(Sabotage) 활동을 다룬다. 금전적 이득 목적의 사이버 범죄 그룹은 제외했다"
+  summary="목적 및 범위 본 보고서는 국가 지원을 받는 것으로 추정되는 국가 주도 위협 그룹의 사이버 간첩(Cyber Espionage)과 비밀 파괴공작(Sabotage) 활동을 다룬다. 금전적 이득 목적의 사이버 범죄 그룹은 제외했다."
   source="안랩 ASEC 블로그"
   severity="High"
 %}

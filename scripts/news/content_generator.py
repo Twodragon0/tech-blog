@@ -2678,8 +2678,11 @@ def _korean_display_title(item: Dict, max_len: int = 72) -> str:
 
 
 _SENTENCE_ENDING_RE = re.compile(
+    # No bare `요`: it matched plain nouns (주요/중요/필요/소요), and the corpus
+    # has zero summaries ending in a genuine polite `-요` form. Measured
+    # 2026-08-07 while backfilling: 1 false positive, 0 true positives.
     r"(습니다|합니다|입니다|됩니다|있습니다|없습니다|했다|한다|된다|이다|"
-    r"았다|었다|였다|밝혔다|나타났다|보인다|요)$"
+    r"았다|었다|였다|밝혔다|나타났다|보인다)$"
 )
 
 

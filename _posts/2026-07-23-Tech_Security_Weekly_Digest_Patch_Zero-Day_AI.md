@@ -289,7 +289,7 @@ Google은 Genesis Mission에 4천만 달러를 투자하여, 핵융합 플라즈
 {% include news-card.html
   title="금융 클라우드 길라잡이 A to Z Part 2 – 연구개발망 예외와 망분리 개선 로드맵"
   url="https://aws.amazon.com/ko/blogs/tech/financial-cloud-guide-a-to-z-part2/"
-  summary="본 블로그는 2026년 6월 기준으로 작성되었으며, 이후 규제 변경이나 AWS 서비스 업데이트가 반영되지 않을 수 있습니다. 규제 관련 내용은 기술적 관점에서의 해석을 제공하며, 법률 자문을 대체하지 않습니다"
+  summary="본 블로그는 2026년 6월 기준으로 작성되었으며, 이후 규제 변경이나 AWS 서비스 업데이트가 반영되지 않을 수 있습니다. 규제 관련 내용은 기술적 관점에서의 해석을 제공하며, 법률 자문을 대체하지 않습니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}
