@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 보안 취약점 신고
+    url: https://github.com/Twodragon0/tech-blog/security/advisories/new
+    about: 취약점은 공개 이슈로 올리지 마세요. 비공개 보안 자문으로 신고해 주세요.
+  - name: 💬 주제 제안 · 질문 · 잡담
+    url: https://github.com/Twodragon0/tech-blog/discussions
+    about: 새 포스트 주제 제안, 사용법 질문, 자유로운 논의는 Discussions에서.
+  - name: 📖 기여 가이드
+    url: https://github.com/Twodragon0/tech-blog/blob/main/CONTRIBUTING.md
+    about: PR을 열기 전에 개발 환경 준비와 검증 절차를 확인하세요.

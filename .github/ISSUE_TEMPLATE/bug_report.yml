@@ -1,0 +1,90 @@
+name: 🐛 버그 리포트
+description: 사이트 렌더링, 깨진 링크·이미지, 스크립트 오작동을 신고합니다.
+title: "[bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        보안 취약점은 이 템플릿이 아니라
+        [비공개 보안 자문](https://github.com/Twodragon0/tech-blog/security/advisories/new)으로
+        신고해 주세요.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 어디서 발생했나요
+      options:
+        - 사이트 렌더링 (레이아웃/다크모드/모바일)
+        - 깨진 링크 또는 이미지
+        - 검색 · 태그 · 아카이브
+        - 댓글 · 뉴스레터 · 챗봇
+        - 자동화 스크립트 (scripts/)
+        - GitHub Actions 워크플로
+        - 접근성 (스크린 리더, 키보드 내비게이션)
+        - 기타
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: 해당 URL 또는 파일 경로
+      description: 포스트 URL, 또는 `scripts/foo.py:42` 형식
+      placeholder: https://tech.2twodragon.com/posts/2026/08/07/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-actual
+    attributes:
+      label: 기대한 동작 / 실제 동작
+      placeholder: |
+        기대: 코드 블록이 syntax highlight 되어야 함
+        실제: 회색 평문으로 렌더됨
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 재현 절차
+      description: 재현할 수 없는 버그는 고치기 어렵습니다. 가능한 한 구체적으로.
+      placeholder: |
+        1. https://... 접속
+        2. 다크모드 토글
+        3. 목차(TOC) 영역이 겹침
+    validations:
+      required: true
+
+  - type: textarea
+    id: env
+    attributes:
+      label: 환경
+      description: 사이트 버그면 브라우저·OS, 스크립트 버그면 Python/Ruby/Node 버전.
+      placeholder: |
+        브라우저: Chrome 141 / macOS 15.5
+        또는
+        Python 3.12.4, Ruby 3.3.10, Node 22.x
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 에러 로그 · 스크린샷
+      description: |
+        로그를 붙일 때 API 키·토큰·이메일 등 민감 정보는 반드시 마스킹해 주세요.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 확인
+      options:
+        - label: 기존 이슈를 검색해 중복이 아님을 확인했습니다
+          required: true
+        - label: 붙여넣은 로그에서 시크릿·개인정보를 마스킹했습니다
+          required: true

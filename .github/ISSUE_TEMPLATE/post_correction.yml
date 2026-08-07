@@ -1,0 +1,67 @@
+name: ✏️ 포스트 정정 요청
+description: 블로그 글의 사실 오류, 오탈자, 오래된 정보를 알려주세요.
+title: "[correction] "
+labels: ["content", "correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        사실 관계 정정은 가장 환영하는 기여입니다.
+        **관점·논조 차이**는 이슈보다 [Discussions](https://github.com/Twodragon0/tech-blog/discussions)가 적합합니다.
+
+  - type: input
+    id: url
+    attributes:
+      label: 포스트 URL
+      placeholder: https://tech.2twodragon.com/posts/2026/08/07/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 정정 유형
+      options:
+        - 사실 오류 (기술적으로 틀림)
+        - 오래된 정보 (당시엔 맞았으나 지금은 아님)
+        - 오탈자 · 문법
+        - 코드 예제가 동작하지 않음
+        - 인용·출처 오류
+    validations:
+      required: true
+
+  - type: textarea
+    id: quote
+    attributes:
+      label: 문제가 되는 부분
+      description: 해당 문장이나 코드 블록을 그대로 인용해 주세요.
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: 올바른 내용
+      description: 어떻게 고쳐야 하는지 제안해 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: 근거 · 출처
+      description: |
+        공식 문서, CVE, 릴리스 노트, 벤치마크 등 확인 가능한 링크를 남겨주시면
+        훨씬 빠르게 반영됩니다.
+      placeholder: https://kubernetes.io/docs/...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 확인
+      options:
+        - label: 기존 이슈를 검색해 중복이 아님을 확인했습니다
+          required: true
