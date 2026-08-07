@@ -15,7 +15,7 @@
 |------|------------------|-----|
 | 커버 이미지 3건 손상 | `linkify_bare_urls`의 줄 단위 `{%` 가드가 **다중 라인 Liquid 태그의 속성 줄**을 못 봤다. `image="…/https://s3…"` 처럼 URL 안에 중첩된 URL이 링크로 재작성돼 커버가 깨졌다 | #509 |
 | 코드 펜스 내부 주석 훼손 | `restore_digest_structure` R1이 bash/yaml 펜스 안의 `# 예시` 를 `#### 예시` 로 강등. **토큰 multiset 무손실 검사는 마커만 바뀐 변경을 통과시켜** 결함을 은폐했고, 결국 사람이 손으로 찾았다 (2026-03-11, 03-27) | #500 |
-| 래칫 오탐으로 개선 차단 | `check_digest_structure --ratchet`이 위반 **메시지 문자열**을 비교했는데, 메시지가 본문 텍스트를 embed한다. 순수 `안드로이드→Android` 치환이 결함 집합 6→6 불변인데도 "+1 new"로 차단됐다 (2026-05-05) | #492 |
+| 래칫 오탐으로 개선 차단 | `check_digest_structure --ratchet`이 위반 **메시지 문자열**을 비교했는데, 메시지가 본문 텍스트를 embed한다. 순수 `안드로이드→Android` 치환이 결함 집합 6→6 불변인데도 "+1 new"로 차단됐다 (대상 포스트 2026-05-05, 실측 2026-08-04) | #492 |
 
 공통점: 셋 다 **합성 데이터로는 절대 재현되지 않는다**. 실제 코퍼스를 대상으로 RUN 한 뒤에야 드러났다.
 
@@ -23,12 +23,17 @@
 
 ## 2. 5종 비교표
 
+> 이 5종은 레포의 **전수가 아니라 귀납 표본**이다. `_posts/`에 쓰는 스크립트는 더 있다
+> (`backfill_digest_structure.py`, `backfill_digest_commentary.py`, `backfill_digest_titles.py`,
+> `check_digest_proper_nouns.py --fix` 등). 아래 `N/5` 비율은 이 표본 안에서의 준수율이지
+> 레포 전체 커버리지가 아니다.
+
 | | 구조 복원 | 참고자료 | 링크화 | 마침표 | 되감기 |
 |---|---|---|---|---|---|
 | **스크립트** | `scripts/restore_digest_structure.py` | `scripts/enrich_digest_references.py` | `scripts/linkify_bare_urls.py` | `scripts/backfill_card_summary_period.py` | `scripts/rewind_truncated_summaries.py` |
 | **PR** | #496 (+ #497~#500 배치, #504 불변식 강화) | #507 파일럿 5 → #508 확산 153 | #509 (+ #510 게이트) | #512 (생성기 수정은 #511) | #513 (머지 커밋 `6e657a5f`) |
-| **대상 선별** | `_is_digest_post` (파일명 `Weekly_Digest`) + `--posts-glob`/명시 경로 | 동일 + `## 참고 자료` 섹션 존재 | 모든 `_posts/*.md` (`_POST_PATH_RE`), digest 한정 아님 | `_is_digest_post` + `summary=` 값 길이 < 195 | `_is_digest_post` + `summary=` 값 길이 ≥ 195 |
-| **보호 영역** | front matter(`_split_front_matter`), 코드 펜스(R0 `_fence_flags`), item-region 밖 전체, 전역 체크리스트의 중첩 불릿 | `## 참고 자료` 섹션 **밖 전부** (구조적으로 손대지 않음) | front matter, 코드 펜스, 인라인 코드(stash), **다중 라인 Liquid 블록**, 기존 md 링크/HTML 속성(`(?<![\(\[<"=])`) | `{% include news-card.html %}` 밖 전부, 카드 내 `summary=` 외 속성 | 동일 |
+| **대상 선별** | `_is_digest_post` (파일명 `Weekly_Digest`) + `--posts-glob`/명시 경로 | 동일 + `## 참고 자료` 섹션 존재 | 모든 `_posts/*.md`, digest 한정 아님. **선별 가드 없음** — `_POST_PATH_RE`는 `--staged` 경로 필터일 뿐이고(`:104,125`), `--all`은 glob(`:150`), 명시 `paths`는 무필터 | `_is_digest_post` + `summary=` 값 길이 < 195 | `_is_digest_post` + `summary=` 값 길이 ≥ 195 |
+| **보호 영역** | front matter(`_split_front_matter`), 코드 펜스(R0 `_fence_flags`), item-region 밖 전체, 전역 체크리스트의 중첩 불릿 | `## 참고 자료` 섹션 **밖 전부** (구조적으로 손대지 않음) | front matter, 코드 펜스, 인라인 코드(stash), **다중 라인 Liquid 블록**, 기존 md 링크/HTML 속성(`(?<![\(\[<"=])`) | `{% include news-card.html %}` 밖 전부, 카드 내 `summary=` 외 속성 ⚠️**이 표기를 복사하지 말 것 — C11 참조** | 동일 ⚠️ |
 | **변경 적용** | 6개 룰(R5→R1→R2→R3→R6→R4)을 순서 고정 적용. 마커만 변환, 텍스트 무생성 | 표에 `용도` 열 추가(canonical 매핑 deny-by-default) + 본문 카드가 실제 인용한 출처 행 추가. LLM/네트워크 없음 | 줄 단위로 bare URL을 `[label](url)` 로 래핑. label은 코퍼스 관행(host−`www.` + 짧은 path) | 생성기의 `_restore_sentence_period` 를 **import** 해서 마침표 1개 추가 | 마지막 `다.` 까지 되감기 → 결과는 항상 원문의 접두사 |
 | **무손실 검증(런타임)** | `lossless_tokens` 컨텍스트 인지 multiset + **별도 정의**된 `_audit_fence_flags`, 불일치 시 ABORT | `## 참고 자료` **앞** 구간 바이트 동일 아니면 ABORT (섹션 뒤는 구조상 불변, 런타임 미검사) | **없음** — 런타임 ABORT 조항 없음 | `_violates_narrow_diff`: 정규화 동등 + **길이 감소 금지**(마침표 '제거'까지 탐지) | `_violates_shrink_only`: 파일이 커지면 ABORT |
 | **실행 모드** | `paths` / `--posts-glob` / `--dry-run` / `--limit` | 동일 | `paths` / `--posts-glob` / `--dry-run` / `--check` / `--staged` / `--all` | `paths` / `--posts-glob` / `--dry-run` | `paths` / `--posts-glob` / `--dry-run` |
@@ -48,7 +53,9 @@
 - digest 전용이면 `_is_digest_post(path)` 를 재사용한다. 5종 중 4종이 동일 구현을 각자 갖고 있다
   (`"Weekly_Digest" in path.name`). 링크화만 전체 포스트가 대상이라 예외.
 - 선별에서 걸러진 파일은 **조용히 스킵**하고 종료 코드 0. 테스트로 고정한다
-  (`test_non_digest_is_skipped`).
+  테스트 이름은 제각각이다 — `test_non_digest_is_skipped`(마침표·되감기),
+  `test_apply_writes_and_skips_non_digest`(구조 복원),
+  `test_non_digest_post_is_skipped_by_the_cli`(참고자료), 링크화는 해당 없음.
 
 ### C2. 보호 영역을 코드로 선언한다 (5/5, 범위는 제각각)
 
@@ -120,11 +127,52 @@
 
 ### C9. `--dry-run` 필수, 기본은 쓰기 없음 (5/5)
 
-5종 모두 `--dry-run` 이 있고 `test_cli_dry_run_does_not_write` 로 고정돼 있다.
+5종 모두 `--dry-run` 이 있고 테스트로 고정돼 있다. 다만 **이름은 통일돼 있지 않다** —
+4종은 `test_cli_dry_run_does_not_write`, 구조 복원기만 `test_dry_run_does_not_write`
+(`test_restore_digest_structure.py:417`). 이름이 아니라 *존재*가 계약이다.
 
 ### C10. 멱등성 (5/5)
 
 5종 모두 `test_transform_is_idempotent`. 재실행이 두 번째 변경을 만들면 계약 위반이다.
+
+### C11. 대상 재현율 — 「다 찾았는가」도 계약이다 (0/5 — 전부 미보유)
+
+C1~C10은 전부 **"어디를 건드리면 안 되는가"**(보호)만 다룬다. 그 반대편,
+**"대상을 다 찾았는가"**(재현율)에 대한 계약이 없어서 같은 실수가 반복됐다.
+
+`_posts/`의 뉴스 카드는 **include 2종 × whitespace control 2형태**로 존재한다.
+
+```
+{% include news-card.html            1771
+{%- include news-card.html            282   ← \s 는 '-' 를 매칭하지 않는다
+{% include news-spotlight-item.html    64   ← 어떤 스크립트도 참조하지 않음
+                          실제 총계   2117
+```
+
+2026-08-07 실측 — 같은 레포 안에서 정규식이 갈린다.
+
+| 스크립트 | 패턴 | 매칭 / 누락 |
+|---|---|---|
+| `check_posts.py:510` | `\{%-?\s*include` | 2053 / **0** ✅ |
+| `cleanup_news_cards.py:107` | `\{%-?\s*include` | 2053 / **0** ✅ |
+| `fix_malformed_liquid_includes.py:336` | `\{%-?\s*include` | ✅ |
+| `rewind_truncated_summaries.py:34` | `\{%\s*include` | 1771 / **282** ❌ |
+| `backfill_card_summary_period.py:42` | `\{%\s*include` | 1771 / **282** ❌ |
+| `backfill_digest_titles.py:135` | 문자열 `.count()` | 1771 / **282** ❌ |
+
+결과: **#512(마침표)와 #513(되감기)은 틀린 수정이 아니라 덜 한 수정이다.**
+사각지대 346건에 마침표 누락 2건 · 절단 요약 14건이 그대로 남아 있다.
+두 클래스 모두 게이트가 없어(§2 "게이트 배선" 행) 조용히 통과했다.
+
+**계약:**
+1. 대상 패턴은 include 종류와 whitespace control(`{%-` / `-%}`) 변형을 **전수 열거**한다.
+   ```python
+   _CARD_RE = re.compile(
+       r"\{%-?\s*include\s+(?:news-card|news-spotlight-item)\.html.*?-?%\}", re.DOTALL)
+   ```
+2. **`대상 매칭 수 == 코퍼스 실제 인스턴스 수` 를 테스트로 고정한다.** 보호 영역 테스트만으로는
+   조용한 누락을 절대 잡을 수 없다 — 누락된 카드는 diff에 나타나지 않기 때문이다.
+3. 착수 전 include 종류별 건수를 출력해 **분모를 먼저 확정**한다(§5 Step 0).
 
 ---
 
@@ -164,7 +212,8 @@
 
 ### T4 — 래칫 비교 키를 메시지 문자열로 두면 오탐한다
 
-- **증상:** 결함 집합이 6→6으로 불변인데 게이트가 "+1 new"로 차단(2026-05-05).
+- **증상:** 결함 집합이 6→6으로 불변인데 게이트가 "+1 new"로 차단.
+  (`check_digest_structure.py:153` 원문 `Measured 2026-08-04 on 2026-05-05` — 앞이 실측일, 뒤가 대상 포스트 날짜)
 - **원인:** 위반 메시지가 본문을 embed한다
   (`body H1 heading found: # DevSecOps 관점 분석: … 안드로이드 …`). 그 줄의 단어가 바뀌면
   "기존 1건 소멸 + 신규 1건 등장"으로 읽힌다.
@@ -200,7 +249,9 @@
   구조 게이트는 그것을 결함으로, 품질 게이트는 그것을 자산으로 센다.
 - **회피:** baseline을 낮추는 게 아니라 **현재 생성기가 이미 내보내는 형태로 수렴**시킨다(R6:
   전역 `## 실무 체크리스트` 아래 평범한 `- x` 를 `- [ ] x` 로). 마커만 바뀌므로 여전히 무손실.
-- **근거:** PR #499~#500, memory `digest_checklist_score_inflation`.
+- **근거:** PR #496 (R6 `checkbox_global_checklist` 도입 커밋 `096d9af9`).
+  #499·#500은 같은 게이트 상충의 후속 배치에서 baseline 이동을 다룬 것이라 관련은 있으나,
+  91→83 과 R6 자체는 #496이다. memory `digest_checklist_score_inflation`.
 
 ### T8 — 합성 데이터로 설계하면 잘못된 전제를 세운다
 
@@ -298,7 +349,7 @@
 |--------|------|
 | `scripts/check_digest_structure.py --ratchet` | `.githooks/pre-commit` step 9 / `.github/workflows/svg-lint.yml:256` |
 | `scripts/check_digest_checklist_heading.py` | pre-commit 9d / svg-lint `--all` (`svg-lint.yml:295`) / blogwatcher 자가치유 |
-| `scripts/check_digest_proper_nouns.py --changed` | pre-commit 9c / `svg-lint.yml:286` |
+| `scripts/check_digest_proper_nouns.py` | pre-commit 9c (`--staged`) / `svg-lint.yml:286` (`--changed $BASE`) |
 | `scripts/linkify_bare_urls.py --check` | pre-commit step 12 / `svg-lint.yml:303` (`--all`) |
 | `scripts/validate_post_quality.py` | pre-commit step 11 (fail < 60) |
 
