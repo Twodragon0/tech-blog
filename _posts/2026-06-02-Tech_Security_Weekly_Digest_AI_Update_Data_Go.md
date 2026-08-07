@@ -132,7 +132,7 @@ DevSecOps 실무자에게 가장 심각한 영향은 **신뢰할 수 있는 공�
   title="⚡ 주간 요약: 새로운 Linux 취약점, PAN-OS 익스플로잇, AI 기반 공격, OAuth 피싱 등"
   url="https://thehackernews.com/2026/06/weekly-recap-new-linux-flaw-pan-os.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiV-leTG-MQremNN5Ju342L6LQMn36xeD4jiS4YWT7EdYluHOtFDqIN8y3bQuV-A0D0wtsO5sRpG3Bpy5xdHhMs_sO_w3WoiiJzCd7o-7Hxw736ERxQs4WDd71EQEBIHLzT_UNFMwCDvC8Nij-gDNpMhsRnpsqoDHkuxUWLUEZSSTfDc4aXpx2qlpsaqlgH/s1600/cyberrecap.png"
-  summary="이번 주 보안 소식에는 새로운 Linux 취약점, PAN-OS 익스플로잇, AI 기반 공격, OAuth 피싱 등이 포함되었습니다. 오래된 인증 경로 문제와 저장소 측면의 실수, 이미 실제 환경에서 악용되고 있는 불완전한 패치가 발견되었습니다. 또한 악성 개발 도구, 포럼의 수상한 게시글, 생산성 도구로 위장한 피싱 키트, 그리고 'curl | sh'를 선호"
+  summary="이번 주 보안 소식에는 새로운 Linux 취약점, PAN-OS 익스플로잇, AI 기반 공격, OAuth 피싱 등이 포함되었습니다. 오래된 인증 경로 문제와 저장소 측면의 실수, 이미 실제 환경에서 악용되고 있는 불완전한 패치가 발견되었습니다."
   source="The Hacker News"
   severity="Critical"
 %}

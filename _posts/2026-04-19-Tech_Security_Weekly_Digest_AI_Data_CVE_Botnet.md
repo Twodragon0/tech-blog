@@ -127,7 +127,7 @@ redirect_from:
   title="크로스 테넌트 헬프데스크 사칭에서 데이터 유출까지: 인간 운영 침입 플레이북"
   url="https://www.microsoft.com/en-us/security/blog/2026/04/18/crosstenant-helpdesk-impersonation-data-exfiltration-human-operated-intrusion-playbook/"
   image="https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/04/MS_Actional-Insights_Rapid-response.jpg"
-  summary="위협 행위자들이 Microsoft Teams 외부 협업 기능을 악용해 IT helpdesk 직원을 사칭하고 사용자들을 속여 원격 접근 권한을 얻고 있습니다. 침입 후 공격자들은 합법적 도구와 표준 관리 프로토콜을 남용해 측면 이동과 데이터 유출을 수행하며, Microsoft Defender는 Teams, 엔드포인트, ID 원격 분석을 통해 이러한 활동을 탐"
+  summary="위협 행위자들이 Microsoft Teams 외부 협업 기능을 악용해 IT helpdesk 직원을 사칭하고 사용자들을 속여 원격 접근 권한을 얻고 있습니다."
   source="Microsoft Security Blog"
   severity="High"
 %}
@@ -179,7 +179,7 @@ DevSecOps 관점에서 이 공격은 **CI/CD 파이프라인과 운영 환경 �
   title="Mirai 변종 Nexcorium, CVE-2024-3721 취약점으로 TBK DVR 장악해 DDoS 봇넷 구축"
   url="https://thehackernews.com/2026/04/mirai-variant-nexcorium-exploits-cve.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6cxZZMfiWctk3Me9QO6UlzVRFab0SPGMTzThjpcPHCXm49bQ0rRvtG2W6gicJw4Mi1QUuv-yTDMK5GKJju3QicyjYJwdbA86Ok8w2oU5Vg28l4s0HAVv7_c03dStaM7OPd4Yq0khmm9MeQVUYnCYThMx4JvkCnZZ5PEtCXAA90vKfsAumsMAIw085JIsz/s1600/botnet-ddos.jpg"
-  summary="Fortinet FortiGuard Labs와 Palo Alto Networks Unit 42에 따르면 위협 행위자들이 TBK DVR과 EoL TP-Link Wi-Fi 라우터의 보안 결함을 악용해 Mirai 봇넷 변종을 배포하고 있습니다. TBK DVR을 대상으로 한 공격은 중간 심각도 명령어 삽입 취약점인 CVE-2024-3721을 악용하는 것으로 확인되"
+  summary="Fortinet FortiGuard Labs와 Palo Alto Networks Unit 42에 따르면 위협 행위자들이 TBK DVR과 EoL TP-Link Wi-Fi 라우터의 보안 결함을 악용해 Mirai 봇넷 변종을 배포하고 있습니다."
   source="The Hacker News"
   severity="High"
 %}

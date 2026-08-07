@@ -96,7 +96,7 @@ summary_card:
   title="Cisco, 익스플로잇 코드 공개로 Unified CM의 CVE-2026-20230 패치"
   url="https://thehackernews.com/2026/06/cisco-patches-cve-2026-20230-in-unified.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6_xkmI_c8KreZ4cr2oC9gHJERU9xWsLGDrCNCaB11IQVGmJ-r0MYUjqGllvOFc0IVwGYBqnzLJl96WBTSVXUr5Z8KRym9SsnoUlNN6oEditbTFqW3kTfOhujPEPN-KIzGJmxaJGh9mCvY1TadCVfJJfIBoTjbXn2TCcbQE8NHsKhe8ld53YHYsG5MTYg/s1600/cisco-flaw.jpg"
-  summary="Cisco가 Unified CM에서 네트워크상의 인증되지 않은 공격자가 파일을 쓰고 루트 권한을 획득할 수 있는 취약점(CVE-2026-20230)을 패치했습니다. 이 취약점은 서버사이드 리퀘스트 포저리(SSRF) 유형이며, 개념 증명(PoC) 익스플로잇 코드가 이미 공개되었습니다. Cisco PSIRT는 아직 이 결함이 공격에 악용된 사례는 확인되지 않았다고"
+  summary="Cisco가 Unified CM에서 네트워크상의 인증되지 않은 공격자가 파일을 쓰고 루트 권한을 획득할 수 있는 취약점(CVE-2026-20230)을 패치했습니다. 이 취약점은 서버사이드 리퀘스트 포저리(SSRF) 유형이며, 개념 증명(PoC) 익스플로잇 코드가 이미 공개되었습니다."
   source="The Hacker News"
   severity="High"
 %}
@@ -183,7 +183,7 @@ Amazon Cognito는 차세대 스토리지 인프라로 마이그레이션하며 *
   title="Claude Code GitHub Action 결함으로 악성 이슈 하나가 저장소를 탈취할 수 있어"
   url="https://thehackernews.com/2026/06/claude-code-github-action-flaw-let-one.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiaBF9jAklPh1ncr_eVPGnV229BSTNgAjkScVm-yTXAn4IcBjjZoLIglasRdu1XEPafCxJhqVZrC3zkNWilyAhN-6Ox8z2HBRjNg2D4aqJsDiRDg02BgAy4zgwU2100ZLIO8yTOtarI0Vxa3AGUQk0GZq1_zKSFQOhNiNoyVsP2AldJZoW8ZJ1rY936ZI/s1600/claude-code-hack.jpg"
-  summary="Anthropic의 Claude Code GitHub Action에서 발견된 보안 결함으로, 공격자가 단 하나의 GitHub issue를 열어 취약한 공개 저장소를 장악할 수 있었습니다. Anthropic 자체 action 저장소가 동일한 워크플로우를 사용했기 때문에, 공격이 성공하면 action 자체와 이를 사용하는 하위 프로젝트에 악성 코드가 유입될 수"
+  summary="Anthropic의 Claude Code GitHub Action에서 발견된 보안 결함으로, 공격자가 단 하나의 GitHub issue를 열어 취약한 공개 저장소를 장악할 수 있었습니다."
   source="The Hacker News"
   severity="High"
 %}

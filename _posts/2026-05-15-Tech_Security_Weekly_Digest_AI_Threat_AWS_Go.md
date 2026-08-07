@@ -152,7 +152,7 @@ mitre_attack:
   title="Stealer Backdoor가 개발자 비밀을 노리는 3개 Node-IPC 버전에서 발견돼"
   url="https://thehackernews.com/2026/05/stealer-backdoor-found-in-3-node-ipc.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTj2m9-HHmDEDzKIsalsJ_HJcwcUsIFajvcpTLP9QMyqS9F_JroTH7lXeOGZFuO6j6F-RzbIo1kBIQ0udSFQGzjN2hxO8ZfyFeHM5557BPI1sjiJ7cEMJJE62t11e07Wt1CsmAntpLHSM0XbnQDvVYNBfNdAOsob9kN6G6-mQjKX68fEE1nzy_Bn4TvxyK/s1600/node.jpg"
-  summary="보안 연구원들이 npm 패키지 node-ipc의 세 가지 버전(node-ipc@9.1.6, node-ipc@9.2.3, node-ipc@12.0.1)에서 악성 활동을 발견했습니다. 이 버전들은 개발자의 비밀 정보를 노리는 Stealer Backdoor를 포함한 것으로 확인되었습니다. Socket과 StepSecurity는 이 패키지들이 개발자 시크릿을 탈취"
+  summary="보안 연구원들이 npm 패키지 node-ipc의 세 가지 버전(node-ipc@9.1.6, node-ipc@9.2.3, node-ipc@12.0.1)에서 악성 활동을 발견했습니다. 이 버전들은 개발자의 비밀 정보를 노리는 Stealer Backdoor를 포함한 것으로 확인되었습니다."
   source="The Hacker News"
   severity="High"
 %}

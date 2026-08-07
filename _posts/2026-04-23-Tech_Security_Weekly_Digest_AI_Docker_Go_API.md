@@ -292,7 +292,7 @@ Google Cloud Next '26에서는 AI의 실용적 발전을 심층적으로 살펴�
 {% include news-card.html
   title="컴퓨트의 새로운 소식: 코어 및 에이전트 워크로드 확장"
   url="https://cloud.google.com/blog/products/compute/whats-new-in-compute-at-next26/"
-  summary="Google Cloud Next에서 발표한 새로운 컴퓨팅 기능은 코어 범용 및 AI 워크로드를 에이전트 세계에 맞춰 더 높은 성능과 낮은 비용으로 지원합니다. 이는 IT 리더와 개발자들이 에이전트 AI와 웹 서버, 데이터베이스, 기업 애플리케이션 같은 일상적인 고객 경험을 주도하는 범용 사용 사례 간 컴퓨팅 투자와 자원 균형을 맞추는 데 중요한 도움이 될 "
+  summary="Google Cloud Next에서 발표한 새로운 컴퓨팅 기능은 코어 범용 및 AI 워크로드를 에이전트 세계에 맞춰 더 높은 성능과 낮은 비용으로 지원합니다."
   source="Google Cloud Blog"
   severity="High"
 %}

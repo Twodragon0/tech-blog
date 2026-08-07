@@ -282,7 +282,7 @@ Tomofun은 Furbo Pet Camera를 개발한 대만의 펫테크 스타트업으로,
   title="미래를 맞추다: Breuninger가 'be your own model' AI로 매출을 높인 방법"
   url="https://cloud.google.com/blog/topics/retail/how-breuninger-boosted-sales-with-its-be-your-own-model-ai/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/breuninger_virtuelle_anprobe_1.max-1000x1000.jpg"
-  summary="독일 패션 기업 Breuninger는 Google Cloud와 협력하여 고객이 셀피를 통해 자신의 체형에 하이엔드 패션을 입혀볼 수 있는 가상 피팅 경험을 구축했습니다. 이는 생성형 미디어 모델을 활용한 \”be your own model\” AI 기능으로, 온라인 쇼핑객의 핵심 질문인 \”이 옷이 나에게 어떻게 보일까?\”에 대한 해답을 제시하며 매출 증대에 기"
+  summary="독일 패션 기업 Breuninger는 Google Cloud와 협력하여 고객이 셀피를 통해 자신의 체형에 하이엔드 패션을 입혀볼 수 있는 가상 피팅 경험을 구축했습니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}
@@ -405,7 +405,7 @@ Bitcoin Magazine의 Nick Ward는 eBay가 GameStop 대신 Bitcoin 결제를 도�
   title="Boltz, 비수탁형 USDC 스왑 출시, Bitcoin을 Circle의 규제 달러에 직접 연결"
   url="https://bitcoinmagazine.com/business/boltz-launches-non-custodial-usdc-swaps-bridging-bitcoin-directly-to-circles-regulated-dollar"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/05/Gemini_Generated_Image_l4r3qal4r3qal4r3.webp"
-  summary="Boltz가 Circle의 CCTP를 활용해 Bitcoin을 Circle의 규제 달러인 USDC로 신뢰 없이 교환할 수 있는 Non-Custodial 스왑을 출시했습니다. 이 서비스는 Lightning을 포함한 Bitcoin 레이어와 Stripe, Coinbase, Visa 등 글로벌 기관이 수용하는 규제 스테이블코인 간의 즉각적인 이동을 계정이나 수탁 없이 가"
+  summary="Boltz가 Circle의 CCTP를 활용해 Bitcoin을 Circle의 규제 달러인 USDC로 신뢰 없이 교환할 수 있는 Non-Custodial 스왑을 출시했습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}

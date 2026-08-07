@@ -122,7 +122,7 @@ DevSecOps 관점에서 가장 치명적인 영향은 **CI/CD 파이프라인 자
   title="Greatness PhaaS, 기기 코드 피싱을 추가해 MFA 우회 및 토큰 탈취"
   url="https://thehackernews.com/2026/08/greatness-phaas-adds-device-code.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8YRyOCSodUbPpWMicgOiuGbEQWDBmu_W-47PAUFkS7yKEQe4Do6svH4cQb-U0tC53C9mqq8ijjlG9gwuzyqYfNwtS61WxvNxIgk1dVC7wX598rncb_MgQ5t4yxc8NUYVdb6PT5cu7ZXJ7w3KaYG_7vtU5xixHel1jSADbtR-GC1bmngZPArXw-NjkTH1x/s1600/Greatness.jpg"
-  summary="상업용 PhaaS 툴킷인 Greatness가 OAuth 2.0 Device Authorization Grant를 악용하는 device code phishing 기능을 추가하여 MFA를 우회하고 사용자 계정을 탈취하는 최신 범죄웨어로 부상했습니다. 이는 AiTM(adversary-in-the-middle) 자격 증명 및 세션 토큰 탈취를 지원하는 방식으로 확"
+  summary="상업용 PhaaS 툴킷인 Greatness가 OAuth 2.0 Device Authorization Grant를 악용하는 device code phishing 기능을 추가하여 MFA를 우회하고 사용자 계정을 탈취하는 최신 범죄웨어로 부상했습니다."
   source="The Hacker News"
   severity="High"
 %}
@@ -240,7 +240,7 @@ NVIDIA의 로보택시 및 자율주행차(AV)용 오픈 모델인 Alpamayo 2 Su
   title="Database Operations Agents 소개: 자율 데이터베이스 관리의 미래"
   url="https://cloud.google.com/blog/products/databases/deep-dive-on-new-ai-powered-database-agents/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/original_images/1_Je5hDe1.gif"
-  summary="Google Cloud Next '26에서 Agentic Data Cloud 출시와 함께 Database Onboarding Agent(Day 0 운영: 설정, 구성, 초기 배포)와 Database Observability Agent(Day 1·2 운영: 모니터링, 문제 해결, 유지보수)라는 두 가지 AI 기반 database agent를 발표했다. 이들은"
+  summary="Google Cloud Next '26에서 Agentic Data Cloud 출시와 함께 Database Onboarding Agent(Day 0 운영: 설정, 구성, 초기 배포)와 Database Observability Agent(Day 1·2 운영: 모니터링, 문제 해결, 유지보수)라는 두 가지 AI 기반 database agent를 발표했다."
   source="Google Cloud Blog"
   severity="Medium"
 %}
@@ -275,7 +275,7 @@ Target의 Guest Product Confidence 플랫폼 팀은 Spanner Graph를 활용하�
   title="다중 결과 집합: Database Migration Service가 SQL Server에서 PostgreSQL로의 변환을 자동화하는 방법"
   url="https://cloud.google.com/blog/products/databases/automating-postgres-translations-with-database-migration-service/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/2_mgkHjQS.max-1000x1000.jpg"
-  summary="Database Migration Service는 SQL Server의 다중 결과 집합 처리를 PostgreSQL로 자동 변환하며, SQL Server의 MARS와 PostgreSQL의 SETOF REFCURSOR 간 구조적 차이를 해결합니다. 이 과정에서 단일 실행에서 여러 테이블 스트림을 스트리밍하는 SQL Server와 달리, PostgreSQL은 명"
+  summary="Database Migration Service는 SQL Server의 다중 결과 집합 처리를 PostgreSQL로 자동 변환하며, SQL Server의 MARS와 PostgreSQL의 SETOF REFCURSOR 간 구조적 차이를 해결합니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}

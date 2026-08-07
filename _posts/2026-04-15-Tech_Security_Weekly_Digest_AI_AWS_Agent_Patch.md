@@ -279,7 +279,7 @@ Google이 BigQuery Graph를 프리뷰로 출시했다. BigQuery Graph는 대규�
   title="BigQuery Graph와 Kineviz GraphXR로 비정형 기업 지식 확장하기"
   url="https://cloud.google.com/blog/products/data-analytics/using-bigquery-graph-with-kineviz-graphxr/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/1_O1oo2li.max-1000x1000.png"
-  summary="기업 데이터의 80% 이상을 차지하는 PDF, 이메일, 보고서 등의 비정형 데이터를 분석하기 위해 BigQuery Graph와 Kineviz GraphXR이 통합되었습니다. 이 두 기술은 단일화된 워크플로우를 제공하여 대규모 비정형 데이터에 숨겨진 비즈니스 인사이트를 발견하는 과정을 간소화합니다. 이를 통해 의사 결정자들이 기업의 비정형 지식에 효과적으로 "
+  summary="기업 데이터의 80% 이상을 차지하는 PDF, 이메일, 보고서 등의 비정형 데이터를 분석하기 위해 BigQuery Graph와 Kineviz GraphXR이 통합되었습니다. 이 두 기술은 단일화된 워크플로우를 제공하여 대규모 비정형 데이터에 숨겨진 비즈니스 인사이트를 발견하는 과정을 간소화합니다."
   source="Google Cloud Blog"
   severity="High"
 %}

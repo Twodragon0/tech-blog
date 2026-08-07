@@ -194,7 +194,7 @@ mitre_attack:
   title="혁명의 유물, 2부: 허위 이익과 자유"
   url="https://bitcoinmagazine.com/culture/relics-of-a-revolution-part-ii-false-profits-and-freedom"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/04/Relics-of-a-Revolution-Part-II.png"
-  summary="Bitcoin Magazine의 'Relics of a Revolution, Part II: False Profits and Freedom' 기사는 Mear One의 예술을 통해 가짜 수익과 자유를 주제로, 그래피티 벽에서 Bitcoin의 Genesis Block에 이르기까지 부서진 금융 시스템에 맞선 투쟁을 추적합니다. 이 글은 Dennis Koch가 집"
+  summary="Bitcoin Magazine의 'Relics of a Revolution, Part II: False Profits and Freedom' 기사는 Mear One의 예술을 통해 가짜 수익과 자유를 주제로, 그래피티 벽에서 Bitcoin의 Genesis Block에 이르기까지 부서진 금융 시스템에 맞선 투쟁을 추적합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}

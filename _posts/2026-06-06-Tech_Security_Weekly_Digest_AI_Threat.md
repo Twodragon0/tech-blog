@@ -95,7 +95,7 @@ summary_card:
   title="IronWorm과 새로운 Miasma Worm 변종이 공급망 공격으로 npm을 타격"
   url="https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFimSGBOnvlCj_r6fiLdzK6V8DLTIQYjROKxHgQH8QxyRVIL3NDpQe9lBISjqCSjcZNl6VPhHVFtdJ8gPe2FfNjR9kGND1GSZmgx9T_32_Aii5nf_fMLkmBxwkKrJKbmZpcAG8xyj868aHfZ9RePlwlPDfMbI4uDlOCknlGH62Ifdf-nak6qmy4u-9i7X3/s1600/npm-worm.jpg"
-  summary="IronWorm과 새로운 Miasma Worm 변종이 공급망 공격에서 npm 생태계를 타격했으며, 위협 행위자는 50개 이상의 합법적인 패키지에 악성 및 변조된 버전을 사용해 Rust 기반 정보 탈취 악성코드와 자가 확산 웜을 유포했습니다. JFrog에 따르면 정보 탈취 악성코드는 개발자 머신에서 모든 비밀정보를 수집하며 eBPF 커널 루트킷 뒤에 숨습니다"
+  summary="IronWorm과 새로운 Miasma Worm 변종이 공급망 공격에서 npm 생태계를 타격했으며, 위협 행위자는 50개 이상의 합법적인 패키지에 악성 및 변조된 버전을 사용해 Rust 기반 정보 탈취 악성코드와 자가 확산 웜을 유포했습니다."
   source="The Hacker News"
   severity="High"
 %}

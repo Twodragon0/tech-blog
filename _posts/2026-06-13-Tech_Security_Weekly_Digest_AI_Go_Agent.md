@@ -132,7 +132,7 @@ DevSecOps 관점에서 이번 공격은 **CI/CD 파이프라인**에 직접적�
   title="Google, 중국 스미싱 네트워크가 피싱에 Gemini AI 사용했다며 고소"
   url="https://thehackernews.com/2026/06/google-sues-chinese-smishing-network.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2VG_lHXgOeahfKoUs6hQ7fOmh-dK1ZGloqzAWilTU73LKJF5mBDqw4OSpU8ViE0NEI1iW4cNS5vyz4TpqoJ_aGjHYt4-qJXfmZP2a3mi8GILe4OeP7qSFKeqDWrbHyoMmf49EtaDTylhnpLvem5LCwqX2e8MRSR5rQC5cNv9qH-H_ySeUT5uYHWRLGa5P/s1600/gemini-phishing.jpg"
-  summary="Google이 중국 사이버 범죄 네트워크를 상대로 소송을 제기하며, 해당 조직이 Gemini AI를 활용해 미국인을 대상으로 한 피싱 문자를 발송했다고 밝혔습니다. 이 네트워크는 Phishing-as-a-Service(PhaaS) 소프트웨어 키트인 Outsider를 개발하고 관리한 것으로 알려졌습니다. Google은 이들이 Gemini를 무기화하여 피싱 공"
+  summary="Google이 중국 사이버 범죄 네트워크를 상대로 소송을 제기하며, 해당 조직이 Gemini AI를 활용해 미국인을 대상으로 한 피싱 문자를 발송했다고 밝혔습니다. 이 네트워크는 Phishing-as-a-Service(PhaaS) 소프트웨어 키트인 Outsider를 개발하고 관리한 것으로 알려졌습니다."
   source="The Hacker News"
   severity="High"
 %}
@@ -365,7 +365,7 @@ SpaceX가 18,712 BTC(약 12억 9천만 달러)를 보유하며 공개 Bitcoin �
   title="샘 뱅크먼-프리드, FTX 사기 유죄 판결 뒤집으려 한 항소 기각"
   url="https://bitcoinmagazine.com/news/sam-bankman-fried-loses-appeal-ftx"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/06/Sam-Bankman-Fried-Loses-Appeal-to-Overturn-FTX-Fraud-Conviction.jpg"
-  summary="Sam Bankman-Fried의 FTX 사기 혐의에 대한 유죄 판결과 25년형을 뒤집으려는 항소가 연방 항소 법원에서 기각되었습니다. 이로 인해 그의 유죄 판결을 무효화할 수 있는 주요 경로 중 하나가 사라졌으며, 그는 계속 수감 생활을 유지하게 되었습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사로 처음 보도했습니다"
+  summary="Sam Bankman-Fried의 FTX 사기 혐의에 대한 유죄 판결과 25년형을 뒤집으려는 항소가 연방 항소 법원에서 기각되었습니다. 이로 인해 그의 유죄 판결을 무효화할 수 있는 주요 경로 중 하나가 사라졌으며, 그는 계속 수감 생활을 유지하게 되었습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 %}

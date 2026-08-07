@@ -279,7 +279,7 @@ GitHub Copilot 전반에서 GPT-5.2와 GPT-5.2-Codex 모델이 2026년 6월 5일
 {% include news-card.html
   title="Docker의 Virtual Agent 팀: Coding Agent Sandboxes 팀이 에이전트 함대를 활용하여 더 빠르게 출시하는 방법"
   url="https://www.docker.com/blog/a-virtual-agent-team-at-docker-how-the-coding-agent-sandboxes-team-uses-a-fleet-of-agents-to-ship-faster/"
-  summary="Docker의 Coding Agent Sandboxes 팀은 Claude Code, Gemini, Codex, Docker Agent, Kiro 같은 AI 코딩 에이전트를 위한 microVM 기반의 안전한 격리 환경을 제공합니다. 이 샌드박스 안에서 에이전트는 호스트 시스템에 영향을 주지 않고 자체 Docker daemon, 네트워크, 파일시스템을 갖춘 완"
+  summary="Docker의 Coding Agent Sandboxes 팀은 Claude Code, Gemini, Codex, Docker Agent, Kiro 같은 AI 코딩 에이전트를 위한 microVM 기반의 안전한 격리 환경을 제공합니다."
   source="Docker Blog"
   severity="Medium"
 %}

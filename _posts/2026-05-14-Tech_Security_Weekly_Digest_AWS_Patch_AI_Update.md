@@ -137,7 +137,7 @@ CI/CD 파이프라인에 GuardDuty 결과를 통합하고, Terraform/Pulumi 같�
   title="Microsoft의 MDASH AI 시스템, 패치 화요일에 수정된 16개 Windows 결함 발견"
   url="https://thehackernews.com/2026/05/microsofts-mdash-ai-system-finds-16.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1Iq16GS3jdGiIU24GHBkwg6unk05ctdgYwXO5df8zRu1qko95_XhszCjq6jlEIRozLsrtZHgi5GqDZnS1Sw_KDzUzsagwP0If3VswmYHsnuYwVseU2lapxQiPpItTdAiv-CCdTFR87ZVOu65buyvmvzmdWuJPKHuPA4DSo58HQIMAV__2ymsmRe2g3UVe/s1600/windows-ai.jpg"
-  summary="Microsoft가 MDASH라는 새로운 멀티모델 AI 기반 시스템을 공개하여 대규모 취약점 발견 및 수정을 지원하고 있으며, 일부 고객이 제한된 비공개 프리뷰로 테스트 중입니다. MDASH는 모델에 구애받지 않는 시스템으로, 각기 다른 취약점에 맞춤형 AI 에이전트를 사용합니다. 이 시스템은 최근 Patch Tuesday에서 수정된 16개의 Windows 결"
+  summary="Microsoft가 MDASH라는 새로운 멀티모델 AI 기반 시스템을 공개하여 대규모 취약점 발견 및 수정을 지원하고 있으며, 일부 고객이 제한된 비공개 프리뷰로 테스트 중입니다. MDASH는 모델에 구애받지 않는 시스템으로, 각기 다른 취약점에 맞춤형 AI 에이전트를 사용합니다."
   source="The Hacker News"
   severity="High"
 %}

@@ -183,7 +183,7 @@ DevSecOps 파이프라인에서 이 문제는 **CI/CD 파이프라인 내 AI 에
   title="ThreatsDay 게시판: Claude 채팅 악용, NastyC2 npm 패키지, 디바이스 코드 피싱 외 25건"
   url="https://thehackernews.com/2026/06/threatsday-bulletin-claude-chat-abuse.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6k3CSWsyKHS6UdXmxX-w92fdsWjTSL7JR7xeaPBPh8d5G6rkZbMhmJHr9o3gxF5G2I2GojubOJnzhRqxjtKYxlXTrmlgrdRFRrmmyEEIi_zXAQXT3zpq5KNQqOFHrfGKhUFHzsMx1E2Eqs7S_jvTFfN3Jnz1YO58Ryvk0urKEDUZggoQgI07lKFWQDMfw/s1600/threatss.jpg"
-  summary="이번 주 ThreatsDay Bulletin에서는 Claude 채팅 악용, NastyC2 npm 패키지, Device-Code 피싱을 포함한 25개 이상의 보안 이슈가 보고되었습니다. 악성 브라우저 확장 프로그램을 통한 검색 데이터 유출, AI 채팅 링크를 악용한 멀웨어 전파, 메모리 기반 macOS 공격, 클라우드 에이전트를 통한 쉘 접근, 노출된 엣지 "
+  summary="이번 주 ThreatsDay Bulletin에서는 Claude 채팅 악용, NastyC2 npm 패키지, Device-Code 피싱을 포함한 25개 이상의 보안 이슈가 보고되었습니다."
   source="The Hacker News"
   severity="High"
 %}

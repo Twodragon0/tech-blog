@@ -100,7 +100,7 @@ redirect_from:
   title="연구진, 단일 Git Push로 악용 가능한 GitHub CVE-2026-3854 원격 코드 실행 취약점 발견"
   url="https://thehackernews.com/2026/04/researchers-discover-critical-github.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgztlzahKA2HwUQiNDerhbX2l415JinNIW5jaU5tgskPVHqpMhba_NorYL9SSWRzLdSPjSnsxZKQic97f8H2Bx2G0Dsjb58dcdFuZoL0c5Gno3BVvYa4vi62_PNr1Qh-kBYED7YbTPw3fqQklMmnoPV0b1KYaienKHzIAtBuktMqyVCxGU0u8Hkd-zzYeNU/s1600/github.jpg"
-  summary="보안 연구자들이 GitHub.com과 GitHub Enterprise Server에 영향을 미치는 심각도 '높음(High)' 등급의 취약점 CVE-2026-3854(CVSS 점수 8.7)의 세부 내용을 공개했습니다. 이 결함은 명령 인젝션(Command Injection)으로, 저장소에 푸시 접근 권한이 있는 인증된 사용자가 단 한 번의 \”git push\” 명령으로 원격 코드 실행"
+  summary="보안 연구자들이 GitHub.com과 GitHub Enterprise Server에 영향을 미치는 심각도 '높음(High)' 등급의 취약점 CVE-2026-3854(CVSS 점수 8.7)의 세부 내용을 공개했습니다."
   source="The Hacker News"
   severity="Critical"
 %}

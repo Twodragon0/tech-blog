@@ -100,7 +100,7 @@ summary_card:
   title="Linux 커널의 단일 문자 결함으로 로컬 루트 접근 가능, 익스플로잇 공개됨"
   url="https://thehackernews.com/2026/06/one-character-linux-kernel-flaw-enables.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA8UsvPZqRGiHkumM_jxIGyax3NmK9lBR-XAaVK3Stujz8_bExONh9gAroIEXnLQo9KaXb2MpyZsqb2kcfaUxNJJtFhiSpCZjHDzOtgt-sZczb2rx2eRi-rqMiqFtfs0lq6iqJd74J3aoFRN-azg51ZhnQq84Ve1y_-AMXudSuiePM0mi1UHwTh0MHtIE/s1600/linux.jpg"
-  summary="보안 연구진이 Linux kernel의 nf_tables 패킷 필터링 코드에서 발견된 use-after-free 취약점 CVE-2026-23111에 대한 상세한 working exploit을 공개했습니다. 이 취약점은 권한이 없는 로컬 사용자가 root 권한을 획득하고 컨테이너를 탈출할 수 있게 하며, 2026년 2월 5일 upstream에서 패치되었습니다"
+  summary="보안 연구진이 Linux kernel의 nf_tables 패킷 필터링 코드에서 발견된 use-after-free 취약점 CVE-2026-23111에 대한 상세한 working exploit을 공개했습니다."
   source="The Hacker News"
   severity="High"
 %}

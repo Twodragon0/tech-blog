@@ -241,7 +241,7 @@ Amazon Nova 2 Sonic의 스트리밍 기능을 활용해 주제에 따라 두 AI 
 {% include news-card.html
   title="Claude Mythos 프리뷰: Vertex AI에서 프라이빗 프리뷰로 이용 가능"
   url="https://cloud.google.com/blog/products/ai-machine-learning/claude-mythos-preview-on-vertex-ai/"
-  summary="Anthropic의 최신 최강 모델인 Claude Mythos Preview가 Project Glasswing의 일환으로 선별된 Google Cloud 고객을 대상으로 Vertex AI에서 Private Preview로 제공됩니다. Vertex AI를 통한 Claude Mythos Preview 제공은 Google Cloud가 선도적인 AI 연구소의 모델에"
+  summary="Anthropic의 최신 최강 모델인 Claude Mythos Preview가 Project Glasswing의 일환으로 선별된 Google Cloud 고객을 대상으로 Vertex AI에서 Private Preview로 제공됩니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}

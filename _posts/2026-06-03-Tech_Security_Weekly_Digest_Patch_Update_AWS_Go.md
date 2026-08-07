@@ -233,7 +233,7 @@ mitre_attack:
   title="산업용 소프트웨어 리더들, NVIDIA NemoClaw로 안전하고 자율적인 AI 엔지니어 구축"
   url="https://blogs.nvidia.com/blog/industrial-software-leaders-secure-autonomous-ai-engineers-nemoclaw/"
   image="https://blogs.nvidia.com/wp-content/uploads/2026/06/industrial-ai-engineers-kv-1920x1080-1-842x450.jpg"
-  summary="NVIDIA와 12개 이상의 엔지니어링 소프트웨어 기업들이 GTC Taipei at COMPUTEX에서 NVIDIA NemoClaw를 활용해 안전하고 자율적인 AI 엔지니어를 구축하고 있다. 이는 시뮬레이션 시간을 획기적으로 단축시킨 가속 컴퓨팅의 성과를 바탕으로, CAD, 메싱, 시뮬레이션 설정 및 디버깅, 후처리 등 엔드투엔드 워크플로우의 남은 과제를 "
+  summary="NVIDIA와 12개 이상의 엔지니어링 소프트웨어 기업들이 GTC Taipei at COMPUTEX에서 NVIDIA NemoClaw를 활용해 안전하고 자율적인 AI 엔지니어를 구축하고 있다."
   source="NVIDIA AI Blog"
   severity="Medium"
 %}
@@ -285,7 +285,7 @@ Travelers가 OpenAI와 협력하여 AI 기반 Claim Assistant를 구축, 전국�
   title="Google Cloud Storage MCP 서버로 비정형 데이터와 AI 에이전트 연결하기"
   url="https://cloud.google.com/blog/topics/developers-practitioners/build-ai-agents-faster-with-gcs-google-cloud-storage-mcp-server/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/original_images/image1_9FCB2cO.gif"
-  summary="Google Cloud Storage (GCS)는 현대 에이전트 기술 스택의 핵심이며 대규모 비정형 데이터의 저장소입니다. 기업이 에이전트를 프로덕션에 배포함에 따라 데이터를 컨텍스트로 전환하고 안전한 표준화된 통합을 구축하는 것이 중요해졌습니다. 이는 수동적인 객체를 추론을 위한 풍부한 컨텍스트로 전환하여 비정형 데이터를 에이전트에 바로 사용할 수 있게 "
+  summary="Google Cloud Storage (GCS)는 현대 에이전트 기술 스택의 핵심이며 대규모 비정형 데이터의 저장소입니다. 기업이 에이전트를 프로덕션에 배포함에 따라 데이터를 컨텍스트로 전환하고 안전한 표준화된 통합을 구축하는 것이 중요해졌습니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}

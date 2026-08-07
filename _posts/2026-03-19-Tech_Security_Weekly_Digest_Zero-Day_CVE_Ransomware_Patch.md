@@ -124,7 +124,7 @@ DevSecOps 실무자에게 이 사건은 **공급망 보안(Software Supply Chain
   title="Interlock 랜섬웨어, Cisco FMC 제로데이 CVE-2026-20131 악용해 루트 접근 획득"
   url="https://thehackernews.com/2026/03/interlock-ransomware-exploits-cisco-fmc.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIlKuha7SKiNtcZ_rk3dVV2Mt4tDfyfAir2TYksjgJhuuBlUNRqZu0Zeh8xwCMU7XCedi9khw6ywY0sqBRY8BrY-8jLzGOdSU7YRit5m4ew711QN8qK-aG224wOrcXc7k3_8QDy1zfXZ1UWVaR3C_J3WzNuvCkApYqhmICJI62mVMO2R1OoiJ17ySmxQm6/s1600/cc.jpg"
-  summary="Amazon Threat Intelligence는 Cisco Secure Firewall Management Center(FMC) 소프트웨어의 치명적 결함 CVE-2026-20131을 악용한 Interlock 랜섬웨어 캠페인이 활발하다고 경고합니다. 이 취약점은 인증되지 않은 공격자가 원격으로 루트 접근 권한을 얻을 수 있게 하는 Java 바이트 스트림 역"
+  summary="Amazon Threat Intelligence는 Cisco Secure Firewall Management Center(FMC) 소프트웨어의 치명적 결함 CVE-2026-20131을 악용한 Interlock 랜섬웨어 캠페인이 활발하다고 경고합니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -278,7 +278,7 @@ Google Cloud는 완전 관리형 서비스인 Memorystore for Valkey의 9.0 버�
   title="Cloud SQL 자동 확장 읽기 풀로 읽기 확장성 간소화"
   url="https://cloud.google.com/blog/products/databases/cloudsql-read-pools-support-autoscaling/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/1_dN3AmBF.max-1000x1000.jpg"
-  summary="Cloud SQL autoscaling read pools는 데이터베이스의 읽기 중심 워크로드를 확장하기 위한 솔루션입니다. 이 기능은 단일 읽기 복제본의 용량 한계를 넘어서는 부하를 처리하며, 개발자가 로드 밸런서 뒤에 여러 복제본을 수동으로 구성하고 관리하는 복잡성을 해소합니다. 이를 통해 애플리케이션은 기본 인스턴스의 쓰기 작업에 영향을 주지 않고 읽"
+  summary="Cloud SQL autoscaling read pools는 데이터베이스의 읽기 중심 워크로드를 확장하기 위한 솔루션입니다. 이 기능은 단일 읽기 복제본의 용량 한계를 넘어서는 부하를 처리하며, 개발자가 로드 밸런서 뒤에 여러 복제본을 수동으로 구성하고 관리하는 복잡성을 해소합니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}

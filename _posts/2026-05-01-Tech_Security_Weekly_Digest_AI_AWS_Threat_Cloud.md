@@ -349,7 +349,7 @@ Google Cloud는 4월 22일 라스베이거스에서 Google Cloud Next를 개최�
   title="GitHub Copilot in Visual Studio — 4월 업데이트"
   url="https://github.blog/changelog/2026-04-30-github-copilot-in-visual-studio-april-update"
   image="https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-new-releases.jpg"
-  summary="Visual Studio의 2026년 4월 업데이트는 에이전틱 워크플로우에 중점을 두어, IDE에서 직접 클라우드 에이전트 세션을 시작하고 사용자 수준의 커스텀 에이전트를 지원하며 새로운 Debugger agent가 검증 기능을 제공합니다. 이 소식은 GitHub Blog에 게시된 GitHub Copilot in Visual Studio — April up"
+  summary="Visual Studio의 2026년 4월 업데이트는 에이전틱 워크플로우에 중점을 두어, IDE에서 직접 클라우드 에이전트 세션을 시작하고 사용자 수준의 커스텀 에이전트를 지원하며 새로운 Debugger agent가 검증 기능을 제공합니다."
   source="GitHub Changelog"
   severity="Medium"
 %}

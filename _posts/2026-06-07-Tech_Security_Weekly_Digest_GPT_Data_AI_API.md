@@ -132,7 +132,7 @@ DevSecOps 실무자에게 Lockdown Mode는 **LLM 사용 정책 수립과 보안 
   title="무료 앱들이 조용히 스마트 TV를 AI용 웹 스크래핑 프록시로 전환하고 있다"
   url="https://thehackernews.com/2026/06/free-apps-are-quietly-turning-smart-tvs.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKr3KoscB_oGLqU5_JV16DIaB7jXY1ko8PiJDTuwrxbHcZV2DYJpfkx8lqwNbscwTSTVQUMwd8vBf-nI13mQE7vzzmUzwKF3BF6q7s5Lnq7kG7CovDsKaHYlvKpEXo2cvNk4mA27BdJSI6buZLqtVCKhYQ31GOaozmEHQecUa9Zdt-jwFJIZ0OCvlF27_p/s1600/smart-tv.jpg"
-  summary="한 연구자가 Bright Data가 소비자 앱에 내장한 iOS SDK를 리버스 엔지니어링하여, 항상 켜져 있는 스마트 TV를 포함한 기기들이 AI 산업을 대상으로 하는 웹 스크래핑 트래픽을 중계하는 출구 노드로 전환되는 방식을 문서화했습니다. Bright Data는 Luminati의 후신으로, 세계 최대 규모의 residential proxy 네트워크를 운"
+  summary="한 연구자가 Bright Data가 소비자 앱에 내장한 iOS SDK를 리버스 엔지니어링하여, 항상 켜져 있는 스마트 TV를 포함한 기기들이 AI 산업을 대상으로 하는 웹 스크래핑 트래픽을 중계하는 출구 노드로 전환되는 방식을 문서화했습니다."
   source="The Hacker News"
   severity="Medium"
 %}

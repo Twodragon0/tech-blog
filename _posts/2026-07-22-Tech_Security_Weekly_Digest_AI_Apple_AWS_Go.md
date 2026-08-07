@@ -123,7 +123,7 @@ Apple이 Hide My Email 서비스의 보안 결함을 수정했습니다. 이 결
   title="AWS Kiro 결함으로 오염된 웹 페이지가 설정을 덮어쓰고 코드를 실행할 수 있어"
   url="https://thehackernews.com/2026/07/aws-kiro-flaw-let-poisoned-web-page.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJfMUQ_pVP5as41uM_4cR8oRUsCwuXPMLLG63jNd5Djqso9kJyQZLiZgQrMQzykhRaX8BQCydIMPokGoITYY30kc3dH-8iy4Bd-ux36RoIjyNYXtKwb1F1fPdP00hoHD-9Q9s5CGD30w58s5wfyzBGOQvnIxM8JlHkig881HSQQuu4Hk6GBiDJicUYE8o/s1600/AWS-Kiro.jpg"
-  summary="AWS의 코딩 IDE인 Kiro에서 웹 페이지의 숨겨진 텍스트를 통해 설정 파일이 임의로 수정되고 공격자의 코드가 실행될 수 있는 취약점이 발견되었습니다. Intezer와 Kodem Security의 연구에 따르면 페이지 요약 요청과 같은 일반적인 동작만으로도 원격 코드 실행이 가능했으며, 승인 단계를 거치지 않았습니다. AWS는 이 문제를 패치했으며 별도"
+  summary="AWS의 코딩 IDE인 Kiro에서 웹 페이지의 숨겨진 텍스트를 통해 설정 파일이 임의로 수정되고 공격자의 코드가 실행될 수 있는 취약점이 발견되었습니다. Intezer와 Kodem Security의 연구에 따르면 페이지 요약 요청과 같은 일반적인 동작만으로도 원격 코드 실행이 가능했으며, 승인 단계를 거치지 않았습니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -214,7 +214,7 @@ OpenAI가 중소기업을 위한 ChatGPT for Small Businesses 프로그램을 �
   title="NVIDIA Vera Rubin, 파트너 전 세계에 최저 토큰 비용 제공, 성능 대비 와트당 효율 주도"
   url="https://blogs.nvidia.com/blog/vera-rubin/"
   image="https://blogs.nvidia.com/wp-content/uploads/2026/07/vera-tech-blog-vera-rubin-nvl72-1920x1080-1-842x450.png"
-  summary="NVIDIA Vera Rubin이 출시되어 기가스케일로 확장 중이며, CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud Infrastructure에서 랙 생산이 진행 중입니다. 30개국 350개 이상의 공장을 통해 가장 성숙한 랙스케일 공급망을 갖추고 파트너에게 최저 토큰 비용과 성능 대비 전력 효율을 제공합"
+  summary="NVIDIA Vera Rubin이 출시되어 기가스케일로 확장 중이며, CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud Infrastructure에서 랙 생산이 진행 중입니다."
   source="NVIDIA AI Blog"
   severity="Medium"
 %}
@@ -270,7 +270,7 @@ AlloyDB는 PostgreSQL 호환 관리형 데이터베이스 서비스로, Google�
   title="지금 미리보기: CodeMender로 소프트웨어 취약점 찾기 및 수정"
   url="https://cloud.google.com/blog/products/identity-security/find-and-fix-software-vulnerabilities-with-codemender/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/2_LNSezkk.max-1000x1000.png"
-  summary="CodeMender는 코드 스캔 및 수정 기능을 제공하는 관리형 코드 보안 에이전트로, 프리뷰로 제공됩니다. Gemini Enterprise Agent Platform을 통해 일반 공급 모델에 접근하거나 AI Threat Defense의 핵심 구성 요소로 배포할 수 있습니다. 이는 AI 기반 위협에 대응하여 코드 취약점을 자동으로 찾고 수정하는 데 도움을 "
+  summary="CodeMender는 코드 스캔 및 수정 기능을 제공하는 관리형 코드 보안 에이전트로, 프리뷰로 제공됩니다. Gemini Enterprise Agent Platform을 통해 일반 공급 모델에 접근하거나 AI Threat Defense의 핵심 구성 요소로 배포할 수 있습니다."
   source="Google Cloud Blog"
   severity="Medium"
 %}
@@ -326,7 +326,7 @@ Google의 최신 Flash 모델인 Gemini 3.6 Flash가 GitHub Copilot에서 사용
   title="에이전트가 문서에 접근해야 하는 이유"
   url="https://www.cncf.io/blog/2026/07/21/why-your-agent-needs-access-to-your-documentation/"
   image="https://www.cncf.io/wp-content/uploads/2026/07/Two-months-of-Open-Community-Groups-5.jpg"
-  summary="최근 한 기업이 자사 제품 내에 에이전트를 탑재한 후 1,192건의 대화를 분석한 결과, 에이전트가 효과적으로 작동하려면 사용자의 문서(knowledge base)에 대한 접근 권한이 필수적이라는 사실을 발견했습니다. 이 에이전트는 사용자가 배포 관련 질문을 할 수 있도록 설계되었으며, 문서 접근 없이는 정확한 답변을 제공하기 어려웠습니다. 따라서 에이전트"
+  summary="최근 한 기업이 자사 제품 내에 에이전트를 탑재한 후 1,192건의 대화를 분석한 결과, 에이전트가 효과적으로 작동하려면 사용자의 문서(knowledge base)에 대한 접근 권한이 필수적이라는 사실을 발견했습니다. 이 에이전트는 사용자가 배포 관련 질문을 할 수 있도록 설계되었으며, 문서 접근 없이는 정확한 답변을 제공하기 어려웠습니다."
   source="CNCF Blog"
   severity="Medium"
 %}

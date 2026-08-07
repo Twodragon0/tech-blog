@@ -99,7 +99,7 @@ summary_card:
   title="Citizen Lab: 법 집행 기관이 광고 데이터를 통해 5억 대 기기를 Webloc으로 추적"
   url="https://thehackernews.com/2026/04/citizen-lab-law-enforcement-used-webloc.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJjyKn2cWWKQvAjaegOP6UqdtgG4Cr6nQdwobWhvYvaSKO-VGcFFSSAvT6ngpo8T9n0BitFhLNKPv669Qp3I_2ZajEs3DbveUT5qhc4zVWHRbjJH4fv0_84_FNhPFnN7EPFa9szLDP6B5G-1owBpAGGFILLSX4q8ZobwLXjI9CPn0DfExp6y0_33OdtmkV/s1600/location-data.jpg"
-  summary="Citizen Lab 보고서에 따르면 Hungarian domestic intelligence와 El Salvador 국가경찰, 다수의 미국 법 집행 기관이 Cobwebs Technologies가 개발한 Webloc 감시 시스템을 사용해 약 5억 대의 기기를 추적한 것으로 나타났습니다. Webloc은 광고 데이터를 활용한 지리적 위치 감시 시스템으로, 현재"
+  summary="Citizen Lab 보고서에 따르면 Hungarian domestic intelligence와 El Salvador 국가경찰, 다수의 미국 법 집행 기관이 Cobwebs Technologies가 개발한 Webloc 감시 시스템을 사용해 약 5억 대의 기기를 추적한 것으로 나타났습니다."
   source="The Hacker News"
   severity="Critical"
 %}
