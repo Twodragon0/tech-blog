@@ -539,77 +539,66 @@ Bitcoin Magazine가 BIP 54 소프트포크 제안을 심층 분석했습니다. 
   url="https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana/"
   source="Google Cloud Blog"
   tag="Cloud / Platform"
-  summary="Nano Banana 프롬프팅 가이드 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="LeakBase 포럼 압수"
   url="https://thehackernews.com/2026/03/fbi-and-europol-seize-leakbase-forum.html"
   source="The Hacker News"
   tag="Operator Signal"
-  summary="LeakBase 포럼 압수 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="Cloudflare Dynamic Path MTU Discovery"
   url="https://blog.cloudflare.com/client-dynamic-path-mtu-discovery/"
   source="Cloudflare Blog"
   tag="Cloud / Platform"
-  summary="Cloudflare Dynamic Path MTU Discovery 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="Cloudflare QUIC 기반 SASE Proxy Mode"
   url="https://blog.cloudflare.com/faster-sase-proxy-mode-quic/"
   source="Cloudflare Blog"
   tag="Cloud / Platform"
-  summary="Cloudflare QUIC 기반 SASE Proxy Mode 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="GPT-5.4 공개"
   url="https://news.hada.io/topic?id=27230"
   source="GeekNews"
   tag="Tech Signals"
-  summary="GPT-5.4 공개 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="Grep은 죽었다: Claude Code 메모리 시스템"
   url="https://news.hada.io/topic?id=27239"
   source="GeekNews"
   tag="AI / Product"
-  summary="Grep은 죽었다: Claude Code 메모리 시스템 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="Google Chrome, 2주 출시 주기 전환"
   url="https://news.hada.io/topic?id=27238"
   source="GeekNews"
   tag="Tech Signals"
-  summary="Google Chrome, 2주 출시 주기 전환 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="위키백과 관리자 계정 대량 유출"
   url="https://news.hada.io/topic?id=27233"
   source="GeekNews"
   tag="Tech Signals"
-  summary="위키백과 관리자 계정 대량 유출 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="온디바이스 이미지 모델 (1편)"
   url="https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-1"
   source="LINE Engineering"
   tag="Operator Signal"
-  summary="온디바이스 이미지 모델 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="온디바이스 이미지 모델 (2편)"
   url="https://techblog.lycorp.co.jp/ko/on-device-image-model-trainer-for-messenger-2"
   source="LINE Engineering"
   tag="Operator Signal"
-  summary="온디바이스 이미지 모델 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="FE News 26년 3월호"
   url="https://d2.naver.com/news/0407747"
   source="네이버 D2"
   tag="Operator Signal"
-  summary="FE News 26년 3월호 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html

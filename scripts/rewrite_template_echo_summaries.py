@@ -1,4 +1,4 @@
-"""Replace template-echo card summaries with the post's own prose.
+"""Repair template-echo card summaries: rewrite from the post's prose, or drop.
 
 271 card summaries across 24 digests (2026-02-20 … 2026-03-17) say nothing about
 the article they sit on. They repeat the headline verbatim and bolt on one of
@@ -26,19 +26,34 @@ include                      defects  usable per-item prose within 20 lines
                                       all between them
 ===========================  =======  ==========================================
 
-So spotlight items cannot be repaired this way. They are not special-cased: the
-prose window simply finds nothing for them and they are skipped, the same as the
-five ``news-card`` items whose follow-up is a table or a bullet list.
+So spotlight items cannot be rewritten this way. In the REPLACE mode below they
+are not special-cased: the prose window simply finds nothing for them and they
+are skipped, the same as the five ``news-card`` items whose follow-up is a table
+or a bullet list.
 
-This edits inside a Liquid include, the exact place a context-blind rewrite
-corrupted three cover images in PR #509. The runtime contract is therefore the
-narrowest one that admits the change at all, and it aborts the whole run:
+DROP mode then handles those 45. There is no article-specific text to put there,
+and a sentence claiming a security analysis nobody performed is worse than no
+sentence, so the ``summary=`` attribute is deleted outright.
+``_includes/news-spotlight-item.html:9`` wraps the summary in
+``{% if include.summary %}``, so the ``<p class="news-spotlight-summary">`` is
+simply omitted while the title link and the source/tag meta still render.
+Re-summarising from the source article was rejected: it needs a network call and
+invents text, both of which this script refuses to do.
 
-    a file may differ ONLY in the value of ``summary=`` inside a news card.
+Both modes edit inside a Liquid include, the exact place a context-blind rewrite
+corrupted three cover images in PR #509. Each therefore carries its OWN runtime
+contract, enforced separately so that neither can launder a change through the
+other's allowance, and either aborts the whole run:
+
+    REPLACE: a file may differ ONLY in the VALUE of ``summary=`` inside a card.
+    DROP:    a file may differ ONLY by whole ``summary="…"`` LINES deleted from
+             ``news-spotlight-item`` includes; card count and attribute order
+             stay put.
 
 Usage:
     python3 scripts/rewrite_template_echo_summaries.py --posts-glob '_posts/*Weekly_Digest*.md' --dry-run
     python3 scripts/rewrite_template_echo_summaries.py _posts/2026-03-11-*.md
+    python3 scripts/rewrite_template_echo_summaries.py --mode drop _posts/2026-03-06-*.md
 """
 
 import argparse
@@ -79,10 +94,24 @@ CARD_RE = re.compile(
     r"\{%-?\s*include\s+(?:news-card|news-spotlight-item)\.html.*?-?%\}",
     re.DOTALL,
 )
+SPOTLIGHT_RE = re.compile(
+    r"\{%-?\s*include\s+news-spotlight-item\.html.*?-?%\}",
+    re.DOTALL,
+)
 SUMMARY_RE = re.compile(
     r'(\bsummary=")(.*?)("(?=\s+[\w-]+="|\s*-?%\}|\s*$))',
     re.DOTALL,
 )
+
+# Drop mode deletes whole lines, so the attribute must OWN its line. Measured:
+# 45/45 spotlight defects match this; a value that ever wrapped would be skipped
+# rather than half-deleted.
+SUMMARY_LINE_RE = re.compile(r'^[ \t]*summary="[^"\n]*"[ \t]*$')
+
+# Independent of the rules: reads attribute NAMES straight off each card so the
+# drop contract has its own detector (contract C5).
+_ATTR_NAME_RE = re.compile(r'(?m)^[ \t]*([\w-]+)="')
+_INCLUDE_NAME_RE = re.compile(r"\{%-?\s*include\s+([\w.-]+)")
 
 _SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+")
 _MD_LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]*\)")
@@ -155,6 +184,17 @@ def _line_starts(text: str):
         offsets.append(pos)
         pos += len(line) + 1
     return offsets
+
+
+def _line_of(offsets, pos: int) -> int:
+    lo, hi = 0, len(offsets) - 1
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if offsets[mid] <= pos:
+            lo = mid
+        else:
+            hi = mid - 1
+    return lo
 
 
 # --- extraction --------------------------------------------------------------
@@ -241,29 +281,24 @@ def summarise(prose: str, max_sentences: int = 2):
     return value
 
 
-# --- transform ---------------------------------------------------------------
+# --- transform: replace ------------------------------------------------------
 
 
-def transform(text: str) -> str:
+def replace_echo_summaries(text: str) -> str:
+    """Lift the following prose paragraph into every template-echo summary.
+
+    In practice this only ever reaches ``news-card``: spotlight items have no
+    prose after them, so they fall out of ``_prose_after`` on their own.
+    """
     lines = text.split("\n")
     body_start = _front_matter_end(lines)
     fence = _fence_flags(lines, body_start)
     offsets = _line_starts(text)
 
-    def line_of(pos: int) -> int:
-        lo, hi = 0, len(offsets) - 1
-        while lo < hi:
-            mid = (lo + hi + 1) // 2
-            if offsets[mid] <= pos:
-                lo = mid
-            else:
-                hi = mid - 1
-        return lo
-
     edits = []
     for card in CARD_RE.finditer(text):
-        first = line_of(card.start())
-        last = line_of(card.end() - 1)
+        first = _line_of(offsets, card.start())
+        last = _line_of(offsets, card.end() - 1)
         if first < body_start or fence[first]:
             continue
         found = SUMMARY_RE.search(card.group(0))
@@ -282,6 +317,45 @@ def transform(text: str) -> str:
     for start, end, value in reversed(edits):
         text = text[:start] + value + text[end:]
     return text
+
+
+# --- transform: drop ---------------------------------------------------------
+
+
+def _spotlight_summary_lines(text: str):
+    """Line indices holding a droppable spotlight ``summary=`` echo."""
+    lines = text.split("\n")
+    body_start = _front_matter_end(lines)
+    fence = _fence_flags(lines, body_start)
+    offsets = _line_starts(text)
+
+    found_lines = set()
+    for card in SPOTLIGHT_RE.finditer(text):
+        first = _line_of(offsets, card.start())
+        if first < body_start or fence[first]:
+            continue
+        found = SUMMARY_RE.search(card.group(0))
+        if not found or not _is_template_echo(found.group(2)):
+            continue
+        index = _line_of(offsets, card.start() + found.start(1))
+        if not SUMMARY_LINE_RE.match(lines[index]):
+            continue
+        found_lines.add(index)
+    return found_lines
+
+
+def drop_spotlight_echo_summaries(text: str) -> str:
+    """Delete the ``summary=`` line from spotlight items that only echo the title."""
+    doomed = _spotlight_summary_lines(text)
+    if not doomed:
+        return text
+    lines = text.split("\n")
+    return "\n".join(line for i, line in enumerate(lines) if i not in doomed)
+
+
+def transform(text: str) -> str:
+    """Both modes, in the order ``main`` applies them."""
+    return drop_spotlight_echo_summaries(replace_echo_summaries(text))
 
 
 def count_defects(text: str) -> int:
@@ -308,22 +382,109 @@ def _mask_summaries(text: str) -> str:
 
 
 def violates_summary_only(old: str, new: str) -> bool:
-    """This transform may change nothing but a card ``summary=`` VALUE.
+    """REPLACE mode may change nothing but a card ``summary=`` VALUE.
 
     Deliberately stronger than a token or length check: it compares the two files
     byte for byte with every card summary masked out, so any edit that leaks into
     a URL, an image attribute, the front matter or the prose aborts the run.
+
+    Note this contract also forbids DELETING a summary — drop mode is checked by
+    ``violates_spotlight_line_drop_only`` instead, so neither mode inherits the
+    other's allowance.
     """
     return _mask_summaries(old) != _mask_summaries(new)
 
 
+def _card_attribute_shapes(text: str):
+    """``[(include name, [attr names]), …]`` for every card.
+
+    Computed straight from the text without touching the drop rule's line
+    bookkeeping, so the contract's detector cannot regress in lockstep with the
+    rule it is supposed to police (contract C5).
+    """
+    shapes = []
+    for card in CARD_RE.finditer(text):
+        name = _INCLUDE_NAME_RE.match(card.group(0))
+        shapes.append(
+            (name.group(1) if name else "", _ATTR_NAME_RE.findall(card.group(0)))
+        )
+    return shapes
+
+
+def _violates_card_shape(old: str, new: str) -> bool:
+    """Card count and attribute order must survive; at most one ``summary`` may go."""
+    old_shapes = _card_attribute_shapes(old)
+    new_shapes = _card_attribute_shapes(new)
+    if len(old_shapes) != len(new_shapes):
+        return True
+    for (old_name, old_attrs), (new_name, new_attrs) in zip(old_shapes, new_shapes):
+        if old_name != new_name:
+            return True
+        if new_attrs == old_attrs:
+            continue
+        if new_name != "news-spotlight-item.html":
+            return True
+        if old_attrs.count("summary") != 1:
+            return True
+        if [a for a in old_attrs if a != "summary"] != new_attrs:
+            return True
+    return False
+
+
+def violates_spotlight_line_drop_only(old: str, new: str) -> bool:
+    """DROP mode may only DELETE whole spotlight ``summary="…"`` lines.
+
+    Nothing may be added, reordered or rewritten; every deleted line must be a
+    self-contained ``summary=`` attribute that lived inside a
+    ``news-spotlight-item`` include and carried a template echo. Verified twice
+    over: a strict line-by-line walk, plus an independently computed check that
+    card count and attribute order did not move.
+    """
+    old_lines = old.split("\n")
+    new_lines = new.split("\n")
+    if len(new_lines) > len(old_lines):
+        return True
+
+    deletable = _spotlight_summary_lines(old)
+    i = j = 0
+    while i < len(old_lines) and j < len(new_lines):
+        if old_lines[i] == new_lines[j]:
+            i += 1
+            j += 1
+            continue
+        if i not in deletable:
+            return True
+        i += 1
+    if j != len(new_lines):
+        return True
+    while i < len(old_lines):
+        if i not in deletable:
+            return True
+        i += 1
+
+    return _violates_card_shape(old, new)
+
+
+# Each mode is (name, rule, its own contract). Nothing shared, by design.
+MODES = {
+    "replace": (replace_echo_summaries, violates_summary_only),
+    "drop": (drop_spotlight_echo_summaries, violates_spotlight_line_drop_only),
+}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(
-        description="Replace template-echo card summaries with the post's own prose."
+        description="Repair template-echo card summaries from the post's own prose."
     )
     ap.add_argument("paths", nargs="*")
     ap.add_argument("--posts-glob")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument(
+        "--mode",
+        choices=("both", "replace", "drop"),
+        default="both",
+        help="replace = news-card from prose; drop = spotlight summary attribute",
+    )
     ap.add_argument("--limit", type=int, default=0, help="process at most N files")
     args = ap.parse_args(argv)
 
@@ -337,29 +498,40 @@ def main(argv=None) -> int:
         print("[template-echo] no digest post files to process.")
         return 0
 
+    stages = ["replace", "drop"] if args.mode == "both" else [args.mode]
+
     changed = 0
-    rewritten = 0
+    totals = {"replace": 0, "drop": 0}
     for path in files:
         original = path.read_text(encoding="utf-8")
-        new = transform(original)
-        if new == original:
+        current = original
+        counts = {}
+        for stage in stages:
+            rule, contract = MODES[stage]
+            stepped = rule(current)
+            # Each stage is judged against ITS OWN input, so a legal replace
+            # cannot cover for an illegal drop or the other way round.
+            if stepped != current and contract(current, stepped):
+                print(
+                    f"ABORT {path}: {stage} mode broke its runtime contract",
+                    file=sys.stderr,
+                )
+                return 1
+            counts[stage] = count_defects(current) - count_defects(stepped)
+            totals[stage] += counts[stage]
+            current = stepped
+        if current == original:
             continue
-        if violates_summary_only(original, new):
-            print(f"ABORT {path}: change escaped the summary attribute", file=sys.stderr)
-            return 1
-        fixed = count_defects(original) - count_defects(new)
         changed += 1
-        rewritten += fixed
+        detail = ", ".join(f"{stage} {counts[stage]}" for stage in stages)
         if args.dry_run:
-            print(f"DRY   {path}  ({fixed} summaries)")
+            print(f"DRY   {path}  ({detail})")
         else:
-            path.write_text(new, encoding="utf-8")
-            print(f"FIXED {path}  ({fixed} summaries)")
-    verb = "would rewrite" if args.dry_run else "rewrote"
-    print(
-        f"[template-echo] {verb} {rewritten} summaries in "
-        f"{changed}/{len(files)} post(s)."
-    )
+            path.write_text(current, encoding="utf-8")
+            print(f"FIXED {path}  ({detail})")
+    verb = "would fix" if args.dry_run else "fixed"
+    summary = ", ".join(f"{stage} {totals[stage]}" for stage in stages)
+    print(f"[template-echo] {verb} {summary} in {changed}/{len(files)} post(s).")
     return 0
 
 
