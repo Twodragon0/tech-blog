@@ -104,6 +104,35 @@ def test_properly_terminated_long_summary_is_left_alone():
     assert rw.transform(src) == src
 
 
+# --- trailing ellipsis is truncation, not termination ------------------------
+
+
+@pytest.mark.parametrize("marker", ["...", "…"])
+def test_ellipsis_cut_summary_is_rewound_despite_ending_in_a_period(marker):
+    """9 corpus cards end this way; `endswith(".")` had skipped them all."""
+    body = "공격자가 원격 코드 실행에 성공했다고 밝혔습니다. " + "가" * 180
+    assert len(body + marker) >= rw.TRUNCATION_SUSPECT_LEN, "fixture must be in band"
+    out = rw.transform(_FM + _card(body + marker))
+    assert "밝혔습니다.\"" in out
+    assert marker not in out.split('summary="')[1].split('"\n')[0]
+
+
+def test_ellipsis_summary_with_no_complete_sentence_is_left_alone():
+    src = _FM + _card("가" * 210 + "...")
+    assert rw.transform(src) == src
+
+
+def test_ellipsis_rewind_is_idempotent():
+    once = rw.transform(_FM + _card("완성했습니다. " + "가" * 200 + "..."))
+    assert rw.transform(once) == once
+
+
+def test_mid_text_ellipsis_does_not_trigger_a_rewind():
+    """Only a TRAILING marker is truncation evidence."""
+    src = _FM + _card("중간에 ... 이 있지만 문장은 완성되었습니다. " + "가" * 170 + "종료입니다.")
+    assert rw.transform(src) == src
+
+
 def test_other_attributes_are_never_touched():
     nested = (
         "https://images.cointelegraph.com/cdn-cgi/image/f=auto,w=1200/"

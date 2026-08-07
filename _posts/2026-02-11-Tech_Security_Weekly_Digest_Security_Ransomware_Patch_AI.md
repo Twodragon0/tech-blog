@@ -380,7 +380,7 @@ Amazon이 신규 물류 센터 개소 시 Amazon Bedrock의 Nova 모델을 활�
   title="[클라우드] Google Distributed Cloud, air-gapped 환경에 퍼블릭 클라우드급 네트워킹 제공"
   url="https://cloud.google.com/blog/products/networking/google-distributed-cloud-gdc-air-gapped-1-15-networking/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/24_-_Networking_vCB4Wjq.max-2600x2600.jpg"
-  summary="고도 규제 산업의 조직들은 air-gapped 환경의 엄격한 보안과 클라우드가 제공하는 민첩성·유연성 사이의 균형을 맞추는 데 어려움을 겪어왔습니다. 이를 해결하기 위해 Google Distributed Cloud(GDC) air-gapped 1.15 버전에서 보안 수준을 유지하면서 더 직접적인 제어와 가시성을 제공하는 새로운 네트워킹 기능(프리뷰)과..."
+  summary="고도 규제 산업의 조직들은 air-gapped 환경의 엄격한 보안과 클라우드가 제공하는 민첩성·유연성 사이의 균형을 맞추는 데 어려움을 겪어왔습니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -402,7 +402,7 @@ Amazon이 신규 물류 센터 개소 시 Amazon Bedrock의 Nova 모델을 활�
   title="[클라우드] Gemini Enterprise Agent Ready(GEAR) 프로그램 공개 — 대규모 AI 에이전트 구축 경로 제시"
   url="https://cloud.google.com/blog/products/ai-machine-learning/gear-program-now-available/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/GEAR_Website_Graphics_1920x1080-2.max-2000x2000.png"
-  summary="소프트웨어가 복잡한 워크플로우를 스스로 추론·계획·실행하는 에이전틱 시대가 도래하고 있습니다. 이에 발맞춰 Google이 Gemini Enterprise Agent Ready(GEAR) 학습 프로그램을 전체 공개했습니다. Google Developer Program 내 신규 전문 트랙으로, 개발자와 전문가가 Google AI로 엔터프라이즈급 에이전트를..."
+  summary="소프트웨어가 복잡한 워크플로우를 스스로 추론·계획·실행하는 에이전틱 시대가 도래하고 있습니다. 이에 발맞춰 Google이 Gemini Enterprise Agent Ready(GEAR) 학습 프로그램을 전체 공개했습니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}

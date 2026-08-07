@@ -36,10 +36,19 @@ TRUNCATION_SUSPECT_LEN = 195
 
 _TERMINATED = (".", "!", "?")
 
+# A trailing ellipsis is the OPPOSITE of a terminator: it is the marker an
+# earlier generator appended when it cut a summary at the 200-char cap. Because
+# it ends in ".", the plain `endswith(_TERMINATED)` guard read it as a finished
+# sentence and skipped the card. Those 9 cards all sit in the `{%-` blind spot,
+# so this only became reachable once the include pattern was fixed.
+_TRUNCATION_MARKERS = ("...", "…")
+
 
 def rewind(text: str) -> str:
     """Drop the trailing partial sentence. Returns a prefix, or text unchanged."""
-    if not text or text.endswith(_TERMINATED):
+    if not text:
+        return text
+    if text.endswith(_TERMINATED) and not text.endswith(_TRUNCATION_MARKERS):
         return text
     idx = text.rfind("다.")
     return text[: idx + 2] if idx > 0 else text
