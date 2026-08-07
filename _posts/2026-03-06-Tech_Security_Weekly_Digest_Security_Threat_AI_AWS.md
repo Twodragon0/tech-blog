@@ -101,7 +101,7 @@ summary_card:
   title="[보안] Cisco Catalyst SD-WAN Manager 취약점 활성 공격 확인"
   url="https://thehackernews.com/2026/03/cisco-confirms-active-exploitation-of.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEr5vlbwHAPeevtBJ7iylInnh2ZQCxX10smm1srCFONJBSriIbAvvp5jAFpFYdeoyk9BKBhyFZx-U4xBhqtN2eT1r150GMLdRP3scA8PsHMYh0PGALAqnzwQnLS-3K_9yneL-7tRa3lD-TTOIebyc_alzp2kLKFdFRCiJcWMcmTiMnoqUAeO_Wxv6hd05D/s1700-e365/cisco-exploit.jpg"
-  summary="Cisco Catalyst SD-WAN Manager 취약점 활성 공격 확인 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Cisco가 Catalyst SD-WAN Manager(구 SD-WAN vManage)에 영향을 미치는 2개의 취약점이 실제 공격에 활용되고 있음을 공식 확인했습니다. 핵심 취약점인 CVE-2026-20122(CVSS 7.1)는 인증된 원격 공격자가 로컬 파일 시스템의 임의 파일을 덮어쓸 수 있는 취약점입니다."
   source="The Hacker News"
   severity="Critical"
 -%}
@@ -152,7 +152,7 @@ index=network sourcetype=cisco:sdwan
   title="[보안] Europol 주도 Tycoon 2FA 피싱 플랫폼 해체"
   url="https://thehackernews.com/2026/03/europol-led-operation-takes-down-tycoon.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgj8UTSWEMM2rFGJeOr4V1jcbj7LGdQOWonmvhfcbkNspvoCt-7wsBrnJoMuGgnyCZ-E4G5DqWRcPYrrTi3MF-nZWM3pke6JmFrnNlIrs99WF4ayKdghQxMVtvsxxkvv0FMHmKHWCA92klsfqy2fS4rD0_YcBTOapV-lsGCsZhnLHMCe3oMhEukpHaTgGQE/s1700-e365/takedown.jpg"
-  summary="Europol 주도 Tycoon 2FA 피싱 플랫폼 해체 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Europol이 주도한 국제 공조 작전으로 Tycoon 2FA 피싱-서비스(PhaaS) 플랫폼이 해체되었습니다. 이 플랫폼은 MFA를 우회하는 AitM(Adversary-in-the-Middle) 방식의 자격 증명 탈취 공격을 대규모로 가능하게 했으며, 총 64,000건 이상의 공격에 연루된 것으로 확인되었습니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -191,7 +191,7 @@ Tycoon 2FA는 공격자가 피해자와 정상 인증 서버 사이에 프록시
   title="[보안] APT28 우크라이나 표적 BadPaw/MeowMeow 신규 악성코드"
   url="https://thehackernews.com/2026/03/apt28-linked-campaign-deploys-badpaw.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihW1ns0JTT2vYUjdQEqTcDwytBGmTnID9xQkCxuT-WURhd71xeh9UD80hZiRL3WWBOg5dCVZKY2huOuElbB-QjczQquCirdpgVRjWNM426jLNF-U_s8RGs9CjNC1Qr2DJhQ532z6bz2hdMkzUjJ-vSKpJmBdvyy5qgkAuwB2armvVyx4HNsn4glFMWmupC/s1700-e365/Ukraine.jpg"
-  summary="APT28 우크라이나 표적 BadPaw/MeowMeow 신규 악성코드 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="러시아 연계 위협 그룹 APT28(Fancy Bear)이 우크라이나 기관을 대상으로 BadPaw 로더와 MeowMeow 백도어라는 2개의 신규 악성코드를 배포한 것이 확인되었습니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -213,7 +213,7 @@ APT28은 러시아 군 정보기관(GRU)과 연계된 것으로 알려진 APT �
   title="[보안] Dust Specter — 이라크 정부 관료 표적 신규 멀웨어"
   url="https://thehackernews.com/2026/03/dust-specter-targets-iraqi-officials.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWg0441avqEutKSymEsuuVP_gKz7kiss4jZesCHLwD4731n135lf6jhJdT2X5CPIWISsByG0RsJoH7eXSyGVOI6RNmo1QkE8Z24lPdiFTLni79c2EoiLGlAurQsIHqn7j_-MDPlL9F98XAsRtrBD17V7YXRYikdcET0hnw897ButkFyI1T4JmzxpJdwM8y/s1700-e365/iran-attack.jpg"
-  summary="Dust Specter — 이라크 정부 관료 표적 신규 멀웨어 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="이란 연계로 추정되는 위협 행위자가 이라크 외교부를 사칭하여 정부 관료를 대상으로 SPLITDROP과 GHOSTFORM이라는 신규 악성코드를 배포하는 캠페인이 포착되었습니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -234,7 +234,7 @@ APT28은 러시아 군 정보기관(GRU)과 연계된 것으로 알려진 APT �
   title="[보안] 악성 AI 어시스턴트 확장 프로그램, LLM 채팅 기록 대량 탈취"
   url="https://www.microsoft.com/en-us/security/blog/2026/03/05/malicious-ai-assistant-extensions-harvest-llm-chat-histories/"
   image="https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/03/MS_Actional-Insights_Adversarial-AI.png"
-  summary="악성 AI 어시스턴트 확장 프로그램, LLM 채팅 기록 대량 탈취 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Microsoft 보안팀이 ChatGPT, DeepSeek 등 LLM 플랫폼의 채팅 기록과 브라우징 데이터를 수집하는 악성 AI 브라우저 확장 프로그램을 발견했습니다. 총 약 90만 건 설치되었으며, 20,000개 이상의 기업 환경에서 활동이 확인되었습니다."
   source="Microsoft Security Blog"
   severity="High"
 -%}
@@ -267,7 +267,7 @@ AI 도구의 업무 활용이 확산되면서, LLM 채팅 기록에는 코드 �
   title="[보안] MFA 한계점과 자격 증명 남용의 시작점"
   url="https://thehackernews.com/2026/03/where-multi-factor-authentication-stops.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh573fCRL7EMT-Piz1QEJizjMNdQH5G4eMHpLbuCGvm-PNF6-osRuSQF09DHGIuYS1EXDgZXUmWzVf1p3kHDH0_jE7_XDKuG0J7R9Yc3kP4XbaW3UoF3gLYCQ6ba63S0iYQf3Ftf7s0UkDD9QBbnzUcBPRDQXI401TzAVjET05OjgS38tiYgfWA79kS-8g/s1700-e365/outpost.jpg"
-  summary="MFA 한계점과 자격 증명 남용의 시작점 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="MFA를 도입하면 탈취된 비밀번호만으로 시스템에 접근할 수 없다고 가정하지만, Windows 환경에서는 이 가정이 종종 틀립니다. 공격자들은 NTLM 해시, Kerberos 티켓, 캐시된 자격 증명 등 MFA가 적용되지 않는 인증 경로를 통해 시스템에 접근합니다."
   source="The Hacker News"
   severity="Medium"
 -%}
@@ -289,7 +289,7 @@ MFA를 도입하면 탈취된 비밀번호만으로 시스템에 접근할 수 �
   title="[보안] 양자 시대 대비 — 포스트 양자 암호화 웨비나"
   url="https://thehackernews.com/2026/03/preparing-for-quantum-era-post-quantum.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX1kV8IdraKTyGmXfKTap-DKE7krpM6SchfXQZlvruEBaaJyCbG0HQuJD3B08AkkIZF6Ej7oQ2Nr3AfzVD5klERt782T3IuCPT8tSYm49B6j6se-IH7d0XC4kBcTPl-yp3tsA_YmhrZsB0On2ukhH1rhlSaG3fpRXNrSzpbMEoVu_EBoiMGcbFVg9AcWTC/s1700-e365/webinar.jpg"
-  summary="양자 시대 대비 — 포스트 양자 암호화 웨비나 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="양자 컴퓨터가 현재 암호화를 깨뜨릴 수 있는 미래에 대비하여, 많은 공격자들이 이미 '지금 수집, 나중에 복호화'(Harvest Now, Decrypt Later) 전략을 실행하고 있습니다. 현재의 암호화된 데이터가 안전하다는 가정은 양자 컴퓨팅 시대에 더 이상 유효하지 않을 수 있습니다."
   source="The Hacker News"
   severity="Medium"
 -%}
@@ -304,7 +304,7 @@ MFA를 도입하면 탈취된 비밀번호만으로 시스템에 접근할 수 �
   title="[보안] 주간 위협 동향 요약 — DDR5 봇 스캘핑, 삼성 TV 추적, Reddit 개인정보 과징금"
   url="https://thehackernews.com/2026/03/threatsday-bulletin-redis-rce-ddr5-bot.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmX71oTh0PhBoeXrV6BUD7_jQe9VWPqHc60ijUxf4iv8wPE8UeWY8dlDrfbx3-Ut5aNoNQZJ8DH_ADNQGgFL4NbMMcw-IayIe9HXKG3l5EN3-og9LuNqBP452mXpm1HTn3ooWlJ-q4QRqvPJC4gmR0lstJ8KWdQYa2knQ5J69nneIwIRTKKG43fXtcWRXm/s1700-e365/threatsday.jpg"
-  summary="주간 위협 동향 요약 — DDR5 봇 스캘핑, 삼성 TV 추적, Reddit 개인정보 과징금 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="이번 주 사이버보안 분야에서 다수의 새로운 동향이 포착되었습니다. DDR5 메모리 구매를 자동화하는 봇 스캘핑 활동, 삼성 TV의 사용자 시청 데이터 추적 문제, Reddit의 개인정보 보호법 위반 과징금 등 다양한 분야에서 보안 이슈가 발생했습니다."
   source="The Hacker News"
   severity="Medium"
 -%}
@@ -322,7 +322,7 @@ MFA를 도입하면 탈취된 비밀번호만으로 시스템에 접근할 수 �
 {%- include news-card.html
   title="[AI/ML] OpenAI GPT-5.4 출시 — 네이티브 컴퓨터 사용과 100만 토큰 컨텍스트"
   url="https://openai.com/index/introducing-gpt-5-4"
-  summary="OpenAI GPT-5.4 출시 — 네이티브 컴퓨터 사용과 100만 토큰 컨텍스트 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="OpenAI가 최신 프런티어 모델 GPT-5.4를 공개했습니다. ChatGPT, API, Codex 전반에 적용되는 이 모델은 추론, 코딩, 에이전트 워크플로우 성능을 통합하며, 특히 네이티브 컴퓨터 사용(computer-use) 기능을 내장하여 에이전트가 웹사이트와 소프트웨어를 직접 조작할 수 있습니다."
   source="OpenAI Blog"
   severity="Medium"
 -%}
@@ -344,7 +344,7 @@ AI 모델이 단순한 텍스트 생성을 넘어 실제 컴퓨터 환경을 조
   title="[AI/ML] Palantir Maven Smart System — NATO 동맹국 AI 전투 시스템"
   url="https://blog.palantir.com/maven-smart-system-innovating-for-the-alliance-5ebc31709eea?source=rss----3c87dc14372f---4"
   image="https://miro.medium.com/v2/resize:fit:1200/1*rDDZDcEQP011rQj5uPCuwA.png"
-  summary="Palantir Maven Smart System — NATO 동맹국 AI 전투 시스템 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Palantir이 NATO의 Task Force Maven과 협력하여 Maven Smart System을 공개했습니다. 2025년 11월 NATO Warfighting Innovation Week에서 시연된 이 시스템은 동맹국 전투원에게 즉각적인 AI 역량을 제공하는 것을 목표로 합니다."
   source="Palantir Blog"
   severity="Medium"
 -%}
@@ -361,7 +361,7 @@ Palantir이 NATO의 Task Force Maven과 협력하여 Maven Smart System을 공�
   title="[AI/ML] Google AI 시각 검색 기술 심층 분석"
   url="https://blog.google/company-news/inside-google/googlers/how-google-ai-visual-search-works/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Fan_out_query_ss.width-1300.png"
-  summary="Google AI 시각 검색 기술 심층 분석 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Google이 AI가 사용자의 시각적 검색을 이해하는 방식을 상세히 설명했습니다. 카메라로 촬영한 이미지에서 객체를 인식하고, 텍스트와 이미지를 결합한 멀티모달 이해를 통해 검색 의도를 파악하는 기술입니다."
   source="Google AI Blog"
   severity="Medium"
 -%}
@@ -376,7 +376,7 @@ Google이 AI가 사용자의 시각적 검색을 이해하는 방식을 상세�
   title="[AI/ML] Google 2월 AI 업데이트 종합 — Gemini 3.1 Pro, Nano Banana 2"
   url="https://blog.google/innovation-and-ai/products/google-ai-updates-february-2026/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Thumbnail_mPCqgRv.width-1300.png"
-  summary="Google 2월 AI 업데이트 종합 — Gemini 3.1 Pro, Nano Banana 2 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Google이 2026년 2월에 발표한 AI 관련 업데이트를 종합 정리했습니다. Gemini 3.1 Pro와 이미지 생성 모델 Nano Banana 2 등이 포함되며, Google의 AI 제품 라인업 전반에 걸친 개선사항을 다루고 있습니다."
   source="Google AI Blog"
   severity="Medium"
 -%}
@@ -395,7 +395,7 @@ Google이 2026년 2월에 발표한 AI 관련 업데이트를 종합 정리했�
   title="[클라우드] Google Cloud 보안 체크리스트 공개 — MVSP 기반 권장 설정"
   url="https://cloud.google.com/blog/products/identity-security/introducing-the-google-cloud-recommended-security-checklist/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/Google_Cloud_recommended_security_checklis.max-2000x2000_mUiFTOZ.jpg"
-  summary="Google Cloud 보안 체크리스트 공개 — MVSP 기반 권장 설정 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Google Cloud가 Minimum Viable Secure Product(MVSP) 원칙에 기반한 보안 체크리스트를 공개했습니다. 에이전틱 AI 도입이 가속화되는 가운데, 클라우드 보안과 리스크 관리를 지속적으로 우선시해야 한다는 메시지와 함께, 조직이 보안 요구사항을 관리하고 설정을 검증할 수 있는 체계적인 가이드를 제공합니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -417,7 +417,7 @@ MVSP는 B2B 소프트웨어의 최소 보안 요구사항을 정의하는 업계
   title="[클라우드] 2025 제로데이 리뷰 — GTIG 분석, 90개 제로데이 추적"
   url="https://cloud.google.com/blog/topics/threat-intelligence/2025-zero-day-review/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
-  summary="2025 제로데이 리뷰 — GTIG 분석, 90개 제로데이 추적 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Google Threat Intelligence Group(GTIG)이 2025년 한 해 동안 추적한 90개 제로데이 취약점에 대한 종합 리뷰를 발표했습니다. 제로데이 공격 트렌드, 주요 타겟 플랫폼, 공격자 유형별 분석 등을 포함합니다."
   source="Google Cloud Blog"
   severity="High"
 -%}
@@ -437,7 +437,7 @@ Google Threat Intelligence Group(GTIG)이 2025년 한 해 동안 추적한 90개
   title="[클라우드] GKE 커스텀 메트릭 네이티브 지원 — 오토스케일링 고도화"
   url="https://cloud.google.com/blog/products/containers-kubernetes/gke-now-supports-custom-metrics-natively/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/07_-_Containers__Kubernetes_iY4YTLa.max-2600x2600.jpg"
-  summary="GKE 커스텀 메트릭 네이티브 지원 — 오토스케일링 고도화 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Google Kubernetes Engine(GKE)이 커스텀 메트릭을 네이티브로 지원하기 시작했습니다. 기존에 CPU와 메모리 기반 오토스케일링은 간단했지만, 큐 깊이(queue depth)나 활성 요청 수(active requests) 같은 애플리케이션 시그널 기반 스케일링은 복잡했습니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -457,7 +457,7 @@ Google Kubernetes Engine(GKE)이 커스텀 메트릭을 네이티브로 지원�
   title="[클라우드] 메리츠증권 AWS 클라우드 기반 차세대 증권 플랫폼"
   url="https://aws.amazon.com/ko/blogs/tech/meritz-securities-wts-with-gen-ai/"
   image="https://d2908q01vomqb2.cloudfront.net/827bfc458708f0b442009c9c9836f7e4b65557fb/2020/06/03/Blog-Post_thumbnail.png"
-  summary="메리츠증권 AWS 클라우드 기반 차세대 증권 플랫폼 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="메리츠증권이 AWS 클라우드를 활용하여 차세대 증권 플랫폼을 설계하고 구축한 사례가 공개되었습니다. 리테일 비즈니스 경쟁력 강화를 목표로, 단순 트레이딩 시스템을 넘어 투자자 간 상호작용과 정보 교류가 이루어지는 커뮤니티 중심 서비스를 구축했습니다."
   source="AWS Korea Blog"
   severity="Medium"
 -%}
@@ -476,7 +476,7 @@ Google Kubernetes Engine(GKE)이 커스텀 메트릭을 네이티브로 지원�
   title="[DevOps] MCP C# SDK v1.0 정식 출시"
   url="https://devblogs.microsoft.com/dotnet/release-v10-of-the-official-mcp-csharp-sdk/"
   image="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2026/03/image.webp"
-  summary="MCP C# SDK v1.0 정식 출시 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Microsoft가 Model Context Protocol(MCP) C# SDK v1.0을 정식 출시했습니다. MCP는 AI 에이전트가 외부 도구와 상호작용하기 위한 표준 프로토콜로, 이번 v1.0에는 향상된 인증(authorization), 풍부한 메타데이터, 도구 호출 및 장시간 실행 요청을 위한 패턴이 포함되었습니다."
   source="Microsoft .NET Blog"
   severity="Medium"
 -%}
@@ -496,7 +496,7 @@ Microsoft가 Model Context Protocol(MCP) C# SDK v1.0을 정식 출시했습니�
   title="[DevOps] 모든 AI 플랫폼이 Kubernetes로 수렴하는 이유"
   url="https://www.cncf.io/blog/2026/03/05/the-great-migration-why-every-ai-platform-is-converging-on-kubernetes/"
   image="https://www.cncf.io/wp-content/uploads/2026/02/Akamia-Cloud-Credits-2.png"
-  summary="모든 AI 플랫폼이 Kubernetes로 수렴하는 이유 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="CNCF에서 발표한 분석에 따르면, 10년 전 마이크로서비스 배포를 위해 탄생한 Kubernetes가 2026년에는 AI 플랫폼의 사실상 표준 인프라로 자리 잡았습니다. 더 이상 '상태 없는 웹 서비스' 전용이 아니라, GPU 스케줄링, 분산 학습, 모델 서빙 등 AI 워크로드의 전체 라이프사이클을 관리하는 플랫폼으로 진화했습니다."
   source="CNCF Blog"
   severity="Medium"
 -%}
@@ -520,7 +520,7 @@ CNCF에서 발표한 분석에 따르면, 10년 전 마이크로서비스 배포
   title="[블록체인] Bitcoin 컨센서스 클린업 — BIP 54 소프트포크 제안"
   url="https://bitcoinmagazine.com/print/the-core-issue-consensus-cleanup"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/03/Core-Issue-Article-Header-2400x1256-Poinsot-1-fotor-20260305161511.webp"
-  summary="Bitcoin 컨센서스 클린업 — BIP 54 소프트포크 제안 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Bitcoin Magazine가 BIP 54 소프트포크 제안을 심층 분석했습니다. 이 제안은 Bitcoin 핵심 합의 프로토콜에 존재하는 4가지 미해결 버그를 수정하기 위한 것으로, 네트워크의 장기적 안정성과 보안 강화를 목표로 합니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
