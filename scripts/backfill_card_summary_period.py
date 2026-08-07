@@ -21,7 +21,6 @@ Usage:
 """
 import argparse
 import glob
-import re
 import sys
 from pathlib import Path
 
@@ -29,6 +28,8 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
 
 from scripts.news.content_generator import _restore_sentence_period  # noqa: E402
+from scripts.news_card_patterns import CARD_RE as _CARD_RE  # noqa: E402
+from scripts.news_card_patterns import SUMMARY_RE as _SUMMARY_RE  # noqa: E402
 
 restore = _restore_sentence_period
 
@@ -38,9 +39,6 @@ restore = _restore_sentence_period
 # hiding the very defect #506 fixed. Those 9 cards need a re-summary from the
 # source article, not a period, so this backfill leaves them alone.
 TRUNCATION_SUSPECT_LEN = 195
-
-_CARD_RE = re.compile(r"\{%\s*include\s+news-card\.html.*?%\}", re.DOTALL)
-_SUMMARY_RE = re.compile(r'(\bsummary=")(.*?)("(?=\s+\w+="|\s*%\}|\s*$))', re.DOTALL)
 
 
 def _fix_card(card: str) -> str:

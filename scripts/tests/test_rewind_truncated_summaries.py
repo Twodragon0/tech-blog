@@ -25,17 +25,28 @@ import rewind_truncated_summaries as rw  # noqa: E402
 _FM = '---\nlayout: post\ntitle: "x"\n---\n\n'
 
 
-def _card(summary, **extra):
+def _card(summary, include="news-card", open_ws="", close_ws="", **extra):
     attrs = "".join(f'  {k}="{v}"\n' for k, v in extra.items())
     return (
-        "{% include news-card.html\n"
+        f"{{%{open_ws} include {include}.html\n"
         '  title="제목"\n'
         '  url="https://example.com/a"\n'
         f'  summary="{summary}"\n'
         f"{attrs}"
         '  source="Example"\n'
-        "%}\n"
+        f"{close_ws}%}}\n"
     )
+
+
+# Every shape the corpus actually uses (C11). `\s` does not match `-`, so all
+# 282 `{%-` cards and all 64 spotlight items were invisible until 2026-08-07.
+_CARD_SHAPES = {
+    "plain": {},
+    "whitespace_control": {"open_ws": "-", "close_ws": "-"},
+    "dash_open_only": {"open_ws": "-"},
+    "spotlight": {"include": "news-spotlight-item"},
+    "spotlight_dash": {"include": "news-spotlight-item", "open_ws": "-", "close_ws": "-"},
+}
 
 
 def _truncated(head="가" * 150):
@@ -64,6 +75,14 @@ def test_rewind_keeps_the_sentence_period():
     out = rw.transform(_FM + _card(_truncated()))
     new = out.split('summary="')[1].split('"\n')[0]
     assert new.endswith("다.")
+
+
+@pytest.mark.parametrize("shape,kwargs", sorted(_CARD_SHAPES.items()))
+def test_every_card_shape_is_reached(shape, kwargs):
+    """C11 recall: a `{%-` or spotlight card must be rewound like a plain one."""
+    out = rw.transform(_FM + _card(_truncated(), **kwargs))
+    assert '경고합니다."' in out, shape
+    assert "Java 바이트 스트림 역" not in out, shape
 
 
 # --- what must NOT change ----------------------------------------------------

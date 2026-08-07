@@ -21,18 +21,19 @@ Usage:
 """
 import argparse
 import glob
-import re
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO))
+
+from scripts.news_card_patterns import CARD_RE as _CARD_RE  # noqa: E402
+from scripts.news_card_patterns import SUMMARY_RE as _SUMMARY_RE  # noqa: E402
 
 # Below this a summary was never near the old 200-char cap, so a missing final
 # period is a headline-shaped source, not truncation — not this script's job.
 TRUNCATION_SUSPECT_LEN = 195
 
-_CARD_RE = re.compile(r"\{%\s*include\s+news-card\.html.*?%\}", re.DOTALL)
-_SUMMARY_RE = re.compile(r'(\bsummary=")(.*?)("(?=\s+\w+="|\s*%\}|\s*$))', re.DOTALL)
 _TERMINATED = (".", "!", "?")
 
 
