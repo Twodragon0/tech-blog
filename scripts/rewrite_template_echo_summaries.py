@@ -69,6 +69,15 @@ sys.path.insert(0, str(REPO))
 # where a Korean sentence may be cut (contract C8, PR #512).
 from scripts.news.content_generator import _truncate_korean_sentence  # noqa: E402
 
+# Same reason, for the card patterns themselves (C8 + C11). ``\s`` does not match
+# ``-``, so a re-declared ``\{%\s*include`` silently skips every ``{%- include``
+# card; that miss produced no diff and no red test in PR #512/#513.
+from scripts.news_card_patterns import (  # noqa: E402
+    CARD_RE,
+    SPOTLIGHT_RE,
+    SUMMARY_RE,
+)
+
 # The three fixed clauses. A summary containing any of them describes no article.
 TEMPLATE_MARKERS = (
     "공격 경로·영향 자산·탐지 포인트를 정리하고",
@@ -88,28 +97,15 @@ MIN_PROSE_LEN = 40
 # optional ``#### 요약``, blank); 20 is slack, not a licence to wander.
 PROSE_WINDOW = 20
 
-# Both card includes. ``{%-`` whitespace-control variants are the majority in
-# 2026-03-06; matching only ``{%`` undercounts the corpus by 54 cards.
-CARD_RE = re.compile(
-    r"\{%-?\s*include\s+(?:news-card|news-spotlight-item)\.html.*?-?%\}",
-    re.DOTALL,
-)
-SPOTLIGHT_RE = re.compile(
-    r"\{%-?\s*include\s+news-spotlight-item\.html.*?-?%\}",
-    re.DOTALL,
-)
-SUMMARY_RE = re.compile(
-    r'(\bsummary=")(.*?)("(?=\s+[\w-]+="|\s*-?%\}|\s*$))',
-    re.DOTALL,
-)
-
 # Drop mode deletes whole lines, so the attribute must OWN its line. Measured:
 # 45/45 spotlight defects match this; a value that ever wrapped would be skipped
-# rather than half-deleted.
+# rather than half-deleted. Local to this script — it is a line-ownership test
+# for the drop mechanic, not a card pattern.
 SUMMARY_LINE_RE = re.compile(r'^[ \t]*summary="[^"\n]*"[ \t]*$')
 
-# Independent of the rules: reads attribute NAMES straight off each card so the
-# drop contract has its own detector (contract C5).
+# Independent of the shared patterns ON PURPOSE (contract C5): the drop contract
+# audits card count and attribute order, so its detector must not be the same
+# regex the rule uses, or both regress together.
 _ATTR_NAME_RE = re.compile(r'(?m)^[ \t]*([\w-]+)="')
 _INCLUDE_NAME_RE = re.compile(r"\{%-?\s*include\s+([\w.-]+)")
 

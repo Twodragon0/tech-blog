@@ -145,14 +145,15 @@ def test_summary_as_the_last_attribute_before_a_dash_close():
 # --- consumers stay wired to this module (C8 drift guard) --------------------
 
 
-@pytest.mark.parametrize(
-    "script",
-    [
-        "rewind_truncated_summaries.py",
-        "backfill_card_summary_period.py",
-        "backfill_digest_titles.py",
-    ],
-)
+CONSUMERS = [
+    "rewind_truncated_summaries.py",
+    "backfill_card_summary_period.py",
+    "backfill_digest_titles.py",
+    "rewrite_template_echo_summaries.py",
+]
+
+
+@pytest.mark.parametrize("script", CONSUMERS)
 def test_consumers_import_the_shared_pattern_instead_of_redeclaring(script):
     """A re-declared `\\{%\\s*include` in any consumer reopens the C11 hole."""
     src = (REPO / "scripts" / script).read_text(encoding="utf-8")
@@ -160,3 +161,81 @@ def test_consumers_import_the_shared_pattern_instead_of_redeclaring(script):
     assert not re.search(r'r"\\\{%\\s\*include', src), (
         f"{script} re-declares a `-`-blind include pattern"
     )
+
+
+@pytest.mark.parametrize("script", CONSUMERS)
+def test_consumers_do_not_redeclare_a_card_or_summary_pattern(script):
+    """Even a CORRECT copy is a C8 violation — two definitions can drift apart.
+
+    ``rewrite_template_echo_summaries`` shipped its own ``\\{%-?\\s*include``
+    trio: right pattern, wrong place. The import-presence assertion above cannot
+    see that, so pin the assignment forms too.
+    """
+    src = (REPO / "scripts" / script).read_text(encoding="utf-8")
+    offenders = re.findall(
+        r"(?m)^(CARD_RE|CARD_OPEN_RE|SUMMARY_RE|SPOTLIGHT_RE|NEWS_CARD_RE)\s*=\s*re\.compile",
+        src,
+    )
+    assert offenders == [], f"{script} re-declares {offenders}"
+
+
+# --- per-kind block patterns --------------------------------------------------
+
+
+def test_block_re_rejects_an_unknown_include_kind():
+    with pytest.raises(ValueError):
+        ncp.block_re("news-spotlight-section")
+
+
+@pytest.mark.parametrize("kind", ncp.CARD_INCLUDES)
+def test_every_kind_has_a_block_pattern(kind):
+    assert kind in ncp.BLOCK_RE_BY_KIND
+
+
+def test_per_kind_blocks_partition_the_corpus(corpus):
+    """C11 for the single-kind patterns: the parts must sum to the whole."""
+    mismatches = []
+    for path, text in corpus:
+        whole = len(ncp.CARD_RE.findall(text))
+        parts = sum(len(rx.findall(text)) for rx in ncp.BLOCK_RE_BY_KIND.values())
+        if whole != parts:
+            mismatches.append((path.name, whole, parts))
+    assert mismatches == []
+
+
+def test_spotlight_re_never_matches_a_news_card():
+    card = '{%- include news-card.html\n  summary="가나다."\n-%}'
+    assert ncp.SPOTLIGHT_RE.findall(card) == []
+    assert len(ncp.NEWS_CARD_RE.findall(card)) == 1
+
+
+@pytest.mark.parametrize("dash", ["", "-"])
+def test_spotlight_re_matches_both_whitespace_control_forms(dash):
+    snippet = f'{{%{dash} include news-spotlight-item.html\n  summary="가나다."\n{dash}%}}'
+    assert len(ncp.SPOTLIGHT_RE.findall(snippet)) == 1
+
+
+# --- hyphenated attribute names (Jekyll's own grammar) -----------------------
+
+
+def test_summary_value_stops_at_a_hyphenated_attribute_name():
+    """``Jekyll::Tags::IncludeTag::VALID_SYNTAX`` is ``([\\w-]+)\\s*=\\s*…``, so a
+    hyphenated parameter name is legal Jekyll. With ``\\w+`` in the lookahead the
+    summary value would swallow it."""
+    snippet = (
+        "{% include news-card.html\n"
+        '  summary="가나다."\n'
+        '  aria-label="x"\n'
+        "%}"
+    )
+    assert ncp.SUMMARY_RE.search(snippet).group(2) == "가나다."
+
+
+def test_summary_value_still_stops_at_an_underscored_attribute_name():
+    snippet = (
+        "{% include news-card.html\n"
+        '  summary="가나다."\n'
+        '  aria_label="x"\n'
+        "%}"
+    )
+    assert ncp.SUMMARY_RE.search(snippet).group(2) == "가나다."

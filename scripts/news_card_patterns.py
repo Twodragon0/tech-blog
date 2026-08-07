@@ -39,7 +39,38 @@ CARD_RE = re.compile(
 # The ``summary="…"`` attribute inside a card. The lookahead ends the value at
 # the next attribute, the closing tag, or end of input — never at an escaped
 # quote inside the prose (``&quot;`` is what the corpus uses).
-SUMMARY_RE = re.compile(r'(\bsummary=")(.*?)("(?=\s+\w+="|\s*-?%\}|\s*$))', re.DOTALL)
+#
+# The attribute name in that lookahead is ``[\w-]+``, not ``\w+``, because that
+# is what Jekyll itself accepts: ``Jekyll::Tags::IncludeTag::VALID_SYNTAX`` is
+# ``([\w-]+)\s*=\s*(?:"…"|'…'|[\w.-]+)`` (jekyll-4.4.1). Verified 2026-08-07:
+# ``FULL_VALID_SYNTAX.match?('title="a" aria-label="x" summary="s"')`` is true.
+# The corpus has no hyphenated include parameter yet, so widening the class is
+# behaviour-preserving today (proved over all 2117 card blocks) and stops a
+# ``summary`` value from swallowing the next attribute the day one appears.
+SUMMARY_RE = re.compile(r'(\bsummary=")(.*?)("(?=\s+[\w-]+="|\s*-?%\}|\s*$))', re.DOTALL)
+
+
+def block_re(include_name: str) -> "re.Pattern[str]":
+    """Block pattern for ONE include kind, built exactly like ``CARD_RE``.
+
+    Transformers that must treat the kinds differently need this: dropping the
+    ``summary=`` attribute is right for a spotlight item (no prose exists to
+    rewrite it from) and wrong for a ``news-card``. Deny-by-default on the name
+    so a typo cannot silently match nothing.
+    """
+    if include_name not in CARD_INCLUDES:
+        raise ValueError(f"unknown card include: {include_name!r}")
+    return re.compile(
+        rf"\{{%-?\s*include\s+{re.escape(include_name)}\.html.*?-?%\}}",
+        re.DOTALL,
+    )
+
+
+BLOCK_RE_BY_KIND = {name: block_re(name) for name in CARD_INCLUDES}
+
+# Convenience aliases for the two kinds that exist today.
+NEWS_CARD_RE = BLOCK_RE_BY_KIND["news-card"]
+SPOTLIGHT_RE = BLOCK_RE_BY_KIND["news-spotlight-item"]
 
 
 def count_cards(text: str) -> int:
