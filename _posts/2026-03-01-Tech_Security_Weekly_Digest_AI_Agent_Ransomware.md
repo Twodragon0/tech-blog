@@ -194,7 +194,7 @@ SIEM 탐지 쿼리 (Splunk)
   title="[AI/ML] NVIDIA, Agentic AI 기반 통신 자율 네트워크 추진"
   url="https://blogs.nvidia.com/blog/nvidia-agentic-ai-blueprints-telco-reasoning-models/"
   image="https://blogs.nvidia.com/wp-content/uploads/2026/02/Autonomous-Networks-Blog-Image-1280x720.png"
-  summary="NVIDIA, Agentic AI 기반 통신 자율 네트워크 추진 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="NVIDIA가 통신 사업자를 위한 Agentic AI 자율 네트워크 솔루션을 공개했습니다. 핵심은 300억 파라미터 규모의 오픈소스 Nemotron LTM(Large Telco Model)으로, 통신 전문 용어와 추론 워크플로를 이해하도록 파인튜닝된 모델입니다."
   source="NVIDIA AI Blog"
   severity="Medium"
 -%}
@@ -228,7 +228,7 @@ Agentic AI가 네트워크 인프라에 자율 제어권을 가지면서 새로�
   title="[AI/ML] NVIDIA, 소프트웨어 정의 AI-RAN 상용화 실증 성공"
   url="https://blogs.nvidia.com/blog/software-defined-ai-ran/"
   image="https://blogs.nvidia.com/wp-content/uploads/2026/02/AI-RAN-Commercialization-Blog-Image.jpg"
-  summary="NVIDIA, 소프트웨어 정의 AI-RAN 상용화 실증 성공 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="NVIDIA와 T-Mobile, SoftBank, Indosat 등 글로벌 통신사가 소프트웨어 정의 AI-RAN을 실증에서 상용 배포 단계로 전환하는 데 성공했습니다. MWC에서 20건 이상의 시연을 통해, GPU 기반 소프트웨어 방식이 기존 하드웨어 의존 방식을 대체할 수 있음을 증명했습니다."
   source="NVIDIA AI Blog"
   severity="Medium"
 -%}
@@ -251,7 +251,7 @@ NVIDIA와 T-Mobile, SoftBank, Indosat 등 글로벌 통신사가 소프트웨어
   title="[클라우드] AWS: Agentic AI 플랫폼 Part 2 — AgentCore Gateway와 MCP Registry 구현"
   url="https://aws.amazon.com/ko/blogs/tech/agentic-ai-platform-part2-agentcore-gateway-identity-making-mcp-registry/"
   image="https://d2908q01vomqb2.cloudfront.net/2a459380709e2fe4ac2dae5733c73225ff6cfee1/2026/02/26/feature-main-1118x630.png"
-  summary="AWS: Agentic AI 플랫폼 Part 2 — AgentCore Gateway와 MCP Registry 구현 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="AWS Korea Blog의 시리즈 2편으로, 2명의 Solutions Architect가 7주 만에 구축한 Agentic AI 플랫폼의 핵심 인프라를 다룹니다."
   source="AWS Korea Blog"
   severity="Medium"
 -%}
@@ -278,7 +278,7 @@ Amazon Bedrock의 에이전트 기능과 통합되며, Kiro, Claude Code, Linear
   title="[블록체인] 토큰화 금(Tokenized Gold), 주말 가격 발견의 100%를 주도"
   url="https://cointelegraph.com/news/tokenized-gold-weekend-price-discovery-cme-closed?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-01/019bbc62-fe05-760e-b9f5-f8e1ab342acd.jpg"
-  summary="토큰화 금, 주말 가격 발견의 100%를 주도 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시장이 마감되는 주말(금요일 17시~일요일 18시 ET) 동안 사실상 100%의 가격 발견(Price Discovery) 역할을 수행하고 있습니다."
   source="Cointelegraph"
   severity="Medium"
 -%}
@@ -308,7 +308,7 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
   title="[블록체인] Polymarket 거래자 6명, 미-이란 공습 예측으로 $1M 수익 — 내부자 거래 의혹"
   url="https://cointelegraph.com/news/polymarket-traders-1m-us-iran-strike-insider-trading-concerns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-03/019ca84b-b61b-7697-8ab7-dcd84b4f31da.jpg"
-  summary="Polymarket 거래자 6명, 미-이란 공습 예측으로 $1M 수익 — 내부자 거래 의혹 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="신규 생성된 Polymarket 지갑 6개가 테헤란 폭발 보도 수 시간 전에 미국의 이란 공습 예측 계약을 약 $0.10에 매수하여 총 약 100만 달러의 수익을 올렸습니다. 의심스러운 거래 타이밍으로 인해 내부자 거래 조사가 촉발되었으며, 미국 의회에서는 정부 관계자의 비공개 정보를 이용한 예측 시장 거래를 제한하는 법안을 검토 중입니다."
   source="Cointelegraph"
   severity="High"
 -%}
@@ -325,7 +325,7 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
   title="[블록체인] Bitcoin, 이란 최고지도자 사망 후 $68K로 회복"
   url="https://cointelegraph.com/news/bitcoin-recovers-to-68k-following-reported-death-of-iranian-supreme-leader?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-03/019ca7ab-9219-72a5-8214-96388e93d1fa.jpeg"
-  summary="Bitcoin, 이란 최고지도자 사망 후 $68K로 회복 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="이란 최고지도자 하메네이가 미-이스라엘 공습으로 사망한 후, Bitcoin은 $63,000 저점에서 24시간 내에 $68,200까지 $5,000 반등했습니다. 시장은 하메네이 사망을 미-이란 긴장 완화 신호로 해석했습니다."
   source="Cointelegraph"
   severity="Medium"
 -%}
@@ -346,21 +346,18 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
   url="https://tech.worldmonitor.app/"
   source="Tech World Monitor"
   tag="Operator Signal"
-  summary="Tech Monitor - 실시간 AI & Tech 산업 대시보드 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="Guido van Rossum이 전하는 Python의 구술 역사"
   url="https://news.hada.io/topic?id=27107"
   source="GeekNews"
   tag="Tech Signals"
-  summary="Guido van Rossum이 전하는 Python의 구술 역사 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% include news-spotlight-item.html
   title="인지 부채: 속도가 이해를 초과할 때"
   url="https://news.hada.io/topic?id=27106"
   source="GeekNews"
   tag="Tech Signals"
-  summary="인지 부채: 속도가 이해를 초과할 때 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html

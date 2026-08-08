@@ -97,7 +97,7 @@ summary_card:
   title="[보안] AI 어시스턴트가 보안 기준을 바꾸고 있다"
   url="https://krebsonsecurity.com/2026/03/how-ai-assistants-are-moving-the-security-goalposts/"
   image="https://krebsonsecurity.com/wp-content/uploads/2026/03/lethaltrifecta.png"
-  summary="AI 어시스턴트가 보안 기준을 바꾸고 있다를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="AI 기반 자율 에이전트가 사용자의 컴퓨터·파일·온라인 서비스에 완전한 접근권을 가지면서 심각한 보안 문제를 야기하고 있습니다. Krebs on Security는 실제 발생한 사건들을 바탕으로, AI 에이전트가 기존 보안 경계를 근본적으로 재정의하고 있음을 상세히 분석했습니다."
   source="Krebs on Security"
   severity="High"
 %}
@@ -177,7 +177,7 @@ MCP 서버가 새로운 공격 표면을 생성하며, 악성 MCP 서버에 연�
   title="[블록체인] 은행에게 암호화폐 규제 명확성이 더 중요 — 전 CFTC 위원장"
   url="https://cointelegraph.com/news/us-banks-need-crypto-regulatory-clarity-giancarlo-cftc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YjA0NTctN2FkYy03MTdlLWIyOWUtNjk5MjkwYzQ3NTc3.jpg"
-  summary="은행에게 암호화폐 규제 명확성이 더 중요 — 전 CFTC 위원장를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="전 CFTC 의장 크리스 지앙카를로(Chris Giancarlo)는 암호화폐 규제 명확성이 암호화폐 산업 자체보다 미국 은행들에게 더 긴급한 과제라고 강조했습니다. 그는 '은행들은 규제 불확실성을 감당할 수 없으며, 수십억 달러를 투자하려면 규제 확실성이 필요하다'고 지적했습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -215,7 +215,7 @@ SEC/CFTC 역할 분담의 핵심:
   title="[블록체인] Saylor, BTC $66K 근처에서 추가 매수 신호"
   url="https://cointelegraph.com/news/saylor-signals-bitcoin-buy-btc-near-66k?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMTIvMDE5YWZmOTctOTNhYS03YTA1LTg1NGQtZjVmNmVmNTQ5OGNm.jpg"
-  summary="Saylor, BTC $66K 근처에서 추가 매수 신호를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Michael Saylor가 이끄는 Strategy(구 MicroStrategy)는 720,737 BTC(시장가 기준 약 $481억)를 보유한 전 세계 최대 Bitcoin 보유 상장기업입니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -250,7 +250,7 @@ Strategy의 매수 신호가 뉴스를 장식할 때마다, 이를 악용한 피
   title="[블록체인] 브라질 Pix 즉시결제 시스템, 아르헨티나로 확장"
   url="https://cointelegraph.com/news/brazil-pix-payments-expand-argentina?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2NlYjEtZTMwZC03M2ZkLWI1NTItNjkzYzczNjY4MzEzLmpwZw==.jpg"
-  summary="브라질 Pix 즉시결제 시스템, 아르헨티나로 확장를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="브라질 중앙은행이 Pix 디지털 즉시결제 시스템을 아르헨티나 거주 브라질인들로 확장했습니다. 이들은 이제 양국에서 상품·서비스 구매 및 송금이 가능합니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -293,7 +293,7 @@ Pix의 국경간 확장은 새로운 보안 과제를 수반합니다.
   title="엔터프라이즈 LLM 서비스 구축기 2: 에이전트 엔지니어링"
   url="https://techblog.lycorp.co.jp/ko/building-an-llm-service-for-enterprise-2-agent-engineering"
   image="https://techblog.lycorp.co.jp/static/6566a0509ecea313ec484dccc2d6293e/7d66e/40c7b64033ec406fa055af3f2fbe65c3.png"
-  summary="엔터프라이즈 LLM 서비스 구축기 2: 에이전트 엔지니어링를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="LINE Engineering(LY Corporation)이 발행한 이 기술 블로그 시리즈 2편은, 수백 명의 직원이 사용하는 엔터프라이즈급 LLM 서비스를 실제 운영하면서 터득한 에이전트 엔지니어링의 핵심 노하우를 공개합니다."
   source="LINE Engineering Blog"
   severity="Medium"
 %}
@@ -326,7 +326,7 @@ DevSecOps 관점에서의 인사이트:
   title="전쟁은 AI 기업의 윤리 원칙을 어디까지 밀어붙였나?"
   url="https://news.hada.io/topic?id=27330"
   image="https://social.news.hada.io/topic/27330"
-  summary="전쟁은 AI 기업의 윤리 원칙을 어디까지 밀어붙였나?를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Anthropic의 Claude가 Palantir의 Maven Smart System을 통해 미군의 정보분석·표적 식별·시뮬레이션에 활용되고 있다는 사실이 알려지며 AI 업계에 큰 파장을 일으켰습니다. 이 사건의 핵심은 평시의 윤리 원칙이 전시에는 얼마나 쉽게 흔들리는가를 보여준다는 것입니다."
   source="GeekNews"
   severity="Medium"
 %}
@@ -360,7 +360,7 @@ Anthropic의 Claude가 Palantir의 Maven Smart System을 통해 미군의 정보
   title="Agent Safehouse — macOS용 로컬 에이전트 샌드박싱 도구"
   url="https://news.hada.io/topic?id=27329"
   image="https://social.news.hada.io/topic/27329"
-  summary="Agent Safehouse — macOS용 로컬 에이전트 샌드박싱 도구를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Agent Safehouse는 본 포스트 1.1절에서 다룬 AI 에이전트 보안 위협에 대한 실질적인 대응 도구입니다. LLM의 확률적 특성으로 인한 예기치 못한 명령 실행을 차단하여 시스템 파일 손상을 방지하며, macOS 커널 수준에서 민감한 파일 접근을 차단합니다."
   source="GeekNews"
   severity="Medium"
 %}

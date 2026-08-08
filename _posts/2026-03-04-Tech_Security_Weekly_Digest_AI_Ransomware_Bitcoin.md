@@ -94,7 +94,7 @@ summary_card:
 {%- include news-card.html
   title="[보안] JWT 서명키 유출: 전체 인증 체계 침해"
   url="https://www.skshieldus.com/download/files/download.do?o_fname=Research%20Technique%201%EC%9B%94%ED%98%B8_JWT%20%EC%84%9C%EB%AA%85%ED%82%A4%20%EC%9C%A0%EC%B6%9C%EC%9D%B4%20%EC%B4%88%EB%9E%98%ED%95%98%EB%8A%94%20%EC%9D%B8%EC%A6%9D%20%EC%9C%84%ED%98%91%EA%B3%BC%20%EB%A6%AC%EC%8A%A4%ED%81%AC%20%EB%8C%80%EC%9D%91%20%EC%A0%84%EB%9E%B5.pdf&r_fname=20260129161142327.pdf"
-  summary="JWT 서명키 유출: 전체 인증 체계 침해 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="SK쉴더스 Research Technique (1월호)에서 JWT 서명키 노출과 그로 인한 인증 위협에 대한 심층 분석을 발표했습니다."
   source="SK쉴더스 Research Technique — JWT 서명키 위협 분석 (PDF)"
   severity="High"
 -%}
@@ -144,7 +144,7 @@ source.ip NOT IN known_admin_ips
 {%- include news-card.html
   title="[보안] 금융 AI 7대 원칙 및 글로벌 정책 분석"
   url="https://www.skshieldus.com/download/files/download.do?o_fname=HeadLine_2%EC%9B%94%ED%98%B8_%EA%B8%88%EC%9C%B5%EB%B6%84%EC%95%BC%20AI%207%EB%8C%80%20%EC%9B%90%EC%B9%99%EA%B3%BC%20%EA%B5%AD%EB%82%B4%EC%99%B8%20%EC%A0%95%EC%B1%85%EC%82%AC%EB%A1%80%20%EB%B6%84%EC%84%9D.pdf&r_fname=20260225185655664.pdf"
-  summary="금융 AI 7대 원칙 및 글로벌 정책 분석 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="SK쉴더스 HeadLine (2월호)에서 금융 서비스 분야 AI를 위한 7대 핵심 원칙과 국내외 정책 사례 연구를 분석했습니다."
   source="SK쉴더스 HeadLine — 금융 AI 7대 원칙 (PDF)"
   severity="Medium"
 -%}
@@ -177,7 +177,7 @@ SK쉴더스 HeadLine (2월호)에서 금융 서비스 분야 AI를 위한 7대 �
 {%- include news-card.html
   title="[보안] SK쉴더스 EQST Insight 및 랜섬웨어 트렌드"
   url="https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8"
-  summary="SK쉴더스 EQST Insight 및 랜섬웨어 트렌드 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="이번 기간 SK쉴더스 추가 발간물 2종입니다. EQST Insight (1월호)는 신규 공격 벡터를 다루는 통합 위협 인텔리전스 다이제스트, 글로벌 랜섬웨어 트렌드 보고서 (2월)는 랜섬웨어 진화, 신규 변종, 업종별 타겟팅 패턴 분석을 다룹니다."
   source="SK쉴더스 EQST Insight (PDF)"
   severity="High"
 -%}
@@ -201,7 +201,7 @@ SK쉴더스 HeadLine (2월호)에서 금융 서비스 분야 AI를 위한 7대 �
   title="[블록체인] 이란 암호화폐 유출: 미-이스라엘 공습 후 BTC $1,030만 유출"
   url="https://www.chainalysis.com/blog/iranian-crypto-outflows-spike-after-airstrikes/"
   image="https://www.chainalysis.com/wp-content/uploads/2026/03/2026-03-iran.jpg"
-  summary="이란 암호화폐 유출: 미-이스라엘 공습 후 BTC $1,030만 유출 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Chainalysis 및 Bitcoin Magazine의 온체인 분석에 따르면, 2월 28일 미-이스라엘의 테헤란 공습 이후 이란 거래소에서 대규모 암호화폐 유출이 발생했습니다."
   source="Chainalysis Blog"
   severity="High"
 -%}
@@ -239,7 +239,7 @@ AML/컴플라이언스 시사점:
   title="[블록체인] American Bitcoin (ABTC) 채굴 장비 대규모 확장"
   url="https://bitcoinmagazine.com/news/trump-linked-american-bitcoin-abtc-2"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/03/Trump-Linked-American-Bitcoin-ABTC-Expands-Mining-Fleet-Bitcoin-Production-Capacity.jpg"
-  summary="American Bitcoin 채굴 장비 대규모 확장 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="트럼프 가문과 연관된 기업 American Bitcoin(ABTC)이 11,000대 이상의 신규 고효율 채굴 장비를 투입하며 채굴 사업을 대폭 확장하고 있습니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}

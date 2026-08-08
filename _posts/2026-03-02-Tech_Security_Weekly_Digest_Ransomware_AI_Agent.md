@@ -198,7 +198,7 @@ IBM QRadar (AQL) — East-West 트래픽 이상 탐지:
   title="[블록체인] Trump Media, 암호화폐 사업 확대 속 Truth Social 분사 검토"
   url="https://cointelegraph.com/news/trump-media-considers-truth-social-spinout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-03/019cabfa-c3a2-72da-b194-fab729b24e80.jpg"
-  summary="Trump Media, 암호화폐 사업 확대 속 Truth Social 분사 검토 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Trump Media & Technology Group(DJT)이 소셜 미디어 플랫폼 Truth Social의 분사(Spin-out)를 검토 중이라고 밝혔다. 배경에는 그룹 차원의 암호화폐·핀테크 사업 확대 전략이 있다."
   source="Cointelegraph"
   severity="Medium"
 -%}
@@ -235,7 +235,7 @@ Trump Media & Technology Group(DJT)이 소셜 미디어 플랫폼 Truth Social�
   title="[블록체인] X(트위터), 유료 프로모션 라벨링 도입 및 암호화폐 광고 정책 변경"
   url="https://cointelegraph.com/news/x-lifts-crypto-promo-ban-for-paid-partnerships?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-03/019cabf9-6fcc-7133-8d32-5f8019e82cae.jpg"
-  summary="X, 유료 프로모션 라벨링 도입 및 암호화폐 광고 정책 변경 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="X(구 트위터)가 유료 파트너십 콘텐츠에 'Paid Partnership' 라벨을 의무적으로 표시하는 정책을 도입한다. 주목할 점은 암호화폐 관련 프로모션을 유료 파트너십 프레임워크 하에서 허용하되, 별도 규정을 적용한다는 것이다."
   source="Cointelegraph"
   severity="Medium"
 -%}
@@ -276,7 +276,7 @@ X 플랫폼 내 암호화폐 마케팅 적법 요건 (2026년 3월 기준):
   title="[블록체인] Kalshi 창업자, 이란 하메네이 관련 예측 시장 carve-out 발표"
   url="https://cointelegraph.com/news/kalshi-founder-khamenei-market-carveout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-02/019c30f6-7921-75e0-a1b0-230012cf2270.jpg"
-  summary="Kalshi 창업자, 이란 하메네이 관련 예측 시장 carve-out 발표 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="미국 CFTC 승인을 받은 예측 시장 플랫폼 Kalshi의 창업자 Tarek Mansour가 이란 최고지도자 하메네이 관련 예측 시장에 대해 'carve-out(예외 적용)' 방침을 발표했다. Kalshi는 '이 특정 마켓은 플랫폼에서 운영하지 않겠다'는 입장을 명확히 했다."
   source="Cointelegraph"
   severity="Medium"
 -%}
@@ -314,7 +314,7 @@ Kalshi의 carve-out 결정은 단순한 개별 사례를 넘어, 예측 시장 �
   title="[AI/ML] 광고 기반 무료 AI 채팅 데모 — &quot;무료&quot; AI의 미래를 풍자한 실험"
   url="https://news.hada.io/topic?id=27119"
   image="https://social.news.hada.io/topic/27119"
-  summary="광고 기반 무료 AI 채팅 데모 — &quot;무료&quot; AI의 미래를 풍자한 실험 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="한 개발자가 광고 수익으로 운영되는 무료 AI 채팅 서비스의 미래를 풍자적으로 구현한 실시간 데모를 공개했다. 실제 작동하는 언어 모델에 다양한 광고 형식을 통합하여, AI 서비스의 지속 가능한 수익화 모델에 대한 질문을 던진다."
   source="GeekNews"
   severity="Medium"
 -%}
@@ -341,7 +341,7 @@ Kalshi의 carve-out 결정은 단순한 개별 사례를 넘어, 예측 시장 �
   title="[AI/ML] Anthropic Courses — 무료 온라인 강의 공개"
   url="https://news.hada.io/topic?id=27118"
   image="https://social.news.hada.io/topic/27118"
-  summary="Anthropic Courses — 무료 온라인 강의 공개 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="Anthropic이 개발자를 위한 무료 온라인 교육 과정 'Anthropic Courses'를 공개했다. Claude 기본 사용법부터 시작하여 API 심화 활용, Claude Code 개발 워크플로, MCP(Model Context Protocol) 서버 구축, Agent Skills 개발까지 실무 중심 커리큘럼으로 구성되어 있다."
   source="GeekNews"
   severity="Medium"
 -%}

@@ -96,7 +96,7 @@ summary_card:
   title="Show HN: 악용 코드가 공개된 AI 에이전트를 레드팀할 수 있는 오픈소스 플레이그라운드"
   url="https://github.com/fabraix/playground"
   image="https://opengraph.githubassets.com/1/fabraix/playground"
-  summary="Show HN: 악용 코드가 공개된 AI 에이전트를 레드팀할 수 있는 오픈소스 플레이그라운드를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="AI 에이전트 보안을 위한 오픈소스 레드팀링 플레이그라운드가 공개되었습니다. 이 도구는 실제 도구와 시스템 프롬프트를 가진 라이브 에이전트를 대상으로 취약점을 테스트하며, 각 챌린지가 끝나면 우승한 대화 기록과 가드레일 로그가 공개됩니다."
   source="Hacker News"
   severity="Critical"
 %}
@@ -147,7 +147,7 @@ index=security sourcetype=ai_agent_logs
   title="Amazon Bedrock과 Claude Agent SDK로 서버리스 멀티 에이전트 구현하기"
   url="https://aws.amazon.com/ko/blogs/tech/implement-serverless-multiagent-bedrock-claude-agent-sdk/"
   image="https://d2908q01vomqb2.cloudfront.net/2a459380709e2fe4ac2dae5733c73225ff6cfee1/2026/03/15/feature-1118x630.png"
-  summary="Amazon Bedrock과 Claude Agent SDK로 서버리스 멀티 에이전트 구현하기를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Kiro CLI나 Claude Code 같은 AI 코딩 에이전트를 사용하다 보면, 코드를 분석하고 수정하고 테스트까지 실행하는 이 에이전트의 동작 방식을 자신의 애플리케이션 백엔드에도 적용할 수 있으면 좋겠다고 생각해 본 적이 있을 것입니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}
@@ -166,7 +166,7 @@ Kiro CLI나 Claude Code 같은 AI 코딩 에이전트를 사용하다 보면, �
   title="Aave, 5000만 달러 토큰 스왑 사고 후 'Aave Shield' 출시 예정"
   url="https://cointelegraph.com/news/aave-roll-out-aave-shield-after-50m-user-loss?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2YzODgtNGJiMi03NzI3LTg0MzgtMmY2YzE3MzVjNzAyLmpwZw==.jpg"
-  summary="Aave, 5000만 달러 토큰 스왑 사고 후 'Aave Shield' 출시 예정를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Aave는 거래자가 USDT를 AAVE로 스왑하는 과정에서 5천만 달러 이상 손실이 발생한 원인이 슬리피지가 아닌 유동성 부족 시장 때문이라고 사후 분석을 통해 밝혔습니다. 이에 따라 Aave는 'Aave Shield' 출시를 준비하고 있습니다."
   source="Cointelegraph"
   severity="High"
 %}
@@ -183,7 +183,7 @@ Aave는 거래자가 USDT를 AAVE로 스왑하는 과정에서 5천만 달러 �
   title="CLARITY 법안은 암호화폐를 중앙화된 기업에 넘길 위험이 있다: Gnosis 임원"
   url="https://cointelegraph.com/news/clarity-act-hand-crypto-centralized-player?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2YzNGUtMGMwZi03MDkzLTg2ZDktOWM2OWNjNWQwYjVmLmpwZw==.jpg"
-  summary="CLARITY 법안은 암호화폐를 중앙화된 기업에 넘길 위험이 있다: Gnosis 임원를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Gnosis 공동 창립자는 CLARITY Act가 모든 암호화폐 활동이 미국 정부가 허가한 금융 중개자를 통과해야 한다고 가정한다고 경고합니다. 이 법안은 암호화폐 산업을 중앙화된 기업에 넘길 위험이 있습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -200,7 +200,7 @@ Gnosis 공동 창립자는 CLARITY Act가 모든 암호화폐 활동이 미국 �
   title="Venus Protocol, '공급 한도' 공격으로 370만 달러 피해"
   url="https://cointelegraph.com/news/venus-protocol-3-7-million-supply-cap-attack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2YyY2EtNTk1NC03YTBkLTkxYTgtMTFhN2VlMzkwMmUzLmpwZw==.jpg"
-  summary="Venus Protocol, '공급 한도' 공격으로 370만 달러 피해를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Venus Protocol이 'supply cap' 공격으로 약 370만 달러의 피해를 입었습니다. 공격자는 Thena 토큰을 이용해 최대 공급 한도를 우회하고 여러 디지털 자산을 빌려냈습니다."
   source="Cointelegraph"
   severity="High"
 %}

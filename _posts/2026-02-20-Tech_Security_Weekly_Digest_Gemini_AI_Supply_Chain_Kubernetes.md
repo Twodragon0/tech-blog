@@ -94,7 +94,7 @@ summary_card:
   title="[보안] PromptSpy Android 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화"
   url="https://thehackernews.com/2026/02/promptspy-android-malware-abuses-google.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidDhkNjYF9Khe4u-ECtSVv3ezo7dUK80WV06lgCNtOdV51GuCKCMmxgdm10lbAhP7MRPVY7Pq5yMuiYPAJ0Opk2xPijnkjHOWfPqiD9oR6k56GqDX6l5IgjYa_9ZTnvxvN6KnazUB0LBZ3aZMOnVrtoodDr-Hx_JTTNjMyzm-u1alcCL6VXeqoeTl12jFE/s1700-e365/android-ai.jpg"
-  summary="PromptSpy Android 악성코드, Gemini AI를 악용해 최근 앱 지속성 자동화 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google Gemini AI를 런타임에 악용하는 최초의 Android 악성코드가 발견됐습니다. VNC 원격 접근과 PIN 가로채기 기능을 탑재하고 Chase Bank 피싱 페이지로 위장 배포되어, AI 서비스가 새로운 공격 표면으로 전용되는 실제 사례를 보여줍니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -135,7 +135,7 @@ Google Gemini AI를 런타임에 악용하는 최초의 Android 악성코드가 
   title="[보안] INTERPOL Operation Red Card 2.0, 아프리카 사이버범죄 단속으로 651명 체포"
   url="https://thehackernews.com/2026/02/interpol-operation-red-card-20-arrests.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhltf-8sYx4UcRPT_qBv92hmitOenRSgB2OctxYx4hdCPglcMJzeHR8Dmffrt5xjjtp0Tz2ur0wPSbvig7cnEyrdtJrOx8V4Z2sTGeR6eBlFwOO4pgPUISeLWGuMbUO4bnruvRWx-O6zYRUy_xw1F1CohPk2fZDkpM1YGXusO-8h8rgwQhLvZSlfp4ho5RJ/s1700-e365/interpol.jpg"
-  summary="INTERPOL Operation Red Card 2.0, 아프리카 사이버범죄 단속으로 651명 체포 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="INTERPOL이 주도한 국제 공조 작전으로 아프리카 전역에서 사이버 범죄자 651명을 일제 검거하고 430만 달러 이상을 회수했습니다. 모바일 뱅킹 사기와 투자 사기가 주요 표적이었으며, 국경을 초월한 사이버 범죄 단속의 실효성을 보여주는 사례입니다."
   source="The Hacker News"
   severity="Medium"
 -%}
@@ -162,7 +162,7 @@ INTERPOL이 주도한 국제 공조 작전으로 아프리카 전역에서 사�
   title="[보안] Microsoft, Windows Admin Center 권한 상승 취약점 CVE-2026-26119 패치 발표"
   url="https://thehackernews.com/2026/02/microsoft-patches-cve-2026-26119.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTYrWKU78qUjsLRxRje4c7MEejHM-e4bg7D2mFbFEomGbCI39Um78JNkCJKcjrcH2FYinO-dVUiV0_rB60jmErrc4lyMkYOK-qIX3HnYCFJ8aWfFwcnaZOHe_38JSgbLPnVqWrQaXhvbXmMCAaJpb6qnANjxjsqB3S4NM89kemycwHA8kDGlwrS-306oP8/s1700-e365/windows-admin.jpg"
-  summary="Microsoft, Windows Admin Center 권한 상승 취약점 CVE-2026-26119 패치 발표 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Microsoft가 Windows Admin Center의 권한 상승 취약점 CVE-2026-26119에 대한 패치를 발표했습니다. 관리 콘솔 접근 권한이 있는 공격자가 시스템 수준 권한을 획득할 수 있는 결함으로, 즉시 패치 적용이 필요합니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -198,7 +198,7 @@ Microsoft가 Windows Admin Center의 권한 상승 취약점 CVE-2026-26119에 �
   title="[보안] 가짜 IPTV 앱, 모바일 뱅킹 사용자 대상 Massiv Android 악성코드 유포"
   url="https://thehackernews.com/2026/02/fake-iptv-apps-spread-massiv-android.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj67LPvqhfl_NCfP1wUAUN8p7ISQ_x3wCwavSYjJJkMl9jkcDnk0gP2Om7d1O0UqaQnwqeU4GzTfpLxUok2ei5tiNhArCqldBzaS6yzNe_mudDAbzllZcD1BA0FOfbn1LQRSiK36eB69u4hfK_Pa0XA0eZti_KN8Q43d_k1xRmp_LQCW6gA9ZWNvdrBx_py/s1700-e365/android-banking.jpg"
-  summary="가짜 IPTV 앱, 모바일 뱅킹 사용자 대상 Massiv Android 악성코드 유포 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="합법적인 IPTV 앱으로 위장한 'Massiv' 트로이 목마가 모바일 뱅킹 사용자를 직접 표적으로 삼아 기기 탈취(Device Take Over) 공격을 수행하고 있습니다. 공식 마켓 외부의 IPTV 앱 설치가 주요 감염 경로로, MDM 정책 강화가 핵심 대응 수단입니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -226,7 +226,7 @@ Microsoft가 Windows Admin Center의 권한 상승 취약점 CVE-2026-26119에 �
   title="[보안] CRESCENTHARVEST 캠페인, RAT 악성코드로 이란 시위 지지자 표적 공격"
   url="https://thehackernews.com/2026/02/crescentharvest-campaign-targets-iran.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFD_PtNViVDHZuayLVtVYwd7N2scLLqDjTvVq8WGWrnvOCZ7tt92yiynt44EBuHUv2Y4b-sujz_BlBBx2Vl9af8ZzAXzTJH2UzFpsqC5KyxWWvB6FD-Ini78yxU9MsffuVeYsU2wQQCP5mTPs7xlI73PBSZ3RYj1RUMbjxfH06NhmoNjHkpapxBNwyEMrI/s1700-e365/protest.jpg"
-  summary="CRESCENTHARVEST 캠페인, RAT 악성코드로 이란 시위 지지자 표적 공격 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="국가 후원 위협 행위자로 추정되는 그룹이 이란 시위 지지자를 표적으로 RAT 악성코드를 배포하는 사이버 스파이 캠페인을 전개하고 있습니다. 정치적·지정학적 리스크가 높은 지역과 연관된 네트워크 트래픽에 대한 추가 모니터링이 필요합니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -254,7 +254,7 @@ Microsoft가 Windows Admin Center의 권한 상승 취약점 CVE-2026-26119에 �
   title="&quot;Clinejection&quot;: AI 봇을 공급망 공격 벡터로 전환한 방법"
   url="https://snyk.io/blog/cline-supply-chain-attack-prompt-injection-github-actions/"
   image="https://res.cloudinary.com/snyk/image/upload/v1646599410/wordpress-sync/blog-feature-security-alert-purple.jpg"
-  summary="&quot;Clinejection&quot;: AI 봇을 공급망 공격 벡터로 전환한 방법 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Snyk 연구팀이 AI 코딩 에이전트 Cline을 프롬프트 인젝션으로 조작해 GitHub Actions 캐시 포이즈닝과 결합한 공급망 공격을 시연했습니다. AI 에이전트가 자동으로 코드를 실행하는 환경에서 기존 보안 모델로는 탐지하기 어려운 새로운 공격 표면이 열렸다는 점이 핵심입니다."
   source="Snyk Blog"
   severity="High"
 -%}
@@ -291,7 +291,7 @@ Snyk 연구팀이 AI 코딩 에이전트 Cline을 프롬프트 인젝션으로 �
 {%- include news-card.html
   title="Kubernetes 프로젝트, Ingress NGINX 은퇴 경고 발표"
   url="https://securitylabs.datadoghq.com/articles/kubernetes-ingress-nginx-retirement-warning/"
-  summary="Kubernetes 프로젝트, Ingress NGINX 은퇴 경고 발표 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Kubernetes 커뮤니티가 2026년 3월 이후 Ingress NGINX 공식 지원을 종료한다고 공식 발표했습니다. 클라우드 네이티브 환경의 약 50%에서 사용 중인 만큼 영향 범위가 크고, 최근 고위험 CVE 4건도 함께 공개되어 지금 당장 마이그레이션 계획을 수립해야 합니다."
   source="Datadog Security Labs"
   severity="High"
 -%}
@@ -333,7 +333,7 @@ Kubernetes 커뮤니티가 2026년 3월 이후 Ingress NGINX 공식 지원을 �
   title="[AI/ML] Google Cloud에서 Gemini 3.1 Pro 출시"
   url="https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-pro-on-gemini-cli-gemini-enterprise-and-vertex-ai/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/gemini-3.1_pro_meta_dark.max-2000x2000.png"
-  summary="Google Cloud에서 Gemini 3.1 Pro 출시 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google Cloud가 ARC-AGI-2 벤치마크에서 77.1%를 기록한 Gemini 3.1 Pro를 공식 출시했습니다. 이전 세대 대비 2배 이상의 추론 성능을 제공하며, Gemini CLI와 Vertex AI에서 즉시 사용 가능해 기업 AI 워크플로우에 바로 적용할 수 있습니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -360,7 +360,7 @@ Google Cloud가 ARC-AGI-2 벤치마크에서 77.1%를 기록한 Gemini 3.1 Pro�
 {%- include news-card.html
   title="[AI/ML] AI 정렬 독립 연구 지원 확대"
   url="https://openai.com/index/advancing-independent-research-ai-alignment"
-  summary="AI 정렬 독립 연구 지원 확대 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="OpenAI가 독립적인 AI 정렬 연구 기관인 The Alignment Project에 750만 달러를 투자하겠다고 발표했습니다. AGI 안전성 확보를 위해 외부 연구 생태계를 직접 지원하는 움직임으로, 기업 AI 거버넌스 정책에도 정렬 검증 단계를 포함하는 흐름이 가속화될 전망입니다."
   source="OpenAI Blog"
   severity="Medium"
 -%}
@@ -387,7 +387,7 @@ OpenAI가 독립적인 AI 정렬 연구 기관인 The Alignment Project에 750�
   title="[AI/ML] Union.ai와 Flyte로 Amazon EKS에서 AI 워크플로우 구축"
   url="https://aws.amazon.com/blogs/machine-learning/build-ai-workflows-on-amazon-eks-with-union-ai-and-flyte/"
   image="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/02/19/ML-19776-1120x630.png"
-  summary="Union.ai와 Flyte로 Amazon EKS에서 AI 워크플로우 구축 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="AWS가 Union.ai 2.0과 Flyte Python SDK를 활용해 Amazon EKS 위에서 AI/ML 워크플로우를 구축하는 실전 가이드를 공개했습니다. 컨테이너 네이티브 ML 파이프라인의 보안 설정(RBAC, 시크릿 관리)까지 다루고 있어 프로덕션 배포 시 참고할 만한 내용입니다."
   source="AWS Machine Learning Blog"
   severity="Medium"
 -%}
@@ -412,7 +412,7 @@ AWS가 Union.ai 2.0과 Flyte Python SDK를 활용해 Amazon EKS 위에서 AI/ML 
   title="[클라우드] Conversational Analytics API로 BigQuery에서 대화형 에이전트 구축"
   url="https://cloud.google.com/blog/products/data-analytics/build-data-agents-with-conversational-analytics-api/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/09_-_Data_Analytics_tFH57V6.max-2600x2600.jpg"
-  summary="Conversational Analytics API로 BigQuery에서 대화형 에이전트 구축 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google Cloud의 Conversational Analytics API를 이용하면 BigQuery 데이터에 자연어로 질의하는 대화형 에이전트를 별도 ML 인프라 없이 구축할 수 있습니다. 데이터 민주화와 셀프서비스 분석 환경을 강화하려는 팀에게 주목할 만한 업데이트입니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -433,7 +433,7 @@ Google Cloud의 Conversational Analytics API를 이용하면 BigQuery 데이터�
   title="[클라우드] BigQuery 자율 임베딩 생성으로 AI 워크플로우 간소화"
   url="https://cloud.google.com/blog/products/data-analytics/introducing-bigquery-autonomous-embedding-generation/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/09_-_Data_Analytics_tFH57V6.max-2600x2600.jpg"
-  summary="BigQuery 자율 임베딩 생성으로 AI 워크플로우 간소화 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google이 BigQuery 내부에서 임베딩을 자동 생성·관리하는 기능을 도입했습니다. RAG 파이프라인 구축 시 별도 임베딩 서버 없이 BigQuery 단일 환경에서 완결되는 AI 워크플로우가 가능해져 운영 복잡도를 크게 줄일 수 있습니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -454,7 +454,7 @@ Google이 BigQuery 내부에서 임베딩을 자동 생성·관리하는 기능�
   title="[클라우드] Amazon Bedrock 사용량 관리 및 최적화 하기"
   url="https://aws.amazon.com/ko/blogs/tech/optimzie-and-manage-amazon-bedrock-usage/"
   image="https://d2908q01vomqb2.cloudfront.net/2a459380709e2fe4ac2dae5733c73225ff6cfee1/2026/02/19/Screenshot-2026-02-19-at-11.53.05 AM-1117x630.png"
-  summary="Amazon Bedrock 사용량 관리 및 최적화 하기 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="AWS Korea가 Amazon Bedrock 기반 AI 서비스의 토큰 사용량 관리와 비용 최적화 방법을 상세히 정리한 가이드를 공개했습니다. PoC를 넘어 프로덕션 운영 단계에 진입한 팀이라면 모델별 비용-성능 트레이드오프와 프롬프트 최적화 전략을 지금 검토할 시점입니다."
   source="AWS Korea Blog"
   severity="Medium"
 -%}
@@ -475,7 +475,7 @@ AWS Korea가 Amazon Bedrock 기반 AI 서비스의 토큰 사용량 관리와 �
   title="[클라우드] 주권과 유럽 경쟁력: 파트너십 기반 AI 성장 접근 방식"
   url="https://cloud.google.com/blog/products/identity-security/sovereignty-and-european-competitiveness-a-partnership-led-approach-to-ai-growth/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/17_-_Security__Identity_NrORvDT.max-2600x2600.jpg"
-  summary="주권과 유럽 경쟁력: 파트너십 기반 AI 성장 접근 방식 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google Cloud가 유럽 데이터 주권 요구사항을 반영한 파트너십 기반 AI 인프라 전략을 발표했습니다. 현지 규제 준수와 기술 혁신을 동시에 달성하는 접근법으로, GDPR 및 EU AI Act 대응을 고려하는 클라우드 아키텍처 설계에 참고할 만한 내용입니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -500,7 +500,7 @@ Google Cloud가 유럽 데이터 주권 요구사항을 반영한 파트너십 �
   title="[DevOps] 클라우드 네이티브 현황 2026: CNCF CTO의 인사이트와 전망"
   url="https://www.cncf.io/blog/2026/02/19/state-of-cloud-native-2026-cncf-ctos-insights-and-predictions/"
   image="https://www.cncf.io/wp-content/uploads/2026/02/Akamia-Cloud-Credits-35.png"
-  summary="클라우드 네이티브 현황 2026: CNCF CTO의 인사이트와 전망 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="CNCF 10주년을 맞아 CTO가 클라우드 네이티브 생태계의 현재와 향후 방향을 정리한 인사이트를 공개했습니다. AI 워크로드와 Kubernetes의 통합 가속화, 보안 표준 강화가 2026년 핵심 화두로 제시되어 클라우드 네이티브 전략 수립 시 기준점으로 활용할 수 있습니다."
   source="CNCF Blog"
   severity="Medium"
 -%}
@@ -521,7 +521,7 @@ CNCF 10주년을 맞아 CTO가 클라우드 네이티브 생태계의 현재와 
   title="[DevOps] Medplum, Docker Hardened Images(DHI)로 헬스케어 플랫폼 보안 강화 사례"
   url="https://www.docker.com/blog/medplum-healthcare-docker-hardened-images/"
   image="https://www.docker.com/app/uploads/2025/03/image.png"
-  summary="Medplum, Docker Hardened Images로 헬스케어 플랫폼 보안 강화 사례 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="오픈소스 의료 플랫폼 Medplum이 Docker Hardened Images 도입을 통해 HIPAA 규제 준수 수준의 컨테이너 보안을 달성한 과정을 공유했습니다. 헬스케어처럼 규제가 엄격한 환경에서 컨테이너 이미지 보안을 강화하려는 팀에게 실전 참고 사례가 됩니다."
   source="Docker Blog"
   severity="Medium"
 -%}
@@ -542,7 +542,7 @@ CNCF 10주년을 맞아 CTO가 클라우드 네이티브 생태계의 현재와 
   title="[DevOps] Rust, Google Summer of Code 2026 참여 발표"
   url="https://blog.rust-lang.org/2026/02/19/Rust-participates-in-GSoC-2026/"
   image="https://www.rust-lang.org/static/images/rust-social-wide.jpg"
-  summary="Rust, Google Summer of Code 2026 참여 발표 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Rust 프로젝트가 3년 연속 Google Summer of Code에 참여한다고 발표했습니다. 메모리 안전성으로 주목받는 Rust의 오픈소스 기여자 저변 확대는 보안 중심 시스템 소프트웨어 생태계 성장에 긍정적인 신호입니다."
   source="Rust Blog"
   severity="Medium"
 -%}
@@ -566,7 +566,7 @@ Rust 프로젝트가 3년 연속 Google Summer of Code에 참여한다고 발표
   title="[블록체인] Bitcoin 라이트닝 네트워크, 월간 거래량 10억 달러 돌파"
   url="https://cointelegraph.com/news/bitcoin-lightning-network-1b-monthly-volume"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-02/019c77b1-52d4-779a-9396-2139521238f7.jpg"
-  summary="Bitcoin 라이트닝 네트워크, 월간 거래량 10억 달러 돌파 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Bitcoin 라이트닝 네트워크의 월간 거래량이 11.7억 달러를 돌파하며 처음으로 10억 달러 벽을 넘었습니다. AI 에이전트 결제 실험 확산이 새로운 수요를 창출하고 있으며, 소액 결제 인프라로서의 입지가 빠르게 강화되고 있습니다."
   source="Cointelegraph"
   severity="Medium"
 -%}
@@ -587,7 +587,7 @@ Bitcoin 라이트닝 네트워크의 월간 거래량이 11.7억 달러를 돌�
   title="[블록체인] CME, 5월 암호화폐 파생상품 24/7 거래 출시 목표"
   url="https://cointelegraph.com/news/cme-may-24-7-crypto-derivative-trading"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-02/019c76b7-6035-78bb-a892-da0e8b8ce4fb.jpg"
-  summary="CME, 5월 암호화폐 파생상품 24/7 거래 출시 목표 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="CME Group이 5월 29일부터 암호화폐 선물의 24시간 365일 거래를 시작할 예정입니다. SEC와 CFTC의 거래 시간 확대 검토와 맞물려 전통 금융과 암호화폐 시장의 경계가 빠르게 허물어지고 있는 흐름을 보여줍니다."
   source="Cointelegraph"
   severity="Medium"
 -%}
@@ -608,7 +608,7 @@ CME Group이 5월 29일부터 암호화폐 선물의 24시간 365일 거래를 �
   title="[블록체인] SEC 리더십, 토큰화 증권과 기존 규제의 상호작용 명확화 추진"
   url="https://cointelegraph.com/news/sec-leadership-future-securities-ethdenver"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-02/019c76c0-5e44-7e39-90ed-b285dc9cde3b.jpg"
-  summary="SEC 리더십, 토큰화 증권과 기존 규제의 상호작용 명확화 추진 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="SEC 리더십이 ETHDenver에서 토큰화 증권과 기존 증권법의 상호작용을 공식적으로 명확화하겠다는 방향을 제시했습니다. 규제 불확실성 해소 움직임으로 블록체인 기반 금융 상품을 준비하는 기업에게 중요한 정책 신호입니다."
   source="Cointelegraph"
   severity="Medium"
 -%}
@@ -629,7 +629,7 @@ SEC 리더십이 ETHDenver에서 토큰화 증권과 기존 증권법의 상호�
   title="[블록체인] Bitcoin ETF, 최근 유출에도 530억 달러 순유입 유지"
   url="https://cointelegraph.com/news/bitcoin-etfs-53b-net-inflows-after-selloff"
   image="https://images.cointelegraph.com/cdn-cgi/image/f=auto,onerror=redirect,w=1200/https://s3.cointelegraph.com/uploads/2026-01/019b92cc-d609-7af6-b3a8-9b3f85736edf.jpg"
-  summary="Bitcoin ETF, 최근 유출에도 530억 달러 순유입 유지 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Bitcoin ETF가 최근 유출에도 불구하고 530억 달러의 순유입을 유지하고 있습니다. 기관 투자자의 지속적인 관심이 단기 가격 변동과 별개로 유지되는 흐름입니다."
   source="Cointelegraph"
   severity="Medium"
 -%}
@@ -650,7 +650,7 @@ Bitcoin ETF가 최근 유출에도 불구하고 530억 달러의 순유입을 �
   title="[블록체인] UAE, 조용히 4억 5300만 달러 규모의 Bitcoin 준비금 축적"
   url="https://bitcoinmagazine.com/news/the-uae-453-million-bitcoin-reserve"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/The-UAE-Has-Quietly-Built-Up-a-453-Million-Bitcoin-Reserve-Arkham-.jpg"
-  summary="UAE, 조용히 4억 5300만 달러 규모의 Bitcoin 준비금 축적 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유하고 있음이 확인되며 국가 차원의 Bitcoin 준비금 전략이 드러났습니다. 중동 지역 기관 투자자의 암호화폐 채택이 조용하지만 의미 있는 속도로 진행되고 있음을 보여주는 사례입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
@@ -675,28 +675,24 @@ UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유
   url="https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising/"
   source="Spotify Engineering"
   tag="Operator Signal"
-  summary="Spotify Multi-Agent Architecture for Advertising 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
 %}
 {% include news-spotlight-item.html
   title="Discord Osprey: Open Sourcing our Rule Engine"
   url="https://discord.com/blog/osprey-open-sourcing-our-rule-engine"
   source="Discord Blog"
   tag="Operator Signal"
-  summary="Discord Osprey: Open Sourcing our Rule Engine 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
 %}
 {% include news-spotlight-item.html
   title="Chrome CSS Zero-Day CVE-2026-2441"
   url="https://news.hada.io/topic?id=26823"
   source="GeekNews"
   tag="Tech Signals"
-  summary="Chrome CSS Zero-Day CVE-2026-2441 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
 %}
 {% include news-spotlight-item.html
   title="ThreatsDay Bulletin: OpenSSL RCE, Foxit 0-Days"
   url="https://thehackernews.com/2026/02/threatsday-bulletin-openssl-rce-foxit-0.html"
   source="The Hacker News"
   tag="Operator Signal"
-  summary="ThreatsDay Bulletin: OpenSSL RCE, Foxit 0-Days 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html

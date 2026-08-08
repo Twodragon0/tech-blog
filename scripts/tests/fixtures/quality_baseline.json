@@ -1376,7 +1376,7 @@
     }
   },
   "2026-02-26-Tech_Security_Weekly_Digest_AI_Go_AWS_API.md": {
-    "total": 95,
+    "total": 94,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1387,7 +1387,7 @@
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
-      "length": 5
+      "length": 4
     }
   },
   "2026-02-27-Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go.md": {

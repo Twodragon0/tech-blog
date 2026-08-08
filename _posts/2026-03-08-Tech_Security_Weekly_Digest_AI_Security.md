@@ -221,7 +221,7 @@ OpenAI Codex Security와의 시너지:
   title="AI 에이전트 도입의 가장 큰 병목은 성능보다 신뢰(feat. 시간)"
   url="https://news.hada.io/topic?id=27301"
   image="https://social.news.hada.io/topic/27301"
-  summary="AI 에이전트 도입의 가장 큰 병목은 성능보다 신뢰를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Anthropic이 수백만 건의 Claude Code 상호작용 데이터를 분석한 결과, AI 에이전트 도입의 핵심 병목은 모델 성능이 아니라 사용자가 에이전트를 신뢰하기까지 걸리는 시간이라는 사실을 확인했습니다. 사용자들은 처음에 단순 작업만 맡기다가, 에이전트가 일관되게 올바른 결과를 제공하는 것을 확인한 후에야 점차 복잡한 작업을 위임합니다."
   source="GeekNews"
   severity="Medium"
 %}
@@ -243,7 +243,7 @@ DevSecOps 시사점:
   title="Autoresearch - Karpathy의 자동 연구 프레임워크"
   url="https://news.hada.io/topic?id=27300"
   image="https://social.news.hada.io/topic/27300"
-  summary="Autoresearch - Karpathy의 자동 연구 프레임워크를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Andrej Karpathy가 공개한 Autoresearch는 LLM 학습의 핵심을 단일 GPU·단일 파일 630줄로 압축한 자기완결형 연구 프레임워크입니다. AI 에이전트가 밤새 실험을 반복하고 인간은 프롬프트만 수정하는 방식으로, 연구 자동화의 새로운 패러다임을 제시합니다."
   source="GeekNews"
   severity="Medium"
 %}
@@ -266,7 +266,7 @@ Andrej Karpathy가 공개한 Autoresearch는 LLM 학습의 핵심을 단일 GPU�
   title="Go 표준 라이브러리에 UUID 패키지 추가 제안"
   url="https://news.hada.io/topic?id=27299"
   image="https://social.news.hada.io/topic/27299"
-  summary="Go 표준 라이브러리에 UUID 패키지 추가 제안를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Go 언어에 UUID 생성·파싱 기능을 표준 라이브러리(unique/uuid)로 추가하자는 제안이 논의 중입니다. 현재 대부분의 Go 프로젝트가 google/uuid나 gofrs/uuid 같은 외부 패키지에 의존하고 있어, 표준화가 공급망 보안 측면에서도 긍정적입니다."
   source="GeekNews"
   severity="Medium"
 %}

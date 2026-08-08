@@ -103,7 +103,7 @@ summary_card:
   title="GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions to Target Developers"
   url="https://thehackernews.com/2026/03/glassworm-supply-chain-attack-abuses-72.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4d-2XpiCS0UYnMWh32sQEJP9LnlN_m7m2hok9CnY_vu05XXwWn4INodYCvrEdweEzpho7XqcuOFvEPnnEWlHCRa_q3HY3V5O_ii35MVWAimRwsgrpNQrvGqeUchhZ48FRUl91zTpYQdLMRxVvRjV_T8GEm-J9mnMesefzlgeaoE_EU7Ba32liTr63SsQq/s1600/open.jpg"
-  summary="GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions to Target Developers를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="GlassWorm은 VSCodium, Eclipse Che 등 오픈소스 IDE가 의존하는 Open VSX 레지스트리를 표적으로 삼았습니다. 공격 방식은 인기 있는 정상 확장을 복제한 뒤 이름을 유사하게 변조(typosquatting)하거나, 기존 확장 유지관리자 계정을 탈취해 악성 업데이트를 배포하는 두 가지입니다."
   source="The Hacker News"
   severity="Critical"
 %}
@@ -167,7 +167,7 @@ NOT (Image="code.exe" OR Image="codium" OR Image="node")
   title="OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration"
   url="https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2mVucJhli25A25joXcap-ewfeMT1Vh-95wQKQfGOue7PwZJ1_55YsG8OQ1DQF7WVOU8tsOy73kGDzgfpTLLeqTYQ1k9LqrFWTNavDmfvCV-9IIER9PfrRsdg1wA5UzpIMrer3xC1mBClBzKkaT6pfczDbppMjZM7afcWu-RURquDGrEfjq3vVBsmlltLm/s1600/open-clawss.jpg"
-  summary="OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="이번에 공개된 취약점은 특정 제품의 버그가 아니라 AI 에이전트 설계 패턴 자체의 구조적 문제입니다. 대부분의 LLM 에이전트는 사용자 입력, 도구 호출 결과, 웹 검색 결과를 구분 없이 하나의 컨텍스트로 처리합니다."
   source="The Hacker News"
   severity="High"
 %}
@@ -245,7 +245,7 @@ def validate_agent_input(text: str, max_length: int = 4096) -> Optional[str]:
 {% include news-card.html
   title="Deploy AWS applications and access AWS accounts across multiple Regions with IAM Identity Center"
   url="https://aws.amazon.com/blogs/security/deploy-aws-applications-and-access-aws-accounts-across-multiple-regions-with-iam-identity-center/"
-  summary="Deploy AWS applications and access AWS accounts across multiple Regions with IAM Identity Center를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="AWS IAM Identity Center(구 AWS SSO)의 멀티리전 지원이 확장됐습니다. 기존에는 특정 리전을 홈 리전으로 설정하고, 그 리전에서만 Identity Center 콘솔을 관리했습니다."
   source="AWS Security Blog"
   severity="Medium"
 %}
@@ -338,7 +338,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   title="Changing Basel rules could unlock 'huge' liquidity for BTC"
   url="https://cointelegraph.com/news/changing-basel-rules-huge-liquidity-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5YmU2M2MtNWYyMy03N2MyLWIwNTItODQ3ODEwY2E0MjIwLmpwZw==.jpg"
-  summary="Changing Basel rules could unlock 'huge' liquidity for BTC를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="현행 Basel III 체계에서 Bitcoin은 Group 2b 자산으로 분류돼 1,250%의 위험 가중치가 적용됩니다. 이는 은행이 BTC 1달러를 보유하려면 자기자본 12.5달러를 적립해야 한다는 의미로, 사실상 은행의 BTC 직접 보유를 금지하는 수준입니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -357,7 +357,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   title="Boris Johnson linked to BTC Ponzi scheme allegations"
   url="https://cointelegraph.com/news/boris-johnson-btc-ponzi-scheme?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2VkNzAtNzk3ZC03ZWE5LTk5MTItMjAwOGM4YjY1ZTczLmpwZw==.jpg"
-  summary="Boris Johnson linked to BTC Ponzi scheme allegations를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="이번 사례는 기술적 취약점이 아닌 사회공학적 신뢰 조작의 전형입니다. 전직 국가 지도자 수준의 유명인을 내세워 투자자들의 경계심을 낮추는 이 수법은 딥페이크 광고와 결합해 더 정교해지고 있습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -376,7 +376,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   title="Bitcoin beats stocks as Strategy eyes $776M BTC buying potential"
   url="https://cointelegraph.com/news/bitcoin-beats-stocks-strategy-strc-776m-btc-buying-potential?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5Yzk5ODMtZWRmNS03NjU2LTlmOWQtNjgwM2FlOWI4ZTg0LmpwZw==.jpg"
-  summary="Bitcoin beats stocks as Strategy eyes $776M BTC buying potential를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자자들의 레퍼런스 케이스로 자리 잡으면서, 유사 전략을 채택하는 상장사가 늘고 있습니다. 이번 $776M 매수 계획은 STRC라는 수익 공유형 채권 상품을 통해 조달하며, BTC 가격 상승 시 채권 이자를 BTC로 지급하는 구조입니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -397,7 +397,6 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
   url="https://news.hada.io/topic?id=27513"
   source="GeekNews"
   tag="AI Engineering"
-  summary="진짜 내 일을 위한 Agentic Workflow를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   note="<strong>보안 관점</strong>: 130억 토큰 규모의 에이전트 코딩 워크플로우는 코드 생성 과정에서 시크릿이 포함된 프롬프트가 LLM 제공사로 전송될 위험이 있습니다. 에이전트 코딩 도입 시 코드베이스 내 시크릿 사전 제거(git-secrets, truffleHog)와 프롬프트 필터링 정책이 필요합니다."
 %}
 {% include news-spotlight-item.html
@@ -405,7 +404,6 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
   url="https://news.hada.io/topic?id=27512"
   source="GeekNews"
   tag="Hardware"
-  summary="MacBook Neo에서 Parallels 가상 머신으로 윈도우 실행 가능 확인를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   note="<strong>운영 관점</strong>: MacBook Neo 환경에서 Windows VM을 사용하는 개발자가 생긴다면, VM 내 Windows 환경의 보안 패치 관리와 호스트-게스트 간 클립보드 공유 범위 정책을 사전에 수립하세요."
 %}
 {% include news-spotlight-item.html
@@ -413,7 +411,6 @@ Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자
   url="https://news.hada.io/topic?id=27511"
   source="GeekNews"
   tag="Developer Tools"
-  summary="Hammerspoon - Lua로 구현된 강력한 macOS 데스크톱 자동화 도구를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
   note="<strong>보안 관점</strong>: Hammerspoon은 macOS 접근성 API에 광범위한 권한을 요구합니다. 조직에서 사용을 허용할 경우 MDM 정책으로 허용 스크립트 범위를 제한하고, 자동화 스크립트가 자격증명이나 민감 데이터에 접근하지 않도록 코드 리뷰 절차를 두세요."
 %}
 {% endcapture %}
