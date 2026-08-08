@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import statistics
 import sys
 from pathlib import Path
@@ -87,12 +88,21 @@ def _median(samples: list[float]) -> float | None:
     return statistics.median(samples) if samples else None
 
 
+_LOCALHOST_RE = re.compile(r"^https?://(?:localhost|127\.0\.0\.1)(?::\d+)?")
+
+
 def _normalise_url(url: str) -> str:
-    """Strip the localhost scheme+host so ``http://localhost:4000/foo/`` and
-    ``http://127.0.0.1:4000/foo/`` compare equal across base/head runs."""
-    for prefix in ("http://localhost:4000", "http://127.0.0.1:4000", "http://localhost", "http://127.0.0.1"):
-        if url.startswith(prefix):
-            return url[len(prefix):] or "/"
+    """Strip the localhost scheme+host+port so the two sides compare equal.
+
+    Any port, not just 4000: head and base are served on *different* ports on
+    purpose. Sharing one port meant the second server hit a still-occupied
+    :4000, and ``npx serve`` answers that by binding a random port while
+    Lighthouse keeps requesting :4000 — so the base sweep re-measured the head
+    build. That made every comparison vacuous from PR #326 until 2026-08-08.
+    """
+    stripped = _LOCALHOST_RE.sub("", url, count=1)
+    if stripped != url:
+        return stripped or "/"
     return url
 
 

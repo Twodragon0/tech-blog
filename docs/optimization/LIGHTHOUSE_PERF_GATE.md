@@ -65,12 +65,13 @@ INFO  Accepting connections at http://localhost:45733      # base — nothing re
 
 From PR #326 until this fix every comparison was a build against itself. That is why the post-page row always came back at ±2 ms, and why the two "regressions" the gate ever reported (+721 ms in PR #326, +901 ms on 2026-08-08) were both on the homepage with **no content difference at all** — see below.
 
-Two independent defences now, because the failure mode is silent:
+A teardown-and-wait is *not* enough — run `31244446805` still found the head listener holding `:4000` when the base sweep started. So the race is removed rather than managed:
 
-1. `--no-port-switching` — serve fails instead of drifting.
-2. A `build-id.txt` written into each site dir and read back **over HTTP** before any measurement. If `:4000` answers `head` when the base sweep is starting, the job errors out rather than producing a confident, meaningless number.
+1. **Separate ports.** Head is served on `:4000`, base on `:4001`. `compare_lighthouse_runs._normalise_url` strips any localhost port, so the rows still pair up.
+2. `--no-port-switching` — serve fails loudly instead of drifting, if a port is ever contended anyway.
+3. A `build-id.txt` written into each site dir and read back **over HTTP** before any measurement. If the port answers `head` when the base sweep is starting, the job errors out rather than producing a confident, meaningless number. This is the check that caught the bug in the first place.
 
-Teardown also kills the listening child (`pkill -P`), not just the `npx` wrapper, and waits for the port to free.
+Teardown also kills the listening child (`pkill -P`), not just the `npx` wrapper.
 
 ## The homepage row is bimodal
 

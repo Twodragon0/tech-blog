@@ -229,6 +229,33 @@ class TestPerfGateConfig:
         fallback, and verify over HTTP which tree is actually being served.
         """
         wf = _workflow()
+        ports = {}
+        for side, name in (
+            ("head", "Run Lighthouse on head (local build)"),
+            ("base", "Run Lighthouse on base (local build)"),
+        ):
+            run = _step(wf, name).get("run", "")
+            m = re.search(rf"npx serve _site_{side} -l (\d+)", run)
+            assert m, f"'{name}' no longer starts a server for _site_{side}."
+            ports[side] = m.group(1)
+            measured = re.search(r'url="http://localhost:(\d+)\$\{path\}"', run)
+            assert measured, (
+                f"'{name}' no longer builds its measurement URL from a "
+                "localhost port, so what it measures cannot be checked."
+            )
+            assert measured.group(1) == m.group(1), (
+                f"'{name}' serves _site_{side} on :{m.group(1)} but measures "
+                f":{measured.group(1)}. Lighthouse would hit whatever else is "
+                "listening there — which is exactly how the base sweep came to "
+                "re-measure the head build."
+            )
+        assert ports["head"] != ports["base"], (
+            f"head and base are both served on :{ports['head']}. Sharing a port "
+            "is the exact defect this gate shipped with: serve binds a random "
+            "free port when the requested one is still held, Lighthouse keeps "
+            "requesting the original, and the second side re-measures the first. "
+            "Run 31244446805 showed a teardown-and-wait does not close it."
+        )
         for name in (
             "Run Lighthouse on head (local build)",
             "Run Lighthouse on base (local build)",
@@ -236,8 +263,8 @@ class TestPerfGateConfig:
             run = _step(wf, name).get("run", "")
             assert "--no-port-switching" in run, (
                 f"'{name}' starts the server without --no-port-switching. On a "
-                "busy :4000 serve picks a random port instead of failing, and "
-                "Lighthouse then measures whatever is still listening on :4000."
+                "busy port serve picks a random one instead of failing, and "
+                "Lighthouse then measures whatever is still listening."
             )
             assert "build-id.txt" in run, (
                 f"'{name}' no longer probes build-id.txt before measuring, so "

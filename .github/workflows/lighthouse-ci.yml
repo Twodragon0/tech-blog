@@ -19,17 +19,20 @@
 #   page against the homepage. PRs that touch no post keep the representative
 #   post below.
 #
-#   Both builds are served on localhost:4000, one after the other. That is a
+#   Head and base get their OWN port (4000 / 4001). Sharing one port is a
 #   correctness hazard, not a detail: `npx serve` silently falls back to a
-#   RANDOM free port when 4000 is still held, and Lighthouse then keeps
-#   requesting :4000 — i.e. it measures the previous build twice. Runs
-#   31150717334 / 30882267998 / 30332794243 all show `Accepting connections at
-#   http://localhost:<random>` for the base server, so this gate compared head
-#   against head from PR #326 until 2026-08-08. Hence `--no-port-switching`
-#   plus a per-side build-id probe that fails the job rather than measure the
-#   wrong tree.
+#   RANDOM free port when the requested one is still held, and Lighthouse then
+#   keeps requesting the original — i.e. it measures the previous build twice.
+#   Runs 31150717334 / 30882267998 / 30332794243 all show `Accepting
+#   connections at http://localhost:<random>` for the base server, so this gate
+#   compared head against head from PR #326 until 2026-08-08. Run 31244446805
+#   proved a teardown-and-wait is not enough — the head listener still held the
+#   port. Separate ports remove the race outright; `--no-port-switching` and a
+#   per-side build-id probe are the two independent backstops, and
+#   compare_lighthouse_runs normalises the port away so the rows still pair up.
 #
-#   Primary: local Jekyll build served on localhost:4000 (Vercel-independent).
+#   Primary: local Jekyll builds served on localhost:4000 (head) and :4001
+#            (base), Vercel-independent.
 #   Fallback: if either Jekyll build fails, re-run Lighthouse against GH Pages
 #             backup (https://twodragon0.github.io/tech-blog) so Vercel
 #             Challenge Mode or rate-limiting cannot block the check entirely.
@@ -236,23 +239,23 @@ jobs:
           mkdir -p lhci-base
           # --no-port-switching: fail loudly instead of drifting to a random
           # port and leaving Lighthouse pointed at the other build on :4000.
-          npx serve _site_base -l 4000 --single --no-port-switching > serve-base.log 2>&1 &
+          npx serve _site_base -l 4001 --single --no-port-switching > serve-base.log 2>&1 &
           SERVER_PID=$!
           SERVING=""
           for _ in $(seq 1 20); do
-            SERVING=$(curl -sf http://localhost:4000/build-id.txt 2>/dev/null | tr -d '[:space:]' || true)
+            SERVING=$(curl -sf http://localhost:4001/build-id.txt 2>/dev/null | tr -d '[:space:]' || true)
             [ -n "$SERVING" ] && break
             sleep 1
           done
           if [ "$SERVING" != "base" ]; then
-            echo "::error::localhost:4000 is serving '$SERVING', expected 'base' — refusing to measure the wrong build."
+            echo "::error::localhost:4001 is serving '$SERVING', expected 'base' — refusing to measure the wrong build."
             cat serve-base.log || true
             kill $SERVER_PID 2>/dev/null || true
             exit 1
           fi
           while IFS= read -r path; do
             [ -n "$path" ] || continue
-            url="http://localhost:4000${path}"
+            url="http://localhost:4001${path}"
             lighthouse "$url" --output=json --output-path=/dev/null --quiet \
               --chrome-flags="--headless --no-sandbox --disable-gpu" --preset=desktop || true
 
@@ -271,7 +274,7 @@ jobs:
           pkill -P $SERVER_PID 2>/dev/null || true
           kill $SERVER_PID 2>/dev/null || true
           for _ in $(seq 1 20); do
-            curl -sf http://localhost:4000/build-id.txt >/dev/null 2>&1 || break
+            curl -sf http://localhost:4001/build-id.txt >/dev/null 2>&1 || break
             sleep 1
           done
 
