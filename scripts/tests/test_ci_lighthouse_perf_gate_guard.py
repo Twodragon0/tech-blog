@@ -214,6 +214,48 @@ class TestPerfGateConfig:
                 "resolver drops automatically once the post stops existing."
             )
 
+    def test_server_cannot_drift_to_another_port(self):
+        """The bug that made this gate vacuous for months.
+
+        Head and base are served on :4000 in turn. ``npx serve`` answers a busy
+        port by silently binding a RANDOM free one, while Lighthouse keeps
+        requesting :4000 — so the second side measures the first side's build.
+        Runs 31150717334 / 30882267998 / 30332794243 all logged ``Accepting
+        connections at http://localhost:<random>`` for the base server: from
+        PR #326 until 2026-08-08 this gate compared head against head, which is
+        why every post-page row came back at ±2 ms.
+
+        Two independent defences, because the failure is silent: refuse the
+        fallback, and verify over HTTP which tree is actually being served.
+        """
+        wf = _workflow()
+        for name in (
+            "Run Lighthouse on head (local build)",
+            "Run Lighthouse on base (local build)",
+        ):
+            run = _step(wf, name).get("run", "")
+            assert "--no-port-switching" in run, (
+                f"'{name}' starts the server without --no-port-switching. On a "
+                "busy :4000 serve picks a random port instead of failing, and "
+                "Lighthouse then measures whatever is still listening on :4000."
+            )
+            assert "build-id.txt" in run, (
+                f"'{name}' no longer probes build-id.txt before measuring, so "
+                "'the server on :4000 is serving the tree I think it is' is "
+                "assumed rather than verified."
+            )
+            assert "pkill -P" in run, (
+                f"'{name}' tears the server down by the npx wrapper PID alone; "
+                "the listening child survives and holds :4000 for the next side."
+            )
+
+        stamp = _step(wf, "Stamp build identity into each site").get("run", "")
+        for site, expected in (("_site_head", "head"), ("_site_base", "base")):
+            assert f"echo {expected} > {site}/build-id.txt" in stamp, (
+                f"{site} is no longer stamped with its build id, so the probe "
+                "above cannot tell the two builds apart."
+            )
+
     def test_default_post_url_is_a_single_source(self):
         wf = _workflow()
         default = wf.get("env", {}).get("DEFAULT_POST_URL")

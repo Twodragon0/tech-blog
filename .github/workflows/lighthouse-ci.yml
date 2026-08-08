@@ -19,6 +19,16 @@
 #   page against the homepage. PRs that touch no post keep the representative
 #   post below.
 #
+#   Both builds are served on localhost:4000, one after the other. That is a
+#   correctness hazard, not a detail: `npx serve` silently falls back to a
+#   RANDOM free port when 4000 is still held, and Lighthouse then keeps
+#   requesting :4000 — i.e. it measures the previous build twice. Runs
+#   31150717334 / 30882267998 / 30332794243 all show `Accepting connections at
+#   http://localhost:<random>` for the base server, so this gate compared head
+#   against head from PR #326 until 2026-08-08. Hence `--no-port-switching`
+#   plus a per-side build-id probe that fails the job rather than measure the
+#   wrong tree.
+#
 #   Primary: local Jekyll build served on localhost:4000 (Vercel-independent).
 #   Fallback: if either Jekyll build fails, re-run Lighthouse against GH Pages
 #             backup (https://twodragon0.github.io/tech-blog) so Vercel
@@ -161,16 +171,35 @@ jobs:
             --max-post-urls "${MAX_POST_URLS}" \
             --output lh-urls.txt
 
+      - name: Stamp build identity into each site
+        if: steps.build-head.outcome == 'success' && steps.build-base.outcome == 'success'
+        run: |
+          set -euo pipefail
+          # Read back over HTTP before measuring, so "the server on :4000 is
+          # serving the tree I think it is" is verified rather than assumed.
+          echo head > _site_head/build-id.txt
+          echo base > _site_base/build-id.txt
+
       - name: Run Lighthouse on head (local build)
         if: steps.build-head.outcome == 'success' && steps.build-base.outcome == 'success'
         run: |
           mkdir -p lhci-head
-          npx serve _site_head -l 4000 --single &
+          # --no-port-switching: fail loudly instead of drifting to a random
+          # port and leaving Lighthouse pointed at the other build on :4000.
+          npx serve _site_head -l 4000 --single --no-port-switching > serve-head.log 2>&1 &
           SERVER_PID=$!
-          for _ in $(seq 1 15); do
-            if curl -sf http://localhost:4000/ > /dev/null 2>&1; then break; fi
+          SERVING=""
+          for _ in $(seq 1 20); do
+            SERVING=$(curl -sf http://localhost:4000/build-id.txt 2>/dev/null | tr -d '[:space:]' || true)
+            [ -n "$SERVING" ] && break
             sleep 1
           done
+          if [ "$SERVING" != "head" ]; then
+            echo "::error::localhost:4000 is serving '$SERVING', expected 'head' — refusing to measure the wrong build."
+            cat serve-head.log || true
+            kill $SERVER_PID 2>/dev/null || true
+            exit 1
+          fi
           while IFS= read -r path; do
             [ -n "$path" ] || continue
             url="http://localhost:4000${path}"
@@ -191,18 +220,36 @@ jobs:
                 --preset=desktop || true
             done
           done < lh-urls.txt
+          # $SERVER_PID is the npx wrapper; the listener is its child. Kill the
+          # children too, then wait for :4000 to actually free — a lingering
+          # listener is what made the next side silently measure this one.
+          pkill -P $SERVER_PID 2>/dev/null || true
           kill $SERVER_PID 2>/dev/null || true
+          for _ in $(seq 1 20); do
+            curl -sf http://localhost:4000/build-id.txt >/dev/null 2>&1 || break
+            sleep 1
+          done
 
       - name: Run Lighthouse on base (local build)
         if: steps.build-head.outcome == 'success' && steps.build-base.outcome == 'success'
         run: |
           mkdir -p lhci-base
-          npx serve _site_base -l 4000 --single &
+          # --no-port-switching: fail loudly instead of drifting to a random
+          # port and leaving Lighthouse pointed at the other build on :4000.
+          npx serve _site_base -l 4000 --single --no-port-switching > serve-base.log 2>&1 &
           SERVER_PID=$!
-          for _ in $(seq 1 15); do
-            if curl -sf http://localhost:4000/ > /dev/null 2>&1; then break; fi
+          SERVING=""
+          for _ in $(seq 1 20); do
+            SERVING=$(curl -sf http://localhost:4000/build-id.txt 2>/dev/null | tr -d '[:space:]' || true)
+            [ -n "$SERVING" ] && break
             sleep 1
           done
+          if [ "$SERVING" != "base" ]; then
+            echo "::error::localhost:4000 is serving '$SERVING', expected 'base' — refusing to measure the wrong build."
+            cat serve-base.log || true
+            kill $SERVER_PID 2>/dev/null || true
+            exit 1
+          fi
           while IFS= read -r path; do
             [ -n "$path" ] || continue
             url="http://localhost:4000${path}"
@@ -218,7 +265,15 @@ jobs:
                 --preset=desktop || true
             done
           done < lh-urls.txt
+          # $SERVER_PID is the npx wrapper; the listener is its child. Kill the
+          # children too, then wait for :4000 to actually free — a lingering
+          # listener is what made the next side silently measure this one.
+          pkill -P $SERVER_PID 2>/dev/null || true
           kill $SERVER_PID 2>/dev/null || true
+          for _ in $(seq 1 20); do
+            curl -sf http://localhost:4000/build-id.txt >/dev/null 2>&1 || break
+            sleep 1
+          done
 
       # One fallback for both sides: if either build failed there is no
       # like-for-like local pair to compare, so measure GH Pages once per side

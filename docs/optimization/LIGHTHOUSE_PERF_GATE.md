@@ -54,6 +54,40 @@ Posts with a custom `permalink:` in front matter are not resolvable by slug and 
 
 The invariants above are pinned by `scripts/tests/test_ci_lighthouse_perf_gate_guard.py`; each assertion was verified to fail against a mutated copy of the workflow before shipping.
 
+## The gate compared head against head until 2026-08-08
+
+Both builds are served on `localhost:4000`, one after the other. `npx serve` answers a busy port by **silently binding a random free one** while Lighthouse keeps requesting `:4000` — so the base sweep measured the head build. Three sampled runs (`31150717334`, `30882267998`, `30332794243`) all log:
+
+```
+INFO  Accepting connections at http://localhost:4000       # head
+INFO  Accepting connections at http://localhost:45733      # base — nothing requests this
+```
+
+From PR #326 until this fix every comparison was a build against itself. That is why the post-page row always came back at ±2 ms, and why the two "regressions" the gate ever reported (+721 ms in PR #326, +901 ms on 2026-08-08) were both on the homepage with **no content difference at all** — see below.
+
+Two independent defences now, because the failure mode is silent:
+
+1. `--no-port-switching` — serve fails instead of drifting.
+2. A `build-id.txt` written into each site dir and read back **over HTTP** before any measurement. If `:4000` answers `head` when the base sweep is starting, the job errors out rather than producing a confident, meaningless number.
+
+Teardown also kills the listening child (`pkill -P`), not just the `npx` wrapper, and waits for the port to free.
+
+## The homepage row is bimodal
+
+Independently of the port bug, the homepage's LCP is bistable under Lighthouse's Lantern simulation. From one artifact (`lighthouse-31243194526`), five runs of the *same* build on the *same* side:
+
+| | fast runs (3/5) | slow runs (2/5) |
+|---|---|---|
+| **observed** FCP | 213 ms | 248 ms |
+| **simulated** FCP | 258 ms | 1101 ms |
+| simulated LCP | 838 ms | 1721 ms |
+| benchmarkIndex | 2436 | 2390 |
+| network waterfall | 32 requests | identical 32 requests |
+
+A 35 ms observed difference is amplified ~24× by the simulator. Same bytes, same request set, same CPU. The post page measured 833–843 ms across all 20 samples in the same job, so this is specific to the homepage — the same bistability `lighthouse.yml` documents for the mobile preset, at smaller magnitude.
+
+Consequence: with a 5-run median, whichever mode wins a side's five samples decides the row, and a ±200 ms threshold sits well inside the gap. The gate ran on 0 of the last 30 merged PRs, which is why nobody hit this. Re-running the identical commit turned `/ +901 ms FAIL` into `/ +7 ms PASS`.
+
 ## Threshold
 
 | Metric | Threshold | Gating? |
