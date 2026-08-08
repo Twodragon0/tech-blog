@@ -97,7 +97,7 @@ summary_card:
   title="[보안] Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화 C2 봇넷"
   url="https://thehackernews.com/2026/02/aeternum-c2-botnet-stores-encrypted.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQlH8RQUmcg8IWqV76NL0o4uRe86gJ6kxLV3DRYppBAVrfFR_gMPQBFn6GIl2jd9ZgzsuwRGAGTVUbaWCj795-XZ8I3eSBDLz6Q_0w4Alef6GNA3NtpK4po_WVC6p9o4aNVHqgCAEb3a7CqL_x7oBGWQ7N4z0IMyzOX3aZoI_TUZenfdAm0LZojDIkumG0/s1700-e365/botnet.jpg"
-  summary="Aeternum C2 Botnet: 폴리곤 블록체인 기반 암호화 C2 봇넷 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Qrator Labs가 폴리곤(Polygon) 블록체인을 C2(명령 및 제어) 인프라로 활용하는 신종 봇넷 로더 'Aeternum C2'를 공개했습니다. 기존 C2는 도메인이나 서버를 차단하는 것으로 무력화할 수 있었지만, 블록체인에 암호화된 명령을 저장하면 인프라 차단 자체가 불가능합니다."
   source="The Hacker News"
   severity="Critical"
 -%}
@@ -138,7 +138,7 @@ Qrator Labs가 폴리곤(Polygon) 블록체인을 C2(명령 및 제어) 인프�
   title="[보안] AWS ISO 42001 AI 관리 시스템 첫 감시 감사 통과"
   url="https://aws.amazon.com/blogs/security/aws-successfully-completed-its-first-surveillance-audit-for-iso-420012023-with-no-findings/"
   image="https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2023/02/16/aws_bp_primarylogo_01.png"
-  summary="AWS ISO 42001 AI 관리 시스템 첫 감시 감사 통과 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="AWS가 2024년 11월 주요 클라우드 공급자 중 최초로 ISO/IEC 42001 AI 관리 시스템 인증을 획득한 데 이어, 2025년 11월 첫 번째 감시 감사를 무결점(no findings)으로 통과했습니다. 인증 범위는 Amazon Bedrock, Amazon Q Business, Textract, Transcribe를 포함합니다."
   source="AWS Security Blog"
   severity="Medium"
 -%}
@@ -168,7 +168,7 @@ AWS가 2024년 11월 주요 클라우드 공급자 중 최초로 ISO/IEC 42001 A
   title="[보안] AWS Security Agent: 자동화 침투 테스트를 위한 멀티 에이전트 아키텍처"
   url="https://aws.amazon.com/blogs/security/inside-aws-security-agent-a-multi-agent-architecture-for-automated-penetration-testing/"
   image="https://d2908q01vomqb2.cloudfront.net/22d200f8670dbdb3e253a90eee5098477c95c23d/2026/02/25/security-agent-image-998x630.jpg"
-  summary="AWS Security Agent: 자동화 침투 테스트를 위한 멀티 에이전트 아키텍처 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="AWS가 자사 내부에서 운영 중인 'AWS Security Agent'의 아키텍처를 공개했습니다. 이 시스템은 수시간~수일 단위로 자율 실행되는 '프론티어 에이전트(frontier agents)' 개념을 도입하여, 복잡한 추론·다단계 계획·자율 실행을 통해 침투 테스트를 자동화합니다."
   source="AWS Security Blog"
   severity="High"
 -%}
@@ -203,7 +203,7 @@ AWS가 자사 내부에서 운영 중인 'AWS Security Agent'의 아키텍처를
   title="[AI/ML] Google x Massachusetts AI Hub: 무료 AI 교육 파트너십"
   url="https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-training-massachusetts-residents/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/691A1377_1920x1080.max-1440x810.png"
-  summary="Google x Massachusetts AI Hub: 무료 AI 교육 파트너십 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google이 매사추세츠 AI Hub와 파트너십을 맺고 매사추세츠 주민 전원에게 Google의 AI 교육 과정을 무료로 제공합니다. AI 리터러시 격차 해소를 목표로 하는 이 이니셔티브는 기업 내 AI 역량 내재화를 검토 중인 DevSecOps 팀에도 실질적인 무료 학습 경로를 제공합니다."
   source="Google AI Blog"
   severity="Medium"
 -%}
@@ -227,7 +227,7 @@ Google이 매사추세츠 AI Hub와 파트너십을 맺고 매사추세츠 주�
   title="[AI/ML] Google 번역: AI 기반 번역 컨텍스트 이해 기능 추가"
   url="https://blog.google/products-and-platforms/products/translate/translation-context-ai-update/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Translate_TextTranslate_1920x1080_Still_01.max-1440x810.png"
-  summary="Google 번역: AI 기반 번역 컨텍스트 이해 기능 추가 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google 번역에 'understand'와 'ask' 두 가지 신규 버튼이 추가되었습니다. 단순 직역을 넘어 번역된 표현의 뉘앙스, 문화적 맥락, 관용구 배경을 AI가 설명하는 기능입니다."
   source="Google AI Blog"
   severity="Medium"
 -%}
@@ -251,7 +251,7 @@ Google 번역에 'understand'와 'ask' 두 가지 신규 버튼이 추가되었�
   title="[AI/ML] Google Nano Banana 2: 차세대 이미지 생성 모델"
   url="https://blog.google/innovation-and-ai/technology/developers-tools/build-with-nano-banana-2/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/BuildWith_SocialShare.width-1300.png"
-  summary="Google Nano Banana 2: 차세대 이미지 생성 모델 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google이 Imagen 계열의 차세대 이미지 생성 모델 'Nano Banana 2'를 개발자에게 공개했습니다. 전작 대비 디테일 표현력과 프롬프트 이해도가 향상되었으며, API를 통해 애플리케이션에 통합할 수 있습니다."
   source="Google AI Blog"
   severity="Medium"
 -%}
@@ -279,7 +279,7 @@ Google이 Imagen 계열의 차세대 이미지 생성 모델 'Nano Banana 2'를 
   title="[클라우드] PayPal 역대 최대 규모 데이터 마이그레이션: Gen AI 혁신의 기반"
   url="https://cloud.google.com/blog/products/databases/paypals-historic-data-migration-is-the-foundation-for-its-gen-ai-innovation/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/paypal-historic-teradata-migration.max-2600x2600.png"
-  summary="PayPal 역대 최대 규모 데이터 마이그레이션: Gen AI 혁신의 기반 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="PayPal이 25년간 누적된 복잡한 데이터 인프라를 Google Cloud로 이전하는 대규모 마이그레이션 작업을 완료했습니다. 단순한 클라우드 이전이 아니라 Gen AI 시대에 맞는 데이터 기반을 재구축하는 것이 목표였으며, 수억 명의 고객 데이터를 처리하면서 서비스 연속성을 유지한 점이 핵심 성과입니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -303,7 +303,7 @@ PayPal이 25년간 누적된 복잡한 데이터 인프라를 Google Cloud로 �
   title="[클라우드] Spanner Columnar Engine: Iceberg 레이크하우스 실시간 데이터 서빙"
   url="https://cloud.google.com/blog/products/databases/spanner-columnar-engine-in-preview/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/1_GGexgWX.max-2500x2500.jpg"
-  summary="Spanner Columnar Engine: Iceberg 레이크하우스 실시간 데이터 서빙 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google Cloud Spanner에 컬럼형 스토리지 엔진(Columnar Engine)이 프리뷰로 추가되었습니다. 이를 통해 Apache Iceberg 레이크하우스에 저장된 데이터를 ETL 없이 저지연으로 서빙할 수 있게 됩니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -327,7 +327,7 @@ Google Cloud Spanner에 컬럼형 스토리지 엔진(Columnar Engine)이 프리
   title="[클라우드] Google Data Cloud 업데이트: MCP 지원 확대"
   url="https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/whats_new_data_cloud_fWg4bKK.max-2500x2500.png"
-  summary="Google Data Cloud 업데이트: MCP 지원 확대 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google Cloud가 AlloyDB, Spanner, Cloud SQL, Bigtable, Firestore 등 주요 데이터베이스에 관리형(managed) 및 원격(remote) MCP(Model Context Protocol) 지원을 추가했습니다. AI 모델이 데이터베이스 도구에 직접 연결하여 복잡한 문제를 계획·해결할 수 있는 기반이 마련됩니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -355,7 +355,7 @@ Google Cloud가 AlloyDB, Spanner, Cloud SQL, Bigtable, Firestore 등 주요 데�
   title="[DevOps] Docker Model Runner: macOS Apple Silicon에서 vLLM 지원"
   url="https://www.docker.com/blog/docker-model-runner-vllm-metal-macos/"
   image="https://www.docker.com/app/uploads/2025/03/image.png"
-  summary="Docker Model Runner: macOS Apple Silicon에서 vLLM 지원 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Docker Model Runner가 Apple Silicon macOS 환경에서 Metal 백엔드를 통한 vLLM 추론을 공식 지원합니다. 기존에는 NVIDIA GPU(Linux) 및 WSL2(Windows)에서만 가능했던 고처리량 LLM 서빙을 이제 M1/M2/M3 Mac에서도 Docker 컨테이너 내에서 실행할 수 있습니다."
   source="Docker Blog"
   severity="Medium"
 -%}
@@ -379,7 +379,7 @@ Docker Model Runner가 Apple Silicon macOS 환경에서 Metal 백엔드를 통�
   title="[DevOps] Safari Technology Preview 238 릴리스"
   url="https://webkit.org/blog/17848/release-notes-for-safari-technology-preview-238/"
   image="https://webkit.org/wp-content/themes/webkit/images/preview-card.jpg"
-  summary="Safari Technology Preview 238 릴리스 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Apple이 macOS Tahoe 및 Sequoia 대상으로 Safari Technology Preview 238을 공개했습니다. 최신 웹 표준 실험적 지원이 포함되어 있으며, 웹 앱 개발팀은 Safari 호환성 이슈를 사전에 파악하는 데 활용할 수 있습니다."
   source="WebKit Blog"
   severity="Medium"
 -%}
@@ -402,7 +402,7 @@ Apple이 macOS Tahoe 및 Sequoia 대상으로 Safari Technology Preview 238을 �
   title="[DevOps] .NET Vector Data: AI 시맨틱 검색 통합 인터페이스"
   url="https://devblogs.microsoft.com/dotnet/vector-data-in-dotnet-building-blocks-for-ai-part-2/"
   image="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2026/02/mevd-scaled.webp"
-  summary=".NET Vector Data: AI 시맨틱 검색 통합 인터페이스 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Microsoft가 Microsoft.Extensions.VectorData 라이브러리를 통해 .NET 애플리케이션에서 다양한 벡터 데이터베이스에 단일 인터페이스로 접근하는 방법을 소개했습니다."
   source="Microsoft .NET Blog"
   severity="Medium"
 -%}
@@ -430,7 +430,7 @@ Microsoft가 `Microsoft.Extensions.VectorData` 라이브러리를 통해 .NET �
   title="[블록체인] SEC 의장 Paul Atkins, Bitcoin 2026 컨퍼런스 연사 확정"
   url="https://bitcoinmagazine.com/conference/paul-atkins-confirmed-as-a-bitcoin-2026-speaker"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/B26-Green-VIP-Paul-Atkins.png"
-  summary="SEC 의장 Paul Atkins, Bitcoin 2026 컨퍼런스 연사 확정 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="현직 미국 SEC(증권거래위원회) 의장 Paul Atkins가 Bitcoin 2026 컨퍼런스 연사로 공식 확정되었습니다. 현직 SEC 의장이 Bitcoin 컨퍼런스에 연사로 초청된 것은 역사상 처음으로, 미국 디지털 자산 규제 방향의 변화를 상징하는 사건입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
@@ -454,7 +454,7 @@ Microsoft가 `Microsoft.Extensions.VectorData` 라이브러리를 통해 .NET �
   title="[블록체인] libsecp256k1: Bitcoin의 암호화 핵심 라이브러리 분석"
   url="https://bitcoinmagazine.com/print/the-core-issue-libsecp256k1-bitcoins-cryptographic-heart"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Core-Issue-Article-Header-2400x1256-Falbesoner-fotor-20260226143313.webp"
-  summary="libsecp256k1: Bitcoin의 암호화 핵심 라이브러리 분석 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Bitcoin의 모든 서명 검증과 키 생성을 담당하는 암호화 라이브러리 libsecp256k1의 역사와 설계 철학을 심층 분석한 글이 공개되었습니다. 취미 프로젝트로 시작해 수조 달러 규모 자산을 보호하는 가장 보안 집약적인 코드 경로 중 하나로 발전한 과정은 오픈소스 보안 크리티컬 라이브러리 유지 관리의 중요성을 잘 보여줍니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
@@ -478,7 +478,7 @@ Bitcoin의 모든 서명 검증과 키 생성을 담당하는 암호화 라이�
   title="[블록체인] Citi, Bitcoin-전통 금융 통합 및 수탁 서비스 출시 예정"
   url="https://bitcoinmagazine.com/news/citi-to-integrate-bitcoin-with-finance"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Citi-to-Integrate-Bitcoin-with-Traditional-Finance-Launch-Custody-Services.jpg"
-  summary="Citi, Bitcoin-전통 금융 통합 및 수탁 서비스 출시 예정 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Citi 경영진이 Bitcoin을 자사 뱅킹 시스템에 통합하고 수탁(custody) 서비스를 출시할 계획을 공개했습니다. 글로벌 대형 은행의 Bitcoin 수탁 서비스 진입은 기관 투자자의 암호화폐 노출을 확대하는 동시에, 디지털 자산 보관 보안에 대한 금융권 표준을 높이는 계기가 됩니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
@@ -506,21 +506,18 @@ Citi 경영진이 Bitcoin을 자사 뱅킹 시스템에 통합하고 수탁(cust
   url="https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents"
   source="Tech World Monitor"
   tag="Operator Signal"
-  summary="Tech Monitor - Real-Time AI & Tech Industry 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
 %}
 {% include news-spotlight-item.html
   title="Rivian has a new performance division but for"
   url="https://electrek.co/2026/02/26/rivian-has-a-new-performance-division-but-for-crazy-off-road-adventures/"
   source="Electrek"
   tag="Operator Signal"
-  summary="Rivian has a new performance division but for 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
 %}
 {% include news-spotlight-item.html
   title="Donut solid-state batteries tested, Tesla"
   url="https://electrek.co/2026/02/26/donut-solid-state-batteries-tested-tesla-engineer-quits-and-solar-value/"
   source="Electrek"
   tag="Operator Signal"
-  summary="Donut solid-state batteries tested, Tesla 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html

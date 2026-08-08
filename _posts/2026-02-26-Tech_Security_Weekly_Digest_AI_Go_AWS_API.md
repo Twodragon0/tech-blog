@@ -101,7 +101,7 @@ summary_card:
   title="[보안] Google, UNC2814 GRIDTIDE 캠페인 차단 - 42개국 53개 조직 침해"
   url="https://thehackernews.com/2026/02/google-disrupts-unc2814-gridtide.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyrJTi6YIFc4PWNVjyVZgjQfbHNpfH-WtwcxIIEgUSin8DR8zz_VZBauDnlTA42bh7LT7nj1Y-OtoKL34tEKUKo4JrNuWgnhC1r54tIkws6OC8SWqucU0OrWysv2-pzj_YCinatv9FwUUsvADoPMVngfmR8wB2xr_lS1viUQHoK_Vom83SmBZMOBJPe6Nb/s1700-e365/google.jpg"
-  summary="Google, UNC2814 GRIDTIDE 캠페인 차단 - 42개국 53개 조직 침해 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google이 업계 파트너들과 협력하여 중국 연계 사이버 스파이 그룹 UNC2814의 인프라를 차단했습니다. 이 그룹은 42개국 53개 이상의 조직을 침해했으며, 아프리카·아시아·아메리카 전역의 정부기관과 통신사를 장기적으로 표적으로 삼아왔습니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -139,7 +139,7 @@ Google이 업계 파트너들과 협력하여 중국 연계 사이버 스파이 
   title="[보안] Claude Code에서 RCE 및 API 키 유출 취약점 다수 발견"
   url="https://thehackernews.com/2026/02/claude-code-flaws-allow-remote-code.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhp3ch5lk3LqPFl0TutlBSasJaFa2bNjNdXbIePoE8y76HOmsErmRwXcYUungmePyAK_J_zclibjngwBoTNEB2whRW3-ZAjwKSu1B0VwHyHS_qtKqeivbIdC4HFmSef-lcxWkLXnMs_4HVgmiTNNQSE6UeNt4Ci6lkQaZZlrcwrEy1s4wAVb93CJup8e6r7/s1700-e365/claudecode.jpg"
-  summary="Claude Code에서 RCE 및 API 키 유출 취약점 다수 발견 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="보안 연구원들이 Anthropic의 AI 코딩 어시스턴트 Claude Code에서 원격 코드 실행(RCE) 및 API 자격증명 탈취가 가능한 다수의 취약점을 공개했습니다. Hooks, MCP(Model Context Protocol) 서버, 환경 변수 등 다양한 설정 메커니즘을 악용하여 공격이 가능합니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -169,7 +169,7 @@ Google이 업계 파트너들과 협력하여 중국 연계 사이버 스파이 
   title="[보안] SLH 해킹 그룹, IT 헬프데스크 음성 피싱에 여성 모집"
   url="https://thehackernews.com/2026/02/slh-offers-5001000-per-call-to-recruit.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheMHWdwNTiAJVGFveDmUE-c6R5fRxcIf_ECfU1uk44EkFSWh1PAkXZhOoPtL9vJESPwrDSPgCGRsl3_nvkHawqFo8vTOk7WytOuAjfnnFTfxeGoDQFPuPoMS0fKbGfNSKAOt12sCvE5NxbCMOgzrmozgrvPTNUWeNdkz4Kz23xG2rQYPndvynXw34uD6lx/s1700-e365/vishing-attack.jpg"
-  summary="SLH 해킹 그룹, IT 헬프데스크 음성 피싱에 여성 모집 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="악명 높은 사이버 범죄 조직 Scattered LAPSUS$ Hunters(SLH)가 소셜 엔지니어링 공격을 위해 여성을 모집하고 있습니다. IT 헬프데스크를 대상으로 한 음성 피싱(Vishing) 캠페인에 투입하며, 건당 $500~$1,000의 선불 보수를 제공하는 것으로 Dataminr가 보고했습니다."
   source="The Hacker News"
   severity="Medium"
 -%}
@@ -203,7 +203,7 @@ Google이 업계 파트너들과 협력하여 중국 연계 사이버 스파이 
   title="[AI/ML] Google Circle to Search AI 기반 시각 검색 기능 확장"
   url="https://blog.google/products-and-platforms/products/search/circle-to-search-february-2026/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FTL__Try_On_Social_feed.width-1300.png"
-  summary="Google Circle to Search AI 기반 시각 검색 기능 확장 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google 검색에 AI 기반 도구가 추가되었습니다. 'AI Overview'가 의상 구성 요소를 분석하고, 'Try it on' 기능으로 다양한 체형에 의류를 가상 시착할 수 있습니다."
   source="Google AI Blog"
   severity="Medium"
 -%}
@@ -226,7 +226,7 @@ Google 검색에 AI 기반 도구가 추가되었습니다. "AI Overview"가 의
   title="[AI/ML] Samsung Galaxy S26에 탑재된 더 지능적인 Android AI"
   url="https://blog.google/products-and-platforms/platforms/android/samsung-unpacked-2026/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog-social-1920x1080_withouttext.width-1300.png"
-  summary="Samsung Galaxy S26에 탑재된 더 지능적인 Android AI 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Samsung Galaxy S26 시리즈에 Google의 최신 AI 기능이 통합되었습니다. 이미지 인식 기반 검색, AI 기반 사진 편집, 실시간 통역 등 온디바이스 AI 기능이 대폭 강화되었습니다."
   source="Google AI Blog"
   severity="Medium"
 -%}
@@ -249,7 +249,7 @@ Samsung Galaxy S26 시리즈에 Google의 최신 AI 기능이 통합되었습니
   title="[AI/ML] vLLM 기반 다중 파인튜닝 모델 효율적 서빙 (Amazon SageMaker)"
   url="https://aws.amazon.com/blogs/machine-learning/efficiently-serve-dozens-of-fine-tuned-models-with-vllm-on-amazon-sagemaker-ai-and-amazon-bedrock/"
   image="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/02/25/ML-20205-1120x630.png"
-  summary="vLLM 기반 다중 파인튜닝 모델 효율적 서빙 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="AWS에서 vLLM을 활용하여 MoE(Mixture of Experts) 모델에 대한 다중 LoRA 추론을 구현한 방법과 커널 수준의 최적화를 설명합니다. GPT-OSS 20B 모델을 주요 예제로 사용합니다."
   source="AWS Machine Learning Blog"
   severity="Medium"
 -%}
@@ -276,7 +276,7 @@ AWS에서 vLLM을 활용하여 MoE(Mixture of Experts) 모델에 대한 다중 L
   title="[클라우드] 프로덕션 AI 에이전트 개발 가이드 (Google Cloud)"
   url="https://cloud.google.com/blog/products/ai-machine-learning/a-devs-guide-to-production-ready-ai-agents/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/production_ready_ai.max-2500x2500.jpg"
-  summary="프로덕션 AI 에이전트 개발 가이드 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="지난 1년간 개발 커뮤니티에 큰 변화가 일어났습니다. AI 에이전트가 '흥미로운 연구 개념'에서 '팀이 실제로 구축하는 것'으로 이동했으며, Google Cloud가 프로덕션 환경에 AI 에이전트를 배포하기 위한 실무 가이드를 공개했습니다."
   source="Google Cloud Blog"
   severity="Medium"
 -%}
@@ -299,7 +299,7 @@ AWS에서 vLLM을 활용하여 MoE(Mixture of Experts) 모델에 대한 다중 L
   title="[클라우드] GRIDTIDE 글로벌 사이버 스파이 캠페인 심층 분석 (Google Cloud)"
   url="https://cloud.google.com/blog/topics/threat-intelligence/disrupting-gridtide-global-espionage-campaign/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png"
-  summary="GRIDTIDE 글로벌 사이버 스파이 캠페인 심층 분석 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Google Threat Intelligence Group(GTIG)과 Mandiant가 4개 대륙 수십 개 국가의 통신사 및 정부기관을 표적으로 한 글로벌 스파이 캠페인을 차단한 과정을 상세히 공개했습니다. UNC2814는 2017년부터 추적해온 중국(PRC) 연계 사이버 스파이 그룹입니다."
   source="Google Cloud Blog"
   severity="High"
 -%}
@@ -326,7 +326,7 @@ Google Threat Intelligence Group(GTIG)과 Mandiant가 4개 대륙 수십 개 국
   title="[DevOps] Open WebUI + Docker Model Runner: 제로 설정 셀프 호스팅 AI"
   url="https://www.docker.com/blog/openwebui-docker-model-runner/"
   image="https://www.docker.com/app/uploads/2025/03/image.png"
-  summary="Open WebUI + Docker Model Runner: 제로 설정 셀프 호스팅 AI 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Docker Model Runner(DMR)와 Open WebUI 간의 원활한 통합이 공개되었습니다. Open WebUI가 localhost:12434에서 실행 중인 Docker Model Runner를 자동 감지하고 연결하여, 별도 설정 없이 셀프 호스팅 AI 모델을 바로 사용할 수 있습니다."
   source="Docker Blog"
   severity="Medium"
 -%}
@@ -349,7 +349,7 @@ Docker Model Runner(DMR)와 Open WebUI 간의 원활한 통합이 공개되었�
   title="[DevOps] 2026년 하반기 Kubernetes Community Days(KCDs) 일정 발표"
   url="https://www.cncf.io/blog/2026/02/25/announcing-h2-2026-kcds/"
   image="https://www.cncf.io/wp-content/uploads/2026/02/Announcing-H2-2026-KCDs.jpg"
-  summary="2026년 하반기 Kubernetes Community Days 일정 발표 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="CNCF가 2026년 하반기 Kubernetes Community Days(KCDs) 전체 일정을 발표했습니다. 전 세계 로컬 실무자, 도입자, 기여자들이 모여 클라우드 네이티브 지식을 공유하는 커뮤니티 주도 행사입니다."
   source="CNCF Blog"
   severity="Medium"
 -%}
@@ -376,7 +376,7 @@ CNCF가 2026년 하반기 Kubernetes Community Days(KCDs) 전체 일정을 발�
   title="[블록체인] Morgan Stanley, Bitcoin 거래·대출·수탁 사업 확대 계획"
   url="https://bitcoinmagazine.com/news/morgan-stanley-plans-for-bitcoin-trading"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Pics-7.jpg"
-  summary="Morgan Stanley, Bitcoin 거래·대출·수탁 사업 확대 계획 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 계획을 발표했습니다. 자체 암호화폐 수탁(Custody) 및 거래소 솔루션 출시를 포함하여, Bitcoin 거래·대출·수탁 전반에 걸친 서비스를 확장할 예정입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
@@ -399,7 +399,7 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
   title="[블록체인] Bitcoin 7% 이상 급등, $69,000 돌파"
   url="https://bitcoinmagazine.com/markets/bitcoin-price-roars-7-to-69000"
   image="https://bitcoinmagazine.com/wp-content/uploads/2026/02/Bitcoin-Price-Roars-8-to-69000-as-Market-Tests-Post-Capitulation-Range.jpg"
-  summary="Bitcoin 7% 이상 급등, $69,000 돌파 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
+  summary="Bitcoin 가격이 하루 만에 8% 이상 상승하여 $69,000을 돌파했습니다. 수개월간의 매도세 이후 가장 강력한 일일 상승 중 하나이며, 항복 매도(Capitulation) 이후 가격 범위를 시험하는 중입니다."
   source="Bitcoin Magazine"
   severity="Medium"
 -%}
@@ -426,14 +426,12 @@ Bitcoin 가격이 하루 만에 8% 이상 상승하여 $69,000을 돌파했습�
   url="https://tech.worldmonitor.app/"
   source="Tech World Monitor"
   tag="Operator Signal"
-  summary="Tech Monitor - 실시간 AI & 기술 산업 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
 %}
 {% include news-spotlight-item.html
   title="현대차 첫 중형 픽업 IONIQ T7 개발"
   url="https://electrek.co/2026/02/25/hyundai-new-pickup-potential-4wd-suv-in-the-works/"
   source="Electrek"
   tag="Operator Signal"
-  summary="현대차 첫 중형 픽업 IONIQ T7 개발 이슈를 기준으로 기술적으로는 공격 경로·영향 자산·탐지 포인트를 정리하고, 경영진 관점에서는 서비스 영향·우선순위·의사결정 체크포인트를 함께 제시했습니다."
 %}
 {% endcapture %}
 {% include news-spotlight-section.html
