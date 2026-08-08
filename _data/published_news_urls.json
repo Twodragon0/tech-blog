@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-07T02:12:40.862870+00:00",
+  "updated_at": "2026-08-08T00:58:48.218483+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html",
@@ -1260,6 +1260,96 @@
       "title": "UNC6671 Rebrands: Multi-Brand Vishing Extortion Targets Financial Services and E",
       "published_date": "2026-08-07",
       "expires_at": "2026-08-14T02:12:40.862751+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
+      "title": "Nearly 800 Malicious npm Packages Deliver Cross-Platform RAT and Infostealer",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
+      "title": "ClickFix Attacks Deliver macOS Stealer That Can Drain Crypto Wallets",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/unc6671-vishing-attacks-target-personal.html",
+      "title": "UNC6671 Vishing Attacks Target Personal Phones to Steal SaaS Data",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/a-decade-of-enterprise-identity-in-the-cloud-with-aws-managed-microsoft-ad/",
+      "title": "A decade of enterprise identity in the cloud with AWS Managed Microsoft AD",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/new-wordpress-pre-auth-xss-could-lead.html",
+      "title": "New WordPress Pre-Auth XSS Could Lead to PHP Code Execution - Patch ASAP",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
+      "title": "Responding to the next frontier of critical cyber capabilities",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://openai.com/index/hsp-gruppe",
+      "title": "How HSP GRUPPE builds AI capabilities for tax advisory",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/how-and-why-netflix-built-a-real-time-distributed-graph-part-3-querying-the-graph-with-grpc-0f3468349607?source=rss----2615bd06b42e---4",
+      "title": "How and Why Netflix Built a Real-Time Distributed Graph: Part 3 — Querying the g",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-cohere-health-digitizes-clinical-policies-using-amazon-bedrock-agentcore/",
+      "title": "How Cohere Health digitizes clinical policies using Amazon Bedrock AgentCore",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
+      "title": "How TReNDS automates root-cause analysis with Amazon Bedrock",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/new-bigquery-data-transfer-service-capabilities/",
+      "title": "Zero-code, low-cost data ingestion: New BigQuery DTS capabilities",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/how-google-cloud-detects-contains-and-protects-against-emerging-threats/",
+      "title": "How Google Cloud detects, contains, and protects against emerging threats",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-search-innovations-unify-structured-unstructured-data/",
+      "title": "Unifying Structured and Unstructured Data Insights with BQ Search Innovations",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/networking/streaming-the-fifa-world-cup-with-televisaunivision/",
+      "title": "GOL! How TelevisaUnivision streamed the FIFA World Cup to millions with Google C",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-07-github-copilot-weekly-releases-august-3",
+      "title": "GitHub Copilot weekly releases — August 3",
+      "published_date": "2026-08-08",
+      "expires_at": "2026-08-15T00:58:48.218390+00:00"
     }
   ]
 }
