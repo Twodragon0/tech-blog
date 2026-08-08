@@ -177,7 +177,7 @@ SK쉴더스 HeadLine (2월호)에서 금융 서비스 분야 AI를 위한 7대 �
 {%- include news-card.html
   title="[보안] SK쉴더스 EQST Insight 및 랜섬웨어 트렌드"
   url="https://www.skshieldus.com/download/files/download.do?o_fname=SK%EC%89%B4%EB%8D%94%EC%8A%A4%20EQST%20insight%20%ED%86%B5%ED%95%A9%20(%EB%AA%A9%EC%B0%A8"
-  summary="SK쉴더스 EQST Insight 및 랜섬웨어 트렌드 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="이번 기간 SK쉴더스 추가 발간물 2종입니다. EQST Insight (1월호)는 신규 공격 벡터를 다루는 통합 위협 인텔리전스 다이제스트, 글로벌 랜섬웨어 트렌드 보고서 (2월)는 랜섬웨어 진화, 신규 변종, 업종별 타겟팅 패턴 분석을 다룹니다."
   source="SK쉴더스 EQST Insight (PDF)"
   severity="High"
 -%}

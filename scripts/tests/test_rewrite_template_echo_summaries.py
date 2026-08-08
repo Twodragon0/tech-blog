@@ -220,6 +220,62 @@ def test_prose_that_is_not_a_finished_sentence_is_skipped():
     assert rw.replace_echo_summaries(src) == src
 
 
+# --- narrowing the quote: two sentences, else one ----------------------------
+#
+# A whole paragraph is judged as one unit only in the happy case. When the
+# two-sentence candidate is unusable — too long to cut without the helper
+# padding it, or trailing into something that is not a finished sentence — the
+# first sentence alone is still evidence the post carries, so it is quoted
+# instead of abandoning the card to its template echo. Measured: this is the
+# entire difference between 6 and 1 unrepairable cards in the corpus.
+
+
+def test_two_sentence_overflow_falls_back_to_one_sentence():
+    """Sentence 1 fits the cap, sentences 1+2 do not. Quote sentence 1."""
+    first = "CNCF에서 Harbor 컨테이너 레지스트리를 프로덕션 환경에서 운영하기 위한 가이드를 발표했습니다."
+    second = "고가용성과 보안, 스토리지, 모니터링, 네트워크 구성 등 " + "다섯 가지 핵심 영역을 중심으로 정리한 " * 6 + "실무 권장사항입니다."
+    assert len(first) <= rw.MAX_SUMMARY_LEN < len(first + " " + second)
+    value = _summary_of(rw.replace_echo_summaries(_post(_card() + "\n" + first + " " + second + "\n")))
+    assert value == first
+
+
+def test_paragraph_trailing_into_a_byline_still_yields_its_sentences():
+    """A trailing "(작성: …)" is not a sentence; it must not veto the two above it."""
+    prose = _PROSE + " (작성: Matt Corallo)"
+    value = _summary_of(rw.replace_echo_summaries(_post(_card() + "\n" + prose + "\n")))
+    assert value in _PROSE
+    assert "Matt Corallo" not in value
+
+
+def test_paragraph_trailing_into_a_colon_lead_in_falls_back_to_one_sentence():
+    first = "AWS Korea Blog의 시리즈 2편으로, 7주 만에 구축한 Agentic AI 플랫폼의 핵심 인프라를 다룹니다."
+    prose = first + " 이번 글의 주제는 엔터프라이즈급 에이전트 시스템의 세 가지 핵심 구성요소입니다:"
+    value = _summary_of(rw.replace_echo_summaries(_post(_card() + "\n" + prose + "\n")))
+    assert value == first
+
+
+def test_paragraph_cut_off_mid_sentence_still_yields_its_finished_first():
+    """2026-03-16 ships a paragraph the generator truncated mid-word. The first
+    sentence survived intact and is the only thing quoted."""
+    first = "AI 코딩 에이전트의 동작 방식을 자신의 애플리케이션 백엔드에도 적용할 수 있습니다."
+    prose = first + " 하나의 에이전트에게 코드 리뷰와 테스트 작성을 모두 맡기면 컨텍스트가 길어지면서 자신이 작성한"
+    value = _summary_of(rw.replace_echo_summaries(_post(_card() + "\n" + prose + "\n")))
+    assert value == first
+
+
+def test_fallback_still_refuses_to_invent_when_one_sentence_also_overflows():
+    """The narrowing is a second attempt, not a licence to pad. When neither
+    candidate survives the no-invented-text check the card is left alone."""
+    prose = ("첫 문장은 아주 길게 이어지는 설명으로 " * 12).strip() + "입니다."
+    src = _post(_card() + "\n" + prose + "\n")
+    assert rw.replace_echo_summaries(src) == src
+
+
+def test_fallback_does_not_rescue_a_paragraph_with_no_finished_sentence():
+    src = _post(_card() + "\n주요 구성요소는 다음 세 가지 항목으로 충분히 길게 구성되어 있습니다:\n")
+    assert rw.replace_echo_summaries(src) == src
+
+
 # --- Liquid attribute safety -------------------------------------------------
 
 

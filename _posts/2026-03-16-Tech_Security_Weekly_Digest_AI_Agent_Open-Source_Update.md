@@ -147,7 +147,7 @@ index=security sourcetype=ai_agent_logs
   title="Amazon Bedrock과 Claude Agent SDK로 서버리스 멀티 에이전트 구현하기"
   url="https://aws.amazon.com/ko/blogs/tech/implement-serverless-multiagent-bedrock-claude-agent-sdk/"
   image="https://d2908q01vomqb2.cloudfront.net/2a459380709e2fe4ac2dae5733c73225ff6cfee1/2026/03/15/feature-1118x630.png"
-  summary="Amazon Bedrock과 Claude Agent SDK로 서버리스 멀티 에이전트 구현하기를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Kiro CLI나 Claude Code 같은 AI 코딩 에이전트를 사용하다 보면, 코드를 분석하고 수정하고 테스트까지 실행하는 이 에이전트의 동작 방식을 자신의 애플리케이션 백엔드에도 적용할 수 있으면 좋겠다고 생각해 본 적이 있을 것입니다."
   source="AWS Korea Blog"
   severity="Medium"
 %}

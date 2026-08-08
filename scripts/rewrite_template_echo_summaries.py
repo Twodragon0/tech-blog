@@ -245,20 +245,21 @@ def _to_liquid_safe(text: str) -> str:
     return text.replace("‘", "'").replace("’", "'")
 
 
-def summarise(prose: str, max_sentences: int = 2):
-    """First one or two sentences of ``prose``, or None if it is not a summary."""
-    text = _clean_markdown(prose)
-    if len(text) < MIN_PROSE_LEN:
-        return None
-    if not text.endswith(("다.", "요.", ".")):
-        return None
-    if "{%" in text or "{{" in text:
+def _quote(candidate: str):
+    """One candidate quotation, validated, or None.
+
+    Every rule that decides whether text may be lifted lives here, so the
+    narrowing loop in ``summarise`` cannot weaken a check by retrying: a shorter
+    candidate faces exactly the same bar as the longer one it replaces.
+    """
+    # Applied to the CANDIDATE, not to the whole paragraph. A paragraph often
+    # trails into something that is not a sentence — a byline "(작성: …)", a
+    # colon lead-in for the bullet list below it, or, in 2026-03-16, a
+    # generator truncation that stops mid-word. None of those are quoted, and
+    # none of them are evidence against the finished sentences above them.
+    if not candidate.endswith(("다.", "요.", ".")):
         return None
 
-    sentences = [s for s in _SENTENCE_SPLIT_RE.split(text) if s.strip()]
-    if not sentences:
-        return None
-    candidate = " ".join(sentences[:max_sentences]).strip()
     clipped = _truncate_korean_sentence(candidate, MAX_SUMMARY_LEN)
     # The helper's word-boundary fallback can APPEND "… 등이 확인되었습니다." That is
     # fine for a generator writing new text and wrong here: every character of a
@@ -275,6 +276,30 @@ def summarise(prose: str, max_sentences: int = 2):
     if _is_template_echo(value):
         return None
     return value
+
+
+def summarise(prose: str, max_sentences: int = 2):
+    """First one or two sentences of ``prose``, or None if it is not a summary.
+
+    Two sentences are preferred; when they cannot be quoted the first alone is
+    tried before giving up. Narrowing the quote never loosens a rule — it only
+    stops one unusable trailing sentence from discarding a usable leading one,
+    which is the whole difference between 6 and 1 unrepairable cards.
+    """
+    text = _clean_markdown(prose)
+    if len(text) < MIN_PROSE_LEN:
+        return None
+    if "{%" in text or "{{" in text:
+        return None
+
+    sentences = [s for s in _SENTENCE_SPLIT_RE.split(text) if s.strip()]
+    if not sentences:
+        return None
+    for count in range(max_sentences, 0, -1):
+        value = _quote(" ".join(sentences[:count]).strip())
+        if value is not None:
+            return value
+    return None
 
 
 # --- transform: replace ------------------------------------------------------

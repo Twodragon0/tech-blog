@@ -251,7 +251,7 @@ NVIDIA와 T-Mobile, SoftBank, Indosat 등 글로벌 통신사가 소프트웨어
   title="[클라우드] AWS: Agentic AI 플랫폼 Part 2 — AgentCore Gateway와 MCP Registry 구현"
   url="https://aws.amazon.com/ko/blogs/tech/agentic-ai-platform-part2-agentcore-gateway-identity-making-mcp-registry/"
   image="https://d2908q01vomqb2.cloudfront.net/2a459380709e2fe4ac2dae5733c73225ff6cfee1/2026/02/26/feature-main-1118x630.png"
-  summary="AWS: Agentic AI 플랫폼 Part 2 — AgentCore Gateway와 MCP Registry 구현 이슈를 중심으로 공격 벡터와 영향 범위를 점검하고, 탐지·차단·복구 관점의 우선 대응 항목을 실무 기준으로 정리했습니다."
+  summary="AWS Korea Blog의 시리즈 2편으로, 2명의 Solutions Architect가 7주 만에 구축한 Agentic AI 플랫폼의 핵심 인프라를 다룹니다."
   source="AWS Korea Blog"
   severity="Medium"
 -%}
