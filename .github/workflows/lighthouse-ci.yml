@@ -10,18 +10,28 @@
 # scoped to PR diffs.
 #
 # URL strategy:
+#   The measured URLs are derived from the PR diff by
+#   scripts/dev/resolve_lighthouse_urls.py: the homepage, plus the post page
+#   the PR actually edited (capped, so run time stays flat regardless of how
+#   many posts a corpus-wide PR touches). A post URL is measured only when it
+#   exists in BOTH builds — `serve --single` answers an unknown path with the
+#   homepage at HTTP 200, so measuring a head-only URL would compare a post
+#   page against the homepage. PRs that touch no post keep the representative
+#   post below.
+#
 #   Primary: local Jekyll build served on localhost:4000 (Vercel-independent).
-#   Fallback: if Jekyll build fails, re-run Lighthouse against GH Pages backup
-#             (https://twodragon0.github.io/tech-blog) so Vercel Challenge Mode
-#             or rate-limiting cannot block the check entirely.
-#             The compare step uses continue-on-error: true so a fallback result
-#             never hard-blocks the PR merge.
+#   Fallback: if either Jekyll build fails, re-run Lighthouse against GH Pages
+#             backup (https://twodragon0.github.io/tech-blog) so Vercel
+#             Challenge Mode or rate-limiting cannot block the check entirely.
+#             URLs there are not localhost-normalised, so no row is comparable
+#             and the compare step returns "skip" — a soft degrade, by design.
 
 name: Lighthouse perf gate
 
 on:
   pull_request:
     paths:
+      - "_posts/**"
       - "_includes/**"
       - "_layouts/**"
       - "_sass/**"
@@ -31,6 +41,7 @@ on:
       - "vercel.json"
       - "_plugins/**"
       - "scripts/dev/compare_lighthouse_runs.py"
+      - "scripts/dev/resolve_lighthouse_urls.py"
       - ".github/workflows/lighthouse-ci.yml"
   workflow_dispatch:
 
@@ -44,6 +55,13 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Measured when the PR touched no resolvable post (e.g. an assets/** or
+  # _includes/** change). Dropped automatically if it stops existing.
+  DEFAULT_POST_URL: /posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/
+  GHPAGES_BASE: https://twodragon0.github.io/tech-blog
+  # Cap on post URLs. 1 keeps the job at 2 URLs — the same sweep count the
+  # gate had before _posts/** triggered it — so per-run cost did not change.
+  MAX_POST_URLS: 1
 
 jobs:
   lighthouse-perf-gate:
@@ -51,6 +69,9 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
+      - name: Record job start
+        run: echo "GATE_STARTED_AT=$(date +%s)" >> "$GITHUB_ENV"
+
       - name: Checkout PR head
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
         with:
@@ -90,57 +111,6 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Run Lighthouse on head (local build)
-        if: steps.build-head.outcome == 'success'
-        run: |
-          mkdir -p lhci-head
-          npx serve _site_head -l 4000 --single &
-          SERVER_PID=$!
-          for _ in $(seq 1 15); do
-            if curl -sf http://localhost:4000/ > /dev/null 2>&1; then break; fi
-            sleep 1
-          done
-          for url in http://localhost:4000/ http://localhost:4000/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/; do
-            # Warm-cache prerun: warms OS file cache, Node module cache, and
-            # the local server's slab. Result is discarded. Eliminates the
-            # cold-start outlier that caused the +721 ms false positive in
-            # PR #326.
-            lighthouse "$url" --output=json --output-path=/dev/null --quiet \
-              --chrome-flags="--headless --no-sandbox --disable-gpu" --preset=desktop || true
-
-            # 5 measured runs (odd number → stable median, no tie-breaks).
-            for run_id in 1 2 3 4 5; do
-              lighthouse "$url" \
-                --output=json \
-                --output-path="lhci-head/lhr-$(echo "$url" | tr '/:' '_')-$run_id.json" \
-                --quiet \
-                --chrome-flags="--headless --no-sandbox --disable-gpu" \
-                --preset=desktop || true
-            done
-          done
-          kill $SERVER_PID 2>/dev/null || true
-
-      - name: Run Lighthouse on head (GH Pages fallback)
-        if: steps.build-head.outcome != 'success'
-        run: |
-          # Local Jekyll build failed — fall back to GH Pages backup.
-          # This keeps the perf gate alive even when Vercel or Jekyll is blocked.
-          GHPAGES_BASE="https://twodragon0.github.io/tech-blog"
-          mkdir -p lhci-head
-          for path in "/" "/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/"; do
-            url="${GHPAGES_BASE}${path}"
-            lighthouse "$url" --output=json --output-path=/dev/null --quiet \
-              --chrome-flags="--headless --no-sandbox --disable-gpu" --preset=desktop || true
-            for run_id in 1 2 3 4 5; do
-              lighthouse "$url" \
-                --output=json \
-                --output-path="lhci-head/lhr-$(echo "$url" | tr '/:' '_')-$run_id.json" \
-                --quiet \
-                --chrome-flags="--headless --no-sandbox --disable-gpu" \
-                --preset=desktop || true
-            done
-          done
-
       - name: Checkout PR base
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
         with:
@@ -158,17 +128,52 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Run Lighthouse on base (local build)
-        if: steps.build-base.outcome == 'success'
+      # Both builds must exist before the URL list is resolved: a post URL is
+      # only measurable where every build serves it (see the script docstring).
+      - name: Resolve measurement URLs
+        id: urls
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          mkdir -p lhci-base
-          npx serve _site_base -l 4000 --single &
+          set -euo pipefail
+          : > changed-files.txt
+          if [ -n "${PR_NUMBER:-}" ]; then
+            # The PR file list, not a two-dot git diff: it carries three-dot
+            # semantics, so commits landed on main since the branch point do
+            # not masquerade as this PR's changes.
+            gh api --paginate \
+              "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
+              -q '.[].filename' > changed-files.txt || : > changed-files.txt
+          fi
+
+          SITE_ARGS=""
+          if [ "${{ steps.build-head.outcome }}" = "success" ] \
+             && [ "${{ steps.build-base.outcome }}" = "success" ]; then
+            SITE_ARGS="--site-dir _site_head --site-dir _site_base"
+          fi
+
+          # shellcheck disable=SC2086
+          python3 scripts/dev/resolve_lighthouse_urls.py \
+            --changed-files changed-files.txt \
+            $SITE_ARGS \
+            --default-post-url "${DEFAULT_POST_URL}" \
+            --max-post-urls "${MAX_POST_URLS}" \
+            --output lh-urls.txt
+
+      - name: Run Lighthouse on head (local build)
+        if: steps.build-head.outcome == 'success' && steps.build-base.outcome == 'success'
+        run: |
+          mkdir -p lhci-head
+          npx serve _site_head -l 4000 --single &
           SERVER_PID=$!
           for _ in $(seq 1 15); do
             if curl -sf http://localhost:4000/ > /dev/null 2>&1; then break; fi
             sleep 1
           done
-          for url in http://localhost:4000/ http://localhost:4000/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/; do
+          while IFS= read -r path; do
+            [ -n "$path" ] || continue
+            url="http://localhost:4000${path}"
             # Warm-cache prerun: warms OS file cache, Node module cache, and
             # the local server's slab. Result is discarded. Eliminates the
             # cold-start outlier that caused the +721 ms false positive in
@@ -180,24 +185,30 @@ jobs:
             for run_id in 1 2 3 4 5; do
               lighthouse "$url" \
                 --output=json \
-                --output-path="lhci-base/lhr-$(echo "$url" | tr '/:' '_')-$run_id.json" \
+                --output-path="lhci-head/lhr-$(echo "$url" | tr '/:' '_')-$run_id.json" \
                 --quiet \
                 --chrome-flags="--headless --no-sandbox --disable-gpu" \
                 --preset=desktop || true
             done
-          done
+          done < lh-urls.txt
           kill $SERVER_PID 2>/dev/null || true
 
-      - name: Run Lighthouse on base (GH Pages fallback)
-        if: steps.build-base.outcome != 'success'
+      - name: Run Lighthouse on base (local build)
+        if: steps.build-head.outcome == 'success' && steps.build-base.outcome == 'success'
         run: |
-          # Local Jekyll build failed — fall back to GH Pages backup for base.
-          GHPAGES_BASE="https://twodragon0.github.io/tech-blog"
           mkdir -p lhci-base
-          for path in "/" "/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/"; do
-            url="${GHPAGES_BASE}${path}"
+          npx serve _site_base -l 4000 --single &
+          SERVER_PID=$!
+          for _ in $(seq 1 15); do
+            if curl -sf http://localhost:4000/ > /dev/null 2>&1; then break; fi
+            sleep 1
+          done
+          while IFS= read -r path; do
+            [ -n "$path" ] || continue
+            url="http://localhost:4000${path}"
             lighthouse "$url" --output=json --output-path=/dev/null --quiet \
               --chrome-flags="--headless --no-sandbox --disable-gpu" --preset=desktop || true
+
             for run_id in 1 2 3 4 5; do
               lighthouse "$url" \
                 --output=json \
@@ -206,7 +217,30 @@ jobs:
                 --chrome-flags="--headless --no-sandbox --disable-gpu" \
                 --preset=desktop || true
             done
-          done
+          done < lh-urls.txt
+          kill $SERVER_PID 2>/dev/null || true
+
+      # One fallback for both sides: if either build failed there is no
+      # like-for-like local pair to compare, so measure GH Pages once per side
+      # and let the compare step report "skip".
+      - name: Run Lighthouse on GH Pages fallback
+        if: steps.build-head.outcome != 'success' || steps.build-base.outcome != 'success'
+        run: |
+          mkdir -p lhci-head lhci-base
+          while IFS= read -r path; do
+            [ -n "$path" ] || continue
+            url="${GHPAGES_BASE}${path}"
+            lighthouse "$url" --output=json --output-path=/dev/null --quiet \
+              --chrome-flags="--headless --no-sandbox --disable-gpu" --preset=desktop || true
+            for run_id in 1 2 3 4 5; do
+              lighthouse "$url" \
+                --output=json \
+                --output-path="lhci-head/lhr-$(echo "$url" | tr '/:' '_')-$run_id.json" \
+                --quiet \
+                --chrome-flags="--headless --no-sandbox --disable-gpu" \
+                --preset=desktop || true
+            done
+          done < lh-urls.txt
 
       - name: Compare LCP head vs base
         id: compare
@@ -224,6 +258,21 @@ jobs:
           # here — a real regression now blocks the PR, while the fallback case
           # still passes. (Security fix C-H1, 2026-06-30 workflow audit.)
 
+      # Running record of what the gate cost and what it actually measured.
+      # `_posts/**` roughly halves the share of PRs that skip this workflow, so
+      # the per-run number needs to stay visible rather than be re-estimated.
+      - name: Report gate cost
+        if: always()
+        run: |
+          ELAPSED=$(( $(date +%s) - GATE_STARTED_AT ))
+          {
+            echo "### Lighthouse perf gate cost"
+            echo ""
+            echo "- Wall clock: **$((ELAPSED / 60))m $((ELAPSED % 60))s**"
+            echo "- URLs measured:"
+            sed 's/^/  - `/; s/$/`/' lh-urls.txt 2>/dev/null || echo "  - (none resolved)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Upload Lighthouse artifacts
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
@@ -232,6 +281,7 @@ jobs:
           path: |
             lhci-base/
             lhci-head/
+            lh-urls.txt
             lighthouse-comparison.md
           if-no-files-found: ignore
           retention-days: 7
