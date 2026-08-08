@@ -94,6 +94,23 @@ def test_url_normalisation_across_localhost_and_loopback(tmp_path):
     assert rows[0]["delta_lcp"] == pytest.approx(50.0)
 
 
+
+def test_urls_pair_across_different_localhost_ports(tmp_path):
+    """Head and base are served on separate ports on purpose.
+
+    Sharing :4000 let the base server fall back to a random port while
+    Lighthouse kept requesting :4000, so the base sweep re-measured the head
+    build — vacuous from PR #326 until 2026-08-08. If the port were not
+    normalised away, the split-port fix would instead produce zero comparable
+    rows and a permanently green "skip".
+    """
+    base, head = tmp_path / "base", tmp_path / "head"
+    _write_lhr(base, "http://localhost:4001/posts/a/", lcp_ms=1800)
+    _write_lhr(head, "http://localhost:4000/posts/a/", lcp_ms=2100)
+    rows, code = clr.compare(base, head, threshold_ms=200.0)
+    assert [r["url"] for r in rows] == ["/posts/a/"], rows
+    assert code == 1, "a +300 ms regression across split ports was not caught"
+
 def test_no_comparable_urls(tmp_path):
     base = tmp_path / "base"
     head = tmp_path / "head"
