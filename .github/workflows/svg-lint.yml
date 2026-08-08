@@ -39,6 +39,8 @@ on:
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/linkify_bare_urls.py'
+      - 'scripts/check_template_echo.py'
+      - 'scripts/rewrite_template_echo_summaries.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -84,6 +86,8 @@ on:
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/linkify_bare_urls.py'
+      - 'scripts/check_template_echo.py'
+      - 'scripts/rewrite_template_echo_summaries.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
       - '_includes/head.html'
@@ -301,6 +305,16 @@ jobs:
         # after PR #509, so any hit is fresh. Guides, not cron digests, are the
         # recurrence path, so there is deliberately no blogwatcher step.
         run: python3 scripts/linkify_bare_urls.py --check --all
+
+      - name: Template-echo card summary gate
+        id: template_echo_gate
+        # --all: PRs #521/#525 took the corpus from 490 template-echo summaries
+        # to 0 across all 259 posts, so there is no legacy debt to scope around
+        # and any hit is fresh drift — including one arriving via a cron push
+        # that never ran the pre-commit hook. The clauses no longer exist
+        # anywhere in scripts/, which is precisely the state where a regression
+        # would otherwise be silent.
+        run: python3 scripts/check_template_echo.py --all --quiet
 
       - name: CSP inline-script sha256 regression gate (prep for CSP Path B)
         id: csp_inline_hashes

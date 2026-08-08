@@ -523,7 +523,7 @@ the 9 historical posts affected before the rule was introduced. The 7
 posts that still violated the rule were fixed in commit `b4ff35c4`
 (2026-05-28).
 
-### Active automation gates (9 enforcing)
+### Active automation gates (10 enforcing)
 
 | # | Script | Scope | Wired to |
 |---|--------|-------|----------|
@@ -536,6 +536,7 @@ posts that still violated the rule were fixed in commit `b4ff35c4`
 | 7 | `check_kst_midnight.py` | KST 00-09 post URL drift | pre-commit + svg-lint CI |
 | 8 | blogwatcher raster auto-emit | cron-side raster generation | `.github/workflows/ai-blogwatcher.yml` |
 | 9 | `check_digest_checklist_heading.py` | exactly one canonical `## 실무 체크리스트` H2 | pre-commit (9d) + svg-lint CI (`--all`) + blogwatcher publish (self-heal, then block) |
+| 10 | `check_template_echo.py` | card `summary=` that only echoes the headline + a fixed clause | pre-commit (13, `--staged`) + svg-lint CI (`--all`) + blogwatcher publish (self-heal via `rewrite_template_echo_summaries.py`, then block) |
 
 ### Code Blocks
 - **Always** include language tags: ```python, ```bash, ```yaml

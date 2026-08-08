@@ -281,6 +281,25 @@ if [ -n "$STAGED_ANY_POSTS" ]; then
   fi
   echo "[pre-commit] Bare-URL check: passed."
 fi
+
+# 13. Template-echo card summary gate — a summary that repeats the headline and
+#     bolts on one of three fixed clauses describes no article. 490 were repaired
+#     in PRs #521/#525 and the corpus is at 0 across all 259 posts, so there is
+#     no ratchet: any hit is new drift. Runs on every staged post, not just
+#     digests — the markers only occur inside a news-item include, so a
+#     hand-written post cannot false-positive.
+if [ -n "$STAGED_ANY_POSTS" ]; then
+  echo "[pre-commit] Checking staged posts for template-echo card summaries..."
+  python3 "$REPO_ROOT/scripts/check_template_echo.py" --staged --quiet
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Template-echo summary found — it describes no article."
+    echo "             Repair from the post's own prose (no network, no LLM):"
+    echo "               python3 scripts/rewrite_template_echo_summaries.py <post>"
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Template-echo check: passed."
+fi
 HOOK
 
 chmod +x "$HOOK_FILE"
