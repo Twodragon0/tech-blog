@@ -90,7 +90,7 @@ summary_card:
   title="아르헨티나 대통령 Libra 토큰 홍보 관련 $5M 거래 포렌식 분석"
   url="https://cointelegraph.com/news/milei-libra-promotion-5m-draft-deal-found-novelli-phone?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjUtMDgvMDE5OGU4NGYtNzI5OC03NTdmLWFmZWUtOWYyYjllYmYzNTky.jpg"
-  summary="아르헨티나 대통령 Libra 토큰 홍보 관련 $5M 거래 포렌식 분석를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="아르헨티나 로비스트 Mauricio Novelli의 휴대폰 포렌식 분석에서 대통령의 Libra 토큰 홍보와 연결된 $5M 거래 계약서 초안이 발견되었습니다. 이 사건은 정치인이 특정 암호화폐 프로젝트를 홍보하는 행위의 법적·윤리적 리스크를 재확인시킵니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -107,7 +107,7 @@ summary_card:
   title="스테이블코인 규제 불확실성, 은행에 더 큰 타격 전망"
   url="https://cointelegraph.com/news/stablecoin-uncertainty-could-hurt-banks-more-than-crypto-firms-expert?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzhmMDUtNmFjYi03YmY1LThhMWEtODkxMDA1ZGZkZWJiLmpwZw==.jpg"
-  summary="스테이블코인 규제 불확실성, 은행에 더 큰 타격 전망를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="스테이블코인에 대한 규제 불확실성이 크립토 기업보다 전통 금융 기관에 더 큰 타격을 줄 수 있다는 분석입니다. 크립토 기업은 규제 공백 속에서도 확장을 계속하는 반면, 은행은 명확한 규칙이 나올 때까지 디지털 자산 서비스 출시를 보류하고 있습니다."
   source="Cointelegraph"
   severity="Medium"
 %}
@@ -124,7 +124,7 @@ summary_card:
   title="암호화폐 시장 일일 동향 종합"
   url="https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5YzY2NjktN2UxNi03ZmI0LTlmNjItOTIxNWU3YTcwZmIwLmpwZw==.jpg"
-  summary="암호화폐 시장 일일 동향 종합를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Bitcoin 가격, DeFi, NFT, Web3, 규제 동향을 포함한 암호화폐 시장 일일 종합 리포트입니다. 최근 시장 변동성이 높아지면서 피싱·스캠 활동도 증가하는 추세입니다."
   source="Cointelegraph"
   severity="Medium"
 %}

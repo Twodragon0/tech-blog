@@ -111,7 +111,7 @@ summary_card:
   title="[보안] Google Android 3월 보안 업데이트: 129개 취약점 패치"
   url="https://thehackernews.com/2026/03/google-confirms-cve-2026-21385-in.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjR_pPCmiYZpBkIhumuW9B55rXBX7U9PZto5xPxHsLBbx5EstbqXgUI-XLZkQQV8OCsdaOi5RuSapl0V4LPKX9B_8MDBqSteyX83vXpj7G8-87BBhyphenhyphen75Os_0RhTFWBL_yxr7JVwXXtZ-qdbbugAlw9MoC5mFEx0hfQMncgnDRR8tLlEMXsLiPmim2sTjzNO/s1700-e365/android-exploit.jpg"
-  summary="Google Android 3월 보안 업데이트: 129개 취약점 패치를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Google이 Android 역사상 최대 규모의 보안 업데이트를 배포했습니다. 총 129개 취약점이 수정되었으며, 이 중 10개는 Critical 등급입니다."
   source="The Hacker News"
   severity="Critical"
 -%}
@@ -155,7 +155,7 @@ Google이 Android 역사상 최대 규모의 보안 업데이트를 배포했습
   title="[보안] VMware Aria Operations 명령 주입 취약점 활성 공격"
   url="https://thehackernews.com/2026/03/cisa-adds-actively-exploited-vmware.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwSnIflppBRH5X_FxN5pZcibA3-KyhW9iDiNGlD76L9B8dFwzLtP5i7FHFzf73XpTAhCLtmQn0JD_fUqgXceUlrCwPgJqbmlkPXi2e_IDggrIHDyJ5HoDzr191LxAbe08arokXZ4FXH5k9NxErepVgiaEkGVfWDWQ2ZWJ8h3mGjySQ-QqTzo02oBdh01Up/s1700-e365/vmware.jpg"
-  summary="VMware Aria Operations 명령 주입 취약점 활성 공격를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="CISA가 VMware Aria Operations의 명령 주입 취약점 CVE-2026-22719(CVSS 8.1)를 KEV(Known Exploited Vulnerabilities) 카탈로그에 등재했습니다. 이 취약점은 인증되지 않은 공격자가 임의의 운영 체제 명령을 실행할 수 있게 합니다."
   source="The Hacker News"
   severity="Critical"
 -%}
@@ -183,7 +183,7 @@ Aria Operations는 VMware 가상화 인프라의 성능 및 용량 관리 핵심
 {%- include news-card.html
   title="[보안] Cisco SD-WAN 인증 우회 제로데이 (CVE-2026-20127)"
   url="https://www.tenable.com/blog/cve-2026-20127-cisco-catalyst-sd-wan-controllermanager-zero-day-authentication-bypass"
-  summary="Cisco SD-WAN 인증 우회 제로데이를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Cisco Catalyst SD-WAN Controller/Manager에서 인증 우회 취약점이 발견되어 실제 공격에 활용되고 있습니다. 원격의 인증되지 않은 공격자가 조작된 요청을 보내 고권한 사용자로 로그인할 수 있습니다."
   source="Tenable"
   severity="Critical"
 -%}
@@ -218,7 +218,7 @@ CISA는 긴급 지시문 ED 26-03을 발령하여 Cisco SD-WAN 시스템의 즉�
   title="[보안] APT28 MSHTML 제로데이 악용 확인 (CVE-2026-21513)"
   url="https://thehackernews.com/2026/03/apt28-tied-to-cve-2026-21513-mshtml-0.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGmBYExYY-MdqirvtI7-k2gWDf2rCE5AX4J246DywytJU0hWklJfAxRUKUa6AhU-VFWf2jazsAR1DkpPBHUqv2LsGckfxhVUebrMsnAccaYYmp2L9VJDz4rHaRLxKRgXaYM-UPcFS_ZoyveJxkLu1RunwaIuCBckILFDzMo1mCZtg9zaOmXrOSEEWU7RSg/s1700-e365/windows.jpg"
-  summary="APT28 MSHTML 제로데이 악용 확인를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="러시아 연계 APT28(Fancy Bear)이 Microsoft MSHTML 프레임워크의 보안 기능 우회 취약점 CVE-2026-21513(CVSS 8.8)을 2월 패치 전부터 제로데이로 악용한 것이 확인되었습니다."
   source="The Hacker News"
   severity="Critical"
 -%}
@@ -241,7 +241,7 @@ CISA는 긴급 지시문 ED 26-03을 발령하여 Cisco SD-WAN 시스템의 즉�
 {%- include news-card.html
   title="[보안] Google, 중국 사이버 첩보 캠페인 GridTide 차단"
   url="https://www.cybersecurity-review.com/news-march-2026/"
-  summary="Google, 중국 사이버 첩보 캠페인 GridTide 차단를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Google이 42개국 53개 조직을 표적으로 한 대규모 중국 사이버 첩보 캠페인을 차단했습니다. GridTide 악성코드를 사용한 이 캠페인은 정부, 국방, 기술 분야를 주로 공격했습니다."
   source="Cybersecurity News"
   severity="High"
 -%}
@@ -263,7 +263,7 @@ Google이 42개국 53개 조직을 표적으로 한 대규모 중국 사이버 �
   title="[보안] 악성 PHP 패키지: 크로스 플랫폼 RAT 배포"
   url="https://thehackernews.com/"
   image="https://thehackernews.com/images/-AaptImXE5Y4/WzjvqBS8HtI/AAAAAAAAxSs/BcCIwpWJszILkuEbDfKZhxQJwOAD7qV6ACLcBGAs/s728-e365/the-hacker-news.jpg"
-  summary="악성 PHP 패키지: 크로스 플랫폼 RAT 배포를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Packagist PHP 패키지 레지스트리에서 Laravel 유틸리티로 위장한 악성 패키지가 발견되었습니다. Windows, macOS, Linux 모두에서 작동하는 크로스 플랫폼 RAT(원격 접근 트로이목마)를 배포하며, 발견 시점에도 여전히 다운로드 가능했습니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -285,7 +285,7 @@ Packagist PHP 패키지 레지스트리에서 Laravel 유틸리티로 위장한 
   title="[보안] Microsoft OAuth 스캠: 정부 기관 표적 공격"
   url="https://www.microsoft.com/en-us/security/blog/"
   image="https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2018/08/cropped-microsoft_logo_element.png"
-  summary="Microsoft OAuth 스캠: 정부 기관 표적 공격를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Microsoft가 OAuth 남용 스캠에 대해 경고했습니다. 피싱 이메일과 URL 리디렉트를 활용하여 피해자의 시스템에 악성코드를 설치하며, 주로 정부 및 공공 부문 조직을 표적으로 합니다."
   source="Microsoft Security"
   severity="High"
 -%}
@@ -307,7 +307,7 @@ Microsoft가 OAuth 남용 스캠에 대해 경고했습니다. 피싱 이메일�
   title="[보안] 보복성 핵티비스트 공격 급증: Epic Fury 이후"
   url="https://thehackernews.com/"
   image="https://thehackernews.com/images/-AaptImXE5Y4/WzjvqBS8HtI/AAAAAAAAxSs/BcCIwpWJszILkuEbDfKZhxQJwOAD7qV6ACLcBGAs/s728-e365/the-hacker-news.jpg"
-  summary="보복성 핵티비스트 공격 급증: Epic Fury 이후를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="미국-이스라엘 합동 군사 작전(Epic Fury/Roaring Lion) 이후 보복성 핵티비스트 활동이 급증했습니다. Radware에 따르면, Keymous+와 DieNet 두 그룹이 2월 28일-3월 2일 사이 전체 공격의 약 70%를 수행했습니다."
   source="The Hacker News"
   severity="High"
 -%}
@@ -333,7 +333,7 @@ Microsoft가 OAuth 남용 스캠에 대해 경고했습니다. 피싱 이메일�
   title="Datadog DevSecOps 2026 보고서: 87% 조직이 공격 가능 취약점 보유"
   url="https://www.helpnetsecurity.com/2026/03/02/devsecops-supply-chain-risk-security-debt/"
   image="https://img.helpnetsecurity.com/wp-content/uploads/2024/01/19155548/devsecops-1400.jpg"
-  summary="Datadog DevSecOps 2026 보고서: 87% 조직이 공격 가능 취약점 보유를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Datadog의 State of DevSecOps 2026 보고서가 발표되었습니다. 조사 대상 조직의 87%가 운영 환경에서 하나 이상의 공격 가능한 취약점을 실행하고 있으며, 서비스의 40%가 영향을 받습니다."
   source="Help Net Security"
   severity="High"
 -%}
@@ -362,7 +362,7 @@ Datadog의 State of DevSecOps 2026 보고서가 발표되었습니다. 조사 �
   title="CI/CD 파이프라인 자동 공격 캠페인"
   url="https://www.helpnetsecurity.com/2026/03/02/devsecops-supply-chain-risk-security-debt/"
   image="https://img.helpnetsecurity.com/wp-content/uploads/2024/01/19155548/devsecops-1400.jpg"
-  summary="CI/CD 파이프라인 자동 공격 캠페인를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="주요 오픈소스 리포지토리를 대상으로 한 1주일간의 자동화된 CI/CD 파이프라인 공격이 보고되었습니다. hackerbot-claw라는 자율 봇이 5가지 익스플로잇 기법을 사용하여 GitHub에서 가장 인기 있는 리포지토리 중 하나에서 쓰기 권한이 있는 GitHub 토큰을 유출하는 데 성공했습니다."
   source="Help Net Security"
   severity="High"
 -%}
@@ -385,7 +385,7 @@ Datadog의 State of DevSecOps 2026 보고서가 발표되었습니다. 조사 �
   title="코드 서명 인증서 유효기간 460일로 제한"
   url="https://devops.com/three-encryption-resolutions-for-devsecops-in-2026/"
   image="https://devops.com/wp-content/uploads/2020/08/Overheard-at-CloudBees-Connect-The-Reality-of-Delivering-Modern-Software.jpg"
-  summary="코드 서명 인증서 유효기간 460일로 제한를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="2026년 3월 1일부터 CA/B Forum 규정에 따라 코드 서명 인증서의 최대 유효기간이 460일로 제한됩니다. 공급망 공격이 증가하고 AI 기반 위협이 확대되면서, DevSecOps 팀은 CI/CD 보안을 강화하고 인증서 갱신 자동화가 필수가 되었습니다."
   source="DevOps.com"
   severity="Medium"
 -%}
@@ -411,7 +411,7 @@ Datadog의 State of DevSecOps 2026 보고서가 발표되었습니다. 조사 �
   title="[AI/ML] AI 기반 사이버 공격 89% 증가"
   url="https://www.securityweek.com/cyber-insights-2026-malware-and-cyberattacks-in-the-age-of-ai/"
   image="https://www.securityweek.com/wp-content/uploads/2026/02/malware-cyber-insights-2026.jpg"
-  summary="AI 기반 사이버 공격 89% 증가를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="2026년 3월 기준, AI 기반 사이버 공격이 89% 증가했습니다. 피싱, 딥페이크 캠페인, 자격 증명 탈취에 AI가 적극적으로 활용되고 있으며, 아이덴티티 위협(API 자격 증명 남용, 내부자 위협)이 대부분의 데이터 유출 원인을 차지합니다."
   source="SecurityWeek"
   severity="High"
 -%}
@@ -435,7 +435,7 @@ Datadog의 State of DevSecOps 2026 보고서가 발표되었습니다. 조사 �
   title="[AI/ML] AI가 DevSecOps를 재편: PR 병합 98% 증가"
   url="https://www.computerweekly.com/news/366639364/How-AI-code-generation-is-pushing-DevSecOps-to-machine-speed"
   image="https://www.computerweekly.com/visuals/ComputerWeekly/HeroImages/security-code-encryption-gonin-adobe.jpg"
-  summary="AI가 DevSecOps를 재편: PR 병합 98% 증가를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="AI를 활용하는 개발자는 98% 더 많은 PR을 병합하고 있습니다. 보안 팀에게 이 속도는 복합적인 문제를 만듭니다."
   source="Computer Weekly"
   severity="Medium"
 -%}
@@ -458,7 +458,7 @@ JFrog은 AI 모델을 소프트웨어 아티팩트와 동일한 수준으로 관
 {%- include news-card.html
   title="[AI/ML] 랜섬웨어 생태계의 구조적 변화"
   url="https://www.recordedfuture.com/blog/ransomware-tactics-2026"
-  summary="랜섬웨어 생태계의 구조적 변화를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="랜섬웨어 공격은 2025년 7,200건으로 전년 대비 47% 증가했지만, 수익은 감소했습니다. LockBit과 RansomHub가 사라진 후 Akira(16%), Qilin(16%), DragonForce(5%)가 부상했습니다."
   source="Recorded Future"
   severity="High"
 -%}
@@ -485,7 +485,7 @@ Recorded Future는 2026년을 러시아 외 지역 랜섬웨어 조직이 러시
 {%- include news-card.html
   title="[클라우드] VoidLink: AI로 제작된 K8s 인식형 악성코드"
   url="https://blogs.cisco.com/security/voidlink-ai-built-malware-and-the-future-of-workload-security"
-  summary="VoidLink: AI로 제작된 K8s 인식형 악성코드를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="Check Point Research가 공개한 VoidLink는 클라우드 네이티브 환경에 특화된 악성코드 프레임워크입니다. AWS, GCP, Azure, Alibaba, Tencent 환경을 탐지하고, Docker 컨테이너와 Kubernetes 포드 내부에서 동작하는지 판별하여 행위를 자동으로 조정합니다."
   source="Cisco Security Blog"
   severity="High"
 -%}
@@ -515,7 +515,7 @@ Check Point Research가 공개한 VoidLink는 클라우드 네이티브 환경�
   title="[클라우드] Kubernetes 공격 도구 급증"
   url="https://dev.to/deepseax/kubernetes-cluster-attacks-surge-in-2026-how-to-harden-your-k8s-foo"
   image="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh0yfzebupy5doeul7v02.png"
-  summary="Kubernetes 공격 도구 급증를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="CSO Online은 2026년 3월 Kubernetes 전용 공격 도구의 급격한 증가를 보고했습니다. 노출된 API 서버를 통한 권한 상승, 탈취된 Pod를 이용한 크립토마이너 배포 등 점점 정교한 공격이 이루어지고 있습니다."
   source="DEV Community"
   severity="High"
 -%}
@@ -540,7 +540,7 @@ Kubernetes는 전 세계 컨테이너화된 워크로드의 60% 이상을 관리
   title="[클라우드] 서비스 메시 복귀: 제로 트러스트 보안 강화"
   url="https://cloudnativenow.com/contributed-content/why-service-mesh-is-poised-for-a-dramatic-comeback-in-2026/"
   image="https://cloudnativenow.com/wp-content/uploads/2019/06/Service-Mesh-Pattern.jpg"
-  summary="서비스 메시 복귀: 제로 트러스트 보안 강화를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="2026년 서비스 메시가 제로 트러스트 보안의 핵심 인프라로 재부상하고 있습니다. 기존 사이드카 기반 메시의 채택은 50%에서 42%로 감소했지만, Ambient Mode(사이드카리스) 아키텍처가 새로운 관심을 끌고 있습니다."
   source="Cloud Native Now"
   severity="Medium"
 -%}
@@ -567,7 +567,7 @@ AI 기반 워크로드의 증가로 보안 연결, 워크로드 아이덴티티,
 {%- include news-card.html
   title="[블록체인] GENIUS Act: 미국 스테이블코인 규제 프레임워크 구체화"
   url="https://www.clearygottlieb.com/news-and-insights/publication-listing/2026-digital-assets-regulatory-update-a-landmark-2025-but-more-developments-on-the-horizon"
-  summary="GENIUS Act: 미국 스테이블코인 규제 프레임워크 구체화를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="2025년 7월 초당적으로 통과된 GENIUS Act의 구현 타임라인이 구체화되고 있습니다. 감독 기관은 2026년 7월 18일까지 미국 달러 기반 스테이블코인 발행사에 대한 시행 규칙을 발표해야 하며, 규정은 2027년 1월 18일까지 발효됩니다."
   source="Cleary Gottlieb"
   severity="Medium"
 -%}
@@ -590,7 +590,7 @@ SEC와 CFTC도 Project Crypto 공동 프로젝트를 발표하며 디지털 자�
   title="[블록체인] 일본 암호화폐 세율 55%에서 20%로 인하 예정"
   url="https://sumsub.com/blog/global-crypto-regulations/"
   image="https://sumsub.com/wp/wp-content/uploads/2025/12/opengraph_crypto-regulation-around-the-world-2026_-what-changed-and-whats-ahead.png"
-  summary="일본 암호화폐 세율 55%에서 20%로 인하 예정를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="일본이 2026년 암호화폐 세율을 55%에서 20%로 인하할 예정입니다. 기존 잡소득으로 분류되던 암호화폐 수익을 전통적인 자본 이득세율과 동일하게 적용하여, 암호화폐 투자 환경을 크게 개선합니다."
   source="Sumsub"
   severity="Medium"
 -%}
@@ -607,7 +607,7 @@ SEC와 CFTC도 Project Crypto 공동 프로젝트를 발표하며 디지털 자�
   title="[블록체인] EU MiCA 전면 시행: 세계 최초 포괄적 암호화폐 규제"
   url="https://www.elliptic.co/blog/regulatory-and-policy-crypto-trends-to-except-in-2026"
   image="https://www.elliptic.co/hubfs/2026-Regulatory-outlook-blog_R%26A-Image.png"
-  summary="EU MiCA 전면 시행: 세계 최초 포괄적 암호화폐 규제를 기준으로 기술적으로는 공격 벡터·영향 범위·탐지 지표를 요약하고, 운영 측면에서는 우선 대응 순서와 의사결정 체크포인트를 함께 정리했습니다."
+  summary="EU의 MiCA(Markets in Crypto-Assets Regulation)가 전면 시행에 들어갔습니다. 세계 최초의 포괄적 암호화폐 규제 프레임워크로, 엄격한 요구사항으로 인해 일부 시장 참여자에게는 상당한 혼란이 발생하고 있습니다."
   source="Elliptic"
   severity="Medium"
 -%}
