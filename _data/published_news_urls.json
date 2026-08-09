@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-08T00:58:48.218483+00:00",
+  "updated_at": "2026-08-09T01:02:00.653753+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/bluenoroff-zoom-phishing-kit-profiles.html",
-      "title": "BlueNoroff Zoom Phishing Kit Profiles Crypto Wallets Before Malware Delivery",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/accelerating-aws-network-firewall-troubleshooting-with-aws-devops-agent/",
-      "title": "Accelerating AWS Network Firewall troubleshooting with AWS DevOps Agent",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/certighost-exploit-lets-low-privileged.html",
-      "title": "Certighost Exploit Lets Low-Privileged Active Directory Users Impersonate a Doma",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/chatgpt-agentforger-flaw-could-deploy.html",
-      "title": "ChatGPT AgentForger Flaw Could Deploy Rogue Workspace Agents via a Phishing Link",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/bing-images-flaws-let-crafted-svgs-run.html",
-      "title": "Bing Images Flaws Let Crafted SVGs Run Commands as SYSTEM on Microsoft's Servers",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ai-summit-korea-partners-and-nvidia/",
-      "title": "At AI Summit, South Korea Outlines Its AI Future With NVIDIA and Partners",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/",
-      "title": "Introducing Claude Opus 5 on AWS: Anthropic’s most capable Opus model",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-an-explainable-next-best-product-recommendation-system-for-banking-on-aws/",
-      "title": "Build an explainable next-best-product recommendation system for banking on AWS",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/get-started-with-openai-gpt-5-6-sol-terra-and-luna-on-amazon-bedrock/",
-      "title": "Get started with OpenAI GPT-5.6 Sol, Terra, and Luna on Amazon Bedrock",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/okf-v0-2-adds-trust-signals/",
-      "title": "Open Knowledge format v0.2 tackles agentic trust",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/updated-cyber-threat-actor-naming-system/",
-      "title": "Updated Cyber Threat Actor Naming System",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/agentic-ai-needs-guardrails-not-guesswork/",
-      "title": "Agentic AI Needs Guardrails, Not Guesswork",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot",
-      "title": "Claude Opus 5 is now available in GitHub Copilot",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/07/24/my-lfx-mentorship-journey-with-kgateway/",
-      "title": "My LFX mentorship journey with kgateway",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/07/24/opentelemetry-has-graduated-now-what/",
-      "title": "OpenTelemetry has graduated… Now what?",
-      "published_date": "2026-07-25",
-      "expires_at": "2026-08-01T01:52:44.574811+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/malvertising-sends-malware-in-pieces.html",
       "title": "Malvertising Sends Malware in Pieces, Then Makes the Browser Build the Executabl",
@@ -1350,6 +1260,96 @@
       "title": "GitHub Copilot weekly releases — August 3",
       "published_date": "2026-08-08",
       "expires_at": "2026-08-15T00:58:48.218390+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/atlassian-rovo-can-be-tricked-into.html",
+      "title": "Atlassian Rovo Can Be Tricked Into Sending Jira and Confluence Data to Attackers",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/new-css-attacks-can-break-webmail.html",
+      "title": "New CSS Attacks Can Break Webmail Defenses to Steal Passwords and Tokens",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
+      "title": "Metabase Zero-Day Exploited in Wild Allows Admin Access Without Authentication",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/n-central-attackers-reach-managed.html",
+      "title": "N-able Issues N-central Hotfix 2 as Attackers Reach Managed Systems and Persist",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/progress-kemp-loadmaster-flaw-hits-cisa.html",
+      "title": "Progress Kemp LoadMaster Flaw Hits CISA KEV After 792 Reported Exploit Attempts",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/firebird-ai-factory-armenia-blackwell-rubin-dsx/",
+      "title": "Firebird Launches CIS Region’s Largest AI Factory in Armenia",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/us-bitcoin-etfs-best-weekly-inflows-april-coldcard-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "US spot Bitcoin ETFs post best week since April with $1B inflows",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/us-senate-clarity-act-september-vote-thune-cloture?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "US Senate to vote on advancing CLARITY Act in September after Thune files clotur",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/imf-domestic-stablecoins-dollar-token-demand?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Domestic stablecoins could boost demand for dollar-backed tokens: IMF",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bybit-us-court-trace-funds-north-korea-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "US court backs Bybit’s bid to trace funds from $1.5B North Korea hack",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/bitcoin-will-never-fall-below-60k-again-nansen-founder?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin will never fall below $60K again: Nansen founder",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32282",
+      "title": "goshot - 코드 스크린샷 생성기",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32281",
+      "title": "내가 좋아하는 소프트웨어 강연들",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32280",
+      "title": "Sublime Text 같은 편집기는 더 이상 나오지 않는다",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32278",
+      "title": "DNS에서 도메인 판매 여부를 알리는 _for-sale 레코드",
+      "published_date": "2026-08-09",
+      "expires_at": "2026-08-16T01:02:00.653654+00:00"
     }
   ]
 }
