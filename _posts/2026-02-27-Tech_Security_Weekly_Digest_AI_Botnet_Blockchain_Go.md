@@ -508,7 +508,7 @@ Citi 경영진이 Bitcoin을 자사 뱅킹 시스템에 통합하고 수탁(cust
   tag="Operator Signal"
 %}
 {% include news-spotlight-item.html
-  title="Rivian has a new performance division but for"
+  title="Rivian, 새로운 퍼포먼스 부서를 설립했지만"
   url="https://electrek.co/2026/02/26/rivian-has-a-new-performance-division-but-for-crazy-off-road-adventures/"
   source="Electrek"
   tag="Operator Signal"
