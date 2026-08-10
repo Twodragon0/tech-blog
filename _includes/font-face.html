@@ -4,7 +4,9 @@
   (~205-215 KB / weight, eager preload). Its unicode-range stays broad on purpose — the tier-1 woff2 is
   always fetched, so enumerating its ~1k syllables here would only add ~7.5 KB of inline CSS per page.
   Tier-2 (on-demand): the Hangul tail (~470-500 KB / weight). Declared in assets/css/font-tier2.css with a
-  unicode-range disjoint from tier-1's actual glyph set, attached after `load` by head-runtime.js#loadFontTier2.
+  unicode-range disjoint from tier-1's actual glyph set, linked below via the repo's `media="print"` +
+  `class="deferred-css"` idiom (the promoter script in head.html flips it to media="all" once loaded), so the
+  21 KB stylesheet never blocks render and its rules activate after first paint.
   A browser therefore fetches tier-2 only when a page renders a syllable the corpus has never used.
   See scripts/build/generate_noto_2tier_subset.py for the source pipeline (it generates both the woff2 files
   and font-tier2.css from one codepoint set, which is what keeps the two ranges in sync).
@@ -33,8 +35,14 @@
     src: url('{{ "/assets/fonts/noto-sans-kr-700-tier1.woff2" | relative_url }}') format('woff2');
     unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+1100-11FF, U+3000-303F, U+FF00-FFEF, U+2190-21FF, U+25A0-25FF, U+2600-26FF, U+AC00-D7A3;
   }
-  /* Tier-2 (rare Hangul tail) lives in assets/css/font-tier2.css — attached after load by
-     head-runtime.js#loadFontTier2, fetched only when a page needs a tail glyph. */
+  /* Tier-2 (rare Hangul tail) lives in assets/css/font-tier2.css, linked below as deferred CSS.
+     Its woff2 files are fetched only when a page needs a tail glyph. */
 </style>
+{%- comment -%}
+  Linked declaratively rather than injected from JS on purpose: passing this href through a data-* attribute
+  and assigning it to link.href made CodeQL flag js/xss-through-dom (DOM text reinterpreted as a URL). The
+  deferred-css idiom keeps Liquid in charge of the baseurl and leaves no tainted sink to sanitize.
+{%- endcomment -%}
+<link rel="stylesheet" href="{{ '/assets/css/font-tier2.css' | relative_url }}?v={{ site.time | date: '%s' }}" media="print" class="deferred-css" id="font-tier2-stylesheet">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/noto-sans-kr-400-tier1.woff2' | relative_url }}">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/noto-sans-kr-700-tier1.woff2' | relative_url }}">

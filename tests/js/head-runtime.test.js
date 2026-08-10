@@ -68,7 +68,6 @@ function setupConfigScript({
   sentryDsn = '',
   sentryProductionHost = '',
   sentryAllowedHosts = '',
-  fontTier2Href = '',
 } = {}) {
   document.body.innerHTML =
     `<script id="head-runtime-script" ` +
@@ -77,8 +76,7 @@ function setupConfigScript({
     `data-kakao-app-key="${kakaoAppKey}" ` +
     `data-sentry-dsn="${sentryDsn}" ` +
     `data-sentry-production-host="${sentryProductionHost}" ` +
-    `data-sentry-allowed-hosts="${sentryAllowedHosts}" ` +
-    `data-font-tier2-href="${fontTier2Href}"></script>`;
+    `data-sentry-allowed-hosts="${sentryAllowedHosts}"></script>`;
 }
 
 describe('head-runtime.js', () => {
@@ -93,7 +91,6 @@ describe('head-runtime.js', () => {
     delete window.__adsenseLoadInitiated;
     delete window.__kakaoLoadInitiated;
     delete window.__sentryLoadInitiated;
-    delete window.__fontTier2Loaded;
     document.documentElement.removeAttribute('data-theme');
     document.body.classList.remove('loaded');
     document.body.innerHTML = '';
@@ -575,94 +572,4 @@ describe('head-runtime.js', () => {
     window.IntersectionObserver = originalIO;
   });
 
-  // =========================================================================
-  // loadFontTier2()
-  // =========================================================================
-
-  it('loadFontTier2: __fontTier2Loaded guard prevents duplicate scheduling', () => {
-    window.__fontTier2Loaded = true;
-    const addEventListenerLoadCallsBefore = addEventListenerSpy.mock.calls.filter(
-      (c) => c[0] === 'load',
-    ).length;
-    setupConfigScript();
-    runScript();
-    const addEventListenerLoadCallsAfter = addEventListenerSpy.mock.calls.filter(
-      (c) => c[0] === 'load',
-    ).length;
-    // Guard returns before scheduling anything new for font tier2.
-    expect(addEventListenerLoadCallsAfter).toBe(addEventListenerLoadCallsBefore);
-  });
-
-  it('loadFontTier2: schedules via window load event when document.readyState is not complete', () => {
-    delete window.__fontTier2Loaded;
-    Object.defineProperty(document, 'readyState', { value: 'loading', configurable: true });
-    setupConfigScript();
-    runScript();
-    const loadCall = addEventListenerSpy.mock.calls.find((c) => c[0] === 'load');
-    expect(loadCall).toBeTruthy();
-    expect(() => loadCall[1]()).not.toThrow();
-    Object.defineProperty(document, 'readyState', { value: 'complete', configurable: true });
-  });
-
-  // jsdom has no requestIdleCallback, so loadFontTier2() falls through to
-  // setTimeout(trigger, 2000). readyState is 'complete', so it schedules on the
-  // spot rather than waiting for a load event.
-  function flushTier2Schedule() {
-    vi.advanceTimersByTime(2000);
-  }
-
-  it('loadFontTier2: attaches the tail stylesheet from data-font-tier2-href', () => {
-    vi.useFakeTimers();
-    setupConfigScript({ fontTier2Href: '/assets/css/font-tier2.css?v=123' });
-    runScript();
-    flushTier2Schedule();
-    const link = document.head.querySelector('link#font-tier2-stylesheet');
-    expect(link).toBeTruthy();
-    expect(link.rel).toBe('stylesheet');
-    expect(link.getAttribute('href')).toBe('/assets/css/font-tier2.css?v=123');
-    vi.useRealTimers();
-  });
-
-  it('loadFontTier2: never fetches the tier-2 woff2 itself (on-demand via unicode-range)', () => {
-    // Forcing the download (FontFace#load(), or a <link rel=preload> for the
-    // woff2) is what the disjoint unicode-range split exists to avoid: tier-2 is
-    // ~500 KB per weight that no page needs unless it renders a rare syllable.
-    vi.useFakeTimers();
-    const fontFaceSpy = vi.fn();
-    const originalFontFace = window.FontFace;
-    window.FontFace = fontFaceSpy;
-    setupConfigScript({ fontTier2Href: '/assets/css/font-tier2.css' });
-    runScript();
-    flushTier2Schedule();
-    expect(fontFaceSpy).not.toHaveBeenCalled();
-    expect(document.head.querySelector('link[href*="tier2.woff2"]')).toBeNull();
-    if (originalFontFace === undefined) {
-      delete window.FontFace;
-    } else {
-      window.FontFace = originalFontFace;
-    }
-    vi.useRealTimers();
-  });
-
-  it('loadFontTier2: no-op when data-font-tier2-href is absent', () => {
-    vi.useFakeTimers();
-    setupConfigScript();
-    runScript();
-    flushTier2Schedule();
-    expect(document.head.querySelector('link#font-tier2-stylesheet')).toBeNull();
-    vi.useRealTimers();
-  });
-
-  it('loadFontTier2: does not append a second stylesheet when re-run', () => {
-    vi.useFakeTimers();
-    setupConfigScript({ fontTier2Href: '/assets/css/font-tier2.css' });
-    runScript();
-    flushTier2Schedule();
-    delete window.__headRuntimeInitialized;
-    delete window.__fontTier2Loaded;
-    runScript();
-    flushTier2Schedule();
-    expect(document.head.querySelectorAll('link#font-tier2-stylesheet')).toHaveLength(1);
-    vi.useRealTimers();
-  });
 });

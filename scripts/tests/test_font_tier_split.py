@@ -207,14 +207,19 @@ def test_tier2_is_never_preloaded():
                 assert "tier2" not in line, f"{name} preloads tier-2: {line.strip()}"
 
 
-def test_head_runtime_does_not_force_tier2_download():
+def test_head_runtime_holds_no_tier2_loader():
+    """Tier-2 must stay declarative — no JS loader, no tainted href assignment.
+
+    The JS path was removed on 2026-08-10: assigning a `data-*` attribute to
+    `link.href` tripped CodeQL `js/xss-through-dom`, and the FontFace variant it
+    replaced forced the ~996 KB download outright. Line comments are stripped
+    first because the surviving comment block names both the file and the
+    anti-pattern it warns against.
+    """
     js = (REPO_ROOT / "assets" / "js" / "head-runtime.js").read_text(encoding="utf-8")
-    assert "font-tier2.css" not in js, "the stylesheet URL is passed via data-font-tier2-href, not hardcoded"
-    assert "tier2.woff2" not in js, (
-        "head-runtime.js must not reference the tier-2 woff2 directly — "
-        "FontFace#load() on it forces the download the split exists to avoid"
-    )
-    assert "data-font-tier2-href" in js
+    code = re.sub(r"^\s*//.*$", "", js, flags=re.MULTILINE)
+    for banned in ("loadFontTier2", "font-tier2.css", "tier2.woff2", "FontFace", "data-font-tier2-href"):
+        assert banned not in code, f"head-runtime.js must not reference {banned}"
 
 
 def _strip_comments(html: str) -> str:
@@ -243,9 +248,11 @@ def test_tier1_font_urls_go_through_relative_url():
     assert "absolute_url" not in body, "absolute_url prepends site.baseurl — wrong for assets"
     for weight in (400, 700):
         asset = f"/assets/fonts/noto-sans-kr-{weight}-tier1.woff2"
+        refs = [ln for ln in body.splitlines() if asset in ln]
         # once in the @font-face src, once in the preload link
-        assert body.count(asset) == 2, f"expected 2 references to {asset}, got {body.count(asset)}"
-    assert body.count("relative_url") == 4, "each of the 4 tier-1 font URLs needs relative_url"
+        assert len(refs) == 2, f"expected 2 references to {asset}, got {len(refs)}"
+        for ref in refs:
+            assert "relative_url" in ref, f"tier-1 font URL bypasses relative_url: {ref.strip()}"
 
 
 def test_strip_comments_keeps_the_guard_honest():
@@ -261,10 +268,24 @@ def test_strip_comments_keeps_the_guard_honest():
     assert "url('/assets/fonts/" in _strip_comments(offending)
 
 
-def test_head_html_passes_the_tier2_stylesheet_href():
+def test_font_face_include_links_tier2_as_deferred_css():
+    """The tail stylesheet is linked declaratively, non-blocking, baseurl-safe."""
+    body = _strip_comments((REPO_ROOT / "_includes" / "font-face.html").read_text(encoding="utf-8"))
+    links = [ln for ln in body.splitlines() if "font-tier2.css" in ln]
+    assert len(links) == 1, f"expected exactly one tier-2 stylesheet link, got {len(links)}"
+    link = links[0]
+    assert "relative_url" in link, "tier-2 stylesheet href must survive --baseurl /tech-blog"
+    assert 'media="print"' in link, "must not block render"
+    assert "deferred-css" in link, "the promoter script in head.html flips media to all via this class"
+    assert 'rel="stylesheet"' in link
+    assert "preload" not in link, "a preload would fetch it eagerly and defeat the deferral"
+
+
+def test_deferred_css_promoter_still_exists():
+    """The tier-2 link relies on head.html's promoter to reach media="all"."""
     head = (REPO_ROOT / "_includes" / "head.html").read_text(encoding="utf-8")
-    assert "data-font-tier2-href=" in head
-    assert "/assets/css/font-tier2.css" in head
+    assert "link.deferred-css" in head, "promoter query gone — tier-2 would stay print-only"
+    assert "promotePrintStylesheet" in head
 
 
 # ---------------------------------------------------------------------------
