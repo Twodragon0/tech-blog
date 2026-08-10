@@ -91,7 +91,6 @@ describe('head-runtime.js', () => {
     delete window.__adsenseLoadInitiated;
     delete window.__kakaoLoadInitiated;
     delete window.__sentryLoadInitiated;
-    delete window.__fontTier2Loaded;
     document.documentElement.removeAttribute('data-theme');
     document.body.classList.remove('loaded');
     document.body.innerHTML = '';
@@ -573,32 +572,4 @@ describe('head-runtime.js', () => {
     window.IntersectionObserver = originalIO;
   });
 
-  // =========================================================================
-  // loadFontTier2()
-  // =========================================================================
-
-  it('loadFontTier2: __fontTier2Loaded guard prevents duplicate scheduling', () => {
-    window.__fontTier2Loaded = true;
-    const addEventListenerLoadCallsBefore = addEventListenerSpy.mock.calls.filter(
-      (c) => c[0] === 'load',
-    ).length;
-    setupConfigScript();
-    runScript();
-    const addEventListenerLoadCallsAfter = addEventListenerSpy.mock.calls.filter(
-      (c) => c[0] === 'load',
-    ).length;
-    // Guard returns before scheduling anything new for font tier2.
-    expect(addEventListenerLoadCallsAfter).toBe(addEventListenerLoadCallsBefore);
-  });
-
-  it('loadFontTier2: schedules via window load event when document.readyState is not complete', () => {
-    delete window.__fontTier2Loaded;
-    Object.defineProperty(document, 'readyState', { value: 'loading', configurable: true });
-    setupConfigScript();
-    runScript();
-    const loadCall = addEventListenerSpy.mock.calls.find((c) => c[0] === 'load');
-    expect(loadCall).toBeTruthy();
-    expect(() => loadCall[1]()).not.toThrow();
-    Object.defineProperty(document, 'readyState', { value: 'complete', configurable: true });
-  });
 });

@@ -11,29 +11,43 @@ The site self-hosts Noto Sans KR as two woff2 tiers per weight (400, 700) instea
 
 The tradeoff with self-hosting Noto Sans KR is the full Hangul Syllables block (U+AC00–U+D7A3, 11,172 glyphs) compressing to ~545 KB per weight in woff2 — too heavy to preload eagerly. The two-tier strategy resolves this:
 
-- **Tier 1 (eager, preloaded)**: Latin Basic + Latin-1 Supplement + Hangul Jamo + CJK punctuation + the top-N most-frequent Hangul syllables from the corpus. Targets ≤230 KB per weight. Preloaded via `<link rel="preload">` so first paint has the font ready.
-- **Tier 2 (lazy, idle-loaded)**: The remaining Hangul codepoints. Targets ≤550 KB per weight. Loaded via the FontFace API inside `requestIdleCallback` after first paint. Browsers transparently fall back to tier-2 when a glyph isn't in tier-1.
+- **Tier 1 (eager, preloaded)**: Latin Basic + Latin-1 Supplement + Hangul Jamo + CJK punctuation + **every** Hangul syllable that appears anywhere in the corpus. Targets ≤230 KB per weight. Preloaded via `<link rel="preload">` so first paint has the font ready.
+- **Tier 2 (on-demand safety net)**: The Hangul tail — syllables the corpus has never used. Targets ≤550 KB per weight. Declared in the generated `assets/css/font-tier2.css` with a `unicode-range` **disjoint from tier-1's actual glyph set**, linked from `_includes/font-face.html` with the repo's deferred-CSS idiom (`media="print"` + `class="deferred-css"`, promoted to `media="all"` by the promoter script in `head.html`). The browser fetches the woff2 only when a page renders a tail syllable, which for current content means never.
 
-Coverage analysis from PR #323: the corpus has 730,895 total Hangul characters across 155 posts and only 952 unique syllables. Tier-1 includes all 952, so **top-N covers 100.00% of every Hangul character ever published**. Tier-2 exists to handle rare syllables a future post might introduce — those render after a brief font-swap once tier-2 resolves.
+Coverage analysis (regenerated 2026-08-10): the corpus has 1,286,806 total Hangul characters across 260 posts plus templates, `_data`, and scripts, using 1,044 unique syllables. Tier-1 includes all 1,044 → **100.00% coverage of every Hangul character the site can render**. Full coverage costs only ~5 KB per weight over the old 952-syllable list, which is what makes the on-demand tier-2 practical.
+
+> **History.** Until 2026-08-10 both tiers declared the same broad `unicode-range: U+AC00-D7A3` and `loadFontTier2()` called `FontFace#load()`, so **every first visit downloaded all four files — 1,426,514 B measured on production** — even though no page needed a tier-2 glyph. Measured after the split: 423,234 B of woff2 plus a 21 KB stylesheet (~2.5 KB brotli), i.e. **~980 KB less per first visit**. Verified with Lighthouse `network-requests` against a local build: a normal post fetches tier-1 only; a probe page carrying tail syllables in its `<h1>` fetches `noto-sans-kr-700-tier2.woff2` and nothing else (weight 400 stays untouched because the tail glyphs only appeared in bold).
+
+The disjointness is the whole mechanism, so it is generated, never hand-written, and asserted by `scripts/tests/test_font_tier_split.py`. **Do not add a `<link rel="preload">` for tier-2 and do not call `FontFace#load()` on it** — either one restores the old waste.
+
+**Expected Lighthouse noise:** `unused-css-rules` lists `font-tier2.css` as ~21 KB
+of fully unused bytes, because on a page with no tail syllable none of its
+`@font-face` rules match. That is the mechanism working, not a regression — the
+audit was already failing on `pages-extra.css` / `chat-page.css`, and the metrics
+are unaffected (measured desktop: FCP 0.5 s, LCP 1.3 s, TBT 0 ms, CLS 0, perf 97)
+because the stylesheet is attached after `load`. Do not "fix" it by deleting the
+file.
 
 ## 2. File Layout
 
 | Source / generator                                  | Generated artifact                                  | Consumer                                             |
 |-----------------------------------------------------|------------------------------------------------------|------------------------------------------------------|
 | `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-400-tier1.woff2`         | `_includes/font-face.html` `@font-face` + `<link rel="preload">` |
-| `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-400-tier2.woff2`         | `assets/js/head-runtime.js#loadFontTier2()` via FontFace API |
+| `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-400-tier2.woff2`         | `assets/css/font-tier2.css` `@font-face` (on-demand)  |
 | `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-700-tier1.woff2`         | `_includes/font-face.html` `@font-face`             |
-| `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-700-tier2.woff2`         | `assets/js/head-runtime.js#loadFontTier2()`          |
-| `scripts/build/noto_subset_top1k.txt`               | source-of-truth for tier-1 Hangul syllable list     | the generator's `--text-file=` for tier-1 subsetting |
+| `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-700-tier2.woff2`         | `assets/css/font-tier2.css` `@font-face` (on-demand)  |
+| `scripts/build/generate_noto_2tier_subset.py`       | `assets/css/font-tier2.css` (tail `unicode-range`)  | `_includes/font-face.html` deferred-CSS `<link media="print" class="deferred-css">` |
+| `scripts/build/noto_subset_top1k.txt`               | source-of-truth for tier-1 Hangul syllable list     | the generator's tier-1 subset + the disjointness tests |
 
-Current sizes (drift detection baseline as of PR #323):
+Current sizes (regenerated 2026-08-10, 1,044-syllable tier-1):
 
-| File                                | Size     |
-|-------------------------------------|----------|
-| `noto-sans-kr-400-tier1.woff2`      | 199.3 KB |
-| `noto-sans-kr-400-tier2.woff2`      | 478.1 KB |
-| `noto-sans-kr-700-tier1.woff2`      | 203.3 KB |
-| `noto-sans-kr-700-tier2.woff2`      | 493.8 KB |
+| File                                | Size     | Fetched when                          |
+|-------------------------------------|----------|---------------------------------------|
+| `noto-sans-kr-400-tier1.woff2`      | 204.7 KB | always (preload)                      |
+| `noto-sans-kr-700-tier1.woff2`      | 208.2 KB | always (preload)                      |
+| `noto-sans-kr-400-tier2.woff2`      | 474.2 KB | page renders a tail syllable in 400   |
+| `noto-sans-kr-700-tier2.woff2`      | 490.3 KB | page renders a tail syllable in 700   |
+| `assets/css/font-tier2.css`         | 20.8 KB (2.5 KB brotli) | always, after `load`    |
 
 Cache headers for `/assets/fonts/*.woff2` are set in `vercel.json:184-198` to `Cache-Control: public, max-age=31536000, immutable` so each woff2 is fetched at most once per browser indefinitely.
 
@@ -45,6 +59,7 @@ Cache headers for `/assets/fonts/*.woff2` are set in `vercel.json:184-198` to `C
 
 **When regen runs** (any of these conditions triggers it):
 - Any of the 4 woff2 files is missing from `assets/fonts/`
+- `assets/css/font-tier2.css` is missing (a missing tail stylesheet silently disables tier-2 fallback)
 - The stamp file (`.noto-subset.stamp`) does not exist
 - `scripts/build/generate_noto_2tier_subset.py` is newer than the stamp
 - `scripts/build/noto_subset_top1k.txt` is newer than the stamp
@@ -75,9 +90,15 @@ To bump the pin: update the SHA in `build.sh`, regenerate locally, commit the ne
 cd /Users/yong/Desktop/personal/tech-blog
 source .venv/bin/activate          # ensures fonttools[woff] is on PATH
 python3 scripts/build/generate_noto_2tier_subset.py
-git diff --stat assets/fonts/      # verify expected files changed
+git diff --stat assets/fonts/ assets/css/font-tier2.css
 ls -lh assets/fonts/noto-sans-kr-*.woff2
+python3 -m pytest scripts/tests/test_font_tier_split.py -q   # tail range must stay disjoint
 ```
+
+The generator writes `assets/css/font-tier2.css` from the same codepoint set it
+feeds the subsetter, so the woff2 files and the `unicode-range` cannot diverge
+as long as you regenerate both together. `test_font_tier_split.py` fails if
+they do (it re-renders the CSS and compares the woff2 cmaps).
 
 For deterministic CI reproducibility, pin the Noto upstream source:
 
@@ -88,7 +109,7 @@ NOTO_VF_URL='https://raw.githubusercontent.com/notofonts/noto-cjk/<commit-sha>/S
 
 When to regenerate:
 
-- A new post introduces Hangul syllables not in `scripts/build/noto_subset_top1k.txt`. The corpus already has 100% coverage, so this is rare — only meaningful for novel content (new Korean technical terms, transliterated proper nouns, etc.).
+- A new post introduces Hangul syllables not in `scripts/build/noto_subset_top1k.txt`. This is no longer urgent: an uncovered syllable now pulls tier-2 on demand and renders correctly. Regenerating just folds it into tier-1 so that page stops paying ~500 KB. `pytest scripts/tests/test_font_tier_split.py` emits a `UserWarning` listing uncovered syllables — deliberately a warning, not a failure, because cron publishes digests without regenerating fonts and a hard gate would turn that into a red `main`.
 - Noto upstream releases a new version. Review `notofonts/noto-cjk` releases quarterly and bump the pinned commit SHA.
 - Tier-1 size drifts above 230 KB per weight. Either trim the top-N syllable list or split tier-1 further.
 
@@ -104,8 +125,8 @@ stat -f "%z %N" assets/fonts/noto-sans-kr-*.woff2 \
 
 Acceptance thresholds (as of PR #323):
 
-- Tier-1 ≤ 230 KB per weight (preload budget — exceeding this hurts LCP)
-- Tier-2 ≤ 550 KB per weight (lazy budget — exceeding hurts perceived font-swap cost)
+- Tier-1 ≤ 230 KB per weight (preload budget — exceeding this hurts LCP; asserted by `test_font_tier_split.py::test_tier1_preload_budget_holds`)
+- Tier-2 ≤ 550 KB per weight (on-demand budget — exceeding hurts the font-swap cost on the rare pages that need it)
 
 If a threshold is exceeded after regeneration:
 
@@ -146,12 +167,14 @@ Manually re-add `https://fonts.googleapis.com` to CSP `style-src` and `https://f
 
 ### Korean text shows as boxes (tofu)
 
-Tier-2 woff2 didn't load. Diagnose in browser DevTools:
+A tail syllable failed to resolve to tier-2. Note that tier-2 is now fetched
+**only on demand**, so its absence from the Network tab is normal — the question
+is whether it appears on a page that needs it.
 
-1. Network tab → filter `noto-sans-kr-tier2`. Both 400 and 700 should show 200 OK with `Content-Type: font/woff2`.
-2. If 404: verify the path in `assets/js/head-runtime.js#loadFontTier2()` matches the file name in `assets/fonts/`.
-3. If blocked by CSP: confirm `vercel.json` has `font-src 'self'` (no `https://fonts.gstatic.com` needed since we self-host).
-4. If FontFace API throws: check console for `Failed to load FontFace` errors — possibly a corrupted woff2 file. Regenerate (section 3).
+1. Elements tab → `<link id="font-tier2-stylesheet">` should have `media="all"` and `data-media-promoted="1"` after DOMContentLoaded. If it is still `media="print"`, the deferred-CSS promoter in `head.html` did not run — check `link.deferred-css` / `promotePrintStylesheet` there.
+2. Network tab → `font-tier2.css` should be 200 OK with `Content-Type: text/css`. A 404 means the build didn't generate it (section 3).
+3. Network tab → filter `noto-sans-kr-tier2` **while viewing a page with a rare syllable**. If it never fires, the syllable is probably inside tier-1's range but missing from the tail `unicode-range` — run `pytest scripts/tests/test_font_tier_split.py`.
+4. If blocked by CSP: confirm `vercel.json` has `font-src 'self'` and `style-src 'self'` (no `https://fonts.gstatic.com` needed since we self-host).
 
 ### FOUT (Flash of Unstyled Text)
 
@@ -183,15 +206,20 @@ NOTO_VF_URL='https://github.com/notofonts/noto-cjk/raw/<commit-sha>/Sans/Variabl
 - **2026-05** — Chose two-tier eager + lazy because the all-or-nothing self-host attempt produced ~1.1 MB initial transfer (both weights × full Hangul block), unacceptable for first paint. Corpus analysis revealed 952 unique syllables → ~200 KB tier-1 with 100% real-content coverage, fitting the preload budget.
 - **2026-05** — Rejected Korean Linguistic Society frequency tables for tier selection. Discarded because corpus-driven analysis is more accurate for THIS site (technical security vocabulary skews different than general Korean).
 - **2026-05** — Rejected FontFace API only with no preload. Discarded because tier-1 must be available before first paint — preload is required.
+- **2026-08-10** — Fixed the GitHub Pages backup, which had been serving Korean in the **system font** since the self-host landed. `_includes/font-face.html` emitted bare `/assets/fonts/...` for both the `@font-face src` and the two `<link rel="preload">` tags; the backup builds with `--baseurl /tech-blog`, so those resolved to `twodragon0.github.io/assets/fonts/...`. Verified live before the fix: bare URL → **404**, `/tech-blog/` prefixed → **200 / 206,788 B**. Now routed through `relative_url` (never `absolute_url` — that prepends `site.baseurl` to `site.url` and breaks Vercel instead). Re-verified by serving a `--baseurl /tech-blog` build under a `/tech-blog/` prefix: tier-1 200, `font-tier2.css` 200, on-demand tier-2 200, **0 × 404**. Guard: `test_font_tier_split.py::test_tier1_font_urls_go_through_relative_url`.
+- **2026-08-10** — Linked the tail stylesheet declaratively instead of injecting it from JS. The first attempt passed the href through `data-font-tier2-href` and assigned it to `link.href`, which CodeQL flagged as `js/xss-through-dom` (DOM text reinterpreted as a URL) — a new high alert on the PR. Rather than dismiss it, the loader was deleted in favour of the existing `media="print"` + `class="deferred-css"` idiom: Liquid keeps ownership of the baseurl, there is no tainted sink to sanitize, and the stylesheet still never blocks render. Verified on both origin shapes (plain and `--baseurl /tech-blog`), control and tail-probe pages: 0 × 404, tier-2 fetched only by the probe.
+- **2026-08-10** — Made tier-2 on-demand via a disjoint `unicode-range`, and expanded tier-1 to full corpus coverage (952 → 1,044 syllables, +5 KB/weight). The old design fetched all four files on every first visit (1,426,514 B measured) for glyphs no page rendered. Considered and rejected: **deleting tier-2 entirely** — the corpus had drifted to 85 uncovered syllables (`꽃`, `돈`, `듣`, `삶`, `옷`, `뜻` …), so "tier-1 covers 100%" had quietly stopped being true and dropping the safety net would have degraded live pages to the system font. Also rejected: enumerating tier-1's ~1k syllables as an inline `unicode-range` (~7.5 KB of blocking CSS per page view) — the tail descriptor goes in an externally cached stylesheet instead, off the critical path.
 
 ## 8. Related References
 
 - PR #323 — feature implementation (`12bd01d6`)
 - `scripts/build/generate_noto_2tier_subset.py` — generator source
-- `scripts/build/noto_subset_top1k.txt:1` — checked-in syllable list (952 entries)
+- `scripts/build/noto_subset_top1k.txt:1` — checked-in syllable list (1,044 entries)
+- `assets/css/font-tier2.css` — generated tail `@font-face` pair (do not hand-edit)
 - `_includes/font-face.html:1` — eager tier-1 `@font-face` + preload tag
-- `_includes/head.html` — integration point (just after the `theme-init` script)
-- `assets/js/head-runtime.js#loadFontTier2` — lazy tier-2 loader
+- `_includes/head.html` — integration point (just after the `theme-init` script); carries `data-font-tier2-href`
+- `assets/js/head-runtime.js` — holds **no** tier-2 loader any more (a JS `link.href` assignment from a `data-*` attribute trips CodeQL `js/xss-through-dom`)
+- `scripts/tests/test_font_tier_split.py` — disjointness / cmap / no-preload invariants
 - `vercel.json:34` — CSP without Google Fonts hosts; `vercel.json:184-198` — woff2 cache headers
 
 ## 9. Why Not Git LFS?

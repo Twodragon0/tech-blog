@@ -377,50 +377,24 @@
     }
   }
 
-  function loadFontTier2() {
-    if (window.__fontTier2Loaded) {
-      return;
-    }
-    window.__fontTier2Loaded = true;
-
-    var trigger = function () {
-      if (!('FontFace' in window) || !document.fonts) {
-        return;
-      }
-      ['400', '700'].forEach(function (weight) {
-        try {
-          var f = new FontFace(
-            'Noto Sans KR',
-            "url('/assets/fonts/noto-sans-kr-" + weight + "-tier2.woff2') format('woff2')",
-            { style: 'normal', weight: weight, display: 'swap' }
-          );
-          f.load().then(function (loaded) {
-            document.fonts.add(loaded);
-          }).catch(function () { /* ignore network/decoding errors */ });
-        } catch (_e) { /* ignore */ }
-      });
-    };
-
-    var schedule = function () {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(trigger, { timeout: 5000 });
-      } else {
-        setTimeout(trigger, 2000);
-      }
-    };
-    if (document.readyState === 'complete') {
-      schedule();
-    } else {
-      window.addEventListener('load', schedule, { once: true });
-    }
-  }
+  // Tier-2 (rare-Hangul tail) fonts are NOT loaded from here.
+  //
+  // Until 2026-08-10 this file held loadFontTier2(), which built a FontFace and
+  // called f.load() — forcing ~996 KB down the wire on every first visit for
+  // glyphs no page needed. The tail now lives in assets/css/font-tier2.css with
+  // a unicode-range disjoint from tier-1's, linked declaratively from
+  // _includes/font-face.html as deferred CSS (media="print" + .deferred-css).
+  // The browser fetches the woff2 only when a page renders a tail syllable.
+  //
+  // Do not reintroduce a JS loader: assigning a data-* attribute to link.href
+  // trips CodeQL js/xss-through-dom, and calling FontFace#load() or preloading
+  // the woff2 restores the old waste. See scripts/tests/test_font_tier_split.py.
 
   applyTheme();
   initConsoleFilter();
   bindCssFallback();
   markBodyLoaded();
   registerServiceWorker();
-  loadFontTier2();
   loadGoogleAnalytics();
   loadAdsense();
   loadKakaoSdk();

@@ -64,6 +64,9 @@ if [ -f "scripts/build/generate_noto_2tier_subset.py" ]; then
   NEEDS_REGEN=0
   if [ ! -f "assets/fonts/noto-sans-kr-400-tier1.woff2" ]; then NEEDS_REGEN=1; fi
   if [ ! -f "assets/fonts/noto-sans-kr-700-tier2.woff2" ]; then NEEDS_REGEN=1; fi
+  # font-tier2.css carries the tail unicode-range and is generated alongside the
+  # woff2 files; a missing one would silently disable tier-2 fallback entirely.
+  if [ ! -f "assets/css/font-tier2.css" ]; then NEEDS_REGEN=1; fi
   if [ ! -f "$STAMP" ] || [ "scripts/build/generate_noto_2tier_subset.py" -nt "$STAMP" ] || [ "scripts/build/noto_subset_top1k.txt" -nt "$STAMP" ]; then
     NEEDS_REGEN=1
   fi
