@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-09T01:02:00.653753+00:00",
+  "updated_at": "2026-08-10T01:03:04.931039+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/malvertising-sends-malware-in-pieces.html",
-      "title": "Malvertising Sends Malware in Pieces, Then Makes the Browser Build the Executabl",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/steam-forum-clickfix-attacks-infect-gamers-with-xmrig-cryptominers/",
-      "title": "Steam forum ClickFix attacks infect gamers with XMRig cryptominers",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/fastjson-1x-rce-vulnerability-targeted.html",
-      "title": "Fastjson 1.x RCE Vulnerability Targeted in Attacks With No Patched Available",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/researcher-publishes-gitlab-rce-poc.html",
-      "title": "Researcher Publishes GitLab RCE PoC Letting Authenticated Users Run Commands as ",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/ctm360-research-reveals-how-insurance.html",
-      "title": "CTM360 Research Reveals How Insurance Phishing Has Evolved Into Real-Time Accoun",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/robinhood-cryptocom-prediction-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Robinhood in talks with Crypto.com over prediction markets: WSJ",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bitcoin-policy-institute-state-department-program?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin advocacy group to join US State Department’s ‘digital freedom’ program",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/wise-resubmit-occ-charter-application-genius-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Wise to resubmit US charter application under GENIUS Act",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/north-korea-bank-hacking-ring-crypto-laundering-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "North Korea arrests bank hacking ring tied to crypto laundering: Report",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/fidelity-push-senate-passage-of-clarity-act?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Fidelity joins push for Senate passage of CLARITY Act",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31819",
-      "title": "하드 드라이브가 늘 가득 차는 이유",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31818",
-      "title": "인터페이스가 화면을 벗어나고 있다 - 채팅, 음성, 에이전트형 AI가 바꾸는 UX",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31817",
-      "title": "Hannah Fry, 2026년 수학 대중화 공로로 Leelavati Prize 수상",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31816",
-      "title": "neko-master - 네트워크 트래픽 시각화 및 분석용 대시보드",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=31815",
-      "title": "stinkpot - SQLite 기반 Bash 셸 히스토리 검색기",
-      "published_date": "2026-07-26",
-      "expires_at": "2026-08-02T01:55:33.752150+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/github-pypi-add-time-absed-defenses-against-supply-chain-attacks/",
       "title": "GitHub, PyPI add time-based defenses against supply chain attacks",
@@ -1350,6 +1260,78 @@
       "title": "DNS에서 도메인 판매 여부를 알리는 _for-sale 레코드",
       "published_date": "2026-08-09",
       "expires_at": "2026-08-16T01:02:00.653654+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/",
+      "title": "The AI safety test is becoming a safety risk",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/08/09/this-adversarial-pattern-can-prevent-surveillance-cameras-from-detecting-you/",
+      "title": "This ‘adversarial’ pattern can prevent surveillance cameras from detecting you",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/bip-110-dies-with-a-whimper-clarity-vote-punted-hodlers-digest-aug-9?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "BIP-110 dies with a whimper, CLARITY vote punted: Hodler’s Digest, Aug. 9",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ex-us-defense-secretary-calls-clarity-act-a-national-security-bill?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ex-US defense secretary calls CLARITY Act a ‘national security bill’",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bitcoin-bip-110-branch-stalls-miner-support?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "BIP-110 Bitcoin branch stalls after two blocks as gap widens",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/brazil-targets-crypto-fraud-with-up-to-24-hour-transfer-hold?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Brazil targets crypto fraud with up to 24-hour transfer hold",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/btcpay-restricts-remote-lightning-access-after-attackers-steal-funds?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "BTCPay restricts remote Lightning access after attackers steal funds",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32324",
+      "title": "SQLite에서 배운 신뢰성의 교훈 - Richard Hipp [유튜브]",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32323",
+      "title": "StreamHub 확장: 하루 1,450억 이벤트 처리를 위해 Kinesis에서 Kafka로 전환",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32322",
+      "title": "모든 코드를, 항상 다시 작성하라",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32321",
+      "title": "hallmark - AI 티가 안나는 디자인 스킬",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32320",
+      "title": "실리콘밸리는 과학소설을 오독하고 민주주의를 약화시킴",
+      "published_date": "2026-08-10",
+      "expires_at": "2026-08-17T01:03:04.930931+00:00"
     }
   ]
 }
