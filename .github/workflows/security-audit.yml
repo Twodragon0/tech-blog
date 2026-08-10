@@ -103,30 +103,112 @@ jobs:
             echo "## npm Audit: No high/critical vulnerabilities" >> $GITHUB_STEP_SUMMARY
           fi
 
-      - name: Create issue on failure
-        if: steps.npm_audit.outputs.vulnerabilities > 0
+      # Self-clearing signal. This step used to run only when VULNS > 0 and did
+      # nothing when an open "npm audit" issue already existed — and it never closed
+      # one. Because the audit step is `|| true`, the issue is the ONLY signal this
+      # gate produces, so a stale open issue silenced it completely: measured
+      # 2026-08-10, #414 and #415 were still open from 2026-06-15 while `npm audit`
+      # reported 0 high/critical, meaning the next real vulnerability would have
+      # produced a green job and no notification at all.
+      #
+      # Now it always runs and reconciles: open/update when findings exist, close
+      # when they are gone, and close duplicates. Matching is by a hidden marker
+      # rather than the title, so retitling cannot fork the issue — with a one-time
+      # title fallback so the legacy #414/#415 get adopted instead of orphaned.
+      - name: Reconcile npm audit issue
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
+        env:
+          VULNS: ${{ steps.npm_audit.outputs.vulnerabilities }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         with:
           script: |
-            const title = `[Security] npm audit: ${process.env.VULNS} high/critical vulnerabilities`;
-            const issues = await github.rest.issues.listForRepo({
+            const MARKER = '<!-- security-audit: npm -->';
+            const LEGACY = 'npm audit';
+            const raw = (process.env.VULNS || '').trim();
+            const count = Number(raw);
+            const runUrl = process.env.RUN_URL;
+
+            // An empty or non-numeric VULNS must NOT be read as "0 findings" —
+            // Number('') is 0, which would auto-close a live issue on the strength
+            // of a missing value. Reconciling on absent evidence is the same class
+            // of mistake as the `|| true` this gate is being repaired for.
+            if (raw === '' || !Number.isFinite(count)) {
+              core.warning(`npm audit produced no usable count (VULNS=${JSON.stringify(raw)}); leaving issue state untouched.`);
+              return;
+            }
+
+            const open = await github.paginate(github.rest.issues.listForRepo, {
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
-              labels: 'security'
+              labels: 'security',
+              per_page: 100,
             });
-            const existing = issues.data.find(i => i.title.includes('npm audit'));
-            if (!existing) {
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: title,
-                labels: ['security', 'dependencies'],
-                body: `npm audit detected vulnerabilities.\n\nRun \`npm audit\` locally for details.\nRun \`npm audit fix\` to auto-fix where possible.`
+            const mine = open.filter(
+              (i) => (i.body || '').includes(MARKER) || i.title.includes(LEGACY)
+            );
+            // Two concurrent runs both passed the old !existing check on 2026-06-15
+            // and created #414 and #415. Keep the oldest, close the rest.
+            mine.sort((a, b) => a.number - b.number);
+            const primary = mine[0];
+            for (const dup of mine.slice(1)) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: dup.number,
+                body: `Duplicate of #${primary.number}; closing so the audit has a single signal.`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: dup.number, state: 'closed', state_reason: 'not_planned',
               });
             }
-        env:
-          VULNS: ${{ steps.npm_audit.outputs.vulnerabilities }}
+
+            const body = [
+              MARKER,
+              '',
+              `npm audit reports **${count}** high/critical vulnerabilities.`,
+              '',
+              'Reproduce: `npm audit --audit-level=high`',
+              'Fix where possible: `npm audit fix`',
+              '',
+              `Last updated by ${runUrl}`,
+            ].join('\n');
+
+            if (count > 0) {
+              if (primary) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner, repo: context.repo.repo,
+                  issue_number: primary.number,
+                  title: `[Security] npm audit: ${count} high/critical vulnerabilities`,
+                  body,
+                });
+                core.info(`updated #${primary.number} (count=${count})`);
+              } else {
+                const created = await github.rest.issues.create({
+                  owner: context.repo.owner, repo: context.repo.repo,
+                  title: `[Security] npm audit: ${count} high/critical vulnerabilities`,
+                  labels: ['security', 'dependencies'],
+                  body,
+                });
+                core.info(`opened #${created.data.number}`);
+              }
+              return;
+            }
+
+            if (primary) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: primary.number,
+                body: `npm audit now reports 0 high/critical vulnerabilities — closing. ${runUrl}`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: primary.number, state: 'closed', state_reason: 'completed',
+              });
+              core.info(`closed #${primary.number} (clean)`);
+            } else {
+              core.info('no findings, no open issue — nothing to do');
+            }
 
   bundle-audit:
     name: Ruby Gem Security Audit
@@ -159,27 +241,99 @@ jobs:
             echo "## Bundle Audit: No vulnerabilities" >> $GITHUB_STEP_SUMMARY
           fi
 
-      - name: Create issue on failure
-        if: steps.bundle_audit.outputs.vulnerable == 'true'
+      # Same self-clearing reconcile as the npm side. #446 was still open from
+      # 2026-07-10 while `bundle audit check --update` reported "No vulnerabilities
+      # found" (verified locally 2026-08-10), so the stale issue was suppressing the
+      # only notification this gate can emit.
+      - name: Reconcile bundle audit issue
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
+        env:
+          VULNERABLE: ${{ steps.bundle_audit.outputs.vulnerable }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         with:
           script: |
-            const title = '[Security] bundle-audit: Ruby gem vulnerabilities detected';
-            const issues = await github.rest.issues.listForRepo({
+            const MARKER = '<!-- security-audit: bundle -->';
+            const LEGACY = 'bundle-audit';
+            const rawVuln = (process.env.VULNERABLE || '').trim();
+            const runUrl = process.env.RUN_URL;
+
+            // Same rule as the npm side: only 'true'/'false' are evidence. An empty
+            // value means the audit step did not produce a verdict, so nothing is
+            // opened and — critically — nothing is closed.
+            if (rawVuln !== 'true' && rawVuln !== 'false') {
+              core.warning(`bundle audit produced no usable verdict (VULNERABLE=${JSON.stringify(rawVuln)}); leaving issue state untouched.`);
+              return;
+            }
+            const vulnerable = rawVuln === 'true';
+
+            const open = await github.paginate(github.rest.issues.listForRepo, {
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
-              labels: 'security'
+              labels: 'security',
+              per_page: 100,
             });
-            const existing = issues.data.find(i => i.title.includes('bundle-audit'));
-            if (!existing) {
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: title,
-                labels: ['security', 'dependencies'],
-                body: `bundle-audit detected vulnerabilities in Ruby gems.\n\nRun \`bundle audit check --update\` locally for details.\nRun \`bundle update [gem_name]\` to update affected gems.`
+            const mine = open.filter(
+              (i) => (i.body || '').includes(MARKER) || i.title.includes(LEGACY)
+            );
+            mine.sort((a, b) => a.number - b.number);
+            const primary = mine[0];
+            for (const dup of mine.slice(1)) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: dup.number,
+                body: `Duplicate of #${primary.number}; closing so the audit has a single signal.`,
               });
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: dup.number, state: 'closed', state_reason: 'not_planned',
+              });
+            }
+
+            if (vulnerable) {
+              const body = [
+                MARKER,
+                '',
+                'bundle-audit detected vulnerabilities in Ruby gems.',
+                '',
+                'Reproduce: `bundle audit check --update`',
+                'Fix: `bundle update [gem_name]`',
+                '',
+                `Last updated by ${runUrl}`,
+              ].join('\n');
+              if (primary) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner, repo: context.repo.repo,
+                  issue_number: primary.number,
+                  title: '[Security] bundle-audit: Ruby gem vulnerabilities detected',
+                  body,
+                });
+                core.info(`updated #${primary.number}`);
+              } else {
+                const created = await github.rest.issues.create({
+                  owner: context.repo.owner, repo: context.repo.repo,
+                  title: '[Security] bundle-audit: Ruby gem vulnerabilities detected',
+                  labels: ['security', 'dependencies'],
+                  body,
+                });
+                core.info(`opened #${created.data.number}`);
+              }
+              return;
+            }
+
+            if (primary) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: primary.number,
+                body: `bundle-audit now reports no vulnerabilities — closing. ${runUrl}`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: primary.number, state: 'closed', state_reason: 'completed',
+              });
+              core.info(`closed #${primary.number} (clean)`);
+            } else {
+              core.info('no findings, no open issue — nothing to do');
             }
 
   summary:

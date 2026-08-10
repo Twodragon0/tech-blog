@@ -58,6 +58,10 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+      # issues: write is the fallback signal channel. When the repo setting blocks
+      # Actions from opening PRs, the translations still get recorded in a
+      # self-updating tracking issue instead of vanishing behind a red cron.
+      issues: write
 
     env:
       SINCE: ${{ github.event.inputs.since || '5' }}
@@ -120,6 +124,7 @@ jobs:
           fi
 
       - name: Open review PR with translations
+        id: open_pr
         if: steps.translate.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -144,11 +149,104 @@ jobs:
             --body "재발 방지 B단계 — trusted scheduled translator retranslated English-fallback 요약/summary=/title= spans back to Korean. Translations are output-validated (Hangul + bounded length). Review the diff and let CI go green before merging."; then
             echo "Opened retranslate review PR from $BRANCH"
           else
-            echo "::error::Could not auto-open the PR. Translations are on branch '${BRANCH}' (main NOT updated)."
-            echo "::error::Fix: enable Settings → Actions → General → 'Allow GitHub Actions to create and approve pull requests', or use a PAT/App token. Open manually:"
-            echo "::error::  ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/main...${BRANCH}?expand=1"
-            exit 1
+            # This is the degraded path, and it is reached in practice: the repo
+            # setting "Allow GitHub Actions to create and approve pull requests" is
+            # off, so `gh pr create` returns
+            #   GraphQL: GitHub Actions is not permitted to create or approve pull requests
+            #
+            # It used to `exit 1` here. Measured 2026-08-08..10: three consecutive
+            # daily failures, and because the step is only reached when there is
+            # something to translate (it was `skipped` on every earlier run), its
+            # first real execution was also its first failure — a step that had never
+            # run had never been verified. Nobody acted on the red for three days
+            # while three branches accumulated, and each day re-translated the same
+            # headline to a slightly different Korean string.
+            #
+            # A daily red that strands work is not a signal, it is noise that gets
+            # muted. So: leave the branch pushed (work is never lost), record it in a
+            # single self-updating issue (Actions may create issues even when it may
+            # not create PRs), and exit 0. The issue is the durable signal; the
+            # branch list in it grows until someone merges.
+            COMPARE_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/main...${BRANCH}?expand=1"
+            echo "::warning::Actions is not permitted to open PRs; translations are on branch '${BRANCH}' (main NOT updated). A tracking issue is updated instead."
+            echo "::warning::  $COMPARE_URL"
+            {
+              echo "### Retranslation awaiting review"
+              echo ""
+              echo "- Branch: \`${BRANCH}\`"
+              echo "- [Open the PR manually]($COMPARE_URL)"
+              echo ""
+              echo "Auto-opening is blocked by Settings → Actions → General →"
+              echo "'Allow GitHub Actions to create and approve pull requests'."
+            } >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "stranded=true"
+              echo "stranded_branch=$BRANCH"
+              echo "compare_url=$COMPARE_URL"
+            } >> "$GITHUB_OUTPUT"
           fi
+
+      # Durable signal for the degraded path above. Actions may create issues even
+      # where it may not create pull requests, so a stranded branch is recorded in
+      # ONE self-updating issue rather than a red cron run nobody reads. The issue
+      # is found by a hidden marker (not by title), so renaming the title later does
+      # not fork it into duplicates.
+      - name: Track stranded translations in an issue
+        if: steps.open_pr.outputs.stranded == 'true'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
+        env:
+          STRANDED_BRANCH: ${{ steps.open_pr.outputs.stranded_branch }}
+          COMPARE_URL: ${{ steps.open_pr.outputs.compare_url }}
+        with:
+          script: |
+            const MARKER = '<!-- digest-retranslate-stranded -->';
+            const branch = process.env.STRANDED_BRANCH;
+            const compare = process.env.COMPARE_URL;
+            const entry = `- [ ] \`${branch}\` — [open PR](${compare})`;
+
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'automation',
+              per_page: 100,
+            });
+            const existing = open.find((i) => (i.body || '').includes(MARKER));
+
+            if (!existing) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'Digest retranslations awaiting review (auto-PR blocked)',
+                labels: ['automation'],
+                body: [
+                  MARKER,
+                  '',
+                  'The scheduled digest retranslator produced changes but could not open a PR:',
+                  'Settings → Actions → General → "Allow GitHub Actions to create and approve',
+                  'pull requests" is off, and GITHUB_TOKEN cannot be granted that permission.',
+                  '',
+                  'Each branch below holds validated translations and is NOT on main. Merge them',
+                  'and tick the box; this issue closes itself once every box is ticked or the',
+                  'branches are gone.',
+                  '',
+                  entry,
+                ].join('\n'),
+              });
+              return;
+            }
+
+            if ((existing.body || '').includes(branch)) {
+              core.info(`branch ${branch} already tracked in #${existing.number}`);
+              return;
+            }
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: existing.number,
+              body: `${existing.body}\n${entry}`,
+            });
+            core.info(`appended ${branch} to #${existing.number}`);
 
       - name: Summary
         if: always()
