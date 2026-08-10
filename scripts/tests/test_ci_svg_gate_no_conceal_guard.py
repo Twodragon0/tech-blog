@@ -158,3 +158,43 @@ def test_scripts_referenced_by_paths_exist():
         f"these trigger paths point at files that no longer exist: {dead}. A dead "
         "path filter matches nothing, so the gate stops running for that dependency."
     )
+
+
+def test_svg_trigger_glob_is_recursive():
+    """The SVG path filter must cross directories, because the scan does.
+
+    ``assets/images/*.svg`` does not match a subdirectory in Actions path filters,
+    but ``verify_images_unified.py:267`` scans with ``rglob("*.svg")``. Measured
+    2026-08-10: 307 SVGs at depth 1, 156 at depth >= 2 (diagrams/, mermaid/,
+    _unused_archive/) — all inside the scan, none reachable by the trigger. That is
+    the same hazard this file documents, one directory level down.
+    """
+    body = _body()
+    assert "'assets/images/*.svg'" not in body, (
+        "check-svg.yml uses the depth-1 glob 'assets/images/*.svg'. Actions path "
+        "filters do not cross '/', so every SVG in a subdirectory is scanned but "
+        "cannot trigger the scan. Use 'assets/images/**.svg'."
+    )
+    assert "'assets/images/**.svg'" in body, "check-svg.yml must filter on 'assets/images/**.svg'"
+
+
+def test_svg_trigger_glob_present_on_both_events():
+    """push and pull_request must both carry the recursive glob, not just one."""
+    assert _body().count("'assets/images/**.svg'") >= 2, (
+        "expected the recursive SVG glob under both the push and pull_request "
+        "triggers; a one-sided filter leaves the other event blind."
+    )
+
+
+def test_recursive_glob_would_actually_reach_nested_svgs():
+    """Canary on the premise: nested SVGs exist, so the widened glob is not cosmetic.
+
+    If the corpus ever flattens to depth 1 this stops proving anything, which is
+    the signal to revisit the guard rather than trust it.
+    """
+    images = REPO_ROOT / "assets" / "images"
+    nested = [p for p in images.rglob("*.svg") if p.parent != images]
+    assert nested, (
+        "no SVGs below assets/images/ any more — re-check whether the recursive "
+        "trigger glob still corresponds to the scan scope."
+    )

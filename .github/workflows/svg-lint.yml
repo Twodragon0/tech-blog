@@ -1,5 +1,24 @@
 name: SVG Compliance Lint
 
+# This workflow carries 15 corpus-wide gates (`--all`): cover drift for four
+# generator families, the honesty scorer, title-ASCII, spec-slug consistency,
+# KST-midnight URLs, checklist headings, bare URLs, template-echo. They scan the
+# WHOLE corpus, so the same trigger-narrower-than-scan hazard that hid a
+# three-week regression in check-svg.yml applies here — see that file's header.
+#
+# Until 2026-08-10 this workflow had `push` + `pull_request` and no `schedule`,
+# i.e. exactly the pre-#489 shape. That mattered more than it looks: the blogwatcher
+# cron publishes digests and covers by pushing DIRECTLY to main with GITHUB_TOKEN,
+# and such a push triggers no workflow at all (GitHub's recursion prevention — the
+# same mechanism documented in deploy-pages.yml). Measured: 35 of the last 40
+# commits touching assets/images/*.svg are github-actions[bot] direct pushes, and
+# the bot cover commit 685ca468 carried 12 workflow runs, every one of them
+# `schedule` and not a single `push` or `pull_request` event.
+#
+# So the dominant producer of the artifacts these 15 gates exist to check was
+# invisible to both triggers. The daily `schedule` below closes that: it scans main
+# regardless of paths, exactly as check-svg.yml does. All 15 gates were verified
+# green against the current corpus before this was added, so it is not born red.
 on:
   push:
     paths:
@@ -95,6 +114,17 @@ on:
       - 'vercel.json'
       - 'assets/js/mermaid-init.js'
       - 'scripts/tests/check_mermaid_csp_render.mjs'
+  schedule:
+    # 03:45 UTC = 12:45 KST. Deliberately after check-svg.yml's 03:15 slot so the
+    # two corpus sweeps do not contend, and well after the blogwatcher digest
+    # (00:00) has published the covers this sweep is meant to inspect.
+    # On a schedule run the four diff-scoped steps (size-gate, digest-structure,
+    # untranslated, proper-nouns) fall back to BASE=HEAD~1 — the branch already
+    # present in each step — so they check the most recent commit, typically the
+    # bot's. The 15 `--all` gates are the point of this trigger and are unaffected
+    # by the diff base.
+    - cron: '45 3 * * *'
+  workflow_dispatch: {}
 
 concurrency:
   group: svg-lint-${{ github.ref }}

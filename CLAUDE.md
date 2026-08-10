@@ -531,12 +531,23 @@ posts that still violated the rule were fixed in commit `b4ff35c4`
 | 2 | `check_spec_slug_consistency.py` | spec slug ↔ post `image:` field | pre-commit + svg-lint CI |
 | 3 | `check_svg_size_gate.py` | SVG size band (std/hq/rollup) | pre-commit (warn) + svg-lint CI |
 | 4 | `validate-svg.sh` | SVG XML well-formed + no Hangul | PreToolUse hook (per-edit) |
-| 5 | `tests/visual-baselines/` | PNG visual regression baselines | visual-regression CI (PR only) |
+| 5 | `reports/l20-visual-regression/run.py` | phash sweep over a **hardcoded** Jan–Mar 2026 date set | visual-regression CI (PR only) |
 | 6 | `check_svg_precommit.sh` | NUL-delimited path-safety wrapper | pre-commit |
 | 7 | `check_kst_midnight.py` | KST 00-09 post URL drift | pre-commit + svg-lint CI |
 | 8 | blogwatcher raster auto-emit | cron-side raster generation | `.github/workflows/ai-blogwatcher.yml` |
 | 9 | `check_digest_checklist_heading.py` | exactly one canonical `## 실무 체크리스트` H2 | pre-commit (9d) + svg-lint CI (`--all`) + blogwatcher publish (self-heal, then block) |
 | 10 | `check_template_echo.py` | card `summary=` that only echoes the headline + a fixed clause | pre-commit (13, `--staged`) + svg-lint CI (`--all`) + blogwatcher publish (self-heal via `rewrite_template_echo_summaries.py`, then block) |
+
+#### Two different visual systems — do not conflate them
+
+Row 5 used to read "`tests/visual-baselines/` — PNG visual regression baselines — visual-regression CI". That was wrong, and the confusion is easy to repeat:
+
+| System | Captured by | Verified by |
+|---|---|---|
+| `reports/l20-visual-regression/run.py` (phash, Hamming > 25) | n/a — compares against one hardcoded `REFERENCE_NAME` | `visual-regression.yml` on PRs. Only inspects dates in `ALL_TARGET_DATES` (Jan–Mar 2026), so it is a **frozen historical sweep** and cannot see a new cover. |
+| `tests/visual-baselines/` + `scripts/svg_visual_baseline.py` (pixel-diff) | `visual-baseline-refresh.yml` (`--capture`, push to main) | **nothing** — `--verify` is not wired into any workflow as of 2026-08-10 |
+
+Consequences to keep in mind: adding a `schedule` to `visual-regression.yml` buys nothing (it would re-run the same fixed date set daily), and the 58 baselines under `tests/visual-baselines/` are re-captured but never compared. `--verify` also cannot be validated locally on macOS — baselines are captured on `ubuntu-22.04`, and a local run shows a uniform ~1.5 % diff with an identical `max_block=1134px` across all 30 files, i.e. a platform rendering delta rather than drift.
 
 ### Code Blocks
 - **Always** include language tags: ```python, ```bash, ```yaml

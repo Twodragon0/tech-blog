@@ -14,12 +14,19 @@ name: SVG Quality Check
 # Two-part fix: (1) the daily `schedule:` scans main regardless of paths, so a
 # corpus regression surfaces within 24h; (2) `paths` lists every script the steps
 # invoke plus this workflow file, so editing the gate runs the gate.
+#
+# 2026-08-10 follow-up: the SVG glob was `assets/images/*.svg`, which in Actions
+# path filters does not cross `/`. verify_images_unified.py:267 scans with
+# `IMAGES_DIR.rglob("*.svg")` — measured 307 SVGs at depth 1 and 156 at depth >= 2
+# (diagrams/, mermaid/, _unused_archive/). Those 156 were inside the scan and
+# outside the trigger: the same trigger-narrower-than-scan shape described above,
+# one directory level down. Widened to `**.svg`, matching svg-lint.yml's glob.
 on:
   push:
     branches:
       - main
     paths:
-      - 'assets/images/*.svg'
+      - 'assets/images/**.svg'
       - 'scripts/check_posts.py'
       - 'scripts/check_cover_qr_urls.py'
       - 'scripts/check_svg_quality.py'
@@ -29,7 +36,7 @@ on:
     branches:
       - main
     paths:
-      - 'assets/images/*.svg'
+      - 'assets/images/**.svg'
       - 'scripts/check_posts.py'
       - 'scripts/check_cover_qr_urls.py'
       - 'scripts/check_svg_quality.py'
