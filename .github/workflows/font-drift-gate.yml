@@ -19,6 +19,20 @@ env:
 jobs:
   font-drift:
     name: woff2 drift check
+    # The override is a JOB-level condition, not a step-level one. Until 2026-08-10
+    # the bypass lived in an in-job step and gated the two real steps on
+    # `skip == 'false'`, so an overridden run reported SUCCESS having checked
+    # nothing — a green tick indistinguishable from a genuine pass. Skipping the job
+    # instead renders grey, which is what lighthouse-ci.yml already does with its
+    # perf-regression-allowed label.
+    #
+    # `contains(...)` is an exact element match over the label-name array. The old
+    # implementation piped the label JSON through `grep -q 'font-drift-allowed'`,
+    # which is an unanchored substring match: any label CONTAINING that text (e.g.
+    # `not-font-drift-allowed`) silently disabled the gate.
+    if: >
+      github.event_name != 'pull_request' ||
+      !contains(github.event.pull_request.labels.*.name, 'font-drift-allowed')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -27,24 +41,8 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Check for override label
-        id: label-check
-        # Pass PR-controlled label JSON via env, not inline ${{ }} in the shell,
-        # so a label with shell metacharacters cannot break out. (Security fix M-02, 2026-07-13 audit.)
-        env:
-          LABELS_JSON: ${{ toJson(github.event.pull_request.labels.*.name) }}
-        run: |
-          echo "labels=$LABELS_JSON"
-          if echo "$LABELS_JSON" | grep -q 'font-drift-allowed'; then
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            echo "Label 'font-drift-allowed' is set — skipping font drift gate."
-          else
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Compute changed files
         id: diff
-        if: steps.label-check.outputs.skip == 'false'
         run: |
           BASE="${{ github.event.pull_request.base.sha }}"
           HEAD="${{ github.event.pull_request.head.sha }}"
@@ -57,7 +55,6 @@ jobs:
           echo "Changed files: $CHANGED"
 
       - name: Run font drift gate
-        if: steps.label-check.outputs.skip == 'false'
         # Pass the diff-derived file list via env, not inline ${{ }} in the
         # shell, so a PR-controlled filename with shell metacharacters cannot
         # break out of the argument. (Security fix M-01, 2026-06-30 audit.)

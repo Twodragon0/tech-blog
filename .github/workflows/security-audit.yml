@@ -191,15 +191,53 @@ jobs:
     permissions:
       contents: read
     steps:
+      # This job used to compare needs.*.result against "failure" only and then
+      # print "✅ Security audit clean (or skipped — no dependency changes)".
+      # Measured 2026-08-10: across the 30 most recent merged PRs both audit jobs
+      # reported `skipped` on 100% of appearances (correct — they are gated on
+      # package.json / package-lock.json / Gemfile / Gemfile.lock changing), while
+      # this job reported success on all 30. "clean" and "did not run" therefore
+      # rendered identically, and any consumer treating this name as coverage was
+      # reading a guaranteed green.
+      #
+      # Skipped stays a pass — failing every PR that does not touch a manifest would
+      # be noise, and the Monday cron runs both audits unconditionally (25 schedule
+      # runs verified). What changes: skipped is now labelled NOT RUN rather than
+      # clean, and any conclusion that is neither success nor skipped (cancelled,
+      # timed_out, a future value) fails instead of falling through the equality test.
       - name: Evaluate audit results
         run: |
           NPM="${{ needs.npm-audit.result }}"
           BUNDLE="${{ needs.bundle-audit.result }}"
           echo "## Security Audit Summary" >> $GITHUB_STEP_SUMMARY
-          echo "- npm audit: $NPM" >> $GITHUB_STEP_SUMMARY
-          echo "- bundle audit: $BUNDLE" >> $GITHUB_STEP_SUMMARY
-          if [ "$NPM" = "failure" ] || [ "$BUNDLE" = "failure" ]; then
-            echo "❌ One or more audits failed"
+
+          label() {
+            case "$1" in
+              success) echo "✅ ran, no high/critical findings reported" ;;
+              skipped) echo "⏭️ NOT RUN — no dependency manifest changed in this event" ;;
+              *)       echo "❌ $1" ;;
+            esac
+          }
+          echo "- npm audit: $(label "$NPM")" >> $GITHUB_STEP_SUMMARY
+          echo "- bundle audit: $(label "$BUNDLE")" >> $GITHUB_STEP_SUMMARY
+
+          bad=""
+          for r in "$NPM" "$BUNDLE"; do
+            case "$r" in
+              success|skipped) ;;
+              *) bad="$bad $r" ;;
+            esac
+          done
+          if [ -n "$bad" ]; then
+            echo "::error::Security audit job(s) ended in an unexpected state:$bad"
             exit 1
           fi
-          echo "✅ Security audit clean (or skipped — no dependency changes)"
+
+          if [ "$NPM" = "skipped" ] && [ "$BUNDLE" = "skipped" ]; then
+            echo "⏭️ Neither audit ran (no dependency manifest changed)." >> $GITHUB_STEP_SUMMARY
+            echo "This check passing does NOT mean dependencies were audited." >> $GITHUB_STEP_SUMMARY
+            echo "Coverage comes from the Monday cron, which audits unconditionally." >> $GITHUB_STEP_SUMMARY
+            echo "⏭️ Neither audit ran — not a clean bill of health."
+            exit 0
+          fi
+          echo "✅ Audits that ran reported no high/critical findings"

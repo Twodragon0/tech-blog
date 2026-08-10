@@ -102,19 +102,31 @@ def test_manual_dispatch_still_available():
 
 
 def test_corpus_scan_still_covers_whole_directory():
-    """The gate's value is the full-corpus verdict; narrowing it hides regressions."""
+    """The gate's value is the full-corpus verdict; narrowing it hides regressions.
+
+    This originally pinned the literal ``--fix --ci assets/images/``. The ``--fix``
+    was incidental to what the assertion is about — and actively harmful, because in
+    CI it rewrote the files before asserting on them, so the missing-dimensions
+    regression class could never fail (audit finding D2, removed 2026-08-10). The
+    corpus path is what must not narrow; the flags are checked separately, by
+    ``test_ci_silent_pass_guard.py::test_svg_quality_gate_does_not_self_repair_in_ci``.
+    """
     body = _body()
     # Anchored at end-of-line: 'assets/images/one.svg' must NOT satisfy this, or the
     # assertion would pass while the scan had been narrowed to a single file.
     assert re.search(
-        rf"{re.escape(CORE_SCRIPT)}\s+--fix\s+--ci\s+assets/images/\s*$",
+        rf"{re.escape(CORE_SCRIPT)}(?:\s+--[a-z-]+)*\s+--ci\s+assets/images/\s*$",
         body,
         re.MULTILINE,
     ), (
-        f"check-svg.yml no longer runs '{CORE_SCRIPT} --fix --ci assets/images/'. "
+        f"check-svg.yml no longer runs '{CORE_SCRIPT} --ci assets/images/'. "
         "If the scan was narrowed to changed files only, that is a legitimate "
         "alternative fix for the trigger/scan mismatch — but then say so and update "
         "this guard (and test_schedule_trigger_present) in the same PR."
+    )
+    assert not re.search(rf"{re.escape(CORE_SCRIPT)}\s+--fix", body), (
+        "--fix is back in the CI invocation: the gate would repair its own input "
+        "before asserting, which is how this regression class stayed invisible."
     )
 
 

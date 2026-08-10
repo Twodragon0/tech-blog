@@ -211,6 +211,15 @@ def main() -> int:
     )
     parser.add_argument("--output-md", type=Path, default=None, help="Optional Markdown output path")
     parser.add_argument("--quiet", action="store_true", help="Suppress stdout summary")
+    parser.add_argument(
+        "--require-comparable",
+        action="store_true",
+        help=(
+            "Fail when no URL is comparable on both sides. Pass this only when both "
+            "builds succeeded: zero comparable rows then means URL resolution broke, "
+            "not that the run degraded to the GH Pages fallback."
+        ),
+    )
     args = parser.parse_args()
 
     rows, exit_code = compare(args.base_dir, args.head_dir, args.threshold_lcp_ms)
@@ -220,6 +229,33 @@ def main() -> int:
         args.output_md.write_text(md, encoding="utf-8")
     if not args.quiet:
         print(md)
+
+    # Zero comparable rows is the gate's soft-degrade path: the GH Pages fallback
+    # writes only head-side LHRs, so the intersection is empty and nothing can be
+    # judged. Exiting 0 there is deliberate (see the workflow header, security fix
+    # C-H1) — a Vercel block or a flaky build must not hold a PR hostage.
+    #
+    # What was NOT deliberate is that the degraded run is indistinguishable from a
+    # clean pass at a glance: the job goes green and only the artifact says
+    # "(no comparable URLs found)". So the empty case is always announced, and with
+    # --require-comparable (passed by the workflow only when both builds succeeded)
+    # it becomes a failure, because then the emptiness is a defect in URL
+    # resolution rather than an expected degrade.
+    if not rows:
+        if args.require_comparable:
+            print(
+                "::error::Lighthouse perf gate measured NOTHING: both builds succeeded "
+                "yet no URL was comparable on both sides. Check resolve_lighthouse_urls.py "
+                "and the per-side build-id probes.",
+                file=sys.stderr,
+            )
+            return 1
+        print(
+            "::warning::Lighthouse perf gate did not measure this PR — no URL was "
+            "comparable on both sides (expected when a build failed and the run fell "
+            "back to GH Pages). This check passing does NOT mean performance was verified.",
+            file=sys.stderr,
+        )
     return exit_code
 
 
