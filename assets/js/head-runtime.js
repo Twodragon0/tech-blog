@@ -14,6 +14,7 @@
   var sentryDsn = (scriptEl && scriptEl.getAttribute('data-sentry-dsn')) || '';
   var sentryProductionHost = (scriptEl && scriptEl.getAttribute('data-sentry-production-host')) || '';
   var sentryAllowedHosts = (scriptEl && scriptEl.getAttribute('data-sentry-allowed-hosts')) || '';
+  var fontTier2Href = (scriptEl && scriptEl.getAttribute('data-font-tier2-href')) || '';
 
   function runWhenBodyAvailable(callback) {
     if (document.body) {
@@ -377,6 +378,16 @@
     }
   }
 
+  // Attach the tier-2 (rare-Hangul tail) @font-face stylesheet.
+  //
+  // The stylesheet only *declares* the faces — its unicode-range is disjoint
+  // from tier-1's, so the browser fetches the ~500 KB woff2 files only when a
+  // page actually renders a syllable outside the corpus. Until 2026-08-10 this
+  // function used the FontFace API and called f.load(), which forced ~996 KB
+  // down the wire on every first visit for glyphs no page needed.
+  //
+  // Keep it declarative: calling FontFace#load() (or preloading the woff2)
+  // would defeat the on-demand behaviour the disjoint ranges buy us.
   function loadFontTier2() {
     if (window.__fontTier2Loaded) {
       return;
@@ -384,21 +395,16 @@
     window.__fontTier2Loaded = true;
 
     var trigger = function () {
-      if (!('FontFace' in window) || !document.fonts) {
+      if (!fontTier2Href || document.getElementById('font-tier2-stylesheet')) {
         return;
       }
-      ['400', '700'].forEach(function (weight) {
-        try {
-          var f = new FontFace(
-            'Noto Sans KR',
-            "url('/assets/fonts/noto-sans-kr-" + weight + "-tier2.woff2') format('woff2')",
-            { style: 'normal', weight: weight, display: 'swap' }
-          );
-          f.load().then(function (loaded) {
-            document.fonts.add(loaded);
-          }).catch(function () { /* ignore network/decoding errors */ });
-        } catch (_e) { /* ignore */ }
-      });
+      try {
+        var link = document.createElement('link');
+        link.id = 'font-tier2-stylesheet';
+        link.rel = 'stylesheet';
+        link.href = fontTier2Href;
+        document.head.appendChild(link);
+      } catch (_e) { /* ignore */ }
     };
 
     var schedule = function () {
