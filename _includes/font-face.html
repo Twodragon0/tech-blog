@@ -8,6 +8,13 @@
   A browser therefore fetches tier-2 only when a page renders a syllable the corpus has never used.
   See scripts/build/generate_noto_2tier_subset.py for the source pipeline (it generates both the woff2 files
   and font-tier2.css from one codepoint set, which is what keeps the two ranges in sync).
+
+  Font URLs go through `relative_url`, NOT a bare /assets/fonts/... path. The GitHub Pages backup builds with
+  --baseurl "/tech-blog", so a root-relative URL there resolves to twodragon0.github.io/assets/fonts/... and
+  404s — which is exactly what the backup did until 2026-08-10 (verified live: the /tech-blog/ prefixed URL
+  returned 200 / 206,788 B while the bare one returned 404). The consequence was silent: Korean text fell back
+  to the system font and the two preloads were wasted 404 round-trips. Do NOT use `absolute_url` either — see
+  the SEO anti-patterns table in CLAUDE.md; assets must resolve against whichever origin served the HTML.
 {%- endcomment -%}
 <style>
   @font-face {
@@ -15,7 +22,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('/assets/fonts/noto-sans-kr-400-tier1.woff2') format('woff2');
+    src: url('{{ "/assets/fonts/noto-sans-kr-400-tier1.woff2" | relative_url }}') format('woff2');
     unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+1100-11FF, U+3000-303F, U+FF00-FFEF, U+2190-21FF, U+25A0-25FF, U+2600-26FF, U+AC00-D7A3;
   }
   @font-face {
@@ -23,11 +30,11 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('/assets/fonts/noto-sans-kr-700-tier1.woff2') format('woff2');
+    src: url('{{ "/assets/fonts/noto-sans-kr-700-tier1.woff2" | relative_url }}') format('woff2');
     unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+1100-11FF, U+3000-303F, U+FF00-FFEF, U+2190-21FF, U+25A0-25FF, U+2600-26FF, U+AC00-D7A3;
   }
   /* Tier-2 (rare Hangul tail) lives in assets/css/font-tier2.css — attached after load by
      head-runtime.js#loadFontTier2, fetched only when a page needs a tail glyph. */
 </style>
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/noto-sans-kr-400-tier1.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/noto-sans-kr-700-tier1.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/noto-sans-kr-400-tier1.woff2' | relative_url }}">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="{{ '/assets/fonts/noto-sans-kr-700-tier1.woff2' | relative_url }}">

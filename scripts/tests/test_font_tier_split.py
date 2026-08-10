@@ -217,6 +217,50 @@ def test_head_runtime_does_not_force_tier2_download():
     assert "data-font-tier2-href" in js
 
 
+def _strip_comments(html: str) -> str:
+    """Drop Liquid comments and CSS block comments.
+
+    font-face.html documents the bare `/assets/fonts/...` anti-pattern in prose,
+    so scanning the raw file would flag the very comment that warns about it.
+    """
+    html = re.sub(r"\{%-?\s*comment\s*-?%\}.*?\{%-?\s*endcomment\s*-?%\}", "", html, flags=re.DOTALL)
+    return re.sub(r"/\*.*?\*/", "", html, flags=re.DOTALL)
+
+
+def test_tier1_font_urls_go_through_relative_url():
+    """Tier-1 src + preload must survive the backup's --baseurl "/tech-blog".
+
+    A bare `/assets/fonts/...` resolved to twodragon0.github.io/assets/fonts/...
+    on the GitHub Pages backup and 404'd (verified live 2026-08-10: 404 on the
+    bare URL, 200 / 206,788 B on the /tech-blog/ prefixed one). The failure was
+    silent — Korean fell back to the system font and both preloads were wasted
+    404 round-trips. `absolute_url` is NOT an acceptable substitute: it prepends
+    site.baseurl onto site.url and breaks the other origin instead.
+    """
+    body = _strip_comments((REPO_ROOT / "_includes" / "font-face.html").read_text(encoding="utf-8"))
+    assert "url('/assets/fonts/" not in body, "tier-1 @font-face src bypasses relative_url"
+    assert 'href="/assets/fonts/' not in body, "tier-1 preload href bypasses relative_url"
+    assert "absolute_url" not in body, "absolute_url prepends site.baseurl — wrong for assets"
+    for weight in (400, 700):
+        asset = f"/assets/fonts/noto-sans-kr-{weight}-tier1.woff2"
+        # once in the @font-face src, once in the preload link
+        assert body.count(asset) == 2, f"expected 2 references to {asset}, got {body.count(asset)}"
+    assert body.count("relative_url") == 4, "each of the 4 tier-1 font URLs needs relative_url"
+
+
+def test_strip_comments_keeps_the_guard_honest():
+    """The guard must ignore prose in comments but still see real markup."""
+    documented = """{%- comment -%}
+      Never write url('/assets/fonts/x.woff2') here.
+    {%- endcomment -%}
+    <style>/* nor href="/assets/fonts/y.woff2" in a CSS comment */</style>"""
+    assert "/assets/fonts/" not in _strip_comments(documented)
+
+    offending = """{%- comment -%} docs {%- endcomment -%}
+    <style>src: url('/assets/fonts/noto-sans-kr-400-tier1.woff2') format('woff2');</style>"""
+    assert "url('/assets/fonts/" in _strip_comments(offending)
+
+
 def test_head_html_passes_the_tier2_stylesheet_href():
     head = (REPO_ROOT / "_includes" / "head.html").read_text(encoding="utf-8")
     assert "data-font-tier2-href=" in head
