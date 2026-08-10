@@ -303,11 +303,25 @@ jobs:
       - name: Compare LCP head vs base
         id: compare
         run: |
+          # --require-comparable is passed ONLY when both Jekyll builds succeeded.
+          # In that case an empty comparison means URL resolution broke, which is a
+          # real defect and must fail. When a build failed the run legitimately
+          # degrades to the GH Pages fallback (which writes head-side LHRs only), so
+          # the flag is withheld and the script exits 0 after printing a ::warning::
+          # that the PR was not actually measured. Before 2026-08-10 the degraded run
+          # was indistinguishable from a clean pass at a glance.
+          REQUIRE=""
+          if [ "${{ steps.build-head.outcome }}" = "success" ] \
+             && [ "${{ steps.build-base.outcome }}" = "success" ]; then
+            REQUIRE="--require-comparable"
+          fi
+          echo "[compare] build-head=${{ steps.build-head.outcome }} build-base=${{ steps.build-base.outcome }} require_comparable=${REQUIRE:-no}"
           python3 scripts/dev/compare_lighthouse_runs.py \
             --base-dir lhci-base \
             --head-dir lhci-head \
             --threshold-lcp-ms 200 \
-            --output-md lighthouse-comparison.md
+            --output-md lighthouse-comparison.md \
+            $REQUIRE
           # The script's exit code IS the gate, and it is fail-safe by design:
           # compare() returns 1 ONLY when a URL measured on BOTH sides regresses
           # past the +200ms threshold; a missing/incomparable base (e.g. the

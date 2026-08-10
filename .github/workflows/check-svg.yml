@@ -81,10 +81,18 @@ jobs:
           echo "Validating SVG XML well-formedness via xmllint..."
           python3 scripts/verify_images_unified.py --svg-validate
 
-      - name: Auto-fix and check SVG quality
+      # No --fix here, deliberately. Until 2026-08-10 this step ran
+      # `--fix --ci`, which repaired missing width/height in the CI workspace and
+      # only then asserted. Nothing commits that repair, so every run re-fixed the
+      # same files, passed, and the "SVG missing dimensions" regression class could
+      # never surface — the gate was reporting on output it had just rewritten.
+      # Verified before removing: `--ci` alone gives 307 PASS / 0 WARNING / 0 FAIL
+      # on the current corpus, so this is not deferring a backlog.
+      # To repair locally: python3 scripts/check_svg_quality.py --fix assets/images/
+      - name: Check SVG quality
         run: |
-          echo "Auto-fixing missing width/height and checking SVG quality..."
-          python3 scripts/check_svg_quality.py --fix --ci assets/images/
+          echo "Checking SVG quality (read-only; use --fix locally to repair)..."
+          python3 scripts/check_svg_quality.py --ci assets/images/
           echo "SVG quality check passed"
 
       - name: Check cover QR URLs match canonical post permalink
@@ -93,9 +101,20 @@ jobs:
           python3 scripts/check_cover_qr_urls.py
           echo "Cover QR URL check passed"
 
+      # The `|| true` that used to wrap check_posts.py is gone. Detection here rests
+      # on grepping two literal strings out of the script's stdout, so a traceback,
+      # an import error, or a renamed message produced TOTAL=0 and this step passed
+      # under the name "zero SVG warnings" while having verified nothing. The
+      # script's own exit code is now the first gate; the grep is the second.
+      # Verified before removing: check_posts.py exits 0 on the current corpus.
       - name: Check posts quality (zero SVG warnings)
         run: |
-          OUTPUT=$(python3 scripts/check_posts.py 2>&1 || true)
+          set -o pipefail
+          if ! OUTPUT=$(python3 scripts/check_posts.py 2>&1); then
+            echo "$OUTPUT" | tail -30
+            echo "::error::check_posts.py exited non-zero. The SVG-warning grep below cannot be trusted when the script itself failed."
+            exit 1
+          fi
           TRUNCATED=$(echo "$OUTPUT" | grep -c "truncated" || true)
           DENSE=$(echo "$OUTPUT" | grep -c "text too dense" || true)
           TOTAL=$((TRUNCATED + DENSE))
