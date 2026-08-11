@@ -237,7 +237,12 @@ jobs:
         if: |
           github.event.inputs.dry_run != 'true' &&
           steps.check_release.outputs.exists != 'true'
-        continue-on-error: true
+        # Step-level continue-on-error removed 2026-08-11: the JOB already carries
+        # `continue-on-error: true` (documented as a free-tier decision — a Sentry
+        # release failure must not break anything), so this was a second layer that
+        # only served to render the step green. With it gone the step shows red inside
+        # a job that still passes, which is the difference between "release tracking
+        # stopped" being visible and being invisible.
         uses: getsentry/action-release@ff07929a6537bac57790c3451cf4d364aca38528  # v3
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -254,8 +259,11 @@ jobs:
           finalize: true
 
       - name: Verify Release & Summary
+        # `if: always()` keeps this running even when the release step above failed,
+        # which is the whole point — it is the step that reports what happened. The
+        # step-level continue-on-error is gone for the same reason as above: the job
+        # is already soft, so the second layer only hid the outcome.
         if: always() && github.event.inputs.dry_run != 'true'
-        continue-on-error: true
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG || 'twodragon' }}
