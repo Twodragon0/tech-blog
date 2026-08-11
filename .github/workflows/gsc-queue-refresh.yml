@@ -4,10 +4,21 @@ name: GSC Queue Refresh
 # Read-only — does NOT call the Indexing API or otherwise trigger recrawl.
 # Output uploaded as workflow artifact (not committed, to avoid leaking any
 # accidental sensitive field from the inspection response into git history).
+# RETIRED FROM THE DAILY SCHEDULE (2026-08-10).
+#
+# GSC_SERVICE_ACCOUNT_JSON has never been configured in this repo, so every
+# scheduled run reported success while doing nothing. Verified from the live log:
+#
+#     ::warning::GSC_SERVICE_ACCOUNT_JSON secret is NOT set.
+#
+# A daily green tick over zero work is worse than no workflow: it reads, on the
+# Actions tab and in any audit of "what protects this repo", as a job that runs. The
+# cron is removed and `workflow_dispatch` kept, so the moment the secret is
+# provisioned this can be run on demand and the schedule restored in the same PR.
+#
+# Restoring the cron without provisioning the secret just re-creates the silent
+# no-op — see scripts/tests/test_ci_secret_absence_guard.py.
 on:
-  schedule:
-    # Daily at 06:00 UTC (= 15:00 KST). Off-peak for Search Console quota.
-    - cron: '0 6 * * *'
   workflow_dispatch:
     inputs:
       limit:

@@ -15,9 +15,24 @@ name: Vercel Firewall Backup
 #   VERCEL_PROJECT_ID  — defaults to tech-blog project
 #   VERCEL_TEAM_ID     — defaults to twodragon0s-projects team
 
+# RETIRED FROM THE WEEKLY SCHEDULE (2026-08-10).
+#
+# VERCEL_TOKEN has never been configured, so no snapshot has ever been taken.
+# Verified from the live log:
+#
+#     ##[warning]VERCEL_TOKEN secret not set; skipping snapshot.
+#
+# That is worth stating plainly given the incident in the header above: this
+# workflow exists so an unauthorized dashboard edit shows up as a committed diff,
+# and it has been reporting weekly success without ever producing one. The green
+# tick was itself the audit-trail gap it was built to close.
+#
+# The cron is removed rather than made fail-closed: with the secret permanently
+# absent, failing would produce a red run every Monday, which gets muted — the same
+# failure mode digest-translate-backfill.yml was repaired for. `workflow_dispatch`
+# is kept so the first real snapshot is one click away once VERCEL_TOKEN exists;
+# restore the cron in that same PR.
 on:
-  schedule:
-    - cron: "0 0 * * 1"   # 09:00 KST every Monday (00:00 UTC)
   workflow_dispatch:
     inputs:
       commit:
