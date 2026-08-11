@@ -1,0 +1,15 @@
+# Grandfathered CSP Report-Only violations, keyed as `effectiveDirective|blockedURI`.
+#
+# Verified 2026-08-12 on production WITHOUT Playwright injection (console-only
+# observation reproduces it, and a run with no interaction produces zero), so this is
+# the site's behaviour rather than an instrumentation artifact.
+#
+# Isolated by bisecting the interaction path: no interaction -> 0, mouse/scroll/synthetic
+# events -> 0 (with GTM and Sentry loaded), clicking #lang-toggle alone -> 1. The click
+# creates about:blank frames (hence sourceFile="about") whose inline script trips
+# script-src-elem.
+#
+# This is the concrete blocker for CSP Path B (dropping 'unsafe-inline' from the
+# enforcing script-src): Google Translate would break. Removing this line is the
+# definition of done for that work — do not delete it to make the gate quiet.
+script-src-elem|inline
