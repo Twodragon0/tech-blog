@@ -51,11 +51,6 @@ TARGET_SVGS = [
     "assets/images/2026-03-30-March_2026_Security_Digest_Monthly_Index.svg",
     "assets/images/2026-03-31-Tech_Security_Weekly_Digest_Vulnerability_Patch_AI_GPT.svg",
     # Jan 23-27 weekly digests (short filenames only)
-    "assets/images/2026-01-23-Tech_Security_Weekly_Digest.svg",
-    "assets/images/2026-01-24-Tech_Security_Weekly_Digest.svg",
-    "assets/images/2026-01-25-Tech_Security_Weekly_Digest.svg",
-    "assets/images/2026-01-26-Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Terraform.svg",
-    "assets/images/2026-01-27-Tech_Security_Weekly_Digest_MS_Office_Kimi_Kimwolf_AWS.svg",
     # Feb digests (11 files, excluding 02-17/02-18 refs)
     "assets/images/2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg",
     "assets/images/2026-02-02-Weekly_Tech_AI_Blockchain_Digest.svg",
@@ -69,6 +64,10 @@ TARGET_SVGS = [
     "assets/images/2026-02-16-Daily_Tech_Digest_RSS_Roundup.svg",
     "assets/images/2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud.svg",
     "assets/images/2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.svg",
+    # rollup generator representative — without one, a change to
+    # svg_rollup_generator.py has no baseline that could detect it.
+    "assets/images/2026-04-05-Week1_April_2026_Security_Digest.svg",
+    "assets/images/2026-04-12-Week2_April_2026_Security_Digest.svg",
 ]
 
 
