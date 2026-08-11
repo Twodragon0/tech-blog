@@ -99,7 +99,7 @@ docs/pipeline/
 | 워크플로우 | 파일 | 트리거 | 목적 |
 |-----------|------|--------|------|
 | **Jekyll CI** | jekyll.yml | push, PR | 빌드 및 GitHub Pages 배포 |
-| **SNS Share** | sns-share.yml | push (_posts) | SNS 자동 공유 |
+| ~~SNS Share~~ | ~~sns-share.yml~~ | — | **2026-08-11 폐기** (시크릿 8개 미설정으로 무작업) |
 | **Buttondown** | buttondown-notify.yml | push (_posts) | 이메일 뉴스레터 |
 | **Ops Orchestrator** | ops-orchestrator.yml | schedule (`0 */6`, `0 4`), workflow_dispatch (profile), repository_dispatch | 통합 운영 점검: multi_agent(6h)/priority(daily)/on_demand 잡 + Slack 알림 |
 | **BlogWatcher Publish** | ai-blogwatcher.yml | repository_dispatch, schedule* | BlogWatcher 기반 자동 발행 |
@@ -131,7 +131,7 @@ docs/pipeline/
 | 빌드 | [build.md](../pdca/build.md) | jekyll.yml |
 | 배포 | [deploy.md](../pdca/deploy.md) | jekyll.yml, vercel-deploy.yml |
 | 콘텐츠 | [content.md](../pdca/content.md) | ai-blogwatcher.yml, generate-images.yml |
-| 알림 | [notification.md](../pdca/notification.md) | sns-share.yml, buttondown-notify.yml |
+| 알림 | [notification.md](../pdca/notification.md) | buttondown-notify.yml (sns-share.yml 폐기) |
 | 모니터링 | [monitoring.md](../pdca/monitoring.md) | sentry-release.yml |
 | 보안 | [security.md](../pdca/security.md) | 전체 |
 

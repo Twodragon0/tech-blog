@@ -6,7 +6,7 @@
 
 | 항목 | 값 |
 |------|-----|
-| **워크플로우** | `sns-share.yml`, `buttondown-notify.yml` |
+| **워크플로우** | `buttondown-notify.yml` (`sns-share.yml` 은 2026-08-11 폐기) |
 | **트리거** | push (main, _posts/**) |
 | **플랫폼** | Twitter/X, Facebook, LinkedIn, Buttondown |
 | **상태** | Active |
@@ -53,7 +53,10 @@
 
 ## Do (실행)
 
-### 1. SNS 공유 (sns-share.yml)
+### 1. SNS 공유 (sns-share.yml) — 2026-08-11 폐기
+
+> 소셜 시크릿 8개가 한 번도 설정되지 않아 매 push 3분을 쓰며 아무 곳에도 공유하지 않았고,
+> 그러면서 success 를 보고했습니다. 수동: `python3 scripts/share_sns.py <post.md>`
 
 **트리거:**
 ```yaml
@@ -130,7 +133,8 @@ python3 scripts/test_buttondown_email_send.py _posts/YYYY-MM-DD-Title.md --dry-r
 #### SNS 공유 상태
 ```bash
 # 최근 워크플로우 실행 확인
-gh run list --workflow=sns-share.yml --limit=5
+# sns-share.yml 폐기됨 (2026-08-11) — 아래는 buttondown 기준
+gh run list --workflow=buttondown-notify.yml --limit=5
 ```
 
 #### 이메일 발송 상태

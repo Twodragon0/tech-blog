@@ -156,3 +156,50 @@ def test_sentry_healthcheck_remains_the_reference_implementation():
 def test_the_two_groups_do_not_overlap():
     """Canary against a copy-paste that puts a workflow in both lists."""
     assert not set(FAIL_CLOSED) & set(NEVER_CONFIGURED)
+
+
+# Social secrets for sns-share.yml, retired 2026-08-11. All eight were unconfigured,
+# so every push spent ~3 minutes installing scripts/requirements.txt (TTS -> torch/CUDA)
+# and then reported success having shared to nothing. X/Twitter API v2 posting needs a
+# paid tier and Facebook/LinkedIn need app review, which conflicts with the free-tier-
+# first rule in CLAUDE.md. scripts/share_sns.py stays for manual use.
+RETIRED_SOCIAL_SECRETS = (
+    "TWITTER_API_KEY",
+    "TWITTER_API_SECRET",
+    "TWITTER_ACCESS_TOKEN",
+    "TWITTER_ACCESS_SECRET",
+    "FACEBOOK_PAGE_ID",
+    "FACEBOOK_ACCESS_TOKEN",
+    "LINKEDIN_ACCESS_TOKEN",
+    "LINKEDIN_PERSON_ID",
+)
+
+
+@pytest.mark.parametrize("secret", RETIRED_SOCIAL_SECRETS)
+def test_retired_social_secrets_are_not_referenced_by_any_workflow(secret: str):
+    """Re-adding SNS automation must come with the credentials, not before them.
+
+    The same pairing this file enforces for the retired crons: a workflow that reads a
+    secret nobody has produces a green tick over zero work. If these are provisioned,
+    re-add the workflow and drop the secret from RETIRED_SOCIAL_SECRETS in that PR.
+    """
+    referencing = sorted(
+        path.name
+        for path in WORKFLOWS.glob("*.yml")
+        if secret in path.read_text(encoding="utf-8")
+    )
+    assert not referencing, (
+        f"{referencing} reference {secret}, which is not configured in this repo. Either "
+        "provision it in the same change, or drop the reference — otherwise the workflow "
+        "runs, costs runner time, and reports success while doing nothing."
+    )
+
+
+def test_share_sns_script_is_kept_for_manual_use():
+    """Retiring the workflow should not delete the capability."""
+    script = REPO_ROOT / "scripts" / "share_sns.py"
+    assert script.is_file(), (
+        "scripts/share_sns.py is gone. The sns-share workflow was retired, not the "
+        "ability to share manually — deleting the script makes the retirement "
+        "irreversible without rewriting it."
+    )

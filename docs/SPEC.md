@@ -177,7 +177,7 @@ Git Push → GitHub Actions → Jekyll Build → Vercel Deploy
 | 워크플로우 | 트리거 | 용도 |
 |------------|--------|------|
 | `jekyll.yml` | push to main | Jekyll 빌드 및 GitHub Pages 배포 |
-| `sns-share.yml` | push to main | SNS 자동 공유 |
+| ~~`sns-share.yml`~~ | — | **2026-08-11 폐기** (시크릿 미설정으로 무작업). 수동: `scripts/share_sns.py` |
 | `vercel-deploy.yml` | push to main | Vercel 배포 트리거 |
 | `ai-video-gen.yml` | workflow_dispatch | AI 비디오 생성 |
 | `sentry-release.yml` | push to main | Sentry 릴리스 생성 |

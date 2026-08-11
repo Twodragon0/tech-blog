@@ -7,7 +7,7 @@
 ```
 .github/workflows/
 ├── jekyll.yml              # 메인: Jekyll 빌드 및 GitHub Pages 배포
-├── sns-share.yml           # SNS 자동 공유
+│                           # (sns-share.yml — 2026-08-11 폐기)
 ├── buttondown-notify.yml   # 이메일 뉴스레터
 ├── ops-orchestrator.yml    # Ops 통합: multi_agent(6h)/priority(daily)/on_demand(dispatch) 잡
 ├── generate-images.yml     # AI 이미지 생성
@@ -72,7 +72,16 @@ env:
 
 ---
 
-## 2. SNS Share (sns-share.yml)
+## 2. SNS Share (sns-share.yml) — 2026-08-11 폐기
+
+> **이 워크플로는 삭제되었습니다.** `TWITTER_*`(4) / `FACEBOOK_*`(2) / `LINKEDIN_*`(2) 시크릿 8개가
+> 한 번도 설정되지 않아, 매 `_posts/**` push마다 `scripts/requirements.txt` 전체(`TTS` → torch/CUDA)를
+> 설치하고 ~3분을 쓴 뒤 세 플랫폼 모두 `⏭️ Skipped/Failed` 로 끝내고 **success 를 보고**했습니다.
+> X/Twitter API v2 게시는 유료 티어가 필요하고 Facebook·LinkedIn 은 앱 심사가 필요해, 무료 티어
+> 우선 원칙과 맞지 않아 폐기했습니다. 아래 설명은 이력으로 남깁니다.
+>
+> 수동 공유: `python3 scripts/share_sns.py <post.md>` (스크립트와 `linkedin_oauth.py`,
+> `docs/setup/LINKEDIN_APP_CREATION_GUIDE.md` 는 유지)
 
 ### 개요
 | 항목 | 값 |
@@ -260,9 +269,9 @@ SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 ### SNS Secrets
 | Secret | 용도 | 워크플로우 |
 |--------|------|-----------|
-| TWITTER_* | Twitter/X | sns-share |
-| FACEBOOK_* | Facebook | sns-share |
-| LINKEDIN_* | LinkedIn | sns-share |
+| ~~TWITTER_*~~ | Twitter/X | ~~sns-share~~ (폐기, 미설정) |
+| ~~FACEBOOK_*~~ | Facebook | ~~sns-share~~ (폐기, 미설정) |
+| ~~LINKEDIN_*~~ | LinkedIn | ~~sns-share~~ (폐기, 미설정) |
 
 ### Secrets 설정 방법
 ```bash

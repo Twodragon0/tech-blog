@@ -39,7 +39,7 @@
 │   │                           GitHub Actions                             │   │
 │   │                                                                      │   │
 │   │   ┌─────────────┐    ┌─────────────┐    ┌─────────────┐            │   │
-│   │   │ jekyll.yml  │    │sns-share.yml│    │buttondown.  │            │   │
+│   │   │ jekyll.yml  │    │(sns 폐기)   │    │buttondown.  │            │   │
 │   │   │             │    │             │    │ yml         │            │   │
 │   │   │ Build→      │    │ Share to    │    │ Email       │            │   │
 │   │   │ Deploy      │    │ SNS         │    │ Newsletter  │            │   │
@@ -147,7 +147,7 @@
    ┌──────────────────────────────────────────────────────────────┐
    │                                                              │
    │   ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
-   │   │ jekyll.yml  │  │sns-share.yml│  │ buttondown  │         │
+   │   │ jekyll.yml  │  │(sns 폐기)   │  │ buttondown  │         │
    │   │             │  │             │  │    .yml     │         │
    │   │ paths:      │  │ paths:      │  │ paths:      │         │
    │   │  _posts/**  │  │  _posts/**  │  │  _posts/**  │         │

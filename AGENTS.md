@@ -371,7 +371,7 @@ python3 scripts/auto_publish_news.py   # Template-based auto-publish
 | **Sentry Release** | `sentry-release.yml` | Sentry release tracking on deploy |
 | **Slack Category Digest** | `slack-category-digest.yml` | Category digest to Slack |
 | **Slack Post Notify** | `slack-post-notify.yml` | New post notification to Slack |
-| **SNS Share** | `sns-share.yml` | Auto-share new posts to SNS on push |
+| ~~SNS Share~~ | ~~`sns-share.yml`~~ | **Retired 2026-08-11** — all 8 social secrets were unconfigured, so every run reported success while sharing nothing. `scripts/share_sns.py` remains for manual use |
 | **Vercel Deploy** | `vercel-deploy.yml` | Production Vercel deployment |
 
 ---

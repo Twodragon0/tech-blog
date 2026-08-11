@@ -117,7 +117,7 @@ gh workflow run generate-images.yml
 gh workflow run ai-blogwatcher.yml
 
 # SNS 공유 재시도
-gh workflow run sns-share.yml
+# sns-share.yml 은 2026-08-11 폐기 — 수동 공유는 python3 scripts/share_sns.py <post>
 
 # 특정 입력값과 함께 실행
 gh workflow run generate-images.yml -f post_date=2026-01-22

@@ -62,7 +62,7 @@ GitHub Actions 워크플로우 트리거와 역할을 정리한 다이어그램�
 | 트리거 | 워크플로우 | 용도 |
 |--------|------------|------|
 | **push (main)** | jekyll.yml | Jekyll 빌드, GitHub Pages 백업 |
-| **push (_posts/**)** | sns-share.yml | Twitter, Facebook, LinkedIn 자동 공유 |
+| ~~push (_posts/**)~~ | ~~sns-share.yml~~ | **2026-08-11 폐기** — 소셜 시크릿 8개가 한 번도 설정되지 않아 매 push 3분을 쓰며 아무 곳에도 공유하지 않았다. 수동 공유는 `python3 scripts/share_sns.py <post>` |
 | **push (_posts/**)** | buttondown-notify.yml | RSS → 이메일(Buttondown) 발송 |
 | **push (content paths)** | sentry-release.yml | Sentry 릴리스 생성 |
 | **cron (01:00 UTC)** | monitoring.yml | Sentry 할당량·헬스 체크 |
