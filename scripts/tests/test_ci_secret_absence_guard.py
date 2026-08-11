@@ -113,6 +113,37 @@ def test_never_configured_workflows_stay_soft(name: str, secret: str):
     )
 
 
+@pytest.mark.parametrize("name", sorted(NEVER_CONFIGURED))
+def test_never_configured_workflows_are_not_scheduled(name: str):
+    """Retired from cron on 2026-08-10 — restoring it needs the secret, not just a cron.
+
+    Both ran on a schedule and reported success on every run while doing nothing. A
+    recurring green tick over zero work is worse than no workflow at all: on the Actions
+    tab, and in any audit of "what protects this repo", it reads as a job that runs.
+    `vercel-firewall-backup` is the sharp case — it exists so an unauthorized Vercel
+    dashboard edit shows up as a committed diff, and its weekly success had never
+    produced one.
+
+    `workflow_dispatch` is kept, so provisioning the secret makes the first real run one
+    click away. Re-adding the cron is only correct in the same change that provisions
+    the secret; this assertion is what forces that pairing to be deliberate.
+    """
+    import yaml
+
+    parsed = yaml.safe_load((WORKFLOWS / name).read_text(encoding="utf-8"))
+    triggers = parsed[True] if True in parsed else parsed["on"]
+    assert "schedule" not in triggers, (
+        f"{name} is on a schedule again. Its secret "
+        f"({NEVER_CONFIGURED[name]}) must be provisioned in the SAME change, otherwise "
+        "every run is a green tick over zero work. If it was provisioned, move this "
+        "workflow to FAIL_CLOSED and drop it from NEVER_CONFIGURED here."
+    )
+    assert "workflow_dispatch" in triggers, (
+        f"{name} lost workflow_dispatch; there would be no way to run it once the "
+        "secret exists."
+    )
+
+
 def test_sentry_healthcheck_remains_the_reference_implementation():
     """The audit cited this as the counter-example done right; keep it that way."""
     body = _body("sentry-healthcheck.yml")
