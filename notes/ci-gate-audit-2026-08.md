@@ -167,10 +167,38 @@ def _uncommented(shell: str) -> str:
 
 - **`gh pr create` 차단**: 현상유지. #532의 추적 이슈 경로로 운영한다.
 - **main required checks**: 보류. 위 발견 5·6이 근거.
-- **미설정 시크릿 프로비저닝**: 미결정. `GSC_SERVICE_ACCOUNT_JSON`,
-  `VERCEL_TOKEN`/`PROJECT_ID`/`TEAM_ID`, `PAGESPEED_API_KEY`/`SLACK_WEBHOOK`.
-  프로비저닝 시 해당 워크플로를 `FAIL_CLOSED`로 옮기고 cron을 되살려야 하며,
-  `test_ci_secret_absence_guard.py`가 그 페어링을 강제한다.
+- **미설정 시크릿 프로비저닝**: 2026-08-11 결정 — GSC·Vercel은 **프로비저닝**,
+  PageSpeed는 현상유지. 아래 "재개 절차" 참조.
+
+### 재개 절차 (시크릿 등록 후)
+
+`test_ci_secret_absence_guard.py`가 "시크릿 미설정 → cron 없음"을 양방향으로 고정하므로,
+등록과 cron 복원은 **같은 PR**에서 이뤄져야 한다. 등록 없이 cron만 되살리면 이번엔 영구
+green이 아니라 **영구 red**가 된다.
+
+**1. `GSC_SERVICE_ACCOUNT_JSON`** — 얻는 것: sitemap 전수 URL 인스펙션 상태를 일일
+아티팩트로. 색인 회복 추이를 자동 기록한다(현재 이 측정이 크레덴셜 부재로 2026-05부터
+계속 PENDING이다).
+
+- 키 생성·회전 절차는 [`docs/setup/GSC_SERVICE_ACCOUNT_ROTATION.md`](../docs/setup/GSC_SERVICE_ACCOUNT_ROTATION.md) 참조
+  (읽기 전용, 프로젝트 IAM 역할 없음, 90일 회전)
+- 등록: `gh secret set GSC_SERVICE_ACCOUNT_JSON < /path/to/key.json`
+- 복원 PR: `gsc-queue-refresh.yml`에 `schedule: - cron: '0 6 * * *'` 복원 +
+  `test_ci_secret_absence_guard.py`의 `NEVER_CONFIGURED`에서 제거 → `FAIL_CLOSED`로 이동
+
+**2. `VERCEL_TOKEN`** — 얻는 것: 방화벽 설정 변경이 `git diff`로 드러난다.
+`docs/backups/vercel-firewall/latest.json`은 **2026-05-08 사건 당일 이후 3개월간 갱신이
+0이다** — Googlebot을 며칠간 막았던 그 사건을 다시 못 잡는 상태다.
+
+- 발급: Vercel → Account Settings → Tokens. 팀 스코프 **읽기 전용**으로 충분
+  (`PROJECT_ID`/`TEAM_ID`는 기본값이 있어 생략 가능)
+- 등록: `gh secret set VERCEL_TOKEN`
+- 복원 PR: `vercel-firewall-backup.yml`에 `schedule: - cron: "0 0 * * 1"` 복원 + 위와 동일한
+  가드 이동. 부수 효과로 `monitoring.yml`의 Vercel 경로도 함께 살아난다
+
+**3. `PAGESPEED_API_KEY`** — 현상유지. `monitoring.yml`은 이 키 없이도 실제 일을 한다
+(프로덕션 HTTP 상태 검사). Core Web Vitals는 `lighthouse-ci` 퍼프 게이트가 PR 단계에서
+이미 재고 있어 중복이고, PageSpeed API는 무키 호출도 가능하다(쿼터만 낮다).
 
 ## 남은 열화 항목
 
