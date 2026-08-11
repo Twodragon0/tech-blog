@@ -1,0 +1,86 @@
+name: CSP Interaction Check
+
+# Closes the gap a page-load-only CSP measurement leaves.
+#
+# vercel.json ships a Content-Security-Policy-Report-Only that drops 'unsafe-inline'
+# from script-src and allows only the two first-party inline-script hashes. It is the
+# preview of "Path B" (removing 'unsafe-inline' from the enforcing policy), and the
+# question Path B turns on is whether anything actually violates it.
+#
+# Measured 2026-08-12 on production with headless Chrome: ZERO violations on page load.
+# But head-runtime.js defers GA / AdSense / Kakao / Sentry behind the first user
+# interaction, and google-translate.js only loads Google's element.js from a click on
+# #lang-toggle. Those are the scripts most likely to inject inline code, and page load
+# never reaches them. Bisecting the interaction path found exactly one violation, and it
+# is the Translate click — reproduced WITHOUT Playwright injection (console-only
+# observation), so it is the site's behaviour, not the instrument's.
+#
+# That violation is grandfathered in scripts/tests/csp_interaction_baseline.txt. New
+# ones fail. Removing the baseline line is the definition of done for Path B.
+#
+# Why `schedule` and not a normal PR gate: the script measures PRODUCTION, so running it
+# on a PR would test the previous deployment and say nothing about the change under
+# review. The cron catches a regression after it ships; the `pull_request` trigger below
+# is deliberately narrow — it fires only when the gate or its baseline changes, so
+# editing the gate runs the gate (the self-consistency rule check-svg.yml documents).
+
+on:
+  schedule:
+    # 04:30 UTC (13:30 KST). After the blogwatcher digest (00:00), the Pages backup
+    # (00:30), and the two corpus sweeps (check-svg 03:15, svg-lint 03:45), so the
+    # runner pool is free and the day's content is already deployed.
+    - cron: "30 4 * * *"
+  pull_request:
+    paths:
+      - "scripts/tests/check_csp_interaction_violations.mjs"
+      - "scripts/tests/csp_interaction_baseline.txt"
+      - ".github/workflows/csp-interaction-check.yml"
+      # The policy under test and the scripts whose deferred loading it exercises.
+      - "vercel.json"
+      - "assets/js/head-runtime.js"
+      - "assets/js/google-translate.js"
+      - "scripts/dev/csp_inline_hashes.json"
+  workflow_dispatch: {}
+
+concurrency:
+  group: csp-interaction-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  csp-interaction:
+    name: csp interaction violations
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright chromium
+        # Same driver check_mermaid_csp_render.mjs already uses; only chromium is
+        # needed, so skip the firefox/webkit downloads.
+        run: npx playwright install --with-deps chromium
+
+      - name: Check CSP violations on the interaction path
+        # No `|| true`, no continue-on-error. Exit 1 = a NEW violation (the baseline
+        # grandfathers the known Translate one); exit 2 = the run could not be performed,
+        # which must not read as "nothing was wrong".
+        run: |
+          node scripts/tests/check_csp_interaction_violations.mjs \
+            --baseline scripts/tests/csp_interaction_baseline.txt \
+            --verbose
