@@ -1,0 +1,106 @@
+name: SVG Visual Baseline Verify
+
+# The missing half of the baseline system.
+#
+# `visual-baseline-refresh.yml` runs `svg_visual_baseline.py --capture` on every push
+# to main, so the 30 baseline PNGs under tests/visual-baselines/ are re-recorded after
+# each merge. Nothing ran `--verify`. Measured 2026-08-10: the flag exists, is
+# documented in the script's usage header, and has zero references in any workflow —
+# baselines were captured and never compared. A recording with no playback is not a
+# regression gate.
+#
+# The asymmetry is what made it dangerous rather than merely useless: refresh
+# AUTO-COMMITS the new capture on main. So a change to svg_l20_hero.py that visually
+# altered these covers would be recorded as the new truth post-merge, with no step
+# anywhere that had objected first. Verifying on the PR is the only point in the
+# lifecycle where the old and new renders both exist.
+#
+# Scope, stated plainly: `TARGET_SVGS` in the script is a HARDCODED list of 30 covers
+# (the Mar 16-31 2026 digests plus the LLM security post). This job therefore protects
+# a fixed reference sample, not the corpus. That is a legitimate canary design — you
+# do not need all 463 SVGs to notice a generator changed how covers render — but do
+# not mistake a green tick here for corpus-wide coverage.
+#
+# Why no `schedule:`, unlike svg-lint.yml and check-svg.yml: those two carry
+# corpus-wide gates, and the blogwatcher cron publishes new covers by pushing directly
+# to main where no push/PR trigger can see them. The 30 targets here are frozen
+# March covers that the cron never touches, so a scheduled sweep would re-verify
+# unchanged files daily. The generators that CAN change these renders only ever change
+# through a PR, which is exactly what this triggers on.
+#
+# Runner is pinned to ubuntu-22.04 and MUST match visual-baseline-refresh.yml. Mixing
+# runner versions between capture and verify produces false positives — librsvg and
+# fontconfig differ across images. For the same reason `--verify` cannot be validated
+# locally on macOS: a local run of the current baselines reports 30/30 DIFF at a
+# uniform ~1.5% with an identical max_block=1134px, which is a platform rendering
+# delta, not drift.
+
+on:
+  pull_request:
+    paths:
+      # The generators whose output these baselines record.
+      - "scripts/lib/svg_l20_hero.py"
+      - "scripts/lib/svg_l22_generator.py"
+      - "scripts/lib/svg_l25_single.py"
+      - "scripts/lib/svg_rollup_generator.py"
+      # The baseline tool itself (TARGET_SVGS, thresholds, renderer selection).
+      - "scripts/svg_visual_baseline.py"
+      # The recorded truth. A PR that edits baselines must prove they still match.
+      - "tests/visual-baselines/**"
+      # The covers under test. Broad glob on purpose: '*' does not cross '/' in
+      # Actions path filters, and the TARGET_SVGS entries all live at depth 1 today
+      # but the list is editable.
+      - "assets/images/**.svg"
+      - ".github/workflows/visual-baseline-verify.yml"
+  workflow_dispatch: {}
+
+concurrency:
+  group: visual-baseline-verify-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  verify-baselines:
+    name: visual baseline verify
+    # Pinned — must match visual-baseline-refresh.yml exactly.
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+
+      - name: Install rsvg-convert
+        run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
+
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405  # v6
+        with:
+          python-version: "3.11"
+
+      - name: Install Python deps
+        # Same file visual-baseline-refresh.yml installs, so capture and verify
+        # agree on Pillow/numpy versions as well as on the runner image.
+        run: pip install --quiet -r requirements-visual.txt
+
+      - name: Verify baselines
+        # No `|| true`, no continue-on-error: the whole point of this workflow is to
+        # object before a visual change is auto-recorded as the new baseline on main.
+        # Pass criteria come from the script: <= 0.5% differing pixels AND no
+        # contiguous diff block wider than 100px.
+        run: python3 scripts/svg_visual_baseline.py --verify
+
+      - name: Upload diff report
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
+        with:
+          name: visual-baseline-diffs
+          path: |
+            tests/visual-diffs/
+          retention-days: 14
+          if-no-files-found: warn
