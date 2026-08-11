@@ -143,27 +143,14 @@
   </g>
   <g>
     <rect x="195" y="435" width="105" height="42" rx="8" fill="#0f172a" stroke="#334155"/>
-    <text x="247" y="458" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="500">SNS Share</text>
-    <text x="247" y="472" text-anchor="middle" fill="#64748b" font-size="9">sns-share.yml</text>
+    <text x="247" y="458" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="500">Newsletter</text>
+    <text x="247" y="472" text-anchor="middle" fill="#64748b" font-size="9">buttondown.yml</text>
   </g>
   <g>
     <rect x="310" y="435" width="105" height="42" rx="8" fill="#0f172a" stroke="#334155"/>
-    <text x="362" y="458" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="500">Newsletter</text>
-    <text x="362" y="472" text-anchor="middle" fill="#64748b" font-size="9">buttondown.yml</text>
+    <text x="362" y="458" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="500">Sentry</text>
+    <text x="362" y="472" text-anchor="middle" fill="#64748b" font-size="9">sentry-release.yml</text>
   </g>
-  <g>
-    <rect x="425" y="435" width="105" height="42" rx="8" fill="#0f172a" stroke="#334155"/>
-    <text x="477" y="458" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="500">Sentry</text>
-    <text x="477" y="472" text-anchor="middle" fill="#64748b" font-size="9">sentry-release.yml</text>
-  </g>
-  <!-- SNS icons -->
-  <rect x="80" y="485" width="70" height="32" rx="6" fill="#1da1f2"/>
-  <text x="115" y="506" text-anchor="middle" fill="#fff" font-size="10" font-weight="500">Twitter</text>
-  <rect x="160" y="485" width="70" height="32" rx="6" fill="#1877f2"/>
-  <text x="195" y="506" text-anchor="middle" fill="#fff" font-size="10" font-weight="500">Facebook</text>
-  <rect x="240" y="485" width="70" height="32" rx="6" fill="#0a66c2"/>
-  <text x="275" y="506" text-anchor="middle" fill="#fff" font-size="10" font-weight="500">LinkedIn</text>
-
   <!-- Vercel -->
   <g filter="url(#innerGlow)">
     <rect x="560" y="395" width="480" height="135" rx="12" fill="#1e293b" stroke="#fb7185" stroke-width="1"/>
