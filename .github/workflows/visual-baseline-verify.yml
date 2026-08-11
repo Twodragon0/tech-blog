@@ -38,10 +38,24 @@ name: SVG Visual Baseline Verify
 on:
   pull_request:
     paths:
-      # The generators whose output these baselines record.
+      # The generators whose output these baselines actually record.
+      #
+      # Corrected 2026-08-11. This list originally also carried svg_l22_generator.py
+      # and svg_l25_single.py, which implied coverage that does not exist: scanning
+      # the 30 baseline targets for family markers found 28 L20 + 2 unattributed and
+      # ZERO L22 or L25. On disk, no SVG carries an l22 or l25 marker at all — L22 is
+      # fallback-only and _data/l25_covers/ holds zero specs. So a PR editing those
+      # two files ran a verify that could not possibly detect its effect: a green tick
+      # that meant nothing, the trigger-wider-than-scan mirror image of the
+      # check-svg.yml hazard.
+      #
+      # svg_rollup_generator.py stays, and two rollup covers were added to
+      # TARGET_SVGS in the same change so the trigger is backed by real baselines.
+      # If L22 or L25 ever produce live covers, add a representative to TARGET_SVGS
+      # and restore the path here in that same PR — see
+      # scripts/tests/test_ci_visual_baseline_verify_guard.py, which asserts the
+      # pairing rather than trusting this comment.
       - "scripts/lib/svg_l20_hero.py"
-      - "scripts/lib/svg_l22_generator.py"
-      - "scripts/lib/svg_l25_single.py"
       - "scripts/lib/svg_rollup_generator.py"
       # The baseline tool itself (TARGET_SVGS, thresholds, renderer selection).
       - "scripts/svg_visual_baseline.py"

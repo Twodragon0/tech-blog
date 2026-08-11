@@ -147,6 +147,79 @@ def test_manifest_is_present_and_non_empty():
     )
 
 
+def test_every_triggered_generator_has_a_baseline_representative():
+    """Trigger scope must not exceed what the baselines can detect.
+
+    Found 2026-08-11, one day after this workflow landed: the trigger listed
+    ``svg_l22_generator.py`` and ``svg_l25_single.py``, but scanning the 30 baseline
+    targets for family markers found 28 L20 + 2 unattributed and **zero** L22 or L25 —
+    on disk no SVG carries an l22 or l25 marker at all (L22 is fallback-only,
+    ``_data/l25_covers/`` holds no specs). Editing either file therefore ran a verify
+    that could not detect its effect: the mirror image of the check-svg.yml hazard,
+    trigger wider than scan instead of narrower.
+
+    This asserts the pairing directly, so restoring a path without adding a
+    representative fails here rather than shipping a green tick that means nothing.
+    """
+    import sys
+
+    import yaml
+
+    sys.path.insert(0, str(REPO_ROOT / "scripts"))
+    from svg_visual_baseline import TARGET_SVGS  # noqa: PLC0415
+
+    parsed = yaml.safe_load(VERIFY.read_text(encoding="utf-8"))
+    section = parsed[True] if True in parsed else parsed["on"]
+    triggered = {p for p in section["pull_request"]["paths"] if p.startswith("scripts/lib/")}
+
+    # Marker substrings that identify which generator rendered a cover.
+    families = {
+        "scripts/lib/svg_l20_hero.py": ("l20", "L20"),
+        "scripts/lib/svg_l22_generator.py": ("l22", "L22"),
+        "scripts/lib/svg_l25_single.py": ("l25", "L25"),
+        "scripts/lib/svg_rollup_generator.py": ("rollup", "Rollup"),
+    }
+
+    heads = []
+    for rel in TARGET_SVGS:
+        path = REPO_ROOT / rel
+        if path.is_file():
+            heads.append(path.read_text(encoding="utf-8", errors="replace")[:4000])
+
+    unbacked = []
+    for gen in sorted(triggered):
+        markers = families.get(gen)
+        if markers is None:
+            continue  # unknown generator: nothing to assert about its markers
+        if not any(any(m in head for m in markers) for head in heads):
+            unbacked.append(gen)
+
+    assert not unbacked, (
+        f"these generators trigger the verify but no TARGET_SVGS entry records their "
+        f"output, so a change to them cannot be detected: {unbacked}. Either add a "
+        "representative cover to TARGET_SVGS in the same PR, or drop the path from the "
+        "trigger — a green verify that could not have failed is worse than no check."
+    )
+
+
+def test_target_svgs_all_exist():
+    """A dead entry is silently skipped by --capture, shrinking coverage unnoticed.
+
+    Five entries pointed at renamed or deleted files as of 2026-08-11; `--capture`
+    printed "SKIP (not found)" for each and the manifest quietly covered 30 of 35.
+    """
+    import sys
+
+    sys.path.insert(0, str(REPO_ROOT / "scripts"))
+    from svg_visual_baseline import TARGET_SVGS  # noqa: PLC0415
+
+    missing = sorted(rel for rel in TARGET_SVGS if not (REPO_ROOT / rel).is_file())
+    assert not missing, (
+        f"TARGET_SVGS references files that no longer exist: {missing}. --capture skips "
+        "them with a warning, so the sample shrinks without anything failing."
+    )
+
+
 def test_pass_criteria_stay_tight():
     """Loosening the thresholds is the quiet way to neuter a pixel-diff gate."""
     src = SCRIPT.read_text(encoding="utf-8")
