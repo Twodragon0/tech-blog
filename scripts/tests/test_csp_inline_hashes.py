@@ -225,3 +225,80 @@ def test_save_manifest_output_is_valid_json(tmp_path: Path):
     with manifest.open(encoding="utf-8") as f:
         data = json.load(f)
     assert data == {"a": "sha256-1", "b": "sha256-2"}
+
+
+# ---------------------------------------------------------------------------
+# Report-Only policy must stay in sync with the manifest
+# ---------------------------------------------------------------------------
+#
+# The Report-Only policy exists to preview the future enforcing policy (CSP Path B:
+# drop 'unsafe-inline' from script-src). To be useful it must ALLOW the first-party
+# inline scripts and report only genuine third-party violations.
+#
+# Observed in production on 2026-08-11: it carried neither 'unsafe-inline' nor the
+# hashes, so every page load reported both of our own inline scripts as violations —
+# the browser console named the exact two hashes in this manifest. That is a
+# false-positive generator: it buries the real signal the pipeline was built to
+# collect. It also carried `upgrade-insecure-requests`, which is IGNORED in a
+# report-only policy, so the browser logged that warning on every load too.
+#
+# These tests keep the policy and the manifest in lockstep: edit an inline script and
+# its hash changes, and the Report-Only policy has to be updated in the same change.
+
+VERCEL_JSON = REPO_ROOT / "vercel.json"
+
+
+def _csp_directives(key: str) -> dict[str, str]:
+    """Map directive name -> full directive text for the named CSP header."""
+    config = json.loads(VERCEL_JSON.read_text(encoding="utf-8"))
+    for entry in config["headers"]:
+        for header in entry["headers"]:
+            if header["key"] == key:
+                parts = [p.strip() for p in header["value"].split(";") if p.strip()]
+                return {p.split(" ", 1)[0]: p for p in parts}
+    raise AssertionError(f"{key} header not found in vercel.json")
+
+
+def test_report_only_carries_every_manifest_hash():
+    """A missing hash makes the Report-Only stream report our own scripts."""
+    directives = _csp_directives("Content-Security-Policy-Report-Only")
+    expected = set(load_manifest(REAL_MANIFEST).values())
+    assert expected, "manifest is empty — nothing to assert"
+    for name in ("script-src", "script-src-elem"):
+        text = directives[name]
+        missing = sorted(h for h in expected if f"'{h}'" not in text)
+        assert not missing, (
+            f"Content-Security-Policy-Report-Only {name} is missing {missing}. Every "
+            "inline-script hash in csp_inline_hashes.json must appear in BOTH "
+            "script-src and script-src-elem, or the report-only stream fills with "
+            "false positives for first-party scripts and hides real violations."
+        )
+
+
+def test_report_only_does_not_reintroduce_unsafe_inline():
+    """The whole point is to preview a policy WITHOUT 'unsafe-inline'."""
+    directives = _csp_directives("Content-Security-Policy-Report-Only")
+    for name in ("script-src", "script-src-elem"):
+        assert "'unsafe-inline'" not in directives[name], (
+            f"Report-Only {name} allows 'unsafe-inline', so it no longer previews the "
+            "Path B policy — it just mirrors the enforcing one and reports nothing useful."
+        )
+
+
+def test_report_only_omits_upgrade_insecure_requests():
+    """`upgrade-insecure-requests` is ignored in report-only and warns on every load."""
+    directives = _csp_directives("Content-Security-Policy-Report-Only")
+    assert "upgrade-insecure-requests" not in directives, (
+        "Report-Only carries upgrade-insecure-requests again. Browsers ignore that "
+        "directive in a report-only policy and log a console warning on every page "
+        "load; it belongs only in the enforcing policy."
+    )
+
+
+def test_enforcing_policy_keeps_upgrade_insecure_requests():
+    """Removing it from the enforcing policy would be a real downgrade."""
+    directives = _csp_directives("Content-Security-Policy")
+    assert "upgrade-insecure-requests" in directives, (
+        "the enforcing CSP lost upgrade-insecure-requests — that is where it is "
+        "honoured, and dropping it allows mixed-content subresource loads."
+    )
