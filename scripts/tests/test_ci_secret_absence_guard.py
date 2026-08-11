@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+"""CI regression guard: a missing secret must fail where the secret actually exists.
+
+The 2026-08-10 audit flagged seven workflows as "missing secret -> green, zero work".
+Measuring `gh secret list` against what each workflow requires splits that group in
+two, and the two halves need opposite treatment:
+
+**Secrets that ARE configured** (`SLACK_BOT_TOKEN`, `SLACK_CHANNEL_ID`) — their absence
+at runtime is not an optional-integration case. It means the secret was removed,
+rotated without updating, or the job lost access to it. Skipping green there silences
+the one regression worth knowing about: notifications quietly stopping. These three
+workflows now exit 1, following `sentry-healthcheck.yml`, which already does.
+
+**Secrets that were NEVER configured** — `GSC_SERVICE_ACCOUNT_JSON` for
+`gsc-queue-refresh.yml`, and `VERCEL_TOKEN` / `VERCEL_PROJECT_ID` / `VERCEL_TEAM_ID`
+for `vercel-firewall-backup.yml`. Verified from live run logs on 2026-08-10:
+
+    gsc-queue-refresh      ::warning::GSC_SERVICE_ACCOUNT_JSON secret is NOT set.
+    vercel-firewall-backup ##[warning]VERCEL_TOKEN secret not set; skipping snapshot.
+
+Both report success on every scheduled run while doing nothing — `vercel-firewall-backup`
+is the one whose purpose is recording firewall drift. They are deliberately NOT made
+fail-closed here: with the secret permanently absent that would produce a permanently
+red cron, which is the muted-noise failure mode `digest-translate-backfill.yml` was
+just repaired for. Provisioning the secrets or retiring the workflows is a decision for
+the repo owner, so this guard pins the current asymmetry and the reason for it instead
+of quietly picking one.
+
+Direction: if a secret listed in NEVER_CONFIGURED gets provisioned, that workflow
+should move to the fail-closed set and this guard should be updated in the same PR.
+"""
+
+from __future__ import annotations
+
+import re
+from pathlib import Path
+
+import pytest
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+WORKFLOWS = REPO_ROOT / ".github" / "workflows"
+
+# Secrets confirmed present in the repo -> absence is a regression -> fail.
+FAIL_CLOSED = (
+    "slack-post-notify.yml",
+    "slack-category-digest.yml",
+    "googlebot-access-monitor.yml",
+)
+
+# Secrets never configured -> fail-closed would be a permanently red cron.
+NEVER_CONFIGURED = {
+    "gsc-queue-refresh.yml": "GSC_SERVICE_ACCOUNT_JSON",
+    "vercel-firewall-backup.yml": "VERCEL_TOKEN",
+}
+
+
+def _uncommented(text: str) -> str:
+    """Workflow text minus comment-only lines.
+
+    Each repaired file explains the `exit 0` it replaced and names the never-configured
+    counter-examples, so matching raw text would hit the explanation rather than code.
+    """
+    return "\n".join(ln for ln in text.splitlines() if not ln.lstrip().startswith("#"))
+
+
+def _body(name: str) -> str:
+    return _uncommented((WORKFLOWS / name).read_text(encoding="utf-8"))
+
+
+@pytest.mark.parametrize("name", FAIL_CLOSED)
+def test_missing_slack_secret_fails(name: str):
+    body = _body(name)
+    assert "SLACK_BOT_TOKEN" in body, f"{name} no longer references SLACK_BOT_TOKEN"
+    # Find the guard block and confirm it exits non-zero.
+    blocks = re.findall(
+        r'if \[ -z "\$\{SLACK_(?:BOT_TOKEN|CHANNEL_ID):-\}" \][^\n]*\n(.*?)\n\s*fi',
+        body,
+        re.DOTALL,
+    )
+    assert blocks, f"{name}: no SLACK secret guard block found"
+    for block in blocks:
+        assert "exit 1" in block, (
+            f"{name}: a missing Slack secret still exits 0. Both secrets are configured "
+            "in this repo, so a green skip hides notifications silently stopping."
+        )
+        assert "exit 0" not in block, f"{name}: guard block still contains exit 0"
+
+
+@pytest.mark.parametrize("name", FAIL_CLOSED)
+def test_missing_secret_is_an_error_annotation_not_a_warning(name: str):
+    """`::warning::` reads as expected-and-fine; this state is neither."""
+    body = _body(name)
+    guard_region = body[body.find("SLACK_BOT_TOKEN:-") :][:1200]
+    assert "::error::" in guard_region, (
+        f"{name}: the missing-secret branch should emit ::error::, not ::warning::"
+    )
+
+
+@pytest.mark.parametrize(("name", "secret"), sorted(NEVER_CONFIGURED.items()))
+def test_never_configured_workflows_stay_soft(name: str, secret: str):
+    """Deliberate asymmetry — read the module docstring before "fixing" this.
+
+    These secrets have never existed in the repo. Making the workflow fail would create
+    a cron that is red every single run, which trains people to ignore it. The state is
+    a provisioning decision, not a code defect.
+    """
+    body = _body(name)
+    assert secret in body, f"{name} no longer references {secret}"
+    assert "exit 0" in body, (
+        f"{name} now fails when {secret} is absent. That secret has never been "
+        "configured, so this would be red on every scheduled run. If it HAS now been "
+        "provisioned, move this workflow into FAIL_CLOSED and say so in the PR."
+    )
+
+
+def test_sentry_healthcheck_remains_the_reference_implementation():
+    """The audit cited this as the counter-example done right; keep it that way."""
+    body = _body("sentry-healthcheck.yml")
+    assert "exit 1" in body, (
+        "sentry-healthcheck.yml no longer fails on missing secrets. It is the pattern "
+        "the three Slack workflows were aligned to; if it changed, revisit them too."
+    )
+
+
+def test_the_two_groups_do_not_overlap():
+    """Canary against a copy-paste that puts a workflow in both lists."""
+    assert not set(FAIL_CLOSED) & set(NEVER_CONFIGURED)
