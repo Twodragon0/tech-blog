@@ -64,9 +64,20 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Fail, do not skip. SLACK_BOT_TOKEN and SLACK_CHANNEL_ID ARE configured in
+          # this repo (verified 2026-08-10 via `gh secret list`), so their absence is not
+          # an optional-integration case — it means the secret was removed, rotated
+          # without updating, or the job lost access. Skipping green would silence exactly
+          # the regression worth knowing about: notifications quietly stopping.
+          #
+          # This is safe to make hard precisely because the secrets exist. Contrast
+          # gsc-queue-refresh.yml and vercel-firewall-backup.yml, whose secrets have
+          # never been configured — fail-closed there would only produce a permanently
+          # red cron that gets muted. Follows sentry-healthcheck.yml, which already
+          # fails on missing secrets.
           if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${SLACK_CHANNEL_ID:-}" ]; then
-            echo "::warning::SLACK_BOT_TOKEN or SLACK_CHANNEL_ID not configured, skipping notification"
-            exit 0
+            echo "::error::SLACK_BOT_TOKEN or SLACK_CHANNEL_ID is not available. Both are configured in this repo, so the alert this job exists to deliver would have been dropped silently."
+            exit 1
           fi
           payload=$(python3 -c '
           import json, os
