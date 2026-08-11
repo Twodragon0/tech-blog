@@ -140,7 +140,13 @@ jobs:
         run: |
           echo "📋 Running Digest quality report..."
           if [ "${{ github.event_name }}" == "pull_request" ]; then
-            CHANGED=$(git diff --name-only origin/main...HEAD -- '_posts/*Digest*.md' || true)
+            # No `|| true`: an unresolvable origin/main used to yield an empty list and
+            # print "No Digest posts changed, skipping" — a shallow or broken checkout
+            # therefore skipped the gate while reporting success.
+            if ! CHANGED=$(git diff --name-only origin/main...HEAD -- '_posts/*Digest*.md'); then
+              echo "::error::could not diff against origin/main; refusing to skip the Digest gate"
+              exit 1
+            fi
             if [ -n "$CHANGED" ]; then
               python3 scripts/digest_quality_report.py --files $CHANGED --ci
             else
@@ -183,9 +189,11 @@ jobs:
             --jq '.[] | select(.body | contains("Test Coverage Report")) | .id' 2>/dev/null | head -1 || true)
 
           if [ -n "$EXISTING" ]; then
-            gh api "repos/${{ github.repository }}/issues/comments/${EXISTING}" -X PATCH -f body="$BODY" || true
+            gh api "repos/${{ github.repository }}/issues/comments/${EXISTING}" -X PATCH -f body="$BODY" \
+              || echo "::warning::could not update the coverage comment (comment posting is non-blocking)"
           else
-            gh pr comment "${{ github.event.pull_request.number }}" --body "$BODY" || true
+            gh pr comment "${{ github.event.pull_request.number }}" --body "$BODY" \
+              || echo "::warning::could not post the coverage comment (comment posting is non-blocking)"
           fi
           echo "✅ Coverage comment posted"
 
@@ -206,7 +214,19 @@ jobs:
             # Read changed paths into an array (newline-delimited) and pass them
             # quoted, so a post filename containing shell metacharacters can't be
             # word-split or injected. (Security fix M-02, 2026-06-30 audit.)
-            mapfile -t CHANGED < <(git diff --name-only origin/main...HEAD -- '_posts/*.md' 2>/dev/null || true)
+            # The diff is computed BEFORE mapfile, not inside process substitution:
+            # a failure inside <(...) is invisible to mapfile, so an unresolvable
+            # origin/main used to produce an empty array and skip this gate while
+            # reporting success. Same shape as the Digest gate above.
+            if ! DIFF_OUT=$(git diff --name-only origin/main...HEAD -- '_posts/*.md'); then
+              echo "::error::could not diff against origin/main; refusing to skip the quote gate"
+              exit 1
+            fi
+            mapfile -t CHANGED <<< "$(printf '%s' "$DIFF_OUT")"
+            # mapfile on empty input still yields one empty element; drop it.
+            if [ "${#CHANGED[@]}" -eq 1 ] && [ -z "${CHANGED[0]}" ]; then
+              CHANGED=()
+            fi
             if [ "${#CHANGED[@]}" -gt 0 ]; then
               python3 scripts/validators/check_frontmatter_quotes.py "${CHANGED[@]}"
             else
@@ -224,12 +244,25 @@ jobs:
           python3 scripts/check_posts.py --changed
           echo "✅ Post validation passed"
 
+      # The 60-point floor is now actually enforced here.
+      #
+      # validate_post_quality.py has `--fail-below` defaulting to 60, so this step
+      # always had a real gate in it — and it was disabled twice over:
+      # `continue-on-error: true` on the step plus `|| true` on the command, under a
+      # step named "Validate" that printed "warnings only, non-blocking". The floor
+      # therefore only existed in the pre-commit hook, which `--no-verify` skips.
+      #
+      # Measured before enabling (261 posts): minimum score 80, mean 90.6, and ZERO
+      # posts below 60. So this is a 20-point margin on the worst existing post, not
+      # a backlog being deferred onto the next contributor.
       - name: Validate post quality (PR only)
         if: github.event_name == 'pull_request'
-        continue-on-error: true
         run: |
           echo "📊 Checking post quality for changed files..."
-          CHANGED_POSTS=$(git diff --name-only origin/main...HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          if ! CHANGED_POSTS=$(git diff --name-only origin/main...HEAD -- '_posts/*.md'); then
+            echo "::error::could not diff against origin/main; refusing to report 'no changes'"
+            exit 1
+          fi
           if [ -z "$CHANGED_POSTS" ]; then
             echo "✅ No post changes detected"
             exit 0
@@ -237,38 +270,25 @@ jobs:
           echo "Changed posts:"
           echo "$CHANGED_POSTS"
           echo ""
-          # Check front matter size
-          python3 scripts/validate_post_quality.py $CHANGED_POSTS || true
+          # Exits 1 below --fail-below (default 60). No `|| true`: a score under the
+          # floor, or a crash in the scorer, must both surface.
+          python3 scripts/validate_post_quality.py $CHANGED_POSTS
           echo ""
-          echo "✅ Post quality check completed (warnings only, non-blocking)"
+          echo "✅ Post quality at or above the 60-point floor"
 
-      - name: Check front matter size (PR only)
+      # Ratchet, not an absolute limit. The old inline snippet warned above 1,000
+      # chars — measured 2026-08-10, 261 of 261 posts exceed that, and the snippet
+      # could not exit non-zero anyway (plus `continue-on-error: true`). A threshold
+      # every file violates is noise that trains people to ignore warnings.
+      #
+      # check_front_matter_growth.py asserts two things that are true today: an
+      # existing post's front matter must not GROW, and nothing may exceed a 3,000-char
+      # ceiling (measured max: 2,749). Legacy size is grandfathered; new bloat fails.
+      # Moved out of inline YAML into a script so it can have tests — being untestable
+      # is part of how the old check rotted unnoticed.
+      - name: Check front matter growth (PR only)
         if: github.event_name == 'pull_request'
-        continue-on-error: true
-        run: |
-          echo "📏 Checking front matter size..."
-          CHANGED_POSTS=$(git diff --name-only origin/main...HEAD -- '_posts/*.md' 2>/dev/null || echo "")
-          if [ -z "$CHANGED_POSTS" ]; then
-            echo "✅ No post changes detected"
-            exit 0
-          fi
-          python3 -c "
-          import sys, re
-          warnings = 0
-          for f in sys.argv[1:]:
-              with open(f) as fh:
-                  content = fh.read()
-              match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
-              if match:
-                  fm_len = len(match.group(1))
-                  if fm_len > 1000:
-                      print(f'⚠️  {f}: front matter {fm_len} chars (limit: 1000)')
-                      warnings += 1
-          if warnings:
-              print(f'\n⚠️  {warnings} post(s) exceed 1000-char front matter limit')
-          else:
-              print('✅ All front matter within size limit')
-          " $CHANGED_POSTS
+        run: python3 scripts/check_front_matter_growth.py --changed origin/main
 
       - name: Post quality dashboard comment (PR only)
         if: github.event_name == 'pull_request'
@@ -333,10 +353,12 @@ jobs:
 
           if [ -n "$EXISTING_COMMENT" ]; then
             gh api "repos/${{ github.repository }}/issues/comments/${EXISTING_COMMENT}" \
-              -X PATCH -f body="$(cat /tmp/pr-quality-comment.md)" || true
+              -X PATCH -f body="$(cat /tmp/pr-quality-comment.md)" \
+              || echo "::warning::could not update the quality dashboard comment (comment posting is non-blocking)"
             echo "Updated existing quality dashboard comment"
           else
-            gh pr comment "${{ github.event.pull_request.number }}" --body-file /tmp/pr-quality-comment.md || true
+            gh pr comment "${{ github.event.pull_request.number }}" --body-file /tmp/pr-quality-comment.md \
+              || echo "::warning::could not post the quality dashboard comment (comment posting is non-blocking)"
             echo "Posted quality dashboard comment"
           fi
 
