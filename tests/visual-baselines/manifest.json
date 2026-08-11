@@ -148,5 +148,15 @@
     "png": "2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.png",
     "sha256": "6de1b3e130c3c9837818fa97a8f4f33096ec0e0bad04709cb3a07a97bc45a671",
     "bytes": 148433
+  },
+  "2026-04-05-Week1_April_2026_Security_Digest.svg": {
+    "png": "2026-04-05-Week1_April_2026_Security_Digest.png",
+    "sha256": "b63424ccb97361021f4bae30437c1a5a31ee20f35fbd4e9a6d8027eb4d41ce6b",
+    "bytes": 156440
+  },
+  "2026-04-12-Week2_April_2026_Security_Digest.svg": {
+    "png": "2026-04-12-Week2_April_2026_Security_Digest.png",
+    "sha256": "6eea3910ed0aa51dda72ded462f3196a4766d191739fd66149766f1417e35d0d",
+    "bytes": 158252
   }
 }
