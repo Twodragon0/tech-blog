@@ -317,6 +317,12 @@ function googleTranslateElementInit() {
 
       var isActive = langDropdown.classList.contains('active');
 
+      // Second and later opens. The first one is counted in header-runtime.js,
+      // which is the only script loaded at that point — so these do not overlap.
+      if (!isActive && window.__track) {
+        window.__track('lang_toggle_open', { first_open: false });
+      }
+
       if (isActive) {
         langDropdown.classList.remove('active');
         langToggle.setAttribute('aria-expanded', 'false');
@@ -394,6 +400,12 @@ function googleTranslateElementInit() {
         }
 
         if (lang) {
+          // The event that actually answers "does anyone use translation?" —
+          // opening the dropdown may be curiosity, picking a language is not.
+          if (window.__track) {
+            window.__track('lang_select', { language: lang });
+          }
+
           langDropdown.classList.remove('active');
           langToggle.setAttribute('aria-expanded', 'false');
           if (langDropdownOverlay) {

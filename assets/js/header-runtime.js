@@ -21,6 +21,15 @@
     document.body.appendChild(node);
   };
 
+  // The FIRST toggle click is only observable here — google-translate.js has not
+  // loaded yet, so its own handler cannot see it. Without this, usage data for the
+  // translation feature would start at the second click and understate demand.
+  toggle.addEventListener('click', function () {
+    if (window.__track) {
+      window.__track('lang_toggle_open', { first_open: true });
+    }
+  }, { once: true, passive: true });
+
   toggle.addEventListener('click', loadTranslate, { once: true, passive: true });
 
   try {
