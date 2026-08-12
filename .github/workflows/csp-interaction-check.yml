@@ -18,6 +18,16 @@ name: CSP Interaction Check
 # That violation is grandfathered in scripts/tests/csp_interaction_baseline.txt. New
 # ones fail. Removing the baseline line is the definition of done for Path B.
 #
+# Updated 2026-08-12 after two measurement bugs were found in the gate itself:
+#   - `translate` was reported as never loaded. element.js deletes its own <script>
+#     node after running, so the DOM scan missed it and the gate printed a coverage
+#     gap that did not exist. Detection now reads the request log.
+#   - the translated document was never reached. Driving `.goog-te-combo` cannot work
+#     headlessly, so each URL is now also driven with the `googtrans` cookie a
+#     returning visitor carries, which does translate the page.
+# Both fixes widen coverage without adding a baseline entry: all four passes report
+# the same single grandfathered violation and zero new ones.
+#
 # Why `schedule` and not a normal PR gate: the script measures PRODUCTION, so running it
 # on a PR would test the previous deployment and say nothing about the change under
 # review. The cron catches a regression after it ships; the `pull_request` trigger below

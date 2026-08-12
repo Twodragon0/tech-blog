@@ -12,4 +12,17 @@
 # This is the concrete blocker for CSP Path B (dropping 'unsafe-inline' from the
 # enforcing script-src): Google Translate would break. Removing this line is the
 # definition of done for that work — do not delete it to make the gate quiet.
+#
+# "Would break" is no longer an inference. Measured 2026-08-12 by rewriting the
+# response header in flight so the Report-Only policy became the enforcing one
+# (Path B), against the same page with the policy left as production ships it:
+#
+#            production policy   Path B enforcing
+#   Hangul chars left in body    0                 1061  (26.6% of body)
+#   Google <font> markers        446               0
+#   <html>                       lang=en           lang=ko
+#                                translated-ltr    (no class)
+#   violation disposition        report            enforce
+#
+# Path B does not degrade Google Translate. It disables it outright.
 script-src-elem|inline
