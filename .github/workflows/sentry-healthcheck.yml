@@ -143,6 +143,17 @@ jobs:
       # Reporting, not gating: it writes to the job summary and does not fail the
       # healthcheck on volume. It DOES fail on a missing secret or a dead API,
       # because "could not measure" must not render as "nothing was wrong".
+      #
+      # One exception, added 2026-08-12 after the first dispatch run went red:
+      # HTTP 401/403 exits 0. The token can read the project but not its events,
+      # and that predates this script — the scheduled run at 04:21Z the same day,
+      # before it existed, already logged "Sentry issues API check returned HTTP
+      # 403" from the step above and stayed green on a warning. Fail-closed on a
+      # standing scope gap produces a nightly red that gets muted, which this
+      # repo has established is worse than the gap. The run instead says, in the
+      # summary, that it measured nothing and why. Grant the token `event:read`
+      # to make it actually measure.
+      # Exit-code asymmetry is pinned by scripts/tests/test_sentry_csp_volume.py.
       - name: Report CSP report-channel volume
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}

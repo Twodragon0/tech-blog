@@ -27,12 +27,33 @@ Credentials come from the environment so the run can happen in CI, where the
 secrets already live, rather than passing a token around in plaintext.
 
 Exit codes
-  0 - report produced
+  0 - report produced, OR the token is not authorized to read issues (see below)
   1 - a required secret is missing. SENTRY_* ARE configured in this repo, so
       their absence is a regression (rotation, lost access), not an optional
       integration. Same rule as scripts/tests/test_ci_secret_absence_guard.py.
-  2 - the Sentry API call failed. "Could not measure" must never read as
-      "nothing was wrong".
+  2 - the Sentry API call failed for any other reason. "Could not measure" must
+      never read as "nothing was wrong".
+
+Why 401/403 is not fail-closed
+------------------------------
+The Sentry token in this repo can read the project endpoint but NOT issues.
+Verified from the scheduled run on 2026-08-12T04:21Z — i.e. BEFORE this script
+existed — where the pre-existing healthcheck step logged:
+
+    ⚠️ Sentry issues API check returned HTTP 403
+    - Issues API accessible: false
+
+So the missing scope (`event:read`) is a standing condition, not a regression
+this script discovered. Exiting non-zero on it would turn a daily cron
+permanently red, which this repo has repeatedly established gets muted and is
+therefore worse than the gap itself (see notes/ci-gate-audit-2026-08.md and
+scripts/tests/test_ci_secret_absence_guard.py). Instead the run stays green and
+says, unmissably, that it measured nothing — the same treatment the neighbouring
+step already gives the same 403.
+
+Direction: once the token gains `event:read`, delete the 401/403 branch so any
+authorization failure is fail-closed again, and update
+scripts/tests/test_sentry_csp_volume.py in the same PR.
 """
 
 from __future__ import annotations
@@ -108,6 +129,25 @@ def main() -> int:
     try:
         issues = _fetch(url, token)
     except urllib.error.HTTPError as exc:
+        if exc.code in (401, 403):
+            # Standing scope gap, not a regression — see the module docstring.
+            # Loud in the summary, green in the check.
+            print(f"# CSP report volume ({period})\n")
+            print(
+                f"> **MEASURED NOTHING** — Sentry returned HTTP {exc.code} for the issues "
+                f"query. The token can read the project but not its events, so this "
+                f"report is empty for a permissions reason, **not** because the CSP "
+                f"report channel is quiet.\n"
+            )
+            print(
+                "> To make it measure: grant the Sentry auth token `event:read` "
+                "(Sentry → Settings → Auth Tokens), then re-run this workflow.\n"
+            )
+            print(
+                f"::warning::CSP volume not measured: Sentry issues API HTTP {exc.code} "
+                f"(token lacks event:read). Pre-existing since at least 2026-08-12."
+            )
+            return 0
         print(f"::error::Sentry API HTTP {exc.code} for issues query", file=sys.stderr)
         return 2
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
