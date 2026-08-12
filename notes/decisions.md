@@ -233,3 +233,31 @@ legacy 커버를 honesty FAIL 해소 목적으로 **재생성하거나 L22→L20
 - **fail-closed는 조건부로만 옳다**: 100%가 위반하는 임계값(front matter 1000자)이나 영구 부재 시크릿에 fail-closed를 적용하면 "무시되는 red"를 생산한다. 전자는 래칫으로, 후자는 cron 폐기로 처리 (#534, #536)
 - **자가치유에는 재검증이 필수**: `fixer || true` 뒤에 checker 재실행이 없으면 "고치려 했다"가 "고쳐졌다"로 위장된다. 크론 자가치유 4곳 중 1곳에 없었다 (#537)
 - **가드는 뮤테이션으로 자기검증한다**: 새 가드를 믿기 전에 각 수정을 되돌려 잡히는지 확인. 누적 60여 종 전부 caught. 반복 함정 — 검사 대상 파일의 주석이 안티패턴을 언급하므로 주석 제거 후 검사
+
+### CSP Path B 보류 — Google Translate 유지 (2026-08-12)
+
+**결정**: enforcing CSP의 `script-src`에서 `'unsafe-inline'`을 제거하는 Path B를 **보류**하고
+Google Translate를 유지한다.
+
+**근거 (추론 아님, 실측)**: Report-Only는 차단하지 않으므로 "Translate가 깨질 것"은 그동안
+추론이었다. 응답 헤더를 인플라이트로 바꿔 Report-Only를 enforcing으로 승격시킨 A/B로 측정:
+
+| | 현재 정책 | Path B enforcing |
+|---|---|---|
+| 본문 한글 잔존 | 0자 | 1061자 (26.6%) |
+| Google `<font>` 마커 | 446개 | 0개 |
+| `<html>` | `lang=en` / `translated-ltr` | `lang=ko` (미번역) |
+
+Path B는 Translate를 **저하시키는 게 아니라 완전히 비활성화**한다.
+
+**기각한 대안 — iframe 격리 후 별도 CSP**: 위반 문서는 `about:blank`이고 about:blank는
+임베더의 CSP를 상속한다. Chrome은 iframe `csp` 속성을 제거했고, Translate는 호스트 문서
+자체를 재작성해야 동작하므로 프레임에 가둘 수 없다. (명세·구현 논거이며 별도 A/B 미실시.)
+
+**적용**:
+- `csp_interaction_baseline.txt`의 1건은 "제거 대상 blocker"가 아니라 **수용된 trade-off**다.
+  Path B 재개 없이 이 줄을 지우지 말 것.
+- `csp-interaction-check.yml`의 임무는 "baseline이 비워질 때까지 감시"에서 **"두 번째 위반
+  등장 감지"**로 바뀐다. 다른 통합이 `unsafe-inline`에 새로 의존하기 시작하면 그것이 신호다.
+- 재개 조건: Google Translate 제거를 받아들이거나, about:blank 인라인 부트스트랩을 쓰지 않는
+  번역 수단으로 교체할 때.

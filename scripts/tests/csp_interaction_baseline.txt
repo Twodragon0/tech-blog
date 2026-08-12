@@ -9,9 +9,13 @@
 # creates about:blank frames (hence sourceFile="about") whose inline script trips
 # script-src-elem.
 #
-# This is the concrete blocker for CSP Path B (dropping 'unsafe-inline' from the
-# enforcing script-src): Google Translate would break. Removing this line is the
-# definition of done for that work — do not delete it to make the gate quiet.
+# This was tracked as the blocker for CSP Path B (dropping 'unsafe-inline' from the
+# enforcing script-src). As of 2026-08-12 it is no longer a blocker to clear: Path B
+# is DEFERRED and Google Translate is kept. See notes/decisions.md.
+#
+# So this line is an accepted trade-off, not a to-do. It still must not be deleted to
+# quiet the gate — it is the record that the site runs with 'unsafe-inline' knowingly,
+# and it is what makes a SECOND violation appearing here visible as a new one.
 #
 # "Would break" is no longer an inference. Measured 2026-08-12 by rewriting the
 # response header in flight so the Report-Only policy became the enforcing one
@@ -24,5 +28,6 @@
 #                                translated-ltr    (no class)
 #   violation disposition        report            enforce
 #
-# Path B does not degrade Google Translate. It disables it outright.
+# Path B does not degrade Google Translate. It disables it outright. That measurement
+# is what the deferral decision was made on.
 script-src-elem|inline
