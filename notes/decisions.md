@@ -261,3 +261,34 @@ Path B는 Translate를 **저하시키는 게 아니라 완전히 비활성화**�
   등장 감지"**로 바뀐다. 다른 통합이 `unsafe-inline`에 새로 의존하기 시작하면 그것이 신호다.
 - 재개 조건: Google Translate 제거를 받아들이거나, about:blank 인라인 부트스트랩을 쓰지 않는
   번역 수단으로 교체할 때.
+
+### Report-Only 존폐와 번역 아키텍처는 둘 다 "측정 먼저" (2026-08-12)
+
+Path B 보류 직후 두 후속 질문이 나왔고, 둘 다 **데이터 없이는 결정 불가**로 판정했다.
+
+**1. Report-Only 헤더를 계속 둘 것인가.** 두 정책의 지시자 17개 중 14개가 동일하고, 차이는
+`script-src`/`script-src-elem`(해시 vs `'unsafe-inline'`)과 `upgrade-insecure-requests`(RO에선
+무시되므로 enforcing 전용)뿐이다. 즉 RO 헤더는 **정확히 Path B 가설 하나만** 시험하며, 그
+가설은 닫혔다. 남은 신호("두 번째 위반 등장")는 `csp-interaction-check` 크론이 매일 커버한다.
+
+그런데 비용 쪽에 구조적 모순이 있다: `sentry-init.js:39-42` 의 `ignorePatterns` 는 CSP·확장
+이벤트를 **명시적으로 버리는데**, `report-uri`/`report-to` 는 SDK 를 우회해 Sentry ingest 로
+직접 간다. SDK 가 버리기로 한 노이즈가 다른 문으로 무샘플 유입된다. SDK 의 월 5000 가드도
+`localStorage` 기반이라 **방문자별**로 세므로 전역 소비량을 못 본다.
+
+→ 제거/유지 결정은 실제 볼륨에 달렸다. `scripts/sentry_csp_volume.py` 를
+`sentry-healthcheck.yml` 에 붙여 매일 job summary 로 집계한다(게이팅 아님, 리포팅).
+시크릿이 이미 그 job 에 있으므로 토큰을 다른 곳으로 옮기지 않는다.
+
+**2. 번역 아키텍처(A 유지 / B 정적 사전번역 / C 온디맨드 / D 포기).** 코퍼스는 263 포스트
+469만 자, 4개 언어면 1,880만 자다. B 안은 최초 ~$376 + 페이지 263→1,315개 + sitemap/hreflang
+전면 재작업이다. **그런데 언어 토글에 계측이 전혀 없었다**(`gtag`/`dataLayer` grep 0건).
+쓰는 사람이 있는지 모르는 채로 B 를 검토하는 건 순서가 뒤바뀐 것 — 사용량이 미미하면 D 가
+$0 에 Path B 를 연다.
+
+→ `window.__track` (버퍼 후 flush) + `lang_toggle_open` / `lang_select` 이벤트를 먼저 넣는다.
+**버퍼가 필요한 이유**: GA 는 첫 상호작용에 지연 로드되고 `gtag('config')` 는 그 onload 에서만
+실행된다. config 보다 먼저 dataLayer 에 들어간 이벤트는 앞서 처리되어 유실되는데, lang-toggle
+클릭은 GA 로드 트리거이자 측정 대상이라 무버퍼 계측은 **정확히 첫 사용 신호를 잃는다.**
+첫 클릭은 `header-runtime.js` 만 볼 수 있다(그 클릭이 `google-translate.js` 를 내려받게 하는
+클릭이므로). 2회차 이후는 `google-translate.js` 가 센다 — 중복 없음.
