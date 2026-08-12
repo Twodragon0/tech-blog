@@ -22,6 +22,10 @@
 // check_mermaid_csp_render.mjs), not by scraping console text — report-only violations
 // fire that event too, and the event carries the directive and blocked URI.
 //
+// Each URL is driven twice, in 'interaction' and 'translated' mode — see checkUrl().
+// The second pass exists because Google Translate rewrites the whole document, and the
+// gate previously never reached that state.
+//
 // Usage
 //   node scripts/tests/check_csp_interaction_violations.mjs [--url <url>] [--verbose]
 //
@@ -106,9 +110,48 @@ function isFirstPartyConcern(v) {
   return true;
 }
 
-async function checkUrl(browser, url) {
+/**
+ * Drive the page in one of two modes.
+ *
+ * 'interaction' — load, fire the deferred-loader triggers, click #lang-toggle.
+ * 'translated'  — additionally pre-set the `googtrans` cookie and `preferredLang`
+ *                 that the site's own changeLang() writes, so the page loads
+ *                 already translated and the gate sees the DOM Google Translate
+ *                 actually produces.
+ *
+ * Why the second mode exists: driving `.goog-te-combo` (what this gate used to
+ * attempt) never works headlessly — the dropdown widget renders inside
+ * about:blank frames and the combo never appears in the main document, so
+ * `translate-select` was permanently false and the translated page state was
+ * never exercised. The cookie path is the same one a returning visitor hits, and
+ * it does translate: verified 2026-08-12 on production, body Hangul 1061 -> 0
+ * chars with 446 <font> marker elements injected.
+ */
+async function checkUrl(browser, url, mode = 'interaction') {
   const context = await browser.newContext();
+  if (mode === 'translated') {
+    await context.addCookies([
+      { name: 'googtrans', value: '/ko/en', domain: `.${new URL(url).hostname}`, path: '/' },
+    ]);
+  }
   const page = await context.newPage();
+  if (mode === 'translated') {
+    await page.addInitScript(() => {
+      try {
+        localStorage.setItem('preferredLang', 'en');
+      } catch (_e) {
+        /* private mode — the cookie alone still drives the translation */
+      }
+    });
+  }
+
+  // Authoritative record of what the page fetched. Neither `document.scripts` nor
+  // Resource Timing is reliable here: Google's translate_a/element.js removes its own
+  // <script> node after running, and Resource Timing silently stops recording once the
+  // 250-entry default buffer fills — which this page exceeds, so a late-loading script
+  // vanishes from it. The CDP-level request log has neither problem.
+  const requested = [];
+  page.on('request', (r) => requested.push(r.url()));
 
   const violations = [];
   await page.exposeFunction('__reportCspViolation', (v) => violations.push(v));
@@ -193,22 +236,28 @@ async function checkUrl(browser, url) {
   await page.waitForTimeout(SETTLE_MS);
 
   // What actually loaded, so a green result is auditable rather than assumed.
-  const loaded = await page.evaluate(() => {
-    const srcs = Array.from(document.scripts)
-      .map((s) => s.src)
-      .filter(Boolean);
-    const has = (needle) => srcs.some((s) => s.includes(needle));
-    return {
-      gtm: has('googletagmanager'),
-      adsense: has('googlesyndication'),
-      sentry: has('sentry-cdn'),
-      kakao: has('kakao'),
-      translate: has('translate.google') || has('translate_a'),
-      inlineExecutable: Array.from(document.scripts).filter(
+  //
+  // Sourced from the request log above, not from a DOM scan: element.js deletes its
+  // own <script> node once it has run, so `document.scripts` reported translate=false
+  // for a script that demonstrably loaded and executed (verified 2026-08-12 — the
+  // element.js request fires and pulls in translate_http JS/CSS and translate-pa
+  // supportedLanguages, while `script[src*="translate_a/element.js"]` is null). A gate
+  // understating its own coverage is the failure mode this file exists to prevent.
+  const has = (needle) => requested.some((s) => s.includes(needle));
+  const inlineExecutable = await page.evaluate(
+    () =>
+      Array.from(document.scripts).filter(
         (s) => !s.src && s.type !== 'application/ld+json' && s.textContent.trim(),
       ).length,
-    };
-  });
+  );
+  const loaded = {
+    gtm: has('googletagmanager'),
+    adsense: has('googlesyndication'),
+    sentry: has('sentry-cdn'),
+    kakao: has('kakao'),
+    translate: has('translate.google') || has('translate_a'),
+    inlineExecutable,
+  };
 
   // Which integrations the page is CONFIGURED for. Distinguishes "did not load
   // because it is not configured" (fine) from "configured but this gate failed to
@@ -225,6 +274,20 @@ async function checkUrl(browser, url) {
     };
   });
 
+  // Did Google Translate actually rewrite the document? `translated-ltr` on <html>
+  // and the <font> wrappers are Google's own markers. In 'translated' mode a false
+  // here means the gate did not reach the translated state, so its green says
+  // nothing about that code path.
+  const translation = await page.evaluate(() => {
+    const text = document.body.innerText || '';
+    return {
+      applied: document.documentElement.classList.contains('translated-ltr'),
+      htmlLang: document.documentElement.lang,
+      fontMarkers: document.querySelectorAll('font').length,
+      hangulChars: (text.match(/[가-힣]/g) || []).length,
+    };
+  });
+
   await context.close();
 
   const baseline = loadBaseline();
@@ -236,8 +299,8 @@ async function checkUrl(browser, url) {
     .filter((v) => baseline.has(violationKey(v)));
   const uncovered = Object.keys(configured).filter((k) => configured[k] && !loaded[k]);
   return {
-    url, ok: true, sawReportOnly, translated, adSlotScrolled, langToggleClicked,
-    loaded, configured, uncovered, violations, mine, grandfathered,
+    url, mode, ok: true, sawReportOnly, translated, adSlotScrolled, langToggleClicked,
+    loaded, configured, uncovered, translation, violations, mine, grandfathered,
   };
 }
 
@@ -245,7 +308,8 @@ async function main() {
   const browser = await chromium.launch({ args: ['--no-sandbox'] });
   const results = [];
   for (const url of urls) {
-    results.push(await checkUrl(browser, url));
+    results.push(await checkUrl(browser, url, 'interaction'));
+    results.push(await checkUrl(browser, url, 'translated'));
   }
   await browser.close();
 
@@ -255,7 +319,7 @@ async function main() {
       exitCode = 2;
       continue;
     }
-    const path = new URL(r.url).pathname;
+    const path = `${new URL(r.url).pathname} [${r.mode}]`;
     console.log(`\n${path}`);
     console.log(`  report-only header present : ${r.sawReportOnly ? 'yes' : 'NO'}`);
     console.log(
@@ -268,6 +332,11 @@ async function main() {
     );
     console.log(
       `  coverage                   : ${r.uncovered.length === 0 ? 'all configured integrations loaded' : 'NOT COVERED -> ' + r.uncovered.join(', ')}`,
+    );
+    console.log(
+      `  translated DOM reached     : ${r.translation.applied} ` +
+        `(html lang=${r.translation.htmlLang || '?'}, ${r.translation.fontMarkers} <font> markers, ` +
+        `${r.translation.hangulChars} Hangul chars left)`,
     );
     console.log(`  executable inline scripts  : ${r.loaded.inlineExecutable}`);
     console.log(
@@ -292,6 +361,21 @@ async function main() {
       const msg =
         `${path}: configured but never loaded: ${r.uncovered.join(', ')} — this run did ` +
         `NOT exercise those code paths, so a green result does not cover them.`;
+      if (requireCoverage) {
+        fail(msg);
+        exitCode = Math.max(exitCode, 2);
+      } else {
+        console.log(`  ::warning:: ${msg}`);
+      }
+    }
+    // A 'translated' run that never reached the translated DOM covers no more than the
+    // 'interaction' run does. Say so rather than letting the extra pass imply coverage
+    // it did not deliver.
+    if (r.mode === 'translated' && !r.translation.applied) {
+      const msg =
+        `${path}: googtrans cookie was set but the document was never translated ` +
+        `(html lang=${r.translation.htmlLang || '?'}, ${r.translation.fontMarkers} <font> markers) ` +
+        `— this pass adds no coverage over the interaction pass.`;
       if (requireCoverage) {
         fail(msg);
         exitCode = Math.max(exitCode, 2);

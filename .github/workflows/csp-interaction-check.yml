@@ -16,7 +16,23 @@ name: CSP Interaction Check
 # observation), so it is the site's behaviour, not the instrument's.
 #
 # That violation is grandfathered in scripts/tests/csp_interaction_baseline.txt. New
-# ones fail. Removing the baseline line is the definition of done for Path B.
+# ones fail.
+#
+# Path B is DEFERRED as of 2026-08-12 (notes/decisions.md). Promoting the Report-Only
+# policy to enforcing does not degrade Google Translate, it disables it — measured, not
+# inferred. So this workflow's job is no longer "watch until the baseline can be
+# emptied"; it is to catch a SECOND violation appearing, which would mean some other
+# integration started depending on 'unsafe-inline' too.
+#
+# Updated 2026-08-12 after two measurement bugs were found in the gate itself:
+#   - `translate` was reported as never loaded. element.js deletes its own <script>
+#     node after running, so the DOM scan missed it and the gate printed a coverage
+#     gap that did not exist. Detection now reads the request log.
+#   - the translated document was never reached. Driving `.goog-te-combo` cannot work
+#     headlessly, so each URL is now also driven with the `googtrans` cookie a
+#     returning visitor carries, which does translate the page.
+# Both fixes widen coverage without adding a baseline entry: all four passes report
+# the same single grandfathered violation and zero new ones.
 #
 # Why `schedule` and not a normal PR gate: the script measures PRODUCTION, so running it
 # on a PR would test the previous deployment and say nothing about the change under
