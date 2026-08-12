@@ -134,6 +134,25 @@ jobs:
 
           echo "release_status=$release_status" >> "$GITHUB_OUTPUT"
 
+      # Measures what the CSP report-uri/report-to channel actually costs. That
+      # channel bypasses the Sentry SDK entirely, so the SDK's sampling and its
+      # ignorePatterns (which explicitly drop CSP + extension noise) never apply
+      # to it. Runs here because this job already holds the Sentry secrets — no
+      # token needs to travel anywhere else.
+      #
+      # Reporting, not gating: it writes to the job summary and does not fail the
+      # healthcheck on volume. It DOES fail on a missing secret or a dead API,
+      # because "could not measure" must not render as "nothing was wrong".
+      - name: Report CSP report-channel volume
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+          STATS_PERIOD: "30d"
+        run: |
+          set -o pipefail
+          python3 scripts/sentry_csp_volume.py | tee -a "$GITHUB_STEP_SUMMARY"
+
       - name: Write summary
         if: always()
         run: |

@@ -115,6 +115,34 @@
   }
 
   /**
+   * Buffered event tracker: window.__track(name, params).
+   *
+   * GA is lazy-loaded on the first interaction and gtag('config') only runs in
+   * that script's onload. An event pushed to dataLayer before the config lands
+   * is processed ahead of it and dropped — which would silently lose exactly
+   * the first-click events this exists to measure. So events are buffered and
+   * replayed, in order, once the config has run.
+   *
+   * With no data-ga-id this is a no-op. The buffer is capped so a page that
+   * never loads GA (bot, bouncer, idle-fallback not reached) cannot grow it
+   * without bound.
+   */
+  var GA_EVENT_BUFFER_MAX = 20;
+  window.__gaPending = window.__gaPending || [];
+  window.__track = function (name, params) {
+    if (!gaId) return;
+    if (window.__gaReady) {
+      window.dataLayer = window.dataLayer || [];
+      // Same shape as the gtag shim below: push the arguments object, not an array.
+      (function gtag() { window.dataLayer.push(arguments); })('event', name, params || {});
+      return;
+    }
+    if (window.__gaPending.length < GA_EVENT_BUFFER_MAX) {
+      window.__gaPending.push({ name: name, params: params || {} });
+    }
+  };
+
+  /**
    * Lazy-loads Google Analytics on the first user interaction, with a 10-12s
    * idle safety-net fallback. Rationale:
    *   - Bots and bouncers (no interaction within 10s) skip GA entirely,
@@ -144,6 +172,13 @@
         gtag('event', 'page_view', {
           page_path: window.location.pathname + window.location.search,
         });
+        // Config has run — anything buffered before now is safe to replay.
+        window.__gaReady = true;
+        var pending = window.__gaPending || [];
+        window.__gaPending = [];
+        for (var i = 0; i < pending.length; i++) {
+          gtag('event', pending[i].name, pending[i].params);
+        }
       };
       document.head.appendChild(script);
     };

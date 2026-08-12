@@ -81,6 +81,36 @@ describe('header-runtime.js (lang toggle bootstrap)', () => {
     expect(injectedScripts()).toHaveLength(0);
   });
 
+  it('reports the first toggle click through window.__track', () => {
+    // The first click is the one google-translate.js structurally cannot see:
+    // it is what triggers that script's download. If this stops firing, usage
+    // data silently starts at the second click.
+    document.body.innerHTML = '<button id="lang-toggle" type="button">Lang</button>';
+    const calls = [];
+    window.__track = (name, params) => calls.push([name, params]);
+    runScript();
+
+    expect(calls).toHaveLength(0);
+    document.getElementById('lang-toggle').click();
+    expect(calls).toEqual([['lang_toggle_open', { first_open: true }]]);
+
+    // once:true — repeat clicks are counted by google-translate.js instead, so
+    // counting them here too would double-report.
+    document.getElementById('lang-toggle').click();
+    expect(calls).toHaveLength(1);
+    delete window.__track;
+  });
+
+  it('does not throw when window.__track is absent', () => {
+    // head-runtime.js defines __track, but it is a separate script: a load
+    // failure there must not take the lang toggle down with it.
+    document.body.innerHTML = '<button id="lang-toggle" type="button">Lang</button>';
+    delete window.__track;
+    runScript();
+    expect(() => document.getElementById('lang-toggle').click()).not.toThrow();
+    expect(injectedScripts()).toHaveLength(1);
+  });
+
   it('respects a custom data-translate-src override on the script tag', () => {
     // The IIFE reads `document.currentScript`, which is null when evaluated
     // via Function(). Instead, test the fallback default URL is honored.

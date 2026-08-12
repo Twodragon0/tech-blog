@@ -87,6 +87,10 @@ describe('head-runtime.js', () => {
     // Reset idempotency guard + load-init flags between tests so each
     // runScript() call exercises a fresh init path.
     delete window.__headRuntimeInitialized;
+    delete window.__track;
+    delete window.__gaReady;
+    delete window.__gaPending;
+    delete window.dataLayer;
     delete window.__gaLoadInitiated;
     delete window.__adsenseLoadInitiated;
     delete window.__kakaoLoadInitiated;
@@ -570,6 +574,80 @@ describe('head-runtime.js', () => {
     loadCall[1]();
     expect(document.head.querySelector('script[src*="googlesyndication"]')).toBeTruthy();
     window.IntersectionObserver = originalIO;
+  });
+
+  describe('window.__track (buffered event tracker)', () => {
+    // GA is lazy-loaded and gtag('config') only runs in its onload. An event
+    // pushed to dataLayer before that config is processed ahead of it and
+    // dropped. Since the lang-toggle click is BOTH the GA trigger and the event
+    // we want, un-buffered tracking would lose exactly the first-use signal.
+
+    function fireGaLoad() {
+      const gaScript = document.head.querySelector('script[src*="googletagmanager"]');
+      expect(gaScript).toBeTruthy();
+      gaScript.onload();
+      return gaScript;
+    }
+
+    it('is a no-op when no data-ga-id is configured', () => {
+      setupConfigScript({ gaId: '' });
+      runScript();
+      expect(typeof window.__track).toBe('function');
+      window.__track('lang_toggle_open', { first_open: true });
+      expect(window.__gaPending).toEqual([]);
+      expect(window.dataLayer).toBeUndefined();
+    });
+
+    it('buffers events fired before gtag config, then replays them in order', () => {
+      setupConfigScript({ gaId: 'G-TEST123' });
+      runScript();
+
+      window.__track('lang_toggle_open', { first_open: true });
+      window.__track('lang_select', { language: 'en' });
+      // Nothing has reached dataLayer yet — GA has not loaded.
+      expect(window.__gaPending).toHaveLength(2);
+      expect(window.dataLayer).toBeUndefined();
+
+      // First interaction loads GA; its onload runs js/config/page_view.
+      window.dispatchEvent(new window.Event('click'));
+      fireGaLoad();
+
+      const events = window.dataLayer.map((args) => Array.from(args));
+      const names = events.filter((e) => e[0] === 'event').map((e) => e[1]);
+      // page_view is configured first, then the buffer replays in FIFO order.
+      expect(names).toEqual(['page_view', 'lang_toggle_open', 'lang_select']);
+      expect(window.__gaReady).toBe(true);
+      expect(window.__gaPending).toEqual([]);
+    });
+
+    it('sends straight through once GA is ready', () => {
+      setupConfigScript({ gaId: 'G-TEST123' });
+      runScript();
+      window.dispatchEvent(new window.Event('click'));
+      fireGaLoad();
+
+      const before = window.dataLayer.length;
+      window.__track('lang_select', { language: 'ja' });
+      expect(window.dataLayer).toHaveLength(before + 1);
+      const last = Array.from(window.dataLayer[window.dataLayer.length - 1]);
+      expect(last).toEqual(['event', 'lang_select', { language: 'ja' }]);
+    });
+
+    it('caps the buffer so a page that never loads GA cannot grow it unbounded', () => {
+      setupConfigScript({ gaId: 'G-TEST123' });
+      runScript();
+      for (let i = 0; i < 50; i += 1) {
+        window.__track('lang_toggle_open', { i });
+      }
+      expect(window.__gaPending).toHaveLength(20);
+    });
+
+    it('defaults params to an object when omitted', () => {
+      setupConfigScript({ gaId: 'G-TEST123' });
+      runScript();
+      window.__track('lang_toggle_open');
+      expect(window.__gaPending).toEqual([{ name: 'lang_toggle_open', params: {} }]);
+    });
   });
 
 });
