@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-12T01:10:40.005084+00:00",
+  "updated_at": "2026-08-13T01:13:25.731739+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/claude-ai-just-cracked-post-quantum.html",
-      "title": "Claude AI Just Cracked a Post-Quantum Test Scheme and Found a Faster 7-Round AES",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/tengu-botnet-reboots-compromised-linux.html",
-      "title": "Tengu Botnet Reboots Compromised Linux Devices When Defenders Kill Its Process",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/24650-internet-exposed-bmcs-disclose.html",
-      "title": "24,650 Internet-Exposed BMCs Disclose IPMI Password Hashes Before Login",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/jfrog-confirms-openai-models-exploited.html",
-      "title": "JFrog Confirms OpenAI Models Exploited Artifactory Zero-Day Before Hugging Face ",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/aws-kms-or-aws-cloudhsm-choose-the-right-key-management-solution/",
-      "title": "AWS KMS or AWS CloudHSM: Choose the right key management solution",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://openai.com/index/scientific-computing-agentic-ai",
-      "title": "Scientific computing in the age of agentic AI",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/",
-      "title": "Gemini API Managed Agents: 3.6 Flash, hooks, and more",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/build-ai-with-nvidia-jetson/",
-      "title": "Powerful Compute So Compact, It’s Clutch — Build AI Anywhere With NVIDIA Jetson",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/ai-mode-real-world-tips/",
-      "title": "5 ways AI Mode in Search helps you enjoy the real world",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/dinner-party-hosting-tips/",
-      "title": "5 ways to host the ultimate dinner party with Google Search",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/conversational-analytics-in-google-data-cloud-in-q326/",
-      "title": "Bringing Conversational Analytics to your entire data ecosystem",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/future-proofing-data-integrity-quantum-safe-digital-signatures-in-cloud-kms/",
-      "title": "Future-proofing data integrity: Quantum-safe digital signatures in Cloud KMS",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/retail/best-buy-scales-secure-ai-access-with-workforce-identity-federation/",
-      "title": "Best Buy scales AI workloads and secures access with Workforce Identity Federati",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/cost-management/new-early-anomalies-and-spend-caps-on-google-cloud-budgets/",
-      "title": "Detect early and enforce firmly with Google Cloud's enhanced cost controls for A",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-07-28-github-copilot-app-usage-metrics-now-expand-across-report-rollups",
-      "title": "GitHub Copilot app usage metrics now expand across report rollups",
-      "published_date": "2026-07-29",
-      "expires_at": "2026-08-05T01:49:21.979251+00:00"
-    },
     {
       "url": "https://www.recordedfuture.com/blog/ai-generated-extortion",
       "title": "Dealing with AI-Generated Extortion",
@@ -1332,6 +1242,96 @@
       "title": "GitHub Enterprise Server 3.22 release candidate",
       "published_date": "2026-08-12",
       "expires_at": "2026-08-19T01:10:40.005002+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html",
+      "title": "Lazarus Exploits Windows Zero-Day to Gain SYSTEM Access and Deploy Backdoor",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/how-aws-iam-role-manager-rethinks-the-starting-point-for-iam-roles/",
+      "title": "How AWS IAM role manager rethinks the starting point for IAM roles",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/737-chrome-vpn-extensions-caught.html",
+      "title": "737 Chrome VPN Extensions Caught Routing Traffic Through Proxies. Check If You H",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/city-forum-data-theft-attacks-target-salesforce-servicenow-portals/",
+      "title": "\"City-Forum\" data-theft attacks target Salesforce, ServiceNow portals",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/android-malware-combo-takes-out-loans-and-relays-victims-credit-cards/",
+      "title": "Android malware combo takes out loans and relays victims' credit cards",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/",
+      "title": "Putting sign language AI into users’ hands",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-life-glassdoor-best-ceo-2026/",
+      "title": "NVIDIA CEO Tops Glassdoor’s 2026 List of Best CEOs",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/08/12/security/how-were-building-scam-alert-whatsapp/",
+      "title": "How We’re Building Scam Alert on WhatsApp With End-to-End Encryption and Verifia",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://openai.com/index/how-enterprises-put-ai-to-work",
+      "title": "From assistance to execution: How enterprises put AI to work",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/part-2-amazon-bedrock-cost-attribution-with-amazon-athena-and-cudos/",
+      "title": "Part 2: Amazon Bedrock cost attribution with Amazon Athena and CUDOS",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/opening-the-cloud-gaming-era-with-amazon-gamelift-streams/",
+      "title": "Amazon GameLift Streams로 여는 클라우드 게이밍 시대: 클라이언트 설치 없이 게임 즐기기",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/cluster-construction-and-operation/",
+      "title": "분산 학습을 위한 AWS 컴퓨트 선택 가이드 (3편: 클러스터 구축과 운영)",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app",
+      "title": "Agent Plugins 1.0 in VS Code, Copilot CLI, and the Copilot app",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-12-rule-insights-for-organizations-in-public-preview",
+      "title": "Rule insights for organizations in public preview",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/docker-vmm-public-beta/",
+      "title": "Docker VMM Public Beta: A Complete Overhaul, Built for Performance",
+      "published_date": "2026-08-13",
+      "expires_at": "2026-08-20T01:13:25.731616+00:00"
     }
   ]
 }
