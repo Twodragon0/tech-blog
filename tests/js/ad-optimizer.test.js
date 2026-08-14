@@ -1,9 +1,17 @@
 // Regression tests for assets/js/ad-optimizer.js
 //
 // Goal: prove the ad-optimizer (a) wraps every adsbygoogle slot in a
-// .ad-container, (b) sets a CLS-preventing minHeight that matches the
-// requested ad format, (c) does not double-wrap an already-wrapped slot,
-// and (d) applies CSS containment hints to the ad element itself.
+// .ad-container, (b) reserves NO height, (c) does not double-wrap an
+// already-wrapped slot, and (d) applies CSS containment hints to the ad
+// element itself.
+//
+// (b) inverted on 2026-08-14. Reserving 90/250/600px and then collapsing it
+// is itself the layout shift: the :has() rules in _includes/head.html delete
+// .ad-container the moment AdSense reports data-ad-status="unfilled", and the
+// measured fill rate on this site is 0/4 and 0/3. Driving that transition on a
+// local build measured CLS 0.0575 with the reservation and 0.0039 without
+// (scripts/dev/measure_ad_collapse_cls.mjs). These assertions now guard
+// against the reservation coming back.
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
@@ -35,7 +43,7 @@ describe('ad-optimizer.js', () => {
     document.body.innerHTML = '';
   });
 
-  it('wraps a bare adsbygoogle slot in .ad-container with a default minHeight', () => {
+  it('wraps a bare adsbygoogle slot in .ad-container and reserves no height', () => {
     document.body.innerHTML =
       '<ins class="adsbygoogle" data-ad-format="rectangle"></ins>';
     runScript();
@@ -43,21 +51,21 @@ describe('ad-optimizer.js', () => {
     const ad = document.querySelector('ins.adsbygoogle');
     const container = ad.parentElement;
     expect(container.classList.contains('ad-container')).toBe(true);
-    expect(container.style.minHeight).toBe('250px');
+    expect(container.style.minHeight).toBe('');
   });
 
-  it('sets minHeight=90px for horizontal/banner ad formats', () => {
+  it('reserves no height for horizontal/banner ad formats', () => {
     document.body.innerHTML =
       '<ins class="adsbygoogle" data-ad-format="horizontal"></ins>';
     runScript();
-    expect(document.querySelector('.ad-container').style.minHeight).toBe('90px');
+    expect(document.querySelector('.ad-container').style.minHeight).toBe('');
   });
 
-  it('sets minHeight=600px for vertical/sidebar ad formats', () => {
+  it('reserves no height for vertical/sidebar ad formats', () => {
     document.body.innerHTML =
       '<ins class="adsbygoogle" data-ad-slot="sidebar-1"></ins>';
     runScript();
-    expect(document.querySelector('.ad-container').style.minHeight).toBe('600px');
+    expect(document.querySelector('.ad-container').style.minHeight).toBe('');
   });
 
   it('does not double-wrap an ad that is already inside .ad-container', () => {
@@ -74,7 +82,7 @@ describe('ad-optimizer.js', () => {
     expect(ad.style.display).toBe('block');
     expect(ad.style.contain).toBe('layout style');
     expect(ad.style.width).toBe('100%');
-    expect(ad.style.minHeight).toBe('250px');
+    expect(ad.style.minHeight).toBe('');
   });
 
   it('handles multiple ad slots on the same page', () => {
@@ -85,7 +93,7 @@ describe('ad-optimizer.js', () => {
     runScript();
     const containers = document.querySelectorAll('.ad-container');
     expect(containers).toHaveLength(3);
-    const heights = Array.from(containers).map((c) => c.style.minHeight).sort();
-    expect(heights).toEqual(['250px', '250px', '90px'].sort());
+    const heights = Array.from(containers).map((c) => c.style.minHeight);
+    expect(heights).toEqual(['', '', '']);
   });
 });

@@ -2386,10 +2386,13 @@
   border-color: var(--color-border);
 }
 
-/* Ad Container - CLS 최적화 */
+/* Ad Container — 높이 예약 없음 (2026-08-14).
+   예약해 두었다가 접는 것이 곧 시프트다: head.html 의 :has() 규칙이 unfilled
+   광고의 컨테이너를 display:none 으로 지우므로, 여기서 250px 을 잡아두면 그
+   순간 독자가 보던 자리에서 250px 이 사라진다. 실측 게재율 0/4·0/3.
+   측정: scripts/dev/measure_ad_collapse_cls.mjs (0.0575 -> 0.0039) */
 .ad-container {
   position: relative;
-  min-height: 250px;
   width: 100%;
   contain: layout style;
   margin: 1.5rem 0;
@@ -2404,7 +2407,6 @@
 /* Google Auto-Placed Ads CLS 방지 */
 .google-auto-placed,
 [class*="google-auto-placed"] {
-  min-height: 250px;
   contain: layout style;
   display: block;
 }
@@ -2415,17 +2417,15 @@
 ins.adsbygoogle,
 ins.adsbygoogle-noablate {
   display: block !important;
-  min-height: 250px !important;
   contain: layout style !important;
   width: 100% !important;
   position: relative !important;
 }
 
-/* Google Ads iframe 호스트 CLS 방지 */
+/* Google Ads iframe 호스트 — 높이 예약 없음 (2026-08-14, 위와 같은 이유) */
 #aswift_1_host,
 #aswift_2_host,
 [id^="aswift_"] {
-  min-height: 250px !important;
   contain: layout style !important;
   display: block !important;
   position: relative !important;
