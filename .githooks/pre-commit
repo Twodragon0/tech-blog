@@ -260,3 +260,23 @@ if [ -n "$STAGED_ANY_POSTS" ]; then
   fi
   echo "[pre-commit] Template-echo check: passed."
 fi
+
+# 14. Resource-hint cache-buster consistency gate — a preload/prefetch href that
+#     omits the ?v= its loader uses is a separate cache entry, so the browser
+#     downloads it and never uses it. Five such hints in head.html wasted ~14 KB
+#     compressed per post view until 2026-08-14; Chrome never warned because it
+#     flags only unused *preload*, not unused prefetch. Runs whenever a template
+#     is staged: the hint and its versioned loader live in different files, so
+#     editing either side can introduce the mismatch.
+STAGED_TEMPLATES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_(includes|layouts)/.*\.html$' || true)
+if [ -n "$STAGED_TEMPLATES" ]; then
+  echo "[pre-commit] Checking resource-hint cache-buster consistency..."
+  python3 "$REPO_ROOT/scripts/check_asset_hint_version.py" --all
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Version-mismatched resource hint found."
+    echo "             Delete the hint, or append the same ?v= the loader uses."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Resource-hint version check: passed."
+fi

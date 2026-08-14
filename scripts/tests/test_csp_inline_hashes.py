@@ -302,3 +302,39 @@ def test_enforcing_policy_keeps_upgrade_insecure_requests():
         "the enforcing CSP lost upgrade-insecure-requests — that is where it is "
         "honoured, and dropping it allows mixed-content subresource loads."
     )
+
+
+def test_liquid_comment_prose_is_not_a_script_boundary():
+    """A {% comment %} block describing a script tag must not invent one.
+
+    Regression from 2026-08-14: head.html gained a Liquid comment explaining
+    removed prefetch hints. Its prose contained a literal ``<script defer>``,
+    which paired with the next real ``</script>`` and surfaced as a NEW
+    inline script. The remedy the gate suggests is ``--update``, which would
+    have written that phantom's sha256 into the CSP manifest — a security
+    control weakened to silence a false positive.
+    """
+    html = (
+        '<script id="real">var a = 1;</script>\n'
+        "{% comment %}\n"
+        "  We removed the <script defer> tag that used to live here.\n"
+        "{% endcomment %}\n"
+        '<script id="real2">var b = 2;</script>\n'
+    )
+    labels = [s.label for s in extract_inline_scripts(html)]
+    assert labels == ["real", "real2"], f"phantom script detected: {labels}"
+
+
+def test_liquid_comment_whitespace_control_variant():
+    """{%- comment -%} must be stripped as well."""
+    # No src= decoy here: a src-bearing tag is skipped anyway and would
+    # swallow the phantom's closing tag, letting this test pass even with
+    # Liquid stripping disabled. Verified by mutation.
+    html = (
+        "{%- comment -%}\n"
+        "  prose mentioning <script>phantom()</script>\n"
+        "{%- endcomment -%}\n"
+        '<script id="only">var a = 1;</script>\n'
+    )
+    labels = [s.label for s in extract_inline_scripts(html)]
+    assert labels == ["only"], f"phantom script detected: {labels}"
