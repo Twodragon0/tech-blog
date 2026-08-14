@@ -1,5 +1,6 @@
 // Performance Monitoring (Production Only)
-// Features: Long Tasks, LCP, FID, CLS, Page Load, Resource Loading
+// Features: Long Tasks, LCP, FID, INP, CLS, Page Load, Resource Loading
+// Field metrics (LCP / INP / CLS) flush to GA4 as one `web_vitals` event at page hide.
 // Extracted from _includes/performance-monitor.html
 
 (function() {
@@ -46,20 +47,73 @@
     }
     // Web Vitals monitoring
     if ('PerformanceObserver' in window) {
+      // --- Shared field-metric reporting ------------------------------------
+      // Every vital flushes through one GA4 event (`web_vitals`) at page hide.
+      // __track, not a direct dataLayer push: events fired before
+      // gtag('config') runs would otherwise be dropped.
+      var vitalsFlushed = false;
+      var vitalsPending = [];
+
+      function onHidden(fn) { vitalsPending.push(fn); }
+
+      function flushVitals() {
+        if (vitalsFlushed) return;
+        vitalsFlushed = true;
+        for (var vi = 0; vi < vitalsPending.length; vi++) {
+          try { vitalsPending[vi](); } catch (err) { /* never block unload */ }
+        }
+      }
+
+      function sendVital(name, value, rating, cause) {
+        if (typeof window.__track !== 'function') return;
+        var params = {
+          metric_name: name,
+          metric_value: value,
+          metric_rating: rating
+        };
+        if (cause) params.metric_cause = String(cause).slice(0, 100);
+        window.__track('web_vitals', params);
+      }
+
+      function rate(value, good, poor) {
+        if (value <= good) return 'good';
+        if (value <= poor) return 'needs-improvement';
+        return 'poor';
+      }
+
+      // beforeunload does not fire reliably on mobile or when the page enters
+      // the bfcache, so the flush hangs off visibilitychange with pagehide as
+      // a backstop.
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'hidden') flushVitals();
+      });
+      window.addEventListener('pagehide', flushVitals);
+
       // Largest Contentful Paint (LCP)
       try {
+        var lcpValue = 0;
         var lcpObserver = new PerformanceObserver(function(list) {
           var entries = list.getEntries();
           var lastEntry = entries[entries.length - 1];
-          if (lastEntry && lastEntry.renderTime) {
-            var lcp = lastEntry.renderTime;
-            // LCP threshold: 4000ms (very slow)
-            if (lcp > 4000) {
-              console.warn('[Performance] LCP is slow:', Math.round(lcp) + 'ms');
-            }
+          if (!lastEntry) return;
+          // renderTime is absent for cross-origin images that lack
+          // Timing-Allow-Origin; startTime is the documented fallback. Reading
+          // only renderTime silently dropped LCP on exactly those pages.
+          var lcp = lastEntry.renderTime || lastEntry.startTime;
+          if (!lcp) return;
+          lcpValue = lcp;
+          // LCP threshold: 4000ms (very slow)
+          if (lcp > 4000) {
+            console.warn('[Performance] LCP is slow:', Math.round(lcp) + 'ms');
           }
         });
         lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+
+        onHidden(function() {
+          // No entry means "not measured", which is not the same as 0.
+          if (!lcpValue) return;
+          sendVital('LCP', Math.round(lcpValue), rate(lcpValue, 2500, 4000));
+        });
       } catch (e) {
         // LCP observer not supported
         if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
@@ -86,6 +140,71 @@
         if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
           Sentry.captureException(e, {
             tags: { errorType: 'performance_monitor_fid' },
+            level: 'warning'
+          });
+        }
+      }
+
+      // Interaction to Next Paint (INP) — replaced FID as a Core Web Vital in
+      // March 2024. FID above measures only the FIRST input's delay; INP looks
+      // at every interaction's full duration, which is why a page can have a
+      // fine FID and a terrible INP.
+      //
+      // Definition: group event entries by interactionId (one interaction can
+      // emit several entries — pointerdown, pointerup, click), take each
+      // group's longest duration, then report the entry at index
+      // floor(interactions / 50) of the descending list. For pages with fewer
+      // than 50 interactions that is simply the worst one; the index exists so
+      // a single outlier does not define a long session. Only the top 10 are
+      // kept, which is the cap the index can reach.
+      try {
+        var inpEntries = [];   // {id, duration}, kept sorted desc, max 10
+        var inpCount = 0;
+
+        function recordInteraction(entry) {
+          var id = entry.interactionId;
+          if (!id) return;
+          for (var k = 0; k < inpEntries.length; k++) {
+            if (inpEntries[k].id === id) {
+              if (entry.duration > inpEntries[k].duration) {
+                inpEntries[k].duration = entry.duration;
+                inpEntries.sort(function(a, b) { return b.duration - a.duration; });
+              }
+              return;
+            }
+          }
+          inpCount++;
+          inpEntries.push({ id: id, duration: entry.duration });
+          inpEntries.sort(function(a, b) { return b.duration - a.duration; });
+          if (inpEntries.length > 10) inpEntries.length = 10;
+        }
+
+        var inpObserver = new PerformanceObserver(function(list) {
+          var entries = list.getEntries();
+          for (var n = 0; n < entries.length; n++) recordInteraction(entries[n]);
+        });
+        // durationThreshold requires the single-`type` form of observe().
+        // 40ms is the web-vitals default: below it an interaction cannot be
+        // the page's worst one, and observing everything is needless overhead.
+        inpObserver.observe({ type: 'event', buffered: true, durationThreshold: 40 });
+        inpObserver.observe({ type: 'first-input', buffered: true });
+
+        onHidden(function() {
+          // No interaction means the reader never touched the page. That is
+          // "not measured", not 0 — reporting 0 would fake a perfect score.
+          if (!inpEntries.length) return;
+          var idx = Math.min(inpEntries.length - 1, Math.floor(inpCount / 50));
+          var inp = Math.round(inpEntries[idx].duration);
+          if (inp > 500) {
+            console.warn('[Performance] INP is slow:', inp + 'ms');
+          }
+          sendVital('INP', inp, rate(inp, 200, 500));
+        });
+      } catch (e) {
+        // INP observer not supported (Safari < 16.4, older Chromium)
+        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+          Sentry.captureException(e, {
+            tags: { errorType: 'performance_monitor_inp' },
             level: 'warning'
           });
         }
@@ -136,28 +255,17 @@
       var clsSessionFirst = null;
       var clsSessionLast = null;
       var clsTopCause = 'unknown';
-      var clsReported = false;
 
-      function clsRating(v) {
-        if (v <= 0.1) return 'good';
-        if (v <= 0.25) return 'needs-improvement';
-        return 'poor';
-      }
-
-      // Report once, when the page goes away. `beforeunload` does not fire
-      // reliably on mobile or when the page enters the bfcache, so the metric
-      // hangs off visibilitychange with pagehide as a backstop.
-      function reportCls() {
-        if (clsReported) return;
-        clsReported = true;
-        if (typeof window.__track !== 'function') return;
-        window.__track('web_vitals', {
-          metric_name: 'CLS',
-          metric_value: Math.round(clsValue * 10000) / 10000,
-          metric_rating: clsRating(clsValue),
-          metric_cause: String(clsTopCause).slice(0, 100)
-        });
-      }
+      // Unlike LCP and INP, CLS reports even at 0: a page that never shifted
+      // has genuinely measured a CLS of zero.
+      onHidden(function() {
+        sendVital(
+          'CLS',
+          Math.round(clsValue * 10000) / 10000,
+          rate(clsValue, 0.1, 0.25),
+          clsTopCause
+        );
+      });
 
       try {
         var clsObserver = new PerformanceObserver(function(list) {
@@ -197,11 +305,6 @@
           }
         });
         clsObserver.observe({ entryTypes: ['layout-shift'] });
-
-        document.addEventListener('visibilitychange', function() {
-          if (document.visibilityState === 'hidden') reportCls();
-        });
-        window.addEventListener('pagehide', reportCls);
 
         // Final CLS report on page unload
         window.addEventListener('beforeunload', function() {
