@@ -71,6 +71,7 @@ on:
       - '_includes/**.html'
       - '_layouts/**.html'
       - 'scripts/check_asset_hint_version.py'
+      - 'scripts/tests/check_resource_hint_usage.mjs'
       - '_posts/**.md'
       - 'vercel.json'
       - 'assets/js/mermaid-init.js'
@@ -126,6 +127,7 @@ on:
       - '_includes/**.html'
       - '_layouts/**.html'
       - 'scripts/check_asset_hint_version.py'
+      - 'scripts/tests/check_resource_hint_usage.mjs'
       - '_posts/**.md'
       - 'vercel.json'
       - 'assets/js/mermaid-init.js'
@@ -479,3 +481,14 @@ jobs:
 
       - name: Mermaid CSP-render guard (no 'unsafe-eval' in enforcing CSP)
         run: node scripts/tests/check_mermaid_csp_render.mjs --verbose
+
+      # Complements the static gate in the lint job. check_asset_hint_version.py
+      # reads templates and catches a hint whose href omits the loader's ?v=;
+      # only a browser can tell whether the hinted URL is fetched at all, and
+      # whether the page ends up pulling two URL variants of the same file.
+      # Verified by reintroducing the pre-2026-08-14 head.html: 5 SPLIT
+      # findings, and clean once the hints are removed. All non-local requests
+      # are aborted, so third-party fill/latency cannot make this flaky and CI
+      # ships no page loads to external services.
+      - name: Resource-hint usage guard (real browser, local build)
+        run: node scripts/tests/check_resource_hint_usage.mjs --verbose
