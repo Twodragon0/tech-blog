@@ -62,7 +62,15 @@ on:
       - 'scripts/rewrite_template_echo_summaries.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
-      - '_includes/head.html'
+      # Broadened from '_includes/head.html' (2026-08-14): the asset-hint gate
+      # below scans every template in _includes/ and _layouts/, and the
+      # mismatch it catches is inherently cross-file — the hint lives in
+      # head.html while the versioned loader lives in footer.html/mermaid.html.
+      # A trigger narrower than the scan is the hazard this file's header warns
+      # about, so both sides of the pair must trigger it.
+      - '_includes/**.html'
+      - '_layouts/**.html'
+      - 'scripts/check_asset_hint_version.py'
       - '_posts/**.md'
       - 'vercel.json'
       - 'assets/js/mermaid-init.js'
@@ -109,7 +117,15 @@ on:
       - 'scripts/rewrite_template_echo_summaries.py'
       - 'scripts/dev/check_csp_inline_hashes.py'
       - 'scripts/dev/csp_inline_hashes.json'
-      - '_includes/head.html'
+      # Broadened from '_includes/head.html' (2026-08-14): the asset-hint gate
+      # below scans every template in _includes/ and _layouts/, and the
+      # mismatch it catches is inherently cross-file — the hint lives in
+      # head.html while the versioned loader lives in footer.html/mermaid.html.
+      # A trigger narrower than the scan is the hazard this file's header warns
+      # about, so both sides of the pair must trigger it.
+      - '_includes/**.html'
+      - '_layouts/**.html'
+      - 'scripts/check_asset_hint_version.py'
       - '_posts/**.md'
       - 'vercel.json'
       - 'assets/js/mermaid-init.js'
@@ -345,6 +361,18 @@ jobs:
         # anywhere in scripts/, which is precisely the state where a regression
         # would otherwise be silent.
         run: python3 scripts/check_template_echo.py --all --quiet
+
+      - name: Resource-hint cache-buster consistency gate
+        id: asset_hint_version_gate
+        # --all: the corpus is at 0 after the five head.html prefetch hints
+        # were removed (2026-08-14), so any hit is fresh drift. Those five
+        # pointed at versionless URLs while footer.html/mermaid.html loaded the
+        # same files with ?v={{ site.time }}, so the prefetched copies were
+        # downloaded and never used — ~14 KB compressed wasted per post view.
+        # It stayed invisible because Chrome warns only about an unused
+        # *preload*, never an unused prefetch, and an earlier preload->prefetch
+        # switch had silenced the warning without fixing the URL mismatch.
+        run: python3 scripts/check_asset_hint_version.py --all
 
       - name: CSP inline-script sha256 regression gate (prep for CSP Path B)
         id: csp_inline_hashes

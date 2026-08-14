@@ -62,6 +62,16 @@ DEFAULT_MANIFEST = REPO / "scripts" / "dev" / "csp_inline_hashes.json"
 import re
 
 _COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
+# Liquid comments too (2026-08-14). Stripping only HTML comments was not
+# enough: a {% comment %} block in head.html that merely *described* a script
+# tag in prose opened a phantom tag boundary, and the scanner paired it with
+# the next real </script>, reporting a NEW inline script that does not exist.
+# The dangerous part is the suggested remedy — running --update would have
+# written the phantom's sha256 into the CSP manifest, i.e. degraded a security
+# control to silence a false positive.
+_LIQUID_COMMENT_RE = re.compile(
+    r"\{%-?\s*comment\s*-?%\}.*?\{%-?\s*endcomment\s*-?%\}", re.DOTALL | re.IGNORECASE
+)
 _SCRIPT_RE = re.compile(r"<script\b([^>]*)>(.*?)</script>", re.DOTALL | re.IGNORECASE)
 _SRC_ATTR_RE = re.compile(r"\bsrc\s*=", re.IGNORECASE)
 _LDJSON_ATTR_RE = re.compile(
@@ -79,15 +89,16 @@ def extract_inline_scripts(html: str) -> list[InlineScript]:
     """Return every first-party executable inline ``<script>`` in *html*.
 
     Excludes scripts with a ``src`` attribute and ``application/ld+json``
-    data blocks. HTML comments are stripped first so prose that merely
-    *mentions* a ``<script ...>`` tag (e.g. inside a code-comment explaining
-    a removed tag) is not mistaken for a real tag boundary.
+    data blocks. HTML comments **and Liquid ``{% comment %}`` blocks** are
+    stripped first so prose that merely *mentions* a ``<script ...>`` tag
+    (e.g. inside a comment explaining a removed tag) is not mistaken for a
+    real tag boundary.
 
     Label: the script's ``id`` attribute if present, otherwise
     ``inline-script-N`` where N is the 1-based ordinal among qualifying
     inline scripts in document order.
     """
-    no_comments = _COMMENT_RE.sub("", html)
+    no_comments = _LIQUID_COMMENT_RE.sub("", _COMMENT_RE.sub("", html))
     results: list[InlineScript] = []
     ordinal = 0
     for match in _SCRIPT_RE.finditer(no_comments):

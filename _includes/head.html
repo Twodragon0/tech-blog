@@ -280,15 +280,30 @@
     })();
   </script>
 
-  <!-- Prefetch Resources (preload 경고 방지를 위해 prefetch 사용) -->
-  <!-- 분할된 JavaScript 파일들을 prefetch로 미리 캐시 -->
-  <link rel="prefetch" href="{{ "/assets/js/main-core.js" | relative_url }}" as="script">
-  {% if page.layout == 'post' %}
-  <link rel="prefetch" href="{{ "/assets/js/main-post.js" | relative_url }}" as="script">
-  <link rel="prefetch" href="{{ "/assets/js/post-page.js" | relative_url }}" as="script">
-  <link rel="prefetch" href="{{ "/assets/js/mermaid-init.js" | relative_url }}" as="script">
-  {% endif %}
-  <link rel="prefetch" href="{{ "/assets/js/main-search.js" | relative_url }}" as="script">
+  {% comment %}
+    JS prefetch 힌트 제거 (2026-08-14).
+
+    이 자리에 main-core / main-post / post-page / mermaid-init / main-search
+    5개의 `rel="prefetch"`가 버전 쿼리 **없는** URL로 있었다. 실제 스크립트
+    태그는 footer.html / mermaid.html 에서 `?v={{ site.time }}` 를 붙여
+    로드하므로 두 URL은 서로 다른 캐시 항목이고, prefetch 받은 사본은 한 번도
+    쓰이지 않았다. 포스트 1회 로드당 압축 기준 약 14 KB(원본 37.6 KB)와 요청
+    5건이 그대로 낭비되면서, 정작 필요한 버전 URL의 대역폭을 잠식했다.
+
+    앞선 주석("preload 경고 방지를 위해 prefetch 사용")이 남긴 것은 수정이
+    아니라 은폐였다. Chrome은 미사용 *preload* 만 경고하고 미사용 prefetch는
+    조용히 넘어가므로, preload→prefetch 전환은 URL 불일치라는 원인을 두고
+    경고만 지웠다.
+
+    버전을 맞추는 대신 삭제한 이유: 이 5개는 현재 페이지가 어차피 로드하는
+    파일이라 preload 스캐너가 footer의 defer 스크립트를 파싱 단계에서 이미
+    발견한다. 그리고 `?v=` 는 site.time 기반이라 빌드마다 바뀌므로, 버전을
+    맞춰도 다음 빌드에서 프리페치 사본은 즉시 무효가 된다 — 현재 내비게이션
+    에도 다음 내비게이션에도 이득이 없다. 292행 OG AVIF preload 제거(2026-04-17)
+    와 같은 판단이다.
+
+    회귀 방지: scripts/check_asset_hint_version.py (pre-commit + svg-lint CI)
+  {% endcomment %}
   {% comment %}OG AVIF 이미지 preload 제거: 소셜 메타에만 사용되며 페이지 렌더에 미사용 -> "preloaded but not used" 경고 방지 (2026-04-17){% endcomment %}
 
   <!-- DNS Prefetch and Preconnect for External Resources (TTFB 최적화)
