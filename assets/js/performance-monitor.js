@@ -125,13 +125,63 @@
         return causes.length > 0 ? causes.join(', ') : 'unknown';
       }
 
+      // Session-window CLS, the way Core Web Vitals actually defines it: the
+      // LARGEST burst of shifts, where a burst breaks on a 1s gap or after 5s.
+      // `clsValue` used to be the running SUM of every shift, which is a
+      // different (and always larger) number than the one Vercel Speed
+      // Insights, CrUX and Lighthouse report — so the console figure could not
+      // be compared against any of them, and shipping it to GA4 under the name
+      // "CLS" would have made that mismatch permanent.
+      var clsSessionValue = 0;
+      var clsSessionFirst = null;
+      var clsSessionLast = null;
+      var clsTopCause = 'unknown';
+      var clsReported = false;
+
+      function clsRating(v) {
+        if (v <= 0.1) return 'good';
+        if (v <= 0.25) return 'needs-improvement';
+        return 'poor';
+      }
+
+      // Report once, when the page goes away. `beforeunload` does not fire
+      // reliably on mobile or when the page enters the bfcache, so the metric
+      // hangs off visibilitychange with pagehide as a backstop.
+      function reportCls() {
+        if (clsReported) return;
+        clsReported = true;
+        if (typeof window.__track !== 'function') return;
+        window.__track('web_vitals', {
+          metric_name: 'CLS',
+          metric_value: Math.round(clsValue * 10000) / 10000,
+          metric_rating: clsRating(clsValue),
+          metric_cause: String(clsTopCause).slice(0, 100)
+        });
+      }
+
       try {
         var clsObserver = new PerformanceObserver(function(list) {
           for (var i = 0; i < list.getEntries().length; i++) {
             var entry = list.getEntries()[i];
             if (!entry.hadRecentInput) {
               var cause = analyzeCLSCause(entry);
-              clsValue += entry.value;
+
+              if (
+                clsSessionLast !== null &&
+                entry.startTime - clsSessionLast < 1000 &&
+                entry.startTime - clsSessionFirst < 5000
+              ) {
+                clsSessionValue += entry.value;
+              } else {
+                clsSessionValue = entry.value;
+                clsSessionFirst = entry.startTime;
+              }
+              clsSessionLast = entry.startTime;
+
+              if (clsSessionValue > clsValue) {
+                clsValue = clsSessionValue;
+                clsTopCause = cause;
+              }
 
               clsEntries.push({
                 value: entry.value,
@@ -147,6 +197,11 @@
           }
         });
         clsObserver.observe({ entryTypes: ['layout-shift'] });
+
+        document.addEventListener('visibilitychange', function() {
+          if (document.visibilityState === 'hidden') reportCls();
+        });
+        window.addEventListener('pagehide', reportCls);
 
         // Final CLS report on page unload
         window.addEventListener('beforeunload', function() {

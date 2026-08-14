@@ -900,3 +900,139 @@ describe('performance-monitor.js', () => {
     });
   });
 });
+
+// --- CLS: session-window value + GA4 reporting -----------------------------
+//
+// Added 2026-08-14. Two things are pinned here:
+//
+// 1. The reported number is the Core Web Vitals SESSION-WINDOW CLS (largest
+//    burst, broken by a 1s gap or a 5s span), not the running sum of every
+//    shift. The sum is always the larger number, so shipping it to GA4 as
+//    "CLS" would have disagreed with Vercel Speed Insights, CrUX and
+//    Lighthouse forever.
+// 2. It is sent exactly once, through window.__track — the buffered path.
+//    A direct dataLayer push would be dropped whenever the metric fires
+//    before gtag('config') has run.
+
+function clsObserverOf(observed) {
+  return observed.find((o) => (o.entryTypes || []).includes('layout-shift'));
+}
+
+function feed(observer, entries) {
+  observer._cb({ getEntries: () => entries });
+}
+
+function shift(value, startTime, hadRecentInput = false) {
+  return { value, startTime, hadRecentInput, sources: [] };
+}
+
+function buildFakeDocument() {
+  const handlers = {};
+  return {
+    doc: {
+      visibilityState: 'visible',
+      addEventListener: (evt, h) => { (handlers[evt] = handlers[evt] || []).push(h); },
+      querySelectorAll: () => [],
+      querySelector: () => null,
+    },
+    fire: (evt) => (handlers[evt] || []).forEach((h) => h()),
+  };
+}
+
+function runWithDoc(fakeWindow, fakeDoc) {
+  // eslint-disable-next-line no-new-func
+  new Function('window', 'document', SCRIPT_SOURCE)(fakeWindow, fakeDoc);
+}
+
+describe('performance-monitor.js CLS', () => {
+  let track;
+
+  function boot() {
+    const { observed, ctor } = setupPerformanceObserverStub();
+    const { fake, listeners } = buildFakeWindow({ PerformanceObserver: ctor });
+    track = vi.fn();
+    fake.__track = track;
+    const { doc, fire } = buildFakeDocument();
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    runWithDoc(fake, doc);
+    return { cls: clsObserverOf(observed), doc, fire, listeners, fake };
+  }
+
+  it('reports the largest burst, not the sum, when bursts are >1s apart', () => {
+    const { cls, doc, fire } = boot();
+    // Burst A = 0.03, then a 2s gap, then burst B = 0.05. Sum would be 0.08.
+    feed(cls, [shift(0.02, 1000), shift(0.01, 1500)]);
+    feed(cls, [shift(0.05, 3600)]);
+    doc.visibilityState = 'hidden';
+    fire('visibilitychange');
+
+    expect(track).toHaveBeenCalledTimes(1);
+    const [name, params] = track.mock.calls[0];
+    expect(name).toBe('web_vitals');
+    expect(params.metric_name).toBe('CLS');
+    expect(params.metric_value).toBeCloseTo(0.05, 5);
+  });
+
+  it('breaks the session after 5s even without a 1s gap', () => {
+    const { cls, doc, fire } = boot();
+    // Every entry <1s apart, but the span exceeds 5s -> a new session starts.
+    feed(cls, [
+      shift(0.02, 0), shift(0.02, 900), shift(0.02, 1800), shift(0.02, 2700),
+      shift(0.02, 3600), shift(0.02, 4500), shift(0.02, 5400),
+    ]);
+    doc.visibilityState = 'hidden';
+    fire('visibilitychange');
+    // First session (0..4500) = 0.12; the 5400 entry opens a new one at 0.02.
+    expect(track.mock.calls[0][1].metric_value).toBeCloseTo(0.12, 5);
+  });
+
+  it('ignores shifts that follow recent user input', () => {
+    const { cls, doc, fire } = boot();
+    feed(cls, [shift(0.4, 1000, true), shift(0.03, 1200)]);
+    doc.visibilityState = 'hidden';
+    fire('visibilitychange');
+    expect(track.mock.calls[0][1].metric_value).toBeCloseTo(0.03, 5);
+  });
+
+  it('sends exactly once even if visibilitychange and pagehide both fire', () => {
+    const { cls, doc, fire, listeners } = boot();
+    feed(cls, [shift(0.05, 1000)]);
+    doc.visibilityState = 'hidden';
+    fire('visibilitychange');
+    fire('visibilitychange');
+    const pagehide = listeners.filter((l) => l.evt === 'pagehide');
+    expect(pagehide.length).toBeGreaterThan(0);
+    pagehide.forEach((l) => l.handler());
+    expect(track).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not send while the page is still visible', () => {
+    const { cls, fire } = boot();
+    feed(cls, [shift(0.05, 1000)]);
+    fire('visibilitychange'); // visibilityState stays 'visible'
+    expect(track).not.toHaveBeenCalled();
+  });
+
+  it('classifies the rating on the Core Web Vitals thresholds', () => {
+    const cases = [[0.05, 'good'], [0.2, 'needs-improvement'], [0.4, 'poor']];
+    for (const [value, expected] of cases) {
+      const { cls, doc, fire } = boot();
+      feed(cls, [shift(value, 1000)]);
+      doc.visibilityState = 'hidden';
+      fire('visibilitychange');
+      expect(track.mock.calls[0][1].metric_rating).toBe(expected);
+    }
+  });
+
+  it('survives a page where __track was never defined', () => {
+    const { observed, ctor } = setupPerformanceObserverStub();
+    const { fake } = buildFakeWindow({ PerformanceObserver: ctor });
+    const { doc, fire } = buildFakeDocument();
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    runWithDoc(fake, doc);
+    feed(clsObserverOf(observed), [shift(0.05, 1000)]);
+    doc.visibilityState = 'hidden';
+    expect(() => fire('visibilitychange')).not.toThrow();
+  });
+});
