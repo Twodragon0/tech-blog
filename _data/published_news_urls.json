@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-13T01:13:25.731739+00:00",
+  "updated_at": "2026-08-14T01:11:20.299444+00:00",
   "entries": [
-    {
-      "url": "https://www.recordedfuture.com/blog/ai-generated-extortion",
-      "title": "Dealing with AI-Generated Extortion",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/critical-rails-flaw-could-let.html",
-      "title": "Critical Rails Flaw Could Let Unauthenticated Attackers Read Server Files via Im",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/ruflo-mcp-flaw-lets-unauthenticated.html",
-      "title": "Ruflo MCP Flaw Lets Unauthenticated Attackers Run Commands and Poison AI Memory",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/three-critical-vmware-flaws-allow-auth.html",
-      "title": "Three Critical VMware Flaws Allow Auth Bypass, Code Execution, and VM Escape",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/amazon-identifies-north-korean-hacker-group-behind-open-source-supply-chain-attacks/",
-      "title": "Amazon identifies North Korean hacker group behind open-source supply chain atta",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
-      "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://openai.com/index/chatgpt-for-academic-researchers",
-      "title": "Accelerating scientific discovery with ChatGPT for Academic Researchers",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/moonpay-launches-ai-payment-vault-for-chatgpt-and-claude-with-crypto-transaction-support?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "MoonPay vault enables ChatGPT and Claude users to authorize crypto transactions",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/authenticate-with-private-key-jwt-using-amazon-bedrock-agentcore-identity/",
-      "title": "Authenticate with Private Key JWT using Amazon Bedrock AgentCore Identity",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/generate-autonomous-business-insights-with-ai-agent-and-mcp-servers/",
-      "title": "Generate Autonomous Business Insights with AI Agent and MCP Servers",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/introducing-the-borderless-lakehouse/",
-      "title": "The borderless Lakehouse: Bring AWS, Databricks and Snowflake data to your AI ag",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/business-intelligence/looker-adds-agentic-workflows-for-data-monitoring-and-insights/",
-      "title": "Automate data monitoring and root-cause analysis with Looker Agentic Workflows",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/whats-new-in-gemini-enterprise-agent-platform/",
-      "title": "What’s new in Gemini Enterprise Agent Platform",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/automate-agent-development-lifecycles-with-gemini-enterprise/",
-      "title": "Automate your agent development lifecycle using any coding agent",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/amazon-bedrock-agentcore-customer-service-refund-automation/",
-      "title": "2주 만에 Strands SDK와 Amazon Bedrock AgentCore로 구현한 어스얼라이언스의 CS 환불 자동응답 에이전트 시스템",
-      "published_date": "2026-07-30",
-      "expires_at": "2026-08-06T01:32:17.622211+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/07/dprk-linked-macos-malvertising-uses.html",
       "title": "DPRK-Linked macOS Malvertising Uses Fake Updates to Deliver Crypto-Stealing Malw",
@@ -1332,6 +1242,96 @@
       "title": "Docker VMM Public Beta: A Complete Overhaul, Built for Performance",
       "published_date": "2026-08-13",
       "expires_at": "2026-08-20T01:13:25.731616+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/aws-certificate-manager-will-discontinue-email-validation-to-prove-domain-validation-for-certificates/",
+      "title": "AWS Certificate Manager will discontinue email validation to prove domain valida",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/ukraine-shuts-down-94-fraudulent-call-centers-seize-millions-in-cash/",
+      "title": "Ukraine shuts down 94 fraudulent call centers, seize millions in cash",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/akira-hackers-disable-edr-with-safe-mode-steal-data-but-fail-to-encrypt/",
+      "title": "Akira hackers disable EDR with Safe Mode, steal data but fail to encrypt",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-govt-webmail-while-running-parallel-crypto-fraud/",
+      "title": "Hackers breach govt webmail while running parallel crypto fraud",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-legacyhive-windows-zero-day-vulnerability/",
+      "title": "Microsoft patches LegacyHive Windows zero-day vulnerability",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/",
+      "title": "Bring your spreadsheet data to life with Sheets canvas",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-linux-native-app/",
+      "title": "Class Is in Session: GeForce NOW Levels Up Linux, Chromebooks and More",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://openai.com/index/builders-guide-to-gpt-5-6",
+      "title": "The builder’s guide to GPT‑5.6",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://openai.com/index/previewing-ultrafast",
+      "title": "Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://openai.com/index/dali-rajic-chief-revenue-officer",
+      "title": "OpenAI appoints Dali Rajic as Chief Revenue Officer",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-graphs-with-measures-for-trusted-agentic-workloads/",
+      "title": "Using BigQuery Graphs with measures for trusted agentic workloads",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/tiro-security-infrastructure-with-kiro-iso27001-certification/",
+      "title": "Tiro의 Kiro를 활용한 보안 인프라 구축과 ISO/IEC 27001:2022 인증 취득 여정",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-13-license-data-quality-improvements",
+      "title": "License data quality improvements",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-13-block-users-from-comments-in-personal-repositories",
+      "title": "Block users from comments in personal repositories",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot",
+      "title": "Gemini 3.7 Flash is now available in GitHub Copilot",
+      "published_date": "2026-08-14",
+      "expires_at": "2026-08-21T01:11:20.299352+00:00"
     }
   ]
 }
