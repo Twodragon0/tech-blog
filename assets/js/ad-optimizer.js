@@ -15,20 +15,11 @@
     const container = document.createElement('div');
     container.className = 'ad-container';
     
-    // 광고 타입에 따라 최소 높이 설정
-    const adData = adElement.getAttribute('data-ad-slot') || 
-                   adElement.getAttribute('data-ad-format') || '';
-    
-    // 광고 포맷에 따른 높이 설정
-    if (adData.includes('horizontal') || adData.includes('banner')) {
-      container.style.minHeight = '90px'; // 728x90 또는 970x90
-    } else if (adData.includes('vertical') || adData.includes('sidebar')) {
-      container.style.minHeight = '600px'; // 300x600 또는 160x600
-    } else if (adData.includes('rectangle')) {
-      container.style.minHeight = '250px'; // 300x250
-    } else {
-      container.style.minHeight = '250px'; // 기본값
-    }
+    // 높이 예약 없음 (2026-08-14). 예약해 두었다가 접는 것이 곧 레이아웃
+    // 시프트다. head.html 의 :has() 규칙이 unfilled 광고의 컨테이너를
+    // display:none 으로 지우므로, 여기서 90/250/600px 을 잡아두면 그 순간
+    // 독자가 보던 자리에서 그만큼이 사라진다. 실측 게재율은 0/4·0/3.
+    // 측정: scripts/dev/measure_ad_collapse_cls.mjs (0.0575 -> 0.0039)
 
     // 광고를 컨테이너로 이동
     adElement.parentNode.insertBefore(container, adElement);
@@ -54,10 +45,11 @@
       attributeFilter: ['style']
     });
 
-    // 10초 후 타임아웃
+    // 10초 후 타임아웃. 예약 높이를 더 이상 잡지 않으므로 위 observer 가 하는
+    // minHeight='auto' 는 사실상 no-op 이지만, 광고가 실제로 채워졌을 때
+    // 컨테이너가 iframe 높이를 그대로 따르도록 두는 안전장치로 남긴다.
     setTimeout(function() {
       observer.disconnect();
-      // 광고가 로드되지 않아도 최소 높이 유지 (CLS 방지)
     }, 10000);
   }
 
@@ -70,9 +62,9 @@
     
     ads.forEach(function(ad) {
       wrapAdInContainer(ad);
-      // 직접 스타일 적용으로 CLS 방지 강화
-      if (!ad.style.minHeight) {
-        ad.style.minHeight = '250px';
+      // minHeight 예약 없음 — 접힐 높이를 잡아두지 않는다. contain 은 시프트가
+      // 생기더라도 전파 범위를 제한하므로 유지.
+      if (!ad.style.contain) {
         ad.style.display = 'block';
         ad.style.contain = 'layout style';
         ad.style.width = '100%';
@@ -88,7 +80,6 @@
         // aspect-ratio 설정으로 CLS 방지
         if (!ad.style.aspectRatio) {
           ad.style.aspectRatio = 'auto';
-          ad.style.minHeight = '250px';
           ad.style.display = 'block';
           ad.style.contain = 'layout style';
         }
@@ -112,7 +103,6 @@
                 )) {
                 wrapAdInContainer(node);
                 // 즉시 스타일 적용
-                node.style.minHeight = '250px';
                 node.style.display = 'block';
                 node.style.contain = 'layout style';
                 node.style.width = '100%';
@@ -125,7 +115,6 @@
               if (ads) {
                 ads.forEach(function(ad) {
                   wrapAdInContainer(ad);
-                  ad.style.minHeight = '250px';
                   ad.style.display = 'block';
                   ad.style.contain = 'layout style';
                   ad.style.width = '100%';

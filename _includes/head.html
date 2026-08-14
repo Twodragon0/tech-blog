@@ -566,14 +566,18 @@
       height: 0 !important;
       min-height: 0 !important;
     }
-    /* CLS prevention: reserve space for ads before they load */
+    /* CLS: reserve NOTHING (2026-08-14). Reserving space you then collapse is
+       itself the layout shift. The rules above delete .ad-container the moment
+       AdSense reports data-ad-status="unfilled", and measured fill rate on this
+       site is 0/4 and 0/3 — so the reservation's only reliable effect was to
+       drop 250px out from under whatever the reader was looking at.
+       Measured on a local build by driving the real transition (set
+       data-ad-status="unfilled", let the :has() rules above collapse the
+       container): 0.0575 with the reservation, 0.0039 without.
+       Harness: scripts/dev/measure_ad_collapse_cls.mjs
+       `contain` stays — it limits how far a shift propagates if one happens. */
     .adsbygoogle:not([data-ad-status]) {
-      min-height: 100px;
       contain: layout style;
-    }
-    .adsbygoogle[data-ad-format="fluid"]:not([data-ad-status]),
-    .adsbygoogle[data-ad-layout="in-article"]:not([data-ad-status]) {
-      min-height: 250px;
     }
     .google-auto-placed {
       contain: layout style;
