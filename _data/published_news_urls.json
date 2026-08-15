@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-14T01:11:20.299444+00:00",
+  "updated_at": "2026-08-15T00:44:54.122106+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/07/dprk-linked-macos-malvertising-uses.html",
-      "title": "DPRK-Linked macOS Malvertising Uses Fake Updates to Deliver Crypto-Stealing Malw",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/balancing-speed-and-safety-a-control-framework-for-ai-coding-agents/",
-      "title": "Balancing speed and safety: A control framework for AI coding agents",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/anthropics-claude-breached-3-orgs-uploaded-pypi-malware-during-tests/",
-      "title": "Anthropic's Claude breached 3 orgs, uploaded PyPI malware during tests",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/threatsday-ai-powered-hacking-370.html",
-      "title": "ThreatsDay: AI-Powered Hacking, 370 Chrome Flaws, SonicWall Attacks, DNS Hijacki",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/azure-cosmos-db-flaw-exposed-platform.html",
-      "title": "Azure Cosmos DB Flaw Exposed Platform-Wide Key That Could Access Any Database",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
-      "title": "Gemini Robotics ER 2: powering robotics with video understanding, task orchestra",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-back-to-school-2026/",
-      "title": "Best in Class: Stream PC Games and Study on the Same Laptop With GeForce NOW",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-      "title": "Advancing the price-performance frontier with GPT-5.6",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://netflixtechblog.com/genrec-towards-llm-native-recommendation-at-netflix-f20be6f643e3?source=rss----2615bd06b42e---4",
-      "title": "GenRec: Towards LLM-Native Recommendation at Netflix",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/deploying-kimi-k3-on-aws/",
-      "title": "Deploying Kimi K3 on AWS",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/alloydb-adds-group-authentication-to-secure-enterprise-scale-and-ai-agents/",
-      "title": "AlloyDB adds group authentication to secure enterprise scale and AI agents",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise/",
-      "title": "Batten Down Your Packages: Mitigation Guidance for Supply Chain Compromise",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/how-karrot-built-a-large-scale-signing-key-management-system-with-aws-cloudhsm-part3/",
-      "title": "당근이 AWS CloudHSM으로 대규모 서명키 관리 시스템을 구축한 방법 – 3부: 서명 시스템 구현, 트러블슈팅, 무중단 키 전환",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/how-karrot-built-a-large-scale-signing-key-management-system-with-aws-cloudhsm-part2/",
-      "title": "당근이 AWS CloudHSM으로 대규모 서명키 관리 시스템을 구축한 방법– 2부: CloudHSM 아키텍처와 다계층 접근 제어",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/how-karrot-built-a-large-scale-signing-key-management-system-with-aws-cloudhsm-part1/",
-      "title": "당근이 AWS CloudHSM으로 대규모 서명키 관리 시스템을 구축한 방법 – 1부: 서명키 보안의 중요성과 서비스 선택",
-      "published_date": "2026-07-31",
-      "expires_at": "2026-08-07T01:58:42.641038+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/suspected-chinese-speaking-hackers.html",
       "title": "Suspected Chinese-Speaking Hackers Target Central Asian Governments With OctLurk",
@@ -1332,6 +1242,96 @@
       "title": "Gemini 3.7 Flash is now available in GitHub Copilot",
       "published_date": "2026-08-14",
       "expires_at": "2026-08-21T01:11:20.299352+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/how-anthropic-plans-to-watermark-claudes-ai-generated-text/",
+      "title": "How Anthropic plans to watermark Claude's AI-generated text",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-arrested-over-30m-bank-fraud-exploiting-service-provider-flaw/",
+      "title": "Hackers arrested over €30M bank fraud exploiting service provider flaw",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-macos-screen-sharing-flaw-to-deploy-monero-miner/",
+      "title": "Hackers exploit macOS Screen Sharing flaw to deploy Monero miner",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/the-modern-attack-chain-rethinking-google-workspace-security-in-the-age-of-ai/",
+      "title": "The Modern Attack Chain: Rethinking Google Workspace Security in the Age of AI",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/",
+      "title": "Max severity SAP Commerce Cloud flaw now targeted in attacks",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/",
+      "title": "Universitas Gadjah Mada, Indosat and NVIDIA Open Indonesia’s First University AI",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://www.chainalysis.com/blog/ml-role-in-blockchain-intelligence/",
+      "title": "Machine Learning Has a Specific Role in Blockchain Intelligence",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/custom-reward-functions-for-multi-turn-reinforcement-learning-with-amazon-nova-forge/",
+      "title": "Custom reward functions for multi-turn reinforcement learning with Amazon Nova F",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/building-agentic-workflows-with-sagemaker-ai-and-bedrock-agentcore/",
+      "title": "Building agentic workflows with SageMaker AI and Bedrock AgentCore",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-14-multiple-redirect-uris-and-token-refresh-for-oauth-apps",
+      "title": "Multiple redirect URIs and token refresh for OAuth apps",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot",
+      "title": "Grok 4.6 is now available in GitHub Copilot",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/reproducible-esp32-firmware-development-with-docker-and-docker-sandboxes/",
+      "title": "Reproducible ESP32 Firmware Development with Docker and Docker Sandboxes",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-13-github-copilot-weekly-releases-august-10",
+      "title": "GitHub Copilot weekly releases — August 10",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/08/14/eleven-minutes-zero-humans-building-a-self-healing-kubernetes-upgrade-pipeline-on-kairos/",
+      "title": "Eleven minutes, zero humans: Building a self-healing Kubernetes upgrade pipeline",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/edelman-financial-reveals-bitcoin-positio",
+      "title": "Edelman Financial, Tudor Investment Reveal Significant Bitcoin Holdings",
+      "published_date": "2026-08-15",
+      "expires_at": "2026-08-22T00:44:54.121997+00:00"
     }
   ]
 }

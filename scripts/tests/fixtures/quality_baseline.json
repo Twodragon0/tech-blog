@@ -3961,5 +3961,20 @@
       "cross_refs": 0,
       "length": 4
     }
+  },
+  "2026-08-15-Tech_Security_Weekly_Digest_AI_Security_Go_Cloud.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 3
+    }
   }
 }
