@@ -3976,5 +3976,20 @@
       "cross_refs": 0,
       "length": 3
     }
+  },
+  "2026-08-16-Tech_Security_Weekly_Digest_Botnet_AI_Threat_Agent.md": {
+    "total": 90,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 8,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
   }
 }

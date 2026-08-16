@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-15T00:44:54.122106+00:00",
+  "updated_at": "2026-08-16T00:46:09.217373+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/suspected-chinese-speaking-hackers.html",
-      "title": "Suspected Chinese-Speaking Hackers Target Central Asian Governments With OctLurk",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/hollowframe-loader-deploys-matryoshka.html",
-      "title": "HollowFrame Loader Deploys Matryoshka Backdoor in Spear-Phishing Attack on Law F",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/07/31/captivecrunch-midnight-blizzard-targets-travelers-worldwide-for-malware-delivery-and-credential-theft/",
-      "title": "CaptiveCrunch: Midnight Blizzard targets travelers worldwide for malware deliver",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/07/cheap-android-tv-boxes-pose-as-phones.html",
-      "title": "Cheap Android TV Boxes Pose as Phones and Turn Owners’ Broadband Into Proxies",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/hipaa-security-rule-on-aws-technical-safeguards-implementation-and-readiness-guidance/",
-      "title": "HIPAA Security Rule on AWS – Technical Safeguards Implementation and Readiness G",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://openai.com/index/advancing-responsible-ai-across-europe",
-      "title": "Advancing responsible AI across Europe",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://openai.com/index/building-abundant-intelligence",
-      "title": "Building abundant intelligence",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://openai.com/index/unive",
-      "title": "Univé builds an AI-ready workforce",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://netflixtechblog.com/modeling-device-capabilities-for-analytics-e7607acebde8?source=rss----2615bd06b42e---4",
-      "title": "Modeling Device Capabilities for Analytics",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/citadel-situational-awareness-stock-portfolio-ai-rout-reports?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Citadel buys bulk of Situational Awareness stock portfolio after AI rout: Report",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month/",
-      "title": "What’s new in AI infrastructure and orchestration this month",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
-      "title": "What’s new with Google Cloud",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-why-ai-threat-defense-is-the-new-boardroom-baseline/",
-      "title": "Cloud CISO Perspectives: Why AI Threat Defense is the new boardroom baseline",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/woowabros-deliveryrobot-with-awsiotcore/",
-      "title": "AWS IoT Core를 활용한, ‘우아한형제들’의 실외배달 로봇과 클라우드 리소스의 안전한 연결 구축기",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/a1mobilsoft-ops-automation-2/",
-      "title": "A1Mobilsoft의 운영 문의 자동화 여정 (2): 세 에이전트 구현과 사람 vs AI 검증",
-      "published_date": "2026-08-01",
-      "expires_at": "2026-08-08T02:00:37.307399+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/coldcard-hardware-wallet-flaw-linked-to.html",
       "title": "Coldcard Hardware Wallet Flaw Linked to $70 Million Bitcoin Theft in 41 Minutes",
@@ -1332,6 +1242,84 @@
       "title": "Edelman Financial, Tudor Investment Reveal Significant Bitcoin Holdings",
       "published_date": "2026-08-15",
       "expires_at": "2026-08-22T00:44:54.121997+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-evooo1bot-linux-botnet-turns-routers-into-traffic-relay-nodes/",
+      "title": "New Evooo1Bot Linux botnet turns routers into traffic relay nodes",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/08/15/how-to-tell-if-your-ai-platforms-accounts-have-been-hacked/",
+      "title": "How to tell if your AI platforms’ accounts have been hacked",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://www.tenable.com/blog/the-agentic-ai-threat-cluster-seven-incidents-three-actors-and-what-they-mean",
+      "title": "The Agentic AI threat cluster: Seven incidents, three actors, and what they mean",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bybit-launches-unitree-pre-ipo-perpetual-as-crypto-platforms-push-into-private-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bybit adds Unitree, Moonshot AI to pre-IPO perpetuals lineup",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/tokenized-stock-holders-double-to-13m-as-activity-grows?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Tokenized stock holders more than double as monthly volume surges",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-bottom-october-altcoins-basically-dead-swan-ceo?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin could bottom in October, altcoins are ‘basically dead,’ Swan CEO says",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/kalshi-stop-prediction-market-contracts-washington?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Kalshi ordered to stop broad range of prediction markets in Washington",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/galaxy-lowers-clarity-act-odds-10?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Galaxy lowers CLARITY Act odds to 10%",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32545",
+      "title": "celld - 셀프호스팅 가능한 분산 Durable Objects",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32544",
+      "title": "Graph 엔지니어링 vs Loop 엔지니어링: 실제로 달라진 것은 무엇인가",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32543",
+      "title": "내가 여전히 회의적인 이유",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32542",
+      "title": "Ask HN: 요즘 Hacker News를 어떻게 따라가시나요?",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32541",
+      "title": "Apple, App Store 외부 구매에 15% 수수료 부과 제안",
+      "published_date": "2026-08-16",
+      "expires_at": "2026-08-23T00:46:09.217267+00:00"
     }
   ]
 }
