@@ -819,6 +819,32 @@ serves the HTML.
 - [ ] Cache headers appropriate
 - [ ] Core Web Vitals checked
 
+#### Verifying a `web_vitals` analytics change actually shipped
+
+Changing `assets/js/performance-monitor.js` is not verified by CI going green —
+the bundle is minified at build time and Vercel deploys several minutes after
+merge. Confirm the **live** bundle, then the **event**:
+
+1. Poll the deployed bundle until the change appears (took ~5m30s for PR #554):
+   ```bash
+   curl -s https://tech.2twodragon.com/assets/js/performance-monitor.js \
+     | grep -o '__track("web_vitals"'
+   ```
+   Minification strips quotes from object keys, so grep for `metric_name:`
+   (no quotes), not `metric_name:"…"` — quoting the key silently matches nothing
+   and reads as "not deployed".
+2. Then verify the event in GA4 Realtime. Opening the page is **not** enough —
+   two gates must both be cleared:
+   - GA lazy-loads on first interaction (or a 10-12s idle fallback),
+     `assets/js/head-runtime.js:186-205`
+   - vitals flush on page **hide**, `assets/js/performance-monitor.js:87-90`
+
+   So: incognito → scroll/click → **switch tabs** → GA4 Realtime → `web_vitals`.
+   Max 3 events per session (LCP/INP/CLS); INP only if the reader interacted.
+
+Full event contract, custom-dimension registration, report specs, and the
+sampling bias this data carries: `notes/ga4-web-vitals-reporting.md`.
+
 ### Cost Optimization Checklist
 - [ ] API calls minimized (use Gemini CLI first)
 - [ ] Caching implemented where possible (7-day TTL)
