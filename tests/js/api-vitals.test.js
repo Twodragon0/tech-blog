@@ -320,6 +320,18 @@ describe('api/vitals — handler', () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
+  it('rejects an oversized pre-parsed body even with no Content-Length (chunked)', async () => {
+    // Chunked requests carry no Content-Length, so the header check cannot
+    // run and the parsed-object branch would otherwise be the one path
+    // with no cap at all.
+    const { default: handler } = await load();
+    const res = makeRes();
+    await handler(makeReq({
+      body: { p: '/', m: [{ n: 'LCP', v: 1, r: 'good', c: 'A'.repeat(5000) }] },
+    }), res);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it('still answers 204 when the upstream forward throws', async () => {
     fetchMock.mockRejectedValueOnce(new Error('network down'));
     vi.spyOn(console, 'error').mockImplementation(() => {});

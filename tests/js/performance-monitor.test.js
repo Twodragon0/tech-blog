@@ -421,6 +421,56 @@ describe('performance-monitor.js', () => {
       );
     });
 
+    it('strips the query string from an image src before it can leave the page', () => {
+      // metric_cause is forwarded to GA4. Today's srcs are first-party assets,
+      // but a template that ever renders a user-influenced src (an avatar or
+      // embed carrying a token) into a shifting element would otherwise ship
+      // that token to a third party with nobody reviewing it.
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const { observed, ctor } = setupPerformanceObserverStub();
+      const { fake } = buildFakeWindow({ PerformanceObserver: ctor });
+      runScript(fake);
+      const cls = getObserverByType(observed, 'layout-shift');
+      cls._cb({
+        getEntries: () => [
+          {
+            hadRecentInput: false,
+            value: 0.2,
+            sources: [{ node: { tagName: 'IMG', src: '/avatar.png?token=SECRET123&u=42', className: '' } }],
+          },
+        ],
+      });
+      expect(warn).toHaveBeenCalledWith(
+        '[Performance] CLS is high:',
+        expect.any(String),
+        '| Cause:',
+        'Image: /avatar.png',
+      );
+    });
+
+    it('strips the query string from an ad iframe src too', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const { observed, ctor } = setupPerformanceObserverStub();
+      const { fake } = buildFakeWindow({ PerformanceObserver: ctor });
+      runScript(fake);
+      const cls = getObserverByType(observed, 'layout-shift');
+      cls._cb({
+        getEntries: () => [
+          {
+            hadRecentInput: false,
+            value: 0.2,
+            sources: [{ node: { tagName: 'IFRAME', src: 'https://ads.example/x?click_id=abc&uid=9', className: '' } }],
+          },
+        ],
+      });
+      expect(warn).toHaveBeenCalledWith(
+        '[Performance] CLS is high:',
+        expect.any(String),
+        '| Cause:',
+        'Ad: https://ads.example/x',
+      );
+    });
+
     it('non-IMG element with className containing "img": still an Image cause via getAttribute fallback', () => {
       const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
       const { observed, ctor } = setupPerformanceObserverStub();

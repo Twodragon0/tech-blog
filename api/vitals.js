@@ -154,7 +154,19 @@ function readBody(req) {
 
   // Vercel parses application/json into req.body; sendBeacon Blobs arrive
   // that way too. Fall back to the raw string for other runtimes.
-  if (req.body && typeof req.body === 'object') return req.body;
+  if (req.body && typeof req.body === 'object') {
+    // A chunked request carries no Content-Length, so the header check above
+    // cannot have run. Re-measure rather than let the parsed-object path be
+    // the one branch with no cap.
+    if (!Number.isFinite(declared)) {
+      try {
+        if (JSON.stringify(req.body).length > CONFIG.MAX_BODY_BYTES) return null;
+      } catch {
+        return null; // circular or otherwise unserializable
+      }
+    }
+    return req.body;
+  }
   if (typeof req.body === 'string') {
     if (Buffer.byteLength(req.body, 'utf8') > CONFIG.MAX_BODY_BYTES) return null;
     try {

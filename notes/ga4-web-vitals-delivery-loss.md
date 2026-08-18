@@ -189,6 +189,14 @@ hide에서 `navigator.sendBeacon('/api/vitals', …)` → Vercel 함수가 GA4 M
 - **Rate limiting** — 기존 `api/lib/ratelimit.js` 재사용. 키는 `x-real-ip` 우선
   (`x-forwarded-for` 첫 항목은 클라이언트가 보낼 수 있어 헤더 회전으로 우회 가능)
 - `api_secret`은 응답·로그에 절대 포함하지 않음 (회귀 테스트로 고정)
+- `metric_cause`는 쿼리스트링을 제거하고 경로만 보낸다. 현재 소스는 퍼스트파티
+  이미지와 광고 iframe이라 식별 정보가 없지만, 사용자 영향 URL(토큰이 붙은 아바타·
+  임베드)이 시프트 요소로 렌더되는 순간 그 토큰이 검토 없이 제3자로 나가게 된다
+
+보안 리뷰(별도 레인)에서 HIGH 3건이 제기됐고 전부 반영됐다 — 레이트리밋 키
+(`x-real-ip` 우선), 본문 상한(Content-Length + chunked 대비 재측정),
+`*.vercel.app` 허용 제거. MEDIUM 2건 중 하나는 위 쿼리스트링 제거, 다른 하나는
+"동일 출처 검사가 직접 공격의 방어가 아니다"라는 주석 정정으로 해소했다.
 
 ### 알려진 한계 — `cid_source`
 

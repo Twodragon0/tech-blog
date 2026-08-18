@@ -238,6 +238,19 @@
       var clsEntries = [];
 
       // CLS cause analysis
+      //
+      // Element sources are forwarded to GA4 as `metric_cause`, so a URL's
+      // query string must be dropped before it leaves the page. Today's
+      // sources are first-party images and ad-network iframes and carry
+      // nothing identifying, but the moment a template renders a
+      // user-influenced src (an avatar or embed with a token) into a
+      // shifting element, that token would ride along to a third party
+      // without anyone reviewing it. The path alone identifies the element
+      // just as well for diagnosing a shift.
+      function stripQuery(url) {
+        return String(url).split('?')[0].split('#')[0];
+      }
+
       function analyzeCLSCause(entry) {
         var causes = [];
         if (entry.sources && entry.sources.length > 0) {
@@ -250,9 +263,9 @@
               var id = source.node.id || '';
 
               if (tagName === 'IMG' || (className && (className.includes('image') || className.includes('img')))) {
-                causes.push('Image: ' + (source.node.src || source.node.getAttribute('src') || 'unknown'));
+                causes.push('Image: ' + stripQuery(source.node.src || source.node.getAttribute('src') || 'unknown'));
               } else if (tagName === 'IFRAME' || (className && (className.includes('adsbygoogle') || className.includes('ad')))) {
-                causes.push('Ad: ' + (source.node.src || className || 'unknown'));
+                causes.push('Ad: ' + stripQuery(source.node.src || className || 'unknown'));
               } else if (tagName === 'DIV' && className && className.includes('card')) {
                 causes.push('Card: ' + className);
               } else if (tagName === 'SCRIPT') {
