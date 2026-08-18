@@ -142,14 +142,66 @@ hide에서 `navigator.sendBeacon('/api/vitals', …)` → Vercel 함수가 GA4 M
 
 ---
 
-## 5. 권장
+## 5. 결정 — 옵션 3 채택 (구현 완료)
 
-**옵션 3.** 세 지표를 모두 복구하는 유일한 안이고, 전송 수단은 이미 실측으로
-검증됐다. 옵션 2는 무문서 의존이라 조용히 깨질 위험이 크고, 옵션 1은 3분의 1만
-해결한다.
+세 지표를 모두 복구하는 유일한 안이고, 전송 수단은 이미 실측으로 검증됐다.
+옵션 2는 무문서 의존이라 조용히 깨질 위험이 크고, 옵션 1은 3분의 1만 해결한다.
 
-다만 옵션 3은 서버리스 엔드포인트라는 인프라가 늘어나므로, 트래픽 규모 대비
-호출 한도 확인이 선행되어야 한다.
+### ⚠️ 배포 전 필수 — `GA4_API_SECRET`
+
+**이 환경변수가 없으면 `/api/vitals`는 모든 리포트를 버린다.** gtag 경로는
+제거됐으므로, 시크릿 없이 배포하면 수집이 "일부"에서 **"전무"로 나빠진다.**
+반드시 배포 전에 설정할 것.
+
+1. GA4 → 관리 → 데이터 스트림 → 해당 스트림 → **Measurement Protocol API 비밀번호**
+   → 만들기
+2. Vercel → Project Settings → Environment Variables → `GA4_API_SECRET` 추가
+   (Production + Preview)
+3. 재배포
+
+설정 전에는 함수가 `[vitals] GA4_API_SECRET is not set; dropping report` 경고만
+남기고 204를 반환한다 (독자에게는 영향 없음).
+
+### 구성 요소
+
+| 파일 | 역할 |
+|---|---|
+| `assets/js/performance-monitor.js` | hide에서 3개 지표를 모아 `/api/vitals`로 beacon 1건 |
+| `api/vitals.js` | 검증 후 GA4 Measurement Protocol로 전달 |
+| `tests/js/api-vitals.test.js` | 엔드포인트 회귀 테스트 27건 |
+| `vercel.json` | `api/vitals.js` maxDuration 5s |
+
+전송 페이로드(압축 형태): `{"p":"/posts/foo/","m":[{"n":"LCP","v":1200,"r":"good"}]}`
+— `c`(원인)는 CLS에만 붙는다.
+
+### 공개 엔드포인트라서 건 방어
+
+인증 없는 POST 엔드포인트이므로 이벤트 주입 통로가 되지 않도록:
+
+- **POST 전용**, 그 외 405
+- **동일 출처 검증** — `Origin`/`Referer`가 사이트 호스트 또는 `*.vercel.app`이 아니면
+  드롭. 둘 다 없으면 드롭
+- **엄격한 검증** — 지표명·등급 allow-list, 값 범위, 지표 중복 금지, 최대 3건,
+  본문 2KB 상한, `metric_cause` 제어문자 제거 + 100자
+- **Rate limiting** — 기존 `api/lib/ratelimit.js` 재사용
+- `api_secret`은 응답·로그에 절대 포함하지 않음 (회귀 테스트로 고정)
+
+### 알려진 한계 — `cid_source`
+
+`_ga` 쿠키가 없는 방문자(= GA가 한 번도 안 돈, 바로 이 엔드포인트가 구하려는 세션)는
+Measurement Protocol이 요구하는 `client_id`를 만들어 낼 수밖에 없다. 합성 id는
+GA4에서 **새 사용자로 집계되어 사용자 수를 부풀린다.**
+
+그래서 모든 이벤트에 `cid_source` 파라미터를 붙인다 (`ga_cookie` | `synthetic`).
+사용자 수 지표를 볼 때는 `cid_source = ga_cookie`로 필터링해야 하며, 이 값을
+맞춤 측정기준으로 등록해 두는 것을 권장한다. 지표 분포(LCP/INP/CLS 값 자체)는
+양쪽 모두 유효하다.
+
+### 비용
+
+세션당 함수 호출 1회, maxDuration 5s. 연산량은 무시할 수준이나 **Vercel 플랜의
+함수 호출 한도는 트래픽 증가 시 확인이 필요하다** — 현재 트래픽 기준으로는
+측정하지 않았다.
 
 ---
 

@@ -49,6 +49,11 @@ Core Web Vitals 공식 기준과 동일하다.
 | Metric Name | 이벤트 | `metric_name` |
 | Metric Rating | 이벤트 | `metric_rating` |
 | Metric Cause | 이벤트 | `metric_cause` |
+| CID Source | 이벤트 | `cid_source` |
+
+`cid_source`는 `ga_cookie` / `synthetic` 두 값을 갖는다. `synthetic`은 `_ga` 쿠키가
+없어 서버가 `client_id`를 만들어 낸 경우이며 **새 사용자로 집계된다.** 사용자 수를
+볼 때는 이 측정기준으로 필터링해야 한다 (§5 참고).
 
 ### 2-2. 맞춤 측정항목 — 1개
 
@@ -141,11 +146,20 @@ GA4 자유 형식의 값 요약에는 백분위수가 있지만 p75가 없는 �
 
 ## 5. 데이터 해석 시 반드시 알아야 할 편향
 
-> **2026-08-18 갱신**: 아래 1~4는 실측 결과 **과소평가였다.** 이보다 훨씬 큰 유실
-> 경로(gtag의 5초 배치 타이머)가 따로 있다. 탭을 닫거나 사이트 내 다른 글로
-> 이동하면 `web_vitals`가 **전량 유실된다.** 측정 근거와 폴백 설계는
-> `notes/ga4-web-vitals-delivery-loss.md`. 아래 절은 그중 작은 쪽(경로 A)만
-> 다룬다.
+> **2026-08-18 갱신**: 아래 1~4는 실측 결과 **과소평가였다.** 훨씬 큰 유실
+> 경로(gtag의 5초 배치 타이머)가 따로 있었고, 탭을 닫거나 사이트 내 다른 글로
+> 이동하면 `web_vitals`가 전량 유실됐다.
+>
+> **이후 전송 경로를 gtag → 퍼스트파티 beacon(`/api/vitals` → Measurement
+> Protocol)으로 교체해 1~4와 배치 타이머 유실을 모두 해소했다.** 측정 근거·설계·
+> 배포 전 필수 환경변수는 `notes/ga4-web-vitals-delivery-loss.md`.
+>
+> 남은 한계는 하나다: `_ga` 쿠키가 없는 방문자는 합성 `client_id`로 집계되어
+> **사용자 수가 부풀려진다.** 이벤트에 `cid_source`(`ga_cookie` | `synthetic`)를
+> 붙여 두었으니 사용자 수 지표는 `ga_cookie`로 필터링할 것. 지표 값 분포는 양쪽
+> 모두 유효하다.
+>
+> 아래 1~4는 교체 이전의 gtag 경로에 대한 기록이다.
 
 이 데이터는 **모든 방문자를 대표하지 않는다.** 낙관적으로 치우친다.
 

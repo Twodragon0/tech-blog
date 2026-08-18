@@ -953,20 +953,65 @@ function runWithDoc(fakeWindow, fakeDoc) {
   new Function('window', 'document', SCRIPT_SOURCE)(fakeWindow, fakeDoc);
 }
 
+// Delivery is a first-party beacon to /api/vitals, NOT window.__track.
+//
+// Changed 2026-08-18 after measuring the gtag path: gtag batches dataLayer
+// pushes behind a ~5s timer while vitals are pushed at hide, so every session
+// that ended in a tab close or an internal link lost them (0/3 delivered at a
+// 2s leave-gap; 3/3 at 5s). A control navigator.sendBeacon fired from the same
+// visibilitychange handler was captured 1/1 at a 0ms gap, which is why the
+// transport moved. See notes/ga4-web-vitals-delivery-loss.md.
+//
+// What these tests pin: one beacon per hide, carrying every measured metric,
+// with the compact wire shape the endpoint validates.
+
+/** Stubs navigator.sendBeacon + Blob and captures what was sent. */
+function stubBeacon() {
+  const sent = [];
+  const sendBeacon = vi.fn((url, blob) => {
+    sent.push({ url, text: blob && blob._text });
+    return true;
+  });
+  vi.stubGlobal('navigator', { sendBeacon });
+  vi.stubGlobal('Blob', class FakeBlob {
+    constructor(parts, opts) {
+      this._text = parts.join('');
+      this.type = opts && opts.type;
+    }
+  });
+  return { sent, sendBeacon };
+}
+
+/** Beacon payloads, expanded to the readable param names GA4 receives. */
+function metricsFrom(sent) {
+  return sent.flatMap((s) => JSON.parse(s.text).m).map((m) => ({
+    metric_name: m.n,
+    metric_value: m.v,
+    metric_rating: m.r,
+    ...(m.c != null ? { metric_cause: m.c } : {}),
+  }));
+}
+
 describe('performance-monitor.js CLS', () => {
-  let track;
+  let sent;
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
 
   function boot() {
     const { observed, ctor } = setupPerformanceObserverStub();
     const { fake, listeners } = buildFakeWindow({ PerformanceObserver: ctor });
-    track = vi.fn();
-    fake.__track = track;
+    ({ sent } = stubBeacon());
     const { doc, fire } = buildFakeDocument();
     vi.spyOn(console, 'warn').mockImplementation(() => {});
     vi.spyOn(console, 'error').mockImplementation(() => {});
     runWithDoc(fake, doc);
     return { cls: clsObserverOf(observed), doc, fire, listeners, fake };
   }
+
+  const vitalFor = (name) => metricsFrom(sent).find((m) => m.metric_name === name) || null;
 
   it('reports the largest burst, not the sum, when bursts are >1s apart', () => {
     const { cls, doc, fire } = boot();
@@ -976,10 +1021,9 @@ describe('performance-monitor.js CLS', () => {
     doc.visibilityState = 'hidden';
     fire('visibilitychange');
 
-    const call = track.mock.calls.find((c) => c[1] && c[1].metric_name === 'CLS');
-    expect(call).toBeDefined();
-    expect(call[0]).toBe('web_vitals');
-    expect(call[1].metric_value).toBeCloseTo(0.05, 5);
+    expect(sent).toHaveLength(1);
+    expect(sent[0].url).toBe('/api/vitals');
+    expect(vitalFor('CLS').metric_value).toBeCloseTo(0.05, 5);
   });
 
   it('breaks the session after 5s even without a 1s gap', () => {
@@ -992,7 +1036,7 @@ describe('performance-monitor.js CLS', () => {
     doc.visibilityState = 'hidden';
     fire('visibilitychange');
     // First session (0..4500) = 0.12; the 5400 entry opens a new one at 0.02.
-    expect(track.mock.calls.find((c) => c[1].metric_name === 'CLS')[1].metric_value).toBeCloseTo(0.12, 5);
+    expect(vitalFor('CLS').metric_value).toBeCloseTo(0.12, 5);
   });
 
   it('ignores shifts that follow recent user input', () => {
@@ -1000,10 +1044,18 @@ describe('performance-monitor.js CLS', () => {
     feed(cls, [shift(0.4, 1000, true), shift(0.03, 1200)]);
     doc.visibilityState = 'hidden';
     fire('visibilitychange');
-    expect(track.mock.calls.find((c) => c[1].metric_name === 'CLS')[1].metric_value).toBeCloseTo(0.03, 5);
+    expect(vitalFor('CLS').metric_value).toBeCloseTo(0.03, 5);
   });
 
-  it('sends exactly once even if visibilitychange and pagehide both fire', () => {
+  it('sends the page path so per-page reports can join', () => {
+    const { cls, doc, fire } = boot();
+    feed(cls, [shift(0.05, 1000)]);
+    doc.visibilityState = 'hidden';
+    fire('visibilitychange');
+    expect(JSON.parse(sent[0].text).p).toBe('/posts/foo/');
+  });
+
+  it('sends exactly one beacon even if visibilitychange and pagehide both fire', () => {
     const { cls, doc, fire, listeners } = boot();
     feed(cls, [shift(0.05, 1000)]);
     doc.visibilityState = 'hidden';
@@ -1012,15 +1064,15 @@ describe('performance-monitor.js CLS', () => {
     const pagehide = listeners.filter((l) => l.evt === 'pagehide');
     expect(pagehide.length).toBeGreaterThan(0);
     pagehide.forEach((l) => l.handler());
-    const clsCalls = track.mock.calls.filter((c) => c[1].metric_name === 'CLS');
-    expect(clsCalls).toHaveLength(1);
+    expect(sent).toHaveLength(1);
+    expect(metricsFrom(sent).filter((m) => m.metric_name === 'CLS')).toHaveLength(1);
   });
 
   it('does not send while the page is still visible', () => {
     const { cls, fire } = boot();
     feed(cls, [shift(0.05, 1000)]);
     fire('visibilitychange'); // visibilityState stays 'visible'
-    expect(track).not.toHaveBeenCalled();
+    expect(sent).toHaveLength(0);
   });
 
   it('classifies the rating on the Core Web Vitals thresholds', () => {
@@ -1030,13 +1082,14 @@ describe('performance-monitor.js CLS', () => {
       feed(cls, [shift(value, 1000)]);
       doc.visibilityState = 'hidden';
       fire('visibilitychange');
-      expect(track.mock.calls.find((c) => c[1].metric_name === 'CLS')[1].metric_rating).toBe(expected);
+      expect(vitalFor('CLS').metric_rating).toBe(expected);
     }
   });
 
-  it('survives a page where __track was never defined', () => {
+  it('survives a browser without navigator.sendBeacon', () => {
     const { observed, ctor } = setupPerformanceObserverStub();
     const { fake } = buildFakeWindow({ PerformanceObserver: ctor });
+    vi.stubGlobal('navigator', {});
     const { doc, fire } = buildFakeDocument();
     vi.spyOn(console, 'warn').mockImplementation(() => {});
     runWithDoc(fake, doc);
@@ -1046,7 +1099,7 @@ describe('performance-monitor.js CLS', () => {
   });
 });
 
-// --- LCP / INP: same web_vitals event as CLS -------------------------------
+// --- LCP / INP: same web_vitals payload as CLS -----------------------------
 //
 // Added 2026-08-14 alongside the CLS reporter. Two defects are pinned here:
 //
@@ -1066,13 +1119,17 @@ function observerWithType(observed, type) {
 }
 
 describe('performance-monitor.js LCP/INP', () => {
-  let track;
+  let sent;
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
 
   function boot() {
     const { observed, ctor } = setupPerformanceObserverStub();
     const { fake } = buildFakeWindow({ PerformanceObserver: ctor });
-    track = vi.fn();
-    fake.__track = track;
+    ({ sent } = stubBeacon());
     const { doc, fire } = buildFakeDocument();
     vi.spyOn(console, 'warn').mockImplementation(() => {});
     vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -1085,10 +1142,7 @@ describe('performance-monitor.js LCP/INP', () => {
     };
   }
 
-  function vitalFor(name) {
-    const call = track.mock.calls.find((c) => c[1] && c[1].metric_name === name);
-    return call ? call[1] : null;
-  }
+  const vitalFor = (name) => metricsFrom(sent).find((m) => m.metric_name === name) || null;
 
   it('falls back to startTime when renderTime is absent (cross-origin LCP image)', () => {
     const { lcp, hide } = boot();
@@ -1172,13 +1226,23 @@ describe('performance-monitor.js LCP/INP', () => {
     expect(eventOpts.buffered).toBe(true);
   });
 
-  it('flushes every metric on a single hide, and only once', () => {
+  it('flushes every metric in ONE beacon on a single hide, and only once', () => {
     const { lcp, inp, hide } = boot();
     feed(lcp, [{ renderTime: 1200 }]);
     feed(inp, [{ interactionId: 1, duration: 90 }]);
     hide();
     hide();
-    const names = track.mock.calls.map((c) => c[1].metric_name).sort();
+    expect(sent).toHaveLength(1);
+    const names = metricsFrom(sent).map((m) => m.metric_name).sort();
     expect(names).toEqual(['CLS', 'INP', 'LCP']);
+  });
+
+  it('uses the compact wire shape the endpoint validates', () => {
+    const { lcp, hide } = boot();
+    feed(lcp, [{ renderTime: 1200 }]);
+    hide();
+    const body = JSON.parse(sent[0].text);
+    expect(Object.keys(body).sort()).toEqual(['m', 'p']);
+    expect(body.m.find((m) => m.n === 'LCP')).toEqual({ n: 'LCP', v: 1200, r: 'good' });
   });
 });
