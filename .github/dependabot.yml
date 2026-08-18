@@ -117,6 +117,21 @@ updates:
       # with `pip install --dry-run 'moviepy>=2.0' 'Pillow>=12.0'`.
       - dependency-name: "Pillow"
         update-types: ["version-update:semver-major"]
+      # graphviz is capped by diagrams, not by preference.
+      #
+      # diagrams 0.25.1 (latest on 2026-08-18) declares
+      # `graphviz<0.21.0,>=0.13.2`, and NO diagrams release ever published
+      # allows graphviz>=0.21 — `pip install diagrams 'graphviz>=0.21'` is
+      # ResolutionImpossible across all 49 versions. Unlike the Pillow case
+      # this one fails loudly rather than silently downgrading, but merging it
+      # still breaks `pip install -r scripts/requirements.txt` outright.
+      # PR #562 was exactly this.
+      #
+      # graphviz is 0.x, so a 0.20 -> 0.21 bump is semver-minor.
+      # Remove this once diagrams relaxes the cap; re-check with
+      # `pip install --dry-run diagrams 'graphviz>=0.21'`.
+      - dependency-name: "graphviz"
+        update-types: ["version-update:semver-minor"]
     labels:
       - "dependencies"
       - "python"
