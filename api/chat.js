@@ -55,7 +55,8 @@ function generateRequestId() {
 }
 
 // Bot 보호: User-Agent 검증
-function isBotUserAgent(userAgent) {
+// Exported for api/__tests__/chat-validation.test.js.
+export function isBotUserAgent(userAgent) {
   if (!userAgent) return true; // User-Agent가 없으면 봇으로 간주
   
   const botPatterns = [
@@ -772,7 +773,8 @@ export function sanitizeInput(input) {
 }
 
 // URL 검증 함수 (보안 강화)
-function validateUrl(url) {
+// Exported for api/__tests__/chat-validation.test.js.
+export function validateUrl(url) {
   if (typeof url !== 'string' || !url.trim()) {
     return null;
   }
