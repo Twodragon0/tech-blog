@@ -157,6 +157,24 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    ignore:
+      # Same moviepy constraint as the /scripts entry above — repeated here
+      # because the ignore list is per-update-entry, not per-file, and this
+      # root entry reaches scripts/requirements.txt too.
+      #
+      # PR #560 added the ignore only to /scripts. Dependabot then re-proposed
+      # the identical `Pillow>=11.3.0,<12.0` -> `>=12.3.0,<13.0` edit to
+      # scripts/requirements.txt from THIS entry (PR #572), walking straight
+      # around it. Guarding one entry guards one entry.
+      #
+      # Cost of the blunt instrument: requirements-visual.txt (pillow 12, no
+      # moviepy) and requirements-blogwatcher.txt (Pillow>=10.0, no moviepy)
+      # also stop receiving major bumps. Both are floors with no ceiling
+      # conflict, so pip still installs current Pillow for those workflows —
+      # only the declared floor goes stale. If that ever matters, split the
+      # root entry per-file rather than dropping this.
+      - dependency-name: "Pillow"
+        update-types: ["version-update:semver-major"]
     labels:
       - "dependencies"
       - "python"
