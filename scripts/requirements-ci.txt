@@ -5,3 +5,20 @@ pytest-cov>=7.1.0
 requests>=2.28.0
 beautifulsoup4>=4.12.0
 qrcode>=8.2
+
+# Pillow — without it TestGenerateAndCommitRasterVariants `importorskip("PIL")`-skips,
+# so the two tests written to reproduce the 2026-05-27/28 blogwatcher bug (Pillow
+# absent on the cron runner, raster variants therefore never emitted) had never once
+# executed in CI. `_generate_and_commit_raster_variants` encodes _og/_card .avif and
+# .webp, and AVIF is why the floor is 11.3.0: that is the release where Pillow gained
+# native AVIF encoding (verified `features.check("avif") is True` at exactly 11.3.0).
+# No <12 ceiling here — the ceiling in scripts/requirements.txt exists for moviepy,
+# which this file does not install.
+Pillow>=11.3.0
+
+# fonttools[woff] — test_font_tier_split opens the shipped tier-1/tier-2 .woff2 with
+# fontTools.ttLib to assert their cmaps match the declared unicode-range split. woff2
+# decompression needs brotli, and only the [woff] extra pulls it in: plain `fonttools`
+# imports fine and then cannot open the files, so the extra is the load-bearing part
+# of this line, not the version.
+fonttools[woff]>=4.55.0
