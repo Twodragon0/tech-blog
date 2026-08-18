@@ -99,6 +99,24 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    ignore:
+      # Pillow majors are held back by moviepy, not by preference.
+      #
+      # moviepy 2.2.1 (latest on 2026-08-18) declares
+      # `Requires-Dist: pillow<12.0,>=9.2.0`, and every 2.x release does the
+      # same — `pip install 'moviepy>=2.0' 'Pillow>=12.3.0'` is
+      # ResolutionImpossible. Allowing Pillow 12 here does not fail loudly:
+      # pip resolves moviepy DOWN to 1.0.3 instead, whose __init__.py exports
+      # only __version__. scripts/generate_post_images.py:100 does
+      # `from moviepy import AudioFileClip, ImageClip, concatenate_videoclips`
+      # (the 2.x top-level API), that import raises, and because it sits in a
+      # try/except the only symptom is video generation silently stopping with
+      # CI still green. PR #488 was exactly this.
+      #
+      # Remove this once moviepy ships a release allowing pillow>=12; re-check
+      # with `pip install --dry-run 'moviepy>=2.0' 'Pillow>=12.0'`.
+      - dependency-name: "Pillow"
+        update-types: ["version-update:semver-major"]
     labels:
       - "dependencies"
       - "python"
