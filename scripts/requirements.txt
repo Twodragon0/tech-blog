@@ -29,4 +29,4 @@ cairosvg>=2.9.0,<3.0
 
 # AWS 아키텍처 다이어그램 생성
 diagrams>=0.25.1
-graphviz>=0.20.0
+graphviz>=0.21
