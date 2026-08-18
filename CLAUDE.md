@@ -842,6 +842,12 @@ merge. Confirm the **live** bundle, then the **event**:
    So: incognito → scroll/click → **switch tabs** → GA4 Realtime → `web_vitals`.
    Max 3 events per session (LCP/INP/CLS); INP only if the reader interacted.
 
+   **A green Realtime check does not mean field collection works.** Switching
+   tabs keeps the page alive, which is the one exit that clears gtag's ~5s
+   batch timer. Closing the tab or clicking an internal link loses the events
+   entirely — measured, see `notes/ga4-web-vitals-delivery-loss.md`. Reproduce
+   with `node scripts/dev/measure_ga_pending_loss.mjs`.
+
 Full event contract, custom-dimension registration, report specs, and the
 sampling bias this data carries: `notes/ga4-web-vitals-reporting.md`.
 
