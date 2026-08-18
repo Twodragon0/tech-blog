@@ -1086,6 +1086,25 @@ describe('performance-monitor.js CLS', () => {
     }
   });
 
+  it('does not beacon from the GitHub Pages backup or a preview host', () => {
+    // The same bundle is served by twodragon0.github.io, where /api/vitals is
+    // a 404 (the function only exists on Vercel), and preview deployments
+    // would pollute the production property.
+    const { observed, ctor } = setupPerformanceObserverStub();
+    const { fake } = buildFakeWindow({
+      hostname: 'twodragon0.github.io',
+      PerformanceObserver: ctor,
+    });
+    ({ sent } = stubBeacon());
+    const { doc, fire } = buildFakeDocument();
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    runWithDoc(fake, doc);
+    feed(clsObserverOf(observed), [shift(0.05, 1000)]);
+    doc.visibilityState = 'hidden';
+    fire('visibilitychange');
+    expect(sent).toHaveLength(0);
+  });
+
   it('survives a browser without navigator.sendBeacon', () => {
     const { observed, ctor } = setupPerformanceObserverStub();
     const { fake } = buildFakeWindow({ PerformanceObserver: ctor });

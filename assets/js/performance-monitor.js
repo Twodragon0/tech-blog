@@ -73,6 +73,11 @@
         }
         if (!vitalsBatch.length) return;
         if (!navigator.sendBeacon) return;
+        // The same bundle is served by the GitHub Pages backup, where
+        // /api/vitals does not exist (Vercel serves the function). Beaconing
+        // there is a guaranteed 404, and preview deployments would pollute the
+        // production property, so only the canonical host reports.
+        if (window.location.hostname !== 'tech.2twodragon.com') return;
         try {
           var body = JSON.stringify({
             p: window.location.pathname,
