@@ -38,6 +38,15 @@ function setupPerformanceObserverStub() {
     }
     observe(opts) {
       this.entryTypes = (opts && opts.entryTypes) || [];
+      // INP uses the single-`type` form (it needs durationThreshold), and
+      // calls observe() twice on the same observer. Record both shapes so a
+      // test can find that observer without disturbing the entryTypes
+      // assertions the older tests rely on.
+      this.types = this.types || [];
+      if (opts && opts.type) this.types.push(opts.type);
+      if (opts && opts.entryTypes) this.types.push(...opts.entryTypes);
+      this.observeOpts = this.observeOpts || [];
+      this.observeOpts.push(opts);
     }
     disconnect() {}
   }
@@ -967,11 +976,10 @@ describe('performance-monitor.js CLS', () => {
     doc.visibilityState = 'hidden';
     fire('visibilitychange');
 
-    expect(track).toHaveBeenCalledTimes(1);
-    const [name, params] = track.mock.calls[0];
-    expect(name).toBe('web_vitals');
-    expect(params.metric_name).toBe('CLS');
-    expect(params.metric_value).toBeCloseTo(0.05, 5);
+    const call = track.mock.calls.find((c) => c[1] && c[1].metric_name === 'CLS');
+    expect(call).toBeDefined();
+    expect(call[0]).toBe('web_vitals');
+    expect(call[1].metric_value).toBeCloseTo(0.05, 5);
   });
 
   it('breaks the session after 5s even without a 1s gap', () => {
@@ -984,7 +992,7 @@ describe('performance-monitor.js CLS', () => {
     doc.visibilityState = 'hidden';
     fire('visibilitychange');
     // First session (0..4500) = 0.12; the 5400 entry opens a new one at 0.02.
-    expect(track.mock.calls[0][1].metric_value).toBeCloseTo(0.12, 5);
+    expect(track.mock.calls.find((c) => c[1].metric_name === 'CLS')[1].metric_value).toBeCloseTo(0.12, 5);
   });
 
   it('ignores shifts that follow recent user input', () => {
@@ -992,7 +1000,7 @@ describe('performance-monitor.js CLS', () => {
     feed(cls, [shift(0.4, 1000, true), shift(0.03, 1200)]);
     doc.visibilityState = 'hidden';
     fire('visibilitychange');
-    expect(track.mock.calls[0][1].metric_value).toBeCloseTo(0.03, 5);
+    expect(track.mock.calls.find((c) => c[1].metric_name === 'CLS')[1].metric_value).toBeCloseTo(0.03, 5);
   });
 
   it('sends exactly once even if visibilitychange and pagehide both fire', () => {
@@ -1004,7 +1012,8 @@ describe('performance-monitor.js CLS', () => {
     const pagehide = listeners.filter((l) => l.evt === 'pagehide');
     expect(pagehide.length).toBeGreaterThan(0);
     pagehide.forEach((l) => l.handler());
-    expect(track).toHaveBeenCalledTimes(1);
+    const clsCalls = track.mock.calls.filter((c) => c[1].metric_name === 'CLS');
+    expect(clsCalls).toHaveLength(1);
   });
 
   it('does not send while the page is still visible', () => {
@@ -1021,7 +1030,7 @@ describe('performance-monitor.js CLS', () => {
       feed(cls, [shift(value, 1000)]);
       doc.visibilityState = 'hidden';
       fire('visibilitychange');
-      expect(track.mock.calls[0][1].metric_rating).toBe(expected);
+      expect(track.mock.calls.find((c) => c[1].metric_name === 'CLS')[1].metric_rating).toBe(expected);
     }
   });
 
@@ -1034,5 +1043,142 @@ describe('performance-monitor.js CLS', () => {
     feed(clsObserverOf(observed), [shift(0.05, 1000)]);
     doc.visibilityState = 'hidden';
     expect(() => fire('visibilitychange')).not.toThrow();
+  });
+});
+
+// --- LCP / INP: same web_vitals event as CLS -------------------------------
+//
+// Added 2026-08-14 alongside the CLS reporter. Two defects are pinned here:
+//
+// 1. LCP read only `entry.renderTime`. That field is absent for cross-origin
+//    images served without Timing-Allow-Origin, so LCP was silently dropped on
+//    exactly the pages most likely to have a slow one. `startTime` is the
+//    documented fallback.
+// 2. FID (the old observer, kept for its console warning) measures only the
+//    FIRST input's delay. INP measures every interaction's full duration and
+//    replaced FID as a Core Web Vital in March 2024.
+//
+// "Not measured" must not be reported as 0: a page nobody interacted with has
+// no INP, and reporting 0 would fake a perfect score.
+
+function observerWithType(observed, type) {
+  return observed.find((o) => (o.types || []).includes(type));
+}
+
+describe('performance-monitor.js LCP/INP', () => {
+  let track;
+
+  function boot() {
+    const { observed, ctor } = setupPerformanceObserverStub();
+    const { fake } = buildFakeWindow({ PerformanceObserver: ctor });
+    track = vi.fn();
+    fake.__track = track;
+    const { doc, fire } = buildFakeDocument();
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    runWithDoc(fake, doc);
+    const hide = () => { doc.visibilityState = 'hidden'; fire('visibilitychange'); };
+    return {
+      lcp: observerWithType(observed, 'largest-contentful-paint'),
+      inp: observerWithType(observed, 'event'),
+      hide,
+    };
+  }
+
+  function vitalFor(name) {
+    const call = track.mock.calls.find((c) => c[1] && c[1].metric_name === name);
+    return call ? call[1] : null;
+  }
+
+  it('falls back to startTime when renderTime is absent (cross-origin LCP image)', () => {
+    const { lcp, hide } = boot();
+    feed(lcp, [{ startTime: 3200 }]); // no renderTime
+    hide();
+    expect(vitalFor('LCP')).toMatchObject({ metric_value: 3200, metric_rating: 'needs-improvement' });
+  });
+
+  it('prefers renderTime when the browser provides it', () => {
+    const { lcp, hide } = boot();
+    feed(lcp, [{ startTime: 3200, renderTime: 1800 }]);
+    hide();
+    expect(vitalFor('LCP').metric_value).toBe(1800);
+  });
+
+  it('takes the last LCP entry, not the first', () => {
+    const { lcp, hide } = boot();
+    feed(lcp, [{ renderTime: 900 }]);
+    feed(lcp, [{ renderTime: 2600 }]);
+    hide();
+    expect(vitalFor('LCP').metric_value).toBe(2600);
+  });
+
+  it('does not report LCP when no entry ever arrived', () => {
+    const { hide } = boot();
+    hide();
+    expect(vitalFor('LCP')).toBeNull();
+  });
+
+  it('groups INP entries by interactionId and keeps the longest per group', () => {
+    const { inp, hide } = boot();
+    // One interaction emitting three entries; only 180 should count.
+    feed(inp, [
+      { interactionId: 7, duration: 56 },
+      { interactionId: 7, duration: 180 },
+      { interactionId: 7, duration: 92 },
+    ]);
+    hide();
+    expect(vitalFor('INP')).toMatchObject({ metric_value: 180, metric_rating: 'good' });
+  });
+
+  it('reports the worst interaction when there are fewer than 50', () => {
+    const { inp, hide } = boot();
+    feed(inp, [
+      { interactionId: 1, duration: 120 },
+      { interactionId: 2, duration: 640 },
+      { interactionId: 3, duration: 300 },
+    ]);
+    hide();
+    expect(vitalFor('INP')).toMatchObject({ metric_value: 640, metric_rating: 'poor' });
+  });
+
+  it('steps off the worst interaction once past 50 (uses index count/50)', () => {
+    const { inp, hide } = boot();
+    // 100 interactions -> index 2 of the descending list, i.e. the 3rd worst.
+    const entries = [];
+    for (let i = 1; i <= 100; i += 1) entries.push({ interactionId: i, duration: i });
+    feed(inp, entries);
+    hide();
+    // Descending: 100, 99, 98 ... -> index 2 = 98.
+    expect(vitalFor('INP').metric_value).toBe(98);
+  });
+
+  it('ignores entries without an interactionId', () => {
+    const { inp, hide } = boot();
+    feed(inp, [{ duration: 5000 }, { interactionId: 0, duration: 4000 }]);
+    hide();
+    expect(vitalFor('INP')).toBeNull();
+  });
+
+  it('does not report INP when the reader never interacted', () => {
+    const { hide } = boot();
+    hide();
+    expect(vitalFor('INP')).toBeNull();
+  });
+
+  it('observes event entries with a durationThreshold so short ones are skipped', () => {
+    const { inp } = boot();
+    const eventOpts = inp.observeOpts.find((o) => o && o.type === 'event');
+    expect(eventOpts.durationThreshold).toBe(40);
+    expect(eventOpts.buffered).toBe(true);
+  });
+
+  it('flushes every metric on a single hide, and only once', () => {
+    const { lcp, inp, hide } = boot();
+    feed(lcp, [{ renderTime: 1200 }]);
+    feed(inp, [{ interactionId: 1, duration: 90 }]);
+    hide();
+    hide();
+    const names = track.mock.calls.map((c) => c[1].metric_name).sort();
+    expect(names).toEqual(['CLS', 'INP', 'LCP']);
   });
 });
