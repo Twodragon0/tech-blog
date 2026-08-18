@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-17T00:44:45.430690+00:00",
+  "updated_at": "2026-08-18T00:44:47.977954+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-teases-astra-its-next-major-ai-model-after-it-solves-10-long-standing-math-problems/",
-      "title": "OpenAI teases Astra, its next major AI model, after it solves 10 long-standing m",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/",
-      "title": "COLDCARD wallet RNG flaw likely linked to $88 million Bitcoin theft",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/google/google-chrome-may-soon-block-new-tab-hijacker-extensions-by-default/",
-      "title": "Google Chrome may soon block New Tab hijacker extensions by default",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/coldcard-exploit-sparks-bitcoin-flight-clarity-act-no-vote-or-no-vote-hodlers-digest-august-2?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Coldcard exploit sparks Bitcoin flight, ‘bullish’ crypto consolidation: Hodler’s",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://blog.cloudflare.com/agents-week-welcome/",
-      "title": "Welcome to Agents Week",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/strategy-leaves-preferred-strc-dividend-at-12-price-still-below-par?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Strategy leaves preferred STRC dividend at 12% as price still below par",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bnb-chain-legal-action-ex-employee-memecoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "BNB Chain pursues legal action after ex-employee’s memecoin launch",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/coldcard-biggest-sub-1-btc-transfer-ftx-cryptoquant?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Coldcard hack sparks biggest sub-1 BTC move since FTX: CryptoQuant",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Here’s what happened in crypto today",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/trump-media-2628-btc-crypto-com-4261-btc-holdings?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Trump Media sells another 2,628 BTC, holdings fall to 4,261 BTC",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32083",
-      "title": "Show GN: Reccoo – 윈도우 소리를 녹음해 주는 귀여운 픽셀 친구",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32081",
-      "title": "64비트 어셈블리의 기술",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32079",
-      "title": "Google이 RSS 피드 확산을 무너뜨리는 데 기여한 과정(2023)",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32078",
-      "title": "agent-device - AI 에이전트가 iOS/Android 기기를 제어하도록 돕는 CLI",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32077",
-      "title": "C에서 sizeof가 놀라울 정도로 파싱하기 어려운 이유",
-      "published_date": "2026-08-03",
-      "expires_at": "2026-08-10T01:57:49.477370+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/18-malicious-npm-packages-deliver-cross.html",
       "title": "18 Malicious npm Packages Deliver Cross-Platform RAT to Alibaba Tool Users",
@@ -1314,6 +1224,96 @@
       "title": "모든 빌어먹을 웹사이트",
       "published_date": "2026-08-17",
       "expires_at": "2026-08-24T00:44:45.430591+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/critical-gitlab-graphql-flaw-could-let.html",
+      "title": "Critical GitLab GraphQL Flaw Could Let Unauthenticated Attackers Delete Public P",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/snowflake-github-actions-flaw-lets_0330881554.html",
+      "title": "Snowflake GitHub Actions Flaw Lets Crafted Issues Trigger Command Injection",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/forminator-wordpress-flaw-can-enable.html",
+      "title": "Forminator WordPress Flaw Can Enable Unauthenticated RCE via Malicious PHP Uploa",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/cavern-c2-uses-dns-and-google-apps.html",
+      "title": "Cavern C2 Uses DNS and Google Apps Script to Blend Into Legitimate Traffic",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/weekly-recap-vmware-exploits-windows-0.html",
+      "title": "⚡ Weekly Recap: VMware Exploits, Windows 0-Day, MCP Attacks, Browser Hijacks and",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence/",
+      "title": "Securing the Infrastructure of Intelligence",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/gemini/google-gemini-pixel-football-club-partnerships/",
+      "title": "Get closer to the game with Gemini and Pixel",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://openai.com/index/the-defenders-window",
+      "title": "The Defender’s Window",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://openai.com/index/openai-joins-ports-pike-project",
+      "title": "OpenAI joins PORTS-Pike project",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://openai.com/index/new-policy-ideas-for-the-intelligence-age",
+      "title": "New policy ideas for the Intelligence Age",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ec2-application-status-checks-iam-role-manager-openai-daybreak-on-bedrock-and-more-august-17-2026/",
+      "title": "AWS Weekly Roundup: EC2 application status checks, IAM role manager, OpenAI Dayb",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/fnf-llm-gateway-on-amazon-bedrock/",
+      "title": "Amazon Bedrock 기반 사내 LLM, 키 발급부터 비용 차단까지: F&F의 LiteLLM 게이트웨이 운영 사례",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/evaluate-ai-agent-search-quality-with-amazon-opensearch-service-1/",
+      "title": "AI Agent를 위한 OpenSearch 검색 품질 평가하기 (Part 1)",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/make-zero-cves-your-new-default/",
+      "title": "Make zero CVEs your new default",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/08/17/welcome-falkey-the-falco-and-ky-the-kyverno-pyrenees/",
+      "title": "Welcome Falkey the Falco and Ky the Kyverno Pyrenees",
+      "published_date": "2026-08-18",
+      "expires_at": "2026-08-25T00:44:47.977854+00:00"
     }
   ]
 }
