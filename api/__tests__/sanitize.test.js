@@ -1,83 +1,19 @@
 /**
- * sanitizeInput 함수 단위 테스트
+ * sanitizeInput 단위 테스트
  *
- * 참고: sanitizeInput은 api/chat.js 내부 함수로 export되지 않아
- *       동일 로직을 이 파일에 복사했습니다.
- *       소스가 변경되면 이 함수도 동기화해야 합니다.
- *
- * Source mirrored from: api/chat.js (lines 586-658)
+ * api/chat.js 의 sanitizeInput 을 직접 import 한다.
+ * 예전에는 함수 본문을 이 파일에 손으로 복사해 두고 그 사본을 테스트했다.
+ * 사본은 원본과 조용히 어긋날 수 있어, 실제 sanitizer 가 망가져도 스위트는
+ * 초록으로 남는다 — 게이트로서 아무 것도 보장하지 못한다.
+ * (실제로 2026-08-18 시점에 사본과 원본이 이미 한 줄 어긋나 있었다. 의미는
+ *  같았지만, 다음 번에도 그러리라는 보장은 없다.)
  */
 
 import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
+import { sanitizeInput } from '../chat.js';
 
-// --- sanitizeInput 미러 (api/chat.js 와 동일 로직) ---
-function sanitizeInput(input) {
-  if (typeof input !== 'string') {
-    return '';
-  }
 
-  // null byte 제거
-  let sanitized = input.replace(/\0/g, '');
-
-  // 유니코드 정규화 (NFC)
-  sanitized = sanitized.normalize('NFC');
-
-  // 위험한 유니코드 조합 문자 제거
-  sanitized = sanitized.replace(/[\u200B-\u200D\uFEFF\u202A-\u202E\u2060-\u206F]/g, '');
-
-  // 유니코드 이스케이프 시퀀스 제거
-  sanitized = sanitized.replace(/\\u[0-9a-fA-F]{4}/g, '');
-  sanitized = sanitized.replace(/\\x[0-9a-fA-F]{2}/g, '');
-
-  // HTML 특수 문자 이스케이프
-  sanitized = sanitized
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#x27;')
-    .replace(/\//g, '&#x2F;')
-    .replace(/`/g, '&#x60;');
-
-  // 중복 이스케이프 방지
-  sanitized = sanitized
-    .replace(/&amp;amp;/g, '&amp;')
-    .replace(/&amp;lt;/g, '&lt;')
-    .replace(/&amp;gt;/g, '&gt;')
-    .replace(/&amp;quot;/g, '&quot;')
-    .replace(/&amp;#x27;/g, '&#x27;')
-    .replace(/&amp;#x2F;/g, '&#x2F;')
-    .replace(/&amp;#x60;/g, '&#x60;');
-
-  // 제어 문자 제거
-  sanitized = sanitized.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
-
-  // 위험한 패턴 제거
-  const dangerousPatterns = [
-    /javascript\s*:/gi,
-    /data\s*:\s*text\s*\/\s*html/gi,
-    /data\s*:\s*text\s*\/\s*javascript/gi,
-    /vbscript\s*:/gi,
-    /on\w+\s*=/gi,
-    /&lt;\s*script/gi,
-    /&lt;\s*iframe/gi,
-    /&lt;\s*object/gi,
-    /&lt;\s*embed/gi,
-    /&lt;\s*svg/gi,
-    /&lt;\s*math/gi,
-    /expression\s*\(/gi,
-    /url\s*\(/gi,
-    /import\s*\(/gi,
-  ];
-
-  for (const pattern of dangerousPatterns) {
-    sanitized = sanitized.replace(pattern, '');
-  }
-
-  return sanitized.trim();
-}
-// --- 미러 끝 ---
 
 describe('sanitizeInput - 기본 HTML 이스케이프', () => {
   test('<script> 태그를 엔티티로 변환한다', () => {

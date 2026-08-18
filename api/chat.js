@@ -694,7 +694,10 @@ export default async function handler(req, res) {
 // XSS 방지를 위한 입력 정제 함수 (강화)
 // 보안: 멀티바이트 문자, 유니코드 정규화, null byte, backtick, unicode escape 대응
 // 서버리스 환경 의존성 최소화를 위해 라이브러리 없이 구현
-function sanitizeInput(input) {
+// Exported so api/__tests__/sanitize.test.js can exercise THIS function.
+// It used to be tested against a hand-copied mirror of the body, which
+// meant the suite could stay green while the real sanitizer regressed.
+export function sanitizeInput(input) {
   if (typeof input !== 'string') {
     return '';
   }

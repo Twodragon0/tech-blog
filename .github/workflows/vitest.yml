@@ -1,14 +1,22 @@
 name: Vitest JS regression
 
-# Runs the Vitest suite under tests/js/ whenever PR / main push touches the
-# scripts under test or the test files themselves. Keeps the gate scoped:
-# unrelated content edits (_posts/**, docs/**) skip CI to save runner time.
+# Runs the JS regression suites whenever PR / main push touches the scripts
+# under test or the test files themselves. Keeps the gate scoped: unrelated
+# content edits (_posts/**, docs/**) skip CI to save runner time.
+#
+# Two runners, deliberately:
+#   tests/js/**       -> Vitest (jsdom), with the coverage floor
+#   api/__tests__/**  -> node:test, which is what those files import
+# The api/ suite existed since March 2026 but was wired to NO runner and had
+# never executed in CI; api/** was also missing from the path filters below,
+# so an api/ change triggered nothing at all.
 
 on:
   pull_request:
     paths:
       - "tests/js/**"
       - "assets/js/**"
+      - "api/**"
       - "package.json"
       - "package-lock.json"
       - "vitest.config.js"
@@ -19,6 +27,7 @@ on:
     paths:
       - "tests/js/**"
       - "assets/js/**"
+      - "api/**"
       - "package.json"
       - "package-lock.json"
       - "vitest.config.js"
@@ -54,3 +63,6 @@ jobs:
 
       - name: Run Vitest with coverage gate
         run: npm run test:coverage
+
+      - name: Run api/ suite (node:test)
+        run: npm run test:api
