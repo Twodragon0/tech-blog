@@ -179,11 +179,15 @@ hide에서 `navigator.sendBeacon('/api/vitals', …)` → Vercel 함수가 GA4 M
 인증 없는 POST 엔드포인트이므로 이벤트 주입 통로가 되지 않도록:
 
 - **POST 전용**, 그 외 405
-- **동일 출처 검증** — `Origin`/`Referer`가 사이트 호스트 또는 `*.vercel.app`이 아니면
-  드롭. 둘 다 없으면 드롭
+- **동일 출처 검증** — `Origin`/`Referer`가 정규 호스트가 아니면 드롭, 둘 다 없어도
+  드롭. `*.vercel.app`은 **허용하지 않는다** — 접미사 허용은 플랫폼의 모든 프로젝트를
+  들여보낸다. 클라이언트도 정규 호스트에서만 전송하므로 잃는 트래픽이 없다.
+  다만 이건 curl 같은 직접 공격의 방어가 아니다. 제3자 사이트가 **방문자 브라우저를
+  시켜** 대신 쏘는 것을 막을 뿐이고, 위조된 리포트의 피해는 아래 검증으로 묶인다
 - **엄격한 검증** — 지표명·등급 allow-list, 값 범위, 지표 중복 금지, 최대 3건,
   본문 2KB 상한, `metric_cause` 제어문자 제거 + 100자
-- **Rate limiting** — 기존 `api/lib/ratelimit.js` 재사용
+- **Rate limiting** — 기존 `api/lib/ratelimit.js` 재사용. 키는 `x-real-ip` 우선
+  (`x-forwarded-for` 첫 항목은 클라이언트가 보낼 수 있어 헤더 회전으로 우회 가능)
 - `api_secret`은 응답·로그에 절대 포함하지 않음 (회귀 테스트로 고정)
 
 ### 알려진 한계 — `cid_source`
