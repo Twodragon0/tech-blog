@@ -242,11 +242,30 @@ describe('api/vitals — handler', () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('accepts Vercel preview deployments', async () => {
+  it('rejects preview hosts — *.vercel.app would admit every project on the platform', async () => {
+    // The client only beacons from the canonical host, so there is no traffic
+    // to lose here, and allowing the suffix would let any vercel.app site post.
     const { default: handler } = await load();
     const res = makeRes();
     await handler(makeReq({ headers: { origin: 'https://tech-blog-abc123.vercel.app' } }), res);
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it('prefers x-real-ip over the spoofable x-forwarded-for for rate limiting', async () => {
+    const { checkRateLimit } = await import('../../api/lib/ratelimit.js');
+    checkRateLimit.mockClear();
+    const { default: handler } = await load();
+    await handler(makeReq({
+      headers: { origin: ORIGIN, 'x-real-ip': '198.51.100.9', 'x-forwarded-for': '1.2.3.4' },
+    }), makeRes());
+    expect(checkRateLimit).toHaveBeenCalledWith('198.51.100.9', 'anonymous');
+  });
+
+  it('rejects an oversized body even when the platform pre-parsed it', async () => {
+    const { default: handler } = await load();
+    const res = makeRes();
+    await handler(makeReq({ headers: { origin: ORIGIN, 'content-length': '999999' } }), res);
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it('drops the report when GA4_API_SECRET is not configured', async () => {

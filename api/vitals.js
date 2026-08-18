@@ -122,23 +122,36 @@ export function validatePayload(body) {
   return { metrics, path };
 }
 
-/** Only our own pages may post here. Missing Origin AND Referer is rejected. */
+/**
+ * Only our own pages may post here. Missing Origin AND Referer is rejected.
+ *
+ * This is NOT a defence against a direct attacker — curl can set any Origin.
+ * What it buys is that a third-party site cannot make its visitors' browsers
+ * post here. Forged reports are bounded by the validation below and cost
+ * nothing but analytics noise, so that is the right level of protection.
+ *
+ * The client only beacons from the canonical host (performance-monitor.js
+ * gates on it), so preview hosts are deliberately NOT allowed — permitting
+ * *.vercel.app would admit every project on the platform, not just this one.
+ */
 function isSameOrigin(req) {
   const origin = req.headers?.origin;
   const referer = req.headers?.referer;
   const candidate = origin || referer;
   if (!candidate) return false;
   try {
-    const host = new URL(candidate).host;
-    const allowed = new URL(CONFIG.SITE_ORIGIN).host;
-    // Vercel preview deployments are *.vercel.app under the same project.
-    return host === allowed || host.endsWith('.vercel.app');
+    return new URL(candidate).host === new URL(CONFIG.SITE_ORIGIN).host;
   } catch {
     return false;
   }
 }
 
 function readBody(req) {
+  // Content-Length covers both branches below; the string check alone would
+  // miss an oversized body that the platform already parsed into an object.
+  const declared = Number(req.headers?.['content-length']);
+  if (Number.isFinite(declared) && declared > CONFIG.MAX_BODY_BYTES) return null;
+
   // Vercel parses application/json into req.body; sendBeacon Blobs arrive
   // that way too. Fall back to the raw string for other runtimes.
   if (req.body && typeof req.body === 'object') return req.body;
@@ -154,6 +167,12 @@ function readBody(req) {
 }
 
 function clientIp(req) {
+  // x-real-ip is set by Vercel and cannot be spoofed; the first x-forwarded-for
+  // entry is client-supplied and can be. Preferring the former is what keeps
+  // the rate limiter from being trivially bypassed with a rotating header —
+  // same ordering and reasoning as api/chat.js:245-248.
+  const realIp = req.headers?.['x-real-ip'];
+  if (typeof realIp === 'string' && realIp.length > 0) return realIp;
   const forwarded = req.headers?.['x-forwarded-for'];
   if (typeof forwarded === 'string' && forwarded.length > 0) {
     return forwarded.split(',')[0].trim();
