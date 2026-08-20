@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-19T00:44:48.963928+00:00",
+  "updated_at": "2026-08-20T00:45:07.367784+00:00",
   "entries": [
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/08/04/chaindrop-supply-chain-compromise-anatomy-self-propagating-worm/",
-      "title": "ChainDrop supply chain compromise: Anatomy of a self-propagating worm",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/greatness-phaas-adds-device-code.html",
-      "title": "Greatness PhaaS Adds Device Code Phishing to Bypass MFA and Steal Tokens",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/openai-anthropic-ai-agents-targeted-real-people-and-systems-in-cyber-tests/",
-      "title": "OpenAI, Anthropic AI agents targeted real people and systems in cyber tests",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/keyv-linked-npm-worm-poisons-hundreds.html",
-      "title": "Keyv-Linked npm Worm Poisons Hundreds of Packages, Plants Claude Code and VS Cod",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/fake-adobe-and-zoom-updates-install.html",
-      "title": "Fake Adobe and Zoom Updates Install ScreenConnect for Persistent Remote Access",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://openai.com/index/third-party-cyber-evaluations-involving-openai-models",
-      "title": "Third-party cyber evaluations involving OpenAI models",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nsf-state-regional-ai-hub-program/",
-      "title": "NVIDIA Joins NSF State and Regional AI Hubs Program to Expand AI Research and Ed",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/alpamayo-2-super-open-model-now-available/",
-      "title": "NVIDIA Alpamayo 2 Super, the Frontier Open Model for Robotaxis and Autonomous Ve",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ai-storage-fms/",
-      "title": "As AI Increases Demands on Memory, Storage Steps Up",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance-contributions/",
-      "title": "AI Leaders Propose SAFE Guidelines for Cybersecurity Transparency",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/deep-dive-on-new-ai-powered-database-agents/",
-      "title": "Introducing Database Operations Agents: The future of autonomous database manage",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/retail/how-target-rebuilt-retail-discovery-with-spanner-graph/",
-      "title": "How Target is enhancing retail discovery and cutting database maintenance by 50%",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/automating-postgres-translations-with-database-migration-service/",
-      "title": "Multiple result sets: How Database Migration Service automates SQL server to Pos",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/financial-services/unlocking-agility-in-banking-with-an-api-ready-ecosystem-at-deutsche-bank/",
-      "title": "How Deutsche Bank unlocked agility with an API-ready ecosystem",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/chrome-enterprise/future-mode-part-2-the-foundation-for-securing-agentic-browsing/",
-      "title": "Future Mode Part 2: The foundation for securing agentic browsing",
-      "published_date": "2026-08-05",
-      "expires_at": "2026-08-12T01:47:55.444243+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/over-250-clickfix-domains-use-browser.html",
       "title": "Over 250 ClickFix Domains Use Browser Fingerprinting to Hide macOS Malware Lures",
@@ -1314,6 +1224,96 @@
       "title": "Building operational resilience with agentic AI in financial services",
       "published_date": "2026-08-19",
       "expires_at": "2026-08-26T00:44:48.963832+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/cloudflare-workers-spectre-attack-leaks.html",
+      "title": "Cloudflare Workers Spectre Attack Leaks JWT From Co-Located Worker at 12 Bits/Se",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/openai-pauses-frontier-rl-training-as.html",
+      "title": "OpenAI Pauses Frontier RL Training as It Tightens Defenses Against Unsafe AI Beh",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-confirms-chatgpt-is-down-as-logins-and-signups-fail/",
+      "title": "OpenAI confirms ChatGPT is down as logins and signups fail",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/silkparasite-espionage-campaign-targets.html",
+      "title": "SilkParasite Espionage Campaign Targets Central Asian Governments with Five New ",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/08/19/microsoft-named-a-leader-in-the-frost-radar-cloud-workload-protection-platforms-2026/",
+      "title": "Microsoft named a Leader in the Frost Radar™: Cloud Workload Protection Platform",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
+      "title": "Offering Zero Data Retention for frontier models",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/back-to-school-study-tools/",
+      "title": "5 new ways to level up your learning with Search",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://openai.com/index/replit",
+      "title": "Replit expands access to software creation with GPT-5.6 Luna",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/domain-and-publish-date-filters-for-web-search-on-agentcore/",
+      "title": "Domain and publish date filters for Web Search on AgentCore",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/automate-document-processing-with-quick-automate-and-the-idp-accelerator/",
+      "title": "Automate Document Processing with Quick Automate and the IDP Accelerator",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/serverless-apache-spark-on-google-cloud-architecture-ai-troubleshooting/",
+      "title": "Serverless Apache Spark on Google Cloud: Architecture Choices & AI Troubleshooti",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/lakehouse-runtime-catalog-helps-modernize-apache-hive/",
+      "title": "How to modernize Apache Hive using Google Cloud’s Lakehouse runtime catalog",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-19-codeql-2-26-3-improves-github-actions-queries-and-javascript-modeling",
+      "title": "CodeQL 2.26.3 improves GitHub Actions queries and JavaScript modeling",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-19-track-organization-code-quality-trends",
+      "title": "Track organization code quality trends",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/08/19/kyverno-is-a-platform-primitive-not-a-security-tool/",
+      "title": "Kyverno is a platform primitive, not a security tool",
+      "published_date": "2026-08-20",
+      "expires_at": "2026-08-27T00:45:07.367694+00:00"
     }
   ]
 }
