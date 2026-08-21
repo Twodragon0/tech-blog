@@ -1072,7 +1072,21 @@ describe('performance-monitor.js CLS', () => {
     fire('visibilitychange');
 
     expect(sent).toHaveLength(1);
-    expect(sent[0].url).toBe('/api/vitals');
+    expect(sent[0].url).toBe('/api/vitals/');
+
+    // The slash is not cosmetic: vercel.json sets `trailingSlash: true`, so the
+    // unslashed path answers 308 (measured on production, 1 redirect vs 0).
+    // A beacon fired at page hide should not spend a round trip on a redirect.
+    // Asserted against vercel.json rather than hard-coded so flipping that
+    // setting fails here instead of silently costing every reader a hop.
+    const vercelConfig = JSON.parse(
+      readFileSync(resolve(__dirname, '../../vercel.json'), 'utf8')
+    );
+    if (vercelConfig.trailingSlash === true) {
+      expect(sent[0].url.endsWith('/')).toBe(true);
+    } else {
+      expect(sent[0].url.endsWith('/')).toBe(false);
+    }
     expect(vitalFor('CLS').metric_value).toBeCloseTo(0.05, 5);
   });
 

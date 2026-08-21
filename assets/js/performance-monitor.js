@@ -83,8 +83,17 @@
             p: window.location.pathname,
             m: vitalsBatch
           });
+          // Trailing slash on purpose. vercel.json sets `trailingSlash: true`,
+          // so '/api/vitals' answers 308 -> '/api/vitals/' (measured on
+          // production 2026-08-21: 1 redirect vs 0 for the slashed path, both
+          // ending in 204). The redirect is followed by the browser and works,
+          // but this beacon is sent at page hide precisely because that is the
+          // moment the document is being torn down — paying an extra round trip
+          // there is the one place in the codebase where it is worth avoiding.
+          // Pinned by tests/js/performance-monitor.test.js against the
+          // vercel.json setting, so flipping trailingSlash fails loudly.
           navigator.sendBeacon(
-            '/api/vitals',
+            '/api/vitals/',
             new Blob([body], { type: 'application/json' })
           );
         } catch (err) {
