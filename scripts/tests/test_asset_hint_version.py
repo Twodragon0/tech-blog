@@ -20,12 +20,14 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-import pytest
-
 REPO = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(REPO / "scripts"))
 
-check_asset_hint_version = pytest.importorskip("check_asset_hint_version")
+# Imported hard, not via `pytest.importorskip`. The gate under test is a
+# first-party file with stdlib-only imports, so the only way this import can
+# fail is that `scripts/check_asset_hint_version.py` was deleted or renamed —
+# and then every test below has to go red, not quiet.
+import check_asset_hint_version  # noqa: E402
 
 check_file = check_asset_hint_version.check_file
 collect_versioned_assets = check_asset_hint_version.collect_versioned_assets

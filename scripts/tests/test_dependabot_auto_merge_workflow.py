@@ -66,8 +66,10 @@ def _strip_yaml_comments(text: str) -> str:
 
 @pytest.fixture(scope="module")
 def raw() -> str:
-    if not TARGET.is_file():
-        pytest.skip(f"{TARGET} not found")
+    # No existence skip here: `test_target_exists` is the canary for a
+    # moved/renamed workflow, and a skip would additionally silence the ~15
+    # tests below on the exact event this guard exists to catch. A missing
+    # file raises FileNotFoundError, which errors the tests instead.
     return TARGET.read_text(encoding="utf-8")
 
 

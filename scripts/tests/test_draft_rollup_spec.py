@@ -47,6 +47,15 @@ WEEKLY_CASES = [
     ("2026-04-19", "2026-04-19-Week3_April_2026_Security_Digest.md"),
 ]
 
+# These integration cases assert the drafter reproduces a hand-authored spec,
+# so an absent owning post makes them verify nothing. It is asserted rather
+# than skipped: the post disappearing is the drift this file is here to catch.
+_MISSING_POST_MSG = (
+    "owning post missing: {post_name}. It is required by this integration "
+    "case — restore it, or retire the case together with its hand spec under "
+    "_data/rollup_covers/."
+)
+
 
 def _load_hand_spec(date: str) -> dict:
     return yaml.safe_load((ROLLUP_DIR / f"{date}.yml").read_text(encoding="utf-8"))
@@ -125,8 +134,7 @@ def test_parse_frontmatter_returns_dict_and_body():
 @pytest.mark.parametrize("date,post_name", WEEKLY_CASES)
 def test_draft_reproduces_hand_spec_structure(date, post_name):
     post = POSTS_DIR / post_name
-    if not post.exists():
-        pytest.skip(f"owning post missing: {post_name}")
+    assert post.exists(), _MISSING_POST_MSG.format(post_name=post_name)
     hand = _load_hand_spec(date)
 
     spec = build_spec(post)
@@ -161,8 +169,7 @@ def test_draft_reproduces_hand_spec_structure(date, post_name):
 def test_draft_top_highlight_sources_are_daily_derived(date, post_name):
     """Every drafted top_highlight source must come from a daily's highlights."""
     post = POSTS_DIR / post_name
-    if not post.exists():
-        pytest.skip(f"owning post missing: {post_name}")
+    assert post.exists(), _MISSING_POST_MSG.format(post_name=post_name)
     fm, _ = parse_frontmatter(post.read_text(encoding="utf-8"))
     daily_sources: set = set()
     for (_y, _m, _d, slug) in daily_urls_from_redirects(fm.get("redirect_from")):
@@ -182,8 +189,7 @@ def test_draft_top_highlight_sources_are_daily_derived(date, post_name):
 @pytest.mark.parametrize("date,post_name", WEEKLY_CASES)
 def test_draft_severity_matches_enum(date, post_name):
     post = POSTS_DIR / post_name
-    if not post.exists():
-        pytest.skip(f"owning post missing: {post_name}")
+    assert post.exists(), _MISSING_POST_MSG.format(post_name=post_name)
     spec = build_spec(post)
     for d in spec["days"]:
         assert d["severity"] in {"HIGH", "MEDIUM", "LOW"}
@@ -192,8 +198,7 @@ def test_draft_severity_matches_enum(date, post_name):
 @pytest.mark.parametrize("date,post_name", WEEKLY_CASES)
 def test_rendered_draft_is_ascii_only_and_valid_yaml(date, post_name):
     post = POSTS_DIR / post_name
-    if not post.exists():
-        pytest.skip(f"owning post missing: {post_name}")
+    assert post.exists(), _MISSING_POST_MSG.format(post_name=post_name)
     spec = build_spec(post)
     text = render_yaml(spec)
 
@@ -214,8 +219,7 @@ def test_rendered_draft_is_ascii_only_and_valid_yaml(date, post_name):
 def test_resolve_owning_post_by_date_prefers_rollup_over_daily():
     """A date shared by a daily + a weekly rollup resolves to the rollup post."""
     week2 = POSTS_DIR / "2026-04-12-Week2_April_2026_Security_Digest.md"
-    if not week2.exists():
-        pytest.skip("Week2 rollup post missing")
+    assert week2.exists(), _MISSING_POST_MSG.format(post_name=week2.name)
     resolved = resolve_owning_post("2026-04-12")
     # The rollup (with daily redirect_from URLs) wins over the same-date daily.
     assert resolved.name.startswith("2026-04-12-Week")
