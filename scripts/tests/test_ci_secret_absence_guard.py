@@ -45,6 +45,15 @@ FAIL_CLOSED = (
     "slack-post-notify.yml",
     "slack-category-digest.yml",
     "googlebot-access-monitor.yml",
+    # Added 2026-08-21. Until then this workflow alerted through
+    # `secrets.SLACK_WEBHOOK`, which has never been configured, behind an
+    # `env.HAS_SLACK_WEBHOOK == 'true'` gate — so the channel had never fired
+    # once while the job reported success. Switched to the SLACK_BOT_TOKEN /
+    # SLACK_CHANNEL_ID pair the three workflows above already use, which makes
+    # it eligible for the same fail-closed rule: the step only runs after
+    # monitoring has already failed, so a missing secret means an alert about a
+    # real outage is being dropped.
+    "monitoring.yml",
 )
 
 # Secrets never configured -> fail-closed would be a permanently red cron.
