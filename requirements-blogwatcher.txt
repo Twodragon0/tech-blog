@@ -8,7 +8,7 @@
 # Convention: floor pins (>=), matching every other requirements file in the
 # repo (no hash-locking anywhere). Dependabot bumps these like any other dep.
 feedparser>=6.0.14
-requests>=2.28.0
+requests>=2.34.2
 beautifulsoup4>=4.15.0
 python-frontmatter>=1.0.0
 PyYAML>=6.0.3
