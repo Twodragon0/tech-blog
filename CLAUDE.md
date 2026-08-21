@@ -833,20 +833,24 @@ merge. Confirm the **live** bundle, then the **event**:
    Minification strips quotes from object keys, so grep for `metric_name:`
    (no quotes), not `metric_name:"…"` — quoting the key silently matches nothing
    and reads as "not deployed".
-2. Then verify the event in GA4 Realtime. Opening the page is **not** enough —
-   two gates must both be cleared:
-   - GA lazy-loads on first interaction (or a 10-12s idle fallback),
-     `assets/js/head-runtime.js:186-205`
-   - vitals flush on page **hide**, `assets/js/performance-monitor.js:87-90`
+2. Then verify delivery. Vitals no longer go through gtag — they flush at page
+   **hide** as one first-party beacon to `/api/vitals`, which forwards to GA4
+   server-side (`assets/js/performance-monitor.js:87-90`, `api/vitals.js`).
+   So check the transport first, then the destination:
+   - DevTools → Network → filter `vitals` → close the tab or click an internal
+     link. One POST to `/api/vitals`, status 204, with up to 3 metrics.
+   - Then GA4 Realtime → `web_vitals`. INP only appears if the reader
+     interacted; LCP/CLS appear regardless.
 
-   So: incognito → scroll/click → **switch tabs** → GA4 Realtime → `web_vitals`.
-   Max 3 events per session (LCP/INP/CLS); INP only if the reader interacted.
+   **`GA4_API_SECRET` must be set in Vercel or the endpoint drops everything.**
+   The gtag path is gone, so an unset secret means zero collection, not
+   degraded collection. The function logs
+   `[vitals] GA4_API_SECRET is not set` in that case.
 
-   **A green Realtime check does not mean field collection works.** Switching
-   tabs keeps the page alive, which is the one exit that clears gtag's ~5s
-   batch timer. Closing the tab or clicking an internal link loses the events
-   entirely — measured, see `notes/ga4-web-vitals-delivery-loss.md`. Reproduce
-   with `node scripts/dev/measure_ga_pending_loss.mjs`.
+Background on why the transport moved (gtag batches behind a ~5s timer and
+vitals are pushed at hide, so tab-close and internal navigation lost them
+entirely): `notes/ga4-web-vitals-delivery-loss.md`. Reproduce the old loss with
+`node scripts/dev/measure_ga_pending_loss.mjs`.
 
 Full event contract, custom-dimension registration, report specs, and the
 sampling bias this data carries: `notes/ga4-web-vitals-reporting.md`.

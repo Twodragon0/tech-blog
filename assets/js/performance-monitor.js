@@ -1,6 +1,7 @@
 // Performance Monitoring (Production Only)
 // Features: Long Tasks, LCP, FID, INP, CLS, Page Load, Resource Loading
-// Field metrics (LCP / INP / CLS) flush to GA4 as one `web_vitals` event at page hide.
+// Field metrics (LCP / INP / CLS) flush at page hide in one first-party beacon
+// to /api/vitals, which forwards them to GA4 as `web_vitals` events.
 // Extracted from _includes/performance-monitor.html
 
 (function() {
@@ -48,11 +49,19 @@
     // Web Vitals monitoring
     if ('PerformanceObserver' in window) {
       // --- Shared field-metric reporting ------------------------------------
-      // Every vital flushes through one GA4 event (`web_vitals`) at page hide.
-      // __track, not a direct dataLayer push: events fired before
-      // gtag('config') runs would otherwise be dropped.
+      // Every vital is collected at page hide and delivered in ONE first-party
+      // beacon to /api/vitals, which forwards to GA4 server-side.
+      //
+      // Not window.__track / gtag: gtag batches dataLayer pushes behind a ~5s
+      // timer (measured 5003-5005ms, n=4) and vitals are pushed at hide, so
+      // any session ending in a tab close or an internal link — nearly all of
+      // them on a non-SPA blog — died before that timer fired. Measured 0/3
+      // delivered at a 2s leave-gap vs 3/3 at 5s, with a control sendBeacon
+      // from the same handler captured 1/1 at 0ms. That control is why this
+      // transport was chosen. See notes/ga4-web-vitals-delivery-loss.md.
       var vitalsFlushed = false;
       var vitalsPending = [];
+      var vitalsBatch = [];
 
       function onHidden(fn) { vitalsPending.push(fn); }
 
@@ -62,17 +71,31 @@
         for (var vi = 0; vi < vitalsPending.length; vi++) {
           try { vitalsPending[vi](); } catch (err) { /* never block unload */ }
         }
+        if (!vitalsBatch.length) return;
+        if (!navigator.sendBeacon) return;
+        // The same bundle is served by the GitHub Pages backup, where
+        // /api/vitals does not exist (Vercel serves the function). Beaconing
+        // there is a guaranteed 404, and preview deployments would pollute the
+        // production property, so only the canonical host reports.
+        if (window.location.hostname !== 'tech.2twodragon.com') return;
+        try {
+          var body = JSON.stringify({
+            p: window.location.pathname,
+            m: vitalsBatch
+          });
+          navigator.sendBeacon(
+            '/api/vitals',
+            new Blob([body], { type: 'application/json' })
+          );
+        } catch (err) {
+          // Never block unload for analytics.
+        }
       }
 
       function sendVital(name, value, rating, cause) {
-        if (typeof window.__track !== 'function') return;
-        var params = {
-          metric_name: name,
-          metric_value: value,
-          metric_rating: rating
-        };
-        if (cause) params.metric_cause = String(cause).slice(0, 100);
-        window.__track('web_vitals', params);
+        var metric = { n: name, v: value, r: rating };
+        if (cause) metric.c = String(cause).slice(0, 100);
+        vitalsBatch.push(metric);
       }
 
       function rate(value, good, poor) {
@@ -215,6 +238,19 @@
       var clsEntries = [];
 
       // CLS cause analysis
+      //
+      // Element sources are forwarded to GA4 as `metric_cause`, so a URL's
+      // query string must be dropped before it leaves the page. Today's
+      // sources are first-party images and ad-network iframes and carry
+      // nothing identifying, but the moment a template renders a
+      // user-influenced src (an avatar or embed with a token) into a
+      // shifting element, that token would ride along to a third party
+      // without anyone reviewing it. The path alone identifies the element
+      // just as well for diagnosing a shift.
+      function stripQuery(url) {
+        return String(url).split('?')[0].split('#')[0];
+      }
+
       function analyzeCLSCause(entry) {
         var causes = [];
         if (entry.sources && entry.sources.length > 0) {
@@ -227,9 +263,9 @@
               var id = source.node.id || '';
 
               if (tagName === 'IMG' || (className && (className.includes('image') || className.includes('img')))) {
-                causes.push('Image: ' + (source.node.src || source.node.getAttribute('src') || 'unknown'));
+                causes.push('Image: ' + stripQuery(source.node.src || source.node.getAttribute('src') || 'unknown'));
               } else if (tagName === 'IFRAME' || (className && (className.includes('adsbygoogle') || className.includes('ad')))) {
-                causes.push('Ad: ' + (source.node.src || className || 'unknown'));
+                causes.push('Ad: ' + stripQuery(source.node.src || className || 'unknown'));
               } else if (tagName === 'DIV' && className && className.includes('card')) {
                 causes.push('Card: ' + className);
               } else if (tagName === 'SCRIPT') {

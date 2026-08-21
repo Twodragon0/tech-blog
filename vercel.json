@@ -429,6 +429,9 @@
     "api/chat.js": {
       "maxDuration": 60
     },
+    "api/vitals.js": {
+      "maxDuration": 5
+    },
     "api/search.js": {
       "maxDuration": 10
     },
