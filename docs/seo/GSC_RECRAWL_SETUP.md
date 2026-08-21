@@ -10,7 +10,11 @@ The automation lives in:
 
 - `scripts/gsc_inspect.py` — calls Search Console URL Inspection API (PR-1)
 - `scripts/gsc_priority.py` — scores and ranks URLs from the state file (PR-2)
-- `.github/workflows/gsc-queue-refresh.yml` — daily 06:00 UTC cron (PR-1 + PR-2)
+- `.github/workflows/gsc-queue-refresh.yml` — **`workflow_dispatch` only.** The
+  daily 06:00 UTC cron was removed on 2026-08-10 because
+  `GSC_SERVICE_ACCOUNT_JSON` has never been configured, so every scheduled run
+  reported success while doing nothing. See "Restoring the cron" below —
+  provisioning the secret alone does **not** start the schedule.
 - `requirements-gsc.txt` — isolated Python deps
 - `.omc/state/gsc-queue.json` — generated state (gitignored, artifact-only)
 - `.omc/state/gsc-queue-history/YYYY-MM-DD.json` — prior-day snapshots used
@@ -73,8 +77,48 @@ In the Cloud Console:
 2. Name: `GSC_SERVICE_ACCOUNT_JSON`.
 3. Value: paste the **raw JSON** content of the key file (NOT base64 — the
    script accepts both raw JSON and a path; raw JSON is simpler in CI).
-4. Save. The workflow `gsc-queue-refresh.yml` will detect the secret and run.
-   Without it, the workflow logs a clear warning and exits cleanly.
+4. Save. The workflow will now detect the secret, but it will **not** start
+   running on its own — the cron is gone (see above). Trigger the first real
+   run manually: **Actions → GSC Queue Refresh → Run workflow**. Then follow
+   "Restoring the cron" to make it recurring.
+
+### Restoring the cron (do this in the same PR as §5, not before)
+
+`scripts/tests/test_ci_secret_absence_guard.py` deliberately fails if the
+schedule comes back while the secret is still absent, because that pairing is
+the whole defect being prevented: a recurring green tick over zero work reads,
+on the Actions tab and in any audit of "what protects this repo", as a job that
+runs. Restoration is therefore four coupled edits:
+
+1. **Provision the secret** per §5 and confirm one `workflow_dispatch` run
+   actually inspects URLs — check the job summary for a non-empty
+   `inspected=… indexed=… discovered=…` line. Do not proceed on a green tick
+   alone; that is the exact signal that misled us for months.
+2. **Re-add the schedule** to `gsc-queue-refresh.yml`:
+   ```yaml
+   on:
+     schedule:
+       - cron: '0 6 * * *'   # 06:00 UTC daily
+     workflow_dispatch:
+       # ... keep the existing inputs block
+   ```
+3. **Flip the guard step fail-closed.** With the secret present, its absence at
+   runtime is a regression, not an optional-integration case. In the
+   "Guard — service-account secret must be present" step, change
+   `::warning::` → `::error::` and `exit 0` → `exit 1`.
+4. **Update the guard test in the same PR**: move `gsc-queue-refresh.yml` from
+   `NEVER_CONFIGURED` into `FAIL_CLOSED` in
+   `scripts/tests/test_ci_secret_absence_guard.py`. The test's own failure
+   message says this; it is the mechanism that forces steps 1-3 to happen
+   together rather than a cron landing months before the credential.
+
+The same secret also unblocks `scripts/gsc_checkpoint.py`, which has produced no
+checkpoint since 2026-05 (`.omc/research/` holds only
+`gsc_disparity_analysis_2026_05_21.md`). Its scheduling options are in
+`scripts/docs/gsc_checkpoint_scheduling.md` — note that its `--baseline-*`
+values there are from 2026-05-22 and are now stale. Re-read the current
+`Crawled/Discovered not indexed` totals from the GSC UI at provisioning time
+and pass those, rather than carrying the May numbers forward.
 
 ### 6. (Optional) Add the GSC site URL as a repo variable
 
