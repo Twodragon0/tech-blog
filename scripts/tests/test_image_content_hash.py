@@ -5,7 +5,20 @@ Plan: .omc/plans/image-content-hash-versioning.md (Step 1).
 The plugin computes SHA-256[0:8] of every image under assets/images/ and
 appends `?v={hash}` to image URLs at build time. These tests verify the
 behavior end-to-end by running a Jekyll build and inspecting the output
-HTML. Skips gracefully when `bundle` / `jekyll` is not available.
+HTML.
+
+Set ``REQUIRE_JEKYLL_BUILD=1`` to arm the gate: a missing ``bundle`` or a
+failing build becomes a **failure** instead of a skip. CI sets it on the
+pytest step in ``jekyll.yml``, where `Setup Ruby` has already run and the
+build empirically succeeds — measured on the 2026-08-21 build run, where the
+7 skips were 4 dependency skips plus 3 compiled-CSS ones and none of them
+came from this file.
+
+Unarmed (the default, for local shells) it still skips, because a dev box
+whose Ruby is shadowed — e.g. mise ahead of rbenv on PATH — should not have
+to fix its toolchain to run the other 4200 tests. What is no longer allowed
+is CI treating a failed build as "not applicable": a build that breaks while
+`bundle` is present is a defect, and skipping reported it as green.
 """
 
 from __future__ import annotations
@@ -47,10 +60,21 @@ def _bundle_available() -> bool:
     return shutil.which("bundle") is not None
 
 
+def _gate_is_armed() -> bool:
+    """True when a build that cannot run must fail rather than skip."""
+    return os.environ.get("REQUIRE_JEKYLL_BUILD") == "1"
+
+
 @pytest.fixture(scope="module")
 def built_site_dir() -> Path:
     """Run `bundle exec jekyll build` once and return the destination dir."""
     if not _bundle_available():
+        if _gate_is_armed():
+            pytest.fail(
+                "REQUIRE_JEKYLL_BUILD=1 but `bundle` is not on PATH. On CI this "
+                "means the Ruby setup step regressed — the image-content-hash "
+                "tests cannot run, and skipping them would report that as green."
+            )
         pytest.skip("bundle not available in this environment")
 
     dest = Path(tempfile.mkdtemp(prefix="jk-image-hash-pytest-"))
@@ -77,9 +101,17 @@ def built_site_dir() -> Path:
             timeout=300,
         )
         if result.returncode != 0:
+            if _gate_is_armed():
+                pytest.fail(
+                    f"REQUIRE_JEKYLL_BUILD=1 and `bundle exec jekyll build` "
+                    f"failed (rc={result.returncode}). A build that breaks while "
+                    f"bundler is present is a defect, not a reason to stand "
+                    f"down:\n{result.stderr[-2000:]}"
+                )
             pytest.skip(
-                f"jekyll build failed (rc={result.returncode}): "
-                f"{result.stderr[-500:]}"
+                f"jekyll build not available in this environment "
+                f"(rc={result.returncode}); set REQUIRE_JEKYLL_BUILD=1 to make "
+                f"this a failure: {result.stderr[-300:]}"
             )
         yield dest
     finally:

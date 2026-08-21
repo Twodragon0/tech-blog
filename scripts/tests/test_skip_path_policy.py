@@ -47,11 +47,6 @@ ALLOWED_REASON_PATTERNS: dict[str, str] = {
         "intentional ratchet: corpus grew after the golden snapshot, so new "
         "posts are out of scope for a snapshot comparison"
     ),
-    # DEFERRED, not accepted: a jekyll build that fails while `bundle` IS
-    # present is a real defect, and skipping hides it. Arming it needs an
-    # explicit opt-in env on the CI step in jekyll.yml (the pattern used for
-    # REQUIRE_COMPILED_CSS), and that file is being edited by another open PR.
-    r"jekyll build failed": "DEFERRED — see this module's docstring",
 }
 
 # Lower bound on how many skip sites the scanner must find in the live suite.

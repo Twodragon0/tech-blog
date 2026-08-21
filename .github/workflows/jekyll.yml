@@ -130,7 +130,17 @@ jobs:
           pip install --quiet -r scripts/requirements-ci.txt
           echo "✅ Python dependencies installed"
 
+      # REQUIRE_JEKYLL_BUILD arms test_image_content_hash.py: `Setup Ruby` ran
+      # several steps above, so `bundle` is on PATH and the fixture's own
+      # `bundle exec jekyll build` is expected to succeed here. Unarmed, a
+      # failing build skipped its 5 tests and the step stayed green — a build
+      # defect reported as "not applicable". Measured before arming: the 7
+      # skips on the 2026-08-21 run were 4 dependency + 3 compiled-CSS, none
+      # from this file, so the build does succeed at this point in the job.
+      # Pinned by scripts/tests/test_ci_jekyll_build_gate_guard.py.
       - name: Run script unit tests
+        env:
+          REQUIRE_JEKYLL_BUILD: '1'
         run: |
           echo "🧪 Running script unit tests..."
           python3 -m pytest scripts/tests/ -v --tb=short --cov --cov-report=term-missing --cov-report=json:coverage.json --cov-fail-under=40
