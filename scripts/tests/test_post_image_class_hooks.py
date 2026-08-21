@@ -12,13 +12,28 @@ These tests verify:
 5. (Optional) A built post HTML page contains at least one ``<img>``
    tag emitted by the plugin with a class hook, if the site is built.
 
-The tests do NOT require a Jekyll build — they work on source files so
-CI stays fast.  The build-dependent test (``test_built_page_has_class_hook``)
-is skipped when ``_site/assets/css/main.css`` is absent.
+Sections 1-4 do NOT require a Jekyll build — they work on source files so
+CI stays fast.
+
+Section 5 (``TestCompiledCss``) does require the build, and that is where this
+file used to go quiet.  ``jekyll.yml`` runs ``pytest`` as one of its first
+steps and ``build.sh`` as its *last*, so ``_site/`` never existed when these
+three assertions were collected and they skipped on **every** CI run since the
+file was written.  A source-level grep of ``_sass/_post.scss`` (section 1) only
+proves that one partial is clean; the compiled check is what covers every
+stylesheet that actually lands in ``post-page.css``.
+
+The fix is a second, post-build ``pytest`` invocation that sets
+``REQUIRE_COMPILED_CSS=1``.  Under that flag a missing artifact is a **failure,
+not a skip**, so removing the build step (or the gate step) turns CI red
+instead of silently disarming the check — the same failure mode that let the
+Pillow-guarded raster tests sit un-run for months (PR #576).
+``scripts/tests/test_ci_compiled_css_gate_guard.py`` pins the wiring.
 """
 
 from __future__ import annotations
 
+import os
 import re
 from pathlib import Path
 
@@ -126,25 +141,44 @@ class TestMarkdownImageLazyPlugin:
 
 ATTR_REGEX_PATTERN = re.compile(r"img\[src[\*\$\^]=")
 
+# Set by the post-build gate step in .github/workflows/jekyll.yml. Locally the
+# artifact is usually present from an earlier `bundle exec jekyll build`, and a
+# developer who has never built the site should get a skip rather than a
+# confusing failure — hence opt-in rather than a bare `CI` check.
+REQUIRE_COMPILED_CSS = os.environ.get("REQUIRE_COMPILED_CSS") == "1"
 
-@pytest.mark.skipif(not POST_CSS.exists(), reason="_site/assets/css/post-page.css not built")
+
+def _compiled_css() -> str:
+    """Read post-page.css, failing instead of skipping when the gate is armed."""
+    if not POST_CSS.exists():
+        rel = POST_CSS.relative_to(REPO_ROOT)
+        if REQUIRE_COMPILED_CSS:
+            pytest.fail(
+                f"REQUIRE_COMPILED_CSS=1 but {rel} is missing. This gate must run "
+                f"after build.sh; if the build step moved or was removed, these "
+                f"assertions are not being enforced."
+            )
+        pytest.skip(f"{rel} not built — run build.sh first")
+    return POST_CSS.read_text(encoding="utf-8")
+
+
 class TestCompiledCss:
     """_post.scss compiles into post-page.css — check that file."""
 
     def test_no_src_section_attr_selector_in_compiled_css(self):
-        css = POST_CSS.read_text(encoding="utf-8")
+        css = _compiled_css()
         # After the refactor the compiled CSS must not contain img[src*=section-]
         assert 'img[src*="section-"]' not in css, (
             "Legacy attribute selector img[src*=section-] found in compiled CSS"
         )
 
     def test_no_src_svg_attr_selector_in_compiled_css(self):
-        css = POST_CSS.read_text(encoding="utf-8")
+        css = _compiled_css()
         assert 'img[src$=".svg"]' not in css, (
             "Legacy attribute selector img[src$=.svg] found in compiled CSS"
         )
 
     def test_class_hooks_present_in_compiled_css(self):
-        css = POST_CSS.read_text(encoding="utf-8")
+        css = _compiled_css()
         assert "is-section-image" in css
         assert "is-svg-image" in css

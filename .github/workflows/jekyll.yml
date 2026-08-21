@@ -396,6 +396,22 @@ jobs:
           BUILD_TIME: ${{ github.event.head_commit.timestamp }}
           DEPLOYMENT_URL: ${{ github.event.repository.html_url }}
 
+      # The `Run script unit tests` step above runs before build.sh, so _site/
+      # does not exist yet and TestCompiledCss skips there. It is re-run here,
+      # after the build, with REQUIRE_COMPILED_CSS=1 — which turns "artifact
+      # missing" from a skip into a failure. Without this step those three
+      # assertions never execute in CI at all, which was the case from the day
+      # the file was written until 2026-08-18.
+      # Pinned by scripts/tests/test_ci_compiled_css_gate_guard.py.
+      - name: Compiled CSS class-hook gate (post-build)
+        env:
+          REQUIRE_COMPILED_CSS: '1'
+        run: |
+          echo "🎨 Enforcing compiled-CSS class hooks against _site/..."
+          python3 -m pytest scripts/tests/test_post_image_class_hooks.py::TestCompiledCss \
+            -v --tb=short -p no:cacheprovider
+          echo "✅ Compiled CSS class-hook gate passed"
+
       # NOTE: no upload-pages-artifact / deploy job here on purpose.
       # deploy-pages.yml is the single Pages deployer (see header). This
       # workflow only proves the site builds + tests pass.
