@@ -19,8 +19,6 @@ import importlib.util
 import subprocess
 from pathlib import Path
 
-import pytest
-
 REPO = Path(__file__).resolve().parent.parent.parent
 SHELL_GATE = REPO / "scripts" / "check_svg_precommit.sh"
 PY_GATE = REPO / "scripts" / "check_svg_size_gate.py"
@@ -79,8 +77,11 @@ def test_known_rollup_dates_classified_correctly() -> None:
     ]
     for stem in known_rollup_stems:
         svg = ASSETS / f"{stem}.svg"
-        if not svg.exists():
-            pytest.skip(f"{svg.name} not on disk")
+        assert svg.exists(), (
+            f"{svg.name} is not on disk. This list pins the rollup band against "
+            "real covers; if the cover was renamed or retired, update "
+            "known_rollup_stems here — do not let the check go silent."
+        )
         assert classify(svg) == "rollup", (
             f"{svg.name} classified as {classify(svg)}; expected rollup. "
             "Rollup markers may have drifted in svg_rollup_generator."
@@ -95,8 +96,10 @@ def test_l20_hero_covers_classify_as_hq() -> None:
     ]
     for stem in samples:
         svg = ASSETS / f"{stem}.svg"
-        if not svg.exists():
-            pytest.skip(f"{svg.name} not on disk")
+        assert svg.exists(), (
+            f"{svg.name} is not on disk. Pick another live L20 hero cover for "
+            "`samples` — an absent sample makes this classification check vacuous."
+        )
         assert classify(svg) == "hq", (
             f"{svg.name} classified as {classify(svg)}; expected hq."
         )
@@ -157,8 +160,11 @@ def test_inline_diagram_filenames_are_exempt() -> None:
     ]
     for name in inline_diagrams:
         svg = ASSETS / name
-        if not svg.exists():
-            pytest.skip(f"{name} not on disk")
+        assert svg.exists(), (
+            f"{name} is not on disk. The exemption list is only meaningful "
+            "against files that exist; drop the entry here and from "
+            "EXEMPT_PATTERNS together if the diagram was retired."
+        )
         assert _gate.is_exempt(name), (
             f"{name} should be exempt but is_exempt() returned False. "
             "Update EXEMPT_PATTERNS in scripts/check_svg_size_gate.py."

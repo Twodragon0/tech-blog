@@ -276,8 +276,11 @@ class TestAprilDigestRegression:
     def post_content(self, request):
         posts_dir = Path(__file__).resolve().parents[2] / "_posts"
         matches = list(posts_dir.glob(f"{request.param}-Tech_Security_Weekly_Digest_*.md"))
-        if not matches:
-            pytest.skip(f"Post file for {request.param} not found")
+        assert matches, (
+            f"No digest post for {request.param}. This regression case pins the "
+            "qa_gate fixes made to that post; if it was renamed or removed, "
+            "update the params — a skip would retire the check silently."
+        )
         return matches[0].read_text(encoding="utf-8"), matches[0].name
 
     def test_qa_gate_zero_issues(self, post_content):
