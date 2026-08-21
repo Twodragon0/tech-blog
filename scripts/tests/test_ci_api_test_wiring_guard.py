@@ -26,6 +26,7 @@ today, and would have failed nothing before the import was wired.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -120,6 +121,67 @@ def test_api_step_fails_when_zero_tests_are_collected() -> None:
         )
         return
     pytest.fail("no step running test:api found")
+
+
+def test_api_test_files_are_not_empty_shells() -> None:
+    """A file with zero `test()` calls counts as ONE passing test.
+
+    Measured 2026-08-21: `node --test` on a file containing no `test()` call
+    reports ``# tests 1 / # pass 1`` and exits 0 — it wraps the file itself as a
+    single vacuous test. So the ``# tests >= 1`` floor in the workflow step
+    cannot see this case: four emptied files would report ``# tests 4`` and pass.
+
+    Only a static check distinguishes them, so the content assertion lives here
+    rather than in the runner. `test_api_test_files_still_exist` above checks
+    that the files are present; this checks they still contain tests.
+    """
+    empty = []
+    for path in sorted(API_TESTS.glob("*.test.js")):
+        source = path.read_text(encoding="utf-8")
+        if "test(" not in source:
+            empty.append(path.name)
+    assert not empty, (
+        f"api test file(s) with no `test(` call: {empty}. node --test reports "
+        f"each such file as 1 passing test, so the suite would stay green while "
+        f"asserting nothing. Restore the tests or delete the file."
+    )
+
+
+def test_vitest_ci_step_uses_the_coverage_gate() -> None:
+    """The coverage flag is what makes a mass-skip fail — measured, not assumed.
+
+    `vitest run` with every test filtered out reports ``698 skipped`` and exits
+    **0**. The same run with ``--coverage`` exits **1**, because 0% trips the
+    thresholds in vitest.config.js. CI therefore has to keep running the
+    coverage script; switching the step to plain `npm test` would silently
+    reopen the hole.
+    """
+    for step in _steps():
+        run = str(step.get("run", ""))
+        if "vitest" in run or "test:coverage" in run:
+            assert "test:coverage" in run, (
+                "the Vitest CI step no longer runs `npm run test:coverage`. Plain "
+                "`vitest run` exits 0 when every test is skipped (measured: "
+                "`698 skipped`, exit 0); only the coverage gate turns that red."
+            )
+            return
+    pytest.fail("no step running vitest found in vitest.yml")
+
+
+def test_vitest_coverage_thresholds_are_non_trivial() -> None:
+    """Zeroed thresholds would neuter the gate the test above relies on."""
+    config = (REPO_ROOT / "vitest.config.js").read_text(encoding="utf-8")
+    found = dict(
+        re.findall(r"(branches|functions|lines|statements):\s*(\d+)", config)
+    )
+    missing = {"branches", "functions", "lines", "statements"} - set(found)
+    assert not missing, f"vitest.config.js lost coverage thresholds for: {sorted(missing)}"
+    zeroed = {k: v for k, v in found.items() if int(v) <= 0}
+    assert not zeroed, (
+        f"coverage threshold(s) set to zero: {zeroed}. A 0% floor cannot fail, "
+        f"which is what a mass-skip regression produces — the gate would pass "
+        f"with every test skipped."
+    )
 
 
 def test_vitest_still_fails_on_an_empty_collection() -> None:
