@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-20T00:45:07.367784+00:00",
+  "updated_at": "2026-08-21T00:48:12.894526+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/over-250-clickfix-domains-use-browser.html",
-      "title": "Over 250 ClickFix Domains Use Browser Fingerprinting to Hide macOS Malware Lures",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/openai-disrupts-poipet-scam-network.html",
-      "title": "OpenAI Disrupts Poipet Scam Network Using ChatGPT Across Multiple Fraud Schemes",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/poison-claude-sells-discounted-claude.html",
-      "title": "Poison Claude Sells Discounted Claude Access While Its Operator Sees Every Custo",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/aws-partners-with-anthropic-and-openai-to-bring-aws-continuum-into-developer-workflows/",
-      "title": "AWS partners with Anthropic and OpenAI to bring AWS Continuum into developer wor",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/paperclip-ai-flaws-let-attackers-run.html",
-      "title": "Paperclip AI Flaws Let Attackers Run Host Commands via Malicious Agent Imports",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/08/05/ml-applications/from-user-sequences-to-scaling-laws-a-multi-stage-architecture-for-metas-ads-ranking/",
-      "title": "From User Sequences to Scaling Laws: A Multi-Stage Architecture for Meta’s Ads R",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-and-partners-build-in-america-for-america/",
-      "title": "NVIDIA and Partners Build in America, for America",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/mysten-labs-tech-chief-joins-anthropic-to-work-on-ai-security?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Mysten Labs tech chief joins Anthropic to work on AI security",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-lendingtree-built-a-multi-agent-mortgage-assistant-on-amazon-bedrock/",
-      "title": "How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-mobileye-transformed-support-operations-using-amazon-bedrock-agentcore/",
-      "title": "How Mobileye transformed support operations using Amazon Bedrock AgentCore",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/customers/how-uipath-built-its-high-performance-gpu-platform/",
-      "title": "Scaling agentic AI: How UiPath built its high-performance GPU platform on AI Hyp",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/solving-the-noisy-neighbor-with-sharded-architecture/",
-      "title": "Solving the \"Noisy Neighbor\": How Sharded Architecture Protects Multi-Tenant Pla",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/storage-data-transfer/filestore-file-service-runs-on-colossus/",
-      "title": "Unlocking the future of shared storage: Filestore on Colossus",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/amazon-dynamodb-now-supports-real-time-vector-search-at-any-scale/",
-      "title": "Amazon DynamoDB now supports real-time vector search at any scale",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/governance-is-a-developer-experience-problem/",
-      "title": "Governance Is a Developer Experience Problem",
-      "published_date": "2026-08-06",
-      "expires_at": "2026-08-13T01:47:30.637120+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/new-zapscape-kvm-flaw-could-let.html",
       "title": "New Zapscape KVM Flaw Could Let Privileged L1 Guest Code Escape to Linux Hosts",
@@ -1314,6 +1224,96 @@
       "title": "Kyverno is a platform primitive, not a security tool",
       "published_date": "2026-08-20",
       "expires_at": "2026-08-27T00:45:07.367694+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html",
+      "title": "Rust Supply Chain Attack Puts Build-Time Malware in Crates with 245 Million Down",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/suspected-russian-hackers-abuse-google.html",
+      "title": "Suspected Russian Hackers Abuse Google OAuth and WhatsApp Linking to Hijack Acco",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/threatsday-gogs-100-rce-n8n-workflow-to.html",
+      "title": "ThreatsDay: Gogs 10.0 RCE, n8n Workflow-to-RCE, $10M Reward, GLM-5.3 AI Exploit ",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/ai-generated-exploit-scripts-target.html",
+      "title": "AI-Generated Exploit Scripts Target Siemens S7 PLCs in U.S. Critical Infrastruct",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/new-cryptographic-context-injection.html",
+      "title": "New Cryptographic Context Injection Attack Could Let Web Pages Steal Grok Chat D",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://blog.palantir.com/securing-software-at-the-speed-of-ai-0b1d7ddd2bf0?source=rss----3c87dc14372f---4",
+      "title": "Securing Software at the Speed of AI",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-firefox/",
+      "title": "Bring the Fire: Play Games on GeForce NOW With New Firefox Browser Support",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-ai-futures",
+      "title": "Introducing AI Futures",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-cross-region-inference-for-openai-gpt-5-6-models-on-amazon-bedrock/",
+      "title": "Introducing cross-Region inference for OpenAI GPT-5.6 models on Amazon Bedrock",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-no-code-ml-workflow-with-snowflake-amazon-sagemaker-canvas-and-amazon-quick-part-1-setting-up-your-snowflake-environment/",
+      "title": "Build a no-code ML workflow with Snowflake, Amazon SageMaker Canvas and Amazon Q",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-google-antigravity-for-enterprise-customers/",
+      "title": "Expanding Google Antigravity for enterprise customers",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/10-questions-for-your-startup-developers/",
+      "title": "10 questions every startup should answer before moving to production with their ",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/application-development/2026-gartner-mq-for-cloud-native-application-platforms/",
+      "title": "Google is a Leader in the 2026 Gartner® Magic Quadrant™ for Cloud-Native Applica",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/alloydb-scann-index-four-level-tree-improves-vector-search/",
+      "title": "How AlloyDB ScaNN scales vector search to 10 billion vectors",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/announcing-quantum-safe-key-import-in-cloud-kms/",
+      "title": "Announcing quantum-safe key import in Cloud KMS",
+      "published_date": "2026-08-21",
+      "expires_at": "2026-08-28T00:48:12.894438+00:00"
     }
   ]
 }
