@@ -44,16 +44,23 @@ from scripts.news.l20_dispatch import _post_url_from_filename  # noqa: E402
 #     <rect ... fill="#FFFFFF"/>
 #     <path fill="#0A1020" d="..."/>
 #   </g>
-#   <text x="1122" y="614" ...>scan / full post</text>
+#   <text ...>scan / full post</text>
 #
-# The matcher captures both the <g> wrapper and the trailing scan label so
-# the replacement stays atomic. Some upgraded covers tweak the spacing —
-# the regex tolerates leading/trailing whitespace and any text-y caption
-# variant ("scan / full post", "Scan", etc.).
+# The matcher captures both the <g> wrapper and the trailing scan label so the
+# replacement stays atomic.
+#
+# It is anchored on the label's TEXT, not its coordinates. The label position
+# moved with the QR geometry — the legacy 84px block put it at
+# ``x="1122" y="614"`` (below the QR), the current 108px block at
+# ``x="1134" y="486"`` (above the enlarged white rect). The coordinate anchor
+# survived that change and silently matched nothing: measured 2026-08-21,
+# ``--check`` reported "Total scanned: 200 / No QR block found: 200 /
+# Changed: 0", which reads as a clean corpus while having inspected none of it.
+# All 200 live covers carry the caption verbatim, so the text is the stable key.
 _QR_BLOCK_RE = re.compile(
     r"<g transform=\"translate\(1080,504\)\"[^>]*>"
     r".*?</g>\s*"
-    r"<text x=\"1122\" y=\"614\"[^>]*>[^<]*</text>",
+    r"<text[^>]*>\s*scan / full post\s*</text>",
     re.DOTALL,
 )
 
@@ -127,6 +134,21 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Changed/needs-fix:  {changed}")
     print(f"Already correct:    {already_correct}")
     print(f"No QR block found:  {skipped_no_qr}")
+
+    # Non-vacuity. `Changed: 0` reads as "the corpus is fine", but it says the
+    # same thing when the matcher is broken — which is how the coordinate-
+    # anchored regex above went unnoticed through a QR geometry change while
+    # missing 200/200 covers. Every cover matched by the default glob emits a
+    # QR block, so a total miss is a template drift, not a clean report.
+    if paths and skipped_no_qr == len(paths):
+        print(
+            f"\nERROR: no QR block matched in ANY of the {len(paths)} scanned "
+            "covers. The template this fixer targets has drifted — update "
+            "_QR_BLOCK_RE. Reporting 0 changes here would be indistinguishable "
+            "from a healthy corpus.",
+            file=sys.stderr,
+        )
+        return 1
     return 0
 
 
