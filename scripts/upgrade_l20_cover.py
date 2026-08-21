@@ -84,6 +84,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -286,7 +287,64 @@ def render(spec: Spec) -> str:
     )
 
 
-def write(spec: Spec, *, dry_run: bool = False) -> int:
+_HONESTY_BASELINE = REPO_ROOT / "scripts" / "cover_honesty_baseline.txt"
+
+
+class HonestyRefusal(Exception):
+    """Raised instead of writing a cover that would be a new honesty FAIL."""
+
+    def __init__(self, filename: str, violations: str) -> None:
+        super().__init__(f"{filename}: {violations}")
+        self.filename = filename
+        self.violations = violations
+
+
+def honesty_regression(spec: Spec, svg: str) -> Optional[str]:
+    """Return a violation summary when writing ``svg`` would be a NEW honesty FAIL.
+
+    Most ``_data/l20_covers/*.yml`` specs have drifted away from the honest
+    on-disk corpus, so a blind ``--all`` re-render reintroduces covers whose
+    bands assert attack/CVE/breach evidence the owning post does not have. That
+    happened for real: 49 covers regressed this way (see the PR #387 aftermath).
+    The svg-lint honesty gate blocks it in CI, but only *after* the corpus on
+    disk is already wrong and has to be undone cover by cover. This refuses at
+    the write itself.
+
+    Scored off-disk: the SVG goes to a temp file under its real
+    ``spec.filename`` because ``score_cover_honesty.find_owning_post`` resolves
+    the post by matching that basename against each post's ``image:`` field.
+    Already-grandfathered legacy FAILs in the committed baseline do not trip
+    the guard — only new regressions do.
+
+    Fails OPEN with a visible warning if the scorer cannot be imported: this is
+    defense-in-depth, not the only honesty gate, and a scorer import error must
+    not make the whole CLI unusable.
+    """
+    try:
+        from scripts.score_cover_honesty import load_baseline, score_file
+    except Exception as exc:  # pragma: no cover - defensive
+        print(f"  WARN: honesty guard unavailable ({exc}); not enforced", file=sys.stderr)
+        return None
+
+    baseline = load_baseline(_HONESTY_BASELINE) if _HONESTY_BASELINE.exists() else set()
+    if f"assets/images/{spec.filename}" in baseline:
+        return None
+
+    with tempfile.TemporaryDirectory() as td:
+        tmp = Path(td) / spec.filename
+        tmp.write_text(svg, encoding="utf-8")
+        result = score_file(tmp)
+
+    if result.get("verdict") != "FAIL":
+        return None
+    violations = "; ".join(
+        f"{v.get('band')}:{v.get('visual_id')}"
+        for v in (result.get("honesty", {}).get("violations") or [])
+    )
+    return violations or "honesty FAIL"
+
+
+def write(spec: Spec, *, dry_run: bool = False, force: bool = False) -> int:
     """Render and write a spec to disk. Returns size in bytes (0 if dry-run).
 
     Matches the L22 digest CLI semantics (``upgrade_digest_cover.py:write``):
@@ -298,6 +356,10 @@ def write(spec: Spec, *, dry_run: bool = False) -> int:
     svg = render(spec)
     if dry_run:
         return 0
+    if not force:
+        violations = honesty_regression(spec, svg)
+        if violations is not None:
+            raise HonestyRefusal(spec.filename, violations)
     spec.output_path.write_text(svg, encoding="utf-8")
     return len(svg.encode("utf-8"))
 
@@ -442,6 +504,16 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         help="Re-render each spec and exit 1 if any on-disk SVG drifts",
     )
     parser.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Bypass the cover-honesty guard. By default a write aborts when "
+            "rendering would introduce a NON-baselined honesty FAIL (a band "
+            "asserting evidence the owning post lacks). Use only when the spec "
+            "is known-good and the scorer is wrong — never to make CI pass."
+        ),
+    )
+    parser.add_argument(
         "--baseline",
         help="With --check: a file of slugs whose drift is grandfathered "
         "(e.g. a rotted spec that would overclaim if regenerated). One slug per "
@@ -476,6 +548,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     drift: List[str] = []
     rendered = 0
     skipped = 0
+    refused = 0
     for p in paths:
         try:
             spec = load_spec(p)
@@ -529,7 +602,20 @@ def main(argv: Optional[List[str]] = None) -> int:
                     )
                     return 3
                 continue
-            size = write(spec, dry_run=args.dry_run)
+            try:
+                size = write(spec, dry_run=args.dry_run, force=args.force)
+            except HonestyRefusal as refusal:
+                print(
+                    f"  REFUSED {refusal.filename}: would introduce a new honesty "
+                    f"FAIL [{refusal.violations}]. The spec has drifted from the "
+                    f"honest on-disk cover; fix the spec, or re-run with --force "
+                    f"if the scorer is wrong.",
+                    file=sys.stderr,
+                )
+                refused += 1
+                if args.spec:  # explicit single-spec request -> hard error
+                    return 4
+                continue
             tag = "[DRY] " if args.dry_run else ""
             print(f"  {tag}wrote {spec.filename}: {size} bytes")
             rendered += 1
@@ -543,8 +629,13 @@ def main(argv: Optional[List[str]] = None) -> int:
     msg = f"\n{rendered} spec(s) rendered"
     if skipped:
         msg += f"  ({skipped} skipped — cron/content-owned, not writable from a spec)"
+    if refused:
+        msg += f"  ({refused} REFUSED — would introduce a new honesty FAIL)"
     print(msg)
-    return 0
+    # A refusal is the guard working, but the run did not do what was asked, so
+    # it must not exit 0 — otherwise a batch regen reports success having
+    # skipped the covers that mattered.
+    return 4 if refused else 0
 
 
 if __name__ == "__main__":
