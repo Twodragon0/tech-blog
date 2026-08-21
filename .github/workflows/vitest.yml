@@ -64,5 +64,24 @@ jobs:
       - name: Run Vitest with coverage gate
         run: npm run test:coverage
 
+      # `node --test <glob>` exits 0 when the glob matches nothing — measured:
+      # `1..0 / # tests 0 / # pass 0`, exit 0. So renaming api/__tests__, moving
+      # it, or changing the `.test.js` suffix would leave this step green while
+      # running zero assertions. Vitest fails closed on an empty collection
+      # (exit 1), node:test does not, so the floor has to be asserted here.
+      #
+      # A floor of 1 closes "collected nothing", not "collected fewer": pinning
+      # today's 83 would fail any PR that legitimately deletes a test, as #577
+      # did. Parse failure is fail-closed — a missing or renamed `# tests` line
+      # yields an empty string, which trips the same check.
+      # Pinned by scripts/tests/test_ci_api_test_wiring_guard.py.
       - name: Run api/ suite (node:test)
-        run: npm run test:api
+        run: |
+          set -o pipefail
+          npm run test:api | tee /tmp/api-suite.log
+          COLLECTED=$(grep -E '^# tests [0-9]+' /tmp/api-suite.log | tail -1 | awk '{print $3}')
+          echo "api suite collected ${COLLECTED:-<unparsed>} test(s)"
+          if [ "${COLLECTED:-0}" -lt 1 ]; then
+            echo "::error::node --test collected 0 tests and still exited 0. The api/__tests__ glob matched nothing — this step passed having verified nothing."
+            exit 1
+          fi

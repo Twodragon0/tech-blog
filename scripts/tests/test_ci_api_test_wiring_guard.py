@@ -91,6 +91,51 @@ def test_api_suite_step_is_not_soft() -> None:
     pytest.fail("no step running test:api found")
 
 
+def test_api_step_fails_when_zero_tests_are_collected() -> None:
+    """`node --test <glob>` exits 0 on an empty match — measured 2026-08-21.
+
+    A glob that matches nothing prints ``1..0 / # tests 0 / # pass 0`` and exits
+    0, so renaming ``api/__tests__``, moving it, or changing the ``.test.js``
+    suffix would leave the step green while running zero assertions. Vitest
+    fails closed on an empty collection; node:test does not, so the floor has to
+    live in the workflow step.
+    """
+    for step in _steps():
+        run = str(step.get("run", ""))
+        if "test:api" not in run:
+            continue
+        assert "# tests" in run, (
+            "the api/ suite step no longer reads the collected-test count. "
+            "Without it, a glob matching nothing exits 0 and this step passes "
+            "having verified nothing (measured: `1..0`, `# tests 0`, exit 0)."
+        )
+        assert "exit 1" in run, (
+            "the api/ suite step parses the test count but never fails on it; "
+            "the check is decorative without a non-zero exit"
+        )
+        assert "set -o pipefail" in run, (
+            "the api/ suite step pipes `npm run test:api` into tee without "
+            "`set -o pipefail`, so a failing suite is masked by tee's exit code "
+            "— the count check would then be the only thing that can fail"
+        )
+        return
+    pytest.fail("no step running test:api found")
+
+
+def test_vitest_still_fails_on_an_empty_collection() -> None:
+    """`passWithNoTests` would give Vitest the same hole node:test has."""
+    config = (REPO_ROOT / "vitest.config.js").read_text(encoding="utf-8")
+    assert "passWithNoTests" not in config, (
+        "vitest.config.js sets passWithNoTests; an empty `include` match would "
+        "then exit 0 and the JS gate could report success with no tests run"
+    )
+    for name, script in _scripts().items():
+        if "vitest" in script:
+            assert "--passWithNoTests" not in script, (
+                f"npm script {name!r} passes --passWithNoTests to vitest: {script!r}"
+            )
+
+
 @pytest.mark.parametrize("trigger", ["pull_request", "push"])
 def test_api_changes_trigger_the_workflow(trigger: str) -> None:
     # PyYAML parses a bare `on:` key as the boolean True.
