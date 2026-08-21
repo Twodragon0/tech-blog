@@ -21,7 +21,6 @@ jobs:
     timeout-minutes: 15
     env:
       HAS_VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN != '' }}
-      HAS_SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK != '' }}
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
@@ -90,37 +89,70 @@ jobs:
               labels: ['monitoring', 'alert', 'production']
             })
 
+      # Was `slackapi/slack-github-action` with `webhook: secrets.SLACK_WEBHOOK`,
+      # gated on `env.HAS_SLACK_WEBHOOK == 'true'`. SLACK_WEBHOOK has never been
+      # configured in this repo (`gh secret list`, 2026-08-21), so that condition
+      # was always false and this alert channel had never fired once — the same
+      # shape as vercel-firewall-backup reporting success while never taking a
+      # snapshot. SLACK_BOT_TOKEN and SLACK_CHANNEL_ID *are* configured and are
+      # what slack-post-notify.yml / slack-category-digest.yml already use, so
+      # this switches to the credential that exists rather than asking for a new
+      # one. Fail-closed for the same reason as those two: the step only runs
+      # after monitoring already failed, so a missing secret here means the alert
+      # about a real outage is being dropped.
+      # Pinned by scripts/tests/test_ci_secret_absence_guard.py (FAIL_CLOSED).
       - name: Slack notification on failure
-        if: failure() && env.HAS_SLACK_WEBHOOK == 'true'
-        uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d  # v4.0.0
-        with:
-          webhook: ${{ secrets.SLACK_WEBHOOK }}
-          webhook-type: incoming-webhook
-          payload: |
-            {
-              "text": "Production Monitoring Alert",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*Production Monitoring Failed*\n\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow Run>"
-                  }
-                },
-                {
-                  "type": "divider"
-                },
-                {
-                  "type": "context",
-                  "elements": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "Repository: `${{ github.repository }}`\nBranch: `${{ github.ref_name }}`\nSite: <https://tech.2twodragon.com|tech.2twodragon.com>"
-                    }
-                  ]
-                }
-              ]
-            }
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          REPOSITORY: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${SLACK_BOT_TOKEN:-}" ]; then
+            echo "::error::SLACK_BOT_TOKEN is not available. It is configured in this repo, so this is a regression — a production monitoring failure is going unannounced."
+            exit 1
+          fi
+          if [ -z "${SLACK_CHANNEL_ID:-}" ]; then
+            echo "::error::SLACK_CHANNEL_ID is not available. It is configured in this repo, so this is a regression."
+            exit 1
+          fi
+          payload=$(python3 -c '
+          import json, os
+          text = (
+              "*Production Monitoring Failed*\n"
+              f"<{os.environ["RUN_URL"]}|View Workflow Run>\n"
+              f"Repository: `{os.environ["REPOSITORY"]}`  Branch: `{os.environ["BRANCH"]}`\n"
+              "Site: <https://tech.2twodragon.com|tech.2twodragon.com>"
+          )
+          print(json.dumps({
+              "channel": os.environ["SLACK_CHANNEL_ID"],
+              "text": text,
+              "unfurl_links": False,
+              "unfurl_media": False,
+          }, ensure_ascii=False))
+          ')
+          HTTP_STATUS=$(curl -sS -o /tmp/slack_resp.txt -w "%{http_code}" \
+            "https://slack.com/api/chat.postMessage" \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$payload")
+          echo "Slack response: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            ok=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("ok",""))')
+            if [ "$ok" = "True" ]; then
+              echo "Slack alert sent"
+            else
+              error=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("error","unknown"))')
+              echo "::warning::Slack API error: $error"
+            fi
+          else
+            echo "::warning::Slack HTTP error (HTTP $HTTP_STATUS)"
+            cat /tmp/slack_resp.txt || true
+          fi
 
   success-notification:
     runs-on: ubuntu-latest

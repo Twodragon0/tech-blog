@@ -206,6 +206,18 @@ green이 아니라 **영구 red**가 된다.
 `monitoring.yml`의 요구 시크릿 3종 미설정 상태(부분 동작 중), `L22`/`L25` generator의
 베이스라인 대표 부재(현재 라이브 출력이 없어 보류).
 
+> **재판정 2026-08-21** — 3종을 실측했다: 2건 기각, 1건 수정. 상세는
+> [`ci-skip-campaign-2026-08.md`](ci-skip-campaign-2026-08.md) "남은 열화 항목
+> 재판정". 위 문단의 정정 2건:
+>
+> - `|| true`는 **3곳이 아니라 5곳**이다(주석 3줄을 제외하고 센 값). 분류는
+>   유지된다 — 5곳 모두 `continue-on-error: true` PR-코멘트 스텝 안이고, 실제
+>   게이트인 `Validate post quality (PR only)`에는 0곳이다.
+> - 시크릿 3종은 성질이 갈린다. `SLACK_WEBHOOK`은 "부분 동작"이 아니라 **한 번도
+>   울린 적 없는 알림 채널**이었다(`env.HAS_SLACK_WEBHOOK == 'true'` 게이트 +
+>   미설정 시크릿). 설정돼 있는 `SLACK_BOT_TOKEN`으로 옮기고 fail-closed로
+>   전환했다. `PAGESPEED_API_KEY`·`VERCEL_TOKEN`은 위 "보류" 결정 그대로다.
+
 ## 참조
 
 - 워크플로 가드: `scripts/tests/test_ci_*.py` (이번에 6개 파일 추가)
