@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-21T00:48:12.894526+00:00",
+  "updated_at": "2026-08-22T00:45:16.492846+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/new-zapscape-kvm-flaw-could-let.html",
-      "title": "New Zapscape KVM Flaw Could Let Privileged L1 Guest Code Escape to Linux Hosts",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/cisco-patches-12-sd-wan-and-ios-xe.html",
-      "title": "Cisco Patches 12 SD-WAN and IOS XE Flaws, Including Three 9.8 CVSS Score Bugs",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/automate-certificates-with-acme-support-in-aws-certificate-manager/",
-      "title": "Automate certificates with ACME support in AWS Certificate Manager",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/new-interrupt-injection-attack-can.html",
-      "title": "New Interrupt Injection Attack Can Bypass Spectre v2 Defenses on Intel and AMD C",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/threatsday-odysseus-rce-samsung-one.html",
-      "title": "ThreatsDay: Odysseus RCE, Samsung One-Click Takeover, iCloud Backdoor Fight + 27",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-august-2026-games-list/",
-      "title": "GeForce NOW Shakes Up August With 26 New Games",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/open-world-models-physical-ai/",
-      "title": "Into the Omniverse: How Open World Models Push the Frontier of Physical AI",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt",
-      "title": "Improving GPT‑5.6 Sol in ChatGPT—and expanding access to GPT-5.6 Luna for free u",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://openai.com/index/openai-and-apa-partner-to-advance-responsible-ai",
-      "title": "Working with the American Psychological Association on youth mental health and A",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/securing-ai-agents-with-temporal-policies-in-amazon-bedrock-agentcore/",
-      "title": "Securing AI agents with temporal policies in Amazon Bedrock AgentCore",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/privacy-first-medical-ai-with-medperf-and-google-cloud/",
-      "title": "Advancing brain tumor research with privacy-first AI",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/training-certifications/free-gemini-enterrprise-training/",
-      "title": "Your agentic summer: No-cost lessons from Google experts to build and scale agen",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/hybrid-cloud/state-of-ai-infrastructure-report-on-hybrid-cloud-and-gdc/",
-      "title": "Digital sovereignty in the age of AI: You don’t have to choose between control a",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-performance-optimizations/",
-      "title": "Agentic Future Ready With BigQuery: Continually Improving Price-Performance, Zer",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/unc6671-targets-financial-services-and-enterprise-cloud-environments/",
-      "title": "UNC6671 Rebrands: Multi-Brand Vishing Extortion Targets Financial Services and E",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
       "title": "Nearly 800 Malicious npm Packages Deliver Cross-Platform RAT and Infostealer",
@@ -1314,6 +1224,96 @@
       "title": "Announcing quantum-safe key import in Cloud KMS",
       "published_date": "2026-08-21",
       "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/14-trojanized-npm-packages-drop-redc2.html",
+      "title": "14 Trojanized npm Packages Drop RedC2 4.0 Linux Backdoor With AI-Assisted C2",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/microsoft-defenders-own-driver-can-be.html",
+      "title": "Microsoft Defender's Own Driver Can Be Weaponized to Delete Security Software at",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/android-car-malware-spreads-through.html",
+      "title": "Android Car Malware Spreads Through Built-In Updaters for Ad Fraud, Proxy Botnet",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/wazuh-and-ai-for-enhanced-soc-workflows.html",
+      "title": "Wazuh and AI For Enhanced SOC Workflows",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/cisco-patches-nine-crosswork-and-secure.html",
+      "title": "Cisco Patches Nine Crosswork and Secure Workload Flaws, Five Scoring CVSS 10.0",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/",
+      "title": "From Atari to EVE Online: Building on 15 Years of AI Research in Games",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/a-tale-of-two-flink-autoscalers-e9f6a1b1492b?source=rss----2615bd06b42e---4",
+      "title": "A Tale of Two Flink Autoscalers",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/agentic-data-operations-platform-adop-data-engineering-into-hours/",
+      "title": "Agentic Data Operations Platform (ADOP): Data engineering into hours",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/",
+      "title": "Govern AI agent tool access with Amazon Bedrock AgentCore Gateway",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/reduce-rag-costs-on-amazon-bedrock-with-query-aware-compression/",
+      "title": "Reduce RAG costs on Amazon Bedrock with query-aware compression",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-sticking-to-security-fundamentals-in-the-ai-era/",
+      "title": "Cloud CISO Perspectives: Sticking to security fundamentals in the AI era",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-agents-can-delegate-better/",
+      "title": "How agents can delegate better",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-glue-6-0-now-available-with-30-lower-price-and-full-apache-iceberg-v3-support/",
+      "title": "AWS Glue 6.0 now available with 30% lower price and full Apache Iceberg v3 suppo",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/gsneotek-bedrock-budget-with-athena-and-iam/",
+      "title": "GS Neotek의 Claude Code on Amazon Bedrock 도입기: LLM Gateway 없는 경량화 사용자 통제 방안",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
     }
   ]
 }
