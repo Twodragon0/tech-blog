@@ -24,10 +24,13 @@ OUTPUT_FILE = Path("/tmp/quality-report.md")
 def generate_trend_coverage() -> str:
     """Analyze _TREND_KR_MAP coverage against collected news data."""
     try:
-        sys.path.insert(0, str(Path(__file__).parent))
-        from auto_publish_news import _STOP_WORDS, _TECH_PRESERVE, _TREND_KR_MAP
+        sys.path.insert(0, str(Path(__file__).parent.parent))
+        from scripts.news.content_generator import _STOP_WORDS, _TECH_PRESERVE, _TREND_KR_MAP
     except ImportError:
-        return "⚠️ auto_publish_news.py import 실패"
+        try:
+            from news.content_generator import _STOP_WORDS, _TECH_PRESERVE, _TREND_KR_MAP
+        except ImportError:
+            return "⚠️ content_generator.py import 실패"
 
     if not NEWS_DATA.exists():
         return "⚠️ 뉴스 데이터 없음 (collected_news.json)"
@@ -132,11 +135,26 @@ def main() -> None:
     # Trend coverage
     trend_coverage = generate_trend_coverage()
 
+    # Architectural maturity stats
+    mermaid_count = sum(1 for p in POSTS_DIR.glob("*.md") if "```mermaid" in p.read_text(encoding="utf-8", errors="ignore"))
+    checklist_count = sum(1 for p in POSTS_DIR.glob("*.md") if re.search(r"-\s*\[\s*[ xX]?\s*\]", p.read_text(encoding="utf-8", errors="ignore")))
+    table_count = sum(1 for p in POSTS_DIR.glob("*.md") if "|" in p.read_text(encoding="utf-8", errors="ignore"))
+    faq_count = sum(1 for p in POSTS_DIR.glob("*.md") if re.search(r"^#{1,4}\s*.*(?:자주\s*묻는\s*질문|\bFAQ\b)", p.read_text(encoding="utf-8", errors="ignore"), re.MULTILINE | re.IGNORECASE) or "schema_type: FAQPage" in p.read_text(encoding="utf-8", errors="ignore"))
+
     # Build issue body
     body = f"""## 월간 포스트 품질 리포트
 
 **보고 기간**: {current_month}
 **총 포스트**: {total_count}개
+
+### 🏗️ 아키텍처 성숙도 & 자율 현대화 지표
+
+| 지표 항목 | 적용 포스트 수 | 전체 대비 비율 | 상태 |
+|---|---|---|:---:|
+| **Mermaid 아키텍처 다이어그램** | {mermaid_count}개 | {mermaid_count / total_count * 100:.1f}% | {'🟢 우수' if mermaid_count > 30 else '🟡 진행 중'} |
+| **실무 점검 체크리스트 (`- [ ]`)** | {checklist_count}개 | {checklist_count / total_count * 100:.1f}% | {'🟢 우수' if checklist_count > 200 else '🟡 보통'} |
+| **비교/통제 테이블 (`|`)** | {table_count}개 | {table_count / total_count * 100:.1f}% | {'🟢 우수' if table_count > 250 else '🟡 보통'} |
+| **금지된 FAQ 섹션/스키마** | {faq_count}개 | {faq_count / total_count * 100:.1f}% | {'🟢 완벽 준수 (0건)' if faq_count == 0 else '🔴 제거 필요'} |
 
 ### 전체 품질 대시보드
 
@@ -173,9 +191,10 @@ def main() -> None:
 
 ### 조치 사항
 
+- [ ] 24/7 Mac mini 자율 현대화 크론 파이프라인 지속 가동
+- [ ] Mermaid 다이어그램 미적용 포스트 지속적 주입
 - [ ] 80점 미만 포스트 품질 개선
 - [ ] 신규 포스트 품질 기준 준수 확인
-- [ ] Front matter 크기 최적화
 - [ ] 미매핑 상위 단어 _TREND_KR_MAP 추가 검토
 """
 

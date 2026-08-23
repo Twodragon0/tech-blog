@@ -148,3 +148,15 @@ jobs:
             --label "quality-report,automated"
 
           echo "Monthly quality report issue created"
+
+      - name: Send Webhook Notification
+        if: always() && steps.report.outputs.report_generated == 'true'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          CURRENT_MONTH=$(date +%Y-%m)
+          python3 scripts/notify_webhook.py \
+            --title "Monthly Blog Quality Report (${CURRENT_MONTH}) Published" \
+            --message "• Monthly Post Quality Report generated and published to GitHub Issues.\n• Image Issues: ${{ steps.images.outputs.image_issues || 0 }}\n• Post Warnings: ${{ steps.posts.outputs.post_issues || 0 }}\n• View report on GitHub Issues." \
+            --status "SUCCESS" || true
