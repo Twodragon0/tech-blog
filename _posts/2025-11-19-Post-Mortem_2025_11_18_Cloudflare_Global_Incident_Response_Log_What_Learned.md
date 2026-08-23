@@ -55,6 +55,18 @@ summary_card:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+flowchart LR
+    User([External Client]) --> WAF[AWS WAF / CloudFront]
+    WAF --> ALB[Application Load Balancer]
+    ALB --> ECS[Compute: ECS / EKS Cluster]
+    ECS --> DB[(Encrypted Aurora / DynamoDB)]
+    ECS -.-> CW[CloudWatch & GuardDuty Alerts]
+```
+
+
 > **경영진 브리핑**: 2025년 11월 18일 Cloudflare 글로벌 장애 대응 일지. Multi-CDN 전략 및 자동 Failover 구현
 
 ### 위험도 평가
@@ -341,3 +353,9 @@ CDN & Failover:
 작성자: Twodragon
 라이선스: CC BY-NC-SA 4.0
 
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

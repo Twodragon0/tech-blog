@@ -63,6 +63,18 @@ summary_card:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+flowchart LR
+    User([External Client]) --> WAF[AWS WAF / CloudFront]
+    WAF --> ALB[Application Load Balancer]
+    ALB --> ECS[Compute: ECS / EKS Cluster]
+    ECS --> DB[(Encrypted Aurora / DynamoDB)]
+    ECS -.-> CW[CloudWatch & GuardDuty Alerts]
+```
+
+
 > **경영진 브리핑**: 2025년 개정 ISMS-P 인증 기준(101개 항목) 완벽 분석. AWS 환경 관리체계 수립, 보호대책 구현, NIST CSF 2.0 연계, AI 보안 요구사항까지 단계별 실무 가이드.
 
 ### 위험도 평가
@@ -490,3 +502,10 @@ AWS 서비스 버전: 2026년 1월 기준 최신 버전
 ---
 
 저작권: 이 포스팅의 코드 예제와 아키텍처 다이어그램은 [MIT 라이선스](https://opensource.org/licenses/MIT)를 따릅니다. 자유롭게 사용 및 수정 가능하며, 출처 표기를 권장합니다.
+
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

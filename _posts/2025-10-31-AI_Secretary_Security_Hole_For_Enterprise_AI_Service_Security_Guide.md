@@ -53,6 +53,23 @@ summary_card:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Engineer as DevSecOps Engineer
+    participant CI as CI/CD Pipeline
+    participant Sec as Security Gate & Scanner
+    participant Prod as Production Environment
+
+    Engineer->>CI: Push Git Commit / Pull Request
+    CI->>Sec: Static Analysis (SAST / Secret Masking)
+    Sec-->>CI: Policy Compliance (Zero Regression)
+    CI->>Prod: Automated Zero-Downtime Deployment
+```
+
+
 > **경영진 브리핑**: 2025년 AI 보안 위협 현황과 기업 AI 서비스 보안 정책 수립 가이드. Shadow AI, 딥페이크, Rogue AI
 
 ![Security News Section Banner](/assets/images/section-security.svg)
@@ -641,3 +658,10 @@ AI 브라우저 에이전트와 같은 AI 서비스는 생산성을 크게 향�
 ---
 
 원본 포스트: [AI 시대, 당신의 '비서'가 '보안 구멍'이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드](https://twodragon.tistory.com/697)
+
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

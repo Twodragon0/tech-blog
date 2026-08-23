@@ -72,6 +72,18 @@ summary_card:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+flowchart LR
+    User([External Client]) --> WAF[AWS WAF / CloudFront]
+    WAF --> ALB[Application Load Balancer]
+    ALB --> ECS[Compute: ECS / EKS Cluster]
+    ECS --> DB[(Encrypted Aurora / DynamoDB)]
+    ECS -.-> CW[CloudWatch & GuardDuty Alerts]
+```
+
+
 > **경영진 브리핑**: DataDog CSPM을 활용한 AWS 환경 보안 설정 자동 검증 및 컴플라이언스 모니터링 가이드. Misconfiguration 탐지, CIS Benchmark, ISMS-P 준수 모니터링까지 실무 정리.
 
 ![CSPM DataDog AWS Security Guide](/assets/images/2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Configuration_Verification_and_Compliance_Monitoring.svg)
@@ -700,3 +712,9 @@ DataDog CSPM을 활용하면 AWS 환경의 보안 설정을 자동으로 검증�
 마지막 업데이트: 2026-01-14
 작성 기준: SK Shieldus 2025년 CSPM(DataDog) AWS 보안 가이드
 
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

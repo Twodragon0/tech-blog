@@ -42,6 +42,23 @@ summary_card:
 
 ## 경영진 브리핑
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Engineer as DevSecOps Engineer
+    participant CI as CI/CD Pipeline
+    participant Sec as Security Gate & Scanner
+    participant Prod as Production Environment
+
+    Engineer->>CI: Push Git Commit / Pull Request
+    CI->>Sec: Static Analysis (SAST / Secret Masking)
+    Sec-->>CI: Policy Compliance (Zero Regression)
+    CI->>Prod: Automated Zero-Downtime Deployment
+```
+
+
 - 제로트러스트 가시성 확보와 암호화폐 규제 변화가 동시에 나타나 보안팀·컴플라이언스팀의 공동 대응이 필요합니다.
 - 단기 실행 포인트는 사용자/엔드포인트/네트워크 가시성 통합과 규제 변경에 따른 정책·절차 업데이트입니다.
 
@@ -491,3 +508,10 @@ MCP가 Cursor, Windsurf, VS Code Copilot 등 주요 AI 개발 도구에서 공�
 - [AI 에이전트 보안 위협, Gentlemen 랜섬웨어, 운영 대응 전략](/posts/2026/03/01/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/) — 2026-03-01
 - [Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안](/posts/2026/02/27/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/) — 2026-02-27
 - [Coruna iOS 익스플로잇, 핵티비스트 DDoS, 보안 대응 우선순위](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
+
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화
