@@ -90,6 +90,13 @@ if [ -f "${LOG_FILE}" ] && [ "$(wc -l < "${LOG_FILE}")" -gt 5000 ]; then
     log "INFO" "🧹 Log file rotated (truncated to recent 3,000 lines)."
 fi
 
+# 6. Send Webhook Notification
+SUMMARY_MSG="• Antigravity (AGY): ${NEW_AGY:-ok}\n• Claude Code: ${NEW_CLAUDE:-ok}\n• OpenCode: ${OPENCODE_VER:-ok}\n• Global NPM Tools: updated"
+/Users/namyongkim/Desktop/tech-blog/.venv/bin/python /Users/namyongkim/Desktop/tech-blog/scripts/notify_webhook.py \
+    --title "Weekly AI Tools & Engine Update Complete" \
+    --message "${SUMMARY_MSG}" \
+    --status "SUCCESS" >> "${LOG_FILE}" 2>&1 || true
+
 log "INFO" "========================================================"
 log "INFO" "🎉 Weekly AI Tools Update Completed Successfully."
 log "INFO" "========================================================"

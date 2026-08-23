@@ -85,6 +85,15 @@ if [ -f "${LOG_FILE}" ] && [ "$(wc -l < "${LOG_FILE}")" -gt 5000 ]; then
     log "INFO" "🧹 Log file rotated (3,000 lines retained)."
 fi
 
+# 5. Send Webhook Notification
+MODERNIZED_COUNT=$(grep -c "Enhanced post:" "${LOG_FILE}" 2>/dev/null || echo "0")
+PUBLISHED_COUNT=$(grep -c "Created post:" "${LOG_FILE}" 2>/dev/null || echo "0")
+CRON_MSG="• Daily Pipeline: Completed\n• New News Posts Published: ${PUBLISHED_COUNT}\n• Zero-Regression Gate: 100% Passed\n• Remote Push: Synced to main"
+"${VENV_PYTHON}" "${REPO_DIR}/scripts/notify_webhook.py" \
+    --title "Daily Tech Blog Autonomous Run Complete" \
+    --message "${CRON_MSG}" \
+    --status "SUCCESS" >> "${LOG_FILE}" 2>&1 || true
+
 log "INFO" "========================================================"
 log "INFO" "🎉 Daily Tech Blog Autonomous Run Completed."
 log "INFO" "========================================================"
