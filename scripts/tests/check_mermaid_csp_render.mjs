@@ -124,7 +124,13 @@ function findBuiltHtml(slug) {
   }
   // Canonical permalink = 3-segment numeric date (UTC-shift-safe: the day may
   // differ from the filename date, but it is always present).
-  const canonical = matches.filter((m) => /^\d{4}\/\d{2}\/\d{2}$/.test(m.datePath));
+  // Filter out jekyll-redirect-from stubs that contain <meta http-equiv="refresh">.
+  const canonical = matches
+    .filter((m) => /^\d{4}\/\d{2}\/\d{2}$/.test(m.datePath))
+    .filter((m) => {
+      const html = fs.readFileSync(m.index, 'utf8');
+      return !html.includes('http-equiv="refresh"') && !html.includes('HTTP-EQUIV="REFRESH"');
+    });
   if (canonical.length === 1) return canonical[0].index;
   if (canonical.length > 1) {
     fail(`Ambiguous canonical build for slug "${slug}": ${canonical.map((m) => m.datePath).join(', ')}`);
