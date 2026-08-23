@@ -52,6 +52,23 @@ summary_card:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Engineer as DevSecOps Engineer
+    participant CI as CI/CD Pipeline
+    participant Sec as Security Gate & Scanner
+    participant Prod as Production Environment
+
+    Engineer->>CI: Push Git Commit / Pull Request
+    CI->>Sec: Static Analysis (SAST / Secret Masking)
+    Sec-->>CI: Policy Compliance (Zero Regression)
+    CI->>Prod: Automated Zero-Downtime Deployment
+```
+
+
 > **경영진 브리핑**: SKT 보안 이슈 완벽 대응 가이드: IMEI 확인, USIM/eSIM 교체, 그리고 MFA의 중요성 - SK텔레콤 USIM 정보 유출 사태 대응 가이드. USIM/eSIM 교체, IMEI 확인, MFA 활성화, SIM 스와핑 위험성,
 
 ![Security News Section Banner](/assets/images/section-security.svg)
@@ -607,3 +624,9 @@ GET /auth_logs/_search
 }
  -->
 
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

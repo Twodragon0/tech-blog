@@ -59,6 +59,18 @@ redirect_from:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+flowchart LR
+    User([External Client]) --> WAF[AWS WAF / CloudFront]
+    WAF --> ALB[Application Load Balancer]
+    ALB --> ECS[Compute: ECS / EKS Cluster]
+    ECS --> DB[(Encrypted Aurora / DynamoDB)]
+    ECS -.-> CW[CloudWatch & GuardDuty Alerts]
+```
+
+
 본 포스트는 클라우드 시큐리티 과정 7기 5주차의 핵심 내용인 AWS Control Tower와 ZTNA(Zero Trust Network Access)를 다룹니다.
 
 ### 위험 스코어카드
@@ -313,3 +325,10 @@ aws ec2 authorize-security-group-ingress \
 | AWS Control Tower | 멀티 계정 거버넌스 | [docs.aws.amazon.com/controltower](https://docs.aws.amazon.com/controltower/) |
 | AWS Organizations | 계정 그룹 관리 | [docs.aws.amazon.com/organizations](https://docs.aws.amazon.com/organizations/) |
 | AWS WAF | 네트워크 시나리오 - AWS WAF와 전체적인 네트워크 보안 구성 | [youtu.be/r84IuPv_4TI](https://youtu.be/r84IuPv_4TI) |
+
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

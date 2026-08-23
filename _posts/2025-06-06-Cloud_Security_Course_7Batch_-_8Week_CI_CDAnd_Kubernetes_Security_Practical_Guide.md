@@ -57,6 +57,27 @@ summary_card:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+graph TD
+    subgraph Ingress & Control Plane
+        GW[API Gateway / Ingress Controller]
+        AC[Admission Controller / Webhook]
+    end
+    subgraph Data Plane & Pods
+        P1[Application Pod 1]
+        P2[Application Pod 2]
+        Sec[Security Agent / Sidecar]
+    end
+    GW --> AC
+    AC --> P1
+    AC --> P2
+    P1 --- Sec
+    P2 --- Sec
+```
+
+
 본 가이드는 클라우드 시큐리티 과정 7기 8주차에서 다룬 CI/CD 파이프라인 보안과 Kubernetes 클러스터 보안의 핵심 내용을 실무 관점에서 정리합니다.
 
 현대 클라우드 네이티브 환경에서 컨테이너와 Kubernetes는 애플리케이션 배포의 표준이 되었습니다. 그러나 이 편리함 뒤에는 새로운 공격 표면(Attack Surface)이 존재합니다. 소프트웨어 공급망 공격(Supply Chain Attack), 컨테이너 탈출(Container Escape), 권한 상승(Privilege Escalation) 등의 위협이 증가하고 있습니다.
@@ -522,3 +543,9 @@ Kubernetes 클러스터 배포 전후 확인 항목입니다.
 
 ---
 
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

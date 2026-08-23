@@ -44,6 +44,23 @@ summary_card:
 
 ## 경영진 브리핑
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Engineer as DevSecOps Engineer
+    participant CI as CI/CD Pipeline
+    participant Sec as Security Gate & Scanner
+    participant Prod as Production Environment
+
+    Engineer->>CI: Push Git Commit / Pull Request
+    CI->>Sec: Static Analysis (SAST / Secret Masking)
+    Sec-->>CI: Policy Compliance (Zero Regression)
+    CI->>Prod: Automated Zero-Downtime Deployment
+```
+
+
 - AI 에이전트 확산과 랜섬웨어 고도화가 동시에 진행되며 계정 권한 통제와 탐지 체계 정비가 우선 과제로 부상했습니다.
 - 단기적으로는 외부 노출 자산 점검, 위협 인텔 연계 탐지 룰 갱신, 중요 서비스 복구 절차 리허설이 필요합니다.
 
@@ -426,3 +443,10 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
 - [Pig Butchering $6100만 압수, FreePBX 대규모 침해, Go Crypto 백도어](/posts/2026/02/28/Tech_Security_Weekly_Digest_Go_AI_Malware/) — 2026-02-28
 - [제로트러스트 가시성, 암호화폐 규제 동향, 랜섬웨어 대응 전략](/posts/2026/03/02/Tech_Security_Weekly_Digest_Ransomware_AI_Agent/) — 2026-03-02
 - [UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향](/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/) — 2026-02-26
+
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

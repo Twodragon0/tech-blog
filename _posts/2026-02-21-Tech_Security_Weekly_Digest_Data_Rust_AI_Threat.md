@@ -43,6 +43,23 @@ redirect_from:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Engineer as DevSecOps Engineer
+    participant CI as CI/CD Pipeline
+    participant Sec as Security Gate & Scanner
+    participant Prod as Production Environment
+
+    Engineer->>CI: Push Git Commit / Pull Request
+    CI->>Sec: Static Analysis (SAST / Secret Masking)
+    Sec-->>CI: Policy Compliance (Zero Regression)
+    CI->>Prod: Automated Zero-Downtime Deployment
+```
+
+
 > **경영진 브리핑**: 2026년 02월 21일 보안 뉴스: The Hacker News, SK쉴더스 보안 리포트 등 15건. Vulnerability, AI, Security, AWS 관련 DevSecOps 실무 위협 분석 및 대응 가이드.
 
 ### 위험도 평가
@@ -305,3 +322,9 @@ Bitcoin이 고점 대비 50% 급락하며 $67,000대로 하락했습니다. 양�
 - [AI 위협 행위자 분석, Roundcube KEV 긴급, Claude Code 보안 점검](/posts/2026/02/22/Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security/) — 2026-02-22
 - [클라우드 보안 위협, Android 악성코드, 업데이트 리스크 분석](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
 
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

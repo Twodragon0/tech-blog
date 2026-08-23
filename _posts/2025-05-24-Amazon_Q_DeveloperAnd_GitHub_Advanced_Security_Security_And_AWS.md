@@ -56,6 +56,18 @@ redirect_from:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+flowchart LR
+    User([External Client]) --> WAF[AWS WAF / CloudFront]
+    WAF --> ALB[Application Load Balancer]
+    ALB --> ECS[Compute: ECS / EKS Cluster]
+    ECS --> DB[(Encrypted Aurora / DynamoDB)]
+    ECS -.-> CW[CloudWatch & GuardDuty Alerts]
+```
+
+
 2025년 현재, AI 기반 보안 도구는 DevSecOps 환경의 필수 요소가 되었습니다. 본 문서는 Amazon Q Developer와 GitHub Advanced Security를 활용한 엔터프라이즈급 보안 자동화 전략을 다룹니다.
 
 ### 위험 평가표 (Risk Scorecard)
@@ -781,3 +793,10 @@ Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화
 **마지막 업데이트**: 2025-05-24
 **작성자**: Yongho Ha
 **라이선스**: CC BY-NC-SA 4.0
+
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

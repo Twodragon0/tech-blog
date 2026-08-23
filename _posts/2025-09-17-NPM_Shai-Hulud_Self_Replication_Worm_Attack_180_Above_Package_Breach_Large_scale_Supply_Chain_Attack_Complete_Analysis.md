@@ -52,6 +52,23 @@ summary_card:
 
 ## Executive Summary
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Engineer as DevSecOps Engineer
+    participant CI as CI/CD Pipeline
+    participant Sec as Security Gate & Scanner
+    participant Prod as Production Environment
+
+    Engineer->>CI: Push Git Commit / Pull Request
+    CI->>Sec: Static Analysis (SAST / Secret Masking)
+    Sec-->>CI: Policy Compliance (Zero Regression)
+    CI->>Prod: Automated Zero-Downtime Deployment
+```
+
+
 > **경영진 브리핑**: NPM 생태계 최초 자가 복제 웜 형태 공급망 공격인 Shai-Hulud 분석과 대응 방안을 다룹니다. SBOM 생성 및 2FA
 
 ![Security News Section Banner](/assets/images/section-security.svg)
@@ -464,3 +481,9 @@ CISA 경고에 따라 모든 조직은 즉시 의존성 감사를 실시하고, 
 
 마지막 업데이트: 2025-11-15 (Shai-Hulud 2.0, CISA 경고, Nx 공격 등 추가)
 
+## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+
+- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
+- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
+- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
+- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화
