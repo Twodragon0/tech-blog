@@ -89,7 +89,9 @@ def test_readme_missing_active_scripts_warning(recwarn):
     This does NOT fail the build (documenting every one-shot helper is not
     required); it only surfaces a warning so the gap is visible in -W output.
     """
-    documented = {name for name, _, _ in documented_scripts(README.read_text(encoding="utf-8"))}
+    documented = {
+        name for name, _, _ in documented_scripts(README.read_text(encoding="utf-8"))
+    }
     on_disk = {p.name for p in SCRIPTS_DIR.glob("*.py")}
     undocumented = sorted(on_disk - documented)
     if undocumented:
@@ -107,6 +109,7 @@ def test_readme_missing_active_scripts_warning(recwarn):
 # Proves the guard actually trips on a ghost row, using a synthetic string so
 # no real file is touched.
 
+
 def test_guard_is_non_vacuous():
     synthetic = (
         "## All Scripts Reference\n"
@@ -116,7 +119,9 @@ def test_guard_is_non_vacuous():
         "| `definitely_not_a_real_script_xyz.py` | ghost | - |\n"
     )
     parsed = documented_scripts(synthetic)
-    assert parsed == [("definitely_not_a_real_script_xyz.py", "Post Validation (1 scripts)", 5)]
+    assert parsed == [
+        ("definitely_not_a_real_script_xyz.py", "Post Validation (1 scripts)", 5)
+    ]
     assert not (SCRIPTS_DIR / "definitely_not_a_real_script_xyz.py").is_file()
 
 

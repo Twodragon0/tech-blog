@@ -70,6 +70,7 @@ CLOSERS: tuple[str, ...] = (
     " 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다.",
 )
 
+
 # Particle helper — Korean 받침 detection for grammatical clitics
 def _has_batchim(ch: str) -> bool:
     if not ch or not ("\uac00" <= ch <= "\ud7a3"):
@@ -269,10 +270,7 @@ def _yaml_safe(text: str) -> str:
     backslashes for typographic equivalents — they look the same to
     readers and search engines but are safe inside the YAML scalar.
     """
-    return (
-        text.replace("\\", "")
-        .replace('"', "'")
-    )
+    return text.replace("\\", "").replace('"', "'")
 
 
 def _is_v2(existing: str) -> bool:
@@ -311,9 +309,7 @@ def _process_file(path: Path, apply: bool) -> tuple[bool, str]:
         return False, "no-change"
 
     # Replace the single excerpt line
-    new_fm = _EXCERPT_RE.sub(
-        f'excerpt: "{new_excerpt}"', fm.raw, count=1
-    )
+    new_fm = _EXCERPT_RE.sub(f'excerpt: "{new_excerpt}"', fm.raw, count=1)
     new_text = "---\n" + new_fm + "\n---\n" + body
 
     if apply:

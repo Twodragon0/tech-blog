@@ -133,8 +133,10 @@ def test_unarmed_path_still_skips_for_local_shells() -> None:
 def test_ruby_is_set_up_before_the_armed_step() -> None:
     ruby_idx = _index_of(lambda s: RUBY_SETUP_MARKER in str(s.get("uses", "")))
     pytest_idx = _index_of(
-        lambda s: PYTEST_STEP_MARKER in (s.get("run") or "")
-        and "--cov-fail-under" in (s.get("run") or "")
+        lambda s: (
+            PYTEST_STEP_MARKER in (s.get("run") or "")
+            and "--cov-fail-under" in (s.get("run") or "")
+        )
     )
     assert ruby_idx >= 0, f"no {RUBY_SETUP_MARKER} step in the build job"
     assert pytest_idx >= 0, "no full-suite pytest step in the build job"

@@ -26,6 +26,7 @@ Usage
     # Apply.
     python3 scripts/fix_qr_url_in_covers.py --commit
 """
+
 from __future__ import annotations
 
 import argparse
@@ -73,7 +74,7 @@ def fix_one(path: Path) -> tuple[bool, str]:
         return False, "no QR block found"
     canonical = _post_url_from_filename(path.name)
     new_qr = qr_block(canonical)
-    new_text = text[: m.start()] + new_qr + text[m.end():]
+    new_text = text[: m.start()] + new_qr + text[m.end() :]
     if new_text == text:
         return False, "QR matches canonical URL already"
     path.write_text(new_text, encoding="utf-8")
@@ -120,7 +121,7 @@ def main(argv: list[str] | None = None) -> int:
                 continue
             canonical = _post_url_from_filename(p.name)
             new_qr = qr_block(canonical)
-            new_text = text[: m.start()] + new_qr + text[m.end():]
+            new_text = text[: m.start()] + new_qr + text[m.end() :]
             if new_text == text:
                 already_correct += 1
             else:

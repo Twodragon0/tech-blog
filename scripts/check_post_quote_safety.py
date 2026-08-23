@@ -69,6 +69,7 @@ _CURLY_QUOTES = "\u201c\u201d\u2018\u2019"
 
 # Regex to detect a Liquid include tag anywhere on a line.
 import re as _re
+
 _LIQUID_INCLUDE_RE = _re.compile(r"\{%-?\s*include\s")
 
 # ---------------------------------------------------------------------------
@@ -165,9 +166,7 @@ def check_file(path: Path) -> List[Tuple[str, str]]:
             curly_found = [c for c in _CURLY_QUOTES if c in line]
             if curly_found:
                 snippet = line.strip()[:_SNIPPET_LEN]
-                violations.append(
-                    (f"include_line:{lineno}", snippet)
-                )
+                violations.append((f"include_line:{lineno}", snippet))
 
     return violations
 
@@ -197,11 +196,7 @@ def main(argv: list[str] | None = None) -> int:
             text=True,
         )
         staged = result.stdout.splitlines()
-        paths = [
-            Path(p)
-            for p in staged
-            if re.match(r"^_posts/.*\.md$", p)
-        ]
+        paths = [Path(p) for p in staged if re.match(r"^_posts/.*\.md$", p)]
 
     if not paths:
         return 0

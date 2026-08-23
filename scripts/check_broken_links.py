@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Check for broken internal /posts/ links in _posts/*.md files."""
-import re
+
 import glob
 import os
+import re
 
 posts = glob.glob("_posts/*.md")
 permalinks = set()

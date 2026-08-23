@@ -4,7 +4,6 @@ digest highlights backfill (replace 포인트 N placeholders with the real
 (source, title) rows from the body highlights table)."""
 
 import yaml
-
 from backfill_placeholder_highlights import (
     backfill_text,
     extract_real_highlights,
@@ -14,10 +13,10 @@ from backfill_placeholder_highlights import (
 
 _BODY_TABLE = (
     "## 본문\n\n"
-    "| 항목 | 위험도 | 설명 |\n"          # a DIFFERENT (secondary) table first
+    "| 항목 | 위험도 | 설명 |\n"  # a DIFFERENT (secondary) table first
     "|------|--------|------|\n"
     "| 전체 위험도 | 🟡 중간 | 패치 필요 |\n\n"
-    "| 분야 | 소스 | 핵심 내용 | 영향도 |\n"   # the highlights table
+    "| 분야 | 소스 | 핵심 내용 | 영향도 |\n"  # the highlights table
     "|------|------|----------|--------|\n"
     "| 🔒 Security | The Hacker News | Aeternum C2 Botnet 분석 | 🔴 Critical |\n"
     "| 🤖 AI/ML | Google AI Blog | Google x Massachusetts AI Hub | 🟡 Medium |\n"
@@ -28,17 +27,16 @@ _BODY_TABLE = (
 _PLACEHOLDER_POST = (
     "---\n"
     "layout: post\n"
-    "title: \"x\"\n"
+    'title: "x"\n'
     "summary_card:\n"
-    "  title: \"y\"\n"
+    '  title: "y"\n'
     "  categories:\n"
-    "    - { class: \"security\", label: \"보안\" }\n"
+    '    - { class: "security", label: "보안" }\n'
     "  highlights:\n"
-    "    - { source: \"포인트 1\", title: \"2026년 보안 뉴스: The Hacker News 등 30건\" }\n"
-    "    - { source: \"포인트 2\", title: \"실무 관점에서 점검\" }\n"
-    "    - { source: \"포인트 3\", title: \"문서화\" }\n"
-    "---\n"
-    + _BODY_TABLE
+    '    - { source: "포인트 1", title: "2026년 보안 뉴스: The Hacker News 등 30건" }\n'
+    '    - { source: "포인트 2", title: "실무 관점에서 점검" }\n'
+    '    - { source: "포인트 3", title: "문서화" }\n'
+    "---\n" + _BODY_TABLE
 )
 
 
@@ -86,17 +84,21 @@ class TestBackfillText:
         assert data["layout"] == "post"
 
     def test_idempotent_no_placeholder_returns_none(self):
-        already_real = _PLACEHOLDER_POST.replace("포인트 1", "The Hacker News").replace(
-            "포인트 2", "BleepingComputer"
-        ).replace("포인트 3", "AWS Security Blog")
+        already_real = (
+            _PLACEHOLDER_POST.replace("포인트 1", "The Hacker News")
+            .replace("포인트 2", "BleepingComputer")
+            .replace("포인트 3", "AWS Security Blog")
+        )
         assert backfill_text(already_real) is None
 
     def test_body_only_placeholder_string_not_rewritten(self):
         # A 포인트-like string in the BODY prose (real FM highlights) must NOT
         # trigger a front-matter rewrite — the guard is front-matter scoped.
-        already_real = _PLACEHOLDER_POST.replace("포인트 1", "The Hacker News").replace(
-            "포인트 2", "BleepingComputer"
-        ).replace("포인트 3", "AWS Security Blog")
+        already_real = (
+            _PLACEHOLDER_POST.replace("포인트 1", "The Hacker News")
+            .replace("포인트 2", "BleepingComputer")
+            .replace("포인트 3", "AWS Security Blog")
+        )
         # inject a placeholder-looking string into the body only
         poisoned = already_real + '\n예시 코드: source: "포인트 1"\n'
         assert backfill_text(poisoned) is None

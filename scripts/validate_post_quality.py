@@ -160,7 +160,9 @@ def validate_length(content: str) -> int:
 INDEX_TAG = "monthly-index"
 
 # Both authoring styles for dated digest links must be counted:
-DATED_LINK = re.compile(r"/posts/\d{4}/\d{2}/\d{2}/")  # raw permalink (how indexes are written)
+DATED_LINK = re.compile(
+    r"/posts/\d{4}/\d{2}/\d{2}/"
+)  # raw permalink (how indexes are written)
 POST_URL = re.compile(r"{%\s*post_url")  # Liquid form (future-proof)
 
 
@@ -211,9 +213,7 @@ def validate_index_structure(content: str) -> tuple[int, int]:
     """주차별 구조 (20점) + 편집 섹션 (10점)."""
     weekly = len(re.findall(r"^##\s*\d+\s*주차", content, re.MULTILINE))
     weekly_score = 20 if weekly >= 3 else weekly * 7  # ≥3 weekly buckets = full
-    editorial = sum(
-        kw in content for kw in ("## 개요", "월간 주요 트렌드", "## 통계")
-    )
+    editorial = sum(kw in content for kw in ("## 개요", "월간 주요 트렌드", "## 통계"))
     editorial_score = round(editorial / 3 * 10)
     return min(20, weekly_score), editorial_score
 

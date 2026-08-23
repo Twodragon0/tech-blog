@@ -12,7 +12,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 import scripts.check_post_image_variants as m
 
-
 # ---------------------------------------------------------------------------
 # _extract_image_field
 # ---------------------------------------------------------------------------
@@ -64,9 +63,7 @@ class TestBaseStem:
 
 def _make_post(tmp_path: Path, image_field: str) -> Path:
     p = tmp_path / "2026-05-06-Test.md"
-    p.write_text(
-        f"---\nlayout: post\ntitle: Test\nimage: {image_field}\n---\nBody\n"
-    )
+    p.write_text(f"---\nlayout: post\ntitle: Test\nimage: {image_field}\n---\nBody\n")
     return p
 
 

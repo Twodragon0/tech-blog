@@ -18,7 +18,6 @@ from auto_publish_news import (
     generate_tech_blog_content,
 )
 
-
 # ---------------------------------------------------------------------------
 # Unit tests for _html_escape_quotes
 # ---------------------------------------------------------------------------
@@ -75,6 +74,7 @@ class TestHtmlEscapeQuotes:
 # Integration: generate_post_content (security mode) title= arg safety
 # ---------------------------------------------------------------------------
 
+
 def _make_security_items_with_single_quotes():
     """Minimal news item list whose title contains inner single quotes."""
     return [
@@ -102,6 +102,7 @@ def _make_security_items_with_single_quotes():
 def _make_categorized(items):
     """Build a minimal categorized dict suitable for generate_post_content."""
     from datetime import datetime, timezone
+
     return {
         "security": items,
         "ai": [],
@@ -112,8 +113,9 @@ def _make_categorized(items):
     }
 
 
-_TEST_DATE = __import__("datetime").datetime(2026, 4, 20, 10, 0, 0,
-                                              tzinfo=__import__("datetime").timezone.utc)
+_TEST_DATE = __import__("datetime").datetime(
+    2026, 4, 20, 10, 0, 0, tzinfo=__import__("datetime").timezone.utc
+)
 
 
 class TestGeneratePostContentQuoteSafety:
@@ -165,6 +167,7 @@ class TestGeneratePostContentQuoteSafety:
 # ---------------------------------------------------------------------------
 # Integration: generate_tech_blog_content title= arg safety
 # ---------------------------------------------------------------------------
+
 
 class TestGenerateTechBlogContentQuoteSafety:
     """Same regression coverage for the tech-blog variant under Option A."""
@@ -250,7 +253,7 @@ _POSTS_DIR = Path(__file__).parent.parent.parent / "_posts"
 # Pattern that would indicate a broken include: outer single-quote wrapping title
 # and a literal unescaped ' inside it.
 _BROKEN_TITLE_PATTERN = re.compile(
-    r'\btitle=\'[^\']*\'[^\']*\'',  # title='...'...' — 3+ single quotes = broken
+    r"\btitle=\'[^\']*\'[^\']*\'",  # title='...'...' — 3+ single quotes = broken
     re.DOTALL,
 )
 
@@ -266,7 +269,9 @@ def _get_recent_posts(n: int = 10) -> list:
     """Return the n most recently modified .md files under _posts/."""
     if not _POSTS_DIR.exists():
         return []
-    posts = sorted(_POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+    posts = sorted(
+        _POSTS_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True
+    )
     return posts[:n]
 
 
@@ -282,7 +287,7 @@ class TestPostLevelQuoteSafetyGuard:
             text = post_path.read_text(encoding="utf-8")
             # Find all ai-summary-card include blocks
             for block_match in re.finditer(
-                r'\{%[- ]*\s*include ai-summary-card\.html(.*?)%\}',
+                r"\{%[- ]*\s*include ai-summary-card\.html(.*?)%\}",
                 text,
                 re.DOTALL,
             ):
@@ -307,8 +312,7 @@ class TestPostLevelQuoteSafetyGuard:
 import sys
 import tempfile
 from pathlib import Path as _Path
-from unittest.mock import patch, MagicMock
-
+from unittest.mock import MagicMock, patch
 
 _GOOD_POST_CONTENT = """\
 ---
@@ -349,18 +353,18 @@ class TestDigestQualitySelfCheck:
 
     def test_check_file_clean_post_returns_no_issues(self, tmp_path):
         """check_file() returns empty list for a post with no truncation issues."""
-        import sys
         sys.path.insert(0, str(_Path(__file__).parent.parent))
         from digest_quality_report import check_file
+
         post = self._write_tmp_post(tmp_path, _GOOD_POST_CONTENT)
         issues = check_file(post)
         assert issues == [], f"Expected no issues but got: {issues}"
 
     def test_check_file_truncated_post_returns_issues(self, tmp_path):
         """check_file() detects truncation particles at end of table cells."""
-        import sys
         sys.path.insert(0, str(_Path(__file__).parent.parent))
         from digest_quality_report import check_file
+
         post = self._write_tmp_post(tmp_path, _TRUNCATED_POST_CONTENT)
         issues = check_file(post)
         assert any("TRUNCATED" in i for i in issues), (
@@ -369,7 +373,6 @@ class TestDigestQualitySelfCheck:
 
     def test_quality_gate_failure_removes_post_and_exits(self, tmp_path, monkeypatch):
         """When check_file returns issues, main() removes the post and calls sys.exit(1)."""
-        import sys
         sys.path.insert(0, str(_Path(__file__).parent.parent))
 
         post_path = tmp_path / "2026-04-17-Test_Security_Weekly_Digest_Test.md"
@@ -377,21 +380,27 @@ class TestDigestQualitySelfCheck:
         # Simulate: file was written (create it), then quality check finds issue
         post_path.write_text(_TRUNCATED_POST_CONTENT, encoding="utf-8")
 
-        with patch("digest_quality_report.check_file", return_value=["L9 TRUNCATED: ...를"]) as mock_check, \
-             pytest.raises(SystemExit) as exc_info:
+        with (
+            patch(
+                "digest_quality_report.check_file", return_value=["L9 TRUNCATED: ...를"]
+            ) as mock_check,
+            pytest.raises(SystemExit) as exc_info,
+        ):
             # Import check_file as it would be in auto_publish_news context
             from digest_quality_report import check_file
+
             quality_issues = check_file(post_path)
             if quality_issues:
                 post_path.unlink(missing_ok=True)
                 sys.exit(1)
 
         assert exc_info.value.code == 1
-        assert not post_path.exists(), "Post file should have been removed on quality gate failure"
+        assert not post_path.exists(), (
+            "Post file should have been removed on quality gate failure"
+        )
 
     def test_quality_gate_success_keeps_post(self, tmp_path):
         """When check_file returns no issues, the post file is kept."""
-        import sys
         sys.path.insert(0, str(_Path(__file__).parent.parent))
         from digest_quality_report import check_file
 
@@ -422,6 +431,7 @@ class TestGenerateAndCommitRasterVariants:
         """Write a minimal 1x1 white PNG so Pillow can open it."""
         try:
             from PIL import Image
+
             img = Image.new("RGB", (1200, 630), color=(255, 255, 255))
             img.save(path, "PNG")
         except ImportError:
@@ -439,7 +449,9 @@ class TestGenerateAndCommitRasterVariants:
 
         stem = "2026-05-28-Tech_Security_Weekly_Digest_AI_Test"
         svg_path = images_dir / f"{stem}.svg"
-        svg_path.write_text("<svg xmlns='http://www.w3.org/2000/svg'><rect width='1' height='1'/></svg>")
+        svg_path.write_text(
+            "<svg xmlns='http://www.w3.org/2000/svg'><rect width='1' height='1'/></svg>"
+        )
         png_path = images_dir / f"{stem}_og.png"
         self._write_fake_png(png_path)
 
@@ -449,6 +461,7 @@ class TestGenerateAndCommitRasterVariants:
         # _ConfigProxy.__getattr__ falls through to the real module for
         # non-proxied attrs, so direct access works here.
         import auto_publish_news as _apn
+
         fn = _apn._generate_and_commit_raster_variants
 
         # Run with no_commit=True so we don't need a real git repo.
@@ -493,6 +506,7 @@ class TestGenerateAndCommitRasterVariants:
             (images_dir / f"{stem}{suffix}").write_bytes(sentinel)
 
         import auto_publish_news as _apn
+
         fn = _apn._generate_and_commit_raster_variants
 
         fn(svg_path=svg_path, post_path=post_path, post_stem=stem, no_commit=True)

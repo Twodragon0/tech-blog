@@ -30,6 +30,7 @@ spec.loader.exec_module(l20_run)
 # Helpers
 # ---------------------------------------------------------------------------
 
+
 def _row(name: str, hamming: int, is_ref: bool = False) -> dict:
     return {
         "name": name,
@@ -46,6 +47,7 @@ def _row(name: str, hamming: int, is_ref: bool = False) -> dict:
 # ---------------------------------------------------------------------------
 # Tests: check_strict_gate (pure function)
 # ---------------------------------------------------------------------------
+
 
 class TestCheckStrictGate:
     """check_strict_gate(rows, threshold) returns outlier rows."""
@@ -121,6 +123,7 @@ class TestCheckStrictGate:
 # ---------------------------------------------------------------------------
 # Tests: argument parsing
 # ---------------------------------------------------------------------------
+
 
 class TestParseArgs:
     """parse_args() accepts --strict and --threshold."""

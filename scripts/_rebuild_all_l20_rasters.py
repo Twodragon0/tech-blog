@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Rebuild raster variants for every L20 cover. One-shot after renderer enrichment."""
+
 from __future__ import annotations
 
 import subprocess
@@ -23,7 +24,16 @@ def build_one(svg_name: str) -> tuple[str, bool, str]:
     og_png = ASSETS / f"{base}_og.png"
     try:
         subprocess.run(
-            ["rsvg-convert", "-w", str(OG_W), "-h", str(OG_H), "-o", str(og_png), str(svg)],
+            [
+                "rsvg-convert",
+                "-w",
+                str(OG_W),
+                "-h",
+                str(OG_H),
+                "-o",
+                str(og_png),
+                str(svg),
+            ],
             check=True,
             capture_output=True,
         )

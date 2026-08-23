@@ -224,7 +224,7 @@ def test_scanner_sees_the_live_suite() -> None:
         'pytest.skip(f"{TARGET} not found")',
         'pytest.skip("Week2 rollup post missing")',
         'pytest.skip("Post file for 2026-04-12 not found")',
-        'pytest.skip(reason=some_variable)',
+        "pytest.skip(reason=some_variable)",
         '@pytest.mark.skip(reason="flaky")\ndef test_x(): pass',
     ],
 )

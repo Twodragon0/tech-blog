@@ -3,6 +3,7 @@
 Uses synthetic spec-like objects + monkeypatched lookups so the tests do NOT
 depend on which spec files exist on disk (the vestigial specs are being
 discarded; the guard logic must stay covered regardless)."""
+
 from __future__ import annotations
 
 from types import SimpleNamespace
@@ -20,11 +21,15 @@ def test_digest_slug_is_cron_owned(monkeypatch):
     monkeypatch.setattr(u, "_owning_post_text", lambda *a: None)
     monkeypatch.setattr(u, "_competing_spec", lambda *a: None)
     assert u.spec_ownership(_spec("Tech_Security_Weekly_Digest_AI_Foo")) == "cron"
-    assert u.spec_ownership(_spec("January_2026_Security_Digest_Monthly_Index")) == "cron"
+    assert (
+        u.spec_ownership(_spec("January_2026_Security_Digest_Monthly_Index")) == "cron"
+    )
 
 
 def test_cover_style_post_is_content_mode_owned(monkeypatch):
-    monkeypatch.setattr(u, "_owning_post_text", lambda d, s: "---\ncover_style: l20\n---\n")
+    monkeypatch.setattr(
+        u, "_owning_post_text", lambda d, s: "---\ncover_style: l20\n---\n"
+    )
     monkeypatch.setattr(u, "_competing_spec", lambda *a: None)
     assert u.spec_ownership(_spec("Some_Content_Guide")) == "content_mode"
 
@@ -56,7 +61,9 @@ def test_live_all_writes_only_spec_owned():
 
 def test_load_drift_baseline_parses_comments_and_blanks(tmp_path):
     f = tmp_path / "bl.txt"
-    f.write_text("# comment\n\n2026-01-22-Foo  # inline\n  2026-02-02-Bar\n", encoding="utf-8")
+    f.write_text(
+        "# comment\n\n2026-01-22-Foo  # inline\n  2026-02-02-Bar\n", encoding="utf-8"
+    )
     bl = u._load_drift_baseline(str(f))
     assert bl == {"2026-01-22-Foo", "2026-02-02-Bar"}
 
@@ -68,7 +75,14 @@ def test_load_drift_baseline_missing_file_is_empty():
 
 def test_live_l20_drift_gate_passes_with_baseline():
     """Backstop: the committed l20-drift gate (5 spec-owned, 1 baselined) exits 0."""
-    assert u.main([
-        "--all", "--check",
-        "--baseline", "scripts/l20_drift_baseline.txt",
-    ]) == 0
+    assert (
+        u.main(
+            [
+                "--all",
+                "--check",
+                "--baseline",
+                "scripts/l20_drift_baseline.txt",
+            ]
+        )
+        == 0
+    )

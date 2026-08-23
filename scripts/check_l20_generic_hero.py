@@ -26,6 +26,7 @@ Usage:
     python3 scripts/check_l20_generic_hero.py <svg>...   # scan specific files
 Exit 0 = clean, 1 = at least one generic-pool hero found.
 """
+
 from __future__ import annotations
 
 import re
@@ -100,10 +101,14 @@ def main(argv: List[str]) -> int:
         )
         for svg, msg in violations:
             print(f"  ✗ {svg.name}: {msg}")
-        print("  Fix: regenerate via the cron L20 path "
-              "(scripts/regen_l20_digest_covers.py), which now surfaces the")
-        print("  post's real lead story from summary_card.highlights via "
-              "load_post_fields. See _digest_panels / _apply_real_content.")
+        print(
+            "  Fix: regenerate via the cron L20 path "
+            "(scripts/regen_l20_digest_covers.py), which now surfaces the"
+        )
+        print(
+            "  post's real lead story from summary_card.highlights via "
+            "load_post_fields. See _digest_panels / _apply_real_content."
+        )
         return 1
     print(f"[generic-hero] OK — {scanned} L20 cover(s) checked, 0 generic-pool heroes.")
     return 0

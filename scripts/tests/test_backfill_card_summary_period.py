@@ -10,6 +10,7 @@ It edits inside a Liquid include, which is exactly where a context-blind rewrite
 corrupted cover images in PR #509. So the contract here is deliberately narrow:
 the only permitted change to a file is a `.` appended to a `summary` value.
 """
+
 import sys
 from pathlib import Path
 
@@ -43,7 +44,11 @@ _CARD_SHAPES = {
     "whitespace_control": {"open_ws": "-", "close_ws": "-"},
     "dash_open_only": {"open_ws": "-"},
     "spotlight": {"include": "news-spotlight-item"},
-    "spotlight_dash": {"include": "news-spotlight-item", "open_ws": "-", "close_ws": "-"},
+    "spotlight_dash": {
+        "include": "news-spotlight-item",
+        "open_ws": "-",
+        "close_ws": "-",
+    },
 }
 
 

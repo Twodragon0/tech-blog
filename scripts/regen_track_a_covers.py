@@ -12,6 +12,7 @@ For each target post:
 Usage:
     python3 scripts/regen_track_a_covers.py [--dry-run]
 """
+
 from __future__ import annotations
 
 import argparse

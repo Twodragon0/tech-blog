@@ -140,7 +140,7 @@ def test_diff_scoped_steps_have_a_non_pull_request_base():
     noise that gets muted.
     """
     body = _body()
-    pr_branches = body.count("github.event_name }}\" = \"pull_request\"")
+    pr_branches = body.count('github.event_name }}" = "pull_request"')
     assert pr_branches >= 4, (
         f"expected the 4 diff-scoped steps to branch on event_name, found {pr_branches}"
     )

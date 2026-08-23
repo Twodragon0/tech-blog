@@ -32,7 +32,9 @@ from scripts.lib import svg_l22_generator as l22  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 ASSETS_DIR = REPO_ROOT / "assets" / "images"
-REFERENCE_SVG = ASSETS_DIR / "2026-04-08-Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet.svg"
+REFERENCE_SVG = (
+    ASSETS_DIR / "2026-04-08-Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet.svg"
+)
 
 # Exact 15 filenames produced by upgrade_l20_cover.py from
 # _data/l20_covers/*.yml (2026-03-23 owned by digest pipeline per audit D1)
@@ -97,6 +99,7 @@ KOREAN_RE = re.compile(r"[\uAC00-\uD7A3]")
 # Helpers
 # ---------------------------------------------------------------------------
 
+
 def _wrap_svg(fragment: str) -> str:
     """Wrap an SVG fragment in a minimal root element for parse testing."""
     return (
@@ -129,6 +132,7 @@ def _synthetic_story(theme: str = "red", visual: str = "cve_chain") -> dict:
 # ---------------------------------------------------------------------------
 # Test 1: Visual builders — minimum structure and animation checks
 # ---------------------------------------------------------------------------
+
 
 @pytest.mark.parametrize("name,fn", VISUAL_BUILDERS)
 def test_visual_blocks_render_minimum_animations(name: str, fn) -> None:
@@ -166,6 +170,7 @@ def test_visual_blocks_render_minimum_animations(name: str, fn) -> None:
 # ---------------------------------------------------------------------------
 # Test 2: Full render_l20_hero structure
 # ---------------------------------------------------------------------------
+
 
 def test_render_l20_hero_full_structure() -> None:
     """render_l20_hero with a 3-story synthetic config produces expected SVG structure."""
@@ -229,6 +234,7 @@ def test_render_l20_hero_full_structure() -> None:
 # Test 3: All 16 March covers quality gate
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.parametrize("filename", L20_MARCH_FILENAMES)
 def test_all_16_march_covers_pass_quality_gate(filename: str) -> None:
     """Each of the 16 L20 March 2026 covers must meet structural quality requirements."""
@@ -262,9 +268,7 @@ def test_all_16_march_covers_pass_quality_gate(filename: str) -> None:
     # Date string derived from filename (e.g. "2026.03.16")
     parts = filename.split("-")  # ['2026', '03', '16', ...]
     date_dot = f"{parts[0]}.{parts[1]}.{parts[2]}"
-    assert date_dot in content, (
-        f"{filename}: date string '{date_dot}' not found in SVG"
-    )
+    assert date_dot in content, f"{filename}: date string '{date_dot}' not found in SVG"
 
     # Animation density: real L20 covers have 38–56 animations; require >= 30
     total_anims = _count_anims(content)
@@ -277,19 +281,21 @@ def test_all_16_march_covers_pass_quality_gate(filename: str) -> None:
     assert "..." not in content, f"{filename}: contains literal '...'"
 
     # No Korean characters
-    assert not KOREAN_RE.search(content), (
-        f"{filename}: contains Korean characters"
-    )
+    assert not KOREAN_RE.search(content), f"{filename}: contains Korean characters"
 
 
 # ---------------------------------------------------------------------------
 # Test 3b: Content-neutral builders (Option B) — honesty + framing guarantees
 # ---------------------------------------------------------------------------
 
-@pytest.mark.parametrize("name,fn", [
-    ("vb_neutral", svg_l20_hero.vb_neutral),
-    ("vb_market", svg_l20_hero.vb_market),
-])
+
+@pytest.mark.parametrize(
+    "name,fn",
+    [
+        ("vb_neutral", svg_l20_hero.vb_neutral),
+        ("vb_market", svg_l20_hero.vb_market),
+    ],
+)
 def test_neutral_builders_are_ascii_and_wellformed(name, fn) -> None:
     """Both content-neutral builders render valid, ASCII-only SVG fragments."""
     for theme in ("blue", "amber", "red", "green", "purple"):
@@ -304,10 +310,13 @@ def test_neutral_builders_are_ascii_and_wellformed(name, fn) -> None:
             pytest.fail(f"{name}[{theme}] is not well-formed XML: {exc}")
 
 
-@pytest.mark.parametrize("name,fn", [
-    ("vb_neutral", svg_l20_hero.vb_neutral),
-    ("vb_market", svg_l20_hero.vb_market),
-])
+@pytest.mark.parametrize(
+    "name,fn",
+    [
+        ("vb_neutral", svg_l20_hero.vb_neutral),
+        ("vb_market", svg_l20_hero.vb_market),
+    ],
+)
 def test_neutral_builders_assert_no_attack_narrative(name, fn) -> None:
     """The honesty guarantee: neither neutral builder may emit any attack /
     breach / CVE / exploit vocabulary. This is the whole point of Option B —
@@ -315,9 +324,7 @@ def test_neutral_builders_assert_no_attack_narrative(name, fn) -> None:
     """
     out = fn(800, 230, "blue").upper()
     for token in _ATTACK_VOCAB:
-        assert token.upper() not in out, (
-            f"{name} leaked attack vocabulary {token!r}"
-        )
+        assert token.upper() not in out, f"{name} leaked attack vocabulary {token!r}"
 
 
 def test_vb_neutral_uses_benign_labels() -> None:
@@ -352,10 +359,16 @@ def test_vb_neutral_topic_variation_is_deterministic() -> None:
     """Same topic always renders the same fragment (deterministic), and
     different topic classes render different fragments (actual variety)."""
     release = svg_l20_hero.vb_neutral(800, 230, "blue", topic="Kubernetes 1.30 release")
-    ecosystem = svg_l20_hero.vb_neutral(800, 230, "blue", topic="CNCF ecosystem velocity")
-    advisory = svg_l20_hero.vb_neutral(800, 230, "blue", topic="Lifecycle deprecation notice")
+    ecosystem = svg_l20_hero.vb_neutral(
+        800, 230, "blue", topic="CNCF ecosystem velocity"
+    )
+    advisory = svg_l20_hero.vb_neutral(
+        800, 230, "blue", topic="Lifecycle deprecation notice"
+    )
     # Deterministic: identical inputs -> byte-identical output.
-    assert release == svg_l20_hero.vb_neutral(800, 230, "blue", topic="Kubernetes 1.30 release")
+    assert release == svg_l20_hero.vb_neutral(
+        800, 230, "blue", topic="Kubernetes 1.30 release"
+    )
     # Variety: the three topic classes are not byte-identical.
     assert len({release, ecosystem, advisory}) == 3, "neutral topic variation collapsed"
     # The class-specific hub sub-label is present.
@@ -375,7 +388,13 @@ def test_vb_neutral_band_index_cycle_varies_without_topic() -> None:
 
 def test_vb_neutral_variation_stays_ascii_and_attack_free() -> None:
     """The variation must remain ASCII-only and add no attack vocabulary."""
-    topics = ["Kubernetes release", "CNCF ecosystem", "policy advisory", "", "generic digest"]
+    topics = [
+        "Kubernetes release",
+        "CNCF ecosystem",
+        "policy advisory",
+        "",
+        "generic digest",
+    ]
     for idx, topic in enumerate(topics):
         out = svg_l20_hero.vb_neutral(800, 230, "blue", topic=topic, band_index=idx)
         assert all(ord(c) < 128 for c in out), f"non-ASCII for topic {topic!r}"
@@ -385,7 +404,13 @@ def test_vb_neutral_variation_stays_ascii_and_attack_free() -> None:
                 f"vb_neutral leaked attack vocab {token!r} for topic {topic!r}"
             )
     upper = out.upper()
-    for token in ("CVE REGRESSION", "ATTACKER", ">C2<", ">VICTIM<", "DATA EXFILTRATION"):
+    for token in (
+        "CVE REGRESSION",
+        "ATTACKER",
+        ">C2<",
+        ">VICTIM<",
+        "DATA EXFILTRATION",
+    ):
         assert token.upper() not in upper, f"fallback leaked {token!r}"
 
 
@@ -404,7 +429,9 @@ _MOTIF_ARGS = ("#3A86FF", "#7FB2FF", "UPDATE", "#A78BFA")
 
 def test_neutral_motif_registry_is_frozen_tuple() -> None:
     reg = svg_l20_hero._NEUTRAL_MOTIFS
-    assert isinstance(reg, tuple) and len(reg) >= 3, "registry must be a tuple of >=3 motifs"
+    assert isinstance(reg, tuple) and len(reg) >= 3, (
+        "registry must be a tuple of >=3 motifs"
+    )
 
 
 @pytest.mark.parametrize("idx", range(len(svg_l20_hero._NEUTRAL_MOTIFS)))
@@ -436,7 +463,9 @@ def test_cover_seed_rotation_yields_three_distinct_motifs() -> None:
     n = len(svg_l20_hero._NEUTRAL_MOTIFS)
     for seed in range(n):
         bands = [
-            svg_l20_hero.vb_neutral(800, 230, "blue", topic="", band_index=i, cover_seed=seed)
+            svg_l20_hero.vb_neutral(
+                800, 230, "blue", topic="", band_index=i, cover_seed=seed
+            )
             for i in range(3)
         ]
         assert len(set(bands)) == 3, f"seed {seed}: 3 bands not distinct"
@@ -463,6 +492,7 @@ def test_cover_seed_is_deterministic() -> None:
 # Test 4: Reference April-08 baseline invariants
 # ---------------------------------------------------------------------------
 
+
 def test_reference_04_08_baseline_invariants() -> None:
     """The original April-08 reference cover retains its characteristic L20 markers."""
     assert REFERENCE_SVG.exists(), f"Reference SVG not found: {REFERENCE_SVG}"
@@ -485,6 +515,7 @@ def test_reference_04_08_baseline_invariants() -> None:
 # ---------------------------------------------------------------------------
 # Test 5: XML escaping of special characters in rendered output
 # ---------------------------------------------------------------------------
+
 
 def test_strip_hangul_removes_orphaned_connector_residue() -> None:
     """Bug fix (designer re-audit): after Hangul is stripped from a Korean
@@ -578,15 +609,13 @@ def test_render_l20_hero_xml_escapes_special_chars() -> None:
     )
 
     # The raw dangerous string must not appear literally
-    assert dangerous not in svg, (
-        "Unescaped special characters found in rendered SVG"
-    )
+    assert dangerous not in svg, "Unescaped special characters found in rendered SVG"
 
     # Escaped forms must be present
     assert "&amp;" in svg, "& was not escaped to &amp;"
     assert "&lt;" in svg, "< was not escaped to &lt;"
     assert "&gt;" in svg, "> was not escaped to &gt;"
-    assert "&quot;" in svg, '\" was not escaped to &quot;'
+    assert "&quot;" in svg, '" was not escaped to &quot;'
 
     # Output must still be well-formed XML
     try:
@@ -733,9 +762,9 @@ def test_render_l20_hero_emits_clean_built_title_end_to_end() -> None:
 # Specific-claim vocabulary the advisory builder MUST NOT fabricate. It signals
 # "security topic, severity unspecified" and nothing more.
 _FABRICATED_SPECIFIC_VOCAB = [
-    "CVE-",                 # no concrete CVE id
+    "CVE-",  # no concrete CVE id
     "Active exploitation",  # no exploitation claim
-    "PATCH UPSTREAM NOW",   # no patch-now imperative
+    "PATCH UPSTREAM NOW",  # no patch-now imperative
     "PATCH NOW",
     "REGRESSION CHAIN",
     "NEW CVE",
@@ -821,7 +850,9 @@ def test_advisory_emblem_rotates_and_stays_honest() -> None:
         # under a red theme the ONLY source of the green token is the pinned
         # emblem, so the check genuinely guards the semantic-green pin (it would
         # pass via chrome accent under theme="green").
-        out = svg_l20_hero.vb_security_advisory(800, 230, "red", severity="HIGH", cover_seed=v)
+        out = svg_l20_hero.vb_security_advisory(
+            800, 230, "red", severity="HIGH", cover_seed=v
+        )
         seen.add(out)
         assert out.isascii(), f"variant {v} non-ASCII"
         try:
@@ -840,8 +871,12 @@ def test_advisory_emblem_rotates_and_stays_honest() -> None:
         emblem = svg_l20_hero._advisory_emblem(v, green, green)
         coords = [float(m) for m in re.findall(r"(?<![#\w.])-?\d+(?:\.\d+)?", emblem)]
         assert coords, f"variant {v} emitted no coordinates"
-        assert max(coords) <= 115, f"variant {v} coordinate {max(coords)} exceeds ~80x108 box"
-        assert min(coords) >= -5, f"variant {v} coordinate {min(coords)} below box origin"
+        assert max(coords) <= 115, (
+            f"variant {v} coordinate {max(coords)} exceeds ~80x108 box"
+        )
+        assert min(coords) >= -5, (
+            f"variant {v} coordinate {min(coords)} below box origin"
+        )
     assert len(seen) == n, f"emblem variants not distinct: {len(seen)} of {n}"
 
 
@@ -850,12 +885,19 @@ def test_advisory_emblem_variant0_byte_identical_to_default() -> None:
     shield+check emblem byte-identically, so default-seed callers and the
     dispatch-equality contract stay green."""
     default = svg_l20_hero.vb_security_advisory(800, 230, "amber", severity="HIGH")
-    seed0 = svg_l20_hero.vb_security_advisory(800, 230, "amber", severity="HIGH", cover_seed=0)
+    seed0 = svg_l20_hero.vb_security_advisory(
+        800, 230, "amber", severity="HIGH", cover_seed=0
+    )
     assert default == seed0
     # A seed that is a multiple of the count also lands on variant 0.
     assert (
-        svg_l20_hero.vb_security_advisory(800, 230, "amber", severity="HIGH",
-                                          cover_seed=svg_l20_hero._ADVISORY_EMBLEM_COUNT)
+        svg_l20_hero.vb_security_advisory(
+            800,
+            230,
+            "amber",
+            severity="HIGH",
+            cover_seed=svg_l20_hero._ADVISORY_EMBLEM_COUNT,
+        )
         == seed0
     )
 
@@ -888,14 +930,25 @@ def test_hero_button_not_white_on_light_accent() -> None:
     """Regression: the rendered hero button must not use a low-contrast white
     label on a light accent (amber)."""
     hero = {
-        "tag": "HIGH", "index": "01", "theme": "amber", "visual": "neutral",
-        "headline": "Ecosystem", "subheadline": "x", "kpi_value": "5",
-        "kpi_label": "ITEMS", "kpi_sub": "feed", "action": "READ THE FULL DIGEST",
+        "tag": "HIGH",
+        "index": "01",
+        "theme": "amber",
+        "visual": "neutral",
+        "headline": "Ecosystem",
+        "subheadline": "x",
+        "kpi_value": "5",
+        "kpi_label": "ITEMS",
+        "kpi_sub": "feed",
+        "action": "READ THE FULL DIGEST",
     }
     side = dict(hero, index="02", theme="blue")
     out = svg_l20_hero.render_l20_hero(
-        date_str="2026.02.01", hero=hero, top_right=side, bottom_right=side,
-        url="https://example.test/x", post_title="Weekly Digest - 2026.02.01",
+        date_str="2026.02.01",
+        hero=hero,
+        top_right=side,
+        bottom_right=side,
+        url="https://example.test/x",
+        post_title="Weekly Digest - 2026.02.01",
     )
     # The amber accent button should carry the dark ink label, not white.
     assert "READ THE FULL DIGEST" in out

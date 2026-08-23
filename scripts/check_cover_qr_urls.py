@@ -27,6 +27,7 @@ Usage
     python3 scripts/check_cover_qr_urls.py
     python3 scripts/check_cover_qr_urls.py --glob 'assets/images/2026-05-*.svg'
 """
+
 from __future__ import annotations
 
 import argparse
@@ -40,10 +41,9 @@ sys.path.insert(0, str(ROOT))
 from scripts.lib.svg_l22_generator import gen_qr  # noqa: E402
 from scripts.news.l20_dispatch import _post_url_from_filename  # noqa: E402
 
-
 _QR_PATH_RE = re.compile(
     r'<g transform="translate\(1080,504\)"[^>]*>\s*'
-    r'<rect[^/]*/>\s*'
+    r"<rect[^/]*/>\s*"
     r'<path fill="#0A1020" d="([^"]*)"',
     re.DOTALL,
 )
@@ -65,7 +65,8 @@ def check_one(path: Path) -> tuple[str, str]:
         # covers don't, and that's intentional.
         is_l20_auto = (
             "<!-- profile: high-quality-cover (L20 Hero+2-Card) -->" in text
-            or "<!-- profile: high-quality-cover (L20 Hero+2-Card, research-based) -->" in text
+            or "<!-- profile: high-quality-cover (L20 Hero+2-Card, research-based) -->"
+            in text
         )
         if is_l20_auto:
             return ("missing-qr", _post_url_from_filename(path.name))
@@ -101,7 +102,7 @@ def main(argv: list[str] | None = None) -> int:
         else:
             failures.append((p, reason, expected))
 
-    print(f"=== Cover QR URL check ===")
+    print("=== Cover QR URL check ===")
     print(f"Scanned:  {len(paths)}")
     print(f"OK:       {ok_count}")
     print(f"Failures: {len(failures)}")
@@ -112,10 +113,7 @@ def main(argv: list[str] | None = None) -> int:
             if expected:
                 print(f"           expected URL: {expected}")
         print()
-        print(
-            "Fix with:\n"
-            "  python3 scripts/fix_qr_url_in_covers.py --commit"
-        )
+        print("Fix with:\n  python3 scripts/fix_qr_url_in_covers.py --commit")
         return 1
     return 0
 

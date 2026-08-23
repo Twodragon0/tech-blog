@@ -27,6 +27,7 @@ Examples::
     # Heterogeneous month via an explicit allowlist (safest):
     python3 scripts/regen_l20_digest_covers.py --targets-file /tmp/targets.txt
 """
+
 from __future__ import annotations
 
 import argparse
@@ -40,8 +41,8 @@ ASSETS = REPO / "assets" / "images"
 if str(REPO / "scripts") not in sys.path:
     sys.path.insert(0, str(REPO / "scripts"))
 
-from auto_publish_news import _render_l20_svg_string  # noqa: E402
 from _rebuild_all_l20_rasters import build_one  # noqa: E402
+from auto_publish_news import _render_l20_svg_string  # noqa: E402
 from news.l20_dispatch import load_post_fields  # noqa: E402
 
 _TITLE_RE = re.compile(r'^title:\s*"?([^\n"]+)"?\s*$', re.MULTILINE)
@@ -117,18 +118,38 @@ def main() -> int:
     ap = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    ap.add_argument("--glob", default="2026-06-*.md", help="post glob under _posts/ (pathlib ranges OK, e.g. '2026-0[123]-*.md')")
+    ap.add_argument(
+        "--glob",
+        default="2026-06-*.md",
+        help="post glob under _posts/ (pathlib ranges OK, e.g. '2026-0[123]-*.md')",
+    )
     ap.add_argument("--only", default="", help="substring filter on post filename")
-    ap.add_argument("--exclude", default="", help="comma-separated substrings; skip posts matching any")
-    ap.add_argument("--targets-file", default="", help="path to a newline-delimited allowlist of post stems (no .md); overrides --glob")
-    ap.add_argument("--no-digest-only", dest="digest_only", action="store_false",
-                    help="disable the digest-name safety filter (DANGER: only when every match is a digest)")
+    ap.add_argument(
+        "--exclude",
+        default="",
+        help="comma-separated substrings; skip posts matching any",
+    )
+    ap.add_argument(
+        "--targets-file",
+        default="",
+        help="path to a newline-delimited allowlist of post stems (no .md); overrides --glob",
+    )
+    ap.add_argument(
+        "--no-digest-only",
+        dest="digest_only",
+        action="store_false",
+        help="disable the digest-name safety filter (DANGER: only when every match is a digest)",
+    )
     ap.add_argument("--skip-raster", action="store_true")
     ap.set_defaults(digest_only=True)
     args = ap.parse_args()
 
     if args.targets_file:
-        stems = [s.strip() for s in Path(args.targets_file).read_text().splitlines() if s.strip()]
+        stems = [
+            s.strip()
+            for s in Path(args.targets_file).read_text().splitlines()
+            if s.strip()
+        ]
         posts = [POSTS / f"{s}.md" for s in stems]
         missing = [p.name for p in posts if not p.exists()]
         if missing:

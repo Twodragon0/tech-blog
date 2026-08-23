@@ -187,7 +187,9 @@ def main() -> int:
         default=1,
         help="Cap on post URLs measured, so run time stays flat (default: 1)",
     )
-    parser.add_argument("--output", type=Path, default=None, help="Write the list here too")
+    parser.add_argument(
+        "--output", type=Path, default=None, help="Write the list here too"
+    )
     args = parser.parse_args()
 
     urls = resolve(

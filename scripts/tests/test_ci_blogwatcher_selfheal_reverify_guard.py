@@ -161,5 +161,7 @@ def test_lone_adjective_stays_a_warning():
         for ln in WORKFLOW.read_text(encoding="utf-8").splitlines()
         if not ln.lstrip().startswith("#")
     )
-    assert re.search(r"check_digest_lone_adjective\.py", body), "the lone-adjective check vanished"
+    assert re.search(r"check_digest_lone_adjective\.py", body), (
+        "the lone-adjective check vanished"
+    )
     assert "::warning::" in body

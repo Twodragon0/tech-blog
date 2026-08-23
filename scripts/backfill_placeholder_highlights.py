@@ -18,6 +18,7 @@ Usage:
     python3 scripts/backfill_placeholder_highlights.py --apply    # write changes
     python3 scripts/backfill_placeholder_highlights.py --apply path/to/post.md ...
 """
+
 from __future__ import annotations
 
 import argparse
@@ -112,9 +113,7 @@ def backfill_text(text: str) -> Optional[str]:
     if not highlights:
         return None  # do not fabricate
     new_block = render_highlights_block(highlights)
-    new_front = _HIGHLIGHTS_BLOCK_RE.sub(
-        lambda _m: new_block, front, count=1
-    )
+    new_front = _HIGHLIGHTS_BLOCK_RE.sub(lambda _m: new_block, front, count=1)
     if new_front == front:
         return None
     return open_d + new_front + close_d + body
@@ -128,8 +127,12 @@ def _iter_targets(paths: List[str]) -> List[str]:
 
 def main(argv: Optional[List[str]] = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("paths", nargs="*", help="specific post files (default: all _posts)")
-    ap.add_argument("--apply", action="store_true", help="write changes (default: dry-run)")
+    ap.add_argument(
+        "paths", nargs="*", help="specific post files (default: all _posts)"
+    )
+    ap.add_argument(
+        "--apply", action="store_true", help="write changes (default: dry-run)"
+    )
     args = ap.parse_args(argv)
 
     changed, skipped_no_rows = [], []

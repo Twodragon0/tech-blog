@@ -9,6 +9,7 @@ into one of 25 deterministic variants. Two layers of coverage:
    hook in ``auto_publish_news`` will replace a v1 boilerplate excerpt with
    a v2-marked one and is idempotent on a second run (no re-write).
 """
+
 from __future__ import annotations
 
 import sys
@@ -24,7 +25,6 @@ from seo_diversify_excerpts import (  # noqa: E402
     _build_diverse_excerpt,
     _process_file,
 )
-
 
 V1_EXCERPT = (
     "X, Y, Z를 중심으로 2026년 05월 18일 주요 보안/기술 뉴스 15건과 대응 우선순위를 "
@@ -55,7 +55,7 @@ date: 2026-05-18 09:00:00 +0900
 categories: [security]
 tags: [Security-Weekly, DevSecOps]
 excerpt: "{excerpt}"
-image: /assets/images/{filename.replace('.md', '.svg')}
+image: /assets/images/{filename.replace(".md", ".svg")}
 summary_card:
   title: "Sample digest title"
   highlights:
@@ -74,7 +74,9 @@ class TestBuildDiverseExcerpt:
     """Pure-function checks on ``_build_diverse_excerpt``."""
 
     def test_length_within_seo_window(self, tmp_path: Path) -> None:
-        path = _write_fixture_post(tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md")
+        path = _write_fixture_post(
+            tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md"
+        )
         excerpt = _build_diverse_excerpt(
             path,
             title="Sample digest title",
@@ -84,19 +86,21 @@ class TestBuildDiverseExcerpt:
         assert 150 <= len(excerpt) <= 220, f"length out of range: {len(excerpt)}"
 
     def test_v2_marker_present(self, tmp_path: Path) -> None:
-        path = _write_fixture_post(tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md")
+        path = _write_fixture_post(
+            tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md"
+        )
         excerpt = _build_diverse_excerpt(
             path,
             title="Sample digest title",
             highlights=["Critical kernel zero-day", "Worker SSRF disclosed"],
             existing=V1_EXCERPT,
         )
-        assert any(m in excerpt for m in V2_MARKERS), (
-            f"v2 marker missing in: {excerpt}"
-        )
+        assert any(m in excerpt for m in V2_MARKERS), f"v2 marker missing in: {excerpt}"
 
     def test_no_v1_boilerplate_residue(self, tmp_path: Path) -> None:
-        path = _write_fixture_post(tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md")
+        path = _write_fixture_post(
+            tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md"
+        )
         excerpt = _build_diverse_excerpt(
             path,
             title="Sample digest title",
@@ -106,7 +110,9 @@ class TestBuildDiverseExcerpt:
         assert "DevSecOps 실무 대응 방안을 함께 다룹니다" not in excerpt
 
     def test_deterministic_by_filename(self, tmp_path: Path) -> None:
-        path = _write_fixture_post(tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md")
+        path = _write_fixture_post(
+            tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md"
+        )
         e1 = _build_diverse_excerpt(path, "t", ["h1", "h2"], V1_EXCERPT)
         e2 = _build_diverse_excerpt(path, "t", ["h1", "h2"], V1_EXCERPT)
         assert e1 == e2
@@ -117,7 +123,9 @@ class TestBuildDiverseExcerpt:
         Highlights containing ``"`` (decoded from ``&quot;``) used to break
         the front matter — guarded by the YAML-safe pass.
         """
-        path = _write_fixture_post(tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md")
+        path = _write_fixture_post(
+            tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md"
+        )
         excerpt = _build_diverse_excerpt(
             path,
             title="t",
@@ -167,7 +175,7 @@ class TestProcessFile:
     def test_missing_excerpt_skipped(self, tmp_path: Path) -> None:
         path = tmp_path / "2026-05-18-Tech_Security_Weekly_Digest_X.md"
         path.write_text(
-            "---\nlayout: post\ntitle: \"t\"\n---\n# body\n",
+            '---\nlayout: post\ntitle: "t"\n---\n# body\n',
             encoding="utf-8",
         )
         changed, reason = _process_file(path, apply=True)
@@ -196,9 +204,7 @@ def test_build_handles_edge_cases(
     changed, _ = _process_file(path, apply=True)
     assert changed is True
     new_text = path.read_text(encoding="utf-8")
-    excerpt_line = next(
-        ln for ln in new_text.splitlines() if ln.startswith("excerpt:")
-    )
+    excerpt_line = next(ln for ln in new_text.splitlines() if ln.startswith("excerpt:"))
     # No bare double quotes inside the value (the wrapper ones don't count)
     inner = excerpt_line[len('excerpt: "') : -1]
     assert '"' not in inner

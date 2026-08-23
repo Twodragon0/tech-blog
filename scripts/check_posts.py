@@ -416,7 +416,9 @@ def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
 
     is_hq_cover = _is_high_quality_cover_svg(raw_svg)
     is_stacked_bands = not is_hq_cover and _is_stacked_bands_cover_svg(raw_svg)
-    is_rollup = not is_hq_cover and not is_stacked_bands and _is_rollup_cover_svg(raw_svg)
+    is_rollup = (
+        not is_hq_cover and not is_stacked_bands and _is_rollup_cover_svg(raw_svg)
+    )
     # HQ dashboard covers (threat signal map style) are deliberately
     # information-dense — stats labels, data viz annotations, terminal
     # snippets. Observed distribution on 2026-03/04 weekly digests:
@@ -926,9 +928,19 @@ def main():
         """Posts staged for commit (git diff --cached, added/copied/modified)."""
         try:
             result = subprocess.run(
-                ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM",
-                 "--", "_posts/*.md"],
-                cwd=PROJECT_ROOT, check=False, capture_output=True, text=True,
+                [
+                    "git",
+                    "diff",
+                    "--cached",
+                    "--name-only",
+                    "--diff-filter=ACM",
+                    "--",
+                    "_posts/*.md",
+                ],
+                cwd=PROJECT_ROOT,
+                check=False,
+                capture_output=True,
+                text=True,
             )
         except OSError:
             return []
@@ -945,7 +957,8 @@ def main():
         rel = str(path.relative_to(PROJECT_ROOT)) if path.is_absolute() else str(path)
         result = subprocess.run(
             ["git", "diff", "--quiet", "--", rel],
-            cwd=PROJECT_ROOT, check=False,
+            cwd=PROJECT_ROOT,
+            check=False,
         )
         return result.returncode != 0
 
@@ -985,8 +998,10 @@ def main():
                 _git_add(post_file)
                 fixed_total += removed
                 print(f"  🔧 {post_file.name}: removed {removed} block(s) (re-staged)")
-        print(f"Auto-fixed {fixed_total} duplicate practical-point block(s) "
-              f"in {len(post_files)} staged post(s).")
+        print(
+            f"Auto-fixed {fixed_total} duplicate practical-point block(s) "
+            f"in {len(post_files)} staged post(s)."
+        )
         return
 
     if not args.detailed_only:
@@ -1025,7 +1040,9 @@ def main():
                         _git_add(post_file)  # re-stage the cleaned content
                     if not args.detailed_only:
                         restaged = " (re-staged)" if args.staged else ""
-                        print(f"  🔧 fixed: removed {removed} duplicate practical-point block(s){restaged}")
+                        print(
+                            f"  🔧 fixed: removed {removed} duplicate practical-point block(s){restaged}"
+                        )
 
         front_matter, _ = extract_front_matter(content)
 

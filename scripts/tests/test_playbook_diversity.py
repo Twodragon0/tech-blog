@@ -62,7 +62,9 @@ class TestPickVariantDedup:
         # Build enough distinct items to fill all variants; none should repeat
         # until the pool is exhausted.
         chosen = [_pick_variant(_item(f"article {i}"), variants) for i in range(3)]
-        assert sorted(chosen) == ["A", "B", "C"], f"expected all 3 variants, got {chosen}"
+        assert sorted(chosen) == ["A", "B", "C"], (
+            f"expected all 3 variants, got {chosen}"
+        )
 
     def test_overflow_falls_back_without_crash(self):
         variants = ["A", "B"]
@@ -179,9 +181,10 @@ class TestContextualActionDiversity:
         unique = {_generate_contextual_action_point(it) for it in items}
         assert len(unique) >= 2, f"Branch produced single variant for {title}"
         for tip in unique:
-            assert any(
-                sub in tip for sub in required_substrings
-            ), f"Variant missing expected terminology ({required_substrings}): {tip}"
+            assert any(sub in tip for sub in required_substrings), (
+                f"Variant missing expected terminology ({required_substrings}): {tip}"
+            )
+
 
 class TestContextualActionFallbackDiversity:
     """The bare category-fallback returns (no keyword branch matched) must

@@ -59,7 +59,9 @@ def _body(path: Path) -> str:
     would keep this guard green after the real YAML came back.
     """
     return "\n".join(
-        ln for ln in path.read_text(encoding="utf-8").splitlines() if not ln.lstrip().startswith("#")
+        ln
+        for ln in path.read_text(encoding="utf-8").splitlines()
+        if not ln.lstrip().startswith("#")
     )
 
 
@@ -70,7 +72,9 @@ def _body(path: Path) -> str:
 
 def test_compare_script_supports_require_comparable():
     src = COMPARE_SCRIPT.read_text(encoding="utf-8")
-    assert "--require-comparable" in src, "compare_lighthouse_runs.py lost the --require-comparable flag"
+    assert "--require-comparable" in src, (
+        "compare_lighthouse_runs.py lost the --require-comparable flag"
+    )
     assert "require_comparable" in src
 
 
@@ -81,7 +85,9 @@ def test_empty_comparison_is_always_announced():
         "the degraded (no comparable URLs) path no longer emits a ::warning::, so a run "
         "that measured nothing is again indistinguishable from a clean pass"
     )
-    assert "::error::" in src, "the --require-comparable failure path lost its ::error:: annotation"
+    assert "::error::" in src, (
+        "the --require-comparable failure path lost its ::error:: annotation"
+    )
 
 
 def test_workflow_passes_require_comparable_only_when_both_builds_succeeded():
@@ -107,23 +113,40 @@ def test_compare_exit_codes_for_empty_input(tmp_path):
     head.mkdir()
 
     lenient = subprocess.run(
-        [sys.executable, str(COMPARE_SCRIPT), "--base-dir", str(base), "--head-dir", str(head), "--quiet"],
-        capture_output=True,
-        text=True,
-    )
-    assert lenient.returncode == 0, "the soft-degrade path must stay exit 0 (security fix C-H1)"
-    assert "::warning::" in lenient.stderr, "soft degrade must still be announced"
-
-    strict = subprocess.run(
         [
-            sys.executable, str(COMPARE_SCRIPT),
-            "--base-dir", str(base), "--head-dir", str(head),
-            "--quiet", "--require-comparable",
+            sys.executable,
+            str(COMPARE_SCRIPT),
+            "--base-dir",
+            str(base),
+            "--head-dir",
+            str(head),
+            "--quiet",
         ],
         capture_output=True,
         text=True,
     )
-    assert strict.returncode == 1, "--require-comparable must fail when nothing is comparable"
+    assert lenient.returncode == 0, (
+        "the soft-degrade path must stay exit 0 (security fix C-H1)"
+    )
+    assert "::warning::" in lenient.stderr, "soft degrade must still be announced"
+
+    strict = subprocess.run(
+        [
+            sys.executable,
+            str(COMPARE_SCRIPT),
+            "--base-dir",
+            str(base),
+            "--head-dir",
+            str(head),
+            "--quiet",
+            "--require-comparable",
+        ],
+        capture_output=True,
+        text=True,
+    )
+    assert strict.returncode == 1, (
+        "--require-comparable must fail when nothing is comparable"
+    )
     assert "::error::" in strict.stderr
 
 
@@ -156,7 +179,9 @@ def test_check_posts_exit_code_is_not_swallowed():
 def test_check_posts_step_fails_on_nonzero_exit():
     body = _body(CHECK_SVG)
     step = body[body.index("Check posts quality") :]
-    step = step[: step.find("\n      - name:") if "\n      - name:" in step else len(step)]
+    step = step[
+        : step.find("\n      - name:") if "\n      - name:" in step else len(step)
+    ]
     assert "if ! OUTPUT=$(python3 scripts/check_posts.py 2>&1); then" in step, (
         "the step must branch on check_posts.py's own exit code before trusting its stdout"
     )
@@ -181,7 +206,10 @@ def test_security_summary_does_not_call_skipped_clean():
 def test_security_summary_rejects_unexpected_conclusions():
     """A failure-only equality test lets cancelled/timed_out fall through as success."""
     body = _body(SECURITY_AUDIT)
-    assert not re.search(r'if\s+\[\s+"\$NPM"\s+=\s+"failure"\s+\]\s+\|\|\s+\[\s+"\$BUNDLE"\s+=\s+"failure"\s+\]', body), (
+    assert not re.search(
+        r'if\s+\[\s+"\$NPM"\s+=\s+"failure"\s+\]\s+\|\|\s+\[\s+"\$BUNDLE"\s+=\s+"failure"\s+\]',
+        body,
+    ), (
         "the summary is back to comparing only against 'failure'; cancelled and "
         "timed_out would pass"
     )
@@ -190,7 +218,9 @@ def test_security_summary_rejects_unexpected_conclusions():
     )
 
 
-@pytest.mark.parametrize("manifest", ["package.json", "package-lock.json", "Gemfile", "Gemfile.lock"])
+@pytest.mark.parametrize(
+    "manifest", ["package.json", "package-lock.json", "Gemfile", "Gemfile.lock"]
+)
 def test_audit_trigger_manifests_still_filtered(manifest: str):
     """Canary on the premise of D5: the audits really are manifest-gated."""
     assert f"'{manifest}'" in _body(SECURITY_AUDIT), (
@@ -211,9 +241,10 @@ def test_font_drift_override_is_not_a_substring_match():
         "the override is matched with an unanchored grep again: any label containing "
         "'font-drift-allowed' (e.g. 'not-font-drift-allowed') would disable the gate"
     )
-    assert "contains(github.event.pull_request.labels.*.name, 'font-drift-allowed')" in body, (
-        "expected an exact element match over the label array"
-    )
+    assert (
+        "contains(github.event.pull_request.labels.*.name, 'font-drift-allowed')"
+        in body
+    ), "expected an exact element match over the label array"
 
 
 def test_font_drift_override_skips_the_job_not_the_steps():
@@ -237,5 +268,9 @@ def test_font_drift_override_skips_the_job_not_the_steps():
 
 def test_font_drift_still_runs_the_gate_script():
     body = _body(FONT_DRIFT)
-    assert "scripts/dev/check_font_drift.py" in body, "the gate no longer invokes its own script"
-    assert "CHANGED_FILES" in body, "the env-passing hardening (security fix M-01) was dropped"
+    assert "scripts/dev/check_font_drift.py" in body, (
+        "the gate no longer invokes its own script"
+    )
+    assert "CHANGED_FILES" in body, (
+        "the env-passing hardening (security fix M-01) was dropped"
+    )

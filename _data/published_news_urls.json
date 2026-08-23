@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-08-22T00:45:16.492846+00:00",
+  "updated_at": "2026-08-23T09:12:02.449707+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
-      "title": "Nearly 800 Malicious npm Packages Deliver Cross-Platform RAT and Infostealer",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
-      "title": "ClickFix Attacks Deliver macOS Stealer That Can Drain Crypto Wallets",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/unc6671-vishing-attacks-target-personal.html",
-      "title": "UNC6671 Vishing Attacks Target Personal Phones to Steal SaaS Data",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/a-decade-of-enterprise-identity-in-the-cloud-with-aws-managed-microsoft-ad/",
-      "title": "A decade of enterprise identity in the cloud with AWS Managed Microsoft AD",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/new-wordpress-pre-auth-xss-could-lead.html",
-      "title": "New WordPress Pre-Auth XSS Could Lead to PHP Code Execution - Patch ASAP",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
-      "title": "Responding to the next frontier of critical cyber capabilities",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://openai.com/index/hsp-gruppe",
-      "title": "How HSP GRUPPE builds AI capabilities for tax advisory",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://netflixtechblog.com/how-and-why-netflix-built-a-real-time-distributed-graph-part-3-querying-the-graph-with-grpc-0f3468349607?source=rss----2615bd06b42e---4",
-      "title": "How and Why Netflix Built a Real-Time Distributed Graph: Part 3 — Querying the g",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-cohere-health-digitizes-clinical-policies-using-amazon-bedrock-agentcore/",
-      "title": "How Cohere Health digitizes clinical policies using Amazon Bedrock AgentCore",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
-      "title": "How TReNDS automates root-cause analysis with Amazon Bedrock",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/new-bigquery-data-transfer-service-capabilities/",
-      "title": "Zero-code, low-cost data ingestion: New BigQuery DTS capabilities",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/how-google-cloud-detects-contains-and-protects-against-emerging-threats/",
-      "title": "How Google Cloud detects, contains, and protects against emerging threats",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-search-innovations-unify-structured-unstructured-data/",
-      "title": "Unifying Structured and Unstructured Data Insights with BQ Search Innovations",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/networking/streaming-the-fifa-world-cup-with-televisaunivision/",
-      "title": "GOL! How TelevisaUnivision streamed the FIFA World Cup to millions with Google C",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-07-github-copilot-weekly-releases-august-3",
-      "title": "GitHub Copilot weekly releases — August 3",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/atlassian-rovo-can-be-tricked-into.html",
-      "title": "Atlassian Rovo Can Be Tricked Into Sending Jira and Confluence Data to Attackers",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/new-css-attacks-can-break-webmail.html",
-      "title": "New CSS Attacks Can Break Webmail Defenses to Steal Passwords and Tokens",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
-      "title": "Metabase Zero-Day Exploited in Wild Allows Admin Access Without Authentication",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/n-central-attackers-reach-managed.html",
-      "title": "N-able Issues N-central Hotfix 2 as Attackers Reach Managed Systems and Persist",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/progress-kemp-loadmaster-flaw-hits-cisa.html",
-      "title": "Progress Kemp LoadMaster Flaw Hits CISA KEV After 792 Reported Exploit Attempts",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/firebird-ai-factory-armenia-blackwell-rubin-dsx/",
-      "title": "Firebird Launches CIS Region’s Largest AI Factory in Armenia",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/us-bitcoin-etfs-best-weekly-inflows-april-coldcard-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "US spot Bitcoin ETFs post best week since April with $1B inflows",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/us-senate-clarity-act-september-vote-thune-cloture?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "US Senate to vote on advancing CLARITY Act in September after Thune files clotur",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/imf-domestic-stablecoins-dollar-token-demand?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Domestic stablecoins could boost demand for dollar-backed tokens: IMF",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bybit-us-court-trace-funds-north-korea-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "US court backs Bybit’s bid to trace funds from $1.5B North Korea hack",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/bitcoin-will-never-fall-below-60k-again-nansen-founder?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin will never fall below $60K again: Nansen founder",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32282",
-      "title": "goshot - 코드 스크린샷 생성기",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32281",
-      "title": "내가 좋아하는 소프트웨어 강연들",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32280",
-      "title": "Sublime Text 같은 편집기는 더 이상 나오지 않는다",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32278",
-      "title": "DNS에서 도메인 판매 여부를 알리는 _for-sale 레코드",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
     {
       "url": "https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/",
       "title": "The AI safety test is becoming a safety risk",
@@ -1314,6 +1134,96 @@
       "title": "GS Neotek의 Claude Code on Amazon Bedrock 도입기: LLM Gateway 없는 경량화 사용자 통제 방안",
       "published_date": "2026-08-22",
       "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/tiktok-agrees-to-400-million-settlement.html",
+      "title": "TikTok Agrees to $400 Million Settlement in U.S. Child Privacy Lawsuit",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-infect-android-car-head-units-with-proxy-botnet-malware/",
+      "title": "Hackers infect Android car head units with proxy botnet malware",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/named-pipes-under-attack-securing-windows-interprocess-communication/",
+      "title": "Named Pipes Under Attack: Securing Windows Interprocess Communication",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/08/22/frontier-ai-labs-still-wont-say-how-theyd-contain-a-rogue-model/",
+      "title": "Frontier AI labs still won’t say how they’d contain a rogue model",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/web3/2026/08/22/web3-gaming-network-sandbox-stops-base-and-bnb-chain-bridging-after-exploit",
+      "title": "Web3 gaming network Sandbox stops Base and BNB chain bridging after exploit",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/mica-is-coming-for-defi-vaults-but-regulation-will-be-difficult?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "MiCA is coming for DeFi vaults, but regulation will be difficult",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/08/22/crypto-exchange-bitmart-weighs-partial-restart-and-creditor-payouts-weeks-after-announcing-shutdown",
+      "title": "Crypto exchange BitMart weighs partial restart and creditor payouts weeks after ",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/08/22/tokenized-stocks-risk-repeating-wall-street-s-1960s-paper-crisis-fairmint-ceo-says",
+      "title": "Tokenized stocks risk repeating Wall Street’s 1960s ‘paper crisis,’ Fairmint CEO",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/news-analysis/2026/08/21/kalshi-off-limits-in-multiple-states-as-prediction-markets-cftc-team-up-for-battle",
+      "title": "Kalshi off-limits in multiple states as prediction markets, CFTC team up for bat",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/08/22/bitcoin-and-ether-bears-get-decimated-amid-squeeze-led-rally-and-musk-s-x-wants-to-pay-creators-in-stablecoins-crypto-week-in-5-stories",
+      "title": "Bitcoin and Ether bears get decimated amid 'squeeze-led' rally and Musk's X want",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32795",
+      "title": "Racket 친절한 입문",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32794",
+      "title": "프론트엔드 상태 관리의 네 가지 난제",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32793",
+      "title": "기억해 둘 만한 작은 네이티브 웹 기법",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32791",
+      "title": "로컬 LLM이 실제 성능보다 더 멍청하게 느껴지는 이유",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32789",
+      "title": "Show GN: CachyOS 와 Omarchy 의 혼종을 만들고 있습니다.",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
     }
   ]
 }

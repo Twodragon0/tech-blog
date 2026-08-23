@@ -20,6 +20,7 @@ Usage:
     python3 scripts/enrich_digest_references.py --posts-glob '_posts/*Weekly_Digest*.md' --dry-run
     python3 scripts/enrich_digest_references.py _posts/2026-08-05-*.md
 """
+
 import argparse
 import glob
 import re
@@ -90,16 +91,20 @@ def _split_reference_section(text: str):
     m = re.search(rf"^{re.escape(REFERENCE_HEADING)}[ \t]*$", text, re.MULTILINE)
     if not m:
         return None
-    rest = text[m.end():]
+    rest = text[m.end() :]
     nxt = re.search(r"^## ", rest, re.MULTILINE)
     end = m.end() + (nxt.start() if nxt else len(rest))
-    return text[: m.start()], text[m.start(): end], text[end:]
+    return text[: m.start()], text[m.start() : end], text[end:]
 
 
 def _rewrite_section(section: str, sources: "OrderedDict") -> str:
     lines = section.split("\n")
     header_idx = next(
-        (i for i, ln in enumerate(lines) if _cells(ln) and not all(_SEP_CELL_RE.match(c) for c in _cells(ln))),
+        (
+            i
+            for i, ln in enumerate(lines)
+            if _cells(ln) and not all(_SEP_CELL_RE.match(c) for c in _cells(ln))
+        ),
         None,
     )
     if header_idx is None:
@@ -113,7 +118,7 @@ def _rewrite_section(section: str, sources: "OrderedDict") -> str:
     body_end = header_idx + 2
     while body_end < len(lines) and _cells(lines[body_end]):
         body_end += 1
-    rows = [_cells(ln) for ln in lines[header_idx + 2: body_end]]
+    rows = [_cells(ln) for ln in lines[header_idx + 2 : body_end]]
     if not rows:
         return section
 
@@ -138,8 +143,10 @@ def _rewrite_section(section: str, sources: "OrderedDict") -> str:
 
     width = 3 if (has_purpose or upgrade) else 2
     out_header = header[:width] if len(header) >= width else header + [PURPOSE_COLUMN]
-    rendered = ["| " + " | ".join(out_header) + " |",
-                "|" + "|".join(["-" * 8 if i == 0 else "-" * 6 for i in range(width)]) + "|"]
+    rendered = [
+        "| " + " | ".join(out_header) + " |",
+        "|" + "|".join(["-" * 8 if i == 0 else "-" * 6 for i in range(width)]) + "|",
+    ]
     for r in rows:
         cells = list(r[:width])
         while len(cells) < width:
@@ -164,7 +171,9 @@ def _is_digest_post(path: Path) -> bool:
 
 
 def main(argv=None) -> int:
-    ap = argparse.ArgumentParser(description="Add 용도 column + cited sources to 참고 자료.")
+    ap = argparse.ArgumentParser(
+        description="Add 용도 column + cited sources to 참고 자료."
+    )
     ap.add_argument("paths", nargs="*")
     ap.add_argument("--posts-glob")
     ap.add_argument("--dry-run", action="store_true")

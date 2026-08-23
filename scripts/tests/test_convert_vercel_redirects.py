@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from convert_vercel_redirects_to_jekyll import (  # noqa: E402
     collect_redirects_by_post,
     destination_to_post_path,
@@ -17,7 +16,6 @@ from convert_vercel_redirects_to_jekyll import (  # noqa: E402
     remove_redirect_from_block,
     split_front_matter,
 )
-
 
 # ---------------------------------------------------------------------------
 # destination_to_post_path
@@ -142,8 +140,16 @@ def test_collect_groups_multiple_sources_by_destination(tmp_path):
     posts_dir = tmp_path / "_posts"
     _make_post(posts_dir, "2025-04-29-Foo.md")
     redirects = [
-        {"source": "/posts/2025/04/Foo/", "destination": "/posts/2025/04/29/Foo/", "statusCode": 301},
-        {"source": "/posts/2025/04/Foo_legacy/", "destination": "/posts/2025/04/29/Foo/", "statusCode": 301},
+        {
+            "source": "/posts/2025/04/Foo/",
+            "destination": "/posts/2025/04/29/Foo/",
+            "statusCode": 301,
+        },
+        {
+            "source": "/posts/2025/04/Foo_legacy/",
+            "destination": "/posts/2025/04/29/Foo/",
+            "statusCode": 301,
+        },
     ]
     grouped, skipped = collect_redirects_by_post(redirects, posts_dir)
     assert len(grouped) == 1
@@ -157,7 +163,10 @@ def test_collect_skips_missing_post(tmp_path):
     posts_dir = tmp_path / "_posts"
     posts_dir.mkdir()
     redirects = [
-        {"source": "/posts/2099/01/Phantom/", "destination": "/posts/2099/01/01/Phantom/"},
+        {
+            "source": "/posts/2099/01/Phantom/",
+            "destination": "/posts/2099/01/01/Phantom/",
+        },
     ]
     grouped, skipped = collect_redirects_by_post(redirects, posts_dir)
     assert grouped == {}
@@ -175,18 +184,29 @@ def test_main_dry_run_does_not_modify(tmp_path, capsys):
     p = _make_post(posts_dir, "2025-04-29-Foo.md")
     before = p.read_text(encoding="utf-8")
     vercel = tmp_path / "vercel.json"
-    vercel.write_text(json.dumps({
-        "redirects": [
-            {"source": "/posts/2025/04/Foo/",
-             "destination": "/posts/2025/04/29/Foo/",
-             "statusCode": 301}
-        ],
-    }), encoding="utf-8")
-    rc = main([
-        "--vercel-json", str(vercel),
-        "--posts-dir", str(posts_dir),
-        "--dry-run",
-    ])
+    vercel.write_text(
+        json.dumps(
+            {
+                "redirects": [
+                    {
+                        "source": "/posts/2025/04/Foo/",
+                        "destination": "/posts/2025/04/29/Foo/",
+                        "statusCode": 301,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    rc = main(
+        [
+            "--vercel-json",
+            str(vercel),
+            "--posts-dir",
+            str(posts_dir),
+            "--dry-run",
+        ]
+    )
     assert rc == 0
     assert p.read_text(encoding="utf-8") == before
     captured = capsys.readouterr()
@@ -197,20 +217,33 @@ def test_main_apply_writes_redirect_from(tmp_path):
     posts_dir = tmp_path / "_posts"
     p = _make_post(posts_dir, "2025-04-29-Foo.md")
     vercel = tmp_path / "vercel.json"
-    vercel.write_text(json.dumps({
-        "redirects": [
-            {"source": "/posts/2025/04/Foo/",
-             "destination": "/posts/2025/04/29/Foo/",
-             "statusCode": 301},
-            {"source": "/posts/2025/04/Foo_alt/",
-             "destination": "/posts/2025/04/29/Foo/",
-             "statusCode": 301},
-        ],
-    }), encoding="utf-8")
-    rc = main([
-        "--vercel-json", str(vercel),
-        "--posts-dir", str(posts_dir),
-    ])
+    vercel.write_text(
+        json.dumps(
+            {
+                "redirects": [
+                    {
+                        "source": "/posts/2025/04/Foo/",
+                        "destination": "/posts/2025/04/29/Foo/",
+                        "statusCode": 301,
+                    },
+                    {
+                        "source": "/posts/2025/04/Foo_alt/",
+                        "destination": "/posts/2025/04/29/Foo/",
+                        "statusCode": 301,
+                    },
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    rc = main(
+        [
+            "--vercel-json",
+            str(vercel),
+            "--posts-dir",
+            str(posts_dir),
+        ]
+    )
     assert rc == 0
     text = p.read_text(encoding="utf-8")
     assert "redirect_from:" in text
@@ -222,16 +255,27 @@ def test_main_strict_returns_one_on_missing_post(tmp_path):
     posts_dir = tmp_path / "_posts"
     posts_dir.mkdir()
     vercel = tmp_path / "vercel.json"
-    vercel.write_text(json.dumps({
-        "redirects": [
-            {"source": "/posts/2099/01/Phantom/",
-             "destination": "/posts/2099/01/01/Phantom/",
-             "statusCode": 301}
-        ],
-    }), encoding="utf-8")
-    rc = main([
-        "--vercel-json", str(vercel),
-        "--posts-dir", str(posts_dir),
-        "--strict",
-    ])
+    vercel.write_text(
+        json.dumps(
+            {
+                "redirects": [
+                    {
+                        "source": "/posts/2099/01/Phantom/",
+                        "destination": "/posts/2099/01/01/Phantom/",
+                        "statusCode": 301,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    rc = main(
+        [
+            "--vercel-json",
+            str(vercel),
+            "--posts-dir",
+            str(posts_dir),
+            "--strict",
+        ]
+    )
     assert rc == 1

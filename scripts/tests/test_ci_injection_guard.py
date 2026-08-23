@@ -359,7 +359,9 @@ def compute_violations(files) -> tuple:
             if has_unescaped_dollar(body):
                 rel = str(Path(f).resolve().relative_to(REPO_ROOT))
                 tokens = violating_constructs(body)
-                construct = ",".join(sorted(set(tokens))) if tokens else "$<unrecognized-shape>"
+                construct = (
+                    ",".join(sorted(set(tokens))) if tokens else "$<unrecognized-shape>"
+                )
                 violations.add(f"{rel}:{construct}")
         for interpreter, quoted, body in find_interpreter_heredoc_sites(text):
             if quoted:
@@ -367,7 +369,9 @@ def compute_violations(files) -> tuple:
             if has_unescaped_dollar(body):
                 rel = str(Path(f).resolve().relative_to(REPO_ROOT))
                 tokens = violating_constructs(body)
-                construct = ",".join(sorted(set(tokens))) if tokens else "$<unrecognized-shape>"
+                construct = (
+                    ",".join(sorted(set(tokens))) if tokens else "$<unrecognized-shape>"
+                )
                 violations.add(f"{rel}:heredoc:{interpreter}:{construct}")
     return violations, total_sites
 
@@ -391,8 +395,9 @@ class TestNoCodeInjectionRegression(unittest.TestCase):
         # find zero sites and the assertion below would vacuously pass.
         _, total_sites = compute_violations(self.files)
         self.assertGreater(
-            total_sites, 3,
-            "Parsed suspiciously few `python3 -c \"...\"` sites across the "
+            total_sites,
+            3,
+            'Parsed suspiciously few `python3 -c "..."` sites across the '
             "repo - the detection regex or file paths likely broke.",
         )
 
@@ -400,11 +405,12 @@ class TestNoCodeInjectionRegression(unittest.TestCase):
         violations, _ = compute_violations(self.files)
         new_violations = violations - KNOWN_INJECTION_SITES
         self.assertEqual(
-            new_violations, set(),
+            new_violations,
+            set(),
             "NEW CWE-94 code-injection site(s) - a bash variable is "
-            "interpolated directly into a `python3 -c \"...\"` program body "
+            'interpolated directly into a `python3 -c "..."` program body '
             f"(OWASP A03:2021): {sorted(new_violations)}. Fix by passing the "
-            "value through the environment (`VAR=\"$val\" python3 -c \"...\"` "
+            'value through the environment (`VAR="$val" python3 -c "..."` '
             "+ `os.environ['VAR']` inside the program) instead of splicing "
             "`$VAR`/`${...}`/`$(...)` into the program text.",
         )
@@ -413,7 +419,8 @@ class TestNoCodeInjectionRegression(unittest.TestCase):
         violations, _ = compute_violations(self.files)
         stale = KNOWN_INJECTION_SITES - violations
         self.assertEqual(
-            stale, set(),
+            stale,
+            set(),
             f"KNOWN_INJECTION_SITES lists site(s) that are no longer "
             f"violations: {sorted(stale)} (fixed, or file removed/changed). "
             "Drop them from KNOWN_INJECTION_SITES so the baseline stays "
@@ -443,8 +450,7 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         body = "print('$(date)')"
         self.assertTrue(
             has_unescaped_dollar(body),
-            "Mutation FAILED: a `$(...)` command substitution was not "
-            "detected.",
+            "Mutation FAILED: a `$(...)` command substitution was not detected.",
         )
 
     def test_fires_on_positional_param(self):
@@ -480,9 +486,9 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         # own build.sh `re.match(r'^sentry_dsn:.*$', line)`.
         for body in (
             "import re; re.match(r'^sentry_dsn:.*$', line)",  # before a quote
-            "print('cost is 5 dollars$')",                    # before a quote
-            "x = a $ b",                                       # before whitespace
-            "print('end$')",                                  # before quote/EOL-ish
+            "print('cost is 5 dollars$')",  # before a quote
+            "x = a $ b",  # before whitespace
+            "print('end$')",  # before quote/EOL-ish
         ):
             self.assertFalse(
                 has_unescaped_dollar(body),
@@ -503,8 +509,7 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         body = "\n".join(["import json, os", "print(open(os.environ['OCSF_FILE']))"])
         self.assertFalse(
             has_unescaped_dollar(body),
-            "False positive: a body reading os.environ (the safe fix) was "
-            "flagged.",
+            "False positive: a body reading os.environ (the safe fix) was flagged.",
         )
 
     def test_quiet_on_single_quoted_c_argument(self):
@@ -512,7 +517,8 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         # bash never expands $ inside single quotes.
         text = "python3 -c 'import os; print(os.environ[\"X\"])' 2>/dev/null"
         self.assertEqual(
-            find_double_quoted_c_bodies(text), [],
+            find_double_quoted_c_bodies(text),
+            [],
             "False positive: a single-quoted `-c` argument was captured as "
             "a double-quoted site.",
         )
@@ -520,7 +526,7 @@ class TestInjectionDetectorMutation(unittest.TestCase):
     def test_multiline_double_quoted_body_captured(self):
         # Programs typically span multiple lines between the opening
         # `-c "` and the closing `"` - the DOTALL capture must span them.
-        text = 'python3 -c "\nimport os\nprint(os.environ[\'X\'])\n" 2>/dev/null'
+        text = "python3 -c \"\nimport os\nprint(os.environ['X'])\n\" 2>/dev/null"
         bodies = find_double_quoted_c_bodies(text)
         self.assertEqual(len(bodies), 1)
         self.assertIn("import os", bodies[0])
@@ -530,8 +536,8 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         # before scanning) must not be captured as part of a program body.
         text = "\n".join(
             [
-                '# see $OUTPUT_DIR for context, not interpolated below',
-                'python3 -c "import os; print(os.environ[\'OCSF_FILE\'])"',
+                "# see $OUTPUT_DIR for context, not interpolated below",
+                "python3 -c \"import os; print(os.environ['OCSF_FILE'])\"",
             ]
         )
         stripped = strip_comment_lines(text)
@@ -585,7 +591,8 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         text = "cat <<EOF > out.txt\n$HOME\nEOF\n"
         sites = find_interpreter_heredoc_sites(text)
         self.assertEqual(
-            sites, [],
+            sites,
+            [],
             "False positive: a `cat <<EOF > file` (data, non-interpreter) "
             "heredoc was flagged as interpreter-owned.",
         )
@@ -595,7 +602,8 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         text = "kubectl apply -f - <<EOF\n  name: $x\nEOF\n"
         sites = find_interpreter_heredoc_sites(text)
         self.assertEqual(
-            sites, [],
+            sites,
+            [],
             "False positive: a `kubectl apply -f - <<EOF` (non-interpreter) "
             "heredoc was flagged as interpreter-owned.",
         )
@@ -608,7 +616,7 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         self.assertEqual(len(bodies), 1)
         self.assertTrue(
             has_unescaped_dollar(bodies[0]),
-            "Mutation FAILED: a concatenated `-c \"a\"\"$b\"` argument did "
+            'Mutation FAILED: a concatenated `-c "a""$b"` argument did '
             "not have its second quoted segment's `$b` detected.",
         )
 
@@ -616,7 +624,7 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         # Baseline: an ordinary single-quoted-span `-c` argument must produce
         # the SAME (safe) result as before - no false positive introduced by
         # the concatenation-aware capture.
-        text = 'python3 -c "import os; print(os.environ[\'X\'])" 2>/dev/null'
+        text = "python3 -c \"import os; print(os.environ['X'])\" 2>/dev/null"
         bodies = find_concatenated_c_bodies(text)
         self.assertEqual(len(bodies), 1)
         self.assertFalse(has_unescaped_dollar(bodies[0]))
@@ -628,7 +636,8 @@ class TestInjectionDetectorMutation(unittest.TestCase):
         # diagnosed independently.
         violations, _ = compute_violations(_production_files())
         self.assertEqual(
-            violations, KNOWN_INJECTION_SITES,
+            violations,
+            KNOWN_INJECTION_SITES,
             f"Live scan violations {sorted(violations)} do not match "
             f"KNOWN_INJECTION_SITES {sorted(KNOWN_INJECTION_SITES)}.",
         )

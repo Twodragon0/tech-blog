@@ -21,6 +21,7 @@ Usage:
     DIGEST_SOURCE_EXPANSION=1 python3 scripts/backfill_digest_enrichment.py \
         --stats --posts-glob '_posts/2026-07-1[12345]-*Weekly_Digest*.md'
 """
+
 import argparse
 import glob
 import re
@@ -87,8 +88,11 @@ def _extract_url(region_lines, newscard_end):
     """Search the news-card include block (start..newscard_end inclusive)
     for url="...". Falls back to scanning the whole region if the include
     start line wasn't matched for some reason."""
-    block = "\n".join(region_lines[: newscard_end + 1]) if newscard_end is not None \
+    block = (
+        "\n".join(region_lines[: newscard_end + 1])
+        if newscard_end is not None
         else "\n".join(region_lines)
+    )
     m = _URL_RE.search(block)
     return m.group(1) if m else ""
 
@@ -170,11 +174,7 @@ def process_item(region_lines, stats):
         return region_lines  # fail-closed: keep current text unchanged
 
     da_start, da_end = span
-    new_region = (
-        region_lines[:da_start]
-        + expanded.split("\n")
-        + region_lines[da_end:]
-    )
+    new_region = region_lines[:da_start] + expanded.split("\n") + region_lines[da_end:]
     stats["replaced"] += 1
     return new_region
 
@@ -187,8 +187,8 @@ def transform_body(text: str, stats: dict) -> str:
     out = []
     cursor = 0
     for region in regions:
-        out.extend(lines[cursor:region["start"]])
-        region_lines = lines[region["start"]:region["end"]]
+        out.extend(lines[cursor : region["start"]])
+        region_lines = lines[region["start"] : region["end"]]
         out.extend(process_item(region_lines, stats))
         cursor = region["end"]
     out.extend(lines[cursor:])
@@ -210,11 +210,21 @@ def main(argv) -> int:
         return 1
 
     changed = 0
-    totals = {"items_with_deep_analysis": 0, "fetched_ok": 0, "expanded_ok": 0, "replaced": 0}
+    totals = {
+        "items_with_deep_analysis": 0,
+        "fetched_ok": 0,
+        "expanded_ok": 0,
+        "replaced": 0,
+    }
     for path in files:
         with open(path, encoding="utf-8") as fh:
             original = fh.read()
-        stats = {"items_with_deep_analysis": 0, "fetched_ok": 0, "expanded_ok": 0, "replaced": 0}
+        stats = {
+            "items_with_deep_analysis": 0,
+            "fetched_ok": 0,
+            "expanded_ok": 0,
+            "replaced": 0,
+        }
         new = transform_body(original, stats)
         for k in totals:
             totals[k] += stats[k]

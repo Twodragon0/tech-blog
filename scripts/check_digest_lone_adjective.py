@@ -22,6 +22,7 @@ Usage:
     python3 scripts/check_digest_lone_adjective.py --staged
     python3 scripts/check_digest_lone_adjective.py --all
 """
+
 import argparse
 import glob
 import html as _html
@@ -37,9 +38,9 @@ POSTS_DIR = REPO / "_posts"
 sys.path.insert(0, str(REPO))
 
 from scripts.news.l20_dispatch import (  # noqa: E402
-    build_lead_headline,
     _AI_COMPOUND_ADJECTIVES,
     _DEFERRED_AI_ADJECTIVES,
+    build_lead_headline,
 )
 
 _POST_PATH_RE = re.compile(r"^_posts/[^/]+\.md$")
@@ -86,7 +87,9 @@ def _all_paths() -> list:
 
 def _git_paths(cmd: list) -> list:
     try:
-        out = subprocess.check_output(cmd, cwd=str(REPO), stderr=subprocess.DEVNULL, text=True)
+        out = subprocess.check_output(
+            cmd, cwd=str(REPO), stderr=subprocess.DEVNULL, text=True
+        )
     except (subprocess.CalledProcessError, FileNotFoundError):
         return []
     paths = []
@@ -127,9 +130,19 @@ def main(argv=None) -> int:
     args = parser.parse_args(argv)
 
     if args.staged:
-        files = _git_paths(["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"])
+        files = _git_paths(
+            ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"]
+        )
     elif args.changed:
-        files = _git_paths(["git", "diff", "--name-only", f"{args.changed}...HEAD", "--diff-filter=ACM"])
+        files = _git_paths(
+            [
+                "git",
+                "diff",
+                "--name-only",
+                f"{args.changed}...HEAD",
+                "--diff-filter=ACM",
+            ]
+        )
     elif args.paths:
         files = _explicit(args.paths)
     else:
@@ -161,7 +174,9 @@ def main(argv=None) -> int:
             file=sys.stderr,
         )
     else:
-        print(f"[digest-lone-adjective] OK — {len(files)} digest(s) checked, 0 offenders.")
+        print(
+            f"[digest-lone-adjective] OK — {len(files)} digest(s) checked, 0 offenders."
+        )
     return rc
 
 

@@ -29,7 +29,6 @@ import pytest
 # ---------------------------------------------------------------------------
 import scripts.generate_post_images as _gpi
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -54,9 +53,7 @@ def _make_output_path(tmp_path: Path) -> Path:
 # ---------------------------------------------------------------------------
 
 
-def test_l20_path_used_when_flag_enabled_and_generator_succeeds(
-    monkeypatch, tmp_path
-):
+def test_l20_path_used_when_flag_enabled_and_generator_succeeds(monkeypatch, tmp_path):
     l20_stub = MagicMock(return_value=True)
     l22_stub = MagicMock(return_value=True)
 
@@ -72,8 +69,12 @@ def test_l20_path_used_when_flag_enabled_and_generator_succeeds(
     monkeypatch.setattr(_gpi, "generate_fallback_svg", MagicMock(return_value=True))
     monkeypatch.setattr(_gpi, "save_prompt_file", MagicMock())
     monkeypatch.setattr(_gpi, "generate_image_prompt", MagicMock(return_value="prompt"))
-    monkeypatch.setattr(_gpi, "check_image_exists", MagicMock(return_value=(False, None)))
-    monkeypatch.setattr(_gpi, "extract_post_info", MagicMock(return_value=_DIGEST_POST_INFO))
+    monkeypatch.setattr(
+        _gpi, "check_image_exists", MagicMock(return_value=(False, None))
+    )
+    monkeypatch.setattr(
+        _gpi, "extract_post_info", MagicMock(return_value=_DIGEST_POST_INFO)
+    )
     monkeypatch.setattr(_gpi, "IMAGES_DIR", tmp_path)
 
     post_file = tmp_path / "2026-04-30-Tech_Security_Weekly_Digest.md"
@@ -104,8 +105,12 @@ def test_falls_back_to_l22_when_l20_returns_false(monkeypatch, tmp_path):
     monkeypatch.setattr(_gpi, "generate_fallback_svg", MagicMock(return_value=True))
     monkeypatch.setattr(_gpi, "save_prompt_file", MagicMock())
     monkeypatch.setattr(_gpi, "generate_image_prompt", MagicMock(return_value="prompt"))
-    monkeypatch.setattr(_gpi, "check_image_exists", MagicMock(return_value=(False, None)))
-    monkeypatch.setattr(_gpi, "extract_post_info", MagicMock(return_value=_DIGEST_POST_INFO))
+    monkeypatch.setattr(
+        _gpi, "check_image_exists", MagicMock(return_value=(False, None))
+    )
+    monkeypatch.setattr(
+        _gpi, "extract_post_info", MagicMock(return_value=_DIGEST_POST_INFO)
+    )
     monkeypatch.setattr(_gpi, "IMAGES_DIR", tmp_path)
 
     post_file = tmp_path / "2026-04-30-Tech_Security_Weekly_Digest.md"
@@ -148,8 +153,12 @@ def test_falls_back_to_l22_when_l20_raises(monkeypatch, tmp_path, capsys):
     monkeypatch.setattr(_gpi, "generate_fallback_svg", MagicMock(return_value=True))
     monkeypatch.setattr(_gpi, "save_prompt_file", MagicMock())
     monkeypatch.setattr(_gpi, "generate_image_prompt", MagicMock(return_value="prompt"))
-    monkeypatch.setattr(_gpi, "check_image_exists", MagicMock(return_value=(False, None)))
-    monkeypatch.setattr(_gpi, "extract_post_info", MagicMock(return_value=_DIGEST_POST_INFO))
+    monkeypatch.setattr(
+        _gpi, "check_image_exists", MagicMock(return_value=(False, None))
+    )
+    monkeypatch.setattr(
+        _gpi, "extract_post_info", MagicMock(return_value=_DIGEST_POST_INFO)
+    )
     monkeypatch.setattr(_gpi, "IMAGES_DIR", tmp_path)
 
     post_file = tmp_path / "2026-04-30-Tech_Security_Weekly_Digest.md"
@@ -182,8 +191,12 @@ def test_l22_used_when_flag_disabled(monkeypatch, tmp_path):
     monkeypatch.setattr(_gpi, "generate_fallback_svg", MagicMock(return_value=True))
     monkeypatch.setattr(_gpi, "save_prompt_file", MagicMock())
     monkeypatch.setattr(_gpi, "generate_image_prompt", MagicMock(return_value="prompt"))
-    monkeypatch.setattr(_gpi, "check_image_exists", MagicMock(return_value=(False, None)))
-    monkeypatch.setattr(_gpi, "extract_post_info", MagicMock(return_value=_DIGEST_POST_INFO))
+    monkeypatch.setattr(
+        _gpi, "check_image_exists", MagicMock(return_value=(False, None))
+    )
+    monkeypatch.setattr(
+        _gpi, "extract_post_info", MagicMock(return_value=_DIGEST_POST_INFO)
+    )
     monkeypatch.setattr(_gpi, "IMAGES_DIR", tmp_path)
 
     post_file = tmp_path / "2026-04-30-Tech_Security_Weekly_Digest.md"

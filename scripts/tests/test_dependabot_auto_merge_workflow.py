@@ -116,7 +116,8 @@ def test_fetch_metadata_pin_comment_accurate(raw: str) -> None:
     _FETCH_METADATA_TAG above after confirming the resolution via the API.
     """
     pin_lines = [
-        ln for ln in raw.splitlines()
+        ln
+        for ln in raw.splitlines()
         if "dependabot/fetch-metadata@" in ln and "uses:" in ln
     ]
     assert pin_lines, "fetch-metadata `uses:` pin line not found."

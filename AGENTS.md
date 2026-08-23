@@ -633,3 +633,25 @@ opencode sisyphus
 | `notes/decisions.md` | Architecture decision records |
 | `notes/issues.md` | Known issues and workarounds |
 | `.claude/rules/` | Coding style, security, testing, performance rules |
+
+---
+
+## 18. AGY + OMC + CCG Best Scenarios & Skills Catalog
+
+Multi-agent orchestration matrix combining Google Antigravity (AGY), Oh-My-Claude / OpenCode (OMC), and Claude-Codex-Gemini (CCG) Tri-Model Lane.
+
+### Skill Registry (`.agents/skills/`)
+| Skill | Directory | Primary Role | Trigger / Method |
+|---|---|---|---|
+| **CCG Orchestrator** | `skills/ccg-orchestrator/` | Tri-model synthesis, peer-review & fact verification | Subagent dispatch |
+| **Tech Blog Post Create** | `skills/techblog-post-create/` | End-to-end DevSecOps post authoring with quality gates | Post creation request |
+| **Autonomous Improvement** | `skills/autonomous-improvement/` | Autonomous continuous post modernization & scoring | `/goal`, `/improve-posts` |
+| **Daily News Pipeline** | `skills/daily-news-pipeline/` | Automated RSS aggregation, AI scoring, template publish | `/schedule`, cron, dispatch |
+| **Emergency Incident Post** | `skills/emergency-incident-post/` | Fast-track zero-day CVE & post-mortem analysis | Critical security advisory |
+| **Tech Blog QA Audit** | `skills/techblog-qa-audit/` | Full quality assurance, tests, security, and link audit | Pre-release check, `/team-audit` |
+
+### Master Playbook & Rules
+- Detailed guide: `docs/pipeline/AGY_OMC_CCG_BEST_SCENARIOS.md`
+- Synergy rules: `.agents/rules/03-multi-tool-synergy.md`
+- Scenarios definition: `.agents/rules/04-best-scenarios.md`
+

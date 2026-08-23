@@ -6,6 +6,7 @@ demoted (`### 실무 체크리스트`) or suffixed (`## 실무 체크리스트 (
 still counts as 1 and passes silently, while the numbered tier-C form
 (`## 9. 실무 체크리스트`) is only reported as the generic "found 0".
 """
+
 import re
 import subprocess
 import sys
@@ -46,10 +47,7 @@ def test_topical_item_checklist_is_not_flagged(tmp_path):
 
 
 def test_heading_inside_code_fence_is_ignored(tmp_path):
-    body = (
-        "## 실무 체크리스트\n\n- [ ] 조치\n\n"
-        "```markdown\n### 실무 체크리스트\n```\n"
-    )
+    body = "## 실무 체크리스트\n\n- [ ] 조치\n\n```markdown\n### 실무 체크리스트\n```\n"
     assert gate.check_post(_post(tmp_path, body)) == []
 
 
@@ -62,7 +60,9 @@ def test_non_digest_post_is_skipped(tmp_path):
 
 
 def test_numbered_tier_c_variant_is_flagged(tmp_path):
-    v = gate.check_post(_post(tmp_path, _ITEM + "## 9. 실무 체크리스트\n\n- [ ] 조치\n"))
+    v = gate.check_post(
+        _post(tmp_path, _ITEM + "## 9. 실무 체크리스트\n\n- [ ] 조치\n")
+    )
     assert len(v) == 1
     assert "9. 실무 체크리스트" in v[0]
 
@@ -76,13 +76,17 @@ def test_demoted_h3_variant_is_flagged(tmp_path):
 
 def test_suffixed_variant_is_flagged(tmp_path):
     """Also passes check_digest_structure today (no `$` anchor)."""
-    v = gate.check_post(_post(tmp_path, _ITEM + "## 실무 체크리스트 (P0/P1)\n\n- [ ] 조치\n"))
+    v = gate.check_post(
+        _post(tmp_path, _ITEM + "## 실무 체크리스트 (P0/P1)\n\n- [ ] 조치\n")
+    )
     assert len(v) == 1
     assert "(P0/P1)" in v[0]
 
 
 def test_stray_variant_alongside_canonical_is_flagged(tmp_path):
-    body = _ITEM + "## 실무 체크리스트\n\n- [ ] 조치\n\n### 실무 체크리스트\n\n- [ ] 또\n"
+    body = (
+        _ITEM + "## 실무 체크리스트\n\n- [ ] 조치\n\n### 실무 체크리스트\n\n- [ ] 또\n"
+    )
     v = gate.check_post(_post(tmp_path, body))
     assert len(v) == 1
     assert "### 실무 체크리스트" in v[0]

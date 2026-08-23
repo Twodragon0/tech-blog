@@ -35,7 +35,10 @@ def _make_post(site_dir: Path, url_path: str, html: str = POST_HTML) -> None:
 
 class TestPostSlug:
     def test_strips_date_prefix_and_extension(self):
-        assert post_slug("_posts/2026-04-29-Tech_Security_Weekly.md") == "Tech_Security_Weekly"
+        assert (
+            post_slug("_posts/2026-04-29-Tech_Security_Weekly.md")
+            == "Tech_Security_Weekly"
+        )
 
     def test_accepts_markdown_extension(self):
         assert post_slug("_posts/2026-01-02-Foo.markdown") == "Foo"
@@ -157,8 +160,12 @@ class TestResolve:
         for url in ("/posts/2026/04/01/A/", "/posts/2026/04/02/B/"):
             _make_post(head, url)
             _make_post(base, url)
-        forward = resolve(["_posts/2026-04-01-A.md", "_posts/2026-04-02-B.md"], [head, base])
-        reverse = resolve(["_posts/2026-04-02-B.md", "_posts/2026-04-01-A.md"], [head, base])
+        forward = resolve(
+            ["_posts/2026-04-01-A.md", "_posts/2026-04-02-B.md"], [head, base]
+        )
+        reverse = resolve(
+            ["_posts/2026-04-02-B.md", "_posts/2026-04-01-A.md"], [head, base]
+        )
         assert forward == reverse
 
     def test_falls_back_to_default_when_no_post_touched(self, tmp_path):

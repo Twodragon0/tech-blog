@@ -46,7 +46,9 @@ class TestValidateFetchUrl:
 
     def test_allowlist_blocks_other_host(self):
         with pytest.raises(ValueError, match="allowlist"):
-            nbp.validate_fetch_url("https://evil.example/feed.json", ["news.trusted.io"])
+            nbp.validate_fetch_url(
+                "https://evil.example/feed.json", ["news.trusted.io"]
+            )
 
     def test_allowlist_permits_exact_and_subdomain(self):
         allowed = ["trusted.io"]
@@ -64,7 +66,9 @@ class TestValidateFetchUrl:
     def test_allowlist_subdomain_match(self, monkeypatch):
         # Force the resolver public so we isolate the allowlist logic.
         monkeypatch.setattr(nbp, "_resolves_to_public", lambda host: True)
-        parsed = nbp.validate_fetch_url("https://cdn.trusted.io/feed.json", ["trusted.io"])
+        parsed = nbp.validate_fetch_url(
+            "https://cdn.trusted.io/feed.json", ["trusted.io"]
+        )
         assert parsed.hostname == "cdn.trusted.io"
 
     def test_no_host_rejected(self):
@@ -83,7 +87,9 @@ class TestFailClosedAllowlist:
         # No allowlist configured → refuse even a public host (fail-closed).
         monkeypatch.delenv("BLOGWATCHER_ALLOWED_HOSTS", raising=False)
         monkeypatch.setattr(nbp, "_resolves_to_public", lambda host: True)
-        with pytest.raises(ValueError, match="fail-closed|BLOGWATCHER_ALLOWED_HOSTS is not set"):
+        with pytest.raises(
+            ValueError, match="fail-closed|BLOGWATCHER_ALLOWED_HOSTS is not set"
+        ):
             nbp.validate_fetch_url("https://feed.example/collected.json")
 
     def test_env_blank_fails_closed(self, monkeypatch):

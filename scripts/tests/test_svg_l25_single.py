@@ -6,6 +6,7 @@ distinguishable visual builders, deterministic byte-stable rendering,
 XML escaping, YAML schema validation, write/check drift lifecycle, and
 empty-spec-dir CLI behavior.
 """
+
 from __future__ import annotations
 
 import sys
@@ -60,6 +61,7 @@ def _write_spec(tmp_path: Path, data: dict, name: str = "sample.yml") -> Path:
 
 # 1. Renderer structure -----------------------------------------------------
 
+
 class TestRendererStructure:
     def test_renders_well_formed_xml(self):
         ET.fromstring(l25.render_l25_single(_minimal_spec()))
@@ -81,12 +83,16 @@ class TestRendererStructure:
 
 # 2. Enum guards ------------------------------------------------------------
 
+
 class TestEnumGuards:
-    @pytest.mark.parametrize("field,bad,msg", [
-        ("category", "bogus", "unknown category"),
-        ("theme", "rainbow", "unknown theme"),
-        ("visual", "vaporware", "unknown visual"),
-    ])
+    @pytest.mark.parametrize(
+        "field,bad,msg",
+        [
+            ("category", "bogus", "unknown category"),
+            ("theme", "rainbow", "unknown theme"),
+            ("visual", "vaporware", "unknown visual"),
+        ],
+    )
     def test_rejects_bad_enum(self, field, bad, msg):
         with pytest.raises(ValueError, match=msg):
             l25.render_l25_single(_minimal_spec(**{field: bad}))
@@ -101,6 +107,7 @@ class TestEnumGuards:
 
 
 # 3. Visual builders --------------------------------------------------------
+
 
 class TestVisualBuilders:
     def test_wired_minimum_four_visuals(self):
@@ -126,7 +133,7 @@ class TestVisualBuilders:
         for vid in sorted(l25.VISUAL_BUILDERS):
             svg = l25.render_l25_single(_minimal_spec(visual=vid))
             idx = svg.rfind("translate(840,290)")
-            windows.add(svg[idx:idx + 600])
+            windows.add(svg[idx : idx + 600])
         assert len(windows) >= 4, f"got {len(windows)} distinct outputs"
 
     def test_outage_timeline_signature(self):
@@ -134,8 +141,16 @@ class TestVisualBuilders:
         — proves the incident-postmortem replacement for ``shield`` renders
         timeline content (not the ransomware lock the L20 shield emits)."""
         svg = l25.render_l25_single(_minimal_spec(visual="outage_timeline"))
-        for token in ("DETECT", "DIAGNOSE", "MITIGATE", "RESOLVE",
-                      "POSTMORTEM", "BLAST RADIUS", "GLOBAL", "ASIA"):
+        for token in (
+            "DETECT",
+            "DIAGNOSE",
+            "MITIGATE",
+            "RESOLVE",
+            "POSTMORTEM",
+            "BLAST RADIUS",
+            "GLOBAL",
+            "ASIA",
+        ):
             assert token in svg, f"missing {token!r}"
 
     def test_k8s_topology_signature(self):
@@ -143,14 +158,24 @@ class TestVisualBuilders:
         — proves the K8s-tutorial replacement for ``network_nodes`` carries
         real cluster vocabulary (POD/SVC/NS/CRD/CM/NODE) not CROSS/VECTOR."""
         svg = l25.render_l25_single(
-            _minimal_spec(category="tutorial", theme="blue",
-                          visual="k8s_topology"))
-        for token in ("api-server", "CONTROL PLANE", "POD", "SVC",
-                      "NS", "CRD", "CM", "NODE", "single-node"):
+            _minimal_spec(category="tutorial", theme="blue", visual="k8s_topology")
+        )
+        for token in (
+            "api-server",
+            "CONTROL PLANE",
+            "POD",
+            "SVC",
+            "NS",
+            "CRD",
+            "CM",
+            "NODE",
+            "single-node",
+        ):
             assert token in svg, f"missing {token!r}"
 
 
 # 4. Determinism + XML escape ----------------------------------------------
+
 
 class TestDeterminismAndEscape:
     def test_byte_stable(self):
@@ -172,6 +197,7 @@ class TestDeterminismAndEscape:
 
 
 # 5. load_spec YAML validation ---------------------------------------------
+
 
 class TestLoadSpec:
     def test_load_valid(self, tmp_path):
@@ -202,9 +228,9 @@ class TestLoadSpec:
             load_spec(_write_spec(tmp_path, data))
 
     def test_rejects_too_many_kpis(self, tmp_path):
-        data = _minimal_spec(kpi_strip=[
-            {"label": str(i), "value": str(i)} for i in range(4)
-        ])
+        data = _minimal_spec(
+            kpi_strip=[{"label": str(i), "value": str(i)} for i in range(4)]
+        )
         with pytest.raises(ValueError, match="kpi_strip must have at most 3"):
             load_spec(_write_spec(tmp_path, data))
 
@@ -218,18 +244,19 @@ class TestLoadSpec:
         del data["url"]
         spec = load_spec(_write_spec(tmp_path, data))
         assert spec.url == (
-            "https://tech.2twodragon.com/posts/2026/06/01/"
-            "Test_Single_Topic_Post/"
+            "https://tech.2twodragon.com/posts/2026/06/01/Test_Single_Topic_Post/"
         )
 
 
 # 6. write / check lifecycle ------------------------------------------------
+
 
 @pytest.fixture
 def _tmp_assets(tmp_path, monkeypatch):
     """Redirect ``upgrade_l25_cover.ASSETS`` to a tmp dir so write() lands
     safely outside the real assets/images/ tree."""
     from scripts import upgrade_l25_cover as mod
+
     monkeypatch.setattr(mod, "ASSETS", tmp_path)
     return tmp_path
 
@@ -259,6 +286,7 @@ class TestWriteCheck:
 
 # 7. CLI drift gate on empty spec dir --------------------------------------
 
+
 class TestCliEmptySpecDir:
     """SPECS_DIR may legitimately hold prototype YAMLs while their on-disk
     SVGs live behind a ``.preview.svg`` suffix — that's a valid pre-batch
@@ -270,6 +298,7 @@ class TestCliEmptySpecDir:
         empty = tmp_path / "l25_covers_empty"
         empty.mkdir()
         from scripts import upgrade_l25_cover as mod
+
         monkeypatch.setattr(mod, "SPECS_DIR", empty)
         return empty
 

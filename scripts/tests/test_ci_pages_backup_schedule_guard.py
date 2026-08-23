@@ -41,9 +41,7 @@ def _noncomment_lines(text: str) -> str:
     Inline trailing comments on a real key line are preserved because that line
     is not comment-only.
     """
-    return "\n".join(
-        ln for ln in text.splitlines() if not ln.lstrip().startswith("#")
-    )
+    return "\n".join(ln for ln in text.splitlines() if not ln.lstrip().startswith("#"))
 
 
 class TestPagesBackupScheduleGuard:

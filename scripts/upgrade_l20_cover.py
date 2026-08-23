@@ -106,22 +106,41 @@ SPECS_DIR = REPO_ROOT / "_data" / "l20_covers"
 # ---------------------------------------------------------------------------
 
 # Allowed top-level keys; anything else triggers a "unknown key" rejection.
-_ALLOWED_TOP_LEVEL_KEYS = frozenset({
-    "date", "slug", "date_str", "post_title", "url",
-    "hero", "top_right", "bottom_right",
-})
+_ALLOWED_TOP_LEVEL_KEYS = frozenset(
+    {
+        "date",
+        "slug",
+        "date_str",
+        "post_title",
+        "url",
+        "hero",
+        "top_right",
+        "bottom_right",
+    }
+)
 
 # Required top-level keys.
 _REQUIRED_TOP_LEVEL_KEYS = (
-    "date", "slug", "date_str", "post_title",
-    "hero", "top_right", "bottom_right",
+    "date",
+    "slug",
+    "date_str",
+    "post_title",
+    "hero",
+    "top_right",
+    "bottom_right",
 )
 
 # Story-dict required keys (cards). The hero dict additionally requires `action`.
 _STORY_REQUIRED = (
-    "tag", "index", "theme", "visual",
-    "headline", "subheadline",
-    "kpi_value", "kpi_label", "kpi_sub",
+    "tag",
+    "index",
+    "theme",
+    "visual",
+    "headline",
+    "subheadline",
+    "kpi_value",
+    "kpi_label",
+    "kpi_sub",
 )
 _HERO_REQUIRED = _STORY_REQUIRED + ("action",)
 
@@ -154,6 +173,7 @@ class Spec:
     Field order mirrors :func:`scripts.lib.svg_l20_hero.render_l20_hero`
     so ``render(spec)`` is a thin glue layer.
     """
+
     date: str
     slug: str
     date_str: str
@@ -323,7 +343,9 @@ def honesty_regression(spec: Spec, svg: str) -> Optional[str]:
     try:
         from scripts.score_cover_honesty import load_baseline, score_file
     except Exception as exc:  # pragma: no cover - defensive
-        print(f"  WARN: honesty guard unavailable ({exc}); not enforced", file=sys.stderr)
+        print(
+            f"  WARN: honesty guard unavailable ({exc}); not enforced", file=sys.stderr
+        )
         return None
 
     baseline = load_baseline(_HONESTY_BASELINE) if _HONESTY_BASELINE.exists() else set()

@@ -23,6 +23,7 @@ Env (forwarded to gsc_inspect.py):
                               markdown from an existing state file.
     GSC_SITE_URL              Optional; default matches gsc_inspect.py.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -30,7 +31,8 @@ import json
 import os
 import subprocess
 import sys
-from datetime import date as _date_cls, datetime, timezone
+from datetime import date as _date_cls
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, Optional
 
@@ -170,11 +172,15 @@ def main(argv=None) -> int:
         help="Skip live GSC inspection; render markdown from existing state file",
     )
     parser.add_argument(
-        "--limit", type=int, default=0,
+        "--limit",
+        type=int,
+        default=0,
         help="Limit URLs to inspect (forwarded to gsc_inspect.py)",
     )
     parser.add_argument(
-        "--daily-budget", type=int, default=500,
+        "--daily-budget",
+        type=int,
+        default=500,
         help="Daily QPD cap (forwarded to gsc_inspect.py)",
     )
 
@@ -201,7 +207,9 @@ def main(argv=None) -> int:
     )
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    out_path = args.output_dir / f"checkpoint_gsc_{args.checkpoint_date.replace('-', '_')}.md"
+    out_path = (
+        args.output_dir / f"checkpoint_gsc_{args.checkpoint_date.replace('-', '_')}.md"
+    )
     out_path.write_text(markdown, encoding="utf-8")
     print(f"✅ Wrote checkpoint: {out_path}")
     return 0

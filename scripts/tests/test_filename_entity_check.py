@@ -29,10 +29,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import check_filename_entities as cfe
 
-
 # ===========================================================================
 # Pattern detection — has_entity_residue
 # ===========================================================================
+
 
 class TestHasEntityResidueAmpWord:
     """amp[a-z]+ pattern — 7 entity type variants."""
@@ -141,6 +141,7 @@ class TestHasEntityResidueCleanNames:
 # suggest_clean_name
 # ===========================================================================
 
+
 class TestSuggestCleanName:
     def test_removes_ampamp(self):
         result = cfe.suggest_clean_name("titleampampsuffix.md")
@@ -166,6 +167,7 @@ class TestSuggestCleanName:
 # ===========================================================================
 # Frontmatter image field scanning
 # ===========================================================================
+
 
 class TestCheckFrontmatterImage:
     def _make_post(self, tmp_path: Path, image_value: str) -> Path:
@@ -227,6 +229,7 @@ class TestCheckFrontmatterImage:
 # Whitelist suppression
 # ===========================================================================
 
+
 class TestWhitelistSuppression:
     def test_whitelisted_basename_skipped(self, tmp_path):
         whitelist = frozenset({"badampampfile.md"})
@@ -256,6 +259,7 @@ class TestWhitelistSuppression:
 # ===========================================================================
 # check_files — violation structure
 # ===========================================================================
+
 
 class TestCheckFiles:
     def test_clean_file_no_violation(self, tmp_path):
@@ -299,6 +303,7 @@ class TestCheckFiles:
 # ===========================================================================
 # --staged vs --all mode branching
 # ===========================================================================
+
 
 class TestModeStaged:
     """--staged mode reads from git diff --cached."""
@@ -373,6 +378,7 @@ class TestModeAll:
 # ===========================================================================
 # main() exit codes
 # ===========================================================================
+
 
 class TestMainExitCodes:
     def test_main_returns_0_when_no_staged_files(self):

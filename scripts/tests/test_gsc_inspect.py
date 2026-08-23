@@ -16,6 +16,7 @@ Covered:
 9. main() — exits non-zero with missing service-account env
 10. load_service_account_info — raw JSON vs path handling
 """
+
 from __future__ import annotations
 
 import json
@@ -28,7 +29,6 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import gsc_inspect as gsc  # noqa: E402
-
 
 # ---------------------------------------------------------------------------
 # Fixtures
@@ -124,7 +124,12 @@ def test_extract_index_status_handles_missing_fields():
     assert "indexing_state" in extracted
 
     extracted = gsc._extract_index_status(
-        {"indexStatusResult": {"verdict": "PASS", "coverageState": "Submitted and indexed"}}
+        {
+            "indexStatusResult": {
+                "verdict": "PASS",
+                "coverageState": "Submitted and indexed",
+            }
+        }
     )
     assert extracted["verdict"] == "PASS"
     assert extracted["coverage_state"] == "Submitted and indexed"
@@ -155,7 +160,9 @@ def test_inspect_url_retries_on_429_then_succeeds():
         ]
     )
     with patch.object(gsc.time, "sleep") as sleep_mock:
-        result = gsc.inspect_url(client, "https://example.com/a/", "https://example.com")
+        result = gsc.inspect_url(
+            client, "https://example.com/a/", "https://example.com"
+        )
     assert result["indexStatusResult"]["verdict"] == "PASS"
     # 2 retries → 2 sleep calls
     assert sleep_mock.call_count == 2
@@ -178,14 +185,20 @@ def test_run_inspection_aggregates_totals():
     urls = [f"https://example.com/{i}/" for i in range(3)]
 
     state = gsc.run_inspection(
-        urls=urls, client=client, site_url="https://example.com",
-        daily_budget=100, per_request_sleep=0,
+        urls=urls,
+        client=client,
+        site_url="https://example.com",
+        daily_budget=100,
+        per_request_sleep=0,
     )
 
     assert state["schema_version"] == 1
     assert state["totals"] == {
-        "inspected": 3, "indexed": 1, "discovered_not_indexed": 1,
-        "crawled_not_indexed": 1, "errors": 0,
+        "inspected": 3,
+        "indexed": 1,
+        "discovered_not_indexed": 1,
+        "crawled_not_indexed": 1,
+        "errors": 0,
     }
     assert len(state["urls"]) == 3
     assert all("inspected_at" in entry for entry in state["urls"])
@@ -201,8 +214,11 @@ def test_run_inspection_per_url_failure_continues(capsys):
     urls = [f"https://example.com/{i}/" for i in range(3)]
 
     state = gsc.run_inspection(
-        urls=urls, client=client, site_url="https://example.com",
-        daily_budget=100, per_request_sleep=0,
+        urls=urls,
+        client=client,
+        site_url="https://example.com",
+        daily_budget=100,
+        per_request_sleep=0,
     )
 
     assert state["totals"]["inspected"] == 2

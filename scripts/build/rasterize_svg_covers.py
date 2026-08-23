@@ -32,6 +32,7 @@ Exit codes:
   1  one or more conversions raised an exception (other covers still
      produced)
 """
+
 from __future__ import annotations
 
 import argparse
@@ -97,9 +98,12 @@ def _convert_via_rsvg(svg: Path, png: Path) -> None:
     subprocess.run(
         [
             "rsvg-convert",
-            "-w", str(OG_WIDTH),
-            "-h", str(OG_HEIGHT),
-            "-o", str(png),
+            "-w",
+            str(OG_WIDTH),
+            "-h",
+            str(OG_HEIGHT),
+            "-o",
+            str(png),
             str(svg),
         ],
         check=True,
@@ -110,6 +114,7 @@ def _convert_via_rsvg(svg: Path, png: Path) -> None:
 
 def _convert_via_cairosvg(svg: Path, png: Path) -> None:
     import cairosvg  # imported lazily so missing libcairo is a soft fail
+
     cairosvg.svg2png(
         url=str(svg),
         write_to=str(png),
@@ -137,6 +142,7 @@ def _pick_backend(force: str | None = None):
             return "rsvg-convert", _convert_via_rsvg
         try:
             import cairosvg  # noqa: F401  — probe only
+
             return "cairosvg", _convert_via_cairosvg
         except Exception:  # noqa: BLE001 — libcairo missing is the common case
             return None, None
@@ -154,6 +160,7 @@ def _pick_backend(force: str | None = None):
     if force == "cairosvg":
         try:
             import cairosvg  # noqa: F401  — probe only
+
             return "cairosvg", _convert_via_cairosvg
         except Exception as exc:  # noqa: BLE001
             print(
@@ -206,7 +213,7 @@ def main(argv: list[str] | None = None) -> int:
             f"WARN: rsvg-convert and cairosvg both unavailable — "
             f"skipping SVG → PNG rasterization for {len(candidates)} cover(s). "
             f"Install librsvg2-bin (apt) / librsvg (brew) to enable. "
-            f"Posts will fall through to <img src=\"...svg\"> via the "
+            f'Posts will fall through to <img src="...svg"> via the '
             f"is-svg-image hero class hook."
         )
         return 0

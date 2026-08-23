@@ -62,6 +62,23 @@ summary_card:
 
 ## 경영진 요약
 
+### 아키텍처 및 워크플로우 다이어그램
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Engineer as DevSecOps Engineer
+    participant CI as CI/CD Pipeline
+    participant Sec as Security Gate & Scanner
+    participant Prod as Production Environment
+
+    Engineer->>CI: Push Git Commit / Pull Request
+    CI->>Sec: Static Analysis (SAST / Secret Masking)
+    Sec-->>CI: Policy Compliance (Zero Regression)
+    CI->>Prod: Automated Zero-Downtime Deployment
+```
+
+
 ### 위협 리스크 스코어카드
 
 | 위협 유형 | 심각도 | 영향도 | 긴급도 | 한국 조직 노출도 | 권장 조치 기한 |

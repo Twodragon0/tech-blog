@@ -22,11 +22,12 @@ import re
 
 import pytest
 
+from scripts.lib.svg_l20_hero import render_l20_hero
 from scripts.news.l20_dispatch import (
-    _build_story,
     _CONTENT_ARIA_PREFIX_BY_EYEBROW,
     _CONTENT_FOOTER_BY_EYEBROW,
     _CONTENT_HONEST_VISUALS,
+    _build_story,
     _content_eyebrow_from_category,
     _content_topic_phrases,
     _humanize_eyebrow,
@@ -39,7 +40,6 @@ from scripts.news.l20_dispatch import (
     generate_l20_content_svg,
     route_visual_id,
 )
-from scripts.lib.svg_l20_hero import render_l20_hero
 
 
 # A minimal but complete story dict for direct render_l20_hero calls.
@@ -101,7 +101,7 @@ class TestRenderDefaultsPreserveDigestBranding:
         )
         assert (
             'aria-label="Weekly digest cover 2026.01.11: '
-            "Vulnerability, Patch, Advisory\"" in svg
+            'Vulnerability, Patch, Advisory"' in svg
         )
 
 
@@ -173,7 +173,9 @@ class TestContentEyebrowFromCategory:
         assert _content_eyebrow_from_category(["cloud", "security"]) == "CLOUD GUIDE"
 
     def test_comma_string_uses_first(self):
-        assert _content_eyebrow_from_category("kubernetes, devops") == "KUBERNETES GUIDE"
+        assert (
+            _content_eyebrow_from_category("kubernetes, devops") == "KUBERNETES GUIDE"
+        )
 
 
 # =====================================================================
@@ -250,12 +252,12 @@ class TestContentHonestVisuals:
     """content_mode=True in _build_story must clamp attack visuals to neutral."""
 
     _ATTACK_HEADLINES = [
-        "Kubernetes",    # routes container_escape without clamping
-        "Docker",        # routes container_escape
-        "Credential",    # routes data_exfil
-        "Router",        # routes hub_spoke
-        "Agentic",       # routes ai_agent_funnel
-        "npm",           # routes supply_chain_pipe
+        "Kubernetes",  # routes container_escape without clamping
+        "Docker",  # routes container_escape
+        "Credential",  # routes data_exfil
+        "Router",  # routes hub_spoke
+        "Agentic",  # routes ai_agent_funnel
+        "npm",  # routes supply_chain_pipe
     ]
 
     def test_honest_set_constant_defined(self):
@@ -263,9 +265,16 @@ class TestContentHonestVisuals:
         assert "security_advisory" in _CONTENT_HONEST_VISUALS
         assert "market" in _CONTENT_HONEST_VISUALS
         # Attack visuals must NOT be in the honest set.
-        for attack in ("container_escape", "data_exfil", "hub_spoke",
-                       "ai_agent_funnel", "supply_chain_pipe",
-                       "cve_chain", "ransomware_lock", "code_injection"):
+        for attack in (
+            "container_escape",
+            "data_exfil",
+            "hub_spoke",
+            "ai_agent_funnel",
+            "supply_chain_pipe",
+            "cve_chain",
+            "ransomware_lock",
+            "code_injection",
+        ):
             assert attack not in _CONTENT_HONEST_VISUALS, (
                 f"attack visual {attack!r} should not be in honest set"
             )
@@ -277,8 +286,11 @@ class TestContentHonestVisuals:
             f"precondition: {headline!r} must route to an attack visual, got {raw_visual!r}"
         )
         story = _build_story(
-            headline=headline, subheadline="x", index=0,
-            severity_label="HIGH", content_mode=True,
+            headline=headline,
+            subheadline="x",
+            index=0,
+            severity_label="HIGH",
+            content_mode=True,
         )
         assert story["visual"] in _CONTENT_HONEST_VISUALS, (
             f"content_mode did not clamp {raw_visual!r} for headline {headline!r}"
@@ -290,8 +302,11 @@ class TestContentHonestVisuals:
         """content_mode=False (digest default) must NOT clamp routing."""
         raw_visual = route_visual_id(headline)
         story = _build_story(
-            headline=headline, subheadline="x", index=0,
-            severity_label="HIGH", content_mode=False,
+            headline=headline,
+            subheadline="x",
+            index=0,
+            severity_label="HIGH",
+            content_mode=False,
         )
         assert story["visual"] == raw_visual
 
@@ -315,12 +330,15 @@ class TestContentHonestVisuals:
     def test_honest_visuals_pass_through_unchanged(self):
         """neutral / security_advisory / market must not be clamped."""
         for headline, expected_visual in [
-            ("Bitcoin $71K",   "market"),
-            ("Chainalysis",    "neutral"),
+            ("Bitcoin $71K", "market"),
+            ("Chainalysis", "neutral"),
         ]:
             story = _build_story(
-                headline=headline, subheadline="x", index=0,
-                severity_label="HIGH", content_mode=True,
+                headline=headline,
+                subheadline="x",
+                index=0,
+                severity_label="HIGH",
+                content_mode=True,
             )
             assert story["visual"] == expected_visual, (
                 f"honest visual {expected_visual!r} was changed for {headline!r}"
@@ -370,9 +388,21 @@ class TestRedundantSubtitleGuard:
 # =====================================================================
 
 
-_FILLER_WORDS = {"latest", "update", "complete", "guide", "analysis",
-                 "perspective", "view", "overview", "intro", "summary",
-                 "2025", "2026", "top"}
+_FILLER_WORDS = {
+    "latest",
+    "update",
+    "complete",
+    "guide",
+    "analysis",
+    "perspective",
+    "view",
+    "overview",
+    "intro",
+    "summary",
+    "2025",
+    "2026",
+    "top",
+}
 
 
 class TestMeaningfulContentKeywords:
@@ -455,9 +485,10 @@ class TestExtractContentStories:
             eyebrow="SECURITY GUIDE",
         )
         for story in (h, t, b):
-            assert story["subheadline"].strip().lower() != story["headline"].strip().lower(), (
-                f"redundant subtitle: {story!r}"
-            )
+            assert (
+                story["subheadline"].strip().lower()
+                != story["headline"].strip().lower()
+            ), f"redundant subtitle: {story!r}"
 
     def test_blockchain_all_topics_meaningful(self):
         h, t, b = extract_content_stories(
@@ -762,7 +793,5 @@ class TestHumanizeEyebrow:
         h, t, b = extract_content_stories(
             "보안", "", "2026-01-01-Guide.md", eyebrow="DEVSECOPS GUIDE"
         )
-        all_text = " ".join(
-            s["headline"] + " " + s["subheadline"] for s in (h, t, b)
-        )
+        all_text = " ".join(s["headline"] + " " + s["subheadline"] for s in (h, t, b))
         assert "Devsecops" not in all_text, all_text

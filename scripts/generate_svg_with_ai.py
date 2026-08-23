@@ -338,7 +338,10 @@ def main():
                 svg_file.write_text(svg_content, encoding="utf-8")
                 ok, err = is_valid_svg(svg_file)
                 if not ok:
-                    print(f"  WARNING: SVG XML invalid after write: {svg_file.name}: {err}", file=sys.stderr)
+                    print(
+                        f"  WARNING: SVG XML invalid after write: {svg_file.name}: {err}",
+                        file=sys.stderr,
+                    )
                 print(f"  ✅ Generated: {svg_file}")
                 success += 1
                 continue
@@ -353,7 +356,10 @@ def main():
                     svg_file.write_text(svg_content, encoding="utf-8")
                     ok, err = is_valid_svg(svg_file)
                     if not ok:
-                        print(f"  WARNING: SVG XML invalid after write: {svg_file.name}: {err}", file=sys.stderr)
+                        print(
+                            f"  WARNING: SVG XML invalid after write: {svg_file.name}: {err}",
+                            file=sys.stderr,
+                        )
                     print(f"  ✅ Generated (fallback): {svg_file}")
                     success += 1
                     continue

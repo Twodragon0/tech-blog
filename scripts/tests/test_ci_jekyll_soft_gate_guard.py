@@ -96,7 +96,8 @@ def test_validation_steps_do_not_swallow_exit_codes(name: str):
     offenders = [
         ln.strip()
         for ln in run.splitlines()
-        if "|| true" in ln and "gh api" not in ln  # comment-id lookups may legitimately be empty
+        if "|| true" in ln
+        and "gh api" not in ln  # comment-id lookups may legitimately be empty
     ]
     assert not offenders, (
         f"{name!r} swallows an exit code with '|| true': {offenders}. If the intent is "
@@ -124,7 +125,9 @@ def test_front_matter_gate_uses_the_ratchet_script():
     assert "--changed" in run, "the ratchet needs a diff base to compare against"
 
 
-@pytest.mark.parametrize("step_name", ["Digest quality gate", "Front-matter quote gate (unescaped inner DQ)"])
+@pytest.mark.parametrize(
+    "step_name", ["Digest quality gate", "Front-matter quote gate (unescaped inner DQ)"]
+)
 def test_changed_file_diffs_fail_closed(step_name: str):
     """An unresolvable origin/main must not read as "nothing changed"."""
     run = _uncommented(_steps()[step_name]["run"])

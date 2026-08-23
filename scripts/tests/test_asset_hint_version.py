@@ -74,7 +74,7 @@ def test_hint_with_matching_cache_buster_passes(tmp_path):
         tmp_path,
         "head.html",
         '<link rel="prefetch" href="{{ "/assets/js/post-page.js" | relative_url }}'
-        "?v={{ site.time | date: '%Y%m%d%H%M' }}\" as=\"script\">\n",
+        '?v={{ site.time | date: \'%Y%m%d%H%M\' }}" as="script">\n',
     )
     versioned = collect_versioned_assets([loader])
     assert check_file(hint, versioned) == []
@@ -142,7 +142,7 @@ def test_stylesheet_rel_is_not_a_hint(tmp_path):
         tmp_path,
         "footer.html",
         "<script src=\"{{ '/assets/css/main.css' | relative_url }}"
-        "?v={{ site.time }}\"></script>\n",
+        '?v={{ site.time }}"></script>\n',
     )
     sheet = _write(
         tmp_path,

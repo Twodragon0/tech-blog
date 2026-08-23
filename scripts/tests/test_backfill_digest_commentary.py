@@ -277,7 +277,5 @@ title: "X"
 class TestCli:
     def test_no_matches_returns_1(self, tmp_path, capsys, monkeypatch):
         monkeypatch.chdir(tmp_path)
-        rc = backfill.main(
-            ["--posts-glob", "_posts/_does_not_exist_*.md", "--dry-run"]
-        )
+        rc = backfill.main(["--posts-glob", "_posts/_does_not_exist_*.md", "--dry-run"])
         assert rc == 1

@@ -51,6 +51,7 @@ POST_CSS = REPO_ROOT / "_site" / "assets" / "css" / "post-page.css"
 # 1. _post.scss — no longer contains [src*=] / [src$=] for section / svg
 # ---------------------------------------------------------------------------
 
+
 class TestPostScssSelectors:
     def test_no_src_section_attribute_selector(self):
         """img[src*='section-'] must have been replaced by img.is-section-image."""
@@ -81,6 +82,7 @@ class TestPostScssSelectors:
 # 2. _includes/post-image.html — exists and contains class logic
 # ---------------------------------------------------------------------------
 
+
 class TestPostImageInclude:
     def test_include_exists(self):
         assert INCLUDE_HTML.exists(), f"Missing {INCLUDE_HTML}"
@@ -109,6 +111,7 @@ class TestPostImageInclude:
 # ---------------------------------------------------------------------------
 # 3. _plugins/markdown_image_lazy.rb — has class_hooks_for_src method
 # ---------------------------------------------------------------------------
+
 
 class TestMarkdownImageLazyPlugin:
     def test_plugin_exists(self):

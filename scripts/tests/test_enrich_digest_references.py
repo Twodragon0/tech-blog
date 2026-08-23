@@ -6,6 +6,7 @@ even though 4 posts already show a 3-column precedent. This transformer adds a
 용도 column with canonical descriptions and appends the sources the post
 ACTUALLY cited, taken from its own news cards — no LLM, no invented facts.
 """
+
 import sys
 from pathlib import Path
 
@@ -56,11 +57,20 @@ def test_mapped_table_gains_the_용도_column():
 
 
 def test_unmapped_label_keeps_the_table_two_column():
-    table = _TABLE_2COL + "| Docker 3Cs Framework | [docs.docker.com](https://docs.docker.com/) |\n"
-    out = enr.transform(_post(cards=_card("The Hacker News", "https://thehackernews.com/a"), table=table))
+    table = (
+        _TABLE_2COL
+        + "| Docker 3Cs Framework | [docs.docker.com](https://docs.docker.com/) |\n"
+    )
+    out = enr.transform(
+        _post(
+            cards=_card("The Hacker News", "https://thehackernews.com/a"), table=table
+        )
+    )
     assert "| 리소스 | 링크 | 용도 |" not in out
     # source rows are still appended, in the 2-column shape
-    assert "| The Hacker News | [thehackernews.com](https://thehackernews.com) |\n" in out
+    assert (
+        "| The Hacker News | [thehackernews.com](https://thehackernews.com) |\n" in out
+    )
 
 
 # --- source rows -------------------------------------------------------------
@@ -73,19 +83,34 @@ def test_cited_sources_are_appended_with_citation_counts():
         + _card("Google Cloud Blog", "https://cloud.google.com/blog/b")
     )
     out = enr.transform(_post(cards=cards))
-    assert "| Google Cloud Blog | [cloud.google.com](https://cloud.google.com) | 본문 2건 인용 |" in out
-    assert "| The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 1건 인용 |" in out
+    assert (
+        "| Google Cloud Blog | [cloud.google.com](https://cloud.google.com) | 본문 2건 인용 |"
+        in out
+    )
+    assert (
+        "| The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 1건 인용 |"
+        in out
+    )
 
 
 def test_source_order_follows_first_appearance():
-    cards = _card("B Source", "https://b.example/1") + _card("A Source", "https://a.example/1")
+    cards = _card("B Source", "https://b.example/1") + _card(
+        "A Source", "https://a.example/1"
+    )
     out = enr.transform(_post(cards=cards))
     assert out.index("| B Source |") < out.index("| A Source |")
 
 
 def test_source_already_present_is_not_duplicated():
-    table = _TABLE_2COL + "| The Hacker News | [thehackernews.com](https://thehackernews.com) |\n"
-    out = enr.transform(_post(cards=_card("The Hacker News", "https://thehackernews.com/a"), table=table))
+    table = (
+        _TABLE_2COL
+        + "| The Hacker News | [thehackernews.com](https://thehackernews.com) |\n"
+    )
+    out = enr.transform(
+        _post(
+            cards=_card("The Hacker News", "https://thehackernews.com/a"), table=table
+        )
+    )
     # count inside the reference section only — the news card also names the source
     section = out.split("## 참고 자료")[1]
     assert section.count("The Hacker News") == 1
@@ -100,7 +125,9 @@ def test_post_without_cards_is_unchanged_except_the_column():
 
 
 def test_transform_is_idempotent():
-    once = enr.transform(_post(cards=_card("The Hacker News", "https://thehackernews.com/a")))
+    once = enr.transform(
+        _post(cards=_card("The Hacker News", "https://thehackernews.com/a"))
+    )
     assert enr.transform(once) == once
 
 
@@ -145,7 +172,10 @@ def test_cli_dry_run_does_not_write(tmp_path):
 @pytest.mark.parametrize(
     "url,expected",
     [
-        ("https://www.microsoft.com/en-us/security/blog/x/", "https://www.microsoft.com"),
+        (
+            "https://www.microsoft.com/en-us/security/blog/x/",
+            "https://www.microsoft.com",
+        ),
         ("https://thehackernews.com/2026/08/a.html", "https://thehackernews.com"),
         ("http://blogs.nvidia.com/blog/x", "http://blogs.nvidia.com"),
     ],
@@ -155,5 +185,9 @@ def test_origin_is_derived_from_the_cited_url(url, expected):
 
 
 def test_www_prefix_is_dropped_from_the_display_label_only():
-    out = enr.transform(_post(cards=_card("Docker Blog", "https://www.docker.com/blog/x")))
-    assert "| Docker Blog | [docker.com](https://www.docker.com) | 본문 1건 인용 |" in out
+    out = enr.transform(
+        _post(cards=_card("Docker Blog", "https://www.docker.com/blog/x"))
+    )
+    assert (
+        "| Docker Blog | [docker.com](https://www.docker.com) | 본문 1건 인용 |" in out
+    )

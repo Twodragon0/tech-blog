@@ -25,9 +25,9 @@ DIFF_DIR = REPO_ROOT / "tests" / "visual-diffs"
 MANIFEST_FILE = BASELINE_DIR / "manifest.json"
 
 # Pass criteria (overridable via --threshold):
-DEFAULT_THRESHOLD_PCT = 0.5   # max % of pixels that may differ
-MAX_CONTIGUOUS_BLOCK = 100    # max side of a contiguous diff rectangle (pixels)
-PIXEL_DIFF_THRESHOLD = 30     # per-pixel RGB sum threshold to count as "different"
+DEFAULT_THRESHOLD_PCT = 0.5  # max % of pixels that may differ
+MAX_CONTIGUOUS_BLOCK = 100  # max side of a contiguous diff rectangle (pixels)
+PIXEL_DIFF_THRESHOLD = 30  # per-pixel RGB sum threshold to count as "different"
 
 TARGET_SVGS = [
     # LLM Security post
@@ -74,6 +74,7 @@ TARGET_SVGS = [
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
@@ -139,9 +140,12 @@ def render_svg_to_png(
         result = subprocess.run(
             [
                 "rsvg-convert",
-                "-w", str(width),
-                "-h", str(height),
-                "-o", str(out_png),
+                "-w",
+                str(width),
+                "-h",
+                str(height),
+                "-o",
+                str(out_png),
                 str(svg_path),
             ],
             capture_output=True,
@@ -160,13 +164,24 @@ def render_svg_to_png(
     # bounding box, so we pass the larger dimension to ensure the canvas fits.
     with tempfile.TemporaryDirectory() as tmpdir:
         subprocess.run(
-            ["qlmanage", "-t", "-s", str(max(width, height)), "-o", tmpdir, str(svg_path)],
+            [
+                "qlmanage",
+                "-t",
+                "-s",
+                str(max(width, height)),
+                "-o",
+                tmpdir,
+                str(svg_path),
+            ],
             capture_output=True,
             text=True,
         )
         produced = list(Path(tmpdir).glob("*.png"))
         if not produced:
-            print(f"  ERROR: qlmanage produced no output for {svg_path.name}", file=sys.stderr)
+            print(
+                f"  ERROR: qlmanage produced no output for {svg_path.name}",
+                file=sys.stderr,
+            )
             return False
         produced[0].rename(out_png)
         return True
@@ -240,6 +255,7 @@ def pixel_diff(baseline_png: Path, current_png: Path, diff_out: Path) -> dict:
 # HTML report
 # ---------------------------------------------------------------------------
 
+
 def generate_html_report(results: list[dict], threshold_pct: float) -> Path:
     """Write tests/visual-diffs/index.html with side-by-side comparison table."""
     DIFF_DIR.mkdir(parents=True, exist_ok=True)
@@ -284,7 +300,11 @@ def generate_html_report(results: list[dict], threshold_pct: float) -> Path:
                     return f"<td><figure><img src='{src}' alt='{label}' loading='lazy'><figcaption>{label}</figcaption></figure></td>"
                 return f"<td>{label}: N/A</td>"
 
-            img_cells = img_tag(baseline_rel, "Baseline") + img_tag(current_rel, "Current") + img_tag(diff_rel, "Diff")
+            img_cells = (
+                img_tag(baseline_rel, "Baseline")
+                + img_tag(current_rel, "Current")
+                + img_tag(diff_rel, "Diff")
+            )
 
         rows.append(f"""
         <tr class='{row_class}'>
@@ -296,7 +316,11 @@ def generate_html_report(results: list[dict], threshold_pct: float) -> Path:
         </tr>""")
 
     pass_count = sum(1 for r in results if r.get("passed") is True)
-    fail_count = sum(1 for r in results if r.get("passed") is False and r["status"] not in ("SKIP", "RENDER_ERROR"))
+    fail_count = sum(
+        1
+        for r in results
+        if r.get("passed") is False and r["status"] not in ("SKIP", "RENDER_ERROR")
+    )
     skip_count = sum(1 for r in results if r["status"] in ("SKIP", "RENDER_ERROR"))
 
     html = f"""<!DOCTYPE html>
@@ -378,6 +402,7 @@ def generate_html_report(results: list[dict], threshold_pct: float) -> Path:
 # Capture
 # ---------------------------------------------------------------------------
 
+
 def capture():
     """Render all SVGs and write manifest."""
     BASELINE_DIR.mkdir(parents=True, exist_ok=True)
@@ -394,7 +419,9 @@ def capture():
             print(f"  SKIP (not found): {rel}", file=sys.stderr)
 
     renderer = _select_renderer() or "(none)"
-    print(f"Rendering {len(valid_targets)} SVGs with {renderer} at {RENDER_WIDTH}x{RENDER_HEIGHT}...")
+    print(
+        f"Rendering {len(valid_targets)} SVGs with {renderer} at {RENDER_WIDTH}x{RENDER_HEIGHT}..."
+    )
     for svg in valid_targets:
         out_png = BASELINE_DIR / (svg.stem + ".png")
         print(f"  {svg.name} -> {out_png.name}", end=" ", flush=True)
@@ -419,6 +446,7 @@ def capture():
 # Verify (strict SHA256 mode)
 # ---------------------------------------------------------------------------
 
+
 def verify_strict():
     """Re-render SVGs and compare SHA256 against manifest (legacy behavior)."""
     if not MANIFEST_FILE.exists():
@@ -432,7 +460,9 @@ def verify_strict():
 
     print(f"Verifying {len(manifest)} baselines (strict SHA256 mode)...")
     for svg_name, entry in manifest.items():
-        svg = next((REPO_ROOT / r for r in TARGET_SVGS if Path(r).name == svg_name), None)
+        svg = next(
+            (REPO_ROOT / r for r in TARGET_SVGS if Path(r).name == svg_name), None
+        )
         if svg is None or not svg.exists():
             print(f"  SKIP (SVG not found): {svg_name}")
             continue
@@ -467,6 +497,7 @@ def verify_strict():
 # Verify (per-pixel diff mode)
 # ---------------------------------------------------------------------------
 
+
 def verify(threshold_pct: float = DEFAULT_THRESHOLD_PCT):
     """Re-render SVGs and pixel-diff against baseline PNGs.
 
@@ -488,10 +519,14 @@ def verify(threshold_pct: float = DEFAULT_THRESHOLD_PCT):
     passed_count = 0
     failed_count = 0
 
-    print(f"Verifying {len(manifest)} baselines (pixel-diff, threshold={threshold_pct}%)...")
+    print(
+        f"Verifying {len(manifest)} baselines (pixel-diff, threshold={threshold_pct}%)..."
+    )
 
     for svg_name, entry in manifest.items():
-        svg = next((REPO_ROOT / r for r in TARGET_SVGS if Path(r).name == svg_name), None)
+        svg = next(
+            (REPO_ROOT / r for r in TARGET_SVGS if Path(r).name == svg_name), None
+        )
         if svg is None or not svg.exists():
             print(f"  SKIP (SVG not found): {svg_name}")
             results.append({"name": svg_name, "status": "SKIP"})
@@ -518,26 +553,25 @@ def verify(threshold_pct: float = DEFAULT_THRESHOLD_PCT):
         passed = pct <= threshold_pct and block <= MAX_CONTIGUOUS_BLOCK
 
         status_str = "PASS" if passed else "DIFF"
-        print(
-            f"  {status_str}: {svg_name}  "
-            f"({pct:.3f}% diff, max_block={block}px)"
-        )
+        print(f"  {status_str}: {svg_name}  ({pct:.3f}% diff, max_block={block}px)")
 
         if passed:
             passed_count += 1
         else:
             failed_count += 1
 
-        results.append({
-            "name": svg_name,
-            "status": status_str,
-            "passed": passed,
-            "pct_diff": pct,
-            "max_block": block,
-            "baseline_rel": f"../visual-baselines/{entry['png']}",
-            "current_rel": f"current/{entry['png']}",
-            "diff_rel": f"diff_{entry['png']}",
-        })
+        results.append(
+            {
+                "name": svg_name,
+                "status": status_str,
+                "passed": passed,
+                "pct_diff": pct,
+                "max_block": block,
+                "baseline_rel": f"../visual-baselines/{entry['png']}",
+                "current_rel": f"current/{entry['png']}",
+                "diff_rel": f"diff_{entry['png']}",
+            }
+        )
 
     # Always generate the HTML report
     report_path = generate_html_report(results, threshold_pct)
@@ -550,11 +584,16 @@ def verify(threshold_pct: float = DEFAULT_THRESHOLD_PCT):
 # CLI
 # ---------------------------------------------------------------------------
 
+
 def main():
     parser = argparse.ArgumentParser(description="SVG visual regression baseline tool")
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--capture", action="store_true", help="Render SVGs and save baselines")
-    group.add_argument("--verify", action="store_true", help="Re-render and diff against baselines")
+    group.add_argument(
+        "--capture", action="store_true", help="Render SVGs and save baselines"
+    )
+    group.add_argument(
+        "--verify", action="store_true", help="Re-render and diff against baselines"
+    )
     parser.add_argument(
         "--threshold",
         type=float,

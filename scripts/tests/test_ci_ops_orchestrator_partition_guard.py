@@ -112,7 +112,11 @@ class TestOpsOrchestratorPartitionGuard:
         jobs = _load()["jobs"]
         for name, spec in jobs.items():
             perms = spec.get("permissions", {}) or {}
-            elevated = {k for k, v in perms.items() if k in ("actions", "issues") and v == "write"}
+            elevated = {
+                k
+                for k, v in perms.items()
+                if k in ("actions", "issues") and v == "write"
+            }
             if name == "multi_agent":
                 assert elevated == {"actions", "issues"}, (
                     "multi_agent must keep actions:write + issues:write; found "

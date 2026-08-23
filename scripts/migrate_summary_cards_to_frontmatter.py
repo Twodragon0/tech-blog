@@ -294,7 +294,7 @@ def split_frontmatter(content: str) -> tuple[str, str] | None:
     if not m:
         return None
     fm = m.group(0)  # incl. leading and trailing ---\n
-    rest = content[m.end():]
+    rest = content[m.end() :]
     return fm, rest
 
 
@@ -418,9 +418,7 @@ def migrate_post(
     required = {"title", "categories_html", "tags_html", "highlights_html"}
     missing = required - set(attrs.keys())
     if missing:
-        return MigrationResult(
-            path, "failed", f"missing attributes: {sorted(missing)}"
-        )
+        return MigrationResult(path, "failed", f"missing attributes: {sorted(missing)}")
 
     if not allow_separator_divergence:
         compat, why = _is_separator_compatible(attrs)
@@ -433,9 +431,7 @@ def migrate_post(
 
     # Replace the include block with the bare form.
     new_rest = (
-        rest[: m.start()]
-        + "{% include ai-summary-card.html %}"
-        + rest[m.end() :]
+        rest[: m.start()] + "{% include ai-summary-card.html %}" + rest[m.end() :]
     )
     # Remove any {% capture %} blocks whose variable was consumed by the
     # include (their HTML now lives in frontmatter, leaving them in the
@@ -446,6 +442,7 @@ def migrate_post(
         if vm and vm.group("var") in captures:
             consumed_vars.add(vm.group("var"))
     if consumed_vars:
+
         def _strip_capture(match: re.Match) -> str:
             return "" if match.group("name") in consumed_vars else match.group(0)
 
@@ -491,12 +488,9 @@ def reverse_post(content: str, path: str = "<input>") -> MigrationResult:
         f'<span class="category-tag {c["class"]}">{c["label"]}</span>'
         for c in sc.categories
     )
-    tags_html = "\n      ".join(
-        f'<span class="tag">{t}</span>' for t in sc.tags
-    )
+    tags_html = "\n      ".join(f'<span class="tag">{t}</span>' for t in sc.tags)
     hl_html = "\n      ".join(
-        f"<li><strong>{h['source']}</strong>: {h['title']}</li>"
-        for h in sc.highlights
+        f"<li><strong>{h['source']}</strong>: {h['title']}</li>" for h in sc.highlights
     )
     parts = [
         "{% include ai-summary-card.html",

@@ -23,15 +23,14 @@ import pytest
 import yaml
 
 from scripts.upgrade_digest_cover import (
-    Spec,
     VISUAL_REGISTRY,
+    Spec,
     check,
     load_spec,
     main,
     render,
     write,
 )
-
 
 # ---------------------------------------------------------------------------
 # Fixtures
@@ -103,9 +102,7 @@ class TestLoadSpec:
         assert spec.tier == "ultra"  # default
         assert len(spec.bands_cfg) == 3
 
-    @pytest.mark.parametrize(
-        "missing_key", ["date", "slug", "title", "aria", "bands"]
-    )
+    @pytest.mark.parametrize("missing_key", ["date", "slug", "title", "aria", "bands"])
     def test_rejects_missing_top_level_key(self, tmp_path, missing_key):
         data = _build_spec_dict()
         del data[missing_key]
@@ -167,7 +164,10 @@ class TestVisualRegistry:
         # The plan calls out 11 primitives; this guards against accidental
         # drift if l22 grows a new v_* function and we forget to register it.
         from scripts.lib import svg_l22_generator as l22
-        actual_v_funcs = {n for n in dir(l22) if n.startswith("v_") and callable(getattr(l22, n))}
+
+        actual_v_funcs = {
+            n for n in dir(l22) if n.startswith("v_") and callable(getattr(l22, n))
+        }
         registered = {f"v_{kind}" for kind in VISUAL_REGISTRY}
         # Every registry entry must point at a real l22.v_*.
         assert registered.issubset(actual_v_funcs), (
@@ -200,6 +200,7 @@ class TestVisualRegistry:
 
     def test_compliance_grid_renders_nonempty_svg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
+
         result = l22.v_compliance_grid(500, 315, "#60A5FA", "#93C5FD")
         assert result.strip(), "v_compliance_grid returned empty fragment"
         assert "COMPLIANCE" in result
@@ -207,22 +208,30 @@ class TestVisualRegistry:
 
     def test_identity_handshake_renders_nonempty_svg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
+
         result = l22.v_identity_handshake(500, 315, "#60A5FA", "#93C5FD")
         assert result.strip(), "v_identity_handshake returned empty fragment"
         assert "mTLS" in result
 
     def test_compliance_grid_scorecard_kwarg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
-        result = l22.v_compliance_grid(500, 315, "#60A5FA", "#93C5FD", scorecard="CIS-L2 90/100")
+
+        result = l22.v_compliance_grid(
+            500, 315, "#60A5FA", "#93C5FD", scorecard="CIS-L2 90/100"
+        )
         assert "CIS-L2 90/100" in result
 
     def test_identity_handshake_caption_kwarg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
-        result = l22.v_identity_handshake(500, 315, "#60A5FA", "#93C5FD", caption="ZTNA")
+
+        result = l22.v_identity_handshake(
+            500, 315, "#60A5FA", "#93C5FD", caption="ZTNA"
+        )
         assert "ZTNA" in result
 
     def test_siem_panels_renders_nonempty_svg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
+
         result = l22.v_siem_panels(500, 315, "#60A5FA", "#93C5FD")
         assert result.strip(), "v_siem_panels returned empty fragment"
         assert "SIEM" in result
@@ -230,11 +239,13 @@ class TestVisualRegistry:
 
     def test_siem_panels_caption_kwarg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
+
         result = l22.v_siem_panels(500, 315, "#60A5FA", "#93C5FD", caption="GUARDDUTY")
         assert "GUARDDUTY" in result
 
     def test_attestation_chain_renders_nonempty_svg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
+
         result = l22.v_attestation_chain(500, 315, "#60A5FA", "#93C5FD")
         assert result.strip(), "v_attestation_chain returned empty fragment"
         assert "cosign" in result
@@ -242,11 +253,13 @@ class TestVisualRegistry:
 
     def test_attestation_chain_caption_kwarg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
+
         result = l22.v_attestation_chain(500, 315, "#60A5FA", "#93C5FD", caption="SBOM")
         assert "SBOM" in result
 
     def test_ai_threat_renders_nonempty_svg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
+
         result = l22.v_ai_threat(500, 315, "#EF4444", "#FCA5A5")
         assert result.strip(), "v_ai_threat returned empty fragment"
         assert "AI THREAT" in result
@@ -254,13 +267,18 @@ class TestVisualRegistry:
 
     def test_ai_threat_caption_kwarg(self, tmp_path):
         from scripts.lib import svg_l22_generator as l22
-        result = l22.v_ai_threat(500, 315, "#EF4444", "#FCA5A5", caption="PROMPT INJECT")
+
+        result = l22.v_ai_threat(
+            500, 315, "#EF4444", "#FCA5A5", caption="PROMPT INJECT"
+        )
         assert "PROMPT INJECT" in result
 
     def test_ai_threat_animate_count(self, tmp_path):
         """v_ai_threat must use exactly 6 animate elements (spec constraint)."""
         import re
+
         from scripts.lib import svg_l22_generator as l22
+
         result = l22.v_ai_threat(500, 315, "#EF4444", "#FCA5A5")
         count = len(re.findall(r"<animate\b", result))
         assert count == 6, f"Expected 6 animate elements, got {count}"
@@ -314,6 +332,7 @@ class TestWriteAndCheck:
         # Redirect ASSETS to a temp dir so we don't touch the real
         # assets/images/ during test runs.
         from scripts import upgrade_digest_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
 
         spec = load_spec(_write_spec(tmp_path, _build_spec_dict()))
@@ -325,6 +344,7 @@ class TestWriteAndCheck:
 
     def test_check_detects_drift(self, tmp_path, monkeypatch):
         from scripts import upgrade_digest_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
 
         spec = load_spec(_write_spec(tmp_path, _build_spec_dict()))
@@ -337,6 +357,7 @@ class TestWriteAndCheck:
 
     def test_check_reports_missing_file(self, tmp_path, monkeypatch):
         from scripts import upgrade_digest_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
 
         spec = load_spec(_write_spec(tmp_path, _build_spec_dict()))
@@ -346,6 +367,7 @@ class TestWriteAndCheck:
 
     def test_dry_run_does_not_write(self, tmp_path, monkeypatch):
         from scripts import upgrade_digest_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
 
         spec = load_spec(_write_spec(tmp_path, _build_spec_dict()))
@@ -362,6 +384,7 @@ class TestWriteAndCheck:
 class TestCLI:
     def test_spec_flag_renders_single_file(self, tmp_path, monkeypatch, capsys):
         from scripts import upgrade_digest_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
         spec_path = _write_spec(tmp_path, _build_spec_dict())
         rc = main(["--spec", str(spec_path)])
@@ -374,6 +397,7 @@ class TestCLI:
 
     def test_dry_run_flag_skips_writes(self, tmp_path, monkeypatch, capsys):
         from scripts import upgrade_digest_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
         spec_path = _write_spec(tmp_path, _build_spec_dict())
         rc = main(["--spec", str(spec_path), "--dry-run"])
@@ -386,6 +410,7 @@ class TestCLI:
 
     def test_check_flag_exits_1_on_drift(self, tmp_path, monkeypatch):
         from scripts import upgrade_digest_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
         spec_path = _write_spec(tmp_path, _build_spec_dict())
         # Pre-populate output with stale content so --check sees drift.
@@ -397,6 +422,7 @@ class TestCLI:
 
     def test_all_flag_walks_specs_dir(self, tmp_path, monkeypatch, capsys):
         from scripts import upgrade_digest_cover as mod
+
         specs_dir = tmp_path / "specs"
         specs_dir.mkdir()
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
@@ -412,6 +438,7 @@ class TestCLI:
 
     def test_since_flag_filters_by_date(self, tmp_path, monkeypatch, capsys):
         from scripts import upgrade_digest_cover as mod
+
         specs_dir = tmp_path / "specs"
         specs_dir.mkdir()
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
@@ -428,6 +455,7 @@ class TestCLI:
 
     def test_invalid_spec_returns_2(self, tmp_path, monkeypatch, capsys):
         from scripts import upgrade_digest_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
         bad_data = _build_spec_dict()
         del bad_data["date"]

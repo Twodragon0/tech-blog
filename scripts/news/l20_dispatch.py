@@ -27,6 +27,7 @@ This mirrors the priority guidance in ``CLAUDE.md``.
 The module never makes network calls, never reads/writes secrets, and uses
 stdlib + existing repo modules only.
 """
+
 from __future__ import annotations
 
 import html as _html
@@ -222,26 +223,59 @@ _SEVERITY_OVERRIDES: List[Tuple[str, str]] = [
 # the digest filenames) would swamp the gallery with a single color.
 _TOPIC_THEME_SPECIFIC: Dict[str, str] = {
     # active-threat topics -> red (alert)
-    "malware": "red", "ransomware": "red", "botnet": "red", "threat": "red",
-    "stealer": "red", "trojan": "red", "backdoor": "red", "apt": "red",
-    "breach": "red", "rat": "red", "spyware": "red",
+    "malware": "red",
+    "ransomware": "red",
+    "botnet": "red",
+    "threat": "red",
+    "stealer": "red",
+    "trojan": "red",
+    "backdoor": "red",
+    "apt": "red",
+    "breach": "red",
+    "rat": "red",
+    "spyware": "red",
     # vuln / patch topics -> amber (caution)
-    "cve": "amber", "vulnerability": "amber", "zero": "amber", "0day": "amber",
-    "patch": "amber", "exploit": "amber", "rce": "amber",
+    "cve": "amber",
+    "vulnerability": "amber",
+    "zero": "amber",
+    "0day": "amber",
+    "patch": "amber",
+    "exploit": "amber",
+    "rce": "amber",
     # crypto / blockchain + dev-language ecosystem -> green
-    "bitcoin": "green", "ethereum": "green", "blockchain": "green",
-    "crypto": "green", "go": "green", "rust": "green", "source": "green",
+    "bitcoin": "green",
+    "ethereum": "green",
+    "blockchain": "green",
+    "crypto": "green",
+    "go": "green",
+    "rust": "green",
+    "source": "green",
     # AI-specific (named model/agent tech) -> purple
-    "agent": "purple", "llm": "purple", "gpt": "purple", "ml": "purple",
-    "model": "purple", "openai": "purple", "genai": "purple",
+    "agent": "purple",
+    "llm": "purple",
+    "gpt": "purple",
+    "ml": "purple",
+    "model": "purple",
+    "openai": "purple",
+    "genai": "purple",
     # named infra/vendor -> blue
-    "docker": "blue", "azure": "blue", "apple": "blue", "kubernetes": "blue",
-    "container": "blue", "k8s": "blue",
+    "docker": "blue",
+    "azure": "blue",
+    "apple": "blue",
+    "kubernetes": "blue",
+    "container": "blue",
+    "k8s": "blue",
 }
 # Generic/ubiquitous tokens: used ONLY when no specific token is present.
 _TOPIC_THEME_GENERIC: Dict[str, str] = {
-    "ai": "purple", "aws": "blue", "cloud": "blue", "data": "blue",
-    "security": "blue", "update": "blue", "api": "blue", "open": "green",
+    "ai": "purple",
+    "aws": "blue",
+    "cloud": "blue",
+    "data": "blue",
+    "security": "blue",
+    "update": "blue",
+    "api": "blue",
+    "open": "green",
 }
 
 
@@ -562,7 +596,11 @@ def extract_three_stories(
     # from the filename slug. We pad the keyword pool with neutral fallbacks
     # so a Korean-only post still produces 3 deterministic English stories.
     en_keywords = _english_topics_from_filename(filename)
-    en_pool = list(en_keywords) + ["Security Update", "Threat Analysis", "Patch Advisory"]
+    en_pool = list(en_keywords) + [
+        "Security Update",
+        "Threat Analysis",
+        "Patch Advisory",
+    ]
     en_iter = iter(en_pool)
     cleaned: List[str] = []
     for seg in raw_segments:
@@ -604,17 +642,53 @@ def extract_three_stories(
 # don't surface "Latest", "Update", "Complete" etc. as story headlines.
 # Keep this set conservative: only drop tokens that are *never* meaningful
 # as standalone headlines; real topic words (AI, Security, ...) are allowed.
-_CONTENT_FILLER_TOKENS: frozenset = frozenset({
-    "latest", "update", "complete", "guide", "analysis", "perspective",
-    "view", "viewing", "from", "and", "the", "a", "of", "for", "with",
-    "practical", "best", "tools", "tool", "course", "batch", "week",
-    "generation", "model", "top", "y", "overview", "intro", "introduction",
-    "summary", "notes", "post", "part", "series", "edition", "review",
-    "2025", "2026", "2024", "2023",
-    # Slugified-percent noise: "82_Percent" -> ["82", "Percent"]; the digit is
-    # dropped and the bare word "Percent" is not a topic on its own.
-    "percent",
-})
+_CONTENT_FILLER_TOKENS: frozenset = frozenset(
+    {
+        "latest",
+        "update",
+        "complete",
+        "guide",
+        "analysis",
+        "perspective",
+        "view",
+        "viewing",
+        "from",
+        "and",
+        "the",
+        "a",
+        "of",
+        "for",
+        "with",
+        "practical",
+        "best",
+        "tools",
+        "tool",
+        "course",
+        "batch",
+        "week",
+        "generation",
+        "model",
+        "top",
+        "y",
+        "overview",
+        "intro",
+        "introduction",
+        "summary",
+        "notes",
+        "post",
+        "part",
+        "series",
+        "edition",
+        "review",
+        "2025",
+        "2026",
+        "2024",
+        "2023",
+        # Slugified-percent noise: "82_Percent" -> ["82", "Percent"]; the digit is
+        # dropped and the bare word "Percent" is not a topic on its own.
+        "percent",
+    }
+)
 
 # Minimum character length for a keyword to count as a meaningful headline
 # (avoids keeping single-letter fragments like "A" that slip through after
@@ -679,7 +753,11 @@ def _meaningful_content_keywords(
             phrase = re.sub(r"\s+", " ", m.group().strip())
             _push(phrase)
             # Mark matched span so we skip these words during word-level scan.
-            remainder = remainder[:m.start()] + " " * (m.end() - m.start()) + remainder[m.end():]
+            remainder = (
+                remainder[: m.start()]
+                + " " * (m.end() - m.start())
+                + remainder[m.end() :]
+            )
             # Block each component word individually so the filename slug step
             # (step 2) doesn't re-add "AI" and "Security" after "AI Security"
             # was already pushed as a compound.
@@ -711,14 +789,44 @@ def _meaningful_content_keywords(
 # ("Cloud Security Trends") from outranking the title's specific topics
 # ("VS Code", "Kubernetes", "CNCF"). Kept conservative — only words that are
 # never distinguishing on their own.
-_CONTENT_GENERIC_TOKENS: frozenset = frozenset({
-    "cloud", "security", "trends", "tech", "data", "system", "systems",
-    "network", "networks", "web", "app", "apps", "service", "services",
-    "platform", "architecture", "monitoring", "configuration", "verification",
-    "automated", "practices", "hardening",
-    "january", "february", "march", "april", "may", "june", "july", "august",
-    "september", "october", "november", "december",
-})
+_CONTENT_GENERIC_TOKENS: frozenset = frozenset(
+    {
+        "cloud",
+        "security",
+        "trends",
+        "tech",
+        "data",
+        "system",
+        "systems",
+        "network",
+        "networks",
+        "web",
+        "app",
+        "apps",
+        "service",
+        "services",
+        "platform",
+        "architecture",
+        "monitoring",
+        "configuration",
+        "verification",
+        "automated",
+        "practices",
+        "hardening",
+        "january",
+        "february",
+        "march",
+        "april",
+        "may",
+        "june",
+        "july",
+        "august",
+        "september",
+        "october",
+        "november",
+        "december",
+    }
+)
 
 # Title topic-token: a word plus inner brand/product chars (+ # . % / -). The
 # leading char must be alphanumeric so punctuation never starts a token.
@@ -790,8 +898,7 @@ def _title_topic_phrases(title: str) -> List[str]:
     phrases: List[str] = []
     for span in spans:
         toks = [
-            t for t in _TITLE_TOPIC_TOKEN_RE.findall(span)
-            if _is_content_topic_token(t)
+            t for t in _TITLE_TOPIC_TOKEN_RE.findall(span) if _is_content_topic_token(t)
         ]
         if toks:
             phrases.append(_clean_segment(" ".join(toks[:_CONTENT_PHRASE_MAX_WORDS])))
@@ -1001,7 +1108,6 @@ def extract_content_stories(
     return stories[0], stories[1], stories[2]
 
 
-
 _CVE_RE = re.compile(r"CVE-\d{4}-\d{4,7}", re.IGNORECASE)
 _CVSS_RE = re.compile(r"CVSS\s*([0-9]+(?:\.[0-9])?)", re.IGNORECASE)
 _USD_RE = re.compile(r"\$\s*([0-9]+(?:\.[0-9]+)?)\s*([KMB])\b", re.IGNORECASE)
@@ -1081,11 +1187,13 @@ def _date_str_from_filename(filename: str, fallback: str = "") -> str:
 # Any visual NOT in this set depicts an active attack or breach motif
 # (BYPASS AUTHZ, DATA EXFILTRATION, VICTIM/C2, RANSOM NOTE, ...) and
 # must not appear on a beginner guide or overview post.
-_CONTENT_HONEST_VISUALS: frozenset = frozenset({
-    "neutral",
-    "security_advisory",
-    "market",
-})
+_CONTENT_HONEST_VISUALS: frozenset = frozenset(
+    {
+        "neutral",
+        "security_advisory",
+        "market",
+    }
+)
 
 
 # Content covers (guides/courses/research) carry no incident metric, so a side
@@ -1272,50 +1380,166 @@ def _action_for(headline: str) -> str:
 
 # HTML-escape artifacts ("x27" from &#x27;) and generic words that never make a
 # distinctive story subject. Lead-entity extraction skips these.
-_ENTITY_STOP: frozenset = frozenset({
-    "the", "a", "an", "of", "for", "and", "with", "via", "to", "in", "on",
-    "at", "by", "from", "new", "be", "your", "own", "can", "into", "over",
-    "out", "up", "is", "are", "as", "could", "may", "would", "using", "use",
-    "used", "now", "how", "why", "what", "when", "this", "that", "it", "its",
-    "has", "have", "was", "were", "but", "not", "you", "we", "they", "all",
-    "x27", "x2f", "x3d", "x2c", "x3a", "amp", "quot", "nbsp", "gt", "lt", "apos",
-    "mdash", "ndash", "hellip", "rsquo", "lsquo", "rdquo", "ldquo",
-})
+_ENTITY_STOP: frozenset = frozenset(
+    {
+        "the",
+        "a",
+        "an",
+        "of",
+        "for",
+        "and",
+        "with",
+        "via",
+        "to",
+        "in",
+        "on",
+        "at",
+        "by",
+        "from",
+        "new",
+        "be",
+        "your",
+        "own",
+        "can",
+        "into",
+        "over",
+        "out",
+        "up",
+        "is",
+        "are",
+        "as",
+        "could",
+        "may",
+        "would",
+        "using",
+        "use",
+        "used",
+        "now",
+        "how",
+        "why",
+        "what",
+        "when",
+        "this",
+        "that",
+        "it",
+        "its",
+        "has",
+        "have",
+        "was",
+        "were",
+        "but",
+        "not",
+        "you",
+        "we",
+        "they",
+        "all",
+        "x27",
+        "x2f",
+        "x3d",
+        "x2c",
+        "x3a",
+        "amp",
+        "quot",
+        "nbsp",
+        "gt",
+        "lt",
+        "apos",
+        "mdash",
+        "ndash",
+        "hellip",
+        "rsquo",
+        "lsquo",
+        "rdquo",
+        "ldquo",
+    }
+)
 
 # Short tokens that ARE meaningful entities despite being <= 3 chars / not
 # strictly Capitalized (acronyms that read as proper subjects on a cover).
-_ENTITY_ACRONYMS: frozenset = frozenset({
-    "ai", "ml", "rce", "rat", "ddos", "iot", "cli", "api", "sap", "aws",
-    "gcp", "llm", "mfa", "vpn", "sql", "xss", "csrf", "ssrf", "c2", "k8s",
-    "npm", "pip", "ssh", "tls", "dns", "gpt", "ios", "vm", "vms", "ot",
-})
+_ENTITY_ACRONYMS: frozenset = frozenset(
+    {
+        "ai",
+        "ml",
+        "rce",
+        "rat",
+        "ddos",
+        "iot",
+        "cli",
+        "api",
+        "sap",
+        "aws",
+        "gcp",
+        "llm",
+        "mfa",
+        "vpn",
+        "sql",
+        "xss",
+        "csrf",
+        "ssrf",
+        "c2",
+        "k8s",
+        "npm",
+        "pip",
+        "ssh",
+        "tls",
+        "dns",
+        "gpt",
+        "ios",
+        "vm",
+        "vms",
+        "ot",
+    }
+)
 
 # Generic platform / region words that read as a noise *trailing* token on a
 # cover ("Showboat Linux" -> "Showboat", "Foo Cloud" -> "Foo"). They are NOT
 # distinctive story subjects on their own, so they are dropped from the 2-token
 # headline join and rejected as a lone headline.
-_GENERIC_TRAILING: frozenset = frozenset({
-    "linux", "windows", "android", "ios", "macos", "cloud", "ai", "ml", "api",
-    "web", "app", "mena", "apac", "emea",
-    # "url" is a generic format noun, never a story subject — same role as the
-    # existing "api"/"web". Drops the junk bigram "FBI URL" (06-15: "FBI, 백만 개
-    # URL 사용한 대규모 AI 기반 피싱…") to the lone-entity scan ("FBI") and rejects a
-    # bare "URL" lone headline. Corpus-vetted: TestUrlBigramReject.
-    "url",
-})
+_GENERIC_TRAILING: frozenset = frozenset(
+    {
+        "linux",
+        "windows",
+        "android",
+        "ios",
+        "macos",
+        "cloud",
+        "ai",
+        "ml",
+        "api",
+        "web",
+        "app",
+        "mena",
+        "apac",
+        "emea",
+        # "url" is a generic format noun, never a story subject — same role as the
+        # existing "api"/"web". Drops the junk bigram "FBI URL" (06-15: "FBI, 백만 개
+        # URL 사용한 대규모 AI 기반 피싱…") to the lone-entity scan ("FBI") and rejects a
+        # bare "URL" lone headline. Corpus-vetted: TestUrlBigramReject.
+        "url",
+    }
+)
 
 # Weak lead words that pass the acronym/Capitalized filter but make a useless
 # headline on their own ("Sorry", a bare "New"/"Report"). Rejected as a lone
 # headline; a stronger following entity is preferred.
-_WEAK_HEADLINE_WORDS: frozenset = frozenset({
-    "sorry", "new", "first", "report", "update", "alert", "week", "summary",
-    # "cvss" is the severity-SCALE label (like the _SEVERITY_WORDS impact
-    # words): a highlight title that leads with "CVSS 9.9 - ..." carries its
-    # real subject in the source/body, not in the metric. Reject it as a lead
-    # so the panel falls through to the source entity instead of rendering a
-    # bare "CVSS" / "CVSS JavaScript" hero (2026-01-27, 2026-01-29).
-    "cvss",
-})
+_WEAK_HEADLINE_WORDS: frozenset = frozenset(
+    {
+        "sorry",
+        "new",
+        "first",
+        "report",
+        "update",
+        "alert",
+        "week",
+        "summary",
+        # "cvss" is the severity-SCALE label (like the _SEVERITY_WORDS impact
+        # words): a highlight title that leads with "CVSS 9.9 - ..." carries its
+        # real subject in the source/body, not in the metric. Reject it as a lead
+        # so the panel falls through to the source entity instead of rendering a
+        # bare "CVSS" / "CVSS JavaScript" hero (2026-01-27, 2026-01-29).
+        "cvss",
+    }
+)
 
 # Severity words (the digest body-table impact column). A headline made ENTIRELY
 # of these (e.g. "Critical Medium") is a cross-table leak from a risk-summary
@@ -1422,7 +1646,7 @@ def _promote_mw_vendor(candidate: str, title: str) -> str:
         idx = title_low.find(full)
         if idx < 0:
             continue
-        matched = title[idx:idx + len(full)]
+        matched = title[idx : idx + len(full)]
         if matched.isascii():
             return matched
     return ""
@@ -1491,7 +1715,9 @@ def _entity_tokens(title: str) -> List[str]:
             continue
         # Proper noun / product / all-caps name of >= 3 chars (drops 2-letter
         # fragments like "FA"), OR a known meaningful short acronym ("AI", "C2").
-        if (len(core) >= 3 and (tok[0].isupper() or tok.isupper())) or tl in _ENTITY_ACRONYMS:
+        if (
+            len(core) >= 3 and (tok[0].isupper() or tok.isupper())
+        ) or tl in _ENTITY_ACRONYMS:
             out.append(tok)
     return out
 
@@ -1541,11 +1767,25 @@ def _content_descriptor(title: str, headline: str) -> str:
 # summary_card.tags that carry NO topic signal — cadence/format/audience labels
 # and the year — so they never appear in a topic descriptor. Everything else is
 # a real subject tag (Kubernetes, Patch, Botnet, AI, ...). Compared lowercased.
-_NON_TOPIC_TAGS: frozenset = frozenset({
-    "security-weekly", "weekly-digest", "weekly", "daily", "digest",
-    "devsecops", "devops", "cloud-security", "security",
-    "2023", "2024", "2025", "2026", "2027", "2028",
-})
+_NON_TOPIC_TAGS: frozenset = frozenset(
+    {
+        "security-weekly",
+        "weekly-digest",
+        "weekly",
+        "daily",
+        "digest",
+        "devsecops",
+        "devops",
+        "cloud-security",
+        "security",
+        "2023",
+        "2024",
+        "2025",
+        "2026",
+        "2027",
+        "2028",
+    }
+)
 
 # Max topic tags surfaced in a tag-derived subheadline — keeps it a terse topic
 # line, well inside the ``_SUB_MAX_CHARS`` legibility budget.
@@ -1566,25 +1806,75 @@ _SUBHEADLINE_TAG_MAX: int = 3
 # Conservative by construction: an unknown tag falls back to the prior
 # source/CVE attribution (never a wrong entity). Display-only either way —
 # ``route_hint`` is untouched, so the honest visual class is unchanged.
-_TOPIC_ALLOW: frozenset = frozenset({
-    # threat / vulnerability themes
-    "malware", "ransomware", "botnet", "threat", "vulnerability", "cve",
-    "zero-day", "zero-trust", "supply-chain", "phishing", "aitm-phishing",
-    "prompt-injection", "rce", "incident-response", "security-incident",
-    "post-mortem", "compliance", "owasp", "sast", "waf", "iam", "jwt",
-    "mfa", "ztna", "authentication", "passkey", "otp", "endpoint-security",
-    "code-security", "nhi", "ot-security", "ics", "security-audit",
-    # AI themes
-    "ai", "ai-security", "ai-agent", "ai-agents", "agent", "agentic-ai",
-    "ai-agent-security", "ai-governance", "llm", "llm-security", "vertical-ai",
-    # cloud / infra / delivery themes
-    "cloud", "network", "container", "patch", "data", "api", "ci/cd",
-    "cost-optimization", "finops", "open-source",
-    # general-purpose platforms/tech (topic areas, not a single vendor)
-    "kubernetes", "k8s", "go", "docker", "rust",
-    # other generic domains
-    "blockchain",
-})
+_TOPIC_ALLOW: frozenset = frozenset(
+    {
+        # threat / vulnerability themes
+        "malware",
+        "ransomware",
+        "botnet",
+        "threat",
+        "vulnerability",
+        "cve",
+        "zero-day",
+        "zero-trust",
+        "supply-chain",
+        "phishing",
+        "aitm-phishing",
+        "prompt-injection",
+        "rce",
+        "incident-response",
+        "security-incident",
+        "post-mortem",
+        "compliance",
+        "owasp",
+        "sast",
+        "waf",
+        "iam",
+        "jwt",
+        "mfa",
+        "ztna",
+        "authentication",
+        "passkey",
+        "otp",
+        "endpoint-security",
+        "code-security",
+        "nhi",
+        "ot-security",
+        "ics",
+        "security-audit",
+        # AI themes
+        "ai",
+        "ai-security",
+        "ai-agent",
+        "ai-agents",
+        "agent",
+        "agentic-ai",
+        "ai-agent-security",
+        "ai-governance",
+        "llm",
+        "llm-security",
+        "vertical-ai",
+        # cloud / infra / delivery themes
+        "cloud",
+        "network",
+        "container",
+        "patch",
+        "data",
+        "api",
+        "ci/cd",
+        "cost-optimization",
+        "finops",
+        "open-source",
+        # general-purpose platforms/tech (topic areas, not a single vendor)
+        "kubernetes",
+        "k8s",
+        "go",
+        "docker",
+        "rust",
+        # other generic domains
+        "blockchain",
+    }
+)
 
 
 def _topic_tag_descriptor(tags) -> str:
@@ -1603,7 +1893,7 @@ def _topic_tag_descriptor(tags) -> str:
     """
     kept: List[str] = []
     seen: Set[str] = set()
-    for t in (tags or []):
+    for t in tags or []:
         tok = str(t or "").strip()
         if not tok or _has_hangul(tok) or not tok.isascii():
             continue
@@ -1767,8 +2057,11 @@ def build_lead_headline(title: str) -> str:
     # "AI", "Sorry", "Linux"). Scan for the first token that passes,
     # preferring a Capitalized non-acronym over a lone acronym.
     cap = next(
-        (t for t in non_cve
-         if _is_good_headline(t) and t.lower() not in _ENTITY_ACRONYMS),
+        (
+            t
+            for t in non_cve
+            if _is_good_headline(t) and t.lower() not in _ENTITY_ACRONYMS
+        ),
         "",
     )
     acro = next((t for t in non_cve if _is_good_headline(t)), "")
@@ -1876,7 +2169,9 @@ def _panel_from_source_title(
     # ``topic_desc`` is empty for the unit-level callers and any non-digest path,
     # so this reduces to ``descriptor or route_sub`` there (byte-identical).
     descriptor = _content_descriptor(ttl, headline)
-    base_sub = _shorten(descriptor or route_sub, _SUB_MAX_CHARS)  # the non-topic subheadline
+    base_sub = _shorten(
+        descriptor or route_sub, _SUB_MAX_CHARS
+    )  # the non-topic subheadline
     topic_applied = bool(
         topic_desc and _weak_descriptor(descriptor) and not _CVE_RE.search(route_sub)
     )
@@ -1922,7 +2217,7 @@ def _digest_highlight_panels(highlights, topic_desc: str = "") -> List[Dict]:
     ``topic_desc`` (the digest's topic-tag line) backfills a weak subheadline.
     """
     panels: List[Dict] = []
-    for h in (highlights or []):
+    for h in highlights or []:
         if len(panels) >= 3:
             break
         if isinstance(h, dict):
@@ -1943,7 +2238,9 @@ def _digest_highlight_panels(highlights, topic_desc: str = "") -> List[Dict]:
 # for thin posts whose summary_card yields < 3 ASCII-usable highlights, and is
 # the real-content source on the cron path (which has the full body but no
 # parsed summary_card dict). The header/separator rows are skipped.
-_DIGEST_TABLE_ROW_RE = re.compile(r"^\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|\s*$", re.MULTILINE)
+_DIGEST_TABLE_ROW_RE = re.compile(
+    r"^\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|\s*$", re.MULTILINE
+)
 _DIGEST_TABLE_SKIP_RE = re.compile(r"분야|소스|핵심\s*내용|^[\s:\-]+$")
 
 # W1 anchor: the digest highlights table opens with a (category, source) header
@@ -1955,7 +2252,9 @@ _DIGEST_TABLE_SKIP_RE = re.compile(r"분야|소스|핵심\s*내용|^[\s:\-]+$")
 # Medium" out of the candidate pool WITHOUT a category allowlist (the highlights
 # table legitimately uses 8+ categories incl. Korean labels: Security/AI/Cloud/
 # DevOps/Blockchain/Tech/FinOps/보안/클라우드/…, which an allowlist would drop).
-_DIGEST_TABLE_HEADER_RE = re.compile(r"^\|\s*(?:분야|카테고리)\s*\|\s*(?:소스|출처)\s*\|")
+_DIGEST_TABLE_HEADER_RE = re.compile(
+    r"^\|\s*(?:분야|카테고리)\s*\|\s*(?:소스|출처)\s*\|"
+)
 
 # W2: Blockchain / Tech rows are off-topic FILLER for a security digest; rank
 # them below on-topic (Security/AI/Cloud/DevOps/…) backfill. The English stems
@@ -1971,7 +2270,9 @@ def _category_rank(col1: str) -> int:
     return 1 if _FILLER_CATEGORY_RE.search(col1 or "") else 0
 
 
-def _digest_table_panels(content: str, limit: int = 3, topic_desc: str = "") -> List[Dict]:
+def _digest_table_panels(
+    content: str, limit: int = 3, topic_desc: str = ""
+) -> List[Dict]:
     """Build up to ``limit`` panels from the digest body **highlights table**.
 
     W1: parsing is anchored to the highlights table — the contiguous
@@ -2006,7 +2307,9 @@ def _digest_table_panels(content: str, limit: int = 3, topic_desc: str = "") -> 
             continue
         if not source or set(col4) <= set("-: "):
             continue
-        panel = _panel_from_source_title(source, title, _severity_from_marker(col4), topic_desc)
+        panel = _panel_from_source_title(
+            source, title, _severity_from_marker(col4), topic_desc
+        )
         if panel is not None:
             panel["_category_rank"] = _category_rank(col1)  # W2 backfill rank
             panels.append(panel)
@@ -2249,7 +2552,9 @@ def _digest_panels(summary_card, content: str) -> List[Dict]:
     honesty-neutral: digest stories route only to always-honest classes, so
     surfacing a different (real) story cannot introduce an overclaim.
     """
-    highlights = summary_card.get("highlights") if isinstance(summary_card, dict) else None
+    highlights = (
+        summary_card.get("highlights") if isinstance(summary_card, dict) else None
+    )
     # Digest topic-tag line ("Patch Kubernetes Go") — backfills a weak highlight
     # subheadline (source-name echo / lone generic token) so the cover reads as
     # content, not a byline. Display-only; computed once and shared by both panel
@@ -2262,13 +2567,16 @@ def _digest_panels(summary_card, content: str) -> List[Dict]:
     if len(topic_desc.split()) < 2:
         topic_desc = ""
     hl_panels = _digest_highlight_panels(highlights, topic_desc)
-    table_panels = _digest_table_panels(content or "", limit=_BACKFILL_POOL, topic_desc=topic_desc)
+    table_panels = _digest_table_panels(
+        content or "", limit=_BACKFILL_POOL, topic_desc=topic_desc
+    )
     # W2: rank the body-table BACKFILL by category (Security ahead of
     # Blockchain/Tech filler), stable by document order. Editorial highlights
     # are NOT reordered — they are curated/ranked already and always precede the
     # backfill, so category ranking never demotes a lead story.
     table_panels = [
-        p for _, p in sorted(
+        p
+        for _, p in sorted(
             enumerate(table_panels),
             key=lambda ip: (ip[1].get("_category_rank", 0), ip[0]),
         )
@@ -2324,7 +2632,9 @@ def _digest_panels(summary_card, content: str) -> List[Dict]:
 # congruent with a security headline, guaranteed to never overclaim or FAIL.
 # Mirrors the ``content_mode`` clamp in ``_build_story`` + the 2026-06-02
 # cve_chain default removal. See .omc/plans/l20-panel-visual-desync.md.
-_DIGEST_CONTENT_HONEST: frozenset = frozenset({"neutral", "market", "security_advisory"})
+_DIGEST_CONTENT_HONEST: frozenset = frozenset(
+    {"neutral", "market", "security_advisory"}
+)
 
 
 def _honest_content_visual(visual_id: str) -> str:
@@ -2400,7 +2710,9 @@ def resolve_digest_band_visuals(
             # stays byte-identical to the pre-descriptor behaviour. Lockstep with
             # _apply_real_content, which routes from the same field.
             visuals[i] = _honest_content_visual(
-                route_visual_id(f"{p['headline']} {p.get('route_hint', p['subheadline'])}")
+                route_visual_id(
+                    f"{p['headline']} {p.get('route_hint', p['subheadline'])}"
+                )
             )
     # Side bands never carry the hero-scale advisory shield (occludes the band
     # headline + duplicates when both sides downgrade). Lockstep with the
@@ -2442,10 +2754,14 @@ def _apply_real_content(
             # Re-route the visual (+ theme, + hero action) to the real story,
             # clamped to an honest, non-overclaiming class.
             new_visual = _honest_content_visual(
-                route_visual_id(f"{panel['headline']} {panel.get('route_hint', panel['subheadline'])}")
+                route_visual_id(
+                    f"{panel['headline']} {panel.get('route_hint', panel['subheadline'])}"
+                )
             )
             story["visual"] = new_visual
-            story["theme"] = _THEME_BY_VISUAL.get(new_visual, story.get("theme", "blue"))
+            story["theme"] = _THEME_BY_VISUAL.get(
+                new_visual, story.get("theme", "blue")
+            )
             if "action" in story:
                 # Follow the RESOLVED visual (not the raw headline) so a
                 # downgraded band shows "READ THE ADVISORY", not "PATCH NOW".
@@ -2474,8 +2790,10 @@ def _apply_real_content(
     # unchanged. Side cards keep their semantic theme so claim-bearing bands
     # still read correctly. The advisory shield's own SEVERITY text comes from
     # real content, so a red shield on a malware/APT post reads correctly.
-    if cover_theme and stories and stories[0].get("visual") in (
-        "neutral", "security_advisory"
+    if (
+        cover_theme
+        and stories
+        and stories[0].get("visual") in ("neutral", "security_advisory")
     ):
         stories[0]["theme"] = cover_theme
 

@@ -15,6 +15,7 @@ Usage::
 
 Exit code: 0 on success, 1 if no specs were found.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -92,7 +93,9 @@ def render_html(specs: List[Dict]) -> str:
     parts.append('<html lang="en">')
     parts.append("<head>")
     parts.append('  <meta charset="utf-8">')
-    parts.append('  <meta name="viewport" content="width=device-width, initial-scale=1">')
+    parts.append(
+        '  <meta name="viewport" content="width=device-width, initial-scale=1">'
+    )
     parts.append("  <title>L20 Cover Catalog</title>")
     parts.append(
         "  <style>\n"
@@ -140,13 +143,15 @@ def render_html(specs: List[Dict]) -> str:
     parts.append("</head>")
     parts.append("<body>")
     parts.append("  <header>")
-    parts.append('    <p>WEEKLY DIGEST  /  L20 HERO+2-CARD CATALOG</p>')
+    parts.append("    <p>WEEKLY DIGEST  /  L20 HERO+2-CARD CATALOG</p>")
     parts.append(f"    <h1>{total} L20 covers, generated {generated_at}</h1>")
     parts.append("  </header>")
 
     for month in months_sorted:
         parts.append('  <section class="month">')
-        parts.append(f"    <h2>{_month_label(month)} — {len(by_month[month])} covers</h2>")
+        parts.append(
+            f"    <h2>{_month_label(month)} — {len(by_month[month])} covers</h2>"
+        )
         parts.append('    <div class="grid">')
         for spec in by_month[month]:
             date = str(spec["date"])
@@ -157,7 +162,9 @@ def render_html(specs: List[Dict]) -> str:
 
             hero_headline = _short(str(spec.get("hero", {}).get("headline", "")), 60)
             tr_headline = _short(str(spec.get("top_right", {}).get("headline", "")), 60)
-            br_headline = _short(str(spec.get("bottom_right", {}).get("headline", "")), 60)
+            br_headline = _short(
+                str(spec.get("bottom_right", {}).get("headline", "")), 60
+            )
 
             parts.append(
                 f'      <a href="{html.escape(url)}" target="_blank" rel="noopener" '
@@ -188,9 +195,17 @@ def render_html(specs: List[Dict]) -> str:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--output", "-o", type=Path, default=DEFAULT_OUTPUT, help="HTML output path.")
-    parser.add_argument("--open", action="store_true", help="Open the generated file in the default browser.")
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument(
+        "--output", "-o", type=Path, default=DEFAULT_OUTPUT, help="HTML output path."
+    )
+    parser.add_argument(
+        "--open",
+        action="store_true",
+        help="Open the generated file in the default browser.",
+    )
     args = parser.parse_args()
 
     specs = load_specs()

@@ -122,7 +122,9 @@ def git_repo(tmp_path: Path) -> Path:
 
 def _commit_post(repo: Path, name: str, fm_chars: int, message: str) -> None:
     filler = "x" * max(0, fm_chars - len("t: "))
-    (repo / "_posts" / name).write_text(f"---\nt: {filler}\n---\nbody\n", encoding="utf-8")
+    (repo / "_posts" / name).write_text(
+        f"---\nt: {filler}\n---\nbody\n", encoding="utf-8"
+    )
     _git(repo, "add", "-A")
     _git(repo, "commit", "-qm", message)
 
@@ -132,7 +134,9 @@ def script_in_repo(git_repo: Path) -> Path:
     """Copy the script in so its REPO_ROOT resolves to the temp repo."""
     dest = git_repo / "scripts"
     dest.mkdir(exist_ok=True)
-    (dest / SCRIPT.name).write_text(SCRIPT.read_text(encoding="utf-8"), encoding="utf-8")
+    (dest / SCRIPT.name).write_text(
+        SCRIPT.read_text(encoding="utf-8"), encoding="utf-8"
+    )
     return dest / SCRIPT.name
 
 
@@ -143,7 +147,9 @@ def test_growth_fails(git_repo: Path, script_in_repo: Path):
     _commit_post(git_repo, "a.md", 400, "grow")
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "base"],
-        cwd=git_repo, capture_output=True, text=True,
+        cwd=git_repo,
+        capture_output=True,
+        text=True,
     )
     assert proc.returncode == 1, proc.stdout + proc.stderr
     assert "grew 200 -> 400" in proc.stdout
@@ -156,7 +162,9 @@ def test_shrinkage_passes(git_repo: Path, script_in_repo: Path):
     _commit_post(git_repo, "a.md", 200, "shrink")
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "base"],
-        cwd=git_repo, capture_output=True, text=True,
+        cwd=git_repo,
+        capture_output=True,
+        text=True,
     )
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert "shrank 400 -> 200" in proc.stdout
@@ -169,12 +177,16 @@ def test_legacy_size_is_grandfathered(git_repo: Path, script_in_repo: Path):
     _git(git_repo, "checkout", "-qb", "topic")
     # touch the body only
     path = git_repo / "_posts" / "a.md"
-    path.write_text(path.read_text(encoding="utf-8") + "\nmore body\n", encoding="utf-8")
+    path.write_text(
+        path.read_text(encoding="utf-8") + "\nmore body\n", encoding="utf-8"
+    )
     _git(git_repo, "add", "-A")
     _git(git_repo, "commit", "-qm", "body edit")
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "base"],
-        cwd=git_repo, capture_output=True, text=True,
+        cwd=git_repo,
+        capture_output=True,
+        text=True,
     )
     assert proc.returncode == 0, proc.stdout + proc.stderr
 
@@ -186,7 +198,9 @@ def test_new_post_is_noted_not_failed(git_repo: Path, script_in_repo: Path):
     _commit_post(git_repo, "b.md", 300, "new post")
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "base"],
-        cwd=git_repo, capture_output=True, text=True,
+        cwd=git_repo,
+        capture_output=True,
+        text=True,
     )
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert "new post" in proc.stdout
@@ -199,8 +213,17 @@ def test_new_post_over_cap_fails(git_repo: Path, script_in_repo: Path):
     _git(git_repo, "checkout", "-qb", "topic")
     _commit_post(git_repo, "b.md", 500, "huge new post")
     proc = subprocess.run(
-        [sys.executable, str(script_in_repo), "--changed", "base", "--max-chars", "200"],
-        cwd=git_repo, capture_output=True, text=True,
+        [
+            sys.executable,
+            str(script_in_repo),
+            "--changed",
+            "base",
+            "--max-chars",
+            "200",
+        ],
+        cwd=git_repo,
+        capture_output=True,
+        text=True,
     )
     assert proc.returncode == 1, proc.stdout + proc.stderr
     assert "exceeds the 200-char cap" in proc.stdout
@@ -211,7 +234,9 @@ def test_unresolvable_base_is_an_error_not_a_pass(git_repo: Path, script_in_repo
     _commit_post(git_repo, "a.md", 100, "base")
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "no-such-ref"],
-        cwd=git_repo, capture_output=True, text=True,
+        cwd=git_repo,
+        capture_output=True,
+        text=True,
     )
     assert proc.returncode == 2, proc.stdout + proc.stderr
     assert "Refusing to report 'no changes'" in proc.stderr

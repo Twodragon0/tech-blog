@@ -9,7 +9,6 @@ import pytest
 
 from scripts.check_l22_visual_variety import check_file, main
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -19,9 +18,9 @@ def _make_svg(markers: list[str], tmp_path: Path, name: str = "test.svg") -> Pat
     """Write a minimal SVG containing the given band-visual comment markers."""
     lines = ['<svg xmlns="http://www.w3.org/2000/svg">']
     for kind in markers:
-        lines.append(f'<!-- band-visual: {kind} -->')
-        lines.append(f'<g transform="translate(500,105)"><circle/></g>')
-    lines.append('</svg>')
+        lines.append(f"<!-- band-visual: {kind} -->")
+        lines.append('<g transform="translate(500,105)"><circle/></g>')
+    lines.append("</svg>")
     p = tmp_path / name
     p.write_text("\n".join(lines), encoding="utf-8")
     return p
@@ -59,10 +58,14 @@ class TestCheckFile:
     def test_no_markers_warns(self, tmp_path: Path) -> None:
         """Legacy cover with no markers must WARN, not FAIL."""
         path = tmp_path / "legacy.svg"
-        path.write_text('<svg><g transform="translate(500,105)"/></svg>', encoding="utf-8")
+        path.write_text(
+            '<svg><g transform="translate(500,105)"/></svg>', encoding="utf-8"
+        )
         status, msg = check_file(path)
         assert status == "WARN"
-        assert "legacy" in (msg or "").lower() or "no band-visual" in (msg or "").lower()
+        assert (
+            "legacy" in (msg or "").lower() or "no band-visual" in (msg or "").lower()
+        )
 
     def test_wrong_marker_count_fails(self, tmp_path: Path) -> None:
         """Cover with only 2 markers (malformed) must FAIL."""
@@ -85,7 +88,9 @@ class TestCheckFile:
 
 
 class TestMain:
-    def test_all_pass_exits_zero(self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_all_pass_exits_zero(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
         """Batch where every file passes → exit 0."""
         _make_svg(["lock_cve", "network_nodes", "code_bars"], tmp_path, "a.svg")
         _make_svg(["shield", "router_mesh", "cloud_k8s"], tmp_path, "b.svg")
@@ -94,7 +99,9 @@ class TestMain:
         rc = main(["--glob", "*.svg"])
         assert rc == 0
 
-    def test_one_fail_exits_one(self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_one_fail_exits_one(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
         """Batch with one failing cover → exit 1."""
         _make_svg(["lock_cve", "network_nodes", "code_bars"], tmp_path, "good.svg")
         _make_svg(["lock_cve", "lock_cve", "lock_cve"], tmp_path, "bad.svg")
@@ -102,7 +109,9 @@ class TestMain:
         rc = main(["--glob", "*.svg"])
         assert rc == 1
 
-    def test_legacy_only_exits_zero(self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_legacy_only_exits_zero(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
         """Batch of legacy covers (no markers) → WARN only, exit 0."""
         p = tmp_path / "legacy.svg"
         p.write_text("<svg/>", encoding="utf-8")
@@ -111,7 +120,10 @@ class TestMain:
         assert rc == 0
 
     def test_mixed_batch_reports_failures(
-        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture
+        self,
+        tmp_path: Path,
+        monkeypatch: pytest.MonkeyPatch,
+        capsys: pytest.CaptureFixture,
     ) -> None:
         """Mixed batch reports each failure file name in output."""
         _make_svg(["lock_cve", "network_nodes", "code_bars"], tmp_path, "pass.svg")

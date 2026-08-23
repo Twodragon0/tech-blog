@@ -30,10 +30,10 @@ from scripts.upgrade_rollup_cover import (
     write,
 )
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def _minimal_weekly(n_days: int = 7, **overrides) -> dict:
     """Return a minimal but valid weekly_rollup spec dict."""
@@ -53,9 +53,24 @@ def _minimal_weekly(n_days: int = 7, **overrides) -> dict:
         "title": "Test Weekly Title",
         "aria": "Test weekly rollup aria",
         "top_highlights": [
-            {"severity": "HIGH",   "label": "APT",    "headline": "Headline A", "source": "SrcA"},
-            {"severity": "HIGH",   "label": "BOT",    "headline": "Headline B", "source": "SrcB"},
-            {"severity": "MEDIUM", "label": "SUPPLY", "headline": "Headline C", "source": "SrcC"},
+            {
+                "severity": "HIGH",
+                "label": "APT",
+                "headline": "Headline A",
+                "source": "SrcA",
+            },
+            {
+                "severity": "HIGH",
+                "label": "BOT",
+                "headline": "Headline B",
+                "source": "SrcB",
+            },
+            {
+                "severity": "MEDIUM",
+                "label": "SUPPLY",
+                "headline": "Headline C",
+                "source": "SrcC",
+            },
         ],
         "days": days,
         "footer": {"daily_digests": n_days, "categories": ["security"]},
@@ -82,9 +97,24 @@ def _minimal_monthly(n_days: int = 9, **overrides) -> dict:
         "title": "Test Monthly Title",
         "aria": "Test monthly index aria",
         "top_highlights": [
-            {"severity": "HIGH",   "label": "SOC ENG", "headline": "Headline X", "source": "SrcX"},
-            {"severity": "HIGH",   "label": "ZERO DAY","headline": "Headline Y", "source": "SrcY"},
-            {"severity": "MEDIUM", "label": "AI INFRA","headline": "Headline Z", "source": "SrcZ"},
+            {
+                "severity": "HIGH",
+                "label": "SOC ENG",
+                "headline": "Headline X",
+                "source": "SrcX",
+            },
+            {
+                "severity": "HIGH",
+                "label": "ZERO DAY",
+                "headline": "Headline Y",
+                "source": "SrcY",
+            },
+            {
+                "severity": "MEDIUM",
+                "label": "AI INFRA",
+                "headline": "Headline Z",
+                "source": "SrcZ",
+            },
         ],
         "days": days,
         "footer": {"daily_digests": n_days, "categories": ["security"]},
@@ -102,6 +132,7 @@ def _write_spec(tmp_path: Path, data: dict, name: str = "sample.yml") -> Path:
 # ---------------------------------------------------------------------------
 # 1. Load valid real specs
 # ---------------------------------------------------------------------------
+
 
 class TestLoadRealSpecs:
     def test_load_valid_weekly_rollup_spec(self):
@@ -123,6 +154,7 @@ class TestLoadRealSpecs:
 # ---------------------------------------------------------------------------
 # 2. Schema validation — negative tests (inline synth dicts)
 # ---------------------------------------------------------------------------
+
 
 class TestLoadSpecValidation:
     def test_load_rejects_unknown_kind(self, tmp_path):
@@ -163,6 +195,7 @@ class TestLoadSpecValidation:
 # ---------------------------------------------------------------------------
 # 3. render() — byte stability + XML escaping
 # ---------------------------------------------------------------------------
+
 
 class TestRender:
     def test_render_byte_stable(self, tmp_path):
@@ -211,7 +244,7 @@ class TestRender:
         data = _minimal_weekly(n_days=7)
         spec = load_spec(_write_spec(tmp_path, data))
         svg = render(spec)
-        cells = re.findall(r'translate\([\d.]+,350\)', svg)
+        cells = re.findall(r"translate\([\d.]+,350\)", svg)
         assert len(cells) == 7
 
     def test_render_monthly_index_january_produces_9_day_cells(self, tmp_path):
@@ -219,7 +252,7 @@ class TestRender:
         data = _minimal_monthly(n_days=9)
         spec = load_spec(_write_spec(tmp_path, data))
         svg = render(spec)
-        cells = re.findall(r'translate\([\d.]+,350\)', svg)
+        cells = re.findall(r"translate\([\d.]+,350\)", svg)
         assert len(cells) == 9
 
 
@@ -227,10 +260,12 @@ class TestRender:
 # 4. write() / check() lifecycle
 # ---------------------------------------------------------------------------
 
+
 class TestWriteAndCheck:
     def test_check_no_drift(self, tmp_path, monkeypatch):
         """After writing a spec, check() must return None (no drift)."""
         from scripts import upgrade_rollup_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
 
         spec = load_spec(_write_spec(tmp_path, _minimal_weekly()))
@@ -242,6 +277,7 @@ class TestWriteAndCheck:
     def test_check_detects_drift(self, tmp_path, monkeypatch):
         """Mutating the on-disk SVG after writing must be detected by check()."""
         from scripts import upgrade_rollup_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
 
         spec = load_spec(_write_spec(tmp_path, _minimal_weekly()))
@@ -254,6 +290,7 @@ class TestWriteAndCheck:
     def test_check_reports_missing_file(self, tmp_path, monkeypatch):
         """check() on a spec with no on-disk file must report a DRIFT."""
         from scripts import upgrade_rollup_cover as mod
+
         monkeypatch.setattr(mod, "ASSETS", tmp_path)
 
         spec = load_spec(_write_spec(tmp_path, _minimal_weekly()))
@@ -265,6 +302,7 @@ class TestWriteAndCheck:
 # ---------------------------------------------------------------------------
 # 5. _gather_specs — --since filter
 # ---------------------------------------------------------------------------
+
 
 class TestGatherSpecs:
     def test_gather_specs_since_filter(self):
@@ -286,6 +324,7 @@ class TestGatherSpecs:
 # 6. Regression: highlight-band text no overlap
 # ---------------------------------------------------------------------------
 
+
 class TestHighlightBandNoOverlap:
     def test_render_highlights_text_no_overlap(self, tmp_path):
         """Detail line y and source line y must be separated by >= font_size * 1.1.
@@ -298,7 +337,9 @@ class TestHighlightBandNoOverlap:
         data = _minimal_weekly()
         # Force 2-line headline to trigger the tightest layout.
         data["top_highlights"][0]["headline"] = "SAP credential theft supply chain"
-        data["top_highlights"][0]["detail"] = "SAP credential theft : attackers leverage stolen creds for supply chain pivot"
+        data["top_highlights"][0]["detail"] = (
+            "SAP credential theft : attackers leverage stolen creds for supply chain pivot"
+        )
         data["top_highlights"][0]["source"] = "The Hacker News"
         spec = load_spec(_write_spec(tmp_path, data))
         svg = render(spec)
@@ -307,6 +348,7 @@ class TestHighlightBandNoOverlap:
         # Card 0 is at x=28 so all its text elements share x in [28, 399].
         # We look for text elements with y between y=100+60=160 and y=100+200=300.
         import xml.etree.ElementTree as ET
+
         _SVG_NS = "http://www.w3.org/2000/svg"
         root = ET.fromstring(svg)
 
@@ -330,10 +372,7 @@ class TestHighlightBandNoOverlap:
         # source_y == 278 (y=100 + source_y_offset=178).
         # Minimum gap between any detail and its nearest source must be >= 14.
         min_gap = min(
-            sy - dy
-            for sy in source_font_ys
-            for dy in detail_font_ys
-            if sy > dy
+            sy - dy for sy in source_font_ys for dy in detail_font_ys if sy > dy
         )
         assert min_gap >= 14, (
             f"Detail/source lines too close: gap={min_gap}px (must be >= 14). "
@@ -344,6 +383,7 @@ class TestHighlightBandNoOverlap:
 # ---------------------------------------------------------------------------
 # 7. Regression: CATEGORIES footer card no mid-word truncation
 # ---------------------------------------------------------------------------
+
 
 class TestCategoriesCardNoTruncation:
     def test_render_categories_card_no_truncation(self, tmp_path):
@@ -361,6 +401,7 @@ class TestCategoriesCardNoTruncation:
         # The CATEGORIES card value text element contains the formatted string.
         # Find all font-size="14" text elements (categories use val_size=14).
         import xml.etree.ElementTree as ET
+
         _SVG_NS = "http://www.w3.org/2000/svg"
         root = ET.fromstring(svg)
         cat_texts = [
@@ -372,9 +413,9 @@ class TestCategoriesCardNoTruncation:
         cat_value = cat_texts[0]
 
         # Must not end mid-word: valid endings are a full word or "...".
-        assert not (
-            cat_value.endswith(("DEVSECOC", "DEVSECO", "DEVSEOP", "DEVSEO"))
-        ), f"CATEGORIES text appears mid-word truncated: {cat_value!r}"
+        assert not (cat_value.endswith(("DEVSECOC", "DEVSECO", "DEVSEOP", "DEVSEO"))), (
+            f"CATEGORIES text appears mid-word truncated: {cat_value!r}"
+        )
 
         # If truncated it must end with "..."
         if len(cat_value) < len("SECURITY, DEVSECOPS, CLOUD"):
@@ -382,14 +423,23 @@ class TestCategoriesCardNoTruncation:
                 f"Truncated CATEGORIES text must end with '...', got: {cat_value!r}"
             )
 
-    def test_render_categories_card_long_list_truncates_at_word_boundary(self, tmp_path):
+    def test_render_categories_card_long_list_truncates_at_word_boundary(
+        self, tmp_path
+    ):
         """With 5 categories, the card text must truncate at word boundary with '...'."""
         data = _minimal_weekly()
-        data["footer"]["categories"] = ["security", "devsecops", "cloud", "kubernetes", "finops"]
+        data["footer"]["categories"] = [
+            "security",
+            "devsecops",
+            "cloud",
+            "kubernetes",
+            "finops",
+        ]
         spec = load_spec(_write_spec(tmp_path, data))
         svg = render(spec)
 
         import xml.etree.ElementTree as ET
+
         _SVG_NS = "http://www.w3.org/2000/svg"
         root = ET.fromstring(svg)
         cat_texts = [

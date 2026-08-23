@@ -104,9 +104,7 @@ def _command_text(block: str) -> str:
     guard honest: a stale comment mentioning ``--cov-fail-under`` must not keep it
     green after the real flag is deleted. (Skill rule: never match commentary.)
     """
-    return "\n".join(
-        ln for ln in block.splitlines() if not ln.lstrip().startswith("#")
-    )
+    return "\n".join(ln for ln in block.splitlines() if not ln.lstrip().startswith("#"))
 
 
 class TestDigestKpiGateGuard:
@@ -129,9 +127,7 @@ class TestDigestKpiGateGuard:
         )
 
     def test_step_runs_pytest_over_scripts_tests(self):
-        cmd = _command_text(
-            _unit_test_step_block(WORKFLOW.read_text(encoding="utf-8"))
-        )
+        cmd = _command_text(_unit_test_step_block(WORKFLOW.read_text(encoding="utf-8")))
         assert "pytest" in cmd, "pytest no longer invoked in the unit-test step"
         assert "scripts/tests/" in cmd, (
             "the pytest invocation no longer targets scripts/tests/; the "
@@ -139,9 +135,7 @@ class TestDigestKpiGateGuard:
         )
 
     def test_coverage_floor_not_lowered(self):
-        cmd = _command_text(
-            _unit_test_step_block(WORKFLOW.read_text(encoding="utf-8"))
-        )
+        cmd = _command_text(_unit_test_step_block(WORKFLOW.read_text(encoding="utf-8")))
         floors = re.findall(r"--cov-fail-under=(\d+)", cmd)
         assert floors, (
             "--cov-fail-under was removed from the unit-test step; the coverage "

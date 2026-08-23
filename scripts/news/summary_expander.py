@@ -6,15 +6,18 @@ from the source. Returns None when the source is empty or the LLM is
 unavailable — the caller keeps the existing short summary. No paid API here;
 uses the free Gemini CLI wrapper (enhancer._gemini_call, itself CLI-first).
 """
+
 import logging
 import re
 from typing import Callable, Dict, Optional
 
-_MAX_SOURCE_CHARS = 6000   # bound prompt size / cost
+_MAX_SOURCE_CHARS = 6000  # bound prompt size / cost
 _MIN_OUTPUT_CHARS = 120
 
 _CVE_RE = re.compile(r"CVE-\d{4}-\d+")
-_NUM_RE = re.compile(r"\d[\d,]*\d|\d")  # full digit runs (comma-grouped), not substrings
+_NUM_RE = re.compile(
+    r"\d[\d,]*\d|\d"
+)  # full digit runs (comma-grouped), not substrings
 
 
 def is_source_grounded(expanded: str, article_text: str) -> bool:
@@ -42,8 +45,9 @@ def _default_gemini(prompt: str, timeout: int = 35) -> str:
     return _gemini_call(prompt, timeout=timeout)
 
 
-def expand_summary(item: Dict, article_text: str, *,
-                   gemini: Optional[Callable] = None) -> Optional[str]:
+def expand_summary(
+    item: Dict, article_text: str, *, gemini: Optional[Callable] = None
+) -> Optional[str]:
     if not article_text or not article_text.strip():
         return None
     gemini = gemini or _default_gemini

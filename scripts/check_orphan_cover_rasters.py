@@ -16,6 +16,7 @@ Usage:
     python3 scripts/check_orphan_cover_rasters.py <dir>      # scan a dir
 Exit 0 = clean, 1 = orphan raster(s) found.
 """
+
 from __future__ import annotations
 
 import re
@@ -50,10 +51,14 @@ def main(argv: List[str]) -> int:
         return 0
     orphans = orphan_rasters(images_dir)
     if orphans:
-        print(f"[orphan-rasters] FAIL — {len(orphans)} raster(s) have no base .svg (likely a rename left them behind):")
+        print(
+            f"[orphan-rasters] FAIL — {len(orphans)} raster(s) have no base .svg (likely a rename left them behind):"
+        )
         for o in orphans:
             print(f"  ✗ {o.name}")
-        print("  Fix: git rm the orphans (after confirming the slug is referenced nowhere), or")
+        print(
+            "  Fix: git rm the orphans (after confirming the slug is referenced nowhere), or"
+        )
         print("  regenerate the base SVG if the rename was unintended.")
         return 1
     print("[orphan-rasters] OK — every cover raster has a base .svg.")

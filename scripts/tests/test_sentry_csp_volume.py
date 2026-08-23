@@ -72,7 +72,9 @@ def test_missing_secret_never_prints_values(mod, monkeypatch, capsys):
 def test_authorization_failure_stays_green_but_says_it_measured_nothing(
     mod, creds, monkeypatch, capsys, code
 ):
-    monkeypatch.setattr(mod, "_fetch", lambda *_a, **_k: (_ for _ in ()).throw(_http_error(code)))
+    monkeypatch.setattr(
+        mod, "_fetch", lambda *_a, **_k: (_ for _ in ()).throw(_http_error(code))
+    )
     assert mod.main() == 0
     out = capsys.readouterr().out
     # A green run that produced no data must not read as "volume is zero".
@@ -84,7 +86,9 @@ def test_authorization_failure_stays_green_but_says_it_measured_nothing(
 
 @pytest.mark.parametrize("code", [400, 404, 429, 500, 503])
 def test_other_http_errors_are_fail_closed(mod, creds, monkeypatch, code):
-    monkeypatch.setattr(mod, "_fetch", lambda *_a, **_k: (_ for _ in ()).throw(_http_error(code)))
+    monkeypatch.setattr(
+        mod, "_fetch", lambda *_a, **_k: (_ for _ in ()).throw(_http_error(code))
+    )
     assert mod.main() == 2
 
 
@@ -103,9 +107,17 @@ def test_unexpected_response_shape_is_fail_closed(mod, creds, monkeypatch):
 
 def test_successful_report_buckets_and_totals(mod, creds, monkeypatch, capsys):
     issues = [
-        {"count": "10", "title": "CSP: script-src-elem", "culprit": "chrome-extension://x/a.js"},
+        {
+            "count": "10",
+            "title": "CSP: script-src-elem",
+            "culprit": "chrome-extension://x/a.js",
+        },
         {"count": 5, "title": "CSP: script-src-elem inline", "culprit": "about"},
-        {"count": 2, "title": "CSP: connect-src", "culprit": "https://tech.2twodragon.com/"},
+        {
+            "count": 2,
+            "title": "CSP: connect-src",
+            "culprit": "https://tech.2twodragon.com/",
+        },
     ]
     monkeypatch.setattr(mod, "_fetch", lambda *_a, **_k: issues)
     assert mod.main() == 0
@@ -125,7 +137,9 @@ def test_full_page_is_declared_a_floor_not_a_total(mod, creds, monkeypatch, caps
     assert "floor" in capsys.readouterr().out
 
 
-def test_zero_events_does_not_claim_the_channel_is_quiet(mod, creds, monkeypatch, capsys):
+def test_zero_events_does_not_claim_the_channel_is_quiet(
+    mod, creds, monkeypatch, capsys
+):
     monkeypatch.setattr(mod, "_fetch", lambda *_a, **_k: [])
     assert mod.main() == 0
     out = capsys.readouterr().out
@@ -140,7 +154,9 @@ def test_malformed_count_does_not_crash(mod, creds, monkeypatch, capsys):
 
 
 def test_classify_buckets(mod):
-    assert mod.classify({"culprit": "chrome-extension://abc/injected.js"}) == "extension"
+    assert (
+        mod.classify({"culprit": "chrome-extension://abc/injected.js"}) == "extension"
+    )
     assert mod.classify({"culprit": "moz-extension://abc/injected.js"}) == "extension"
     assert mod.classify({"title": "CSP: inline", "culprit": "about"}) == "translate"
     assert mod.classify({"culprit": "https://tech.2twodragon.com/"}) == "first-party"

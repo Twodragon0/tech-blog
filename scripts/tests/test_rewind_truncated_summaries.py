@@ -12,6 +12,7 @@ Rewinding only ever DROPS a trailing partial sentence, so the result is always a
 prefix of what was already published — no fetching, no LLM, nothing invented.
 That prefix property is the contract these tests pin.
 """
+
 import sys
 from pathlib import Path
 
@@ -45,7 +46,11 @@ _CARD_SHAPES = {
     "whitespace_control": {"open_ws": "-", "close_ws": "-"},
     "dash_open_only": {"open_ws": "-"},
     "spotlight": {"include": "news-spotlight-item"},
-    "spotlight_dash": {"include": "news-spotlight-item", "open_ws": "-", "close_ws": "-"},
+    "spotlight_dash": {
+        "include": "news-spotlight-item",
+        "open_ws": "-",
+        "close_ws": "-",
+    },
 }
 
 
@@ -113,7 +118,7 @@ def test_ellipsis_cut_summary_is_rewound_despite_ending_in_a_period(marker):
     body = "공격자가 원격 코드 실행에 성공했다고 밝혔습니다. " + "가" * 180
     assert len(body + marker) >= rw.TRUNCATION_SUSPECT_LEN, "fixture must be in band"
     out = rw.transform(_FM + _card(body + marker))
-    assert "밝혔습니다.\"" in out
+    assert '밝혔습니다."' in out
     assert marker not in out.split('summary="')[1].split('"\n')[0]
 
 
@@ -129,7 +134,9 @@ def test_ellipsis_rewind_is_idempotent():
 
 def test_mid_text_ellipsis_does_not_trigger_a_rewind():
     """Only a TRAILING marker is truncation evidence."""
-    src = _FM + _card("중간에 ... 이 있지만 문장은 완성되었습니다. " + "가" * 170 + "종료입니다.")
+    src = _FM + _card(
+        "중간에 ... 이 있지만 문장은 완성되었습니다. " + "가" * 170 + "종료입니다."
+    )
     assert rw.transform(src) == src
 
 

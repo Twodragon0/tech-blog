@@ -87,9 +87,10 @@ def _inject_band_visual_markers(svg: str, visual_kinds: List[str]) -> str:
     """
     for cy, kind in zip(_BAND_CY, visual_kinds):
         target = f'<g transform="translate(500,{cy})">'
-        replacement = f'<!-- band-visual: {kind} -->\n{target}'
+        replacement = f"<!-- band-visual: {kind} -->\n{target}"
         svg = svg.replace(target, replacement, 1)
     return svg
+
 
 # Re-export the L20 helpers we depend on so callers don't need two imports.
 from scripts.news.l20_dispatch import (
@@ -107,17 +108,46 @@ from scripts.news.l20_dispatch import (
 
 # Each entry: (regex on headline.lower(), visual kind). First match wins.
 _VISUAL_HEURISTICS: List[Tuple[re.Pattern[str], str]] = [
-    (re.compile(r"\bcve[- ]?\d|\bzero[- ]?day|\bnetwork worm|\brce|\bexploit|\bvuln"), "lock_cve"),
+    (
+        re.compile(
+            r"\bcve[- ]?\d|\bzero[- ]?day|\bnetwork worm|\brce|\bexploit|\bvuln"
+        ),
+        "lock_cve",
+    ),
     (re.compile(r"\bbotnet|\bddos|\bworm|\blateral|\binfra"), "network_nodes"),
     (re.compile(r"\bbrowser|\bchrome|\bfirefox|\bsafari|\bedge\b"), "browser_cve"),
     (re.compile(r"\bk8s|\bkubernetes|\bcontainer|\bdocker|\bcluster"), "cloud_k8s"),
     (re.compile(r"\brouter|\bfirewall|\bvpn\b|\bnetwork"), "router_mesh"),
-    (re.compile(r"\bphish|\bsupply chain|\bpackage|\bregistry|\bnpm\b|\bpypi\b"), "lock_cve"),
-    (re.compile(r"\bai\b|\bllm\b|\bagent|\bmodel\b|\bopenai|\bhugging|\bml\b"), "code_bars"),
-    (re.compile(r"\baudit|\bisms\b|\bcis\b|\bnist\b|\bcompliance|\bcertif"), "compliance_grid"),
-    (re.compile(r"\bpasskey|\bfido\b|\bwebauthn|\bzero[- ]?trust|\bztna\b|\bmtls\b|\bprivatelink"), "identity_handshake"),
-    (re.compile(r"\bsiem\b|\bdatadog\b|\bsplunk\b|\bobservability\b|\bopentelemetry\b|\bcloudwatch\b|\bfalco\b|\bmttr\b|\bincident response\b"), "siem_panels"),
-    (re.compile(r"\bsbom\b|\bcosign\b|\bslsa\b|\bsigstore\b|\blockfile\b|\bshai-hulud\b|\bcodeql\b|\bdependabot\b"), "attestation_chain"),
+    (
+        re.compile(r"\bphish|\bsupply chain|\bpackage|\bregistry|\bnpm\b|\bpypi\b"),
+        "lock_cve",
+    ),
+    (
+        re.compile(r"\bai\b|\bllm\b|\bagent|\bmodel\b|\bopenai|\bhugging|\bml\b"),
+        "code_bars",
+    ),
+    (
+        re.compile(r"\baudit|\bisms\b|\bcis\b|\bnist\b|\bcompliance|\bcertif"),
+        "compliance_grid",
+    ),
+    (
+        re.compile(
+            r"\bpasskey|\bfido\b|\bwebauthn|\bzero[- ]?trust|\bztna\b|\bmtls\b|\bprivatelink"
+        ),
+        "identity_handshake",
+    ),
+    (
+        re.compile(
+            r"\bsiem\b|\bdatadog\b|\bsplunk\b|\bobservability\b|\bopentelemetry\b|\bcloudwatch\b|\bfalco\b|\bmttr\b|\bincident response\b"
+        ),
+        "siem_panels",
+    ),
+    (
+        re.compile(
+            r"\bsbom\b|\bcosign\b|\bslsa\b|\bsigstore\b|\blockfile\b|\bshai-hulud\b|\bcodeql\b|\bdependabot\b"
+        ),
+        "attestation_chain",
+    ),
     (re.compile(r"\bpatch|\bfix(es)?\b|\bupdate|\bhardening"), "shield"),
     (re.compile(r"\bbitcoin|\bcrypto|\bwallet|\bdeFi|\bblockchain"), "wallet_forensic"),
 ]
@@ -260,12 +290,14 @@ def extract_three_stories_from_excerpt(
         # 15-25 Korean chars per the spec. Use 28 as a soft cap so a
         # tight 3-word phrase like "AI 속도의 방어" stays intact.
         head = _shorten(seg, 28)
-        stories.append({
-            "headline": head,
-            # Subheadline reuses the trimmed segment so the second metric
-            # row carries the full context rather than the boilerplate.
-            "subheadline": _shorten(seg, 60),
-        })
+        stories.append(
+            {
+                "headline": head,
+                # Subheadline reuses the trimmed segment so the second metric
+                # row carries the full context rather than the boilerplate.
+                "subheadline": _shorten(seg, 60),
+            }
+        )
 
     return stories[0], stories[1], stories[2]
 
@@ -386,7 +418,7 @@ def _read_post_body(post_path: Path) -> str:
     if text.startswith("---"):
         end = text.find("\n---", 3)
         if end != -1:
-            text = text[end + 4:]
+            text = text[end + 4 :]
     return text
 
 
@@ -448,7 +480,7 @@ def _force_variety(visual_kinds: List[str], seed_hex: str) -> List[str]:
     # Deterministic seed: sum of hex digits in ``seed_hex`` (e.g. the
     # YYYYMMDD digits with no separators). Anything non-hex contributes 0.
     s = 0
-    for ch in (seed_hex or "L22"):
+    for ch in seed_hex or "L22":
         try:
             s += int(ch, 16)
         except ValueError:
@@ -552,7 +584,8 @@ def _extract_post_kpi_from_text(body: str) -> Dict[str, Tuple[str, str]]:
             kpi_top_right = "healthy"
         kpi_bottom = (
             f"{node_match.group(1)} nodes : workload identity"
-            if node_match else "workload identity"
+            if node_match
+            else "workload identity"
         )
         out["cloud_k8s"] = (kpi_top, kpi_top_right + " | " + kpi_bottom)
     elif ko_count_match:
@@ -639,14 +672,22 @@ def _build_band_cfg(
         return l22.v_cloud_k8s(500, cy, theme["accent"], theme["soft"], **kwargs)
 
     visual_dispatch = {
-        "lock_cve":       _v_lock_cve,
-        "network_nodes":  _v_network_nodes,
-        "browser_cve":    lambda: l22.v_browser_cve(500, cy, theme["accent"], theme["soft"], label=label[:6] or "CVE"),
-        "cloud_k8s":      _v_cloud_k8s,
-        "router_mesh":    lambda: l22.v_router_mesh(500, cy, theme["accent"], theme["soft"]),
-        "code_bars":      lambda: l22.v_code_bars(500, cy, theme["accent"], theme["soft"], caption=label[:8] or "CODE"),
-        "shield":         _v_shield,
-        "wallet_forensic": lambda: l22.v_wallet_forensic(500, cy, theme["accent"], theme["soft"]),
+        "lock_cve": _v_lock_cve,
+        "network_nodes": _v_network_nodes,
+        "browser_cve": lambda: l22.v_browser_cve(
+            500, cy, theme["accent"], theme["soft"], label=label[:6] or "CVE"
+        ),
+        "cloud_k8s": _v_cloud_k8s,
+        "router_mesh": lambda: l22.v_router_mesh(
+            500, cy, theme["accent"], theme["soft"]
+        ),
+        "code_bars": lambda: l22.v_code_bars(
+            500, cy, theme["accent"], theme["soft"], caption=label[:8] or "CODE"
+        ),
+        "shield": _v_shield,
+        "wallet_forensic": lambda: l22.v_wallet_forensic(
+            500, cy, theme["accent"], theme["soft"]
+        ),
     }
     visual_fn = visual_dispatch.get(visual_kind, visual_dispatch["lock_cve"])
 
@@ -728,18 +769,27 @@ def _build_bands_with_variety(
 
     return [
         _build_band_cfg(
-            h["headline"], h["subheadline"], 0,
-            excerpt=excerpt, visual_kind_override=final_kinds[0],
+            h["headline"],
+            h["subheadline"],
+            0,
+            excerpt=excerpt,
+            visual_kind_override=final_kinds[0],
             post_kpi=post_kpi,
         ),
         _build_band_cfg(
-            tr["headline"], tr["subheadline"], 1,
-            excerpt=excerpt, visual_kind_override=final_kinds[1],
+            tr["headline"],
+            tr["subheadline"],
+            1,
+            excerpt=excerpt,
+            visual_kind_override=final_kinds[1],
             post_kpi=post_kpi,
         ),
         _build_band_cfg(
-            br["headline"], br["subheadline"], 2,
-            excerpt=excerpt, visual_kind_override=final_kinds[2],
+            br["headline"],
+            br["subheadline"],
+            2,
+            excerpt=excerpt,
+            visual_kind_override=final_kinds[2],
             post_kpi=post_kpi,
         ),
     ]
@@ -777,7 +827,12 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
         final_kinds = _force_variety(initial_kinds, seed)
         post_kpi = _resolve_post_kpi(post_info, filename)
         bands_cfg = _build_bands_with_variety(
-            h, tr, br, excerpt, seed_hex=seed, post_kpi=post_kpi,
+            h,
+            tr,
+            br,
+            excerpt,
+            seed_hex=seed,
+            post_kpi=post_kpi,
         )
         url = _post_url_from_filename(filename)
 
@@ -831,7 +886,12 @@ def render_l22_svg_string(post_info: Dict) -> str:
         final_kinds = _force_variety(initial_kinds, seed)
         post_kpi = _resolve_post_kpi(post_info, filename)
         bands_cfg = _build_bands_with_variety(
-            h, tr, br, excerpt, seed_hex=seed, post_kpi=post_kpi,
+            h,
+            tr,
+            br,
+            excerpt,
+            seed_hex=seed,
+            post_kpi=post_kpi,
         )
         url = _post_url_from_filename(filename)
 

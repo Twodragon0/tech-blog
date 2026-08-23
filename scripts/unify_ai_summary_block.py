@@ -90,9 +90,7 @@ def _highlights_data(excerpt: str, summary_lines: list[str]) -> list[tuple[str, 
                 "운영 절차와 검증 기준을 문서화해 재현 가능한 적용 체계를 유지해야 합니다"
             )
 
-    return [
-        (f"포인트 {idx + 1}", point) for idx, point in enumerate(points[:3])
-    ]
+    return [(f"포인트 {idx + 1}", point) for idx, point in enumerate(points[:3])]
 
 
 def _yaml_escape_dq(text: str) -> str:
@@ -112,6 +110,7 @@ def _emit_summary_card_yaml(
 
     Kept locally to avoid a cross-package import at module load time.
     """
+
     def esc(s: str) -> str:
         return _yaml_escape_dq(s)
 

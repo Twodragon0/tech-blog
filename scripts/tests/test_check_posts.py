@@ -13,7 +13,6 @@ from scripts.check_posts import (
     check_ai_summary_card,
     check_dummy_links,
     check_duplicate_practical_points,
-    fix_duplicate_practical_points,
     check_image_exists,
     check_image_files,
     check_image_paths,
@@ -23,6 +22,7 @@ from scripts.check_posts import (
     check_svg_text_density,
     check_table_cell_truncation,
     extract_front_matter,
+    fix_duplicate_practical_points,
 )
 
 # ---------------------------------------------------------------------------
@@ -89,7 +89,9 @@ class TestCheckDummyLinks:
         # Regression: the checker reports "dummy LINK", so a prose sentence that
         # merely contains the word is not a finding. Real corpus case (2026-06-17
         # digest) describing the Lorem Ipsum Loader malware family.
-        content = "**Lorem Ipsum Loader**: 더미 텍스트(lorem ipsum)를 활용한 난독화 기법."
+        content = (
+            "**Lorem Ipsum Loader**: 더미 텍스트(lorem ipsum)를 활용한 난독화 기법."
+        )
         assert check_dummy_links(content) == []
 
     def test_clean_content_returns_no_issues(self):
@@ -323,9 +325,7 @@ class TestFixDuplicatePracticalPoints:
         assert check_duplicate_practical_points(fixed) == []
 
     def test_keeps_distinct_blocks(self):
-        content = (
-            _block("A", "B", "C") + _block("D", "E", "F") + _block("G", "H", "I")
-        )
+        content = _block("A", "B", "C") + _block("D", "E", "F") + _block("G", "H", "I")
         fixed, removed = fix_duplicate_practical_points(content)
         assert removed == 0
         assert fixed == content  # untouched

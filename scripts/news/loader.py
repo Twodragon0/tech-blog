@@ -272,13 +272,23 @@ _BLOCKCHAIN_PRIMARY_RE = re.compile(
 # STRONG security indicators: a single one forces the security bucket — a CVE /
 # exploit / ransomware / malware story is a security story regardless of feed.
 _STRONG_SECURITY_INDICATORS = (
-    "cve-", "exploit", "malware", "악성코드", "ransomware", "랜섬웨어",
+    "cve-",
+    "exploit",
+    "malware",
+    "악성코드",
+    "ransomware",
+    "랜섬웨어",
 )
 # SOFT indicators: only COUNT toward the >=2 (/ >=3 for on-topic ai/blockchain)
 # threshold — "attack"/"breach"/"vulnerability" appear in non-security topic
 # stories too, so a single soft mention must not reclassify.
 _SOFT_SECURITY_INDICATORS = (
-    "vulnerability", "취약점", "attack", "공격", "breach", "침해",
+    "vulnerability",
+    "취약점",
+    "attack",
+    "공격",
+    "breach",
+    "침해",
 )
 
 

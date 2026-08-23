@@ -1,9 +1,12 @@
+import os
 import re
-import sys, os, tempfile
+import sys
+import tempfile
 from pathlib import Path
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-import pytest
 import check_digest_structure as cds
+import pytest
 from check_digest_structure import check_post
 
 _GOOD = """---
@@ -35,7 +38,9 @@ _BAD_DUP_CL = _GOOD.replace(
 
 def _write(txt):
     f = tempfile.NamedTemporaryFile("w", suffix=".md", delete=False, encoding="utf-8")
-    f.write(txt); f.close(); return f.name
+    f.write(txt)
+    f.close()
+    return f.name
 
 
 def test_clean_post_has_no_violations():
@@ -53,8 +58,10 @@ def test_flags_numbering_collision():
 
 
 def test_flags_per_item_checkbox_checklist():
-    assert any("checklist" in v.lower() or "체크리스트" in v
-               for v in check_post(_write(_BAD_DUP_CL)))
+    assert any(
+        "checklist" in v.lower() or "체크리스트" in v
+        for v in check_post(_write(_BAD_DUP_CL))
+    )
 
 
 def test_does_not_flag_prose_advisory():
@@ -76,7 +83,9 @@ def test_does_not_flag_대응_체크리스트_in_prose():
 
 def test_flags_per_item_대응_체크리스트_heading():
     # A real per-item '#### 대응 체크리스트' heading (no checkbox) is still caught.
-    bad = _GOOD.replace("## 2. AI/ML 뉴스", "#### 대응 체크리스트\n본문.\n## 2. AI/ML 뉴스")
+    bad = _GOOD.replace(
+        "## 2. AI/ML 뉴스", "#### 대응 체크리스트\n본문.\n## 2. AI/ML 뉴스"
+    )
     assert any("대응 체크리스트" in v for v in check_post(_write(bad)))
 
 
@@ -169,7 +178,9 @@ def test_new_violations_grandfathers_preexisting():
 def test_new_violations_flags_added_defect():
     base = check_post(_write(_BAD_H1))
     # same pre-existing H1 defect PLUS a newly broken numbering
-    current = check_post(_write(_BAD_H1.replace("## 2. AI/ML 뉴스", "## 1. 기술적 배경")))
+    current = check_post(
+        _write(_BAD_H1.replace("## 2. AI/ML 뉴스", "## 1. 기술적 배경"))
+    )
     fresh = cds.new_violations(current, base)
     assert len(fresh) == 1 and "numbering" in fresh[0].lower()
 
@@ -232,7 +243,9 @@ def test_kind_handles_messages_without_embedded_content():
 
 def test_ratchet_requires_a_diff_scoped_mode(monkeypatch, capsys):
     # --ratchet without --staged/--changed has no base revision to compare to.
-    monkeypatch.setattr(sys, "argv", ["check_digest_structure.py", "--ratchet", "--all"])
+    monkeypatch.setattr(
+        sys, "argv", ["check_digest_structure.py", "--ratchet", "--all"]
+    )
     with pytest.raises(SystemExit) as exc:
         cds.main()
     assert exc.value.code != 0
@@ -272,7 +285,7 @@ def _global_checklist_section(clean_body: str) -> str:
     m = re.search(r"^## 실무 체크리스트[ \t]*$", clean_body, re.MULTILINE)
     if not m:
         return ""
-    rest = clean_body[m.end():]
+    rest = clean_body[m.end() :]
     nxt = re.search(r"^## ", rest, re.MULTILINE)
     return rest[: nxt.start()] if nxt else rest
 
@@ -312,7 +325,9 @@ def test_placement_helpers_actually_detect_a_violation():
     assert len(re.findall(r"- \[ \]", clean)) == 2
     assert len(re.findall(r"- \[ \]", _global_checklist_section(clean))) == 1
 
-    trailing_box = "## 실무 체크리스트\n\n- [ ] 전역\n\n## 참고 자료\n\n- [ ] 나중 항목\n"
+    trailing_box = (
+        "## 실무 체크리스트\n\n- [ ] 전역\n\n## 참고 자료\n\n- [ ] 나중 항목\n"
+    )
     clean = _fence_stripped(trailing_box)
     assert len(re.findall(r"- \[ \]", clean)) == 2
     assert len(re.findall(r"- \[ \]", _global_checklist_section(clean))) == 1

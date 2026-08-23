@@ -12,6 +12,7 @@ Usage:
     python3 scripts/backfill_digest_structure.py \
         --posts-glob '_posts/2026-07-1[12345]-*Weekly_Digest*.md'
 """
+
 import argparse
 import glob
 import re

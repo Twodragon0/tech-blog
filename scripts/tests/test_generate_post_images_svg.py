@@ -7,8 +7,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from scripts.generate_post_images import (
-    _detect_digest_nodes,
     _compose_cover_headline,
+    _detect_digest_nodes,
     _extract_visual_tokens,
     generate_fallback_svg,
     generate_section_banner_svg,

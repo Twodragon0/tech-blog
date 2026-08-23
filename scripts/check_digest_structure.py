@@ -17,6 +17,7 @@ Usage:
     python3 scripts/check_digest_structure.py --all            # every digest post (legacy will FAIL)
     python3 scripts/check_digest_structure.py path/a.md path/b.md
 """
+
 import argparse
 import re
 import subprocess
@@ -33,7 +34,7 @@ _POST_PATH_RE = re.compile(r"^_posts/[^/]+\.md$")
 def _body(text: str) -> str:
     # drop YAML front matter
     m = re.match(r"^---\n.*?\n---\n", text, re.DOTALL)
-    return text[m.end():] if m else text
+    return text[m.end() :] if m else text
 
 
 def _strip_code_fences(lines: list) -> list:
@@ -69,8 +70,9 @@ def check_text(text: str) -> list:
             violations.append(f"body H1 heading found: {ln.strip()[:60]}")
 
     # (a) numbering: '## N.' headings must be 1,2,3,... contiguous (ignore '## 실무 체크리스트' etc.)
-    nums = [int(m.group(1)) for ln in lines
-            for m in [re.match(r"^##\s+(\d+)\.", ln)] if m]
+    nums = [
+        int(m.group(1)) for ln in lines for m in [re.match(r"^##\s+(\d+)\.", ln)] if m
+    ]
     if nums and nums != list(range(1, len(nums) + 1)):
         violations.append(f"broken section numbering: {nums}")
 
@@ -78,19 +80,25 @@ def check_text(text: str) -> list:
     # ('- [ ]') duplicating the global P0/P1/P2. Topic-specific prose advisory
     # ('- ' bullets under '#### 권장 조치') is legitimate content and is kept.
     if clean_body.count("## 실무 체크리스트") != 1:
-        violations.append(f"expected exactly one 실무 체크리스트, found {clean_body.count('## 실무 체크리스트')}")
+        violations.append(
+            f"expected exactly one 실무 체크리스트, found {clean_body.count('## 실무 체크리스트')}"
+        )
     # any checkbox item appearing BEFORE the global checklist lives in an item
     # body → it is a per-item checklist (the empirical defect).
     head = clean_body.split("## 실무 체크리스트")[0]
     if re.search(r"^\s*-\s*\[[ xX]?\]", head, re.MULTILINE):
-        violations.append("per-item checkbox checklist present in an item body (should be removed)")
+        violations.append(
+            "per-item checkbox checklist present in an item body (should be removed)"
+        )
     # Heading-anchored, NOT a bare substring: the defect is a per-item
     # "대응 체크리스트" HEADING (## / ### / ####). A bare substring also matched
     # incidental prose like a reference-table cell "랜섬웨어 사고 대응 체크리스트"
     # (false positive surfaced on 2026-02-08). Front-matter excerpts are already
     # excluded by _body(); this narrows the remaining body-prose false positives.
     if re.search(r"^#{2,4}\s+.*대응 체크리스트", clean_body, re.MULTILINE):
-        violations.append("per-item 대응 체크리스트 heading present (should be removed)")
+        violations.append(
+            "per-item 대응 체크리스트 heading present (should be removed)"
+        )
 
     return violations
 
@@ -131,12 +139,15 @@ def _git_show(rev: str, rel: str):
 def _merge_base(base: str) -> str:
     """Merge base of *base* and HEAD, mirroring `git diff BASE...HEAD` semantics."""
     try:
-        return subprocess.check_output(
-            ["git", "merge-base", base, "HEAD"],
-            cwd=str(REPO),
-            stderr=subprocess.DEVNULL,
-            text=True,
-        ).strip() or base
+        return (
+            subprocess.check_output(
+                ["git", "merge-base", base, "HEAD"],
+                cwd=str(REPO),
+                stderr=subprocess.DEVNULL,
+                text=True,
+            ).strip()
+            or base
+        )
     except (subprocess.CalledProcessError, FileNotFoundError):
         return base
 
@@ -337,7 +348,9 @@ def main() -> None:
                 for v in fresh:
                     print(f"  - {v}")
             elif carried:
-                print(f"OK   {rel}  ({carried} pre-existing violation(s) grandfathered)")
+                print(
+                    f"OK   {rel}  ({carried} pre-existing violation(s) grandfathered)"
+                )
             else:
                 print(f"OK   {rel}")
             continue
@@ -363,7 +376,9 @@ def main() -> None:
             f"checked, 0 new violations, {grandfathered} pre-existing carried over."
         )
     else:
-        print(f"[digest-structure] OK — {checked} digest post(s) checked, 0 violations.")
+        print(
+            f"[digest-structure] OK — {checked} digest post(s) checked, 0 violations."
+        )
 
     sys.exit(rc)
 

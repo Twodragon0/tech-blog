@@ -90,7 +90,7 @@ class TestEscapeHelperStripsHangul:
             )
 
     def test_escape_strips_then_xml_escapes(self):
-        out = _escape("AT&T \"Apache HTTP/2의\" <test>")
+        out = _escape('AT&T "Apache HTTP/2의" <test>')
         assert "&amp;" in out  # & escaped
         assert "&quot;" in out  # " escaped
         assert "&lt;test&gt;" in out
@@ -114,7 +114,7 @@ class TestSvgGeneratorEscapeStripsHangul:
         assert out == ""
 
     def test_xml_special_chars_still_escaped(self):
-        out = svg_generator._escape_svg_text('A & B <c> "d" \'e\'')
+        out = svg_generator._escape_svg_text("A & B <c> \"d\" 'e'")
         assert "&amp;" in out
         assert "&lt;" in out
         assert "&gt;" in out
@@ -150,8 +150,7 @@ class TestQrUrlPermalinkContract:
 
     def test_non_matching_filename_returns_root(self):
         assert (
-            _post_url_from_filename("not-a-post.txt")
-            == "https://tech.2twodragon.com/"
+            _post_url_from_filename("not-a-post.txt") == "https://tech.2twodragon.com/"
         )
 
     def test_url_appears_verbatim_in_rendered_svg(self):
@@ -212,8 +211,7 @@ class TestEndToEndKoreanInputProducesAsciiSvg:
         assert ok, "generate_l20_digest_svg returned False"
         svg_text = (tmp_path / "cover.svg").read_text(encoding="utf-8")
         assert not _has_hangul(svg_text), (
-            "Generated SVG file contains Hangul; "
-            "English-only guarantee is broken."
+            "Generated SVG file contains Hangul; English-only guarantee is broken."
         )
         # Sanity: content is meaningful (not empty / not just envelope).
         assert "<text" in svg_text
@@ -253,7 +251,7 @@ class TestQrPathDataRoundTrip:
         # block, with a single ``<path fill="#0A1020" d="...">`` inside it.
         m = re.search(
             r'<g transform="translate\(1080,504\)"[^>]*>\s*'
-            r'<rect[^/]*/>\s*'
+            r"<rect[^/]*/>\s*"
             r'<path fill="#0A1020" d="([^"]*)"',
             svg_text,
             re.DOTALL,
@@ -382,8 +380,7 @@ class TestQrScannabilityGeometry:
             ("bottom", margin_bottom),
         ):
             assert margin >= 4 * one_module, (
-                f"{name} quiet zone {margin:.1f}px < 4 modules "
-                f"({4 * one_module:.1f}px)"
+                f"{name} quiet zone {margin:.1f}px < 4 modules ({4 * one_module:.1f}px)"
             )
 
         # In-frame: absolute white-rect bounds within 0..1200 x, 0..630 y.
@@ -397,6 +394,4 @@ class TestQrScannabilityGeometry:
         lm = re.search(r'<text x="\d+" y="(\d+)"[^>]*>scan / full post</text>', block)
         assert lm, "scan label not found"
         label_y = int(lm.group(1))
-        assert label_y <= ay0, (
-            f"label baseline y={label_y} overlaps QR rect top {ay0}"
-        )
+        assert label_y <= ay0, f"label baseline y={label_y} overlaps QR rect top {ay0}"

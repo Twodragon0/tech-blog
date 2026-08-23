@@ -51,7 +51,9 @@ def _yaml(path: Path) -> dict:
 
 
 def _uncommented(text: str, marker: str) -> str:
-    return "\n".join(ln for ln in text.splitlines() if not ln.lstrip().startswith(marker))
+    return "\n".join(
+        ln for ln in text.splitlines() if not ln.lstrip().startswith(marker)
+    )
 
 
 def _script() -> str:
@@ -75,12 +77,16 @@ def test_workflow_and_script_exist():
 
 def test_gate_is_not_soft():
     job = _yaml(WORKFLOW)["jobs"]["csp-interaction"]
-    assert not job.get("continue-on-error"), "the CSP interaction job is continue-on-error"
+    assert not job.get("continue-on-error"), (
+        "the CSP interaction job is continue-on-error"
+    )
     for step in job["steps"]:
         run = step.get("run") or ""
         if "check_csp_interaction_violations.mjs" in run:
             assert "|| true" not in run, "the gate invocation is wrapped in '|| true'"
-            assert not step.get("continue-on-error"), "the gate step is continue-on-error"
+            assert not step.get("continue-on-error"), (
+                "the gate step is continue-on-error"
+            )
             assert "--baseline" in run, (
                 "the gate must run with --baseline, otherwise the known Translate "
                 "violation fails every run and the gate gets muted"
@@ -97,20 +103,33 @@ def test_gate_is_not_soft():
 @pytest.mark.parametrize(
     ("fragment", "why"),
     [
-        ("#lang-toggle", "the Translate click is the only interaction that found a violation"),
-        (".adsbygoogle", "AdSense loads via IntersectionObserver on this slot, not on scroll"),
+        (
+            "#lang-toggle",
+            "the Translate click is the only interaction that found a violation",
+        ),
+        (
+            ".adsbygoogle",
+            "AdSense loads via IntersectionObserver on this slot, not on scroll",
+        ),
         ("pointermove", "head-runtime.js binds this to its lazy loaders"),
-        ("securitypolicyviolation", "structural violation capture, not console scraping"),
+        (
+            "securitypolicyviolation",
+            "structural violation capture, not console scraping",
+        ),
     ],
 )
 def test_script_still_drives_the_interaction_path(fragment: str, why: str):
-    assert fragment in _script(), f"{SCRIPT.name} no longer references {fragment!r} — {why}"
+    assert fragment in _script(), (
+        f"{SCRIPT.name} no longer references {fragment!r} — {why}"
+    )
 
 
 def test_script_reports_coverage_gaps():
     """A green result must say which integrations it did NOT exercise."""
     src = _script()
-    assert "uncovered" in src, "coverage tracking is gone; a green run would overstate what it covered"
+    assert "uncovered" in src, (
+        "coverage tracking is gone; a green run would overstate what it covered"
+    )
     assert "configured" in src, (
         "the script no longer distinguishes 'not configured' from 'configured but not "
         "triggered' — the second is a coverage gap, the first is not"
@@ -118,15 +137,17 @@ def test_script_reports_coverage_gaps():
 
 
 def test_script_refuses_to_pass_when_it_cannot_measure():
-    """"Could not check" must not read as "nothing was wrong"."""
+    """ "Could not check" must not read as "nothing was wrong"."""
     src = _script()
     assert "sawReportOnly" in src, (
         "the script no longer verifies a Report-Only header is present; without one it "
         "would pass vacuously"
     )
-    assert "process.exit(2)" in src or "exitCode = 2" in src or "Math.max(exitCode, 2)" in src, (
-        "the distinct 'could not measure' exit code is gone"
-    )
+    assert (
+        "process.exit(2)" in src
+        or "exitCode = 2" in src
+        or "Math.max(exitCode, 2)" in src
+    ), "the distinct 'could not measure' exit code is gone"
 
 
 def test_extension_violations_are_excluded():
@@ -151,7 +172,9 @@ def test_baseline_documents_the_known_blocker():
         "actually fixed it, that is the definition of done — say so in the PR. If it was "
         "deleted to quiet the gate, restore it."
     )
-    assert "lang-toggle" in text, "the baseline no longer records HOW the violation was isolated"
+    assert "lang-toggle" in text, (
+        "the baseline no longer records HOW the violation was isolated"
+    )
 
 
 def test_baseline_stays_small():

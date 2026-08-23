@@ -37,12 +37,16 @@ class TestBuildShNotoHook:
     def test_noto_vf_url_is_pinned_sha(self) -> None:
         """The URL must contain a 40-char commit SHA, not 'main' or a branch name."""
         text = _build_sh_text()
-        match = re.search(r"NOTO_VF_URL='(https://raw\.githubusercontent\.com/[^']+)'", text)
+        match = re.search(
+            r"NOTO_VF_URL='(https://raw\.githubusercontent\.com/[^']+)'", text
+        )
         assert match, "build.sh must export NOTO_VF_URL as a single-quoted string"
         url = match.group(1)
         # Ensure the URL contains a 40-hex-char SHA (not the word 'main')
         sha_match = re.search(r"/([0-9a-f]{40})/", url)
-        assert sha_match, f"NOTO_VF_URL must contain a pinned 40-char commit SHA; got: {url}"
+        assert sha_match, (
+            f"NOTO_VF_URL must contain a pinned 40-char commit SHA; got: {url}"
+        )
 
     def test_references_syllable_list(self) -> None:
         assert "noto_subset_top1k.txt" in _build_sh_text(), (

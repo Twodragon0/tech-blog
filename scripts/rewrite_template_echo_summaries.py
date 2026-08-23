@@ -395,9 +395,7 @@ _MASK = "\x00SUMMARY\x00"
 
 def _mask_summaries(text: str) -> str:
     def _mask_card(card):
-        return SUMMARY_RE.sub(
-            lambda m: m.group(1) + _MASK + m.group(3), card.group(0)
-        )
+        return SUMMARY_RE.sub(lambda m: m.group(1) + _MASK + m.group(3), card.group(0))
 
     return CARD_RE.sub(_mask_card, text)
 

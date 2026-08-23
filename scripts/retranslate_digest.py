@@ -31,6 +31,7 @@ Usage (mirrors check_digest_untranslated.py, plus --dry-run):
     python3 scripts/retranslate_digest.py --all --dry-run
     python3 scripts/retranslate_digest.py _posts/2026-07-25-...Weekly_Digest...md
 """
+
 import argparse
 import html
 import os
@@ -159,7 +160,9 @@ def translate(text: str, mode: str, context: str = "기술 뉴스") -> str:
 
     # 1) Gemini (CLI free-tier first, API fallback — both inside _gemini_call).
     if check_gemini_available():
-        candidate = _postprocess(_gemini_call(_build_prompt(text, mode, context), timeout=20))
+        candidate = _postprocess(
+            _gemini_call(_build_prompt(text, mode, context), timeout=20)
+        )
         if _is_valid_korean(candidate, text):
             return candidate
 
@@ -242,16 +245,28 @@ def main(argv=None) -> int:
         )
     )
     mode = parser.add_mutually_exclusive_group()
-    mode.add_argument("--staged", action="store_true",
-                      help="Only fix staged digest posts (git diff --cached).")
-    mode.add_argument("--all", action="store_true",
-                      help="Fix every digest post.")
-    mode.add_argument("--changed", metavar="BASE", default=None,
-                      help="Only fix digest posts changed vs BASE (git diff BASE...HEAD).")
-    parser.add_argument("paths", nargs="*",
-                        help="Explicit post file paths (non-digest paths are skipped).")
-    parser.add_argument("--dry-run", action="store_true",
-                        help="Report what WOULD change without writing.")
+    mode.add_argument(
+        "--staged",
+        action="store_true",
+        help="Only fix staged digest posts (git diff --cached).",
+    )
+    mode.add_argument("--all", action="store_true", help="Fix every digest post.")
+    mode.add_argument(
+        "--changed",
+        metavar="BASE",
+        default=None,
+        help="Only fix digest posts changed vs BASE (git diff BASE...HEAD).",
+    )
+    parser.add_argument(
+        "paths",
+        nargs="*",
+        help="Explicit post file paths (non-digest paths are skipped).",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Report what WOULD change without writing.",
+    )
     args = parser.parse_args(argv)
 
     if args.staged:

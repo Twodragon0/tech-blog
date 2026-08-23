@@ -61,7 +61,6 @@ def extract_diagram_references(content: str) -> List[Tuple[str, str]]:
     return diagrams
 
 
-
 def generate_diagram_prompt(
     alt_text: str, image_path: str, content_context: str = ""
 ) -> str:

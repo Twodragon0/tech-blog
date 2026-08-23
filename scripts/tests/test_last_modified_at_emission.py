@@ -17,7 +17,6 @@ import re
 
 import pytest
 import yaml
-
 from auto_publish_news import generate_post_content, generate_tech_blog_content
 
 
@@ -124,9 +123,11 @@ class TestLastModifiedAtEmission:
             if isinstance(value, datetime.datetime):
                 return value.astimezone(datetime.timezone.utc).replace(microsecond=0)
             # Fallback: parse string form.
-            return datetime.datetime.fromisoformat(
-                str(value).replace(" +0900", "+09:00")
-            ).astimezone(datetime.timezone.utc).replace(microsecond=0)
+            return (
+                datetime.datetime.fromisoformat(str(value).replace(" +0900", "+09:00"))
+                .astimezone(datetime.timezone.utc)
+                .replace(microsecond=0)
+            )
 
         assert _as_utc(d) == _as_utc(lm), (
             f"date ({d}) and last_modified_at ({lm}) must match at publish time"

@@ -18,6 +18,7 @@ Usage:
 See docs/seo/GSC_RECRAWL_SETUP.md (PR-2 section) for what the report
 contains and how to use it with the GSC UI.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -38,9 +39,9 @@ DEFAULT_TOP_N = 10
 # Priority-score coefficients (see plan §3.2 + executor decision in PR description).
 RECENCY_MAX_PTS = 40.0
 RECENCY_HORIZON_DAYS = 365
-ENGAGEMENT_MAX_PTS = 0.0          # reserved, hook for PR-5
+ENGAGEMENT_MAX_PTS = 0.0  # reserved, hook for PR-5
 SITEMAP_AGE_MAX_PTS = 20.0
-SITEMAP_AGE_FULL_DAYS = 140       # 20 weeks ≈ full credit
+SITEMAP_AGE_FULL_DAYS = 140  # 20 weeks ≈ full credit
 STUCK_BASE_PTS = 15.0
 STUCK_PER_RUN_PTS = 1.0
 STUCK_PER_RUN_CAP = 15.0
@@ -115,7 +116,8 @@ def infer_publish_date_from_url(url: Optional[str]) -> Optional[date]:
 
 
 def recency_score(
-    publish_date: Optional[date], today: date,
+    publish_date: Optional[date],
+    today: date,
 ) -> float:
     """Fresh posts deserve faster indexing visibility.
 
@@ -134,7 +136,8 @@ def recency_score(
 
 
 def sitemap_age_score(
-    last_crawl_time: Optional[str], now: datetime,
+    last_crawl_time: Optional[str],
+    now: datetime,
 ) -> float:
     """Old `lastCrawlTime` → higher priority (Google may not have refetched).
 
@@ -155,7 +158,8 @@ def sitemap_age_score(
 
 
 def stuck_penalty_score(
-    coverage_state: Optional[str], consecutive_count: int,
+    coverage_state: Optional[str],
+    consecutive_count: int,
 ) -> float:
     """Reward URLs that have been stuck across consecutive runs.
 
@@ -224,7 +228,8 @@ def load_history(history_dir: Path) -> List[Dict[str, Any]]:
 
 
 def build_stuck_counts(
-    history: List[Dict[str, Any]], today_state: Dict[str, Any],
+    history: List[Dict[str, Any]],
+    today_state: Dict[str, Any],
 ) -> Dict[str, int]:
     """For each URL, count consecutive prior-day runs ending stuck.
 
@@ -283,10 +288,12 @@ def score_url(
         "recency": round(recency_score(publish_date, today), 2),
         "engagement": round(engagement_score(url), 2),
         "sitemap_age": round(
-            sitemap_age_score(entry.get("last_crawl_time"), now), 2,
+            sitemap_age_score(entry.get("last_crawl_time"), now),
+            2,
         ),
         "stuck_penalty": round(
-            stuck_penalty_score(coverage, consecutive_stuck), 2,
+            stuck_penalty_score(coverage, consecutive_stuck),
+            2,
         ),
     }
     total = round(sum(breakdown.values()), 2)
@@ -345,8 +352,10 @@ def summarise_coverage_buckets(
 
 def _md_table(headers: Iterable[str], rows: Iterable[Iterable[Any]]) -> str:
     headers = list(headers)
-    out = ["| " + " | ".join(headers) + " |",
-           "|" + "|".join(["---"] * len(headers)) + "|"]
+    out = [
+        "| " + " | ".join(headers) + " |",
+        "|" + "|".join(["---"] * len(headers)) + "|",
+    ]
     for row in rows:
         cells = ["" if c is None else str(c) for c in row]
         out.append("| " + " | ".join(cells) + " |")
@@ -364,24 +373,31 @@ def render_report(
     generated_at = state.get("generated_at", "(unknown)")
     site_url = state.get("site_url", "(unknown)")
 
-    coverage_rows = [(label, count) for label, count in summarise_coverage_buckets(state)]
+    coverage_rows = [
+        (label, count) for label, count in summarise_coverage_buckets(state)
+    ]
 
     top = ranked[: max(0, top_n)]
     top_rows = []
     for idx, row in enumerate(top, start=1):
-        top_rows.append([
-            idx,
-            row["url"],
-            row["total_score"],
-            row["coverage_state"],
-            row["days_since_publish"] if row["days_since_publish"] is not None else "n/a",
-            row["days_since_lastmod"] if row["days_since_lastmod"] is not None else "n/a",
-            row["stuck_count"],
-        ])
+        top_rows.append(
+            [
+                idx,
+                row["url"],
+                row["total_score"],
+                row["coverage_state"],
+                row["days_since_publish"]
+                if row["days_since_publish"] is not None
+                else "n/a",
+                row["days_since_lastmod"]
+                if row["days_since_lastmod"] is not None
+                else "n/a",
+                row["stuck_count"],
+            ]
+        )
 
     suggested = [
-        "1. Open Google Search Console for "
-        f"`{site_url}` (or the matching property).",
+        f"1. Open Google Search Console for `{site_url}` (or the matching property).",
         "2. For each URL in the top-10 table above, paste it into the URL "
         "Inspection tool and click **Request Indexing**.",
         "3. GSC enforces an undocumented ~10-12 manual submissions per day per "
@@ -394,15 +410,17 @@ def render_report(
 
     full_rows = []
     for idx, row in enumerate(ranked, start=1):
-        full_rows.append([
-            idx,
-            row["url"],
-            row["total_score"],
-            row["coverage_state"],
-            row["stuck_count"],
-            row["verdict"] or "",
-            row["error"] or "",
-        ])
+        full_rows.append(
+            [
+                idx,
+                row["url"],
+                row["total_score"],
+                row["coverage_state"],
+                row["stuck_count"],
+                row["verdict"] or "",
+                row["error"] or "",
+            ]
+        )
 
     parts: List[str] = []
     parts.append(f"# GSC Daily Action Report — {today.isoformat()}")
@@ -427,11 +445,20 @@ def render_report(
     parts.append(f"## Top {len(top)} priority URLs")
     parts.append("")
     if top:
-        parts.append(_md_table(
-            ["#", "URL", "Score", "Coverage", "Days since publish",
-             "Days since last crawl", "Stuck N"],
-            top_rows,
-        ))
+        parts.append(
+            _md_table(
+                [
+                    "#",
+                    "URL",
+                    "Score",
+                    "Coverage",
+                    "Days since publish",
+                    "Days since last crawl",
+                    "Stuck N",
+                ],
+                top_rows,
+            )
+        )
     else:
         parts.append("_No URLs ranked — empty state or all-error run._")
     parts.append("")
@@ -445,10 +472,12 @@ def render_report(
     parts.append("")
     parts.append("<details><summary>Show all ranked URLs</summary>")
     parts.append("")
-    parts.append(_md_table(
-        ["#", "URL", "Score", "Coverage", "Stuck N", "Verdict", "Error"],
-        full_rows,
-    ))
+    parts.append(
+        _md_table(
+            ["#", "URL", "Score", "Coverage", "Stuck N", "Verdict", "Error"],
+            full_rows,
+        )
+    )
     parts.append("")
     parts.append("</details>")
     parts.append("")
@@ -471,18 +500,35 @@ def render_report(
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--state", default=str(DEFAULT_STATE), type=Path,
-                        help=f"state file path (default: {DEFAULT_STATE})")
-    parser.add_argument("--history-dir", default=str(DEFAULT_HISTORY_DIR),
-                        type=Path,
-                        help=f"history dir (default: {DEFAULT_HISTORY_DIR})")
-    parser.add_argument("--output", default=None, type=Path,
-                        help="output report path "
-                             "(default: .omc/reports/gsc-daily-action-{today}.md)")
-    parser.add_argument("--top-n", type=int, default=DEFAULT_TOP_N,
-                        help=f"top-N table size (default: {DEFAULT_TOP_N})")
-    parser.add_argument("--dry-run", action="store_true",
-                        help="print report to stdout, do not write file")
+    parser.add_argument(
+        "--state",
+        default=str(DEFAULT_STATE),
+        type=Path,
+        help=f"state file path (default: {DEFAULT_STATE})",
+    )
+    parser.add_argument(
+        "--history-dir",
+        default=str(DEFAULT_HISTORY_DIR),
+        type=Path,
+        help=f"history dir (default: {DEFAULT_HISTORY_DIR})",
+    )
+    parser.add_argument(
+        "--output",
+        default=None,
+        type=Path,
+        help="output report path (default: .omc/reports/gsc-daily-action-{today}.md)",
+    )
+    parser.add_argument(
+        "--top-n",
+        type=int,
+        default=DEFAULT_TOP_N,
+        help=f"top-N table size (default: {DEFAULT_TOP_N})",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="print report to stdout, do not write file",
+    )
     return parser.parse_args(argv)
 
 

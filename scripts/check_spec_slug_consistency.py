@@ -107,7 +107,7 @@ def _find_post(date_str: str, slug: str) -> Optional[Path]:
     for candidate in candidates:
         stem = candidate.stem  # e.g. "2025-05-24-Amazon_Q_DeveloperAnd_..."
         # The part after the date prefix
-        after_date = stem[len(date_str) + 1:]  # strip "YYYY-MM-DD-"
+        after_date = stem[len(date_str) + 1 :]  # strip "YYYY-MM-DD-"
         if after_date.lower() == slug_lower:
             return candidate
 
@@ -210,7 +210,9 @@ def _check_spec(spec_path: Path) -> list[str]:
     post = _find_post(date_str, slug)
 
     if post is None:
-        rel_spec = spec_path.relative_to(REPO) if spec_path.is_relative_to(REPO) else spec_path
+        rel_spec = (
+            spec_path.relative_to(REPO) if spec_path.is_relative_to(REPO) else spec_path
+        )
         violations.append(
             f"orphan-spec  spec={rel_spec}  no matching post found for date={date_str}"
         )
@@ -220,14 +222,18 @@ def _check_spec(spec_path: Path) -> list[str]:
     rel_post = post.relative_to(REPO) if post.is_relative_to(REPO) else post
 
     if actual_image is None:
-        rel_spec = spec_path.relative_to(REPO) if spec_path.is_relative_to(REPO) else spec_path
+        rel_spec = (
+            spec_path.relative_to(REPO) if spec_path.is_relative_to(REPO) else spec_path
+        )
         violations.append(
             f"missing-image  spec={rel_spec.name}  post={rel_post}  no image: field in front matter"
         )
         return violations
 
     if actual_image != expected_image:
-        rel_spec = spec_path.relative_to(REPO) if spec_path.is_relative_to(REPO) else spec_path
+        rel_spec = (
+            spec_path.relative_to(REPO) if spec_path.is_relative_to(REPO) else spec_path
+        )
         violations.append(
             f"slug-vs-image-mismatch  spec={rel_spec.name}"
             f"  expects={expected_image}"

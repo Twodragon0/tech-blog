@@ -20,6 +20,7 @@ Usage:
     python3 scripts/linkify_bare_urls.py --posts-glob '_posts/*.md' --dry-run
     python3 scripts/linkify_bare_urls.py _posts/2025-12-17-*.md
 """
+
 import argparse
 import glob
 import re
@@ -74,7 +75,7 @@ def _linkify_line(line: str) -> str:
 
 def transform(text: str) -> str:
     m = _FRONT_MATTER_RE.match(text)
-    front, body = (text[: m.end()], text[m.end():]) if m else ("", text)
+    front, body = (text[: m.end()], text[m.end() :]) if m else ("", text)
 
     out, in_fence, in_liquid = [], False, False
     for line in body.split("\n"):
@@ -116,7 +117,9 @@ def bare_urls(text: str) -> list:
 
 def _git_paths(cmd: list) -> list:
     try:
-        out = subprocess.check_output(cmd, cwd=str(REPO), stderr=subprocess.DEVNULL, text=True)
+        out = subprocess.check_output(
+            cmd, cwd=str(REPO), stderr=subprocess.DEVNULL, text=True
+        )
     except (subprocess.CalledProcessError, FileNotFoundError):
         return []
     paths = []
@@ -145,7 +148,9 @@ def main(argv=None) -> int:
     if args.posts_glob:
         files += [Path(p) for p in sorted(glob.glob(args.posts_glob))]
     if args.staged:
-        files += _git_paths(["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"])
+        files += _git_paths(
+            ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"]
+        )
     if args.all:
         files += sorted((REPO / "_posts").glob("*.md"))
     if not files:

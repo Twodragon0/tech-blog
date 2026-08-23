@@ -110,7 +110,7 @@ def main(argv: List[str] | None = None) -> int:
             file=sys.stderr,
         )
         print(
-            "  Fix: use \\\" for inner quotes, or switch the outer wrapper to single quotes.",
+            '  Fix: use \\" for inner quotes, or switch the outer wrapper to single quotes.',
             file=sys.stderr,
         )
         print(file=sys.stderr)

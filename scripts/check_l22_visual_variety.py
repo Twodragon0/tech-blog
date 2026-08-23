@@ -83,11 +83,21 @@ def check_file(path: Path) -> Tuple[str, Optional[str]]:
 
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     group = p.add_mutually_exclusive_group()
-    group.add_argument("--all", action="store_true", help="Scan all L22 digest covers under assets/images/")
-    group.add_argument("--glob", metavar="PATTERN", help="Glob pattern relative to repo root")
-    p.add_argument("--quiet", action="store_true", help="Suppress PASS lines; only print WARN/FAIL")
+    group.add_argument(
+        "--all",
+        action="store_true",
+        help="Scan all L22 digest covers under assets/images/",
+    )
+    group.add_argument(
+        "--glob", metavar="PATTERN", help="Glob pattern relative to repo root"
+    )
+    p.add_argument(
+        "--quiet", action="store_true", help="Suppress PASS lines; only print WARN/FAIL"
+    )
     return p.parse_args(argv)
 
 

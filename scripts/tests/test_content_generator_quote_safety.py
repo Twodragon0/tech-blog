@@ -130,6 +130,6 @@ def test_no_ascii_double_quote_inside_any_attribute_value():
     for attr_match in re.finditer(r'(\w[\w-]*)="([^"]*)"', card):
         name, value = attr_match.group(1), attr_match.group(2)
         assert '"' not in value, (
-            f'attribute {name!r} contains an inner ASCII double-quote in '
-            f'value: {value!r}; Liquid would terminate the attribute early.'
+            f"attribute {name!r} contains an inner ASCII double-quote in "
+            f"value: {value!r}; Liquid would terminate the attribute early."
         )

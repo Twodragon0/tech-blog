@@ -6,6 +6,7 @@ calculation and markdown structure produced from a stub state dict.
 
 API disabling and path setup are handled by conftest.py.
 """
+
 from __future__ import annotations
 
 import importlib.util

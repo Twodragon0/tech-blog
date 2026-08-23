@@ -43,7 +43,9 @@ def _noncomment(text: str) -> str:
 # so allow an optional closing quote before the flags.
 _HOOK_RE = re.compile(rf"{re.escape(SCRIPT)}\"?\s+--staged\s+--ratchet")
 # CI invokes it as: python3 scripts/...py --changed "$BASE" --ratchet
-_CI_RE = re.compile(rf"{re.escape(SCRIPT)}\s+--changed\s+\"?\$?\{{?\w+\}}?\"?\s+--ratchet")
+_CI_RE = re.compile(
+    rf"{re.escape(SCRIPT)}\s+--changed\s+\"?\$?\{{?\w+\}}?\"?\s+--ratchet"
+)
 
 
 def test_script_exists():

@@ -19,6 +19,7 @@ Importing these rather than re-declaring them is C8: one source of truth, so the
 scripts cannot drift apart again. ``scripts/tests/test_news_card_patterns.py``
 pins the match count against the corpus itself.
 """
+
 import re
 
 # Every include kind that renders a news item with a ``summary=`` attribute.
@@ -47,7 +48,9 @@ CARD_RE = re.compile(
 # The corpus has no hyphenated include parameter yet, so widening the class is
 # behaviour-preserving today (proved over all 2117 card blocks) and stops a
 # ``summary`` value from swallowing the next attribute the day one appears.
-SUMMARY_RE = re.compile(r'(\bsummary=")(.*?)("(?=\s+[\w-]+="|\s*-?%\}|\s*$))', re.DOTALL)
+SUMMARY_RE = re.compile(
+    r'(\bsummary=")(.*?)("(?=\s+[\w-]+="|\s*-?%\}|\s*$))', re.DOTALL
+)
 
 
 def block_re(include_name: str) -> "re.Pattern[str]":

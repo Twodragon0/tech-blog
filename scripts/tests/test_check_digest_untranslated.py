@@ -70,7 +70,12 @@ def _write(txt):
 
 
 def test_check_post_flags_english_summary_block():
-    body = _HEAD + "## 1. 보안 뉴스\n\n### 1.1 항목\n\n#### 요약\n\n" + _REAL_ENGLISH + "\n\n---\n"
+    body = (
+        _HEAD
+        + "## 1. 보안 뉴스\n\n### 1.1 항목\n\n#### 요약\n\n"
+        + _REAL_ENGLISH
+        + "\n\n---\n"
+    )
     vs = check_post(_write(body))
     assert vs and any("요약 블록" in v for v in vs)
 

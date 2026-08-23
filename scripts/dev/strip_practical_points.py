@@ -18,6 +18,7 @@ Usage:
                make no edits (for CI regression gating).
   Default PATHS = _posts/*.md
 """
+
 from __future__ import annotations
 
 import glob
@@ -25,7 +26,9 @@ import re
 import sys
 
 # A heading whose entire label is (optionally bolded) 실무[ 적용] 포인트.
-SECTION_TITLE_RE = re.compile(r"^\s*#{1,6}\s*\*{0,2}\s*실무\s*(?:적용\s*)?포인트\s*\*{0,2}\s*$")
+SECTION_TITLE_RE = re.compile(
+    r"^\s*#{1,6}\s*\*{0,2}\s*실무\s*(?:적용\s*)?포인트\s*\*{0,2}\s*$"
+)
 # An inline one-liner: optional bold wrapper, then a colon.
 INLINE_RE = re.compile(r"^\s*\*{0,2}\s*실무\s*(?:적용\s*)?포인트\s*\*{0,2}\s*:")
 # Boundaries that terminate a removed heading section.
@@ -100,7 +103,9 @@ def main(argv: list[str]) -> int:
                 print(f"cleaned {path}: -{ri} inline, -{rs} section(s)")
 
     verb = "would change" if check else "changed"
-    print(f"\n{changed} file(s) {verb}; removed {tot_inline} inline + {tot_sections} heading-section(s).")
+    print(
+        f"\n{changed} file(s) {verb}; removed {tot_inline} inline + {tot_sections} heading-section(s)."
+    )
     if check and changed:
         return 1
     return 0

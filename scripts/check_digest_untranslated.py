@@ -24,6 +24,7 @@ Usage:
     python3 scripts/check_digest_untranslated.py --all           # every digest post
     python3 scripts/check_digest_untranslated.py path/a.md path/b.md
 """
+
 import argparse
 import re
 import subprocess
@@ -62,7 +63,7 @@ _PROPER_SEQ = re.compile(
 
 def _body(text: str) -> str:
     m = re.match(r"^---\n.*?\n---\n", text, re.DOTALL)
-    return text[m.end():] if m else text
+    return text[m.end() :] if m else text
 
 
 def _strip_code_fences(text: str) -> str:
@@ -165,7 +166,9 @@ def _explicit_paths(args_paths: list) -> list:
             cwd_p = Path.cwd() / p
             p = cwd_p if cwd_p.exists() else REPO / a
         if not p.exists():
-            print(f"[digest-untranslated] WARNING: file not found: {a}", file=sys.stderr)
+            print(
+                f"[digest-untranslated] WARNING: file not found: {a}", file=sys.stderr
+            )
             continue
         if _is_digest_post(p):
             paths.append(p)
@@ -181,14 +184,23 @@ def main() -> None:
         )
     )
     mode = parser.add_mutually_exclusive_group()
-    mode.add_argument("--staged", action="store_true",
-                      help="Only check staged digest posts (git diff --cached).")
-    mode.add_argument("--all", action="store_true",
-                      help="Check every digest post.")
-    mode.add_argument("--changed", metavar="BASE", default=None,
-                      help="Only check digest posts changed vs BASE (git diff BASE...HEAD).")
-    parser.add_argument("paths", nargs="*",
-                        help="Explicit post file paths (non-digest paths are skipped).")
+    mode.add_argument(
+        "--staged",
+        action="store_true",
+        help="Only check staged digest posts (git diff --cached).",
+    )
+    mode.add_argument("--all", action="store_true", help="Check every digest post.")
+    mode.add_argument(
+        "--changed",
+        metavar="BASE",
+        default=None,
+        help="Only check digest posts changed vs BASE (git diff BASE...HEAD).",
+    )
+    parser.add_argument(
+        "paths",
+        nargs="*",
+        help="Explicit post file paths (non-digest paths are skipped).",
+    )
     args = parser.parse_args()
 
     if args.staged:
@@ -226,7 +238,9 @@ def main() -> None:
             file=sys.stderr,
         )
     else:
-        print(f"[digest-untranslated] OK — {checked} digest post(s) checked, 0 violations.")
+        print(
+            f"[digest-untranslated] OK — {checked} digest post(s) checked, 0 violations."
+        )
 
     sys.exit(rc)
 

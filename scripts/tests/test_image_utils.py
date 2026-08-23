@@ -63,7 +63,9 @@ def test_extract_html_img():
 
 
 def test_extract_source_srcset_uses_first_candidate():
-    content = '<source srcset="/assets/images/card.avif 1x, /assets/images/card@2x.avif 2x">'
+    content = (
+        '<source srcset="/assets/images/card.avif 1x, /assets/images/card@2x.avif 2x">'
+    )
     assert "card.avif" in extract_image_paths(content)
 
 
@@ -120,14 +122,18 @@ def test_extract_ignores_external_urls():
 
 def test_normalize_absolute_assets_path(tmp_path):
     result = normalize_image_path(
-        "/assets/images/foo.svg", project_root=tmp_path, images_dir=tmp_path / "assets/images"
+        "/assets/images/foo.svg",
+        project_root=tmp_path,
+        images_dir=tmp_path / "assets/images",
     )
     assert result == tmp_path / "assets" / "images" / "foo.svg"
 
 
 def test_normalize_relative_assets_path(tmp_path):
     result = normalize_image_path(
-        "assets/images/foo.svg", project_root=tmp_path, images_dir=tmp_path / "assets/images"
+        "assets/images/foo.svg",
+        project_root=tmp_path,
+        images_dir=tmp_path / "assets/images",
     )
     assert result == tmp_path / "assets" / "images" / "foo.svg"
 
@@ -142,7 +148,9 @@ def test_image_exists_true_when_file_present(tmp_path):
     images = tmp_path / "assets" / "images"
     images.mkdir(parents=True)
     (images / "ok.svg").write_text("<svg/>")
-    assert image_exists("/assets/images/ok.svg", project_root=tmp_path, images_dir=images)
+    assert image_exists(
+        "/assets/images/ok.svg", project_root=tmp_path, images_dir=images
+    )
 
 
 def test_image_exists_false_for_missing(tmp_path):
@@ -198,9 +206,7 @@ def test_check_image_references_clean_post(tmp_path):
     images.mkdir(parents=True)
     (images / "ok.svg").write_text("<svg/>")
     post = tmp_path / "post.md"
-    post.write_text(
-        "---\nimage: /assets/images/ok.svg\n---\nBody.\n", encoding="utf-8"
-    )
+    post.write_text("---\nimage: /assets/images/ok.svg\n---\nBody.\n", encoding="utf-8")
     assert check_image_references(post, project_root=tmp_path, images_dir=images) == []
 
 
@@ -236,7 +242,9 @@ def test_image_issue_is_hashable():
 
 def test_extract_fm_image_basic_path():
     content = "---\nimage: /assets/images/2025-01-01-diagram.svg\n---\n"
-    assert extract_front_matter_image(content) == "/assets/images/2025-01-01-diagram.svg"
+    assert (
+        extract_front_matter_image(content) == "/assets/images/2025-01-01-diagram.svg"
+    )
 
 
 def test_extract_fm_image_strips_double_quotes():

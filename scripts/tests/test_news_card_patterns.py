@@ -17,6 +17,7 @@ written scanner (C5: the audit detector must not call the detector it audits),
 so they keep working as the corpus grows — they assert agreement, not a frozen
 count.
 """
+
 import re
 import sys
 from pathlib import Path
@@ -120,7 +121,7 @@ def test_every_whitespace_control_variant_is_matched(name, snippet):
     "snippet",
     [
         '{% include ai-summary-card.html summary="x" %}',
-        '{% include news-spotlight-section.html body=items %}',
+        "{% include news-spotlight-section.html body=items %}",
         '{% include news-card-legacy.html summary="x" %}',
     ],
 )
@@ -157,7 +158,9 @@ CONSUMERS = [
 def test_consumers_import_the_shared_pattern_instead_of_redeclaring(script):
     """A re-declared `\\{%\\s*include` in any consumer reopens the C11 hole."""
     src = (REPO / "scripts" / script).read_text(encoding="utf-8")
-    assert "news_card_patterns import" in src, f"{script} must import the shared pattern"
+    assert "news_card_patterns import" in src, (
+        f"{script} must import the shared pattern"
+    )
     assert not re.search(r'r"\\\{%\\s\*include', src), (
         f"{script} re-declares a `-`-blind include pattern"
     )
@@ -211,7 +214,9 @@ def test_spotlight_re_never_matches_a_news_card():
 
 @pytest.mark.parametrize("dash", ["", "-"])
 def test_spotlight_re_matches_both_whitespace_control_forms(dash):
-    snippet = f'{{%{dash} include news-spotlight-item.html\n  summary="가나다."\n{dash}%}}'
+    snippet = (
+        f'{{%{dash} include news-spotlight-item.html\n  summary="가나다."\n{dash}%}}'
+    )
     assert len(ncp.SPOTLIGHT_RE.findall(snippet)) == 1
 
 
@@ -222,20 +227,10 @@ def test_summary_value_stops_at_a_hyphenated_attribute_name():
     """``Jekyll::Tags::IncludeTag::VALID_SYNTAX`` is ``([\\w-]+)\\s*=\\s*…``, so a
     hyphenated parameter name is legal Jekyll. With ``\\w+`` in the lookahead the
     summary value would swallow it."""
-    snippet = (
-        "{% include news-card.html\n"
-        '  summary="가나다."\n'
-        '  aria-label="x"\n'
-        "%}"
-    )
+    snippet = '{% include news-card.html\n  summary="가나다."\n  aria-label="x"\n%}'
     assert ncp.SUMMARY_RE.search(snippet).group(2) == "가나다."
 
 
 def test_summary_value_still_stops_at_an_underscored_attribute_name():
-    snippet = (
-        "{% include news-card.html\n"
-        '  summary="가나다."\n'
-        '  aria_label="x"\n'
-        "%}"
-    )
+    snippet = '{% include news-card.html\n  summary="가나다."\n  aria_label="x"\n%}'
     assert ncp.SUMMARY_RE.search(snippet).group(2) == "가나다."

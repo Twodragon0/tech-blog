@@ -10,7 +10,6 @@ import re
 from typing import Dict, List
 
 import pytest
-
 from news.content_generator import _generate_executive_and_risk_sections
 from news_utils import determine_severity
 
@@ -195,7 +194,9 @@ class TestBriefingStructureSnapshot:
             "## 위험 스코어카드", 1
         )[0]
         bullets = [
-            ln for ln in briefing_block.splitlines() if ln.strip() and not ln.startswith("#")
+            ln
+            for ln in briefing_block.splitlines()
+            if ln.strip() and not ln.startswith("#")
         ]
         assert bullets, f"Briefing block was empty:\n{briefing_block}"
         for ln in bullets:
@@ -225,14 +226,14 @@ class TestBriefingStructureSnapshot:
     def test_empty_input_still_emits_both_headers(self):
         output = _generate_executive_and_risk_sections([], mode="security")
         for header in self._EXPECTED_SECTION_HEADERS:
-            assert header in output, (
-                f"Empty input dropped header {header!r}:\n{output}"
-            )
+            assert header in output, f"Empty input dropped header {header!r}:\n{output}"
 
     def test_output_ends_with_double_newline(self):
         """Callers concatenate directly — trailing whitespace contract must hold."""
         output = self._generate()
-        assert output.endswith("\n\n"), f"Output missing trailing \\n\\n: {output[-10:]!r}"
+        assert output.endswith("\n\n"), (
+            f"Output missing trailing \\n\\n: {output[-10:]!r}"
+        )
 
     def test_tech_blog_mode_does_not_emit_severity_claims(self):
         """tech-blog mode uses action-point style briefing, not severity counts."""

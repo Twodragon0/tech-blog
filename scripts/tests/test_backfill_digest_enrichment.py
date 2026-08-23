@@ -5,8 +5,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
 import backfill_digest_enrichment as bde  # noqa: E402
-from scripts.news import content_generator  # noqa: E402
 
+from scripts.news import content_generator  # noqa: E402
 
 _POST = """---
 title: x
@@ -90,11 +90,18 @@ _CANNED = "#### 기술적 배경\n\n출처 기반 확장된 분석 내용입니�
 
 
 def _fresh_stats():
-    return {"items_with_deep_analysis": 0, "fetched_ok": 0, "expanded_ok": 0, "replaced": 0}
+    return {
+        "items_with_deep_analysis": 0,
+        "fetched_ok": 0,
+        "expanded_ok": 0,
+        "replaced": 0,
+    }
 
 
 def test_replaces_deep_analysis_when_expansion_returns_text(monkeypatch):
-    monkeypatch.setattr(content_generator, "_maybe_source_expansion", lambda item: _CANNED)
+    monkeypatch.setattr(
+        content_generator, "_maybe_source_expansion", lambda item: _CANNED
+    )
     stats = _fresh_stats()
     out = bde.transform_body(_POST, stats)
     assert "출처 기반 확장된 분석 내용입니다." in out
@@ -115,7 +122,9 @@ def test_item_unchanged_when_expansion_returns_none(monkeypatch):
 
 
 def test_newscard_and_heading_and_separator_preserved(monkeypatch):
-    monkeypatch.setattr(content_generator, "_maybe_source_expansion", lambda item: _CANNED)
+    monkeypatch.setattr(
+        content_generator, "_maybe_source_expansion", lambda item: _CANNED
+    )
     stats = _fresh_stats()
     out = bde.transform_body(_POST, stats)
     assert "### 1.1 Example Title One" in out
@@ -125,7 +134,9 @@ def test_newscard_and_heading_and_separator_preserved(monkeypatch):
 
 
 def test_idempotent(monkeypatch):
-    monkeypatch.setattr(content_generator, "_maybe_source_expansion", lambda item: _CANNED)
+    monkeypatch.setattr(
+        content_generator, "_maybe_source_expansion", lambda item: _CANNED
+    )
     stats1 = _fresh_stats()
     once = bde.transform_body(_POST, stats1)
     stats2 = _fresh_stats()
@@ -134,7 +145,9 @@ def test_idempotent(monkeypatch):
 
 
 def test_non_deep_analysis_item_untouched(monkeypatch):
-    monkeypatch.setattr(content_generator, "_maybe_source_expansion", lambda item: _CANNED)
+    monkeypatch.setattr(
+        content_generator, "_maybe_source_expansion", lambda item: _CANNED
+    )
     stats = _fresh_stats()
     out = bde.transform_body(_POST, stats)
     assert "그냥 요약만 있는 항목." in out
@@ -142,7 +155,9 @@ def test_non_deep_analysis_item_untouched(monkeypatch):
 
 
 def test_frontmatter_preserved(monkeypatch):
-    monkeypatch.setattr(content_generator, "_maybe_source_expansion", lambda item: _CANNED)
+    monkeypatch.setattr(
+        content_generator, "_maybe_source_expansion", lambda item: _CANNED
+    )
     stats = _fresh_stats()
     out = bde.transform_body(_POST, stats)
     assert out.startswith("---\ntitle: x\n---\n")

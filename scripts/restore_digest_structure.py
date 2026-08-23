@@ -58,6 +58,7 @@ Usage:
     python3 scripts/restore_digest_structure.py --dry-run \
         --posts-glob '_posts/2026-03-*Weekly_Digest*.md'
 """
+
 import argparse
 import collections
 import glob
@@ -292,11 +293,11 @@ def canonicalize_checklist_heading(text: str) -> str:
 # See the APPLY ORDER note in the module docstring — R5 must lead, R4 must trail.
 _RULES = (
     canonicalize_checklist_heading,  # R5 — first: unblocks R1/R6 and frees R4's index
-    demote_item_headings,            # R1
-    boldify_response_checklist,      # R2 (order vs R1 is irrelevant)
-    unbox_item_checkboxes,           # R3
-    checkbox_global_checklist,       # R6 — after R5 (needs canonical heading)
-    renumber_sections,               # R4 — last: counts only genuine sections
+    demote_item_headings,  # R1
+    boldify_response_checklist,  # R2 (order vs R1 is irrelevant)
+    unbox_item_checkboxes,  # R3
+    checkbox_global_checklist,  # R6 — after R5 (needs canonical heading)
+    renumber_sections,  # R4 — last: counts only genuine sections
 )
 
 

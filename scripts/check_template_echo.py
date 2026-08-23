@@ -42,6 +42,7 @@ Usage:
     python3 scripts/check_template_echo.py --changed origin/main
     python3 scripts/check_template_echo.py _posts/2026-08-08-*Weekly_Digest*.md
 """
+
 import argparse
 import subprocess
 import sys
@@ -105,7 +106,7 @@ def _git_paths(cmd: list) -> list:
         rel = line.strip()
         if not rel.startswith(_POST_PATH_RE_PREFIX) or not rel.endswith(".md"):
             continue
-        if "/" in rel[len(_POST_PATH_RE_PREFIX):]:
+        if "/" in rel[len(_POST_PATH_RE_PREFIX) :]:
             continue
         full = REPO / rel
         if full.exists():
@@ -150,7 +151,13 @@ def main(argv=None) -> int:
         )
     elif args.changed:
         files = _git_paths(
-            ["git", "diff", "--name-only", f"{args.changed}...HEAD", "--diff-filter=ACM"]
+            [
+                "git",
+                "diff",
+                "--name-only",
+                f"{args.changed}...HEAD",
+                "--diff-filter=ACM",
+            ]
         )
     elif args.paths:
         files = _explicit(args.paths)
@@ -172,7 +179,7 @@ def main(argv=None) -> int:
             print(f"FAIL {rel}")
             for line, marker, excerpt in hits:
                 print(f"  {rel}:{line}: template clause {marker!r}")
-                print(f"    summary=\"{excerpt}\"")
+                print(f'    summary="{excerpt}"')
         elif not args.quiet:
             print(f"OK   {rel}")
 

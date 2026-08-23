@@ -12,7 +12,6 @@ from __future__ import annotations
 import textwrap
 
 import pytest
-
 from migrate_summary_cards_to_frontmatter import (
     INCLUDE_BLOCK_RE,
     SummaryCard,
@@ -25,7 +24,6 @@ from migrate_summary_cards_to_frontmatter import (
     parse_tags_html,
     reverse_post,
 )
-
 
 # ---------------------------------------------------------------------------
 # Sample posts
@@ -157,7 +155,7 @@ def test_extract_with_quotes_in_html():
     body = m.group("body")
     attrs = extract_attributes(body)
     assert "보안" in attrs["categories_html"]
-    assert 'category-tag security' in attrs["categories_html"]
+    assert "category-tag security" in attrs["categories_html"]
     assert "DevSecOps" in attrs["categories_html"]
     assert attrs["title"] == "Test title"
 
@@ -176,8 +174,7 @@ def test_categories_html_parsed_to_list():
 
 def test_tags_html_parsed_to_list():
     html = (
-        '<span class="tag">Security-Weekly</span>\n'
-        '      <span class="tag">CVE</span>'
+        '<span class="tag">Security-Weekly</span>\n      <span class="tag">CVE</span>'
     )
     tags = parse_tags_html(html)
     assert tags == ["Security-Weekly", "CVE"]

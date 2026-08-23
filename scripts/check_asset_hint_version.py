@@ -166,7 +166,7 @@ def check_file(path: Path, versioned: dict[str, Path]) -> list[tuple[int, str]]:
         violations.append(
             (
                 line_no,
-                f"rel=\"{rel_name}\" href points at {asset} without a ?v= "
+                f'rel="{rel_name}" href points at {asset} without a ?v= '
                 f"cache-buster, but {loader_rel} loads it WITH ?v=. "
                 f"The two URLs are separate cache entries, so this hint is "
                 f"downloaded and never used.",

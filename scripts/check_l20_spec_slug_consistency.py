@@ -17,6 +17,7 @@ Usage:
     python3 scripts/check_l20_spec_slug_consistency.py
 Exit 0 = clean, 1 = case mismatch(es) found.
 """
+
 from __future__ import annotations
 
 import glob
@@ -31,7 +32,7 @@ POSTS = REPO / "_posts"
 
 _IMG_RE = re.compile(r'^image:\s*"?(/assets/images/[^"\n]+\.svg)', re.MULTILINE)
 _DATE_RE = re.compile(r'^date:\s*[\'"]?([0-9]{4}-[0-9]{2}-[0-9]{2})', re.MULTILINE)
-_SLUG_RE = re.compile(r'^slug:\s*(.+?)\s*$', re.MULTILINE)
+_SLUG_RE = re.compile(r"^slug:\s*(.+?)\s*$", re.MULTILINE)
 
 
 def _post_image_slugs() -> Dict[str, str]:
@@ -76,12 +77,18 @@ def main() -> int:
     for o in orphans:
         print(f"[l20-spec-slug] WARN orphan spec (no matching post image): {o}")
     if mismatches:
-        print(f"[l20-spec-slug] FAIL — {len(mismatches)} spec slug(s) differ only by CASE from the post (Linux 404 risk):")
+        print(
+            f"[l20-spec-slug] FAIL — {len(mismatches)} spec slug(s) differ only by CASE from the post (Linux 404 risk):"
+        )
         for m in mismatches:
             print(f"  ✗ {m}")
-        print("  Fix: edit the spec's `slug:` field to match the post image slug EXACTLY.")
+        print(
+            "  Fix: edit the spec's `slug:` field to match the post image slug EXACTLY."
+        )
         return 1
-    print(f"[l20-spec-slug] OK — all l20 spec slugs case-match their post ({len(orphans)} orphan spec(s) warned).")
+    print(
+        f"[l20-spec-slug] OK — all l20 spec slugs case-match their post ({len(orphans)} orphan spec(s) warned)."
+    )
     return 0
 
 

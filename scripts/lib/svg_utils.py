@@ -1,9 +1,10 @@
 """SVG utility helpers — XML text escape & validation."""
+
 from __future__ import annotations
+
 import re
 import subprocess
 from pathlib import Path
-
 
 _XML_TEXT_ESCAPES = {
     "&": "&amp;",
@@ -31,11 +32,7 @@ def escape_xml_text(text: str) -> str:
         return placeholder
 
     stashed = pattern.sub(_stash, text)
-    escaped = (
-        stashed.replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-    )
+    escaped = stashed.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     for ent in entities:
         escaped = escaped.replace(placeholder, ent, 1)
     return escaped
@@ -64,6 +61,7 @@ def is_valid_svg(path: Path | str) -> tuple[bool, str]:
     except FileNotFoundError:
         # xmllint not installed — fall back to xml.etree
         import xml.etree.ElementTree as ET
+
         try:
             ET.parse(p)
             return True, ""

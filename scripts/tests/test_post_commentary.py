@@ -15,20 +15,24 @@ from __future__ import annotations
 from unittest import mock
 
 import pytest
-
 from news.content_generator import (
+    _COMMENTARY_OPENING_PATTERNS,
+    _COMMENTARY_PLACEHOLDER_BLOCKLIST,
     _build_commentary_prompt,
     _commentary_category_stats,
     _commentary_top_headlines,
-    _COMMENTARY_OPENING_PATTERNS,
-    _COMMENTARY_PLACEHOLDER_BLOCKLIST,
     _generate_unique_post_commentary,
     _validate_commentary,
 )
 
 
-def _item(title="Critical CVE in Foo", category="security", source="acme",
-          priority_score=None, summary=""):
+def _item(
+    title="Critical CVE in Foo",
+    category="security",
+    source="acme",
+    priority_score=None,
+    summary="",
+):
     item = {
         "title": title,
         "category": category,
@@ -151,9 +155,7 @@ class TestValidation:
             # Replace the good text part to keep length bounded.
             test = (phrase + " ") * 20  # ~ enough to clear length floor
             test = test[:280]
-            assert _validate_commentary(test) is None, (
-                f"Should reject phrase: {phrase}"
-            )
+            assert _validate_commentary(test) is None, f"Should reject phrase: {phrase}"
 
     def test_rejects_template_token(self):
         bad = "이번 분석 사이클에서는 {date_str} 디지스트가 " + "내용" * 50
@@ -183,8 +185,7 @@ class TestValidation:
     def test_sanitizes_double_quotes(self):
         # Embed an ASCII double quote inside a long enough body.
         body = (
-            'GitHub Actions에서 토큰 권한 점검을 권장한다. "노출 자산 인벤토리"를 '
-            * 4
+            'GitHub Actions에서 토큰 권한 점검을 권장한다. "노출 자산 인벤토리"를 ' * 4
         )
         body = body[:280]
         out = _validate_commentary(body)
@@ -217,9 +218,7 @@ class TestGenerateUniquePostCommentary:
 
     def test_returns_none_when_llm_returns_empty(self):
         items = [_item("Alpha")]
-        with mock.patch(
-            "news.content_generator._commentary_llm_call", return_value=""
-        ):
+        with mock.patch("news.content_generator._commentary_llm_call", return_value=""):
             out = _generate_unique_post_commentary(items, "2026-05-07")
         assert out is None
 
