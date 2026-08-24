@@ -21,4 +21,4 @@ Pillow>=11.3.0
 # decompression needs brotli, and only the [woff] extra pulls it in: plain `fonttools`
 # imports fine and then cannot open the files, so the extra is the load-bearing part
 # of this line, not the version.
-fonttools[woff]>=4.55.0
+fonttools[woff]>=4.63.0
