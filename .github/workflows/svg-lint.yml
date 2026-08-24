@@ -294,24 +294,31 @@ jobs:
         id: kst_midnight
         run: python3 scripts/check_kst_midnight.py --all
 
-      - name: Digest structural invariant gate (PR-diff-scoped)
+      - name: Digest structural invariant gate
         id: digest_structure
-        # PR-diff-scoped, NOT --all: only ~5 digest posts have been backfilled
-        # to satisfy this guard as of 2026-07-16. The ~176 legacy
-        # _posts/*Weekly_Digest*.md posts still have the structural defects
-        # and would fail --all. --changed only checks digest posts touched by
-        # this PR/push, mirroring the size-gate BASE-diff pattern above.
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            BASE="origin/${{ github.event.pull_request.base.ref }}"
-          else
-            BASE="HEAD~1"
-          fi
-          echo "[digest-structure] diff base: $BASE"
-          # --ratchet: only violations NEW vs the merge base fail. Pre-existing
-          # legacy defects are reported as grandfathered (never silently dropped)
-          # so unrelated improvements can land while regressions still break CI.
-          python3 scripts/check_digest_structure.py --changed "$BASE" --ratchet
+        # --all since 2026-08-24. This read "only ~5 digest posts have been
+        # backfilled ... the ~176 legacy posts still have the structural defects
+        # and would fail --all". True when written (2026-07-16), false now: the
+        # 601 -> 0 backfill campaign (#494-#502, #509) finished and --all
+        # measures 0 violations across 203 digests.
+        #
+        # --all is strictly STRONGER than the '--changed BASE --ratchet' form it
+        # replaces: identical check_post() checks, wider scope, no
+        # grandfathering. It also sees what a diff-scoped gate structurally
+        # cannot — the blogwatcher cron pushes digests directly to main with
+        # GITHUB_TOKEN, which triggers no workflow, and a diff-scoped gate has
+        # no base to compare on the daily `schedule` either. That blind spot is
+        # how the 08-22/08-23 untranslated digests reached the corpus (#601).
+        #
+        # Only safe while the corpus is at 0: if legacy debt returns, --all here
+        # becomes a permanently red job, which this repo has twice judged worse
+        # than no gate. test_ci_digest_structure_ratchet_guard.py asserts the
+        # corpus stays at 0 so that decision resurfaces instead of rotting.
+        #
+        # The pre-commit hook deliberately KEEPS --staged --ratchet: it is a
+        # fast local pre-check, and grandfathering costs nothing there while CI
+        # is the authority.
+        run: python3 scripts/check_digest_structure.py --all
 
       - name: Digest untranslated-English gate
         id: digest_untranslated
