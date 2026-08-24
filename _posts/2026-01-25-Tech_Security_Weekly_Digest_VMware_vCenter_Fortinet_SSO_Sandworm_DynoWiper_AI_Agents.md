@@ -315,7 +315,7 @@ diagnose sys ha history read | grep policy
 ### Apache Airflow 3.1 in Cloud Composer
 
 {%- include news-card.html
-  title="[클라우드] Apache Airflow 3.1 in Cloud Composer"
+  title="[클라우드] Cloud Composer에서 제공되는 Apache Airflow 3.1"
   url="https://cloud.google.com/blog/products/data-analytics/cloud-composer-supports-apache-airflow-31/"
   image="https://storage.googleapis.com/gweb-cloudblog-publish/images/09_-_Data_Analytics_tFH57V6.max-2600x2600.jpg"
   summary="Google Cloud Composer가 Apache Airflow 3.1을 지원하기 시작했습니다. 이는 하이퍼스케일러 최초입니다."

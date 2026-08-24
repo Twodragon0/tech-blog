@@ -502,7 +502,7 @@ Citi 경영진이 Bitcoin을 자사 뱅킹 시스템에 통합하고 수탁(cust
 
 {% capture spotlight_items %}
 {% include news-spotlight-item.html
-  title="Tech Monitor - Real-Time AI & Tech Industry"
+  title="Tech Monitor — 실시간 AI·기술 산업 동향"
   url="https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents"
   source="Tech World Monitor"
   tag="Operator Signal"
@@ -514,7 +514,7 @@ Citi 경영진이 Bitcoin을 자사 뱅킹 시스템에 통합하고 수탁(cust
   tag="Operator Signal"
 %}
 {% include news-spotlight-item.html
-  title="Donut solid-state batteries tested, Tesla"
+  title="도넛형 전고체 배터리 시험, 그리고 Tesla"
   url="https://electrek.co/2026/02/26/donut-solid-state-batteries-tested-tesla-engineer-quits-and-solar-value/"
   source="Electrek"
   tag="Operator Signal"

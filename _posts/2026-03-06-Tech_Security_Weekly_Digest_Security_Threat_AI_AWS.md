@@ -547,7 +547,7 @@ Bitcoin Magazine가 BIP 54 소프트포크 제안을 심층 분석했습니다. 
   tag="Operator Signal"
 %}
 {% include news-spotlight-item.html
-  title="Cloudflare Dynamic Path MTU Discovery"
+  title="Cloudflare의 동적 경로 MTU 탐색"
   url="https://blog.cloudflare.com/client-dynamic-path-mtu-discovery/"
   source="Cloudflare Blog"
   tag="Cloud / Platform"

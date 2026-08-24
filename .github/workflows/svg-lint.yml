@@ -1,10 +1,10 @@
 name: SVG Compliance Lint
 
-# This workflow carries 19 corpus-wide gates (`--all`): cover drift for four
+# This workflow carries 20 corpus-wide gates (`--all`): cover drift for four
 # generator families, the honesty scorer, title-ASCII, spec-slug consistency,
 # KST-midnight URLs, checklist headings, bare URLs, template-echo, and repeated
 # body boilerplate, internal post links, digest translation and digest proper
-# nouns. They scan the
+# nouns, and card-title language. They scan the
 # WHOLE corpus, so the same trigger-narrower-than-scan hazard that hid a
 # three-week regression in check-svg.yml applies here — see that file's header.
 #
@@ -17,9 +17,9 @@ name: SVG Compliance Lint
 # the bot cover commit 685ca468 carried 12 workflow runs, every one of them
 # `schedule` and not a single `push` or `pull_request` event.
 #
-# So the dominant producer of the artifacts these 19 gates exist to check was
+# So the dominant producer of the artifacts these 20 gates exist to check was
 # invisible to both triggers. The daily `schedule` below closes that: it scans main
-# regardless of paths, exactly as check-svg.yml does. All 19 gates were verified
+# regardless of paths, exactly as check-svg.yml does. All 20 gates were verified
 # green against the current corpus before this was added, so it is not born red.
 on:
   push:
@@ -61,6 +61,7 @@ on:
       - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/check_post_boilerplate.py'
       - 'scripts/check_broken_links.py'
+      - 'scripts/check_card_title_language.py'
       - 'scripts/linkify_bare_urls.py'
       - 'scripts/check_template_echo.py'
       - 'scripts/rewrite_template_echo_summaries.py'
@@ -119,6 +120,7 @@ on:
       - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/check_post_boilerplate.py'
       - 'scripts/check_broken_links.py'
+      - 'scripts/check_card_title_language.py'
       - 'scripts/linkify_bare_urls.py'
       - 'scripts/check_template_echo.py'
       - 'scripts/rewrite_template_echo_summaries.py'
@@ -392,6 +394,18 @@ jobs:
         # ratchet: any hit is fresh drift, including one from a cron push that
         # never ran pre-commit.
         run: python3 scripts/check_broken_links.py --all
+
+      - name: News-card title language gate
+        id: card_title_language
+        # --all: the corpus is at 0 after translating 48 of the 51 English card
+        # titles found on 2026-08-24, so any hit is fresh drift — including one
+        # from a cron push, which is the path a diff-scoped gate cannot see.
+        # Deny by default with a 3-entry reasoned allow-list for pure
+        # product/event names (Google ADK + Datadog LLM Observability,
+        # KubeCon Europe 2026 Open Source SecurityCon, I/O 2026).
+        # check_digest_untranslated's is_untranslated() is NOT reusable here: it
+        # exempts cited English titles by design and flagged 1 of the 51.
+        run: python3 scripts/check_card_title_language.py --all
 
       - name: Bare-URL gate (unlinked https:// in post prose)
         id: bare_url_gate

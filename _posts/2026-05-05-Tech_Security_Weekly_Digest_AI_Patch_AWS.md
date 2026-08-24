@@ -322,7 +322,7 @@ Chrome Enterprise가 의료 분야를 위한 새로운 통합 기능을 도입�
 ### 4.1 Microsoft Agent Framework – Building Blocks for AI Part 3
 
 {% include news-card.html
-  title="Microsoft Agent Framework – Building Blocks for AI Part 3"
+  title="Microsoft Agent Framework — AI를 위한 구성 요소 3부"
   url="https://devblogs.microsoft.com/dotnet/microsoft-agent-framework-building-blocks-for-ai-part-3/"
   image="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2026/05/agent-framework.webp"
   summary="Microsoft Agent Framework의 Part 3에서는 .NET에서 도구, 다중 턴 대화, 메모리 및 그래프 기반 워크플로를 활용한 지능형 AI 에이전트를 구축하는 방법을 다룹니다. 이는 Parts 1과 2의 구성 요소를 통합하여 완성된 에이전트를 만드는 데 초점을 맞춥니다."
