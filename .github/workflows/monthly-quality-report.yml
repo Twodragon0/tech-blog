@@ -165,8 +165,15 @@ jobs:
       - name: Send Webhook Notification
         if: always() && steps.report.outputs.report_generated == 'true'
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          # Bot API, not an incoming webhook. SLACK_WEBHOOK_URL and
+          # DISCORD_WEBHOOK_URL have never been registered in this repo
+          # (`gh secret list`, 2026-08-24), so this step delivered nothing from
+          # the day it was added. SLACK_BOT_TOKEN and SLACK_CHANNEL_ID ARE
+          # configured and slack-post-notify.yml already uses them — the same
+          # move PR #583 made for monitoring.yml rather than asking for a new
+          # credential.
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
           ISSUE_OUTCOME: ${{ steps.issue.outcome }}
           IMAGE_ISSUES: ${{ steps.images.outputs.image_issues || 0 }}
           POST_ISSUES: ${{ steps.posts.outputs.post_issues || 0 }}
@@ -186,7 +193,13 @@ jobs:
               HEADLINE="Report generated but issue creation FAILED (outcome: ${ISSUE_OUTCOME:-unknown}). The monthly report does not exist on GitHub Issues."
               ;;
           esac
+          # --require-delivery: fail rather than skip. The bot secrets are
+          # configured, so their absence means a removal or lost secret access,
+          # and silently skipping would hide exactly the regression worth
+          # knowing about — notifications quietly stopping, which is what
+          # happened here for a month.
           python3 scripts/notify_webhook.py \
             --title "Monthly Blog Quality Report (${CURRENT_MONTH})" \
             --message "• ${HEADLINE}\n• Image Issues: ${IMAGE_ISSUES}\n• Post Warnings: ${POST_ISSUES}" \
-            --status "${STATUS}"
+            --status "${STATUS}" \
+            --require-delivery

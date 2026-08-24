@@ -32,6 +32,7 @@ should move to the fail-closed set and this guard should be updated in the same 
 
 from __future__ import annotations
 
+import os
 import re
 from pathlib import Path
 
@@ -54,7 +55,25 @@ FAIL_CLOSED = (
     # monitoring has already failed, so a missing secret means an alert about a
     # real outage is being dropped.
     "monitoring.yml",
+    # Added 2026-08-24. Same history as monitoring.yml above, one step worse:
+    # this workflow's "webhook alerts" were wired to secrets.SLACK_WEBHOOK_URL /
+    # secrets.DISCORD_WEBHOOK_URL, neither of which has ever been configured, so
+    # the step delivered nothing from the day it was added while reporting a
+    # hardcoded SUCCESS. Moved to the SLACK_BOT_TOKEN / SLACK_CHANNEL_ID pair
+    # and made fail-closed. It enforces that through
+    # `notify_webhook.py --require-delivery` rather than an inline shell guard —
+    # see DELEGATED_GUARD below.
+    "monthly-quality-report.yml",
 )
+
+# Workflows in FAIL_CLOSED that enforce the rule by delegating to a script
+# instead of an inline `if [ -z "${SLACK_...}" ]` block. The delegation is only
+# acceptable because the script's exit-1 path is itself unit-tested — see
+# test_notify_webhook.py::test_require_delivery_exits_nonzero_with_no_transport.
+# Duplicating the shell guard here would mean two places to keep in sync.
+DELEGATED_GUARD = {
+    "monthly-quality-report.yml": "scripts/notify_webhook.py",
+}
 
 # Secrets never configured -> fail-closed would be a permanently red cron.
 NEVER_CONFIGURED = {
@@ -80,6 +99,16 @@ def _body(name: str) -> str:
 def test_missing_slack_secret_fails(name: str):
     body = _body(name)
     assert "SLACK_BOT_TOKEN" in body, f"{name} no longer references SLACK_BOT_TOKEN"
+
+    if name in DELEGATED_GUARD:
+        script = DELEGATED_GUARD[name]
+        assert script in body, f"{name} no longer invokes {script}"
+        assert "--require-delivery" in body, (
+            f"{name} delegates its secret guard to {script} but dropped "
+            "--require-delivery, so a missing secret is back to a silent skip."
+        )
+        return
+
     # Find the guard block and confirm it exits non-zero.
     blocks = re.findall(
         r'if \[ -z "\$\{SLACK_(?:BOT_TOKEN|CHANNEL_ID):-\}" \][^\n]*\n(.*?)\n\s*fi',
@@ -95,9 +124,50 @@ def test_missing_slack_secret_fails(name: str):
         assert "exit 0" not in block, f"{name}: guard block still contains exit 0"
 
 
+@pytest.mark.parametrize("name", sorted(DELEGATED_GUARD))
+def test_delegated_guard_script_actually_enforces_it(name: str):
+    """A delegated guard is only as good as the script it delegates to.
+
+    Without this, moving a workflow into DELEGATED_GUARD would be a way to
+    satisfy the policy test while enforcing nothing.
+    """
+    from scripts import notify_webhook
+
+    src = (REPO_ROOT / DELEGATED_GUARD[name]).read_text(encoding="utf-8")
+    assert "--require-delivery" in src, f"{DELEGATED_GUARD[name]} lost the flag"
+    assert "::error" in src, "the missing-transport branch must be ::error::"
+    assert hasattr(notify_webhook, "delivered_anywhere"), (
+        "the flag needs a transport check to consult"
+    )
+    # And it must return False when nothing is configured, or the flag is inert.
+    saved = {
+        k: os.environ.pop(k, None)
+        for k in (
+            "SLACK_BOT_TOKEN",
+            "SLACK_CHANNEL_ID",
+            "SLACK_WEBHOOK_URL",
+            "SLACK_WEBHOOK",
+            "DISCORD_WEBHOOK_URL",
+            "DISCORD_WEBHOOK",
+        )
+    }
+    try:
+        assert notify_webhook.delivered_anywhere() is False
+    finally:
+        for k, v in saved.items():
+            if v is not None:
+                os.environ[k] = v
+
+
 @pytest.mark.parametrize("name", FAIL_CLOSED)
 def test_missing_secret_is_an_error_annotation_not_a_warning(name: str):
     """`::warning::` reads as expected-and-fine; this state is neither."""
+    if name in DELEGATED_GUARD:
+        src = (REPO_ROOT / DELEGATED_GUARD[name]).read_text(encoding="utf-8")
+        assert "::error" in src, (
+            f"{name}: the delegated missing-transport branch must emit ::error::"
+        )
+        return
     body = _body(name)
     guard_region = body[body.find("SLACK_BOT_TOKEN:-") :][:1200]
     assert "::error::" in guard_region, (

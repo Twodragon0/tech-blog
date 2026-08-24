@@ -303,3 +303,24 @@ if [ -n "$STAGED_ANY_POSTS" ]; then
   fi
   echo "[pre-commit] Post-boilerplate check: passed."
 fi
+
+# 16. Internal /posts/ link gate — a link to a post that does not exist and has
+#     no declared redirect is a 404 for the reader. This gate was inert until
+#     2026-08-24 (printed a count, never exited, wired to nothing) and its
+#     revival was not a one-liner: the old version reported 370 broken links and
+#     all 370 were `redirect_from` YAML items matched inside front matter. Now
+#     front matter is skipped and declared redirect_from targets count as valid,
+#     which is what the KST/UTC filename-vs-URL date split depends on. Corpus is
+#     at 0 across 275 posts, so any hit is new drift.
+if [ -n "$STAGED_ANY_POSTS" ]; then
+  echo "[pre-commit] Checking staged posts for broken internal /posts/ links..."
+  python3 "$REPO_ROOT/scripts/check_broken_links.py" --staged --quiet
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] A body link points at no post and no declared redirect."
+    echo "             Fix the link, or add the URL to the target post's"
+    echo "             \`redirect_from:\` if it is a legitimate old address."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Internal link check: passed."
+fi
