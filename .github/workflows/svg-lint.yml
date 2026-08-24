@@ -1,6 +1,6 @@
 name: SVG Compliance Lint
 
-# This workflow carries 20 corpus-wide gates (`--all`): cover drift for four
+# This workflow carries 19 corpus-wide gates (`--all`): cover drift for four
 # generator families, the honesty scorer, title-ASCII, spec-slug consistency,
 # KST-midnight URLs, checklist headings, bare URLs, template-echo, and repeated
 # body boilerplate, internal post links, digest translation and digest proper
@@ -17,10 +17,13 @@ name: SVG Compliance Lint
 # the bot cover commit 685ca468 carried 12 workflow runs, every one of them
 # `schedule` and not a single `push` or `pull_request` event.
 #
-# So the dominant producer of the artifacts these 20 gates exist to check was
+# So the dominant producer of the artifacts these 19 gates exist to check was
 # invisible to both triggers. The daily `schedule` below closes that: it scans main
-# regardless of paths, exactly as check-svg.yml does. All 20 gates were verified
+# regardless of paths, exactly as check-svg.yml does. All 19 gates were verified
 # green against the current corpus before this was added, so it is not born red.
+# The count above is MEASURED, not maintained by hand: it drifted twice while
+# gates were moved to --all in 2026-08. test_ci_svg_lint_schedule_guard.py
+# asserts it equals the actual number of `--all` invocations below.
 on:
   push:
     paths:

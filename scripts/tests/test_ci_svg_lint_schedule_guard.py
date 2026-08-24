@@ -33,6 +33,7 @@ this guard should be updated in the same PR with the reasoning.
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -164,3 +165,31 @@ def test_diff_scoped_steps_have_a_non_pull_request_base():
         "fallback(s); a diff-scoped step would fail on the scheduled sweep "
         "instead of checking the latest commit."
     )
+
+
+def test_documented_gate_count_matches_reality():
+    """The header's "N corpus-wide gates" must equal the actual `--all` count.
+
+    That number drifted twice in 2026-08 while gates were moved to --all: it was
+    incremented by hand from a base that was already off. A stale count in the
+    file that documents the gates is the same class of defect as a stale comment
+    justifying a diff-scope — it reads as verified and is not.
+    """
+    raw = WORKFLOW.read_text(encoding="utf-8")
+    m = re.search(r"carries (\d+) corpus-wide gates", raw)
+    assert m, "the header no longer states a corpus-wide gate count"
+    documented = int(m.group(1))
+
+    code = _body()
+    actual = len(re.findall(r"python3 (?:scripts/\S+\.py)[^\n]*?--all", code))
+    assert documented == actual, (
+        f"header says {documented} corpus-wide gates but {actual} `--all` "
+        "invocations exist. Update the header, or the gate you just added is "
+        "undocumented."
+    )
+    # The other two mentions of the same number must agree with the first.
+    for phrase in (rf"these {documented} gates", rf"All {documented} gates"):
+        assert re.search(phrase, raw), (
+            f"the header's other reference to the count disagrees: expected "
+            f"'{phrase}'"
+        )
