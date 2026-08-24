@@ -60,23 +60,6 @@ summary_card:
 
 ## Executive Summary
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 > **경영진 브리핑**: OWASP 2025년 주요 업데이트 완벽 정리. OWASP Top 10 2025의 Software Supply Chain Failures,
 
 <img src="{{ '/assets/images/2026-01-03-OWASP_2025_Complete_Guide_Top_10_AI_Security.svg' | relative_url }}" alt="OWASP 2025 Latest Update Complete Guide: Top 10 and Agentic AI Security" loading="lazy" class="post-image">
@@ -381,10 +364,3 @@ rules:
 > 3. 양자내성 암호화 전환: 2026-2030 로드맵 수립 및 하이브리드 방식 점진적 도입
 > 4. 문화 개선: Shift Left 보안, 개발자 보안 교육, 보안 메트릭 통합
 > 5. 지속적 학습: OWASP 커뮤니티 참여, 최신 보안 동향 모니터링
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

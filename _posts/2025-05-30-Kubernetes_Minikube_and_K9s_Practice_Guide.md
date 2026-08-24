@@ -66,27 +66,6 @@ redirect_from:
 
 ## 경영진 요약
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-graph TD
-    subgraph Ingress & Control Plane
-        GW[API Gateway / Ingress Controller]
-        AC[Admission Controller / Webhook]
-    end
-    subgraph Data Plane & Pods
-        P1[Application Pod 1]
-        P2[Application Pod 2]
-        Sec[Security Agent / Sidecar]
-    end
-    GW --> AC
-    AC --> P1
-    AC --> P2
-    P1 --- Sec
-    P2 --- Sec
-```
-
-
 ### 비즈니스 가치
 
 Kubernetes 실습 환경 구축은 조직의 클라우드 네이티브 전환 전략에서 핵심적인 역할을 합니다. Minikube와 K9s를 활용한 로컬 개발 환경은 다음과 같은 비즈니스 가치를 제공합니다.
@@ -1360,10 +1339,3 @@ Minikube 1.37.0에서는 AI 워크로드 지원, AMD GPU 지원, containerd 기�
 - [CNCF Korea 커뮤니티](https://community.cncf.io/ko/)
 - [Kubernetes Korea Slack](https://kubernetes.slack.com/archives/C7G9Z1Q9L)
 - [AWS Korea 기술 블로그 - Kubernetes](https://aws.amazon.com/ko/blogs/korea/category/compute/amazon-elastic-kubernetes-service/)
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

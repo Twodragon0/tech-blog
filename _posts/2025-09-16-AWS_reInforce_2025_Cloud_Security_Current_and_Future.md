@@ -56,18 +56,6 @@ summary_card:
 
 ## Executive Summary
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-flowchart LR
-    User([External Client]) --> WAF[AWS WAF / CloudFront]
-    WAF --> ALB[Application Load Balancer]
-    ALB --> ECS[Compute: ECS / EKS Cluster]
-    ECS --> DB[(Encrypted Aurora / DynamoDB)]
-    ECS -.-> CW[CloudWatch & GuardDuty Alerts]
-```
-
-
 > **경영진 브리핑**: AWS re:Inforce 2025에서 발표된 최신 보안 기능과 Zero Trust 아키텍처 구현 방법, AI 기반 위협 탐지
 
 <img src="{% raw %}{{ '/assets/images/2025-09-16-AWS_reInforce_2025_Cloud_Security_and_Future_image.png' | relative_url }}{% endraw %}" alt="AWS re:Inforce 2025: Cloud Security Present and Future" loading="lazy" class="post-image">
@@ -274,10 +262,3 @@ AWS re:Inforce 2025는 클라우드 보안의 현재와 미래를 보여주는 �
 - 단기 (1-3개월): GuardDuty, Security Hub 전사 활성화
 - 중기 (3-6개월): IAM Policy Autopilot, Security Agent 파일럿
 - 장기 (6-12개월): AgentCore Identity, Zero Trust 완전 구현
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

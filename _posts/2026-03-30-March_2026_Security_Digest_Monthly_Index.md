@@ -40,23 +40,6 @@ summary_card:
 
 ## 개요
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 2026년 3월 한 달간 발행된 보안 주간 다이제스트를 종합 정리합니다. 총 27개의 다이제스트 포스트를 통해 랜섬웨어 진화, AI 에이전트 보안 위협, 공급망 공격, 클라우드 취약점, DevSecOps 모범 사례 등 핵심 보안 트렌드를 다뤘습니다.
 
 ---
@@ -133,10 +116,3 @@ sequenceDiagram
 - **주요 키워드**: 랜섬웨어, AI 에이전트 보안, 공급망 공격, 제로데이, Kubernetes, AWS IAM, DevSecOps, 제로트러스트, LLM 보안, 암호화폐 침해
 - **주요 위협 행위자**: Gentlemen 랜섬웨어, GlassWorm, LeakNet, 북한 IT 노동자
 - **주요 CVE/취약점**: CVE-2026-20122 (Cisco), Oracle RCE, Chrome 제로데이, Cisco FMC 제로데이, Telnetd 루트 RCE, Langflow RCE
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화
