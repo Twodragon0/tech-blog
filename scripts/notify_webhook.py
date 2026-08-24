@@ -56,7 +56,13 @@ def send_http_post(url: str, payload: Dict[str, Any], timeout: int = 5) -> bool:
         with urllib.request.urlopen(req, timeout=timeout) as response:
             return response.status in (200, 204)
     except urllib.error.HTTPError as e:
-        print(f"[WARN] Webhook HTTP Error: {e.code} - {e.reason}", file=sys.stderr)
+        # e.reason is a status phrase today, but this is the one error branch that
+        # was not masked; a future urllib that includes the URL would leak the
+        # webhook token. Mask unconditionally rather than relying on that.
+        print(
+            f"[WARN] Webhook HTTP Error: {e.code} - {mask_sensitive_info(str(e.reason))}",
+            file=sys.stderr,
+        )
         return False
     except Exception as e:
         print(f"[WARN] Webhook request failed: {mask_sensitive_info(str(e))}", file=sys.stderr)
@@ -128,7 +134,23 @@ def notify(title: str, message: str, status: str = "SUCCESS") -> bool:
     discord_url = urls.get("discord")
 
     if not slack_url and not discord_url:
-        print("[INFO] No Webhook URLs configured (SLACK_WEBHOOK_URL or DISCORD_WEBHOOK_URL). Skipping notification.")
+        # Neither secret is registered in this repo (measured 2026-08-24:
+        # `gh secret list` has SLACK_BOT_TOKEN and SLACK_CHANNEL_ID, but no
+        # SLACK_WEBHOOK_URL and no DISCORD_WEBHOOK_URL). Every call to this
+        # script has therefore been a no-op. It used to print [INFO] and return
+        # True, which is indistinguishable from a successful send — that is why
+        # nobody noticed. Emit a GitHub Actions warning annotation so the state
+        # is visible in the run summary instead of buried in step output.
+        print(
+            "::warning title=Webhook notification skipped::"
+            "Neither SLACK_WEBHOOK_URL nor DISCORD_WEBHOOK_URL is configured, "
+            "so this notification was not delivered anywhere."
+        )
+        print(
+            "[WARN] No Webhook URLs configured "
+            "(SLACK_WEBHOOK_URL or DISCORD_WEBHOOK_URL). Nothing was sent.",
+            file=sys.stderr,
+        )
         return True
 
     success = True
@@ -158,8 +180,10 @@ def main() -> int:
     parser.add_argument("--status", choices=["SUCCESS", "WARNING", "FAILED"], default="SUCCESS", help="Execution Status")
     args = parser.parse_args()
 
-    notify(title=args.title, message=args.message, status=args.status)
-    return 0
+    # Propagate delivery failure. Previously the return value was discarded and
+    # main() always exited 0, so no caller could ever detect that a POST failed.
+    delivered = notify(title=args.title, message=args.message, status=args.status)
+    return 0 if delivered else 1
 
 
 if __name__ == "__main__":

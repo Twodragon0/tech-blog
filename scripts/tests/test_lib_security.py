@@ -75,6 +75,41 @@ class TestMaskSensitiveInfo:
         assert secret not in result
         assert "GEMINI_API_KEY_MASKED" in result
 
+    def test_masks_slack_webhook_url(self):
+        """The generic 40+ char rule never caught these.
+
+        A Slack webhook URL is T…/B…/24-char-token, and the fallback splits on
+        '/', so no segment reaches 40 characters and the whole credential used
+        to pass through untouched. Measured 2026-08-24.
+        """
+        text = (
+            "POST failed: https://hooks.slack.com/services/"
+            "T01ABCDEFGH/B02IJKLMNOP/aBcDeFgHiJkLmNoPqRsTuVwX"
+        )
+        result = mask_sensitive_info(text)
+        assert "***MASKED***" in result
+        assert "T01ABCDEFGH" not in result
+        assert "aBcDeFgHiJkLmNoPqRsTuVwX" not in result
+
+    def test_masks_discord_webhook_url_including_discordapp_host(self):
+        """Discord only got masked incidentally, and only on one host spelling."""
+        for host in ("discord.com", "discordapp.com"):
+            text = f"POST failed: https://{host}/api/webhooks/123456789012345678/shorttoken"
+            result = mask_sensitive_info(text)
+            assert "***MASKED***" in result, host
+            assert "shorttoken" not in result, host
+            assert "123456789012345678" not in result, host
+
+    def test_masks_slack_bot_token(self):
+        result = mask_sensitive_info("auth failed for xoxb-1234567890-abcdefghijkl")
+        assert "xox***MASKED***" in result
+        assert "abcdefghijkl" not in result
+
+    def test_does_not_mask_the_sites_own_urls(self):
+        """Proof the webhook patterns are anchored to the credential hosts."""
+        text = "see https://tech.2twodragon.com/feed.xml and https://github.com/Twodragon0/tech-blog"
+        assert mask_sensitive_info(text) == text
+
     def test_sk_ant_masked_before_sk_to_preserve_specificity(self):
         # sk-ant- keys must be masked with sk-ant-***MASKED***, not sk-***MASKED***
         text = "sk-ant-api03-" + "x" * 25
