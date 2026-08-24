@@ -53,18 +53,6 @@ summary_card:
 
 ## 📊 빠른 참조
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-flowchart LR
-    User([External Client]) --> WAF[AWS WAF / CloudFront]
-    WAF --> ALB[Application Load Balancer]
-    ALB --> ECS[Compute: ECS / EKS Cluster]
-    ECS --> DB[(Encrypted Aurora / DynamoDB)]
-    ECS -.-> CW[CloudWatch & GuardDuty Alerts]
-```
-
-
 ### 이번 주 하이라이트
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
@@ -246,10 +234,3 @@ AWS에서 ASP.NET 모노리스 애플리케이션의 마이크로서비스 전�
 ---
 
 작성자: Twodragon
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

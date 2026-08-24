@@ -62,23 +62,6 @@ summary_card:
 
 ## Executive Summary
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 > **경영진 브리핑**: DevSecOps 자동차 보안 완벽 가이드. SDV(Software Defined Vehicle) 보안 아키텍처, 자동차 위협
 
 <img src="{{ '/assets/images/2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.svg' | relative_url }}" alt="DevSecOps Viewing Automotive Security Complete Guide: Connected Car Era Security Strategy" loading="lazy" class="post-image">
@@ -532,10 +515,3 @@ UN R155는 유엔 자동차 규정으로, 2024년부터 한국을 포함한 여�
 | **UN Regulation No. 155** | Cyber security and cyber security management system | UNECE | [링크](https://unece.org/transport/documents/2021/01/standards/un-regulation-no-155-cyber-security-and-cyber-security) |
 | **OWASP Internet of Things** | IoT 보안 프로젝트 (자동차 포함) | OWASP | [링크](https://owasp.org/www-project-internet-of-things/) |
 | **SAE J3061** | Cybersecurity Guidebook for Cyber-Physical Vehicle Systems | SAE International | [링크](https://www.sae.org/standards/content/j3061_201601/) |
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

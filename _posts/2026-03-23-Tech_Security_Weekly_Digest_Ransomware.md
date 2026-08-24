@@ -39,23 +39,6 @@ summary_card:
 
 ## 서론
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 안녕하세요, **Twodragon**입니다.
 
 2026년 03월 23일 기준, 지난 24시간 동안 발표된 주요 기술 및 보안 뉴스를 심층 분석하여 정리했습니다.
@@ -256,10 +239,3 @@ UK Finance는 토큰화 예금이 다른 디지털 자산과 함께 미래 다�
 ---
 
 **작성자**: Twodragon
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

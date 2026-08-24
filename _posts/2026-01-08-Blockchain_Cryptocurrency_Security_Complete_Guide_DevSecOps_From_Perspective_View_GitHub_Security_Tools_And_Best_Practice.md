@@ -60,23 +60,6 @@ summary_card:
 
 ## Executive Summary
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 > **경영진 브리핑**: 블록체인 암호화폐 보안 완벽 가이드. 2024-2025년 34억 달러 손실 분석, 스마트 컨트랙트 보안 도구(Slither/Mythril), CI/CD 파이프라인 통합, 주요 위협 대응까지 DevSecOps 실무 정리.
 
 ### 위험도 평가
@@ -808,10 +791,3 @@ Rate Limiting 전략:
 - [Bybit Hack Analysis - Chainalysis](https://www.chainalysis.com/blog/bybit-exchange-hack-february-2025-crypto-security-dprk/)
 - [FBI PSA on Bybit Hack](https://www.ic3.gov/psa/2025/psa250226)
 - [2025 Crypto Theft Statistics - TechCrunch](https://techcrunch.com/2025/12/23/hackers-stole-over-2-7-billion-in-crypto-in-2025-data-shows/)
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

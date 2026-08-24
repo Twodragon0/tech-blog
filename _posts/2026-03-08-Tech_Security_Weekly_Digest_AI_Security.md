@@ -43,23 +43,6 @@ summary_card:
 
 ## 경영진 브리핑
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 - AI 기반 코드/브라우저 보안 분석 도구의 실전 성과가 확인되면서 기존 SAST와 병행 운영하는 하이브리드 보안 전략이 중요해졌습니다.
 - 단기적으로는 AI 보안 도구 도입 기준 정리, 오탐 관리 프로세스 수립, 고위험 레포 우선 적용이 필요합니다.
 
@@ -364,10 +347,3 @@ Go 언어에 UUID 생성·파싱 기능을 표준 라이브러리(`unique/uuid`)
 - [Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
 - [AI 에이전트 보안 위협, Saylor Bitcoin 매수, Agent Safehouse](/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/) — 2026-03-09
 - [Coruna iOS 익스플로잇, 핵티비스트 DDoS, 보안 대응 우선순위](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

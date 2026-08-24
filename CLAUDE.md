@@ -523,7 +523,7 @@ the 9 historical posts affected before the rule was introduced. The 7
 posts that still violated the rule were fixed in commit `b4ff35c4`
 (2026-05-28).
 
-### Active automation gates (10 enforcing)
+### Active automation gates (11 enforcing)
 
 | # | Script | Scope | Wired to |
 |---|--------|-------|----------|
@@ -537,6 +537,15 @@ posts that still violated the rule were fixed in commit `b4ff35c4`
 | 8 | blogwatcher raster auto-emit | cron-side raster generation | `.github/workflows/ai-blogwatcher.yml` |
 | 9 | `check_digest_checklist_heading.py` | exactly one canonical `## 실무 체크리스트` H2 | pre-commit (9d) + svg-lint CI (`--all`) + blogwatcher publish (self-heal, then block) |
 | 10 | `check_template_echo.py` | card `summary=` that only echoes the headline + a fixed clause | pre-commit (13, `--staged`) + svg-lint CI (`--all`) + blogwatcher publish (self-heal via `rewrite_template_echo_summaries.py`, then block) |
+| 11 | `check_post_boilerplate.py` | a Mermaid fence or a whole checklist repeated verbatim across 2+ posts | pre-commit (15, `--staged`) + svg-lint CI (`--all`) |
+
+Gate 11 exists because gates 1-10 all passed a pipeline that put the same
+hardcoded diagram in 43 posts and the same checklist in 55: none of them read
+body prose. Gate 9 matches the canonical `## 실무 체크리스트` string and the
+injected heading was a different one; gate 10 reads card attributes, not prose;
+the honesty scorer governs covers. Full account: `notes/autonomous-modernizer-retro.md`.
+The lesson generalises — **a content gate keyed to one exact string is blind to
+the variant**, so when adding a gate, ask what the near-miss spelling would be.
 
 #### Two different visual systems — do not conflate them
 

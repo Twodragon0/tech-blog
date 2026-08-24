@@ -69,23 +69,6 @@ summary_card:
 
 ## Executive Summary
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 > **경영진 브리핑**: AI 기반 음악 비디오 생성 완벽 가이드. Suno V5 MIDI Export, Veo 3 1080p 멀티샷, Midjourney Video V1 활용법과 DevSecOps 보안 고려사항(API 키 관리, Zero-Trust) 실무 정리.
 
 ### 위험도 평가
@@ -420,10 +403,3 @@ DevSecOps 커뮤니티:
 원본 포스트: 이 포스팅은 YouTube의 "Pioneer" AI 음악 비디오를 참고하여 작성되었습니다.
 
 면책 조항: 본 포스팅의 법률 정보는 일반적인 가이드라인이며, 실제 법적 조언은 전문 변호사와 상담하시기 바랍니다. AI 도구의 가격 및 기능은 변경될 수 있으므로 공식 문서를 참조하세요.
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

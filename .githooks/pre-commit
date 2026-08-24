@@ -280,3 +280,26 @@ if [ -n "$STAGED_TEMPLATES" ]; then
   fi
   echo "[pre-commit] Resource-hint version check: passed."
 fi
+
+# 15. Post-body boilerplate gate — a block repeated verbatim across posts
+#     describes none of them. autonomous_post_modernizer.py (removed
+#     2026-08-24) put the same hardcoded Mermaid diagram in 43 posts and the
+#     same four-item checklist in 55, and every other gate passed it: the
+#     checklist-heading gate matches the canonical string and the injected
+#     heading was a different one, template-echo inspects card attributes not
+#     body prose, and the honesty scorer governs covers. The corpus is at 0
+#     duplicates across 11 distinct Mermaid fences and 213 distinct
+#     checklists, so any hit is new drift. Whole blocks only — 119 posts
+#     legitimately share one canonical checklist line, so a per-line rule
+#     would be all false positives.
+if [ -n "$STAGED_ANY_POSTS" ]; then
+  echo "[pre-commit] Checking staged posts for repeated body boilerplate..."
+  python3 "$REPO_ROOT/scripts/check_post_boilerplate.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] A body block is repeated verbatim across posts."
+    echo "             Write content specific to each post, or remove the block."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Post-boilerplate check: passed."
+fi

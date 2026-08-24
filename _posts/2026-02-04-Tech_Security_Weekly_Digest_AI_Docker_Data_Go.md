@@ -55,23 +55,6 @@ summary_card:
 
 ## Executive Summary
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 > **경영진 브리핑**: 2026년 2월 4일 주간 기술 보안 다이제스트: Docker AI 취약점, CVE-2025-11953, RCE 공격 - 2026년 2월 4일 보안 뉴스: Docker AI 비서 DockerDash 코드 실행 취약점, React Native CLI
 
 ### 위험도 평가
@@ -462,10 +445,3 @@ index=docker OR index=network OR index=endpoint
 - [n8n RCE, NGINX 하이재킹, AsyncRAT 캠페인 분석](/posts/2026/02/05/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-02-05
 - [AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet 패치](/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/) — 2026-02-01
 - [APT 침해 분석, AitM 라우터 공격, 공급망 보안 동향](/posts/2026/02/07/Tech_Security_Weekly_Digest_AI_Malware_Go_Security/) — 2026-02-07
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

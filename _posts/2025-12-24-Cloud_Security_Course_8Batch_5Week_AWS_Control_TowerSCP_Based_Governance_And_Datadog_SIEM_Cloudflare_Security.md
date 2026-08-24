@@ -66,18 +66,6 @@ summary_card:
 
 ## 서론
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-flowchart LR
-    User([External Client]) --> WAF[AWS WAF / CloudFront]
-    WAF --> ALB[Application Load Balancer]
-    ALB --> ECS[Compute: ECS / EKS Cluster]
-    ECS --> DB[(Encrypted Aurora / DynamoDB)]
-    ECS -.-> CW[CloudWatch & GuardDuty Alerts]
-```
-
-
 안녕하세요, Twodragon입니다. 이번 포스트에서는 클라우드 보안 과정 8기 5주차에서 다룰 AWS 멀티 계정 거버넌스 및 통합 보안 모니터링에 관련된 내용을 소개하고자 합니다.
 
 이번 과정 역시 게더 타운(Gather Town)에서 진행되며, 온라인 환경에서의 집중력 유지를 위해 20분 강의 후 5분 휴식 패턴으로 구성되어 있습니다. 특히 이번 주차에서는 AWS의 강력한 통제 기능을 제공하는 Control Tower와 SCP, 그리고 통합 보안 모니터링을 위한 Datadog SIEM, 웹 보안을 위한 Cloudflare에 대해 다룹니다.
@@ -544,10 +532,3 @@ Datadog SIEM 연동 탐지 규칙:
 | 주제 | 설명 | 링크 |
 |------|------|------|
 | AWS WAF 네트워크 시나리오 | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

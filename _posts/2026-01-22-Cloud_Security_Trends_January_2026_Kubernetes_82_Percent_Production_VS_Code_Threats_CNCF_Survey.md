@@ -60,27 +60,6 @@ summary_card:
 
 ## Executive Summary
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-graph TD
-    subgraph Ingress & Control Plane
-        GW[API Gateway / Ingress Controller]
-        AC[Admission Controller / Webhook]
-    end
-    subgraph Data Plane & Pods
-        P1[Application Pod 1]
-        P2[Application Pod 2]
-        Sec[Security Agent / Sidecar]
-    end
-    GW --> AC
-    AC --> P1
-    AC --> P2
-    P1 --- Sec
-    P2 --- Sec
-```
-
-
 > **경영진 브리핑**: 2026년 1월 클라우드 보안 핵심 동향. CNCF 연례 조사 Kubernetes 프로덕션 82% 달성, VS Code 터널
 
 ### 위험도 평가
@@ -286,10 +265,3 @@ index=k8s_network OR index=firewall
 3. OSTIF. (2026). "CRI-O Completes Second OSTIF Audit". [Link](https://www.cncf.io/blog/2026/01/16/cri-o-completes-second-ostif-audit/)
 4. Mandiant. (2026). "Closing the Door on Net-NTLMv1: Releasing Rainbow Tables". [Link](https://cloud.google.com/blog/topics/threat-intelligence/net-ntlmv1-deprecation-rainbow-tables/)
 5. HPE/CNCF. (2026). "Reclaiming Underutilized GPUs in Kubernetes". [Link](https://www.cncf.io/blog/2026/01/20/reclaiming-underutilized-gpus-in-kubernetes-using-scheduler-plugins/)
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

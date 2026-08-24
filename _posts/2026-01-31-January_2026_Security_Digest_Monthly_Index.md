@@ -40,23 +40,6 @@ redirect_from:
 
 ## 개요
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 2026년 1월은 AI 에이전트 보안이 실무 어젠다로 본격 부상한 달이었습니다. HashiCorp의 비인간 ID(NHI) Zero Trust 전략 발표, OpenAI PostgreSQL 8억 사용자 스케일링 아키텍처 공개와 맞물려 인프라 공격 표면이 확장되는 추세가 뚜렷했습니다. 동시에 VMware vCenter KEV 긴급 패치, Microsoft Office Zero-Day CVE-2026-21509, Sandworm APT의 폴란드 전력망 공격, ShinyHunters 비싱(Vishing) MFA 우회 등 재래식 위협도 한층 정교해졌습니다. 총 9개 다이제스트를 통해 기술 취약점, APT 동향, AI 보안 거버넌스, OT/ICS 공격 등 다층적 위협을 다뤘습니다.
 
 ---
@@ -96,10 +79,3 @@ sequenceDiagram
 - **주요 키워드**: AitM 피싱, VMware KEV, Zero-Trust, AI 에이전트, LLMjacking, OT 공격, MFA 우회, IoT 봇넷, n8n RCE, CTEM
 - **주요 위협 행위자**: Sandworm APT, ShinyHunters, Kimwolf/Badbox 2.0 운영자
 - **주요 CVE/취약점**: CVE-2024-37079 (VMware vCenter), CVE-2026-21509 (Microsoft Office), CVE-2026-1470 (n8n CVSS 9.9), CVE-2026-0625 (D-Link), SolarWinds Web Help Desk RCE(CVSS 9.8 x4)
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

@@ -70,23 +70,6 @@ summary_card:
 
 ## Executive Summary
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 > **경영진 브리핑**: AI로 완성하는 콘텐츠 크리에이터 워크플로우 2026 - 블로그부터 영상, 음악, 애니메이션까지 - 2026년 AI 콘텐츠 크리에이터 워크플로우: Claude Opus 4.5 블로그 생성, Qwen3-TTS 오픈소스 음성
 
 ### 위험도 평가
@@ -657,10 +640,3 @@ if not api_key:
 ---
 
 다음 포스트 예고: Claude Code와 oh-my-claudecode로 DevSecOps 워크플로우 자동화하기 - 실전 가이드
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

@@ -40,23 +40,6 @@ redirect_from:
 
 ## 개요
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-sequenceDiagram
-    autonumber
-    actor Engineer as DevSecOps Engineer
-    participant CI as CI/CD Pipeline
-    participant Sec as Security Gate & Scanner
-    participant Prod as Production Environment
-
-    Engineer->>CI: Push Git Commit / Pull Request
-    CI->>Sec: Static Analysis (SAST / Secret Masking)
-    Sec-->>CI: Policy Compliance (Zero Regression)
-    CI->>Prod: Automated Zero-Downtime Deployment
-```
-
-
 2026년 2월은 AI가 보안 방어의 주체로 첫 성과를 낸 달이었습니다. AI 시스템이 OpenSSL에서 제로데이 12건을 전량 자동 발견한 사례는 취약점 탐지 패러다임 전환을 알리는 상징적 사건으로 기록됐습니다. 동시에 공격자 진영에서도 AI 활용이 가속화되어, Gemini·Codespaces·Copilot 등 AI 개발 도구가 공격 벡터로 악용되는 이중 구조가 뚜렷해졌습니다. Lazarus의 npm/PyPI 공급망 캠페인, APT28 웹훅 멀웨어, UAC-0050 유럽 금융기관 공격, Aeternum 블록체인 C2 봇넷 등 국가 지원 위협 행위자의 활동이 집중된 달이기도 했습니다. 총 22개 다이제스트가 발행된 2월 보안 이슈를 주차별로 정리합니다.
 
 ---
@@ -128,10 +111,3 @@ sequenceDiagram
 - **주요 키워드**: AI 보안, 공급망 공격, 랜섬웨어, APT 캠페인, LLMjacking, BYOVD, Kubernetes, 제로트러스트, LLM 보안, 블록체인 C2
 - **주요 위협 행위자**: Lazarus, APT28, UAC-0050, UNC2814, Aeternum 봇넷 운영자, BlackField 랜섬웨어 그룹
 - **주요 CVE/취약점**: CVE-2025-11953 (React Native Metro4Shell RCE), CVE-2026-22769 (Dell RecoverPoint), CVE-2025-49113, Roundcube KEV 2건, FortiGate 대규모 침해, Codespaces RoguePilot RCE
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화

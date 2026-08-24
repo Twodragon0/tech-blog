@@ -80,18 +80,6 @@ summary_card:
 
 ## 경영진 요약
 
-### 아키텍처 및 워크플로우 다이어그램
-
-```mermaid
-flowchart LR
-    User([External Client]) --> WAF[AWS WAF / CloudFront]
-    WAF --> ALB[Application Load Balancer]
-    ALB --> ECS[Compute: ECS / EKS Cluster]
-    ECS --> DB[(Encrypted Aurora / DynamoDB)]
-    ECS -.-> CW[CloudWatch & GuardDuty Alerts]
-```
-
-
 2026년 1월 AWS/GCP 업데이트는 AI 인프라 성숙도와 데이터 주권 대응이라는 두 축으로 요약됩니다. 기업 의사결정자는 다음 세 가지 핵심 사항에 집중해야 합니다:
 
 ### 핵심 업데이트 및 영향도
@@ -435,10 +423,3 @@ Trade-off:
 4. Google Cloud. (2026). "Google Cloud launches new region in Bangkok". [Link](https://cloud.google.com/blog/products/infrastructure/google-cloud-launches-new-region-in-bangkok-thailand/)
 5. Google Cloud. (2026). "Getting Started with Gemini 3 Flash". [Link](https://cloud.google.com/blog/topics/developers-practitioners/getting-started-with-gemini-3-hello-world-with-gemini-3-flash/)
 6. Google Cloud. (2026). "BigQuery managed and SQL-native inference". [Link](https://cloud.google.com/blog/products/data-analytics/introducing-bigquery-managed-and-sql-native-inference-for-open-models/)
-
-## 실무 적용 및 운영 체크리스트 (Actionable Checklist)
-
-- [ ] 운영 환경 보안 정책 및 권한 최소화(Least Privilege) 검증
-- [ ] CI/CD 파이프라인 정적 분석 및 시크릿 유출 차단 룰 적용
-- [ ] 이상 징후 및 에러 모니터링 경보(Sentry/CloudWatch) 연동 확인
-- [ ] 장애 발생 시 롤백 및 긴급 복구 런북 최신화
