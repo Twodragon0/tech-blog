@@ -1,8 +1,9 @@
 name: SVG Compliance Lint
 
-# This workflow carries 15 corpus-wide gates (`--all`): cover drift for four
+# This workflow carries 16 corpus-wide gates (`--all`): cover drift for four
 # generator families, the honesty scorer, title-ASCII, spec-slug consistency,
-# KST-midnight URLs, checklist headings, bare URLs, template-echo. They scan the
+# KST-midnight URLs, checklist headings, bare URLs, template-echo, and repeated
+# body boilerplate. They scan the
 # WHOLE corpus, so the same trigger-narrower-than-scan hazard that hid a
 # three-week regression in check-svg.yml applies here — see that file's header.
 #
@@ -15,9 +16,9 @@ name: SVG Compliance Lint
 # the bot cover commit 685ca468 carried 12 workflow runs, every one of them
 # `schedule` and not a single `push` or `pull_request` event.
 #
-# So the dominant producer of the artifacts these 15 gates exist to check was
+# So the dominant producer of the artifacts these 16 gates exist to check was
 # invisible to both triggers. The daily `schedule` below closes that: it scans main
-# regardless of paths, exactly as check-svg.yml does. All 15 gates were verified
+# regardless of paths, exactly as check-svg.yml does. All 16 gates were verified
 # green against the current corpus before this was added, so it is not born red.
 on:
   push:
@@ -57,6 +58,7 @@ on:
       - 'scripts/check_digest_untranslated.py'
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
+      - 'scripts/check_post_boilerplate.py'
       - 'scripts/linkify_bare_urls.py'
       - 'scripts/check_template_echo.py'
       - 'scripts/rewrite_template_echo_summaries.py'
@@ -113,6 +115,7 @@ on:
       - 'scripts/check_digest_untranslated.py'
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
+      - 'scripts/check_post_boilerplate.py'
       - 'scripts/linkify_bare_urls.py'
       - 'scripts/check_template_echo.py'
       - 'scripts/rewrite_template_echo_summaries.py'
@@ -345,6 +348,19 @@ jobs:
         # is fresh drift — including one arriving via a cron push that never
         # ran the pre-commit hook.
         run: python3 scripts/check_digest_checklist_heading.py --all
+
+      - name: Post-body boilerplate gate (block repeated verbatim across posts)
+        id: post_boilerplate_gate
+        # --all: autonomous_post_modernizer.py (removed 2026-08-24) put the same
+        # hardcoded Mermaid diagram in 43 posts and the same four-item checklist
+        # in 55 before any gate objected, because the checklist-heading gate
+        # matches the canonical string and the injected heading was a different
+        # one. After cleanup the corpus is at 0 duplicates across 11 distinct
+        # Mermaid fences and 213 distinct checklists, so any hit is fresh drift
+        # — including one arriving via a cron push that never ran pre-commit.
+        # Whole blocks only: 119 posts legitimately share one canonical
+        # checklist line, so a per-line rule would be all false positives.
+        run: python3 scripts/check_post_boilerplate.py --all
 
       - name: Bare-URL gate (unlinked https:// in post prose)
         id: bare_url_gate

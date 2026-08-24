@@ -42,23 +42,15 @@ def test_parse_ai_tools_log(tmp_path):
     assert res["finish_time"] == "2026-08-23 18:08:37 KST"
 
 
-def test_parse_blog_autonomous_log(tmp_path):
-    log_file = tmp_path / "blog-autonomous.log"
-    log_content = (
-        "[2026-08-23 18:08:18 KST] [INFO] Starting Daily Tech Blog Autonomous Modernization...\n"
-        "[2026-08-23 18:08:19 KST] [INFO] ✅ Enhanced post: 2026-04-11-Sample.md\n"
-        "Loaded 51 news items\n"
-        "✅ Created post: _posts/2026-08-23-Tech_Security_Weekly_Digest_Test.md\n"
-        "[2026-08-23 18:12:02 KST] [INFO] 🎉 Daily Tech Blog Autonomous Run Completed.\n"
-    )
-    log_file.write_text(log_content, encoding="utf-8")
+def test_monitor_does_not_report_on_the_removed_modernizer_pipeline():
+    """The blog-autonomous pipeline was removed on 2026-08-24.
 
-    res = checker.parse_blog_autonomous_log(log_file)
-    assert res["status"] == "SUCCESS"
-    assert res["news_items_collected"] == 51
-    assert len(res["modernized_posts"]) == 1
-    assert len(res["new_posts_published"]) == 1
-    assert res["start_time"] == "2026-08-23 18:08:18 KST"
+    A monitor that keeps a section for a pipeline nobody runs reports a
+    permanent ❌ that carries no information — the dead-channel alert failure
+    mode. If the pipeline is ever revived, revive this section deliberately.
+    """
+    assert not hasattr(checker, "parse_blog_autonomous_log")
+    assert "daily_autonomous" not in checker.check_crontab_entries()
 
 
 def test_format_status_badge():
