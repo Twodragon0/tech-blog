@@ -226,9 +226,112 @@ payload 생성과 fail-closed 분기(`::error::` + exit 1)를 각각 실측했�
 | 러너 레벨 fail-open | 2 (미인지) | 0 |
 | 신규 회귀 가드 | — | 4개 파일 (`test_skip_path_policy`, `test_ci_compiled_css_gate_guard`, `test_ci_jekyll_build_gate_guard`, `test_ci_api_test_wiring_guard` 확장) |
 
+## 후속 — CI green ≠ 라이브 정상 (2026-08-21, #584·#586 이후)
+
+이번 사이클의 게이트 작업은 전부 **CI 안에서** 벌어졌다. 사이클을 닫으면서 같은
+질문을 CI 밖에 물었더니 이 캠페인 전체보다 큰 것이 나왔다.
+
+### 308 왕복 — 초록이 한 번도 거짓말하지 않았는데도 놓쳤다
+
+#558(vitals를 gtag → 퍼스트파티 beacon으로)은 CI가 전 구간 초록이었고 실제로
+옳았다. 그런데 `vercel.json`의 `trailingSlash: true` 때문에 슬래시 없는
+`/api/vitals`는 308을 받는다. 프로덕션 실측:
+
+```
+POST /api/vitals/  -> 204  (redirects=0)
+POST /api/vitals   -> 308 -> 204  (redirects=1)
+```
+
+브라우저가 리다이렉트를 따라가므로 **기능은 깨지지 않았다**. 문제는 이 beacon이
+document가 해체되는 page hide 시점에 나가고, 그 시점 생존이 이 전송 방식을 고른
+유일한 이유였다는 것이다. #586이 슬래시를 박고, 하드코딩이 아니라 `vercel.json`
+설정에 대고 어서션했다.
+
+교훈은 "CI를 못 믿는다"가 아니다. **CI는 레포 안의 명제만 검사하고, 이 결함은
+레포 두 파일 사이의 관계(`performance-monitor.js`의 경로 ↔ `vercel.json`의
+trailingSlash)에 있었다.** 두 파일 각각은 정상이다. 이 부류는 라이브 실측 아니면
+파일 간 관계를 명시적으로 어서션하는 테스트로만 잡힌다 — #586이 후자를 했다.
+
+### 상수 204 — "0건 매치가 건강함으로 읽힌" 부류의 새 사례이자 최악
+
+앞의 러너 레벨 fail-open 2건은 **버그**였다(`node --test`의 exit 0). 이번 것은
+버그가 아니라 **설계**다. `api/vitals.js`는 fire-and-forget이므로 모든 경로가
+204로 나간다. 네 가지 상태를 실측했다:
+
+| 프로브 | 코드 경로 | HTTP |
+|---|---|---|
+| 유효 same-origin 페이로드 | 전달 **또는** 시크릿 부재로 폐기 | **204** |
+| cross-origin Origin | `vitals.js:203` 거부 | **204** |
+| 잘못된 페이로드 | `vitals.js:215` 거부 | **204** |
+| GET | `vitals.js:199` | 405 ← 유일하게 정보가 있는 코드 |
+
+405는 함수가 배포·도달 가능함을 증명한다(정적 404가 아니다). 그 외에는 **204가
+정보량 0**이다. CLAUDE.md의 검증 런북이 "DevTools에서 204를 확인"하라고 적은
+것은 그래서 불충분하다 — 204는 수집 성공과 전량 폐기를 구분하지 못한다.
+
+### 그래서 실제로 무엇이 폐기되고 있었나 — `GA4_API_SECRET` 미설정
+
+`vercel env ls`(linked project `twodragon0s-projects/tech-blog`)가 주는 전체
+목록은 10건이고 GA4 관련 변수는 **한 건도 없다**:
+
+```
+SENTRY_DSN, REDIS_URL, BLOB_READ_WRITE_TOKEN, PRISMA_DATABASE_URL,
+DATABASE_URL, POSTGRES_URL, DEEPSEEK_API_KEY
+```
+
+`api/vitals.js:205-210`은 `GA4_API_SECRET`이 없으면 warn 로그 후 204로 끝낸다.
+즉 **#558 병합 이후 모든 beacon이 폐기됐고, GA4의 `web_vitals`는 0이 보장된다.**
+gtag 경로를 제거했으므로 이것은 열화가 아니라 전량 미수집이다 — CLAUDE.md가
+이미 경고해 둔 그대로다.
+
+여기서 중요한 것은 이 결함이 **이 캠페인이 만든 게이트가 잡도록 설계된 바로 그
+부류**라는 점이다. `SLACK_WEBHOOK`이 한 번도 울리지 않은 것,
+`GSC_SERVICE_ACCOUNT_JSON`이 매일 초록으로 아무 일도 안 한 것과 같은 모양이다.
+그런데 `test_ci_secret_absence_guard.py`는 이걸 **구조적으로 볼 수 없다**:
+
+| 자격증명 표면 | 어디에 사는가 | 레포가 감사할 수 있나 |
+|---|---|---|
+| `SLACK_BOT_TOKEN`, `GSC_SERVICE_ACCOUNT_JSON`, `VERCEL_TOKEN` | GitHub Actions secrets | ✅ `.github/workflows/` 텍스트로 검사 가능 |
+| `GA4_API_SECRET`, `SENTRY_DSN`, `DEEPSEEK_API_KEY` | **Vercel 프로젝트 env** | ❌ 레포에 흔적이 없음 |
+
+가드는 "워크플로가 참조하는 시크릿"을 축으로 만들어져 있다. 런타임 자격증명은
+서버리스 함수가 참조하고, 그 존재 여부는 Vercel 대시보드에만 있다. **감사 축이
+CI에 묶여 있었기 때문에, 같은 결함 부류의 절반이 사각지대였다.**
+
+### 이번에 검증하지 못한 것 (명시)
+
+- **런타임 로그 라인 미확보.** `[vitals] GA4_API_SECRET is not set; dropping
+  report`를 직접 보는 것이 가장 강한 증거였겠지만, `vercel logs`는 라이브
+  스트림이라 이미 끝난 프로브를 소급해 보여주지 않는다. 판정은 `vercel env ls`
+  (부재) + `vitals.js:205`의 무조건 분기 두 개에 근거한다.
+- **GA4 Realtime 미확인.** 사용자 요청 항목이었으나 시크릿이 없는 상태에서는
+  necessarily 0이므로 진단에는 무의미하다. 프로비저닝 **후** 확인 지점으로 남긴다.
+
+### 부수 — GSC 런북의 문서/현실 드리프트
+
+`docs/seo/GSC_RECRAWL_SETUP.md`가 `gsc-queue-refresh.yml`을 "daily 06:00 UTC
+cron"으로 적고 §5가 "시크릿을 넣으면 워크플로가 감지해서 **돈다**"고 적고
+있었다. 2026-08-10에 cron이 제거됐으므로 둘 다 사실이 아니다. 지금 키를
+프로비저닝하면 사용자는 파이프라인이 도는 줄 알고 아무것도 안 도는 상태에
+놓인다 — 이 노트가 다루는 실패 양상의 문서판이다. 수정하고,
+`test_ci_secret_absence_guard.py`가 강제하는 4단계 복원 절차(시크릿 →
+schedule → fail-closed 전환 → 가드 테스트 이동)를 런북에 명시했다.
+
+### 남는 명제
+
+이 캠페인은 "게이트가 조용히 자기 자신을 끈 적이 있나"를 물었다. 답을 CI 안에서
+전부 찾았다고 생각한 것이 이번의 오류다. 다음 축은 **런타임 자격증명**이다:
+`GA4_API_SECRET`(부재 확인), `SENTRY_DSN`(설정됨), `REDIS_URL`(설정됨,
+`checkRateLimit`이 의존) — 이 중 무엇이 없을 때 어떤 기능이 조용히 죽는지는
+현재 어떤 테스트도 말해주지 않는다.
+
 ## 참조
 
 - 이전 회고: [`ci-gate-audit-2026-08.md`](ci-gate-audit-2026-08.md),
   [`ci-security-hardening-2026-07.md`](ci-security-hardening-2026-07.md)
 - 정책 게이트: `scripts/tests/test_skip_path_policy.py`
 - 무장 패턴: `REQUIRE_COMPILED_CSS` (`jekyll.yml`), `REQUIRE_JEKYLL_BUILD` (동)
+- vitals 전송 경로: [`ga4-web-vitals-delivery-loss.md`](ga4-web-vitals-delivery-loss.md),
+  [`ga4-web-vitals-reporting.md`](ga4-web-vitals-reporting.md)
+- 자격증명 부재 가드: `scripts/tests/test_ci_secret_absence_guard.py`
+- GSC 복원 절차: [`../docs/seo/GSC_RECRAWL_SETUP.md`](../docs/seo/GSC_RECRAWL_SETUP.md)
