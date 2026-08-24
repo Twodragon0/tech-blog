@@ -91,9 +91,14 @@ def test_no_step_output_is_interpolated_directly_into_a_run_block():
     step = m.group(1)
     run_idx = step.find("run: |")
     assert run_idx != -1, "notification step has no run: block"
-    assert "${{" not in step[run_idx:], (
+    run_block = step[run_idx:]
+    # Built outside the f-string: CI runs Python 3.11, where a backslash inside
+    # an f-string expression is a SyntaxError (PEP 701 lifted that in 3.12, and
+    # the local .venv is 3.14 — so this parses locally and breaks in CI).
+    leaked = re.findall(r"\$\{\{[^}]*\}\}", run_block)
+    assert "${{" not in run_block, (
         "pass step outputs through env: instead of interpolating them into the "
-        f"shell: {re.findall(r'\\$\\{\\{[^}]*\\}\\}', step[run_idx:])}"
+        f"shell: {leaked}"
     )
 
 

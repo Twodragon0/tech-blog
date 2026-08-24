@@ -22,3 +22,10 @@ Pillow>=11.3.0
 # imports fine and then cannot open the files, so the extra is the load-bearing part
 # of this line, not the version.
 fonttools[woff]>=4.63.0
+
+# ruff — test_ci_python_syntax_floor_guard.py shells out to it to prove every
+# file under scripts/ parses at the oldest Python the workflows pin (py311).
+# Local interpreters are 3.13/3.14, so post-3.11 syntax otherwise reaches CI and
+# aborts test collection rather than failing a single test (PR #599).
+# `ast.parse(feature_version=...)` does not reject PEP 701 f-strings; ruff does.
+ruff>=0.15.0
