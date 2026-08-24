@@ -2,21 +2,35 @@
 """CI/pre-commit wiring guard for the digest STRUCTURE gate's --ratchet mode.
 
 check_digest_structure.py enforces digest structural invariants (contiguous
-'## N.' numbering, no body H1, a single checklist surface). The legacy corpus
-(~125 posts as of 2026-07-31) carries pre-existing defects awaiting a staged
-backfill campaign, so both wires run the gate with --ratchet: only violations
-that are NEW vs the base revision fail, while regressions still break the build.
+'## N.' numbering, no body H1, a single checklist surface).
 
-Two failure directions this guard protects against:
+**Updated 2026-08-24, as the previous version of this docstring asked for.** It
+said: "if the backfill completes and the ratchet is genuinely no longer needed,
+update this guard in the same PR and say why". The backfill completed — the
+601 -> 0 campaign (#494-#502, #509) took the corpus to 0 violations across 203
+digests — so CI moved from '--changed BASE --ratchet' to '--all'.
 
-1. The gate is dropped entirely  -> structural invariants stop being enforced.
-2. --ratchet is dropped          -> the gate reverts to file-scoped and blocks
-   every unrelated improvement to a legacy post (the exact breakage that
-   stalled Phase 2b; see notes/digest-proper-noun-policy.md §4).
+Why --all in CI, --ratchet in the hook:
 
-If the gate is intentionally moved/renamed, or the backfill completes and the
-ratchet is genuinely no longer needed, update this guard in the same PR and say
-why.
+* --all is strictly stronger. Same check_post() checks, wider scope, no
+  grandfathering. And a diff-scoped gate structurally cannot see a cron push:
+  blogwatcher pushes digests straight to main with GITHUB_TOKEN, which triggers
+  no workflow, and there is no base to diff against on the daily `schedule`.
+  That is how the 08-22/08-23 untranslated digests reached main unflagged (#601).
+* The pre-commit hook keeps --staged --ratchet. It is a fast local pre-check;
+  grandfathering there costs nothing while CI is the authority.
+
+Failure directions this guard protects against:
+
+1. The gate is dropped entirely -> structural invariants stop being enforced.
+2. --ratchet is dropped from the HOOK -> local commits get blocked by any
+   pre-existing defect on a legacy post rather than by their own regression
+   (the breakage that stalled Phase 2b; notes/digest-proper-noun-policy.md §4).
+3. CI silently narrows back to diff-scoped -> the cron blind spot reopens.
+4. **Legacy debt returns while CI is --all** -> CI becomes permanently red,
+   which this repo has twice judged worse than no gate at all. This is the new
+   risk --all introduces, so the guard asserts the corpus stays at 0 rather than
+   assuming it.
 """
 
 from __future__ import annotations
@@ -42,10 +56,8 @@ def _noncomment(text: str) -> str:
 # The hook invokes it as: python3 "$REPO_ROOT/scripts/...py" --staged --ratchet
 # so allow an optional closing quote before the flags.
 _HOOK_RE = re.compile(rf"{re.escape(SCRIPT)}\"?\s+--staged\s+--ratchet")
-# CI invokes it as: python3 scripts/...py --changed "$BASE" --ratchet
-_CI_RE = re.compile(
-    rf"{re.escape(SCRIPT)}\s+--changed\s+\"?\$?\{{?\w+\}}?\"?\s+--ratchet"
-)
+# CI invokes it as: python3 scripts/...py --all
+_CI_RE = re.compile(rf"{re.escape(SCRIPT)}\s+--all")
 
 
 def test_script_exists():
@@ -81,19 +93,51 @@ def test_install_hooks_source_also_carries_ratchet():
     )
 
 
-def test_wired_into_svg_lint_ci_with_ratchet():
+def test_wired_into_svg_lint_ci_at_corpus_scope():
     body = _noncomment(CI.read_text(encoding="utf-8"))
     assert _CI_RE.search(body), (
-        f"svg-lint CI no longer invokes '{SCRIPT} --changed <BASE> --ratchet'. "
-        "Either the structure gate was dropped from CI or --ratchet was dropped, "
-        "which would fail PRs on pre-existing legacy defects they did not cause."
+        f"svg-lint CI no longer invokes '{SCRIPT} --all'. Either the structure "
+        "gate was dropped from CI, or it narrowed back to a diff — which cannot "
+        "see a cron push to main and is how untranslated digests reached the "
+        "corpus unflagged (#601)."
     )
 
 
-def test_ci_gate_stays_diff_scoped_not_all():
-    """--all over the corpus would fail on the legacy backlog by design."""
+def test_ci_is_not_diff_scoped():
+    """The inverse of the old guard, for the same reason stated in reverse.
+
+    This file used to assert `--all` must NOT appear, because the legacy corpus
+    would have failed every build. That premise expired with the backfill. Now
+    the risk runs the other way: narrowing back to `--changed` would silently
+    reopen the cron blind spot while still looking wired.
+    """
     body = _noncomment(CI.read_text(encoding="utf-8"))
-    assert f"{SCRIPT} --all" not in body, (
-        f"svg-lint CI must not run '{SCRIPT} --all' — the legacy corpus has "
-        "known pre-existing defects and would fail every build."
+    assert f"{SCRIPT} --changed" not in body, (
+        f"svg-lint CI runs '{SCRIPT} --changed' again. If legacy debt genuinely "
+        "returned, fix the corpus or delete this test and say why — do not leave "
+        "the gate looking enforced while blind to the cron path."
+    )
+
+
+def test_corpus_is_at_zero_so_all_scope_is_safe():
+    """The invariant that justifies --all in CI. Without it, CI is born red.
+
+    Measured 2026-08-24: 0 violations across 203 digests. If this fails, --all
+    in svg-lint is now a permanently red job. The decision is then explicit:
+    backfill the offending posts, or move CI back to --ratchet and update the
+    two tests above in the same PR.
+    """
+    import subprocess
+
+    res = subprocess.run(
+        ["python3", str(REPO / SCRIPT), "--all"],
+        cwd=REPO,
+        capture_output=True,
+        text=True,
+    )
+    assert res.returncode == 0, (
+        "check_digest_structure.py --all is failing, so the --all wiring in "
+        "svg-lint CI would be permanently red:\n"
+        + (res.stdout or "")[-2000:]
+        + (res.stderr or "")[-500:]
     )
