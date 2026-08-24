@@ -277,7 +277,7 @@ SAP와 Google Cloud가 SAP Business Data Cloud Connect for BigQuery의 일반 �
 ### 3.2 Cyber Snapshot Report: Go beyond the toolchain and build
 
 {% include news-card.html
-  title="Cyber Snapshot Report: Go beyond the toolchain and build"
+  title="Cyber Snapshot 보고서: 툴체인을 넘어서 구축하라"
   url="https://cloud.google.com/blog/products/identity-security/cyber-snapshot-report-enterprise-resilience-key-to-toolchain-success/"
   summary="Mandiant의 M-Trends 2026 보고서에 따르면, 기계 속도의 공격이 주목받지만 대부분의 성공적인 침입은 여전히 근본적인 인간 및 시스템 결함에서 비롯됩니다. 이는 toolchain을 넘어선 기업 복원력 구축의 필요성을 강조합니다."
   source="Google Cloud Blog"

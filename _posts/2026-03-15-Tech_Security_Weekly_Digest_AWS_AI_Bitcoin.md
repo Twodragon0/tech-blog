@@ -100,7 +100,7 @@ summary_card:
 ### 1.1 GlassWorm 공급망 공격 - Open VSX 72개 확장 악용
 
 {% include news-card.html
-  title="GlassWorm Supply-Chain Attack Abuses 72 Open VSX Extensions to Target Developers"
+  title="GlassWorm 공급망 공격, Open VSX 확장 72개를 악용해 개발자를 노리다"
   url="https://thehackernews.com/2026/03/glassworm-supply-chain-attack-abuses-72.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4d-2XpiCS0UYnMWh32sQEJP9LnlN_m7m2hok9CnY_vu05XXwWn4INodYCvrEdweEzpho7XqcuOFvEPnnEWlHCRa_q3HY3V5O_ii35MVWAimRwsgrpNQrvGqeUchhZ48FRUl91zTpYQdLMRxVvRjV_T8GEm-J9mnMesefzlgeaoE_EU7Ba32liTr63SsQq/s1600/open.jpg"
   summary="GlassWorm은 VSCodium, Eclipse Che 등 오픈소스 IDE가 의존하는 Open VSX 레지스트리를 표적으로 삼았습니다. 공격 방식은 인기 있는 정상 확장을 복제한 뒤 이름을 유사하게 변조(typosquatting)하거나, 기존 확장 유지관리자 계정을 탈취해 악성 업데이트를 배포하는 두 가지입니다."
@@ -164,7 +164,7 @@ NOT (Image="code.exe" OR Image="codium" OR Image="node")
 ### 1.2 AI 에이전트 설계 결함 - 프롬프트 인젝션·데이터 탈취
 
 {% include news-card.html
-  title="OpenClaw AI Agent Flaws Could Enable Prompt Injection and Data Exfiltration"
+  title="OpenClaw AI 에이전트 취약점, 프롬프트 인젝션과 데이터 유출로 이어질 수 있다"
   url="https://thehackernews.com/2026/03/openclaw-ai-agent-flaws-could-enable.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2mVucJhli25A25joXcap-ewfeMT1Vh-95wQKQfGOue7PwZJ1_55YsG8OQ1DQF7WVOU8tsOy73kGDzgfpTLLeqTYQ1k9LqrFWTNavDmfvCV-9IIER9PfrRsdg1wA5UzpIMrer3xC1mBClBzKkaT6pfczDbppMjZM7afcWu-RURquDGrEfjq3vVBsmlltLm/s1600/open-clawss.jpg"
   summary="이번에 공개된 취약점은 특정 제품의 버그가 아니라 AI 에이전트 설계 패턴 자체의 구조적 문제입니다. 대부분의 LLM 에이전트는 사용자 입력, 도구 호출 결과, 웹 검색 결과를 구분 없이 하나의 컨텍스트로 처리합니다."
@@ -243,7 +243,7 @@ def validate_agent_input(text: str, max_length: int = 4096) -> Optional[str]:
 ### 1.3 AWS IAM Identity Center 멀티리전 배포 - 중앙 집중식 접근 관리
 
 {% include news-card.html
-  title="Deploy AWS applications and access AWS accounts across multiple Regions with IAM Identity Center"
+  title="IAM Identity Center로 여러 리전에 걸쳐 AWS 애플리케이션을 배포하고 계정에 접근하기"
   url="https://aws.amazon.com/blogs/security/deploy-aws-applications-and-access-aws-accounts-across-multiple-regions-with-iam-identity-center/"
   summary="AWS IAM Identity Center(구 AWS SSO)의 멀티리전 지원이 확장됐습니다. 기존에는 특정 리전을 홈 리전으로 설정하고, 그 리전에서만 Identity Center 콘솔을 관리했습니다."
   source="AWS Security Blog"
@@ -335,7 +335,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
 ### 2.1 Basel III 규칙 변경이 BTC 시장 유동성에 미치는 영향
 
 {% include news-card.html
-  title="Changing Basel rules could unlock 'huge' liquidity for BTC"
+  title="Basel 규제 변경이 BTC에 '막대한' 유동성을 열어줄 수 있다"
   url="https://cointelegraph.com/news/changing-basel-rules-huge-liquidity-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDEvMDE5YmU2M2MtNWYyMy03N2MyLWIwNTItODQ3ODEwY2E0MjIwLmpwZw==.jpg"
   summary="현행 Basel III 체계에서 Bitcoin은 Group 2b 자산으로 분류돼 1,250%의 위험 가중치가 적용됩니다. 이는 은행이 BTC 1달러를 보유하려면 자기자본 12.5달러를 적립해야 한다는 의미로, 사실상 은행의 BTC 직접 보유를 금지하는 수준입니다."
@@ -354,7 +354,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
 ### 2.2 Boris Johnson, BTC 폰지 사기 연루 의혹
 
 {% include news-card.html
-  title="Boris Johnson linked to BTC Ponzi scheme allegations"
+  title="Boris Johnson, BTC 폰지 사기 의혹에 연루"
   url="https://cointelegraph.com/news/boris-johnson-btc-ponzi-scheme?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDMvMDE5Y2VkNzAtNzk3ZC03ZWE5LTk5MTItMjAwOGM4YjY1ZTczLmpwZw==.jpg"
   summary="이번 사례는 기술적 취약점이 아닌 사회공학적 신뢰 조작의 전형입니다. 전직 국가 지도자 수준의 유명인을 내세워 투자자들의 경계심을 낮추는 이 수법은 딥페이크 광고와 결합해 더 정교해지고 있습니다."
@@ -373,7 +373,7 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
 ### 2.3 Bitcoin, 주식 수익률 상회 - Strategy $776M BTC 매수 계획
 
 {% include news-card.html
-  title="Bitcoin beats stocks as Strategy eyes $776M BTC buying potential"
+  title="Strategy가 7억 7,600만 달러 규모 BTC 매수 여력을 검토하는 가운데 Bitcoin이 주식을 앞서다"
   url="https://cointelegraph.com/news/bitcoin-beats-stocks-strategy-strc-776m-btc-buying-potential?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound"
   image="https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDIvMDE5Yzk5ODMtZWRmNS03NjU2LTlmOWQtNjgwM2FlOWI4ZTg0LmpwZw==.jpg"
   summary="Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자자들의 레퍼런스 케이스로 자리 잡으면서, 유사 전략을 채택하는 상장사가 늘고 있습니다. 이번 $776M 매수 계획은 STRC라는 수익 공유형 채권 상품을 통해 조달하며, BTC 가격 상승 시 채권 이자를 BTC로 지급하는 구조입니다."

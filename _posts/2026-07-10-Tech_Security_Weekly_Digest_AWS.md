@@ -285,7 +285,7 @@ Google Cloud에서 AlphaEvolve를 모든 사용자에게 공개했습니다. Alp
 ### 3.3 Autopilot Clusters with GKE managed DRANET: GPUs and TPUs
 
 {% include news-card.html
-  title="Autopilot Clusters with GKE managed DRANET: GPUs and TPUs"
+  title="GKE 관리형 DRANET을 사용하는 Autopilot 클러스터: GPU와 TPU"
   url="https://cloud.google.com/blog/topics/developers-practitioners/autopilot-clusters-with-gke-managed-dranet-gpus-and-tpus/"
   summary="Google Kubernetes Engine (GKE) managed DRANET이 Autopilot 클러스터에서 GPU와 TPU를 모두 지원합니다. 표준 클러스터와 달리 Autopilot은 Google이 구성을 대신 처리해 주는 방식입니다. 이 블로그에서는 Autopilot 클러스터 설정 방법을 다룹니다."
   source="Google Cloud Blog"

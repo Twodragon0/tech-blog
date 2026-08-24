@@ -523,7 +523,7 @@ the 9 historical posts affected before the rule was introduced. The 7
 posts that still violated the rule were fixed in commit `b4ff35c4`
 (2026-05-28).
 
-### Active automation gates (12 enforcing)
+### Active automation gates (13 enforcing)
 
 | # | Script | Scope | Wired to |
 |---|--------|-------|----------|
@@ -539,6 +539,18 @@ posts that still violated the rule were fixed in commit `b4ff35c4`
 | 10 | `check_template_echo.py` | card `summary=` that only echoes the headline + a fixed clause | pre-commit (13, `--staged`) + svg-lint CI (`--all`) + blogwatcher publish (self-heal via `rewrite_template_echo_summaries.py`, then block) |
 | 11 | `check_post_boilerplate.py` | a Mermaid fence or a whole checklist repeated verbatim across 2+ posts | pre-commit (15, `--staged`) + svg-lint CI (`--all`) |
 | 12 | `check_broken_links.py` | body `/posts/` link with no post and no declared `redirect_from` | pre-commit (16, `--staged`) + svg-lint CI (`--all`) |
+| 13 | `check_card_title_language.py` | news-card `title=` with no Korean text, outside a reasoned allow-list | pre-commit (17, `--staged`) + svg-lint CI (`--all`) |
+
+Gate 13 is deny-by-default because the obvious reuse does not work:
+`check_digest_untranslated.py`'s `is_untranslated()` **exempts cited English
+titles and Title-Cased proper-noun runs by design** — correct for the prose
+summaries it inspects, and over the 51 English card titles found on 2026-08-24
+it flagged exactly 1. Card titles are faithful translations of the source
+headline with proper nouns left in English (2261 Korean vs 51 English before the
+fix). 48 were translated; 3 pure product/event names are allow-listed with
+reasons. **When a new gate looks like it can reuse an existing heuristic, run
+the heuristic over the actual violations first** — the right heuristic for one
+job is often the wrong one next door.
 
 Gate 12 was inert from creation until 2026-08-24 — it printed a count, never
 called `sys.exit()`, and no workflow or hook invoked it. Reviving it was **not**

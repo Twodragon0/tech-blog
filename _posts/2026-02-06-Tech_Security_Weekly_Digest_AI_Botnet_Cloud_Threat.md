@@ -107,7 +107,7 @@ summary_card:
 ### 1.1 AI Usage Control - Buyer's Guide
 
 {%- include news-card.html
-  title="[보안] AI Usage Control - Buyer's Guide"
+  title="[보안] AI 사용 통제 — 구매 가이드"
   url="https://thehackernews.com/2026/02/the-buyers-guide-to-ai-usage-control.html"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlpSoX57ALenPL8np8ytWrS5oa8e4k8YIalPfIMcz22AlZ0d6ty1EO1myE6RDnMzhJvexH4pdak5SFgADFsYSqv7yb788Y6wm1aAVuxBQfOzENiAydw6vUhEVpBdI27mA0GVGnCwICW5okRNTyXHthGXdMoOVnrnC-gTqISgISWgRqPmwbgQAFZXpBveo/s1700-e365/main.jpg"
   summary="The Hacker News에서 기업의 AI 사용 통제를 위한 구매 가이드를 발표했습니다. 직원들이 무분별하게 사용하는 생성형 AI 서비스(ChatGPT, Claude, Gemini 등)로 인한 데이터 유출, 지적재산 노출, 규정 준수 위험을 관리하기 위한 솔루션 선택 기준과 평가 프레임워크를 제시합니다."
@@ -132,7 +132,7 @@ The Hacker News에서 기업의 AI 사용 통제를 위한 구매 가이드를 �
 ### 1.2 The Security Implementation Gap
 
 {%- include news-card.html
-  title="[보안] The Security Implementation Gap"
+  title="[보안] 보안 구현의 격차"
   url="https://www.microsoft.com/en-us/security/blog/2026/02/05/the-security-implementation-gap/"
   image="https://www.microsoft.com/en-us/security/blog/wp-content/uploads/2026/02/Operation-Winter-Shield.png"
   summary="Microsoft Security Blog에서 보안 도구 도입과 실제 구현 사이의 간극(Implementation Gap)을 분석했습니다. 많은 조직이 최신 보안 솔루션을 도입하지만, 올바르게 구성하고 운영하지 못해 실질적인 보안 효과를 달성하지 못하는 현상을 다루며, Microsoft의 보안 구현 지원 전략을 소개합니다."
@@ -200,7 +200,7 @@ Claude Opus 4.6의 향상된 에이전트 능력은 OWASP Agentic AI Top 10에�
 ### 3.1 Reduce Vulnerability Noise with VEX: Wiz + Docker Hardened Images
 
 {%- include news-card.html
-  title="[클라우드] Reduce Vulnerability Noise with VEX: Wiz + Docker Hardened Images"
+  title="[클라우드] VEX로 취약점 노이즈 줄이기: Wiz + Docker Hardened Images"
   url="https://www.docker.com/blog/reduce-vulnerability-noise-with-vex-wiz-docker-hardened-images/"
   image="https://www.docker.com/app/uploads/2025/03/image.png"
   summary="Docker와 Wiz가 협력하여 VEX(Vulnerability Exploitability eXchange) 표준을 활용한 취약점 노이즈 감소 방안을 발표했습니다. 하드닝된 컨테이너 이미지를 사용하더라도 취약점 스캐너가 수십~수백 개의 CVE를 보고하지만, 실제로 악용 가능한 취약점은 극소수입니다. VEX는 이러한 우선순위 결정 문제를 해결합니다."
@@ -259,7 +259,7 @@ CNCF 프로젝트 Dragonfly v2.4.0이 출시되었습니다. P2P(Peer-to-Peer) �
 ### 3.3 .NET Framework 3.5 Standalone Deployment
 
 {%- include news-card.html
-  title="[클라우드] .NET Framework 3.5 Standalone Deployment"
+  title="[클라우드] .NET Framework 3.5 독립 실행형 배포"
   url="https://devblogs.microsoft.com/dotnet/dotnet-framework-3-5-moves-to-standalone-deployment-in-new-versions-of-windows/"
   image="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2026/02/dotnet-framework-35-standalone-featured.webp"
   summary="Microsoft가 새로운 Windows 버전에서 .NET Framework 3.5의 독립 배포(Standalone Deployment) 방식 전환을 발표했습니다. 기존에는 Windows 구성 요소로 기본 포함되었으나, 향후 새 Windows 버전에서는 별도 설치가 필요합니다."

@@ -324,3 +324,24 @@ if [ -n "$STAGED_ANY_POSTS" ]; then
   fi
   echo "[pre-commit] Internal link check: passed."
 fi
+
+# 17. News-card title language gate — this blog is Korean and card titles are
+#     faithful translations of the source headline with proper nouns left in
+#     English. Measured 2026-08-24: 51 of 2312 titles were English (2.2 %), so
+#     they were drift, not a citation convention. 48 were translated; 3 pure
+#     proper-noun strings are allow-listed WITH REASONS in the script. Deny by
+#     default — check_digest_untranslated's is_untranslated() cannot serve here
+#     because it deliberately exempts cited English titles (it flagged 1 of 51).
+if [ -n "$STAGED_ANY_POSTS" ]; then
+  echo "[pre-commit] Checking staged posts for English news-card titles..."
+  python3 "$REPO_ROOT/scripts/check_card_title_language.py" --staged --quiet
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] A card title has no Korean text."
+    echo "             Translate the headline (keep proper nouns in English), or"
+    echo "             if it is a pure product/event name add it to"
+    echo "             ENGLISH_TITLE_ALLOW with its reason."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Card-title language check: passed."
+fi

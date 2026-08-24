@@ -671,25 +671,25 @@ UAE 왕실 연계 채굴 업체가 6,782 BTC(약 4억 5,300만 달러)를 보유
 
 {% capture spotlight_items %}
 {% include news-spotlight-item.html
-  title="Spotify Multi-Agent Architecture for Advertising"
+  title="Spotify의 광고용 멀티 에이전트 아키텍처"
   url="https://engineering.atspotify.com/2026/2/our-multi-agent-architecture-for-smarter-advertising/"
   source="Spotify Engineering"
   tag="Operator Signal"
 %}
 {% include news-spotlight-item.html
-  title="Discord Osprey: Open Sourcing our Rule Engine"
+  title="Discord Osprey: 룰 엔진 오픈소스 공개"
   url="https://discord.com/blog/osprey-open-sourcing-our-rule-engine"
   source="Discord Blog"
   tag="Operator Signal"
 %}
 {% include news-spotlight-item.html
-  title="Chrome CSS Zero-Day CVE-2026-2441"
+  title="Chrome CSS 제로데이 CVE-2026-2441"
   url="https://news.hada.io/topic?id=26823"
   source="GeekNews"
   tag="Tech Signals"
 %}
 {% include news-spotlight-item.html
-  title="ThreatsDay Bulletin: OpenSSL RCE, Foxit 0-Days"
+  title="ThreatsDay 브리핑: OpenSSL RCE, Foxit 제로데이"
   url="https://thehackernews.com/2026/02/threatsday-bulletin-openssl-rce-foxit-0.html"
   source="The Hacker News"
   tag="Operator Signal"
