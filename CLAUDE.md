@@ -854,7 +854,19 @@ merge. Confirm the **live** bundle, then the **event**:
    **`GA4_API_SECRET` must be set in Vercel or the endpoint drops everything.**
    The gtag path is gone, so an unset secret means zero collection, not
    degraded collection. The function logs
-   `[vitals] GA4_API_SECRET is not set` in that case.
+   `[vitals] GA4_API_SECRET is not set` in that case — into a Vercel function
+   log nobody reads, which is why it went unnoticed. **Measured 2026-08-24: the
+   secret is absent, so this pipeline has collected nothing since #558 shipped.**
+
+   Check it in one command instead of reading logs (names only, no values):
+   ```bash
+   python3 scripts/check_runtime_env_contract.py --vercel
+   ```
+   The credentials-free half of that script — every `process.env.*` in `api/`
+   must be declared with what breaks when it is absent — runs in the normal
+   pytest suite (`scripts/tests/test_runtime_env_contract.py`), so a new runtime
+   dependency cannot land undocumented. Provisioning runbook and the full
+   verification sequence: `docs/setup/VERCEL_ENV_SETUP.md`.
 
 Background on why the transport moved (gtag batches behind a ~5s timer and
 vitals are pushed at hide, so tab-close and internal navigation lost them
