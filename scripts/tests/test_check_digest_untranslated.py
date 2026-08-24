@@ -114,3 +114,55 @@ def test_check_post_ignores_code_fence_content():
         + "\n\n```\nthe attacker is able to run code with the privileges of the process\n```\n\n---\n"
     )
     assert check_post(_write(body)) == []
+
+
+# --- CI wiring: the gate must scan the whole corpus, not a diff --------------
+#
+# This gate was PR-diff-scoped until 2026-08-24 on the premise that "the legacy
+# corpus is already Korean, do not re-scan". That scoping is exactly what let
+# the failure through: the blogwatcher cron pushes digests DIRECTLY to main with
+# GITHUB_TOKEN, which triggers no workflow (GitHub recursion prevention), and a
+# diff-scoped gate has nothing to compare against on the daily `schedule`
+# either. So the 08-22 and 08-23 digests sat on main with raw English RSS
+# summaries, unflagged, until a routine branch update pulled them into a PR's
+# merge diff — at which point every later PR inherited a red job it did not
+# cause. Fixed in #601; scope widened here so it cannot recur.
+
+import re as _re
+from pathlib import Path as _Path
+
+_REPO_ROOT = _Path(__file__).resolve().parents[2]
+_SVG_LINT = _REPO_ROOT / ".github" / "workflows" / "svg-lint.yml"
+_SCRIPT = "scripts/check_digest_untranslated.py"
+
+
+def _uncommented(text: str) -> str:
+    """Comment lines mention both flags, so match code only."""
+    return "\n".join(l for l in text.split("\n") if not l.lstrip().startswith("#"))
+
+
+def test_gate_is_wired_into_svg_lint_ci():
+    body = _uncommented(_SVG_LINT.read_text(encoding="utf-8"))
+    assert _SCRIPT in body, f"svg-lint.yml no longer runs {_SCRIPT}"
+
+
+def test_gate_scans_the_whole_corpus_not_a_diff():
+    """Measured 2026-08-24: --all reports 0 violations across 203 digests.
+
+    If a future backlog makes --all untenable, delete this test in the same PR
+    and say why. Silently narrowing the step is the regression this guards.
+    """
+    body = _uncommented(_SVG_LINT.read_text(encoding="utf-8"))
+    assert _re.search(rf"{_re.escape(_SCRIPT)}\s+--all", body), (
+        f"svg-lint.yml runs '{_SCRIPT}' diff-scoped again. A diff-scoped gate "
+        "cannot see a cron push to main, which is how the 08-22/08-23 "
+        "untranslated digests reached the corpus unflagged."
+    )
+
+
+def test_svg_lint_path_filter_covers_the_gate_script():
+    """A gate whose own script change does not trigger CI is half-wired."""
+    raw = _SVG_LINT.read_text(encoding="utf-8")
+    assert raw.count(f"'{_SCRIPT}'") >= 2, (
+        f"{_SCRIPT} should appear in both the push and pull_request path filters"
+    )

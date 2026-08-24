@@ -134,17 +134,33 @@ def test_corpus_wide_gates_still_present():
 def test_diff_scoped_steps_have_a_non_pull_request_base():
     """On a schedule run there is no pull_request context; the fallback must exist.
 
-    The four diff-scoped steps branch on ``github.event_name`` and fall back to
-    ``HEAD~1``. Without that fallback, ``origin/`` + an empty base ref would make the
-    scheduled run fail on every diff-scoped gate — turning the new trigger into daily
-    noise that gets muted.
+    A diff-scoped step branches on ``github.event_name`` and falls back to
+    ``HEAD~1``. Without that fallback, ``origin/`` + an empty base ref would make
+    the scheduled run fail on every diff-scoped gate — turning the trigger into
+    daily noise that gets muted.
+
+    This asserted a hardcoded ``>= 4`` until 2026-08-24. That number is not the
+    invariant: it drifts down every time a gate correctly *stops* being
+    diff-scoped, which is what happened when the digest untranslated and
+    proper-noun gates moved to ``--all``. The property worth pinning is the
+    pairing — each PR-side base assignment has a scheduled-run fallback — plus
+    the fact that at least one diff-scoped step still exists to protect.
     """
     body = _body()
     pr_branches = body.count('github.event_name }}" = "pull_request"')
-    assert pr_branches >= 4, (
-        f"expected the 4 diff-scoped steps to branch on event_name, found {pr_branches}"
+    pr_bases = body.count('BASE="origin/')
+    fallbacks = body.count('BASE="HEAD~1"')
+
+    assert pr_branches >= 1, (
+        "no diff-scoped step left in svg-lint.yml. If every gate is now --all "
+        "that is an improvement, not a failure — delete this test and say so."
     )
-    assert body.count('BASE="HEAD~1"') >= pr_branches, (
-        "a diff-scoped step branches on event_name without a HEAD~1 fallback; the "
-        "scheduled sweep would fail there instead of checking the latest commit."
+    assert pr_bases == pr_branches, (
+        f"{pr_branches} event_name branch(es) but {pr_bases} origin/ base "
+        "assignment(s); one diff-scoped step is not computing a PR base."
+    )
+    assert fallbacks == pr_branches, (
+        f"{pr_branches} event_name branch(es) but {fallbacks} HEAD~1 "
+        "fallback(s); a diff-scoped step would fail on the scheduled sweep "
+        "instead of checking the latest commit."
     )
