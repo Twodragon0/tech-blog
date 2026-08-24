@@ -1,9 +1,10 @@
 name: SVG Compliance Lint
 
-# This workflow carries 17 corpus-wide gates (`--all`): cover drift for four
+# This workflow carries 19 corpus-wide gates (`--all`): cover drift for four
 # generator families, the honesty scorer, title-ASCII, spec-slug consistency,
 # KST-midnight URLs, checklist headings, bare URLs, template-echo, and repeated
-# body boilerplate, and internal post links. They scan the
+# body boilerplate, internal post links, digest translation and digest proper
+# nouns. They scan the
 # WHOLE corpus, so the same trigger-narrower-than-scan hazard that hid a
 # three-week regression in check-svg.yml applies here — see that file's header.
 #
@@ -16,9 +17,9 @@ name: SVG Compliance Lint
 # the bot cover commit 685ca468 carried 12 workflow runs, every one of them
 # `schedule` and not a single `push` or `pull_request` event.
 #
-# So the dominant producer of the artifacts these 17 gates exist to check was
+# So the dominant producer of the artifacts these 19 gates exist to check was
 # invisible to both triggers. The daily `schedule` below closes that: it scans main
-# regardless of paths, exactly as check-svg.yml does. All 17 gates were verified
+# regardless of paths, exactly as check-svg.yml does. All 19 gates were verified
 # green against the current corpus before this was added, so it is not born red.
 on:
   push:
@@ -312,39 +313,43 @@ jobs:
           # so unrelated improvements can land while regressions still break CI.
           python3 scripts/check_digest_structure.py --changed "$BASE" --ratchet
 
-      - name: Digest untranslated-English gate (PR-diff-scoped)
+      - name: Digest untranslated-English gate
         id: digest_untranslated
-        # PR-diff-scoped: only checks digest posts touched by this PR/push, so
-        # the whole legacy corpus (already Korean) is not re-scanned. Guards the
-        # repository_dispatch translation-fallback regression where LLM keys are
-        # zeroed and 요약/summary= fall back to raw English RSS text.
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            BASE="origin/${{ github.event.pull_request.base.ref }}"
-          else
-            BASE="HEAD~1"
-          fi
-          echo "[digest-untranslated] diff base: $BASE"
-          python3 scripts/check_digest_untranslated.py --changed "$BASE"
+        # --all since 2026-08-24. It was PR-diff-scoped ("the legacy corpus is
+        # already Korean, do not re-scan"), and that scoping is exactly what let
+        # the failure through: the blogwatcher cron pushes digests DIRECTLY to
+        # main with GITHUB_TOKEN, which triggers no workflow, and a diff-scoped
+        # gate has nothing to compare on the daily `schedule` either. So the
+        # 08-22 and 08-23 digests carried raw English RSS summaries on main,
+        # unflagged, until a routine branch update pulled them into a PR's merge
+        # diff — at which point every subsequent PR inherited a red job it did
+        # not cause (fixed in #601).
+        #
+        # Corpus measured at 0 violations across 203 digests after #601, so
+        # there is no legacy debt to scope around and any hit is fresh drift.
+        # Guards the repository_dispatch translation-fallback regression where
+        # LLM keys are zeroed and 요약/summary= fall back to raw English.
+        run: python3 scripts/check_digest_untranslated.py --all
 
-      - name: Digest proper-noun canonicalization gate (PR-diff-scoped)
+      - name: Digest proper-noun canonicalization gate
         id: digest_proper_nouns
-        # PR-diff-scoped, NOT --all: 135 legacy digests still use Hangul proper
-        # nouns (Phase 2 backfill pending). --changed only checks digests touched
-        # by this PR/push. Enforces English-canonical proper nouns (deny-by-default
-        # allow-list) so new digests never reintroduce 비트코인/Bitcoin mixing.
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            BASE="origin/${{ github.event.pull_request.base.ref }}"
-          else
-            BASE="HEAD~1"
-          fi
-          echo "[digest-proper-nouns] diff base: $BASE"
-          python3 scripts/check_digest_proper_nouns.py --changed "$BASE"
+        # --all since 2026-08-24. The comment here used to read "135 legacy
+        # digests still use Hangul proper nouns (Phase 2 backfill pending)" and
+        # scoped to the diff on that basis. That number was stale: the Phase 2
+        # campaign finished, and the corpus measures 0 violations across 203
+        # digests. A gate scoped around debt that no longer exists is a gate
+        # blind to cron-pushed drift for no benefit.
+        #
+        # Enforces English-canonical proper nouns (deny-by-default allow-list)
+        # so no digest reintroduces 비트코인/Bitcoin mixing — which a bot
+        # translation did on the stranded 08-22 branch, caught only because the
+        # recovery ran this gate at --all by hand.
+        run: python3 scripts/check_digest_proper_nouns.py --all
 
       - name: Digest canonical checklist heading gate
         id: digest_checklist_heading
-        # --all, unlike the three gates above: the 601 -> 0 structure campaign
+        # --all, like the two digest gates above (both moved to --all on
+        # 2026-08-24): the 601 -> 0 structure campaign
         # (#494-#502) left the corpus at 0 violations (184/184 measured
         # 2026-08-06), so there is no legacy debt to scope around and any hit
         # is fresh drift — including one arriving via a cron push that never

@@ -58,11 +58,38 @@ def test_wired_into_canonical_hook_source():
 
 
 def test_wired_into_svg_lint_ci():
+    """The gate must be in svg-lint CI. `--all` counts; it is strictly stronger.
+
+    This asserted `--changed` until 2026-08-24, back when the step was
+    PR-diff-scoped because "135 legacy digests still use Hangul proper nouns".
+    That number went to 0 when the Phase 2 campaign finished, and diff-scoping
+    then cost coverage for nothing: the blogwatcher cron pushes digests directly
+    to main, which triggers no workflow, and a diff-scoped gate has nothing to
+    compare against on the daily `schedule` either. Accepting only `--changed`
+    here would now block the stronger wiring.
+    """
     body = _noncomment(CI.read_text(encoding="utf-8"))
-    assert re.search(rf"{re.escape(SCRIPT)}\s+--changed", body), (
+    assert re.search(rf"{re.escape(SCRIPT)}\s+--(all|changed)", body), (
         "svg-lint.yml no longer runs the digest proper-noun gate "
-        f"('{SCRIPT} --changed'). New digests could reintroduce Hangul proper "
-        "nouns without CI catching it. Re-add the PR-diff-scoped step."
+        f"('{SCRIPT} --all' or '--changed'). New digests could reintroduce "
+        "Hangul proper nouns without CI catching it. Re-add the step."
+    )
+
+
+def test_svg_lint_scope_is_all_not_diff_scoped():
+    """Corpus is at 0, so the diff-scoped form is a coverage regression.
+
+    Measured 2026-08-24: `check_digest_proper_nouns.py --all` reports 0
+    violations across 203 digests. If a future legacy backlog makes `--all`
+    untenable again, delete this test in the same PR and say why — do not
+    silently narrow the step and leave this passing on the `--changed` branch of
+    the test above.
+    """
+    body = _noncomment(CI.read_text(encoding="utf-8"))
+    assert re.search(rf"{re.escape(SCRIPT)}\s+--all", body), (
+        f"svg-lint.yml runs '{SCRIPT}' diff-scoped again. A diff-scoped gate "
+        "cannot see a cron push to main, which is how the 08-22/08-23 "
+        "untranslated digests reached the corpus unflagged (#601)."
     )
 
 
