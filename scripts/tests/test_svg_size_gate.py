@@ -13,6 +13,7 @@ This file imports the Python gate directly and reuses its classify()
 rollup band, (2) known rollup/hq dates are classified correctly, and
 (3) both entry points exit 0 with no staged diff.
 """
+
 from __future__ import annotations
 
 import importlib.util
@@ -55,7 +56,9 @@ def test_rollup_band_covers_existing_rollups() -> None:
             rollups.append(svg)
     assert rollups, "expected at least one rollup SVG under assets/images/"
     mn, mx = BANDS["rollup"]
-    out_of_band = [(svg.name, size(svg)) for svg in rollups if not (mn <= size(svg) <= mx)]
+    out_of_band = [
+        (svg.name, size(svg)) for svg in rollups if not (mn <= size(svg) <= mx)
+    ]
     assert not out_of_band, (
         f"rollup band [{mn}, {mx}] excludes: {out_of_band}. "
         "Update ROLLUP_MIN_BYTES / ROLLUP_MAX_BYTES in check_svg_precommit.sh."
@@ -193,8 +196,7 @@ def test_baseline_silences_known_violations(tmp_path) -> None:
         timeout=30,
     )
     assert result.returncode == 0, (
-        "strict mode with up-to-date baseline must pass.\n"
-        f"stdout: {result.stdout}"
+        f"strict mode with up-to-date baseline must pass.\nstdout: {result.stdout}"
     )
 
 
@@ -205,8 +207,8 @@ def test_strict_blocks_new_violation(tmp_path) -> None:
     # markers so it falls into the std bucket.
     fake = tmp_path / "2099-12-31-Synthetic_Regression_Test.svg"
     body = '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1">'
-    body += '<!-- pad -->' * 4000  # ~50 KB of comment padding
-    body += '</svg>'
+    body += "<!-- pad -->" * 4000  # ~50 KB of comment padding
+    body += "</svg>"
     assert len(body) > 25000, "smoke test payload must exceed STD_MAX_BYTES"
     fake.write_text(body, encoding="utf-8")
 
@@ -219,8 +221,7 @@ def test_strict_blocks_new_violation(tmp_path) -> None:
         timeout=10,
     )
     assert result.returncode == 1, (
-        f"strict mode must reject new oversize std SVG. "
-        f"stdout: {result.stdout}"
+        f"strict mode must reject new oversize std SVG. stdout: {result.stdout}"
     )
     assert "WARN" in result.stdout
     assert "FAIL" in result.stdout
@@ -239,8 +240,7 @@ def test_strict_blocks_new_violation(tmp_path) -> None:
         timeout=10,
     )
     assert result.returncode == 0, (
-        f"baselined violation must pass strict mode.\n"
-        f"stdout: {result.stdout}"
+        f"baselined violation must pass strict mode.\nstdout: {result.stdout}"
     )
 
 

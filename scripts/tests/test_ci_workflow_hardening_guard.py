@@ -129,7 +129,8 @@ class TestWorkflowHardeningGuard:
             "These workflows have no top-level `permissions:` block, so their "
             "GITHUB_TOKEN falls back to the repository default scope (often broad "
             "contents:write). Add an explicit least-privilege `permissions:` block "
-            "(start from `contents: read`). Offending files:\n  - " + "\n  - ".join(missing)
+            "(start from `contents: read`). Offending files:\n  - "
+            + "\n  - ".join(missing)
         )
 
     def test_no_write_all_permissions(self):

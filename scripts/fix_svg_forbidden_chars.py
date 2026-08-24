@@ -34,19 +34,17 @@ IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
 
 # Replacement map applied to text content inside <text>/<tspan> elements
 CHAR_REPLACEMENTS: list[tuple[str, str]] = [
-    ("\u00B7", "-"),    # middle dot
-    ("\u2022", "*"),    # bullet
-    ("\u2014", "--"),   # em dash
-    ("\u2013", "-"),    # en dash
-    ("\u201C", '"'),    # left double quotation mark
-    ("\u201D", '"'),    # right double quotation mark
-    ("\u2018", "'"),    # left single quotation mark
-    ("\u2019", "'"),    # right single quotation mark
+    ("\u00b7", "-"),  # middle dot
+    ("\u2022", "*"),  # bullet
+    ("\u2014", "--"),  # em dash
+    ("\u2013", "-"),  # en dash
+    ("\u201c", '"'),  # left double quotation mark
+    ("\u201d", '"'),  # right double quotation mark
+    ("\u2018", "'"),  # left single quotation mark
+    ("\u2019", "'"),  # right single quotation mark
 ]
 
-FORBIDDEN_RE = re.compile(
-    r"[\u00B7\u2022\u2014\u2013\u201C\u201D\u2018\u2019]"
-)
+FORBIDDEN_RE = re.compile(r"[\u00B7\u2022\u2014\u2013\u201C\u201D\u2018\u2019]")
 
 KOREAN_RE = re.compile(r"[\uAC00-\uD7A3]")
 
@@ -163,7 +161,9 @@ def fix_svg_file(path: Path, dry_run: bool = False) -> dict:
             continue
 
         # Fix elem.text
-        if elem.text and (FORBIDDEN_RE.search(elem.text) or KOREAN_RE.search(elem.text)):
+        if elem.text and (
+            FORBIDDEN_RE.search(elem.text) or KOREAN_RE.search(elem.text)
+        ):
             original = elem.text
             new_text = original
             if KOREAN_RE.search(new_text):
@@ -180,7 +180,9 @@ def fix_svg_file(path: Path, dry_run: bool = False) -> dict:
 
         # Fix child tail text (text after a child element, still inside <text>)
         for child in elem:
-            if child.text and (FORBIDDEN_RE.search(child.text) or KOREAN_RE.search(child.text)):
+            if child.text and (
+                FORBIDDEN_RE.search(child.text) or KOREAN_RE.search(child.text)
+            ):
                 original = child.text
                 new_text = original
                 if KOREAN_RE.search(new_text):
@@ -195,7 +197,9 @@ def fix_svg_file(path: Path, dry_run: bool = False) -> dict:
                     child.text = fixed
                     modified = True
 
-            if child.tail and (FORBIDDEN_RE.search(child.tail) or KOREAN_RE.search(child.tail)):
+            if child.tail and (
+                FORBIDDEN_RE.search(child.tail) or KOREAN_RE.search(child.tail)
+            ):
                 original = child.tail
                 new_text = original
                 if KOREAN_RE.search(new_text):
@@ -251,6 +255,7 @@ def _apply_text_content_fix(content: str) -> str:
 
     def replace_text_nodes(m: re.Match) -> str:
         block = m.group(0)
+
         # Replace chars in text nodes only: content between > and <
         def fix_node(nm: re.Match) -> str:
             text = nm.group(1)
@@ -267,6 +272,7 @@ def _apply_text_content_fix(content: str) -> str:
             for old, new in CHAR_REPLACEMENTS:
                 fixed = fixed.replace(old, new)
             return ">" + fixed + "<"
+
         block = re.sub(r">([^<]+)<", fix_node, block)
         return block
 
@@ -326,7 +332,11 @@ def main() -> int:
             total_forbidden += result["forbidden_replacements"]
             total_korean += result["korean_replacements"]
             mode = "[DRY-RUN]" if args.dry_run else "[FIXED]"
-            rel = path.relative_to(PROJECT_ROOT) if path.is_relative_to(PROJECT_ROOT) else path
+            rel = (
+                path.relative_to(PROJECT_ROOT)
+                if path.is_relative_to(PROJECT_ROOT)
+                else path
+            )
             print(
                 f"{mode} {rel}  "
                 f"(forbidden={result['forbidden_replacements']}, "

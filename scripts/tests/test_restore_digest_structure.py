@@ -6,6 +6,7 @@ Contract (docs/superpowers/specs/2026-08-04-digest-structure-backfill-design.md)
   - rule order matters (R1 before R2, R4 before R5)
   - idempotent
 """
+
 import os
 import sys
 from pathlib import Path
@@ -100,13 +101,7 @@ def test_unboxes_checkbox_inside_item_region():
 
 def test_keeps_global_checklist_checkboxes():
     # 전역 '## 실무 체크리스트' 하위 체크박스는 정당한 산출물이므로 보존.
-    body = (
-        "## 1. 보안 뉴스\n"
-        "### 1.1 기사\n"
-        "본문.\n"
-        "## 실무 체크리스트\n"
-        "- [ ] 전역 항목\n"
-    )
+    body = "## 1. 보안 뉴스\n### 1.1 기사\n본문.\n## 실무 체크리스트\n- [ ] 전역 항목\n"
     out = unbox_item_checkboxes(_FM + body)
     assert "- [ ] 전역 항목" in out
 
@@ -175,7 +170,9 @@ def test_checkboxes_global_checklist_bullets():
     validate_post_quality.validate_checklists 점수가 떨어진다(03-22: 91→83).
     현재 생성기는 전역 체크리스트에 '- [ ]' 를 쓰므로 레거시를 그 형태로 수렴시킨다.
     """
-    body = "## 실무 체크리스트\n\n### P0 (즉시)\n\n- **긴급 패치** 확인\n- 모니터링 강화\n"
+    body = (
+        "## 실무 체크리스트\n\n### P0 (즉시)\n\n- **긴급 패치** 확인\n- 모니터링 강화\n"
+    )
     out = checkbox_global_checklist(_FM + body)
     assert "- [ ] **긴급 패치** 확인" in out
     assert "- [ ] 모니터링 강화" in out
@@ -292,13 +289,13 @@ def test_standalone_number_deletion_outside_headings_is_caught():
 @pytest.mark.parametrize(
     "orig,new",
     [
-        ("### 제목\n", "#### 제목\n"),                       # R1 demote
-        ("### 대응 체크리스트\n", "**대응 체크리스트**\n"),   # R2 boldify
-        ("- [ ] 조치\n", "- 조치\n"),                         # R3 unbox
-        ("- 조치\n", "- [ ] 조치\n"),                         # R6 checkbox
-        ("## 9. 보안\n", "## 3. 보안\n"),                     # R4 renumber
+        ("### 제목\n", "#### 제목\n"),  # R1 demote
+        ("### 대응 체크리스트\n", "**대응 체크리스트**\n"),  # R2 boldify
+        ("- [ ] 조치\n", "- 조치\n"),  # R3 unbox
+        ("- 조치\n", "- [ ] 조치\n"),  # R6 checkbox
+        ("## 9. 보안\n", "## 3. 보안\n"),  # R4 renumber
         ("## 9. 실무 체크리스트\n", "## 실무 체크리스트\n"),  # R5 unnumber
-        ("## 9. 보안\n", "#### 9. 보안\n"),                   # R5-then-R1 demote
+        ("## 9. 보안\n", "#### 9. 보안\n"),  # R5-then-R1 demote
     ],
 )
 def test_intended_rule_effects_do_not_trip_the_invariant(orig, new):
@@ -308,9 +305,9 @@ def test_intended_rule_effects_do_not_trip_the_invariant(orig, new):
 @pytest.mark.parametrize(
     "line",
     [
-        "### 9.1 항목\n",       # item sub-number is not the heading number slot
-        "발행 2026 년\n",       # prose number
-        "| 건수 | 12 |\n",      # table number
+        "### 9.1 항목\n",  # item sub-number is not the heading number slot
+        "발행 2026 년\n",  # prose number
+        "| 건수 | 12 |\n",  # table number
     ],
 )
 def test_unchanged_content_never_trips_the_invariant(line):
@@ -328,8 +325,7 @@ def test_invariant_backstops_an_r0_regression(monkeypatch, tmp_path, capsys):
 
     post = tmp_path / "2026-08-06-Tech_Blog_Weekly_Digest_x.md"
     post.write_text(
-        _FM
-        + "## 1. 보안\n\n### 1.1 기사\n\n```bash\n# 예시 주석\necho hi\n```\n\n"
+        _FM + "## 1. 보안\n\n### 1.1 기사\n\n```bash\n# 예시 주석\necho hi\n```\n\n"
         "## 실무 체크리스트\n\n- [ ] 조치\n",
         encoding="utf-8",
     )
@@ -379,9 +375,9 @@ def test_r1_and_r2_are_order_independent():
     # _RESP_HEADING_RE 가 '#{1,4}' 를 포괄하므로 R1이 '####'로 강등한 뒤든 전이든
     # R2가 잡는다. 둘 사이에는 순서 제약이 없다.
     body = _FM + "## 1. 보안 뉴스\n### 1.1 기사\n## 대응 체크리스트\n- 항목\n"
-    assert boldify_response_checklist(demote_item_headings(body)) == demote_item_headings(
-        boldify_response_checklist(body)
-    )
+    assert boldify_response_checklist(
+        demote_item_headings(body)
+    ) == demote_item_headings(boldify_response_checklist(body))
     assert "**대응 체크리스트**" in transform(body)
 
 
@@ -392,7 +388,10 @@ def test_order_matters_r5_before_r1():
     남아 있는 동안 R1은 그것을 item 바디로 보고 '#### 9. 실무 체크리스트'로 강등하며,
     그 뒤에는 R5('^##' 앵커)가 매칭하지 못해 'found 0' 결함이 그대로 남는다.
     """
-    body = _FM + "## 1. 보안 뉴스\n### 1.1 기사\n본문.\n## 9. 실무 체크리스트\n- [ ] 항목\n"
+    body = (
+        _FM
+        + "## 1. 보안 뉴스\n### 1.1 기사\n본문.\n## 9. 실무 체크리스트\n- [ ] 항목\n"
+    )
     wrong = canonicalize_checklist_heading(demote_item_headings(body))
     assert "#### 9. 실무 체크리스트" in wrong  # 잘못된 순서의 증거
     assert "## 실무 체크리스트" not in wrong
@@ -515,7 +514,7 @@ def test_r3_does_not_unbox_inside_a_code_fence():
 def test_r4_does_not_renumber_inside_a_code_fence():
     body = "## 1. 보안 뉴스\n```markdown\n## 7. 예시 섹션\n```\n## 5. AI/ML 뉴스\n"
     out = renumber_sections(_FM + body)
-    assert "## 7. 예시 섹션" in out   # example content untouched
+    assert "## 7. 예시 섹션" in out  # example content untouched
     assert "## 2. AI/ML 뉴스" in out  # real section still renumbered
 
 
@@ -538,17 +537,10 @@ def test_indented_closing_fence_closes_the_block():
     so the transformer must too — otherwise the fence never closes and the rest
     of the post is silently treated as code and left untransformed.
     """
-    body = (
-        "## 1. 보안 뉴스\n"
-        "### 1.1 기사\n"
-        "```bash\n"
-        "  # 예시 주석\n"
-        "  ```\n"
-        "# 실제 H1\n"
-    )
+    body = "## 1. 보안 뉴스\n### 1.1 기사\n```bash\n  # 예시 주석\n  ```\n# 실제 H1\n"
     out = demote_item_headings(_FM + body)
-    assert "  # 예시 주석" in out       # inside the fence: verbatim
-    assert "#### 실제 H1" in out        # after the indented closer: transformed
+    assert "  # 예시 주석" in out  # inside the fence: verbatim
+    assert "#### 실제 H1" in out  # after the indented closer: transformed
 
 
 def test_transform_leaves_fenced_blocks_byte_identical():

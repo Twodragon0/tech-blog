@@ -11,13 +11,13 @@ Covers:
 
 from __future__ import annotations
 
+# Import the module under test directly.
+import sys
 import textwrap
 from pathlib import Path
 
 import pytest
 
-# Import the module under test directly.
-import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from check_svg_title_ascii import _violations  # noqa: E402
@@ -37,10 +37,12 @@ def _make_svg(title: str = "", desc: str = "") -> str:
 @pytest.fixture
 def tmp_svg(tmp_path: Path):
     """Factory: write SVG content to a temp file and return its Path."""
+
     def _write(content: str) -> Path:
         p = tmp_path / "test.svg"
         p.write_text(content, encoding="utf-8")
         return p
+
     return _write
 
 

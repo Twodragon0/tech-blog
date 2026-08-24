@@ -97,6 +97,7 @@ def _short_path(p: Path) -> str:
     except ValueError:
         return str(p)
 
+
 # Band y-coordinates inside the 1200x630 frame: top / middle / bottom.
 _BAND_YC = (105, 315, 525)
 
@@ -107,29 +108,29 @@ _BAND_YC = (105, 315, 525)
 
 # Each entry: (visual.kind string, callable that accepts (cx, yc, accent, soft, **kwargs))
 VISUAL_REGISTRY: Dict[str, Callable[..., str]] = {
-    "lock_cve":         l22.v_lock_cve,
-    "network_nodes":    l22.v_network_nodes,
-    "browser_cve":      l22.v_browser_cve,
-    "router_mesh":      l22.v_router_mesh,
-    "code_bars":        l22.v_code_bars,
-    "shield":           l22.v_shield,
-    "cloud_k8s":        l22.v_cloud_k8s,
-    "bar_graph":        l22.v_bar_graph,
-    "wallet_forensic":  l22.v_wallet_forensic,
-    "senate_columns":   l22.v_senate_columns,
-    "price_chart":      l22.v_price_chart,
+    "lock_cve": l22.v_lock_cve,
+    "network_nodes": l22.v_network_nodes,
+    "browser_cve": l22.v_browser_cve,
+    "router_mesh": l22.v_router_mesh,
+    "code_bars": l22.v_code_bars,
+    "shield": l22.v_shield,
+    "cloud_k8s": l22.v_cloud_k8s,
+    "bar_graph": l22.v_bar_graph,
+    "wallet_forensic": l22.v_wallet_forensic,
+    "senate_columns": l22.v_senate_columns,
+    "price_chart": l22.v_price_chart,
     # Content-specific primitives (added 2026-05-22 to break repetition across batches)
-    "supply_chain":     l22.v_supply_chain,    # npm worm, plugin poisoning, KY3P, SBOM
-    "botnet_p2p":       l22.v_botnet_p2p,      # Turla/Kazuar, distributed mesh (no center)
-    "kernel_lpe":       l22.v_kernel_lpe,      # SYSTEM-priv 0-day, DirtyDecrypt, MiniPlasma
-    "ad_fraud":         l22.v_ad_fraud,        # Android ad-fraud schemes, mass-scale bid abuse
+    "supply_chain": l22.v_supply_chain,  # npm worm, plugin poisoning, KY3P, SBOM
+    "botnet_p2p": l22.v_botnet_p2p,  # Turla/Kazuar, distributed mesh (no center)
+    "kernel_lpe": l22.v_kernel_lpe,  # SYSTEM-priv 0-day, DirtyDecrypt, MiniPlasma
+    "ad_fraud": l22.v_ad_fraud,  # Android ad-fraud schemes, mass-scale bid abuse
     # Blue-band audit/identity primitives (added 2026-05-28)
-    "attestation_chain":     l22.v_attestation_chain,  # SBOM/cosign/SLSA supply-chain 4-hex badge
-    "compliance_grid":       l22.v_compliance_grid,    # ISMS-P/CIS/NIST audit checkbox grid
-    "identity_handshake":    l22.v_identity_handshake, # FIDO2/ZTNA/mTLS handshake sequence
-    "siem_panels":           l22.v_siem_panels,        # SOC console sparkline + severity tiles
+    "attestation_chain": l22.v_attestation_chain,  # SBOM/cosign/SLSA supply-chain 4-hex badge
+    "compliance_grid": l22.v_compliance_grid,  # ISMS-P/CIS/NIST audit checkbox grid
+    "identity_handshake": l22.v_identity_handshake,  # FIDO2/ZTNA/mTLS handshake sequence
+    "siem_panels": l22.v_siem_panels,  # SOC console sparkline + severity tiles
     # AI-threat primitive (added 2026-05-29)
-    "ai_threat":             l22.v_ai_threat,          # neural-graph poison-node + injection arrow
+    "ai_threat": l22.v_ai_threat,  # neural-graph poison-node + injection arrow
 }
 
 
@@ -141,12 +142,13 @@ VISUAL_REGISTRY: Dict[str, Callable[..., str]] = {
 @dataclass(frozen=True)
 class Spec:
     """In-memory representation of one digest-cover YAML spec."""
+
     date: str
     slug: str
     sfx: str
     title: str
     aria: str
-    bands_cfg: List[dict]      # ready for l22.render_bands_svg
+    bands_cfg: List[dict]  # ready for l22.render_bands_svg
     tier: str = "ultra"
     # Optional explicit URL override. When unset, the URL is derived
     # from (date, slug) via the canonical Jekyll permalink format.
@@ -191,8 +193,7 @@ def _validate_band(idx: int, raw: dict) -> dict:
     theme_name = raw["theme"]
     if theme_name not in l22.THEMES:
         raise ValueError(
-            f"band {idx}: unknown theme {theme_name!r}; "
-            f"valid: {sorted(l22.THEMES)}"
+            f"band {idx}: unknown theme {theme_name!r}; valid: {sorted(l22.THEMES)}"
         )
     theme = l22.THEMES[theme_name]
 
@@ -208,7 +209,9 @@ def _validate_band(idx: int, raw: dict) -> dict:
 
     extra_kwargs = {k: v for k, v in visual_raw.items() if k != "kind"}
     visual_fn = VISUAL_REGISTRY[kind]
-    visual_svg = visual_fn(500, _BAND_YC[idx], theme["accent"], theme["soft"], **extra_kwargs)
+    visual_svg = visual_fn(
+        500, _BAND_YC[idx], theme["accent"], theme["soft"], **extra_kwargs
+    )
 
     badge = raw["badge"]
     mini = raw.get("mini") or {}

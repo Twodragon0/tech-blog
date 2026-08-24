@@ -10,6 +10,7 @@ Covers the two grounding-source parsers and the transform contract:
 
 All fixtures are inline; no network or file I/O.
 """
+
 import sys
 from pathlib import Path
 
@@ -123,6 +124,7 @@ _APRIL_BODY = """
 
 # --- (a) 4-column highlights table still parses --------------------------
 
+
 def test_parse_highlights_4col():
     items = mod.parse_highlights(_HL_4COL_BODY)
     assert len(items) == 2
@@ -134,6 +136,7 @@ def test_parse_highlights_4col():
 
 
 # --- (b) 5-column highlights table reads the correct four fields ----------
+
 
 def test_parse_highlights_5col_reads_first_four():
     items = mod.parse_highlights(_HL_5COL_BODY)
@@ -157,6 +160,7 @@ def test_row_re_matches_both_widths():
 
 
 # --- (c) April summary_card + CVE table → CVSS-band severity --------------
+
 
 def test_parse_cve_table_numeric_band():
     body = "## 주요 CVE 요약\n\n| CVE | 대상 | CVSS | 상태 |\n|--|--|--|--|\n| CVE-2026-3502 | x | 7.8 | y |\n\n## next\n"
@@ -203,10 +207,13 @@ def test_april_transform_adds_exec_risk_not_checklist():
     assert new_text.count("## 실무 우선순위 체크리스트") == 1
     assert "## 실무 체크리스트\n" not in new_text
     # exec/risk lands between 개요 and 일별 인덱스
-    assert new_text.index("## 경영진 브리핑") < new_text.index("## 일별 다이제스트 인덱스")
+    assert new_text.index("## 경영진 브리핑") < new_text.index(
+        "## 일별 다이제스트 인덱스"
+    )
 
 
 # --- (d) skip-on-no-source → None ----------------------------------------
+
 
 def test_skip_when_no_source():
     text = _FRONT_MIN + "\n## 개요\n\n본문만 있고 표가 없습니다.\n"
@@ -222,6 +229,7 @@ def test_skip_when_highlights_absent_and_summary_card_absent():
 
 
 # --- (e) idempotency ------------------------------------------------------
+
 
 def test_idempotent_april():
     text = _APRIL_FRONT + _APRIL_BODY

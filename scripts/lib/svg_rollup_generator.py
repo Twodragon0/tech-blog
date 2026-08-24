@@ -49,13 +49,12 @@ from xml.sax.saxutils import escape as _xml_escape
 # Reuse the L22 palette + QR helpers verbatim. Do NOT redefine.
 from scripts.lib.svg_l22_generator import THEMES, gen_qr, qr_block  # noqa: F401
 
-
 # Severity -> THEMES key. Plan calls for HIGH=red, MEDIUM=amber, LOW=blue
 # (NOT green — see audit doc; green is reserved for L22 wiper/ransomware).
 SEVERITY_THEME: Dict[str, str] = {
-    "HIGH":   "red",
+    "HIGH": "red",
     "MEDIUM": "amber",
-    "LOW":    "blue",
+    "LOW": "blue",
 }
 
 
@@ -78,10 +77,13 @@ def _post_url(date: str, slug: str) -> str:
 # Primitive: header (y=0..80)
 # ---------------------------------------------------------------------------
 
-def _header(period_short: str, period_label: str, kind: str, date_str: str, sfx: str) -> str:
+
+def _header(
+    period_short: str, period_label: str, kind: str, date_str: str, sfx: str
+) -> str:
     """Top 80px banner: gradient strip + period chip + date badge."""
     kind_label = "MONTHLY INDEX" if kind == "monthly_index" else "WEEKLY ROLLUP"
-    return f'''<g>
+    return f"""<g>
   <rect x="0" y="0" width="1200" height="80" fill="url(#hdrGrad{sfx})"/>
   <rect x="0" y="78" width="1200" height="2" fill="#1B2742" opacity="0.85"/>
   <g transform="translate(36,40)">
@@ -96,12 +98,13 @@ def _header(period_short: str, period_label: str, kind: str, date_str: str, sfx:
     <text x="74" y="-2" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#9DB4D6" letter-spacing="1.4" text-anchor="middle">{_esc(period_short)}</text>
     <text x="74" y="14" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="800" fill="#F5F7FA" text-anchor="middle">{_esc(date_str)}</text>
   </g>
-</g>'''
+</g>"""
 
 
 # ---------------------------------------------------------------------------
 # Primitive: highlight card (top-3 strip y=100..300)
 # ---------------------------------------------------------------------------
+
 
 def _highlight_card(idx: int, item: dict, sfx: str) -> str:
     """One of three highlight cards at y=100..300.
@@ -159,7 +162,7 @@ def _highlight_card(idx: int, item: dict, sfx: str) -> str:
     <text x="106" y="2" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="{label_color}" letter-spacing="1.3">{_esc(label)}</text>
   </g>
   <text x="{x + 22}" y="{y + 80}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">{_esc(line1)}</text>
-  {f'<text x="{x + 22}" y="{y + 110}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">{_esc(line2)}</text>' if line2 else ''}
+  {f'<text x="{x + 22}" y="{y + 110}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="800" fill="#F5F7FA">{_esc(line2)}</text>' if line2 else ""}
   <text x="{x + 22}" y="{y + detail_y_offset}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="{detail_color}">{_esc(detail[:60])}</text>
   <g transform="translate({x + 22},{y + source_y_offset})">
     <circle cx="4" cy="-4" r="3" fill="{soft}"/>
@@ -171,6 +174,7 @@ def _highlight_card(idx: int, item: dict, sfx: str) -> str:
 # ---------------------------------------------------------------------------
 # Primitive: day strip (y=320..470)
 # ---------------------------------------------------------------------------
+
 
 def _day_strip(days: List[dict], kind: str, sfx: str) -> str:
     """Render N day cells in a horizontal strip at y=320..470.
@@ -214,17 +218,17 @@ def _day_strip(days: List[dict], kind: str, sfx: str) -> str:
     <rect x="0" y="0" width="{cell_w:.1f}" height="120" rx="10" fill="#0E1A33" opacity="0.92"/>
     <rect x="0" y="0" width="{cell_w:.1f}" height="120" rx="10" fill="none" stroke="{accent}" stroke-width="1" opacity="0.65"/>
     <rect x="0" y="0" width="{cell_w:.1f}" height="5" rx="2" fill="{accent}"/>
-    <text x="{cell_w/2:.1f}" y="32" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{date_size}" font-weight="800" fill="#F5F7FA" text-anchor="middle">{_esc(date_label)}</text>
-    <rect x="{cell_w/2 - 22:.1f}" y="42" width="44" height="14" rx="7" fill="{accent}" opacity="0.18"/>
-    <text x="{cell_w/2:.1f}" y="52" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="{accent}" text-anchor="middle" letter-spacing="1.1">{_esc(sev)}</text>
-    <text x="{cell_w/2:.1f}" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{tag_size}" font-weight="600" fill="#CFDAF0" text-anchor="middle">{_esc(tag[:18])}</text>
-    {f'<text x="{cell_w/2:.1f}" y="96" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{tag_size}" font-weight="600" fill="#9DB4D6" text-anchor="middle">{_esc(tag[18:36])}</text>' if len(tag) > 18 else ''}
+    <text x="{cell_w / 2:.1f}" y="32" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{date_size}" font-weight="800" fill="#F5F7FA" text-anchor="middle">{_esc(date_label)}</text>
+    <rect x="{cell_w / 2 - 22:.1f}" y="42" width="44" height="14" rx="7" fill="{accent}" opacity="0.18"/>
+    <text x="{cell_w / 2:.1f}" y="52" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="800" fill="{accent}" text-anchor="middle" letter-spacing="1.1">{_esc(sev)}</text>
+    <text x="{cell_w / 2:.1f}" y="80" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{tag_size}" font-weight="600" fill="#CFDAF0" text-anchor="middle">{_esc(tag[:18])}</text>
+    {f'<text x="{cell_w / 2:.1f}" y="96" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{tag_size}" font-weight="600" fill="#9DB4D6" text-anchor="middle">{_esc(tag[18:36])}</text>' if len(tag) > 18 else ""}
   </g>''')
 
     cells = "\n  ".join(cells_svg)
     return f'''<g>
   <text x="{strip_x}" y="{strip_y + 18}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#9DB4D6" letter-spacing="1.6">{_esc(title)}</text>
-  <text x="{strip_x + strip_w}" y="{strip_y + 18}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#7C92B4" text-anchor="end">{n} cell{'s' if n != 1 else ''}</text>
+  <text x="{strip_x + strip_w}" y="{strip_y + 18}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#7C92B4" text-anchor="end">{n} cell{"s" if n != 1 else ""}</text>
   {cells}
 </g>'''
 
@@ -239,7 +243,7 @@ def _truncate_word_boundary(text: str, max_chars: int) -> str:
         if len(candidate) <= max_chars - 3:
             return candidate + "..."
         parts.pop()
-    token = text[:max_chars - 3]
+    token = text[: max_chars - 3]
     sp = token.rfind(" ")
     return (token[:sp] if sp > 0 else token) + "..."
 
@@ -247,6 +251,7 @@ def _truncate_word_boundary(text: str, max_chars: int) -> str:
 # ---------------------------------------------------------------------------
 # Primitive: footer stats (y=490..600)
 # ---------------------------------------------------------------------------
+
 
 def _footer_stats(
     daily_count: int,
@@ -262,7 +267,10 @@ def _footer_stats(
         s = (d.get("severity") or "MEDIUM").upper()
         sev_count[s] = sev_count.get(s, 0) + 1
     if sev_count:
-        top_sev = max(sev_count.items(), key=lambda kv: (kv[1], {"HIGH": 3, "MEDIUM": 2, "LOW": 1}.get(kv[0], 0)))[0]
+        top_sev = max(
+            sev_count.items(),
+            key=lambda kv: (kv[1], {"HIGH": 3, "MEDIUM": 2, "LOW": 1}.get(kv[0], 0)),
+        )[0]
         top_sev_n = sev_count[top_sev]
     else:
         top_sev, top_sev_n = "MEDIUM", 0
@@ -272,10 +280,10 @@ def _footer_stats(
     cats = _truncate_word_boundary(", ".join(all_cats), max_chars=24)
 
     cards = [
-        ("DAILY DIGESTS", str(daily_count),          "#60A5FA", 22),
+        ("DAILY DIGESTS", str(daily_count), "#60A5FA", 22),
         ("PEAK SEVERITY", f"{top_sev} x{top_sev_n}", top_sev_theme["accent"], 22),
-        ("CATEGORIES",    cats,                       "#A78BFA", 14),
-        ("PERIOD",        period_label[:22],          "#4ADE80", 22),
+        ("CATEGORIES", cats, "#A78BFA", 14),
+        ("PERIOD", period_label[:22], "#4ADE80", 22),
     ]
 
     footer_x, footer_y = 28, 490
@@ -300,6 +308,7 @@ def _footer_stats(
 # Primitive: defs (gradients + filter) keyed by sfx
 # ---------------------------------------------------------------------------
 
+
 def _defs(spec: dict, sfx: str) -> str:
     """All gradients + filters with sfx-suffixed ids to avoid collision."""
     # Per-card gradients tinted by severity.
@@ -312,10 +321,10 @@ def _defs(spec: dict, sfx: str) -> str:
             f'<linearGradient id="cardGrad{idx}{sfx}" x1="0%" y1="0%" x2="100%" y2="100%">'
             f'<stop offset="0%" stop-color="{theme["bg_a"]}"/>'
             f'<stop offset="100%" stop-color="{theme["bg_b"]}"/>'
-            f'</linearGradient>'
+            f"</linearGradient>"
         )
     cards_svg = "\n  ".join(cards)
-    return f'''<defs>
+    return f"""<defs>
   <linearGradient id="bgRoll{sfx}" x1="0%" y1="0%" x2="100%" y2="100%">
     <stop offset="0%" stop-color="#0A1226"/>
     <stop offset="55%" stop-color="#0C1430"/>
@@ -340,12 +349,13 @@ def _defs(spec: dict, sfx: str) -> str:
     <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
   {cards_svg}
-</defs>'''
+</defs>"""
 
 
 # ---------------------------------------------------------------------------
 # Primitive: decorative ambient layer
 # ---------------------------------------------------------------------------
+
 
 def _ambient(sfx: str) -> str:
     """Multi-layer ambient decoration to match L22 ultra density (~50KB target).
@@ -382,9 +392,15 @@ def _ambient(sfx: str) -> str:
             f'stroke="#3B82F6" stroke-width="0.4" opacity="0.18"/>'
         )
     # Layer 4: scan / divider lines.
-    parts.append('<line x1="0" y1="80" x2="1200" y2="80" stroke="#3B82F6" stroke-width="0.6" opacity="0.55"/>')
-    parts.append('<line x1="0" y1="316" x2="1200" y2="316" stroke="#1B2742" stroke-width="0.8" opacity="0.55"/>')
-    parts.append('<line x1="0" y1="478" x2="1200" y2="478" stroke="#1B2742" stroke-width="1" opacity="0.7"/>')
+    parts.append(
+        '<line x1="0" y1="80" x2="1200" y2="80" stroke="#3B82F6" stroke-width="0.6" opacity="0.55"/>'
+    )
+    parts.append(
+        '<line x1="0" y1="316" x2="1200" y2="316" stroke="#1B2742" stroke-width="0.8" opacity="0.55"/>'
+    )
+    parts.append(
+        '<line x1="0" y1="478" x2="1200" y2="478" stroke="#1B2742" stroke-width="1" opacity="0.7"/>'
+    )
     # Layer 5: angled streaks (motion hint).
     for i in range(8):
         x = 100 + i * 140
@@ -393,10 +409,16 @@ def _ambient(sfx: str) -> str:
             f'stroke="#3B82F6" stroke-width="0.5" opacity="0.35"/>'
         )
     # Layer 6: ambient glow at center.
-    parts.append(f'<circle cx="600" cy="380" r="380" fill="url(#ambient{sfx})" opacity="0.6"/>')
+    parts.append(
+        f'<circle cx="600" cy="380" r="380" fill="url(#ambient{sfx})" opacity="0.6"/>'
+    )
     # Layer 7: side gradients (subtle edge vignette).
-    parts.append('<rect x="0" y="80" width="40" height="550" fill="#0A1226" opacity="0.4"/>')
-    parts.append('<rect x="1160" y="80" width="40" height="550" fill="#0A1226" opacity="0.4"/>')
+    parts.append(
+        '<rect x="0" y="80" width="40" height="550" fill="#0A1226" opacity="0.4"/>'
+    )
+    parts.append(
+        '<rect x="1160" y="80" width="40" height="550" fill="#0A1226" opacity="0.4"/>'
+    )
     # Layer 8: tick marks along top axis.
     for i in range(24):
         tx = 28 + i * 50
@@ -410,6 +432,7 @@ def _ambient(sfx: str) -> str:
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
+
 
 def render_rollup_svg(spec: dict) -> str:
     """Render a rollup-cover spec (dict) into a complete SVG string.
@@ -427,9 +450,18 @@ def render_rollup_svg(spec: dict) -> str:
         ValueError: missing required fields or invalid enums.
     """
     required = (
-        "date", "slug", "kind", "period_label", "period_short",
-        "daily_count", "daily_count_source", "sfx", "title", "aria",
-        "top_highlights", "days",
+        "date",
+        "slug",
+        "kind",
+        "period_label",
+        "period_short",
+        "daily_count",
+        "daily_count_source",
+        "sfx",
+        "title",
+        "aria",
+        "top_highlights",
+        "days",
     )
     missing = [k for k in required if k not in spec]
     if missing:
@@ -458,7 +490,9 @@ def render_rollup_svg(spec: dict) -> str:
 
     defs = _defs(spec, sfx)
     header = _header(period_short, period_label, kind, date, sfx)
-    cards_svg = "\n".join(_highlight_card(i, hl, sfx) for i, hl in enumerate(highlights))
+    cards_svg = "\n".join(
+        _highlight_card(i, hl, sfx) for i, hl in enumerate(highlights)
+    )
     strip = _day_strip(days, kind, sfx)
     stats = _footer_stats(daily_count, categories, days, period_label, sfx)
     ambient = _ambient(sfx)

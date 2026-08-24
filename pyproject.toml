@@ -5,6 +5,16 @@
 line-length = 88
 indent-width = 4
 
+# The oldest Python any workflow pins for scripts/ (measured 2026-08-24: 3.11 in
+# jekyll.yml, svg-lint.yml, ai-blogwatcher.yml and ten others). Local
+# interpreters here are 3.13/3.14, so without this ruff accepts syntax CI cannot
+# parse — PR #599 shipped a backslash inside an f-string expression (legal from
+# 3.12, PEP 701) that passed the whole local suite and then aborted CI test
+# COLLECTION, taking all 4319 tests down instead of failing one.
+# `ast.parse(feature_version=(3, 11))` does NOT catch this; ruff does.
+# Kept in sync with the workflows by test_ci_python_syntax_floor_guard.py.
+target-version = "py311"
+
 # Exclude directories from linting/formatting
 exclude = [
     ".bundle",

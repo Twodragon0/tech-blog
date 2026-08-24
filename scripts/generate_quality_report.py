@@ -24,10 +24,13 @@ OUTPUT_FILE = Path("/tmp/quality-report.md")
 def generate_trend_coverage() -> str:
     """Analyze _TREND_KR_MAP coverage against collected news data."""
     try:
-        sys.path.insert(0, str(Path(__file__).parent))
-        from auto_publish_news import _STOP_WORDS, _TECH_PRESERVE, _TREND_KR_MAP
+        sys.path.insert(0, str(Path(__file__).parent.parent))
+        from scripts.news.content_generator import _STOP_WORDS, _TECH_PRESERVE, _TREND_KR_MAP
     except ImportError:
-        return "⚠️ auto_publish_news.py import 실패"
+        try:
+            from news.content_generator import _STOP_WORDS, _TECH_PRESERVE, _TREND_KR_MAP
+        except ImportError:
+            return "⚠️ content_generator.py import 실패"
 
     if not NEWS_DATA.exists():
         return "⚠️ 뉴스 데이터 없음 (collected_news.json)"
@@ -132,11 +135,59 @@ def main() -> None:
     # Trend coverage
     trend_coverage = generate_trend_coverage()
 
+    # Structural element counts. Read each post once.
+    #
+    # These are reported as counts and NOT graded. Grading presence turns it into
+    # a target: this table used to print "🟢 우수" once mermaid_count passed 30,
+    # and in 2026-08 a pipeline raised that number by injecting the same
+    # hardcoded diagram into 43 posts. Presence of a diagram is not evidence of
+    # a good diagram. See notes/autonomous-modernizer-retro.md.
+    #
+    # The FAQ row IS graded, because there the target is genuinely a fixed
+    # number: FAQ sections are banned outright, so 0 is the only correct value.
+    _FAQ_HEADING = re.compile(
+        r"^#{1,4}\s*.*(?:자주\s*묻는\s*질문|\bFAQ\b)", re.MULTILINE | re.IGNORECASE
+    )
+    # A markdown table needs a header row followed by a delimiter row. The old
+    # check was `"|" in text`, which matched Liquid tags and inline code and so
+    # reported nearly every post.
+    _MD_TABLE = re.compile(r"\|.*\|.*\n\|[-:\s|]+\|")
+
+    mermaid_count = checklist_count = table_count = faq_count = 0
+    for p in POSTS_DIR.glob("*.md"):
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        if "```mermaid" in text:
+            mermaid_count += 1
+        if re.search(r"-\s*\[\s*[ xX]?\s*\]", text):
+            checklist_count += 1
+        if _MD_TABLE.search(text):
+            table_count += 1
+        if _FAQ_HEADING.search(text) or "schema_type: FAQPage" in text:
+            faq_count += 1
+
     # Build issue body
     body = f"""## 월간 포스트 품질 리포트
 
 **보고 기간**: {current_month}
 **총 포스트**: {total_count}개
+
+### 🏗️ 구조 요소 분포
+
+관측값이며 목표치가 아니다. 이 표는 이전에 Mermaid 30개를 넘기면 "🟢 우수"로
+표시했고, 2026-08에 한 파이프라인이 동일한 하드코딩 다이어그램을 43개 포스트에
+주입해 그 숫자를 올렸다. 다이어그램의 **존재**는 좋은 다이어그램의 근거가 아니다
+(`notes/autonomous-modernizer-retro.md`). 숫자가 낮다고 채워 넣지 말 것 —
+같은 블록의 반복은 `scripts/check_post_boilerplate.py`가 차단한다.
+
+| 구조 요소 | 포함 포스트 수 | 전체 대비 비율 |
+|---|---|---|
+| Mermaid 다이어그램 | {mermaid_count}개 | {mermaid_count / total_count * 100:.1f}% |
+| 체크리스트 (`- [ ]`) | {checklist_count}개 | {checklist_count / total_count * 100:.1f}% |
+| 마크다운 표 | {table_count}개 | {table_count / total_count * 100:.1f}% |
+
+| 금지 항목 | 검출 | 상태 |
+|---|---|:---:|
+| FAQ 섹션 / `schema_type: FAQPage` | {faq_count}개 | {'🟢 준수 (0건)' if faq_count == 0 else '🔴 제거 필요'} |
 
 ### 전체 품질 대시보드
 
@@ -173,9 +224,8 @@ def main() -> None:
 
 ### 조치 사항
 
-- [ ] 80점 미만 포스트 품질 개선
+- [ ] 80점 미만 포스트 품질 개선 (포스트 고유 내용으로. 고정 블록 주입 금지 — `scripts/check_post_boilerplate.py`가 차단한다)
 - [ ] 신규 포스트 품질 기준 준수 확인
-- [ ] Front matter 크기 최적화
 - [ ] 미매핑 상위 단어 _TREND_KR_MAP 추가 검토
 """
 

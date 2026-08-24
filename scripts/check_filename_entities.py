@@ -66,19 +66,19 @@ _RE_AMP_WORD = re.compile(
 
 # Matches literal HTML entities in a filename/path string
 _RE_LITERAL_ENTITY = re.compile(
-    r"&amp;"          # double-encoded &
-    r"|&#\d+;?"       # numeric entity (semicolon optional due to stripping)
+    r"&amp;"  # double-encoded &
+    r"|&#\d+;?"  # numeric entity (semicolon optional due to stripping)
     r"|&[a-zA-Z]+;",  # named entity
     re.IGNORECASE,
 )
 
 # Combined check for a single string
 _RE_ANY_ENTITY = re.compile(
-    rf"amp(?:{_LONG_SUFFIXES})"           # long entity suffix — no lookbehind needed
+    rf"amp(?:{_LONG_SUFFIXES})"  # long entity suffix — no lookbehind needed
     rf"|(?<![a-zA-Z])amp(?:{_SHORT_SUFFIXES})"  # short suffix — guard with lookbehind
-    r"|&amp;"                              # literal &amp;
-    r"|&#\d+;?"                            # numeric entity
-    r"|&[a-zA-Z]+;",                      # named entity
+    r"|&amp;"  # literal &amp;
+    r"|&#\d+;?"  # numeric entity
+    r"|&[a-zA-Z]+;",  # named entity
     re.IGNORECASE,
 )
 
@@ -111,6 +111,7 @@ def _load_whitelist() -> frozenset[str]:
 # Detection helpers
 # ---------------------------------------------------------------------------
 
+
 def has_entity_residue(name: str) -> bool:
     """Return True if *name* contains any HTML entity residue pattern."""
     return bool(_RE_ANY_ENTITY.search(name))
@@ -133,6 +134,7 @@ def suggest_clean_name(name: str) -> str:
 # ---------------------------------------------------------------------------
 # Frontmatter image field scanner
 # ---------------------------------------------------------------------------
+
 
 def check_frontmatter_image(path: Path) -> str | None:
     """Return the image field value if it contains entity residues, else None."""
@@ -168,6 +170,7 @@ def check_frontmatter_image(path: Path) -> str | None:
 # File collection
 # ---------------------------------------------------------------------------
 
+
 def _staged_files() -> list[Path]:
     """Return list of staged files (added/copied/modified/renamed)."""
     result = subprocess.run(
@@ -194,6 +197,7 @@ def _all_files(repo_root: Path) -> list[Path]:
 # Core check
 # ---------------------------------------------------------------------------
 
+
 def check_files(
     files: list[Path],
     repo_root: Path,
@@ -216,13 +220,12 @@ def check_files(
         # Check filename itself
         if has_entity_residue(basename):
             clean = suggest_clean_name(basename)
-            violations.append((rel, f"filename contains entity residue: '{basename}'", clean))
+            violations.append(
+                (rel, f"filename contains entity residue: '{basename}'", clean)
+            )
 
         # Check frontmatter image: field (only for markdown files in _posts)
-        if (
-            fpath.suffix == ".md"
-            and ("_posts" in rel or rel.startswith("_posts"))
-        ):
+        if fpath.suffix == ".md" and ("_posts" in rel or rel.startswith("_posts")):
             abs_path = repo_root / fpath if not fpath.is_absolute() else fpath
             bad_image = check_frontmatter_image(abs_path)
             if bad_image is not None:
@@ -231,11 +234,13 @@ def check_files(
                 key = f"{rel}::image"
                 if key not in existing_rels:
                     clean = suggest_clean_name(Path(bad_image).name)
-                    violations.append((
-                        rel,
-                        f"frontmatter image: field contains entity residue: '{bad_image}'",
-                        clean,
-                    ))
+                    violations.append(
+                        (
+                            rel,
+                            f"frontmatter image: field contains entity residue: '{bad_image}'",
+                            clean,
+                        )
+                    )
 
     return violations
 
@@ -243,6 +248,7 @@ def check_files(
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
+
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(

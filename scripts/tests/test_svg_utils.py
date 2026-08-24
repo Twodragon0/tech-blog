@@ -1,4 +1,4 @@
-from scripts.lib.svg_utils import escape_xml_text, escape_xml_attr
+from scripts.lib.svg_utils import escape_xml_attr, escape_xml_text
 
 
 def test_escape_basic():

@@ -51,7 +51,10 @@ from typing import List, Optional, Tuple
 try:
     import yaml
 except ImportError:
-    print("[rollup-spec] ERROR: PyYAML not installed. Run: pip install PyYAML", file=sys.stderr)
+    print(
+        "[rollup-spec] ERROR: PyYAML not installed. Run: pip install PyYAML",
+        file=sys.stderr,
+    )
     sys.exit(2)
 
 REPO = Path(__file__).resolve().parent.parent
@@ -138,7 +141,9 @@ def check_spec(spec_path: Path) -> List[str]:
     # 2. days[] date cells within period_label.
     bounds = _period_bounds(str(data.get("period_label", "")))
     days = data.get("days") or []
-    if bounds is None and any(_DATE_CELL_RE.match(str(d.get("date", ""))) for d in days):
+    if bounds is None and any(
+        _DATE_CELL_RE.match(str(d.get("date", ""))) for d in days
+    ):
         violations.append(
             f"{name}: unparseable period_label {data.get('period_label')!r} but days[] has date cells"
         )
@@ -162,21 +167,29 @@ def check_spec(spec_path: Path) -> List[str]:
             )
 
     # 4. severity enum on highlights + days.
-    for item in (data.get("top_highlights") or []):
+    for item in data.get("top_highlights") or []:
         sev = str(item.get("severity", "")).upper()
         if sev and sev not in _SEVERITIES:
-            violations.append(f"{name}: top_highlight severity {sev!r} not in {sorted(_SEVERITIES)}")
+            violations.append(
+                f"{name}: top_highlight severity {sev!r} not in {sorted(_SEVERITIES)}"
+            )
     for d in days:
         sev = str(d.get("severity", "")).upper()
         if sev and sev not in _SEVERITIES:
-            violations.append(f"{name}: day severity {sev!r} not in {sorted(_SEVERITIES)}")
+            violations.append(
+                f"{name}: day severity {sev!r} not in {sorted(_SEVERITIES)}"
+            )
 
     return violations
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Rollup spec ↔ owning-post accuracy gate")
-    parser.add_argument("--all", action="store_true", default=True, help="check all specs (default)")
+    parser = argparse.ArgumentParser(
+        description="Rollup spec ↔ owning-post accuracy gate"
+    )
+    parser.add_argument(
+        "--all", action="store_true", default=True, help="check all specs (default)"
+    )
     parser.add_argument("--strict", action="store_true", help="exit 1 on any violation")
     args = parser.parse_args()
 
@@ -192,7 +205,9 @@ def main() -> int:
     if all_violations:
         for v in all_violations:
             print(f"[rollup-spec] VIOLATION: {v}")
-        print(f"\n[rollup-spec] {len(all_violations)} violation(s) across {len(specs)} spec(s).")
+        print(
+            f"\n[rollup-spec] {len(all_violations)} violation(s) across {len(specs)} spec(s)."
+        )
         return 1 if args.strict else 0
     print(f"[rollup-spec] OK — {len(specs)} spec(s) checked, 0 violations.")
     return 0

@@ -48,7 +48,9 @@ def test_select_visual_variant_is_deterministic():
 
 
 def test_build_focus_lines_groups_concepts_into_two_lines():
-    lines = build_focus_lines(["Zero Trust", "Cloud Fabric", "Patch Flow", "Runtime Guard"])
+    lines = build_focus_lines(
+        ["Zero Trust", "Cloud Fabric", "Patch Flow", "Runtime Guard"]
+    )
 
     assert len(lines) == 2
     assert "Zero Trust" in lines[0]

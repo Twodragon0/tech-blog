@@ -19,8 +19,12 @@ import pytest
 # Make the scripts/ directory importable.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from check_spec_slug_consistency import _check_spec, _extract_image, _find_post, _parse_spec  # noqa: E402
-
+from check_spec_slug_consistency import (  # noqa: E402
+    _check_spec,
+    _extract_image,
+    _find_post,
+    _parse_spec,
+)
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -95,7 +99,9 @@ class TestParseSpec:
 
 class TestExtractImage:
     def test_extracts_image_field(self, tmp_path):
-        post = _write_post(tmp_path, "2025-01-01-Foo.md", "/assets/images/2025-01-01-Foo.svg")
+        post = _write_post(
+            tmp_path, "2025-01-01-Foo.md", "/assets/images/2025-01-01-Foo.svg"
+        )
         assert _extract_image(post) == "/assets/images/2025-01-01-Foo.svg"
 
     def test_returns_none_when_no_image_field(self, tmp_path):
@@ -171,7 +177,9 @@ class TestCheckSpec:
         assert len(violations) == 1
         assert "slug-vs-image-mismatch" in violations[0]
         assert slug in violations[0], "Expected spec slug in violation message"
-        assert slug_lower in violations[0], "Expected actual image path in violation message"
+        assert slug_lower in violations[0], (
+            "Expected actual image path in violation message"
+        )
 
     # ------------------------------------------------------------------
     # FAIL: orphan spec (no matching post)

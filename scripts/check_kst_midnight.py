@@ -55,10 +55,10 @@ _FRONT_MATTER_RE = re.compile(r"^---[ \t]*\n(.*?)\n---[ \t]*(?:\n|$)", re.DOTALL
 # Groups: (year, month, day, hour, minute, second, sign, off_h, off_m)
 _DATE_LINE_RE = re.compile(
     r"^date:\s*"
-    r"(\d{4})-(\d{2})-(\d{2})"          # YYYY-MM-DD
+    r"(\d{4})-(\d{2})-(\d{2})"  # YYYY-MM-DD
     r"[ T]"
-    r"(\d{2}):(\d{2}):(\d{2})"          # HH:MM:SS
-    r"\s*([+-])(\d{2}):?(\d{2})"        # ±HH:MM offset
+    r"(\d{2}):(\d{2}):(\d{2})"  # HH:MM:SS
+    r"\s*([+-])(\d{2}):?(\d{2})"  # ±HH:MM offset
     r"\s*$",
     re.MULTILINE,
 )
@@ -116,9 +116,7 @@ def _filename_parts(path: Path) -> Optional[tuple[str, str, str, str]]:
     return m.group(1), m.group(2), m.group(3), m.group(4)
 
 
-def _is_kst_at_risk(
-    hour: int, sign: str, off_h: int, off_m: int
-) -> bool:
+def _is_kst_at_risk(hour: int, sign: str, off_h: int, off_m: int) -> bool:
     """Return True when the timestamp is KST (UTC+0900) and hour < 9.
 
     We only flag ``+0900`` offsets because those are explicitly KST and the

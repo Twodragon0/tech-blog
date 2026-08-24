@@ -523,7 +523,7 @@ the 9 historical posts affected before the rule was introduced. The 7
 posts that still violated the rule were fixed in commit `b4ff35c4`
 (2026-05-28).
 
-### Active automation gates (10 enforcing)
+### Active automation gates (12 enforcing)
 
 | # | Script | Scope | Wired to |
 |---|--------|-------|----------|
@@ -537,6 +537,26 @@ posts that still violated the rule were fixed in commit `b4ff35c4`
 | 8 | blogwatcher raster auto-emit | cron-side raster generation | `.github/workflows/ai-blogwatcher.yml` |
 | 9 | `check_digest_checklist_heading.py` | exactly one canonical `## 실무 체크리스트` H2 | pre-commit (9d) + svg-lint CI (`--all`) + blogwatcher publish (self-heal, then block) |
 | 10 | `check_template_echo.py` | card `summary=` that only echoes the headline + a fixed clause | pre-commit (13, `--staged`) + svg-lint CI (`--all`) + blogwatcher publish (self-heal via `rewrite_template_echo_summaries.py`, then block) |
+| 11 | `check_post_boilerplate.py` | a Mermaid fence or a whole checklist repeated verbatim across 2+ posts | pre-commit (15, `--staged`) + svg-lint CI (`--all`) |
+| 12 | `check_broken_links.py` | body `/posts/` link with no post and no declared `redirect_from` | pre-commit (16, `--staged`) + svg-lint CI (`--all`) |
+
+Gate 12 was inert from creation until 2026-08-24 — it printed a count, never
+called `sys.exit()`, and no workflow or hook invoked it. Reviving it was **not**
+a one-line change: the old version reported 370 broken links and *all 370 were
+`redirect_from` YAML items in front matter*, matched because its regex allowed a
+leading whitespace. Wiring that as-is would have produced a permanently red job.
+It now skips front matter and treats declared `redirect_from` targets as valid
+destinations — which is what the KST/UTC filename-vs-URL date split above relies
+on. **Before wiring any dormant gate, run it and read the output: a gate nobody
+has run has never been right.**
+
+Gate 11 exists because gates 1-10 all passed a pipeline that put the same
+hardcoded diagram in 43 posts and the same checklist in 55: none of them read
+body prose. Gate 9 matches the canonical `## 실무 체크리스트` string and the
+injected heading was a different one; gate 10 reads card attributes, not prose;
+the honesty scorer governs covers. Full account: `notes/autonomous-modernizer-retro.md`.
+The lesson generalises — **a content gate keyed to one exact string is blind to
+the variant**, so when adding a gate, ask what the near-miss spelling would be.
 
 #### Two different visual systems — do not conflate them
 
@@ -845,7 +865,19 @@ merge. Confirm the **live** bundle, then the **event**:
    **`GA4_API_SECRET` must be set in Vercel or the endpoint drops everything.**
    The gtag path is gone, so an unset secret means zero collection, not
    degraded collection. The function logs
-   `[vitals] GA4_API_SECRET is not set` in that case.
+   `[vitals] GA4_API_SECRET is not set` in that case — into a Vercel function
+   log nobody reads, which is why it went unnoticed. **Measured 2026-08-24: the
+   secret is absent, so this pipeline has collected nothing since #558 shipped.**
+
+   Check it in one command instead of reading logs (names only, no values):
+   ```bash
+   python3 scripts/check_runtime_env_contract.py --vercel
+   ```
+   The credentials-free half of that script — every `process.env.*` in `api/`
+   must be declared with what breaks when it is absent — runs in the normal
+   pytest suite (`scripts/tests/test_runtime_env_contract.py`), so a new runtime
+   dependency cannot land undocumented. Provisioning runbook and the full
+   verification sequence: `docs/setup/VERCEL_ENV_SETUP.md`.
 
 Background on why the transport moved (gtag batches behind a ~5s timer and
 vitals are pushed at hide, so tab-close and internal navigation lost them

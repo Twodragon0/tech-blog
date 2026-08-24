@@ -40,14 +40,17 @@ class TestYamlEscapeDq:
     def test_escapes_backslash_first(self):
         # Backslashes must be escaped before quotes so we don't double-escape
         # `\"` into `\\\"` and break parsing.
-        assert _yaml_escape_dq('path\\with\\backslash') == 'path\\\\with\\\\backslash'
+        assert _yaml_escape_dq("path\\with\\backslash") == "path\\\\with\\\\backslash"
 
     def test_escapes_backslash_then_quote(self):
         # Mixed input — both pass through correctly in either order.
-        assert _yaml_escape_dq(r'a\"b') == 'a\\\\\\"b'
+        assert _yaml_escape_dq(r"a\"b") == 'a\\\\\\"b'
 
     def test_passes_through_plain_string(self):
-        assert _yaml_escape_dq("normal text without quotes") == "normal text without quotes"
+        assert (
+            _yaml_escape_dq("normal text without quotes")
+            == "normal text without quotes"
+        )
 
     def test_passes_through_korean_no_quotes(self):
         # Korean post-quote characters (｜ 「 『 etc.) aren't ASCII " so they
@@ -130,7 +133,7 @@ class TestFrontmatterYamlRoundTrip:
             )
             # Strip leading "title: " then check the remaining is a balanced
             # double-quoted YAML scalar — count unescaped `"`.
-            value = line[len(line_prefix):].strip()
+            value = line[len(line_prefix) :].strip()
             assert value.startswith('"') and value.endswith('"'), (
                 f"{line_prefix} value not wrapped in double-quotes: {line!r}"
             )
@@ -147,6 +150,6 @@ class TestFrontmatterYamlRoundTrip:
                         bs_run += 1
                         j -= 1
                     assert bs_run % 2 == 1, (
-                        f"unescaped `\"` at offset {i} in {line_prefix} value: {line!r}"
+                        f'unescaped `"` at offset {i} in {line_prefix} value: {line!r}'
                     )
                 i += 1

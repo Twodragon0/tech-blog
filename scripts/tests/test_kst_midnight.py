@@ -21,8 +21,7 @@ import pytest
 # Ensure scripts/ is importable.
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from scripts.check_kst_midnight import check_file, _expected_redirect
-
+from scripts.check_kst_midnight import _expected_redirect, check_file
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -199,7 +198,7 @@ class TestKstMidnightGate:
             redirect_from=[
                 "/posts/2025/05/My_Post/",
                 "/posts/2025-05-30-My_Post/",
-                "/posts/2025/05/30/My_Post/",   # the required one
+                "/posts/2025/05/30/My_Post/",  # the required one
             ],
         )
         assert check_file(path) == []

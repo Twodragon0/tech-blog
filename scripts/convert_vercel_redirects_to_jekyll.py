@@ -91,7 +91,7 @@ def split_front_matter(text: str) -> tuple[str, str] | None:
     if end_idx is None:
         return None
     front_matter = "\n".join(parts[1:end_idx])
-    body = "\n".join(parts[end_idx + 1:])
+    body = "\n".join(parts[end_idx + 1 :])
     return front_matter, body
 
 
@@ -227,8 +227,13 @@ def collect_redirects_by_post(
             skipped.append({"reason": "unparsed-destination", "redirect": r})
             continue
         if not post_path.is_file():
-            skipped.append({"reason": "post-not-found", "redirect": r,
-                            "expected_path": str(post_path)})
+            skipped.append(
+                {
+                    "reason": "post-not-found",
+                    "redirect": r,
+                    "expected_path": str(post_path),
+                }
+            )
             continue
         if src and src not in grouped[post_path]:
             grouped[post_path].append(src)
@@ -258,14 +263,19 @@ def apply_to_post(post_path: Path, new_redirects: list[str]) -> tuple[bool, list
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(description=__doc__,
-                                formatter_class=argparse.RawDescriptionHelpFormatter)
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     p.add_argument("--vercel-json", type=Path, default=DEFAULT_VERCEL_JSON)
     p.add_argument("--posts-dir", type=Path, default=DEFAULT_POSTS_DIR)
-    p.add_argument("--dry-run", action="store_true",
-                   help="Print summary without modifying files.")
-    p.add_argument("--strict", action="store_true",
-                   help="Exit 1 if any redirect destination is missing on disk.")
+    p.add_argument(
+        "--dry-run", action="store_true", help="Print summary without modifying files."
+    )
+    p.add_argument(
+        "--strict",
+        action="store_true",
+        help="Exit 1 if any redirect destination is missing on disk.",
+    )
     args = p.parse_args(argv)
 
     redirects = load_vercel_redirects(args.vercel_json)
@@ -300,8 +310,10 @@ def main(argv: list[str] | None = None) -> int:
         print(f"\n{len(skipped)} redirect(s) skipped:", file=sys.stderr)
         for s in skipped[:20]:
             r = s["redirect"]
-            print(f"  [{s['reason']}] {r.get('source','')} -> {r.get('destination','')}",
-                  file=sys.stderr)
+            print(
+                f"  [{s['reason']}] {r.get('source', '')} -> {r.get('destination', '')}",
+                file=sys.stderr,
+            )
         if len(skipped) > 20:
             print(f"  ... +{len(skipped) - 20} more", file=sys.stderr)
     if posts_modified:

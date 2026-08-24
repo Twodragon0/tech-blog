@@ -30,7 +30,6 @@ from scripts.news.l20_dispatch import (
     route_visual_id,
 )
 
-
 # =====================================================================
 # Honesty-driven routing (Option B): non-attack -> neutral, price -> market
 # =====================================================================
@@ -275,7 +274,9 @@ class TestSubheadlineDeduplication:
         # No headline token is immediately repeated as the first sub word.
         for story in (h, tr, br):
             head = story["headline"].split()[0].lower()
-            sub_words = [w.lower() for w in story["subheadline"].replace("-", " ").split()]
+            sub_words = [
+                w.lower() for w in story["subheadline"].replace("-", " ").split()
+            ]
             # The headline's lead token must not appear twice in the sub.
             assert sub_words.count(head) <= 1, (
                 f"headline token {head!r} repeated in subheadline "
@@ -400,8 +401,7 @@ class TestGenerateL20DigestSvg:
         # Underscores are preserved per Jekyll's permalink config — earlier
         # ``slug.replace("_", "-")`` produced 404 URLs in every QR.
         assert (
-            captured["url"]
-            == "https://tech.2twodragon.com/posts/2026/04/30/"
+            captured["url"] == "https://tech.2twodragon.com/posts/2026/04/30/"
             "Tech_Security_Weekly_Digest_Ransomware/"
         )
         # date_str follows the L20 dotted format.
@@ -540,7 +540,9 @@ class TestRenderL20SvgStringCleanTitle:
         title = m.group(1)
         # Core regression: <title> is ASCII-only (no U+00B7, no Hangul).
         non_ascii = [c for c in title if ord(c) >= 128]
-        assert not non_ascii, f"non-ASCII codepoint(s) {non_ascii!r} in <title>: {title!r}"
+        assert not non_ascii, (
+            f"non-ASCII codepoint(s) {non_ascii!r} in <title>: {title!r}"
+        )
         # Clean fixed template, topic derived from the filename slug.
         assert title == "Weekly Security Digest - 2026.06.05", title
 

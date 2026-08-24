@@ -523,8 +523,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--lane",
         action="append",
-        choices=["digest", "news-roundup", "tutorial", "postmortem", "roadmap",
-                 "comparison", "manual-review"],
+        choices=[
+            "digest",
+            "news-roundup",
+            "tutorial",
+            "postmortem",
+            "roadmap",
+            "comparison",
+            "manual-review",
+        ],
         help="Restrict processing to these lanes. Repeatable.",
     )
     parser.add_argument(
@@ -544,15 +551,16 @@ def main() -> int:
     args = parse_args()
 
     if not args.dry_run and not args.execute:
-        log.warning(
-            "Neither --dry-run nor --execute given; defaulting to --dry-run."
-        )
+        log.warning("Neither --dry-run nor --execute given; defaulting to --dry-run.")
         args.dry_run = True
 
     log.info("[bulk-regen] Collecting candidates from %s", POSTS_DIR)
     candidates = collect_candidates()
-    log.info("[bulk-regen] Found %d posts dated before %s",
-             len(candidates), CUTOFF.strftime("%Y-%m-%d"))
+    log.info(
+        "[bulk-regen] Found %d posts dated before %s",
+        len(candidates),
+        CUTOFF.strftime("%Y-%m-%d"),
+    )
 
     entries: list[ManifestEntry] = []
     for post_path, front_matter, post_date in candidates:
@@ -589,8 +597,13 @@ def main() -> int:
             if allowed_lanes and e.lane not in allowed_lanes:
                 continue
             size_kb = (e.current_svg_bytes or 0) / 1024
-            log.info("  REGEN [%s] %s (%.1f KB) — %s",
-                     e.lane, e.post_name, size_kb, e.title[:60])
+            log.info(
+                "  REGEN [%s] %s (%.1f KB) — %s",
+                e.lane,
+                e.post_name,
+                size_kb,
+                e.title[:60],
+            )
             count += 1
             if args.limit and count >= args.limit:
                 break
@@ -602,9 +615,9 @@ def main() -> int:
         return 0
 
     to_process = [
-        e for e in entries
-        if e.action == "regenerate"
-        and (not allowed_lanes or e.lane in allowed_lanes)
+        e
+        for e in entries
+        if e.action == "regenerate" and (not allowed_lanes or e.lane in allowed_lanes)
     ]
     if args.limit:
         to_process = to_process[: args.limit]
@@ -627,8 +640,7 @@ def main() -> int:
             success += 1
         except Exception as exc:  # noqa: BLE001 - bulk pass must keep going
             failures.append((entry.post_name, str(exc)))
-            log.error("  ✗ [%s] %s failed: %s",
-                      entry.lane, entry.post_name, exc)
+            log.error("  ✗ [%s] %s failed: %s", entry.lane, entry.post_name, exc)
 
     log.info(
         "[bulk-regen] Done. Success: %d  Failures: %d",

@@ -23,13 +23,13 @@ Theme remapping (drop unsupported L22 themes):
   purple/violet/pink   -> blue
   red, amber, blue     -> kept
 """
+
 from __future__ import annotations
 
 import sys
 from pathlib import Path
 
 import yaml
-
 
 REPO = Path(__file__).resolve().parent.parent
 DIGEST_DIR = REPO / "_data" / "digest_covers"
@@ -85,17 +85,57 @@ def pick_visual(band: dict) -> str:
     full = " ".join([headline, label, metric])
 
     # CVE/RCE/kernel takes priority over ransomware mention in detail
-    if any(k in primary for k in ("cve-", "rce", "0-day", "zero-day", "zero day", "kernel lpe")):
+    if any(
+        k in primary
+        for k in ("cve-", "rce", "0-day", "zero-day", "zero day", "kernel lpe")
+    ):
         return "cve_chain"
     if any(k in primary for k in ("ransomware", "lockbit", "ransom note")):
         return "ransomware_lock"
-    if any(k in primary for k in ("supply chain", "go.sum", "pypi", "npm", "pkg.go.dev", "package backdoor", "dependency")):
+    if any(
+        k in primary
+        for k in (
+            "supply chain",
+            "go.sum",
+            "pypi",
+            "npm",
+            "pkg.go.dev",
+            "package backdoor",
+            "dependency",
+        )
+    ):
         return "supply_chain_pipe"
-    if any(k in primary for k in ("ai agent", "agentic", "llm", "claude code", "gpt", "model context", "owasp llm")):
+    if any(
+        k in primary
+        for k in (
+            "ai agent",
+            "agentic",
+            "llm",
+            "claude code",
+            "gpt",
+            "model context",
+            "owasp llm",
+        )
+    ):
         return "ai_agent_funnel"
-    if any(k in primary for k in ("k8s", "kubernetes", "container", "docker", "pod escape", "namespace")):
+    if any(
+        k in primary
+        for k in ("k8s", "kubernetes", "container", "docker", "pod escape", "namespace")
+    ):
         return "container_escape"
-    if any(k in primary for k in ("data exfil", "exfil", "data leak", "data theft", "wallet", "btc", "usdt", "blockchain")):
+    if any(
+        k in primary
+        for k in (
+            "data exfil",
+            "exfil",
+            "data leak",
+            "data theft",
+            "wallet",
+            "btc",
+            "usdt",
+            "blockchain",
+        )
+    ):
         return "data_exfil"
     if any(k in primary for k in ("injection", "xss", "sqli", "backdoor", "rat")):
         return "code_injection"
@@ -228,7 +268,14 @@ def main():
             print(f"[skip] exists: {target.name}")
             continue
         with target.open("w") as f:
-            yaml.safe_dump(l20, f, sort_keys=False, default_flow_style=False, allow_unicode=False, width=120)
+            yaml.safe_dump(
+                l20,
+                f,
+                sort_keys=False,
+                default_flow_style=False,
+                allow_unicode=False,
+                width=120,
+            )
         print(f"[ok] wrote {target.name}")
         written += 1
     print(f"\n[done] converted {written}/{len(targets)} specs")

@@ -50,7 +50,10 @@ from typing import Dict, List, Optional, Tuple
 try:
     import yaml
 except ImportError:  # pragma: no cover - environment guard
-    print("[draft-rollup] ERROR: PyYAML not installed. Run: pip install PyYAML", file=sys.stderr)
+    print(
+        "[draft-rollup] ERROR: PyYAML not installed. Run: pip install PyYAML",
+        file=sys.stderr,
+    )
     sys.exit(2)
 
 REPO = Path(__file__).resolve().parent.parent
@@ -233,10 +236,16 @@ def build_day_cell(year: str, month: str, day: str, daily_post: Optional[Path]) 
                 tag = lead_entity(str(h.get("title", "")))
                 if tag:
                     break
-    return {"date": date_cell, "severity": severity or "MEDIUM", "tag": tag or "Security update"}
+    return {
+        "date": date_cell,
+        "severity": severity or "MEDIUM",
+        "tag": tag or "Security update",
+    }
 
 
-def collect_week_highlights(dailies: List[Tuple[str, str, str, Optional[Path]]]) -> List[Dict]:
+def collect_week_highlights(
+    dailies: List[Tuple[str, str, str, Optional[Path]]],
+) -> List[Dict]:
     """Flatten every daily's highlights into rank-able records.
 
     Each record: {headline, detail, source, severity, recency} where recency is
@@ -310,7 +319,7 @@ def build_spec(
             y, mo, d = (dm.group(1), dm.group(2), dm.group(3)) if dm else ("", "", "")
             dailies.append((y, mo, d, path if path.exists() else None))
     else:
-        for (y, mo, d, dslug) in daily_urls_from_redirects(fm.get("redirect_from")):
+        for y, mo, d, dslug in daily_urls_from_redirects(fm.get("redirect_from")):
             dailies.append((y, mo, d, daily_path_for(y, mo, d, dslug)))
 
     if not dailies:
@@ -377,7 +386,9 @@ def main(argv: Optional[List[str]] = None) -> int:
             "Pass --dailies with the daily post paths to draft a monthly spec."
         ),
     )
-    parser.add_argument("owning_post", help="owning rollup post path (.md) or YYYY-MM-DD date")
+    parser.add_argument(
+        "owning_post", help="owning rollup post path (.md) or YYYY-MM-DD date"
+    )
     parser.add_argument(
         "--write",
         action="store_true",
@@ -394,7 +405,10 @@ def main(argv: Optional[List[str]] = None) -> int:
     try:
         owning = resolve_owning_post(args.owning_post)
         if not owning.exists():
-            print(f"[draft-rollup] ERROR: owning post not found: {owning}", file=sys.stderr)
+            print(
+                f"[draft-rollup] ERROR: owning post not found: {owning}",
+                file=sys.stderr,
+            )
             return 2
         dailies_override = [Path(p) for p in args.dailies] if args.dailies else None
         spec = build_spec(owning, dailies_override=dailies_override)

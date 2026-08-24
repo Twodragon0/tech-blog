@@ -6,8 +6,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from scripts.lib.image_utils import extract_front_matter_image
 from validate_post_quality import validate_post
+
+from scripts.lib.image_utils import extract_front_matter_image
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"

@@ -170,7 +170,9 @@ def test_every_triggered_generator_has_a_baseline_representative():
 
     parsed = yaml.safe_load(VERIFY.read_text(encoding="utf-8"))
     section = parsed[True] if True in parsed else parsed["on"]
-    triggered = {p for p in section["pull_request"]["paths"] if p.startswith("scripts/lib/")}
+    triggered = {
+        p for p in section["pull_request"]["paths"] if p.startswith("scripts/lib/")
+    }
 
     # Marker substrings that identify which generator rendered a cover.
     families = {

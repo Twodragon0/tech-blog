@@ -109,7 +109,9 @@ def test_format_unicode_range_roundtrips_through_parser():
 
 
 def test_tier2_css_exists_and_declares_both_weights():
-    assert TIER2_CSS.exists(), f"{TIER2_CSS} missing — run generate_noto_2tier_subset.py"
+    assert TIER2_CSS.exists(), (
+        f"{TIER2_CSS} missing — run generate_noto_2tier_subset.py"
+    )
     css = TIER2_CSS.read_text(encoding="utf-8")
     assert css.count("@font-face") == 2, "tier-2 must declare weight 400 and 700"
     assert "noto-sans-kr-400-tier2.woff2" in css
@@ -132,7 +134,9 @@ def test_tier2_css_uses_baseurl_safe_relative_font_urls():
 def test_tier2_css_weights_share_one_range():
     ranges = _parse_unicode_ranges(TIER2_CSS.read_text(encoding="utf-8"))
     assert len(ranges) == 2, "expected exactly one unicode-range per weight"
-    assert ranges[0] == ranges[1], "both weights ship the same tail, so their ranges must match"
+    assert ranges[0] == ranges[1], (
+        "both weights ship the same tail, so their ranges must match"
+    )
 
 
 def test_tier2_range_is_exact_complement_of_tier1_corpus():
@@ -157,7 +161,9 @@ def test_tier2_range_is_exact_complement_of_tier1_corpus():
 def test_tier2_range_stays_inside_hangul_block():
     tail = _parse_unicode_ranges(TIER2_CSS.read_text(encoding="utf-8"))[0]
     stray = {cp for cp in tail if not (HANGUL_START <= cp <= HANGUL_END)}
-    assert not stray, f"tier-2 must only claim U+AC00-D7A3, got {len(stray)} stray codepoints"
+    assert not stray, (
+        f"tier-2 must only claim U+AC00-D7A3, got {len(stray)} stray codepoints"
+    )
 
 
 def test_tier2_css_matches_generator_output():
@@ -173,8 +179,16 @@ def test_woff2_cmaps_match_the_declared_split(weight: int):
     covered = {ord(c) for c in _tier1_syllables()}
     tail = _parse_unicode_ranges(TIER2_CSS.read_text(encoding="utf-8"))[0]
 
-    tier1_hangul = {cp for cp in _cmap_codepoints(FONTS_DIR / f"noto-sans-kr-{weight}-tier1.woff2") if HANGUL_START <= cp <= HANGUL_END}
-    tier2_hangul = {cp for cp in _cmap_codepoints(FONTS_DIR / f"noto-sans-kr-{weight}-tier2.woff2") if HANGUL_START <= cp <= HANGUL_END}
+    tier1_hangul = {
+        cp
+        for cp in _cmap_codepoints(FONTS_DIR / f"noto-sans-kr-{weight}-tier1.woff2")
+        if HANGUL_START <= cp <= HANGUL_END
+    }
+    tier2_hangul = {
+        cp
+        for cp in _cmap_codepoints(FONTS_DIR / f"noto-sans-kr-{weight}-tier2.woff2")
+        if HANGUL_START <= cp <= HANGUL_END
+    }
 
     assert tier1_hangul == covered, (
         f"tier-1 woff2 (weight {weight}) cmap disagrees with noto_subset_top1k.txt: "
@@ -189,8 +203,12 @@ def test_woff2_cmaps_match_the_declared_split(weight: int):
 def test_tier1_preload_budget_holds():
     """Tier-1 is preloaded on every page — keep it under the 230 KB/weight budget."""
     for weight in (400, 700):
-        size_kb = (FONTS_DIR / f"noto-sans-kr-{weight}-tier1.woff2").stat().st_size / 1024
-        assert size_kb <= 230, f"tier-1 weight {weight} is {size_kb:.1f} KB (budget 230 KB)"
+        size_kb = (
+            FONTS_DIR / f"noto-sans-kr-{weight}-tier1.woff2"
+        ).stat().st_size / 1024
+        assert size_kb <= 230, (
+            f"tier-1 weight {weight} is {size_kb:.1f} KB (budget 230 KB)"
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -203,7 +221,7 @@ def test_tier2_is_never_preloaded():
     for name in ("_includes/font-face.html", "_includes/head.html"):
         text = (REPO_ROOT / name).read_text(encoding="utf-8")
         for line in text.splitlines():
-            if "rel=\"preload\"" in line or "rel='preload'" in line:
+            if 'rel="preload"' in line or "rel='preload'" in line:
                 assert "tier2" not in line, f"{name} preloads tier-2: {line.strip()}"
 
 
@@ -218,7 +236,13 @@ def test_head_runtime_holds_no_tier2_loader():
     """
     js = (REPO_ROOT / "assets" / "js" / "head-runtime.js").read_text(encoding="utf-8")
     code = re.sub(r"^\s*//.*$", "", js, flags=re.MULTILINE)
-    for banned in ("loadFontTier2", "font-tier2.css", "tier2.woff2", "FontFace", "data-font-tier2-href"):
+    for banned in (
+        "loadFontTier2",
+        "font-tier2.css",
+        "tier2.woff2",
+        "FontFace",
+        "data-font-tier2-href",
+    ):
         assert banned not in code, f"head-runtime.js must not reference {banned}"
 
 
@@ -228,7 +252,12 @@ def _strip_comments(html: str) -> str:
     font-face.html documents the bare `/assets/fonts/...` anti-pattern in prose,
     so scanning the raw file would flag the very comment that warns about it.
     """
-    html = re.sub(r"\{%-?\s*comment\s*-?%\}.*?\{%-?\s*endcomment\s*-?%\}", "", html, flags=re.DOTALL)
+    html = re.sub(
+        r"\{%-?\s*comment\s*-?%\}.*?\{%-?\s*endcomment\s*-?%\}",
+        "",
+        html,
+        flags=re.DOTALL,
+    )
     return re.sub(r"/\*.*?\*/", "", html, flags=re.DOTALL)
 
 
@@ -242,17 +271,27 @@ def test_tier1_font_urls_go_through_relative_url():
     404 round-trips. `absolute_url` is NOT an acceptable substitute: it prepends
     site.baseurl onto site.url and breaks the other origin instead.
     """
-    body = _strip_comments((REPO_ROOT / "_includes" / "font-face.html").read_text(encoding="utf-8"))
-    assert "url('/assets/fonts/" not in body, "tier-1 @font-face src bypasses relative_url"
-    assert 'href="/assets/fonts/' not in body, "tier-1 preload href bypasses relative_url"
-    assert "absolute_url" not in body, "absolute_url prepends site.baseurl — wrong for assets"
+    body = _strip_comments(
+        (REPO_ROOT / "_includes" / "font-face.html").read_text(encoding="utf-8")
+    )
+    assert "url('/assets/fonts/" not in body, (
+        "tier-1 @font-face src bypasses relative_url"
+    )
+    assert 'href="/assets/fonts/' not in body, (
+        "tier-1 preload href bypasses relative_url"
+    )
+    assert "absolute_url" not in body, (
+        "absolute_url prepends site.baseurl — wrong for assets"
+    )
     for weight in (400, 700):
         asset = f"/assets/fonts/noto-sans-kr-{weight}-tier1.woff2"
         refs = [ln for ln in body.splitlines() if asset in ln]
         # once in the @font-face src, once in the preload link
         assert len(refs) == 2, f"expected 2 references to {asset}, got {len(refs)}"
         for ref in refs:
-            assert "relative_url" in ref, f"tier-1 font URL bypasses relative_url: {ref.strip()}"
+            assert "relative_url" in ref, (
+                f"tier-1 font URL bypasses relative_url: {ref.strip()}"
+            )
 
 
 def test_strip_comments_keeps_the_guard_honest():
@@ -270,21 +309,33 @@ def test_strip_comments_keeps_the_guard_honest():
 
 def test_font_face_include_links_tier2_as_deferred_css():
     """The tail stylesheet is linked declaratively, non-blocking, baseurl-safe."""
-    body = _strip_comments((REPO_ROOT / "_includes" / "font-face.html").read_text(encoding="utf-8"))
+    body = _strip_comments(
+        (REPO_ROOT / "_includes" / "font-face.html").read_text(encoding="utf-8")
+    )
     links = [ln for ln in body.splitlines() if "font-tier2.css" in ln]
-    assert len(links) == 1, f"expected exactly one tier-2 stylesheet link, got {len(links)}"
+    assert len(links) == 1, (
+        f"expected exactly one tier-2 stylesheet link, got {len(links)}"
+    )
     link = links[0]
-    assert "relative_url" in link, "tier-2 stylesheet href must survive --baseurl /tech-blog"
+    assert "relative_url" in link, (
+        "tier-2 stylesheet href must survive --baseurl /tech-blog"
+    )
     assert 'media="print"' in link, "must not block render"
-    assert "deferred-css" in link, "the promoter script in head.html flips media to all via this class"
+    assert "deferred-css" in link, (
+        "the promoter script in head.html flips media to all via this class"
+    )
     assert 'rel="stylesheet"' in link
-    assert "preload" not in link, "a preload would fetch it eagerly and defeat the deferral"
+    assert "preload" not in link, (
+        "a preload would fetch it eagerly and defeat the deferral"
+    )
 
 
 def test_deferred_css_promoter_still_exists():
     """The tier-2 link relies on head.html's promoter to reach media="all"."""
     head = (REPO_ROOT / "_includes" / "head.html").read_text(encoding="utf-8")
-    assert "link.deferred-css" in head, "promoter query gone — tier-2 would stay print-only"
+    assert "link.deferred-css" in head, (
+        "promoter query gone — tier-2 would stay print-only"
+    )
     assert "promotePrintStylesheet" in head
 
 

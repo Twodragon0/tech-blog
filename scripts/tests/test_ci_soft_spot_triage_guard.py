@@ -62,7 +62,9 @@ def _code(path: Path) -> str:
     raw text would hit that explanation instead of the code it describes.
     """
     return "\n".join(
-        ln for ln in path.read_text(encoding="utf-8").splitlines() if not ln.lstrip().startswith("#")
+        ln
+        for ln in path.read_text(encoding="utf-8").splitlines()
+        if not ln.lstrip().startswith("#")
     )
 
 
@@ -117,7 +119,10 @@ def test_only_the_reviewed_soft_calls_remain():
 def test_issue_creation_is_hard():
     """The issue IS the deliverable; a swallowed failure means no report at all."""
     code = _code(MONTHLY)
-    match = re.search(r"gh issue create[^\n]*(?:\n[^\n]*)*?--label \"quality-report,automated\"[^\n]*", code)
+    match = re.search(
+        r"gh issue create[^\n]*(?:\n[^\n]*)*?--label \"quality-report,automated\"[^\n]*",
+        code,
+    )
     assert match, "the gh issue create call is gone from monthly-quality-report.yml"
     assert "|| true" not in match.group(0), (
         "gh issue create is soft again. Actions can create issues in this repo, so a "
@@ -140,12 +145,16 @@ def test_scan_steps_have_ids_and_are_consumed():
         )
 
     code = _code(MONTHLY)
-    assert "steps.images.outputs.image_issues" in code, "image_issues is not consumed anywhere"
-    assert "steps.posts.outputs.post_issues" in code, "post_issues is not consumed anywhere"
+    assert "steps.images.outputs.image_issues" in code, (
+        "image_issues is not consumed anywhere"
+    )
+    assert "steps.posts.outputs.post_issues" in code, (
+        "post_issues is not consumed anywhere"
+    )
 
 
 def test_crashed_scan_is_not_reported_as_zero():
-    """"0 issues" from a scan that died is a lie, not a clean result."""
+    """ "0 issues" from a scan that died is a lie, not a clean result."""
     code = _code(MONTHLY)
     assert code.count("PIPESTATUS[0]") >= 2, (
         "the scan exit status is no longer captured; a crashed scan would report 0 issues"
@@ -164,7 +173,9 @@ def test_sentry_job_stays_soft():
     """Documented free-tier decision: a Sentry release failure must not break CI."""
     import yaml
 
-    job = yaml.safe_load(SENTRY.read_text(encoding="utf-8"))["jobs"]["create-sentry-release"]
+    job = yaml.safe_load(SENTRY.read_text(encoding="utf-8"))["jobs"][
+        "create-sentry-release"
+    ]
     assert job.get("continue-on-error") is True, (
         "create-sentry-release is now hard-failing. Release tracking is a nicety on the "
         "free tier; failing it would break unrelated pushes to main."
@@ -175,7 +186,9 @@ def test_sentry_has_no_redundant_step_level_soft():
     """A second soft layer inside a soft job only hides which step failed."""
     import yaml
 
-    job = yaml.safe_load(SENTRY.read_text(encoding="utf-8"))["jobs"]["create-sentry-release"]
+    job = yaml.safe_load(SENTRY.read_text(encoding="utf-8"))["jobs"][
+        "create-sentry-release"
+    ]
     soft_steps = [s.get("name") for s in job["steps"] if s.get("continue-on-error")]
     assert not soft_steps, (
         f"step-level continue-on-error is back on {soft_steps}. The job is already "
@@ -188,8 +201,12 @@ def test_sentry_verify_step_still_runs_after_a_failure():
     """It is the step that reports the outcome, so it needs `if: always()`."""
     import yaml
 
-    job = yaml.safe_load(SENTRY.read_text(encoding="utf-8"))["jobs"]["create-sentry-release"]
-    verify = next(s for s in job["steps"] if s.get("name") == "Verify Release & Summary")
+    job = yaml.safe_load(SENTRY.read_text(encoding="utf-8"))["jobs"][
+        "create-sentry-release"
+    ]
+    verify = next(
+        s for s in job["steps"] if s.get("name") == "Verify Release & Summary"
+    )
     assert "always()" in verify["if"], (
         "Verify Release & Summary no longer runs unconditionally. With the release step "
         "no longer soft, a failure there would skip the very step that reports it."

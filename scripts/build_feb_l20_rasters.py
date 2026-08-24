@@ -8,6 +8,7 @@ Produces per SVG:
   - {basename}_card.webp (PIL, 525x295, q=80)
   - {basename}_card.avif (PIL, 525x295, q=60)
 """
+
 from __future__ import annotations
 
 import subprocess

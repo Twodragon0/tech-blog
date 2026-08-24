@@ -43,14 +43,23 @@ FAMILY_A_MARKER = "VISUAL SYSTEM"
 CATEGORY_RULES = {
     "ai_ml": {
         "keywords": [
-            "AI_", "_AI_", "LLM_", "_LLM_", "Agent_", "_Agent_",
-            "Claude_Code", "OpenCode", "Coding_Assistants",
+            "AI_",
+            "_AI_",
+            "LLM_",
+            "_LLM_",
+            "Agent_",
+            "_Agent_",
+            "Claude_Code",
+            "OpenCode",
+            "Coding_Assistants",
         ],
         # Accept full cyan/sky family used across design-system versions
         "required_colors": [
-            "#22d3ee", "#06b6d4",  # Tailwind cyan-400/500 (current)
-            "#38bdf8", "#7dd3fc",  # sky-400/300 (legacy v1)
-            "#67e8f9",             # cyan-300 (legacy v1)
+            "#22d3ee",
+            "#06b6d4",  # Tailwind cyan-400/500 (current)
+            "#38bdf8",
+            "#7dd3fc",  # sky-400/300 (legacy v1)
+            "#67e8f9",  # cyan-300 (legacy v1)
         ],
         "label": "AI/ML",
     },
@@ -58,8 +67,10 @@ CATEGORY_RULES = {
         "keywords": ["Cloud_Security", "AWS_", "GCP_", "EC2_"],
         # Accept full blue family
         "required_colors": [
-            "#60a5fa", "#1d4ed8",  # blue-400/700 (current)
-            "#3b82f6", "#38bdf8",  # blue-500, sky-400 (legacy)
+            "#60a5fa",
+            "#1d4ed8",  # blue-400/700 (current)
+            "#3b82f6",
+            "#38bdf8",  # blue-500, sky-400 (legacy)
         ],
         "label": "Cloud",
     },
@@ -67,20 +78,30 @@ CATEGORY_RULES = {
         "keywords": ["DevSecOps_", "Roadmap_"],
         # Accept full violet/purple family
         "required_colors": [
-            "#a78bfa", "#6c5ce7",  # violet-400, indigo (current)
-            "#6d28d9", "#7c3aed",  # violet-700/600 (legacy)
-            "#8b5cf6",             # violet-500
+            "#a78bfa",
+            "#6c5ce7",  # violet-400, indigo (current)
+            "#6d28d9",
+            "#7c3aed",  # violet-700/600 (legacy)
+            "#8b5cf6",  # violet-500
         ],
         "label": "DevSecOps",
     },
     "threat": {
         "keywords": [
-            "Ransomware_", "_Ransomware", "Rootkit_", "_Rootkit",
-            "Threat_", "_Threat", "Malware_", "_Malware",
+            "Ransomware_",
+            "_Ransomware",
+            "Rootkit_",
+            "_Rootkit",
+            "Threat_",
+            "_Threat",
+            "Malware_",
+            "_Malware",
         ],
         "required_colors": [
-            "#ef4444", "#f87171",  # red-500/400 (current)
-            "#991b1b", "#dc2626",  # red-800/600 (legacy)
+            "#ef4444",
+            "#f87171",  # red-500/400 (current)
+            "#991b1b",
+            "#dc2626",  # red-800/600 (legacy)
         ],
         "label": "Threat/Security",
     },
@@ -104,7 +125,7 @@ SUPPLEMENTARY_RE = re.compile(
     r"(?:"
     r"^2026-\d{2}-\d{2}-(?:devsecops|backup-strategy)-"  # kebab legacy
     r"|[-_](?:Flow|Matrix|Ecosystem|Timeline|Phases|Layer|"
-    r"Diagram|Structure|Stack|Path|Scaling)(?:[-_.]|$)"   # diagram keywords in name
+    r"Diagram|Structure|Stack|Path|Scaling)(?:[-_.]|$)"  # diagram keywords in name
     r")",
     re.IGNORECASE,
 )
@@ -113,6 +134,7 @@ SUPPLEMENTARY_RE = re.compile(
 # ---------------------------------------------------------------------------
 # Classification helpers
 # ---------------------------------------------------------------------------
+
 
 def is_og_derivative(filename: str) -> bool:
     return "_og." in filename
@@ -135,6 +157,7 @@ def is_family_a(content: str) -> bool:
 # Check functions
 # ---------------------------------------------------------------------------
 
+
 def check_placeholder(content: str) -> str | None:
     """Flag generator placeholder description — applies to all SVGs."""
     if PLACEHOLDER_TEXT in content:
@@ -151,13 +174,13 @@ def detect_category(filename: str) -> tuple[str, dict] | tuple[None, None]:
     'Blockchain_..._DevSecOps_Perspective'.
     """
     # Strip date prefix: 2026-01-08-<rest>
-    m = re.match(r'^\d{4}-\d{2}-\d{2}-(.+?)(?:\.svg)?$', filename)
+    m = re.match(r"^\d{4}-\d{2}-\d{2}-(.+?)(?:\.svg)?$", filename)
     if not m:
         return None, None
 
     # Take first 3 underscore-segments as primary topic words
-    segments = m.group(1).split('_')
-    primary = '_'.join(segments[:3]) + '_'  # e.g. "AI_Coding_Assistants_"
+    segments = m.group(1).split("_")
+    primary = "_".join(segments[:3]) + "_"  # e.g. "AI_Coding_Assistants_"
 
     for cat_id, rule in CATEGORY_RULES.items():
         for kw in rule["keywords"]:
@@ -193,6 +216,7 @@ def check_signature(content: str) -> str | None:
 # ---------------------------------------------------------------------------
 # Core lint function
 # ---------------------------------------------------------------------------
+
 
 def lint_file(path: str) -> list[str]:
     """Return list of violation strings for a file (empty = clean)."""
@@ -236,6 +260,7 @@ def load_svg(path: str) -> str:
 # CLI
 # ---------------------------------------------------------------------------
 
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="SVG compliance linter")
     parser.add_argument(
@@ -268,10 +293,7 @@ def main() -> None:
         files = sorted(glob.glob(pattern))
     else:
         # Absolute paths → use as-is; relative paths → resolve from repo root
-        files = sorted(
-            str(repo_root / p) if not os.path.isabs(p) else p
-            for p in raw
-        )
+        files = sorted(str(repo_root / p) if not os.path.isabs(p) else p for p in raw)
 
     if not files:
         print(f"No files matched: {pattern}")

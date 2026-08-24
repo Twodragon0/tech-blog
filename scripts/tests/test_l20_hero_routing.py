@@ -17,7 +17,6 @@ from scripts.news.l20_dispatch import (
     route_visual_id,
 )
 
-
 # =====================================================================
 # route_visual_id - parametrised happy-path coverage of every bucket
 # =====================================================================
@@ -204,7 +203,7 @@ class TestSecurityAdvisoryRouting:
             "malware family",
             "Threat",
             "threat landscape",
-            "CVE",            # bare "CVE" (no id) -> advisory, not cve_chain
+            "CVE",  # bare "CVE" (no id) -> advisory, not cve_chain
             "CVE roundup",
             "Security Update",
             "Advisory",
@@ -312,7 +311,9 @@ class TestExtractThreeStories:
         a, _, _ = extract_three_stories(title, "")
         # Hero headline should be the first real topic, not the prefix.
         assert "Weekly Digest" not in a["headline"]
-        assert "Ransomware" in a["headline"] or a["headline"].lower().startswith("ranso")
+        assert "Ransomware" in a["headline"] or a["headline"].lower().startswith(
+            "ranso"
+        )
 
     def test_uses_excerpt_when_title_short(self):
         title = "Weekly digest 2026-04-30: Ransomware"

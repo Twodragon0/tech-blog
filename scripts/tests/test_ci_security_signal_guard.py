@@ -72,7 +72,10 @@ def _step(path: Path, job: str, name_fragment: str) -> dict:
 
 @pytest.mark.parametrize(
     ("job", "fragment"),
-    [("npm-audit", "Reconcile npm audit issue"), ("bundle-audit", "Reconcile bundle audit issue")],
+    [
+        ("npm-audit", "Reconcile npm audit issue"),
+        ("bundle-audit", "Reconcile bundle audit issue"),
+    ],
 )
 def test_reconcile_step_runs_regardless_of_findings(job: str, fragment: str):
     """Gating it on findings is what made "resolved" unobservable."""
@@ -86,7 +89,10 @@ def test_reconcile_step_runs_regardless_of_findings(job: str, fragment: str):
 
 @pytest.mark.parametrize(
     ("job", "fragment"),
-    [("npm-audit", "Reconcile npm audit issue"), ("bundle-audit", "Reconcile bundle audit issue")],
+    [
+        ("npm-audit", "Reconcile npm audit issue"),
+        ("bundle-audit", "Reconcile bundle audit issue"),
+    ],
 )
 def test_reconcile_closes_when_clean(job: str, fragment: str):
     script = _step(SECURITY_AUDIT, job, fragment)["with"]["script"]
@@ -100,10 +106,16 @@ def test_reconcile_closes_when_clean(job: str, fragment: str):
     ("job", "fragment", "marker"),
     [
         ("npm-audit", "Reconcile npm audit issue", "<!-- security-audit: npm -->"),
-        ("bundle-audit", "Reconcile bundle audit issue", "<!-- security-audit: bundle -->"),
+        (
+            "bundle-audit",
+            "Reconcile bundle audit issue",
+            "<!-- security-audit: bundle -->",
+        ),
     ],
 )
-def test_reconcile_matches_on_marker_not_only_title(job: str, fragment: str, marker: str):
+def test_reconcile_matches_on_marker_not_only_title(
+    job: str, fragment: str, marker: str
+):
     """Title matching forks the issue the moment someone retitles it."""
     script = _step(SECURITY_AUDIT, job, fragment)["with"]["script"]
     assert marker in script, f"{fragment} lost its hidden matching marker"
@@ -115,18 +127,26 @@ def test_reconcile_matches_on_marker_not_only_title(job: str, fragment: str, mar
 
 @pytest.mark.parametrize(
     ("job", "fragment"),
-    [("npm-audit", "Reconcile npm audit issue"), ("bundle-audit", "Reconcile bundle audit issue")],
+    [
+        ("npm-audit", "Reconcile npm audit issue"),
+        ("bundle-audit", "Reconcile bundle audit issue"),
+    ],
 )
 def test_reconcile_collapses_duplicates(job: str, fragment: str):
     """#414 and #415 were created the same day by two racing runs."""
     script = _step(SECURITY_AUDIT, job, fragment)["with"]["script"]
     assert "Duplicate of #" in script, f"{fragment} does not collapse duplicate issues"
-    assert "mine.sort" in script, "expected a deterministic primary (lowest issue number)"
+    assert "mine.sort" in script, (
+        "expected a deterministic primary (lowest issue number)"
+    )
 
 
 @pytest.mark.parametrize(
     ("job", "fragment"),
-    [("npm-audit", "Reconcile npm audit issue"), ("bundle-audit", "Reconcile bundle audit issue")],
+    [
+        ("npm-audit", "Reconcile npm audit issue"),
+        ("bundle-audit", "Reconcile bundle audit issue"),
+    ],
 )
 def test_reconcile_refuses_to_act_on_missing_evidence(job: str, fragment: str):
     """Number('') is 0 — an absent count must not auto-close a live issue."""
@@ -193,7 +213,9 @@ def test_backfill_job_can_write_issues():
 
 def test_backfill_still_pushes_the_branch():
     """Work must survive the degraded path; only the notification changes."""
-    run = _uncommented(_step(BACKFILL, "translate-backfill", "Open review PR with translations")["run"])
+    run = _uncommented(
+        _step(BACKFILL, "translate-backfill", "Open review PR with translations")["run"]
+    )
     assert 'git push origin "$BRANCH"' in run, (
         "the branch push is gone — the translations would be lost, not merely unmerged"
     )

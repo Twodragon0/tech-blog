@@ -18,7 +18,6 @@ from scripts.news.config import (
     SVG_TEMPLATE_TIMELINE,
 )
 
-
 # Hangul code-points: precomposed syllables + jamo (Hangul Jamo, Compat Jamo).
 # Stripped from every <text> value via _escape_svg_text — see English-only-SVG
 # rule in CLAUDE.md and the check-svg quality gate.
@@ -1582,8 +1581,15 @@ def _extract_card_labels(news_items: List[Dict], limit: int = 5) -> List[str]:
     """
     # Noisy single-word labels that check_posts flags as repeated generic text.
     # We avoid producing labels that exactly match these (case-insensitive).
-    _NOISY = {"weekly digest", "news collected", "security", "cloud", "devops",
-               "ai/ml", "blockchain"}
+    _NOISY = {
+        "weekly digest",
+        "news collected",
+        "security",
+        "cloud",
+        "devops",
+        "ai/ml",
+        "blockchain",
+    }
 
     # Priority patterns: match specific terms first
     priority_patterns = [
@@ -1672,8 +1678,9 @@ def _extract_card_labels(news_items: List[Dict], limit: int = 5) -> List[str]:
     }
     if len(labels) < limit:
         for topic in _extract_key_topics(news_items):
-            label = _TOPIC_MAP.get(topic, _normalize_svg_focus_label(
-                _to_english_svg_text(topic))[:16])
+            label = _TOPIC_MAP.get(
+                topic, _normalize_svg_focus_label(_to_english_svg_text(topic))[:16]
+            )
             if label and label not in seen and label.lower() not in _NOISY:
                 seen.add(label)
                 labels.append(label)
@@ -1682,8 +1689,16 @@ def _extract_card_labels(news_items: List[Dict], limit: int = 5) -> List[str]:
 
     # Hard fallbacks — all composite so they won't match single noisy_markers
     _HARD_FALLBACKS = [
-        "SEC OPS", "THREAT INT", "CLOUD SEC", "AI AGENT", "PATCH MGT",
-        "MALWARE", "RANSOM", "ZERO-DAY", "BOTNET", "DATA SEC",
+        "SEC OPS",
+        "THREAT INT",
+        "CLOUD SEC",
+        "AI AGENT",
+        "PATCH MGT",
+        "MALWARE",
+        "RANSOM",
+        "ZERO-DAY",
+        "BOTNET",
+        "DATA SEC",
     ]
     for fb in _HARD_FALLBACKS:
         if len(labels) >= limit:
@@ -2021,9 +2036,7 @@ def _shared_frame_header(
 """
 
 
-def _shared_frame_footer(
-    date_display: str, footer_label: str, accent: str
-) -> str:
+def _shared_frame_footer(date_display: str, footer_label: str, accent: str) -> str:
     """Shared bottom bar with timestamp + site URL."""
     label_safe = _escape_svg_text(footer_label[:40])
     return f"""
@@ -2159,9 +2172,7 @@ def generate_timeline_pulse_svg(
         _escape_svg_text(focus_labels[0][:28]) if focus_labels else "Incident Analysis"
     )
 
-    svg = _shared_defs_and_background(
-        "#f59e0b", title=f"Postmortem - {date_display}"
-    )
+    svg = _shared_defs_and_background("#f59e0b", title=f"Postmortem - {date_display}")
     svg += _shared_frame_header(
         "Postmortem",
         date_display,
@@ -2238,9 +2249,7 @@ def generate_milestone_curve_svg(
         else:
             labels.append(f"PHASE{len(labels) + 1}")
 
-    svg = _shared_defs_and_background(
-        "#a855f7", title=f"Roadmap - {date_display}"
-    )
+    svg = _shared_defs_and_background("#a855f7", title=f"Roadmap - {date_display}")
     svg += _shared_frame_header(
         "Roadmap",
         date_display,
@@ -2301,9 +2310,7 @@ def generate_versus_split_svg(
     left_label = _escape_svg_text(labels[0][:22])
     right_label = _escape_svg_text(labels[1][:22])
 
-    svg = _shared_defs_and_background(
-        "#a855f7", title=f"Comparison - {date_display}"
-    )
+    svg = _shared_defs_and_background("#a855f7", title=f"Comparison - {date_display}")
     svg += _shared_frame_header(
         "Comparison",
         date_display,
@@ -2392,13 +2399,11 @@ def _classify_post_for_layout(
     ):
         return "postmortem"
     if any(
-        re.search(p, blob)
-        for p in (r"roadmap", r"learning.?path", r"maturity.?model")
+        re.search(p, blob) for p in (r"roadmap", r"learning.?path", r"maturity.?model")
     ):
         return "roadmap"
     if any(
-        re.search(p, blob)
-        for p in (r"comparison", r"\bvs\.?\b", r"versus", r"비교")
+        re.search(p, blob) for p in (r"comparison", r"\bvs\.?\b", r"versus", r"비교")
     ):
         return "comparison"
     # Digest detection BEFORE tutorial — Weekly Digest posts contain "guide"

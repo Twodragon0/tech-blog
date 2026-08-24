@@ -90,7 +90,9 @@ def baseline_len(base: str, rel_path: str) -> int | None:
     return front_matter_len(out)
 
 
-def check(base: str | None, paths: list[str], max_chars: int) -> tuple[list[str], list[str]]:
+def check(
+    base: str | None, paths: list[str], max_chars: int
+) -> tuple[list[str], list[str]]:
     """Return (violations, notes)."""
     violations: list[str] = []
     notes: list[str] = []
@@ -116,7 +118,9 @@ def check(base: str | None, paths: list[str], max_chars: int) -> tuple[list[str]
 
         previous = baseline_len(base, rel)
         if previous is None:
-            notes.append(f"{rel}: new post ({current} chars, under the {max_chars} cap)")
+            notes.append(
+                f"{rel}: new post ({current} chars, under the {max_chars} cap)"
+            )
             continue
         if current > previous:
             violations.append(
@@ -132,8 +136,12 @@ def check(base: str | None, paths: list[str], max_chars: int) -> tuple[list[str]
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--changed", metavar="BASE", help="Ratchet changed posts against BASE")
-    group.add_argument("--all", action="store_true", help="Cap check over every post (no ratchet)")
+    group.add_argument(
+        "--changed", metavar="BASE", help="Ratchet changed posts against BASE"
+    )
+    group.add_argument(
+        "--all", action="store_true", help="Cap check over every post (no ratchet)"
+    )
     parser.add_argument("files", nargs="*", help="Optional explicit post paths")
     parser.add_argument(
         "--max-chars",
@@ -173,10 +181,14 @@ def main(argv: list[str] | None = None) -> int:
         print()
         for violation in violations:
             print(f"::error::front matter: {violation}")
-        print(f"\n{len(violations)} front-matter violation(s) across {len(paths)} post(s).")
+        print(
+            f"\n{len(violations)} front-matter violation(s) across {len(paths)} post(s)."
+        )
         return 1
 
-    print(f"Front matter OK across {len(paths)} post(s) (cap {args.max_chars}, no growth).")
+    print(
+        f"Front matter OK across {len(paths)} post(s) (cap {args.max_chars}, no growth)."
+    )
     return 0
 
 

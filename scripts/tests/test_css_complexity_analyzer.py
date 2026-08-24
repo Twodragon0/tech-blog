@@ -19,7 +19,9 @@ ANALYZER_PATH = REPO_ROOT / "scripts" / "dev" / "analyze_css_complexity.py"
 
 @pytest.fixture(scope="module")
 def analyzer():
-    spec = importlib.util.spec_from_file_location("analyze_css_complexity", ANALYZER_PATH)
+    spec = importlib.util.spec_from_file_location(
+        "analyze_css_complexity", ANALYZER_PATH
+    )
     assert spec is not None and spec.loader is not None
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
@@ -97,7 +99,9 @@ def test_specificity_calculation(analyzer):
 
 def test_render_markdown_contains_required_sections(analyzer, tmp_path):
     css_file = tmp_path / "sample.css"
-    css_file.write_text(".x { color: red; } .y :has(img) { color: blue; }", encoding="utf-8")
+    css_file.write_text(
+        ".x { color: red; } .y :has(img) { color: blue; }", encoding="utf-8"
+    )
     stats = analyzer.analyze(css_file.read_text(encoding="utf-8"))
     md = analyzer.render_markdown(stats, css_file)
     assert "# CSS Complexity Report" in md

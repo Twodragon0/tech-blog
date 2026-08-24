@@ -187,7 +187,9 @@ def test_svg_trigger_glob_is_recursive():
         "filters do not cross '/', so every SVG in a subdirectory is scanned but "
         "cannot trigger the scan. Use 'assets/images/**.svg'."
     )
-    assert "'assets/images/**.svg'" in body, "check-svg.yml must filter on 'assets/images/**.svg'"
+    assert "'assets/images/**.svg'" in body, (
+        "check-svg.yml must filter on 'assets/images/**.svg'"
+    )
 
 
 def test_svg_trigger_glob_present_on_both_events():

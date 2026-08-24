@@ -9,7 +9,9 @@ from pathlib import Path
 import yaml
 
 _REPO_ROOT = Path("/Users/yong/Desktop/personal/tech-blog")
-POSTS_DIR = _REPO_ROOT / "_posts" if (_REPO_ROOT / "_posts").exists() else Path.cwd() / "_posts"
+POSTS_DIR = (
+    _REPO_ROOT / "_posts" if (_REPO_ROOT / "_posts").exists() else Path.cwd() / "_posts"
+)
 IMAGES_DIR = _REPO_ROOT / "assets/images"
 
 # Reference SVG style from 2026-03-05 - the "good" style
@@ -698,7 +700,9 @@ def main():
             try:
                 file_size = svg_path.stat().st_size
                 if file_size > SKIP_IF_LARGER_THAN:
-                    print(f"  SKIP (high-quality SVG {file_size}B > {SKIP_IF_LARGER_THAN}B): {stem}")
+                    print(
+                        f"  SKIP (high-quality SVG {file_size}B > {SKIP_IF_LARGER_THAN}B): {stem}"
+                    )
                     skipped += 1
                     continue
                 with open(svg_path, "r", encoding="utf-8") as f:

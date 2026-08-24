@@ -5,6 +5,7 @@ Gemini entrypoint (`_gemini_call`) / `check_gemini_available` and the DeepSeek
 helper on the retranslate_digest module namespace, so we exercise the real
 detection -> translate -> write wiring without any API call.
 """
+
 import os
 import re
 import sys
@@ -107,6 +108,7 @@ def _mock_gemini(monkeypatch, call=_fake_gemini):
 
 # --- Detection -> translation wiring --------------------------------------
 
+
 def test_translates_english_spans_and_preserves_structure(monkeypatch):
     _mock_gemini(monkeypatch)
     out, stats = rt.retranslate_text(_POST)
@@ -140,7 +142,7 @@ def test_summary_field_stays_single_line_without_inner_quotes(monkeypatch):
         if stripped.startswith("summary=") or stripped.startswith("title="):
             # opens and closes on one physical line, no raw inner double-quote.
             assert stripped.endswith('"')
-            assert stripped[stripped.index('"') + 1: -1].count('"') == 0
+            assert stripped[stripped.index('"') + 1 : -1].count('"') == 0
 
 
 def test_idempotent_second_run_is_noop(monkeypatch):
@@ -153,9 +155,12 @@ def test_idempotent_second_run_is_noop(monkeypatch):
 
 # --- Output validation (security) -----------------------------------------
 
+
 def test_output_validation_rejects_non_korean_and_keeps_original(monkeypatch):
     # Model returns English (no Hangul) -> validation fails -> original kept.
-    _mock_gemini(monkeypatch, call=lambda prompt, timeout=20: "This is still English output")
+    _mock_gemini(
+        monkeypatch, call=lambda prompt, timeout=20: "This is still English output"
+    )
     monkeypatch.setattr(rt, "_allow_deepseek", lambda: False)
     out, stats = rt.retranslate_text(_POST)
     assert out == _POST
@@ -189,6 +194,7 @@ def test_output_validation_rejects_html_liquid_injection(monkeypatch):
 
 # --- DeepSeek fallback path ------------------------------------------------
 
+
 def test_falls_back_to_deepseek_when_gemini_unavailable(monkeypatch):
     monkeypatch.setattr(rt, "check_gemini_available", lambda: False)
     monkeypatch.setattr(rt, "_allow_deepseek", lambda: True)
@@ -204,6 +210,7 @@ def test_falls_back_to_deepseek_when_gemini_unavailable(monkeypatch):
 
 
 # --- Graceful no-op without keys ------------------------------------------
+
 
 def test_no_backend_is_clean_noop(monkeypatch, tmp_path):
     monkeypatch.setattr(rt, "check_gemini_available", lambda: False)

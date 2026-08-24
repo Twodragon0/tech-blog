@@ -18,6 +18,7 @@ Env:
 See docs/seo/GSC_RECRAWL_SETUP.md for setup. Exits non-zero on auth or
 sitemap-fetch failure; per-URL failures are logged but do not abort the run.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -96,9 +97,7 @@ def load_service_account_info(env_value: str) -> Dict[str, Any]:
     # Otherwise treat as a path
     path = Path(stripped).expanduser()
     if not path.exists():
-        raise FileNotFoundError(
-            f"GSC_SERVICE_ACCOUNT_JSON path does not exist: {path}"
-        )
+        raise FileNotFoundError(f"GSC_SERVICE_ACCOUNT_JSON path does not exist: {path}")
     with open(path, encoding="utf-8") as fh:
         return json.load(fh)
 
@@ -138,9 +137,7 @@ def inspect_url(client: Any, url: str, site_url: str) -> Dict[str, Any]:
 
     for attempt in range(MAX_RETRIES):
         try:
-            response = (
-                client.urlInspection().index().inspect(body=body).execute()
-            )
+            response = client.urlInspection().index().inspect(body=body).execute()
             return response.get("inspectionResult", {}) or {}
         except Exception as exc:  # broad: googleapiclient.HttpError + transient
             status = getattr(exc, "resp", None)
@@ -154,7 +151,7 @@ def inspect_url(client: Any, url: str, site_url: str) -> Dict[str, Any]:
             if not is_retryable or attempt == MAX_RETRIES - 1:
                 raise
 
-            wait = BASE_BACKOFF_SEC * (2 ** attempt) + random.uniform(0, 0.5)
+            wait = BASE_BACKOFF_SEC * (2**attempt) + random.uniform(0, 0.5)
             print(
                 f"  retry {attempt + 1}/{MAX_RETRIES} after {wait:.1f}s "
                 f"(status={status_code})",
@@ -256,18 +253,31 @@ def run_inspection(
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--sitemap-url", default=DEFAULT_SITEMAP_URL,
-                        help=f"sitemap URL (default: {DEFAULT_SITEMAP_URL})")
-    parser.add_argument("--state-file", default=str(DEFAULT_STATE_FILE), type=Path,
-                        help=f"output state path (default: {DEFAULT_STATE_FILE})")
-    parser.add_argument("--site-url",
-                        default=os.environ.get("GSC_SITE_URL", DEFAULT_SITE_URL),
-                        help="GSC siteUrl (URL or sc-domain:example.com form)")
-    parser.add_argument("--limit", type=int, default=0,
-                        help="cap inspected URLs (0 = no cap)")
-    parser.add_argument("--daily-budget", type=int, default=DAILY_BUDGET_DEFAULT,
-                        help=f"self-cap per day (default: {DAILY_BUDGET_DEFAULT}, "
-                             f"GSC cap: 2000)")
+    parser.add_argument(
+        "--sitemap-url",
+        default=DEFAULT_SITEMAP_URL,
+        help=f"sitemap URL (default: {DEFAULT_SITEMAP_URL})",
+    )
+    parser.add_argument(
+        "--state-file",
+        default=str(DEFAULT_STATE_FILE),
+        type=Path,
+        help=f"output state path (default: {DEFAULT_STATE_FILE})",
+    )
+    parser.add_argument(
+        "--site-url",
+        default=os.environ.get("GSC_SITE_URL", DEFAULT_SITE_URL),
+        help="GSC siteUrl (URL or sc-domain:example.com form)",
+    )
+    parser.add_argument(
+        "--limit", type=int, default=0, help="cap inspected URLs (0 = no cap)"
+    )
+    parser.add_argument(
+        "--daily-budget",
+        type=int,
+        default=DAILY_BUDGET_DEFAULT,
+        help=f"self-cap per day (default: {DAILY_BUDGET_DEFAULT}, GSC cap: 2000)",
+    )
     return parser.parse_args(argv)
 
 
@@ -287,22 +297,23 @@ def main(argv: Optional[List[str]] = None) -> int:
     try:
         sa_info = load_service_account_info(env_creds)
     except (ValueError, FileNotFoundError, json.JSONDecodeError) as exc:
-        print(f"ERROR: failed to load service account credentials: {exc}",
-              file=sys.stderr)
+        print(
+            f"ERROR: failed to load service account credentials: {exc}", file=sys.stderr
+        )
         return 1
 
     try:
         client = build_search_console_client(sa_info)
     except Exception as exc:
-        print(f"ERROR: failed to build Search Console client: {exc}",
-              file=sys.stderr)
+        print(f"ERROR: failed to build Search Console client: {exc}", file=sys.stderr)
         return 1
 
     try:
         sitemap_xml = fetch_sitemap(args.sitemap_url)
     except (HTTPError, URLError, TimeoutError) as exc:
-        print(f"ERROR: failed to fetch sitemap {args.sitemap_url}: {exc}",
-              file=sys.stderr)
+        print(
+            f"ERROR: failed to fetch sitemap {args.sitemap_url}: {exc}", file=sys.stderr
+        )
         return 1
 
     urls = parse_sitemap_urls(sitemap_xml)
@@ -310,12 +321,14 @@ def main(argv: Optional[List[str]] = None) -> int:
         urls = urls[: args.limit]
 
     if not urls:
-        print(f"ERROR: no URLs found in sitemap {args.sitemap_url}",
-              file=sys.stderr)
+        print(f"ERROR: no URLs found in sitemap {args.sitemap_url}", file=sys.stderr)
         return 1
 
-    print(f"inspecting {len(urls)} URLs (site={args.site_url}, "
-          f"budget={args.daily_budget})", file=sys.stderr)
+    print(
+        f"inspecting {len(urls)} URLs (site={args.site_url}, "
+        f"budget={args.daily_budget})",
+        file=sys.stderr,
+    )
 
     state = run_inspection(
         urls=urls,

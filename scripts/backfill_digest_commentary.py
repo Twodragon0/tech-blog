@@ -244,11 +244,7 @@ def _update_last_modified_at(fm_block: str) -> str:
     closing = fm_block.rfind("\n---")
     if closing == -1:
         return fm_block
-    return (
-        fm_block[:closing]
-        + f"\nlast_modified_at: {now_iso}"
-        + fm_block[closing:]
-    )
+    return fm_block[:closing] + f"\nlast_modified_at: {now_iso}" + fm_block[closing:]
 
 
 def _generate_commentary_for_post(
@@ -327,9 +323,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     # Default to dry-run when neither flag is given (safety).
     dry_run = args.dry_run or not args.commit
     if not args.dry_run and not args.commit:
-        logger.warning(
-            "Neither --dry-run nor --commit given; defaulting to dry-run."
-        )
+        logger.warning("Neither --dry-run nor --commit given; defaulting to dry-run.")
 
     matches = sorted(glob.glob(args.posts_glob), reverse=True)
     if not matches:

@@ -185,7 +185,13 @@ def post_to_endpoint(
             with urlopen(req, timeout=30) as resp:
                 status = resp.status
                 if status in (200, 202):
-                    return True, status, "OK" if status == 200 else "Accepted (202 - key verification pending)"
+                    return (
+                        True,
+                        status,
+                        "OK"
+                        if status == 200
+                        else "Accepted (202 - key verification pending)",
+                    )
                 return False, status, f"Unexpected status {status}"
         except HTTPError as exc:
             status = exc.code
@@ -284,7 +290,9 @@ def main() -> int:
         return 0
 
     # Submit to all endpoints
-    print(f"\nSubmitting {len(urls)} URL(s) to {len(INDEXNOW_ENDPOINTS)} endpoint(s)...")
+    print(
+        f"\nSubmitting {len(urls)} URL(s) to {len(INDEXNOW_ENDPOINTS)} endpoint(s)..."
+    )
     all_success = True
 
     for endpoint in INDEXNOW_ENDPOINTS:

@@ -238,10 +238,18 @@ def render_markdown(stats: CssStats, source: Path) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", type=Path, default=DEFAULT_INPUT,
-                        help=f"Compiled CSS file to analyze (default: {DEFAULT_INPUT})")
-    parser.add_argument("--output", type=Path, default=None,
-                        help="Optional path to write the Markdown report. Prints to stdout if omitted.")
+    parser.add_argument(
+        "--input",
+        type=Path,
+        default=DEFAULT_INPUT,
+        help=f"Compiled CSS file to analyze (default: {DEFAULT_INPUT})",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=None,
+        help="Optional path to write the Markdown report. Prints to stdout if omitted.",
+    )
     args = parser.parse_args(argv)
 
     if not args.input.exists():

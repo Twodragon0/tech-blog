@@ -521,4 +521,3 @@ Kubernetes 클러스터 배포 전후 확인 항목입니다.
 | 5 | 최적화됨 | 제로트러스트, eBPF 기반 | Cilium, Tetragon |
 
 ---
-

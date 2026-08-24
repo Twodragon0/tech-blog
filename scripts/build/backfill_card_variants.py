@@ -17,6 +17,7 @@ Exit codes:
   0  success (or skipped — Pillow not available is a soft warning)
   1  one or more conversions raised an exception
 """
+
 from __future__ import annotations
 
 import sys

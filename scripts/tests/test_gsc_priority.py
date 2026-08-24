@@ -3,6 +3,7 @@
 All tests use synthetic state and history dictionaries. No external API
 calls, no real history snapshots required.
 """
+
 from __future__ import annotations
 
 import json
@@ -15,7 +16,6 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import gsc_priority as gp  # noqa: E402
-
 
 # ---------------------------------------------------------------------------
 # recency_score
@@ -121,10 +121,12 @@ def _stub_snapshot(urls_to_state):
 
 
 def test_build_stuck_counts_consecutive_runs():
-    today_state = _stub_snapshot({
-        "https://x/post-a/": "Discovered - currently not indexed",
-        "https://x/post-b/": "Submitted and indexed",
-    })
+    today_state = _stub_snapshot(
+        {
+            "https://x/post-a/": "Discovered - currently not indexed",
+            "https://x/post-b/": "Submitted and indexed",
+        }
+    )
     history = [
         # oldest first
         _stub_snapshot({"https://x/post-a/": "Discovered - currently not indexed"}),
@@ -137,9 +139,11 @@ def test_build_stuck_counts_consecutive_runs():
 
 
 def test_build_stuck_counts_breaks_streak_on_indexed():
-    today_state = _stub_snapshot({
-        "https://x/post-a/": "Discovered - currently not indexed",
-    })
+    today_state = _stub_snapshot(
+        {
+            "https://x/post-a/": "Discovered - currently not indexed",
+        }
+    )
     history = [
         # Oldest: indexed (should NOT count)
         _stub_snapshot({"https://x/post-a/": "Submitted and indexed"}),
@@ -163,8 +167,13 @@ def synthetic_state():
         "schema_version": 1,
         "generated_at": "2026-05-15T07:30:00Z",
         "site_url": "https://tech.2twodragon.com",
-        "totals": {"inspected": 5, "indexed": 1, "discovered_not_indexed": 2,
-                   "crawled_not_indexed": 1, "errors": 1},
+        "totals": {
+            "inspected": 5,
+            "indexed": 1,
+            "discovered_not_indexed": 2,
+            "crawled_not_indexed": 1,
+            "errors": 1,
+        },
         "urls": [
             {
                 "url": "https://tech.2twodragon.com/security/2026-05-14-fresh-stuck/",
@@ -209,14 +218,16 @@ def synthetic_state():
 
 def test_rank_entries_top_url_is_fresh_stuck_with_history(synthetic_state):
     history = [
-        _stub_snapshot({
-            "https://tech.2twodragon.com/security/2026-05-14-fresh-stuck/":
-                "Discovered - currently not indexed",
-        }),
-        _stub_snapshot({
-            "https://tech.2twodragon.com/security/2026-05-14-fresh-stuck/":
-                "Discovered - currently not indexed",
-        }),
+        _stub_snapshot(
+            {
+                "https://tech.2twodragon.com/security/2026-05-14-fresh-stuck/": "Discovered - currently not indexed",
+            }
+        ),
+        _stub_snapshot(
+            {
+                "https://tech.2twodragon.com/security/2026-05-14-fresh-stuck/": "Discovered - currently not indexed",
+            }
+        ),
     ]
     today = date(2026, 5, 15)
     now = datetime(2026, 5, 15, 12, 0, tzinfo=timezone.utc)
@@ -286,12 +297,17 @@ def test_load_history_skips_bad_file(tmp_path, capsys):
 def test_main_dry_run_prints_report(tmp_path, capsys, synthetic_state):
     state_path = tmp_path / "state.json"
     state_path.write_text(json.dumps(synthetic_state), encoding="utf-8")
-    rc = gp.main([
-        "--state", str(state_path),
-        "--history-dir", str(tmp_path / "history"),  # missing, ok
-        "--dry-run",
-        "--top-n", "2",
-    ])
+    rc = gp.main(
+        [
+            "--state",
+            str(state_path),
+            "--history-dir",
+            str(tmp_path / "history"),  # missing, ok
+            "--dry-run",
+            "--top-n",
+            "2",
+        ]
+    )
     assert rc == 0
     out = capsys.readouterr().out
     assert "GSC Daily Action Report" in out
@@ -299,11 +315,15 @@ def test_main_dry_run_prints_report(tmp_path, capsys, synthetic_state):
 
 
 def test_main_missing_state_exits_zero_with_warning(tmp_path, capsys):
-    rc = gp.main([
-        "--state", str(tmp_path / "missing.json"),
-        "--history-dir", str(tmp_path / "history"),
-        "--dry-run",
-    ])
+    rc = gp.main(
+        [
+            "--state",
+            str(tmp_path / "missing.json"),
+            "--history-dir",
+            str(tmp_path / "history"),
+            "--dry-run",
+        ]
+    )
     assert rc == 0
     assert "state file not found" in capsys.readouterr().err
 
@@ -313,6 +333,7 @@ def test_infer_publish_date_from_url():
         "https://tech.2twodragon.com/security/2026-05-14-foo/"
     ) == date(2026, 5, 14)
     assert gp.infer_publish_date_from_url(None) is None
-    assert gp.infer_publish_date_from_url(
-        "https://tech.2twodragon.com/no-date-here/"
-    ) is None
+    assert (
+        gp.infer_publish_date_from_url("https://tech.2twodragon.com/no-date-here/")
+        is None
+    )

@@ -4,6 +4,7 @@ The CLI mirrors TestCorpusNoLoneAdjectiveAi so the blogwatcher publish path can
 surface an unvetted lone-adjective+AI cover panel at publish time (warn), rather
 than letting main's corpus test go red silently after the cron pushes.
 """
+
 import os
 import re
 import sys
@@ -25,7 +26,10 @@ def _write(tmp, body_fm):
 
 def test_flags_unvetted_lone_adjective():
     with tempfile.TemporaryDirectory() as d:
-        p = _write(d, 'summary_card:\n  highlights:\n    - { source: "X", title: "Quantum AI, breaks RSA" }')
+        p = _write(
+            d,
+            'summary_card:\n  highlights:\n    - { source: "X", title: "Quantum AI, breaks RSA" }',
+        )
         offenders = check_post(p)
         assert offenders and "Quantum" in offenders[0]
 
@@ -33,13 +37,19 @@ def test_flags_unvetted_lone_adjective():
 def test_vetted_brand_claude_is_clean():
     # 'claude' is in _DEFERRED_AI_ADJECTIVES (real brand, lone lead correct).
     with tempfile.TemporaryDirectory() as d:
-        p = _write(d, 'summary_card:\n  highlights:\n    - { source: "X", title: "Claude AI, breaks PQC tests" }')
+        p = _write(
+            d,
+            'summary_card:\n  highlights:\n    - { source: "X", title: "Claude AI, breaks PQC tests" }',
+        )
         assert check_post(p) == []
 
 
 def test_vetted_compound_agentic_is_clean():
     with tempfile.TemporaryDirectory() as d:
-        p = _write(d, 'summary_card:\n  highlights:\n    - { source: "X", title: "Agentic AI, new risks" }')
+        p = _write(
+            d,
+            'summary_card:\n  highlights:\n    - { source: "X", title: "Agentic AI, new risks" }',
+        )
         assert check_post(p) == []
 
 
@@ -52,22 +62,32 @@ def test_no_summary_card_is_clean():
 def test_non_lead_ai_not_flagged():
     # multi-word lead (has space) is not a lone-adjective panel
     with tempfile.TemporaryDirectory() as d:
-        p = _write(d, 'summary_card:\n  highlights:\n    - { source: "X", title: "새로운 위협 동향 정리" }')
+        p = _write(
+            d,
+            'summary_card:\n  highlights:\n    - { source: "X", title: "새로운 위협 동향 정리" }',
+        )
         assert check_post(p) == []
 
 
 def test_main_exit_codes():
     with tempfile.TemporaryDirectory() as d:
-        bad = _write(d, 'summary_card:\n  highlights:\n    - { source: "X", title: "Quantum AI, breaks RSA" }')
+        bad = _write(
+            d,
+            'summary_card:\n  highlights:\n    - { source: "X", title: "Quantum AI, breaks RSA" }',
+        )
         assert main([bad]) == 1
     with tempfile.TemporaryDirectory() as d:
-        good = _write(d, 'summary_card:\n  highlights:\n    - { source: "X", title: "Claude AI, breaks PQC" }')
+        good = _write(
+            d,
+            'summary_card:\n  highlights:\n    - { source: "X", title: "Claude AI, breaks PQC" }',
+        )
         assert main([good]) == 0
 
 
 def test_wired_into_blogwatcher_publish():
     body = "\n".join(
-        ln for ln in BLOGWATCHER.read_text(encoding="utf-8").splitlines()
+        ln
+        for ln in BLOGWATCHER.read_text(encoding="utf-8").splitlines()
         if not ln.lstrip().startswith("#")
     )
     assert re.search(r"check_digest_lone_adjective\.py", body), (

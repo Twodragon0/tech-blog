@@ -699,4 +699,3 @@ DataDog CSPM을 활용하면 AWS 환경의 보안 설정을 자동으로 검증�
 
 마지막 업데이트: 2026-01-14
 작성 기준: SK Shieldus 2025년 CSPM(DataDog) AWS 보안 가이드
-

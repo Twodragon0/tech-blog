@@ -24,6 +24,7 @@ Direction:
 If a change to any baseline is genuinely intentional, update the relevant
 constant here in the same commit so the intent is reviewable.
 """
+
 from __future__ import annotations
 
 import unittest
@@ -62,7 +63,8 @@ class TestCoverBaselineRatchet(unittest.TestCase):
     def test_honesty_baseline_stays_empty(self) -> None:
         n = _entry_count(HONESTY_BASELINE)
         self.assertEqual(
-            n, 0,
+            n,
+            0,
             f"cover_honesty_baseline.txt has {n} grandfathered FAIL(s); it must "
             "stay empty. Fix the cover's spec band to an honest class and "
             "regenerate instead of baselining. If genuinely intentional, raise "
@@ -72,7 +74,8 @@ class TestCoverBaselineRatchet(unittest.TestCase):
     def test_l20_drift_baseline_stays_empty(self) -> None:
         n = _entry_count(L20_DRIFT_BASELINE)
         self.assertEqual(
-            n, 0,
+            n,
+            0,
             f"l20_drift_baseline.txt has {n} grandfathered drift entry(ies); it "
             "must stay empty. Correct the rotted spec so a fresh render matches "
             "the honest on-disk SVG instead of baselining the drift.",
@@ -81,7 +84,8 @@ class TestCoverBaselineRatchet(unittest.TestCase):
     def test_size_baseline_does_not_grow(self) -> None:
         n = _entry_count(SIZE_BASELINE)
         self.assertLessEqual(
-            n, SIZE_MAX,
+            n,
+            SIZE_MAX,
             f"svg_size_gate_baseline.txt grew to {n} (> {SIZE_MAX}); a new "
             "oversize cover was baselined. Shrink the cover (e.g. a more compact "
             "honest visual) to stay within its size band instead. If a new "

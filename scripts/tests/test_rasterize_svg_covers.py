@@ -51,20 +51,19 @@ def _make_cover_post(root: Path, stem: str) -> Path:
     posts.mkdir(parents=True, exist_ok=True)
     images.mkdir(parents=True, exist_ok=True)
     (posts / f"2026-05-01-{stem}.md").write_text(
-        f"---\nlayout: post\ntitle: {stem}\n"
-        f"image: /assets/images/{stem}.svg\n---\n"
+        f"---\nlayout: post\ntitle: {stem}\nimage: /assets/images/{stem}.svg\n---\n"
     )
     svg = images / f"{stem}.svg"
-    svg.write_text("<svg xmlns='http://www.w3.org/2000/svg'><rect width='1' height='1'/></svg>")
+    svg.write_text(
+        "<svg xmlns='http://www.w3.org/2000/svg'><rect width='1' height='1'/></svg>"
+    )
     return svg
 
 
 class TestCoverDiscovery:
     """Front-matter scan must isolate covers from inline-diagram SVGs."""
 
-    def test_only_svgs_referenced_in_frontmatter_are_covers(
-        self, rasterize_module
-    ):
+    def test_only_svgs_referenced_in_frontmatter_are_covers(self, rasterize_module):
         module, root = rasterize_module
         # Post with an SVG cover
         (root / "_posts" / "2026-05-01-foo.md").write_text(
@@ -166,7 +165,11 @@ class TestPickBackendAuto:
     def test_auto_picks_rsvg_when_available(self, rasterize_module, monkeypatch):
         """Test 1: auto with rsvg available → picks rsvg."""
         module, _ = rasterize_module
-        monkeypatch.setattr(module.shutil, "which", lambda name: "/usr/bin/rsvg-convert" if name == "rsvg-convert" else None)
+        monkeypatch.setattr(
+            module.shutil,
+            "which",
+            lambda name: "/usr/bin/rsvg-convert" if name == "rsvg-convert" else None,
+        )
         name, fn = module._pick_backend(force=None)
         assert name == "rsvg-convert"
         assert fn is module._convert_via_rsvg
@@ -194,8 +197,6 @@ class TestPickBackendAuto:
 
         # Ensure cairosvg import fails
         with patch.dict(sys.modules, {"cairosvg": None}):
-            # Remove cairosvg from sys.modules to force ImportError
-            sys.modules.pop("cairosvg", None)
             name, fn = module._pick_backend(force=None)
 
         assert name is None
@@ -227,7 +228,11 @@ class TestPickBackendForced:
         module, _ = rasterize_module
 
         # Patch the builtins.__import__ to raise ImportError for cairosvg
-        original_import = __builtins__.__import__ if hasattr(__builtins__, "__import__") else __import__
+        original_import = (
+            __builtins__.__import__
+            if hasattr(__builtins__, "__import__")
+            else __import__
+        )
 
         def mock_import(name, *args, **kwargs):
             if name == "cairosvg":
@@ -251,7 +256,9 @@ class TestPickBackendForced:
         """Test 6: --backend rsvg-convert with rsvg available → returns correct callable."""
         module, _ = rasterize_module
         monkeypatch.setattr(
-            module.shutil, "which", lambda name: "/usr/bin/rsvg-convert" if name == "rsvg-convert" else None
+            module.shutil,
+            "which",
+            lambda name: "/usr/bin/rsvg-convert" if name == "rsvg-convert" else None,
         )
 
         name, fn = module._pick_backend(force="rsvg-convert")
@@ -311,7 +318,8 @@ class TestBackendFlagArgparse:
         svg = _make_cover_post(root, "cover-b")
 
         monkeypatch.setattr(
-            module.shutil, "which",
+            module.shutil,
+            "which",
             lambda name: "/usr/bin/rsvg-convert" if name == "rsvg-convert" else None,
         )
 

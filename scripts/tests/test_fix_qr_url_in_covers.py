@@ -77,14 +77,20 @@ def test_the_live_corpus_is_actually_matched() -> None:
     """
     covers = sorted(ASSETS.glob("*Tech_*Weekly_Digest_*.svg"))
     assert covers, f"no digest covers under {ASSETS}"
-    missed = [p.name for p in covers if not _mod._QR_BLOCK_RE.search(p.read_text(encoding="utf-8"))]
+    missed = [
+        p.name
+        for p in covers
+        if not _mod._QR_BLOCK_RE.search(p.read_text(encoding="utf-8"))
+    ]
     assert not missed, (
         f"{len(missed)}/{len(covers)} live covers are invisible to the fixer, "
         f"e.g. {missed[:3]}"
     )
 
 
-def test_total_miss_is_an_error_not_a_clean_report(tmp_path, monkeypatch, capsys) -> None:
+def test_total_miss_is_an_error_not_a_clean_report(
+    tmp_path, monkeypatch, capsys
+) -> None:
     """Zero matches across every file means the template drifted."""
     cover = tmp_path / "2026-01-01-Tech_Security_Weekly_Digest_Nothing.svg"
     cover.write_text("<svg><!-- no QR block at all --></svg>", encoding="utf-8")

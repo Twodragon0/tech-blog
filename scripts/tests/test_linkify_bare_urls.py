@@ -13,6 +13,7 @@ NOT in scope, and deliberately so: the 250 `[바로가기]`/`[링크]` anchors a
 inside a table's link column whose neighbouring cell already carries the title.
 Rewriting them would duplicate that cell, so they are correct as they stand.
 """
+
 import sys
 from pathlib import Path
 
@@ -23,7 +24,7 @@ sys.path.insert(0, str(REPO / "scripts"))
 
 import linkify_bare_urls as lb  # noqa: E402
 
-_FM = '---\nlayout: post\noriginal_url: https://twodragon.tistory.com/704\n---\n\n'
+_FM = "---\nlayout: post\noriginal_url: https://twodragon.tistory.com/704\n---\n\n"
 
 
 def t(body):
@@ -34,14 +35,18 @@ def t(body):
 
 
 def test_bare_url_becomes_a_link():
-    assert "[kubernetes.io/docs/tasks/debug](https://kubernetes.io/docs/tasks/debug/)" in t(
-        "참고: https://kubernetes.io/docs/tasks/debug/\n"
+    assert (
+        "[kubernetes.io/docs/tasks/debug](https://kubernetes.io/docs/tasks/debug/)"
+        in t("참고: https://kubernetes.io/docs/tasks/debug/\n")
     )
 
 
 def test_www_is_dropped_from_the_label_only():
     out = t("- https://www.sans.org/white-papers/bypassing-mfa/\n")
-    assert "[sans.org/white-papers/bypassing-mfa](https://www.sans.org/white-papers/bypassing-mfa/)" in out
+    assert (
+        "[sans.org/white-papers/bypassing-mfa](https://www.sans.org/white-papers/bypassing-mfa/)"
+        in out
+    )
 
 
 def test_host_only_label_when_path_is_long():
@@ -51,7 +56,9 @@ def test_host_only_label_when_path_is_long():
 
 
 def test_root_url_labels_with_the_host():
-    assert "[slack.k8s.io](https://slack.k8s.io/)" in t("- **Kubernetes Slack**: https://slack.k8s.io/\n")
+    assert "[slack.k8s.io](https://slack.k8s.io/)" in t(
+        "- **Kubernetes Slack**: https://slack.k8s.io/\n"
+    )
 
 
 def test_existing_line_label_is_preserved():
@@ -165,7 +172,10 @@ def test_multiline_liquid_include_is_untouched():
 def test_prose_after_a_liquid_block_is_still_linkified():
     out = t(_MULTILINE_CARD + "\n참고: https://kubernetes.io/docs/tasks/debug/\n")
     assert _MULTILINE_CARD in out
-    assert "[kubernetes.io/docs/tasks/debug](https://kubernetes.io/docs/tasks/debug/)" in out
+    assert (
+        "[kubernetes.io/docs/tasks/debug](https://kubernetes.io/docs/tasks/debug/)"
+        in out
+    )
 
 
 def test_nested_url_inside_a_query_string_is_not_split():

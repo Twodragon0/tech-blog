@@ -81,10 +81,10 @@ class TestSanitizeQuotesForYaml:
         """Both ASCII \" (U+0022) and curly quotes are replaced with apostrophe."""
         text = '\u201cSmart\u201d and "ascii" here'
         result = sanitize_quotes_for_yaml(text)
-        assert '"' not in result          # ASCII dq gone
-        assert "\u201c" not in result     # curly left quote normalised
-        assert "\u201d" not in result     # curly right quote normalised
-        assert "'" in result              # replaced with apostrophe
+        assert '"' not in result  # ASCII dq gone
+        assert "\u201c" not in result  # curly left quote normalised
+        assert "\u201d" not in result  # curly right quote normalised
+        assert "'" in result  # replaced with apostrophe
 
     # ------------------------------------------------------------------
     # 4. HTML entity &quot; and literal \u0022 decoded then sanitized
@@ -144,9 +144,7 @@ class TestSanitizeQuotesForYaml:
 
     def test_html_entity_curly_quotes_decoded(self):
         """HTML entities &ldquo; &rdquo; &lsquo; &rsquo; decoded and normalised."""
-        result = sanitize_quotes_for_yaml(
-            "&ldquo;hello&rdquo; and &lsquo;world&rsquo;"
-        )
+        result = sanitize_quotes_for_yaml("&ldquo;hello&rdquo; and &lsquo;world&rsquo;")
         # No curly quote code points remain
         assert "\u201c" not in result
         assert "\u201d" not in result
@@ -171,7 +169,7 @@ class TestSanitizeQuotesForYaml:
 
     def test_idempotent_on_pre_normalized(self):
         """Applying sanitize_quotes_for_yaml twice gives identical result."""
-        original = "Next \u201826 \u201Crelease\u201D has &ldquo;patch&rdquo;"
+        original = "Next \u201826 \u201crelease\u201d has &ldquo;patch&rdquo;"
         once = sanitize_quotes_for_yaml(original)
         twice = sanitize_quotes_for_yaml(once)
         assert once == twice

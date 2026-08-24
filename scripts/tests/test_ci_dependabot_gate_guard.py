@@ -72,9 +72,7 @@ def _command_text(block: str) -> str:
     guard honest -- a stale comment must not keep it green after the real flag is
     deleted. (Skill rule: never match commentary.)
     """
-    return "\n".join(
-        ln for ln in block.splitlines() if not ln.lstrip().startswith("#")
-    )
+    return "\n".join(ln for ln in block.splitlines() if not ln.lstrip().startswith("#"))
 
 
 class TestDependabotGateGuard:

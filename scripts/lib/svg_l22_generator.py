@@ -43,11 +43,61 @@ except ImportError:  # pragma: no cover - optional dependency
 
 # --- Theme palette ---
 THEMES: Dict[str, Dict[str, str]] = {
-    "green":  {"bg_a": "#0E2038", "bg_b": "#12283F", "accent": "#4ADE80", "label": "#4ADE80", "metric": "#9FD3B0", "detail": "#BFC9D9", "card": "#0A1B2E", "soft": "#86EFAC", "pattern": "ledgerGrid"},
-    "red":    {"bg_a": "#1A0E2E", "bg_b": "#24122F", "accent": "#E63946", "label": "#F87171", "metric": "#FBB6BD", "detail": "#D9C9CE", "card": "#1E0A14", "soft": "#FCA5A5", "pattern": "circuitDot"},
-    "amber":  {"bg_a": "#2A1A0C", "bg_b": "#1E1F0A", "accent": "#FFB703", "label": "#FFB703", "metric": "#FFD58A", "detail": "#E0D5B6", "card": "#1E1805", "soft": "#FCD34D", "pattern": "ledgerGrid"},
-    "blue":   {"bg_a": "#0A1B35", "bg_b": "#0D2040", "accent": "#60A5FA", "label": "#93C5FD", "metric": "#BFDBFE", "detail": "#D0DCF0", "card": "#0A1628", "soft": "#93C5FD", "pattern": "ledgerGrid"},
-    "purple": {"bg_a": "#1E0A3A", "bg_b": "#2A0E4A", "accent": "#A78BFA", "label": "#C4B5FD", "metric": "#DDD6FE", "detail": "#D0CCE5", "card": "#160629", "soft": "#C4B5FD", "pattern": "circuitDot"},
+    "green": {
+        "bg_a": "#0E2038",
+        "bg_b": "#12283F",
+        "accent": "#4ADE80",
+        "label": "#4ADE80",
+        "metric": "#9FD3B0",
+        "detail": "#BFC9D9",
+        "card": "#0A1B2E",
+        "soft": "#86EFAC",
+        "pattern": "ledgerGrid",
+    },
+    "red": {
+        "bg_a": "#1A0E2E",
+        "bg_b": "#24122F",
+        "accent": "#E63946",
+        "label": "#F87171",
+        "metric": "#FBB6BD",
+        "detail": "#D9C9CE",
+        "card": "#1E0A14",
+        "soft": "#FCA5A5",
+        "pattern": "circuitDot",
+    },
+    "amber": {
+        "bg_a": "#2A1A0C",
+        "bg_b": "#1E1F0A",
+        "accent": "#FFB703",
+        "label": "#FFB703",
+        "metric": "#FFD58A",
+        "detail": "#E0D5B6",
+        "card": "#1E1805",
+        "soft": "#FCD34D",
+        "pattern": "ledgerGrid",
+    },
+    "blue": {
+        "bg_a": "#0A1B35",
+        "bg_b": "#0D2040",
+        "accent": "#60A5FA",
+        "label": "#93C5FD",
+        "metric": "#BFDBFE",
+        "detail": "#D0DCF0",
+        "card": "#0A1628",
+        "soft": "#93C5FD",
+        "pattern": "ledgerGrid",
+    },
+    "purple": {
+        "bg_a": "#1E0A3A",
+        "bg_b": "#2A0E4A",
+        "accent": "#A78BFA",
+        "label": "#C4B5FD",
+        "metric": "#DDD6FE",
+        "detail": "#D0CCE5",
+        "card": "#160629",
+        "soft": "#C4B5FD",
+        "pattern": "circuitDot",
+    },
 }
 
 
@@ -88,9 +138,9 @@ def gen_qr(url: str) -> str:
                 while j + run < size and row[j + run]:
                     run += 1
                 parts.append(
-                    f"M{round(j*scale,3)} {round(ri*scale,3)}"
-                    f"h{round(run*scale,3)}v{round(scale,3)}"
-                    f"h-{round(run*scale,3)}z"
+                    f"M{round(j * scale, 3)} {round(ri * scale, 3)}"
+                    f"h{round(run * scale, 3)}v{round(scale, 3)}"
+                    f"h-{round(run * scale, 3)}z"
                 )
                 j += run
             else:
@@ -115,7 +165,7 @@ def qr_block(url: str) -> str:
         f'<g transform="translate(1080,504)" filter="url(#softShadow)">\n'
         f'  <rect x="-12" y="-12" width="132" height="132" rx="8" fill="#FFFFFF"/>\n'
         f'  <path fill="#0A1020" d="{gen_qr(url)}"/>\n'
-        f'</g>\n'
+        f"</g>\n"
         f'<text x="1134" y="486" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>'
     )
@@ -197,7 +247,7 @@ def band(
         mini_card = f'''<g transform="translate(870,{yc})" filter="url(#softShadow)">
     <rect x="-50" y="-48" width="100" height="96" rx="10" fill="{theme["card"]}" stroke="{theme["accent"]}" stroke-width="1.6" stroke-opacity="0.75"/>
     <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="{theme["label"]}">{mini_label}</text>
-    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{34 if len(mini_value)<=4 else 24}" font-weight="900" fill="#F5F7FA">{mini_value}</text>
+    <text x="0" y="14" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{34 if len(mini_value) <= 4 else 24}" font-weight="900" fill="#F5F7FA">{mini_value}</text>
     <text x="0" y="34" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="600" fill="{theme["metric"]}">{mini_sub}</text>
   </g>'''
     mini2_card = ""
@@ -208,7 +258,7 @@ def band(
       <animate attributeName="stroke-opacity" values="0.45;0.85;0.45" dur="3.6s" repeatCount="indefinite"/>
     </rect>
     <text x="0" y="-26" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" fill="{theme["label"]}">{mini2_label}</text>
-    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{30 if len(mini2_value)<=4 else 22}" font-weight="900" fill="#F5F7FA">{mini2_value}</text>
+    <text x="0" y="12" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="{30 if len(mini2_value) <= 4 else 22}" font-weight="900" fill="#F5F7FA">{mini2_value}</text>
     <text x="0" y="32" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="{theme["metric"]}">{mini2_sub}</text>
     <line x1="-32" y1="38" x2="32" y2="38" stroke="{theme["accent"]}" stroke-width="0.6" stroke-opacity="0.45"/>
     <circle cx="0" cy="-40" r="1.6" fill="{theme["soft"]}"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/></circle>
@@ -744,7 +794,9 @@ def v_cloud_k8s(
   </g>'''
 
 
-def v_bar_graph(cx: int, yc: int, accent: str, soft: str, caption: str = "GROWTH") -> str:
+def v_bar_graph(
+    cx: int, yc: int, accent: str, soft: str, caption: str = "GROWTH"
+) -> str:
     """Bar graph with animated bars + trend arrow + grid."""
     bars = ""
     heights = [30, 55, 40, 70, 85, 62]
@@ -754,7 +806,7 @@ def v_bar_graph(cx: int, yc: int, accent: str, soft: str, caption: str = "GROWTH
             f'<rect x="{x}" y="{40 - h}" width="20" height="{h}" rx="2" fill="{accent}" opacity="{0.5 + i * 0.08}">'
             f'<animate attributeName="height" values="{h - 10};{h};{h - 10}" dur="{1.6 + i * 0.2}s" repeatCount="indefinite"/>'
             f'<animate attributeName="y" values="{50 - h};{40 - h};{50 - h}" dur="{1.6 + i * 0.2}s" repeatCount="indefinite"/>'
-            f'</rect>'
+            f"</rect>"
         )
     return f'''<g transform="translate({cx},{yc})">
     <g stroke="{accent}" stroke-width="0.4" stroke-opacity="0.3">
@@ -791,7 +843,9 @@ def v_bar_graph(cx: int, yc: int, accent: str, soft: str, caption: str = "GROWTH
   </g>'''
 
 
-def v_supply_chain(cx: int, yc: int, accent: str, soft: str, label: str = "SUPPLY") -> str:
+def v_supply_chain(
+    cx: int, yc: int, accent: str, soft: str, label: str = "SUPPLY"
+) -> str:
     """Conveyor belt with packages + tamper indicator (npm worm, plugin poisoning, KY3P)."""
     return f'''<g transform="translate({cx},{yc})">
     <circle r="78" fill="{accent}" fill-opacity="0.07"><animate attributeName="r" values="62;86;62" dur="3.4s" repeatCount="indefinite"/></circle>
@@ -833,16 +887,44 @@ def v_supply_chain(cx: int, yc: int, accent: str, soft: str, label: str = "SUPPL
 
 def v_botnet_p2p(cx: int, yc: int, accent: str, soft: str, label: str = "P2P") -> str:
     """Distributed P2P mesh (no central hub) — distinct from network_nodes C2."""
-    nodes = [(-70, -40), (70, -40), (-90, 0), (90, 0), (-70, 40), (70, 40), (0, -60), (0, 60), (-30, -20), (30, -20), (-30, 20), (30, 20)]
+    nodes = [
+        (-70, -40),
+        (70, -40),
+        (-90, 0),
+        (90, 0),
+        (-70, 40),
+        (70, 40),
+        (0, -60),
+        (0, 60),
+        (-30, -20),
+        (30, -20),
+        (-30, 20),
+        (30, 20),
+    ]
     node_circles = ""
     for i, (x, y) in enumerate(nodes):
         delay = (i % 4) * 0.4
         node_circles += f'<circle cx="{x}" cy="{y}" r="6" fill="{accent}" stroke="{soft}" stroke-width="1.4"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.2s" begin="{delay}s" repeatCount="indefinite"/></circle>'
     # P2P mesh = each node connects to multiple peers (no center)
     edges = [
-        (0, 8), (1, 9), (2, 10), (3, 11), (4, 10), (5, 11),
-        (6, 8), (6, 9), (7, 10), (7, 11), (8, 10), (9, 11),
-        (0, 6), (1, 6), (4, 7), (5, 7), (2, 8), (3, 9),
+        (0, 8),
+        (1, 9),
+        (2, 10),
+        (3, 11),
+        (4, 10),
+        (5, 11),
+        (6, 8),
+        (6, 9),
+        (7, 10),
+        (7, 11),
+        (8, 10),
+        (9, 11),
+        (0, 6),
+        (1, 6),
+        (4, 7),
+        (5, 7),
+        (2, 8),
+        (3, 9),
     ]
     edge_lines = ""
     for a, b in edges:
@@ -919,7 +1001,7 @@ def v_ad_fraud(cx: int, yc: int, accent: str, soft: str, count: str = "455") -> 
             devices += (
                 f'<rect x="{x}" y="{y}" width="22" height="32" rx="3" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1">'
                 f'<animate attributeName="opacity" values="0.5;1;0.5" dur="2.0s" begin="{delay}s" repeatCount="indefinite"/>'
-                f'</rect>'
+                f"</rect>"
                 f'<circle cx="{x + 11}" cy="{y + 26}" r="1.4" fill="{soft}" opacity="0.65"/>'
             )
     return f'''<g transform="translate({cx},{yc})">
@@ -940,7 +1022,9 @@ def v_ad_fraud(cx: int, yc: int, accent: str, soft: str, count: str = "455") -> 
   </g>'''
 
 
-def v_compliance_grid(cx: int, yc: int, accent: str, soft: str, scorecard: str = "ISMS-P 95/100") -> str:
+def v_compliance_grid(
+    cx: int, yc: int, accent: str, soft: str, scorecard: str = "ISMS-P 95/100"
+) -> str:
     """3x3 audit checkbox grid with checkmarks, pending cells, and scorecard ribbon."""
     # 3x3 grid: cells 0-5 checked, 6-7 pending (animated), 8 active scanning
     # Cell positions (col x row): gx + col*(cw+gap), gy + row*(ch+gap); cw=44 ch=40 gap=4
@@ -984,7 +1068,9 @@ def v_compliance_grid(cx: int, yc: int, accent: str, soft: str, scorecard: str =
   </g>'''
 
 
-def v_identity_handshake(cx: int, yc: int, accent: str, soft: str, caption: str = "ZERO TRUST") -> str:
+def v_identity_handshake(
+    cx: int, yc: int, accent: str, soft: str, caption: str = "ZERO TRUST"
+) -> str:
     """User-to-service mTLS handshake with stepped sequence labels."""
     return f'''<g transform="translate({cx},{yc})">
     <circle r="80" fill="{accent}" fill-opacity="0.05"><animate attributeName="r" values="64;88;64" dur="3.6s" repeatCount="indefinite"/></circle>
@@ -1027,7 +1113,9 @@ def v_identity_handshake(cx: int, yc: int, accent: str, soft: str, caption: str 
   </g>'''
 
 
-def v_siem_panels(cx: int, yc: int, accent: str, soft: str, caption: str = "SIEM") -> str:
+def v_siem_panels(
+    cx: int, yc: int, accent: str, soft: str, caption: str = "SIEM"
+) -> str:
     """3-panel SOC console with sparkline, severity tiles, and progress bar."""
     return f'''<g transform="translate({cx},{yc})">
     <rect x="-92" y="-60" width="184" height="124" rx="8" fill="{accent}" fill-opacity="0.06" stroke="{accent}" stroke-opacity="0.5" stroke-width="1.4"/>
@@ -1062,13 +1150,16 @@ def v_siem_panels(cx: int, yc: int, accent: str, soft: str, caption: str = "SIEM
   </g>'''
 
 
-def v_attestation_chain(cx: int, yc: int, accent: str, soft: str, caption: str = "SUPPLY-CHAIN") -> str:
+def v_attestation_chain(
+    cx: int, yc: int, accent: str, soft: str, caption: str = "SUPPLY-CHAIN"
+) -> str:
     """4 linked hex badges (Source-Build-Sign-Verify) with staggered animations."""
+
     # Hex badge helper: 6-sided polygon centred at (hx, hy) radius r
     def _hex(hx: int, hy: int, r: int = 18) -> str:
         pts = " ".join(
-            f"{hx + round(r * __import__('math').cos(__import__('math').radians(60*i - 30)))},"
-            f"{hy + round(r * __import__('math').sin(__import__('math').radians(60*i - 30)))}"
+            f"{hx + round(r * __import__('math').cos(__import__('math').radians(60 * i - 30)))},"
+            f"{hy + round(r * __import__('math').sin(__import__('math').radians(60 * i - 30)))}"
             for i in range(6)
         )
         return pts
@@ -1088,26 +1179,26 @@ def v_attestation_chain(cx: int, yc: int, accent: str, soft: str, caption: str =
       <polygon points="{pts3}"/>
     </g>
     <g stroke="{soft}" stroke-width="1.8" fill="none">
-      <path d="M{hx0-8},{hy+6} L{hx0-2},{hy+12} L{hx0+10},{hy-6}">
+      <path d="M{hx0 - 8},{hy + 6} L{hx0 - 2},{hy + 12} L{hx0 + 10},{hy - 6}">
         <animate attributeName="stroke-dasharray" values="0 40;40 0;40 0" dur="2.0s" begin="0s" repeatCount="indefinite"/>
       </path>
-      <path d="M{hx1-8},{hy+6} L{hx1-2},{hy+12} L{hx1+10},{hy-6}">
+      <path d="M{hx1 - 8},{hy + 6} L{hx1 - 2},{hy + 12} L{hx1 + 10},{hy - 6}">
         <animate attributeName="stroke-dasharray" values="0 40;0 40;40 0;40 0" dur="2.0s" begin="0.4s" repeatCount="indefinite"/>
       </path>
-      <path d="M{hx2-8},{hy+6} L{hx2-2},{hy+12} L{hx2+10},{hy-6}">
+      <path d="M{hx2 - 8},{hy + 6} L{hx2 - 2},{hy + 12} L{hx2 + 10},{hy - 6}">
         <animate attributeName="stroke-dasharray" values="0 40;0 40;0 40;40 0" dur="2.0s" begin="0.8s" repeatCount="indefinite"/>
       </path>
-      <path d="M{hx3-8},{hy+6} L{hx3-2},{hy+12} L{hx3+10},{hy-6}">
+      <path d="M{hx3 - 8},{hy + 6} L{hx3 - 2},{hy + 12} L{hx3 + 10},{hy - 6}">
         <animate attributeName="stroke-dasharray" values="0 40;0 40;0 40;0 40" dur="2.0s" begin="1.2s" repeatCount="indefinite"/>
       </path>
     </g>
     <g stroke="{accent}" stroke-width="1.2" stroke-opacity="0.55" fill="{accent}" fill-opacity="0.55">
-      <line x1="{hx0+20}" y1="{hy}" x2="{hx1-22}" y2="{hy}"/>
-      <polygon points="{hx1-22},{hy-3} {hx1-22},{hy+3} {hx1-14},{hy}"/>
-      <line x1="{hx1+20}" y1="{hy}" x2="{hx2-22}" y2="{hy}"/>
-      <polygon points="{hx2-22},{hy-3} {hx2-22},{hy+3} {hx2-14},{hy}"/>
-      <line x1="{hx2+20}" y1="{hy}" x2="{hx3-22}" y2="{hy}"/>
-      <polygon points="{hx3-22},{hy-3} {hx3-22},{hy+3} {hx3-14},{hy}"/>
+      <line x1="{hx0 + 20}" y1="{hy}" x2="{hx1 - 22}" y2="{hy}"/>
+      <polygon points="{hx1 - 22},{hy - 3} {hx1 - 22},{hy + 3} {hx1 - 14},{hy}"/>
+      <line x1="{hx1 + 20}" y1="{hy}" x2="{hx2 - 22}" y2="{hy}"/>
+      <polygon points="{hx2 - 22},{hy - 3} {hx2 - 22},{hy + 3} {hx2 - 14},{hy}"/>
+      <line x1="{hx2 + 20}" y1="{hy}" x2="{hx3 - 22}" y2="{hy}"/>
+      <polygon points="{hx3 - 22},{hy - 3} {hx3 - 22},{hy + 3} {hx3 - 14},{hy}"/>
     </g>
     <g text-anchor="middle" font-family="Inter, monospace" font-size="8" font-weight="700" fill="{soft}" opacity="0.8">
       <text x="{hx0}" y="34">SOURCE</text>
@@ -1122,7 +1213,9 @@ def v_attestation_chain(cx: int, yc: int, accent: str, soft: str, caption: str =
   </g>'''
 
 
-def v_ai_threat(cx: int, yc: int, accent: str, soft: str, caption: str = "AI THREAT") -> str:
+def v_ai_threat(
+    cx: int, yc: int, accent: str, soft: str, caption: str = "AI THREAT"
+) -> str:
     """3-layer neural graph with poison node + prompt-injection arrow (6 animate elements)."""
     s = soft
     a = accent
@@ -1357,7 +1450,9 @@ def render_motif(spec: dict) -> str:
     if fn is None:
         return ""
     if spec["name"] == "flag_strip":
-        return fn(spec["x"], spec["y"], spec["color"], spec.get("color2", spec["color"]))
+        return fn(
+            spec["x"], spec["y"], spec["color"], spec.get("color2", spec["color"])
+        )
     return fn(spec["x"], spec["y"], spec["color"])
 
 
@@ -1369,7 +1464,9 @@ def render_extras(extras: List[dict]) -> str:
 
 
 # --- Decorative ambient layer ---
-def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict, tier: str = "standard") -> str:
+def deco_layer(
+    theme_a: dict, theme_b: dict, theme_c: dict, tier: str = "standard"
+) -> str:
     """Rich animated ambient overlay (~150 lines) tied to each band's accent.
 
     When ``tier="ultra"`` the layer doubles its density with a second
@@ -1377,6 +1474,7 @@ def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict, tier: str = "standar
     inter-band streak channel — matching the headline-grade reference.
     """
     is_ultra = tier == "ultra"
+
     def band_layer(theme: dict, y_center: int, edge_y_start: int) -> str:
         a = theme["accent"]
         s = theme["soft"]
@@ -1471,12 +1569,12 @@ def deco_layer(theme_a: dict, theme_b: dict, theme_c: dict, tier: str = "standar
     <line x1="660" y1="410" x2="660" y2="430"><animate attributeName="stroke-opacity" values="0;0.7;0" dur="2.3s" begin="1.1s" repeatCount="indefinite"/></line>
   </g>
 </g>'''
-    return f'''<g opacity="0.9">
+    return f"""<g opacity="0.9">
   {band_layer(theme_a, 105, 95)}
   {band_layer(theme_b, 315, 305)}
   {band_layer(theme_c, 525, 515)}
 </g>
-{ultra_layer}'''
+{ultra_layer}"""
 
 
 # --- Full 3-band SVG assembly ---
@@ -1509,7 +1607,9 @@ def render_bands_svg(
         Complete ``<svg>...</svg>`` string ready to write to disk.
     """
     if len(bands_cfg) != 3:
-        raise ValueError(f"render_bands_svg requires exactly 3 bands, got {len(bands_cfg)}")
+        raise ValueError(
+            f"render_bands_svg requires exactly 3 bands, got {len(bands_cfg)}"
+        )
 
     t0 = THEMES[bands_cfg[0]["theme"]]
     t1 = THEMES[bands_cfg[1]["theme"]]
@@ -1536,25 +1636,33 @@ def render_bands_svg(
     body_parts = []
     for i, cfg in enumerate(bands_cfg):
         theme = THEMES[cfg["theme"]]
-        body_parts.append(band(
-            idx=i, theme=theme,
-            label=cfg["label"], headline=cfg["headline"],
-            metric=cfg["metric"], detail=cfg["detail"],
-            badge_value=cfg["badge_value"], badge_label=cfg["badge_label"], badge_sub=cfg["badge_sub"],
-            visual_svg=cfg["visual"], sfx=sfx,
-            badge_extra=cfg.get("badge_extra", ""),
-            mini_value=cfg.get("mini_value", ""),
-            mini_label=cfg.get("mini_label", ""),
-            mini_sub=cfg.get("mini_sub", ""),
-            context=cfg.get("context", ""),
-            tier=tier,
-            metric_b=cfg.get("metric_b", ""),
-            detail_b=cfg.get("detail_b", ""),
-            mini2_value=cfg.get("mini2_value", ""),
-            mini2_label=cfg.get("mini2_label", ""),
-            mini2_sub=cfg.get("mini2_sub", ""),
-            extras=cfg.get("extras"),
-        ))
+        body_parts.append(
+            band(
+                idx=i,
+                theme=theme,
+                label=cfg["label"],
+                headline=cfg["headline"],
+                metric=cfg["metric"],
+                detail=cfg["detail"],
+                badge_value=cfg["badge_value"],
+                badge_label=cfg["badge_label"],
+                badge_sub=cfg["badge_sub"],
+                visual_svg=cfg["visual"],
+                sfx=sfx,
+                badge_extra=cfg.get("badge_extra", ""),
+                mini_value=cfg.get("mini_value", ""),
+                mini_label=cfg.get("mini_label", ""),
+                mini_sub=cfg.get("mini_sub", ""),
+                context=cfg.get("context", ""),
+                tier=tier,
+                metric_b=cfg.get("metric_b", ""),
+                detail_b=cfg.get("detail_b", ""),
+                mini2_value=cfg.get("mini2_value", ""),
+                mini2_label=cfg.get("mini2_label", ""),
+                mini2_sub=cfg.get("mini2_sub", ""),
+                extras=cfg.get("extras"),
+            )
+        )
     bands_svg = "\n".join(body_parts)
     deco = deco_layer(t0, t1, t2, tier=tier)
 
@@ -1567,7 +1675,7 @@ def render_bands_svg(
             f'  <circle cx="200" cy="120" r="180" fill="url(#glowA{sfx})" opacity="0.22"/>\n'
             f'  <circle cx="200" cy="330" r="180" fill="url(#glowB{sfx})" opacity="0.22"/>\n'
             f'  <circle cx="200" cy="540" r="180" fill="url(#glowC{sfx})" opacity="0.22"/>\n'
-            f'</g>'
+            f"</g>"
         )
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="{aria}">
@@ -1606,24 +1714,60 @@ def render_bands_svg(
 # Keys are case-insensitive category labels; values are hex strings used
 # directly for stroke / fill / stop-color / chip colours.
 SINGLE_THEMES: Dict[str, Dict[str, str]] = {
-    "security":  {"accent": "#ef4444", "accent_dim": "#991b1b", "halo_b": "#38bdf8", "label": "SECURITY"},
-    "devsecops": {"accent": "#a78bfa", "accent_dim": "#6d28d9", "halo_b": "#22d3ee", "label": "DEVSECOPS"},
-    "devops":    {"accent": "#34d399", "accent_dim": "#047857", "halo_b": "#60a5fa", "label": "DEVOPS"},
-    "cloud":     {"accent": "#60a5fa", "accent_dim": "#1d4ed8", "halo_b": "#22d3ee", "label": "CLOUD"},
-    "kubernetes": {"accent": "#22d3ee", "accent_dim": "#0891b2", "halo_b": "#a78bfa", "label": "KUBERNETES"},
-    "finops":    {"accent": "#fbbf24", "accent_dim": "#b45309", "halo_b": "#34d399", "label": "FINOPS"},
-    "incident":  {"accent": "#f97316", "accent_dim": "#b45309", "halo_b": "#ef4444", "label": "INCIDENT"},
-    "ai":        {"accent": "#22d3ee", "accent_dim": "#0e7490", "halo_b": "#a78bfa", "label": "AI / ML"},
+    "security": {
+        "accent": "#ef4444",
+        "accent_dim": "#991b1b",
+        "halo_b": "#38bdf8",
+        "label": "SECURITY",
+    },
+    "devsecops": {
+        "accent": "#a78bfa",
+        "accent_dim": "#6d28d9",
+        "halo_b": "#22d3ee",
+        "label": "DEVSECOPS",
+    },
+    "devops": {
+        "accent": "#34d399",
+        "accent_dim": "#047857",
+        "halo_b": "#60a5fa",
+        "label": "DEVOPS",
+    },
+    "cloud": {
+        "accent": "#60a5fa",
+        "accent_dim": "#1d4ed8",
+        "halo_b": "#22d3ee",
+        "label": "CLOUD",
+    },
+    "kubernetes": {
+        "accent": "#22d3ee",
+        "accent_dim": "#0891b2",
+        "halo_b": "#a78bfa",
+        "label": "KUBERNETES",
+    },
+    "finops": {
+        "accent": "#fbbf24",
+        "accent_dim": "#b45309",
+        "halo_b": "#34d399",
+        "label": "FINOPS",
+    },
+    "incident": {
+        "accent": "#f97316",
+        "accent_dim": "#b45309",
+        "halo_b": "#ef4444",
+        "label": "INCIDENT",
+    },
+    "ai": {
+        "accent": "#22d3ee",
+        "accent_dim": "#0e7490",
+        "halo_b": "#a78bfa",
+        "label": "AI / ML",
+    },
 }
 
 
 def _xml_escape(text: str) -> str:
     """Minimal XML escape for <text> content (defensive for titles)."""
-    return (
-        text.replace("&", "&amp;")
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-    )
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def _split_headline(headline: str, max_chars_per_line: int = 22) -> List[str]:
@@ -1749,9 +1893,7 @@ def _illust_chart(cx: int, cy: int, accent: str, halo: str) -> str:
     heights = [40, 60, 50, 78, 92, 70]
     for i, h in enumerate(heights):
         x = -84 + i * 30
-        bars_svg += (
-            f'<rect x="{x}" y="{30 - h}" width="22" height="{h}" rx="3" fill="{accent}" opacity="{0.55 + i*0.07}"/>'
-        )
+        bars_svg += f'<rect x="{x}" y="{30 - h}" width="22" height="{h}" rx="3" fill="{accent}" opacity="{0.55 + i * 0.07}"/>'
     return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
     <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
     <rect x="-104" y="-72" width="208" height="144" rx="14" fill="#0f172a" stroke="{accent}" stroke-width="2.2" opacity="0.92"/>
@@ -1835,8 +1977,8 @@ def _illust_finops_chart(cx: int, cy: int, accent: str, halo: str) -> str:
     for i, h in enumerate(heights):
         x = -90 + i * 30
         bars.append(
-            f'<rect x="{x}" y="{30 - h}" width="22" height="{h}" rx="3" fill="{accent}" opacity="{0.5 + i*0.06}"/>'
-            f'<text x="{x+11}" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#94a3b8">{labels[i]}</text>'
+            f'<rect x="{x}" y="{30 - h}" width="22" height="{h}" rx="3" fill="{accent}" opacity="{0.5 + i * 0.06}"/>'
+            f'<text x="{x + 11}" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#94a3b8">{labels[i]}</text>'
         )
     return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
     <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
@@ -1915,7 +2057,7 @@ def _illust_incident_timeline(cx: int, cy: int, accent: str, halo: str) -> str:
     for i, (lbl, x) in enumerate(steps):
         parts.append(
             f'<circle cx="{x}" cy="0" r="10" fill="{accent}" fill-opacity="0.34" stroke="{accent}" stroke-width="2"/>'
-            f'<text x="{x}" y="3" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#f8fafc">{i+1}</text>'
+            f'<text x="{x}" y="3" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#f8fafc">{i + 1}</text>'
             f'<text x="{x}" y="28" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="700" fill="{halo}" opacity="0.85">{lbl}</text>'
         )
     return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
@@ -1963,15 +2105,32 @@ def _illust_isms_audit(cx: int, cy: int, accent: str, halo: str) -> str:
 
 def _illust_ai_agent(cx: int, cy: int, accent: str, halo: str) -> str:
     """AI agent: head silhouette + neural net grid + circuit."""
-    nodes = [(-44, -34), (-44, 0), (-44, 34), (0, -52), (0, 0), (0, 52), (44, -34), (44, 0), (44, 34)]
-    node_svg = "".join(f'<circle cx="{x}" cy="{y}" r="5" fill="{halo}" stroke="{accent}" stroke-width="1.2"/>' for x, y in nodes)
+    nodes = [
+        (-44, -34),
+        (-44, 0),
+        (-44, 34),
+        (0, -52),
+        (0, 0),
+        (0, 52),
+        (44, -34),
+        (44, 0),
+        (44, 34),
+    ]
+    node_svg = "".join(
+        f'<circle cx="{x}" cy="{y}" r="5" fill="{halo}" stroke="{accent}" stroke-width="1.2"/>'
+        for x, y in nodes
+    )
     edges = []
     for x1, y1 in nodes[:3]:
         for x2, y2 in nodes[3:6]:
-            edges.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{accent}" stroke-width="0.8" opacity="0.45"/>')
+            edges.append(
+                f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{accent}" stroke-width="0.8" opacity="0.45"/>'
+            )
     for x1, y1 in nodes[3:6]:
         for x2, y2 in nodes[6:]:
-            edges.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{accent}" stroke-width="0.8" opacity="0.45"/>')
+            edges.append(
+                f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{accent}" stroke-width="0.8" opacity="0.45"/>'
+            )
     return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
     <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
     <rect x="-94" y="-78" width="188" height="156" rx="16" fill="#0f172a" stroke="{accent}" stroke-width="2.4" opacity="0.96"/>
@@ -1989,9 +2148,9 @@ def _illust_database_layers(cx: int, cy: int, accent: str, halo: str) -> str:
     cyls = []
     for i, y in enumerate([-44, 0, 44]):
         cyls.append(
-            f'<ellipse cx="20" cy="{y-12}" rx="46" ry="9" fill="{accent}" fill-opacity="0.28" stroke="{accent}" stroke-width="1.6"/>'
-            f'<rect x="-26" y="{y-12}" width="92" height="22" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1.6"/>'
-            f'<ellipse cx="20" cy="{y+10}" rx="46" ry="9" fill="{accent}" fill-opacity="0.28" stroke="{accent}" stroke-width="1.6"/>'
+            f'<ellipse cx="20" cy="{y - 12}" rx="46" ry="9" fill="{accent}" fill-opacity="0.28" stroke="{accent}" stroke-width="1.6"/>'
+            f'<rect x="-26" y="{y - 12}" width="92" height="22" fill="{accent}" fill-opacity="0.18" stroke="{accent}" stroke-width="1.6"/>'
+            f'<ellipse cx="20" cy="{y + 10}" rx="46" ry="9" fill="{accent}" fill-opacity="0.28" stroke="{accent}" stroke-width="1.6"/>'
         )
     return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
     <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
@@ -2100,13 +2259,13 @@ def _illust_ci_pipeline(cx: int, cy: int, accent: str, halo: str) -> str:
     boxes = []
     for i, (lbl, x) in enumerate(stages):
         boxes.append(
-            f'<rect x="{x-22}" y="-18" width="44" height="36" rx="6" fill="{accent}" fill-opacity="0.22" stroke="{accent}" stroke-width="1.6"/>'
+            f'<rect x="{x - 22}" y="-18" width="44" height="36" rx="6" fill="{accent}" fill-opacity="0.22" stroke="{accent}" stroke-width="1.6"/>'
             f'<text x="{x}" y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#f8fafc">{lbl}</text>'
         )
         if i < len(stages) - 1:
-            nx = stages[i+1][1] - 22
+            nx = stages[i + 1][1] - 22
             boxes.append(
-                f'<line x1="{x+22}" y1="0" x2="{nx}" y2="0" stroke="{halo}" stroke-width="2" marker-end="url(#sgArrow)"/>'
+                f'<line x1="{x + 22}" y1="0" x2="{nx}" y2="0" stroke="{halo}" stroke-width="2" marker-end="url(#sgArrow)"/>'
             )
     return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
     <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
@@ -2150,12 +2309,12 @@ def _illust_aws_services(cx: int, cy: int, accent: str, halo: str) -> str:
     for i, lbl in enumerate(chips):
         x = -100 + i * 40
         parts.append(
-            f'<rect x="{x-16}" y="-16" width="32" height="32" rx="6" fill="{accent}" fill-opacity="0.22" stroke="{accent}" stroke-width="1.4"/>'
+            f'<rect x="{x - 16}" y="-16" width="32" height="32" rx="6" fill="{accent}" fill-opacity="0.22" stroke="{accent}" stroke-width="1.4"/>'
             f'<text x="{x}" y="6" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#f8fafc">{lbl}</text>'
         )
         if i < len(chips) - 1:
             parts.append(
-                f'<line x1="{x+16}" y1="0" x2="{x+24}" y2="0" stroke="{halo}" stroke-width="1.4" stroke-opacity="0.7"/>'
+                f'<line x1="{x + 16}" y1="0" x2="{x + 24}" y2="0" stroke="{halo}" stroke-width="1.4" stroke-opacity="0.7"/>'
             )
     return f'''<g transform="translate({cx},{cy})" filter="url(#singleShadow)">
     <circle r="124" fill="none" stroke="{accent}" stroke-opacity="0.18" stroke-width="1.2" stroke-dasharray="8 8"/>
@@ -2288,7 +2447,14 @@ def _illust_ai_threat(cx: int, cy: int, accent: str, halo: str) -> str:
   </g>'''
 
 
-def _illust_rollup_index(cx: int, cy: int, accent: str, soft: str, halo: str = None, label: str = "MONTHLY RECAP") -> str:
+def _illust_rollup_index(
+    cx: int,
+    cy: int,
+    accent: str,
+    soft: str,
+    halo: str = None,
+    label: str = "MONTHLY RECAP",
+) -> str:
     """Calendar-style card grid (4 rows x 7 cols) for monthly/weekly rollup index posts."""
     if halo is None:
         halo = soft
@@ -2296,14 +2462,40 @@ def _illust_rollup_index(cx: int, cy: int, accent: str, soft: str, halo: str = N
     cols, rows = 7, 4
     cell_w, cell_h = 24, 16
     gap_x, gap_y = 4, 4
-    grid_w = cols * cell_w + (cols - 1) * gap_x   # 7*24 + 6*4 = 192
-    grid_h = rows * cell_h + (rows - 1) * gap_y   # 4*16 + 3*4 = 76
+    grid_w = cols * cell_w + (cols - 1) * gap_x  # 7*24 + 6*4 = 192
+    grid_h = rows * cell_h + (rows - 1) * gap_y  # 4*16 + 3*4 = 76
     start_x = -(grid_w // 2)
     start_y = -8
-    pill_counts = [5, 3, 4, 5, 2, 4, 3,   # row 1
-                   4, 5, 3, 4, 3, 5, 2,   # row 2
-                   3, 4, 5, 2, 4, 3, 5,   # row 3
-                   5, 3, 4, 3, 5, 4, 3]   # row 4
+    pill_counts = [
+        5,
+        3,
+        4,
+        5,
+        2,
+        4,
+        3,  # row 1
+        4,
+        5,
+        3,
+        4,
+        3,
+        5,
+        2,  # row 2
+        3,
+        4,
+        5,
+        2,
+        4,
+        3,
+        5,  # row 3
+        5,
+        3,
+        4,
+        3,
+        5,
+        4,
+        3,
+    ]  # row 4
     pills = []
     for i, cnt in enumerate(pill_counts):
         row = i // cols
@@ -2388,105 +2580,232 @@ def _pick_illustration(category: str, title: str) -> str:
     # Note: bare "cloudflare " before incident_timeline so Cloudflare-specific
     # outage posts get the globe visual (network topology) rather than the
     # incident timeline strip.
-    if any(k in text for k in (
-        "cloudflare global", "cloudflare 11", "cloudflare incident",
-        "global outage", "cloudflare ",
-        "cdn ", " cdn", "fastly", "akamai", "anycast", "edge network",
-        "cloudfront", "content delivery",
-    )):
+    if any(
+        k in text
+        for k in (
+            "cloudflare global",
+            "cloudflare 11",
+            "cloudflare incident",
+            "global outage",
+            "cloudflare ",
+            "cdn ",
+            " cdn",
+            "fastly",
+            "akamai",
+            "anycast",
+            "edge network",
+            "cloudfront",
+            "content delivery",
+        )
+    ):
         return "globe"
     # Incident / post-mortem / ransomware timeline
     # 랜섬웨어 = ransomware (KO), 인시던트 = incident (KO), 사고 = accident/incident (KO)
     # rca = root cause analysis, downtime, post-incident
-    if any(k in text for k in (
-        "post-mortem", "post_mortem", "postmortem",
-        "incident response", "11/18", "outage",
-        "ransomware", "랜섬웨어",
-        "rca", "root cause", "post-incident", "downtime",
-        "인시던트", "사고 대응", "침해 사고",
-    )):
+    if any(
+        k in text
+        for k in (
+            "post-mortem",
+            "post_mortem",
+            "postmortem",
+            "incident response",
+            "11/18",
+            "outage",
+            "ransomware",
+            "랜섬웨어",
+            "rca",
+            "root cause",
+            "post-incident",
+            "downtime",
+            "인시던트",
+            "사고 대응",
+            "침해 사고",
+        )
+    ):
         return "incident_timeline"
     # NPM / supply chain / package
     # 공급망 = supply chain (KO)
-    if any(k in text for k in (
-        "npm", "shai-hulud", "self_replication", "self-replicating",
-        "worm", "supply chain", "supply_chain", "package breach",
-        "공급망",
-    )):
+    if any(
+        k in text
+        for k in (
+            "npm",
+            "shai-hulud",
+            "self_replication",
+            "self-replicating",
+            "worm",
+            "supply chain",
+            "supply_chain",
+            "package breach",
+            "공급망",
+        )
+    ):
         return "npm"
     # Kubernetes / Karpenter / k8s tooling
     # 쿠버네티스 = kubernetes (KO), 헬름 = helm (KO)
-    if any(k in text for k in (
-        "kubernetes", "k8s", "minikube", "k9s", "karpenter",
-        "kubectl", "helm", " pod ", "namespace", "kubelet",
-        "쿠버네티스", "헬름",
-    )):
+    if any(
+        k in text
+        for k in (
+            "kubernetes",
+            "k8s",
+            "minikube",
+            "k9s",
+            "karpenter",
+            "kubectl",
+            "helm",
+            " pod ",
+            "namespace",
+            "kubelet",
+            "쿠버네티스",
+            "헬름",
+        )
+    ):
         return "k8s"
     # CI/CD pipeline
-    if any(k in text for k in ("ci/cd", "ci_cd", "pipeline", "github actions", "github_advanced", "amazon q", "ghas")):
+    if any(
+        k in text
+        for k in (
+            "ci/cd",
+            "ci_cd",
+            "pipeline",
+            "github actions",
+            "github_advanced",
+            "amazon q",
+            "ghas",
+        )
+    ):
         return "pipeline"
     # Email / DMARC / deliverability
-    if any(k in text for k in (
-        "dmarc", "spf", "dkim", "sendgrid", "smtp", "imap",
-        "email delivery", "email_delivery", "deliverability",
-        "mail sender", "spam filter",
-    )):
+    if any(
+        k in text
+        for k in (
+            "dmarc",
+            "spf",
+            "dkim",
+            "sendgrid",
+            "smtp",
+            "imap",
+            "email delivery",
+            "email_delivery",
+            "deliverability",
+            "mail sender",
+            "spam filter",
+        )
+    ):
         return "email"
     # Zero Trust / ZTNA
     if any(k in text for k in ("ztna", "zero trust", "zero-trust")):
         return "ztna"
     # Zscaler / SSL inspection / sandbox
-    if any(k in text for k in ("zscaler", "ssl inspection", "ssl_inspection", "sandbox")):
+    if any(
+        k in text for k in ("zscaler", "ssl inspection", "ssl_inspection", "sandbox")
+    ):
         return "ssl"
     # MFA / passkey / OTP
-    if any(k in text for k in ("mfa", "passkey", "fido2", "totp", "2fa", " otp", "otp ")):
+    if any(
+        k in text for k in ("mfa", "passkey", "fido2", "totp", "2fa", " otp", "otp ")
+    ):
         return "mfa"
     # ISMS / audit / compliance
-    if any(k in text for k in ("isms", "isms-p", "audit", "compliance", "soc2", "iso27001")):
+    if any(
+        k in text for k in ("isms", "isms-p", "audit", "compliance", "soc2", "iso27001")
+    ):
         return "isms"
     # AI threat / adversarial ML / agentic attacks (must precede generic agent/llm catches)
     # 에이전틱 ai = agentic ai (KO), 프롬프트 인젝션 = prompt injection (KO)
     # 도구 오남용 = tool abuse (KO), 모델 추출 = model extraction (KO), 딥페이크 = deepfake (KO)
-    if any(k in text for k in (
-        "agentic ai security", "agentic ai attack",
-        "prompt injection", "prompt_injection",
-        "llm attack", "llm security", "llm threat",
-        "mcp security", "mcp threat", "mcp abuse", "tool poisoning",
-        "model extraction", "model poisoning", "training data poison",
-        "ai threat", "ai attack vector",
-        "deepfake crypto", "synthetic media fraud",
-        "ai supply chain attack", "model registry",
-        "agent identity drift",
-        # Korean equivalents:
-        "에이전틱 ai", "프롬프트 인젝션",
-        "도구 오남용", "모델 추출", "딥페이크",
-    )):
+    if any(
+        k in text
+        for k in (
+            "agentic ai security",
+            "agentic ai attack",
+            "prompt injection",
+            "prompt_injection",
+            "llm attack",
+            "llm security",
+            "llm threat",
+            "mcp security",
+            "mcp threat",
+            "mcp abuse",
+            "tool poisoning",
+            "model extraction",
+            "model poisoning",
+            "training data poison",
+            "ai threat",
+            "ai attack vector",
+            "deepfake crypto",
+            "synthetic media fraud",
+            "ai supply chain attack",
+            "model registry",
+            "agent identity drift",
+            # Korean equivalents:
+            "에이전틱 ai",
+            "프롬프트 인젝션",
+            "도구 오남용",
+            "모델 추출",
+            "딥페이크",
+        )
+    ):
         return "ai_threat"
     # AI agent / secretary
     # ai 에이전트 = AI agent (KO), 에이전틱 = agentic (KO)
-    if any(k in text for k in (
-        "ai secretary", "ai agent", " agent ", "llm", "claude", "openai", "gpt",
-        "ai 에이전트", "에이전틱",
-    )):
+    if any(
+        k in text
+        for k in (
+            "ai secretary",
+            "ai agent",
+            " agent ",
+            "llm",
+            "claude",
+            "openai",
+            "gpt",
+            "ai 에이전트",
+            "에이전틱",
+        )
+    ):
         return "agent"
     # Database / NLB / RDS / gateway
-    if any(k in text for k in ("database", " rds ", "nlb", "db gateway", "database access", "gateway")):
+    if any(
+        k in text
+        for k in (
+            "database",
+            " rds ",
+            "nlb",
+            "db gateway",
+            "database access",
+            "gateway",
+        )
+    ):
         return "database"
     # Conference / review / preview
     # Guard: "agentic" must not fall through to conference via "owasp" when title
     # contains agentic ai security keywords (handled above). This catch is for
     # pure conference/event posts only.
-    if any(k in text for k in ("conference", "awskrug", "owasp", "datadog", "preview", "review")):
+    if any(
+        k in text
+        for k in ("conference", "awskrug", "owasp", "datadog", "preview", "review")
+    ):
         return "conference"
     # FinOps / cost
-    if any(k in text for k in ("finops", "cost-opt", "cost optim", "savings", "budget")):
+    if any(
+        k in text for k in ("finops", "cost-opt", "cost optim", "savings", "budget")
+    ):
         return "finops"
     # GCP / GKE alongside AWS service stack
     # 클라우드 보안 with specific cloud providers → aws visual
-    if any(k in text for k in (
-        "aws", "control tower", "guardduty", "vpc", "security hub", "control_tower",
-        "gcp", "gke", "google cloud",
-    )):
+    if any(
+        k in text
+        for k in (
+            "aws",
+            "control tower",
+            "guardduty",
+            "vpc",
+            "security hub",
+            "control_tower",
+            "gcp",
+            "gke",
+            "google cloud",
+        )
+    ):
         return "aws"
     # Generic cloud / container
     # 클라우드 = cloud (KO), 컨테이너 = container (KO)
@@ -2495,29 +2814,55 @@ def _pick_illustration(category: str, title: str) -> str:
     # CVE / RCE / vulnerability / malware / BYOVD / EDR bypass
     # 악성코드 = malware (KO), 제로데이 = zero-day (KO), 취약점 = vulnerability (KO)
     # byovd = Bring Your Own Vulnerable Driver; edr = Endpoint Detection & Response
-    if any(k in text for k in (
-        "rce", "cve", "vulnerability", "exploit",
-        "malware", "악성코드",
-        "zero-day", "zeroday", "제로데이",
-        "byovd", " edr ", "edr ", "edr·", "endpoint detection",
-        "취약점",
-    )):
+    if any(
+        k in text
+        for k in (
+            "rce",
+            "cve",
+            "vulnerability",
+            "exploit",
+            "malware",
+            "악성코드",
+            "zero-day",
+            "zeroday",
+            "제로데이",
+            "byovd",
+            " edr ",
+            "edr ",
+            "edr·",
+            "endpoint detection",
+            "취약점",
+        )
+    ):
         return "lock"
     # DNS / network exfiltration
     # dns 유출 = DNS leak/exfiltration (KO)
-    if any(k in text for k in ("dns", "dns 유출", "network exfil", "dns leak", "dns tunnel")):
+    if any(
+        k in text
+        for k in ("dns", "dns 유출", "network exfil", "dns leak", "dns tunnel")
+    ):
         return "network"
     # Rollup / digest index posts (monthly or weekly aggregate indexes)
     # 월간 인덱스 = monthly index (KO), 주간 롤업 = weekly rollup (KO)
     # 주간 리뷰 = weekly review (KO), 데일리 테크 = daily tech (KO)
     # 보안 위협 종합 = security threat roundup (KO)
-    if any(k in text for k in (
-        "월간 인덱스", "주간 롤업", "주간 리뷰",
-        "monthly index", "weekly rollup", "weekly roundup",
-        "데일리 테크", "daily tech",
-        "weekly security", "weekly tech", "weekly devops",
-        "보안 위협 종합",
-    )):
+    if any(
+        k in text
+        for k in (
+            "월간 인덱스",
+            "주간 롤업",
+            "주간 리뷰",
+            "monthly index",
+            "weekly rollup",
+            "weekly roundup",
+            "데일리 테크",
+            "daily tech",
+            "weekly security",
+            "weekly tech",
+            "weekly devops",
+            "보안 위협 종합",
+        )
+    ):
         return "rollup_index"
     return "shield"
 
@@ -2530,11 +2875,25 @@ def _pick_theme(category: str, title: str) -> Dict[str, str]:
     accent family) is satisfied for course-style posts.
     """
     text = (category + " " + title).lower()
-    if any(k in text for k in (
-        "cloud security", "cloud_security", "aws ", "aws_",
-        "gcp ", "gcp_", "ec2 ", "ec2_", "vpc", "guardduty",
-        "control tower", "isms", "zscaler", "cloudflare",
-    )):
+    if any(
+        k in text
+        for k in (
+            "cloud security",
+            "cloud_security",
+            "aws ",
+            "aws_",
+            "gcp ",
+            "gcp_",
+            "ec2 ",
+            "ec2_",
+            "vpc",
+            "guardduty",
+            "control tower",
+            "isms",
+            "zscaler",
+            "cloudflare",
+        )
+    ):
         return SINGLE_THEMES["cloud"]
     if any(k in text for k in ("finops", "cost-opt", "cost_opt")):
         return SINGLE_THEMES["finops"]
@@ -2656,7 +3015,7 @@ def render_single_svg(
         stats = [
             {"label": "CATEGORY", "value": label_text.split()[0]},
             {"label": "SIGNALS", "value": f"{signals:02d}"},
-            {"label": "TAGS",    "value": f"{len(tags):02d}"},
+            {"label": "TAGS", "value": f"{len(tags):02d}"},
         ]
 
     illus_key = illustration_key or _pick_illustration(category, headline)
@@ -2677,7 +3036,9 @@ def render_single_svg(
     stat_xs = [84, 246, 408]
     stat_parts = []
     for x, st in zip(stat_xs, stats[:3]):
-        stat_parts.append(_stat_box(x, _xml_escape(st["label"]), _xml_escape(st["value"]), accent))
+        stat_parts.append(
+            _stat_box(x, _xml_escape(st["label"]), _xml_escape(st["value"]), accent)
+        )
     stat_svg = "\n  ".join(stat_parts)
 
     # Decorative dots (left of hero) and faint hero glow blob (right).
@@ -2699,10 +3060,14 @@ def render_single_svg(
     # Decorative ring corner ticks — kept at heroPanel corners (outside the
     # illustration's ~110px radius) so they never overlap with the artwork.
     ring_labels = []
-    for i, (rx, ry, lbl) in enumerate([
-        (740, 162, "01"), (1090, 162, "02"),
-        (740, 412, "03"), (1090, 412, "04"),
-    ]):
+    for i, (rx, ry, lbl) in enumerate(
+        [
+            (740, 162, "01"),
+            (1090, 162, "02"),
+            (740, 412, "03"),
+            (1090, 412, "04"),
+        ]
+    ):
         ring_labels.append(
             f'<text x="{rx}" y="{ry}" font-family="Arial,sans-serif" '
             f'font-size="9" font-weight="700" fill="{halo}" '
@@ -2724,11 +3089,16 @@ def render_single_svg(
     # heroPanel header band, y=152..164). Keeps the density high without
     # colliding with the centred illustration or the bottom status_svg.
     side_labels = []
-    for i, (sx, sy, txt) in enumerate([
-        (740, 178, "STATUS"), (816, 178, "OK"),
-        (864, 178, "VER"),    (910, 178, "v1.0"),
-        (962, 178, "BUILD"),  (1024, 178, "STAB"),
-    ]):
+    for i, (sx, sy, txt) in enumerate(
+        [
+            (740, 178, "STATUS"),
+            (816, 178, "OK"),
+            (864, 178, "VER"),
+            (910, 178, "v1.0"),
+            (962, 178, "BUILD"),
+            (1024, 178, "STAB"),
+        ]
+    ):
         side_labels.append(
             f'<text x="{sx}" y="{sy}" font-family="Arial,sans-serif" '
             f'font-size="9" font-weight="700" fill="#94a3b8" '
@@ -2738,11 +3108,19 @@ def render_single_svg(
 
     # Sidebar mini-axis labels (left edge of left column for extra texture).
     edge_labels = []
-    for i, (ex, ey, txt) in enumerate([
-        (40, 380, "00"), (40, 410, "01"), (40, 440, "02"), (40, 470, "03"),
-        (40, 500, "04"), (1160, 380, "OK"), (1160, 410, "RUN"),
-        (1160, 440, "OK"), (1160, 470, "RUN"),
-    ]):
+    for i, (ex, ey, txt) in enumerate(
+        [
+            (40, 380, "00"),
+            (40, 410, "01"),
+            (40, 440, "02"),
+            (40, 470, "03"),
+            (40, 500, "04"),
+            (1160, 380, "OK"),
+            (1160, 410, "RUN"),
+            (1160, 440, "OK"),
+            (1160, 470, "RUN"),
+        ]
+    ):
         edge_labels.append(
             f'<text x="{ex}" y="{ey}" font-family="Arial,sans-serif" '
             f'font-size="8" font-weight="700" fill="#475569" '
@@ -2794,8 +3172,8 @@ def render_single_svg(
   <text x="84" y="{body_y}" font-family="Arial,sans-serif" font-size="14" fill="#94a3b8">{_xml_escape(body_line)}</text>'''
 
     # Footer divider + site URL.
-    footer = f'''<line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
-  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>'''
+    footer = """<line x1="50" y1="588" x2="1150" y2="588" stroke="#334155" stroke-width="1" opacity="0.5"/>
+  <text x="1150" y="612" font-family="Arial,sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">tech.2twodragon.com</text>"""
 
     defs = f'''<defs>
     <linearGradient id="bgSpread{sfx}" x1="0%" y1="0%" x2="100%" y2="100%">

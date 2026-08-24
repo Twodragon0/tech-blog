@@ -19,6 +19,7 @@ Usage:
     python3 scripts/backfill_card_summary_period.py --posts-glob '_posts/*Weekly_Digest*.md' --dry-run
     python3 scripts/backfill_card_summary_period.py _posts/2026-07-*.md
 """
+
 import argparse
 import glob
 import sys
@@ -68,7 +69,7 @@ def _violates_narrow_diff(old: str, new: str) -> bool:
     """
     if len(new) < len(old):
         return True
-    return new.replace('.\"', '"') != old.replace('.\"', '"')
+    return new.replace('."', '"') != old.replace('."', '"')
 
 
 def main(argv=None) -> int:

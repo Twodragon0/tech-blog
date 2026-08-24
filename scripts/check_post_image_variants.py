@@ -55,7 +55,7 @@ _STEM_STRIP_RE = re.compile(r"(_og\.png|\.png|\.svg)\Z", re.IGNORECASE)
 class PostResult(NamedTuple):
     post: Path
     image_field: str
-    missing_primary: list[str]   # blocks push
+    missing_primary: list[str]  # blocks push
     missing_secondary: list[str]  # warns only
 
 
@@ -204,12 +204,17 @@ def run_check(
             file=sys.stderr,
         )
         if warn_only:
-            print("[variant-check] --warn-only: continuing despite failures.", file=sys.stderr)
+            print(
+                "[variant-check] --warn-only: continuing despite failures.",
+                file=sys.stderr,
+            )
             return 0
         return 1
 
     total = len([p for p in posts if _extract_image_field(p)])
-    print(f"[variant-check] OK: {total} post(s) checked, all have a primary raster variant.")
+    print(
+        f"[variant-check] OK: {total} post(s) checked, all have a primary raster variant."
+    )
     return 0
 
 

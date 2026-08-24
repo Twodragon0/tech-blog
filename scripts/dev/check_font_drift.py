@@ -22,7 +22,6 @@ import argparse
 import re
 import sys
 
-
 WOFF2_PATTERN = re.compile(r"^assets/fonts/.*\.woff2$")
 
 # Source-of-truth files that must accompany any woff2 change

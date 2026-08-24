@@ -40,6 +40,7 @@ CLI::
     python3 scripts/upgrade_l25_cover.py --all --since 2026-06-01
     python3 scripts/upgrade_l25_cover.py --all --check       # CI gate
 """
+
 from __future__ import annotations
 
 import argparse
@@ -61,16 +62,33 @@ SPECS_DIR = REPO_ROOT / "_data" / "l25_covers"
 
 # Schema -------------------------------------------------------------------
 
-_ALLOWED_TOP_LEVEL_KEYS = frozenset({
-    "date", "slug", "post_title", "category", "theme",
-    "headline", "subheadline", "visual",
-    "tag_chips", "kpi_strip", "url",
-    # L25 visual-density enrichers (all optional):
-    "detail_line", "accent_badge",
-})
+_ALLOWED_TOP_LEVEL_KEYS = frozenset(
+    {
+        "date",
+        "slug",
+        "post_title",
+        "category",
+        "theme",
+        "headline",
+        "subheadline",
+        "visual",
+        "tag_chips",
+        "kpi_strip",
+        "url",
+        # L25 visual-density enrichers (all optional):
+        "detail_line",
+        "accent_badge",
+    }
+)
 _REQUIRED_TOP_LEVEL_KEYS = (
-    "date", "slug", "post_title", "category", "theme",
-    "headline", "subheadline", "visual",
+    "date",
+    "slug",
+    "post_title",
+    "category",
+    "theme",
+    "headline",
+    "subheadline",
+    "visual",
 )
 _KPI_REQUIRED = ("label", "value")
 _KPI_ALLOWED = frozenset(_KPI_REQUIRED)
@@ -93,6 +111,7 @@ def _short_path(p: Path) -> str:
 @dataclass(frozen=True)
 class Spec:
     """In-memory representation of one L25-single YAML spec."""
+
     date: str
     slug: str
     post_title: str
@@ -126,10 +145,15 @@ class Spec:
         for c in self.tag_chips:
             chips.append(dict(c) if isinstance(c, dict) else c)
         return {
-            "date": self.date, "slug": self.slug, "post_title": self.post_title,
-            "category": self.category, "theme": self.theme,
-            "headline": self.headline, "subheadline": self.subheadline,
-            "visual": self.visual, "tag_chips": chips,
+            "date": self.date,
+            "slug": self.slug,
+            "post_title": self.post_title,
+            "category": self.category,
+            "theme": self.theme,
+            "headline": self.headline,
+            "subheadline": self.subheadline,
+            "visual": self.visual,
+            "tag_chips": chips,
             "kpi_strip": [dict(c) for c in self.kpi_strip],
             "detail_line": list(self.detail_line),
             "accent_badge": dict(self.accent_badge) if self.accent_badge else {},
@@ -139,12 +163,11 @@ class Spec:
 
 # Validation ---------------------------------------------------------------
 
+
 def _validate_kpi(idx: int, raw: Any) -> Dict[str, str]:
     """Validate a single KPI cell dict ({label, value})."""
     if not isinstance(raw, dict):
-        raise ValueError(
-            f"kpi_strip[{idx}]: expected dict, got {type(raw).__name__}"
-        )
+        raise ValueError(f"kpi_strip[{idx}]: expected dict, got {type(raw).__name__}")
     missing = [k for k in _KPI_REQUIRED if k not in raw]
     if missing:
         raise ValueError(f"kpi_strip[{idx}]: missing keys: {missing}")
@@ -184,9 +207,7 @@ def _validate_detail_line(raw: Any) -> tuple:
     if not isinstance(raw, list):
         raise ValueError("detail_line: must be a list of strings")
     if len(raw) > 2:
-        raise ValueError(
-            f"detail_line: must have at most 2 entries (got {len(raw)})"
-        )
+        raise ValueError(f"detail_line: must have at most 2 entries (got {len(raw)})")
     return tuple(str(x) for x in raw)
 
 
@@ -195,20 +216,18 @@ def _validate_accent_badge(raw: Any) -> Optional[Dict[str, str]]:
     if raw is None:
         return None
     if not isinstance(raw, dict):
-        raise ValueError(
-            f"accent_badge: expected dict, got {type(raw).__name__}"
-        )
+        raise ValueError(f"accent_badge: expected dict, got {type(raw).__name__}")
     extra = set(raw) - _ACCENT_BADGE_ALLOWED
     if extra:
         raise ValueError(f"accent_badge: unknown keys: {sorted(extra)}")
-    return {k: "" if raw.get(k) is None else str(raw.get(k)) for k in _ACCENT_BADGE_ALLOWED}
+    return {
+        k: "" if raw.get(k) is None else str(raw.get(k)) for k in _ACCENT_BADGE_ALLOWED
+    }
 
 
 def _require_enum(path: Path, field: str, value: str, allowed) -> None:
     if value not in allowed:
-        raise ValueError(
-            f"{path}: unknown {field} {value!r}; valid: {sorted(allowed)}"
-        )
+        raise ValueError(f"{path}: unknown {field} {value!r}; valid: {sorted(allowed)}")
 
 
 def _require_list(path: Path, field: str, value, max_len: int) -> list:
@@ -234,7 +253,11 @@ def load_spec(path: Path) -> Spec:
     if missing:
         raise ValueError(f"{path}: missing required keys: {missing}")
 
-    category, theme, visual = str(raw["category"]), str(raw["theme"]), str(raw["visual"])
+    category, theme, visual = (
+        str(raw["category"]),
+        str(raw["theme"]),
+        str(raw["visual"]),
+    )
     _require_enum(path, "category", category, l25.CATEGORIES)
     _require_enum(path, "theme", theme, l25.THEMES)
     _require_enum(path, "visual", visual, l25.VISUAL_BUILDERS)
@@ -243,10 +266,14 @@ def load_spec(path: Path) -> Spec:
     kpis = _require_list(path, "kpi_strip", raw.get("kpi_strip") or [], 3)
 
     return Spec(
-        date=str(raw["date"]), slug=str(raw["slug"]),
+        date=str(raw["date"]),
+        slug=str(raw["slug"]),
         post_title=str(raw["post_title"]),
-        category=category, theme=theme, visual=visual,
-        headline=str(raw["headline"]), subheadline=str(raw["subheadline"]),
+        category=category,
+        theme=theme,
+        visual=visual,
+        headline=str(raw["headline"]),
+        subheadline=str(raw["subheadline"]),
         tag_chips=tuple(_validate_chip(i, c) for i, c in enumerate(chips)),
         kpi_strip=tuple(_validate_kpi(i, c) for i, c in enumerate(kpis)),
         detail_line=_validate_detail_line(raw.get("detail_line")),
@@ -257,12 +284,16 @@ def load_spec(path: Path) -> Spec:
 
 # Render / write / check ---------------------------------------------------
 
+
 def render(spec: Spec) -> str:
     return l25.render_l25_single(spec.to_dict())
 
 
 def write(
-    spec: Spec, *, dry_run: bool = False, output: Optional[Path] = None,
+    spec: Spec,
+    *,
+    dry_run: bool = False,
+    output: Optional[Path] = None,
 ) -> int:
     """Render + write.  Returns bytes written (0 if dry-run).  Matches the
     L20/L22 digest CLI semantic: dry-run reports 0 so the "did it hit
@@ -307,6 +338,7 @@ def check(spec: Spec) -> Optional[str]:
 
 # CLI ----------------------------------------------------------------------
 
+
 def _gather_specs(args: argparse.Namespace) -> List[Path]:
     if args.spec:
         return [Path(args.spec)]
@@ -327,20 +359,25 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     src = parser.add_mutually_exclusive_group(required=True)
     src.add_argument("--spec", help="Render exactly one spec file")
     src.add_argument(
-        "--all", action="store_true",
+        "--all",
+        action="store_true",
         help=f"Walk {_short_path(SPECS_DIR)}/*.yml and render each",
     )
     parser.add_argument("--since", help="With --all, skip stems < SINCE")
     parser.add_argument(
-        "--tier", choices=("l25",), default="l25",
+        "--tier",
+        choices=("l25",),
+        default="l25",
         help="Tier selector (only 'l25' today; kept for CLI symmetry)",
     )
     parser.add_argument(
-        "--dry-run", action="store_true",
+        "--dry-run",
+        action="store_true",
         help="Render in memory; do not write any SVG",
     )
     parser.add_argument(
-        "--check", action="store_true",
+        "--check",
+        action="store_true",
         help="Re-render each spec and exit 1 if any on-disk SVG drifts",
     )
     parser.add_argument(
@@ -391,10 +428,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         else:
             size = write(spec, dry_run=args.dry_run, output=output_override)
             tag = "[DRY] " if args.dry_run else ""
-            display = (
-                _short_path(output_override) if output_override
-                else spec.filename
-            )
+            display = _short_path(output_override) if output_override else spec.filename
             print(f"  {tag}wrote {display}: {size} bytes")
             rendered += 1
 

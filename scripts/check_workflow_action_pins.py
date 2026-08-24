@@ -23,8 +23,8 @@ import argparse
 import os
 import re
 import sys
-import urllib.request
 import urllib.error
+import urllib.request
 from collections import defaultdict
 from pathlib import Path
 from typing import NamedTuple
@@ -36,7 +36,9 @@ from typing import NamedTuple
 WORKFLOWS_DIR = Path(__file__).parent.parent / ".github" / "workflows"
 SHA_RE = re.compile(r"^[0-9a-f]{40}$", re.IGNORECASE)
 # Matches:  uses: owner/repo@ref  (with optional leading spaces/dashes and trailing comment)
-USES_RE = re.compile(r"""^\s*-?\s*uses:\s+([A-Za-z0-9_.\-]+/[A-Za-z0-9_.\-]+)@([^\s#]+)""")
+USES_RE = re.compile(
+    r"""^\s*-?\s*uses:\s+([A-Za-z0-9_.\-]+/[A-Za-z0-9_.\-]+)@([^\s#]+)"""
+)
 
 
 # ---------------------------------------------------------------------------
@@ -45,8 +47,8 @@ USES_RE = re.compile(r"""^\s*-?\s*uses:\s+([A-Za-z0-9_.\-]+/[A-Za-z0-9_.\-]+)@([
 
 
 class ActionPin(NamedTuple):
-    action: str   # e.g. "actions/checkout"
-    ref: str      # e.g. "de0fac2e4500dabe..." or "v4"
+    action: str  # e.g. "actions/checkout"
+    ref: str  # e.g. "de0fac2e4500dabe..." or "v4"
     workflow: str  # workflow filename (basename)
     line: int
 
@@ -63,12 +65,14 @@ def collect_pins(workflows_dir: Path = WORKFLOWS_DIR) -> list[ActionPin]:
         for lineno, raw in enumerate(yml.read_text(encoding="utf-8").splitlines(), 1):
             m = USES_RE.match(raw)
             if m:
-                pins.append(ActionPin(
-                    action=m.group(1),
-                    ref=m.group(2),
-                    workflow=yml.name,
-                    line=lineno,
-                ))
+                pins.append(
+                    ActionPin(
+                        action=m.group(1),
+                        ref=m.group(2),
+                        workflow=yml.name,
+                        line=lineno,
+                    )
+                )
     return pins
 
 
@@ -91,7 +95,9 @@ def check_sha_format(pins: list[ActionPin]) -> list[str]:
 def check_consistency(pins: list[ActionPin]) -> list[str]:
     """Error when the same action is pinned to different SHAs across workflows."""
     # group SHA pins only (floating tags checked separately)
-    sha_pins: dict[str, dict[str, list[ActionPin]]] = defaultdict(lambda: defaultdict(list))
+    sha_pins: dict[str, dict[str, list[ActionPin]]] = defaultdict(
+        lambda: defaultdict(list)
+    )
     for p in pins:
         if SHA_RE.match(p.ref):
             sha_pins[p.action][p.ref].append(p)
@@ -99,7 +105,9 @@ def check_consistency(pins: list[ActionPin]) -> list[str]:
     errors: list[str] = []
     for action, sha_map in sorted(sha_pins.items()):
         if len(sha_map) > 1:
-            errors.append(f"  INCONSISTENT  {action}  — {len(sha_map)} different SHAs in use:")
+            errors.append(
+                f"  INCONSISTENT  {action}  — {len(sha_map)} different SHAs in use:"
+            )
             for sha, instances in sorted(sha_map.items(), key=lambda kv: -len(kv[1])):
                 for inst in instances:
                     errors.append(f"      {sha[:12]}...  {inst.workflow}:{inst.line}")
@@ -151,7 +159,9 @@ def check_existence_via_api(pins: list[ActionPin]) -> list[str]:
                 )
             else:
                 # rate-limit or transient error — warn but don't fail
-                print(f"  [warn] API error for {p.action}@{p.ref[:12]}...: HTTP {exc.code}")
+                print(
+                    f"  [warn] API error for {p.action}@{p.ref[:12]}...: HTTP {exc.code}"
+                )
         except Exception as exc:  # network down, timeout, etc.
             print(f"  [warn] API check skipped for {p.action}@{p.ref[:12]}...: {exc}")
 
@@ -172,7 +182,9 @@ def fix_inconsistencies(
 
     Returns the number of replacements made (or that would be made in dry_run).
     """
-    sha_pins: dict[str, dict[str, list[ActionPin]]] = defaultdict(lambda: defaultdict(list))
+    sha_pins: dict[str, dict[str, list[ActionPin]]] = defaultdict(
+        lambda: defaultdict(list)
+    )
     for p in pins:
         if SHA_RE.match(p.ref):
             sha_pins[p.action][p.ref].append(p)
@@ -188,8 +200,10 @@ def fix_inconsistencies(
         print(f"       canonical SHA (most uses): {canonical[:16]}...")
         for minority in sorted(minority_shas):
             affected = sha_map[minority]
-            print(f"       replacing {minority[:16]}... in: "
-                  + ", ".join(f"{p.workflow}:{p.line}" for p in affected))
+            print(
+                f"       replacing {minority[:16]}... in: "
+                + ", ".join(f"{p.workflow}:{p.line}" for p in affected)
+            )
             if not dry_run:
                 for pin in affected:
                     yml_path = workflows_dir / pin.workflow
@@ -253,14 +267,18 @@ def main(argv: list[str] | None = None) -> int:
         print("[check-pins] No 'uses:' directives found — nothing to check.")
         return 0
 
-    print(f"[check-pins] Scanned {len(set(p.workflow for p in pins))} workflow(s), "
-          f"found {len(pins)} action pin(s).")
+    print(
+        f"[check-pins] Scanned {len(set(p.workflow for p in pins))} workflow(s), "
+        f"found {len(pins)} action pin(s)."
+    )
 
     # --- 1. Floating tag violations (blocking unless --warn-only) ---
     floating = check_sha_format(pins)
     if floating:
         label = "WARNINGS" if args.warn_only else "ERRORS"
-        print(f"\n[check-pins] {label} — floating tags, SHA pin required ({len(floating)}):")
+        print(
+            f"\n[check-pins] {label} — floating tags, SHA pin required ({len(floating)}):"
+        )
         for w in floating:
             print(w)
 

@@ -31,6 +31,7 @@ Each JSON file is a pretty-printed snapshot. Diffing two snapshots
 shows exactly which managed rules / IP allowlists / custom rules
 changed. Compares well with `git diff docs/backups/...`.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -52,17 +53,13 @@ DEFAULT_PROJECT_ID = "prj_AONcZXgpIpZ8YXjupW9547FdTJEr"
 DEFAULT_TEAM_ID = "team_K7Ut1NIGYRvAfP68LYpOLBcA"
 
 
-def _fetch_via_token(
-    token: str, project_id: str, team_id: str
-) -> Dict:
+def _fetch_via_token(token: str, project_id: str, team_id: str) -> Dict:
     """Fetch firewall config via the Vercel REST API using a bearer token."""
     url = (
         f"https://api.vercel.com/v1/security/firewall/config/active"
         f"?projectId={project_id}&teamId={team_id}"
     )
-    req = urllib.request.Request(
-        url, headers={"Authorization": f"Bearer {token}"}
-    )
+    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
             return json.loads(resp.read().decode("utf-8"))
@@ -103,11 +100,7 @@ def _redact(config: Dict) -> Dict:
 
     def _walk(node):
         if isinstance(node, dict):
-            return {
-                k: _walk(v)
-                for k, v in node.items()
-                if k not in drop_keys
-            }
+            return {k: _walk(v) for k, v in node.items() if k not in drop_keys}
         if isinstance(node, list):
             return [_walk(v) for v in node]
         return node
@@ -170,7 +163,9 @@ def main(argv: Optional[list[str]] = None) -> int:
     print()
     print("=== managedRules summary ===")
     for name, body in sorted(rules.items()):
-        print(f"  {name:20} active={body.get('active')!s:5} action={body.get('action')}")
+        print(
+            f"  {name:20} active={body.get('active')!s:5} action={body.get('action')}"
+        )
     print(f"\nfirewallEnabled : {redacted.get('firewallEnabled')}")
     print(f"attackModeEnabled: {redacted.get('attackModeEnabled')}")
     print(f"custom rules    : {len(redacted.get('rules', []) or [])}")

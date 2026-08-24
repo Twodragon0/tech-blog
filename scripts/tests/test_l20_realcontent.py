@@ -19,24 +19,27 @@ Invariants under test:
 
 import re
 
-
+from scripts.lib.svg_l20_hero import render_l20_hero
 from scripts.news.l20_dispatch import (
     _AI_COMPOUND_ADJECTIVES,
+    _DEFERRED_AI_ADJECTIVES,
+    _DIGEST_CONTENT_HONEST,
+    _GENERIC_HEADLINE_WORDS,
+    _HEADLINE_MAX_CHARS,
+    _SUB_MAX_CHARS,
+    _action_for,
     _apply_real_content,
     _build_story,
     _content_descriptor,
     _content_format_word,
     _content_side_kpi,
-    _DEFERRED_AI_ADJECTIVES,
-    _DIGEST_CONTENT_HONEST,
+    _digest_cadence,
     _digest_highlight_panels,
     _digest_panels,
-    _digest_cadence,
     _digest_stats,
     _digest_table_counts,
     _digest_table_panels,
     _entity_tokens,
-    _GENERIC_HEADLINE_WORDS,
     _honest_content_visual,
     _is_good_headline,
     _panel_from_source_title,
@@ -50,11 +53,7 @@ from scripts.news.l20_dispatch import (
     resolve_digest_band_visuals,
     route_visual_id,
     theme_for_topics,
-    _action_for,
-    _HEADLINE_MAX_CHARS,
-    _SUB_MAX_CHARS,
 )
-from scripts.lib.svg_l20_hero import render_l20_hero
 
 _DIGEST_TABLE = (
     "| 분야 | 소스 | 핵심 내용 | 영향도 |\n"
@@ -144,7 +143,7 @@ class TestDigestHighlightPanels:
 
     def test_skips_highlight_without_ascii_entity(self):
         hl = [
-            self._hl("", "취약점 공개 권고"),                 # no ASCII -> skipped
+            self._hl("", "취약점 공개 권고"),  # no ASCII -> skipped
             self._hl("BleepingComputer", "JDownloader RAT 유포"),
         ]
         panels = _digest_highlight_panels(hl)
@@ -247,10 +246,14 @@ class TestContentDescriptorSubheadline:
         # NOT the new content subheadline — otherwise a descriptor keyword could
         # flip the visual and the honesty class. resolve_digest_band_visuals
         # (the scorer's replay path) and _apply_real_content must agree.
-        sc = {"highlights": [
-            {"source": "The Hacker News",
-             "title": "Google Vertex AI SDK 결함으로 Bucket Squatting 모델 업로드"},
-        ]}
+        sc = {
+            "highlights": [
+                {
+                    "source": "The Hacker News",
+                    "title": "Google Vertex AI SDK 결함으로 Bucket Squatting 모델 업로드",
+                },
+            ]
+        }
         panels = _digest_panels(sc, "")
         p = panels[0]
         routed_from_hint = _honest_content_visual(
@@ -258,7 +261,11 @@ class TestContentDescriptorSubheadline:
         )
         # resolve_digest_band_visuals routes the SAME way (lockstep).
         visuals = resolve_digest_band_visuals(
-            "주간 보안 다이제스트", "", "2026-06-17-Tech_Security_Weekly_Digest.md", "", sc
+            "주간 보안 다이제스트",
+            "",
+            "2026-06-17-Tech_Security_Weekly_Digest.md",
+            "",
+            sc,
         )
         assert visuals[0] == routed_from_hint
 
@@ -267,16 +274,22 @@ class TestContentDescriptorSubheadline:
         # descriptor ("Botnet C2") routes to a DIFFERENT visual than its source
         # attribution. If routing ever regressed to the displayed subheadline,
         # the band would assert a C2/botnet motif the post evidence doesn't back.
-        sc = {"highlights": [
-            {"source": "The Hacker News", "title": "Acme Mirai Botnet C2 takedown"},
-        ]}
+        sc = {
+            "highlights": [
+                {"source": "The Hacker News", "title": "Acme Mirai Botnet C2 takedown"},
+            ]
+        }
         p = _digest_panels(sc, "")[0]
         from_display = route_visual_id(f"{p['headline']} {p['subheadline']}")
         from_hint = route_visual_id(f"{p['headline']} {p['route_hint']}")
         assert from_display != from_hint, "test input no longer diverges; pick another"
         # The cover routes from route_hint (honest), NOT the descriptor.
         visuals = resolve_digest_band_visuals(
-            "주간 보안 다이제스트", "", "2026-06-18-Tech_Security_Weekly_Digest.md", "", sc
+            "주간 보안 다이제스트",
+            "",
+            "2026-06-18-Tech_Security_Weekly_Digest.md",
+            "",
+            sc,
         )
         assert visuals[0] == _honest_content_visual(from_hint)
         assert visuals[0] != _honest_content_visual(from_display)
@@ -310,10 +323,18 @@ class TestTopicTagDescriptorFallback:
         # Allow-list guard: vendor/product/coin proper nouns are DROPPED so a
         # story-specific entity from an unrelated digest item can't be
         # mis-attributed to another panel. Only the generic theme survives.
-        assert _topic_tag_descriptor(["AWS", "Cloudflare", "Ransomware"]) == "Ransomware"
-        assert _topic_tag_descriptor(["Bitcoin", "Ethereum", "Blockchain"]) == "Blockchain"
-        assert _topic_tag_descriptor(["Fortinet", "Palantir", "SKT"]) == ""  # all entities
-        assert _topic_tag_descriptor(["CVE-2025-40551", "Patch"]) == "Patch"  # id dropped
+        assert (
+            _topic_tag_descriptor(["AWS", "Cloudflare", "Ransomware"]) == "Ransomware"
+        )
+        assert (
+            _topic_tag_descriptor(["Bitcoin", "Ethereum", "Blockchain"]) == "Blockchain"
+        )
+        assert (
+            _topic_tag_descriptor(["Fortinet", "Palantir", "SKT"]) == ""
+        )  # all entities
+        assert (
+            _topic_tag_descriptor(["CVE-2025-40551", "Patch"]) == "Patch"
+        )  # id dropped
 
     def test_topic_descriptor_excludes_unknown_tags_conservatively(self):
         # An unrecognised tag defaults to EXCLUDED (never surfaced as a topic).
@@ -322,17 +343,23 @@ class TestTopicTagDescriptorFallback:
     def test_topic_descriptor_shipped_covers_byte_identical(self):
         # The two 2026-07 covers already on disk must not change: their topic
         # lines are built entirely from generic (allow-listed) tags.
-        assert _topic_tag_descriptor(
-            ["Security-Weekly", "AI", "Agent", "Data", "Botnet", "2026"]
-        ) == "AI Agent Data"
-        assert _topic_tag_descriptor(
-            ["Security-Weekly", "Patch", "Kubernetes", "Go", "AI", "2026"]
-        ) == "Patch Kubernetes Go"
+        assert (
+            _topic_tag_descriptor(
+                ["Security-Weekly", "AI", "Agent", "Data", "Botnet", "2026"]
+            )
+            == "AI Agent Data"
+        )
+        assert (
+            _topic_tag_descriptor(
+                ["Security-Weekly", "Patch", "Kubernetes", "Go", "AI", "2026"]
+            )
+            == "Patch Kubernetes Go"
+        )
 
     def test_weak_descriptor_classification(self):
-        assert _weak_descriptor("") is True          # source-echo case
-        assert _weak_descriptor("AI") is True         # lone generic token
-        assert _weak_descriptor("Update") is True     # lone weak token
+        assert _weak_descriptor("") is True  # source-echo case
+        assert _weak_descriptor("AI") is True  # lone generic token
+        assert _weak_descriptor("Update") is True  # lone weak token
         assert _weak_descriptor("AsyncRAT") is False  # distinctive single token
         assert _weak_descriptor("Rust DDoS") is False  # multi-token
 
@@ -340,7 +367,8 @@ class TestTopicTagDescriptorFallback:
         # No ASCII beyond the headline -> would echo "The Hacker News"; the topic
         # line replaces it, but route_hint keeps the source (routing unchanged).
         p = _panel_from_source_title(
-            "The Hacker News", "Scattered Spider 용의자 미국 송환",
+            "The Hacker News",
+            "Scattered Spider 용의자 미국 송환",
             topic_desc="Patch Kubernetes Go",
         )
         assert p["headline"] == "Scattered Spider"
@@ -350,7 +378,8 @@ class TestTopicTagDescriptorFallback:
     def test_lone_generic_token_replaced_by_topic_tags(self):
         # descriptor would be the lone generic "AI"; topic line is richer.
         p = _panel_from_source_title(
-            "The Hacker News", "Microsoft MCP 도구가 AI 에이전트 데이터 유출",
+            "The Hacker News",
+            "Microsoft MCP 도구가 AI 에이전트 데이터 유출",
             topic_desc="AI Agent Data",
         )
         assert p["subheadline"] == "AI Agent Data"
@@ -358,7 +387,8 @@ class TestTopicTagDescriptorFallback:
     def test_strong_descriptor_not_overridden(self):
         # A real multi-token content descriptor wins over the topic line.
         p = _panel_from_source_title(
-            "The Hacker News", "RustDuck Botnet, Rust DDoS 공격용 재구축",
+            "The Hacker News",
+            "RustDuck Botnet, Rust DDoS 공격용 재구축",
             topic_desc="AI Agent Data",
         )
         assert p["subheadline"] == "Rust DDoS"
@@ -369,7 +399,8 @@ class TestTopicTagDescriptorFallback:
         # than a topic line, so the CVE guard keeps it (regression seen on the
         # 02-14 / 02-05 covers where a real CVE was dropped for generic tags).
         p = _panel_from_source_title(
-            "The Hacker News", "Ivanti EPMM 취약점 CVE-2026-1281 원격코드실행 공개",
+            "The Hacker News",
+            "Ivanti EPMM 취약점 CVE-2026-1281 원격코드실행 공개",
             topic_desc="Patch Kubernetes Go",
         )
         assert p["headline"] == "Ivanti EPMM"
@@ -384,7 +415,9 @@ class TestTopicTagDescriptorFallback:
     def test_end_to_end_digest_uses_tags(self):
         sc = {
             "tags": ["Security-Weekly", "Patch", "Kubernetes", "Go", "2026"],
-            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+            "highlights": [
+                {"source": "The Hacker News", "title": "Scattered Spider 송환"}
+            ],
         }
         panels = _digest_panels(sc, "")
         assert panels[0]["subheadline"] == "Patch Kubernetes Go"
@@ -403,7 +436,9 @@ class TestTopicTagDedupAndLoneWord:
         # panel keeps its source attribution instead of a bare "Malware" label.
         sc = {
             "tags": ["Security-Weekly", "Malware", "2026"],
-            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+            "highlights": [
+                {"source": "The Hacker News", "title": "Scattered Spider 송환"}
+            ],
         }
         panels = _digest_panels(sc, "")
         assert panels[0]["subheadline"] == "The Hacker News"  # NOT "Malware"
@@ -421,13 +456,15 @@ class TestTopicTagDedupAndLoneWord:
         }
         panels = _digest_panels(sc, "")
         subs = [p["subheadline"] for p in panels]
-        assert subs.count("Patch Kubernetes Go") == 1        # deduped, not twice
-        assert "BleepingComputer" in subs                    # second reverted
+        assert subs.count("Patch Kubernetes Go") == 1  # deduped, not twice
+        assert "BleepingComputer" in subs  # second reverted
 
     def test_no_private_dedup_keys_leak(self):
         sc = {
             "tags": ["Security-Weekly", "Patch", "Kubernetes", "Go"],
-            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+            "highlights": [
+                {"source": "The Hacker News", "title": "Scattered Spider 송환"}
+            ],
         }
         panels = _digest_panels(sc, "")
         for p in panels:
@@ -451,10 +488,10 @@ class TestTopicTagDedupAndLoneWord:
         panels = _digest_panels(sc, "")
         assert len(panels) == 3
         subs = [p["subheadline"] for p in panels]
-        assert subs[0] == "Patch Kubernetes Go"          # topic on FIRST only
-        assert subs.count("Patch Kubernetes Go") == 1    # never repeated (2nd/3rd)
-        assert subs[1] == "BleepingComputer"             # reverted to own source
-        assert subs[2] == "SecurityWeek"                 # reverted to own source
+        assert subs[0] == "Patch Kubernetes Go"  # topic on FIRST only
+        assert subs.count("Patch Kubernetes Go") == 1  # never repeated (2nd/3rd)
+        assert subs[1] == "BleepingComputer"  # reverted to own source
+        assert subs[2] == "SecurityWeek"  # reverted to own source
 
     def test_route_hint_unchanged_under_dedup_revert(self):
         # GAP-3: the commit's core honesty claim is "route_hint 불변 = honesty
@@ -471,7 +508,10 @@ class TestTopicTagDedupAndLoneWord:
             ],
         }
         panels = _digest_panels(sc, "")
-        assert [p["route_hint"] for p in panels] == ["The Hacker News", "BleepingComputer"]
+        assert [p["route_hint"] for p in panels] == [
+            "The Hacker News",
+            "BleepingComputer",
+        ]
 
     def test_two_word_topic_boundary_applied(self):
         # GAP-2: the lone-word filter is ``len(topic_desc.split()) < 2 -> blank``.
@@ -481,7 +521,9 @@ class TestTopicTagDedupAndLoneWord:
         # real covers, which the 3-word fixtures elsewhere cannot detect.
         sc = {
             "tags": ["Security-Weekly", "Patch", "Kubernetes"],
-            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+            "highlights": [
+                {"source": "The Hacker News", "title": "Scattered Spider 송환"}
+            ],
         }
         panels = _digest_panels(sc, "")
         assert panels[0]["subheadline"] == "Patch Kubernetes"  # 2-word topic kept
@@ -496,7 +538,9 @@ class TestTopicTagDedupAndLoneWord:
         # covers); if a field is intentionally added, update this guard.
         sc = {
             "tags": ["Security-Weekly", "Patch", "Kubernetes", "Go"],
-            "highlights": [{"source": "The Hacker News", "title": "Scattered Spider 송환"}],
+            "highlights": [
+                {"source": "The Hacker News", "title": "Scattered Spider 송환"}
+            ],
         }
         panels = _digest_panels(sc, "")
         assert len(panels) == 1
@@ -511,7 +555,9 @@ class TestTopicTagDedupAndLoneWord:
 class TestSourceEchoDemotion:
     def test_exact_source_echo_demoted(self):
         # 03-11 body-table case: source="Cloudflare Blog", title echoes it
-        p = _panel_from_source_title("Cloudflare Blog", "클라우드 보안 동향 Cloudflare Blog")
+        p = _panel_from_source_title(
+            "Cloudflare Blog", "클라우드 보안 동향 Cloudflare Blog"
+        )
         assert p is not None
         assert p.get("_src_fallback") is True
 
@@ -540,7 +586,9 @@ class TestSourceEchoDemotion:
         # A lone vendor name may BE the story subject reported on its own blog,
         # so a single-token headline contained in the source is NOT demoted
         # (only >= 2-token publication echoes are).
-        p = _panel_from_source_title("Google Cloud Blog", "Google 신규 클라우드 보안 기능")
+        p = _panel_from_source_title(
+            "Google Cloud Blog", "Google 신규 클라우드 보안 기능"
+        )
         assert p is not None
         assert not p.get("_src_fallback")
 
@@ -549,14 +597,18 @@ class TestSourceEchoDemotion:
         # publication name from the title prose. Containment does NOT catch this
         # (headline ⊄ "포인트 1") — it is a content-quality issue handled by the
         # placeholder-source fix, not this cover-side demotion. Documents scope.
-        p = _panel_from_source_title("포인트 1", "보안 뉴스: The Hacker News, AWS Security Blog")
+        p = _panel_from_source_title(
+            "포인트 1", "보안 뉴스: The Hacker News, AWS Security Blog"
+        )
         assert p is not None
         assert not p.get("_src_fallback")  # NOT demoted here (deferred)
 
     def test_end_to_end_source_echo_demoted_below_real(self):
-        sc = {"highlights": [
-            {"source": "The Hacker News", "title": "Storm-2949 캠페인 분석"},
-        ]}
+        sc = {
+            "highlights": [
+                {"source": "The Hacker News", "title": "Storm-2949 캠페인 분석"},
+            ]
+        }
         # body table: a real story + a source-echo row
         content = (
             "| 분야 | 소스 | 핵심 내용 | 영향도 |\n|------|------|----------|--------|\n"
@@ -580,8 +632,16 @@ class TestHonestContentVisual:
         # token — which a headline entity does not guarantee. So EVERY attack
         # class is downgraded to the always-honest security_advisory (no
         # overclaim, can never FAIL the gate on the unattended cron path).
-        for v in ("cve_chain", "supply_chain_pipe", "hub_spoke", "ransomware_lock",
-                  "data_exfil", "container_escape", "code_injection", "ai_agent_funnel"):
+        for v in (
+            "cve_chain",
+            "supply_chain_pipe",
+            "hub_spoke",
+            "ransomware_lock",
+            "data_exfil",
+            "container_escape",
+            "code_injection",
+            "ai_agent_funnel",
+        ):
             assert _honest_content_visual(v) == "security_advisory"
 
     def test_always_honest_classes_kept(self):
@@ -591,12 +651,20 @@ class TestHonestContentVisual:
 
 class TestResolveDigestBandVisuals:
     def test_single_cve_headline_does_not_assert_regression_chain(self):
-        sc = {"highlights": [
-            {"source": "The Hacker News", "title": "Ivanti EPMM CVE-2026-6973 RCE 공개"},
-        ]}
+        sc = {
+            "highlights": [
+                {
+                    "source": "The Hacker News",
+                    "title": "Ivanti EPMM CVE-2026-6973 RCE 공개",
+                },
+            ]
+        }
         visuals = resolve_digest_band_visuals(
-            "주간 보안 다이제스트", "", "2026-05-08-x.md",
-            content="", summary_card=sc,
+            "주간 보안 다이제스트",
+            "",
+            "2026-05-08-x.md",
+            content="",
+            summary_card=sc,
         )
         # Hero (band 0) carries the real CVE story but must NOT route cve_chain.
         assert "cve_chain" not in visuals
@@ -605,20 +673,32 @@ class TestResolveDigestBandVisuals:
     def test_attack_routed_headline_downgraded_not_overclaimed(self):
         # A botnet/C2 headline routes to hub_spoke by keyword, but is clamped to
         # security_advisory — the gate can't confirm a body C2 evidence token.
-        sc = {"highlights": [{"source": "The Hacker News", "title": "Aeternum Botnet C2 인프라 발견"}]}
+        sc = {
+            "highlights": [
+                {"source": "The Hacker News", "title": "Aeternum Botnet C2 인프라 발견"}
+            ]
+        }
         visuals = resolve_digest_band_visuals(
-            "주간 보안 다이제스트", "", "2026-05-07-x.md",
-            content="", summary_card=sc,
+            "주간 보안 다이제스트",
+            "",
+            "2026-05-07-x.md",
+            content="",
+            summary_card=sc,
         )
         assert visuals[0] == "security_advisory"
         assert "hub_spoke" not in visuals and "cve_chain" not in visuals
 
     def test_band_without_panel_keeps_filename_routing(self):
         # Only one highlight -> bands 1,2 fall back to filename-keyword routing.
-        sc = {"highlights": [{"source": "BleepingComputer", "title": "Maps Pro 취약점"}]}
+        sc = {
+            "highlights": [{"source": "BleepingComputer", "title": "Maps Pro 취약점"}]
+        }
         visuals = resolve_digest_band_visuals(
-            "주간 보안 다이제스트", "", "2026-06-01-Tech_Security_Weekly_Digest_Botnet.md",
-            content="", summary_card=sc,
+            "주간 보안 다이제스트",
+            "",
+            "2026-06-01-Tech_Security_Weekly_Digest_Botnet.md",
+            content="",
+            summary_card=sc,
         )
         assert len(visuals) == 3
 
@@ -696,12 +776,24 @@ class TestDigestTableCounts:
 # ---------------------------------------------------------------------------
 class TestDigestCadence:
     def test_weekly_daily_monthly_from_filename(self):
-        assert _digest_cadence({"filename": "2026-01-26-Tech_Security_Weekly_Digest_X.md"}) == "WEEKLY"
-        assert _digest_cadence({"filename": "2026-02-16-Daily_Tech_Digest_RSS.md"}) == "DAILY"
-        assert _digest_cadence({"filename": "2026-03-30-March_2026_Monthly_Index.md"}) == "MONTH"
+        assert (
+            _digest_cadence({"filename": "2026-01-26-Tech_Security_Weekly_Digest_X.md"})
+            == "WEEKLY"
+        )
+        assert (
+            _digest_cadence({"filename": "2026-02-16-Daily_Tech_Digest_RSS.md"})
+            == "DAILY"
+        )
+        assert (
+            _digest_cadence({"filename": "2026-03-30-March_2026_Monthly_Index.md"})
+            == "MONTH"
+        )
 
     def test_defaults_to_digest(self):
-        assert _digest_cadence({"filename": "2026-01-01-Some_Roundup.md", "title": ""}) == "DIGEST"
+        assert (
+            _digest_cadence({"filename": "2026-01-01-Some_Roundup.md", "title": ""})
+            == "DIGEST"
+        )
 
     def test_ascii_only_and_within_cap(self):
         for fn in ("Weekly", "Daily", "Monthly", "Other"):
@@ -714,22 +806,34 @@ class TestDigestCadence:
 # ---------------------------------------------------------------------------
 class TestApplyRealContent:
     def _stories(self):
-        hero = _build_story(headline="Botnet", subheadline="Botnet - AWS",
-                            index=0, severity_label="HIGH", action="READ")
-        tr = _build_story(headline="AWS", subheadline="AWS - AI",
-                          index=1, severity_label="HIGH")
-        br = _build_story(headline="Ransomware", subheadline="Ransomware - Go",
-                          index=2, severity_label="MEDIUM")
+        hero = _build_story(
+            headline="Botnet",
+            subheadline="Botnet - AWS",
+            index=0,
+            severity_label="HIGH",
+            action="READ",
+        )
+        tr = _build_story(
+            headline="AWS", subheadline="AWS - AI", index=1, severity_label="HIGH"
+        )
+        br = _build_story(
+            headline="Ransomware",
+            subheadline="Ransomware - Go",
+            index=2,
+            severity_label="MEDIUM",
+        )
         return [hero, tr, br]
 
     def test_overrides_text_and_kpis(self):
         stories = self._stories()
         post_info = {
-            "summary_card": {"highlights": [
-                {"source": "The Hacker News", "title": "Mirai 봇넷 ADB 악용"},
-                {"source": "AWS Security Blog", "title": "AWS ISO/IEC 42001 인증"},
-                {"source": "Microsoft Security Blog", "title": "MuddyWater 공격"},
-            ]},
+            "summary_card": {
+                "highlights": [
+                    {"source": "The Hacker News", "title": "Mirai 봇넷 ADB 악용"},
+                    {"source": "AWS Security Blog", "title": "AWS ISO/IEC 42001 인증"},
+                    {"source": "Microsoft Security Blog", "title": "MuddyWater 공격"},
+                ]
+            },
             "content": "- **총 뉴스 수**: 30개\n- **보안 뉴스**: 5개\n",
         }
         _apply_real_content(stories, post_info)
@@ -743,23 +847,40 @@ class TestApplyRealContent:
         supply_chain_pipe, and the hero action follows the resolved visual."""
         stories = self._stories()
         post_info = {
-            "summary_card": {"highlights": [
-                # Single CVE story: must NOT assert a CVE regression chain.
-                {"source": "The Hacker News", "title": "Ivanti EPMM CVE-2026-6973 RCE"},
-                {"source": "The Hacker News", "title": "Packagist npm GitHub 패키지"},
-                {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견"},
-            ]},
+            "summary_card": {
+                "highlights": [
+                    # Single CVE story: must NOT assert a CVE regression chain.
+                    {
+                        "source": "The Hacker News",
+                        "title": "Ivanti EPMM CVE-2026-6973 RCE",
+                    },
+                    {
+                        "source": "The Hacker News",
+                        "title": "Packagist npm GitHub 패키지",
+                    },
+                    {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견"},
+                ]
+            },
             "content": "- **총 뉴스 수**: 12개\n- **보안 뉴스**: 2개\n",
         }
         _apply_real_content(stories, post_info)
         visuals = [s["visual"] for s in stories]
         # No band asserts an attack class from a one-line headline.
-        for attack in ("cve_chain", "supply_chain_pipe", "hub_spoke", "ransomware_lock"):
+        for attack in (
+            "cve_chain",
+            "supply_chain_pipe",
+            "hub_spoke",
+            "ransomware_lock",
+        ):
             assert attack not in visuals
-        assert stories[0]["visual"] == "security_advisory"   # single CVE -> advisory (hero keeps it)
+        assert (
+            stories[0]["visual"] == "security_advisory"
+        )  # single CVE -> advisory (hero keeps it)
         # Side band (index 2): advisory is demoted to a neutral motif so the
         # hero-scale shield never occludes the band headline / duplicates.
-        assert stories[2]["visual"] == "neutral"             # botnet -> advisory -> sidecard demote
+        assert (
+            stories[2]["visual"] == "neutral"
+        )  # botnet -> advisory -> sidecard demote
         # Hero action follows the RESOLVED visual, not "PATCH UPSTREAM NOW".
         assert stories[0]["action"] == "READ THE ADVISORY"
 
@@ -769,33 +890,51 @@ class TestApplyRealContent:
         (index 0) keeps advisory where the panel fits."""
         stories = self._stories()
         post_info = {
-            "summary_card": {"highlights": [
-                # All three downgrade to advisory (single CVE / generic / botnet).
-                {"source": "The Hacker News", "title": "Ivanti EPMM CVE-2026-6973 RCE"},
-                {"source": "The Hacker News", "title": "Acme Security Advisory 발표"},
-                {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견"},
-            ]},
+            "summary_card": {
+                "highlights": [
+                    # All three downgrade to advisory (single CVE / generic / botnet).
+                    {
+                        "source": "The Hacker News",
+                        "title": "Ivanti EPMM CVE-2026-6973 RCE",
+                    },
+                    {
+                        "source": "The Hacker News",
+                        "title": "Acme Security Advisory 발표",
+                    },
+                    {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견"},
+                ]
+            },
             "content": "- **총 뉴스 수**: 12개\n- **보안 뉴스**: 2개\n",
         }
         _apply_real_content(stories, post_info)
-        assert stories[0]["visual"] == "security_advisory"   # hero keeps advisory
-        assert stories[1]["visual"] == "neutral"             # side -> demoted
-        assert stories[2]["visual"] == "neutral"             # side -> demoted
+        assert stories[0]["visual"] == "security_advisory"  # hero keeps advisory
+        assert stories[1]["visual"] == "neutral"  # side -> demoted
+        assert stories[2]["visual"] == "neutral"  # side -> demoted
         # Demoted side bands follow neutral theme + action (no stale amber/advisory).
         assert stories[1]["theme"] == "blue"
-        assert "advisory" not in stories[1].get("action", "").lower() or "action" not in stories[1]
+        assert (
+            "advisory" not in stories[1].get("action", "").lower()
+            or "action" not in stories[1]
+        )
 
     def test_thin_post_keeps_keyword_fallback(self):
         stories = self._stories()
         original_hl = stories[1]["headline"]
-        post_info = {"summary_card": {}, "content": "no stats here",
-                     "filename": "2026-01-26-Tech_Security_Weekly_Digest_X.md"}
+        post_info = {
+            "summary_card": {},
+            "content": "no stats here",
+            "filename": "2026-01-26-Tech_Security_Weekly_Digest_X.md",
+        }
         _apply_real_content(stories, post_info)
         # No highlights, no table -> headlines unchanged; KPI shows a count-free
         # honest descriptor (cadence / curation), NOT the ``TBD`` placeholder.
         assert stories[1]["headline"] == original_hl
-        assert stories[1]["kpi_value"] == "WEEKLY" and stories[1]["kpi_label"] == "DIGEST"
-        assert stories[2]["kpi_value"] == "MULTI" and stories[2]["kpi_label"] == "SOURCES"
+        assert (
+            stories[1]["kpi_value"] == "WEEKLY" and stories[1]["kpi_label"] == "DIGEST"
+        )
+        assert (
+            stories[2]["kpi_value"] == "MULTI" and stories[2]["kpi_label"] == "SOURCES"
+        )
         assert "TBD" not in (stories[1]["kpi_value"], stories[2]["kpi_value"])
 
     def test_marker_takes_precedence_over_table(self):
@@ -807,8 +946,8 @@ class TestApplyRealContent:
             "content": "- **총 뉴스 수**: 28개\n- **보안 뉴스**: 9개\n" + _DIGEST_TABLE,
         }
         _apply_real_content(stories, post_info)
-        assert stories[1]["kpi_value"] == "28"   # marker total, not table's 3
-        assert stories[2]["kpi_value"] == "9"     # marker security, not table's 2
+        assert stories[1]["kpi_value"] == "28"  # marker total, not table's 3
+        assert stories[2]["kpi_value"] == "9"  # marker security, not table's 2
 
     def test_table_fallback_when_no_marker(self):
         # No markers -> the highlights-table row counts populate the KPIs.
@@ -830,25 +969,33 @@ class TestApplyRealContent:
         # Mixed availability: security marker present but total marker absent ->
         # total falls back to the table, security keeps the marker.
         stories = self._stories()
-        post_info = {"summary_card": {}, "content": "- **보안 뉴스**: 10개\n" + _DIGEST_TABLE}
+        post_info = {
+            "summary_card": {},
+            "content": "- **보안 뉴스**: 10개\n" + _DIGEST_TABLE,
+        }
         _apply_real_content(stories, post_info)
-        assert stories[1]["kpi_value"] == "3"    # table total (no total marker)
-        assert stories[2]["kpi_value"] == "10"    # security marker wins over table's 2
+        assert stories[1]["kpi_value"] == "3"  # table total (no total marker)
+        assert stories[2]["kpi_value"] == "10"  # security marker wins over table's 2
 
     def test_zero_total_marker_respected_over_table(self):
         # An authoritative ``총 뉴스 수: 0`` (empty feed) must NOT be overridden
         # by the table row count — total/security stay symmetric on the 0 case.
         stories = self._stories()
-        post_info = {"summary_card": {},
-                     "content": "- **총 뉴스 수**: 0개\n- **보안 뉴스**: 0개\n" + _DIGEST_TABLE}
+        post_info = {
+            "summary_card": {},
+            "content": "- **총 뉴스 수**: 0개\n- **보안 뉴스**: 0개\n" + _DIGEST_TABLE,
+        }
         _apply_real_content(stories, post_info)
         assert stories[1]["kpi_value"] == "0" and stories[1]["kpi_label"] == "ITEMS"
         assert stories[2]["kpi_value"] == "0" and stories[2]["kpi_label"] == "SECURITY"
 
     def test_count_free_label_is_ascii(self):
         stories = self._stories()
-        post_info = {"summary_card": {}, "content": "no stats",
-                     "filename": "2026-02-16-Daily_Tech_Digest.md"}
+        post_info = {
+            "summary_card": {},
+            "content": "no stats",
+            "filename": "2026-02-16-Daily_Tech_Digest.md",
+        }
         _apply_real_content(stories, post_info)
         for s in (stories[1], stories[2]):
             for key in ("kpi_value", "kpi_label", "kpi_sub"):
@@ -859,27 +1006,31 @@ class TestApplyRealContent:
         """1 summary_card highlight + body table -> all 3 panels real, deduped."""
         stories = self._stories()
         post_info = {
-            "summary_card": {"highlights": [
-                {"source": "BleepingComputer", "title": "WP Maps Pro 취약점"},
-            ]},
+            "summary_card": {
+                "highlights": [
+                    {"source": "BleepingComputer", "title": "WP Maps Pro 취약점"},
+                ]
+            },
             "content": _DIGEST_TABLE,
         }
         _apply_real_content(stories, post_info)
-        assert stories[0]["headline"] == "Maps Pro"            # from summary_card
+        assert stories[0]["headline"] == "Maps Pro"  # from summary_card
         # Body-table backfill fills the next slot with a non-duplicate entity.
-        assert "Maps Pro" not in stories[1]["headline"]        # deduped
-        assert any("Michael" in s["headline"] or "Saylor" in s["headline"]
-                   for s in stories[1:])
+        assert "Maps Pro" not in stories[1]["headline"]  # deduped
+        assert any(
+            "Michael" in s["headline"] or "Saylor" in s["headline"] for s in stories[1:]
+        )
 
     def test_cron_path_content_only_no_summary_card_dict(self):
         """Cron post_info has full body content but no parsed summary_card."""
         stories = self._stories()
         post_info = {
-            "content": _DIGEST_TABLE + "\n- **총 뉴스 수**: 12개\n- **보안 뉴스**: 2개\n",
+            "content": _DIGEST_TABLE
+            + "\n- **총 뉴스 수**: 12개\n- **보안 뉴스**: 2개\n",
         }
         _apply_real_content(stories, post_info)
-        assert stories[0]["headline"] == "Maps Pro"            # from body table
-        assert stories[1]["kpi_value"] == "12"                 # stats from content
+        assert stories[0]["headline"] == "Maps Pro"  # from body table
+        assert stories[1]["kpi_value"] == "12"  # stats from content
         assert stories[2]["kpi_value"] == "2"
 
 
@@ -895,10 +1046,12 @@ class TestApplyRealContent:
 class TestContentRoutingHonestyGuard:
     def _always_pass_classes(self):
         from scripts.score_cover_honesty import CLAIM_CLASSES
+
         return {vid for vid, spec in CLAIM_CLASSES.items() if spec[3]}
 
     def _attack_classes(self):
         from scripts.score_cover_honesty import CLAIM_CLASSES
+
         return {vid for vid, spec in CLAIM_CLASSES.items() if not spec[3]}
 
     def test_allowlist_is_subset_of_always_pass(self):
@@ -928,17 +1081,35 @@ import pytest  # noqa: E402
 
 
 class TestIsGoodHeadline:
-    @pytest.mark.parametrize("tok", [
-        "Showboat", "ChatGPhish", "Apache HTTP/2", "Ivanti", "Cisco",
-        "Defender", "CVE-2026-1234",
-    ])
+    @pytest.mark.parametrize(
+        "tok",
+        [
+            "Showboat",
+            "ChatGPhish",
+            "Apache HTTP/2",
+            "Ivanti",
+            "Cisco",
+            "Defender",
+            "CVE-2026-1234",
+        ],
+    )
     def test_good_tokens(self, tok):
         assert _is_good_headline(tok) is True
 
-    @pytest.mark.parametrize("tok", [
-        "Sorry", "AI", "VPN", "npm", "MENA", "Linux", "New", "",
-        "안녕하세요",  # non-ASCII never good
-    ])
+    @pytest.mark.parametrize(
+        "tok",
+        [
+            "Sorry",
+            "AI",
+            "VPN",
+            "npm",
+            "MENA",
+            "Linux",
+            "New",
+            "",
+            "안녕하세요",  # non-ASCII never good
+        ],
+    )
     def test_bad_tokens(self, tok):
         assert _is_good_headline(tok) is False
 
@@ -950,31 +1121,49 @@ class TestHeadlineQuality:
     acceptable; what is NOT acceptable is a lone acronym / generic / weak word
     becoming the displayed headline.
     """
+
     _BAD_LONE = {"sorry", "ai", "vpn", "npm", "mena", "linux"}
 
-    @pytest.mark.parametrize("ttl", [
-        "Sorry", "AI", "VPN", "npm", "MENA",
-    ])
+    @pytest.mark.parametrize(
+        "ttl",
+        [
+            "Sorry",
+            "AI",
+            "VPN",
+            "npm",
+            "MENA",
+        ],
+    )
     def test_lone_bad_word_never_a_headline(self, ttl):
         # With a Korean (non-ASCII) source the panel must be None (no garbage),
         # because the only ASCII token is a rejected lone word.
         p = _panel_from_source_title("한국소스", ttl)
         assert p is None
 
-    @pytest.mark.parametrize("ttl,expected", [
-        ("Showboat Linux", "Showboat"),
-        ("ChatGPhish ChatGPT", "ChatGPhish"),
-        ("Linux Defender", "Defender"),
-    ])
+    @pytest.mark.parametrize(
+        "ttl,expected",
+        [
+            ("Showboat Linux", "Showboat"),
+            ("ChatGPhish ChatGPT", "ChatGPhish"),
+            ("Linux Defender", "Defender"),
+        ],
+    )
     def test_garbled_titles_cleaned(self, ttl, expected):
         p = _panel_from_source_title("The Hacker News", ttl)
         assert p is not None
         assert p["headline"] == expected
 
-    @pytest.mark.parametrize("ttl", [
-        "Apache HTTP/2", "Ivanti EPMM", "Cisco Catalyst",
-        "Mirai ADB", "Turla Kazuar", "Hugging Face",
-    ])
+    @pytest.mark.parametrize(
+        "ttl",
+        [
+            "Apache HTTP/2",
+            "Ivanti EPMM",
+            "Cisco Catalyst",
+            "Mirai ADB",
+            "Turla Kazuar",
+            "Hugging Face",
+        ],
+    )
     def test_good_titles_unchanged(self, ttl):
         p = _panel_from_source_title("The Hacker News", ttl)
         assert p is not None
@@ -1009,14 +1198,17 @@ class TestPanelFallback:
 # Severity (Fix B): real severity instead of "SEVERITY: TBD"
 # ---------------------------------------------------------------------------
 class TestSeverityFromMarker:
-    @pytest.mark.parametrize("cell,expected", [
-        ("🔴 Critical", "CRITICAL"),
-        ("🟠 High", "HIGH"),
-        ("🟡 Medium", "MEDIUM"),
-        ("Low", ""),
-        ("", ""),
-        ("-", ""),
-    ])
+    @pytest.mark.parametrize(
+        "cell,expected",
+        [
+            ("🔴 Critical", "CRITICAL"),
+            ("🟠 High", "HIGH"),
+            ("🟡 Medium", "MEDIUM"),
+            ("Low", ""),
+            ("", ""),
+            ("-", ""),
+        ],
+    )
     def test_emoji_to_ascii(self, cell, expected):
         assert _severity_from_marker(cell) == expected
 
@@ -1032,25 +1224,40 @@ class TestSeverityPanelPlumbing:
         assert panels and panels[0].get("severity") == "CRITICAL"
 
     def test_highlight_panel_carries_severity(self):
-        hl = [{"source": "The Hacker News", "title": "Aeternum Botnet C2",
-               "severity": "🟠 High"}]
+        hl = [
+            {
+                "source": "The Hacker News",
+                "title": "Aeternum Botnet C2",
+                "severity": "🟠 High",
+            }
+        ]
         panels = _digest_highlight_panels(hl)
         assert panels and panels[0].get("severity") == "HIGH"
 
     def test_apply_real_content_sets_story_severity(self):
         stories = [
-            _build_story(headline="x", subheadline="x", index=0,
-                         severity_label="HIGH", action="READ"),
-            _build_story(headline="x", subheadline="x", index=1,
-                         severity_label="HIGH"),
-            _build_story(headline="x", subheadline="x", index=2,
-                         severity_label="MEDIUM"),
+            _build_story(
+                headline="x",
+                subheadline="x",
+                index=0,
+                severity_label="HIGH",
+                action="READ",
+            ),
+            _build_story(headline="x", subheadline="x", index=1, severity_label="HIGH"),
+            _build_story(
+                headline="x", subheadline="x", index=2, severity_label="MEDIUM"
+            ),
         ]
         post_info = {
-            "summary_card": {"highlights": [
-                {"source": "The Hacker News", "title": "Aeternum Botnet C2",
-                 "severity": "🟠 High"},
-            ]},
+            "summary_card": {
+                "highlights": [
+                    {
+                        "source": "The Hacker News",
+                        "title": "Aeternum Botnet C2",
+                        "severity": "🟠 High",
+                    },
+                ]
+            },
             "content": "- **총 뉴스 수**: 12개\n- **보안 뉴스**: 2개\n",
         }
         _apply_real_content(stories, post_info)
@@ -1060,18 +1267,28 @@ class TestSeverityPanelPlumbing:
 class TestRenderedSeverity:
     def _stories_with_advisory(self):
         stories = [
-            _build_story(headline="x", subheadline="x", index=0,
-                         severity_label="HIGH", action="READ"),
-            _build_story(headline="x", subheadline="x", index=1,
-                         severity_label="HIGH"),
-            _build_story(headline="x", subheadline="x", index=2,
-                         severity_label="MEDIUM"),
+            _build_story(
+                headline="x",
+                subheadline="x",
+                index=0,
+                severity_label="HIGH",
+                action="READ",
+            ),
+            _build_story(headline="x", subheadline="x", index=1, severity_label="HIGH"),
+            _build_story(
+                headline="x", subheadline="x", index=2, severity_label="MEDIUM"
+            ),
         ]
         post_info = {
-            "summary_card": {"highlights": [
-                {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견",
-                 "severity": "🟠 High"},
-            ]},
+            "summary_card": {
+                "highlights": [
+                    {
+                        "source": "The Hacker News",
+                        "title": "Aeternum Botnet C2 발견",
+                        "severity": "🟠 High",
+                    },
+                ]
+            },
             "content": "- **총 뉴스 수**: 30개\n- **보안 뉴스**: 5개\n",
         }
         _apply_real_content(stories, post_info)
@@ -1079,8 +1296,7 @@ class TestRenderedSeverity:
 
     def test_no_tbd_or_under_review_in_svg(self):
         st = self._stories_with_advisory()
-        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2],
-                              "https://x", "Digest")
+        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2], "https://x", "Digest")
         assert "SEVERITY: TBD" not in svg
         assert "unspecified - under review" not in svg
 
@@ -1089,14 +1305,12 @@ class TestRenderedSeverity:
         # Band 0 routes to security_advisory (botnet headline -> clamp) and has
         # a known severity, so the gauge shows the ASCII severity word.
         assert st[0]["visual"] == "security_advisory"
-        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2],
-                              "https://x", "Digest")
+        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2], "https://x", "Digest")
         assert "SEVERITY: HIGH" in svg
 
     def test_anchors_and_ascii_preserved(self):
         st = self._stories_with_advisory()
-        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2],
-                              "https://x", "Digest")
+        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2], "https://x", "Digest")
         # Scorer path-b anchors must survive (security_advisory + neutral).
         assert "SECURITY ADVISORY" in svg
         assert ">UPDATE<" in svg
@@ -1105,16 +1319,22 @@ class TestRenderedSeverity:
     def test_unknown_severity_omits_line(self):
         # A security_advisory band with no severity must omit the line entirely.
         st = [
-            _build_story(headline="malware threat advisory", subheadline="x",
-                         index=0, severity_label="HIGH", action="READ"),
-            _build_story(headline="update", subheadline="x", index=1,
-                         severity_label="HIGH"),
-            _build_story(headline="update", subheadline="x", index=2,
-                         severity_label="MEDIUM"),
+            _build_story(
+                headline="malware threat advisory",
+                subheadline="x",
+                index=0,
+                severity_label="HIGH",
+                action="READ",
+            ),
+            _build_story(
+                headline="update", subheadline="x", index=1, severity_label="HIGH"
+            ),
+            _build_story(
+                headline="update", subheadline="x", index=2, severity_label="MEDIUM"
+            ),
         ]
         # No real content -> no severity set on the stories.
-        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2],
-                              "https://x", "Digest")
+        svg = render_l20_hero("2026.05.30", st[0], st[1], st[2], "https://x", "Digest")
         assert "SEVERITY: TBD" not in svg
         assert "unspecified - under review" not in svg
 
@@ -1132,33 +1352,50 @@ class TestHonestyLockstep:
         title = "주간 보안 다이제스트"
         excerpt = ""
         filename = "2026-05-30-Tech_Security_Weekly_Digest_Botnet.md"
-        summary_card = {"highlights": [
-            {"source": "The Hacker News", "title": "Aeternum Botnet C2 발견",
-             "severity": "🟠 High"},
-            {"source": "Cointelegraph", "title": "Bitcoin $71K 급등",
-             "severity": "🟡 Medium"},
-            {"source": "Microsoft", "title": "Teams 업데이트 배포",
-             "severity": "-"},
-        ]}
+        summary_card = {
+            "highlights": [
+                {
+                    "source": "The Hacker News",
+                    "title": "Aeternum Botnet C2 발견",
+                    "severity": "🟠 High",
+                },
+                {
+                    "source": "Cointelegraph",
+                    "title": "Bitcoin $71K 급등",
+                    "severity": "🟡 Medium",
+                },
+                {
+                    "source": "Microsoft",
+                    "title": "Teams 업데이트 배포",
+                    "severity": "-",
+                },
+            ]
+        }
         content = "- **총 뉴스 수**: 30개\n- **보안 뉴스**: 5개\n"
 
         # path a: routing intent
         routed = resolve_digest_band_visuals(
-            title, excerpt, filename, content=content, summary_card=summary_card)
+            title, excerpt, filename, content=content, summary_card=summary_card
+        )
 
         # Build the SAME stories the generator would and render them.
         stories = [
-            _build_story(headline="x", subheadline="x", index=0,
-                         severity_label="HIGH", action="READ"),
-            _build_story(headline="x", subheadline="x", index=1,
-                         severity_label="HIGH"),
-            _build_story(headline="x", subheadline="x", index=2,
-                         severity_label="MEDIUM"),
+            _build_story(
+                headline="x",
+                subheadline="x",
+                index=0,
+                severity_label="HIGH",
+                action="READ",
+            ),
+            _build_story(headline="x", subheadline="x", index=1, severity_label="HIGH"),
+            _build_story(
+                headline="x", subheadline="x", index=2, severity_label="MEDIUM"
+            ),
         ]
-        _apply_real_content(stories, {"summary_card": summary_card,
-                                      "content": content})
-        svg = render_l20_hero("2026.05.30", stories[0], stories[1],
-                              stories[2], "https://x", "Digest")
+        _apply_real_content(stories, {"summary_card": summary_card, "content": content})
+        svg = render_l20_hero(
+            "2026.05.30", stories[0], stories[1], stories[2], "https://x", "Digest"
+        )
 
         # path b: fingerprint the rendered SVG
         fingerprinted = sch._fingerprint_visual_ids(svg, n_bands=3)
@@ -1315,17 +1552,40 @@ class TestNoSourceNameHero:
     available that day — the cover is genuinely unavoidable)."""
 
     # Known news-source names that appear as source-fallback headlines.
-    _KNOWN_SOURCES = frozenset({
-        "BleepingComputer", "The Hacker News", "AWS Security Blog",
-        "Microsoft Security Blog", "SecurityWeek", "Krebs on Security",
-        "Dark Reading", "Threatpost", "CISA", "NIST", "Google Cloud Blog",
-        "Google Security Blog", "GitHub Security Blog", "The Record",
-        "Ars Technica", "Wired", "ZDNet", "TechCrunch", "Help Net Security",
-        "Risky Business", "SC Magazine", "Security Boulevard", "SecurityWeek",
-    })
+    _KNOWN_SOURCES = frozenset(
+        {
+            "BleepingComputer",
+            "The Hacker News",
+            "AWS Security Blog",
+            "Microsoft Security Blog",
+            "SecurityWeek",
+            "Krebs on Security",
+            "Dark Reading",
+            "Threatpost",
+            "CISA",
+            "NIST",
+            "Google Cloud Blog",
+            "Google Security Blog",
+            "GitHub Security Blog",
+            "The Record",
+            "Ars Technica",
+            "Wired",
+            "ZDNet",
+            "TechCrunch",
+            "Help Net Security",
+            "Risky Business",
+            "SC Magazine",
+            "Security Boulevard",
+            "SecurityWeek",
+        }
+    )
 
     def _load_may_posts(self):
-        import glob, re, yaml
+        import glob
+        import re
+
+        import yaml
+
         posts = []
         for fn in sorted(glob.glob("_posts/2026-05-*.md")):
             with open(fn) as f:
@@ -1334,7 +1594,7 @@ class TestNoSourceNameHero:
             if not m:
                 continue
             fm = yaml.safe_load(m.group(1))
-            content = raw[m.end():]
+            content = raw[m.end() :]
             posts.append((fn.split("/")[-1][:10], fm.get("summary_card"), content))
         return posts
 
@@ -1353,7 +1613,8 @@ class TestNoSourceNameHero:
                 continue  # hero is a real entity — OK
             # Hero is a source name.  Check that all side cards are also src fallbacks.
             side_real = [
-                p["headline"] for p in panels[1:]
+                p["headline"]
+                for p in panels[1:]
                 if not p.get("_src_fallback")
                 and p["headline"] not in self._KNOWN_SOURCES
             ]
@@ -1362,7 +1623,9 @@ class TestNoSourceNameHero:
                     f"{datestr}: hero={hero['headline']!r} "
                     f"but real-entity side cards={side_real}"
                 )
-        assert not failures, "Avoidable source-name heroes detected:\n" + "\n".join(failures)
+        assert not failures, "Avoidable source-name heroes detected:\n" + "\n".join(
+            failures
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -1378,17 +1641,27 @@ class TestSideCardRescue:
             "| 분야 | 소스 | 핵심 내용 | 영향도 |\n"
             "|------|------|----------|--------|\n"
         )
-        return head + "".join(f"| 🔒 Security | {s} | {t} | {sev} |\n" for s, t, sev in rows)
+        return head + "".join(
+            f"| 🔒 Security | {s} | {t} | {sev} |\n" for s, t, sev in rows
+        )
 
     def test_side_card_src_fallback_replaced_by_real_table_story(self):
         # highlight #2 has only a region word ("MENA") -> source-name fallback.
         # The body table carries additional real-entity stories, so when 3 real
         # entities exist the visible side cards must NOT show the bare source
         # name — the fallback is dropped entirely.
-        summary_card = {"highlights": [
-            {"source": "The Hacker News", "title": "Ivanti EPMM CVE-2026-6973 RCE 공개"},
-            {"source": "The Hacker News", "title": "MENA 지역 사이버범죄 네트워크 교란 201명 체포"},
-        ]}
+        summary_card = {
+            "highlights": [
+                {
+                    "source": "The Hacker News",
+                    "title": "Ivanti EPMM CVE-2026-6973 RCE 공개",
+                },
+                {
+                    "source": "The Hacker News",
+                    "title": "MENA 지역 사이버범죄 네트워크 교란 201명 체포",
+                },
+            ]
+        }
         content = self._content(
             ("The Hacker News", "Ivanti EPMM CVE-2026-6973 RCE 공개", "🟠 High"),
             ("BleepingComputer", "WP Maps Pro 취약점 악용", "🟠 High"),
@@ -1406,11 +1679,16 @@ class TestSideCardRescue:
     def test_side_card_fallback_pushed_last_when_only_two_reals(self):
         # 2 real entities + 1 source-name fallback, no extra table stories: the
         # fallback fills the trailing slot, never the middle (ahead of a real).
-        summary_card = {"highlights": [
-            {"source": "The Hacker News", "title": "Storm-2949 캠페인 분석"},
-            {"source": "The Hacker News", "title": "MENA 지역 공격 급증"},          # src fallback
-            {"source": "The Hacker News", "title": "Exchange npm 패키지 악용"},
-        ]}
+        summary_card = {
+            "highlights": [
+                {"source": "The Hacker News", "title": "Storm-2949 캠페인 분석"},
+                {
+                    "source": "The Hacker News",
+                    "title": "MENA 지역 공격 급증",
+                },  # src fallback
+                {"source": "The Hacker News", "title": "Exchange npm 패키지 악용"},
+            ]
+        }
         panels = _digest_panels(summary_card, "")
         heads = [p["headline"] for p in panels]
         assert heads[:2] == ["Storm-2949", "Exchange npm"], heads
@@ -1420,10 +1698,15 @@ class TestSideCardRescue:
         # Every story has ASCII tokens that all fail _is_good_headline (a region
         # word / bare acronym) -> only source-name fallbacks exist. The cover
         # must still fill its slots (never go blank) with the fallbacks.
-        summary_card = {"highlights": [
-            {"source": "The Hacker News", "title": "MENA 지역 사이버범죄 네트워크 교란 201명 체포"},
-            {"source": "BleepingComputer", "title": "AI 도구 악용 사례 증가"},
-        ]}
+        summary_card = {
+            "highlights": [
+                {
+                    "source": "The Hacker News",
+                    "title": "MENA 지역 사이버범죄 네트워크 교란 201명 체포",
+                },
+                {"source": "BleepingComputer", "title": "AI 도구 악용 사례 증가"},
+            ]
+        }
         panels = _digest_panels(summary_card, "")
         assert panels, "must not be empty"
         assert all(p.get("_src_fallback") for p in panels)
@@ -1431,11 +1714,16 @@ class TestSideCardRescue:
     def test_real_entities_keep_editorial_order_fallback_last(self):
         # real-entity panels keep their editorial order; a source-name fallback
         # is pushed to the LAST slot, never ahead of a real story.
-        summary_card = {"highlights": [
-            {"source": "The Hacker News", "title": "Cisco Unified CM 취약점"},
-            {"source": "The Hacker News", "title": "VPN 장비 취약점 패치 권고"},   # src fallback (VPN acronym)
-            {"source": "AWS Security Blog", "title": "Amazon Cognito 설정 강화"},
-        ]}
+        summary_card = {
+            "highlights": [
+                {"source": "The Hacker News", "title": "Cisco Unified CM 취약점"},
+                {
+                    "source": "The Hacker News",
+                    "title": "VPN 장비 취약점 패치 권고",
+                },  # src fallback (VPN acronym)
+                {"source": "AWS Security Blog", "title": "Amazon Cognito 설정 강화"},
+            ]
+        }
         panels = _digest_panels(summary_card, "")
         # find the first fallback index — everything before it must be real
         fb_idxs = [i for i, p in enumerate(panels) if p.get("_src_fallback")]
@@ -1456,7 +1744,9 @@ class TestNoAvoidableSourceNameSideCard:
     def _load_posts(self, *globs):
         import glob
         import re
+
         import yaml
+
         posts = []
         for g in globs:
             for fn in sorted(glob.glob(g)):
@@ -1466,7 +1756,9 @@ class TestNoAvoidableSourceNameSideCard:
                 if not m:
                     continue
                 fm = yaml.safe_load(m.group(1))
-                posts.append((fn.split("/")[-1][:10], fm.get("summary_card"), raw[m.end():]))
+                posts.append(
+                    (fn.split("/")[-1][:10], fm.get("summary_card"), raw[m.end() :])
+                )
         return posts
 
     def _is_fallback(self, p):
@@ -1479,7 +1771,9 @@ class TestNoAvoidableSourceNameSideCard:
         posts = self._load_posts("_posts/2026-05-*.md", "_posts/2026-06-*.md")
         # Sanity: the load helper must actually find posts, else the guard below
         # passes vacuously and masks a future regression.
-        assert len(posts) >= 30, f"expected the May+June digest corpus, got {len(posts)}"
+        assert len(posts) >= 30, (
+            f"expected the May+June digest corpus, got {len(posts)}"
+        )
         failures = []
         for datestr, summary_card, content in posts:
             panels = _digest_panels(summary_card, content)
@@ -1513,13 +1807,18 @@ class TestW1TableAllowlist:
             ("🔒 **Security**", "The Hacker News", "Ivanti EPMM RCE 취약점", "🟠 High"),
             ("⛓️ **Blockchain**", "Cointelegraph", "Arthur Hayes BTC 발언", "🟡 Medium"),
             ("💻 **Tech**", "GeekNews", "OpenAI Oracle 협력 철회", "🟡 Medium"),
-            ("🔒 **Security** (7)", "BleepingComputer", "WP Maps Pro 취약점 악용", "🟠 High"),
+            (
+                "🔒 **Security** (7)",
+                "BleepingComputer",
+                "WP Maps Pro 취약점 악용",
+                "🟠 High",
+            ),
         )
         heads = [p["headline"] for p in _digest_table_panels(content, limit=6)]
-        assert "Ivanti EPMM" in heads          # Security admitted
+        assert "Ivanti EPMM" in heads  # Security admitted
         assert any("Arthur" in h for h in heads)  # Blockchain admitted
         assert any("OpenAI" in h for h in heads)  # Tech admitted
-        assert "Maps Pro" in heads             # decorated "(7)" Security admitted
+        assert "Maps Pro" in heads  # decorated "(7)" Security admitted
 
     def test_excludes_secondary_body_tables(self):
         # The highlights table is followed (after a blank line) by a SEPARATE
@@ -1541,10 +1840,25 @@ class TestW1TableAllowlist:
         # The highlights table legitimately uses many categories incl. Korean
         # labels — none may be dropped (the bug a 3-stem allowlist caused).
         content = _table(
-            ("☁️ **Cloud**", "AWS Security Blog", "Amazon GuardDuty 업데이트", "🟡 Medium"),
+            (
+                "☁️ **Cloud**",
+                "AWS Security Blog",
+                "Amazon GuardDuty 업데이트",
+                "🟡 Medium",
+            ),
             ("⚙️ **DevOps**", "The Hacker News", "Argo CD 취약점 공개", "🟠 High"),
-            ("🤖 **AI/ML**", "The Hacker News", "PromptArmor LLM 가드레일", "🟡 Medium"),
-            ("🔒 **보안**", "BleepingComputer", "Akira Ransomware 캠페인", "🔴 Critical"),
+            (
+                "🤖 **AI/ML**",
+                "The Hacker News",
+                "PromptArmor LLM 가드레일",
+                "🟡 Medium",
+            ),
+            (
+                "🔒 **보안**",
+                "BleepingComputer",
+                "Akira Ransomware 캠페인",
+                "🔴 Critical",
+            ),
         )
         heads = [p["headline"] for p in _digest_table_panels(content, limit=6)]
         assert len(heads) == 4, heads  # all categories admitted, none dropped
@@ -1557,6 +1871,7 @@ class TestW1TableAllowlist:
         # panel.
         import glob
         import re
+
         checked = 0
         failures = []
         for fn in sorted(glob.glob("_posts/2026-*.md")):
@@ -1564,8 +1879,10 @@ class TestW1TableAllowlist:
             m = re.match(r"^---\n(.*?)\n---\n", raw, re.DOTALL)
             if not m:
                 continue
-            content = raw[m.end():]
-            if not re.search(r"^\|\s*(?:분야|카테고리)\s*\|\s*(?:소스|출처)\s*\|", content, re.M):
+            content = raw[m.end() :]
+            if not re.search(
+                r"^\|\s*(?:분야|카테고리)\s*\|\s*(?:소스|출처)\s*\|", content, re.M
+            ):
                 continue  # no highlights table -> nothing to assert
             checked += 1
             if not _digest_table_panels(content, limit=6):
@@ -1596,8 +1913,15 @@ class TestW34GoodHeadline:
         assert _is_good_headline("Critical Infrastructure") is True
 
     def test_false_positive_guard_real_entities_kept(self):
-        for good in ("Ivanti", "Veeam", "Cloudflare", "Cisco Talos",
-                     "Hugging Face", "Palo Alto", "Recorded Future"):
+        for good in (
+            "Ivanti",
+            "Veeam",
+            "Cloudflare",
+            "Cisco Talos",
+            "Hugging Face",
+            "Palo Alto",
+            "Recorded Future",
+        ):
             assert _is_good_headline(good) is True, good
 
 
@@ -1607,12 +1931,19 @@ class TestW2TableCategoryRanking:
         # A Blockchain filler row precedes a Security row in document order;
         # the Security row must rank ahead among the table backfill (both carry
         # the same severity marker, so only the category distinguishes them).
-        sc = {"highlights": [
-            {"source": "The Hacker News", "title": "Storm-2949 캠페인 분석"},
-        ]}
+        sc = {
+            "highlights": [
+                {"source": "The Hacker News", "title": "Storm-2949 캠페인 분석"},
+            ]
+        }
         content = _table(
             ("⛓️ **Blockchain**", "Cointelegraph", "Arthur Hayes BTC 발언", "🟡 Medium"),
-            ("🔒 **Security**", "The Hacker News", "Veeam Backup RCE 취약점", "🟡 Medium"),
+            (
+                "🔒 **Security**",
+                "The Hacker News",
+                "Veeam Backup RCE 취약점",
+                "🟡 Medium",
+            ),
         )
         panels = _digest_panels(sc, content)
         heads = [p["headline"] for p in panels]
@@ -1625,6 +1956,7 @@ class TestW2TableCategoryRanking:
         # "FinTech"/"Biotech" CONTAIN "tech" but are on-topic — must NOT be
         # demoted as filler; bare Blockchain/Tech (any decoration) must be.
         from scripts.news.l20_dispatch import _category_rank
+
         assert _category_rank("💻 **FinTech**") == 0
         assert _category_rank("🧬 **Biotech**") == 0
         assert _category_rank("🔒 **Security**") == 0
@@ -1635,14 +1967,26 @@ class TestW2TableCategoryRanking:
     def test_editorial_highlight_not_demoted_by_table_category(self):
         # A no-signal editorial highlight must NOT be pushed below a Security
         # table-backfill row — editorial highlights dominate the table backfill.
-        sc = {"highlights": [
-            {"source": "The Hacker News", "title": "JDownloader Python 패키지 악용"},
-        ]}
+        sc = {
+            "highlights": [
+                {
+                    "source": "The Hacker News",
+                    "title": "JDownloader Python 패키지 악용",
+                },
+            ]
+        }
         content = _table(
-            ("🔒 **Security**", "The Hacker News", "Veeam Backup RCE 취약점", "🟡 Medium"),
+            (
+                "🔒 **Security**",
+                "The Hacker News",
+                "Veeam Backup RCE 취약점",
+                "🟡 Medium",
+            ),
         )
         panels = _digest_panels(sc, content)
-        assert panels[0]["headline"].startswith("JDownloader"), [p["headline"] for p in panels]
+        assert panels[0]["headline"].startswith("JDownloader"), [
+            p["headline"] for p in panels
+        ]
 
 
 # ---------------------------------------------------------------------------
@@ -1678,7 +2022,10 @@ class TestWeakBigramAndClause:
     def test_possessive_bigram_preserved_not_overfiltered(self):
         # "X의 Y" possessive joins are usually real entity bigrams and MUST be
         # kept (the generic-word reject must not over-filter these).
-        assert build_lead_headline("Anthropic의 Claude Mythos 제로데이") == "Anthropic Claude"
+        assert (
+            build_lead_headline("Anthropic의 Claude Mythos 제로데이")
+            == "Anthropic Claude"
+        )
         assert build_lead_headline("Broadcom의 VMware 인수 이후") == "Broadcom VMware"
 
 
@@ -1700,7 +2047,9 @@ class TestGenericHeadlineWordVetting:
     def test_command_bigram_with_real_token_preserved(self):
         # The lone reject must NOT kill a real "Command <Noun>" story phrase:
         # only the bare filler word is generic, not the bigram.
-        assert build_lead_headline("Command Injection 취약점 공개") == "Command Injection"
+        assert (
+            build_lead_headline("Command Injection 취약점 공개") == "Command Injection"
+        )
         assert build_lead_headline("Command Center 운영 사례") == "Command Center"
 
     def test_geeknews_keyboard_line_yields_no_filler(self):
@@ -1752,7 +2101,12 @@ class TestCvssLeadReject:
     def test_cvss_only_ascii_title_yields_empty(self):
         # Korean body after the metric → no ASCII entity → empty, so the panel
         # builder falls through to the source (2026-01-27).
-        assert build_lead_headline("CVSS 7.8 긴급 패치 - 보안 기능 우회 취약점 실제 악용 중") == ""
+        assert (
+            build_lead_headline(
+                "CVSS 7.8 긴급 패치 - 보안 기능 우회 취약점 실제 악용 중"
+            )
+            == ""
+        )
 
     def test_cve_bearing_source_supplies_real_hero_not_demoted(self):
         # The lead highlight of 2026-01-27: title is a bare metric, but the
@@ -1766,7 +2120,9 @@ class TestCvssLeadReject:
         assert p is not None
         assert "CVSS" not in p["headline"]
         assert p["headline"]  # non-empty real entity
-        assert not p.get("_src_fallback"), "CVE-bearing source subject must not be demoted"
+        assert not p.get("_src_fallback"), (
+            "CVE-bearing source subject must not be demoted"
+        )
         # CVE surfaces in the subheadline; route stays the honest advisory class.
         assert "CVE-2026-21509" in p["subheadline"]
         assert p["route_hint"] == "Security advisory"
@@ -1784,6 +2140,7 @@ class TestUrlBigramReject:
 
     def test_url_in_generic_trailing(self):
         from scripts.news.l20_dispatch import _GENERIC_TRAILING
+
         assert "url" in _GENERIC_TRAILING
 
     def test_url_rejected_as_lone_headline(self):
@@ -1801,7 +2158,8 @@ class TestUrlBigramReject:
 
     def test_fbi_url_highlight_demoted_to_source_fallback(self):
         p = _panel_from_source_title(
-            "BleepingComputer", "FBI, 백만 개 URL 사용한 대규모 AI 기반 피싱 서비스 무력화"
+            "BleepingComputer",
+            "FBI, 백만 개 URL 사용한 대규모 AI 기반 피싱 서비스 무력화",
         )
         assert p is not None
         assert p.get("_src_fallback") is True
@@ -1809,7 +2167,10 @@ class TestUrlBigramReject:
     def test_url_does_not_over_filter_real_bigrams(self):
         # The reject must only touch the generic 'url' token; real product /
         # vendor bigrams are unaffected (regression guard).
-        assert build_lead_headline("Cisco Unified Communications 취약점") == "Cisco Unified"
+        assert (
+            build_lead_headline("Cisco Unified Communications 취약점")
+            == "Cisco Unified"
+        )
         assert build_lead_headline("Oracle WebLogic KEV 등재") == "Oracle WebLogic"
         assert build_lead_headline("Google Vertex AI SDK 결함") == "Google Vertex"
 
@@ -1840,7 +2201,10 @@ class TestRoundupAndSuffixReject:
 
     def test_roundup_does_not_over_filter_normal_story(self):
         # No "외 N건" tail -> normal two-entity join is untouched.
-        assert build_lead_headline("Cisco, Unified CM의 CVE-2026-20230 패치") == "Cisco Unified"
+        assert (
+            build_lead_headline("Cisco, Unified CM의 CVE-2026-20230 패치")
+            == "Cisco Unified"
+        )
 
     def test_suffix_reject_does_not_touch_acronym_led_event(self):
         # "SAP SAPPHIRE": the SHORT token leads (prefix relation), so the
@@ -1924,18 +2288,29 @@ class TestMultiWordVendorPromote:
 
     def test_full_entity_lead_is_idempotent(self):
         # Promoting an already-full entity is a no-op (no double-promote).
-        assert build_lead_headline("Amazon Bedrock AgentCore가 출시") == "Amazon Bedrock"
+        assert (
+            build_lead_headline("Amazon Bedrock AgentCore가 출시") == "Amazon Bedrock"
+        )
 
     def test_no_promote_without_literal_full_entity(self):
         # "Amazon" with NO "Amazon Bedrock" in the title must NOT fabricate it.
-        assert build_lead_headline("Amazon, 새로운 클라우드 보안 기능 발표") != "Amazon Bedrock"
+        assert (
+            build_lead_headline("Amazon, 새로운 클라우드 보안 기능 발표")
+            != "Amazon Bedrock"
+        )
 
     def test_unseeded_vendor_untouched(self):
         # "Palo Alto" is not seeded this PR → normal lead-join, unchanged.
-        assert build_lead_headline("Palo Alto GlobalProtect VPN 취약점 공개") == "Palo Alto"
+        assert (
+            build_lead_headline("Palo Alto GlobalProtect VPN 취약점 공개")
+            == "Palo Alto"
+        )
 
     def test_normal_two_entity_untouched(self):
-        assert build_lead_headline("Cisco, Unified CM의 CVE-2026-20230 패치") == "Cisco Unified"
+        assert (
+            build_lead_headline("Cisco, Unified CM의 CVE-2026-20230 패치")
+            == "Cisco Unified"
+        )
 
     def test_sap_sapphire_untouched(self):
         # FM3 regression guard still holds under FM4.
@@ -2013,10 +2388,14 @@ class TestMultiWordVendorVetting:
                         continue
                     fired_dates.add(fn.split("/")[-1][:10])
                     if new not in seeded_full or new.lower() not in title.lower():
-                        illegitimate.append(f"{fn.split('/')[-1][:10]}: {old!r}->{new!r} <- {title[:50]!r}")
+                        illegitimate.append(
+                            f"{fn.split('/')[-1][:10]}: {old!r}->{new!r} <- {title[:50]!r}"
+                        )
         finally:
             _L._promote_mw_vendor = orig
-        assert not illegitimate, "Illegitimate FM4 promote(s):\n" + "\n".join(illegitimate)
+        assert not illegitimate, "Illegitimate FM4 promote(s):\n" + "\n".join(
+            illegitimate
+        )
         # positive control: the two named live defects are actually fixed
         assert {"2026-06-02", "2026-04-21"}.issubset(fired_dates), fired_dates
 
@@ -2056,18 +2435,31 @@ class TestAiCompoundHeadline:
         # Real negative: a stronger entity precedes the adjective -> the AI-compound
         # branch must NOT fire; the strong lead wins (proves the branch is gated on
         # non_cve[0], not on the mere presence of '<adj> AI').
-        assert build_lead_headline("OWASP Agentic AI 프레임워크, Kubernetes 보안 확인") == "OWASP Agentic"
+        assert (
+            build_lead_headline("OWASP Agentic AI 프레임워크, Kubernetes 보안 확인")
+            == "OWASP Agentic"
+        )
 
     def test_arbitrary_adjective_ai_still_strips(self):
         # A >=4-char, non-allowlisted lead adjective + "AI" must NOT join into a
         # bigram (only curated qualifiers do). It falls back to the lone token.
-        assert build_lead_headline("Responsible AI 거버넌스 프레임워크") == "Responsible"
+        assert (
+            build_lead_headline("Responsible AI 거버넌스 프레임워크") == "Responsible"
+        )
 
     def test_generalized_join_would_wreck_proper_noun_fragments(self):
         # Why an allowlist, not a generalized "<Cap> AI" rule: these real titles
         # must keep their proper-noun lead, never become "Gordon AI"/"Mythos AI".
-        assert build_lead_headline("Ask Gordon AI 비서의 이미지 메타데이터 기반 코드 실행 취약점") == "Ask Gordon"
-        assert build_lead_headline("Claude Mythos AI, 10,000개의 높은 심각도 결함 발견") == "Claude Mythos"
+        assert (
+            build_lead_headline(
+                "Ask Gordon AI 비서의 이미지 메타데이터 기반 코드 실행 취약점"
+            )
+            == "Ask Gordon"
+        )
+        assert (
+            build_lead_headline("Claude Mythos AI, 10,000개의 높은 심각도 결함 발견")
+            == "Claude Mythos"
+        )
 
 
 class TestAiCompoundAdjectiveVetting:
@@ -2107,6 +2499,7 @@ class TestCorpusNoLoneAdjectiveAi:
         import glob
         import html as _html_mod
         import re as _re
+
         import yaml as _yaml
 
         offenders = []
@@ -2126,11 +2519,15 @@ class TestCorpusNoLoneAdjectiveAi:
                 if not lead or " " in lead:
                     continue
                 # literal title adjacency "<lead> AI" (AI standalone, not "OpenAI")
-                if _re.search(rf"\b{_re.escape(lead)}\s+AI\b", _html_mod.unescape(title)):
+                if _re.search(
+                    rf"\b{_re.escape(lead)}\s+AI\b", _html_mod.unescape(title)
+                ):
                     low = lead.lower()
                     if low in _AI_COMPOUND_ADJECTIVES or low in _DEFERRED_AI_ADJECTIVES:
                         continue
-                    offenders.append(f"{fn.split('/')[-1][:10]}: lone {lead!r} <- {title[:60]!r}")
+                    offenders.append(
+                        f"{fn.split('/')[-1][:10]}: lone {lead!r} <- {title[:60]!r}"
+                    )
         assert not offenders, (
             "Unvetted lone-adjective+AI panel(s) — add the adjective to "
             "_AI_COMPOUND_ADJECTIVES (if the join fixes the cover) or "
@@ -2175,8 +2572,12 @@ class TestRollupLeadParity:
         # Explicit: the rollup path yields the FM2 bigram, not a lone adjective.
         from scripts.draft_rollup_spec import lead_entity
 
-        assert lead_entity("사이버보안 특화 Vertical AI 구축 방안 분석") == "Vertical AI"
-        assert lead_entity("Agentic AI 플랫폼: MCP Registry로 도구 통합") == "Agentic AI"
+        assert (
+            lead_entity("사이버보안 특화 Vertical AI 구축 방안 분석") == "Vertical AI"
+        )
+        assert (
+            lead_entity("Agentic AI 플랫폼: MCP Registry로 도구 통합") == "Agentic AI"
+        )
 
     def test_cve_only_title_diverges_as_designed(self):
         # The one intentional divergence: a CVE-only title has no non-CVE entity,
@@ -2196,6 +2597,7 @@ class TestCorpusNoGenericHero:
     def _load_posts(self, *globs):
         import glob
         import re
+
         import yaml
 
         posts = []
@@ -2208,13 +2610,15 @@ class TestCorpusNoGenericHero:
                     continue
                 fm = yaml.safe_load(m.group(1))
                 posts.append(
-                    (fn.split("/")[-1][:10], fm.get("summary_card"), raw[m.end():])
+                    (fn.split("/")[-1][:10], fm.get("summary_card"), raw[m.end() :])
                 )
         return posts
 
     def test_no_generic_word_hero_or_side_card(self):
         posts = self._load_posts("_posts/2026-05-*.md", "_posts/2026-06-*.md")
-        assert len(posts) >= 30, f"expected the May+June digest corpus, got {len(posts)}"
+        assert len(posts) >= 30, (
+            f"expected the May+June digest corpus, got {len(posts)}"
+        )
         failures = []
         for datestr, summary_card, content in posts:
             for p in _digest_panels(summary_card, content):
@@ -2235,29 +2639,40 @@ class TestTopicCoverTheme:
         from scripts.news.l20_dispatch import theme_for_topics
 
         # A threat topic wins over the ubiquitous "AI" generic token.
-        assert theme_for_topics(
-            "2026-04-02-Tech_Security_Weekly_Digest_AI_Malware.md"
-        ) == "red"
+        assert (
+            theme_for_topics("2026-04-02-Tech_Security_Weekly_Digest_AI_Malware.md")
+            == "red"
+        )
         # CVE / patch -> amber.
-        assert theme_for_topics(
-            "2026-04-03-Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI.md"
-        ) == "amber"
+        assert (
+            theme_for_topics(
+                "2026-04-03-Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI.md"
+            )
+            == "amber"
+        )
         # Crypto / blockchain -> green.
-        assert theme_for_topics(
-            "2026-05-25-Tech_Security_Weekly_Digest_AI_Ethereum_Blockchain.md"
-        ) == "green"
+        assert (
+            theme_for_topics(
+                "2026-05-25-Tech_Security_Weekly_Digest_AI_Ethereum_Blockchain.md"
+            )
+            == "green"
+        )
         # Named infra/vendor -> blue.
-        assert theme_for_topics(
-            "2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir.md"
-        ) == "blue"
+        assert (
+            theme_for_topics(
+                "2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir.md"
+            )
+            == "blue"
+        )
 
     def test_theme_for_topics_generic_fallback(self):
         from scripts.news.l20_dispatch import theme_for_topics
 
         # Only generic tokens present -> generic tier decides (aws -> blue).
-        assert theme_for_topics(
-            "2026-01-01-Tech_Security_Weekly_Digest_AWS_Cloud.md"
-        ) == "blue"
+        assert (
+            theme_for_topics("2026-01-01-Tech_Security_Weekly_Digest_AWS_Cloud.md")
+            == "blue"
+        )
         # No mappable token at all -> blue default.
         assert theme_for_topics("2026-01-01-Tech_Security_Weekly_Digest.md") == "blue"
 
@@ -2275,13 +2690,18 @@ class TestTopicCoverTheme:
     def test_neutral_hero_adopts_cover_theme(self):
         # A neutral hero band must take the supplied cover_theme, not blue.
         hero = _build_story(
-            headline="Ecosystem Update", subheadline="x", index=0,
-            severity_label="HIGH", action="READ THE FULL DIGEST",
+            headline="Ecosystem Update",
+            subheadline="x",
+            index=0,
+            severity_label="HIGH",
+            action="READ THE FULL DIGEST",
         )
-        side1 = _build_story(headline="update", subheadline="x", index=1,
-                             severity_label="HIGH")
-        side2 = _build_story(headline="update", subheadline="x", index=2,
-                             severity_label="MEDIUM")
+        side1 = _build_story(
+            headline="update", subheadline="x", index=1, severity_label="HIGH"
+        )
+        side2 = _build_story(
+            headline="update", subheadline="x", index=2, severity_label="MEDIUM"
+        )
         stories = [hero, side1, side2]
         _apply_real_content(stories, {"content": ""}, cover_theme="red")
         # Hero is neutral (no post content) -> recolored red.
@@ -2294,8 +2714,13 @@ class TestTopicCoverTheme:
         # Recoloring is palette-only: the hero stays the neutral claim class
         # regardless of the cover_theme passed.
         for theme in ("red", "amber", "green", "purple", "blue"):
-            hero = _build_story(headline="Ecosystem Update", subheadline="x",
-                                index=0, severity_label="HIGH", action="GO")
+            hero = _build_story(
+                headline="Ecosystem Update",
+                subheadline="x",
+                index=0,
+                severity_label="HIGH",
+                action="GO",
+            )
             _apply_real_content([hero], {"content": ""}, cover_theme=theme)
             assert hero["visual"] == "neutral"
             assert hero["theme"] == theme
@@ -2304,23 +2729,38 @@ class TestTopicCoverTheme:
         # An advisory-shield hero (security_advisory) must adopt the topic theme
         # so the gallery is not a wall of identical amber shields. The class is
         # unchanged (palette only) -> honesty gate unaffected.
-        hero = _build_story(headline="Security Advisory", subheadline="x",
-                            index=0, severity_label="HIGH", action="READ")
+        hero = _build_story(
+            headline="Security Advisory",
+            subheadline="x",
+            index=0,
+            severity_label="HIGH",
+            action="READ",
+        )
         assert hero["visual"] == "security_advisory"  # routed before recolor
         _apply_real_content([hero], {"content": ""}, cover_theme="red")
         assert hero["visual"] == "security_advisory"  # class preserved
-        assert hero["theme"] == "red"                 # palette recolored
+        assert hero["theme"] == "red"  # palette recolored
 
     def test_build_story_advisory_hero_recolor(self):
         # _build_story path (pre-real-content) also recolors an advisory hero.
-        hero = _build_story(headline="Security Advisory", subheadline="x",
-                            index=0, severity_label="HIGH", action="READ",
-                            cover_theme="green")
+        hero = _build_story(
+            headline="Security Advisory",
+            subheadline="x",
+            index=0,
+            severity_label="HIGH",
+            action="READ",
+            cover_theme="green",
+        )
         assert hero["visual"] == "security_advisory"
         assert hero["theme"] == "green"
         # A side advisory band (index>=1) is NOT recolored by cover_theme.
-        side = _build_story(headline="Security Advisory", subheadline="x",
-                            index=1, severity_label="HIGH", cover_theme="green")
+        side = _build_story(
+            headline="Security Advisory",
+            subheadline="x",
+            index=1,
+            severity_label="HIGH",
+            cover_theme="green",
+        )
         assert side["theme"] != "green" or side["visual"] != "security_advisory"
 
 
@@ -2353,20 +2793,37 @@ def _render_cron(post_info: dict) -> str:
     filename = str(post_info.get("filename", "") or "")
     cover_theme = theme_for_topics(filename, title)
     h, tr, br = extract_three_stories(title, excerpt)
-    hero = _build_story(headline=h["headline"], subheadline=h["subheadline"],
-                        index=0, severity_label="HIGH",
-                        action=_action_for(h["headline"]), cover_theme=cover_theme)
-    tr_s = _build_story(headline=tr["headline"], subheadline=tr["subheadline"],
-                        index=1, severity_label="HIGH")
-    br_s = _build_story(headline=br["headline"], subheadline=br["subheadline"],
-                        index=2, severity_label="MEDIUM")
+    hero = _build_story(
+        headline=h["headline"],
+        subheadline=h["subheadline"],
+        index=0,
+        severity_label="HIGH",
+        action=_action_for(h["headline"]),
+        cover_theme=cover_theme,
+    )
+    tr_s = _build_story(
+        headline=tr["headline"],
+        subheadline=tr["subheadline"],
+        index=1,
+        severity_label="HIGH",
+    )
+    br_s = _build_story(
+        headline=br["headline"],
+        subheadline=br["subheadline"],
+        index=2,
+        severity_label="MEDIUM",
+    )
     post_info["summary_card"] = (
         load_post_fields(text=post_info.get("content", "")) or (None, None)
     )[1]
     _apply_real_content([hero, tr_s, br_s], post_info, cover_theme=cover_theme)
     return render_l20_hero(
-        date_str="2026.02.04", hero=hero, top_right=tr_s, bottom_right=br_s,
-        url="https://tech.2twodragon.com/", post_title="Weekly Digest",
+        date_str="2026.02.04",
+        hero=hero,
+        top_right=tr_s,
+        bottom_right=br_s,
+        url="https://tech.2twodragon.com/",
+        post_title="Weekly Digest",
     )
 
 
@@ -2378,9 +2835,9 @@ _TABLELESS_DIGEST = (
     "title: '주간 보안 다이제스트: 제로데이 DNS 유출 AI 에이전트'\n"
     "summary_card:\n"
     "  highlights:\n"
-    "    - { source: \"Docker DockerDash\", title: \"Ask Gordon AI 비서 코드 실행 취약점 패치\" }\n"
-    "    - { source: \"CVE-2025-11953\", title: \"React Native CLI Metro4Shell RCE - CVSS 9.8\" }\n"
-    "    - { source: \"AWS IAM Identity Center\", title: \"멀티리전 복제 지원 보안 아키텍처 영향\" }\n"
+    '    - { source: "Docker DockerDash", title: "Ask Gordon AI 비서 코드 실행 취약점 패치" }\n'
+    '    - { source: "CVE-2025-11953", title: "React Native CLI Metro4Shell RCE - CVSS 9.8" }\n'
+    '    - { source: "AWS IAM Identity Center", title: "멀티리전 복제 지원 보안 아키텍처 영향" }\n'
     "---\n"
     "본문에 분야/소스 하이라이트 표가 없는 초기 다이제스트 형식입니다.\n"
 )
@@ -2426,13 +2883,26 @@ class TestGenericPoolHeroFix:
         cover_theme = theme_for_topics(filename, title)
         h, tr, br = extract_three_stories(title, excerpt)
         stories = [
-            _build_story(headline=h["headline"], subheadline=h["subheadline"],
-                         index=0, severity_label="HIGH",
-                         action=_action_for(h["headline"]), cover_theme=cover_theme),
-            _build_story(headline=tr["headline"], subheadline=tr["subheadline"],
-                         index=1, severity_label="HIGH"),
-            _build_story(headline=br["headline"], subheadline=br["subheadline"],
-                         index=2, severity_label="MEDIUM"),
+            _build_story(
+                headline=h["headline"],
+                subheadline=h["subheadline"],
+                index=0,
+                severity_label="HIGH",
+                action=_action_for(h["headline"]),
+                cover_theme=cover_theme,
+            ),
+            _build_story(
+                headline=tr["headline"],
+                subheadline=tr["subheadline"],
+                index=1,
+                severity_label="HIGH",
+            ),
+            _build_story(
+                headline=br["headline"],
+                subheadline=br["subheadline"],
+                index=2,
+                severity_label="MEDIUM",
+            ),
         ]
         post_info = dict(info)
         post_info["summary_card"] = sc
@@ -2446,6 +2916,7 @@ class TestGenericPoolHeroFix:
         # must agree for a real post, so cron (text) and regen (path) parse the
         # summary_card identically (no generator/scorer divergence).
         import glob
+
         sample = None
         for fn in sorted(glob.glob("_posts/2026-02-*.md")):
             fields = load_post_fields(path=__import__("pathlib").Path(fn))
@@ -2454,6 +2925,7 @@ class TestGenericPoolHeroFix:
                 break
         assert sample is not None, "no real digest post with highlights found"
         from pathlib import Path as _P
+
         by_path = load_post_fields(path=_P(sample))
         by_text = load_post_fields(text=_P(sample).read_text(encoding="utf-8"))
         assert by_path is not None and by_text is not None
@@ -2469,20 +2941,44 @@ class TestGenericPoolHeroFix:
 # post-derived descriptor (content FORMAT + publish YEAR) instead.
 class TestContentFormatWord:
     def test_format_keywords(self):
-        assert _content_format_word("Cloud Security Course 8Batch 6Week", "x.svg") == "COURSE"
-        assert _content_format_word("AI Coding Assistants Comparison Research Analysis", "x") == "STUDY"
-        assert _content_format_word("Cloud Security Trends January 2026", "x") == "TRENDS"
-        assert _content_format_word("AWS GCP Cloud Updates January 2026", "x") == "UPDATE"
-        assert _content_format_word("KISA Security Advisory Ransomware", "x") == "REPORT"
+        assert (
+            _content_format_word("Cloud Security Course 8Batch 6Week", "x.svg")
+            == "COURSE"
+        )
+        assert (
+            _content_format_word(
+                "AI Coding Assistants Comparison Research Analysis", "x"
+            )
+            == "STUDY"
+        )
+        assert (
+            _content_format_word("Cloud Security Trends January 2026", "x") == "TRENDS"
+        )
+        assert (
+            _content_format_word("AWS GCP Cloud Updates January 2026", "x") == "UPDATE"
+        )
+        assert (
+            _content_format_word("KISA Security Advisory Ransomware", "x") == "REPORT"
+        )
 
     def test_default_is_guide(self):
         # Plain guides + roadmaps (no specific format keyword) -> GUIDE.
         assert _content_format_word("AWS Cloud Security Complete Guide", "x") == "GUIDE"
-        assert _content_format_word("2026 DevSecOps Roadmap Complete Guide", "x") == "GUIDE"
+        assert (
+            _content_format_word("2026 DevSecOps Roadmap Complete Guide", "x")
+            == "GUIDE"
+        )
 
     def test_value_is_ascii_and_within_kpi_cap(self):
         # _kpi_card hard-caps the value at 6 chars; every word must fit + be ASCII.
-        for title in ("Course", "Comparison", "Trends", "Updates", "Advisory", "Anything"):
+        for title in (
+            "Course",
+            "Comparison",
+            "Trends",
+            "Updates",
+            "Advisory",
+            "Anything",
+        ):
             w = _content_format_word(title, "")
             assert w.isascii() and len(w) <= 6
 
@@ -2493,11 +2989,15 @@ class TestContentSideKpi:
         assert _content_side_kpi(0, "AWS Guide", "2026-01-14-AWS_Guide.svg") is None
 
     def test_card1_is_format(self):
-        v = _content_side_kpi(1, "AWS Cloud Security Complete Guide", "2026-01-14-AWS.svg")
+        v = _content_side_kpi(
+            1, "AWS Cloud Security Complete Guide", "2026-01-14-AWS.svg"
+        )
         assert v == ("GUIDE", "FORMAT", "reference")
 
     def test_card2_is_publish_year(self):
-        v = _content_side_kpi(2, "AWS Cloud Security Complete Guide", "2026-01-14-AWS.svg")
+        v = _content_side_kpi(
+            2, "AWS Cloud Security Complete Guide", "2026-01-14-AWS.svg"
+        )
         assert v == ("2026", "YEAR", "published")
 
     def test_card2_none_when_no_dated_filename(self):

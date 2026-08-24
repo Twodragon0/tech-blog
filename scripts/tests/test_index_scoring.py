@@ -88,9 +88,7 @@ class TestIndexDetection:
         # Tag and filename must agree across the whole corpus (no silent drift).
         for post in sorted(POSTS_DIR.glob("*.md")):
             content = post.read_text(encoding="utf-8")
-            assert index_signal_drift(content, post.name) == "", (
-                f"drift on {post.name}"
-            )
+            assert index_signal_drift(content, post.name) == "", f"drift on {post.name}"
 
 
 # --------------------------------------------------------------------------- #
@@ -192,9 +190,7 @@ def test_index_detection_stable():
         assert "Monthly_Index" in name, f"unexpected index detection: {name}"
 
 
-@pytest.mark.parametrize(
-    "post", _non_index_posts(), ids=lambda p: p.name
-)
+@pytest.mark.parametrize("post", _non_index_posts(), ids=lambda p: p.name)
 def test_non_index_scores_byte_identical(post):
     baseline = _load_baseline()
     if post.name not in baseline:

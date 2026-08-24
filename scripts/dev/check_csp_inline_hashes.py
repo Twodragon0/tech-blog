@@ -149,9 +149,7 @@ def save_manifest(manifest_path: Path, hashes: dict[str, str]) -> None:
 # ---------------------------------------------------------------------------
 
 
-def diff_hashes(
-    current: dict[str, str], manifest: dict[str, str]
-) -> list[str]:
+def diff_hashes(current: dict[str, str], manifest: dict[str, str]) -> list[str]:
     """Return a list of human-readable problem descriptions; empty = clean."""
     problems: list[str] = []
 

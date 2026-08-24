@@ -13,6 +13,7 @@ body, so the script is idempotent and doesn't need historical news data.
 
 Reference: .omc/research/gsc_disparity_analysis_2026_05_21.md
 """
+
 from __future__ import annotations
 
 import argparse
@@ -182,10 +183,13 @@ def format_date(fm: dict, filename: str) -> str:
 
 
 def is_already_new_schema(title: str) -> bool:
-    return any(prefix in title for prefix in (
-        "주간 보안 다이제스트:",
-        "기술 블로그 주간 다이제스트:",
-    )) and bool(re.search(r"\(\d+건\)", title))
+    return any(
+        prefix in title
+        for prefix in (
+            "주간 보안 다이제스트:",
+            "기술 블로그 주간 다이제스트:",
+        )
+    ) and bool(re.search(r"\(\d+건\)", title))
 
 
 def build_new_title(fm: dict, body: str, filename: str) -> str:
@@ -228,7 +232,9 @@ def update_title_line(text: str, new_title: str) -> str | None:
     return out
 
 
-def process_file(path: Path, dry_run: bool, force: bool = False) -> tuple[str, str | None]:
+def process_file(
+    path: Path, dry_run: bool, force: bool = False
+) -> tuple[str, str | None]:
     """Return (status, new_title_or_none) — status in {'updated','skip','error'}."""
     text = path.read_text(encoding="utf-8")
     fm, body = parse_frontmatter(text)
@@ -255,9 +261,7 @@ def process_file(path: Path, dry_run: bool, force: bool = False) -> tuple[str, s
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument(
-        "--dry-run", action="store_true", help="print changes, don't write"
-    )
+    ap.add_argument("--dry-run", action="store_true", help="print changes, don't write")
     ap.add_argument(
         "--pattern",
         default="*Weekly_Digest*.md",
@@ -291,7 +295,9 @@ def main() -> int:
             print(f"  [ERR] {p.name}")
 
     print()
-    print(f"Scanned: {len(files)}  Updated: {updated}  Skipped: {skipped}  Errors: {errors}")
+    print(
+        f"Scanned: {len(files)}  Updated: {updated}  Skipped: {skipped}  Errors: {errors}"
+    )
     return 0 if errors == 0 else 2
 
 

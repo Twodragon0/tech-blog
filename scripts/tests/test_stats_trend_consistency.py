@@ -275,7 +275,9 @@ class TestAprilDigestRegression:
     @pytest.fixture(params=["2026-04-12", "2026-04-13"])
     def post_content(self, request):
         posts_dir = Path(__file__).resolve().parents[2] / "_posts"
-        matches = list(posts_dir.glob(f"{request.param}-Tech_Security_Weekly_Digest_*.md"))
+        matches = list(
+            posts_dir.glob(f"{request.param}-Tech_Security_Weekly_Digest_*.md")
+        )
         assert matches, (
             f"No digest post for {request.param}. This regression case pins the "
             "qa_gate fixes made to that post; if it was renamed or removed, "

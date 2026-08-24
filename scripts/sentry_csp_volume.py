@@ -108,7 +108,10 @@ def main() -> int:
     missing = [k for k in REQUIRED if not os.getenv(k)]
     if missing:
         # Names only — never the values.
-        print(f"::error::missing required secret(s): {', '.join(missing)}", file=sys.stderr)
+        print(
+            f"::error::missing required secret(s): {', '.join(missing)}",
+            file=sys.stderr,
+        )
         return 1
 
     token = os.environ["SENTRY_AUTH_TOKEN"]
@@ -155,7 +158,10 @@ def main() -> int:
         return 2
 
     if not isinstance(issues, list):
-        print("::error::unexpected Sentry response shape (expected a list)", file=sys.stderr)
+        print(
+            "::error::unexpected Sentry response shape (expected a list)",
+            file=sys.stderr,
+        )
         return 2
 
     buckets: dict[str, int] = {"first-party": 0, "translate": 0, "extension": 0}

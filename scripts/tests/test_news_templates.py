@@ -41,6 +41,7 @@ from auto_publish_news import (
     generate_risk_scorecard,
     select_top_news,
 )
+
 # NOTE: import from the SAME module object that exports the template functions
 # above (auto_publish_news re-exports from ``scripts.news.content_generator``).
 # Importing from the bare ``news.content_generator`` name would resolve to a
@@ -291,13 +292,15 @@ class TestGenerateAiAnalysisTemplate:
         would mean the picker is broken.
         """
         items = [
-            _item(title=f"Quarterly earnings report {i}", url=f"https://example.com/{c}")
+            _item(
+                title=f"Quarterly earnings report {i}", url=f"https://example.com/{c}"
+            )
             for i, c in enumerate("abcdefgh")
         ]
         results = {_generate_ai_analysis_template(item) for item in items}
-        assert (
-            len(results) >= 2
-        ), f"AI fallback bullets lack diversity across 8 items: {len(results)} unique"
+        assert len(results) >= 2, (
+            f"AI fallback bullets lack diversity across 8 items: {len(results)} unique"
+        )
 
     # ------------------------------------------------------------------
     # Common structure checks
@@ -598,9 +601,9 @@ class TestGenerateDevopsTemplate:
         ]
         results = {_generate_devops_template(item) for item in items}
         # With 5 pools and 10 distinct inputs we expect multiple unique outputs.
-        assert (
-            len(results) >= 2
-        ), f"DevOps fallback bullets lack diversity across 10 items: {len(results)} unique"
+        assert len(results) >= 2, (
+            f"DevOps fallback bullets lack diversity across 10 items: {len(results)} unique"
+        )
 
     # ------------------------------------------------------------------
     # Common structure checks
@@ -1888,7 +1891,9 @@ class TestGenerateBlockchainTemplate:
     def test_none_returns_template(self):
         result = _generate_blockchain_template(None)
         assert "#### 실무 적용 포인트" in result
-        assert ("멀티시그" in result or "스마트 컨트랙트" in result or "키 관리" in result)
+        assert (
+            "멀티시그" in result or "스마트 컨트랙트" in result or "키 관리" in result
+        )
         _assert_no_banned(result, "blockchain None branch")
 
     def test_smart_contract_branch(self):
@@ -1896,19 +1901,19 @@ class TestGenerateBlockchainTemplate:
             self._item("DeFi smart contract reentrancy bug", "solidity audit")
         )
         assert "#### 실무 적용 포인트" in result
-        assert ("컨트랙트" in result or "DeFi" in result or "reentrancy" in result)
+        assert "컨트랙트" in result or "DeFi" in result or "reentrancy" in result
 
     def test_exchange_hack_branch(self):
         result = _generate_blockchain_template(
             self._item("Crypto exchange bridge hack", "거래소 해킹 분석")
         )
-        assert ("IoC" in result or "브리지" in result or "출금" in result)
+        assert "IoC" in result or "브리지" in result or "출금" in result
 
     def test_regulation_branch(self):
         result = _generate_blockchain_template(
             self._item("New stablecoin regulation", "CBDC 규제 법안")
         )
-        assert ("규제" in result or "스테이블코인" in result or "AML" in result)
+        assert "규제" in result or "스테이블코인" in result or "AML" in result
 
     def test_generic_fallback_branch(self):
         result = _generate_blockchain_template(
@@ -1945,7 +1950,9 @@ class TestGenerateBlockchainTemplate:
         )
         bullets = [line for line in result.splitlines() if line.startswith("- ")]
         assert len(bullets) == 4, f"Expected 4 bullets, got {len(bullets)}"
-        assert bullets[0].startswith("- ["), f"First bullet lacks [label]: {bullets[0]!r}"
+        assert bullets[0].startswith("- ["), (
+            f"First bullet lacks [label]: {bullets[0]!r}"
+        )
 
     def test_none_item_keeps_three_bullets(self):
         # No item → no seed → contextualize is a no-op (3 branch bullets).
@@ -3105,7 +3112,9 @@ class TestCheckTitleTruncation:
 
     def test_bare_count_detected(self):
         issues = self.check("EngageLab SDK 결함으로 5천만")
-        assert any("count" in msg.lower() or "dangling" in msg.lower() for msg in issues)
+        assert any(
+            "count" in msg.lower() or "dangling" in msg.lower() for msg in issues
+        )
 
     def test_empty_title_no_issues(self):
         assert self.check("") == []
@@ -3416,10 +3425,9 @@ class TestBuildCleanExcerptVariants:
             "security",
             topics=None,
         )
-        assert any(
-            kw in excerpt
-            for kw in ("랜섬웨어", "감염 경로", "복구")
-        ), f"Variant A keywords missing in: {excerpt!r}"
+        assert any(kw in excerpt for kw in ("랜섬웨어", "감염 경로", "복구")), (
+            f"Variant A keywords missing in: {excerpt!r}"
+        )
         assert len(excerpt) <= 200
 
     # ------------------------------------------------------------------
@@ -3433,10 +3441,9 @@ class TestBuildCleanExcerptVariants:
             "security",
             topics=None,
         )
-        assert any(
-            kw in excerpt
-            for kw in ("AI 에이전트", "LLM", "프롬프트")
-        ), f"Variant B keywords missing in: {excerpt!r}"
+        assert any(kw in excerpt for kw in ("AI 에이전트", "LLM", "프롬프트")), (
+            f"Variant B keywords missing in: {excerpt!r}"
+        )
         assert len(excerpt) <= 200
 
     # ------------------------------------------------------------------
@@ -3450,10 +3457,9 @@ class TestBuildCleanExcerptVariants:
             "security",
             topics=None,
         )
-        assert any(
-            kw in excerpt
-            for kw in ("CVE", "패치", "긴급")
-        ), f"Variant C keywords missing in: {excerpt!r}"
+        assert any(kw in excerpt for kw in ("CVE", "패치", "긴급")), (
+            f"Variant C keywords missing in: {excerpt!r}"
+        )
         assert len(excerpt) <= 200
 
     # ------------------------------------------------------------------
@@ -3468,8 +3474,7 @@ class TestBuildCleanExcerptVariants:
             topics=None,
         )
         assert any(
-            kw in excerpt
-            for kw in ("AWS", "쿠버네티스", "클라우드", "GCP", "Azure")
+            kw in excerpt for kw in ("AWS", "쿠버네티스", "클라우드", "GCP", "Azure")
         ), f"Variant D keywords missing in: {excerpt!r}"
         assert len(excerpt) <= 200
 
@@ -3485,8 +3490,7 @@ class TestBuildCleanExcerptVariants:
             topics=None,
         )
         assert any(
-            kw in excerpt
-            for kw in ("공격 경로", "영향 자산", "체크리스트", "우선순위")
+            kw in excerpt for kw in ("공격 경로", "영향 자산", "체크리스트", "우선순위")
         ), f"Variant E keywords missing in: {excerpt!r}"
         assert len(excerpt) <= 200
 
@@ -3508,12 +3512,8 @@ class TestBuildCleanExcerptVariants:
     )
     def test_excerpt_length_bounds(self, title, mode):
         excerpt = _build_clean_excerpt(title, self._DATE, self._TOTAL, mode)
-        assert len(excerpt) >= 150, (
-            f"Excerpt too short ({len(excerpt)}): {excerpt!r}"
-        )
-        assert len(excerpt) <= 200, (
-            f"Excerpt too long ({len(excerpt)}): {excerpt!r}"
-        )
+        assert len(excerpt) >= 150, f"Excerpt too short ({len(excerpt)}): {excerpt!r}"
+        assert len(excerpt) <= 200, f"Excerpt too long ({len(excerpt)}): {excerpt!r}"
 
 
 # ---------------------------------------------------------------------------
@@ -3536,12 +3536,21 @@ class TestComposeDigestPostTitle:
     @staticmethod
     def _items(n=18):
         return [
-            {"title": "CVE-2026-12345 Zero-day in Cisco FMC",
-             "summary": "critical zero-day", "category": "security"},
-            {"title": "OpenAI ChatGPT agent vulnerability",
-             "summary": "AI agent abuse", "category": "security"},
-            {"title": "Cloud config leak in AWS",
-             "summary": "cloud breach", "category": "security"},
+            {
+                "title": "CVE-2026-12345 Zero-day in Cisco FMC",
+                "summary": "critical zero-day",
+                "category": "security",
+            },
+            {
+                "title": "OpenAI ChatGPT agent vulnerability",
+                "summary": "AI agent abuse",
+                "category": "security",
+            },
+            {
+                "title": "Cloud config leak in AWS",
+                "summary": "cloud breach",
+                "category": "security",
+            },
         ] * (n // 3 + 1)
 
     def test_security_title_has_series_prefix(self):
@@ -3557,14 +3566,18 @@ class TestComposeDigestPostTitle:
         from news.content_generator import _compose_digest_post_title
 
         items = [
-            {"title": "Kubernetes 1.34 release",
-             "summary": "kubernetes update", "category": "tech"},
-            {"title": "New AI model from OpenAI",
-             "summary": "ai model release", "category": "ai"},
+            {
+                "title": "Kubernetes 1.34 release",
+                "summary": "kubernetes update",
+                "category": "tech",
+            },
+            {
+                "title": "New AI model from OpenAI",
+                "summary": "ai model release",
+                "category": "ai",
+            },
         ] * 8
-        title = _compose_digest_post_title(
-            self._DATE, items, 16, mode="tech-blog"
-        )
+        title = _compose_digest_post_title(self._DATE, items, 16, mode="tech-blog")
         assert "기술 블로그 주간 다이제스트" in title
 
     def test_title_ends_with_item_count(self):
@@ -3593,8 +3606,9 @@ class TestComposeDigestPostTitle:
         """When no canonical labels match, we still get a grammatical title."""
         from news.content_generator import _compose_digest_post_title
 
-        items = [{"title": "Some generic news", "summary": "",
-                  "category": "general"}] * 5
+        items = [
+            {"title": "Some generic news", "summary": "", "category": "general"}
+        ] * 5
         title = _compose_digest_post_title(self._DATE, items, 5, mode="security")
         # _extract_digest_title_labels has its own internal fallback chain;
         # the only contract here is "title is well-formed".

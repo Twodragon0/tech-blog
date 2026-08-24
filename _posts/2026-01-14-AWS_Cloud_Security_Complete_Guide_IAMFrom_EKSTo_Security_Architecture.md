@@ -331,4 +331,3 @@ AWS 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 EKS�
 
 마지막 업데이트: 2026-01-14
 작성 기준: SK Shieldus 2024년 AWS 클라우드 보안 가이드, MITRE ATT&CK v14, CIS AWS Foundations Benchmark v1.5.0
-

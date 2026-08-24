@@ -16,6 +16,7 @@ Exit codes:
      dependency)
   1  one or more conversions raised an exception
 """
+
 from __future__ import annotations
 
 import sys

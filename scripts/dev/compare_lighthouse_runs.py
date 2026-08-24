@@ -49,7 +49,8 @@ def _lhr_files(report_dir: Path) -> list[Path]:
     candidates = list(report_dir.glob("lhr-*.json"))
     if not candidates:
         candidates = [
-            p for p in report_dir.glob("*.json")
+            p
+            for p in report_dir.glob("*.json")
             if p.name not in {"manifest.json", "links.json"}
         ]
     return sorted(candidates)
@@ -73,11 +74,20 @@ def _collect_metrics(report_dir: Path) -> dict[str, dict[str, list[float]]]:
             data = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             continue
-        url = data.get("finalDisplayedUrl") or data.get("finalUrl") or data.get("requestedUrl")
+        url = (
+            data.get("finalDisplayedUrl")
+            or data.get("finalUrl")
+            or data.get("requestedUrl")
+        )
         if not url:
             continue
         bucket = by_url.setdefault(url, {"lcp": [], "cls": [], "tbt": [], "fcp": []})
-        for key, audit in (("lcp", LCP_AUDIT), ("cls", CLS_AUDIT), ("tbt", TBT_AUDIT), ("fcp", FCP_AUDIT)):
+        for key, audit in (
+            ("lcp", LCP_AUDIT),
+            ("cls", CLS_AUDIT),
+            ("tbt", TBT_AUDIT),
+            ("fcp", FCP_AUDIT),
+        ):
             metric = _load_metric(data, audit)
             if metric is not None:
                 bucket[key].append(metric)
@@ -118,7 +128,9 @@ def _format_unitless(value: float | None) -> str:
     return f"{value:.3f}"
 
 
-def compare(base_dir: Path, head_dir: Path, threshold_ms: float) -> tuple[list[dict], int]:
+def compare(
+    base_dir: Path, head_dir: Path, threshold_ms: float
+) -> tuple[list[dict], int]:
     """Compute per-URL deltas. Returns (rows, exit_code)."""
     base_metrics = _collect_metrics(base_dir)
     head_metrics = _collect_metrics(head_dir)
@@ -141,19 +153,21 @@ def compare(base_dir: Path, head_dir: Path, threshold_ms: float) -> tuple[list[d
                 failed = True
             else:
                 verdict = "PASS"
-        rows.append({
-            "url": url,
-            "base_lcp": base_lcp,
-            "head_lcp": head_lcp,
-            "delta_lcp": delta,
-            "base_cls": _median(base_norm[url]["cls"]),
-            "head_cls": _median(head_norm[url]["cls"]),
-            "base_tbt": _median(base_norm[url]["tbt"]),
-            "head_tbt": _median(head_norm[url]["tbt"]),
-            "base_fcp": _median(base_norm[url]["fcp"]),
-            "head_fcp": _median(head_norm[url]["fcp"]),
-            "verdict": verdict,
-        })
+        rows.append(
+            {
+                "url": url,
+                "base_lcp": base_lcp,
+                "head_lcp": head_lcp,
+                "delta_lcp": delta,
+                "base_cls": _median(base_norm[url]["cls"]),
+                "head_cls": _median(head_norm[url]["cls"]),
+                "base_tbt": _median(base_norm[url]["tbt"]),
+                "head_tbt": _median(head_norm[url]["tbt"]),
+                "base_fcp": _median(base_norm[url]["fcp"]),
+                "head_fcp": _median(head_norm[url]["fcp"]),
+                "verdict": verdict,
+            }
+        )
     return rows, (1 if failed else 0)
 
 
@@ -201,15 +215,27 @@ def render_markdown(rows: list[dict], threshold_ms: float) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--base-dir", type=Path, required=True, help="Directory of base-branch LHR JSON files")
-    parser.add_argument("--head-dir", type=Path, required=True, help="Directory of head-branch LHR JSON files")
+    parser.add_argument(
+        "--base-dir",
+        type=Path,
+        required=True,
+        help="Directory of base-branch LHR JSON files",
+    )
+    parser.add_argument(
+        "--head-dir",
+        type=Path,
+        required=True,
+        help="Directory of head-branch LHR JSON files",
+    )
     parser.add_argument(
         "--threshold-lcp-ms",
         type=float,
         default=200.0,
         help="Fail if head_LCP - base_LCP exceeds this (default: 200 ms)",
     )
-    parser.add_argument("--output-md", type=Path, default=None, help="Optional Markdown output path")
+    parser.add_argument(
+        "--output-md", type=Path, default=None, help="Optional Markdown output path"
+    )
     parser.add_argument("--quiet", action="store_true", help="Suppress stdout summary")
     parser.add_argument(
         "--require-comparable",

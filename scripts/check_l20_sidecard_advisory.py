@@ -18,6 +18,7 @@ Usage:
     python3 scripts/check_l20_sidecard_advisory.py <svg>...   # scan specific files
 Exit 0 = clean, 1 = at least one side-card advisory found.
 """
+
 from __future__ import annotations
 
 import re
@@ -65,7 +66,10 @@ def check_file(svg_path: Path) -> Tuple[bool, str]:
         return True, "skip (not L20)"
     hits = _side_card_advisory_offsets(text)
     if hits:
-        return False, f"{len(hits)} side-card advisory panel(s) — occludes the band headline"
+        return (
+            False,
+            f"{len(hits)} side-card advisory panel(s) — occludes the band headline",
+        )
     return True, "clean"
 
 
@@ -90,13 +94,21 @@ def main(argv: List[str]) -> int:
         if not ok:
             violations.append((svg, msg))
     if violations:
-        print(f"[sidecard-advisory] FAIL — {len(violations)} cover(s) draw the advisory shield in a side card:")
+        print(
+            f"[sidecard-advisory] FAIL — {len(violations)} cover(s) draw the advisory shield in a side card:"
+        )
         for svg, msg in violations:
             print(f"  ✗ {svg.name}: {msg}")
-        print("  Fix: regenerate via the cron L20 path (auto_publish_news._render_l20_svg_string),")
-        print("  which demotes side-card advisory to a neutral motif. See _demote_sidecard_advisory.")
+        print(
+            "  Fix: regenerate via the cron L20 path (auto_publish_news._render_l20_svg_string),"
+        )
+        print(
+            "  which demotes side-card advisory to a neutral motif. See _demote_sidecard_advisory."
+        )
         return 1
-    print(f"[sidecard-advisory] OK — {scanned} L20 cover(s) checked, 0 side-card advisory panels.")
+    print(
+        f"[sidecard-advisory] OK — {scanned} L20 cover(s) checked, 0 side-card advisory panels."
+    )
     return 0
 
 

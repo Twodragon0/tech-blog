@@ -54,7 +54,9 @@ def extract_frontmatter_bounds(content: str) -> tuple[int, int] | None:
     return None
 
 
-def process_file(filepath: str, commit: bool, add_only: bool = False) -> tuple[str, bool]:
+def process_file(
+    filepath: str, commit: bool, add_only: bool = False
+) -> tuple[str, bool]:
     """Process a single post file.
 
     Returns (status_message, was_changed).
@@ -74,9 +76,7 @@ def process_file(filepath: str, commit: bool, add_only: bool = False) -> tuple[s
     lines = content.splitlines(keepends=True)
 
     # Check if last_modified_at already exists
-    existing_match = re.search(
-        r"^last_modified_at:\s*(.+)$", content, re.MULTILINE
-    )
+    existing_match = re.search(r"^last_modified_at:\s*(.+)$", content, re.MULTILINE)
 
     if add_only and existing_match:
         return (
@@ -196,7 +196,9 @@ def main() -> None:
     errors = 0
 
     for filepath in post_files:
-        msg, was_changed = process_file(filepath, commit=do_commit, add_only=args.add_only)
+        msg, was_changed = process_file(
+            filepath, commit=do_commit, add_only=args.add_only
+        )
         print(msg)
         if "ERROR" in msg:
             errors += 1
@@ -207,7 +209,7 @@ def main() -> None:
         else:
             skipped += 1
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"Summary ({mode}):")
     print(f"  Changed/Added : {changed}")
     print(f"  Kept (manual) : {kept}")

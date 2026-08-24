@@ -7,6 +7,7 @@ Covers the policy contract (notes/digest-proper-noun-policy.md):
   - front matter is never modified
   - --fix is idempotent
 """
+
 import os
 import sys
 import tempfile
@@ -15,13 +16,13 @@ from pathlib import Path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from check_digest_proper_nouns import (  # noqa: E402
     ENTITIES,
+    _is_digest_post,
+    _split_front_matter,
     check_post,
     find_violations,
     fix_body,
     fix_post,
     main,
-    _is_digest_post,
-    _split_front_matter,
 )
 
 # --- find_violations() -----------------------------------------------------
@@ -212,7 +213,7 @@ def test_window_homonym_stays_deferred():
 def test_front_matter_preserved():
     doc = (
         "---\n"
-        'title: "구글의 새 정책"\n'   # front matter Hangul must survive
+        'title: "구글의 새 정책"\n'  # front matter Hangul must survive
         "---\n"
         "본문에서 구글은 canonical.\n"
     )
@@ -227,7 +228,7 @@ def test_front_matter_preserved():
 
 def _write_digest(tmp: Path, name: str, body: str) -> Path:
     p = tmp / f"2026-01-01-{name}_Weekly_Digest.md"
-    p.write_text(f"---\ntitle: \"x\"\n---\n{body}", encoding="utf-8")
+    p.write_text(f'---\ntitle: "x"\n---\n{body}', encoding="utf-8")
     return p
 
 

@@ -104,7 +104,7 @@ def _check_script(wf: dict) -> str:
     if start is None:
         return ""
     body = []
-    for ln in lines[start + 1:]:
+    for ln in lines[start + 1 :]:
         if ln.strip() == "EOF":
             return "\n".join(body)
         body.append(ln)
@@ -186,9 +186,7 @@ class TestLighthouseGateConfig:
 
     def test_cls_budget_not_loosened(self):
         code = _uncommented(_check_script(_workflow()))
-        cls = re.search(
-            r"'cumulative-layout-shift':\s*\{\s*max:\s*([\d.]+)", code
-        )
+        cls = re.search(r"'cumulative-layout-shift':\s*\{\s*max:\s*([\d.]+)", code)
         assert cls, (
             "the cumulative-layout-shift budget was removed. CLS is the one "
             "metric that is stable on this runner (0.000-0.014 across 60 runs), "
@@ -238,11 +236,9 @@ class TestLighthouseGateConfig:
             "log line. Keep it: it is the evidence trail for re-deriving the "
             "budget later."
         )
-        assert not re.search(
-            r"'largest-contentful-paint':\s*\{\s*max:", code
-        ), (
+        assert not re.search(r"'largest-contentful-paint':\s*\{\s*max:", code), (
             "an LCP budget was re-added to METRIC_BUDGETS. LCP is bimodal on "
-            f"this runner (55/60 runs 4218-4373ms, 5/60 runs 6921-9695ms with "
+            "this runner (55/60 runs 4218-4373ms, 5/60 runs 6921-9695ms with "
             "identical observed inputs), so a budget between the modes reds "
             "~8.3% of runs for no signal. Re-add one only with a fresh "
             "measurement showing the bimodality is gone — and update this guard "
@@ -302,8 +298,7 @@ class TestLighthouseGateConfig:
             "block the job."
         )
         assert "|| true" not in step.get("run", ""), (
-            "the check step is neutralised with '|| true'; a FAIL would be "
-            "swallowed."
+            "the check step is neutralised with '|| true'; a FAIL would be swallowed."
         )
 
 
@@ -319,7 +314,10 @@ _GOOD_LHR = {
     "environment": {"benchmarkIndex": 2180},
     "categories": {"performance": {"score": 0.64}},
     "audits": {
-        "largest-contentful-paint": {"numericValue": 4298.2, "numericUnit": "millisecond"},
+        "largest-contentful-paint": {
+            "numericValue": 4298.2,
+            "numericUnit": "millisecond",
+        },
         "cumulative-layout-shift": {"numericValue": 0.0, "numericUnit": "unitless"},
         "total-blocking-time": {"numericValue": 671.7, "numericUnit": "millisecond"},
     },
@@ -339,20 +337,24 @@ def _run_gate(lhr: dict, summary: dict) -> subprocess.CompletedProcess:
     with tempfile.TemporaryDirectory() as tmp:
         lhr_path = Path(tmp) / "lhr-1.json"
         lhr_path.write_text(json.dumps(lhr), encoding="utf-8")
-        manifest = [{
-            "url": lhr["requestedUrl"],
-            "isRepresentativeRun": True,
-            "htmlPath": str(Path(tmp) / "lhr-1.html"),
-            "jsonPath": str(lhr_path),
-            "summary": summary,
-        }]
+        manifest = [
+            {
+                "url": lhr["requestedUrl"],
+                "isRepresentativeRun": True,
+                "htmlPath": str(Path(tmp) / "lhr-1.html"),
+                "jsonPath": str(lhr_path),
+                "summary": summary,
+            }
+        ]
         return subprocess.run(
             ["node", "-"],
             input=script,
             capture_output=True,
             text=True,
-            env={"PATH": __import__("os").environ["PATH"],
-                 "LIGHTHOUSE_MANIFEST": json.dumps(manifest)},
+            env={
+                "PATH": __import__("os").environ["PATH"],
+                "LIGHTHOUSE_MANIFEST": json.dumps(manifest),
+            },
         )
 
 
@@ -433,8 +435,7 @@ class TestLighthouseGateBehaviour:
             input=script,
             capture_output=True,
             text=True,
-            env={"PATH": __import__("os").environ["PATH"],
-                 "LIGHTHOUSE_MANIFEST": "[]"},
+            env={"PATH": __import__("os").environ["PATH"], "LIGHTHOUSE_MANIFEST": "[]"},
         )
         assert r.returncode == 1, (
             "an empty manifest passed the gate — the step would report success "
@@ -450,8 +451,7 @@ class TestLighthouseGateBehaviour:
             input=script,
             capture_output=True,
             text=True,
-            env={"PATH": __import__("os").environ["PATH"],
-                 "LIGHTHOUSE_MANIFEST": ""},
+            env={"PATH": __import__("os").environ["PATH"], "LIGHTHOUSE_MANIFEST": ""},
         )
         assert r.returncode == 1, (
             f"an empty LIGHTHOUSE_MANIFEST passed the gate:\n{r.stdout}\n{r.stderr}"
@@ -460,20 +460,24 @@ class TestLighthouseGateBehaviour:
     def test_unreadable_lhr_fails_closed(self):
         """A missing LHR must not silently pass the metric budgets."""
         script = _check_script(_workflow())
-        manifest = [{
-            "url": "http://localhost:4000/",
-            "isRepresentativeRun": True,
-            "htmlPath": "/nonexistent/lhr-1.html",
-            "jsonPath": "/nonexistent/lhr-1.json",
-            "summary": _GOOD_SUMMARY,
-        }]
+        manifest = [
+            {
+                "url": "http://localhost:4000/",
+                "isRepresentativeRun": True,
+                "htmlPath": "/nonexistent/lhr-1.html",
+                "jsonPath": "/nonexistent/lhr-1.json",
+                "summary": _GOOD_SUMMARY,
+            }
+        ]
         r = subprocess.run(
             ["node", "-"],
             input=script,
             capture_output=True,
             text=True,
-            env={"PATH": __import__("os").environ["PATH"],
-                 "LIGHTHOUSE_MANIFEST": json.dumps(manifest)},
+            env={
+                "PATH": __import__("os").environ["PATH"],
+                "LIGHTHOUSE_MANIFEST": json.dumps(manifest),
+            },
         )
         assert r.returncode == 1, (
             "an unreadable LHR passed the gate — the metric budgets would be "

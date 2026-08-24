@@ -1,4 +1,5 @@
 """Tests for the side-card advisory regression gate."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -43,7 +44,9 @@ def test_check_file_fails_for_side_card(tmp_path: Path):
 
 def test_non_l20_cover_is_skipped(tmp_path: Path):
     p = tmp_path / "plain.svg"
-    p.write_text(f"<svg>{_BR}</svg>", encoding="utf-8")  # has side advisory but no L20 marker
+    p.write_text(
+        f"<svg>{_BR}</svg>", encoding="utf-8"
+    )  # has side advisory but no L20 marker
     ok, msg = gate.check_file(p)
     assert ok is True and "skip" in msg
 

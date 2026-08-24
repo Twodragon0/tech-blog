@@ -2,7 +2,7 @@ requests>=2.34.2
 certifi>=2026.7.22
 beautifulsoup4>=4.15.0
 python-frontmatter>=1.3.0
-lxml>=6.1.1
+lxml>=6.1.2
 tweepy>=4.17.0
 PyYAML>=6.0.3
 Pillow>=11.3.0,<12.0  # moviepy 2.x requires pillow<12.0; ceiling prevents transitive break
@@ -24,8 +24,9 @@ edge-tts>=7.2.8
 TTS>=0.22.0; python_version < "3.14"
 
 # 비디오/SVG 처리 (선택적)
-moviepy>=1.0.3
+moviepy>=2.2.1
 cairosvg>=2.9.0,<3.0
+qrcode>=8.0.0
 
 # AWS 아키텍처 다이어그램 생성
 diagrams>=0.25.1

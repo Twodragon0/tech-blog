@@ -27,6 +27,7 @@ Usage:
     python3 scripts/check_digest_checklist_heading.py --staged
     python3 scripts/check_digest_checklist_heading.py --all
 """
+
 import argparse
 import re
 import subprocess
@@ -50,7 +51,7 @@ def _is_digest_post(path: Path) -> bool:
 
 def _body(text: str) -> str:
     m = _FRONT_MATTER_RE.match(text)
-    return text[m.end():] if m else text
+    return text[m.end() :] if m else text
 
 
 def _strip_code_fences(text: str) -> str:
@@ -82,7 +83,9 @@ def check_text(text: str) -> list:
     canonical = [h for h in headings if h[0] == 2 and h[1] == _CANONICAL_TEXT]
     # A heading that carries the canonical words but is not the canonical form.
     variants = [
-        h for h in headings if _CANONICAL_TEXT in h[1] and not (h[0] == 2 and h[1] == _CANONICAL_TEXT)
+        h
+        for h in headings
+        if _CANONICAL_TEXT in h[1] and not (h[0] == 2 and h[1] == _CANONICAL_TEXT)
     ]
 
     violations = []
@@ -93,9 +96,7 @@ def check_text(text: str) -> list:
     if not canonical and not variants:
         candidates = [h[2] for h in headings if "체크리스트" in h[1]]
         hint = f" nearest: {candidates[0]!r}" if candidates else ""
-        violations.append(
-            f"missing canonical checklist heading {CANONICAL!r}.{hint}"
-        )
+        violations.append(f"missing canonical checklist heading {CANONICAL!r}.{hint}")
     elif len(canonical) > 1:
         violations.append(
             f"expected exactly one canonical {CANONICAL!r}, found {len(canonical)}"
@@ -116,7 +117,9 @@ def _all_paths() -> list:
 
 def _git_paths(cmd: list) -> list:
     try:
-        out = subprocess.check_output(cmd, cwd=str(REPO), stderr=subprocess.DEVNULL, text=True)
+        out = subprocess.check_output(
+            cmd, cwd=str(REPO), stderr=subprocess.DEVNULL, text=True
+        )
     except (subprocess.CalledProcessError, FileNotFoundError):
         return []
     paths = []
@@ -156,10 +159,18 @@ def main(argv=None) -> int:
     args = parser.parse_args(argv)
 
     if args.staged:
-        files = _git_paths(["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"])
+        files = _git_paths(
+            ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"]
+        )
     elif args.changed:
         files = _git_paths(
-            ["git", "diff", "--name-only", f"{args.changed}...HEAD", "--diff-filter=ACM"]
+            [
+                "git",
+                "diff",
+                "--name-only",
+                f"{args.changed}...HEAD",
+                "--diff-filter=ACM",
+            ]
         )
     elif args.paths:
         files = _explicit(args.paths)

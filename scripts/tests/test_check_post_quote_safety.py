@@ -21,7 +21,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from scripts.check_post_quote_safety import check_file, main
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -44,7 +43,7 @@ class TestRawQuoteBlocked:
         """title field with raw \" inside value is blocked."""
         p = _make_post(
             tmp_path,
-            'title: "중요한 cPanel 취약점이 \'Sorry\', Trellix 공격"',
+            "title: \"중요한 cPanel 취약점이 'Sorry', Trellix 공격\"",
         )
         # The value contains single quotes (fine) but no double-quotes — clean case.
         assert check_file(p) == []
@@ -61,7 +60,9 @@ class TestRawQuoteBlocked:
 
     def test_excerpt_raw_dq(self, tmp_path: Path):
         """excerpt field with raw double-quote is flagged."""
-        content = '---\nexcerpt: "Bitwarden \\"패스워드\\" leak"\nlayout: post\n---\nBody\n'
+        content = (
+            '---\nexcerpt: "Bitwarden \\"패스워드\\" leak"\nlayout: post\n---\nBody\n'
+        )
         p = tmp_path / "2026-05-01-test.md"
         p.write_text(content, encoding="utf-8")
         violations = check_file(p)
@@ -113,11 +114,7 @@ class TestEscapedQuoteBlocked:
     def test_multiple_fields_escaped(self, tmp_path: Path):
         """Multiple fields with escaped quotes all flagged."""
         content = (
-            '---\n'
-            'title: "T \\"x\\""\n'
-            'excerpt: "E \\"y\\""\n'
-            'layout: post\n'
-            '---\nBody\n'
+            '---\ntitle: "T \\"x\\""\nexcerpt: "E \\"y\\""\nlayout: post\n---\nBody\n'
         )
         p = tmp_path / "2026-05-01-test.md"
         p.write_text(content, encoding="utf-8")
@@ -261,9 +258,7 @@ class TestCurlyQuotesBlocked:
 
     def test_include_without_curly_quote_passes(self, tmp_path: Path):
         """Liquid include line with only ASCII quotes does not trigger."""
-        body = (
-            "{% include digest_item.html title='Next 26 release' %}\n"
-        )
+        body = "{% include digest_item.html title='Next 26 release' %}\n"
         p = _make_post(
             tmp_path,
             "title: Clean title\nexcerpt: Clean excerpt.",

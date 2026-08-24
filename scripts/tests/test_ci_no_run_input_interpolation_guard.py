@@ -138,7 +138,9 @@ class TestNoRunInputInterpolationGuard:
                 raise AssertionError(f"{wf.name} is not valid YAML: {exc}")
             for job_name, step_name, run_text in _run_bodies(doc):
                 for expr in _scan(run_text):
-                    offenders.append(f"{wf.name} :: job '{job_name}' :: step '{step_name}' :: {expr}")
+                    offenders.append(
+                        f"{wf.name} :: job '{job_name}' :: step '{step_name}' :: {expr}"
+                    )
 
         assert not offenders, (
             "Untrusted ${{ }} context interpolated directly into a run: shell body "
@@ -157,7 +159,9 @@ class TestNoRunInputInterpolationGuard:
                 raise AssertionError(f"{wf.name} is not valid YAML: {exc}")
             for job_name, step_name, script in _github_script_bodies(doc):
                 for expr in _scan(script):
-                    offenders.append(f"{wf.name} :: job '{job_name}' :: step '{step_name}' :: {expr}")
+                    offenders.append(
+                        f"{wf.name} :: job '{job_name}' :: step '{step_name}' :: {expr}"
+                    )
 
         assert not offenders, (
             "Untrusted ${{ }} context interpolated directly into an "

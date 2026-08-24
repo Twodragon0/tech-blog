@@ -86,7 +86,9 @@ def _render(svg: Path, png: Path, rsvg: str) -> tuple[Path, bool, str]:
 def _parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--dry-run", action="store_true", help="report only, do not render")
-    p.add_argument("--force", action="store_true", help="re-render even if a PNG exists")
+    p.add_argument(
+        "--force", action="store_true", help="re-render even if a PNG exists"
+    )
     p.add_argument("--workers", type=int, default=4, help="parallel render workers")
     return p.parse_args()
 
@@ -122,7 +124,9 @@ def main() -> int:
     ok_count = 0
     failed: list[tuple[Path, str]] = []
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        futures = {pool.submit(_render, svg, png, rsvg): (svg, png) for svg, png in todo}
+        futures = {
+            pool.submit(_render, svg, png, rsvg): (svg, png) for svg, png in todo
+        }
         for fut in as_completed(futures):
             png, ok, msg = fut.result()
             svg, _ = futures[fut]

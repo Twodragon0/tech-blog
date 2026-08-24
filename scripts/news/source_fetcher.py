@@ -4,6 +4,7 @@ Fail-closed: any error / empty / too-short body returns None so the caller
 keeps the existing short summary. Never raises to the caller. Cache mirrors
 loader.load_published_urls (per-key expires_at ISO, 7-day TTL).
 """
+
 import hashlib
 import json
 import logging
@@ -22,6 +23,7 @@ def _key(url: str) -> str:
 
 def _http_get(url: str, timeout: int = 10) -> str:
     import requests  # lazy, matches repo pattern
+
     resp = requests.get(url, headers={"User-Agent": _UA}, timeout=timeout)
     resp.raise_for_status()
     return resp.text
@@ -55,8 +57,13 @@ def _save_cache(path: Optional[str], data: dict) -> None:
         logging.debug("source_fetcher: cache write failed for %s", path)
 
 
-def fetch_article(url: str, *, cache_path: Optional[str] = None,
-                  ttl_days: int = 7, now: Optional[datetime] = None) -> Optional[str]:
+def fetch_article(
+    url: str,
+    *,
+    cache_path: Optional[str] = None,
+    ttl_days: int = 7,
+    now: Optional[datetime] = None,
+) -> Optional[str]:
     if not url or not url.startswith(("http://", "https://")):
         return None
     now = now or datetime.now()
@@ -79,6 +86,9 @@ def fetch_article(url: str, *, cache_path: Optional[str] = None,
     text = _extract_text(html)
     if len(text) < _MIN_TEXT_LEN:
         return None
-    cache[key] = {"text": text, "expires_at": (now + timedelta(days=ttl_days)).isoformat()}
+    cache[key] = {
+        "text": text,
+        "expires_at": (now + timedelta(days=ttl_days)).isoformat(),
+    }
     _save_cache(cache_path, cache)
     return text

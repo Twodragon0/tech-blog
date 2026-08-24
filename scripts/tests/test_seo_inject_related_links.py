@@ -8,6 +8,7 @@ Weekly-Digest posts. Three concerns:
    ``---`` + ``**작성자**`` footer) and contains the idempotence marker.
 3. Idempotence — re-runs do not duplicate sections.
 """
+
 from __future__ import annotations
 
 import sys
@@ -73,9 +74,7 @@ class TestNeighborPicking:
         dates = [d for d, _, _ in neighbors]
         assert Date(2026, 5, 18) not in dates
 
-    def test_falls_back_when_preferred_offsets_missing(
-        self, tmp_path: Path
-    ) -> None:
+    def test_falls_back_when_preferred_offsets_missing(self, tmp_path: Path) -> None:
         """If ±1/±3/±7 are all missing, the catalog walk picks the
         nearest available dates by absolute distance."""
         _fixture_post(tmp_path, "2026-05-18")  # target
@@ -97,9 +96,7 @@ class TestNeighborPicking:
 
 class TestBuildSection:
     def test_includes_marker(self) -> None:
-        section = _build_section(
-            [(Date(2026, 5, 17), "slug-a", "Title A")]
-        )
+        section = _build_section([(Date(2026, 5, 17), "slug-a", "Title A")])
         assert MARKER in section
         assert "Title A" in section
         assert "/posts/2026/05/17/slug-a/" in section
@@ -110,9 +107,7 @@ class TestBuildSection:
 
 class TestInjection:
     def test_inserts_before_author_footer(self) -> None:
-        body = (
-            "\n# Body\n\nContent here.\n\n---\n\n**작성자**: Twodragon\n"
-        )
+        body = "\n# Body\n\nContent here.\n\n---\n\n**작성자**: Twodragon\n"
         section = "\n---\n\n## 🔗 관련 포스트\n\n" + MARKER + "\n\n- link"
         out = _inject(body, section)
         # marker comes before the author line

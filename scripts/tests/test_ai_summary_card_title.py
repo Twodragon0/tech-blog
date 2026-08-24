@@ -20,7 +20,6 @@ from scripts.news.content_generator import (
     _html_escape_quotes,
 )
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -172,7 +171,6 @@ class TestGeneratePostContentTitleLength:
         import datetime
 
         import yaml
-
         from auto_publish_news import generate_post_content
 
         # 3 headlines, each 26 chars after truncation, to stress the cap
@@ -191,8 +189,7 @@ class TestGeneratePostContentTitleLength:
             "blockchain": [],
             "tech": [],
         }
-        date = datetime.datetime(2026, 5, 6, 11, 0, 0,
-                                 tzinfo=datetime.timezone.utc)
+        date = datetime.datetime(2026, 5, 6, 11, 0, 0, tzinfo=datetime.timezone.utc)
         content = generate_post_content(items, categorized, date)
 
         fm_block = content.split("---", 2)[1]

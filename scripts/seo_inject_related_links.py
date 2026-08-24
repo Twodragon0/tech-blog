@@ -45,7 +45,20 @@ MARKER = "<!-- related-posts:v1 -->"
 
 # Preferred temporal offsets (days). 0 is skipped to avoid self-references.
 PREFERRED_OFFSETS: tuple[int, ...] = (
-    -1, 1, -3, 3, -7, 7, -2, 2, -5, 5, -14, 14, -30, 30,
+    -1,
+    1,
+    -3,
+    3,
+    -7,
+    7,
+    -2,
+    2,
+    -5,
+    5,
+    -14,
+    14,
+    -30,
+    30,
 )
 
 _FILENAME_RE = re.compile(
@@ -57,8 +70,7 @@ _TITLE_RE = re.compile(r'^title:\s*"(.+?)"\s*$', re.MULTILINE)
 def _is_monthly_rollup(name: str) -> bool:
     stem = name.lower()
     return any(
-        token in stem
-        for token in ("week3_", "week4_", "week5_", "month", "monthly")
+        token in stem for token in ("week3_", "week4_", "week5_", "month", "monthly")
     )
 
 

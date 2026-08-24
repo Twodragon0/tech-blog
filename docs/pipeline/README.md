@@ -12,6 +12,7 @@
 ```
 docs/pipeline/
 ├── README.md                    # 이 파일 (프로젝트 전체 개요)
+├── AGY_OMC_CCG_BEST_SCENARIOS.md# AGY + OMC + CCG 베스트 시나리오 및 오케스트레이션 가이드
 ├── architecture.md              # 전체 아키텍처
 ├── workflows.md                 # GitHub Actions 워크플로우 상세
 └── operations.md                # 운영 가이드

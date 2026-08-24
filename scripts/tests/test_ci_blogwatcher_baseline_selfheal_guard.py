@@ -45,9 +45,7 @@ def _noncomment_lines(text: str) -> str:
     it green after the real step is deleted. Inline trailing comments on a real
     key line are preserved because that line is not comment-only.
     """
-    return "\n".join(
-        ln for ln in text.splitlines() if not ln.lstrip().startswith("#")
-    )
+    return "\n".join(ln for ln in text.splitlines() if not ln.lstrip().startswith("#"))
 
 
 class TestBlogwatcherBaselineSelfHealGuard:

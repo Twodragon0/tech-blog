@@ -12,6 +12,7 @@ TWO different causes, and only one of them is ours:
   these tests pin that such text is left alone — a period must NOT be bolted
   onto a noun-ended fragment.
 """
+
 import os
 import sys
 
@@ -34,7 +35,12 @@ _seq = iter(range(10_000))
 
 def summarize(text):
     return cg._korean_brief_summary(
-        {"summary": text, "title": "t", "url": f"https://e.example/{next(_seq)}", "content": ""}
+        {
+            "summary": text,
+            "title": "t",
+            "url": f"https://e.example/{next(_seq)}",
+            "content": "",
+        }
     )
 
 
@@ -44,7 +50,10 @@ def summarize(text):
 @pytest.mark.parametrize(
     "text,tail",
     [
-        ("공격자가 npm 패키지를 장악했습니다. 방어 측은 SBOM을 점검해야 합니다.", "합니다."),
+        (
+            "공격자가 npm 패키지를 장악했습니다. 방어 측은 SBOM을 점검해야 합니다.",
+            "합니다.",
+        ),
         ("공격자가 npm 패키지를 장악했습니다.", "습니다."),
         ("보고서는 국내외 랜섬웨어 이슈를 요약한다.", "한다."),
         ("공격이 확산되고 있습니다...", "있습니다."),

@@ -972,4 +972,3 @@ DevSecOps 엔지니어로서, 자동차가 단순한 운송 수단을 넘어 이
 | [CycloneDX](https://github.com/CycloneDX/cyclonedx-cli) | SBOM 생성 도구 | OWASP |
 | [Grype](https://github.com/anchore/grype) | 취약점 스캐너 | Anchore |
 | [SPDX Specification](https://spdx.dev/) | SBOM 표준 스펙 | Linux Foundation |
-

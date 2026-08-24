@@ -11,6 +11,7 @@ the per-font-size character budget back into overflow territory.
 
 API disabling and path setup are handled by conftest.py.
 """
+
 from __future__ import annotations
 
 import importlib.util

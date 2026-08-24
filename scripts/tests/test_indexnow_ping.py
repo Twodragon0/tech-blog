@@ -21,7 +21,6 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import indexnow_ping as ping  # noqa: E402
 
-
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
@@ -67,10 +66,12 @@ def test_payload_structure(sample_key, sample_urls):
 
 def test_key_masking(sample_key, sample_urls, capsys):
     """main() must never print the raw key to stdout or stderr."""
-    with patch.object(ping, "resolve_key", return_value=sample_key), \
-         patch.object(ping, "parse_sitemap_urls", return_value=sample_urls), \
-         patch.object(ping, "post_to_endpoint", return_value=(True, 200, "OK")), \
-         patch("sys.argv", ["indexnow_ping.py"]):
+    with (
+        patch.object(ping, "resolve_key", return_value=sample_key),
+        patch.object(ping, "parse_sitemap_urls", return_value=sample_urls),
+        patch.object(ping, "post_to_endpoint", return_value=(True, 200, "OK")),
+        patch("sys.argv", ["indexnow_ping.py"]),
+    ):
         rc = ping.main()
 
     captured = capsys.readouterr()
@@ -97,7 +98,7 @@ def test_mask_key_format(sample_key):
 def test_mask_key_short():
     """mask_key() handles keys shorter than 8 chars gracefully."""
     assert ping.mask_key("abc") == "****"
-    assert ping.mask_key("1234567") == "****"   # len < 8 → fully masked
+    assert ping.mask_key("1234567") == "****"  # len < 8 → fully masked
     assert ping.mask_key("12345678") == "1234...5678"  # len == 8 → show first/last 4
 
 
@@ -108,12 +109,16 @@ def test_mask_key_short():
 
 def test_url_limit_truncation(sample_key, capsys):
     """URLs exceeding URL_LIMIT must be truncated, not errored."""
-    oversized = [f"https://tech.2twodragon.com/post-{i}/" for i in range(ping.URL_LIMIT + 500)]
+    oversized = [
+        f"https://tech.2twodragon.com/post-{i}/" for i in range(ping.URL_LIMIT + 500)
+    ]
 
-    with patch.object(ping, "resolve_key", return_value=sample_key), \
-         patch.object(ping, "parse_sitemap_urls", return_value=oversized), \
-         patch.object(ping, "post_to_endpoint", return_value=(True, 200, "OK")), \
-         patch("sys.argv", ["indexnow_ping.py"]):
+    with (
+        patch.object(ping, "resolve_key", return_value=sample_key),
+        patch.object(ping, "parse_sitemap_urls", return_value=oversized),
+        patch.object(ping, "post_to_endpoint", return_value=(True, 200, "OK")),
+        patch("sys.argv", ["indexnow_ping.py"]),
+    ):
         rc = ping.main()
 
     assert rc == 0
@@ -140,10 +145,12 @@ def test_url_limit_boundary_ok(sample_key, sample_urls):
 
 def test_dry_run_no_http(sample_key, sample_urls, capsys):
     """--dry-run must not invoke post_to_endpoint or any HTTP calls."""
-    with patch.object(ping, "resolve_key", return_value=sample_key), \
-         patch.object(ping, "parse_sitemap_urls", return_value=sample_urls), \
-         patch.object(ping, "post_to_endpoint") as mock_post, \
-         patch("sys.argv", ["indexnow_ping.py", "--dry-run"]):
+    with (
+        patch.object(ping, "resolve_key", return_value=sample_key),
+        patch.object(ping, "parse_sitemap_urls", return_value=sample_urls),
+        patch.object(ping, "post_to_endpoint") as mock_post,
+        patch("sys.argv", ["indexnow_ping.py", "--dry-run"]),
+    ):
         rc = ping.main()
 
     mock_post.assert_not_called()
@@ -157,15 +164,17 @@ def test_dry_run_no_http(sample_key, sample_urls, capsys):
 
 def test_dry_run_contains_payload_structure(sample_key, sample_urls, capsys):
     """--dry-run output must include host, keyLocation (masked), and urlList fields."""
-    with patch.object(ping, "resolve_key", return_value=sample_key), \
-         patch.object(ping, "parse_sitemap_urls", return_value=sample_urls), \
-         patch.object(ping, "post_to_endpoint"), \
-         patch("sys.argv", ["indexnow_ping.py", "--dry-run"]):
+    with (
+        patch.object(ping, "resolve_key", return_value=sample_key),
+        patch.object(ping, "parse_sitemap_urls", return_value=sample_urls),
+        patch.object(ping, "post_to_endpoint"),
+        patch("sys.argv", ["indexnow_ping.py", "--dry-run"]),
+    ):
         ping.main()
 
     out = capsys.readouterr().out
     assert ping.HOST in out
-    assert ".txt" in out          # keyLocation should reference .txt file
+    assert ".txt" in out  # keyLocation should reference .txt file
     assert "urlList" in out
     assert sample_urls[0] in out
     # Raw key must not appear in dry-run output (including keyLocation URL)
@@ -207,9 +216,7 @@ def test_parse_sitemap_urls_success():
 
 def test_parse_sitemap_urls_returns_empty_on_url_error(capsys):
     """Connection failures return [] with a stderr diagnostic — no local fallback."""
-    with patch(
-        "indexnow_ping.urlopen", side_effect=URLError("nodename nor servname")
-    ):
+    with patch("indexnow_ping.urlopen", side_effect=URLError("nodename nor servname")):
         urls = ping.parse_sitemap_urls("https://invalid.example.test/sitemap.xml")
     assert urls == []
     assert "Failed to fetch sitemap" in capsys.readouterr().err
@@ -235,9 +242,11 @@ def test_parse_sitemap_urls_returns_empty_on_invalid_xml(capsys):
 
 def test_main_returns_1_on_zero_urls(sample_key, capsys):
     """0 URLs is a hard failure (exit 1) — no silent success."""
-    with patch.object(ping, "resolve_key", return_value=sample_key), \
-         patch.object(ping, "parse_sitemap_urls", return_value=[]), \
-         patch("sys.argv", ["indexnow_ping.py"]):
+    with (
+        patch.object(ping, "resolve_key", return_value=sample_key),
+        patch.object(ping, "parse_sitemap_urls", return_value=[]),
+        patch("sys.argv", ["indexnow_ping.py"]),
+    ):
         rc = ping.main()
 
     assert rc == 1

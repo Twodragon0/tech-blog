@@ -21,7 +21,6 @@ from typing import Optional
 
 import pytest
 
-
 # =====================================================================
 # _route_* heuristics
 # =====================================================================
@@ -30,6 +29,7 @@ import pytest
 class TestRouteHelpers:
     def test_route_theme_red_amber_green(self):
         from scripts.news.l22_dispatch import _route_theme
+
         assert _route_theme(0) == "red"
         assert _route_theme(1) == "amber"
         assert _route_theme(2) == "green"
@@ -56,7 +56,10 @@ class TestRouteHelpers:
             ("SOC2 compliance certification achieved", "compliance_grid"),
             # identity_handshake keywords
             ("Passkey FIDO2 replaces OTP in enterprise SSO", "identity_handshake"),
-            ("ZTNA gateway enables zero-trust policy enforcement", "identity_handshake"),
+            (
+                "ZTNA gateway enables zero-trust policy enforcement",
+                "identity_handshake",
+            ),
             ("mTLS mutual authentication for service mesh", "identity_handshake"),
             # siem_panels keywords
             ("Datadog SIEM new detection rules released", "siem_panels"),
@@ -66,16 +69,21 @@ class TestRouteHelpers:
             # attestation_chain keywords
             ("SBOM generation with CycloneDX for Java artifacts", "attestation_chain"),
             ("cosign SLSA Level 3 build provenance attestation", "attestation_chain"),
-            ("sigstore signing lockfile pin for artifact integrity", "attestation_chain"),
+            (
+                "sigstore signing lockfile pin for artifact integrity",
+                "attestation_chain",
+            ),
             ("dependabot codeql analysis for GitHub Actions", "attestation_chain"),
         ],
     )
     def test_route_visual_kind_keyword_matches(self, headline, expected_visual):
         from scripts.news.l22_dispatch import _route_visual_kind
+
         assert _route_visual_kind(headline, 0) == expected_visual
 
     def test_route_visual_kind_default_rotates_by_index(self):
         from scripts.news.l22_dispatch import _route_visual_kind
+
         # No keyword match → fall back to band-index rotation.
         assert _route_visual_kind("nothing in particular", 0) == "lock_cve"
         assert _route_visual_kind("nothing in particular", 1) == "network_nodes"
@@ -96,6 +104,7 @@ class TestRouteHelpers:
     )
     def test_route_label(self, headline, expected_label):
         from scripts.news.l22_dispatch import _route_label
+
         assert _route_label(headline) == expected_label
 
 
@@ -107,26 +116,39 @@ class TestRouteHelpers:
 class TestBuildBandCfg:
     def test_emits_required_keys_for_render_bands_svg(self):
         from scripts.news.l22_dispatch import _build_band_cfg
+
         cfg = _build_band_cfg(
             "Ivanti EPMM CVE-2026-6973 RCE actively exploited",
             "Critical CVSS 9.8 admin access",
             band_idx=0,
         )
         required = {
-            "theme", "label", "headline", "metric", "detail",
-            "metric_b", "detail_b",
-            "badge_value", "badge_label", "badge_sub",
-            "mini_value", "mini_label", "mini_sub",
-            "mini2_value", "mini2_label", "mini2_sub",
+            "theme",
+            "label",
+            "headline",
+            "metric",
+            "detail",
+            "metric_b",
+            "detail_b",
+            "badge_value",
+            "badge_label",
+            "badge_sub",
+            "mini_value",
+            "mini_label",
+            "mini_sub",
+            "mini2_value",
+            "mini2_label",
+            "mini2_sub",
             "visual",
         }
         assert required.issubset(cfg.keys())
-        assert cfg["theme"] == "red"          # band 0 = red
-        assert cfg["label"] == "ADMIN RCE"    # keyword match wins
-        assert cfg["visual"]                  # non-empty SVG fragment
+        assert cfg["theme"] == "red"  # band 0 = red
+        assert cfg["label"] == "ADMIN RCE"  # keyword match wins
+        assert cfg["visual"]  # non-empty SVG fragment
 
     def test_band_idx_drives_theme_progression(self):
         from scripts.news.l22_dispatch import _build_band_cfg
+
         b0 = _build_band_cfg("h0", "s0", 0)
         b1 = _build_band_cfg("h1", "s1", 1)
         b2 = _build_band_cfg("h2", "s2", 2)
@@ -151,15 +173,18 @@ class TestRenderL22SvgString:
             )
 
         import scripts.lib.svg_l22_generator as l22
+
         monkeypatch.setattr(l22, "render_bands_svg", fake_render)
 
         from scripts.news.l22_dispatch import render_l22_svg_string
 
-        svg = render_l22_svg_string({
-            "title": "Weekly digest 2026-05-10: Ransomware, AI agent, Cloud",
-            "filename": "2026-05-10-Tech_Security_Weekly_Digest_Ransomware.md",
-            "excerpt": "Ransomware wave hits banks; AI agents jailbroken; S3 leak",
-        })
+        svg = render_l22_svg_string(
+            {
+                "title": "Weekly digest 2026-05-10: Ransomware, AI agent, Cloud",
+                "filename": "2026-05-10-Tech_Security_Weekly_Digest_Ransomware.md",
+                "excerpt": "Ransomware wave hits banks; AI agents jailbroken; S3 leak",
+            }
+        )
         assert svg.startswith("<svg")
         # The dispatcher passes 3 bands and the canonical Jekyll permalink.
         assert len(captured["bands_cfg"]) == 3
@@ -178,13 +203,20 @@ class TestRenderL22SvgString:
             raise RuntimeError("render exploded")
 
         import scripts.lib.svg_l22_generator as l22
+
         monkeypatch.setattr(l22, "render_bands_svg", boom)
         from scripts.news.l22_dispatch import render_l22_svg_string
-        assert render_l22_svg_string({
-            "title": "x",
-            "filename": "2026-05-10-Foo.md",
-            "excerpt": "bar",
-        }) == ""
+
+        assert (
+            render_l22_svg_string(
+                {
+                    "title": "x",
+                    "filename": "2026-05-10-Foo.md",
+                    "excerpt": "bar",
+                }
+            )
+            == ""
+        )
 
 
 # =====================================================================
@@ -198,22 +230,27 @@ class TestGenerateL22DigestSvg:
             return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><title>stub</title></svg>\n'
 
         import scripts.lib.svg_l22_generator as l22
+
         monkeypatch.setattr(l22, "render_bands_svg", fake_render)
 
         from scripts.news.l22_dispatch import generate_l22_digest_svg
 
         out = tmp_path / "cover.svg"
-        ok = generate_l22_digest_svg({
-            "title": "Weekly digest 2026-05-10",
-            "filename": "2026-05-10-Tech_Security_Weekly_Digest.md",
-            "excerpt": "summary",
-        }, out)
+        ok = generate_l22_digest_svg(
+            {
+                "title": "Weekly digest 2026-05-10",
+                "filename": "2026-05-10-Tech_Security_Weekly_Digest.md",
+                "excerpt": "summary",
+            },
+            out,
+        )
         assert ok is True
         assert out.exists()
         assert out.read_text(encoding="utf-8").startswith("<svg")
 
     def test_returns_false_on_empty_filename(self, tmp_path, monkeypatch):
         from scripts.news.l22_dispatch import generate_l22_digest_svg
+
         out = tmp_path / "cover.svg"
         ok = generate_l22_digest_svg(
             {"title": "x", "filename": "", "excerpt": "y"}, out
@@ -315,21 +352,27 @@ class TestForceVisualVariety:
 
     def test_three_identical_kinds_get_diversified(self):
         from scripts.news.l22_dispatch import _force_variety
+
         out = _force_variety(["lock_cve", "lock_cve", "lock_cve"], seed_hex="20260513")
         assert len(set(out)) == 3, f"expected 3 distinct primitives, got {out}"
 
     def test_two_identical_one_different_get_diversified(self):
         from scripts.news.l22_dispatch import _force_variety
-        out = _force_variety(["lock_cve", "network_nodes", "lock_cve"], seed_hex="20260513")
+
+        out = _force_variety(
+            ["lock_cve", "network_nodes", "lock_cve"], seed_hex="20260513"
+        )
         assert len(set(out)) == 3
 
     def test_already_distinct_passes_through_unchanged(self):
         from scripts.news.l22_dispatch import _force_variety
+
         triple = ["lock_cve", "network_nodes", "code_bars"]
         assert _force_variety(triple, seed_hex="20260513") == triple
 
     def test_deterministic_per_seed(self):
         from scripts.news.l22_dispatch import _force_variety
+
         a = _force_variety(["lock_cve", "lock_cve", "lock_cve"], seed_hex="20260513")
         b = _force_variety(["lock_cve", "lock_cve", "lock_cve"], seed_hex="20260513")
         assert a == b, "same seed must produce the same rotation"
@@ -379,6 +422,7 @@ class TestExtractFromExcerpt:
 
     def test_2026_05_13_excerpt_yields_three_distinct_korean_headlines(self):
         from scripts.news.l22_dispatch import extract_three_stories_from_excerpt
+
         excerpt = (
             "AI 기반 합성 공격 로그 생성을 통한 탐지, 새로운 Exim BDAT 취약점으로 GnuTLS, "
             "AI 속도의 방어를 중심으로 2026년 05월 13일 주요 보안/기술 뉴스 29건과 "
@@ -396,6 +440,7 @@ class TestExtractFromExcerpt:
 
     def test_returns_none_when_boilerplate_missing(self):
         from scripts.news.l22_dispatch import extract_three_stories_from_excerpt
+
         # English-only excerpt — no "을 중심으로" marker.
         out = extract_three_stories_from_excerpt(
             "", "LockBit ransomware hits 320 victims this week", ""
@@ -404,6 +449,7 @@ class TestExtractFromExcerpt:
 
     def test_returns_none_when_segments_under_three(self):
         from scripts.news.l22_dispatch import extract_three_stories_from_excerpt
+
         # Boilerplate present but only 1 segment before it.
         out = extract_three_stories_from_excerpt(
             "", "단일 주제를 중심으로 정리합니다.", ""
@@ -417,13 +463,13 @@ class TestInferKpiWithExcerpt:
 
     def test_headline_match_wins_over_excerpt(self):
         from scripts.news.l22_dispatch import _infer_kpi_with_excerpt
-        out = _infer_kpi_with_excerpt(
-            "CVE-2026-1234 RCE", excerpt="never used 99건"
-        )
+
+        out = _infer_kpi_with_excerpt("CVE-2026-1234 RCE", excerpt="never used 99건")
         assert out[0] == "CVE" and out[1] == "ID"
 
     def test_excerpt_count_in_geon_format_picked_up(self):
         from scripts.news.l22_dispatch import _infer_kpi_with_excerpt
+
         out = _infer_kpi_with_excerpt(
             "AI 속도의 방어",
             excerpt="...주요 보안/기술 뉴스 29건과 대응 우선순위를 정리합니다.",
@@ -432,6 +478,7 @@ class TestInferKpiWithExcerpt:
 
     def test_default_when_both_empty(self):
         from scripts.news.l22_dispatch import _infer_kpi_with_excerpt
+
         assert _infer_kpi_with_excerpt("", "") == ("TBD", "STATUS", "NEW")
 
 
@@ -442,18 +489,23 @@ class TestBandSpecificMiniBadges:
 
     def test_three_bands_have_three_distinct_priorities(self):
         from scripts.news.l22_dispatch import _build_band_cfg
+
         b0 = _build_band_cfg("h0", "s0", 0)
         b1 = _build_band_cfg("h1", "s1", 1)
         b2 = _build_band_cfg("h2", "s2", 2)
         # mini_value: P0 / P1 / P2 (priority rank).
         assert (b0["mini_value"], b1["mini_value"], b2["mini_value"]) == (
-            "P0", "P1", "P2",
+            "P0",
+            "P1",
+            "P2",
         )
         # mini_label is now "PRI" (priority), not the old "ISSUE".
         assert b0["mini_label"] == "PRI"
         # mini2_value: HIGH / MED / LOW severity tiers.
         assert (b0["mini2_value"], b1["mini2_value"], b2["mini2_value"]) == (
-            "HIGH", "MED", "LOW",
+            "HIGH",
+            "MED",
+            "LOW",
         )
 
 
@@ -469,6 +521,7 @@ class TestExtractPostKpi:
 
     def test_extract_post_kpi_lock_cve_finds_cve_id(self, tmp_path):
         from scripts.news.l22_dispatch import _extract_post_kpi
+
         post = tmp_path / "post.md"
         post.write_text(
             "---\ntitle: x\n---\nCVE-2025-40551 was patched. CVSS 9.8 critical impact.\n",
@@ -480,6 +533,7 @@ class TestExtractPostKpi:
 
     def test_extract_post_kpi_cloud_k8s_finds_pod_count(self, tmp_path):
         from scripts.news.l22_dispatch import _extract_post_kpi
+
         post = tmp_path / "post.md"
         post.write_text(
             "---\ntitle: x\n---\nCluster spec: 12 pods running across 5 nodes.\n",
@@ -492,6 +546,7 @@ class TestExtractPostKpi:
 
     def test_extract_post_kpi_empty_returns_defaults(self, tmp_path):
         from scripts.news.l22_dispatch import _extract_post_kpi
+
         post = tmp_path / "post.md"
         post.write_text(
             "---\ntitle: x\n---\nNothing quantitatively interesting here.\n",
@@ -504,15 +559,21 @@ class TestExtractPostKpi:
 
     def test_v_routes_endpoints_accepts_kpi_override(self):
         from scripts.lib.svg_l22_generator import v_network_nodes
+
         svg = v_network_nodes(500, 105, "#fff", "#aaa", kpi="$44B exposure")
         assert "$44B exposure" in svg
         assert "10 endpoints : 12 routes" not in svg
 
     def test_v_cloud_k8s_accepts_kpi_override(self):
         from scripts.lib.svg_l22_generator import v_cloud_k8s
+
         svg = v_cloud_k8s(
-            500, 105, "#fff", "#aaa",
-            kpi_top="12 pods", kpi_top_right="v1.30",
+            500,
+            105,
+            "#fff",
+            "#aaa",
+            kpi_top="12 pods",
+            kpi_top_right="v1.30",
             kpi_bottom="5 nodes : istio mesh",
         )
         assert "12 pods" in svg
@@ -524,15 +585,21 @@ class TestExtractPostKpi:
 
     def test_v_cosign_chain_accepts_kpi_override(self):
         from scripts.lib.svg_l22_generator import v_shield
+
         svg = v_shield(500, 105, "#fff", "#aaa", kpi="9 signed : Sigstore CA")
         assert "9 signed : Sigstore CA" in svg
         assert "3 rings : signed by CA" not in svg
 
     def test_v_lock_cve_accepts_subline_override(self):
         from scripts.lib.svg_l22_generator import v_lock_cve
+
         svg = v_lock_cve(
-            500, 105, "#fff", "#aaa",
-            cvss="9.8", subline="CVE-2025-40551 : kernel RCE",
+            500,
+            105,
+            "#fff",
+            "#aaa",
+            cvss="9.8",
+            subline="CVE-2025-40551 : kernel RCE",
         )
         assert "CVE-2025-40551 : kernel RCE" in svg
         assert "CVSS : critical scope" not in svg

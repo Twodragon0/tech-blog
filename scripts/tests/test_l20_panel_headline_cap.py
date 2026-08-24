@@ -11,12 +11,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 import pytest
-from scripts.lib.svg_l20_hero import _fit_panel_headline
 
+from scripts.lib.svg_l20_hero import _fit_panel_headline
 
 # ---------------------------------------------------------------------------
 # 1. None input
 # ---------------------------------------------------------------------------
+
 
 def test_none_returns_empty_string():
     assert _fit_panel_headline(None) == ""
@@ -26,6 +27,7 @@ def test_none_returns_empty_string():
 # 2. Short text unchanged
 # ---------------------------------------------------------------------------
 
+
 def test_short_text_unchanged():
     text = "Short headline"
     assert _fit_panel_headline(text) == text
@@ -34,6 +36,7 @@ def test_short_text_unchanged():
 # ---------------------------------------------------------------------------
 # 3. Exact 27-char boundary passes verbatim
 # ---------------------------------------------------------------------------
+
 
 def test_exactly_27_chars_unchanged():
     text = "A" * 27
@@ -46,6 +49,7 @@ def test_exactly_27_chars_unchanged():
 # 4. 28 chars -> ellipsis appears
 # ---------------------------------------------------------------------------
 
+
 def test_28_chars_truncates_with_ellipsis():
     text = "A" * 28
     result = _fit_panel_headline(text)
@@ -56,6 +60,7 @@ def test_28_chars_truncates_with_ellipsis():
 # ---------------------------------------------------------------------------
 # 5. Property: result length <= max_chars for various long inputs
 # ---------------------------------------------------------------------------
+
 
 def test_result_never_exceeds_max_chars():
     inputs = [
@@ -73,6 +78,7 @@ def test_result_never_exceeds_max_chars():
 # ---------------------------------------------------------------------------
 # 6. Word boundary preferred
 # ---------------------------------------------------------------------------
+
 
 def test_word_boundary_preferred():
     # 31 chars; last space within budget is after "42001"
@@ -94,23 +100,23 @@ def test_word_boundary_preferred():
 # 7. Hard cut when no late space
 # ---------------------------------------------------------------------------
 
+
 def test_hard_cut_when_no_late_space():
     # Space only at index 1 ("A BBBBB..."); budget=24, threshold=14; 1 < 14 -> hard cut at 24
-    text = "A " + "B" * 30   # space at index 1, rest B's, total 32 chars
+    text = "A " + "B" * 30  # space at index 1, rest B's, total 32 chars
     assert len(text) > 27
     result = _fit_panel_headline(text)
     assert result.endswith("...")
     assert len(result) <= 27
     # Hard cut: body must be exactly s[:24] stripped (no trailing space here)
     body = result[:-3]
-    assert body == text[:24].rstrip(), (
-        f"Expected hard cut at budget=24, got: {body!r}"
-    )
+    assert body == text[:24].rstrip(), f"Expected hard cut at budget=24, got: {body!r}"
 
 
 # ---------------------------------------------------------------------------
 # 8. Custom max_chars honored
 # ---------------------------------------------------------------------------
+
 
 def test_custom_max_chars():
     text = "AWS Lambda Timeout Guide"  # 24 chars, fits at default=27
@@ -122,6 +128,7 @@ def test_custom_max_chars():
 # ---------------------------------------------------------------------------
 # 9. Non-string input coerced via str()
 # ---------------------------------------------------------------------------
+
 
 def test_non_string_input_coerced():
     assert _fit_panel_headline(42) == "42"
@@ -135,13 +142,17 @@ def test_non_string_input_coerced():
 # 10. Parametrized real-world overflow cases from commit 14d51115
 # ---------------------------------------------------------------------------
 
-@pytest.mark.parametrize("text,expected_prefix", [
-    ("FortiCloud SSO Bypass Returns", "FortiCloud SSO Bypass"),
-    ("AWS Serverless AI Defense Architecture", "AWS Serverless AI"),
-    ("Voice Phishing Surge Targets Staff", "Voice Phishing Surge"),
-    ("Go Crypto Package Backdoor Found", "Go Crypto Package"),
-    ("25 Password Manager Recovery Attacks", "25 Password Manager"),
-])
+
+@pytest.mark.parametrize(
+    "text,expected_prefix",
+    [
+        ("FortiCloud SSO Bypass Returns", "FortiCloud SSO Bypass"),
+        ("AWS Serverless AI Defense Architecture", "AWS Serverless AI"),
+        ("Voice Phishing Surge Targets Staff", "Voice Phishing Surge"),
+        ("Go Crypto Package Backdoor Found", "Go Crypto Package"),
+        ("25 Password Manager Recovery Attacks", "25 Password Manager"),
+    ],
+)
 def test_real_overflow_cases_from_commit_14d51115(text, expected_prefix):
     result = _fit_panel_headline(text)
     assert len(result) <= 27, f"Overflow: {text!r} -> {result!r} ({len(result)} chars)"

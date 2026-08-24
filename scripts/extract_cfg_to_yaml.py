@@ -83,6 +83,7 @@ def _install_visual_recorders() -> None:
                 # are kwargs we want to preserve in the spec.
                 _visual_calls.append({"kind": k, "kwargs": dict(kwargs)})
                 return orig(*args, **kwargs)
+
             return wrapper
 
         setattr(l22, name, make_wrapper(original, kind))
@@ -203,9 +204,7 @@ def extract_script(script_rel_path: str) -> List[Path]:
         raise FileNotFoundError(script_rel_path)
 
     # Translate "scripts/foo.py" → "scripts.foo"
-    module_name = (
-        script_rel_path.removeprefix("scripts/").removesuffix(".py")
-    )
+    module_name = script_rel_path.removeprefix("scripts/").removesuffix(".py")
     module_name = f"scripts.{module_name}"
 
     # Force reimport so module-level state (including freshly-monkeypatched
@@ -243,7 +242,9 @@ def extract_script(script_rel_path: str) -> List[Path]:
             encoding="utf-8",
         )
         written.append(out)
-        print(f"  wrote {out.relative_to(REPO_ROOT)}  ({len(spec_dict['bands'])} bands)")
+        print(
+            f"  wrote {out.relative_to(REPO_ROOT)}  ({len(spec_dict['bands'])} bands)"
+        )
 
     return written
 

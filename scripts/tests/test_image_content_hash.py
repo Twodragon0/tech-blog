@@ -145,9 +145,7 @@ def test_l25_post_body_image_has_content_hash_version(
     # actual SHA-256[0:8] on disk.
     img_path, observed_hash = matches[0]
     expected = _expected_hash(img_path)
-    assert expected is not None, (
-        f"hero image file missing on disk: {img_path}"
-    )
+    assert expected is not None, f"hero image file missing on disk: {img_path}"
     assert observed_hash == expected, (
         f"hash mismatch for {img_path}: html={observed_hash} disk={expected}"
     )
@@ -197,6 +195,5 @@ def test_no_remaining_v20260518_hot_fix(built_site_dir: Path) -> None:
         if image_hot_fix_re.search(html):
             offenders.append(str(html_path.relative_to(built_site_dir)))
     assert not offenders, (
-        f"stale Step-0 hot-fix `?v=20260518` still on image URLs: "
-        f"{offenders[:5]}"
+        f"stale Step-0 hot-fix `?v=20260518` still on image URLs: {offenders[:5]}"
     )

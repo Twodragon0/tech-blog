@@ -14,7 +14,6 @@ import pytest
 
 from scripts.dependabot_classify_pr import _parse_version, classify_pr_title
 
-
 # =====================================================================
 # classify_pr_title - real-world Dependabot title coverage
 # =====================================================================
@@ -69,9 +68,9 @@ class TestClassifyPrTitle:
 
     def test_downgrade_returns_empty(self):
         # We don't auto-classify downgrades; safer to require manual review.
-        assert (
-            classify_pr_title("Bump foo from 2.0.0 to 1.9.5") == ""
-        ), "downgrade must not classify"
+        assert classify_pr_title("Bump foo from 2.0.0 to 1.9.5") == "", (
+            "downgrade must not classify"
+        )
 
     def test_same_version_returns_empty(self):
         # No effective change.

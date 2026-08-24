@@ -17,6 +17,7 @@ def counter_module():
     assert spec is not None and spec.loader is not None
     module = importlib.util.module_from_spec(spec)
     import sys
+
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
     return module

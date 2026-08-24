@@ -1,276 +1,6 @@
 {
-  "updated_at": "2026-08-21T00:48:12.894526+00:00",
+  "updated_at": "2026-08-24T00:45:50.620304+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/new-zapscape-kvm-flaw-could-let.html",
-      "title": "New Zapscape KVM Flaw Could Let Privileged L1 Guest Code Escape to Linux Hosts",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/cisco-patches-12-sd-wan-and-ios-xe.html",
-      "title": "Cisco Patches 12 SD-WAN and IOS XE Flaws, Including Three 9.8 CVSS Score Bugs",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/automate-certificates-with-acme-support-in-aws-certificate-manager/",
-      "title": "Automate certificates with ACME support in AWS Certificate Manager",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/new-interrupt-injection-attack-can.html",
-      "title": "New Interrupt Injection Attack Can Bypass Spectre v2 Defenses on Intel and AMD C",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/threatsday-odysseus-rce-samsung-one.html",
-      "title": "ThreatsDay: Odysseus RCE, Samsung One-Click Takeover, iCloud Backdoor Fight + 27",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-august-2026-games-list/",
-      "title": "GeForce NOW Shakes Up August With 26 New Games",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/open-world-models-physical-ai/",
-      "title": "Into the Omniverse: How Open World Models Push the Frontier of Physical AI",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt",
-      "title": "Improving GPT‑5.6 Sol in ChatGPT—and expanding access to GPT-5.6 Luna for free u",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://openai.com/index/openai-and-apa-partner-to-advance-responsible-ai",
-      "title": "Working with the American Psychological Association on youth mental health and A",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/securing-ai-agents-with-temporal-policies-in-amazon-bedrock-agentcore/",
-      "title": "Securing AI agents with temporal policies in Amazon Bedrock AgentCore",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/privacy-first-medical-ai-with-medperf-and-google-cloud/",
-      "title": "Advancing brain tumor research with privacy-first AI",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/training-certifications/free-gemini-enterrprise-training/",
-      "title": "Your agentic summer: No-cost lessons from Google experts to build and scale agen",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/hybrid-cloud/state-of-ai-infrastructure-report-on-hybrid-cloud-and-gdc/",
-      "title": "Digital sovereignty in the age of AI: You don’t have to choose between control a",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-performance-optimizations/",
-      "title": "Agentic Future Ready With BigQuery: Continually Improving Price-Performance, Zer",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/unc6671-targets-financial-services-and-enterprise-cloud-environments/",
-      "title": "UNC6671 Rebrands: Multi-Brand Vishing Extortion Targets Financial Services and E",
-      "published_date": "2026-08-07",
-      "expires_at": "2026-08-14T02:12:40.862751+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
-      "title": "Nearly 800 Malicious npm Packages Deliver Cross-Platform RAT and Infostealer",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
-      "title": "ClickFix Attacks Deliver macOS Stealer That Can Drain Crypto Wallets",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/unc6671-vishing-attacks-target-personal.html",
-      "title": "UNC6671 Vishing Attacks Target Personal Phones to Steal SaaS Data",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/a-decade-of-enterprise-identity-in-the-cloud-with-aws-managed-microsoft-ad/",
-      "title": "A decade of enterprise identity in the cloud with AWS Managed Microsoft AD",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/new-wordpress-pre-auth-xss-could-lead.html",
-      "title": "New WordPress Pre-Auth XSS Could Lead to PHP Code Execution - Patch ASAP",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
-      "title": "Responding to the next frontier of critical cyber capabilities",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://openai.com/index/hsp-gruppe",
-      "title": "How HSP GRUPPE builds AI capabilities for tax advisory",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://netflixtechblog.com/how-and-why-netflix-built-a-real-time-distributed-graph-part-3-querying-the-graph-with-grpc-0f3468349607?source=rss----2615bd06b42e---4",
-      "title": "How and Why Netflix Built a Real-Time Distributed Graph: Part 3 — Querying the g",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-cohere-health-digitizes-clinical-policies-using-amazon-bedrock-agentcore/",
-      "title": "How Cohere Health digitizes clinical policies using Amazon Bedrock AgentCore",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/",
-      "title": "How TReNDS automates root-cause analysis with Amazon Bedrock",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/new-bigquery-data-transfer-service-capabilities/",
-      "title": "Zero-code, low-cost data ingestion: New BigQuery DTS capabilities",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/how-google-cloud-detects-contains-and-protects-against-emerging-threats/",
-      "title": "How Google Cloud detects, contains, and protects against emerging threats",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-search-innovations-unify-structured-unstructured-data/",
-      "title": "Unifying Structured and Unstructured Data Insights with BQ Search Innovations",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/networking/streaming-the-fifa-world-cup-with-televisaunivision/",
-      "title": "GOL! How TelevisaUnivision streamed the FIFA World Cup to millions with Google C",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-07-github-copilot-weekly-releases-august-3",
-      "title": "GitHub Copilot weekly releases — August 3",
-      "published_date": "2026-08-08",
-      "expires_at": "2026-08-15T00:58:48.218390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/atlassian-rovo-can-be-tricked-into.html",
-      "title": "Atlassian Rovo Can Be Tricked Into Sending Jira and Confluence Data to Attackers",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/new-css-attacks-can-break-webmail.html",
-      "title": "New CSS Attacks Can Break Webmail Defenses to Steal Passwords and Tokens",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/metabase-zero-day-exploited-in-wild.html",
-      "title": "Metabase Zero-Day Exploited in Wild Allows Admin Access Without Authentication",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/n-central-attackers-reach-managed.html",
-      "title": "N-able Issues N-central Hotfix 2 as Attackers Reach Managed Systems and Persist",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/progress-kemp-loadmaster-flaw-hits-cisa.html",
-      "title": "Progress Kemp LoadMaster Flaw Hits CISA KEV After 792 Reported Exploit Attempts",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/firebird-ai-factory-armenia-blackwell-rubin-dsx/",
-      "title": "Firebird Launches CIS Region’s Largest AI Factory in Armenia",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/us-bitcoin-etfs-best-weekly-inflows-april-coldcard-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "US spot Bitcoin ETFs post best week since April with $1B inflows",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/us-senate-clarity-act-september-vote-thune-cloture?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "US Senate to vote on advancing CLARITY Act in September after Thune files clotur",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/imf-domestic-stablecoins-dollar-token-demand?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Domestic stablecoins could boost demand for dollar-backed tokens: IMF",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bybit-us-court-trace-funds-north-korea-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "US court backs Bybit’s bid to trace funds from $1.5B North Korea hack",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/bitcoin-will-never-fall-below-60k-again-nansen-founder?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin will never fall below $60K again: Nansen founder",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32282",
-      "title": "goshot - 코드 스크린샷 생성기",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32281",
-      "title": "내가 좋아하는 소프트웨어 강연들",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32280",
-      "title": "Sublime Text 같은 편집기는 더 이상 나오지 않는다",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32278",
-      "title": "DNS에서 도메인 판매 여부를 알리는 _for-sale 레코드",
-      "published_date": "2026-08-09",
-      "expires_at": "2026-08-16T01:02:00.653654+00:00"
-    },
     {
       "url": "https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/",
       "title": "The AI safety test is becoming a safety risk",
@@ -1314,6 +1044,264 @@
       "title": "Announcing quantum-safe key import in Cloud KMS",
       "published_date": "2026-08-21",
       "expires_at": "2026-08-28T00:48:12.894438+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/14-trojanized-npm-packages-drop-redc2.html",
+      "title": "14 Trojanized npm Packages Drop RedC2 4.0 Linux Backdoor With AI-Assisted C2",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/microsoft-defenders-own-driver-can-be.html",
+      "title": "Microsoft Defender's Own Driver Can Be Weaponized to Delete Security Software at",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/android-car-malware-spreads-through.html",
+      "title": "Android Car Malware Spreads Through Built-In Updaters for Ad Fraud, Proxy Botnet",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/wazuh-and-ai-for-enhanced-soc-workflows.html",
+      "title": "Wazuh and AI For Enhanced SOC Workflows",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/cisco-patches-nine-crosswork-and-secure.html",
+      "title": "Cisco Patches Nine Crosswork and Secure Workload Flaws, Five Scoring CVSS 10.0",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/",
+      "title": "From Atari to EVE Online: Building on 15 Years of AI Research in Games",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/a-tale-of-two-flink-autoscalers-e9f6a1b1492b?source=rss----2615bd06b42e---4",
+      "title": "A Tale of Two Flink Autoscalers",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/agentic-data-operations-platform-adop-data-engineering-into-hours/",
+      "title": "Agentic Data Operations Platform (ADOP): Data engineering into hours",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/",
+      "title": "Govern AI agent tool access with Amazon Bedrock AgentCore Gateway",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/reduce-rag-costs-on-amazon-bedrock-with-query-aware-compression/",
+      "title": "Reduce RAG costs on Amazon Bedrock with query-aware compression",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-sticking-to-security-fundamentals-in-the-ai-era/",
+      "title": "Cloud CISO Perspectives: Sticking to security fundamentals in the AI era",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/how-agents-can-delegate-better/",
+      "title": "How agents can delegate better",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-glue-6-0-now-available-with-30-lower-price-and-full-apache-iceberg-v3-support/",
+      "title": "AWS Glue 6.0 now available with 30% lower price and full Apache Iceberg v3 suppo",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/gsneotek-bedrock-budget-with-athena-and-iam/",
+      "title": "GS Neotek의 Claude Code on Amazon Bedrock 도입기: LLM Gateway 없는 경량화 사용자 통제 방안",
+      "published_date": "2026-08-22",
+      "expires_at": "2026-08-29T00:45:16.492749+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/tiktok-agrees-to-400-million-settlement.html",
+      "title": "TikTok Agrees to $400 Million Settlement in U.S. Child Privacy Lawsuit",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-infect-android-car-head-units-with-proxy-botnet-malware/",
+      "title": "Hackers infect Android car head units with proxy botnet malware",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/named-pipes-under-attack-securing-windows-interprocess-communication/",
+      "title": "Named Pipes Under Attack: Securing Windows Interprocess Communication",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/08/22/frontier-ai-labs-still-wont-say-how-theyd-contain-a-rogue-model/",
+      "title": "Frontier AI labs still won’t say how they’d contain a rogue model",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/web3/2026/08/22/web3-gaming-network-sandbox-stops-base-and-bnb-chain-bridging-after-exploit",
+      "title": "Web3 gaming network Sandbox stops Base and BNB chain bridging after exploit",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/mica-is-coming-for-defi-vaults-but-regulation-will-be-difficult?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "MiCA is coming for DeFi vaults, but regulation will be difficult",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/08/22/crypto-exchange-bitmart-weighs-partial-restart-and-creditor-payouts-weeks-after-announcing-shutdown",
+      "title": "Crypto exchange BitMart weighs partial restart and creditor payouts weeks after ",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/08/22/tokenized-stocks-risk-repeating-wall-street-s-1960s-paper-crisis-fairmint-ceo-says",
+      "title": "Tokenized stocks risk repeating Wall Street’s 1960s ‘paper crisis,’ Fairmint CEO",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/news-analysis/2026/08/21/kalshi-off-limits-in-multiple-states-as-prediction-markets-cftc-team-up-for-battle",
+      "title": "Kalshi off-limits in multiple states as prediction markets, CFTC team up for bat",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/08/22/bitcoin-and-ether-bears-get-decimated-amid-squeeze-led-rally-and-musk-s-x-wants-to-pay-creators-in-stablecoins-crypto-week-in-5-stories",
+      "title": "Bitcoin and Ether bears get decimated amid 'squeeze-led' rally and Musk's X want",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32795",
+      "title": "Racket 친절한 입문",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32794",
+      "title": "프론트엔드 상태 관리의 네 가지 난제",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32793",
+      "title": "기억해 둘 만한 작은 네이티브 웹 기법",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32791",
+      "title": "로컬 LLM이 실제 성능보다 더 멍청하게 느껴지는 이유",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32789",
+      "title": "Show GN: CachyOS 와 Omarchy 의 혼종을 만들고 있습니다.",
+      "published_date": "2026-08-23",
+      "expires_at": "2026-08-30T09:12:02.449604+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/toxicpanda-android-malware-uses-vpn-permissions-to-block-google-play/",
+      "title": "ToxicPanda Android malware uses VPN permissions to block Google Play",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32809",
+      "title": "태블릿 소유권을 되찾는 데 266달러와 AI 모델 4개를 썼고, GLM-5.3이 하루 만에 끝냈다",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://securelist.com/android-head-unit-malware/121106/",
+      "title": "Malware infects Android-based automotive head unit firmware",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/fed-study-finds-crypto-investors-driven-by-beliefs-easily-swayed-by-returns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Fed study finds crypto investors driven by beliefs, easily swayed by returns",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/we-are-back-bitcoins-23-rally-on-us-debt-policy-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "We are so back! Bitcoin’s 23% rally on US debt policy: Hodler’s Digest",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/policy/2026/08/23/regulation-crypto-is-here-state-of-crypto",
+      "title": "Regulation Crypto is here: State of Crypto",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/08/23/xrp-on-track-for-biggest-weekly-gain-in-21-months-as-treasury-buyback-spurs-curve-control-hopes",
+      "title": "XRP on track for biggest weekly gain in 21 months as Treasury buyback spurs 'cur",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/08/23/crypto-card-spending-tops-usd1-billion-as-stablecoins-move-into-everyday-purchases",
+      "title": "Crypto card spending tops $1 billion as stablecoins move into everyday purchases",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32821",
+      "title": "스태프 엔지니어로서 해결할 문제를 찾는 방법",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32820",
+      "title": "srelens - 엔지니어와 AI 에이전트 모두를 위한 쿠버네티스 컨트롤룸",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32819",
+      "title": "Hister - 직접 통제하는 비공개 전체 콘텐츠 검색 인덱스",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32818",
+      "title": "프로덕트 엔지니어의 사고방식 - 태스크 수행자에서 문제 해결의 주체로",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=32817",
+      "title": "복잡한 시스템은 어떻게 실패하는가 (1998)",
+      "published_date": "2026-08-24",
+      "expires_at": "2026-08-31T00:45:50.620214+00:00"
     }
   ]
 }

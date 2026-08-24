@@ -17,12 +17,13 @@ CURLY_QUOTES = {
 # These Unicode characters do NOT terminate an attribute delimiter, so they
 # are safe to use as inner-value apostrophes / quote marks.
 _CURLY_APOSTROPHE = "\u2019"  # RIGHT SINGLE QUOTATION MARK
-_CURLY_RIGHT_DQ = "\u201d"    # RIGHT DOUBLE QUOTATION MARK
+_CURLY_RIGHT_DQ = "\u201d"  # RIGHT DOUBLE QUOTATION MARK
 
 
 # ---------------------------------------------------------------------------
 # Core attribute-conflict detection / fix
 # ---------------------------------------------------------------------------
+
 
 def _iter_attr_spans(inner: str):
     """Yield ``(attr_name, outer_quote, val_start, val_end)`` tuples.
@@ -61,7 +62,7 @@ def _iter_attr_spans(inner: str):
             continue
 
         # Text after that first close quote, up to the next attribute or end
-        after = inner[first_close + 1:]
+        after = inner[first_close + 1 :]
         next_attr_m = re.search(r"\s+[\w][\w-]*\s*=\s*[\"']", after)
         between = after[: next_attr_m.start()] if next_attr_m else after
 
@@ -92,7 +93,7 @@ def detect_attr_conflicts(block: str) -> list[tuple[str, str]]:
     if not open_m or not close_m:
         return []
 
-    inner = block[open_m.end(): close_m.start()]
+    inner = block[open_m.end() : close_m.start()]
     conflicts: list[tuple[str, str]] = []
     pos = 0
 
@@ -116,7 +117,7 @@ def detect_attr_conflicts(block: str) -> list[tuple[str, str]]:
             pos = val_start
             continue
 
-        after = inner[first_close + 1:]
+        after = inner[first_close + 1 :]
         next_attr_m = re.search(r"\s+[\w][\w-]*\s*=\s*[\"']", after)
         between = after[: next_attr_m.start()] if next_attr_m else after
 
@@ -160,8 +161,8 @@ def _fix_attr_conflicts_in_block(block: str) -> tuple[str, int]:
         return block, 0
 
     prefix = block[: open_m.end()]
-    suffix = block[close_m.start():]
-    inner = block[open_m.end(): close_m.start()]
+    suffix = block[close_m.start() :]
+    inner = block[open_m.end() : close_m.start()]
 
     result = list(inner)
     changes = 0
@@ -186,7 +187,7 @@ def _fix_attr_conflicts_in_block(block: str) -> tuple[str, int]:
             pos = val_start
             continue
 
-        after = inner[first_close + 1:]
+        after = inner[first_close + 1 :]
         next_attr_m = re.search(r"\s+[\w][\w-]*\s*=\s*[\"']", after)
         between = after[: next_attr_m.start()] if next_attr_m else after
 
@@ -228,7 +229,7 @@ def _curly_quotes_outside_values(block: str) -> bool:
         # Can't parse — fall back to simple check
         return any(c in block for c in CURLY_QUOTES)
 
-    inner = block[open_m.end(): close_m.start()]
+    inner = block[open_m.end() : close_m.start()]
     curly_chars = set(CURLY_QUOTES)
 
     # Build a mask: positions that are INSIDE an attribute value are "safe"
@@ -250,7 +251,7 @@ def _curly_quotes_outside_values(block: str) -> bool:
         if first_close == -1:
             pos = val_start
             continue
-        after = inner[first_close + 1:]
+        after = inner[first_close + 1 :]
         next_attr_m = re.search(r"\s+[\w][\w-]*\s*=\s*[\"']", after)
         between = after[: next_attr_m.start()] if next_attr_m else after
         last_close_in_between = between.rfind(outer_quote)
@@ -273,6 +274,7 @@ def _curly_quotes_outside_values(block: str) -> bool:
 # ---------------------------------------------------------------------------
 # Public API: fix_content / check_content
 # ---------------------------------------------------------------------------
+
 
 def fix_content(content: str) -> tuple[str, int]:
     """Apply all fixes to *content* and return ``(fixed_content, change_count)``."""
@@ -346,7 +348,11 @@ def check_content(content: str) -> list[tuple[int, str, str]]:
             for curly in CURLY_QUOTES:
                 if curly in block:
                     violations.append(
-                        (lineno, include_name, f"curly quote U+{ord(curly):04X} in block")
+                        (
+                            lineno,
+                            include_name,
+                            f"curly quote U+{ord(curly):04X} in block",
+                        )
                     )
                     break  # one report per block
 

@@ -17,6 +17,7 @@ emitted on **line 3** verbatim.
 English-only guarantee: ``_escape`` delegates to L20 (strips Hangul
 before XML escaping — defense in depth for the check-svg gate).
 """
+
 from __future__ import annotations
 
 from typing import Any, Dict, List, Mapping
@@ -35,18 +36,21 @@ CATEGORIES = frozenset({"incident", "course", "tutorial", "guide", "event"})
 # shield → vb_ransomware_lock; supply_chain_pipe → vb_supply_chain_pipe;
 # lock_cve → vb_cve_chain.
 VISUAL_BUILDERS: Dict[str, Any] = {
-    "network_nodes":     l20.vb_hub_spoke,
-    "code_bars":         l20.vb_code_injection,
-    "shield":            l20.vb_ransomware_lock,
-    "hub_spoke":         l20.vb_hub_spoke,
+    "network_nodes": l20.vb_hub_spoke,
+    "code_bars": l20.vb_code_injection,
+    "shield": l20.vb_ransomware_lock,
+    "hub_spoke": l20.vb_hub_spoke,
     "supply_chain_pipe": l20.vb_supply_chain_pipe,
-    "lock_cve":          l20.vb_cve_chain,
+    "lock_cve": l20.vb_cve_chain,
 }
 
 # Header badge tint per topic type.
 _CATEGORY_COLORS: Dict[str, str] = {
-    "incident": "#F87171", "course": "#A78BFA", "tutorial": "#4ADE80",
-    "guide":    "#60A5FA", "event":  "#FFD58A",
+    "incident": "#F87171",
+    "course": "#A78BFA",
+    "tutorial": "#4ADE80",
+    "guide": "#60A5FA",
+    "event": "#FFD58A",
 }
 
 # Per-chip "tone" palette — lets tag chips carry independent theme inflection
@@ -54,18 +58,19 @@ _CATEGORY_COLORS: Dict[str, str] = {
 # keys map to (stroke/text color, panel fill bias). Unknown tone => fallback
 # to the cover-level accent.
 _CHIP_TONES: Dict[str, str] = {
-    "red":    "#F87171",
-    "blue":   "#60A5FA",
-    "amber":  "#FFD58A",
-    "green":  "#86EFAC",
+    "red": "#F87171",
+    "blue": "#60A5FA",
+    "amber": "#FFD58A",
+    "green": "#86EFAC",
     "purple": "#C4B5FD",
-    "cyan":   "#67E8F9",
-    "pink":   "#F9A8D4",
+    "cyan": "#67E8F9",
+    "pink": "#F9A8D4",
     "neutral": "#94A3B8",
 }
 
 
 # Small wrappers around L20 primitives -------------------------------------
+
 
 def _escape(text: str) -> str:
     """Delegate to L20's hangul-stripping XML escape (single source of truth)."""
@@ -76,7 +81,9 @@ def _theme(name: str) -> Dict[str, str]:
     return THEMES.get(name, THEMES["red"])
 
 
-def _render_visual(visual_id: str, cx: int, cy: int, theme: str, label: str = "") -> str:
+def _render_visual(
+    visual_id: str, cx: int, cy: int, theme: str, label: str = ""
+) -> str:
     """Dispatch to a visual builder; ``hub_spoke``/``network_nodes`` accept
     a ``center_label`` kwarg (others ignore ``label``)."""
     fn = VISUAL_BUILDERS.get(visual_id, l20.vb_cve_chain)
@@ -94,15 +101,16 @@ def _post_url(date: str, slug: str) -> str:
 def _hero_panel_grad(theme: str) -> str:
     """L20-defined gradient id (reuses ``_defs`` palette)."""
     return {
-        "red":    "heroPanel",
-        "blue":   "heroPanelBlue",
-        "amber":  "heroPanelAmber",
-        "green":  "heroPanelGreen",
+        "red": "heroPanel",
+        "blue": "heroPanelBlue",
+        "amber": "heroPanelAmber",
+        "green": "heroPanelGreen",
         "purple": "heroPanelPurple",
     }.get(theme, "heroPanel")
 
 
 # Layout blocks ------------------------------------------------------------
+
 
 def _chip_tone(tag: Any, fallback: str) -> str:
     """Resolve a chip's outline/text color.
@@ -151,7 +159,7 @@ def _tag_chip_row(y: int, tags: List[Any], accent: str) -> str:
             f'<text x="{width // 2}" y="17" text-anchor="middle" '
             f'font-family="Inter, Helvetica, Arial, sans-serif" font-size="11" '
             f'font-weight="700" fill="{color}" letter-spacing="1.5">{label}</text>'
-            f'</g>'
+            f"</g>"
         )
         x += width + 12
     return "".join(parts)
@@ -170,7 +178,7 @@ def _accent_pulse_strip(x: int, y: int, accent: str, accent_soft: str) -> str:
         f'<animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.4s" repeatCount="indefinite"/></rect>'
         f'<rect x="212" y="0" width="40"  height="3" rx="1.5" fill="{accent}" opacity="0.55">'
         f'<animate attributeName="opacity" values="0.2;0.8;0.2" dur="3.1s" repeatCount="indefinite"/></rect>'
-        f'</g>'
+        f"</g>"
     )
 
 
@@ -187,7 +195,7 @@ def _detail_line(y: int, bullets: List[str], accent_text: str, accent: str) -> s
         f'font-size="13" font-weight="500" fill="{accent_text}" fill-opacity="0.85" '
         f'letter-spacing="0.4">'
         f'<tspan fill="{accent}" font-weight="700">&#9656; </tspan>{joined}'
-        f'</text>'
+        f"</text>"
     )
 
 
@@ -218,7 +226,7 @@ def _visual_frame(cx: int, cy: int, w: int, h: int, theme: str, label: str) -> s
         f'<circle cx="-{hw - 18}" cy="{hh - 14}"  r="1.4"/>'
         f'<circle cx="0"          cy="{hh - 14}"  r="1.4"/>'
         f'<circle cx="{hw - 18}"  cy="{hh - 14}"  r="1.4"/>'
-        f'</g>'
+        f"</g>"
         # Top-left + top-right corner brackets.
         f'<polyline points="-{hw + 4},-{hh - 16} -{hw + 4},-{hh + 4} '
         f'-{hw - 16},-{hh + 4}" fill="none" stroke="{accent}" '
@@ -240,15 +248,17 @@ def _visual_frame(cx: int, cy: int, w: int, h: int, theme: str, label: str) -> s
         f'<text x="0" y="2" text-anchor="middle" '
         f'font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" '
         f'font-weight="700" fill="{soft}" letter-spacing="2">{lab}</text>'
-        f'</g>'
+        f"</g>"
         # Pulse marker at top-right of frame.
         f'<circle cx="{hw - 4}" cy="-{hh + 2}" r="2" fill="{accent}">'
         f'<animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/></circle>'
-        f'</g>'
+        f"</g>"
     )
 
 
-def _accent_badge(cx: int, cy: int, theme: str, value: str, label: str, sub: str) -> str:
+def _accent_badge(
+    cx: int, cy: int, theme: str, value: str, label: str, sub: str
+) -> str:
     """Standalone hero-card-style KPI badge (160x120) centered at (cx,cy).
     Mirrors L22 ultra's right-side "1M+ EMAILS SENT" card: big value, small
     uppercase label above, sub-label below, animated corner ticks.
@@ -290,7 +300,7 @@ def _accent_badge(cx: int, cy: int, theme: str, value: str, label: str, sub: str
         f'<animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s" begin="0.5s" repeatCount="indefinite"/></rect>'
         f'<circle cx="0" cy="-48" r="2.4" fill="{accent}">'
         f'<animate attributeName="opacity" values="0.25;1;0.25" dur="2s" repeatCount="indefinite"/></circle>'
-        f'</g>'
+        f"</g>"
     )
 
 
@@ -318,13 +328,14 @@ def _kpi_strip(y: int, kpis: List[Mapping[str, Any]], theme: str) -> str:
             f'<text x="{cell_w - 14}" y="22" text-anchor="end" '
             f'font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" '
             f'font-weight="700" fill="{label_col}" letter-spacing="2">{label}</text>'
-            f'</g>'
+            f"</g>"
         )
         x += cell_w + gap
     return "".join(parts)
 
 
 # L25-native visual primitives --------------------------------------------
+
 
 def _visual_outage_timeline(cx: int, cy: int, theme: str = "red") -> str:
     """Incident-postmortem visual: 5-phase horizontal timeline plus a
@@ -342,13 +353,13 @@ def _visual_outage_timeline(cx: int, cy: int, theme: str = "red") -> str:
     phases = [
         (-150, "DETECT"),
         (-78, "DIAGNOSE"),
-        (0, "MITIGATE"),     # current/highlighted
+        (0, "MITIGATE"),  # current/highlighted
         (78, "RESOLVE"),
         (150, "POSTMORTEM"),
     ]
     nodes = []
     for x, label in phases:
-        is_cur = (label == "MITIGATE")
+        is_cur = label == "MITIGATE"
         r = 9 if is_cur else 6
         fill = a if is_cur else "#0A0C16"
         stroke = a if is_cur else soft
@@ -356,10 +367,12 @@ def _visual_outage_timeline(cx: int, cy: int, theme: str = "red") -> str:
             f'<circle cx="{x}" cy="-30" r="{r}" fill="{fill}" stroke="{stroke}" '
             f'stroke-width="{2 if is_cur else 1.4}">'
             + (
-                f'<animate attributeName="r" values="8;11;8" dur="2s" '
-                f'repeatCount="indefinite"/>' if is_cur else ""
+                '<animate attributeName="r" values="8;11;8" dur="2s" '
+                'repeatCount="indefinite"/>'
+                if is_cur
+                else ""
             )
-            + '</circle>'
+            + "</circle>"
         )
         nodes.append(
             f'<text x="{x}" y="-50" text-anchor="middle" '
@@ -383,7 +396,7 @@ def _visual_outage_timeline(cx: int, cy: int, theme: str = "red") -> str:
             f'<text x="0" y="{90 - radius + 12}" text-anchor="middle" '
             f'font-family="Inter, monospace" font-size="7" font-weight="700" '
             f'fill="{soft}" opacity="{opacity + 0.2:.2f}" letter-spacing="1">'
-            f'{region}</text>'
+            f"{region}</text>"
         )
     return (
         f'<g transform="translate({cx},{cy})">'
@@ -393,7 +406,8 @@ def _visual_outage_timeline(cx: int, cy: int, theme: str = "red") -> str:
         f'<line x1="-168" y1="-30" x2="168" y2="-30" stroke="{soft}" '
         f'stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="4 3"/>'
         # Phase markers + labels.
-        + "".join(nodes) +
+        + "".join(nodes)
+        +
         # Sweep pulse along the axis (motion dot, no scripts).
         f'<circle r="2.4" fill="{a}">'
         f'<animateMotion path="M-150 -30 L150 -30" dur="3.6s" '
@@ -403,11 +417,10 @@ def _visual_outage_timeline(cx: int, cy: int, theme: str = "red") -> str:
         f'font-family="Inter, monospace" font-size="9" font-weight="800" '
         f'fill="{soft}" letter-spacing="2">BLAST RADIUS</text>'
         # Concentric arcs + region labels + epicenter dot.
-        + "".join(arcs) +
-        f'<circle cx="0" cy="90" r="3" fill="{a}">'
+         + "".join(arcs) + f'<circle cx="0" cy="90" r="3" fill="{a}">'
         f'<animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" '
         f'repeatCount="indefinite"/></circle>'
-        f'</g>'
+        f"</g>"
     )
 
 
@@ -428,12 +441,12 @@ def _visual_k8s_topology(cx: int, cy: int, theme: str = "blue") -> str:
     hex_pts = "0,-26 22,-13 22,13 0,26 -22,13 -22,-13"
     # 6 satellite positions on a 100-unit radius circle, with labels.
     sats = [
-        (   0,  -92, "POD",  "#86EFAC"),  # green
-        (  92,  -34, "SVC",  "#67E8F9"),  # cyan
-        (  82,   54, "NS",   "#C4B5FD"),  # purple
-        (   0,   92, "CM",   "#FFD58A"),  # amber
-        ( -82,   54, "CRD",  "#F9A8D4"),  # pink
-        ( -92,  -34, "NODE", soft),       # theme-soft (blue)
+        (0, -92, "POD", "#86EFAC"),  # green
+        (92, -34, "SVC", "#67E8F9"),  # cyan
+        (82, 54, "NS", "#C4B5FD"),  # purple
+        (0, 92, "CM", "#FFD58A"),  # amber
+        (-82, 54, "CRD", "#F9A8D4"),  # pink
+        (-92, -34, "NODE", soft),  # theme-soft (blue)
     ]
     nodes_svg = []
     lines_svg = []
@@ -456,14 +469,15 @@ def _visual_k8s_topology(cx: int, cy: int, theme: str = "blue") -> str:
             f'<text x="0" y="4" text-anchor="middle" '
             f'font-family="Inter, monospace" font-size="10" font-weight="900" '
             f'fill="{col}" letter-spacing="1">{label}</text>'
-            f'</g>'
+            f"</g>"
         )
     return (
         f'<g transform="translate({cx},{cy})">'
         # (No internal header — the visual_frame caption "K8S TOPOLOGY"
         # already labels this zone; an inner label would duplicate it.)
         # Curved control-plane connections (drawn first, under the boxes).
-        + "".join(lines_svg) +
+        + "".join(lines_svg)
+        +
         # Central control-plane hex + label.
         f'<polygon points="{hex_pts}" fill="#0A1A30" stroke="{a}" '
         f'stroke-width="2" filter="url(#softShadow)">'
@@ -476,7 +490,7 @@ def _visual_k8s_topology(cx: int, cy: int, theme: str = "blue") -> str:
         f'font-family="Inter, monospace" font-size="7" font-weight="700" '
         f'fill="{a}" letter-spacing="1.2">CONTROL PLANE</text>'
         # Satellite nodes.
-        + "".join(nodes_svg) +
+         + "".join(nodes_svg) +
         # Bottom-corner mode badge ("single-node" — accurate for minikube).
         f'<g transform="translate(-120,124)">'
         f'<rect x="0" y="0" width="86" height="18" rx="3" fill="#0A0C16" '
@@ -484,17 +498,18 @@ def _visual_k8s_topology(cx: int, cy: int, theme: str = "blue") -> str:
         f'<text x="43" y="13" text-anchor="middle" '
         f'font-family="Inter, monospace" font-size="8" font-weight="800" '
         f'fill="{soft}" letter-spacing="1.4">single-node</text>'
-        f'</g>'
-        f'</g>'
+        f"</g>"
+        f"</g>"
     )
 
 
 # Register the L25-native primitives after their bodies are defined.
 VISUAL_BUILDERS["outage_timeline"] = _visual_outage_timeline
-VISUAL_BUILDERS["k8s_topology"]    = _visual_k8s_topology
+VISUAL_BUILDERS["k8s_topology"] = _visual_k8s_topology
 
 
 # Top-level renderer -------------------------------------------------------
+
 
 def render_l25_single(spec: Mapping[str, Any]) -> str:
     """Render a full L25-single 1200x630 SVG from a spec dict.
@@ -526,15 +541,11 @@ def render_l25_single(spec: Mapping[str, Any]) -> str:
 
     # Validate enums up front — fail loud so YAML typos never reach disk.
     if category not in CATEGORIES:
-        raise ValueError(
-            f"unknown category {category!r}; valid: {sorted(CATEGORIES)}"
-        )
+        raise ValueError(f"unknown category {category!r}; valid: {sorted(CATEGORIES)}")
     if theme not in THEMES:
         raise ValueError(f"unknown theme {theme!r}; valid: {sorted(THEMES)}")
     if visual not in VISUAL_BUILDERS:
-        raise ValueError(
-            f"unknown visual {visual!r}; valid: {sorted(VISUAL_BUILDERS)}"
-        )
+        raise ValueError(f"unknown visual {visual!r}; valid: {sorted(VISUAL_BUILDERS)}")
 
     t = _theme(theme)
     accent = t["accent"]
@@ -554,8 +565,8 @@ def render_l25_single(spec: Mapping[str, Any]) -> str:
     parts: List[str] = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" '
         f'width="1200" height="630" role="img" aria-label="{aria}">',
-        f'<title>{title}</title>',
-        '<!-- profile: high-quality-cover (2025 upgraded L25-single) -->',
+        f"<title>{title}</title>",
+        "<!-- profile: high-quality-cover (2025 upgraded L25-single) -->",
         l20._defs(),
         # Background
         '<rect width="1200" height="630" fill="url(#bgSpread)"/>',
@@ -565,7 +576,7 @@ def render_l25_single(spec: Mapping[str, Any]) -> str:
         '<rect x="0" y="0" width="1200" height="56" fill="#050813" opacity="0.92"/>',
         f'<text x="36" y="36" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="18" font-weight="700" fill="{cat_color}" letter-spacing="2.5">'
-        f'{cat_u}</text>',
+        f"{cat_u}</text>",
         f'<text x="1164" y="36" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="15" font-weight="600" fill="#7DA3D9" letter-spacing="1.5" '
         f'text-anchor="end">{_escape(date_str)}</text>',
@@ -583,13 +594,13 @@ def render_l25_single(spec: Mapping[str, Any]) -> str:
         '<g filter="url(#textShadow)">',
         f'<text x="54" y="120" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="13" font-weight="700" fill="{accent_soft}" letter-spacing="3">'
-        f'{cat_u}  /  {theme_u}</text>',
+        f"{cat_u}  /  {theme_u}</text>",
         f'<text x="54" y="172" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="34" font-weight="800" fill="#F8FAFC">{_escape(headline)}</text>',
         f'<text x="54" y="208" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="18" font-weight="500" fill="{accent_text}">'
-        f'{_escape(subheadline)}</text>',
-        '</g>',
+        f"{_escape(subheadline)}</text>",
+        "</g>",
         # Animated triple-pulse strip under the subheadline (L22-ultra parity).
         _accent_pulse_strip(54, 226, accent, accent_soft),
         # Optional detail-bullet line (2 phrases, like L22 ultra's "UAC-0255 -
@@ -618,12 +629,15 @@ def render_l25_single(spec: Mapping[str, Any]) -> str:
             visual,
             740 if accent_badge.get("value") else 840,
             340 if accent_badge.get("value") else 290,
-            theme, category.upper(),
+            theme,
+            category.upper(),
         ),
         # Optional standalone accent badge (top-right of hero, mirrors L22
         # ultra's right-side "1M+ EMAILS SENT" KPI hero card).
         _accent_badge(
-            1080, 165, theme,
+            1080,
+            165,
+            theme,
             str(accent_badge.get("value", "")),
             str(accent_badge.get("label", "")),
             str(accent_badge.get("sub", "")),
@@ -632,6 +646,6 @@ def render_l25_single(spec: Mapping[str, Any]) -> str:
         _tag_chip_row(520, tag_chips, accent),
         _kpi_strip(562, kpi_strip, theme),
         l22.qr_block(url),
-        '</svg>',
+        "</svg>",
     ]
     return "\n".join(parts) + "\n"

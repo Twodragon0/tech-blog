@@ -104,7 +104,9 @@ class TestPerfGateConfig:
         )
 
     def test_trigger_paths_present(self):
-        paths = set((_triggers(_workflow()).get("pull_request") or {}).get("paths") or [])
+        paths = set(
+            (_triggers(_workflow()).get("pull_request") or {}).get("paths") or []
+        )
         missing = REQUIRED_TRIGGER_PATHS - paths
         assert not missing, (
             f"the pull_request 'paths' filter lost {sorted(missing)}. "
@@ -174,7 +176,9 @@ class TestPerfGateConfig:
             "Each extra URL adds 12 Lighthouse runs (2 sides x [1 warm + 5 "
             "measured]). If intentional, update this guard."
         )
-        assert "--max-post-urls" in _step(wf, "Resolve measurement URLs").get("run", ""), (
+        assert "--max-post-urls" in _step(wf, "Resolve measurement URLs").get(
+            "run", ""
+        ), (
             "the cap is declared in env but no longer passed to the resolver — "
             "a dead constant."
         )
@@ -291,6 +295,6 @@ class TestPerfGateConfig:
             "an assets/** or _includes/** PR measures alongside the homepage; "
             "without it those PRs only ever measure '/'."
         )
-        assert "--default-post-url" in _step(wf, "Resolve measurement URLs").get("run", ""), (
-            "DEFAULT_POST_URL is declared but no longer passed to the resolver."
-        )
+        assert "--default-post-url" in _step(wf, "Resolve measurement URLs").get(
+            "run", ""
+        ), "DEFAULT_POST_URL is declared but no longer passed to the resolver."

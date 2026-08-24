@@ -18,10 +18,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from scripts.validators.check_frontmatter_quotes import find_broken_lines, main
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def _wrap(field_line: str) -> str:
     """Wrap a single front-matter line in minimal valid front-matter block."""
@@ -88,7 +88,7 @@ class TestFindBrokenLinesBroken:
         assert len(result) == 1
         lineno, line = result[0]
         assert lineno == 2
-        assert 'title:' in line
+        assert "title:" in line
 
     def test_excerpt_with_unescaped_inner_dq(self):
         content = _wrap('excerpt: "Summary of "important" event."')
@@ -111,11 +111,11 @@ class TestFindBrokenLinesBroken:
     def test_both_title_and_excerpt_broken(self):
         """When both title and excerpt have broken inner quotes."""
         content = (
-            '---\n'
+            "---\n"
             'title: "A "broken" title"\n'
             'excerpt: "Also "broken" excerpt"\n'
-            'layout: post\n'
-            '---\n'
+            "layout: post\n"
+            "---\n"
         )
         result = find_broken_lines(content)
         assert len(result) == 2
@@ -124,12 +124,7 @@ class TestFindBrokenLinesBroken:
 
     def test_lineno_correct_for_third_line(self):
         """Line number must reflect actual position in file."""
-        content = (
-            '---\n'
-            'layout: post\n'
-            'title: "Has "inner" quotes"\n'
-            '---\n'
-        )
+        content = '---\nlayout: post\ntitle: "Has "inner" quotes"\n---\n'
         result = find_broken_lines(content)
         assert len(result) == 1
         assert result[0][0] == 3

@@ -249,7 +249,9 @@ def _fix_svg_text(content: str) -> str:
 
     # Pass 2: stray < before digit/space inside text runs, iterate until stable
     while True:
-        new_content = _STRAY_LT_RE.sub(lambda m: ">" + m.group(1) + "&lt;" + m.group(2), content)
+        new_content = _STRAY_LT_RE.sub(
+            lambda m: ">" + m.group(1) + "&lt;" + m.group(2), content
+        )
         if new_content == content:
             break
         content = new_content
@@ -289,6 +291,7 @@ def run_svg_validate(fix: bool = False) -> Dict:
 
         # Write patched content to a temp check
         import tempfile
+
         with tempfile.NamedTemporaryFile(
             mode="w", suffix=".svg", delete=False, encoding="utf-8"
         ) as tmp:
@@ -398,7 +401,9 @@ def main():
             if report["invalid_before"] == 0:
                 print("모든 SVG 파일이 유효합니다.")
             else:
-                print("유효하지 않은 파일이 있습니다. --svg-fix 플래그로 자동 수정을 시도하세요.")
+                print(
+                    "유효하지 않은 파일이 있습니다. --svg-fix 플래그로 자동 수정을 시도하세요."
+                )
         print("=" * 80)
         sys.exit(0 if report["still_broken"] == [] else 1)
 

@@ -87,7 +87,9 @@ class TestDetector:
         A post may legitimately write these phrases in its body — that is
         analysis, not a summary that claims to describe an article.
         """
-        body = FRONT_MATTER + f"이 절에서는 {TEMPLATE_MARKERS[0]}, 배포 순서를 다룬다.\n"
+        body = (
+            FRONT_MATTER + f"이 절에서는 {TEMPLATE_MARKERS[0]}, 배포 순서를 다룬다.\n"
+        )
         assert check_text(body) == []
 
     def test_multiple_defects_counted_separately(self):
@@ -186,8 +188,7 @@ class TestWiring:
         # The check must run AFTER the self-heal, or the heal proves nothing.
         heal = text.index("rewrite_template_echo_summaries.py")
         checks = [
-            i for i in range(len(text))
-            if text.startswith("check_template_echo.py", i)
+            i for i in range(len(text)) if text.startswith("check_template_echo.py", i)
         ]
         assert any(i > heal for i in checks), (
             "every check_template_echo.py call precedes the self-heal, so a "

@@ -74,9 +74,7 @@ def _command_text(block: str) -> str:
     the flag assertions reflect what actually runs. (Skill rule: never match
     commentary.)
     """
-    return "\n".join(
-        ln for ln in block.splitlines() if not ln.lstrip().startswith("#")
-    )
+    return "\n".join(ln for ln in block.splitlines() if not ln.lstrip().startswith("#"))
 
 
 class TestHonestyGateGuard:

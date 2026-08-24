@@ -29,6 +29,7 @@ Usage:
     python3 scripts/check_digest_proper_nouns.py --fix --staged  # rewrite Hangul forms -> canonical
     python3 scripts/check_digest_proper_nouns.py path/a.md
 """
+
 import argparse
 import re
 import subprocess
@@ -60,18 +61,18 @@ ENTITIES = {
     # and domestic-only 네이버/카카오 (never written in English) +
     # already-English-canonical OpenAI/Nvidia/Ubuntu/… — tracked in
     # notes/digest-proper-noun-policy.md.
-    "안드로이드": "Android",   # 6 files mixed; always standalone ("안드로이드 악성/펌웨어")
-    "텔레그램": "Telegram",     # mixed; always standalone ("텔레그램 봇/기반/지갑")
+    "안드로이드": "Android",  # 6 files mixed; always standalone ("안드로이드 악성/펌웨어")
+    "텔레그램": "Telegram",  # mixed; always standalone ("텔레그램 봇/기반/지갑")
     # 2026-07-30 additions: previously DEFERRED on a naive-substring premise, but
     # the josa+word-boundary matcher (_ENTITY_RE) already resolves their compound
     # noise, so NO bespoke exclusion is needed. Verified with the real matcher on
     # the digest corpus (see notes/digest-proper-noun-policy.md §2 re-measurement).
-    "메타": "Meta",       # 21/21 genuine (메타의 광고, 메타가 크리에이터, 메타의 파이썬).
-                          # 메타데이터/메타버스/메타분석/메타문자 = 메타+Hangul-non-josa →
-                          # already excluded by the lookahead (0 leaks).
-    "시스코": "Cisco",     # 2/2 genuine (시스코가 분기 실적, 시스코 Unified). 샌프란시스코 =
-                          # 시스코 embedded in a larger Hangul token → already excluded by the
-                          # (?<![가-힣…]) lookbehind (0 leaks).
+    "메타": "Meta",  # 21/21 genuine (메타의 광고, 메타가 크리에이터, 메타의 파이썬).
+    # 메타데이터/메타버스/메타분석/메타문자 = 메타+Hangul-non-josa →
+    # already excluded by the lookahead (0 leaks).
+    "시스코": "Cisco",  # 2/2 genuine (시스코가 분기 실적, 시스코 Unified). 샌프란시스코 =
+    # 시스코 embedded in a larger Hangul token → already excluded by the
+    # (?<![가-힣…]) lookbehind (0 leaks).
     # 윈도우 (→Windows) STAYS DEFERRED: genuine homonym. The "window" sense
     # (컨텍스트/안정화/슬라이딩/익스플로잇 윈도우, "블록 N 윈도우", "유지보수 기간(윈도우)")
     # cannot be regex-separated from the OS sense — a deny-prefix still leaves ~25%
@@ -83,11 +84,49 @@ ENTITIES = {
 # these directly follows an entity it is preserved (구글은 -> Google은). Ordered
 # longest-first so the alternation is greedy where it matters.
 _JOSA = [
-    "으로서", "으로써", "에서는", "에게서", "이라는", "라는", "이라고", "라고",
-    "으로", "에서", "에게", "한테", "부터", "까지", "보다", "처럼", "같이",
-    "이나", "이란", "이든", "든지", "조차", "마저", "밖에", "만큼", "이랑",
-    "은", "는", "이", "가", "을", "를", "의", "와", "과", "도", "만", "로",
-    "에", "랑", "나", "뿐", "및",
+    "으로서",
+    "으로써",
+    "에서는",
+    "에게서",
+    "이라는",
+    "라는",
+    "이라고",
+    "라고",
+    "으로",
+    "에서",
+    "에게",
+    "한테",
+    "부터",
+    "까지",
+    "보다",
+    "처럼",
+    "같이",
+    "이나",
+    "이란",
+    "이든",
+    "든지",
+    "조차",
+    "마저",
+    "밖에",
+    "만큼",
+    "이랑",
+    "은",
+    "는",
+    "이",
+    "가",
+    "을",
+    "를",
+    "의",
+    "와",
+    "과",
+    "도",
+    "만",
+    "로",
+    "에",
+    "랑",
+    "나",
+    "뿐",
+    "및",
 ]
 _JOSA_ALT = "|".join(sorted(_JOSA, key=len, reverse=True))
 
@@ -286,7 +325,9 @@ def _explicit_paths(args_paths: list) -> list:
             cwd_p = Path.cwd() / p
             p = cwd_p if cwd_p.exists() else REPO / a
         if not p.exists():
-            print(f"[digest-proper-nouns] WARNING: file not found: {a}", file=sys.stderr)
+            print(
+                f"[digest-proper-nouns] WARNING: file not found: {a}", file=sys.stderr
+            )
             continue
         if _is_digest_post(p):
             paths.append(p)
@@ -302,17 +343,29 @@ def main(argv=None) -> int:
             "found; --fix rewrites them in place."
         )
     )
-    parser.add_argument("--fix", action="store_true",
-                        help="Rewrite Hangul entity forms to canonical English in place.")
+    parser.add_argument(
+        "--fix",
+        action="store_true",
+        help="Rewrite Hangul entity forms to canonical English in place.",
+    )
     mode = parser.add_mutually_exclusive_group()
-    mode.add_argument("--staged", action="store_true",
-                      help="Only process staged digest posts (git diff --cached).")
-    mode.add_argument("--all", action="store_true",
-                      help="Process every digest post.")
-    mode.add_argument("--changed", metavar="BASE", default=None,
-                      help="Only process digest posts changed vs BASE (git diff BASE...HEAD).")
-    parser.add_argument("paths", nargs="*",
-                        help="Explicit post file paths (non-digest paths are skipped).")
+    mode.add_argument(
+        "--staged",
+        action="store_true",
+        help="Only process staged digest posts (git diff --cached).",
+    )
+    mode.add_argument("--all", action="store_true", help="Process every digest post.")
+    mode.add_argument(
+        "--changed",
+        metavar="BASE",
+        default=None,
+        help="Only process digest posts changed vs BASE (git diff BASE...HEAD).",
+    )
+    parser.add_argument(
+        "paths",
+        nargs="*",
+        help="Explicit post file paths (non-digest paths are skipped).",
+    )
     args = parser.parse_args(argv)
 
     if args.staged:
@@ -351,7 +404,9 @@ def main(argv=None) -> int:
                 print(f"OK   {rel}")
 
     if args.fix:
-        print(f"\n[digest-proper-nouns] --fix done — {fixed}/{checked} post(s) rewritten.")
+        print(
+            f"\n[digest-proper-nouns] --fix done — {fixed}/{checked} post(s) rewritten."
+        )
         return 0
     if rc:
         print(
@@ -362,7 +417,9 @@ def main(argv=None) -> int:
             file=sys.stderr,
         )
     else:
-        print(f"[digest-proper-nouns] OK — {checked} digest post(s) checked, 0 violations.")
+        print(
+            f"[digest-proper-nouns] OK — {checked} digest post(s) checked, 0 violations."
+        )
     return rc
 
 

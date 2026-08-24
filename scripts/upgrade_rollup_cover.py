@@ -57,11 +57,24 @@ VALID_SOURCES = ("redirect_from", "index_table", "manual")
 VALID_SEVERITIES = ("HIGH", "MEDIUM", "LOW")
 
 # Allowed top-level keys; anything else triggers a "unknown key" rejection.
-ALLOWED_KEYS = frozenset({
-    "date", "slug", "kind", "period_label", "period_short",
-    "daily_count", "daily_count_source", "sfx", "title", "aria",
-    "top_highlights", "days", "footer", "url",
-})
+ALLOWED_KEYS = frozenset(
+    {
+        "date",
+        "slug",
+        "kind",
+        "period_label",
+        "period_short",
+        "daily_count",
+        "daily_count_source",
+        "sfx",
+        "title",
+        "aria",
+        "top_highlights",
+        "days",
+        "footer",
+        "url",
+    }
+)
 
 
 def _short_path(p: Path) -> str:
@@ -84,6 +97,7 @@ class Spec:
     Mirrors the field layout of ``rollup_covers/*.yml`` so ``render_rollup_svg``
     can consume ``spec.as_dict()`` directly.
     """
+
     date: str
     slug: str
     kind: str
@@ -140,7 +154,9 @@ class Spec:
 
 def _validate_highlight(idx: int, raw: dict) -> dict:
     if not isinstance(raw, dict):
-        raise ValueError(f"top_highlights[{idx}]: expected dict, got {type(raw).__name__}")
+        raise ValueError(
+            f"top_highlights[{idx}]: expected dict, got {type(raw).__name__}"
+        )
     required = ("severity", "label", "headline", "source")
     missing = [k for k in required if k not in raw]
     if missing:
@@ -196,9 +212,17 @@ def load_spec(path: Path) -> Spec:
         raise ValueError(f"{path}: unknown top-level keys: {sorted(extra)}")
 
     required = (
-        "date", "slug", "kind", "period_label", "period_short",
-        "daily_count", "daily_count_source",
-        "title", "aria", "top_highlights", "days",
+        "date",
+        "slug",
+        "kind",
+        "period_label",
+        "period_short",
+        "daily_count",
+        "daily_count_source",
+        "title",
+        "aria",
+        "top_highlights",
+        "days",
     )
     missing = [k for k in required if k not in raw]
     if missing:
@@ -229,18 +253,16 @@ def load_spec(path: Path) -> Spec:
     # accommodates Week1 April (5 dailies 4/1..4/5); Week2/Week3 have 7.
     n = len(days)
     if kind == "weekly_rollup" and not (5 <= n <= 7):
-        raise ValueError(
-            f"{path}: weekly_rollup requires 5..7 days, got {n}"
-        )
+        raise ValueError(f"{path}: weekly_rollup requires 5..7 days, got {n}")
     if kind == "monthly_index" and not (4 <= n <= 31):
-        raise ValueError(
-            f"{path}: monthly_index requires 4..31 days, got {n}"
-        )
+        raise ValueError(f"{path}: monthly_index requires 4..31 days, got {n}")
     days = [_validate_day(i, d) for i, d in enumerate(days)]
 
     daily_count = raw["daily_count"]
     if not isinstance(daily_count, int) or daily_count < 1:
-        raise ValueError(f"{path}: daily_count must be a positive int, got {daily_count!r}")
+        raise ValueError(
+            f"{path}: daily_count must be a positive int, got {daily_count!r}"
+        )
 
     sfx = raw.get("sfx") or raw["date"].replace("-", "")[-4:]
 

@@ -110,10 +110,22 @@ def test_daily_urls_from_redirects_picks_only_daily_paths():
 
 def test_rank_top_highlights_orders_by_severity_then_recency():
     records = [
-        {"headline": "A", "severity": "MEDIUM", "recency": 0, "detail": "", "source": ""},
+        {
+            "headline": "A",
+            "severity": "MEDIUM",
+            "recency": 0,
+            "detail": "",
+            "source": "",
+        },
         {"headline": "B", "severity": "HIGH", "recency": 1, "detail": "", "source": ""},
         {"headline": "C", "severity": "HIGH", "recency": 3, "detail": "", "source": ""},
-        {"headline": "B", "severity": "LOW", "recency": 4, "detail": "", "source": ""},  # dup
+        {
+            "headline": "B",
+            "severity": "LOW",
+            "recency": 4,
+            "detail": "",
+            "source": "",
+        },  # dup
     ]
     top = rank_top_highlights(records, limit=3)
     assert [r["headline"] for r in top] == ["C", "B", "A"]  # HIGH(recent), HIGH, MEDIUM
@@ -172,7 +184,7 @@ def test_draft_top_highlight_sources_are_daily_derived(date, post_name):
     assert post.exists(), _MISSING_POST_MSG.format(post_name=post_name)
     fm, _ = parse_frontmatter(post.read_text(encoding="utf-8"))
     daily_sources: set = set()
-    for (_y, _m, _d, slug) in daily_urls_from_redirects(fm.get("redirect_from")):
+    for _y, _m, _d, slug in daily_urls_from_redirects(fm.get("redirect_from")):
         # find the daily file by date+slug
         for cand in POSTS_DIR.glob("*.md"):
             if cand.name.endswith(f"{slug}.md"):

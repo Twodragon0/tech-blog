@@ -83,7 +83,8 @@ def test_summary_card_blocks_have_required_keys():
 def test_post_count_invariant_at_least_one_card_post():
     """Sanity check: the corpus has many posts using the card."""
     counted = sum(
-        1 for p in _all_posts()
+        1
+        for p in _all_posts()
         if _INCLUDE_BLOCK_RE.search(p.read_text(encoding="utf-8"))
     )
     assert counted > 100, f"Expected >100 posts with summary card, got {counted}"

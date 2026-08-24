@@ -482,4 +482,3 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 승인: CTO
 
 *이 포스트는 실제 프로덕션 장애 경험을 바탕으로 작성되었으며, 민감 정보는 익명화 처리되었습니다.*
-

@@ -89,6 +89,7 @@ CI ROLLOUT NOTE (warn-only -> strict):
   ``--update-baseline scripts/cover_honesty_baseline.txt``.
   No pre-commit hook is wired (CI gate only).
 """
+
 from __future__ import annotations
 
 import argparse
@@ -108,6 +109,11 @@ if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 
 # Reuse-only imports (read-only): claim-class anchors + routing + quality proxies.
+from scripts.check_svg_size_gate import (  # noqa: E402
+    BANDS,
+    classify,
+)
+from scripts.check_svg_title_ascii import _violations as _ascii_violations  # noqa: E402
 from scripts.lib.svg_l20_hero import VISUAL_BUILDERS  # noqa: E402
 from scripts.news.l20_dispatch import (  # noqa: E402
     _demote_sidecard_advisory,
@@ -116,12 +122,6 @@ from scripts.news.l20_dispatch import (  # noqa: E402
     load_post_fields,
     resolve_digest_band_visuals,
     route_visual_id,
-)
-
-from scripts.check_svg_title_ascii import _violations as _ascii_violations  # noqa: E402
-from scripts.check_svg_size_gate import (  # noqa: E402
-    BANDS,
-    classify,
 )
 
 # Rubric identity. A score is only comparable within the same version. Bump
@@ -178,8 +178,13 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "cve_chain": (
         "vuln/CVE",
         [
-            r"cve-\d", r"cvss", r"\brce\b", r"zero-day", r"0-day",
-            r"patch tuesday", r"exploit",
+            r"cve-\d",
+            r"cvss",
+            r"\brce\b",
+            r"zero-day",
+            r"0-day",
+            r"patch tuesday",
+            r"exploit",
         ],
         ["CVE REGRESSION CHAIN"],
         False,
@@ -193,8 +198,13 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "container_escape": (
         "container-escape/breach",
         [
-            r"container escape", r"\bdocker\b", r"kubernetes", r"\bk8s\b",
-            r"\brunc\b", r"privilege escalation", r"breakout",
+            r"container escape",
+            r"\bdocker\b",
+            r"kubernetes",
+            r"\bk8s\b",
+            r"\brunc\b",
+            r"privilege escalation",
+            r"breakout",
         ],
         ["HOST KERNEL"],
         False,
@@ -202,8 +212,13 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "code_injection": (
         "code-injection/RCE",
         [
-            r"\brce\b", r"injection", r"payload", r"infostealer", r"stealer",
-            r"byovd", r"code injection",
+            r"\brce\b",
+            r"injection",
+            r"payload",
+            r"infostealer",
+            r"stealer",
+            r"byovd",
+            r"code injection",
         ],
         ["payload.py"],
         False,
@@ -211,8 +226,13 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "data_exfil": (
         "breach/exfil",
         [
-            r"data leak", r"exfil", r"breach", r"credential", r"token leak",
-            r"session hijack", r"s3 leak",
+            r"data leak",
+            r"exfil",
+            r"breach",
+            r"credential",
+            r"token leak",
+            r"session hijack",
+            r"s3 leak",
         ],
         ["DATA EXFILTRATION"],
         False,
@@ -220,8 +240,13 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "hub_spoke": (
         "C2/botnet",
         [
-            r"botnet", r"\bc2\b", r"router", r"soho", r"\bapt\b",
-            r"dns hijack", r"phishing",
+            r"botnet",
+            r"\bc2\b",
+            r"router",
+            r"soho",
+            r"\bapt\b",
+            r"dns hijack",
+            r"phishing",
         ],
         [">HUB<"],
         False,
@@ -229,8 +254,12 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "ai_agent_funnel": (
         "ai-agent-abuse",
         [
-            r"ai agent", r"agentic", r"llm jailbreak", r"prompt injection",
-            r"copilot", r"shadow ai",
+            r"ai agent",
+            r"agentic",
+            r"llm jailbreak",
+            r"prompt injection",
+            r"copilot",
+            r"shadow ai",
         ],
         ["EXPOSED FLEET"],
         False,
@@ -238,8 +267,14 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "supply_chain_pipe": (
         "supply-chain",
         [
-            r"supply chain", r"slsa", r"sbom", r"\bnpm\b", r"trivy",
-            r"helm chart", r"poisoned", r"tainted",
+            r"supply chain",
+            r"slsa",
+            r"sbom",
+            r"\bnpm\b",
+            r"trivy",
+            r"helm chart",
+            r"poisoned",
+            r"tainted",
         ],
         ["SUPPLY-CHAIN POISON"],
         False,
@@ -252,16 +287,28 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     ),
     "market": (
         "market",
-        [r"\$\s*\d", r"bitcoin", r"ethereum", r"crypto", r"price", r"\d+\s*%",
-         r"market cap"],
+        [
+            r"\$\s*\d",
+            r"bitcoin",
+            r"ethereum",
+            r"crypto",
+            r"price",
+            r"\d+\s*%",
+            r"market cap",
+        ],
         [">MARKET<"],
         True,
     ),
     "security_advisory": (
         "generic security (advisory)",
         [
-            r"vulnerability", r"\bcve\b", r"malware", r"threat", r"advisory",
-            r"security", r"patch",
+            r"vulnerability",
+            r"\bcve\b",
+            r"malware",
+            r"threat",
+            r"advisory",
+            r"security",
+            r"patch",
         ],
         ["SECURITY ADVISORY"],
         True,
@@ -284,57 +331,123 @@ CLAIM_CLASSES: Dict[str, Tuple[str, List[str], List[str], bool]] = {
 CLAIM_CLASSES_L22: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "lock_cve": (
         "vuln/CVE",
-        [r"cve-\d", r"cvss", r"\brce\b", r"zero-day", r"0-day", r"exploit",
-         r"vulnerab", r"patch"],
+        [
+            r"cve-\d",
+            r"cvss",
+            r"\brce\b",
+            r"zero-day",
+            r"0-day",
+            r"exploit",
+            r"vulnerab",
+            r"patch",
+        ],
         ["CVSS : critical scope"],
         False,
     ),
     "browser_cve": (
         "browser-vuln/CVE",
-        [r"cve-\d", r"cvss", r"browser", r"chrome", r"firefox", r"safari",
-         r"\bedge\b", r"exploit"],
+        [
+            r"cve-\d",
+            r"cvss",
+            r"browser",
+            r"chrome",
+            r"firefox",
+            r"safari",
+            r"\bedge\b",
+            r"exploit",
+        ],
         ["scan ack : 1 alert"],
         False,
     ),
     "network_nodes": (
         "C2/botnet",
-        [r"botnet", r"\bc2\b", r"\bddos\b", r"lateral", r"\bworm\b",
-         r"\bapt\b", r"infra"],
+        [
+            r"botnet",
+            r"\bc2\b",
+            r"\bddos\b",
+            r"lateral",
+            r"\bworm\b",
+            r"\bapt\b",
+            r"infra",
+        ],
         ["C2 HUB"],
         False,
     ),
     "botnet_p2p": (
         "C2/botnet",
-        [r"botnet", r"\bp2p\b", r"peer-to-peer", r"\bc2\b", r"\bddos\b",
-         r"mirai", r"\bworm\b"],
+        [
+            r"botnet",
+            r"\bp2p\b",
+            r"peer-to-peer",
+            r"\bc2\b",
+            r"\bddos\b",
+            r"mirai",
+            r"\bworm\b",
+        ],
         ["no central C2"],
         False,
     ),
     "wallet_forensic": (
         "crypto-breach/exfil",
-        [r"bitcoin", r"\bbtc\b", r"crypto", r"wallet", r"mixer", r"on-chain",
-         r"laund", r"defi", r"blockchain", r"exfil", r"breach"],
+        [
+            r"bitcoin",
+            r"\bbtc\b",
+            r"crypto",
+            r"wallet",
+            r"mixer",
+            r"on-chain",
+            r"laund",
+            r"defi",
+            r"blockchain",
+            r"exfil",
+            r"breach",
+        ],
         ["on-chain trace : 3 hops"],
         False,
     ),
     "kernel_lpe": (
         "privilege-escalation",
-        [r"privilege escalation", r"\blpe\b", r"\brce\b", r"kernel", r"\bring 0\b",
-         r"\bring0\b", r"root", r"breakout", r"escape"],
+        [
+            r"privilege escalation",
+            r"\blpe\b",
+            r"\brce\b",
+            r"kernel",
+            r"\bring 0\b",
+            r"\bring0\b",
+            r"root",
+            r"breakout",
+            r"escape",
+        ],
         ["RING 3"],
         False,
     ),
     "ad_fraud": (
         "ad-fraud",
-        [r"\bfraud\b", r"\bbid\b", r"ad fraud", r"click fraud", r"\bsdk\b",
-         r"malvertis"],
+        [
+            r"\bfraud\b",
+            r"\bbid\b",
+            r"ad fraud",
+            r"click fraud",
+            r"\bsdk\b",
+            r"malvertis",
+        ],
         ["BID FRAUD"],
         False,
     ),
     "supply_chain": (
         "supply-chain",
-        [r"supply chain", r"slsa", r"sbom", r"\bnpm\b", r"\bpypi\b", r"poisoned",
-         r"tampered", r"package", r"registry", r"cosign"],
+        [
+            r"supply chain",
+            r"slsa",
+            r"sbom",
+            r"\bnpm\b",
+            r"\bpypi\b",
+            r"poisoned",
+            r"tampered",
+            r"package",
+            r"registry",
+            r"cosign",
+        ],
         ["4 stages : 1 tampered"],
         False,
     ),
@@ -354,22 +467,45 @@ CLAIM_CLASSES_L22: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     ),
     "bar_graph": (
         "market/growth",
-        [r"\$\s*\d", r"\d+\s*%", r"growth", r"trend", r"revenue", r"market",
-         r"qoq", r"yoy"],
+        [
+            r"\$\s*\d",
+            r"\d+\s*%",
+            r"growth",
+            r"trend",
+            r"revenue",
+            r"market",
+            r"qoq",
+            r"yoy",
+        ],
         ["6 buckets : qoq trend"],
         True,
     ),
     "price_chart": (
         "market",
-        [r"\$\s*\d", r"price", r"bitcoin", r"crypto", r"\d+\s*%", r"rsi",
-         r"market", r"ohlc"],
+        [
+            r"\$\s*\d",
+            r"price",
+            r"bitcoin",
+            r"crypto",
+            r"\d+\s*%",
+            r"rsi",
+            r"market",
+            r"ohlc",
+        ],
         ["7d ohlc : RSI 29"],
         True,
     ),
     "senate_columns": (
         "regulation/policy",
-        [r"regulation", r"senate", r"policy", r"compliance", r"law", r"\bact\b",
-         r"governance"],
+        [
+            r"regulation",
+            r"senate",
+            r"policy",
+            r"compliance",
+            r"law",
+            r"\bact\b",
+            r"governance",
+        ],
         ["5 columns : 1 gavel"],
         True,
     ),
@@ -433,22 +569,53 @@ CLAIM_CLASSES_L22: Dict[str, Tuple[str, List[str], List[str], bool]] = {
 CLAIM_CLASSES_L25: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "lock": (
         "vuln/CVE",
-        [r"cve-\d", r"cvss", r"\brce\b", r"zero-day", r"0-day", r"exploit",
-         r"vulnerab", r"malware", r"byovd", r"patch", r"breach"],
+        [
+            r"cve-\d",
+            r"cvss",
+            r"\brce\b",
+            r"zero-day",
+            r"0-day",
+            r"exploit",
+            r"vulnerab",
+            r"malware",
+            r"byovd",
+            r"patch",
+            r"breach",
+        ],
         ["SECURE PERIMETER"],
         False,
     ),
     "network": (
         "C2/network-attack",
-        [r"botnet", r"\bc2\b", r"\bddos\b", r"\bdns\b", r"lateral", r"\bworm\b",
-         r"infra", r"network", r"propagat", r"fanout"],
+        [
+            r"botnet",
+            r"\bc2\b",
+            r"\bddos\b",
+            r"\bdns\b",
+            r"lateral",
+            r"\bworm\b",
+            r"infra",
+            r"network",
+            r"propagat",
+            r"fanout",
+        ],
         ["PROPAGATION GRAPH"],
         False,
     ),
     "incident_timeline": (
         "incident/ransomware",
-        [r"ransomware", r"incident", r"outage", r"post-?mortem", r"\brca\b",
-         r"downtime", r"breach", r"spike", r"랜섬웨어", r"인시던트"],
+        [
+            r"ransomware",
+            r"incident",
+            r"outage",
+            r"post-?mortem",
+            r"\brca\b",
+            r"downtime",
+            r"breach",
+            r"spike",
+            r"랜섬웨어",
+            r"인시던트",
+        ],
         ["INCIDENT TIMELINE"],
         False,
     ),
@@ -475,7 +642,12 @@ CLAIM_CLASSES_L25: Dict[str, Tuple[str, List[str], List[str], bool]] = {
     "ssl": ("ssl-inspect (illustrative)", [], ["SSL INSPECT + SANDBOX"], True),
     "macos": ("macos (illustrative)", [], ["macOS DEVICE"], True),
     "conference": ("event (illustrative)", [], ["CONFERENCE STAGE"], True),
-    "ai_threat": ("ai-threat (illustrative)", [], ["3 layers : 1 poison : injection"], True),
+    "ai_threat": (
+        "ai-threat (illustrative)",
+        [],
+        ["3 layers : 1 poison : injection"],
+        True,
+    ),
     "rollup_index": ("rollup-index (illustrative)", [], ["ROLLUP INDEX"], True),
 }
 
@@ -720,12 +892,14 @@ def _score_honesty(
             continue  # unresolved band (counted under fresh/stale, not honesty)
         if vid not in tax:
             score -= 25
-            violations.append({
-                "band": band_name,
-                "visual_id": vid,
-                "claim_class": "unknown",
-                "reason": "UNKNOWN_BUILDER: visual_id not in taxonomy",
-            })
+            violations.append(
+                {
+                    "band": band_name,
+                    "visual_id": vid,
+                    "claim_class": "unknown",
+                    "reason": "UNKNOWN_BUILDER: visual_id not in taxonomy",
+                }
+            )
             flags.append(f"UNKNOWN_BUILDER:{band_name}")
             continue
         claim_class, _, _, always_pass = tax[vid]
@@ -733,15 +907,17 @@ def _score_honesty(
             continue  # neutral / market / advisory / illustrative: no fabrication
         if not _band_supported(vid, body_lower, ev):
             score -= 25
-            violations.append({
-                "band": band_name,
-                "visual_id": vid,
-                "claim_class": claim_class,
-                "reason": (
-                    f"no {claim_class} evidence token in post; "
-                    f"band asserts a claim the post lacks"
-                ),
-            })
+            violations.append(
+                {
+                    "band": band_name,
+                    "visual_id": vid,
+                    "claim_class": claim_class,
+                    "reason": (
+                        f"no {claim_class} evidence token in post; "
+                        f"band asserts a claim the post lacks"
+                    ),
+                }
+            )
     return (max(0, score), violations, flags)
 
 
@@ -868,9 +1044,10 @@ def detect_system(svg_text: str) -> Optional[str]:
 def is_cover_in_scope(svg_path: Path) -> bool:
     """True when the SVG is an L20/L22/L25 cover this scorer can audit."""
     try:
-        return detect_system(
-            svg_path.read_text(encoding="utf-8", errors="replace")
-        ) is not None
+        return (
+            detect_system(svg_path.read_text(encoding="utf-8", errors="replace"))
+            is not None
+        )
     except OSError:
         return False
 
@@ -1025,10 +1202,17 @@ def _finish_three_band(
         flags.append("LOW_DIVERSITY")
 
     return _finalize(
-        base, honesty_score, violations, flags, quality_score,
+        base,
+        honesty_score,
+        violations,
+        flags,
+        quality_score,
         {
-            "ascii": q_ascii, "size_band": q_size, "legibility": q_leg,
-            "motif_diversity": q_div, "fresh_render": q_fresh,
+            "ascii": q_ascii,
+            "size_band": q_size,
+            "legibility": q_leg,
+            "motif_diversity": q_div,
+            "fresh_render": q_fresh,
         },
         dict(zip(_BAND_NAMES, resolved)),
     )
@@ -1089,9 +1273,15 @@ def _finish_l25(
     quality_score = round((q_ascii + q_size + q_leg + q_fresh) * 10 / 8)
 
     return _finalize(
-        base, honesty_score, violations, flags, quality_score,
+        base,
+        honesty_score,
+        violations,
+        flags,
+        quality_score,
         {
-            "ascii": q_ascii, "size_band": q_size, "legibility": q_leg,
+            "ascii": q_ascii,
+            "size_band": q_size,
+            "legibility": q_leg,
             "fresh_render": q_fresh,
         },
         {"visual": resolved[0]},
@@ -1148,7 +1338,9 @@ def _category_from_post(post_rel: Optional[str]) -> str:
 # font-size="18". The single-mode render_single_svg uses a different layout
 # (Arial hero at x=84), so the L25 legibility proxy only penalizes a trailing
 # ellipsis on any hero/sub text rather than re-deriving per-layout budgets.
-_L25_ELLIPSIS_RE = re.compile(r'<text[^>]*font-size="(?:18|34|40|48|54|60)"[^>]*>([^<]*)</text>')
+_L25_ELLIPSIS_RE = re.compile(
+    r'<text[^>]*font-size="(?:18|34|40|48|54|60)"[^>]*>([^<]*)</text>'
+)
 
 
 def _quality_legibility_l25(svg_text: str) -> int:
@@ -1236,13 +1428,22 @@ def main(argv: Optional[List[str]] = None) -> int:
     )
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--all", action="store_true", help="Score every L20 cover.")
-    group.add_argument("--files", nargs="+", metavar="SVG", help="Explicit cover paths.")
+    group.add_argument(
+        "--files", nargs="+", metavar="SVG", help="Explicit cover paths."
+    )
     parser.add_argument("paths", nargs="*", help="Cover path(s) to score.")
-    parser.add_argument("--json", action="store_true", help="Machine-readable JSON output.")
-    parser.add_argument("--strict", action="store_true", help="Exit 1 on any non-baselined FAIL.")
-    parser.add_argument("--baseline", metavar="FILE", help="Grandfather FAILs listed here.")
     parser.add_argument(
-        "--update-baseline", metavar="FILE",
+        "--json", action="store_true", help="Machine-readable JSON output."
+    )
+    parser.add_argument(
+        "--strict", action="store_true", help="Exit 1 on any non-baselined FAIL."
+    )
+    parser.add_argument(
+        "--baseline", metavar="FILE", help="Grandfather FAILs listed here."
+    )
+    parser.add_argument(
+        "--update-baseline",
+        metavar="FILE",
         help="Write the current FAIL set to FILE then exit 0.",
     )
     args = parser.parse_args(argv)
@@ -1257,7 +1458,10 @@ def main(argv: Optional[List[str]] = None) -> int:
         targets = _resolve_paths(args.paths)
     else:
         parser.print_usage(sys.stderr)
-        print("[cover-honesty] ERROR: no input (use --all, --files, or a path).", file=sys.stderr)
+        print(
+            "[cover-honesty] ERROR: no input (use --all, --files, or a path).",
+            file=sys.stderr,
+        )
         return 2
 
     if not targets:
@@ -1284,8 +1488,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             "",
         ]
         out_lines.extend(fails)
-        Path(args.update_baseline).write_text("\n".join(out_lines) + "\n", encoding="utf-8")
-        print(f"[cover-honesty] wrote baseline with {len(fails)} FAIL entries -> {args.update_baseline}")
+        Path(args.update_baseline).write_text(
+            "\n".join(out_lines) + "\n", encoding="utf-8"
+        )
+        print(
+            f"[cover-honesty] wrote baseline with {len(fails)} FAIL entries -> {args.update_baseline}"
+        )
         return 0
 
     if args.json:
@@ -1294,8 +1502,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         _print_text(results, baseline)
 
     new_fails = [
-        r for r in results
-        if r["verdict"] == "FAIL" and r["file"] not in baseline
+        r for r in results if r["verdict"] == "FAIL" and r["file"] not in baseline
     ]
     if args.strict and new_fails:
         return 1
@@ -1325,8 +1532,10 @@ def _print_text(results: List[Dict], baseline: set) -> None:
     print("=" * 64)
     scored = counts["PASS"] + counts["WARN"] + counts["FAIL"]
     print(f"  Covers scored: {scored}  (skipped unknown-system: {counts['SKIP']})")
-    print(f"  PASS: {counts['PASS']}   WARN: {counts['WARN']}   FAIL: {counts['FAIL']}"
-          f"   NO_POST: {counts['NO_POST']}")
+    print(
+        f"  PASS: {counts['PASS']}   WARN: {counts['WARN']}   FAIL: {counts['FAIL']}"
+        f"   NO_POST: {counts['NO_POST']}"
+    )
     print()
     print("  By system:")
     for sysid in ("L20", "L22", "L25", "unknown"):
@@ -1334,8 +1543,10 @@ def _print_text(results: List[Dict], baseline: set) -> None:
         if not b:
             continue
         n = b["PASS"] + b["WARN"] + b["FAIL"]
-        print(f"    {sysid:8s} scored={n:3d}  PASS={b['PASS']:3d}  "
-              f"WARN={b['WARN']:3d}  FAIL={b['FAIL']:3d}  NO_POST={b['NO_POST']:3d}")
+        print(
+            f"    {sysid:8s} scored={n:3d}  PASS={b['PASS']:3d}  "
+            f"WARN={b['WARN']:3d}  FAIL={b['FAIL']:3d}  NO_POST={b['NO_POST']:3d}"
+        )
     print()
     if flagged:
         print("-" * 64)
@@ -1343,8 +1554,10 @@ def _print_text(results: List[Dict], baseline: set) -> None:
             baselined = " [baselined]" if r["file"] in baseline else ""
             print(f"  [{r['verdict']}] score={r['score']} {r['file']}{baselined}")
             for v in r["honesty"]["violations"]:
-                print(f"      HONESTY[{v['band']}] {v['visual_id']} "
-                      f"({v['claim_class']}): {v['reason']}")
+                print(
+                    f"      HONESTY[{v['band']}] {v['visual_id']} "
+                    f"({v['claim_class']}): {v['reason']}"
+                )
             for flag in r["flags"]:
                 if not flag.startswith("STALE_RENDER") and flag != "LOW_DIVERSITY":
                     continue

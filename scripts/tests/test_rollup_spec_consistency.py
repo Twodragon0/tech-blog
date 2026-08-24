@@ -98,6 +98,10 @@ class TestCatchesDrift:
 
 class TestRedirectCount:
     def test_counts_redirect_entries(self):
-        post = Path(__file__).parent.parent.parent / "_posts" / "2026-04-19-Week3_April_2026_Security_Digest.md"
+        post = (
+            Path(__file__).parent.parent.parent
+            / "_posts"
+            / "2026-04-19-Week3_April_2026_Security_Digest.md"
+        )
         # The 2026-04-19 owning post has 9 redirect_from entries (verified).
         assert _redirect_from_count(post) >= 7

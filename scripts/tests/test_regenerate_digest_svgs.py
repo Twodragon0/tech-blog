@@ -12,6 +12,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from scripts.regenerate_digest_svgs import (
+    _FORBIDDEN_CHARS,
     BLUE,
     GREEN,
     ICON_FUNCS,
@@ -21,14 +22,12 @@ from scripts.regenerate_digest_svgs import (
     RED,
     CardData,
     Palette,
-    _FORBIDDEN_CHARS,
     _iter_targets,
     _pill_width,
     _validate_card,
     _validate_text,
     render_svg,
 )
-
 
 # ---------------------------------------------------------------------------
 # _pill_width
@@ -169,9 +168,36 @@ def test_validate_card_korean_in_desc_raises():
 
 def _make_cards(palette_a=RED, palette_b=BLUE, palette_c=GREEN):
     return (
-        CardData("LABEL A", "Head 1A", "Head 2A", "Tag A", "Desc 1A", "Desc 2A", palette_a, "botnet"),
-        CardData("LABEL B", "Head 1B", "Head 2B", "Tag B", "Desc 1B", "Desc 2B", palette_b, "identity"),
-        CardData("LABEL C", "Head 1C", "Head 2C", "Tag C", "Desc 1C", "Desc 2C", palette_c, "stack"),
+        CardData(
+            "LABEL A",
+            "Head 1A",
+            "Head 2A",
+            "Tag A",
+            "Desc 1A",
+            "Desc 2A",
+            palette_a,
+            "botnet",
+        ),
+        CardData(
+            "LABEL B",
+            "Head 1B",
+            "Head 2B",
+            "Tag B",
+            "Desc 1B",
+            "Desc 2B",
+            palette_b,
+            "identity",
+        ),
+        CardData(
+            "LABEL C",
+            "Head 1C",
+            "Head 2C",
+            "Tag C",
+            "Desc 1C",
+            "Desc 2C",
+            palette_c,
+            "stack",
+        ),
     )
 
 
@@ -265,7 +291,19 @@ def test_palette_accent_ids():
 
 def test_icon_funcs_known_names():
     """필수 아이콘 이름이 레지스트리에 존재한다."""
-    for name in ("botnet", "identity", "stack", "cloud", "alert", "patch", "chip", "bot", "code", "globe", "lock"):
+    for name in (
+        "botnet",
+        "identity",
+        "stack",
+        "cloud",
+        "alert",
+        "patch",
+        "chip",
+        "bot",
+        "code",
+        "globe",
+        "lock",
+    ):
         assert name in ICON_FUNCS, f"Missing icon: {name}"
 
 

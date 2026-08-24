@@ -186,7 +186,8 @@ def compact_ranges(codepoints: set[int] | list[int]) -> list[tuple[int, int]]:
 def format_unicode_range(codepoints: set[int] | list[int]) -> str:
     """Render a CSS `unicode-range` descriptor value for `codepoints`."""
     return ", ".join(
-        f"U+{lo:04X}" if lo == hi else f"U+{lo:04X}-{hi:04X}" for lo, hi in compact_ranges(codepoints)
+        f"U+{lo:04X}" if lo == hi else f"U+{lo:04X}-{hi:04X}"
+        for lo, hi in compact_ranges(codepoints)
     )
 
 
@@ -319,8 +320,18 @@ def main() -> int:
         default=None,
         help="Restrict the corpus to a single glob instead of the site-wide CORPUS_GLOBS set",
     )
-    ap.add_argument("--max-tier1-kb", type=int, default=230, help="Soft cap for tier-1 woff2 KB (default: 230)")
-    ap.add_argument("--max-tier2-kb", type=int, default=500, help="Soft cap for tier-2 woff2 KB (default: 500)")
+    ap.add_argument(
+        "--max-tier1-kb",
+        type=int,
+        default=230,
+        help="Soft cap for tier-1 woff2 KB (default: 230)",
+    )
+    ap.add_argument(
+        "--max-tier2-kb",
+        type=int,
+        default=500,
+        help="Soft cap for tier-2 woff2 KB (default: 500)",
+    )
     args = ap.parse_args()
 
     ASSETS_FONTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -341,7 +352,9 @@ def main() -> int:
     top_syllables, covered = pick_top_n(counts, top_n)
     coverage_pct = (covered / total) * 100
     label = "all corpus syllables" if top_n == 0 else f"top-{top_n}"
-    print(f"  {label} ({len(top_syllables):,}) cover {coverage_pct:.2f}% of total Hangul characters")
+    print(
+        f"  {label} ({len(top_syllables):,}) cover {coverage_pct:.2f}% of total Hangul characters"
+    )
 
     # Persist the syllable list (sorted by code point so diffs stay small)
     sorted_for_disk = sorted(top_syllables, key=lambda c: ord(c))
@@ -349,7 +362,9 @@ def main() -> int:
         "\n".join(sorted_for_disk) + "\n",
         encoding="utf-8",
     )
-    print(f"  wrote {TOP1K_PATH.relative_to(REPO_ROOT)} ({len(sorted_for_disk)} entries)")
+    print(
+        f"  wrote {TOP1K_PATH.relative_to(REPO_ROOT)} ({len(sorted_for_disk)} entries)"
+    )
 
     # 2. Fetch variable font once
     print("[2/4] Downloading Noto Sans KR variable TTF ...")
@@ -390,8 +405,12 @@ def main() -> int:
         out1 = ASSETS_FONTS_DIR / f"noto-sans-kr-{weight}-tier1.woff2"
         out2 = ASSETS_FONTS_DIR / f"noto-sans-kr-{weight}-tier2.woff2"
 
-        size1 = subset_woff2(font, unicodes=sorted(tier1_codepoints), text="", out_path=out1)
-        size2 = subset_woff2(font, unicodes=sorted(tier2_codepoints), text="", out_path=out2)
+        size1 = subset_woff2(
+            font, unicodes=sorted(tier1_codepoints), text="", out_path=out1
+        )
+        size2 = subset_woff2(
+            font, unicodes=sorted(tier2_codepoints), text="", out_path=out2
+        )
         sizes[out1.name] = size1
         sizes[out2.name] = size2
 
@@ -414,7 +433,9 @@ def main() -> int:
         print("  all files within caps.")
 
     print("\nSummary:")
-    print(f"  tier-1 covers {len(top_syllables):,} syllables = {coverage_pct:.2f}% of corpus Hangul characters")
+    print(
+        f"  tier-1 covers {len(top_syllables):,} syllables = {coverage_pct:.2f}% of corpus Hangul characters"
+    )
     for name in sorted(sizes):
         print(f"  {name}: {sizes[name] / 1024:,.1f} KB")
     return 0

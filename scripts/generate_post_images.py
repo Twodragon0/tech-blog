@@ -28,12 +28,17 @@ import requests
 from scripts.lib import image_utils as _image_utils
 from scripts.lib.logging_utils import log_message
 from scripts.lib.security import mask_sensitive_info, validate_masked_text
-from scripts.lib.svg_utils import escape_xml_text as _escape_xml_text, is_valid_svg as _is_valid_svg
+from scripts.lib.svg_utils import escape_xml_text as _escape_xml_text
+from scripts.lib.svg_utils import is_valid_svg as _is_valid_svg
 
 try:
     from scripts.news.l20_dispatch import (
         L20_HERO_ENABLED,
+    )
+    from scripts.news.l20_dispatch import (
         generate_l20_content_svg as _generate_l20_content_svg,
+    )
+    from scripts.news.l20_dispatch import (
         generate_l20_digest_svg as _generate_l20_digest_svg,
     )
 except Exception:
@@ -82,6 +87,7 @@ def _sanitize_svg_forbidden_chars(svg_path: Path) -> None:
             f"WARNING: _sanitize_svg_forbidden_chars failed for {svg_path}: {exc}",
             "WARNING",
         )
+
 
 try:
     from PIL import Image
@@ -1630,7 +1636,10 @@ def generate_fallback_svg(post_info: Dict, output_path: Path) -> bool:
 
         ok, err = _is_valid_svg(output_svg)
         if not ok:
-            log_message(f"WARNING: SVG XML invalid after write: {output_svg.name}: {err}", "WARNING")
+            log_message(
+                f"WARNING: SVG XML invalid after write: {output_svg.name}: {err}",
+                "WARNING",
+            )
 
         log_message(f"✅ SVG 폴백 이미지 생성 완료: {output_svg.name}", "SUCCESS")
         return True
@@ -1780,9 +1789,7 @@ def generate_section_banner_svg(filename: str) -> str:
     accent = config["accent"]
     secondary = config["secondary"]
     motif = (
-        config["motif"]
-        .replace("{accent}", accent)
-        .replace("{secondary}", secondary)
+        config["motif"].replace("{accent}", accent).replace("{secondary}", secondary)
     )
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <title>{_escape_xml_text(filename[:-4])}</title>
@@ -2127,7 +2134,10 @@ def generate_digest_svg(post_info: Dict, output_path: Path) -> bool:
 
         ok, err = _is_valid_svg(output_svg)
         if not ok:
-            log_message(f"WARNING: SVG XML invalid after write: {output_svg.name}: {err}", "WARNING")
+            log_message(
+                f"WARNING: SVG XML invalid after write: {output_svg.name}: {err}",
+                "WARNING",
+            )
 
         log_message(f"✅ Digest SVG 이미지 생성 완료: {output_svg.name}", "SUCCESS")
         return True
@@ -2226,28 +2236,28 @@ _L22_KEYWORD_ROUTES = [
     ("aws", "blue", "v_cloud_k8s", "AWS CLOUD", "AWS"),
     ("azure", "blue", "v_cloud_k8s", "AZURE CLOUD", "AZ"),
     ("gcp", "blue", "v_cloud_k8s", "GCP CLOUD", "GCP"),
-    ("cncf",       "green",  "v_cloud_k8s",       "CNCF CLOUD",    "CNCF"),
+    ("cncf", "green", "v_cloud_k8s", "CNCF CLOUD", "CNCF"),
     ("cloud", "blue", "v_cloud_k8s", "CLOUD", "CLD"),
     ("클라우드", "blue", "v_cloud_k8s", "CLOUD", "CLD"),
-    ("prompt injection", "red",    "v_ai_threat", "PROMPT INJECT", "LLM"),
-    ("tool poisoning",   "red",    "v_ai_threat", "TOOL POISON",   "MCP"),
-    ("mcp abuse",        "amber",  "v_ai_threat", "MCP ABUSE",     "MCP"),
-    ("model poisoning",  "amber",  "v_ai_threat", "MODEL THREAT",  "AI"),
-    ("agentic ai",       "amber",  "v_ai_threat", "AGENTIC AI",    "AGENT"),
-    ("ai threat",        "red",    "v_ai_threat", "AI THREAT",     "AI"),
-    ("deepfake",         "red",    "v_ai_threat", "DEEPFAKE",      "FAKE"),
+    ("prompt injection", "red", "v_ai_threat", "PROMPT INJECT", "LLM"),
+    ("tool poisoning", "red", "v_ai_threat", "TOOL POISON", "MCP"),
+    ("mcp abuse", "amber", "v_ai_threat", "MCP ABUSE", "MCP"),
+    ("model poisoning", "amber", "v_ai_threat", "MODEL THREAT", "AI"),
+    ("agentic ai", "amber", "v_ai_threat", "AGENTIC AI", "AGENT"),
+    ("ai threat", "red", "v_ai_threat", "AI THREAT", "AI"),
+    ("deepfake", "red", "v_ai_threat", "DEEPFAKE", "FAKE"),
     ("llm", "purple", "v_code_bars", "LLM", "LLM"),
     ("ai agent", "purple", "v_code_bars", "AI AGENT", "AGENT"),
     ("ai/ml", "purple", "v_code_bars", "AI ML", "AI"),
     ("ai ", "purple", "v_code_bars", "AI", "AI"),
     # Brand + Korean aliases for crypto-exchange and CNCF digest topics
     # (see .omc/research/l22_route_trace_2026_06_01.md for the routing trace).
-    ("bithumb",    "purple", "v_wallet_forensic", "EXCHANGE",      "EXC"),
-    ("upbit",      "purple", "v_wallet_forensic", "EXCHANGE",      "EXC"),
-    ("빗썸",        "purple", "v_wallet_forensic", "EXCHANGE",      "EXC"),
-    ("비트코인",    "amber",  "v_price_chart",     "CRYPTO MARKET", "BTC"),
-    ("chainalysis","purple", "v_wallet_forensic", "CHAIN INTEL",   "CHN"),
-    ("gitops",     "blue",   "v_code_bars",       "GITOPS",        "GIT"),
+    ("bithumb", "purple", "v_wallet_forensic", "EXCHANGE", "EXC"),
+    ("upbit", "purple", "v_wallet_forensic", "EXCHANGE", "EXC"),
+    ("빗썸", "purple", "v_wallet_forensic", "EXCHANGE", "EXC"),
+    ("비트코인", "amber", "v_price_chart", "CRYPTO MARKET", "BTC"),
+    ("chainalysis", "purple", "v_wallet_forensic", "CHAIN INTEL", "CHN"),
+    ("gitops", "blue", "v_code_bars", "GITOPS", "GIT"),
     ("blockchain", "purple", "v_wallet_forensic", "BLOCKCHAIN", "CHAIN"),
     ("블록체인", "purple", "v_wallet_forensic", "BLOCKCHAIN", "CHAIN"),
     ("bitcoin", "amber", "v_price_chart", "CRYPTO MARKET", "BTC"),
@@ -2519,6 +2529,7 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
         # flagged by the 2026-06-01 designer audit.
         try:
             from scripts.news.l22_dispatch import _extract_post_kpi_from_text
+
             post_kpi = _extract_post_kpi_from_text(content)
         except Exception as exc:  # pragma: no cover - defensive
             log_message(f"⚠️ _extract_post_kpi failed, using defaults: {exc}", "WARNING")
@@ -2559,7 +2570,10 @@ def generate_l22_digest_svg(post_info: Dict, output_path: Path) -> bool:
 
         ok, err = _is_valid_svg(output_svg)
         if not ok:
-            log_message(f"WARNING: SVG XML invalid after write: {output_svg.name}: {err}", "WARNING")
+            log_message(
+                f"WARNING: SVG XML invalid after write: {output_svg.name}: {err}",
+                "WARNING",
+            )
 
         log_message(f"✅ L22 Digest SVG 생성 완료: {output_svg.name}", "SUCCESS")
         return True
@@ -2610,7 +2624,9 @@ def process_post(
                     log_message(f"⚠️ L20 Digest SVG 실패, L22로 폴백: {_exc}", "WARNING")
                     ok = False
                 if not ok:
-                    log_message("🎨 L22 Digest SVG (--svg-only 폴백) 생성 시도...", "INFO")
+                    log_message(
+                        "🎨 L22 Digest SVG (--svg-only 폴백) 생성 시도...", "INFO"
+                    )
                     ok = generate_l22_digest_svg(post_info, output_path)
             else:
                 log_message("🎨 L22 Digest SVG (--svg-only) 생성 시도...", "INFO")

@@ -72,16 +72,16 @@ def build_qr_block(url: str) -> tuple[str, int]:
 
 
 def needs_soft_shadow_filter(svg: str) -> bool:
-    return "id=\"softShadow\"" not in svg
+    return 'id="softShadow"' not in svg
 
 
 def soft_shadow_def() -> str:
     return (
-        "<filter id=\"softShadow\" x=\"-10%\" y=\"-10%\" width=\"130%\" height=\"130%\">"
-        "<feGaussianBlur in=\"SourceAlpha\" stdDeviation=\"2.5\"/>"
-        "<feOffset dx=\"1\" dy=\"3\"/>"
-        "<feComponentTransfer><feFuncA type=\"linear\" slope=\"0.55\"/></feComponentTransfer>"
-        "<feMerge><feMergeNode/><feMergeNode in=\"SourceGraphic\"/></feMerge>"
+        '<filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">'
+        '<feGaussianBlur in="SourceAlpha" stdDeviation="2.5"/>'
+        '<feOffset dx="1" dy="3"/>'
+        '<feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>'
+        '<feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>'
         "</filter>"
     )
 

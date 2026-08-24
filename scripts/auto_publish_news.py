@@ -78,7 +78,6 @@ from scripts.news.content_generator import (  # noqa: E402,F401
     _apply_trend_kr_map,
     _build_clean_excerpt,
     _build_digest_title,
-    _html_escape_quotes,
     _determine_severity,
     _extract_cve_ids,
     _extract_digest_title_labels,
@@ -96,6 +95,7 @@ from scripts.news.content_generator import (  # noqa: E402,F401
     _generate_security_brief_template,
     _generate_tech_trend_analysis,
     _generate_trend_analysis,
+    _html_escape_quotes,
     _korean_brief_summary,
     _korean_display_title,
     _run_post_quality_gate,
@@ -122,6 +122,15 @@ from scripts.news.enhancer import (  # noqa: E402,F401
     enhance_with_gemini,
     enhance_with_openai_codex_medium,
     enhance_with_openai_gpt54,
+)
+
+# Re-export L20 hero dispatch helpers (new weekly-digest cover style).
+from scripts.news.l20_dispatch import (  # noqa: E402,F401
+    _infer_kpi,
+    extract_three_stories,
+    generate_l20_digest_svg,
+    route_theme,
+    route_visual_id,
 )
 
 # Re-export loader functions
@@ -165,15 +174,6 @@ from scripts.news.svg_generator import (  # noqa: E402,F401
     _to_english_svg_text,
     _truncate_text,
     generate_svg_image,
-)
-
-# Re-export L20 hero dispatch helpers (new weekly-digest cover style).
-from scripts.news.l20_dispatch import (  # noqa: E402,F401
-    extract_three_stories,
-    generate_l20_digest_svg,
-    route_theme,
-    route_visual_id,
-    _infer_kpi,
 )
 
 # Feature flag: enable the L20 Hero+2-Card cover for weekly digests.
@@ -355,6 +355,7 @@ sys.modules[__name__] = _ConfigProxy(_this_module)
 # Raster variant generation + auto-commit helpers
 # ---------------------------------------------------------------------------
 
+
 def _generate_and_commit_raster_variants(
     svg_path: Path,
     post_path: Path,
@@ -375,7 +376,9 @@ def _generate_and_commit_raster_variants(
     import subprocess as _sp
 
     images_dir = svg_path.parent
-    base = svg_path.stem  # e.g. "2026-05-06-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go"
+    base = (
+        svg_path.stem
+    )  # e.g. "2026-05-06-Tech_Security_Weekly_Digest_CVE_AI_Malware_Go"
     png_path = images_dir / f"{base}_og.png"
 
     produced: list[Path] = []
@@ -392,6 +395,7 @@ def _generate_and_commit_raster_variants(
     if png_path.exists():
         try:
             from PIL import Image  # type: ignore
+
             with Image.open(png_path) as src:
                 rgb = src.convert("RGB")
 
@@ -424,7 +428,9 @@ def _generate_and_commit_raster_variants(
                         except Exception as _e:
                             logging.warning(f"Could not generate {dest.name}: {_e}")
         except ImportError:
-            logging.info("Pillow not available — avif/webp variants will be generated at Vercel build time")
+            logging.info(
+                "Pillow not available — avif/webp variants will be generated at Vercel build time"
+            )
 
     if no_commit:
         logging.debug("Auto-commit skipped (--no-commit / TECH_BLOG_NO_AUTO_COMMIT=1)")
@@ -443,7 +449,8 @@ def _generate_and_commit_raster_variants(
             cwd=str(svg_path.parent.parent.parent),  # repo root
         )
         to_add = [
-            str(p) for p in produced
+            str(p)
+            for p in produced
             if any(str(p.name) in line for line in result.stdout.splitlines())
         ]
     except Exception as _e:
@@ -455,7 +462,11 @@ def _generate_and_commit_raster_variants(
         return
 
     try:
-        _sp.run(["git", "add", "--"] + to_add, check=True, cwd=str(svg_path.parent.parent.parent))
+        _sp.run(
+            ["git", "add", "--"] + to_add,
+            check=True,
+            cwd=str(svg_path.parent.parent.parent),
+        )
         _sp.run(
             [
                 "git",
@@ -668,7 +679,8 @@ def main():
     if L20_HERO_ENABLED and args.mode == "security":
         post_info_for_l20 = {
             "title": post_content.split("\n", 1)[0]
-            if post_content.startswith("title:") else "",
+            if post_content.startswith("title:")
+            else "",
             "filename": post_filename,
             "excerpt": "",
             "content": post_content,
@@ -732,6 +744,7 @@ def main():
     # publishing — the v1 excerpt is still SEO-valid, just less unique.
     try:
         from seo_diversify_excerpts import _process_file as _diversify_excerpt
+
         changed, _reason = _diversify_excerpt(post_path, apply=True)
         if changed:
             print(f"\u2705 Diversified excerpt: {post_path.name}")
@@ -743,6 +756,7 @@ def main():
     # --- Digest quality self-check (truncation / English-header gate) ---
     try:
         from digest_quality_report import check_file as _check_digest_quality
+
         quality_issues = _check_digest_quality(post_path)
     except Exception as _qe:
         logging.debug(f"digest quality self-check skipped: {_qe}")

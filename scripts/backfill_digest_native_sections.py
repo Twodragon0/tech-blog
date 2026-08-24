@@ -51,6 +51,7 @@ Usage:
     python3 scripts/backfill_digest_native_sections.py --stats  _posts/a.md
     python3 scripts/backfill_digest_native_sections.py          _posts/a.md   # apply (write)
 """
+
 from __future__ import annotations
 
 import argparse
@@ -110,7 +111,9 @@ def _has_briefing(body: str) -> bool:
     ## Executive Summary) or the narrative-blockquote (> **경영진 브리핑**:)
     form. Broader than the old ``## 경영진 브리핑`` check so the exec/risk
     insert never duplicates a legacy narrative summary."""
-    if any(m in body for m in (_EXEC_HEADING, "## 경영진 요약", "## Executive Summary")):
+    if any(
+        m in body for m in (_EXEC_HEADING, "## 경영진 요약", "## Executive Summary")
+    ):
         return True
     return bool(_BRIEFING_BLOCKQUOTE_RE.search(body))
 
@@ -266,7 +269,7 @@ def _parse_cve_table(body: str) -> Dict[str, str]:
     idx = body.find(_CVE_HEADING)
     if idx == -1:
         return mapping
-    section = body[idx + len(_CVE_HEADING):]
+    section = body[idx + len(_CVE_HEADING) :]
     for line in section.splitlines():
         stripped = line.strip()
         if stripped.startswith("## "):
@@ -301,9 +304,7 @@ def _infer_category_from_title(title: str) -> str:
     low = title.lower()
 
     def has_word(*words: str) -> bool:
-        return any(
-            re.search(rf"(?<![a-z]){re.escape(w)}(?![a-z])", low) for w in words
-        )
+        return any(re.search(rf"(?<![a-z]){re.escape(w)}(?![a-z])", low) for w in words)
 
     if "쿠버네티스" in title or has_word("kubernetes", "k8s"):
         return "kubernetes"
@@ -467,9 +468,14 @@ def transform_text(
     if not items:
         items = parse_summary_card_cve(front, body)
         source = "summary_card_cve"
-    info: Dict[str, object] = {"items": len(items), "source": source,
-                               "exec_added": False, "checklist_action": "none",
-                               "exec_block": "", "checklist_block": ""}
+    info: Dict[str, object] = {
+        "items": len(items),
+        "source": source,
+        "exec_added": False,
+        "checklist_action": "none",
+        "exec_block": "",
+        "checklist_block": "",
+    }
     if not items:
         info["skip"] = True
         return None, info
@@ -524,7 +530,9 @@ def transform_text(
             info["checklist_block"] = "\n".join(converted[start:end]).rstrip("\n")
         else:
             # regenerate from canonical generator (grounded in items)
-            raw = content_generator._generate_news_specific_checklist(items, honor_item_severity=True)
+            raw = content_generator._generate_news_specific_checklist(
+                items, honor_item_severity=True
+            )
             # strip the generator's leading '---\n\n' — the section is replaced
             # in place, keeping whatever precedes the existing heading.
             gen = re.sub(r"^---\n\n", "", raw)
@@ -547,7 +555,9 @@ def transform_text(
         # stripped) so a re-run — which now sees the heading and, when the
         # generated box count is <5, re-enters the regenerate branch — produces
         # byte-identical output (idempotent).
-        raw = content_generator._generate_news_specific_checklist(items, honor_item_severity=True)
+        raw = content_generator._generate_news_specific_checklist(
+            items, honor_item_severity=True
+        )
         gen = re.sub(r"^---\n\n", "", raw)
         refs = _find_line(lines, _REFS_HEADING)
         insert_at = len(lines) if refs is None else refs
@@ -555,7 +565,11 @@ def transform_text(
         # insertion point is already '---', don't prepend another one
         # (avoids 2-3 consecutive horizontal rules).
         prev = next(
-            (lines[i].strip() for i in range(insert_at - 1, -1, -1) if lines[i].strip()),
+            (
+                lines[i].strip()
+                for i in range(insert_at - 1, -1, -1)
+                if lines[i].strip()
+            ),
             "",
         )
         lead = [] if prev == "---" else ["---", ""]
@@ -644,8 +658,11 @@ def main(argv: Optional[List[str]] = None) -> int:
         else:
             print(f"unchanged {path}")
 
-    print(f"\n{changed}/{len(args.paths)} would change" if args.dry_run
-          else f"\n{changed}/{len(args.paths)} changed")
+    print(
+        f"\n{changed}/{len(args.paths)} would change"
+        if args.dry_run
+        else f"\n{changed}/{len(args.paths)} changed"
+    )
     return 0
 
 

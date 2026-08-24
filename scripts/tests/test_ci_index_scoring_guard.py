@@ -93,9 +93,7 @@ def test_index_posts_detected():
         assert "Monthly_Index" in p.name, f"unexpected index detection: {p.name}"
 
 
-@pytest.mark.parametrize(
-    "post", _index_posts(), ids=lambda p: p.name
-)
+@pytest.mark.parametrize("post", _index_posts(), ids=lambda p: p.name)
 def test_index_post_clears_precommit_floor(post):
     """Each monthly-index post must score >= the pre-commit FAIL_BELOW.
 

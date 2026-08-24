@@ -53,7 +53,9 @@ def fix_svg(path: Path) -> tuple[bool, list[tuple[str, str]]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--dry-run", action="store_true", help="report only, do not write")
+    parser.add_argument(
+        "--dry-run", action="store_true", help="report only, do not write"
+    )
     args = parser.parse_args()
 
     modified = 0
@@ -72,14 +74,18 @@ def main() -> int:
             for m in PANEL_HEADLINE_RE.finditer(text):
                 hl = m.group(2)
                 if len(hl) > 27:
-                    print(f"           {len(hl):3d} -> {len(_fit_panel_headline(hl)):3d} :: {hl!r}")
+                    print(
+                        f"           {len(hl):3d} -> {len(_fit_panel_headline(hl)):3d} :: {hl!r}"
+                    )
             modified += 1
             continue
         changed, edits = fix_svg(svg)
         if changed:
             print(f"FIXED      {svg.name}")
             for old, new in edits:
-                print(f"           {len(old):3d} -> {len(new):3d} :: {old!r} -> {new!r}")
+                print(
+                    f"           {len(old):3d} -> {len(new):3d} :: {old!r} -> {new!r}"
+                )
             modified += 1
 
     print(f"\n{'Would modify' if args.dry_run else 'Modified'}: {modified} file(s)")

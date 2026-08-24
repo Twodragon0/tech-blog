@@ -37,6 +37,7 @@ Exit codes:
   0  no violations OR warn-only mode (default) OR all violations baselined
   1  one or more *non-baselined* files outside their profile band (with --strict)
 """
+
 from __future__ import annotations
 
 import argparse
@@ -200,15 +201,45 @@ def collect_all() -> List[Path]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     group = parser.add_mutually_exclusive_group()
-    group.add_argument("--staged", action="store_true", help="Check files in the git index (default for pre-commit).")
-    group.add_argument("--changed", metavar="BASE", help="Check files changed since BASE (e.g. origin/main).")
-    group.add_argument("--all", action="store_true", help="Check every post-date SVG in assets/images/.")
-    parser.add_argument("paths", nargs="*", help="Explicit file paths to check (overrides selector flags).")
-    parser.add_argument("--strict", action="store_true", help="Exit non-zero on any non-baselined WARN (default warn-only).")
-    parser.add_argument("--baseline", metavar="FILE", help="Allow-list of grandfathered violations (newline-delimited paths).")
-    parser.add_argument("--update-baseline", metavar="FILE", help="Write the current set of violations into FILE then exit 0.")
+    group.add_argument(
+        "--staged",
+        action="store_true",
+        help="Check files in the git index (default for pre-commit).",
+    )
+    group.add_argument(
+        "--changed",
+        metavar="BASE",
+        help="Check files changed since BASE (e.g. origin/main).",
+    )
+    group.add_argument(
+        "--all",
+        action="store_true",
+        help="Check every post-date SVG in assets/images/.",
+    )
+    parser.add_argument(
+        "paths",
+        nargs="*",
+        help="Explicit file paths to check (overrides selector flags).",
+    )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Exit non-zero on any non-baselined WARN (default warn-only).",
+    )
+    parser.add_argument(
+        "--baseline",
+        metavar="FILE",
+        help="Allow-list of grandfathered violations (newline-delimited paths).",
+    )
+    parser.add_argument(
+        "--update-baseline",
+        metavar="FILE",
+        help="Write the current set of violations into FILE then exit 0.",
+    )
     args = parser.parse_args()
 
     if args.paths:
@@ -253,8 +284,12 @@ def main() -> int:
             "",
         ]
         out_lines.extend(sorted(current_violations))
-        Path(args.update_baseline).write_text("\n".join(out_lines) + "\n", encoding="utf-8")
-        print(f"[svg-gate] wrote baseline with {len(current_violations)} entries → {args.update_baseline}")
+        Path(args.update_baseline).write_text(
+            "\n".join(out_lines) + "\n", encoding="utf-8"
+        )
+        print(
+            f"[svg-gate] wrote baseline with {len(current_violations)} entries → {args.update_baseline}"
+        )
         return 0
 
     if all_warnings:

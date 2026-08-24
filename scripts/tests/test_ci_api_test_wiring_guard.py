@@ -61,12 +61,16 @@ def test_api_test_files_still_exist() -> None:
 
 def test_npm_exposes_a_runner_for_the_api_suite() -> None:
     script = _scripts().get("test:api")
-    assert script, "package.json lost the `test:api` script; the api/ suite has no runner"
+    assert script, (
+        "package.json lost the `test:api` script; the api/ suite has no runner"
+    )
     assert "node --test" in script, (
         "`test:api` must invoke `node --test` — these files import from 'node:test' "
         f"and Vitest cannot execute them. Got: {script!r}"
     )
-    assert "api/__tests__" in script, f"`test:api` no longer targets api/__tests__: {script!r}"
+    assert "api/__tests__" in script, (
+        f"`test:api` no longer targets api/__tests__: {script!r}"
+    )
 
 
 def test_ci_actually_runs_the_api_suite() -> None:
@@ -171,11 +175,11 @@ def test_vitest_ci_step_uses_the_coverage_gate() -> None:
 def test_vitest_coverage_thresholds_are_non_trivial() -> None:
     """Zeroed thresholds would neuter the gate the test above relies on."""
     config = (REPO_ROOT / "vitest.config.js").read_text(encoding="utf-8")
-    found = dict(
-        re.findall(r"(branches|functions|lines|statements):\s*(\d+)", config)
-    )
+    found = dict(re.findall(r"(branches|functions|lines|statements):\s*(\d+)", config))
     missing = {"branches", "functions", "lines", "statements"} - set(found)
-    assert not missing, f"vitest.config.js lost coverage thresholds for: {sorted(missing)}"
+    assert not missing, (
+        f"vitest.config.js lost coverage thresholds for: {sorted(missing)}"
+    )
     zeroed = {k: v for k, v in found.items() if int(v) <= 0}
     assert not zeroed, (
         f"coverage threshold(s) set to zero: {zeroed}. A 0% floor cannot fail, "

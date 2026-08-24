@@ -212,12 +212,16 @@ def check_image_references(
     try:
         content = post_path.read_text(encoding="utf-8")
     except OSError as exc:
-        return [ImageIssue(post=post_path, image=str(post_path), reason=f"read_error:{exc}")]
+        return [
+            ImageIssue(post=post_path, image=str(post_path), reason=f"read_error:{exc}")
+        ]
 
     issues: List[ImageIssue] = []
     for rel in extract_image_paths(content):
         if has_korean(rel):
-            issues.append(ImageIssue(post=post_path, image=rel, reason="korean_filename"))
+            issues.append(
+                ImageIssue(post=post_path, image=rel, reason="korean_filename")
+            )
         if not image_exists(rel, project_root=project_root, images_dir=images_dir):
             issues.append(ImageIssue(post=post_path, image=rel, reason="missing"))
     return issues

@@ -29,8 +29,20 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 VOID_ELEMENTS = {
-    "area", "base", "br", "col", "embed", "hr", "img", "input", "link",
-    "meta", "param", "source", "track", "wbr",
+    "area",
+    "base",
+    "br",
+    "col",
+    "embed",
+    "hr",
+    "img",
+    "input",
+    "link",
+    "meta",
+    "param",
+    "source",
+    "track",
+    "wbr",
 }
 
 
@@ -91,8 +103,12 @@ def render_report(path: Path, counter: DomCounter) -> str:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("paths", nargs="+", type=Path, help="HTML files to analyze")
-    parser.add_argument("--threshold", type=int, default=1500,
-                        help="Warn (exit 1) if any page exceeds this node count.")
+    parser.add_argument(
+        "--threshold",
+        type=int,
+        default=1500,
+        help="Warn (exit 1) if any page exceeds this node count.",
+    )
     args = parser.parse_args(argv)
 
     over = []

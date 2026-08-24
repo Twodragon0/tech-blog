@@ -36,6 +36,7 @@ _ELEMENT_RE = re.compile(
 # Core check
 # ---------------------------------------------------------------------------
 
+
 def _violations(path: Path) -> list[tuple[int, int, int, str, str]]:
     """Return list of (line, col, codepoint, char, context) for each violation.
 
@@ -89,6 +90,7 @@ def _offset_to_line(offsets: list[int], target: int) -> int:
 # File collection
 # ---------------------------------------------------------------------------
 
+
 def _staged_svg_paths() -> list[Path]:
     """Return staged assets/images/*.svg paths from the git index."""
     try:
@@ -134,6 +136,7 @@ def _explicit_paths(args: list[str]) -> list[Path]:
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(

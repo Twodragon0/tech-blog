@@ -23,8 +23,15 @@ clr = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(clr)
 
 
-def _write_lhr(target_dir: Path, url: str, lcp_ms: float, cls: float = 0.05,
-               tbt_ms: float = 100.0, fcp_ms: float = 800.0, run_id: int = 1) -> Path:
+def _write_lhr(
+    target_dir: Path,
+    url: str,
+    lcp_ms: float,
+    cls: float = 0.05,
+    tbt_ms: float = 100.0,
+    fcp_ms: float = 800.0,
+    run_id: int = 1,
+) -> Path:
     """Write a synthetic Lighthouse-report JSON file into ``target_dir``."""
     target_dir.mkdir(parents=True, exist_ok=True)
     path = target_dir / f"lhr-{run_id}.json"
@@ -46,7 +53,9 @@ def test_passes_when_within_threshold(tmp_path):
     base = tmp_path / "base"
     head = tmp_path / "head"
     _write_lhr(base, "http://localhost:4000/", lcp_ms=1800)
-    _write_lhr(head, "http://localhost:4000/", lcp_ms=1900)  # +100 ms, under 200 threshold
+    _write_lhr(
+        head, "http://localhost:4000/", lcp_ms=1900
+    )  # +100 ms, under 200 threshold
 
     rows, exit_code = clr.compare(base, head, threshold_ms=200.0)
     assert exit_code == 0
@@ -59,7 +68,9 @@ def test_fails_when_threshold_exceeded(tmp_path):
     base = tmp_path / "base"
     head = tmp_path / "head"
     _write_lhr(base, "http://localhost:4000/", lcp_ms=1800)
-    _write_lhr(head, "http://localhost:4000/", lcp_ms=2100)  # +300 ms, over 200 threshold
+    _write_lhr(
+        head, "http://localhost:4000/", lcp_ms=2100
+    )  # +300 ms, over 200 threshold
 
     rows, exit_code = clr.compare(base, head, threshold_ms=200.0)
     assert exit_code == 1
@@ -94,7 +105,6 @@ def test_url_normalisation_across_localhost_and_loopback(tmp_path):
     assert rows[0]["delta_lcp"] == pytest.approx(50.0)
 
 
-
 def test_urls_pair_across_different_localhost_ports(tmp_path):
     """Head and base are served on separate ports on purpose.
 
@@ -111,6 +121,7 @@ def test_urls_pair_across_different_localhost_ports(tmp_path):
     assert [r["url"] for r in rows] == ["/posts/a/"], rows
     assert code == 1, "a +300 ms regression across split ports was not caught"
 
+
 def test_no_comparable_urls(tmp_path):
     base = tmp_path / "base"
     head = tmp_path / "head"
@@ -125,8 +136,12 @@ def test_no_comparable_urls(tmp_path):
 def test_markdown_output_structure(tmp_path):
     base = tmp_path / "base"
     head = tmp_path / "head"
-    _write_lhr(base, "http://localhost:4000/", lcp_ms=1800, cls=0.05, tbt_ms=120, fcp_ms=900)
-    _write_lhr(head, "http://localhost:4000/", lcp_ms=2100, cls=0.06, tbt_ms=180, fcp_ms=950)
+    _write_lhr(
+        base, "http://localhost:4000/", lcp_ms=1800, cls=0.05, tbt_ms=120, fcp_ms=900
+    )
+    _write_lhr(
+        head, "http://localhost:4000/", lcp_ms=2100, cls=0.06, tbt_ms=180, fcp_ms=950
+    )
 
     rows, _ = clr.compare(base, head, threshold_ms=200.0)
     md = clr.render_markdown(rows, 200.0)
@@ -151,10 +166,14 @@ def test_main_writes_markdown_and_returns_exit_code(tmp_path, capsys, monkeypatc
         "argv",
         [
             "compare_lighthouse_runs.py",
-            "--base-dir", str(base),
-            "--head-dir", str(head),
-            "--threshold-lcp-ms", "200",
-            "--output-md", str(out),
+            "--base-dir",
+            str(base),
+            "--head-dir",
+            str(head),
+            "--threshold-lcp-ms",
+            "200",
+            "--output-md",
+            str(out),
             "--quiet",
         ],
     )
@@ -177,9 +196,12 @@ def test_main_quiet_flag_silences_stdout(tmp_path, capsys, monkeypatch):
         "argv",
         [
             "compare_lighthouse_runs.py",
-            "--base-dir", str(base),
-            "--head-dir", str(head),
-            "--threshold-lcp-ms", "200",
+            "--base-dir",
+            str(base),
+            "--head-dir",
+            str(head),
+            "--threshold-lcp-ms",
+            "200",
             "--quiet",
         ],
     )
@@ -191,7 +213,9 @@ def test_main_quiet_flag_silences_stdout(tmp_path, capsys, monkeypatch):
 def test_missing_base_dir_returns_no_rows(tmp_path):
     head = tmp_path / "head"
     _write_lhr(head, "http://localhost:4000/", lcp_ms=1800)
-    rows, exit_code = clr.compare(tmp_path / "nonexistent-base", head, threshold_ms=200.0)
+    rows, exit_code = clr.compare(
+        tmp_path / "nonexistent-base", head, threshold_ms=200.0
+    )
     assert rows == []
     assert exit_code == 0
 
