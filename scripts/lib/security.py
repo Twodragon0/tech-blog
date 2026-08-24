@@ -18,6 +18,26 @@ def mask_sensitive_info(text: str) -> str:
     masked = re.sub(r"sk-[a-zA-Z0-9_-]{20,}", "sk-***MASKED***", masked)
     masked = re.sub(r"AIza[0-9A-Za-z_-]{35}", "AIza***MASKED***", masked)
 
+    # Webhook URLs. These must be matched explicitly: the generic 40+ char
+    # fallback below splits on '/', and a Slack webhook's longest path segment
+    # (T…/B…/24-char token) is under 40, so a full Slack webhook URL used to
+    # survive masking completely. Discord's only got masked because its token
+    # segment happens to exceed 40 — incidental, not by design. The whole URL is
+    # the credential for both, so mask from the host onward.
+    masked = re.sub(
+        r"https://hooks\.slack\.com/services/\S+",
+        "https://hooks.slack.com/services/***MASKED***",
+        masked,
+    )
+    masked = re.sub(
+        r"https://discord(?:app)?\.com/api/webhooks/\S+",
+        "https://discord.com/api/webhooks/***MASKED***",
+        masked,
+    )
+
+    # Slack bot / app tokens
+    masked = re.sub(r"xox[abposr]-[a-zA-Z0-9-]{10,}", "xox***MASKED***", masked)
+
     # Mask actual API key values from environment
     for env_var in [
         "GEMINI_API_KEY",
@@ -25,6 +45,9 @@ def mask_sensitive_info(text: str) -> str:
         "DEEPSEEK_API_KEY",
         "OPENAI_API_KEY",
         "BUTTONDOWN_API_KEY",
+        "SLACK_BOT_TOKEN",
+        "SLACK_WEBHOOK_URL",
+        "DISCORD_WEBHOOK_URL",
     ]:
         key_val = os.getenv(env_var, "")
         if key_val and len(key_val) > 10:
