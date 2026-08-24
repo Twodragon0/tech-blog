@@ -1,9 +1,9 @@
 name: SVG Compliance Lint
 
-# This workflow carries 16 corpus-wide gates (`--all`): cover drift for four
+# This workflow carries 17 corpus-wide gates (`--all`): cover drift for four
 # generator families, the honesty scorer, title-ASCII, spec-slug consistency,
 # KST-midnight URLs, checklist headings, bare URLs, template-echo, and repeated
-# body boilerplate. They scan the
+# body boilerplate, and internal post links. They scan the
 # WHOLE corpus, so the same trigger-narrower-than-scan hazard that hid a
 # three-week regression in check-svg.yml applies here — see that file's header.
 #
@@ -16,9 +16,9 @@ name: SVG Compliance Lint
 # the bot cover commit 685ca468 carried 12 workflow runs, every one of them
 # `schedule` and not a single `push` or `pull_request` event.
 #
-# So the dominant producer of the artifacts these 16 gates exist to check was
+# So the dominant producer of the artifacts these 17 gates exist to check was
 # invisible to both triggers. The daily `schedule` below closes that: it scans main
-# regardless of paths, exactly as check-svg.yml does. All 16 gates were verified
+# regardless of paths, exactly as check-svg.yml does. All 17 gates were verified
 # green against the current corpus before this was added, so it is not born red.
 on:
   push:
@@ -59,6 +59,7 @@ on:
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/check_post_boilerplate.py'
+      - 'scripts/check_broken_links.py'
       - 'scripts/linkify_bare_urls.py'
       - 'scripts/check_template_echo.py'
       - 'scripts/rewrite_template_echo_summaries.py'
@@ -116,6 +117,7 @@ on:
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/check_post_boilerplate.py'
+      - 'scripts/check_broken_links.py'
       - 'scripts/linkify_bare_urls.py'
       - 'scripts/check_template_echo.py'
       - 'scripts/rewrite_template_echo_summaries.py'
@@ -361,6 +363,23 @@ jobs:
         # Whole blocks only: 119 posts legitimately share one canonical
         # checklist line, so a per-line rule would be all false positives.
         run: python3 scripts/check_post_boilerplate.py --all
+
+      - name: Internal /posts/ link gate
+        id: broken_links_gate
+        # This gate was inert until 2026-08-24: it printed a count, never called
+        # sys.exit(), and was wired to nothing. Reviving it was not a one-line
+        # change — the old version reported 370 broken links and ALL 370 were
+        # `redirect_from` YAML items in front matter, matched because its regex
+        # allowed a leading whitespace. Wiring that would have produced a
+        # permanently red job, the state this repo has twice judged worse than
+        # no gate (see NEVER_CONFIGURED in test_ci_secret_absence_guard.py).
+        # Fixed to skip front matter and to count declared redirect_from targets
+        # as valid destinations (jekyll-redirect-from serves them, and the
+        # KST/UTC filename-vs-URL date split relies on exactly that). Body count
+        # is now 0 across 275 posts against 645 valid targets, so --all with no
+        # ratchet: any hit is fresh drift, including one from a cron push that
+        # never ran pre-commit.
+        run: python3 scripts/check_broken_links.py --all
 
       - name: Bare-URL gate (unlinked https:// in post prose)
         id: bare_url_gate
