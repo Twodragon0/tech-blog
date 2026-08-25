@@ -57,6 +57,11 @@ SELF_HEALS = (
         "scripts/check_digest_proper_nouns.py",
         "scripts/check_digest_proper_nouns.py --fix",
     ),
+    (
+        "Untranslated-summary pre-flight",
+        "scripts/check_digest_untranslated.py",
+        "scripts/retranslate_digest.py",
+    ),
 )
 
 
@@ -147,6 +152,43 @@ def test_preflight_order_puts_all_gates_before_publish():
     for fragment, _checker, _fixer in SELF_HEALS:
         at = next(i for i, n in enumerate(names) if fragment in n)
         assert at < publish_at, f"{fragment} runs after 'Commit and publish'"
+
+
+@pytest.mark.parametrize(("fragment", "checker", "fixer"), SELF_HEALS)
+def test_last_executable_line_is_the_blocking_reverify(
+    fragment: str, checker: str, fixer: str
+):
+    """The re-verify must be the step's *final* word, bare and unguarded.
+
+    ``test_self_heal_reverifies_after_fixing`` only asks that the checker appear
+    again somewhere after the fixer on a line not starting with ``if``. That is
+    satisfiable without gating anything: the untranslated step runs the checker
+    a second time inside its ``repository_dispatch`` branch, piped into
+    ``|| echo ::warning::`` and followed by ``exit 0``. With only the weaker
+    assertion in place, deleting that step's real blocking line — or softening
+    it to ``|| true`` — left the suite green. Both mutations were run; both
+    passed. So pin the position too, not just the presence.
+
+    Under ``bash -e`` a bare non-zero command ends the step, which is what
+    turns "we re-checked" into "we refused to publish".
+    """
+    run = _uncommented(_find_step(fragment)["run"])
+    lines = [ln.rstrip() for ln in run.splitlines() if ln.strip()]
+    assert lines, f"{fragment}: step body is empty"
+    last = lines[-1].strip()
+    assert checker in last, (
+        f"{fragment}: the step's last executable line is {last!r}, not a bare "
+        f"{checker} re-verify. Anything after the re-verify can swallow its exit "
+        "code, and a re-verify that cannot end the step is decoration."
+    )
+    for softener in ("|| true", "|| echo", "continue-on-error"):
+        assert softener not in last, (
+            f"{fragment}: the final re-verify is softened with {softener!r}, so a "
+            "surviving violation publishes anyway."
+        )
+    assert not last.startswith(("if ", "elif ", "#")), (
+        f"{fragment}: the final re-verify is a condition, not a gate: {last!r}"
+    )
 
 
 def test_lone_adjective_stays_a_warning():

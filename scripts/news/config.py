@@ -248,6 +248,15 @@ _GEMINI_CIRCUIT_OPEN: bool = False
 _AI_MODE: str = os.getenv("AUTO_PUBLISH_USE_AI", "auto").lower()
 _GEMINI_CALL_TIMEOUT: int = max(8, int(os.getenv("AUTO_PUBLISH_GEMINI_TIMEOUT", "15")))
 _GEMINI_MAX_RETRIES: int = max(1, int(os.getenv("AUTO_PUBLISH_GEMINI_RETRIES", "1")))
+# Gemini text model. Env-overridable like the Claude/OpenAI models below,
+# because Google retires these IDs on its own schedule and the published
+# lifecycle dates do not match runtime: gemini-2.0-flash was hardcoded here and
+# had been answering every call with HTTP 404 "no longer available" — silently,
+# as a WARNING — so the primary translator was dead on every cron run and the
+# digest ran on DeepSeek alone. Overriding this must never require a code
+# change again. Retired IDs also keep appearing in ListModels, so verify a swap
+# with a real call against the production key, not against the model list.
+_GEMINI_MODEL: str = os.getenv("AUTO_PUBLISH_GEMINI_MODEL", "gemini-2.5-flash")
 _CLAUDE_MODEL: str = os.getenv("AUTO_PUBLISH_CLAUDE_MODEL", "claude-3-5-sonnet-latest")
 _OPENAI_Codex_MODEL: str = os.getenv("AUTO_PUBLISH_OPENAI_CODEX_MODEL", "gpt-5.3-codex")
 _OPENAI_GPT54_MODEL: str = os.getenv("AUTO_PUBLISH_OPENAI_GPT54_MODEL", "gpt-5.4")
