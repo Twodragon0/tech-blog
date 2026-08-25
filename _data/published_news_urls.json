@@ -1,78 +1,6 @@
 {
-  "updated_at": "2026-08-24T00:45:50.620304+00:00",
+  "updated_at": "2026-08-25T00:45:41.677565+00:00",
   "entries": [
-    {
-      "url": "https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/",
-      "title": "The AI safety test is becoming a safety risk",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/08/09/this-adversarial-pattern-can-prevent-surveillance-cameras-from-detecting-you/",
-      "title": "This ‘adversarial’ pattern can prevent surveillance cameras from detecting you",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/bip-110-dies-with-a-whimper-clarity-vote-punted-hodlers-digest-aug-9?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "BIP-110 dies with a whimper, CLARITY vote punted: Hodler’s Digest, Aug. 9",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/ex-us-defense-secretary-calls-clarity-act-a-national-security-bill?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Ex-US defense secretary calls CLARITY Act a ‘national security bill’",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bitcoin-bip-110-branch-stalls-miner-support?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "BIP-110 Bitcoin branch stalls after two blocks as gap widens",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/brazil-targets-crypto-fraud-with-up-to-24-hour-transfer-hold?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Brazil targets crypto fraud with up to 24-hour transfer hold",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/btcpay-restricts-remote-lightning-access-after-attackers-steal-funds?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "BTCPay restricts remote Lightning access after attackers steal funds",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32324",
-      "title": "SQLite에서 배운 신뢰성의 교훈 - Richard Hipp [유튜브]",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32323",
-      "title": "StreamHub 확장: 하루 1,450억 이벤트 처리를 위해 Kinesis에서 Kafka로 전환",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32322",
-      "title": "모든 코드를, 항상 다시 작성하라",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32321",
-      "title": "hallmark - AI 티가 안나는 디자인 스킬",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32320",
-      "title": "실리콘밸리는 과학소설을 오독하고 민주주의를 약화시킴",
-      "published_date": "2026-08-10",
-      "expires_at": "2026-08-17T01:03:04.930931+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/shipping-1050-more-code-watch-this.html",
       "title": "Shipping 10–50× More Code? Watch This Webinar on Securing AI-Speed Development",
@@ -1302,6 +1230,96 @@
       "title": "복잡한 시스템은 어떻게 실패하는가 (1998)",
       "published_date": "2026-08-24",
       "expires_at": "2026-08-31T00:45:50.620214+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/shipping-more-ai-code-than-you-can.html",
+      "title": "Shipping More AI Code Than You Can Secure? Watch How to Control Remediation Debt",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/weedhack-malware-spreads-via-fake.html",
+      "title": "Weedhack Malware Spreads via Fake Minecraft Clients and SEO Poisoning",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/weekly-recap-ai-powered-plc-attacks.html",
+      "title": "⚡ Weekly Recap: AI-Powered PLC Attacks, GitLab Attacks, Stripe Key Leaks and Mor",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/wordlistloader-delivers-amatera-via.html",
+      "title": "WordlistLoader Delivers Amatera via ClickFix, SynkLoader Phishes Windows Passwor",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/critical-keycloak-password-reset-flaw.html",
+      "title": "Critical Keycloak Password Reset Flaw Could Let Unauthenticated Attackers Take O",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/08/24/networking-traffic/metaroce-rdma-transport-ai-ethernet/",
+      "title": "MetaRoCE: A New RDMA Transport Built for AI-Scale Ethernet",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/08/24/networking-traffic/mtia-300-meta-training-chip-built-in-nics/",
+      "title": "MTIA 300: Meta’s First Training Chip with Built-in NICs and Communication-Offloa",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvlink-fusion-xpu-ai-factory/",
+      "title": "How XPUs Meet a World-Class AI Factory",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/vera-rubin-lpx-spectrum-x-nvlink-fusion/",
+      "title": "With Groq 3 LPX in Full Production, NVIDIA Extends Vera Rubin Inference for Agen",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents/",
+      "title": "Up to 30x More Work Per Watt: NVIDIA Vera Rubin NVL72 Sets a New Efficiency Stan",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/infrastructure-modernization/ai-powered-quick-assessments-in-migration-center/",
+      "title": "New AI-powered quick assessments in Migration Center turbocharge modernization",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/state-of-ai-infrastructure-report-agent-governance-and-security/",
+      "title": "Empowering autonomous agents with advanced security governance",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-student-rewards-on-aws-builder-center-local-zone-in-las-vegas-and-more-august-24-2026/",
+      "title": "AWS Weekly Roundup: Student Rewards on AWS Builder Center, Local Zone in Las Veg",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/single-model-not-forecast-sku/",
+      "title": "수요 패턴이 수요 모델을 고른다: Amazon Connect Decisions로 살펴보는 Agentic Demand Forecasting",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/codex-on-bedrock/",
+      "title": "Amazon Bedrock에서 Codex 사용하기",
+      "published_date": "2026-08-25",
+      "expires_at": "2026-09-01T00:45:41.677489+00:00"
     }
   ]
 }
