@@ -4,11 +4,33 @@
 (function() {
   'use strict';
 
-  // 광고 컨테이너로 감싸기
+  // 표 안은 광고 자리가 아니다.
+  // Auto ads(slotname=auto)는 본문 어디에나 슬롯을 꽂으며, 디제스트 포스트는
+  // 표가 많아 <table> 내부에 들어가는 일이 생긴다. 그러면 열 폭이 틀어지고
+  // 본문 표가 광고로 쪼개진다. 감싸봐야 표 안이라는 사실은 달라지지 않으므로
+  // 제거한다. 표 밖 슬롯은 그대로 둔다.
+  function isInsideTable(el) {
+    return !!(el && el.closest && el.closest('table'));
+  }
+
+  // 광고 컨테이너로 감싸기. 표 안이라 제거했으면 false.
   function wrapAdInContainer(adElement) {
+    if (isInsideTable(adElement)) {
+      adElement.remove();
+      return false;
+    }
+
     // 이미 컨테이너로 감싸져 있으면 스킵
     if (adElement.closest('.ad-container')) {
-      return;
+      return true;
+    }
+
+    // 이미 문서에서 떨어진 노드. 관찰자 콜백은 변경이 일어난 뒤에 실행되므로
+    // 그 사이 Google 이 자기 슬롯을 치웠을 수 있다. 여기서 parentNode 를 그냥
+    // 참조하면 TypeError 가 나고, 그 예외가 관찰자 콜백 전체를 죽여 이후의
+    // 광고 처리가 통째로 멈춘다 (테스트에서 실제로 재현됨).
+    if (!adElement.parentNode) {
+      return false;
     }
 
     // 컨테이너 생성
@@ -51,6 +73,8 @@
     setTimeout(function() {
       observer.disconnect();
     }, 10000);
+
+    return true;
   }
 
   // 모든 광고 요소 찾기 및 래핑
@@ -61,7 +85,7 @@
     );
     
     ads.forEach(function(ad) {
-      wrapAdInContainer(ad);
+      if (!wrapAdInContainer(ad)) return;
       // minHeight 예약 없음 — 접힐 높이를 잡아두지 않는다. contain 은 시프트가
       // 생기더라도 전파 범위를 제한하므로 유지.
       if (!ad.style.contain) {
@@ -76,7 +100,7 @@
     autoPlacedAds.forEach(function(ad) {
       // 이미 처리된 경우 스킵
       if (!ad.closest('.ad-container')) {
-        wrapAdInContainer(ad);
+        if (!wrapAdInContainer(ad)) return;
         // aspect-ratio 설정으로 CLS 방지
         if (!ad.style.aspectRatio) {
           ad.style.aspectRatio = 'auto';
@@ -93,15 +117,19 @@
           mutation.addedNodes.forEach(function(node) {
             if (node.nodeType === 1) { // Element node
               // 직접 추가된 광고 (adsbygoogle-noablate 포함)
+              // google-auto-placed 를 포함시킨다. 이것이 빠져 있어서, 마지막
+              // 예약 스윕 이후에 Auto ads 가 꽂은 슬롯은 아무도 보지 못했다.
+              // Auto ads 는 계속해서 늦게 삽입하므로 실제로 그런 슬롯이 생긴다.
               if (node.classList && (
                   node.classList.contains('adsbygoogle') || 
                   node.classList.contains('adsbygoogle-noablate') ||
+                  node.classList.contains('google-auto-placed') ||
                   node.tagName === 'INS' && (
                     node.classList.contains('adsbygoogle') || 
                     node.classList.contains('adsbygoogle-noablate')
                   )
                 )) {
-                wrapAdInContainer(node);
+                if (!wrapAdInContainer(node)) return;
                 // 즉시 스타일 적용
                 node.style.display = 'block';
                 node.style.contain = 'layout style';
@@ -109,12 +137,16 @@
               }
               
               // 하위에 있는 광고
+              // .google-auto-placed 를 포함시킨다. 표 안에 꽂히는 것은 수동
+              // 슬롯이 아니라 Auto ads 이고, Auto ads 는 초기 스윕 이후에
+              // 삽입되므로 이 관찰자만이 실제로 그것을 본다.
               const ads = node.querySelectorAll && node.querySelectorAll(
-                'ins.adsbygoogle, .adsbygoogle, ins.adsbygoogle-noablate, .adsbygoogle-noablate'
+                'ins.adsbygoogle, .adsbygoogle, ins.adsbygoogle-noablate, ' +
+                '.adsbygoogle-noablate, .google-auto-placed'
               );
               if (ads) {
                 ads.forEach(function(ad) {
-                  wrapAdInContainer(ad);
+                  if (!wrapAdInContainer(ad)) return;
                   ad.style.display = 'block';
                   ad.style.contain = 'layout style';
                   ad.style.width = '100%';
