@@ -85,6 +85,47 @@ describe('ad-optimizer.js', () => {
     expect(ad.style.minHeight).toBe('');
   });
 
+  // 표 안 광고 제거 (2026-08-25). Auto ads(slotname=auto)는 본문 어디에나
+  // 슬롯을 꽂아서 <table> 내부에 들어가는 일이 있고, 디제스트 포스트는 표가
+  // 많다. 그러면 열 폭이 틀어지고 본문 표가 광고로 쪼개진다.
+  it('removes an ad injected inside a table instead of wrapping it', () => {
+    document.body.innerHTML =
+      '<table><tbody><tr><td>' +
+      '<ins class="adsbygoogle"></ins>' +
+      '</td></tr></tbody></table>';
+    runScript();
+
+    expect(document.querySelector('ins.adsbygoogle')).toBeNull();
+    expect(document.querySelectorAll('.ad-container')).toHaveLength(0);
+    // 표 자체는 그대로 남아야 한다 — 광고만 걷어낸다.
+    expect(document.querySelector('table')).not.toBeNull();
+    expect(document.querySelector('td')).not.toBeNull();
+  });
+
+  it('removes a google-auto-placed slot nested deep inside a table', () => {
+    document.body.innerHTML =
+      '<table><tbody><tr><td><div class="wrap">' +
+      '<div class="google-auto-placed"><ins class="adsbygoogle"></ins></div>' +
+      '</div></td></tr></tbody></table>';
+    runScript();
+
+    expect(document.querySelector('.google-auto-placed')).toBeNull();
+    expect(document.querySelectorAll('.ad-container')).toHaveLength(0);
+    expect(document.querySelector('table')).not.toBeNull();
+  });
+
+  it('leaves ads OUTSIDE a table untouched even when a table is present', () => {
+    document.body.innerHTML =
+      '<table><tbody><tr><td>cell</td></tr></tbody></table>' +
+      '<ins class="adsbygoogle"></ins>';
+    runScript();
+
+    const ad = document.querySelector('ins.adsbygoogle');
+    expect(ad).not.toBeNull();
+    expect(ad.parentElement.classList.contains('ad-container')).toBe(true);
+    expect(document.querySelector('table')).not.toBeNull();
+  });
+
   it('handles multiple ad slots on the same page', () => {
     document.body.innerHTML =
       '<ins class="adsbygoogle" data-ad-format="rectangle"></ins>' +
