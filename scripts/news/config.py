@@ -256,7 +256,23 @@ _GEMINI_MAX_RETRIES: int = max(1, int(os.getenv("AUTO_PUBLISH_GEMINI_RETRIES", "
 # digest ran on DeepSeek alone. Overriding this must never require a code
 # change again. Retired IDs also keep appearing in ListModels, so verify a swap
 # with a real call against the production key, not against the model list.
-_GEMINI_MODEL: str = os.getenv("AUTO_PUBLISH_GEMINI_MODEL", "gemini-2.5-flash")
+_GEMINI_MODEL_DEFAULT = "gemini-2.5-flash"
+
+
+def resolve_gemini_model() -> str:
+    """Model id from AUTO_PUBLISH_GEMINI_MODEL, else the default.
+
+    `or` rather than os.getenv's default: ai-blogwatcher.yml always defines the
+    var (from a repo variable), so when the variable is unset it arrives as an
+    empty string and os.getenv's default would never fire — leaving no model id
+    at all. A function, not an inline expression, so the empty case is testable
+    without reloading this module (reloading it rebinds state that
+    content_generator captured at import and breaks unrelated tests).
+    """
+    return os.getenv("AUTO_PUBLISH_GEMINI_MODEL", "").strip() or _GEMINI_MODEL_DEFAULT
+
+
+_GEMINI_MODEL: str = resolve_gemini_model()
 _CLAUDE_MODEL: str = os.getenv("AUTO_PUBLISH_CLAUDE_MODEL", "claude-3-5-sonnet-latest")
 _OPENAI_Codex_MODEL: str = os.getenv("AUTO_PUBLISH_OPENAI_CODEX_MODEL", "gpt-5.3-codex")
 _OPENAI_GPT54_MODEL: str = os.getenv("AUTO_PUBLISH_OPENAI_GPT54_MODEL", "gpt-5.4")
