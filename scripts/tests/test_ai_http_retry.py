@@ -153,3 +153,58 @@ class TestGeminiModelIsConfigurable:
         assert "_cfg._GEMINI_MODEL" in src, (
             "the Gemini REST URL no longer reads the configurable model id"
         )
+
+    @pytest.mark.parametrize(
+        ("env_value", "expected"),
+        [
+            (None, "gemini-2.5-flash"),
+            ("", "gemini-2.5-flash"),
+            ("   ", "gemini-2.5-flash"),
+            ("gemini-3.5-flash", "gemini-3.5-flash"),
+        ],
+    )
+    def test_empty_env_falls_back_to_the_default(self, monkeypatch, env_value, expected):
+        """An unset repo variable arrives as "", not as absent.
+
+        ai-blogwatcher.yml always defines AUTO_PUBLISH_GEMINI_MODEL (from
+        ``vars.``), so when the variable is not configured the step still gets
+        the name with an empty value. ``os.getenv(name, default)`` returns ""
+        there — the default never fires — and the URL would be built with no
+        model id at all. Same shape as the GA4_API_SECRET outage: a variable
+        that is present-but-empty is not the same as missing.
+        """
+        from scripts.news import config as cfg
+
+        if env_value is None:
+            monkeypatch.delenv("AUTO_PUBLISH_GEMINI_MODEL", raising=False)
+        else:
+            monkeypatch.setenv("AUTO_PUBLISH_GEMINI_MODEL", env_value)
+        assert cfg.resolve_gemini_model() == expected
+
+    def test_workflow_shim_uses_the_same_override(self):
+        """The CLI shim kept its own hardcoded copy of the retired model.
+
+        `_gemini_call` tries the CLI *before* the REST API, so a stale id in
+        the shim fails first on every ``use_ai=gemini`` run — the config fix
+        alone did not reach it. Found while verifying the model against the
+        production key (run 32811835061).
+        """
+        wf = (
+            REPO_ROOT / ".github" / "workflows" / "ai-blogwatcher.yml"
+        ).read_text("utf-8")
+        shim_raw = wf[wf.index("Install Gemini CLI") :][:2000]
+        # Code lines only — the shim's comment names the retired id deliberately.
+        shim = "\n".join(
+            ln for ln in shim_raw.splitlines() if not ln.lstrip().startswith("#")
+        )
+        assert "gemini-2.0-flash" not in shim, (
+            "the Gemini CLI shim hardcodes the retired gemini-2.0-flash again"
+        )
+        assert "AUTO_PUBLISH_GEMINI_MODEL" in shim, (
+            "the shim no longer honours the AUTO_PUBLISH_GEMINI_MODEL override, "
+            "so swapping the model would need two edits and one would be missed"
+        )
+        assert 'or "' in shim, (
+            "the shim uses os.getenv's default instead of `or`, so an unset repo "
+            "variable (which arrives as an empty string) leaves it with no model id"
+        )

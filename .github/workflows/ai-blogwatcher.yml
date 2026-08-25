@@ -106,6 +106,13 @@ jobs:
       CLAUDE_API_KEY: ${{ github.event_name != 'repository_dispatch' && secrets.CLAUDE_API_KEY || '' }}
       OPENAI_API_KEY: ${{ github.event_name != 'repository_dispatch' && secrets.OPENAI_API_KEY || '' }}
       DEEPSEEK_API_KEY: ${{ github.event_name != 'repository_dispatch' && secrets.DEEPSEEK_API_KEY || '' }}
+      # Not a secret — a repo variable, so a retired Gemini model ID can be
+      # swapped without a code change. Google retires these on its own schedule
+      # and the published lifecycle dates do not match runtime, which is how
+      # gemini-2.0-flash came to 404 on every call for weeks unnoticed.
+      # Unset resolves to '' here, so every reader must treat empty as absent
+      # (os.getenv's default does NOT fire on a set-but-empty var).
+      AUTO_PUBLISH_GEMINI_MODEL: ${{ vars.AUTO_PUBLISH_GEMINI_MODEL }}
 
     steps:
       - name: Checkout repository
@@ -201,7 +208,16 @@ jobs:
               sys.exit(1)
 
           genai.configure(api_key=api_key)
-          model = genai.GenerativeModel("gemini-2.0-flash")
+          # Same env override as the REST path (_cfg._GEMINI_MODEL). This shim
+          # had its own hardcoded copy of the retired gemini-2.0-flash, so the
+          # config fix in scripts/news/config.py did not reach it — the CLI is
+          # tried BEFORE the REST call, so a stale ID here fails first on every
+          # use_ai=gemini run.
+          # `or` not os.getenv's default: the workflow always defines this var,
+          # so an unset repo variable arrives as "" and the default never fires.
+          model = genai.GenerativeModel(
+              os.getenv("AUTO_PUBLISH_GEMINI_MODEL", "").strip() or "gemini-2.5-flash"
+          )
 
           if len(sys.argv) > 2 and sys.argv[1] == "-p":
               prompt = sys.argv[2]
