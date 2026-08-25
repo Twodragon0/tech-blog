@@ -166,7 +166,11 @@ def generate_image_with_gemini(
             api_url = (
                 GEMINI_IMAGE_PRO_API_URL if USE_PRO_MODEL else GEMINI_IMAGE_API_URL
             )
-            url = f"{api_url}?key={GEMINI_API_KEY}"
+            # 키는 헤더로. URL 에 실으면 requests 예외 문자열이 URL 을 그대로
+            # 담아 공개 Actions 로그로 새어나간다 — "URL 을 로그에 찍지 말 것"
+            # 이라는 규율에만 의존하지 않고 경로 자체를 없앤다.
+            url = api_url
+            headers = {"x-goog-api-key": GEMINI_API_KEY}
 
             # Security: Don't log URL with API key
             log_message("🎨 Gemini API로 이미지 생성 시도 중...")
@@ -180,7 +184,7 @@ def generate_image_with_gemini(
                 },
             }
 
-            response = requests.post(url, json=data, timeout=120)
+            response = requests.post(url, headers=headers, json=data, timeout=120)
 
             if response.status_code == 200:
                 result = response.json()

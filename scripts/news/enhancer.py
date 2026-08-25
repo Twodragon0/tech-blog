@@ -97,9 +97,17 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
     try:
         import requests
 
+        # 키는 헤더로 보낸다(x-goog-api-key). 쿼리스트링에 실으면 URL 자체가
+        # 비밀이 되어, requests 예외 문자열이 그 URL 을 그대로 담는다 —
+        # 아래 `except Exception as e: logging.warning(f"... {e}")` 가 공개
+        # 리포의 Actions 로그에 키를 찍는다는 뜻이다(실측 확인).
+        # 헤더로 옮기면 그 경로가 통째로 사라진다.
+        # 검증: fake 키를 헤더로 보내면 400 "API key not valid",
+        # 키 없이 보내면 403 "unregistered callers" — 헤더가 읽힌다는 대조군.
         response = requests.post(
             f"https://generativelanguage.googleapis.com/v1beta/models/"
-            f"{_cfg._GEMINI_MODEL}:generateContent?key={_cfg._GEMINI_API_KEY}",
+            f"{_cfg._GEMINI_MODEL}:generateContent",
+            headers={"x-goog-api-key": _cfg._GEMINI_API_KEY},
             json={"contents": [{"parts": [{"text": prompt}]}]},
             timeout=timeout,
         )
@@ -117,11 +125,13 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
             # WARNING while gemini-2.0-flash 404'd on every single call for
             # weeks, so the primary translator's death never surfaced. Name the
             # override so the fix is obvious from the log alone.
-            # The response body is deliberately NOT logged. The request URL
-            # carries ?key=<API key>, so an error body that echoes the request
-            # would put the key in a public Actions log — CodeQL
-            # py/clear-text-logging-sensitive-data flags exactly that path. The
-            # model id and the remediation are the whole diagnosis anyway.
+            # The response body is still not logged, but the reason has
+            # changed: the key now travels in the x-goog-api-key header, so the
+            # URL is no longer a secret and an echoed request could not leak it.
+            # It stays out because the model id and the remediation are the
+            # whole diagnosis — the body adds noise, not information. Measured:
+            # a bad key answers "API key not valid. Please pass a valid API
+            # key." and never echoes the key itself.
             logging.error(
                 "Gemini model '%s' returned 404 (retired, or not enabled for this "
                 "key) - the Gemini path is dead for this whole run. Set "

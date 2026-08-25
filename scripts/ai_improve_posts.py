@@ -419,8 +419,11 @@ def improve_with_gemini(post_info: Dict) -> Optional[str]:
 원본 포스트: {original_url}
 """
 
-        # URL에 API 키가 포함되므로 로그에 기록 시 마스킹 필요
-        url = f"{GEMINI_API_URL}?key={GEMINI_API_KEY}"
+        # 키는 헤더로 보낸다 — URL 에 실으면 requests 예외 문자열이 URL 을
+        # 그대로 담아 공개 Actions 로그로 새어나간다. 마스킹은 로그 호출마다
+        # 기억해야 하는 규율이고, 헤더는 그 경로 자체를 없앤다.
+        url = GEMINI_API_URL
+        headers = {"x-goog-api-key": GEMINI_API_KEY}
 
         data = {
             "contents": [{"parts": [{"text": prompt}]}],
@@ -432,7 +435,7 @@ def improve_with_gemini(post_info: Dict) -> Optional[str]:
             },
         }
 
-        response = requests.post(url, json=data, timeout=60)
+        response = requests.post(url, headers=headers, json=data, timeout=60)
 
         if response.status_code == 200:
             result = response.json()
