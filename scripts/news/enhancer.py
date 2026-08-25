@@ -117,12 +117,16 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
             # WARNING while gemini-2.0-flash 404'd on every single call for
             # weeks, so the primary translator's death never surfaced. Name the
             # override so the fix is obvious from the log alone.
+            # The response body is deliberately NOT logged. The request URL
+            # carries ?key=<API key>, so an error body that echoes the request
+            # would put the key in a public Actions log — CodeQL
+            # py/clear-text-logging-sensitive-data flags exactly that path. The
+            # model id and the remediation are the whole diagnosis anyway.
             logging.error(
-                "Gemini model '%s' returned 404 (retired or not enabled for this "
+                "Gemini model '%s' returned 404 (retired, or not enabled for this "
                 "key) - the Gemini path is dead for this whole run. Set "
-                "AUTO_PUBLISH_GEMINI_MODEL to a live model ID. Response: %s",
+                "AUTO_PUBLISH_GEMINI_MODEL to a live model ID.",
                 _cfg._GEMINI_MODEL,
-                response.text[:100],
             )
         else:
             logging.warning(
