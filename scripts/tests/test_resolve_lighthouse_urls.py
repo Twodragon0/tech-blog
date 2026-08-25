@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Tests for scripts/dev/resolve_lighthouse_urls.py.
 
-The property that matters most here is the both-sides intersection. The perf
-gate serves each build with ``serve --single``, which answers an unknown path
-with the homepage at HTTP 200 and no redirect, so a URL that exists on head but
-not on base would be compared against the homepage and produce a meaningless
-delta. Several tests below pin that behaviour specifically.
+The property that matters most here is the both-sides intersection: a URL that
+exists on head but not on base has nothing like-for-like to be compared
+against, so the delta would be meaningless. Several tests below pin that
+behaviour specifically.
+
+Note this is necessary but not sufficient. The gate also used to serve with
+``serve --single``, which substitutes the homepage for *existing* post pages
+too — so URLs this resolver correctly admitted were still measured as the
+homepage. That is fixed in the workflow, not here; see PR #606 and
+``test_ci_lighthouse_perf_gate_guard.test_server_serves_real_pages_not_the_homepage``.
 """
 
 from __future__ import annotations
@@ -112,7 +117,7 @@ class TestResolve:
         ]
 
     def test_new_post_absent_from_base_is_dropped(self, tmp_path):
-        """The --single hazard: measuring it would compare post vs homepage."""
+        """Measuring it would compare a real post against base's 404 page."""
         head, base = tmp_path / "head", tmp_path / "base"
         _make_post(head, "/posts/2026/08/08/BrandNew/")
         base.mkdir(parents=True, exist_ok=True)

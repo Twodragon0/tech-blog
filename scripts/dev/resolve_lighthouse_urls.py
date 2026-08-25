@@ -15,17 +15,25 @@ PR actually touched.
 
 The both-sides rule (this is a correctness requirement, not an optimisation)
 ---------------------------------------------------------------------------
-The workflow serves each build with ``npx serve … --single``. In ``--single``
-mode a path that does not exist is answered with ``index.html`` — the homepage —
-at HTTP 200, with no redirect. Lighthouse therefore records the *requested* URL
-while measuring the *homepage*. If a URL exists on head but not on base (a newly
-added post), the comparison would silently pit the real post page against the
-homepage and emit a garbage delta in whichever direction the two happen to
+If a URL exists on head but not on base (a newly added post), there is nothing
+like-for-like to compare: base answers with a 404 page, and the delta between a
+real post and an error page is garbage in whichever direction the two happen to
 differ.
 
 Hence: a post URL is measured only when it exists in **every** site directory
 passed via ``--site-dir``. New posts drop out and the gate falls back to
 comparing the homepage, which is honest.
+
+This check is necessary but was never sufficient, and believing otherwise cost
+the gate months of vacuous runs. The workflow used to serve each build with
+``npx serve … --single`` on the theory that ``--single`` only substitutes the
+homepage for *unknown* paths — which this rule would then cover. That theory is
+wrong: ``--single`` rewrites every extensionless path to ``/index.html``
+*before* the filesystem lookup, so it answered an **existing** post page with
+the homepage at HTTP 200 as well. Every post URL this resolver correctly
+admitted was still measured as the homepage. ``--single`` is gone and the
+workflow now probes page identity over HTTP before measuring; see
+``.github/workflows/lighthouse-ci.yml`` and PR #606.
 
 Slug rule
 ---------
