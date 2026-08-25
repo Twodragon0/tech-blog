@@ -28,6 +28,7 @@ from scripts.news.enhancer import (
     _gemini_call,
     check_gemini_available,
     enhance_content_with_fallback,
+    post_with_retry,
 )
 from scripts.news.svg_generator import (
     _escape_svg_text,
@@ -2680,8 +2681,6 @@ def _translate_to_korean_deepseek(
         return ""
 
     try:
-        import requests
-
         if mode == "title":
             prompt = (
                 f"다음 {context} 제목을 한국어로 자연스럽게 번역해 주세요. "
@@ -2709,13 +2708,16 @@ def _translate_to_korean_deepseek(
             "max_tokens": 300,
         }
 
-        response = requests.post(
+        response = post_with_retry(
             "https://api.deepseek.com/v1/chat/completions",
             headers=headers,
             json=payload,
             timeout=20,
+            label="DeepSeek translate",
         )
 
+        if response is None:
+            return ""
         if response.status_code == 200:
             result = response.json()
             content = (
@@ -2727,9 +2729,9 @@ def _translate_to_korean_deepseek(
                 return translated
         else:
             logging.warning(f"DeepSeek translate API status {response.status_code}")
-    except ImportError:
-        logging.debug("requests library not available for DeepSeek translation")
     except Exception as e:
+        # Transport faults are retried inside post_with_retry; reaching here
+        # means the response could not be shaped, not that the network blipped.
         logging.warning(f"DeepSeek translate error: {e}")
 
     return ""

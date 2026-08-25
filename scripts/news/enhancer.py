@@ -3,9 +3,64 @@
 import logging
 import os
 import subprocess
+import time
 from typing import Dict, Optional
 
 import scripts.news.config as _cfg
+
+# A transport fault on the runner -> DeepSeek path costs the item its Korean
+# text: the call returns "" and the caller falls through to the English
+# template. Run 32794655444 hit ConnectionResetError(104) three times inside a
+# single digest, which is how two English summaries reached main on 2026-08-25.
+# One immediate retry plus one backed-off retry covers a reset without turning
+# a genuine outage into a long stall.
+_TRANSIENT_RETRIES: int = max(0, int(os.getenv("AUTO_PUBLISH_HTTP_RETRIES", "2")))
+_TRANSIENT_BACKOFF_S: float = 1.5
+
+
+def post_with_retry(
+    url: str,
+    *,
+    headers: Optional[Dict] = None,
+    json: Optional[Dict] = None,
+    timeout: int = 20,
+    label: str = "AI API",
+):
+    """POST that retries transport faults and 429/5xx. ``None`` when exhausted.
+
+    A 4xx other than 429 is a real answer — bad key, retired model, malformed
+    request — so it is returned to the caller rather than retried. Retrying it
+    would only burn the job's wall clock and bury the reason.
+    """
+    try:
+        import requests
+    except ImportError:
+        logging.debug("requests library not available for %s", label)
+        return None
+
+    last_error = None
+    for attempt in range(_TRANSIENT_RETRIES + 1):
+        try:
+            response = requests.post(
+                url, headers=headers, json=json, timeout=timeout
+            )
+            if response.status_code == 429 or response.status_code >= 500:
+                last_error = f"status {response.status_code}"
+            else:
+                return response
+        except Exception as e:  # connection reset, read timeout, DNS, ...
+            last_error = e
+        if attempt < _TRANSIENT_RETRIES:
+            time.sleep(_TRANSIENT_BACKOFF_S * (attempt + 1))
+            logging.info(
+                "%s transient failure (%s) - retry %d/%d",
+                label,
+                last_error,
+                attempt + 1,
+                _TRANSIENT_RETRIES,
+            )
+    logging.warning("%s failed after %d attempts: %s", label, _TRANSIENT_RETRIES + 1, last_error)
+    return None
 
 
 def _allow_gemini() -> bool:
@@ -43,7 +98,8 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
         import requests
 
         response = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={_cfg._GEMINI_API_KEY}",
+            f"https://generativelanguage.googleapis.com/v1beta/models/"
+            f"{_cfg._GEMINI_MODEL}:generateContent?key={_cfg._GEMINI_API_KEY}",
             json={"contents": [{"parts": [{"text": prompt}]}]},
             timeout=timeout,
         )
@@ -56,6 +112,18 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
                 .get("text", "")
             )
             return text.strip()
+        elif response.status_code == 404:
+            # A retired model ID, not a transient fault. This was a plain
+            # WARNING while gemini-2.0-flash 404'd on every single call for
+            # weeks, so the primary translator's death never surfaced. Name the
+            # override so the fix is obvious from the log alone.
+            logging.error(
+                "Gemini model '%s' returned 404 (retired or not enabled for this "
+                "key) - the Gemini path is dead for this whole run. Set "
+                "AUTO_PUBLISH_GEMINI_MODEL to a live model ID. Response: %s",
+                _cfg._GEMINI_MODEL,
+                response.text[:100],
+            )
         else:
             logging.warning(
                 f"Gemini API status {response.status_code}: {response.text[:100]}"
@@ -165,8 +233,6 @@ def enhance_with_deepseek(item: Dict) -> str:
         return ""
 
     try:
-        import requests
-
         prompt = f"""\ub2e4\uc74c \ubcf4\uc548/\uae30\uc220 \ub274\uc2a4\ub97c DevSecOps \uc2e4\ubb34\uc790 \uad00\uc810\uc5d0\uc11c \ubd84\uc11d:
 \uc81c\ubaa9: {title}
 \uc694\uc57d: {summary}
@@ -191,13 +257,16 @@ def enhance_with_deepseek(item: Dict) -> str:
             "max_tokens": 1000,
         }
 
-        response = requests.post(
+        response = post_with_retry(
             "https://api.deepseek.com/v1/chat/completions",
             headers=headers,
             json=payload,
             timeout=30,
+            label="DeepSeek enhance",
         )
 
+        if response is None:
+            return ""
         if response.status_code == 200:
             result = response.json()
             content = (
@@ -209,9 +278,9 @@ def enhance_with_deepseek(item: Dict) -> str:
         else:
             logging.warning(f"DeepSeek API returned status {response.status_code}")
 
-    except ImportError:
-        logging.warning("requests library not available for DeepSeek API")
     except Exception as e:
+        # Transport faults are handled (and retried) inside post_with_retry;
+        # anything reaching here is a response-shaping bug, not a flaky network.
         logging.warning(f"DeepSeek API error: {e}")
 
     return ""
