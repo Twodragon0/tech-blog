@@ -35,7 +35,7 @@ Redis를 쓰는 것은 아니다(위 표의 `USE_UPSTASH_RATELIMIT` 참조).
 
 `web_vitals` 수집은 이 값 없이는 **0건**이다. PR #558·#586이 gtag 배치 유실을
 없애려고 퍼스트파티 비콘으로 옮겼지만, 시크릿이 없어 그 파이프라인은 아직 아무것도
-수집하지 않았다. 근거: `vercel env ls production`에 이름이 없음(2026-08-24).
+수집하지 않았다. 근거: `vercel env ls production`에 이름이 없음(2026-08-24 최초 확인, **2026-08-25 재확인** — production 목록은 `SENTRY_DSN`, `REDIS_URL`, `BLOB_READ_WRITE_TOKEN`, `PRISMA_DATABASE_URL`, `DATABASE_URL`, `POSTGRES_URL`, `DEEPSEEK_API_KEY` 뿐이다). `scripts/check_runtime_env_contract.py --vercel` 도 같은 날 FAIL 을 반환했다.
 
 1. **GA4에서 값 생성**
    Google Analytics → **Admin** → **Data streams** → 웹 스트림 선택 →
