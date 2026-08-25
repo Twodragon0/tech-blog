@@ -7,6 +7,7 @@ import time
 from typing import Dict, Optional
 
 import scripts.news.config as _cfg
+from scripts.lib.security import mask_sensitive_info
 
 # A transport fault on the runner -> DeepSeek path costs the item its Korean
 # text: the call returns "" and the caller falls through to the English
@@ -59,7 +60,16 @@ def post_with_retry(
                 attempt + 1,
                 _TRANSIENT_RETRIES,
             )
-    logging.warning("%s failed after %d attempts: %s", label, _TRANSIENT_RETRIES + 1, last_error)
+    # Masked: last_error may be a requests exception, and urllib3 embeds the
+    # full request URL in the MaxRetryError family. This helper is generic — a
+    # future caller may pass an endpoint that still carries a credential in its
+    # query string, so mask at the sink rather than trusting every call site.
+    logging.warning(
+        "%s failed after %d attempts: %s",
+        label,
+        _TRANSIENT_RETRIES + 1,
+        mask_sensitive_info(str(last_error)),
+    )
     return None
 
 
@@ -145,7 +155,7 @@ def _gemini_api_call(prompt: str, timeout: int = 20) -> str:
     except ImportError:
         logging.debug("requests library not available for Gemini API")
     except Exception as e:
-        logging.warning(f"Gemini API error: {e}")
+        logging.warning("Gemini API error: %s", mask_sensitive_info(str(e)))
 
     return ""
 
@@ -172,7 +182,7 @@ def _gemini_call(prompt: str, timeout: int = 35) -> str:
             logging.warning(f"Gemini CLI timeout ({timeout}s)")
         except (subprocess.SubprocessError, OSError) as e:
             _cfg._GEMINI_CONSECUTIVE_FAILURES += 1
-            logging.warning(f"Gemini CLI error: {e}")
+            logging.warning("Gemini CLI error: %s", mask_sensitive_info(str(e)))
 
     if _cfg._GEMINI_API_KEY and _cfg._GEMINI_CONSECUTIVE_FAILURES > 0:
         api_timeout = min(timeout, 20)
@@ -295,7 +305,7 @@ def enhance_with_deepseek(item: Dict) -> str:
     except Exception as e:
         # Transport faults are handled (and retried) inside post_with_retry;
         # anything reaching here is a response-shaping bug, not a flaky network.
-        logging.warning(f"DeepSeek API error: {e}")
+        logging.warning("DeepSeek API error: %s", mask_sensitive_info(str(e)))
 
     return ""
 
@@ -359,7 +369,7 @@ def enhance_with_claude(item: Dict) -> str:
     except ImportError:
         logging.warning("requests library not available for Claude API")
     except Exception as e:
-        logging.warning(f"Claude API error: {e}")
+        logging.warning("Claude API error: %s", mask_sensitive_info(str(e)))
 
     return ""
 
@@ -422,7 +432,7 @@ def enhance_with_openai_codex_medium(item: Dict) -> str:
     except ImportError:
         logging.warning("requests library not available for OpenAI API")
     except Exception as e:
-        logging.warning(f"OpenAI API error: {e}")
+        logging.warning("OpenAI API error: %s", mask_sensitive_info(str(e)))
 
     return ""
 
@@ -487,7 +497,7 @@ def enhance_with_openai_gpt54(item: Dict) -> str:
     except ImportError:
         logging.warning("requests library not available for OpenAI API")
     except Exception as e:
-        logging.warning(f"OpenAI GPT-5.4 API error: {e}")
+        logging.warning("OpenAI GPT-5.4 API error: %s", mask_sensitive_info(str(e)))
 
     return ""
 

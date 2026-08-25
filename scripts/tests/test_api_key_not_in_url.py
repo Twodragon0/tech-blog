@@ -124,3 +124,62 @@ class TestTheFixedCallSitesUseHeaders:
             "removed entirely, drop it from this list in the same commit and say "
             "why; otherwise the key is back in the URL."
         )
+
+class TestExceptionLogsAreMasked:
+    """Second layer, added after review: mask at the sink too.
+
+    Keeping the key out of the URL (above) closes the Gemini path. This closes
+    the *class*, because the leak is a property of ``requests``, not of one
+    endpoint: urllib3 embeds the full request URL in the MaxRetryError family.
+    Measured which failures actually carry it —
+
+        DNS failure / connection refused / invalid schema -> URL in str(e)
+        read timeout / connection reset                   -> no URL
+
+    — which is why this never surfaced: every exception logged across the last
+    20 blogwatcher runs was a read timeout or ConnectionResetError(104). The
+    leak path is latent, not realized. A runner DNS flake is enough to realize
+    it.
+
+    ``post_with_retry`` is the reason to mask rather than rely on call sites: it
+    is generic, and a future caller may pass an endpoint that does carry a
+    credential in its query string.
+
+    The image generators already did this — they log through ``log_message``,
+    which applies ``mask_sensitive_info`` unconditionally
+    (scripts/lib/logging_utils.py). ``enhancer.py`` was the one module touching
+    a key-bearing URL that logged raw.
+    """
+
+    def test_masker_neutralises_the_exact_urllib3_leak_string(self):
+        from scripts.lib.security import mask_sensitive_info
+
+        key = "AIza" + "S" * 35  # real Google keys are AIza + 35 chars
+        leak = (
+            "HTTPSConnectionPool(host='generativelanguage.googleapis.com', "
+            "port=443): Max retries exceeded with url: "
+            f"/v1beta/models/gemini-2.5-flash:generateContent?key={key} "
+            "(Caused by NewConnectionError(...))"
+        )
+        out = mask_sensitive_info(leak)
+        assert key not in out, f"masker left the key in: {out}"
+        assert "MASKED" in out
+
+    def test_enhancer_masks_every_exception_it_logs(self):
+        """A raw f-string of an exception is the shape that leaked."""
+        src = (REPO_ROOT / "scripts" / "news" / "enhancer.py").read_text("utf-8")
+        code = [
+            ln for ln in src.splitlines() if not ln.lstrip().startswith("#")
+        ]
+        raw = [
+            ln.strip()
+            for ln in code
+            if "logging." in ln and ("{e}" in ln or "{last_error}" in ln)
+        ]
+        assert not raw, (
+            "enhancer.py logs an exception without mask_sensitive_info: "
+            f"{raw}. requests exceptions can embed the full request URL."
+        )
+        assert "mask_sensitive_info" in src, (
+            "enhancer.py no longer imports the masker"
+        )
