@@ -40,11 +40,25 @@
  * Use measure_ad_collapse_cls.mjs for that half, and read this one as
  * "first-party floor", not "total".
  *
+ * Measuring an AdSense change requires --origin
+ * ---------------------------------------------
+ * The local mode above cannot validate an AdSense dashboard change (Auto ads
+ * off, or a bottom-of-document placement exclusion). It aborts third party, so
+ * ads never load and the number is 0.0000 whether or not the setting changed.
+ * That is a floor, and a floor cannot show an improvement.
+ *
+ * --origin <url> points the same instrumentation at the deployed site with ALL
+ * third party allowed, which is the only place an Auto ads placement decision
+ * is observable. Costs: the number is stochastic (fill varies per load), so run
+ * it several times and read the distribution, not one value.
+ *
  * Usage:
  *   JEKYLL_ENV=production bundle exec jekyll build -d _site
  *   node scripts/dev/measure_cls_attribution.mjs /posts/2026/08/25/Some_Slug/
  *   node scripts/dev/measure_cls_attribution.mjs /posts/... --allow giscus.app
  *   node scripts/dev/measure_cls_attribution.mjs /posts/... --scroll
+ *   node scripts/dev/measure_cls_attribution.mjs /posts/... --scroll \
+ *       --origin https://tech.2twodragon.com          # live, ads included
  *
  * --scroll walks the page top-to-bottom before settling, because a shift below
  * the fold is only recorded once it is in (or near) the viewport.
@@ -59,15 +73,21 @@ import { fileURLToPath } from 'node:url';
 const argv = process.argv.slice(2);
 const urlPath = argv.find((a) => a.startsWith('/'));
 if (!urlPath) {
-  console.error('usage: measure_cls_attribution.mjs /posts/YYYY/MM/DD/slug/ [--allow host] [--scroll]');
+  console.error('usage: measure_cls_attribution.mjs /posts/YYYY/MM/DD/slug/ [--allow host] [--scroll] [--origin https://host]');
   process.exit(2);
 }
 const allow = argv.reduce((acc, a, i) => (a === '--allow' && argv[i + 1] ? acc.concat(argv[i + 1]) : acc), []);
 const doScroll = argv.includes('--scroll');
+const originIdx = argv.indexOf('--origin');
+const origin = originIdx !== -1 ? argv[originIdx + 1] : null;
+if (originIdx !== -1 && !origin) {
+  console.error('--origin needs a URL, e.g. --origin https://tech.2twodragon.com');
+  process.exit(2);
+}
 
 const SITE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', '_site');
-if (!fs.existsSync(SITE)) {
-  console.error(`No _site at ${SITE} — build first.`);
+if (!origin && !fs.existsSync(SITE)) {
+  console.error(`No _site at ${SITE} — build first, or pass --origin <url>.`);
   process.exit(2);
 }
 
@@ -92,12 +112,21 @@ const server = http.createServer((req, res) => {
   }
   res.writeHead(404).end('nf');
 });
-await new Promise((r) => server.listen(0, '127.0.0.1', r));
-const base = `http://127.0.0.1:${server.address().port}`;
+let base;
+if (origin) {
+  base = origin.replace(/\/$/, '');
+} else {
+  await new Promise((r) => server.listen(0, '127.0.0.1', r));
+  base = `http://127.0.0.1:${server.address().port}`;
+}
 
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 1512, height: 827 } });
 await ctx.route('**/*', (route) => {
+  // Live mode measures what a reader actually gets, so nothing is blocked —
+  // blocking the ad script is precisely what would hide the thing being
+  // measured. Local mode stays deny-by-default plus --allow.
+  if (origin) return route.continue();
   const url = route.request().url();
   if (url.startsWith(base)) return route.continue();
   if (allow.some((a) => url.includes(a))) return route.continue();
@@ -151,7 +180,11 @@ const total = await page.evaluate(() => window.__cls);
 const entries = await page.evaluate(() => window.__entries);
 
 console.log(`\nURL      : ${urlPath}`);
-console.log(`third-party allowed: ${allow.length ? allow.join(', ') : '(none — first-party floor)'}`);
+console.log(
+  origin
+    ? `mode     : LIVE ${base} — all third party allowed (stochastic; repeat runs)`
+    : `mode     : LOCAL _site, third-party allowed: ${allow.length ? allow.join(', ') : '(none — first-party floor, cannot show an ads change)'}`
+);
 console.log(`scrolled : ${doScroll}`);
 console.log(`TOTAL CLS: ${total.toFixed(4)}   (${entries.length} shift entries)\n`);
 
@@ -183,4 +216,4 @@ if (top.length) {
 console.log('');
 
 await browser.close();
-server.close();
+if (!origin) server.close();
