@@ -14,12 +14,16 @@ What can be undone silently here
    measured a fixed 2026-04-29 post. On a ``_posts/**`` PR that post is
    byte-identical on both sides, so the gate reports +0 ms and blocks nothing —
    green, and vacuous. The URL list must come from the resolver.
-3. **Stop requiring the URL to exist in both builds.** The runs are served with
-   ``serve … --single``, which answers an unknown path with the homepage at
-   HTTP 200 and no redirect. Measure a head-only URL and the comparison pits a
-   post page against the homepage; the delta is noise with a plausible sign.
-   The existence check needs ``--site-dir`` for *both* builds and the local
-   measurement steps need both builds to have succeeded.
+3. **Stop requiring the URL to exist in both builds.** Measure a head-only URL
+   and the comparison pits a post page against whatever base answers for it;
+   the delta is noise with a plausible sign. The existence check needs
+   ``--site-dir`` for *both* builds and the local measurement steps need both
+   builds to have succeeded.
+3b. **Re-add ``serve --single``**, which answers an *existing* post page with
+   the homepage at HTTP 200 — see
+   ``test_server_serves_real_pages_not_the_homepage``. This one defeated the
+   existence check in (3) entirely: the URL existed in both builds and was
+   still never measured.
 4. **Raise the 200 ms threshold** or neutralise the compare step.
 5. **Remove the post-URL cap**, turning a 100-post corpus PR into a 101-URL
    sweep — 100× the run time, on a 30-minute job timeout.
@@ -285,6 +289,55 @@ class TestPerfGateConfig:
             assert f"echo {expected} > {site}/build-id.txt" in stamp, (
                 f"{site} is no longer stamped with its build id, so the probe "
                 "above cannot tell the two builds apart."
+            )
+
+    def test_server_serves_real_pages_not_the_homepage(self):
+        """The bug that made this gate vacuous for the *second* time.
+
+        ``serve --single`` was believed to substitute the homepage only for
+        paths that do not exist, which the resolver's both-sides existence rule
+        would then cover. It does not: the flag rewrites every extensionless
+        path to ``/index.html`` *before* the filesystem lookup, so an EXISTING
+        ``posts/…/index.html`` is answered with the homepage at HTTP 200, with
+        no redirect and ``finalDisplayedUrl`` left intact. Verified against
+        serve 14.2.6 with a fixture whose post page differed from the homepage.
+
+        So every post row this gate ever produced was homepage-vs-homepage. In
+        run 32795353240 both URLs returned the same 147905-byte document, and
+        because the homepage's LCP is bimodal (~835 / ~1255 ms) the two medians
+        landed on opposite modes and the gate blocked PR #605 with a phantom
+        +430 ms regression.
+
+        Two independent defences, because the failure is silent and reads as a
+        plausible result: never pass ``--single``, and prove over HTTP that a
+        non-homepage URL does not return the homepage's bytes.
+        """
+        wf = _workflow()
+        for name in (
+            "Run Lighthouse on head (local build)",
+            "Run Lighthouse on base (local build)",
+        ):
+            run = _step(wf, name).get("run", "")
+            # Only the invocation itself — the surrounding comment names the
+            # flag on purpose, to explain why it must stay gone.
+            serve_cmd = re.search(r"^\s*npx serve .*$", run, re.MULTILINE)
+            assert serve_cmd, f"'{name}' no longer invokes npx serve."
+            assert "--single" not in serve_cmd.group(0), (
+                f"'{name}' passes --single to serve. This is a static Jekyll "
+                "tree, not an SPA: --single answers an existing post page with "
+                "the homepage at HTTP 200, so every post row silently becomes "
+                "homepage-vs-homepage and the delta is noise with a plausible "
+                "sign. Re-opens the PR #605 phantom-regression defect."
+            )
+            assert "HOME_SHA=" in run and "PAGE_SHA=" in run, (
+                f"'{name}' no longer runs the page-identity probe. build-id.txt "
+                "proves which *tree* is served; it cannot prove a URL resolves "
+                "to its own page. Without this probe a homepage substitution is "
+                "measured as if it were the post."
+            )
+            assert 'PAGE_SHA" = "$HOME_SHA' in run, (
+                f"'{name}' computes the page hashes but no longer compares them "
+                "against the homepage, so the probe cannot fail."
             )
 
     def test_default_post_url_is_a_single_source(self):

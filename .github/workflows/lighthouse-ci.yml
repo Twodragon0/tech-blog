@@ -14,10 +14,25 @@
 #   scripts/dev/resolve_lighthouse_urls.py: the homepage, plus the post page
 #   the PR actually edited (capped, so run time stays flat regardless of how
 #   many posts a corpus-wide PR touches). A post URL is measured only when it
-#   exists in BOTH builds — `serve --single` answers an unknown path with the
-#   homepage at HTTP 200, so measuring a head-only URL would compare a post
-#   page against the homepage. PRs that touch no post keep the representative
-#   post below.
+#   exists in BOTH builds, so a head-only URL cannot be compared against
+#   whatever base answers for it. PRs that touch no post keep the
+#   representative post below.
+#
+#   The servers run WITHOUT `--single`. That flag was here on the theory that
+#   it only substitutes the homepage for *unknown* paths, which the both-sides
+#   existence rule above would then cover. That theory is wrong: `serve
+#   --single` rewrites every extensionless path to /index.html *before* the
+#   filesystem lookup, so it also answers an EXISTING posts/…/index.html with
+#   the homepage at HTTP 200 — no redirect, finalDisplayedUrl unchanged.
+#   Consequence: from the day _posts/** began triggering this gate until
+#   2026-08-25 every post row was homepage-vs-homepage. Run 32795353240
+#   (PR #605) is the worked example — both URLs returned a byte-identical
+#   147905-byte document loading home-posts-filter.js, and the homepage's LCP
+#   is bimodal (~835 ms / ~1255 ms with nothing between), so the two
+#   independent medians landed on opposite modes and the gate reported a
+#   phantom +430 ms "regression" on the post.
+#   Two backstops now: no `--single`, and a per-side page-identity probe that
+#   refuses to measure when a non-homepage URL returns the homepage's bytes.
 #
 #   Head and base get their OWN port (4000 / 4001). Sharing one port is a
 #   correctness hazard, not a detail: `npx serve` silently falls back to a
@@ -189,7 +204,14 @@ jobs:
           mkdir -p lhci-head
           # --no-port-switching: fail loudly instead of drifting to a random
           # port and leaving Lighthouse pointed at the other build on :4000.
-          npx serve _site_head -l 4000 --single --no-port-switching > serve-head.log 2>&1 &
+          # NO --single: this is a static Jekyll tree, not an SPA. `serve
+          # --single` rewrites *every* extensionless path to /index.html before
+          # the filesystem lookup, so it answered an existing
+          # posts/…/index.html with the homepage at HTTP 200 (verified against
+          # serve 14.2.6 with a fixture whose post index.html differed from the
+          # homepage). Every post measurement was therefore homepage-vs-homepage
+          # — see the header note.
+          npx serve _site_head -l 4000 --no-port-switching > serve-head.log 2>&1 &
           SERVER_PID=$!
           SERVING=""
           for _ in $(seq 1 20); do
@@ -203,6 +225,22 @@ jobs:
             kill $SERVER_PID 2>/dev/null || true
             exit 1
           fi
+          # Page-identity probe. The build-id check above proves *which tree* is
+          # served; it cannot prove that a given URL resolves to its own page.
+          # Assert every non-homepage URL differs from the homepage, so a
+          # homepage substitution can never again be measured as a post.
+          HOME_SHA=$(curl -sf http://localhost:4000/ | sha256sum | cut -d' ' -f1)
+          while IFS= read -r path; do
+            [ -n "$path" ] || continue
+            [ "$path" = "/" ] && continue
+            PAGE_SHA=$(curl -sf "http://localhost:4000${path}" | sha256sum | cut -d' ' -f1)
+            if [ "$PAGE_SHA" = "$HOME_SHA" ]; then
+              echo "::error::head :4000 answered ${path} with a document byte-identical to the homepage. The gate would compare the homepage against itself. Refusing to measure."
+              pkill -P $SERVER_PID 2>/dev/null || true
+              kill $SERVER_PID 2>/dev/null || true
+              exit 1
+            fi
+          done < lh-urls.txt
           while IFS= read -r path; do
             [ -n "$path" ] || continue
             url="http://localhost:4000${path}"
@@ -239,7 +277,9 @@ jobs:
           mkdir -p lhci-base
           # --no-port-switching: fail loudly instead of drifting to a random
           # port and leaving Lighthouse pointed at the other build on :4000.
-          npx serve _site_base -l 4001 --single --no-port-switching > serve-base.log 2>&1 &
+          # NO --single — see the head step for why it made every post
+          # measurement homepage-vs-homepage.
+          npx serve _site_base -l 4001 --no-port-switching > serve-base.log 2>&1 &
           SERVER_PID=$!
           SERVING=""
           for _ in $(seq 1 20); do
@@ -253,6 +293,19 @@ jobs:
             kill $SERVER_PID 2>/dev/null || true
             exit 1
           fi
+          # Page-identity probe — see the head step.
+          HOME_SHA=$(curl -sf http://localhost:4001/ | sha256sum | cut -d' ' -f1)
+          while IFS= read -r path; do
+            [ -n "$path" ] || continue
+            [ "$path" = "/" ] && continue
+            PAGE_SHA=$(curl -sf "http://localhost:4001${path}" | sha256sum | cut -d' ' -f1)
+            if [ "$PAGE_SHA" = "$HOME_SHA" ]; then
+              echo "::error::base :4001 answered ${path} with a document byte-identical to the homepage. The gate would compare the homepage against itself. Refusing to measure."
+              pkill -P $SERVER_PID 2>/dev/null || true
+              kill $SERVER_PID 2>/dev/null || true
+              exit 1
+            fi
+          done < lh-urls.txt
           while IFS= read -r path; do
             [ -n "$path" ] || continue
             url="http://localhost:4001${path}"
