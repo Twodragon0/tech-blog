@@ -127,3 +127,73 @@ def test_workflow_file_retriggers_itself(workflow: Path):
             f"{workflow.name} ({event}) no longer lists itself, so a change to "
             "the gate ships without the gate running once"
         )
+
+
+# ---------------------------------------------------------------------------
+# visual-baseline pair
+#
+# Deliberately NOT subject to the extension-axis assertions above. Audited
+# 2026-08-26: svg_visual_baseline.py reads exactly two surfaces — the 32
+# hardcoded `.svg` paths in TARGET_SVGS and tests/visual-baselines/ — and
+# rasterises them via rsvg-convert. It reads no raster under assets/images/, so
+# `assets/images/**` would be wider than the scan rather than narrower. What
+# these two DO need is that their own read surfaces stay reachable.
+# ---------------------------------------------------------------------------
+
+VISUAL_BASELINE = (
+    REPO_ROOT / ".github" / "workflows" / "visual-baseline-refresh.yml",
+    REPO_ROOT / ".github" / "workflows" / "visual-baseline-verify.yml",
+)
+BASELINE_SCRIPT = REPO_ROOT / "scripts" / "svg_visual_baseline.py"
+
+
+def _target_svgs() -> list[str]:
+    """Every quoted path in TARGET_SVGS, parsed from source (PIL may be absent).
+
+    Matches any quoted path, NOT just `*.svg`. An earlier version filtered on
+    `\\.svg"` here, which made ``test_target_svgs_is_still_a_hardcoded_svg_only
+    _sample`` vacuous: a `.png` added to the list was dropped by this extractor
+    before the assertion could see it, so the mutation that the assertion exists
+    to catch passed. The extractor is the assertion's haystack — it must not
+    pre-filter on the property being asserted.
+    """
+    src = BASELINE_SCRIPT.read_text(encoding="utf-8")
+    block = src.split("TARGET_SVGS", 1)[1].split("\n]", 1)[0]
+    return re.findall(r'"([^"]+/[^"]+)"', block)
+
+
+def test_target_svgs_is_still_a_hardcoded_svg_only_sample():
+    """The premise behind exempting these two from the extension axis."""
+    targets = _target_svgs()
+    assert targets, "TARGET_SVGS could not be parsed; re-derive this exemption"
+    assert all(t.endswith(".svg") for t in targets), (
+        "TARGET_SVGS now contains a non-SVG entry. The visual-baseline workflows "
+        "are exempt from the raster assertions above ONLY because this sample is "
+        "SVG-only — re-check their filters before extending the sample."
+    )
+
+
+@pytest.mark.parametrize("workflow", VISUAL_BASELINE, ids=lambda p: p.name)
+def test_visual_baseline_trigger_reaches_its_own_read_surfaces(workflow: Path):
+    """Both TARGET_SVGS and the baseline directory must be reachable."""
+    sample_target = _target_svgs()[0]
+    for event, patterns in _filters(workflow).items():
+        for surface, why in (
+            (sample_target, "a TARGET_SVGS entry"),
+            ("tests/visual-baselines/manifest.json", "the baseline store"),
+        ):
+            assert any(_gh_glob_matches(surface, p) for p in patterns), (
+                f"{workflow.name} ({event}): nothing matches {surface!r}, which is "
+                f"{why} this workflow reads. A change there would not run it."
+            )
+
+
+@pytest.mark.parametrize("workflow", VISUAL_BASELINE, ids=lambda p: p.name)
+def test_visual_baseline_workflow_retriggers_itself(workflow: Path):
+    rel = f".github/workflows/{workflow.name}"
+    for event, patterns in _filters(workflow).items():
+        assert any(_gh_glob_matches(rel, p) for p in patterns), (
+            f"{workflow.name} ({event}) does not list itself. refresh/--capture "
+            "auto-commits on main, so an unreviewed change to it would take "
+            "effect without the workflow having run once under its new form."
+        )
