@@ -118,14 +118,33 @@ def test_schedule_survives_as_the_backstop(workflow: Path):
     )
 
 
-@pytest.mark.parametrize("workflow", WORKFLOWS, ids=lambda p: p.name)
+# Every image-related gate, for the one invariant they all share: editing the
+# gate must run the gate. Kept as a single list so a new image workflow is one
+# line away from being covered, and so the invariant cannot be satisfied for
+# some of them and quietly dropped for others — which is how
+# visual-baseline-refresh.yml and visual-regression.yml both came to be missing
+# it while the other three had it.
+SELF_TRIGGERING = (
+    *WORKFLOWS,
+    REPO_ROOT / ".github" / "workflows" / "visual-baseline-refresh.yml",
+    REPO_ROOT / ".github" / "workflows" / "visual-baseline-verify.yml",
+    REPO_ROOT / ".github" / "workflows" / "visual-regression.yml",
+)
+
+
+@pytest.mark.parametrize("workflow", SELF_TRIGGERING, ids=lambda p: p.name)
 def test_workflow_file_retriggers_itself(workflow: Path):
     """Editing the gate must run the gate."""
+    assert workflow.is_file(), f"{workflow} not found"
     rel = f".github/workflows/{workflow.name}"
-    for event, patterns in _filters(workflow).items():
+    filters = _filters(workflow)
+    assert filters, f"{workflow.name} has no path-filtered event to assert on"
+    for event, patterns in filters.items():
         assert any(_gh_glob_matches(rel, p) for p in patterns), (
-            f"{workflow.name} ({event}) no longer lists itself, so a change to "
-            "the gate ships without the gate running once"
+            f"{workflow.name} ({event}) does not list itself, so a change to the "
+            "gate ships without the gate having run once under its new form. For "
+            "visual-baseline-refresh that is sharper than usual: --capture "
+            "auto-commits baselines on main."
         )
 
 
@@ -188,12 +207,5 @@ def test_visual_baseline_trigger_reaches_its_own_read_surfaces(workflow: Path):
             )
 
 
-@pytest.mark.parametrize("workflow", VISUAL_BASELINE, ids=lambda p: p.name)
-def test_visual_baseline_workflow_retriggers_itself(workflow: Path):
-    rel = f".github/workflows/{workflow.name}"
-    for event, patterns in _filters(workflow).items():
-        assert any(_gh_glob_matches(rel, p) for p in patterns), (
-            f"{workflow.name} ({event}) does not list itself. refresh/--capture "
-            "auto-commits on main, so an unreviewed change to it would take "
-            "effect without the workflow having run once under its new form."
-        )
+# Self-listing for these two is asserted by test_workflow_file_retriggers_itself
+# above, which covers all five image gates from one list.
