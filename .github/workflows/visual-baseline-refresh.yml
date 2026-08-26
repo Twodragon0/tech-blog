@@ -15,15 +15,42 @@
 
 name: SVG Visual Baseline Refresh
 
+# Trigger scope, audited 2026-08-26 alongside the svg-lint/check-svg raster fix
+# (#617). The extension-axis problem found there does NOT apply here, and the
+# reason is worth recording so nobody "fixes" this file to match:
+# svg_visual_baseline.py reads exactly two things — the 32 hardcoded paths in
+# TARGET_SVGS (all `.svg`) and tests/visual-baselines/ (baseline PNGs +
+# manifest.json). It reads no raster under assets/images/, so widening the SVG
+# glob to `assets/images/**` here would only add runs that compare 32 unchanged
+# files.
+#
+# Two entries added here, both invariants this repo enforces elsewhere and this
+# file was missing:
+#   - itself, so editing the gate runs the gate (visual-baseline-verify.yml,
+#     svg-lint.yml and check-svg.yml all already list themselves)
+#   - tests/visual-baselines/**, its own second read surface. Without it a
+#     hand-edited or corrupted baseline is not re-captured until some unrelated
+#     SVG happens to change.
+#
+# The generator entries below are kept but are weaker than they look, and the
+# same is true in visual-baseline-verify.yml: this script never imports or
+# executes a generator — it shells out to rsvg-convert and rasterises whatever
+# SVG is already on disk. A PR that edits a generator WITHOUT regenerating
+# covers therefore renders byte-identical PNGs and passes trivially; one that
+# does regenerate is already caught by the `assets/images/**.svg` entry. So they
+# are belt-and-braces, not the detection mechanism. Left in place because
+# removing them changes behaviour for no gain.
 on:
   push:
     branches:
       - main
     paths:
       - "assets/images/**.svg"
+      - "tests/visual-baselines/**"
       - "scripts/lib/svg_l20_hero.py"
       - "scripts/lib/svg_l22_generator.py"
       - "scripts/svg_visual_baseline.py"
+      - ".github/workflows/visual-baseline-refresh.yml"
   workflow_dispatch:
 
 concurrency:
