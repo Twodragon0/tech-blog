@@ -21,12 +21,20 @@ name: SVG Quality Check
 # (diagrams/, mermaid/, _unused_archive/). Those 156 were inside the scan and
 # outside the trigger: the same trigger-narrower-than-scan shape described above,
 # one directory level down. Widened to `**.svg`, matching svg-lint.yml's glob.
+#
+# 2026-08-26 follow-up: `**.svg` was still narrower than the scan, this time by
+# extension rather than by depth. verify_images_unified.py:198 scans
+# {.svg,.png,.webp,.jpg,.jpeg}, so a push that adds or removes only a raster was
+# inside the scan and outside the trigger. Widened to `assets/images/**`: the
+# steps sweep the whole directory anyway, so anything under it is in scope by
+# construction and no future extension can fall back out. Same fix in
+# svg-lint.yml, where the miss was demonstrable — see there.
 on:
   push:
     branches:
       - main
     paths:
-      - 'assets/images/**.svg'
+      - 'assets/images/**'
       - 'scripts/check_posts.py'
       - 'scripts/check_cover_qr_urls.py'
       - 'scripts/check_svg_quality.py'
@@ -36,7 +44,7 @@ on:
     branches:
       - main
     paths:
-      - 'assets/images/**.svg'
+      - 'assets/images/**'
       - 'scripts/check_posts.py'
       - 'scripts/check_cover_qr_urls.py'
       - 'scripts/check_svg_quality.py'
