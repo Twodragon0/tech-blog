@@ -24,11 +24,26 @@ name: SVG Compliance Lint
 # The count above is MEASURED, not maintained by hand: it drifted twice while
 # gates were moved to --all in 2026-08. test_ci_svg_lint_schedule_guard.py
 # asserts it equals the actual number of `--all` invocations below.
+#
+# 2026-08-26: the image glob was `assets/images/**.svg`, which is narrower than
+# what these gates read. check_orphan_cover_rasters.py iterates assets/images/
+# for `<slug>_{og,card}.{png,webp,avif}` and fails when one has no base .svg —
+# so its entire input surface is rasters, and rasters did not appear in this
+# filter. The miss is not hypothetical: commit 9bf4c2e5 ("remove 45 orphan cover
+# rasters from renamed covers") changed 45 files, every one of them matching
+# `_(og|card)\.(png|webp|avif)$` and none matching any pattern here. The commit
+# that REMEDIATED the orphan-raster problem could not trigger the gate that
+# exists to catch it. One such commit in the last 400 on main — rare, and
+# precisely the commit where it mattered.
+#
+# Widened to `assets/images/**`. The steps sweep the whole corpus regardless, so
+# the directory is the honest trigger scope and no future raster extension can
+# silently fall outside it. Guarded by test_ci_image_path_filter_guard.py.
 on:
   push:
     paths:
       - '.github/workflows/svg-lint.yml'
-      - 'assets/images/**.svg'
+      - 'assets/images/**'
       - 'scripts/lint_svg_compliance.py'
       - 'scripts/upgrade_digest_cover.py'
       - 'scripts/lib/svg_l22_generator.py'
@@ -87,7 +102,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/svg-lint.yml'
-      - 'assets/images/**.svg'
+      - 'assets/images/**'
       - 'scripts/lint_svg_compliance.py'
       - 'scripts/upgrade_digest_cover.py'
       - 'scripts/lib/svg_l22_generator.py'

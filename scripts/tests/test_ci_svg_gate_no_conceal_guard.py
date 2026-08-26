@@ -70,6 +70,32 @@ def _filtered_paths(body: str) -> set:
     return set(re.findall(r"^\s*-\s*['\"]([^'\"]+)['\"]\s*$", body, re.MULTILINE))
 
 
+def _gh_glob_matches(path: str, pattern: str) -> bool:
+    """GitHub Actions path-filter semantics: `**` crosses `/`, `*` does not."""
+    rx = re.escape(pattern).replace(r"\*\*", ".*").replace(r"\*", "[^/]*")
+    return re.fullmatch(rx, path) is not None
+
+
+def _image_filter_reaches(sample: str, event: str | None = None) -> bool:
+    """Does some pattern under the given event (or any) match `sample`?
+
+    Asserting reachability rather than a literal glob: the literal is what got
+    fixed on the depth axis in 2026-08-10 and stayed broken on the extension
+    axis until 2026-08-26.
+    """
+    import yaml
+
+    doc = yaml.safe_load(WORKFLOW.read_text(encoding="utf-8"))
+    on = doc.get(True, doc.get("on")) or {}
+    events = [event] if event else ["push", "pull_request"]
+    for ev in events:
+        block = on.get(ev) or {}
+        patterns = block.get("paths") or []
+        if not any(_gh_glob_matches(sample, p) for p in patterns):
+            return False
+    return True
+
+
 def test_workflow_exists():
     assert WORKFLOW.is_file(), f"{WORKFLOW} not found (moved/renamed?)"
 
@@ -173,31 +199,42 @@ def test_scripts_referenced_by_paths_exist():
 
 
 def test_svg_trigger_glob_is_recursive():
-    """The SVG path filter must cross directories, because the scan does.
+    """The image path filter must cross directories, because the scan does.
 
     ``assets/images/*.svg`` does not match a subdirectory in Actions path filters,
     but ``verify_images_unified.py:267`` scans with ``rglob("*.svg")``. Measured
     2026-08-10: 307 SVGs at depth 1, 156 at depth >= 2 (diagrams/, mermaid/,
     _unused_archive/) — all inside the scan, none reachable by the trigger. That is
     the same hazard this file documents, one directory level down.
+
+    2026-08-26: this test used to require the literal ``'assets/images/**.svg'``,
+    and that literal turned out to be the next iteration of the same bug. It is
+    correct on the depth axis and wrong on the extension axis: the same scan also
+    reads {.png,.webp,.jpg,.jpeg} and check_orphan_cover_rasters.py reads nothing
+    BUT rasters. Pinning the literal actively blocked the fix. So assert the
+    property — depth-1 globs are rejected, and the filter must still reach a
+    nested SVG — and leave the width to
+    ``test_ci_image_path_filter_guard.py``, which drives it from the scan surface
+    rather than from a string.
     """
     body = _body()
     assert "'assets/images/*.svg'" not in body, (
         "check-svg.yml uses the depth-1 glob 'assets/images/*.svg'. Actions path "
         "filters do not cross '/', so every SVG in a subdirectory is scanned but "
-        "cannot trigger the scan. Use 'assets/images/**.svg'."
+        "cannot trigger the scan. Use 'assets/images/**'."
     )
-    assert "'assets/images/**.svg'" in body, (
-        "check-svg.yml must filter on 'assets/images/**.svg'"
+    assert _image_filter_reaches("assets/images/diagrams/flow.svg"), (
+        "check-svg.yml's image filter no longer reaches a nested SVG"
     )
 
 
 def test_svg_trigger_glob_present_on_both_events():
-    """push and pull_request must both carry the recursive glob, not just one."""
-    assert _body().count("'assets/images/**.svg'") >= 2, (
-        "expected the recursive SVG glob under both the push and pull_request "
-        "triggers; a one-sided filter leaves the other event blind."
-    )
+    """push and pull_request must both reach nested images, not just one."""
+    for event in ("push", "pull_request"):
+        assert _image_filter_reaches("assets/images/diagrams/flow.svg", event), (
+            f"the {event} trigger cannot reach a nested SVG; a one-sided filter "
+            "leaves the other event blind."
+        )
 
 
 def test_recursive_glob_would_actually_reach_nested_svgs():
