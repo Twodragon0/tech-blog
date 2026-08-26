@@ -76,6 +76,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
+    # Consumed by the notify-slack job below. `published_to_main` is set ONLY on
+    # the trusted push-to-main branch of "Commit and publish" — the untrusted
+    # repository_dispatch path quarantines the digest on a branch behind a review
+    # PR, and a post that is not live must not announce itself.
+    outputs:
+      post_file: ${{ steps.check_post.outputs.post_file }}
+      published_to_main: ${{ steps.publish.outputs.published_to_main }}
+      published_sha: ${{ steps.publish.outputs.published_sha }}
+
     permissions:
       contents: write
       actions: read
@@ -340,7 +349,18 @@ jobs:
           # headline + duplicates). The generator demotes side-card advisory to
           # a neutral motif; this fails the cron if it ever regresses.
           python3 scripts/check_l20_sidecard_advisory.py "${SVG}"
-          echo "OK: canonical QR URL + ASCII <title> + body-text quality + side-card advisory gates passed."
+          # Two more cover gates that svg-lint has always run and the cron never
+          # did. Both take the resolved $SVG, so they are scoped to today's cover
+          # exactly like the four above.
+          #   check_l20_generic_hero  — hero band must carry a real summary_card
+          #     headline, not a generic-pool string like "Security Update". Note
+          #     it reads the COVER, not the post: handed a post path it reports
+          #     "0 L20 cover(s) checked" and exits 0, which reads as a pass.
+          #   check_svg_size_gate     — cover size stays inside its std/hq/rollup
+          #     band.
+          python3 scripts/check_l20_generic_hero.py "${SVG}"
+          python3 scripts/check_svg_size_gate.py "${SVG}"
+          echo "OK: canonical QR URL + ASCII <title> + body-text quality + side-card advisory + generic-hero + size-band gates passed."
 
       - name: Validate new post
         if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
@@ -507,7 +527,53 @@ jobs:
           fi
           python3 scripts/check_digest_untranslated.py "$POST_FILE"
 
+      - name: Corpus gate pre-flight (block)
+        if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
+        run: |
+          # Gates that svg-lint runs daily at 03:45 UTC and the cron never ran.
+          # The cron pushes at 00:00 UTC, so a violation it introduces sits on
+          # main for ~3h45m before anything objects — and every PR opened in that
+          # window inherits the red, because PR CI builds a merge commit on top of
+          # base main. Measured on the 08-25 digest: cron pushed 98a4170d, the
+          # scheduled sweep failed it at 04:23 UTC.
+          #
+          # Why --all and not a path: these eight take `--all` or `--staged` and
+          # nothing else. `--staged` is meaningless here (the Actions commit has
+          # no local hooks and the files are not staged at this point), so --all
+          # is the only usable mode. It is affordable — all eight together run in
+          # about 5 seconds over 277 posts.
+          #
+          # A corpus-wide gate can in principle fail on a violation someone else
+          # introduced rather than on today's digest. That is acceptable: every
+          # one of these is at 0 across the corpus today, deliberately (the
+          # 601 -> 0 structure campaign, the 48-title translation pass), and if a
+          # human has pushed a violation then main is ALREADY red and the cron
+          # refusing to add a post on top of it is the correct behaviour, not a
+          # false alarm. Read the failing path in the output before assuming the
+          # digest caused it.
+          POST_FILE="${{ steps.check_post.outputs.post_file }}"
+
+          # Post-scoped: filename date vs the UTC permalink date. The cron writes
+          # the date, so it can drift here on its own.
+          python3 scripts/check_kst_midnight.py "$POST_FILE"
+
+          # Corpus-scoped.
+          python3 scripts/check_card_title_language.py --all
+          python3 scripts/check_post_boilerplate.py --all
+          python3 scripts/check_broken_links.py --all
+          python3 scripts/check_spec_slug_consistency.py --all
+          python3 scripts/check_l20_spec_slug_consistency.py --all
+          python3 scripts/check_post_image_variants.py
+          python3 scripts/check_orphan_cover_rasters.py assets/images
+          # Only green since 2026-08-26. It had never been run at --all — it was
+          # wired into pre-commit as --staged only — and two entity-residue
+          # filenames in assets/images/_unused_archive/ had been failing it since
+          # they were archived. Wiring it before that cleanup would have made the
+          # cron fail every night. Run a dormant gate before you wire it.
+          python3 scripts/check_filename_entities.py --all
+
       - name: Commit and publish
+        id: publish
         if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'
         env:
           # gh pr create needs a token; EVENT_NAME/RUN_ID via env (no ${{ }} in run body).
@@ -582,6 +648,14 @@ jobs:
             for i in 1 2 3; do
               if git push; then
                 echo "Changes committed and pushed (attempt $i)"
+                # Signal the notify-slack job. Set only here — inside the trusted
+                # branch, after a push that actually succeeded. A retry that
+                # eventually fails falls through to `exit 1` below and leaves
+                # these unset, so no announcement goes out for an unpublished post.
+                {
+                  echo "published_to_main=true"
+                  echo "published_sha=$(git rev-parse HEAD)"
+                } >> "$GITHUB_OUTPUT"
                 break
               else
                 echo "Push failed (attempt $i), pulling latest..."
@@ -609,3 +683,35 @@ jobs:
             echo "- News count: ${{ steps.check_news.outputs.news_count }}"
             echo "- Post created: ${{ steps.check_post.outputs.post_created }}"
           } >> "$summary_file"
+
+  # Announce the digest that auto-publish just pushed.
+  #
+  # slack-post-notify.yml has always been the right workflow for this and has
+  # never once run for a cron digest. Its only trigger was `push: _posts/**` on
+  # main, and the bot pushes with GITHUB_TOKEN — which GitHub deliberately does
+  # not let trigger further workflow runs (recursion prevention). Measured
+  # 2026-08-26: the last four bot commits (da730a40, 98a4170d, 233943cf,
+  # a4843c8e) appear in that workflow's run history zero times; every run on
+  # record is on a human SHA. So every auto-published digest since the bot
+  # arrangement began went out with no Slack announcement at all.
+  #
+  # Calling it via `workflow_call` rather than adding a `schedule` to it: that
+  # workflow identifies the new post with `git diff HEAD~1 HEAD`, which is only
+  # correct when the digest commit is the tip. A timer would be a guess about
+  # what HEAD~1 means at that moment. Here we pass the exact path and the exact
+  # commit, so there is nothing to infer.
+  notify-slack:
+    needs: auto-publish
+    if: needs.auto-publish.outputs.published_to_main == 'true'
+    # This workflow is deny-by-default (`permissions: {}` at the top) and each
+    # job re-grants what it needs. A called workflow cannot hold more than its
+    # caller, so without this the callee's `contents: read` is cut to nothing and
+    # actions/checkout fails — after the digest is already live, which is the
+    # worst place to discover it. Read-only: this job publishes nothing.
+    permissions:
+      contents: read
+    uses: ./.github/workflows/slack-post-notify.yml
+    with:
+      post_path: ${{ needs.auto-publish.outputs.post_file }}
+      ref: ${{ needs.auto-publish.outputs.published_sha }}
+    secrets: inherit
