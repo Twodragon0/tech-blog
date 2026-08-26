@@ -48,6 +48,38 @@ FAILURE_BRANCHES = (
     ("non-2xx", 'Slack HTTP error'),
 )
 
+# Every chat.postMessage sender in the repo, as (workflow, job, step).
+#
+# The defect this file guards spread by copy-paste: all three carried a
+# byte-identical delivery block, and all three swallowed a failed send as
+# `::warning::` + exit 0. Fixing only the one that prompted the audit would have
+# left two live and invited a fourth copy. So the family is the unit.
+#
+#   slack-post-notify        — announces a new post; called by ai-blogwatcher (#616)
+#   monitoring               — `if: failure()`, the production outage alert
+#   slack-category-digest    — 01:30 UTC scheduled digest
+#   googlebot-access-monitor — `if: failure()`, Googlebot 429/challenge alarm
+#
+# The fourth was found by test_sender_list_is_complete below, not by reading the
+# audit request: it named three workflows and the canary immediately reported a
+# fourth carrying the same block. That is the argument for the canary existing.
+SENDERS = (
+    ("slack-post-notify.yml", "notify", POST_STEP),
+    ("monitoring.yml", "monitor", "Slack notification on failure"),
+    ("slack-category-digest.yml", "post-category-digest", POST_STEP),
+    ("googlebot-access-monitor.yml", "probe", "Notify Slack on failure"),
+)
+
+
+def _sender_body(workflow: str, job: str, step: str) -> str:
+    path = REPO_ROOT / ".github" / "workflows" / workflow
+    assert path.is_file(), f"{path} not found"
+    doc = yaml.safe_load(path.read_text(encoding="utf-8"))
+    for s in doc["jobs"][job]["steps"]:
+        if s.get("name") == step:
+            return _uncommented(s["run"])
+    pytest.fail(f"no step {step!r} in {workflow}:{job}")
+
 
 def _doc(path: Path) -> dict:
     return yaml.safe_load(path.read_text(encoding="utf-8"))
@@ -210,6 +242,79 @@ def test_message_is_derived_not_literal():
     builder = _uncommented(_step("Detect new posts and build message")["run"])
     assert "build_slack_post_message.py" in builder, (
         "the message is no longer built from the post file"
+    )
+
+
+@pytest.mark.parametrize(("workflow", "job", "step"), SENDERS, ids=lambda v: str(v))
+@pytest.mark.parametrize(("label", "marker"), FAILURE_BRANCHES)
+def test_every_slack_sender_exits_on_delivery_failure(
+    label: str, marker: str, workflow: str, job: str, step: str
+):
+    """Family-wide: the same assertion, on every chat.postMessage sender."""
+    body = _sender_body(workflow, job, step)
+    lines = body.splitlines()
+    at = next((i for i, ln in enumerate(lines) if marker in ln), None)
+    assert at is not None, (
+        f"{workflow}: the {label} failure branch is gone (looked for {marker!r})"
+    )
+    assert "::error::" in lines[at], (
+        f"{workflow}: the {label} branch no longer raises ::error:: — {lines[at]!r}"
+    )
+    assert "exit 1" in _block_after(lines, at), (
+        f"{workflow}: the {label} branch does not `exit 1` before its block "
+        "closes, so a failed send leaves the step green. This block was "
+        "copy-pasted into three workflows and was broken in all three until "
+        "2026-08-26."
+    )
+
+
+@pytest.mark.parametrize(("workflow", "job", "step"), SENDERS, ids=lambda v: str(v))
+def test_no_slack_sender_softens_a_failure(workflow: str, job: str, step: str):
+    """No ``::warning::`` in any sender's delivery block."""
+    body = _sender_body(workflow, job, step)
+    assert "::warning::" not in body, (
+        f"{workflow}: a failure path was softened to ::warning::. A warning "
+        "leaves the step green, and for monitoring.yml that means the run shows "
+        "'Slack notification on failure ✓' with no alert delivered."
+    )
+
+
+@pytest.mark.parametrize(("workflow", "job", "step"), SENDERS, ids=lambda v: str(v))
+def test_every_slack_sender_fails_closed_on_missing_secrets(
+    workflow: str, job: str, step: str
+):
+    body = _sender_body(workflow, job, step)
+    lines = body.splitlines()
+    for secret in ("SLACK_BOT_TOKEN", "SLACK_CHANNEL_ID"):
+        at = next(
+            (i for i, ln in enumerate(lines) if f'-z "${{{secret}:-}}"' in ln), None
+        )
+        assert at is not None, f"{workflow}: the {secret} presence check is gone"
+        assert "exit 1" in _block_after(lines, at), (
+            f"{workflow}: {secret} absence no longer fails the step. It IS "
+            "registered in this repo, so absence means removal, rotation or lost "
+            "access — the one regression worth knowing about."
+        )
+
+
+def test_sender_list_is_complete():
+    """A fourth copy of the block must be added to SENDERS, not left unguarded.
+
+    Scans every workflow for a chat.postMessage call and requires it to be one
+    of the senders above. Without this the guard silently covers a shrinking
+    fraction of the family — which is how three copies drifted in the first
+    place.
+    """
+    listed = {w for w, _j, _s in SENDERS}
+    found = {
+        p.name
+        for p in (REPO_ROOT / ".github" / "workflows").glob("*.yml")
+        if "chat.postMessage" in p.read_text(encoding="utf-8")
+    }
+    assert found == listed, (
+        f"chat.postMessage senders on disk {sorted(found)} != guarded "
+        f"{sorted(listed)}. Add the new one to SENDERS (and give it the same "
+        "hard-exit delivery block) or remove the stale entry."
     )
 
 

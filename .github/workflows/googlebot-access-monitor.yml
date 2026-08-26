@@ -106,15 +106,31 @@ jobs:
             -H "Content-Type: application/json; charset=utf-8" \
             -d "$payload")
           echo "Slack response: $HTTP_STATUS"
+          # A failed delivery exits non-zero. The step above already refuses to
+          # run with a missing secret on exactly this reasoning — "the alert this
+          # job exists to deliver would have been dropped silently" — but the
+          # delivery itself then warned and returned 0, dropping the alert
+          # silently for every other reason: channel_not_found, not_in_channel,
+          # invalid_auth, a revoked scope, HTTP 429. Half the argument was
+          # implemented.
+          #
+          # This one is a Googlebot-visibility alarm, so a dropped alert means
+          # the site can be serving 429 to Googlebot with nobody told — the
+          # failure mode that first made this workflow necessary.
+          #
+          # Not retried: chat.postMessage is not idempotent and a retry after a
+          # lost response double-posts.
           if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
             ok=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("ok",""))')
             if [ "$ok" = "True" ]; then
               echo "Slack notification sent successfully"
             else
               error=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("error","unknown"))')
-              echo "::warning::Slack API error: $error"
+              echo "::error::Slack accepted the request (HTTP $HTTP_STATUS) but reported ok=false: $error. The Googlebot probe failure above was NOT announced."
+              exit 1
             fi
           else
-            echo "::warning::Slack HTTP error (HTTP $HTTP_STATUS)"
+            echo "::error::Slack HTTP error (HTTP $HTTP_STATUS). The Googlebot probe failure above was NOT announced."
             cat /tmp/slack_resp.txt || true
+            exit 1
           fi
