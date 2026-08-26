@@ -144,15 +144,41 @@ jobs:
             -H "Content-Type: application/json; charset=utf-8" \
             -d "$payload")
           echo "Slack response: $HTTP_STATUS"
+          # A failed delivery exits non-zero. Until 2026-08-26 both failure
+          # branches below printed `::warning::` and fell through to exit 0, so
+          # `channel_not_found`, `not_in_channel`, `invalid_auth`, a revoked
+          # scope or a 429 all produced a GREEN job with no message delivered.
+          #
+          # That was survivable while this workflow only ran on human pushes —
+          # someone had just merged and was looking at the run. It stopped being
+          # survivable when ai-blogwatcher.yml started calling it (#616): that
+          # path fires at 00:00 UTC and nobody reads cron logs, so a silent
+          # delivery failure is indistinguishable from the bug #616 fixed, which
+          # is exactly the failure mode this repo has shipped three times
+          # (run-blog-autonomous-cron.sh's fixed "100% Passed", monitoring.yml's
+          # never-firing Slack step, monthly-quality-report.yml's hardcoded
+          # --status SUCCESS). An alert is only worth anything when it fails.
+          #
+          # Deliberately NOT retried: chat.postMessage is not idempotent, and a
+          # retry after a lost response double-posts. Fail loudly instead.
+          #
+          # The digest is already committed and pushed by the time this runs, so
+          # a red job here means "published, not announced" — it does not
+          # unpublish anything and does not need to.
           if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            # A non-JSON body fails this substitution under `set -e`, which is
+            # the correct direction — stated explicitly so it is not "tidied"
+            # into a warning later.
             ok=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("ok",""))')
             if [ "$ok" = "True" ]; then
               echo "Slack notification sent successfully"
             else
               error=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("error","unknown"))')
-              echo "::warning::Slack API error: $error"
+              echo "::error::Slack accepted the request (HTTP $HTTP_STATUS) but reported ok=false: $error. The post is live; the announcement was NOT delivered."
+              exit 1
             fi
           else
-            echo "::warning::Slack HTTP error (HTTP $HTTP_STATUS)"
+            echo "::error::Slack HTTP error (HTTP $HTTP_STATUS). The post is live; the announcement was NOT delivered."
             cat /tmp/slack_resp.txt || true
+            exit 1
           fi
