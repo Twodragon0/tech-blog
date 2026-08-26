@@ -1,5 +1,31 @@
 name: L20 Visual Regression Gate
 
+# Trigger scope, audited 2026-08-26 after the svg-lint/check-svg raster widening
+# (#617) and the visual-baseline pass (#618). Recording the result so the
+# depth-1 glob below is not "fixed" for consistency:
+#
+# run.py scans `ASSETS.glob("*.svg")` — depth-1, no rglob — then keeps only the
+# 30 hardcoded dates in ALL_TARGET_DATES plus REFERENCE_NAME. So the trigger
+# glob matches the scan glob exactly; `**` would add nothing to look at. It also
+# reads no raster: covers are rendered fresh through rsvg-convert into a working
+# directory, so the extension axis that mattered in #617 does not apply here
+# either.
+#
+# The sweep is narrow but NOT vestigial, which is the other thing worth writing
+# down. Measured: 49 target covers resolve on disk, several were last modified
+# 2026-07-05 by the topic-tag / topic-line dedup campaigns, and the gate has 22
+# real failures on record — all between 2026-04-25 and 04-30, during the L20
+# hero-system and palette-unify work, with 55 passes since.
+#
+# Added: this file. Editing the gate must run the gate — the invariant
+# svg-lint.yml, check-svg.yml and both visual-baseline workflows already hold.
+# Guarded by test_ci_image_path_filter_guard.py.
+#
+# Not added: the generator entries below are weaker than they look, exactly as
+# in the visual-baseline pair. run.py never imports or executes a generator, so
+# a PR that edits one WITHOUT regenerating covers renders byte-identical PNGs
+# and passes trivially; one that does regenerate is already caught by the SVG
+# glob. Left alone because removing them changes behaviour for no gain.
 on:
   pull_request:
     paths:
@@ -7,6 +33,7 @@ on:
       - 'scripts/lib/svg_l20_hero.py'
       - 'scripts/lib/svg_l22_generator.py'
       - 'reports/l20-visual-regression/run.py'
+      - '.github/workflows/visual-regression.yml'
   workflow_dispatch:
 
 concurrency:
