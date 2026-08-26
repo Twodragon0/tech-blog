@@ -62,6 +62,11 @@ SELF_HEALS = (
         "scripts/check_digest_untranslated.py",
         "scripts/retranslate_digest.py",
     ),
+    (
+        "Digest structure pre-flight",
+        "scripts/check_digest_structure.py",
+        "scripts/restore_digest_structure.py",
+    ),
 )
 
 
