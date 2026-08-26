@@ -8,9 +8,29 @@ on:
     branches: [main]
     paths:
       - '_posts/**'
+  # Called by ai-blogwatcher.yml after it pushes a digest to main. The `push`
+  # trigger above cannot fire for that commit: the bot pushes with GITHUB_TOKEN
+  # and GitHub suppresses workflow runs from it (recursion prevention), so cron
+  # digests were never announced. The caller passes the exact post path and the
+  # exact commit, which also removes this workflow's `HEAD~1 HEAD` assumption.
+  workflow_call:
+    inputs:
+      post_path:
+        description: 'Single post path to announce. When set, skips git-diff detection.'
+        required: false
+        type: string
+      ref:
+        description: 'Commit to check out. Required with post_path — the caller ran on an older SHA.'
+        required: false
+        type: string
 
 concurrency:
-  group: slack-post-notify-${{ github.ref }}
+  # `github.ref` is the CALLER's ref on a workflow_call, which for the nightly
+  # cron is the same `refs/heads/main` as a human push. Without the post path in
+  # the key, a human merge landing while the cron announces would cancel the
+  # cron's announcement (cancel-in-progress). Keying on the payload keeps the
+  # original push-side coalescing while letting the two run side by side.
+  group: slack-post-notify-${{ github.ref }}-${{ inputs.post_path || 'push' }}
   cancel-in-progress: true
 
 permissions:
@@ -30,6 +50,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
         with:
+          # On a workflow_call the default ref is the CALLER's triggering SHA —
+          # for the nightly cron that is main as it stood before the digest was
+          # pushed, i.e. a checkout without the post we are announcing. The
+          # caller passes the post-push SHA; empty falls back to the default,
+          # which is what the `push` trigger wants.
+          ref: ${{ inputs.ref || '' }}
           fetch-depth: 2
 
       - name: Setup Python
@@ -44,9 +70,25 @@ jobs:
       - name: Detect new posts and build message
         id: posts
         shell: bash
+        env:
+          # Via env, never inlined into the run body: a caller-supplied path must
+          # reach the shell as a literal string, not as text the shell re-parses.
+          # Same rule buttondown-notify.yml adopted for its dispatch input.
+          POST_PATH: ${{ inputs.post_path }}
         run: |
           set -euo pipefail
-          NEW_POSTS=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          if [ -n "${POST_PATH:-}" ]; then
+            # Caller-supplied path. Do not fall back to git-diff detection if it
+            # is missing: that would silently announce whatever the diff happens
+            # to contain instead of the post we were asked to announce.
+            if [ ! -f "$POST_PATH" ]; then
+              echo "::error::post_path '$POST_PATH' does not exist at the checked-out ref. Was the correct 'ref' input passed?"
+              exit 1
+            fi
+            NEW_POSTS="$POST_PATH"
+          else
+            NEW_POSTS=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null || echo "")
+          fi
           if [ -z "$NEW_POSTS" ]; then
             echo "No new posts detected"
             echo "has_posts=false" >> "$GITHUB_OUTPUT"
