@@ -94,15 +94,31 @@ jobs:
             -H "Content-Type: application/json; charset=utf-8" \
             -d "$payload")
           echo "Slack response: $HTTP_STATUS"
+          # A failed delivery exits non-zero. Until 2026-08-26 both branches below
+          # warned and returned 0, so `channel_not_found`, `not_in_channel`,
+          # `invalid_auth`, a revoked scope or a 429 produced a GREEN scheduled
+          # run with nothing delivered. This workflow fires on a 01:30 UTC timer
+          # and nobody reads its logs, so "green" was the only signal available
+          # and it was wrong.
+          #
+          # All three Slack senders in this repo carried the identical block —
+          # it was copy-pasted — and all three were fixed together. The guard
+          # scripts/tests/test_ci_slack_notify_delivery_guard.py now asserts the
+          # shape across the whole family so a fourth copy cannot reintroduce it.
+          #
+          # Not retried: chat.postMessage is not idempotent and a retry after a
+          # lost response double-posts.
           if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
             ok=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("ok",""))')
             if [ "$ok" = "True" ]; then
               echo "Slack digest sent successfully"
             else
               error=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("error","unknown"))')
-              echo "::warning::Slack API error: $error"
+              echo "::error::Slack accepted the request (HTTP $HTTP_STATUS) but reported ok=false: $error. The category digest was NOT delivered."
+              exit 1
             fi
           else
-            echo "::warning::Slack HTTP error (HTTP $HTTP_STATUS)"
+            echo "::error::Slack HTTP error (HTTP $HTTP_STATUS). The category digest was NOT delivered."
             cat /tmp/slack_resp.txt || true
+            exit 1
           fi

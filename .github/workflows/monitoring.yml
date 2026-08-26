@@ -141,17 +141,35 @@ jobs:
             -H "Content-Type: application/json; charset=utf-8" \
             -d "$payload")
           echo "Slack response: $HTTP_STATUS"
+          # A failed delivery exits non-zero. This step runs under `if: failure()`,
+          # so the job is already red and the exit code does not change that —
+          # what it changes is the step's own check mark. Until 2026-08-26 both
+          # branches below warned and returned 0, so the run showed
+          # "Slack notification on failure ✓" while no alert had been delivered.
+          # That is the same "reports a constant, not the result" defect this
+          # workflow already shipped once: its Slack step used to hang off
+          # SLACK_WEBHOOK, a secret that was never registered, and therefore never
+          # fired for a real outage (fixed in #583).
+          #
+          # This is the highest-stakes instance of the three senders, because the
+          # whole point of the alert is to reach someone who is NOT looking at the
+          # run list.
+          #
+          # Not retried: chat.postMessage is not idempotent and a retry after a
+          # lost response double-posts.
           if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
             ok=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("ok",""))')
             if [ "$ok" = "True" ]; then
               echo "Slack alert sent"
             else
               error=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("error","unknown"))')
-              echo "::warning::Slack API error: $error"
+              echo "::error::Slack accepted the request (HTTP $HTTP_STATUS) but reported ok=false: $error. The monitoring failure above was NOT announced."
+              exit 1
             fi
           else
-            echo "::warning::Slack HTTP error (HTTP $HTTP_STATUS)"
+            echo "::error::Slack HTTP error (HTTP $HTTP_STATUS). The monitoring failure above was NOT announced."
             cat /tmp/slack_resp.txt || true
+            exit 1
           fi
 
   success-notification:
