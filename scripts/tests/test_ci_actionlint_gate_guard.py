@@ -64,10 +64,27 @@ def _steps() -> list[dict]:
 
 
 def _step(fragment: str) -> dict:
-    for s in _steps():
-        if fragment in (s.get("name") or ""):
-            return s
-    pytest.fail(f"no step whose name contains {fragment!r} in {WORKFLOW.name}")
+    """The one step whose name contains `fragment`.
+
+    Ambiguity is fatal rather than first-wins. When the info/style ratchet step
+    was added on 2026-08-27 its name also contained "actionlint informational",
+    and first-wins pointed every assertion in
+    `test_informational_step_is_reporting_only_and_derives_its_counts` at the
+    wrong step. It failed loudly only because the ratchet step happens not to
+    carry `if: always()`; had it done so, the guard would have passed while
+    checking a step it was never written for — vacuous, and silently.
+    """
+    matches = [s for s in _steps() if fragment in (s.get("name") or "")]
+    if not matches:
+        pytest.fail(f"no step whose name contains {fragment!r} in {WORKFLOW.name}")
+    if len(matches) > 1:
+        names = [s.get("name") for s in matches]
+        pytest.fail(
+            f"{fragment!r} matches {len(matches)} steps in {WORKFLOW.name}: {names}. "
+            "Resolving to the first would assert against an arbitrary one of "
+            "them. Rename a step or narrow the fragment."
+        )
+    return matches[0]
 
 
 def _uncommented(shell: str) -> str:
