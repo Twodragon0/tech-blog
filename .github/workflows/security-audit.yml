@@ -55,15 +55,15 @@ jobs:
         id: set-output
         run: |
           if [ "${{ github.event_name }}" == "schedule" ] || [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "should-audit=true" >> $GITHUB_OUTPUT
+            echo "should-audit=true" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event_name }}" == "push" ] || [ "${{ github.event_name }}" == "pull_request" ]; then
             if [ "${{ steps.filter.outputs.should-audit }}" == "true" ]; then
-              echo "should-audit=true" >> $GITHUB_OUTPUT
+              echo "should-audit=true" >> "$GITHUB_OUTPUT"
             else
-              echo "should-audit=false" >> $GITHUB_OUTPUT
+              echo "should-audit=false" >> "$GITHUB_OUTPUT"
             fi
           else
-            echo "should-audit=true" >> $GITHUB_OUTPUT
+            echo "should-audit=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Output decision
@@ -95,12 +95,12 @@ jobs:
         run: |
           npm audit --audit-level=high --json > npm-audit-report.json 2>&1 || true
           VULNS=$(cat npm-audit-report.json | jq '.metadata.vulnerabilities.high + .metadata.vulnerabilities.critical' 2>/dev/null || echo "0")
-          echo "vulnerabilities=$VULNS" >> $GITHUB_OUTPUT
+          echo "vulnerabilities=$VULNS" >> "$GITHUB_OUTPUT"
           if [ "$VULNS" -gt "0" ]; then
-            echo "## npm Audit: $VULNS high/critical vulnerabilities found" >> $GITHUB_STEP_SUMMARY
-            npm audit --audit-level=high 2>&1 | head -50 >> $GITHUB_STEP_SUMMARY || true
+            echo "## npm Audit: $VULNS high/critical vulnerabilities found" >> "$GITHUB_STEP_SUMMARY"
+            npm audit --audit-level=high 2>&1 | head -50 >> "$GITHUB_STEP_SUMMARY" || true
           else
-            echo "## npm Audit: No high/critical vulnerabilities" >> $GITHUB_STEP_SUMMARY
+            echo "## npm Audit: No high/critical vulnerabilities" >> "$GITHUB_STEP_SUMMARY"
           fi
 
       # Self-clearing signal. This step used to run only when VULNS > 0 and did
@@ -233,12 +233,12 @@ jobs:
         run: |
           bundle audit check --update 2>&1 | tee bundle-audit-report.txt || true
           if grep -q "Vulnerabilities found!" bundle-audit-report.txt 2>/dev/null; then
-            echo "vulnerable=true" >> $GITHUB_OUTPUT
-            echo "## Bundle Audit: Vulnerabilities found" >> $GITHUB_STEP_SUMMARY
-            cat bundle-audit-report.txt >> $GITHUB_STEP_SUMMARY
+            echo "vulnerable=true" >> "$GITHUB_OUTPUT"
+            echo "## Bundle Audit: Vulnerabilities found" >> "$GITHUB_STEP_SUMMARY"
+            cat bundle-audit-report.txt >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "vulnerable=false" >> $GITHUB_OUTPUT
-            echo "## Bundle Audit: No vulnerabilities" >> $GITHUB_STEP_SUMMARY
+            echo "vulnerable=false" >> "$GITHUB_OUTPUT"
+            echo "## Bundle Audit: No vulnerabilities" >> "$GITHUB_STEP_SUMMARY"
           fi
 
       # Same self-clearing reconcile as the npm side. #446 was still open from
@@ -363,7 +363,7 @@ jobs:
         run: |
           NPM="${{ needs.npm-audit.result }}"
           BUNDLE="${{ needs.bundle-audit.result }}"
-          echo "## Security Audit Summary" >> $GITHUB_STEP_SUMMARY
+          echo "## Security Audit Summary" >> "$GITHUB_STEP_SUMMARY"
 
           label() {
             case "$1" in
@@ -372,8 +372,8 @@ jobs:
               *)       echo "❌ $1" ;;
             esac
           }
-          echo "- npm audit: $(label "$NPM")" >> $GITHUB_STEP_SUMMARY
-          echo "- bundle audit: $(label "$BUNDLE")" >> $GITHUB_STEP_SUMMARY
+          echo "- npm audit: $(label "$NPM")" >> "$GITHUB_STEP_SUMMARY"
+          echo "- bundle audit: $(label "$BUNDLE")" >> "$GITHUB_STEP_SUMMARY"
 
           bad=""
           for r in "$NPM" "$BUNDLE"; do
@@ -388,9 +388,9 @@ jobs:
           fi
 
           if [ "$NPM" = "skipped" ] && [ "$BUNDLE" = "skipped" ]; then
-            echo "⏭️ Neither audit ran (no dependency manifest changed)." >> $GITHUB_STEP_SUMMARY
-            echo "This check passing does NOT mean dependencies were audited." >> $GITHUB_STEP_SUMMARY
-            echo "Coverage comes from the Monday cron, which audits unconditionally." >> $GITHUB_STEP_SUMMARY
+            echo "⏭️ Neither audit ran (no dependency manifest changed)." >> "$GITHUB_STEP_SUMMARY"
+            echo "This check passing does NOT mean dependencies were audited." >> "$GITHUB_STEP_SUMMARY"
+            echo "Coverage comes from the Monday cron, which audits unconditionally." >> "$GITHUB_STEP_SUMMARY"
             echo "⏭️ Neither audit ran — not a clean bill of health."
             exit 0
           fi
