@@ -91,7 +91,7 @@ jobs:
         run: |
           echo "Generating monthly quality report..."
           python3 scripts/generate_quality_report.py
-          echo "report_generated=true" >> $GITHUB_OUTPUT
+          echo "report_generated=true" >> "$GITHUB_OUTPUT"
 
       - name: Create or update issue
         id: issue

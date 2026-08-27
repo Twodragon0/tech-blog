@@ -55,18 +55,18 @@ jobs:
           
           if [ -z "$NEW_POSTS" ]; then
             echo "No new posts found"
-            echo "has_new_posts=false" >> $GITHUB_OUTPUT
-            echo "posts_json=[]" >> $GITHUB_OUTPUT
-            echo "post_count=0" >> $GITHUB_OUTPUT
+            echo "has_new_posts=false" >> "$GITHUB_OUTPUT"
+            echo "posts_json=[]" >> "$GITHUB_OUTPUT"
+            echo "post_count=0" >> "$GITHUB_OUTPUT"
           else
             echo "New posts found:"
             echo "$NEW_POSTS"
-            echo "has_new_posts=true" >> $GITHUB_OUTPUT
+            echo "has_new_posts=true" >> "$GITHUB_OUTPUT"
             
             # Count posts (grep -c emits "0" + exit 1 on no-match, so chaining
             # `|| echo 0` writes two lines and breaks GITHUB_OUTPUT parsing)
             POST_COUNT=$(echo "$NEW_POSTS" | grep -c '^' || true)
-            echo "post_count=${POST_COUNT:-0}" >> $GITHUB_OUTPUT
+            echo "post_count=${POST_COUNT:-0}" >> "$GITHUB_OUTPUT"
             
             # Encode all posts as JSON array (more reliable than multiline)
             # Convert each post path to base64 and store as JSON array
@@ -86,7 +86,7 @@ jobs:
             POSTS_JSON="$POSTS_JSON]"
             
             # Store as single-line JSON (GitHub Actions output is more reliable this way)
-            echo "posts_json=$POSTS_JSON" >> $GITHUB_OUTPUT
+            echo "posts_json=$POSTS_JSON" >> "$GITHUB_OUTPUT"
             
             echo "Found $POST_COUNT new post(s) to process"
           fi

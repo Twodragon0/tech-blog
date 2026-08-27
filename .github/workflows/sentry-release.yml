@@ -183,7 +183,7 @@ jobs:
               ;;
           esac
 
-          echo "verified=true" >> $GITHUB_OUTPUT
+          echo "verified=true" >> "$GITHUB_OUTPUT"
 
           # Dry run summary
           if [ "$DRY_RUN" = "true" ]; then
@@ -231,10 +231,10 @@ jobs:
 
           if [ "$HTTP_CODE" = "200" ]; then
             echo "ℹ️  Release already exists"
-            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "exists=true" >> "$GITHUB_OUTPUT"
           else
             echo "✅ Release does not exist, will create"
-            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Create Sentry Release

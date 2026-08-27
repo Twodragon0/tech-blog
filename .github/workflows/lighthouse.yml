@@ -57,7 +57,7 @@ jobs:
       - name: Start local HTTP server
         run: |
           npx --yes serve@14 _site --listen 4000 &
-          echo "SERVER_PID=$!" >> $GITHUB_ENV
+          echo "SERVER_PID=$!" >> "$GITHUB_ENV"
           # Wait for server to be ready
           for i in $(seq 1 15); do
             if curl -sf http://localhost:4000/ > /dev/null 2>&1; then
