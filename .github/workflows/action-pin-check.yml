@@ -1,8 +1,17 @@
 name: Action Pin Check
 
-# Validates that all GitHub Actions `uses:` references across .github/workflows/
-# use consistent 40-char SHA pins. Floating tags (@v1, @v2) generate warnings.
-# On PRs that touch workflow files, existence is verified via the GitHub API.
+# Workflow hygiene. Two checks, same trigger:
+#
+# 1. All GitHub Actions `uses:` references across .github/workflows/ use
+#    consistent 40-char SHA pins. Floating tags (@v1, @v2) generate warnings.
+#    On PRs that touch workflow files, existence is verified via the GitHub API.
+# 2. actionlint over every workflow (added 2026-08-26). Until then NOTHING
+#    linted these files — no CI job and no pre-commit hook ran actionlint or
+#    shellcheck over them, which is a gap worth closing after a session that
+#    edited seven of them.
+#
+# Why it lands here rather than in a new workflow: identical purpose and
+# identical trigger (`.github/workflows/**` on PR + main push).
 
 on:
   pull_request:
@@ -38,3 +47,78 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 scripts/check_workflow_action_pins.py --check-existence
+
+      - name: Install actionlint (version-pinned, checksum-verified)
+        env:
+          ACTIONLINT_VERSION: "1.7.12"
+          ACTIONLINT_SHA256: "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
+        run: |
+          set -euo pipefail
+          # Not the upstream `download-actionlint.bash` one-liner: that curls a
+          # script from the mutable `main` ref and pipes it to bash, which is
+          # the opposite of what this workflow exists to enforce. Not a `uses:`
+          # action either — that would add a pin for check_workflow_action_pins
+          # to track for a single binary fetch. Release tarball + checksum keeps
+          # the supply chain auditable in-file.
+          #
+          # Verified locally 2026-08-26: this URL and checksum match the real
+          # artifact (2353908 bytes, statically linked ELF x86-64).
+          cd "$RUNNER_TEMP"
+          curl -sSL --retry 3 --max-time 120 -o actionlint.tar.gz \
+            "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          echo "${ACTIONLINT_SHA256}  actionlint.tar.gz" | sha256sum -c -
+          tar xzf actionlint.tar.gz actionlint
+          sudo install -m 0755 actionlint /usr/local/bin/actionlint
+          actionlint --version
+
+      - name: actionlint (blocking — warning and above)
+        run: |
+          set -euo pipefail
+          # NOTE: no comment line in this script may begin with the word
+          # "shellcheck" straight after the `#` — shellcheck parses that as a
+          # directive and reports SC1072/SC1073. This gate caught exactly that
+          # in its own first draft, before merge.
+          #
+          # Threshold: actionlint's own rules (all severities) plus SC findings
+          # at `warning` and above. Measured on the corpus 2026-08-26,
+          # before wiring — the rule this repo learned the hard way is to run a
+          # dormant gate at the scope you intend to enforce and read the output
+          # first, because a gate nobody has run has never been right:
+          #
+          #   actionlint native rules ... 0 findings
+          #   SC info .................. 65  (59x SC2086 quote-to-prevent-splitting)
+          #   SC style .................. 5  (SC2129 prefer `{ } >> file`)
+          #   SC warning ................ 1  (SC2034 unused var in sentry-release)
+          #
+          # The one warning is fixed in this change, so this step starts at zero
+          # rather than being born red. info+style are excluded deliberately:
+          # 70 cosmetic findings across 12 workflows would either force an
+          # unrelated 70-site rewrite or get muted, and muted gates are how this
+          # repo ended up with jobs that had never once been right. They are
+          # surfaced in the summary step below instead of hidden.
+          #
+          # The ignore patterns are anchored to `SC<digits>:` so they can only
+          # ever suppress SC output — a bare ':info:' could match a
+          # native actionlint message and silently widen the hole.
+          actionlint \
+            -ignore 'SC[0-9]+:info:' \
+            -ignore 'SC[0-9]+:style:'
+
+      - name: actionlint informational findings (non-blocking)
+        if: always()
+        run: |
+          set -uo pipefail
+          # Visibility for the excluded tiers, so "we ignore info" does not
+          # decay into "nobody knows how many there are". Counts are derived
+          # from the actual run, never asserted as a constant.
+          out="$(actionlint 2>&1 || true)"
+          info=$(printf '%s\n' "$out" | grep -cE 'SC[0-9]+:info:' || true)
+          style=$(printf '%s\n' "$out" | grep -cE 'SC[0-9]+:style:' || true)
+          {
+            echo "## actionlint — informational (not gating)"
+            echo ""
+            echo "- SC \`info\`: ${info}"
+            echo "- SC \`style\`: ${style}"
+            echo ""
+            echo "Gating tier is \`warning\` and above, plus all native actionlint rules."
+          } >> "$GITHUB_STEP_SUMMARY"

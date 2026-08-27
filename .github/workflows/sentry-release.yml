@@ -68,7 +68,6 @@ jobs:
             local max_retries=3
             local retry=0
             local http_code=""
-            local body=""
             local response=""
 
             while [ $retry -lt $max_retries ]; do
@@ -80,7 +79,13 @@ jobs:
               local exit_code=$?
 
               http_code=$(echo "$response" | tail -n1)
-              body=$(echo "$response" | sed '$d')
+              # The response body is deliberately not captured: this function
+              # returns only the HTTP code and every caller switches on that.
+              # `body=$(echo "$response" | sed '$d')` used to sit here, assigned
+              # and never read — a subshell per retry for nothing, and the only
+              # SC2034 in the repo. Removed when actionlint was wired into CI
+              # (2026-08-26). Note: a comment line must not start with the word
+              # "shellcheck" right after the `#`, or it is parsed as a directive.
 
               if [ "$exit_code" -eq 0 ] && echo "$http_code" | grep -qE '^[0-9]{3}$'; then
                 echo "$http_code"
