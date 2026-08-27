@@ -155,3 +155,6 @@ _site_test/
 # Build/lint report artifacts
 reports/
 _data/source_articles_cache.json
+
+# Digest quality gate diagnostics (uploaded as a CI artifact, never committed)
+.digest-gate-failure/

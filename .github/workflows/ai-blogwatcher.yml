@@ -282,6 +282,25 @@ jobs:
           echo "Running: python3 scripts/auto_publish_news.py ${args[*]}"
           python3 scripts/auto_publish_news.py "${args[@]}"
 
+      # The digest quality gate deletes the draft it rejects — correct, but it
+      # also destroyed the only evidence. The 2026-08-27 run reported one
+      # 60-character fragment ("...정부 복지에 의") and the file was already
+      # gone, so whether our truncation helpers or the model produced the cut
+      # could not be determined. auto_publish_news.py now copies the draft aside
+      # before unlinking; this uploads it.
+      #
+      # `failure()` and not `always()`: on success the directory does not exist
+      # and an unconditional upload would log a "no files found" warning on
+      # every healthy run, which is how real warnings stop being read.
+      - name: Upload rejected draft (quality gate diagnostics)
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
+        with:
+          name: digest-gate-failure-${{ github.run_id }}
+          path: .digest-gate-failure/
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: Check for new post
         id: check_post
         if: steps.check_news.outputs.has_enough_news == 'true'

@@ -487,6 +487,38 @@ def _generate_and_commit_raster_variants(
 # ---------------------------------------------------------------------------
 
 
+def _preserve_rejected_post(post_path: Path, issues: List[str]) -> Optional[Path]:
+    """Copy a gate-rejected draft aside so the failure can be reproduced.
+
+    The digest quality gate deletes the post it rejects, which is correct — a
+    truncated draft must not reach the corpus. But it also destroyed the only
+    evidence: on 2026-08-27 the run reported
+
+        L410 TRUNCATED: ...정부 복지에 의
+
+    and nothing else. 60 characters of one cell is not enough to tell whether
+    our own truncation helpers produced it or the model's output was already
+    cut, and by the time anyone looked the file was gone.
+
+    Best-effort by design: this runs on the failure path, and a problem saving
+    diagnostics must not replace the real error with its own. Returns the
+    written path, or None when nothing could be written.
+    """
+    dest_dir = Path(os.getenv("DIGEST_GATE_FAILURE_DIR", ".digest-gate-failure"))
+    try:
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        saved = dest_dir / post_path.name
+        saved.write_text(post_path.read_text(encoding="utf-8"), encoding="utf-8")
+        (dest_dir / f"{post_path.stem}.issues.txt").write_text(
+            "\n".join(str(i) for i in issues) + "\n", encoding="utf-8"
+        )
+        print(f"🗄  Rejected draft preserved at {saved}", file=sys.stderr)
+        return saved
+    except OSError as exc:
+        print(f"   (could not preserve the rejected draft: {exc})", file=sys.stderr)
+        return None
+
+
 def main():
     parser = argparse.ArgumentParser(description="Auto publish news to _posts")
     parser.add_argument(
@@ -763,6 +795,13 @@ def main():
         quality_issues = []
 
     if quality_issues:
+        # Preserve the rejected draft BEFORE deleting it. Without this the only
+        # trace of a gate failure is the issue list, which quotes at most the
+        # last 60 characters of an offending cell \u2014 the 2026-08-27 cron failure
+        # could not be reproduced afterwards because the file was already gone,
+        # so "was this truncated by our own code or by the model?" stayed
+        # unanswerable. The workflow uploads this directory on failure.
+        _preserve_rejected_post(post_path, quality_issues)
         post_path.unlink(missing_ok=True)
         print(
             f"\u274c Digest quality gate FAILED for {post_path.name}:",
