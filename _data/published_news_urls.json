@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-08-26T00:48:40.386242+00:00",
+  "updated_at": "2026-08-27T07:10:59.204348+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/microsoft-patches-398-flaws-including.html",
-      "title": "Microsoft Patches 398 Flaws Including a Windows Driver Zero-Day Under Active Att",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/kimwolf-v7-android-botnet-makes-http2.html",
-      "title": "Kimwolf v7 Android Botnet Makes HTTP/2 DDoS Traffic Look Like Legitimate Browsin",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/zoom-annotation-flaws-could-let-meeting.html",
-      "title": "Zoom Annotation Flaws Could Let a Meeting Participant Hijack Another Attendee's ",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/sandworm-linked-uac-0145-uses-fake-job.html",
-      "title": "Sandworm-Linked UAC-0145 Uses Fake Job Interviews to Push VPN That Can Run Comma",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/researchers-disclose-ai-assisted.html",
-      "title": "Researchers Disclose AI-Assisted SharePoint Exploit Chain Reaching Unauthenticat",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-ai-factory-compute/",
-      "title": "NVIDIA AI Factory Compute Is Becoming an Investable Asset Class",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/",
-      "title": "AMIE, our research medical AI system, demonstrates real-time clinical video cons",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/800-vdc-power-architecture-ai-factory/",
-      "title": "Why Scaling AI Compute Performance Requires a New Power Architecture",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/",
-      "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://openai.com/index/testing-ads-in-chatgpt",
-      "title": "Testing ads in ChatGPT",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/pqc-in-plaintext-google-clouds-post-quantum-cryptography-roadmap/",
-      "title": "PQC in Plaintext: Google Cloud’s post-quantum cryptography roadmap",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/business-intelligence/integrating-looker-and-gemini-enterprise/",
-      "title": "Looker’s semantic layer governs Gemini Enterprise data for user trust",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/accelerate-postgresql-migrations-with-gemini-in-dms/",
-      "title": "Accelerate PostgreSQL migrations using Gemini in Database Migration Service",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/infrastructure/introducing-americas-connect/",
-      "title": "Expanding connectivity in the Americas: Introducing Alisios, Canoa, and OlaLuz s",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-11-github-enterprise-server-3-22-release-candidate",
-      "title": "GitHub Enterprise Server 3.22 release candidate",
-      "published_date": "2026-08-12",
-      "expires_at": "2026-08-19T01:10:40.005002+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html",
-      "title": "Lazarus Exploits Windows Zero-Day to Gain SYSTEM Access and Deploy Backdoor",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/how-aws-iam-role-manager-rethinks-the-starting-point-for-iam-roles/",
-      "title": "How AWS IAM role manager rethinks the starting point for IAM roles",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/737-chrome-vpn-extensions-caught.html",
-      "title": "737 Chrome VPN Extensions Caught Routing Traffic Through Proxies. Check If You H",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/city-forum-data-theft-attacks-target-salesforce-servicenow-portals/",
-      "title": "\"City-Forum\" data-theft attacks target Salesforce, ServiceNow portals",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/android-malware-combo-takes-out-loans-and-relays-victims-credit-cards/",
-      "title": "Android malware combo takes out loans and relays victims' credit cards",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/",
-      "title": "Putting sign language AI into users’ hands",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-life-glassdoor-best-ceo-2026/",
-      "title": "NVIDIA CEO Tops Glassdoor’s 2026 List of Best CEOs",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/08/12/security/how-were-building-scam-alert-whatsapp/",
-      "title": "How We’re Building Scam Alert on WhatsApp With End-to-End Encryption and Verifia",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://openai.com/index/how-enterprises-put-ai-to-work",
-      "title": "From assistance to execution: How enterprises put AI to work",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/part-2-amazon-bedrock-cost-attribution-with-amazon-athena-and-cudos/",
-      "title": "Part 2: Amazon Bedrock cost attribution with Amazon Athena and CUDOS",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/opening-the-cloud-gaming-era-with-amazon-gamelift-streams/",
-      "title": "Amazon GameLift Streams로 여는 클라우드 게이밍 시대: 클라이언트 설치 없이 게임 즐기기",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/cluster-construction-and-operation/",
-      "title": "분산 학습을 위한 AWS 컴퓨트 선택 가이드 (3편: 클러스터 구축과 운영)",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app",
-      "title": "Agent Plugins 1.0 in VS Code, Copilot CLI, and the Copilot app",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-12-rule-insights-for-organizations-in-public-preview",
-      "title": "Rule insights for organizations in public preview",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/docker-vmm-public-beta/",
-      "title": "Docker VMM Public Beta: A Complete Overhaul, Built for Performance",
-      "published_date": "2026-08-13",
-      "expires_at": "2026-08-20T01:13:25.731616+00:00"
-    },
     {
       "url": "https://aws.amazon.com/blogs/security/aws-certificate-manager-will-discontinue-email-validation-to-prove-domain-validation-for-certificates/",
       "title": "AWS Certificate Manager will discontinue email validation to prove domain valida",
@@ -1320,6 +1140,96 @@
       "title": "Moving from Minimus to Docker Hardened Images",
       "published_date": "2026-08-26",
       "expires_at": "2026-09-02T00:48:40.386100+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/fbi-disrupts-china-linked-qtfy.html",
+      "title": "FBI Disrupts China-Linked QTFY Infrastructure Used to Steal Data From U.S. Organ",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/nimbus-manticore-expands-toolset-with.html",
+      "title": "Nimbus Manticore Expands Toolset With TWOSTROKE-Like Backdoor and SSH Tunneler",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/icymi-july-2026-aws-security/",
+      "title": "ICYMI: July 2026 @AWS Security",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/novacookies-campaigns-abuse-genuine.html",
+      "title": "NovaCookies Campaigns Abuse Genuine Docusign Notifications to Steal Microsoft 36",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/cisa-red-team-compromised-two-critical.html",
+      "title": "CISA Red Team Compromised Two Critical Infrastructure Orgs, One Detected Nothing",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvlink-fusion-nvhbm-custom-high-bandwidth-memory/",
+      "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/",
+      "title": "Intelligent transcription with Gemini 3.5 Transcribe",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
+      "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://openai.com/index/learning-never-stops",
+      "title": "Learning never stops: How AI makes learning continuous",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/evaluate-any-agent-framework-with-amazon-bedrock-agentcore-evaluations/",
+      "title": "Evaluate any agent framework with Amazon Bedrock AgentCore Evaluations",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/scale-okf-bundles-across-an-organization-with-knowledge-catalog/",
+      "title": "Using OKF with Knowledge Catalog to serve context for agents",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/networking/uber-de-risks-hybrid-ai-with-cloud-interconnect/",
+      "title": "How Uber improves network reliability while unblocking cloud migration",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/networking/introducing-google-cloud-fault-injection-testing-in-preview/",
+      "title": "Simplify your resilience testing strategy with Fault Injection Testing",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/flexible-billing-and-cost-controls-for-agents-on-google-cloud/",
+      "title": "FinOps for the AI era: New flexible billing and cost controls for agents",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/best-practices-for-dynamic-capacity-management/",
+      "title": "Dynamic capacity management for AI infrastructure",
+      "published_date": "2026-08-27",
+      "expires_at": "2026-09-03T07:10:59.204261+00:00"
     }
   ]
 }
