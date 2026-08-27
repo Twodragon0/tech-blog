@@ -3190,8 +3190,22 @@ def _truncate_korean_sentence(text: str, max_len: int) -> str:
     # Word boundary fallback
     clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,.·:;")
     if re.search(r"[가-힣]", clipped):
+        # Keep in lockstep with _TRUNCATION_PARTICLES in
+        # scripts/digest_quality_report.py — that gate blocks publication when a
+        # table cell ends in one of these, so any particle it knows and this
+        # does not is a cell this function will happily emit and the gate will
+        # then reject. `위한`/`하기`/`대한` were exactly that gap, pinned by
+        # test_truncation_particle_lockstep.py.
+        #
+        # NOTE: not _DANGLING_SUFFIXES_RE, despite the overlap. That one has no
+        # `\s+` anchor, so substituting it here would strip the particle off a
+        # word it is attached to ("복지에" -> "복지") instead of removing a
+        # dangling standalone token. It is safe in _trim_dangling_particles
+        # only because that function cuts whole tokens in a loop.
         clipped = re.sub(
-            r"\s+(에|의|을|를|이|가|은|는|와|과|로|으로|에서|한|된|인|할)$", "", clipped
+            r"\s+(에|의|을|를|이|가|은|는|와|과|로|으로|에서|한|된|인|할|위한|하기|대한)$",
+            "",
+            clipped,
         )
         if not re.search(r"[.다됨임]$", clipped):
             clipped += " 등이 확인되었습니다."
