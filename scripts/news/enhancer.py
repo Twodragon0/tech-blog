@@ -180,11 +180,41 @@ def _gemini_call(prompt: str, timeout: int = 35) -> str:
         except subprocess.TimeoutExpired:
             _cfg._GEMINI_CONSECUTIVE_FAILURES += 1
             logging.warning(f"Gemini CLI timeout ({timeout}s)")
+        except FileNotFoundError as e:
+            # The binary is absent, and that will not change mid-run. Latch it
+            # so the remaining calls skip straight to the API path.
+            #
+            # Nothing else latches it: `_gemini_available()` returns True at the
+            # API-key check *before* it ever probes the CLI, so
+            # `_GEMINI_AVAILABLE` stays None, and the gate above admits None.
+            # Measured on the 2026-08-27 cron run (33043799857): 43 identical
+            # "Gemini CLI error: [Errno 2]" warnings, one per enhancement call,
+            # each paying a doomed spawn. The circuit breaker could not help —
+            # the API fallback below kept succeeding (0 API errors in that run),
+            # which resets the failure counter, so the breaker never opened.
+            # That is correct behaviour for the breaker and exactly why the
+            # absent binary needed its own latch.
+            _cfg._GEMINI_AVAILABLE = False
+            _cfg._GEMINI_CONSECUTIVE_FAILURES += 1
+            logging.warning(
+                "Gemini CLI not installed (%s) - using the API path for the rest "
+                "of this run",
+                mask_sensitive_info(str(e)),
+            )
         except (subprocess.SubprocessError, OSError) as e:
+            # Transient: do NOT latch. A one-off spawn failure should not
+            # disable the CLI for the whole run.
             _cfg._GEMINI_CONSECUTIVE_FAILURES += 1
             logging.warning("Gemini CLI error: %s", mask_sensitive_info(str(e)))
 
-    if _cfg._GEMINI_API_KEY and _cfg._GEMINI_CONSECUTIVE_FAILURES > 0:
+    # The failure counter is the "the CLI just failed, try the API" trigger. It
+    # only ever rises when the CLI is *attempted*, so latching an absent binary
+    # off above would otherwise strand this branch at 0 forever and make
+    # _gemini_call return "" for the rest of the run. `_GEMINI_AVAILABLE is
+    # False` is the second, equivalent trigger: there is no CLI to fail.
+    if _cfg._GEMINI_API_KEY and (
+        _cfg._GEMINI_CONSECUTIVE_FAILURES > 0 or _cfg._GEMINI_AVAILABLE is False
+    ):
         api_timeout = min(timeout, 20)
         result = _gemini_api_call(prompt, timeout=api_timeout)
         if result and len(result) > 20:
