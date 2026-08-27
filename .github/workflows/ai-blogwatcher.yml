@@ -734,3 +734,32 @@ jobs:
       post_path: ${{ needs.auto-publish.outputs.post_file }}
       ref: ${{ needs.auto-publish.outputs.published_sha }}
     secrets: inherit
+
+  # Rebuild the GH Pages backup as soon as the digest is live, instead of
+  # waiting for deploy-pages' own 00:30Z cron to notice.
+  #
+  # The bot's GITHUB_TOKEN push cannot fire that workflow's `push:` trigger
+  # (GitHub recursion prevention), so the cron was the ONLY thing keeping the
+  # backup in sync — and on 2026-08-27 the scheduler dropped ~10 hours of
+  # events repo-wide. Missed cycles are not backfilled, so trigger and safety
+  # net were both out on the same day and the backup served 404 for that
+  # digest while production served 200.
+  #
+  # The cron stays. This is the event-driven path; that is the backstop for the
+  # cases this job cannot see (a failed call, or a stale backup from any other
+  # cause). Two independent paths, no shared point of failure.
+  deploy-backup:
+    needs: auto-publish
+    if: needs.auto-publish.outputs.published_to_main == 'true'
+    # Same deny-by-default re-grant as notify-slack above, but this callee
+    # deploys, so it needs the Pages trio. A called workflow cannot hold more
+    # than its caller grants.
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy-pages.yml
+    with:
+      # auto-publish ran on the pre-publish SHA. Without this the backup would
+      # rebuild the corpus WITHOUT the post that just triggered it.
+      ref: ${{ needs.auto-publish.outputs.published_sha }}
