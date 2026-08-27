@@ -154,7 +154,43 @@ exit=0이어야 하는데 findings 0건으로 나왔고, 원인은 actionlint가
 | 08-27 크론 (역대 발화 00:40~00:44Z) | 00:50Z 현재 **미발화** |
 
 즉 `notify-slack` 잡과 확장된 pre-flight는 **한 번도 실행된 적이 없다**.
-첫 실측은 08-27 크론이며, 그게 늦어지고 있다. 발화하면 확인할 것:
+첫 실측은 08-27 크론인데, **그 크론은 발화하지 않았다** — 아래 참조.
+
+### 08-27 크론 미발화: 이 레포 문제가 아니다
+
+13:22 KST(04:22Z)까지 폴링(11:21→13:21 KST 22회) 후에도 08-27 실행은 0건이었다.
+역대 발화 창(00:40~00:44Z) 대비 4시간 40분 초과. 원인을 좁힌 결과 **블로그워처가
+아니라 레포 전체의 스케줄러가 멈춰 있었다**:
+
+| 확인 | 결과 |
+|---|---|
+| `gh run list --event schedule` 최신 | **`2026-08-26T19:43:54Z`** (Ops Orchestrator) — 이후 전무 |
+| 08-26 schedule 실행 (대조군) | 13건 |
+| 08-27 schedule 실행 | **0건** (오늘 전체 실행 13건이라 limit 잘림 아님) |
+| 워크플로 상태 | `state=active`, `cron: "0 0 * * *"` 정상 |
+| 레포 | `visibility=public`(Actions 무료), `disabled=false`, Actions `enabled=true` |
+| push/PR 이벤트 | **정상** — PR #624 체크가 08-27 01:05Z에 실행됨 |
+
+발화했어야 하는데 안 된 크론이 최소 6개다: ai-blogwatcher(00:00Z) ·
+Ops Orchestrator(00:00Z) · deploy-pages(00:30Z) · slack-category-digest(01:30Z) ·
+googlebot-access-monitor(02:00Z) · sentry-healthcheck(02:30Z).
+
+시간대가 GitHub 인시던트와 겹친다 — "Incident with Actions and Pull Requests",
+`2026-08-26T22:56Z` 발생 / `2026-08-27T00:26Z` 해소. 그 직전 15:11~18:01Z에도
+Actions 인시던트가 있었고(큐 스로틀링), 08-26T19:43Z의 Ops Orchestrator는 18:00Z
+예정분이 1h43m 늦게 발화한 것이라 그 여파로 보인다.
+
+**단, 상관관계까지만 확인됐다.** 인시던트는 00:26Z에 해소됐는데 01:30Z·02:00Z·
+02:30Z 크론도 돌지 않았다 — 해소 이후 4시간의 침묵은 설명되지 않는다. 같은 시각
+미해결 상태였던 "Disruption with GitHub Billing"(08-26T23:37Z~)이 관련됐을 수
+있으나 확인할 수단이 없다. **원인 미확정으로 남긴다.**
+
+운영상 함의: `deploy-pages`의 일일 cron은 봇 push로 낡아진 GH Pages 백업을
+자가치유하는 장치다(`ghpages_backup_stale_bot_push`). 스케줄러가 멈추면 이 레포가
+봇-push 문제에 대해 갖고 있는 안전망 — svg-lint 일일 schedule 포함 — 이 **동시에**
+사라진다. 즉 "schedule 추가"로 고친 것들은 스케줄러 가용성에 공통 의존한다.
+
+발화하면 확인할 것:
 
 1. `notify-slack` 잡이 존재하고 `published_to_main == 'true'`로 진입했는가
 2. "Corpus gate pre-flight (block)" 9개 명령이 전부 status를 남겼는가
