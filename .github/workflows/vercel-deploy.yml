@@ -44,9 +44,9 @@ jobs:
           GITHUB_SHA_VAL: ${{ github.sha }}
         run: |
           if [ -n "$INPUT_COMMIT_SHA" ]; then
-            echo "sha=$INPUT_COMMIT_SHA" >> $GITHUB_OUTPUT
+            echo "sha=$INPUT_COMMIT_SHA" >> "$GITHUB_OUTPUT"
           else
-            echo "sha=$GITHUB_SHA_VAL" >> $GITHUB_OUTPUT
+            echo "sha=$GITHUB_SHA_VAL" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Check Sentry token availability

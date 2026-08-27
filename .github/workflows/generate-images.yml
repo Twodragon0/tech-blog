@@ -80,10 +80,10 @@ jobs:
           USE_API: ${{ github.event.inputs.use_api || 'false' }}
         run: |
           if [ "$USE_API" = "true" ] && [ -n "$GEMINI_API_KEY" ] && [ ${#GEMINI_API_KEY} -ge 20 ]; then
-            echo "api_available=true" >> $GITHUB_OUTPUT
+            echo "api_available=true" >> "$GITHUB_OUTPUT"
             echo "✅ Gemini API key available - will use API for image generation"
           else
-            echo "api_available=false" >> $GITHUB_OUTPUT
+            echo "api_available=false" >> "$GITHUB_OUTPUT"
             echo "📝 Using SVG fallback generator (no API cost)"
             if [ "$USE_API" = "true" ] && [ -z "$GEMINI_API_KEY" ]; then
               echo "⚠️ API requested but GEMINI_API_KEY not set"
@@ -110,11 +110,11 @@ jobs:
           done
           
           if [ -n "$MISSING_IMAGES" ]; then
-            echo "posts_need_images=true" >> $GITHUB_OUTPUT
-            echo "posts=$MISSING_IMAGES" >> $GITHUB_OUTPUT
+            echo "posts_need_images=true" >> "$GITHUB_OUTPUT"
+            echo "posts=$MISSING_IMAGES" >> "$GITHUB_OUTPUT"
             echo "Found posts needing images:$MISSING_IMAGES"
           else
-            echo "posts_need_images=false" >> $GITHUB_OUTPUT
+            echo "posts_need_images=false" >> "$GITHUB_OUTPUT"
             echo "All posts have images"
           fi
 
@@ -248,20 +248,20 @@ jobs:
           # 인젝션 방지: dispatch 입력은 env 경유로만 (test_ci_no_run_input_interpolation_guard).
           IMAGE_TYPE_INPUT: ${{ github.event.inputs.image_type || 'post' }}
         run: |
-          echo "## 📊 Image Generation Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Generation Mode" >> $GITHUB_STEP_SUMMARY
+          echo "## 📊 Image Generation Summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Generation Mode" >> "$GITHUB_STEP_SUMMARY"
           if [ "${{ steps.api_check.outputs.api_available }}" = "true" ]; then
-            echo "- **Mode**: Gemini API (with SVG fallback)" >> $GITHUB_STEP_SUMMARY
+            echo "- **Mode**: Gemini API (with SVG fallback)" >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "- **Mode**: SVG Fallback Only (no API cost)" >> $GITHUB_STEP_SUMMARY
+            echo "- **Mode**: SVG Fallback Only (no API cost)" >> "$GITHUB_STEP_SUMMARY"
           fi
-          echo "- **Type**: $IMAGE_TYPE_INPUT" >> $GITHUB_STEP_SUMMARY
-          echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Type**: $IMAGE_TYPE_INPUT" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Trigger**: ${{ github.event_name }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
           if [ -d "assets/images" ]; then
-            echo "### Generated Files" >> $GITHUB_STEP_SUMMARY
-            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-            ls -lh assets/images/*.svg assets/images/*.png assets/images/*.jpg 2>/dev/null | tail -n 20 >> $GITHUB_STEP_SUMMARY || echo "No image files found" >> $GITHUB_STEP_SUMMARY
-            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            echo "### Generated Files" >> "$GITHUB_STEP_SUMMARY"
+            echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
+            ls -lh assets/images/*.svg assets/images/*.png assets/images/*.jpg 2>/dev/null | tail -n 20 >> "$GITHUB_STEP_SUMMARY" || echo "No image files found" >> "$GITHUB_STEP_SUMMARY"
+            echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"
           fi

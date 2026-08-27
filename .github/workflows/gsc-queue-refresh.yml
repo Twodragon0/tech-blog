@@ -86,6 +86,12 @@ jobs:
             LIMIT_FLAG="--limit $LIMIT_INPUT"
           fi
           # Capture the 1-line summary printed to stdout for the job summary
+          # $LIMIT_FLAG is either empty or the two words "--limit N", and both
+          # cases need word splitting: quoted, an empty value becomes one empty
+          # argument and a set value becomes a single unrecognised "--limit N"
+          # token. The regex above already bounds it to digits, which is what
+          # makes the unquoted expansion safe here.
+          # shellcheck disable=SC2086
           SUMMARY=$(python3 scripts/gsc_inspect.py $LIMIT_FLAG | tail -n 1)
           echo "summary=${SUMMARY}" >> "$GITHUB_OUTPUT"
           echo "$SUMMARY"

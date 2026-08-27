@@ -61,16 +61,16 @@ jobs:
         id: set-output
         run: |
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "should-build=true" >> $GITHUB_OUTPUT
+            echo "should-build=true" >> "$GITHUB_OUTPUT"
           elif [ "${{ github.event_name }}" == "push" ] || [ "${{ github.event_name }}" == "pull_request" ]; then
             # dorny/paths-filter는 'true' 또는 'false'를 반환
             if [ "${{ steps.filter.outputs.should-build }}" == "true" ]; then
-              echo "should-build=true" >> $GITHUB_OUTPUT
+              echo "should-build=true" >> "$GITHUB_OUTPUT"
             else
-              echo "should-build=false" >> $GITHUB_OUTPUT
+              echo "should-build=false" >> "$GITHUB_OUTPUT"
             fi
           else
-            echo "should-build=true" >> $GITHUB_OUTPUT
+            echo "should-build=true" >> "$GITHUB_OUTPUT"
           fi
       
       - name: Output decision
@@ -158,6 +158,11 @@ jobs:
               exit 1
             fi
             if [ -n "$CHANGED" ]; then
+              # $CHANGED is a space-separated file list that must expand to one
+              # argv entry per file. Quoting it passes a single argument whose
+              # name is every path joined together, and the gate then reports
+              # "file not found" instead of checking anything.
+              # shellcheck disable=SC2086
               python3 scripts/digest_quality_report.py --files $CHANGED --ci
             else
               echo "No Digest posts changed, skipping"
@@ -282,6 +287,9 @@ jobs:
           echo ""
           # Exits 1 below --fail-below (default 60). No `|| true`: a score under the
           # floor, or a crash in the scorer, must both surface.
+          #
+          # $CHANGED_POSTS must word-split into one argv entry per post.
+          # shellcheck disable=SC2086
           python3 scripts/validate_post_quality.py $CHANGED_POSTS
           echo ""
           echo "✅ Post quality at or above the 60-point floor"
@@ -315,12 +323,16 @@ jobs:
           fi
 
           # Generate full dashboard
+          # $ALL_POSTS must word-split into one argv entry per post.
+          # shellcheck disable=SC2086
           DASHBOARD=$(python3 scripts/validate_post_quality.py --summary $ALL_POSTS 2>&1 || true)
 
           # Get changed post scores
           CHANGED_POSTS=$(git diff --name-only origin/main...HEAD -- '_posts/*.md' 2>/dev/null || echo "")
           CHANGED_SCORES=""
           if [ -n "$CHANGED_POSTS" ]; then
+            # $CHANGED_POSTS must word-split into one argv entry per post.
+            # shellcheck disable=SC2086
             CHANGED_SCORES=$(python3 scripts/validate_post_quality.py $CHANGED_POSTS 2>&1 || true)
           fi
 
