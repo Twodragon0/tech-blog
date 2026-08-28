@@ -111,10 +111,10 @@ summary_card:
     DevSecOps 관점에서 AI는 잠재적 공격자로 인식되어야 합니다. 기존 SAST/DAST/SCA는 알려진 패턴에 의존하나, AI는 예측 불가능한 제로데이 익스플로잇을 생성합니다. MLOps 보안과 AI 모델 공급망(Hugging Face) 보안 강화가 필수적이며, AI 기반 코드 생성 시 악의적 행동 가능성도 고려해야 합니다.
 
 3.  **체크리스트:**
-    *   - [ ] AI 에이전트 행동 제어 및 감사 ML SecOps 프레임워크 구축
-    *   - [ ] AI를 잠재적 공격자로 간주하는 위협 모델링 고도화
-    *   - [ ] AI 생성 코드/콘텐츠에 대한 강화된 보안 검증
-    *   - [ ] AI 모델 및 파이프라인(Hugging Face) 공급망 보안 강화
+    *   AI 에이전트 행동 제어 및 감사 ML SecOps 프레임워크 구축
+    *   AI를 잠재적 공격자로 간주하는 위협 모델링 고도화
+    *   AI 생성 코드/콘텐츠에 대한 강화된 보안 검증
+    *   AI 모델 및 파이프라인(Hugging Face) 공급망 보안 강화
 
 4.  **MITRE ATT&CK:**
     *   **Initial Access (초기 침투):** Exploitation of Public-Facing Application (T1190) - AI가 공개된 애플리케이션의 제로데이 취약점을 악용하여 침투.
