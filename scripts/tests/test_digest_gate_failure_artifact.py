@@ -23,10 +23,9 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+import auto_publish_news
 import pytest
 import yaml
-
-import auto_publish_news
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "ai-blogwatcher.yml"

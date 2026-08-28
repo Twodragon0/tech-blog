@@ -72,9 +72,22 @@ def check_lint_and_types() -> CheckResult:
             recommendation="Install ruff and rerun lint checks.",
         )
 
-    lint_fix = run_command(["ruff", "check", "scripts/", "--fix"])
-    ruff_format = run_command(["ruff", "format", "scripts/"])
+    # Verify only. Until 2026-08-28 this ran `ruff check --fix` and `ruff format`
+    # (both mutating) BEFORE the verification pass, so every auto-fixable rule —
+    # which is most of them, including the whole `I` isort family — was repaired
+    # in the ephemeral runner and then verified as clean. `ok` could not become
+    # False for anything ruff knows how to fix, and nothing here commits, so the
+    # repair was discarded and main quietly accumulated violations: 9 of them by
+    # the time this was measured, one landed by PR #629 an hour earlier.
+    #
+    # A check that fixes the thing it is about to look at reports on the fix, not
+    # on the repository.
     lint_verify = run_command(["ruff", "check", "scripts/"])
+    # Advisory, like mypy below: 25 files were already format-drifted when this
+    # was written, so gating on it here would turn the ops loop permanently red —
+    # the muted-noise failure mode this repo has paid for before. Reported so the
+    # number is visible instead of silently auto-corrected every six hours.
+    format_check = run_command(["ruff", "format", "--check", "scripts/"])
 
     if shutil.which("mypy") is None:
         mypy_result = CommandResult(
@@ -88,12 +101,13 @@ def check_lint_and_types() -> CheckResult:
     # mypy is advisory only (94 legacy errors need gradual fixing)
     ok = lint_verify.ok
     details = [
-        f"ruff --fix: {'OK' if lint_fix.ok else 'FAIL'}",
-        f"ruff format: {'OK' if ruff_format.ok else 'FAIL'}",
-        f"ruff verify: {'OK' if lint_verify.ok else 'FAIL'}",
+        f"ruff check: {'OK' if lint_verify.ok else 'FAIL'}",
+        f"ruff format --check: {'OK' if format_check.ok else 'DRIFT (advisory)'}",
         f"mypy: {'OK' if mypy_result.ok else 'WARN (advisory)'}",
         "lint output:",
-        summarize_output(lint_verify.output or lint_fix.output),
+        summarize_output(lint_verify.output),
+        "format output:",
+        summarize_output(format_check.output),
         "mypy output:",
         summarize_output(mypy_result.output),
     ]

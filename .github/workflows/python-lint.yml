@@ -1,0 +1,90 @@
+name: Python Lint
+
+# Runs ruff on pull requests. Until 2026-08-28 nothing did.
+#
+# ruff existed in this repo only inside ops-orchestrator.yml, which has no
+# `pull_request:` trigger — and the check there ran `ruff check --fix` and
+# `ruff format` (both mutating) *before* its verification pass, so any rule ruff
+# can auto-fix was repaired in the runner and then verified clean. The workflow
+# commits nothing, so the repair was thrown away and the violation stayed on
+# main. Result: a lint gate that could not fail for the most common class of
+# violation, wired to a trigger that never saw a pull request.
+#
+# PR #629 landed an `I001` under exactly that gap on 2026-08-27 and it reached
+# main unremarked. This workflow closes the trigger half; removing `--fix` from
+# scripts/ops_health_orchestrator.py closes the other. Both are pinned by
+# scripts/tests/test_ci_python_lint_gate.py.
+#
+# No `paths:` filter, deliberately. A path-filtered required check is reported as
+# skipped rather than passed, and this repo has already been bitten by a filter
+# concealing a red state. The job is ~30 seconds; running it on every PR is
+# cheaper than reasoning about when it should have run.
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: python-lint-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ruff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
+
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v6
+        with:
+          # Must match pyproject.toml's target-version (py311) and the floor the
+          # rest of the workflows pin. Local interpreters here are 3.13/3.14, and
+          # linting on a newer one accepts syntax CI cannot parse — the failure
+          # mode test_ci_python_syntax_floor_guard.py exists for.
+          python-version: '3.11'
+
+      - name: Install ruff
+        # Pinned to the version the 9 pre-existing violations were measured and
+        # cleared with. An unpinned ruff adds rules between releases and turns a
+        # green PR red for something its author did not write — and ruff is
+        # currently unpinned in ops-orchestrator.yml, so "it passed there" says
+        # nothing about which ruleset ran.
+        run: python3 -m pip install --upgrade pip 'ruff==0.15.8'
+
+      - name: ruff check (blocking)
+        # No --fix. That is the entire point of this step existing.
+        run: ruff check scripts/
+
+      - name: ruff format drift (advisory)
+        # Fails the step, not the job. 25 files under scripts/ were already
+        # format-drifted when this workflow was added; failing the job on a
+        # backlog nobody has agreed to clean up produces a red check that gets
+        # clicked past. A failed-but-ignored step stays visible in the UI, which
+        # a green step with a buried summary does not.
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          ruff format --check scripts/ | tee format-drift.txt
+          status=${PIPESTATUS[0]}
+          drifted=$(grep -c '^Would reformat:' format-drift.txt || true)
+          {
+            echo "## ruff format drift (advisory)"
+            echo
+            echo "${drifted} file(s) under scripts/ are not ruff-formatted."
+            echo
+            # No backticks here: shellcheck reads a backtick inside single
+            # quotes as an unexpanded command substitution (SC2016) and the
+            # actionlint ratchet is blocking, so markdown code-fencing this
+            # line costs a ratchet slot for nothing.
+            echo "Fix with: ruff format scripts/"
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"

@@ -25,7 +25,6 @@ from __future__ import annotations
 import subprocess
 
 import pytest
-
 from news import enhancer
 
 # Take the config module off `enhancer` rather than importing it here.

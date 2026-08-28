@@ -25,10 +25,18 @@ def generate_trend_coverage() -> str:
     """Analyze _TREND_KR_MAP coverage against collected news data."""
     try:
         sys.path.insert(0, str(Path(__file__).parent.parent))
-        from scripts.news.content_generator import _STOP_WORDS, _TECH_PRESERVE, _TREND_KR_MAP
+        from scripts.news.content_generator import (
+            _STOP_WORDS,
+            _TECH_PRESERVE,
+            _TREND_KR_MAP,
+        )
     except ImportError:
         try:
-            from news.content_generator import _STOP_WORDS, _TECH_PRESERVE, _TREND_KR_MAP
+            from news.content_generator import (
+                _STOP_WORDS,
+                _TECH_PRESERVE,
+                _TREND_KR_MAP,
+            )
         except ImportError:
             return "⚠️ content_generator.py import 실패"
 
