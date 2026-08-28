@@ -230,6 +230,108 @@ class TestDiscoverSchedules:
         assert sum(len(w.crons) for w in mod.discover_schedules()) == expected
 
 
+class TestWorkflowBirth:
+    """A cron means nothing before its workflow exists.
+
+    Regression from the audit's own first CI run: ``cron-firing-audit.yml`` was
+    merged at 2026-08-28T02:32Z and the report immediately called its
+    2026-08-26T20:00Z and 2026-08-27T20:00Z cycles DROPPED — cycles for which no
+    schedule had been registered. Left alone, every newly added scheduled
+    workflow would announce itself with a false drop, and a report that cries
+    wolf on each addition is one people learn to skip.
+    """
+
+    def test_parse_births_normalises_path_and_offset(self):
+        births = mod.parse_births(
+            ".github/workflows/a.yml\t2026-08-28T11:32:44.000+09:00\n"
+            ".github/workflows/b.yml\t2026-03-25T14:08:50.000+09:00\n"
+            "dynamic/github-code-scanning/codeql\t\n"  # no timestamp -> skipped
+        )
+        assert set(births) == {"a.yml", "b.yml"}
+        assert births["a.yml"] == dt(28, 2, 32).replace(second=44)
+
+    def test_cycles_before_birth_are_not_due(self):
+        schedules = [
+            mod.WorkflowSchedule(
+                filename="new.yml", name="N", crons=[mod.CronExpr.parse("0 20 * * *")]
+            )
+        ]
+        common = dict(
+            now=dt(28, 4, 0),
+            lookback=timedelta(hours=54),
+            settle=timedelta(hours=18),
+            schedules=schedules,
+            runs_for=lambda f: [],
+        )
+        # Without the clamp both pre-birth cycles are treated as due: 08-26T20:00
+        # is already past settle and reported DROPPED, 08-27T20:00 is still
+        # inside it and reported pending. Neither was ever scheduled.
+        unclamped = mod.audit(**common)
+        assert unclamped["expected"] == 2
+        assert unclamped["dropped"] == 1
+        assert unclamped["pending"] == 1
+
+        # With it: the workflow did not exist for either, so neither was due.
+        clamped = mod.audit(**common, births={"new.yml": dt(28, 2, 32)})
+        assert clamped["dropped"] == 0
+        assert clamped["expected"] == 0
+
+    def test_cycles_after_birth_are_still_judged(self):
+        """The clamp must not become a blanket amnesty for young workflows."""
+        schedules = [
+            mod.WorkflowSchedule(
+                filename="new.yml", name="N", crons=[mod.CronExpr.parse("0 */6 * * *")]
+            )
+        ]
+        report = mod.audit(
+            now=dt(28, 23, 0),
+            lookback=timedelta(hours=54),
+            settle=timedelta(hours=18),
+            schedules=schedules,
+            runs_for=lambda f: [dt(28, 18, 30)],
+            births={"new.yml": dt(28, 2, 32)},
+        )
+        # Post-birth cycles: 06:00, 12:00, 18:00. The 18:00 one was served, and
+        # that delivery proves the scheduler moved past 06:00 and 12:00.
+        assert report["expected"] == 3
+        assert report["dropped"] == 2
+        assert report["delivered"] == 1
+
+    def test_clamp_is_reported_not_just_applied(self):
+        schedules = [
+            mod.WorkflowSchedule(
+                filename="new.yml", name="N", crons=[mod.CronExpr.parse("0 */6 * * *")]
+            )
+        ]
+        report = mod.audit(
+            now=dt(28, 23, 0),
+            lookback=timedelta(hours=54),
+            settle=timedelta(hours=18),
+            schedules=schedules,
+            runs_for=lambda f: [],
+            births={"new.yml": dt(28, 2, 32)},
+        )
+        assert report["workflows"][0]["window_clamped_to_birth"] == "2026-08-28T02:32Z"
+        assert "workflow created then" in mod.format_report(report)
+
+    def test_old_workflow_is_not_clamped(self):
+        schedules = [
+            mod.WorkflowSchedule(
+                filename="old.yml", name="O", crons=[mod.CronExpr.parse("0 0 * * *")]
+            )
+        ]
+        report = mod.audit(
+            now=dt(28, 6, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=schedules,
+            runs_for=lambda f: [dt(27, 1, 0), dt(28, 1, 0)],
+            births={"old.yml": datetime(2026, 3, 25, tzinfo=timezone.utc)},
+        )
+        assert report["workflows"][0]["window_clamped_to_birth"] is None
+        assert report["expected"] == 2
+
+
 class TestAudit:
     def test_counts_roll_up_across_workflows(self):
         schedules = [

@@ -36,6 +36,17 @@ silence. Given the 08-27 outage went unnoticed until a reader hit a 404, that is
 the difference that matters. ``workflow_dispatch`` is kept so a human who
 suspects a gap can ask immediately without waiting for the next tick.
 
+Known residual
+--------------
+Each workflow's window is clamped to its GitHub ``created_at``, which removes the
+false drops a newly added scheduled workflow would otherwise report. It does NOT
+cover a workflow whose *cron was edited* inside the lookback window: cycles due
+under the old expression but not the new one can still be reported as lost. The
+API cannot distinguish this — ``deploy-pages.yml`` reports ``updated_at ==
+created_at == 2026-03-25`` although its cron changed on 2026-07-06 — and git
+history is unavailable under the shallow clone CI uses. The 48h default lookback
+bounds the exposure to two days after any reschedule.
+
 Cron semantics
 --------------
 Fields are ``minute hour day-of-month month day-of-week`` (POSIX 5-field). We
@@ -228,6 +239,63 @@ def discover_schedules(workflow_dir: Path = WORKFLOW_DIR) -> list[WorkflowSchedu
     return found
 
 
+def fetch_workflow_births() -> dict[str, datetime]:
+    """When GitHub first registered each workflow, keyed by file basename.
+
+    A cron only means anything from the moment the workflow exists. Without this
+    bound the audit computes due cycles for a period when the schedule was not in
+    effect and reports them as lost — which is what it did on its own first CI
+    run: ``cron-firing-audit.yml`` merged at 2026-08-28T02:32Z and the report
+    immediately called its 08-26T20:00Z and 08-27T20:00Z cycles DROPPED. Every
+    newly added scheduled workflow would produce that, and a report that cries
+    wolf on each addition is one people learn to skip.
+
+    One paginated call for the whole repo rather than one per workflow. The API's
+    ``created_at`` is used, not ``updated_at``: measured on 2026-08-28,
+    ``deploy-pages.yml`` reports both as 2026-03-25 despite its cron having been
+    edited on 2026-07-06, so ``updated_at`` does not track content edits and
+    would give a false sense of precision.
+    """
+    proc = subprocess.run(
+        [
+            "gh",
+            "api",
+            "repos/{owner}/{repo}/actions/workflows",
+            "--paginate",
+            "--jq",
+            ".workflows[] | [.path, .created_at] | @tsv",
+        ],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError(
+            f"gh api workflows failed: {(proc.stderr or proc.stdout).strip()}"
+        )
+    return parse_births(proc.stdout)
+
+
+def parse_births(stdout: str) -> dict[str, datetime]:
+    """Parse ``path\\tcreated_at`` lines into basename -> UTC datetime.
+
+    Split out from the subprocess call so the parsing has tests. The API returns
+    repo-relative paths and offset-aware timestamps (``+09:00`` for this repo's
+    account), both of which have to be normalised before they can be compared
+    against the audit window.
+    """
+    births: dict[str, datetime] = {}
+    for line in stdout.splitlines():
+        path, _, created = line.partition("\t")
+        if not created.strip():
+            continue
+        births[Path(path).name] = datetime.fromisoformat(created.strip()).astimezone(
+            timezone.utc
+        )
+    return births
+
+
 def fetch_schedule_runs(filename: str, limit: int = 100) -> list[datetime]:
     """Start times of this workflow's ``schedule``-triggered runs, newest first.
 
@@ -333,15 +401,22 @@ def audit(
     settle: timedelta,
     schedules: list[WorkflowSchedule],
     runs_for: Any,
+    births: dict[str, datetime] | None = None,
 ) -> dict[str, Any]:
     """Compare due fires against delivered runs for every scheduled workflow."""
     window_start = now - lookback
+    births = births or {}
     results: list[dict[str, Any]] = []
     unmeasurable: list[dict[str, str]] = []
     for wf in schedules:
+        # A cron is only in effect once the workflow exists. Clamping here rather
+        # than filtering afterwards keeps the pre-birth cycles out of `expected`
+        # entirely, so they cannot be counted as due-but-undelivered.
+        born = births.get(wf.filename)
+        start = max(window_start, born) if born else window_start
         expected: list[datetime] = []
         for cron in wf.crons:
-            expected.extend(cron.fires_between(window_start, now))
+            expected.extend(cron.fires_between(start, now))
         if not expected:
             continue
         try:
@@ -356,6 +431,14 @@ def audit(
                 "workflow": wf.filename,
                 "name": wf.name,
                 "crons": [c.raw for c in wf.crons],
+                # Surfaced, not just applied: a shortened window changes what
+                # "0 dropped" means, and a reader who cannot see the clamp has
+                # no way to tell a quiet workflow from a young one.
+                "window_clamped_to_birth": (
+                    born.strftime("%Y-%m-%dT%H:%MZ")
+                    if born and born > window_start
+                    else None
+                ),
                 "expected": len(expected),
                 "delivered": len(delivered),
                 "dropped": [d.strftime("%Y-%m-%dT%H:%MZ") for d in dropped],
@@ -406,6 +489,11 @@ def format_report(report: dict[str, Any]) -> str:
         lines.append(
             f"  {mark} {r['workflow']:<38} {r['delivered']}/{r['expected']}  {lag}"
         )
+        if r.get("window_clamped_to_birth"):
+            lines.append(
+                f"         window starts {r['window_clamped_to_birth']} "
+                f"(workflow created then; earlier cycles were never scheduled)"
+            )
         for d in r["dropped"]:
             lines.append(f"         DROPPED: {d}  [{', '.join(r['crons'])}]")
         for p in r["pending"]:
@@ -464,6 +552,7 @@ def main(argv: list[str] | None = None) -> int:
             settle=timedelta(hours=args.settle_hours),
             schedules=schedules,
             runs_for=fetch_schedule_runs,
+            births=fetch_workflow_births(),
         )
     except RuntimeError as exc:
         print(f"[cron-firing] ERROR: {exc}", file=sys.stderr)
