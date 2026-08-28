@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-27T07:10:59.204348+00:00",
+  "updated_at": "2026-08-28T08:09:33.511010+00:00",
   "entries": [
-    {
-      "url": "https://aws.amazon.com/blogs/security/aws-certificate-manager-will-discontinue-email-validation-to-prove-domain-validation-for-certificates/",
-      "title": "AWS Certificate Manager will discontinue email validation to prove domain valida",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/ukraine-shuts-down-94-fraudulent-call-centers-seize-millions-in-cash/",
-      "title": "Ukraine shuts down 94 fraudulent call centers, seize millions in cash",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/akira-hackers-disable-edr-with-safe-mode-steal-data-but-fail-to-encrypt/",
-      "title": "Akira hackers disable EDR with Safe Mode, steal data but fail to encrypt",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-breach-govt-webmail-while-running-parallel-crypto-fraud/",
-      "title": "Hackers breach govt webmail while running parallel crypto fraud",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-legacyhive-windows-zero-day-vulnerability/",
-      "title": "Microsoft patches LegacyHive Windows zero-day vulnerability",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/",
-      "title": "Bring your spreadsheet data to life with Sheets canvas",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-linux-native-app/",
-      "title": "Class Is in Session: GeForce NOW Levels Up Linux, Chromebooks and More",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://openai.com/index/builders-guide-to-gpt-5-6",
-      "title": "The builder’s guide to GPT‑5.6",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://openai.com/index/previewing-ultrafast",
-      "title": "Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://openai.com/index/dali-rajic-chief-revenue-officer",
-      "title": "OpenAI appoints Dali Rajic as Chief Revenue Officer",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-graphs-with-measures-for-trusted-agentic-workloads/",
-      "title": "Using BigQuery Graphs with measures for trusted agentic workloads",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/tiro-security-infrastructure-with-kiro-iso27001-certification/",
-      "title": "Tiro의 Kiro를 활용한 보안 인프라 구축과 ISO/IEC 27001:2022 인증 취득 여정",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-13-license-data-quality-improvements",
-      "title": "License data quality improvements",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-13-block-users-from-comments-in-personal-repositories",
-      "title": "Block users from comments in personal repositories",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot",
-      "title": "Gemini 3.7 Flash is now available in GitHub Copilot",
-      "published_date": "2026-08-14",
-      "expires_at": "2026-08-21T01:11:20.299352+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/how-anthropic-plans-to-watermark-claudes-ai-generated-text/",
       "title": "How Anthropic plans to watermark Claude's AI-generated text",
@@ -1230,6 +1140,96 @@
       "title": "Dynamic capacity management for AI infrastructure",
       "published_date": "2026-08-27",
       "expires_at": "2026-09-03T07:10:59.204261+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/openai-says-reward-hacking-drove-ai.html",
+      "title": "OpenAI Says Reward Hacking Drove AI Agents to Exploit Zero-Days and Breach Huggi",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/nextjs-patches-critical-avif-and.html",
+      "title": "Next.js Patches Critical AVIF and Windows Flaws Enabling Unauthenticated RCE",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/threatsday-296k-iot-botnet-100-water.html",
+      "title": "ThreatsDay: 296K IoT Botnet, 100+ Water Systems Targeted, SharePoint RCE Chain +",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/amazon-kiro-prompt-injection-can.html",
+      "title": "Amazon Kiro Prompt Injection Can Exfiltrate Sensitive Data Through Kiro Powers",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/nearly-700-rogue-ai-agents-coordinated-in-the-hugging-face-attack/",
+      "title": "Nearly 700 rogue AI agents coordinated in the Hugging Face attack",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/book-travel-ai-mode/",
+      "title": "3 new ways to plan and book travel in Search",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gamescom-2026/",
+      "title": "GeForce NOW Gives Gamers More Ways to Play at Gamescom 2026",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/vera-cpu-delivery/",
+      "title": "Delivering Vera: NVIDIA’s First CPU Built for Agents Is Shipping Now",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
+      "title": "Piloting the world's first double-blind AI evaluations",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training",
+      "title": "Better answers, broader thinking: What students gain from ChatGPT and critical-t",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/startups/how-pythians-internal-ai-playbook-delivers-customer-roi/",
+      "title": "Reimagining work: How Pythian’s internal AI playbook delivers customer ROI",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/blog/managed-postgresql-vs-self-hosted-postgresql-key-benefits-and-trade-offs/",
+      "title": "Managed PostgreSQL vs. self-hosted PostgreSQL: Key benefits and trade-offs",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/aws-lambda-four-execution-models-structure-and-selection-criteria/",
+      "title": "AWS Lambda의 4가지 실행 모델 – 구조와 선택 기준",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-27-label-archiving-is-generally-available",
+      "title": "Better label management on issues is generally available",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-27-copilot-code-review-resolution-reasons-and-expanded-capabilities",
+      "title": "Copilot code review: Resolution reasons and expanded capabilities",
+      "published_date": "2026-08-28",
+      "expires_at": "2026-09-04T08:09:33.510929+00:00"
     }
   ]
 }
