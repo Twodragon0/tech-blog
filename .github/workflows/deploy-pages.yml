@@ -31,6 +31,25 @@ on:
       - 'llms-full.txt'
       - 'sw.js'
   workflow_dispatch:
+  # Event-driven backup deploy, called by ai-blogwatcher.yml the moment it
+  # publishes. This is the primary path; the cron below is the backstop.
+  #
+  # Both exist because on 2026-08-27 they failed together. GitHub's Actions
+  # scheduler produced no schedule events repo-wide between 08-26T19:43Z and
+  # 08-27T05:50Z, and missed cycles are NOT backfilled — so the 00:30Z cron
+  # never ran. The bot published at 07:11Z, its GITHUB_TOKEN push could not fire
+  # the `push:` trigger, and the backup served 404 for that day's digest while
+  # production served 200. Trigger and safety net, out on the same day.
+  workflow_call:
+    inputs:
+      ref:
+        description: >-
+          Commit to build. Required from ai-blogwatcher: its publish job runs on
+          the PRE-publish SHA, so a default checkout would rebuild the corpus
+          WITHOUT the post that triggered this deploy — and report success. Same
+          reason slack-post-notify.yml takes a `ref`.
+        required: false
+        type: string
   # Self-healing backup deploy: the AI BlogWatcher publishes the daily digest via
   # a github-actions[bot] `git push` at 00:00 UTC (ai-blogwatcher.yml schedule).
   # A GITHUB_TOKEN push does NOT trigger other workflows (GitHub recursion
@@ -61,6 +80,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
+        with:
+          # `inputs.ref` is empty for push/schedule/workflow_dispatch, where
+          # github.sha is already the right commit. It is load-bearing only for
+          # the workflow_call path — without it that path would deploy the
+          # caller's pre-publish SHA and look like it worked.
+          ref: ${{ inputs.ref || github.sha }}
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b  # v1
