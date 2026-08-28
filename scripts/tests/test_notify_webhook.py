@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import json
 import os
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
 from scripts import notify_webhook as notifier
 
 

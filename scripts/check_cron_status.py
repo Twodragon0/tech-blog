@@ -145,11 +145,11 @@ def print_cli_report(data: Dict[str, Any]) -> None:
     # Crontab check
     cron = data["crontab"]
     w_icon = "✅" if cron["weekly_update"] else "❌"
-    print(f"\n⏰ Crontab Registration Status:")
+    print("\n⏰ Crontab Registration Status:")
     print(f"  • Weekly AI Tools Update (Sun 04:00 KST): {w_icon} {'Active' if cron['weekly_update'] else 'Missing'}")
 
     # Active Locks
-    print(f"\n🔒 Concurrency Lock Status:")
+    print("\n🔒 Concurrency Lock Status:")
     for lock_name, lock_info in data["locks"].items():
         state = "🔒 Active (Running)" if lock_info["active"] else "🔓 Idle / Released"
         pid_str = f" [PID: {lock_info['pid']}]" if lock_info["pid"] else ""
