@@ -182,7 +182,11 @@ class TestPagesBackupEventDrivenPath:
         live, which is the worst place to find out.
         """
         perms = self._caller_job().get("permissions") or {}
-        for scope, level in (("pages", "write"), ("id-token", "write"), ("contents", "read")):
+        for scope, level in (
+            ("pages", "write"),
+            ("id-token", "write"),
+            ("contents", "read"),
+        ):
             assert perms.get(scope) == level, (
                 f"the deploy job grants {scope}={perms.get(scope)!r}, needs {level!r}. "
                 "GitHub Pages deployment requires pages:write + id-token:write."

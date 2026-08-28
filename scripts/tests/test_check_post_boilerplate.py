@@ -98,7 +98,9 @@ def test_per_line_duplication_is_deliberately_not_gated():
     """
     counts: dict[str, int] = {}
     for path in sorted(POSTS_DIR.glob("*.md")):
-        clean = gate.strip_code_fences(path.read_text(encoding="utf-8", errors="ignore"))
+        clean = gate.strip_code_fences(
+            path.read_text(encoding="utf-8", errors="ignore")
+        )
         for line in set(re.findall(r"^\s*- \[ \] (.+)$", clean, re.MULTILINE)):
             counts[line.strip()] = counts.get(line.strip(), 0) + 1
     assert counts, "corpus has no checklist items — helper probably broke"

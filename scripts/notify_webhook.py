@@ -60,7 +60,9 @@ def get_webhook_urls() -> Dict[str, Optional[str]]:
 
     return {
         "slack": slack_url if slack_url and "hooks.slack.com" in slack_url else None,
-        "discord": discord_url if discord_url and "discord.com/api/webhooks" in discord_url else None,
+        "discord": discord_url
+        if discord_url and "discord.com/api/webhooks" in discord_url
+        else None,
     }
 
 
@@ -141,7 +143,10 @@ def send_http_post(url: str, payload: Dict[str, Any], timeout: int = 5) -> bool:
         req = urllib.request.Request(
             url,
             data=data,
-            headers={"Content-Type": "application/json", "User-Agent": "TechBlog-Notifier/1.0"},
+            headers={
+                "Content-Type": "application/json",
+                "User-Agent": "TechBlog-Notifier/1.0",
+            },
             method="POST",
         )
         with urllib.request.urlopen(req, timeout=timeout) as response:
@@ -156,13 +161,22 @@ def send_http_post(url: str, payload: Dict[str, Any], timeout: int = 5) -> bool:
         )
         return False
     except Exception as e:
-        print(f"[WARN] Webhook request failed: {mask_sensitive_info(str(e))}", file=sys.stderr)
+        print(
+            f"[WARN] Webhook request failed: {mask_sensitive_info(str(e))}",
+            file=sys.stderr,
+        )
         return False
 
 
-def build_slack_payload(title: str, message: str, status: str = "SUCCESS") -> Dict[str, Any]:
+def build_slack_payload(
+    title: str, message: str, status: str = "SUCCESS"
+) -> Dict[str, Any]:
     """Build Slack Block Kit message payload."""
-    color = "#36a64f" if status == "SUCCESS" else ("#ECB22E" if status == "WARNING" else "#E01E5A")
+    color = (
+        "#36a64f"
+        if status == "SUCCESS"
+        else ("#ECB22E" if status == "WARNING" else "#E01E5A")
+    )
     icon = "🟢" if status == "SUCCESS" else ("🟡" if status == "WARNING" else "🔴")
 
     safe_title = mask_sensitive_info(title)
@@ -175,7 +189,11 @@ def build_slack_payload(title: str, message: str, status: str = "SUCCESS") -> Di
                 "blocks": [
                     {
                         "type": "header",
-                        "text": {"type": "plain_text", "text": f"{icon} {safe_title}", "emoji": True},
+                        "text": {
+                            "type": "plain_text",
+                            "text": f"{icon} {safe_title}",
+                            "emoji": True,
+                        },
                     },
                     {
                         "type": "section",
@@ -196,9 +214,15 @@ def build_slack_payload(title: str, message: str, status: str = "SUCCESS") -> Di
     }
 
 
-def build_discord_payload(title: str, message: str, status: str = "SUCCESS") -> Dict[str, Any]:
+def build_discord_payload(
+    title: str, message: str, status: str = "SUCCESS"
+) -> Dict[str, Any]:
     """Build Discord Embed payload."""
-    color = 0x36A64F if status == "SUCCESS" else (0xECB22E if status == "WARNING" else 0xE01E5A)
+    color = (
+        0x36A64F
+        if status == "SUCCESS"
+        else (0xECB22E if status == "WARNING" else 0xE01E5A)
+    )
     icon = "🟢" if status == "SUCCESS" else ("🟡" if status == "WARNING" else "🔴")
 
     safe_title = mask_sensitive_info(title)
@@ -283,9 +307,21 @@ def delivered_anywhere() -> bool:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--title", type=str, default="Tech Blog Cron Pipeline", help="Notification Title")
-    parser.add_argument("--message", type=str, required=True, help="Notification Message Body")
-    parser.add_argument("--status", choices=["SUCCESS", "WARNING", "FAILED"], default="SUCCESS", help="Execution Status")
+    parser.add_argument(
+        "--title",
+        type=str,
+        default="Tech Blog Cron Pipeline",
+        help="Notification Title",
+    )
+    parser.add_argument(
+        "--message", type=str, required=True, help="Notification Message Body"
+    )
+    parser.add_argument(
+        "--status",
+        choices=["SUCCESS", "WARNING", "FAILED"],
+        default="SUCCESS",
+        help="Execution Status",
+    )
     parser.add_argument(
         "--require-delivery",
         action="store_true",

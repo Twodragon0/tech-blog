@@ -110,7 +110,9 @@ def valid_targets(posts: Iterable[Path]) -> Set[str]:
 def broken_links(path: Path, targets: Set[str]) -> List[str]:
     _, body = parse(path)
     return [
-        m.group(1) for m in _LINK_RE.finditer(strip_fences(body)) if m.group(1) not in targets
+        m.group(1)
+        for m in _LINK_RE.finditer(strip_fences(body))
+        if m.group(1) not in targets
     ]
 
 

@@ -94,9 +94,9 @@ def test_notify_is_gated_on_an_actual_push_to_main():
 def test_notify_receives_the_exact_post_and_commit():
     job = _wf(BLOGWATCHER)["jobs"][NOTIFY_JOB]
     passed = job.get("with") or {}
-    assert f"needs.{PUBLISH_JOB}.outputs.post_file" in str(passed.get("post_path", "")), (
-        "post_path is no longer the publish job's resolved post_file"
-    )
+    assert f"needs.{PUBLISH_JOB}.outputs.post_file" in str(
+        passed.get("post_path", "")
+    ), "post_path is no longer the publish job's resolved post_file"
     assert f"needs.{PUBLISH_JOB}.outputs.published_sha" in str(passed.get("ref", "")), (
         "ref is no longer the post-push SHA. Without it the called workflow "
         "checks out the caller's triggering SHA — main BEFORE the digest landed — "
@@ -147,9 +147,7 @@ def test_published_to_main_is_set_only_after_a_successful_trusted_push():
     quarantined or failed publish announce itself.
     """
     run = _steps(_wf(BLOGWATCHER), PUBLISH_JOB)[PUBLISH_STEP]["run"]
-    body = "\n".join(
-        ln for ln in run.splitlines() if not ln.lstrip().startswith("#")
-    )
+    body = "\n".join(ln for ln in run.splitlines() if not ln.lstrip().startswith("#"))
     assert "published_to_main=true" in body, (
         "the publish step no longer signals published_to_main; the notify job "
         "will never fire"
@@ -206,9 +204,7 @@ def test_checkout_honours_the_caller_supplied_ref():
 def test_missing_post_path_is_an_error_not_a_silent_diff_fallback():
     """A bad path must fail loudly, not announce whatever git-diff finds."""
     step = next(
-        s
-        for s in _wf(SLACK)["jobs"]["notify"]["steps"]
-        if s.get("id") == "posts"
+        s for s in _wf(SLACK)["jobs"]["notify"]["steps"] if s.get("id") == "posts"
     )
     body = "\n".join(
         ln for ln in step["run"].splitlines() if not ln.lstrip().startswith("#")

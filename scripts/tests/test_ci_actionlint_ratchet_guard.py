@@ -57,7 +57,9 @@ def _step(fragment: str, path: Path | None = None) -> dict:
     if not matches:
         pytest.fail(f"no step whose name contains {fragment!r}")
     if len(matches) > 1:
-        pytest.fail(f"{fragment!r} matches {len(matches)} steps: {[s.get('name') for s in matches]}")
+        pytest.fail(
+            f"{fragment!r} matches {len(matches)} steps: {[s.get('name') for s in matches]}"
+        )
     return matches[0]
 
 

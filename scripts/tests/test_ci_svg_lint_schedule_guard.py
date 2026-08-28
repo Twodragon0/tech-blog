@@ -190,6 +190,5 @@ def test_documented_gate_count_matches_reality():
     # The other two mentions of the same number must agree with the first.
     for phrase in (rf"these {documented} gates", rf"All {documented} gates"):
         assert re.search(phrase, raw), (
-            f"the header's other reference to the count disagrees: expected "
-            f"'{phrase}'"
+            f"the header's other reference to the count disagrees: expected '{phrase}'"
         )

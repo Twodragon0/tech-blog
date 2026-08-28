@@ -48,7 +48,9 @@ def _uncommented(text: str) -> str:
 def test_create_issue_step_is_addressable():
     """Without an `id:` the step's outcome cannot be read by any later step."""
     body = _uncommented(_text())
-    m = re.search(r"- name: Create or update issue\n(.*?)\n      - name: ", body, re.DOTALL)
+    m = re.search(
+        r"- name: Create or update issue\n(.*?)\n      - name: ", body, re.DOTALL
+    )
     assert m, "the 'Create or update issue' step is gone or was renamed"
     assert re.search(r"^\s+id:\s*issue\s*$", m.group(1), re.MULTILINE), (
         "add `id: issue` back — the notification step derives its status from "
@@ -113,7 +115,10 @@ def test_report_template_no_longer_prescribes_boilerplate_injection():
     src = (REPO_ROOT / "scripts" / "generate_quality_report.py").read_text(
         encoding="utf-8"
     )
-    for banned in ("다이어그램 미적용 포스트 지속적 주입", "자율 현대화 크론 파이프라인"):
+    for banned in (
+        "다이어그램 미적용 포스트 지속적 주입",
+        "자율 현대화 크론 파이프라인",
+    ):
         assert banned not in src, (
             f"{banned!r} refers to a removed pipeline or prescribes boilerplate "
             "injection; see notes/autonomous-modernizer-retro.md"

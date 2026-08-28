@@ -73,13 +73,21 @@ def test_a_body_link_to_a_redirect_target_is_not_broken(tmp_path):
     This is the KST/UTC case from CLAUDE.md: the filename-date URL lives in
     redirect_from because the live URL can be one day earlier.
     """
-    p = _post(tmp_path, "2026-01-02-Filename_Shape.md", "see [old](/posts/2026/01/Old_Shape/)\n")
+    p = _post(
+        tmp_path,
+        "2026-01-02-Filename_Shape.md",
+        "see [old](/posts/2026/01/Old_Shape/)\n",
+    )
     assert gate.broken_links(p, gate.valid_targets([p])) == []
 
 
 def test_a_genuinely_missing_target_is_flagged(tmp_path):
     """Proof the gate is not vacuously green."""
-    p = _post(tmp_path, "2026-01-02-Filename_Shape.md", "see [gone](/posts/2026/01/02/No_Such_Post/)\n")
+    p = _post(
+        tmp_path,
+        "2026-01-02-Filename_Shape.md",
+        "see [gone](/posts/2026/01/02/No_Such_Post/)\n",
+    )
     assert gate.broken_links(p, gate.valid_targets([p])) == [
         "/posts/2026/01/02/No_Such_Post/"
     ]
@@ -103,7 +111,7 @@ def test_fenced_link_is_illustrative_not_a_link(tmp_path):
 
 
 def test_inline_redirect_from_list_form_is_accepted(tmp_path):
-    fm = '---\nlayout: post\nredirect_from: [/posts/2026/01/Inline_One/, /posts/x/]\n---\n'
+    fm = "---\nlayout: post\nredirect_from: [/posts/2026/01/Inline_One/, /posts/x/]\n---\n"
     p = _post(tmp_path, "2026-01-02-Inline.md", "", front_matter=fm)
     targets = gate.valid_targets([p])
     assert "/posts/2026/01/Inline_One/" in targets

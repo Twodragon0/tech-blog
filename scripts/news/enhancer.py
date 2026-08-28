@@ -42,9 +42,7 @@ def post_with_retry(
     last_error = None
     for attempt in range(_TRANSIENT_RETRIES + 1):
         try:
-            response = requests.post(
-                url, headers=headers, json=json, timeout=timeout
-            )
+            response = requests.post(url, headers=headers, json=json, timeout=timeout)
             if response.status_code == 429 or response.status_code >= 500:
                 last_error = f"status {response.status_code}"
             else:

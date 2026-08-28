@@ -87,7 +87,11 @@ def test_both_events_are_path_filtered(workflow: Path):
 
 
 @pytest.mark.parametrize("workflow", WORKFLOWS, ids=lambda p: p.name)
-@pytest.mark.parametrize(("sample", "reader"), SCANNED_SAMPLES, ids=lambda v: v.split("/")[-1] if "/" in str(v) else v)
+@pytest.mark.parametrize(
+    ("sample", "reader"),
+    SCANNED_SAMPLES,
+    ids=lambda v: v.split("/")[-1] if "/" in str(v) else v,
+)
 def test_trigger_covers_every_scanned_asset_kind(
     workflow: Path, sample: str, reader: str
 ):

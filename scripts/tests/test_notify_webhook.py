@@ -122,7 +122,10 @@ def test_main_exits_zero_when_delivery_succeeds(mock_urlopen):
 # Slack Bot API transport (chat.postMessage)
 # ---------------------------------------------------------------------------
 
-BOT_ENV = {"SLACK_BOT_TOKEN": "xoxb-test-token-value", "SLACK_CHANNEL_ID": "C0123456789"}
+BOT_ENV = {
+    "SLACK_BOT_TOKEN": "xoxb-test-token-value",
+    "SLACK_CHANNEL_ID": "C0123456789",
+}
 
 
 def _resp(body: str):
@@ -167,7 +170,9 @@ def test_http_200_with_ok_false_is_a_failure(mock_urlopen):
 def test_bot_payload_carries_channel_and_text_fallback(mock_urlopen):
     """Blocks alone give no push notification and nothing to a screen reader."""
     mock_urlopen.return_value.__enter__.return_value = _resp('{"ok": true}')
-    notifier.send_slack_bot({"token": "t", "channel": "C777"}, "Title", "Body", "FAILED")
+    notifier.send_slack_bot(
+        {"token": "t", "channel": "C777"}, "Title", "Body", "FAILED"
+    )
 
     req = mock_urlopen.call_args[0][0]
     sent = json.loads(req.data.decode("utf-8"))

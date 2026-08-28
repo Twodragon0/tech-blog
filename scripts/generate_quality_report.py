@@ -195,7 +195,7 @@ def main() -> None:
 
 | 금지 항목 | 검출 | 상태 |
 |---|---|:---:|
-| FAQ 섹션 / `schema_type: FAQPage` | {faq_count}개 | {'🟢 준수 (0건)' if faq_count == 0 else '🔴 제거 필요'} |
+| FAQ 섹션 / `schema_type: FAQPage` | {faq_count}개 | {"🟢 준수 (0건)" if faq_count == 0 else "🔴 제거 필요"} |
 
 ### 전체 품질 대시보드
 

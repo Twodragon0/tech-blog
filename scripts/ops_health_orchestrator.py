@@ -83,10 +83,12 @@ def check_lint_and_types() -> CheckResult:
     # A check that fixes the thing it is about to look at reports on the fix, not
     # on the repository.
     lint_verify = run_command(["ruff", "check", "scripts/"])
-    # Advisory, like mypy below: 25 files were already format-drifted when this
-    # was written, so gating on it here would turn the ops loop permanently red —
-    # the muted-noise failure mode this repo has paid for before. Reported so the
-    # number is visible instead of silently auto-corrected every six hours.
+    # Gating as of 2026-08-28. It was advisory for exactly one reason — 25 files
+    # under scripts/ were already drifted and failing on that backlog would have
+    # made the ops loop permanently red, which is how an alert gets muted. The
+    # 25 were reformatted in the commit that promoted this, so the reason is
+    # gone. mypy below stays advisory because its 94 legacy errors have NOT been
+    # cleared; the two are not the same situation and should not share a verdict.
     format_check = run_command(["ruff", "format", "--check", "scripts/"])
 
     if shutil.which("mypy") is None:
@@ -99,10 +101,10 @@ def check_lint_and_types() -> CheckResult:
         )
 
     # mypy is advisory only (94 legacy errors need gradual fixing)
-    ok = lint_verify.ok
+    ok = lint_verify.ok and format_check.ok
     details = [
         f"ruff check: {'OK' if lint_verify.ok else 'FAIL'}",
-        f"ruff format --check: {'OK' if format_check.ok else 'DRIFT (advisory)'}",
+        f"ruff format --check: {'OK' if format_check.ok else 'FAIL'}",
         f"mypy: {'OK' if mypy_result.ok else 'WARN (advisory)'}",
         "lint output:",
         summarize_output(lint_verify.output),
