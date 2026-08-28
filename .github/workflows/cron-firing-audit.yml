@@ -1,0 +1,116 @@
+name: Cron Firing Audit
+
+# Answers the one question no other check in this repo can ask: did a scheduled
+# run happen at all? `ops_health_orchestrator.check_github_actions` filters
+# `gh run list` down to runs that failed, so a cycle the scheduler never
+# delivered produces no run object, the failure list is empty, and the check
+# reports healthy. Absence is invisible to a filter over presences.
+#
+# Deliberately NOT a blocking gate, and the reason matters more than the choice:
+#
+#   1. A dropped cycle is a GitHub-side event. Nothing in this repo can fix it,
+#      and a red run for something unfixable is exactly the muted-noise failure
+#      mode digest-translate-backfill.yml and vercel-firewall-backup.yml were
+#      already repaired for.
+#   2. ops-orchestrator.yml runs with AUTO_RECOVER_GHA defaulting to 'true', so a
+#      red run here would be auto-rerun — and rerunning a report about a cycle
+#      that was lost eight hours ago produces the same verdict, forever.
+#
+# So it exits 0 and writes its findings to the job summary with an `::error::`
+# annotation per drop carrying the exact rerun command. `--strict` exists for a
+# human who wants a hard failure on demand.
+#
+# Self-blindness, stated plainly: this audit observes the scheduler from inside
+# the scheduler. During a total outage it does not run either. What it buys is
+# retrospective visibility the moment the scheduler recovers — on 2026-08-27 the
+# gap went unnoticed until a reader hit a 404. workflow_dispatch is kept so a
+# human who suspects a gap can ask immediately.
+
+on:
+  schedule:
+    # 20:00 UTC = 05:00 KST. Chosen to sit well clear of the 00:00-04:30Z cluster
+    # where most of this repo's crons live, so the 48h window it reports on has
+    # had time to settle even on a day with 11-hour delivery lag.
+    - cron: "0 20 * * *"
+  workflow_dispatch:
+    inputs:
+      lookback_hours:
+        description: "How far back to audit"
+        required: false
+        default: "48"
+      strict:
+        description: "Exit 1 when a dropped cycle is found"
+        required: false
+        default: "false"
+
+permissions: {}
+
+concurrency:
+  group: cron-firing-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read  # gh run list
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
+
+      - name: Setup Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v6
+        with:
+          python-version: '3.11'
+
+      - name: Install PyYAML
+        run: python3 -m pip install --upgrade pip pyyaml
+
+      - name: Audit scheduled workflow delivery
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOOKBACK: ${{ github.event.inputs.lookback_hours || '48' }}
+          STRICT: ${{ github.event.inputs.strict || 'false' }}
+        run: |
+          set -uo pipefail
+
+          # Queried once. Running the audit twice to get text and JSON separately
+          # would double the gh API calls AND allow the summary and the
+          # annotations to disagree if a run landed between the two passes.
+          python3 scripts/check_cron_firing.py --lookback-hours "$LOOKBACK" --json \
+            > report.json
+
+          python3 - "$STRICT" <<'PY'
+          import json
+          import os
+          import sys
+
+          sys.path.insert(0, ".")
+          from scripts.check_cron_firing import format_report
+
+          strict = sys.argv[1] == "true"
+          report = json.load(open("report.json", encoding="utf-8"))
+          text = format_report(report)
+          print(text)
+
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as fh:
+              fh.write("## Cron firing audit\n\n```\n" + text + "\n```\n")
+
+          # One annotation per lost cycle, carrying the command that re-runs it.
+          # A dropped cycle is never backfilled, so this is the only route by
+          # which the work it was the sole trigger for ever happens.
+          for wf in report["workflows"]:
+              for due in wf["dropped"]:
+                  print(
+                      f"::error title=Dropped schedule::{wf['workflow']} cycle "
+                      f"{due} was never delivered. GitHub does not backfill it. "
+                      f"Re-run with: gh workflow run {wf['workflow']}"
+                  )
+          print(
+              f"::notice::due {report['expected']}, delivered {report['delivered']}, "
+              f"dropped {report['dropped']}, pending {report['pending']}"
+          )
+          sys.exit(1 if (strict and report["dropped"]) else 0)
+          PY

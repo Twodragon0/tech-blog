@@ -43,8 +43,9 @@ Actions tab, which is why it gets its own assertions below.
 from __future__ import annotations
 
 import re
-import yaml
 from pathlib import Path
+
+import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "deploy-pages.yml"
