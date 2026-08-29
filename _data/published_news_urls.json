@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-28T08:09:33.511010+00:00",
+  "updated_at": "2026-08-29T04:56:52.305154+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/how-anthropic-plans-to-watermark-claudes-ai-generated-text/",
-      "title": "How Anthropic plans to watermark Claude's AI-generated text",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-arrested-over-30m-bank-fraud-exploiting-service-provider-flaw/",
-      "title": "Hackers arrested over €30M bank fraud exploiting service provider flaw",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-macos-screen-sharing-flaw-to-deploy-monero-miner/",
-      "title": "Hackers exploit macOS Screen Sharing flaw to deploy Monero miner",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/the-modern-attack-chain-rethinking-google-workspace-security-in-the-age-of-ai/",
-      "title": "The Modern Attack Chain: Rethinking Google Workspace Security in the Age of AI",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/",
-      "title": "Max severity SAP Commerce Cloud flaw now targeted in attacks",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/",
-      "title": "Universitas Gadjah Mada, Indosat and NVIDIA Open Indonesia’s First University AI",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://www.chainalysis.com/blog/ml-role-in-blockchain-intelligence/",
-      "title": "Machine Learning Has a Specific Role in Blockchain Intelligence",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/custom-reward-functions-for-multi-turn-reinforcement-learning-with-amazon-nova-forge/",
-      "title": "Custom reward functions for multi-turn reinforcement learning with Amazon Nova F",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/building-agentic-workflows-with-sagemaker-ai-and-bedrock-agentcore/",
-      "title": "Building agentic workflows with SageMaker AI and Bedrock AgentCore",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-14-multiple-redirect-uris-and-token-refresh-for-oauth-apps",
-      "title": "Multiple redirect URIs and token refresh for OAuth apps",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot",
-      "title": "Grok 4.6 is now available in GitHub Copilot",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/reproducible-esp32-firmware-development-with-docker-and-docker-sandboxes/",
-      "title": "Reproducible ESP32 Firmware Development with Docker and Docker Sandboxes",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-13-github-copilot-weekly-releases-august-10",
-      "title": "GitHub Copilot weekly releases — August 10",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/08/14/eleven-minutes-zero-humans-building-a-self-healing-kubernetes-upgrade-pipeline-on-kairos/",
-      "title": "Eleven minutes, zero humans: Building a self-healing Kubernetes upgrade pipeline",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/edelman-financial-reveals-bitcoin-positio",
-      "title": "Edelman Financial, Tudor Investment Reveal Significant Bitcoin Holdings",
-      "published_date": "2026-08-15",
-      "expires_at": "2026-08-22T00:44:54.121997+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/new-evooo1bot-linux-botnet-turns-routers-into-traffic-relay-nodes/",
       "title": "New Evooo1Bot Linux botnet turns routers into traffic relay nodes",
@@ -1230,6 +1140,96 @@
       "title": "Copilot code review: Resolution reasons and expanded capabilities",
       "published_date": "2026-08-28",
       "expires_at": "2026-09-04T08:09:33.510929+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/berlin-refuses-to-pay-hackers-who-stole.html",
+      "title": "Berlin Refuses to Pay Hackers Who Stole Data From the City's State Network",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/cosmos-evm-flaw-exploited-after-cosmos.html",
+      "title": "Cosmos EVM Flaw Exploited After Cosmos Labs Knew Every Blockchain Running It Was",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/attackers-chain-two-papercut-flaws-to.html",
+      "title": "Attackers Chain Two PaperCut Flaws to Execute Code Without Authentication",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/android-17-adds-os-wide-ech-to-hide.html",
+      "title": "Android 17 Adds OS-Wide ECH to Hide Website Visits From Network Providers",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/snowflake-github-actions-flaw-lets.html",
+      "title": "ownCloud Flaw Exploited to Steal Nuclear Records From Philippine Research Body",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
+      "title": "Our decision on Cursor following its acquisition by SpaceX",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/maps-netflixs-multimodal-asset-personalization-at-scale-32f96320785e?source=rss----2615bd06b42e---4",
+      "title": "MAPS: Netflix’s Multimodal Asset Personalization at Scale",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/batch-write-and-discover-records-in-amazon-sagemaker-feature-store/",
+      "title": "Batch write and discover records in Amazon SageMaker Feature Store",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-decathlon-runs-demand-forecasting-at-scale-with-chronos-2/",
+      "title": "How Decathlon runs demand forecasting at scale with Chronos-2",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/spreading-the-load-how-salesforce-met-multi-az-ha-with-sagemaker-inference-components/",
+      "title": "Spreading the load: How Salesforce met Multi-AZ HA with SageMaker Inference Comp",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-28-github-copilot-in-visual-studio-august-update-2",
+      "title": "GitHub Copilot in Visual Studio — August update",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-28-github-copilot-weekly-releases-august-24",
+      "title": "GitHub Copilot weekly releases — August 24",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing",
+      "title": "Upcoming changes to GitHub Copilot policies and billing",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/08/28/scale-before-the-spike-predictive-autoscaling-for-gpu-workloads-on-kubernetes/",
+      "title": "Scale before the spike: Predictive autoscaling for GPU workloads on Kubernetes",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/08/28/your-kubernetes-platform-is-ready-for-containers-is-it-ready-for-ai/",
+      "title": "Your Kubernetes platform is ready for containers. Is it ready for AI?",
+      "published_date": "2026-08-29",
+      "expires_at": "2026-09-05T04:56:52.305051+00:00"
     }
   ]
 }
