@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="AWS IAM Identity Center and ABAC Zero Trust Governance Guide">
+<title>AWS IAM Identity Center ABAC Zero Trust Governance</title>
+<defs>
+  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0B0F19"/>
+    <stop offset="50%" stop-color="#141B2D"/>
+    <stop offset="100%" stop-color="#1C1A3A"/>
+  </linearGradient>
+  <linearGradient id="awsAmberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#FF9900"/>
+    <stop offset="100%" stop-color="#FFB84D"/>
+  </linearGradient>
+  <linearGradient id="panelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#1A2238"/>
+    <stop offset="100%" stop-color="#0E1322"/>
+  </linearGradient>
+  <radialGradient id="amberGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FF9900" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#FF9900" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="purpleGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="gridPattern" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+    <circle cx="16" cy="16" r="0.9" fill="#2D3748" opacity="0.65"/>
+  </pattern>
+</defs>
+
+<rect width="1200" height="630" fill="url(#bgGrad)"/>
+<rect width="1200" height="630" fill="url(#gridPattern)"/>
+<circle cx="260" cy="260" r="240" fill="url(#amberGlow)"/>
+<circle cx="980" cy="360" r="220" fill="url(#purpleGlow)"/>
+
+<rect x="0" y="0" width="1200" height="54" fill="#060911" opacity="0.95"/>
+<text x="40" y="35" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#FF9900" letter-spacing="2.5">AWS CLOUD SECURITY</text>
+<text x="1160" y="35" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#94A3B8" letter-spacing="1" text-anchor="end">ZERO TRUST &amp; ABAC</text>
+<rect x="0" y="52" width="1200" height="2" fill="url(#awsAmberGrad)"/>
+
+<!-- Left Hero Panel -->
+<g transform="translate(60, 95)">
+  <rect x="0" y="0" width="680" height="480" rx="14" fill="url(#panelGrad)" stroke="#FF9900" stroke-width="1.6"/>
+  
+  <rect x="36" y="36" width="180" height="26" rx="13" fill="#382405" stroke="#FF9900" stroke-width="1"/>
+  <text x="126" y="53" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFD580" text-anchor="middle" letter-spacing="1.5">ENTERPRISE GOVERNANCE</text>
+  
+  <text x="36" y="105" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#FFFFFF">IAM Identity Center &amp; ABAC</text>
+  <text x="36" y="145" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600" fill="#FFB84D">Multi-Account Zero Trust Architecture</text>
+  
+  <!-- Policy Code Box -->
+  <g transform="translate(36, 175)">
+    <rect x="0" y="0" width="608" height="200" rx="8" fill="#080C16" stroke="#4A5568" stroke-width="1"/>
+    <text x="20" y="32" font-family="Courier, monospace" font-size="13" font-weight="700" fill="#F43F5E">"Condition": <tspan fill="#E2E8F0">{ "StringEquals": {</tspan></text>
+    <text x="40" y="58" font-family="Courier, monospace" font-size="13" font-weight="600" fill="#38BDF8">"aws:PrincipalTag/Department": <tspan fill="#34D399">"${aws:ResourceTag/Department}"</tspan>,</text>
+    <text x="40" y="84" font-family="Courier, monospace" font-size="13" font-weight="600" fill="#38BDF8">"aws:PrincipalTag/Environment": <tspan fill="#34D399">"${aws:ResourceTag/Environment}"</tspan>,</text>
+    <text x="40" y="110" font-family="Courier, monospace" font-size="13" font-weight="600" fill="#38BDF8">"aws:PrincipalTag/Project": <tspan fill="#34D399">"${aws:ResourceTag/Project}"</tspan></text>
+    <text x="20" y="136" font-family="Courier, monospace" font-size="13" font-weight="700" fill="#E2E8F0">} },</text>
+    <text x="20" y="162" font-family="Courier, monospace" font-size="13" font-weight="700" fill="#FBBF24">"Action": "kms:*", "Effect": "Allow"</text>
+  </g>
+  
+  <!-- Feature Badges -->
+  <g transform="translate(36, 405)">
+    <rect x="0" y="0" width="180" height="34" rx="6" fill="#1C1917" stroke="#FF9900" stroke-width="1"/>
+    <text x="90" y="22" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#FCD34D" text-anchor="middle">Dynamic Session Tags</text>
+    
+    <rect x="200" y="0" width="180" height="34" rx="6" fill="#1E1B4B" stroke="#818CF8" stroke-width="1"/>
+    <text x="290" y="22" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#C7D2FE" text-anchor="middle">SCP Guardrails</text>
+
+    <rect x="400" y="0" width="180" height="34" rx="6" fill="#064E3B" stroke="#34D399" stroke-width="1"/>
+    <text x="490" y="22" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#A7F3D0" text-anchor="middle">CloudTrail Lake Audit</text>
+  </g>
+</g>
+
+<!-- Right Side Control Tower / Architecture -->
+<g transform="translate(770, 95)">
+  <rect x="0" y="0" width="370" height="230" rx="14" fill="url(#panelGrad)" stroke="#4A5568" stroke-width="1.4"/>
+  <text x="24" y="34" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#FF9900" letter-spacing="1.5">GOVERNANCE MODEL</text>
+  
+  <g transform="translate(24, 55)">
+    <rect x="0" y="0" width="140" height="38" rx="6" fill="#2E1B05" stroke="#FF9900" stroke-width="1.2"/>
+    <text x="70" y="23" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#FFD580" text-anchor="middle">IdP (Okta / Entra ID)</text>
+    
+    <line x1="145" y1="19" x2="175" y2="19" stroke="#FF9900" stroke-width="2"/>
+    
+    <rect x="180" y="0" width="140" height="38" rx="6" fill="#172554" stroke="#3B82F6" stroke-width="1.2"/>
+    <text x="250" y="23" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#93C5FD" text-anchor="middle">AWS Identity Center</text>
+    
+    <g transform="translate(0, 65)">
+      <rect x="0" y="0" width="320" height="50" rx="6" fill="#0A0F1D" stroke="#8B5CF6" stroke-width="1"/>
+      <text x="15" y="22" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#C4B5FD">Permission Sets + PrincipalTag</text>
+      <text x="15" y="38" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="500" fill="#94A3B8">Scoped access across 100+ AWS accounts</text>
+    </g>
+  </g>
+  
+  <g transform="translate(0, 250)">
+    <rect x="0" y="0" width="370" height="230" rx="14" fill="url(#panelGrad)" stroke="#4A5568" stroke-width="1.4"/>
+    <text x="24" y="34" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" fill="#34D399" letter-spacing="1.5">POLICY SCALING IMPACT</text>
+    
+    <g transform="translate(24, 60)">
+      <text x="0" y="25" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" fill="#FF9900">1 ABAC Policy</text>
+      <text x="0" y="48" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#94A3B8">Replaces 100+ Static RBAC Roles</text>
+      
+      <line x1="0" y1="70" x2="320" y2="70" stroke="#2D3748" stroke-width="1"/>
+      
+      <text x="0" y="105" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="900" fill="#34D399">0 Role Explosion</text>
+      <text x="0" y="128" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" fill="#94A3B8">Automated Tag-Based Least Privilege</text>
+    </g>
+  </g>
+</g>
+</svg>
