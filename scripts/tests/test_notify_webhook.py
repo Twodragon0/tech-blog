@@ -41,10 +41,15 @@ def test_notify_skips_when_no_urls():
 
 
 @patch("urllib.request.urlopen")
-@patch.dict(os.environ, {"SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/T00/B00/X00"})
+@patch.dict(
+    os.environ,
+    {"SLACK_WEBHOOK_URL": "https://hooks.slack.com/services/T00/B00/X00"},
+    clear=True,
+)
 def test_notify_sends_slack(mock_urlopen):
     mock_resp = MagicMock()
     mock_resp.status = 200
+    mock_resp.read.return_value = b'{"ok": true}'
     mock_urlopen.return_value.__enter__.return_value = mock_resp
 
     res = notifier.notify("Daily Run", "Run succeeded", status="SUCCESS")
