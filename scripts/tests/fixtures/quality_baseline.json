@@ -4202,6 +4202,21 @@
       "length": 2
     }
   },
+  "2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense.md": {
+    "total": 53,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 10,
+      "tables": 4,
+      "code_blocks": 6,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
   "2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance.md": {
     "total": 54,
     "scores": {
