@@ -1,84 +1,6 @@
 {
-  "updated_at": "2026-08-29T04:56:52.305154+00:00",
+  "updated_at": "2026-08-30T02:35:40.182414+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/new-evooo1bot-linux-botnet-turns-routers-into-traffic-relay-nodes/",
-      "title": "New Evooo1Bot Linux botnet turns routers into traffic relay nodes",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/08/15/how-to-tell-if-your-ai-platforms-accounts-have-been-hacked/",
-      "title": "How to tell if your AI platforms’ accounts have been hacked",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://www.tenable.com/blog/the-agentic-ai-threat-cluster-seven-incidents-three-actors-and-what-they-mean",
-      "title": "The Agentic AI threat cluster: Seven incidents, three actors, and what they mean",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bybit-launches-unitree-pre-ipo-perpetual-as-crypto-platforms-push-into-private-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bybit adds Unitree, Moonshot AI to pre-IPO perpetuals lineup",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/tokenized-stock-holders-double-to-13m-as-activity-grows?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Tokenized stock holders more than double as monthly volume surges",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-bottom-october-altcoins-basically-dead-swan-ceo?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin could bottom in October, altcoins are ‘basically dead,’ Swan CEO says",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/kalshi-stop-prediction-market-contracts-washington?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Kalshi ordered to stop broad range of prediction markets in Washington",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/galaxy-lowers-clarity-act-odds-10?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Galaxy lowers CLARITY Act odds to 10%",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32545",
-      "title": "celld - 셀프호스팅 가능한 분산 Durable Objects",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32544",
-      "title": "Graph 엔지니어링 vs Loop 엔지니어링: 실제로 달라진 것은 무엇인가",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32543",
-      "title": "내가 여전히 회의적인 이유",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32542",
-      "title": "Ask HN: 요즘 Hacker News를 어떻게 따라가시나요?",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=32541",
-      "title": "Apple, App Store 외부 구매에 15% 수수료 부과 제안",
-      "published_date": "2026-08-16",
-      "expires_at": "2026-08-23T00:46:09.217267+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/safepal-data-breach-impacts-39-798-customers-stolen-info-for-sale/",
       "title": "SafePal data breach impacts 39,798 customers, stolen info for sale",
@@ -1230,6 +1152,96 @@
       "title": "Your Kubernetes platform is ready for containers. Is it ready for AI?",
       "published_date": "2026-08-29",
       "expires_at": "2026-09-05T04:56:52.305051+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/five-critical-wordpress-plugin-and.html",
+      "title": "Five Critical WordPress Plugin and Theme Flaws Enable Site Takeover or RCE",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-is-cutting-claude-codes-current-weekly-limits-by-17-percent/",
+      "title": "Anthropic is cutting Claude Code's current weekly limits by 17%",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/brave-browser-adds-email-aliases-to-help-users-evade-tracking/",
+      "title": "Brave browser adds email aliases to help users evade tracking",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/",
+      "title": "TerminalFix campaign deploys a reverse tunnel through multistage intrusion",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/hasbro-data-breach-exposed-employee-personal-information/",
+      "title": "Hasbro Data Breach Exposed Employee Personal Information",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/polygon-discloses-security-flaws-fixed-in-recent-hard-forks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Polygon discloses security flaws fixed in recent hard forks",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/stellar-tokenized-rwa-market-nears-4b-after-fourfold-2026-growth?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Stellar tokenized RWA market more than quadruples to nearly $4B",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/tokenized-stock-transfer-volume-jumps-416-in-30-days-to-295b?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Tokenized stock transfer volume jumps 415% in 30 days to $29.5B",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/trump-linked-account-list-gold-token-crash?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Trump-promoted brand touts GOLD before token collapse",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/stablecoins-not-credible-payments-scale-bis-chief?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Stablecoins not credible for payments at scale, BIS chief says",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33024",
+      "title": "GrapheneOS 프로젝트, Pixel 11의 하드웨어 메모리 태깅(MTE) 미지원으로 포팅 중단",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33023",
+      "title": "Tencent Hy4 프리뷰 공개",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33022",
+      "title": "DHS, 잘 알려지지 않은 세관법으로 언론인·비영리단체·노조 감시",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33021",
+      "title": "GeoLibre - Tauri 기반의 경량 클라우드 네이티브 데스크톱 GIS",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33020",
+      "title": "Debian의 LLM 사용, 지지도 금지도 하지 않음",
+      "published_date": "2026-08-30",
+      "expires_at": "2026-09-06T02:35:40.182313+00:00"
     }
   ]
 }
