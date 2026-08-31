@@ -169,7 +169,9 @@ def main() -> int:
         failures.append(
             "undeclared runtime env var(s) read by api/ — add each to REQUIRED or "
             "OPTIONAL in this script, saying what breaks when it is absent:\n"
-            + "\n".join(f"    {n}  (read by {', '.join(sorted(refs[n]))})" for n in undeclared)
+            + "\n".join(
+                f"    {n}  (read by {', '.join(sorted(refs[n]))})" for n in undeclared
+            )
         )
     if orphaned:
         failures.append(
@@ -199,7 +201,9 @@ def main() -> int:
         for f in failures:
             print(f"  {f}\n", file=sys.stderr)
     else:
-        scope = f", all {len(REQUIRED)} REQUIRED present in Vercel" if args.vercel else ""
+        scope = (
+            f", all {len(REQUIRED)} REQUIRED present in Vercel" if args.vercel else ""
+        )
         print(
             f"[runtime-env] OK — {len(refs)} env var(s) read by api/, all declared"
             f"{scope}."

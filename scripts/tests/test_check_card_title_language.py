@@ -78,7 +78,9 @@ def test_every_allow_list_entry_is_still_used():
         p.read_text(encoding="utf-8", errors="ignore") for p in POSTS_DIR.glob("*.md")
     )
     normalized = gate.normalize(corpus)
-    orphans = [t for t in gate.ENGLISH_TITLE_ALLOW if gate.normalize(t) not in normalized]
+    orphans = [
+        t for t in gate.ENGLISH_TITLE_ALLOW if gate.normalize(t) not in normalized
+    ]
     assert orphans == [], f"allow-listed titles no longer in the corpus: {orphans}"
 
 
@@ -92,7 +94,9 @@ def test_the_scan_is_actually_looking_at_titles():
     """Guards against the corpus assertion reducing to an empty scan."""
     _, checked = gate.scan(sorted(POSTS_DIR.glob("*.md")))
     raw = sum(
-        len(re.findall(r'title="[^"]+"', p.read_text(encoding="utf-8", errors="ignore")))
+        len(
+            re.findall(r'title="[^"]+"', p.read_text(encoding="utf-8", errors="ignore"))
+        )
         for p in POSTS_DIR.glob("*.md")
     )
     assert checked == raw > 0

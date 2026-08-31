@@ -96,7 +96,9 @@ def test_call_site_preserves_before_it_unlinks():
     which point it preserves nothing and the artifact is an empty file. Only
     reading the call site catches that.
     """
-    source = (REPO_ROOT / "scripts" / "auto_publish_news.py").read_text(encoding="utf-8")
+    source = (REPO_ROOT / "scripts" / "auto_publish_news.py").read_text(
+        encoding="utf-8"
+    )
     # Indent-anchored so the `def _preserve_rejected_post(post_path...)` line —
     # which sits at column 0 and always precedes the unlink — cannot be mistaken
     # for the call. A plain `.find()` matched the definition instead, and this
@@ -108,7 +110,9 @@ def test_call_site_preserves_before_it_unlinks():
     ]
     unlinks = [
         m.start()
-        for m in re.finditer(r"^[ \t]+post_path\.unlink\(missing_ok=True\)", source, re.M)
+        for m in re.finditer(
+            r"^[ \t]+post_path\.unlink\(missing_ok=True\)", source, re.M
+        )
     ]
     assert len(calls) == 1, (
         f"expected exactly one call to _preserve_rejected_post, found {len(calls)}; "

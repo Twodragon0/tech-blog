@@ -146,7 +146,9 @@ def print_cli_report(data: Dict[str, Any]) -> None:
     cron = data["crontab"]
     w_icon = "✅" if cron["weekly_update"] else "❌"
     print("\n⏰ Crontab Registration Status:")
-    print(f"  • Weekly AI Tools Update (Sun 04:00 KST): {w_icon} {'Active' if cron['weekly_update'] else 'Missing'}")
+    print(
+        f"  • Weekly AI Tools Update (Sun 04:00 KST): {w_icon} {'Active' if cron['weekly_update'] else 'Missing'}"
+    )
 
     # Active Locks
     print("\n🔒 Concurrency Lock Status:")
@@ -161,7 +163,9 @@ def print_cli_report(data: Dict[str, Any]) -> None:
     print(f"  Status: {format_status_badge(ai_up.get('status', 'UNKNOWN'))}")
     tools = ai_up.get("tools", {})
     if tools:
-        print(f"  Tools: AGY ({tools.get('agy', 'ok')}), Claude ({tools.get('claude', 'ok')}), NPM ({tools.get('npm', 'ok')}), OpenCode ({tools.get('opencode', 'ok')})")
+        print(
+            f"  Tools: AGY ({tools.get('agy', 'ok')}), Claude ({tools.get('claude', 'ok')}), NPM ({tools.get('npm', 'ok')}), OpenCode ({tools.get('opencode', 'ok')})"
+        )
     if ai_up.get("recent_errors"):
         print("  Recent Errors:")
         for err in ai_up["recent_errors"]:
@@ -171,7 +175,9 @@ def print_cli_report(data: Dict[str, Any]) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Check 24/7 cron and update pipeline status")
+    parser = argparse.ArgumentParser(
+        description="Check 24/7 cron and update pipeline status"
+    )
     parser.add_argument("--json", action="store_true", help="Output JSON format")
     args = parser.parse_args()
 

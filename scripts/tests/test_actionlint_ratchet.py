@@ -75,7 +75,9 @@ class TestParsing:
 
     def test_source_snippet_lines_are_not_counted(self):
         """`58 |         run: |` and `   |         ^~~~` must not match."""
-        snippets = "\n".join(ln for ln in REAL_OUTPUT.splitlines() if "shellcheck reported" not in ln)
+        snippets = "\n".join(
+            ln for ln in REAL_OUTPUT.splitlines() if "shellcheck reported" not in ln
+        )
         assert mod.parse_findings(snippets) == Counter()
 
     def test_gated_severities_are_excluded(self):
@@ -95,15 +97,18 @@ class TestParsing:
         """Only shellcheck output is ratcheted; native rules already gate."""
         native = (
             '.github/workflows/a.yml:12:5: property "post_file" is not defined in '
-            'object type {} [expression]'
+            "object type {} [expression]"
         )
         assert mod.parse_findings(native) == Counter()
 
     def test_repeated_findings_accumulate(self):
         out = "\n".join(
-            _finding(".github/workflows/a.yml", 10, "SC2086", "info", n) for n in (1, 2, 3)
+            _finding(".github/workflows/a.yml", 10, "SC2086", "info", n)
+            for n in (1, 2, 3)
         )
-        assert mod.parse_findings(out)[(".github/workflows/a.yml", "SC2086", "info")] == 3
+        assert (
+            mod.parse_findings(out)[(".github/workflows/a.yml", "SC2086", "info")] == 3
+        )
 
 
 class TestPositionInsensitivity:
@@ -117,9 +122,14 @@ class TestPositionInsensitivity:
         before = _finding(".github/workflows/lighthouse.yml", 58, "SC2086", "info", 2)
         after = _finding(".github/workflows/lighthouse.yml", 59, "SC2086", "info", 2)
 
-        assert before != after, "the fixture must actually differ, or this proves nothing"
+        assert before != after, (
+            "the fixture must actually differ, or this proves nothing"
+        )
         assert mod.parse_findings(before) == mod.parse_findings(after)
-        assert mod.compare(mod.parse_findings(after), mod.parse_findings(before)) == ([], [])
+        assert mod.compare(mod.parse_findings(after), mod.parse_findings(before)) == (
+            [],
+            [],
+        )
 
     def test_shifting_the_script_relative_position_also_does_not_matter(self):
         a = _finding(".github/workflows/a.yml", 10, "SC2086", "info", 2)
@@ -155,9 +165,7 @@ class TestCompare:
     def test_same_code_in_a_different_file_is_not_offset(self):
         """Fixing one file and breaking another must not net to zero."""
         other = (".github/workflows/b.yml", "SC2086", "info")
-        regressions, stale = mod.compare(
-            Counter({other: 1}), Counter({self.KEY: 1})
-        )
+        regressions, stale = mod.compare(Counter({other: 1}), Counter({self.KEY: 1}))
         assert len(regressions) == 1 and len(stale) == 1
 
 
@@ -195,7 +203,9 @@ class TestBaselineFile:
 
     def test_the_committed_baseline_parses(self):
         counts = mod.load_baseline(REAL_BASELINE)
-        assert counts, "the committed baseline is empty — the ratchet would enforce nothing"
+        assert counts, (
+            "the committed baseline is empty — the ratchet would enforce nothing"
+        )
         for _path, code, severity in counts:
             assert code.startswith("SC")
             assert severity in mod.RATCHETED_SEVERITIES, (
@@ -219,7 +229,9 @@ class TestMainExitCodes:
         return p
 
     def test_clean_run_exits_zero(self, tmp_path):
-        out = self._write(tmp_path, _finding(".github/workflows/a.yml", 1, "SC2086", "info", 1))
+        out = self._write(
+            tmp_path, _finding(".github/workflows/a.yml", 1, "SC2086", "info", 1)
+        )
         base = tmp_path / "b.txt"
         base.write_text(".github/workflows/a.yml SC2086 info 1\n", encoding="utf-8")
         assert mod.main(["--from-file", str(out), "--baseline", str(base)]) == 0
@@ -228,7 +240,8 @@ class TestMainExitCodes:
         out = self._write(
             tmp_path,
             "\n".join(
-                _finding(".github/workflows/a.yml", 1, "SC2086", "info", n) for n in (1, 2)
+                _finding(".github/workflows/a.yml", 1, "SC2086", "info", n)
+                for n in (1, 2)
             ),
         )
         base = tmp_path / "b.txt"
@@ -237,12 +250,22 @@ class TestMainExitCodes:
 
     def test_missing_baseline_exits_two(self, tmp_path):
         out = self._write(tmp_path, "")
-        assert mod.main(["--from-file", str(out), "--baseline", str(tmp_path / "nope.txt")]) == 2
+        assert (
+            mod.main(
+                ["--from-file", str(out), "--baseline", str(tmp_path / "nope.txt")]
+            )
+            == 2
+        )
 
     def test_update_writes_a_baseline_that_then_passes(self, tmp_path):
-        out = self._write(tmp_path, _finding(".github/workflows/a.yml", 1, "SC2086", "info", 1))
+        out = self._write(
+            tmp_path, _finding(".github/workflows/a.yml", 1, "SC2086", "info", 1)
+        )
         base = tmp_path / "b.txt"
-        assert mod.main(["--from-file", str(out), "--baseline", str(base), "--update"]) == 0
+        assert (
+            mod.main(["--from-file", str(out), "--baseline", str(base), "--update"])
+            == 0
+        )
         assert mod.main(["--from-file", str(out), "--baseline", str(base)]) == 0
 
 
@@ -251,7 +274,9 @@ class TestEnvironmentIsFailClosed:
 
     def test_missing_shellcheck_raises(self, monkeypatch):
         monkeypatch.setattr(
-            mod.shutil, "which", lambda name: None if name == "shellcheck" else "/usr/bin/actionlint"
+            mod.shutil,
+            "which",
+            lambda name: None if name == "shellcheck" else "/usr/bin/actionlint",
         )
         with pytest.raises(EnvironmentError, match="shellcheck"):
             mod.run_actionlint()

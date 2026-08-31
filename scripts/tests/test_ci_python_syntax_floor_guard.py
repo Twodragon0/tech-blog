@@ -40,8 +40,12 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOWS = REPO_ROOT / ".github" / "workflows"
 SCRIPTS = REPO_ROOT / "scripts"
 
-_PIN_RE = re.compile(r"^\s*python-version:\s*['\"]?(\d+)\.(\d+)['\"]?\s*$", re.MULTILINE)
-_ENV_RE = re.compile(r"^\s*PYTHON_VERSION:\s*['\"]?(\d+)\.(\d+)['\"]?\s*$", re.MULTILINE)
+_PIN_RE = re.compile(
+    r"^\s*python-version:\s*['\"]?(\d+)\.(\d+)['\"]?\s*$", re.MULTILINE
+)
+_ENV_RE = re.compile(
+    r"^\s*PYTHON_VERSION:\s*['\"]?(\d+)\.(\d+)['\"]?\s*$", re.MULTILINE
+)
 
 
 def pinned_versions() -> dict[str, tuple[int, int]]:
@@ -144,10 +148,12 @@ def test_the_check_actually_rejects_newer_syntax(tmp_path):
     sample = tmp_path / "pep701_sample.py"
     backslash_n = chr(92) + "n"
     sample.write_text(
-        'x = ["a"]\n' f"y = f\"{{ x[0].split('{backslash_n}') }}\"\n",
+        f'x = ["a"]\ny = f"{{ x[0].split(\'{backslash_n}\') }}"\n',
         encoding="utf-8",
     )
-    assert backslash_n in sample.read_text(encoding="utf-8"), "sample lost its backslash"
+    assert backslash_n in sample.read_text(encoding="utf-8"), (
+        "sample lost its backslash"
+    )
 
     assert _invalid_syntax_lines("py311", sample), "ruff did not flag it at py311"
     assert not _invalid_syntax_lines("py312", sample), "ruff flagged it at py312"

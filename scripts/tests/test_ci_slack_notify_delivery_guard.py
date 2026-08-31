@@ -44,8 +44,8 @@ POST_STEP = "Post to Slack via Bot API"
 
 # (branch marker, what makes it a failure) — both must end in a hard exit.
 FAILURE_BRANCHES = (
-    ("ok=false", 'reported ok=false'),
-    ("non-2xx", 'Slack HTTP error'),
+    ("ok=false", "reported ok=false"),
+    ("non-2xx", "Slack HTTP error"),
 )
 
 # Every chat.postMessage sender in the repo, as (workflow, job, step).
@@ -210,9 +210,7 @@ def test_missing_secret_still_fails_closed():
 def test_no_always_on_the_notification_path():
     """`always()` without derived status is how #599 announced a non-event."""
     text = WORKFLOW.read_text(encoding="utf-8")
-    body = "\n".join(
-        ln for ln in text.splitlines() if not ln.lstrip().startswith("#")
-    )
+    body = "\n".join(ln for ln in text.splitlines() if not ln.lstrip().startswith("#"))
     assert "always()" not in body, (
         "always() appeared in slack-post-notify.yml. It defeats the default "
         "skip-on-failure, so without a derived status it guarantees a false "

@@ -74,9 +74,7 @@ def _python_sources() -> list[Path]:
         root = REPO_ROOT / d
         if root.is_dir():
             out.extend(p for p in root.rglob("*.py") if "__pycache__" not in p.parts)
-    return sorted(
-        p for p in out if p.relative_to(REPO_ROOT).as_posix() not in _EXEMPT
-    )
+    return sorted(p for p in out if p.relative_to(REPO_ROOT).as_posix() not in _EXEMPT)
 
 
 def _code_lines(path: Path) -> list[tuple[int, str]]:
@@ -125,6 +123,7 @@ class TestTheFixedCallSitesUseHeaders:
             "why; otherwise the key is back in the URL."
         )
 
+
 class TestExceptionLogsAreMasked:
     """Second layer, added after review: mask at the sink too.
 
@@ -168,9 +167,7 @@ class TestExceptionLogsAreMasked:
     def test_enhancer_masks_every_exception_it_logs(self):
         """A raw f-string of an exception is the shape that leaked."""
         src = (REPO_ROOT / "scripts" / "news" / "enhancer.py").read_text("utf-8")
-        code = [
-            ln for ln in src.splitlines() if not ln.lstrip().startswith("#")
-        ]
+        code = [ln for ln in src.splitlines() if not ln.lstrip().startswith("#")]
         raw = [
             ln.strip()
             for ln in code
@@ -180,6 +177,4 @@ class TestExceptionLogsAreMasked:
             "enhancer.py logs an exception without mask_sensitive_info: "
             f"{raw}. requests exceptions can embed the full request URL."
         )
-        assert "mask_sensitive_info" in src, (
-            "enhancer.py no longer imports the masker"
-        )
+        assert "mask_sensitive_info" in src, "enhancer.py no longer imports the masker"

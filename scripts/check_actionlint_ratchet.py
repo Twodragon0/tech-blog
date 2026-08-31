@@ -97,7 +97,9 @@ _FINDING_RE = re.compile(
     r"^(?P<file>\S+\.ya?ml):\d+:\d+:.*?\b(?P<code>SC\d+):(?P<severity>[a-z]+):"
 )
 
-_BASELINE_LINE_RE = re.compile(r"^(?P<file>\S+)\s+(?P<code>SC\d+)\s+(?P<severity>[a-z]+)\s+(?P<count>\d+)$")
+_BASELINE_LINE_RE = re.compile(
+    r"^(?P<file>\S+)\s+(?P<code>SC\d+)\s+(?P<severity>[a-z]+)\s+(?P<count>\d+)$"
+)
 
 BASELINE_HEADER = """\
 # scripts/actionlint_ratchet_baseline.txt
@@ -179,14 +181,18 @@ def run_actionlint() -> str:
 def load_baseline(path: Path) -> Counter[Key]:
     counts: Counter[Key] = Counter()
     if not path.is_file():
-        raise EnvironmentError(f"baseline not found: {path}. Generate it with --update.")
+        raise EnvironmentError(
+            f"baseline not found: {path}. Generate it with --update."
+        )
     for lineno, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
         line = raw.strip()
         if not line or line.startswith("#"):
             continue
         match = _BASELINE_LINE_RE.match(line)
         if not match:
-            raise EnvironmentError(f"{path}:{lineno}: malformed baseline entry: {raw!r}")
+            raise EnvironmentError(
+                f"{path}:{lineno}: malformed baseline entry: {raw!r}"
+            )
         key = (match.group("file"), match.group("code"), match.group("severity"))
         counts[key] += int(match.group("count"))
     return counts
@@ -201,7 +207,9 @@ def render_baseline(counts: Counter[Key]) -> str:
     return "".join(lines)
 
 
-def compare(current: Counter[Key], baseline: Counter[Key]) -> tuple[list[str], list[str]]:
+def compare(
+    current: Counter[Key], baseline: Counter[Key]
+) -> tuple[list[str], list[str]]:
     """Return (regressions, stale_entries) as human-readable lines."""
     regressions: list[str] = []
     stale: list[str] = []
@@ -209,9 +217,13 @@ def compare(current: Counter[Key], baseline: Counter[Key]) -> tuple[list[str], l
         path, code, severity = key
         now, before = current[key], baseline[key]
         if now > before:
-            regressions.append(f"  {path}  {code}:{severity}  {before} -> {now}  (+{now - before})")
+            regressions.append(
+                f"  {path}  {code}:{severity}  {before} -> {now}  (+{now - before})"
+            )
         elif now < before:
-            stale.append(f"  {path}  {code}:{severity}  {before} -> {now}  (-{before - now})")
+            stale.append(
+                f"  {path}  {code}:{severity}  {before} -> {now}  (-{before - now})"
+            )
     return regressions, stale
 
 
@@ -249,7 +261,9 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.update:
         args.baseline.write_text(render_baseline(current), encoding="utf-8")
-        print(f"Wrote {args.baseline} — {total} findings across {len(current)} (file, code, severity) keys.")
+        print(
+            f"Wrote {args.baseline} — {total} findings across {len(current)} (file, code, severity) keys."
+        )
         return 0
 
     try:
@@ -269,7 +283,10 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     if regressions:
-        print("\nNEW informational findings — the ratchet only turns one way:", file=sys.stderr)
+        print(
+            "\nNEW informational findings — the ratchet only turns one way:",
+            file=sys.stderr,
+        )
         print("\n".join(regressions), file=sys.stderr)
         print(
             "\nQuote the variable (or fix the cited shellcheck code) rather than "

@@ -64,27 +64,12 @@ jobs:
         # No --fix. That is the entire point of this step existing.
         run: ruff check scripts/
 
-      - name: ruff format drift (advisory)
-        # Fails the step, not the job. 25 files under scripts/ were already
-        # format-drifted when this workflow was added; failing the job on a
-        # backlog nobody has agreed to clean up produces a red check that gets
-        # clicked past. A failed-but-ignored step stays visible in the UI, which
-        # a green step with a buried summary does not.
-        continue-on-error: true
-        run: |
-          set -uo pipefail
-          ruff format --check scripts/ | tee format-drift.txt
-          status=${PIPESTATUS[0]}
-          drifted=$(grep -c '^Would reformat:' format-drift.txt || true)
-          {
-            echo "## ruff format drift (advisory)"
-            echo
-            echo "${drifted} file(s) under scripts/ are not ruff-formatted."
-            echo
-            # No backticks here: shellcheck reads a backtick inside single
-            # quotes as an unexpanded command substitution (SC2016) and the
-            # actionlint ratchet is blocking, so markdown code-fencing this
-            # line costs a ratchet slot for nothing.
-            echo "Fix with: ruff format scripts/"
-          } >> "$GITHUB_STEP_SUMMARY"
-          exit "$status"
+      - name: ruff format (blocking)
+        # Was advisory (continue-on-error) when this workflow landed, because 25
+        # files under scripts/ were already drifted and failing the job on a
+        # backlog nobody had agreed to clean up produces a red check that gets
+        # clicked past. Those 25 were reformatted in the same commit that
+        # promoted this step, so the backlog no longer exists and the reason for
+        # the exemption went with it. An advisory check kept past its reason is
+        # just a slower way of not checking.
+        run: ruff format --check scripts/

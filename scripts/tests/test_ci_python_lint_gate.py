@@ -102,6 +102,30 @@ class TestPullRequestLintWorkflow:
                 "workflow was created to replace."
             )
 
+    def test_format_check_is_blocking(self):
+        """Promoted from advisory on 2026-08-28, once the backlog was cleared.
+
+        It shipped with ``continue-on-error: true`` for one stated reason: 25
+        files under scripts/ were already drifted. Those were reformatted in the
+        promoting commit, so the exemption has no remaining justification — and
+        an advisory check kept past its reason is a slower way of not checking.
+        Re-adding the flag here silently restores that state, so it fails.
+        """
+        steps = self._doc()["jobs"]["ruff"]["steps"]
+        fmt = [s for s in steps if "ruff format" in str(s.get("run", ""))]
+        assert fmt, "python-lint.yml no longer runs `ruff format --check` at all."
+        for step in fmt:
+            assert not step.get("continue-on-error", False), (
+                "the ruff format step is continue-on-error again. If the backlog "
+                "genuinely came back, say so and record the count — do not "
+                "reinstate a permanent exemption for a temporary condition."
+            )
+            assert "--check" in str(step["run"]), (
+                "the ruff format step dropped --check, so it now rewrites files "
+                "in the runner instead of reporting on them. Nothing commits "
+                "here, so the rewrite is discarded and the step always passes."
+            )
+
     def test_ruff_is_version_pinned(self):
         text = WORKFLOW.read_text(encoding="utf-8")
         assert re.search(r"ruff==\d+\.\d+\.\d+", text), (
@@ -147,8 +171,10 @@ class TestOrchestratorDoesNotRepairBeforeVerifying:
 
     def test_lint_verdict_still_derives_from_the_verification(self):
         code = self._code()
-        assert "ok = lint_verify.ok" in code, (
-            "check_lint_and_types no longer derives `ok` from the ruff "
-            "verification. If the verdict now comes from somewhere else, update "
-            "this guard and state what it is."
+        assert "ok = lint_verify.ok and format_check.ok" in code, (
+            "check_lint_and_types no longer derives `ok` from both the ruff "
+            "check and the format check. Dropping `format_check.ok` returns "
+            "format drift to advisory in the ops loop while the PR gate still "
+            "blocks it — two gates disagreeing about the same rule is how a "
+            "violation ends up on main with a green tick somewhere to point at."
         )

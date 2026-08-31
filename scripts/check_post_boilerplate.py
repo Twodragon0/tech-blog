@@ -74,7 +74,9 @@ def checklist_signature(text: str) -> Tuple[str, ...]:
     return tuple(sorted(items))
 
 
-def build_index(posts: List[Path]) -> Tuple[Dict[str, Set[str]], Dict[Tuple[str, ...], Set[str]]]:
+def build_index(
+    posts: List[Path],
+) -> Tuple[Dict[str, Set[str]], Dict[Tuple[str, ...], Set[str]]]:
     """Map each block to the set of post names carrying it."""
     diagrams: Dict[str, Set[str]] = defaultdict(set)
     checklists: Dict[Tuple[str, ...], Set[str]] = defaultdict(set)
@@ -132,7 +134,8 @@ def main() -> int:
             first = body.splitlines()[0] if body.splitlines() else "(empty)"
             violations.append(
                 f"identical Mermaid diagram in {len(owners)} posts "
-                f"[{first[:60]}]: " + ", ".join(sorted(owners)[:4])
+                f"[{first[:60]}]: "
+                + ", ".join(sorted(owners)[:4])
                 + (" ..." if len(owners) > 4 else "")
             )
 
@@ -140,7 +143,8 @@ def main() -> int:
         if len(owners) > 1 and owners & scoped:
             violations.append(
                 f"identical checklist ({len(sig)} items) in {len(owners)} posts "
-                f"[{sig[0][:50]}]: " + ", ".join(sorted(owners)[:4])
+                f"[{sig[0][:50]}]: "
+                + ", ".join(sorted(owners)[:4])
                 + (" ..." if len(owners) > 4 else "")
             )
 

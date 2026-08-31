@@ -45,12 +45,9 @@ _HANGUL_RE = re.compile(r"[가-힣]")
 # Titles allowed to stay English, with the reason. Keep this list short: if it
 # starts absorbing real headlines, the gate has stopped meaning anything.
 ENGLISH_TITLE_ALLOW: Dict[str, str] = {
-    "[클라우드] Google ADK + Datadog LLM Observability":
-        "product names only (Google ADK, Datadog LLM Observability) — nothing to translate",
-    "[DevOps] KubeCon Europe 2026 Open Source SecurityCon":
-        "event names; KubeCon and Open Source SecurityCon are not translated in Korean coverage",
-    "I/O 2026":
-        "Google's conference name",
+    "[클라우드] Google ADK + Datadog LLM Observability": "product names only (Google ADK, Datadog LLM Observability) — nothing to translate",
+    "[DevOps] KubeCon Europe 2026 Open Source SecurityCon": "event names; KubeCon and Open Source SecurityCon are not translated in Korean coverage",
+    "I/O 2026": "Google's conference name",
 }
 
 

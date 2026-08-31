@@ -163,7 +163,9 @@ class TestGeminiModelIsConfigurable:
             ("gemini-3.5-flash", "gemini-3.5-flash"),
         ],
     )
-    def test_empty_env_falls_back_to_the_default(self, monkeypatch, env_value, expected):
+    def test_empty_env_falls_back_to_the_default(
+        self, monkeypatch, env_value, expected
+    ):
         """An unset repo variable arrives as "", not as absent.
 
         ai-blogwatcher.yml always defines AUTO_PUBLISH_GEMINI_MODEL (from
@@ -189,9 +191,9 @@ class TestGeminiModelIsConfigurable:
         alone did not reach it. Found while verifying the model against the
         production key (run 32811835061).
         """
-        wf = (
-            REPO_ROOT / ".github" / "workflows" / "ai-blogwatcher.yml"
-        ).read_text("utf-8")
+        wf = (REPO_ROOT / ".github" / "workflows" / "ai-blogwatcher.yml").read_text(
+            "utf-8"
+        )
         shim_raw = wf[wf.index("Install Gemini CLI") :][:2000]
         # Code lines only — the shim's comment names the retired id deliberately.
         shim = "\n".join(
