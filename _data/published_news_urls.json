@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-08-31T02:31:11.338781+00:00",
+  "updated_at": "2026-09-01T02:48:25.224931+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/critical-gitlab-graphql-flaw-could-let.html",
-      "title": "Critical GitLab GraphQL Flaw Could Let Unauthenticated Attackers Delete Public P",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/snowflake-github-actions-flaw-lets_0330881554.html",
-      "title": "Snowflake GitHub Actions Flaw Lets Crafted Issues Trigger Command Injection",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/forminator-wordpress-flaw-can-enable.html",
-      "title": "Forminator WordPress Flaw Can Enable Unauthenticated RCE via Malicious PHP Uploa",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/cavern-c2-uses-dns-and-google-apps.html",
-      "title": "Cavern C2 Uses DNS and Google Apps Script to Blend Into Legitimate Traffic",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/weekly-recap-vmware-exploits-windows-0.html",
-      "title": "⚡ Weekly Recap: VMware Exploits, Windows 0-Day, MCP Attacks, Browser Hijacks and",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence/",
-      "title": "Securing the Infrastructure of Intelligence",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/gemini/google-gemini-pixel-football-club-partnerships/",
-      "title": "Get closer to the game with Gemini and Pixel",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://openai.com/index/the-defenders-window",
-      "title": "The Defender’s Window",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://openai.com/index/openai-joins-ports-pike-project",
-      "title": "OpenAI joins PORTS-Pike project",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://openai.com/index/new-policy-ideas-for-the-intelligence-age",
-      "title": "New policy ideas for the Intelligence Age",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-ec2-application-status-checks-iam-role-manager-openai-daybreak-on-bedrock-and-more-august-17-2026/",
-      "title": "AWS Weekly Roundup: EC2 application status checks, IAM role manager, OpenAI Dayb",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/fnf-llm-gateway-on-amazon-bedrock/",
-      "title": "Amazon Bedrock 기반 사내 LLM, 키 발급부터 비용 차단까지: F&F의 LiteLLM 게이트웨이 운영 사례",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/evaluate-ai-agent-search-quality-with-amazon-opensearch-service-1/",
-      "title": "AI Agent를 위한 OpenSearch 검색 품질 평가하기 (Part 1)",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/make-zero-cves-your-new-default/",
-      "title": "Make zero CVEs your new default",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/08/17/welcome-falkey-the-falco-and-ky-the-kyverno-pyrenees/",
-      "title": "Welcome Falkey the Falco and Ky the Kyverno Pyrenees",
-      "published_date": "2026-08-18",
-      "expires_at": "2026-08-25T00:44:47.977854+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/microsoft-copilot-personal-flaws-could.html",
       "title": "Microsoft Copilot Personal Flaws Could Let One Click Exfiltrate Data From Connec",
@@ -1248,6 +1158,96 @@
       "title": "NVIDIA-labs OO Agents (NOOA) - Python 클래스로 에이전트를 정의하는 프레임워크",
       "published_date": "2026-08-31",
       "expires_at": "2026-09-07T02:31:11.338693+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/north-korean-job-fraud-expands-beyond.html",
+      "title": "North Korean Job Fraud Expands Beyond IT Into Healthcare and Sales",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/weekly-recap-chinese-spy-proxy-ai.html",
+      "title": "⚡ Weekly Recap: Chinese Spy Proxy, AI Agents Go Off-Task, Router Backdoors and M",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/we-invited-a-direct-competitor-into-security-hub-extended-heres-why/",
+      "title": "We invited a direct competitor into Security Hub Extended. Here’s why.",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/08/valleyrat-backdoor-hides-in-signed.html",
+      "title": "ValleyRAT Backdoor Hides in Signed Adware That Users Add to Antivirus Exclusions",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/automate-iam-identity-center-governance-with-continuous-discovery-and-reporting/",
+      "title": "Automate IAM Identity Center governance with continuous discovery and reporting",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://openai.com/index/polimill",
+      "title": "Polimill builds Japan's next-generation public AI infrastructure",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads",
+      "title": "A milestone in expanding access to AI",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/connect-an-agentcore-runtime-hosted-mcp-server-to-amazon-quick/",
+      "title": "Connect an AgentCore Runtime hosted MCP server to Amazon Quick",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/aws-recognized-as-a-leader-in-the-forrester-wave-ai-infrastructure-solutions-q4-2025/",
+      "title": "AWS recognized as a Leader in The Forrester Wave: AI Infrastructure Solutions, Q",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/manage-agents-tools-and-skills-at-scale-with-aws-agent-registry/",
+      "title": "Manage agents, tools and skills at scale with AWS Agent Registry",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-graph-connecting-data-and-ai-at-scale/",
+      "title": "BigQuery Graph is now GA: the knowledge foundation for the agentic era",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-tips-on-securing-water-sector-ai-era/",
+      "title": "Cloud CISO Perspectives: Tips on securing the water sector in the AI era",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/build-data-pipelines-in-less-time-with-data-agent-kit/",
+      "title": "From weeks to minutes: The new agentic era of data pipelines",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month/",
+      "title": "What’s new in AI infrastructure and orchestration in August",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/amazon-ec2-r9g-and-r9gd-instances-powered-by-aws-graviton5-processors-are-now-generally-available/",
+      "title": "Amazon EC2 R9g and R9gd instances powered by AWS Graviton5 processors are now ge",
+      "published_date": "2026-09-01",
+      "expires_at": "2026-09-08T02:48:25.224834+00:00"
     }
   ]
 }
