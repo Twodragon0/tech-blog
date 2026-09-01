@@ -51,7 +51,7 @@ def optimize_image(
     Returns:
         생성된 파일 경로 리스트
     """
-    created_files = []
+    created_files: List[Path] = []
 
     if not image_path.exists():
         log_message(f"이미지 파일을 찾을 수 없습니다: {image_path}", "ERROR")
@@ -146,7 +146,7 @@ def optimize_image(
 
 def find_images(directory: Path, recursive: bool = True) -> List[Path]:
     """디렉토리에서 이미지 파일 찾기"""
-    images = []
+    images: List[Path] = []
 
     if recursive:
         pattern = "**/*"

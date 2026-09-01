@@ -13,7 +13,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
@@ -115,7 +115,7 @@ Include: Korean labels (개발, 보안, 배포)""",
 
 def process_post_file(file_path: Path, generate_commands: bool = False) -> Dict:
     """포스팅 파일 처리"""
-    result = {
+    result: Dict[str, Any] = {
         "file": str(file_path),
         "images": [],
         "issues": [],

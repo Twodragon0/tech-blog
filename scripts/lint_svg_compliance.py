@@ -221,7 +221,7 @@ def check_signature(content: str) -> str | None:
 def lint_file(path: str) -> list[str]:
     """Return list of violation strings for a file (empty = clean)."""
     filename = os.path.basename(path)
-    violations = []
+    violations: list[str] = []
 
     # Skip OG image derivatives and supplementary diagram SVGs entirely
     if is_og_derivative(filename) or is_supplementary(filename):

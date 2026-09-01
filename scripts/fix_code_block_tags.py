@@ -344,12 +344,12 @@ def process_file(filepath: str) -> dict:
         content = fh.read()
 
     lines = content.split("\n")
-    result_lines = []
-    changes = defaultdict(int)  # language -> count
+    result_lines: list[str] = []
+    changes: defaultdict[str, int] = defaultdict(int)  # language -> count
 
     in_code_block = False
     block_lang = None
-    block_lines = []
+    block_lines: list[str] = []
     block_open_idx = None  # index in result_lines where opening ``` sits
 
     i = 0

@@ -154,7 +154,7 @@ def transform_body(text: str, path: str = "<unknown>") -> str:
         r"## 위험 스코어카드|## 참고 자료|## 📊)"
     )
     out = []
-    buf = []
+    buf: list[str] = []
     in_item = False
 
     def flush():

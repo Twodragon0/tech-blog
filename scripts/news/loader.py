@@ -306,7 +306,7 @@ def _has_primary_topic_signal(text: str, category: str) -> bool:
 
 def categorize_news(items: List[Dict]) -> Dict[str, List[Dict]]:
     """Categorize news items with content-based reclassification."""
-    categorized = defaultdict(list)
+    categorized: defaultdict[str, List[Dict]] = defaultdict(list)
 
     for item in items:
         category = item.get("category", "tech")
@@ -394,7 +394,7 @@ def select_top_news(
     categorized: Dict[str, List[Dict]], max_total: int = 15
 ) -> List[Dict]:
     """Select top news by category priority."""
-    selected = []
+    selected: List[Dict] = []
 
     for category in sorted(
         categorized.keys(), key=lambda c: CATEGORY_PRIORITY.get(c, 5)

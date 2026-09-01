@@ -399,7 +399,7 @@ def check_image_files(file_path: Path, front_matter: dict[str, object]) -> list[
 
 
 def check_svg_text_density(front_matter: dict[str, object]) -> list[str]:
-    issues = []
+    issues: list[str] = []
     image_path = str(front_matter.get("image", ""))
     if not image_path.endswith(".svg"):
         return issues

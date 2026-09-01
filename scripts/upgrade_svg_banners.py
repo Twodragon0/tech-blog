@@ -301,7 +301,7 @@ def parse_front_matter(text: str) -> dict:
     fm_lines = lines[1:end]
     fm = {}
     current_key = None
-    current_list = None
+    current_list: list[str] | None = None
     for line in fm_lines:
         # List item
         if line.startswith("- "):

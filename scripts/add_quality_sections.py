@@ -13,6 +13,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from typing import Any
 
 # ──────────────────────────────────────────────
 # Helper: front matter 파싱
@@ -21,7 +22,7 @@ from pathlib import Path
 
 def parse_front_matter(content: str) -> dict:
     """YAML front matter에서 주요 필드를 추출합니다."""
-    result = {}
+    result: dict[str, Any] = {}
     lines = content.splitlines()
     if len(lines) < 2 or lines[0].strip() != "---":
         return result

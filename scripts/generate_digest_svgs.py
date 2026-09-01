@@ -16,7 +16,7 @@ IMAGES_DIR = _REPO_ROOT / "assets/images"
 
 # Reference SVG style from 2026-03-05 - the "good" style
 # Posts that already have the good style - skip these
-SKIP_FILES = set()  # Regenerate all
+SKIP_FILES: set[str] = set()  # Regenerate all
 
 # Explicit date range to skip (hand-crafted high-quality SVGs)
 SKIP_DATE_RANGE = ("2026-04-05", "2026-04-14")

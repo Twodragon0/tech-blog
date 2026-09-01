@@ -102,7 +102,7 @@ def collect_vendor_news(vendors: List[str], hours: int) -> Optional[dict]:
 
 
 def categorize_items(items: List[dict]) -> Dict[str, List[dict]]:
-    categorized = {cat: [] for cat in VENDOR_CATEGORIES}
+    categorized: Dict[str, List[dict]] = {cat: [] for cat in VENDOR_CATEGORIES}
 
     for item in items:
         source = item.get("source", "")

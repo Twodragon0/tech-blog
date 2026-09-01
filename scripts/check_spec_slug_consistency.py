@@ -195,7 +195,7 @@ def _staged_spec_paths() -> list[Path]:
 
 def _check_spec(spec_path: Path) -> list[str]:
     """Check one spec file. Return list of violation strings (empty = clean)."""
-    violations = []
+    violations: list[str] = []
 
     date_str, slug = _parse_spec(spec_path)
     if date_str is None or slug is None:

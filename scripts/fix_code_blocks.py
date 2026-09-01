@@ -8,6 +8,7 @@
 import os
 import re
 from pathlib import Path
+from typing import Any
 
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
 
@@ -115,7 +116,7 @@ def detect_language(code_content: str) -> str:
     if not check_lines:
         return "text"
 
-    scores = {}
+    scores: dict[Any, int] = {}
 
     for line in check_lines:
         for pattern_tuple in LANG_PATTERNS:
@@ -169,7 +170,7 @@ def fix_code_blocks(filepath: Path) -> tuple[int, int, list[str]]:
     new_lines = []
     in_code_block = False
     code_block_start = -1
-    code_block_content = []
+    code_block_content: list[str] = []
     code_block_lang = None
 
     i = 0

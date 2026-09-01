@@ -1801,7 +1801,7 @@ def generate_tech_blog_content(
     total = len(news_items)
 
     # Group items by topic
-    topic_groups = {
+    topic_groups: Dict[str, List[Dict]] = {
         "AI/ML": [],
         "DevOps/Cloud": [],
         "Open Source": [],
