@@ -103,7 +103,7 @@ def _check_script(wf: dict) -> str:
     )
     if start is None:
         return ""
-    body = []
+    body: list[str] = []
     for ln in lines[start + 1 :]:
         if ln.strip() == "EOF":
             return "\n".join(body)

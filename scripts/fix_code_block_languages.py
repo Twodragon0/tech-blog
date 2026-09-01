@@ -297,7 +297,7 @@ def process_file(filepath: Path, dry_run: bool) -> dict:
     code_block_indent = ""
     code_block_fence = ""
     code_block_start_line = -1
-    code_block_lines = []
+    code_block_lines: list[str] = []
 
     new_lines = list(lines)
     replacements = []  # (line_index, new_line_content)

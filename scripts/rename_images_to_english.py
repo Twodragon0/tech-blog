@@ -209,10 +209,10 @@ def translate_korean_to_english(text: str) -> str:
     return result
 
 
-def get_post_image_mapping(blog_dir: Path) -> Dict[str, str]:
+def get_post_image_mapping(blog_dir: Path) -> Dict[str, dict]:
     """Get mapping from image filenames to post filenames for reference."""
     posts_dir = blog_dir / "_posts"
-    mapping = {}
+    mapping: Dict[str, dict] = {}
 
     if not posts_dir.exists():
         return mapping
@@ -244,7 +244,7 @@ def get_post_image_mapping(blog_dir: Path) -> Dict[str, str]:
 
 def find_image_files_with_korean(images_dir: Path) -> List[Path]:
     """Find all image files with Korean characters in their names."""
-    korean_files = []
+    korean_files: List[Path] = []
 
     if not images_dir.exists():
         return korean_files

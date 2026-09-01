@@ -330,7 +330,7 @@ def generate_references(notice: SecurityNotice) -> List[Dict[str, str]]:
 def collect_notices(days: int = 30, max_pages: int = 3) -> List[SecurityNotice]:
     """보안공지 수집 (최근 N일)"""
     session = get_session()
-    all_notices = []
+    all_notices: List[SecurityNotice] = []
     cutoff_date = datetime.now() - timedelta(days=days)
 
     safe_log(f"Collecting KISA security notices (last {days} days)...")

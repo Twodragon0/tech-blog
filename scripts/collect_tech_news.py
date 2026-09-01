@@ -1586,7 +1586,7 @@ def fetch_rss_feed(
     source_key: str, source_config: dict, hours: int = 24, timeout: int = 30
 ) -> List[NewsItem]:
     """RSS 피드에서 뉴스 수집 (per-feed socket timeout 적용)"""
-    items = []
+    items: List[NewsItem] = []
     feed_url = source_config.get("feed_url")
 
     if not feed_url:

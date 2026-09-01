@@ -208,7 +208,7 @@ def _protected_spans(body: str) -> list:
         for m in rx.finditer(body):
             spans.append((m.start(), m.end()))
     spans.sort()
-    merged = []
+    merged: list[tuple[int, int]] = []
     for s, e in spans:
         if merged and s <= merged[-1][1]:
             merged[-1] = (merged[-1][0], max(merged[-1][1], e))

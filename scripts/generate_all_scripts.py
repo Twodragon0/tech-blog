@@ -89,7 +89,7 @@ def get_existing_scripts() -> Dict[str, Path]:
     Returns:
         {post_stem: script_path} 딕셔너리
     """
-    existing = {}
+    existing: Dict[str, Path] = {}
     if not OUTPUT_DIR.exists():
         return existing
 

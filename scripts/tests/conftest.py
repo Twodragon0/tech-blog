@@ -28,7 +28,7 @@ auto_publish_news._GEMINI_CIRCUIT_OPEN = True
 # Saved original state for reset
 _ORIG_GEMINI_AVAILABLE = False
 _ORIG_CIRCUIT_OPEN = True
-_ORIG_TITLE_CACHE = {}
+_ORIG_TITLE_CACHE: dict[str, str] = {}
 
 
 @pytest.fixture(autouse=True)

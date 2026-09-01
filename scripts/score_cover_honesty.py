@@ -97,7 +97,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 REPO = Path(__file__).resolve().parent.parent
 ASSETS = REPO / "assets" / "images"
@@ -1102,7 +1102,7 @@ def score_file(svg_path: Path) -> Dict:
     """
     svg_path = Path(svg_path)
     rel = _repo_rel(svg_path)
-    base = {
+    base: Dict[str, Any] = {
         "rubric_version": RUBRIC_VERSION,
         "system": None,
         "file": rel,
