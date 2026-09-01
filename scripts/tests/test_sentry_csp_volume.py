@@ -17,6 +17,7 @@ every failure exit 0 hides real breakage. These tests pin both directions.
 
 from __future__ import annotations
 
+import email.message
 import importlib.util
 import json
 import urllib.error
@@ -48,8 +49,14 @@ def creds(monkeypatch):
 
 
 def _http_error(code: int) -> urllib.error.HTTPError:
+    # hdrs must be a Message, not None: HTTPError stores it verbatim (fp=None
+    # skips addinfourl init), and only `.code` is read by the code under test.
     return urllib.error.HTTPError(
-        url="https://sentry.io/api/0/", code=code, msg="test", hdrs=None, fp=None
+        url="https://sentry.io/api/0/",
+        code=code,
+        msg="test",
+        hdrs=email.message.Message(),
+        fp=None,
     )
 
 

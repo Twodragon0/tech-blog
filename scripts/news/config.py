@@ -6,7 +6,7 @@ import re
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(
@@ -281,7 +281,10 @@ _OPENAI_GPT54_MODEL: str = os.getenv("AUTO_PUBLISH_OPENAI_GPT54_MODEL", "gpt-5.4
 # SVG configuration
 # ============================================================================
 
-CATEGORY_SVG_CONFIG = {
+# Values are heterogeneous per key ("gradient" is a tuple, the rest are str),
+# so the inferred value type would collapse to Sequence[str] and make every
+# `config["icon_color"]` read look like a Sequence at call sites.
+CATEGORY_SVG_CONFIG: Dict[str, Dict[str, Any]] = {
     "security": {
         "gradient": ("dc2626", "991b1b"),
         "label": "SECURITY",

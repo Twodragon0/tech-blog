@@ -316,6 +316,14 @@ def process_post(post_file: Path, force: bool = False) -> bool:
     missing_diagrams = []
     for image_path, alt_text in diagram_refs:
         exists, image_file = check_image_exists(image_path)
+        if image_file is None:
+            # check_image_exists only returns None for an empty path, which
+            # extract_diagram_references cannot produce. Skip rather than let
+            # the None reach generate_image_with_gemini() and AttributeError.
+            log_message(
+                f"  ⚠️ 경로를 해석할 수 없어 건너뜁니다: {image_path}", "WARNING"
+            )
+            continue
         if not exists:
             missing_diagrams.append((image_path, alt_text, image_file))
             log_message(f"  ❌ 누락: {Path(image_path).name} - {alt_text}", "WARNING")

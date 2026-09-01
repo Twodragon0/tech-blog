@@ -19,6 +19,7 @@ sys.path.insert(0, str(REPO_ROOT))
 
 _RUN_PY = REPO_ROOT / "scripts" / "dev" / "compare_lighthouse_runs.py"
 spec = importlib.util.spec_from_file_location("compare_lighthouse_runs", _RUN_PY)
+assert spec is not None and spec.loader is not None, f"cannot load {_RUN_PY}"
 clr = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(clr)
 

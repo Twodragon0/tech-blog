@@ -69,6 +69,7 @@ def _uncommented(shell: str) -> str:
 
 def _ratcheted_severities() -> tuple[str, ...]:
     spec = importlib.util.spec_from_file_location("_ratchet", CHECKER)
+    assert spec is not None and spec.loader is not None, f"cannot load {CHECKER}"
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return tuple(module.RATCHETED_SEVERITIES)

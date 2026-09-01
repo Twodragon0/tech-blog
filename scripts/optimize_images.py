@@ -10,7 +10,7 @@
 import argparse
 import sys
 from pathlib import Path
-from typing import List
+from typing import Any, Dict, List
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from scripts.lib.logging_utils import log_message
@@ -77,7 +77,7 @@ def optimize_image(
             # WebP 생성
             if output_format in ("webp", "both"):
                 webp_path = image_path.with_suffix(".webp")
-                save_options = {
+                save_options: Dict[str, Any] = {
                     "format": "WebP",
                     "quality": quality,
                     "method": 6,  # 최고 압축 (느리지만 작은 파일)

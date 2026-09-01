@@ -22,6 +22,7 @@ import importlib.util
 
 _RUN_PY = REPO_ROOT / "reports" / "l20-visual-regression" / "run.py"
 spec = importlib.util.spec_from_file_location("l20_run", _RUN_PY)
+assert spec is not None and spec.loader is not None, f"cannot load {_RUN_PY}"
 l20_run = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(l20_run)
 
