@@ -141,7 +141,7 @@ def fetch_original_content(url: str) -> str:
 
 def find_related_posts(news_item: dict, posts_dir: Path) -> List[dict]:
     """기존 포스트 중 관련된 것 찾기"""
-    related = []
+    related: List[dict] = []
     category = news_item.get("category", "")
     title_words = set(news_item.get("title", "").lower().split())
 

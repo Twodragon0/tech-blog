@@ -58,7 +58,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, cast
 
 # --- Path setup so we can import scripts.news.* (mirrors
 # backfill_digest_enrichment.py's established pattern). ---
@@ -642,12 +642,19 @@ def main(argv: Optional[List[str]] = None) -> int:
                 # dumping it wholesale is noisy and trips CodeQL's clear-text
                 # heuristic on security-topic prose. A preview is enough to
                 # eyeball grounding; use `git diff` after apply for the full text.
+                # `info` is Dict[str, object] on purpose — it mixes int, str and
+                # bool. Casting the two block values at the point of use keeps
+                # that container strict; widening it to Dict[str, Any] would
+                # silence every future misuse of every other key too. cast() is
+                # erased at runtime.
                 if info["exec_added"]:
-                    _preview("경영진 브리핑 / 위험 스코어카드", info["exec_block"])
+                    _preview(
+                        "경영진 브리핑 / 위험 스코어카드", cast(str, info["exec_block"])
+                    )
                 if info["checklist_action"] != "none":
                     _preview(
                         f"실무 체크리스트 [{info['checklist_action']}]",
-                        info["checklist_block"],
+                        cast(str, info["checklist_block"]),
                     )
             else:
                 # new_text is the post's own markdown with grounded sections
