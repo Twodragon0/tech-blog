@@ -834,7 +834,9 @@ serves the HTML.
 - **우선순위 충돌 테스트**: `TestBranchPriorityConflicts` parametrized 테스트로 자동 감지
 - **pre-commit hook**: `scripts/auto_publish_news.py` 또는 `scripts/tests/` 변경 시 pytest 자동 실행
 - **커버리지 목표**: `auto_publish_news.py` 40% 이상 유지 (`--cov-fail-under=40` CI 강제)
-- **테스트 현황**: 287건 / 0.19초 (conftest.py에서 API 비활성화, lazy import 적용)
+- **테스트 현황** (2026-09-01 실측): `test_news_templates.py` **439건 / 0.76초**, `scripts/tests/` 전체 **5083 passed + 5 skipped / 약 25초** (conftest.py에서 API 비활성화, lazy import 적용)
+  - 이 줄에 있던 `287건 / 0.19초`는 스테일이었다. 287은 전체 스위트도, 이 파일도 아니다 — 이 파일의 과거 수치가 갱신되지 않은 채 남은 것이다. `pytest --collect-only`로 확인하면 439/5088이 나온다.
+  - **두 수치를 병기하는 이유**: pre-commit hook은 `scripts/tests/` 전체를 돌리므로 체감 시간은 25초 쪽이고, 이 섹션이 다루는 템플릿 분기 커버리지는 439 쪽이다. 하나만 적으면 다음 사람이 어느 쪽을 본 건지 알 수 없다.
 
 ### Security Checklist
 - [ ] Input validation implemented
