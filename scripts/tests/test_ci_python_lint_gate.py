@@ -38,6 +38,17 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "python-lint.yml"
 ORCHESTRATOR = REPO_ROOT / "scripts" / "ops_health_orchestrator.py"
+OPS_WORKFLOW = REPO_ROOT / ".github" / "workflows" / "ops-orchestrator.yml"
+
+
+def _ruff_pins(text: str) -> set[str]:
+    """Every pinned ruff version in a workflow, ignoring whole-line comments.
+
+    The comments in both workflows name the pinned version while explaining why
+    it is pinned, and a matcher that reads those would call an unpinned install
+    compliant — the exact direction of failure this guard exists to catch.
+    """
+    return set(re.findall(r"ruff==(\d+\.\d+\.\d+)", _code_lines(text)))
 
 
 def _code_lines(text: str) -> str:
@@ -133,6 +144,68 @@ class TestPullRequestLintWorkflow:
             "ruff adds rules between releases and fails a PR for code its author "
             "did not write."
         )
+
+
+class TestBothRuffGatesRunTheSameVersion:
+    """The PR gate and the ops loop share a verdict, so they must share a ruff.
+
+    Since 2026-08-28 ``check_lint_and_types`` derives ``ok`` from
+    ``ruff format --check scripts/`` and python-lint.yml runs the same command
+    blocking. Two gates enforcing one rule with two rulesets do not agree, and
+    the disagreement surfaces on whichever one happens to run first.
+
+    Pinning python-lint.yml alone was not enough, which is how this was found:
+    ops-orchestrator.yml installed ruff unpinned, resolved to 0.16 — which
+    formats Python inside Markdown, a thing 0.15.8 does not do — and failed on
+    scripts/AGENTS.md, untouched since 2026-04-08, while the PR gate reported
+    389 files clean.
+
+    Direction: equality. A deliberate bump must move BOTH files in one PR.
+    """
+
+    def test_ops_workflow_exists(self):
+        assert OPS_WORKFLOW.is_file(), f"{OPS_WORKFLOW} not found"
+
+    def test_ops_orchestrator_pins_ruff(self):
+        pins = _ruff_pins(OPS_WORKFLOW.read_text(encoding="utf-8"))
+        assert pins, (
+            "ops-orchestrator.yml installs ruff unpinned. Its lint-and-types "
+            "check is the only check that can fail that run, so an upstream "
+            "ruff release turns main red for code nobody wrote — and it did, "
+            "on 2026-08-31."
+        )
+
+    def test_every_ruff_install_in_ops_is_pinned(self):
+        """One unpinned install among three is still an unpinned gate."""
+        code = _code_lines(OPS_WORKFLOW.read_text(encoding="utf-8"))
+        installs = re.findall(r"pip install[^\n]*\bruff\b[^\n]*", code)
+        assert installs, "ops-orchestrator.yml no longer installs ruff at all."
+        unpinned = [line for line in installs if "ruff==" not in line]
+        assert not unpinned, (
+            f"ops-orchestrator.yml still installs ruff unpinned: {unpinned}. "
+            "The workflow has three jobs that install it; pinning only the one "
+            "that happens to be red leaves the next one to find the same skew."
+        )
+
+    def test_the_two_gates_agree_on_the_version(self):
+        pr_gate = _ruff_pins(WORKFLOW.read_text(encoding="utf-8"))
+        ops = _ruff_pins(OPS_WORKFLOW.read_text(encoding="utf-8"))
+        assert pr_gate == ops, (
+            f"ruff version skew: python-lint.yml pins {sorted(pr_gate)}, "
+            f"ops-orchestrator.yml pins {sorted(ops)}. They enforce the same "
+            "`ruff format --check scripts/` rule, so one of them is now failing "
+            "on a rule the other does not have. Bump both in the same PR, and "
+            "run `ruff format scripts/` with the new version before doing so."
+        )
+
+    def test_a_single_version_is_pinned_within_each_file(self):
+        """Two pins in one file is the same skew, one directory deeper."""
+        for path in (WORKFLOW, OPS_WORKFLOW):
+            pins = _ruff_pins(path.read_text(encoding="utf-8"))
+            assert len(pins) <= 1, (
+                f"{path.name} pins more than one ruff version: {sorted(pins)}. "
+                "Its jobs would lint the same tree against different rulesets."
+            )
 
 
 class TestOrchestratorDoesNotRepairBeforeVerifying:
