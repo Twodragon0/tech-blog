@@ -217,7 +217,7 @@ def band(
     mini2_value: str = "",
     mini2_label: str = "",
     mini2_sub: str = "",
-    extras: List[dict] = None,
+    extras: List[dict] | None = None,
 ) -> str:
     """Build a single horizontal band. ``idx`` 0/1/2 maps to y 0/210/420.
 

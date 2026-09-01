@@ -72,11 +72,14 @@ def fetch_article(
     entry = cache.get(key)
     if isinstance(entry, dict):
         try:
-            if datetime.fromisoformat(entry.get("expires_at")) > now:
+            expires_at = entry.get("expires_at")
+            if isinstance(expires_at, str) and datetime.fromisoformat(expires_at) > now:
                 return entry.get("text") or None
         except (KeyError, ValueError, TypeError):
-            # malformed entry (missing/non-string expires_at, tz mismatch) →
-            # fall through and re-fetch; never raise to the caller (fail-closed)
+            # malformed entry (unparseable expires_at, tz mismatch) → fall
+            # through and re-fetch; never raise to the caller (fail-closed).
+            # A missing / non-string expires_at falls through via the
+            # isinstance guard above rather than via this handler.
             pass
     try:
         html = _http_get(url)

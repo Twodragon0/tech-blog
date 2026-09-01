@@ -196,7 +196,7 @@ def detect_banner_type(heading_text: str) -> str:
         scores[category] = score
 
     # Find best match
-    best = max(scores, key=scores.get)
+    best = max(scores, key=lambda category: scores[category])
     if scores[best] > 0:
         return best
 

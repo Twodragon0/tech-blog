@@ -132,7 +132,7 @@ def detect_diagram_type(content: str, tags: List[str]) -> str:
         return "vpc"  # 기본값
 
     # 가장 높은 점수의 유형 반환
-    return max(scores, key=scores.get)
+    return max(scores, key=lambda diagram_type: scores[diagram_type])
 
 
 def extract_post_info(post_file: Path) -> Dict:

@@ -28,9 +28,9 @@ ASSETS = REPO / "assets" / "images"
 
 # Load the Python gate as a module to reuse its classifier + BANDS.
 _spec = importlib.util.spec_from_file_location("_svg_gate", PY_GATE)
+assert _spec is not None and _spec.loader is not None, f"cannot load {PY_GATE}"
 _gate = importlib.util.module_from_spec(_spec)
-assert _spec.loader is not None
-_spec.loader.exec_module(_gate)  # type: ignore[union-attr]
+_spec.loader.exec_module(_gate)
 
 classify = _gate.classify
 BANDS = _gate.BANDS

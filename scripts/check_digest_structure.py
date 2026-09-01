@@ -173,7 +173,7 @@ def _kind(violation: str) -> str:
     return violation.split(": ", 1)[0]
 
 
-def new_violations(current: list, base: list) -> list:
+def new_violations(current: list, base: list | None) -> list:
     """Violations in *current* with no counterpart of the same kind in *base*.
 
     Multiset difference over ``_kind()`` rather than raw strings. base=None (the

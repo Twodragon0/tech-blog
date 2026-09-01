@@ -18,6 +18,7 @@ import pytest
 
 _MOD_PATH = Path(__file__).resolve().parents[1] / "normalize_blogwatcher_payload.py"
 _spec = importlib.util.spec_from_file_location("nbp", _MOD_PATH)
+assert _spec is not None and _spec.loader is not None, f"cannot load {_MOD_PATH}"
 nbp = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(nbp)
 

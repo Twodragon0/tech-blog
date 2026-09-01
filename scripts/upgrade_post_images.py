@@ -140,7 +140,7 @@ def detect_theme(tags: list[str], categories: list[str], title: str) -> str:
             scores[theme] = score
     if not scores:
         return "general"
-    return max(scores, key=scores.get)
+    return max(scores, key=lambda theme: scores[theme])
 
 
 # ---------------------------------------------------------------------------

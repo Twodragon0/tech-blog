@@ -141,7 +141,7 @@ def detect_language(code_content: str) -> str:
 
     if scores:
         # Return the language with highest score
-        best = max(scores, key=scores.get)
+        best = max(scores, key=lambda lang: scores[lang])
         return best
 
     # Default heuristics
