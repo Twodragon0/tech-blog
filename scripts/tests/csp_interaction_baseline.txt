@@ -31,3 +31,36 @@
 # Path B does not degrade Google Translate. It disables it outright. That measurement
 # is what the deferral decision was made on.
 script-src-elem|inline
+#
+# ---------------------------------------------------------------------------
+# AdSense Google Sans stylesheet — added 2026-09-01
+# ---------------------------------------------------------------------------
+#
+# Unlike the line above, these two are NOT report-only. They appear under both
+# dispositions, so the enforcing style-src is really blocking them in production.
+# What that costs is a fallback font inside Google's own ad chrome; no
+# first-party markup, script, or layout depends on them.
+#
+# Source: pagead2.googlesyndication.com/pagead/managed/js/adsense/
+# m202608250101/show_ads_impl.js:209 started requesting Google Sans from
+# fonts.googleapis.com. The build stamp dates that script to 2026-08-25 and the
+# gate went red on the 2026-08-26 run — nothing in this repository changed.
+#
+# Stable, not flapping: the same two keys and only those two appear in every
+# failing run measured (2026-08-26, 08-29, 08-30, 08-31), so this grandfathers a
+# fixed pair rather than an open-ended family.
+#
+# Why grandfathered instead of allowed in vercel.json: satisfying it means
+# adding fonts.googleapis.com to style-src AND fonts.gstatic.com to font-src
+# (the stylesheet is blocked first, so the font files it references have not
+# been requested yet — allow one and the other becomes the next violation).
+# That widens the policy in two places for a third-party cosmetic. Declining is
+# the cheaper side of the trade.
+#
+# These do NOT block Path B. Path B is about dropping 'unsafe-inline' from
+# script-src; these are style-src. The <=3 cap in
+# test_ci_csp_interaction_guard.py::test_baseline_stays_small is now met exactly
+# — if a genuine script-src entry ever needs grandfathering, that cap should be
+# argued about on its own merits rather than raised to fit these two.
+style-src-elem|https://fonts.googleapis.com/css?family=Google%20Sans%3A400
+style-src-elem|https://fonts.googleapis.com/css?family=Google%20Sans%3A700
