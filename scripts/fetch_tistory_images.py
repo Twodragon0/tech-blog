@@ -7,7 +7,7 @@ import re
 import sys
 import time
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Optional, Tuple, cast
 from urllib.parse import unquote, urljoin, urlparse
 
 import requests
@@ -83,7 +83,7 @@ def extract_images_from_tistory(url: str) -> List[str]:
 
         # 1. img 태그의 src 속성
         for img in soup.find_all("img"):
-            src = img.get("src") or img.get("data-src")
+            src = cast(Optional[str], img.get("src") or img.get("data-src"))
             if src:
                 # Tistory CDN 이미지 URL 검증 (호스트 기반)
                 if is_allowed_url(src):
@@ -96,7 +96,7 @@ def extract_images_from_tistory(url: str) -> List[str]:
 
         # 2. 메타 태그에서 이미지 찾기 (og:image 등)
         for meta in soup.find_all("meta", property=re.compile(r"og:image")):
-            content = meta.get("content")
+            content = cast(Optional[str], meta.get("content"))
             if content and is_allowed_url(content):
                 if content.startswith("//"):
                     content = "https:" + content

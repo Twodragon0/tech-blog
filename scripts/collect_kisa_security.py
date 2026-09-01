@@ -18,7 +18,7 @@ import sys
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Union
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from scripts.lib.security import mask_sensitive_info
@@ -138,7 +138,7 @@ def fetch_security_notices(
     """KISA 보안공지 목록 수집"""
     notices = []
 
-    params = {
+    params: Dict[str, Union[str, int]] = {
         "menuNo": "205020",
         "bbsId": "B0000133",
         "pageIndex": page,

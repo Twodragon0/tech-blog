@@ -37,7 +37,7 @@ import os
 import re
 import sys
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, cast
 
 from bs4 import BeautifulSoup
 
@@ -175,7 +175,12 @@ def parse_categories_html(html: str) -> list[dict[str, str]]:
     soup = BeautifulSoup(protected, "html.parser")
     out: list[dict[str, str]] = []
     for span in soup.find_all("span", class_="category-tag"):
-        classes = [c for c in span.get("class", []) if c != "category-tag"]
+        # bs4's stub types Tag.get's default as `str | AttributeValueList | None`,
+        # so a bare `[]` is rejected even though a list default is exactly what
+        # the multi-valued `class` attribute wants. cast() on the default is
+        # erased at runtime; rewriting it as `span.get("class") or []` would be a
+        # behaviour change, not an annotation.
+        classes = [c for c in span.get("class", cast(Any, [])) if c != "category-tag"]
         cls = classes[0] if classes else ""
         label = _restore_entities(span.get_text())
         out.append({"class": cls, "label": label})

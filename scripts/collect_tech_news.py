@@ -21,7 +21,7 @@ import sys
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 from urllib.parse import parse_qs, urlparse
 
 import feedparser
@@ -36,7 +36,7 @@ DEFAULT_FEED_TIMEOUT = 30  # seconds
 # 뉴스 소스 설정
 # ============================================================================
 
-NEWS_SOURCES = {
+NEWS_SOURCES: Dict[str, Dict[str, Any]] = {
     "worldmonitor_tech": {
         "name": "Tech World Monitor",
         "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
