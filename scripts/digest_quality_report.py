@@ -48,7 +48,7 @@ _KOREAN_ENDINGS = re.compile(
 )
 
 
-def find_digest_posts(month: str = None) -> list:
+def find_digest_posts(month: str | None = None) -> list:
     """Find Digest post files, optionally filtered by month (YYYY-MM)."""
     pattern = "*.md"
     posts = sorted(POSTS_DIR.glob(pattern))

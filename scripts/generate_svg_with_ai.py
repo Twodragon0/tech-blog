@@ -8,6 +8,7 @@ import subprocess
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -83,7 +84,7 @@ def parse_post(filepath: Path) -> dict:
         return {}
 
     fm = fm_match.group(1)
-    result = {"filename": filepath.name}
+    result: dict[str, Any] = {"filename": filepath.name}
 
     # Title
     m = re.search(r'^title:\s*["\']?(.*?)["\']?\s*$', fm, re.MULTILINE)
@@ -133,7 +134,7 @@ def read_post_content(filepath: Path) -> str:
     return ""
 
 
-def build_prompt(post: dict, filepath: Path = None) -> str:
+def build_prompt(post: dict, filepath: Path | None = None) -> str:
     """Build content-aware SVG generation prompt."""
     en_title = extract_english_title(post["title"], post["filename"])
     date = format_date(post["date"])

@@ -19,7 +19,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from io import StringIO
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import frontmatter
@@ -30,6 +30,13 @@ from scripts.lib.logging_utils import log_message
 from scripts.lib.security import mask_sensitive_info, validate_masked_text
 from scripts.lib.svg_utils import escape_xml_text as _escape_xml_text
 from scripts.lib.svg_utils import is_valid_svg as _is_valid_svg
+
+# Optional import: when scripts.news.l20_dispatch is unimportable both
+# generators are None, and every call site already guards with `is not None`,
+# so the declared type has to admit None as well as the imported function.
+_L20Generator = Callable[[Dict[Any, Any], Path], bool]
+_generate_l20_digest_svg: Optional[_L20Generator]
+_generate_l20_content_svg: Optional[_L20Generator]
 
 try:
     from scripts.news.l20_dispatch import (

@@ -39,7 +39,7 @@ def post_with_retry(
         logging.debug("requests library not available for %s", label)
         return None
 
-    last_error = None
+    last_error: str | Exception | None = None
     for attempt in range(_TRANSIENT_RETRIES + 1):
         try:
             response = requests.post(url, headers=headers, json=json, timeout=timeout)

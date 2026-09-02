@@ -2452,7 +2452,7 @@ def _illust_rollup_index(
     cy: int,
     accent: str,
     soft: str,
-    halo: str = None,
+    halo: str | None = None,
     label: str = "MONTHLY RECAP",
 ) -> str:
     """Calendar-style card grid (4 rows x 7 cols) for monthly/weekly rollup index posts."""
@@ -2966,7 +2966,7 @@ def render_single_svg(
     tags: List[str],
     visual_id: str,
     date_label: str,
-    stats: List[Dict[str, str]] = None,
+    stats: List[Dict[str, str]] | None = None,
     illustration_key: str = "",
     theme_key: str = "",
 ) -> str:

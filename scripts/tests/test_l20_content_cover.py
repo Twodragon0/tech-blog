@@ -43,7 +43,7 @@ from scripts.news.l20_dispatch import (
 
 
 # A minimal but complete story dict for direct render_l20_hero calls.
-def _story(headline: str, action: str = None) -> dict:
+def _story(headline: str, action: str | None = None) -> dict:
     s = {
         "tag": "HIGH",
         "index": "01",
