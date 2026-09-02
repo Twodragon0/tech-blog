@@ -224,7 +224,7 @@ def pixel_diff(baseline_png: Path, current_png: Path, diff_out: Path) -> dict:
 
     # Resize current to match baseline dimensions if they differ (e.g. sub-pixel rounding)
     if baseline_img.size != current_img.size:
-        current_img = current_img.resize(baseline_img.size, Image.LANCZOS)
+        current_img = current_img.resize(baseline_img.size, Image.Resampling.LANCZOS)
 
     base_arr = np.array(baseline_img, dtype=np.int32)
     curr_arr = np.array(current_img, dtype=np.int32)

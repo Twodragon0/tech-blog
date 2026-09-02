@@ -94,7 +94,7 @@ def build_rasters(svg: Path) -> None:
         og.load()
         og.save(ASSETS / f"{base}_og.webp", "WEBP", quality=80)
         og.save(ASSETS / f"{base}_og.avif", "AVIF", quality=60)
-        card = og.resize((CARD_W, CARD_H), Image.LANCZOS)
+        card = og.resize((CARD_W, CARD_H), Image.Resampling.LANCZOS)
         card.save(ASSETS / f"{base}_card.webp", "WEBP", quality=80)
         card.save(ASSETS / f"{base}_card.avif", "AVIF", quality=60)
 

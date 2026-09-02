@@ -9,7 +9,7 @@
 
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Tuple
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -363,7 +363,14 @@ def process_post_file(
     Returns:
         처리 결과를 담은 딕셔너리.
     """
-    result = {"file": str(file_path), "fixed": False, "issues": [], "fixed_links": []}
+    # Heterogeneous value types (str / bool / list) — without the annotation
+    # mypy joins them to `object` and rejects `result["issues"].append(...)`.
+    result: Dict[str, Any] = {
+        "file": str(file_path),
+        "fixed": False,
+        "issues": [],
+        "fixed_links": [],
+    }
 
     try:
         with open(file_path, "r", encoding="utf-8") as f:

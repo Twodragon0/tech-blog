@@ -175,12 +175,14 @@ def parse_categories_html(html: str) -> list[dict[str, str]]:
     soup = BeautifulSoup(protected, "html.parser")
     out: list[dict[str, str]] = []
     for span in soup.find_all("span", class_="category-tag"):
-        # bs4's stub types Tag.get's default as `str | AttributeValueList | None`,
-        # so a bare `[]` is rejected even though a list default is exactly what
-        # the multi-valued `class` attribute wants. cast() on the default is
-        # erased at runtime; rewriting it as `span.get("class") or []` would be a
-        # behaviour change, not an annotation.
-        classes = [c for c in span.get("class", cast(Any, [])) if c != "category-tag"]
+        # bs4's stub fights this call twice: the default is typed
+        # `str | AttributeValueList | None` (so a bare `[]` is rejected) AND the
+        # return is Optional regardless of the default (so the comprehension is
+        # rejected too). Casting the default only silenced the first. Casting the
+        # receiver covers both and is erased at runtime; rewriting it as
+        # `span.get("class") or []` would be a behaviour change, not an annotation.
+        raw_classes = cast(Any, span).get("class", [])
+        classes = [c for c in raw_classes if c != "category-tag"]
         cls = classes[0] if classes else ""
         label = _restore_entities(span.get_text())
         out.append({"class": cls, "label": label})

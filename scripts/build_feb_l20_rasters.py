@@ -45,7 +45,7 @@ def build(svg: Path) -> None:
         og.save(og_avif, "AVIF", quality=60)
 
         # Step 3: og.png → card.{webp,avif} (resize)
-        card = og.resize((CARD_W, CARD_H), Image.LANCZOS)
+        card = og.resize((CARD_W, CARD_H), Image.Resampling.LANCZOS)
         card.save(card_webp, "WEBP", quality=80)
         card.save(card_avif, "AVIF", quality=60)
 
