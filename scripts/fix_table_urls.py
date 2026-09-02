@@ -11,6 +11,7 @@ import os
 import re
 import sys
 from pathlib import Path
+from typing import Any
 
 
 def _domain_matches(domain: str, pattern: str) -> bool:
@@ -223,7 +224,7 @@ def is_separator_row(line: str) -> bool:
 
 def process_file(filepath: Path) -> dict:
     """Process a single file and return change statistics."""
-    stats = {
+    stats: dict[str, Any] = {
         "file": str(filepath),
         "url_link_text_fixes": 0,
         "bare_url_fixes": 0,

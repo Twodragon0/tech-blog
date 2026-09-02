@@ -1220,7 +1220,7 @@ def vb_security_advisory(
     )
 
 
-VISUAL_BUILDERS = {
+VISUAL_BUILDERS: Dict[str, Callable[..., str]] = {
     "cve_chain": vb_cve_chain,
     "hub_spoke": vb_hub_spoke,
     "container_escape": vb_container_escape,

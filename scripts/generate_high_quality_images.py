@@ -8,7 +8,7 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict
+from typing import Any, Dict
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import frontmatter
@@ -366,7 +366,7 @@ def generate_high_quality_svg(post_info: Dict, output_path: Path) -> bool:
         highlights = post_info.get("highlights", [])
 
         # 카테고리별 설정
-        category_config = {
+        category_config: Dict[str, Dict[str, Any]] = {
             "security": {
                 "gradient_start": "#dc2626",
                 "gradient_end": "#991b1b",

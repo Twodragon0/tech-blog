@@ -17,7 +17,7 @@ import json
 import re
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, List
+from typing import Any, Dict, List
 
 # Keywords that suggest a block should be a Mermaid diagram
 MERMAID_KEYWORDS = {
@@ -184,7 +184,7 @@ def analyze_block_content(block: Dict) -> str:
 
 def analyze_all_posts(posts_dir: Path = Path("_posts")) -> Dict:
     """Analyze all code blocks in all posts."""
-    results = {
+    results: Dict[str, Any] = {
         "total_posts": 0,
         "total_blocks": 0,
         "categories": defaultdict(int),
