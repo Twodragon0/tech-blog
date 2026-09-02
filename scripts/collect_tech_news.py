@@ -1546,7 +1546,7 @@ def extract_image_from_entry(entry) -> str:
             img = soup.find("img", src=True)
             if img:
                 src = img.get("src", "")
-                if src and src.startswith("http"):
+                if isinstance(src, str) and src.startswith("http"):
                     return src
 
     return ""
@@ -1569,13 +1569,17 @@ def fetch_og_image(url: str, timeout: int = 10) -> str:
 
         # og:image
         og = soup.find("meta", property="og:image")
-        if og and og.get("content"):
-            return og["content"]
+        if og:
+            og_content = og.get("content")
+            if isinstance(og_content, str) and og_content:
+                return og_content
 
         # twitter:image
         tw = soup.find("meta", attrs={"name": "twitter:image"})
-        if tw and tw.get("content"):
-            return tw["content"]
+        if tw:
+            tw_content = tw.get("content")
+            if isinstance(tw_content, str) and tw_content:
+                return tw_content
 
     except requests.RequestException:
         pass

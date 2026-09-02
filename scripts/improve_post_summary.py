@@ -9,7 +9,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Optional
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
@@ -64,7 +64,7 @@ def check_image_exists(image_path: str) -> bool:
     )
 
 
-def improve_summary_with_gemini(post_data: Dict[str, str]) -> str:
+def improve_summary_with_gemini(post_data: Dict[str, str]) -> Optional[str]:
     """Gemini CLI를 사용하여 요약 개선"""
     prompt = f"""다음 기술 블로그 포스팅의 요약을 개선해주세요.
 

@@ -118,14 +118,15 @@ def split_into_sections(content: str) -> list[tuple[int, int, str]]:
     heading_pattern = re.compile(r"^### (.+)")
 
     current_start = None
-    current_heading = None
+    current_heading = ""
 
     for i, line in enumerate(lines):
-        if heading_pattern.match(line):
+        heading_match = heading_pattern.match(line)
+        if heading_match:
             if current_start is not None:
                 sections.append((current_start, i, current_heading))
             current_start = i
-            current_heading = heading_pattern.match(line).group(1).strip()
+            current_heading = heading_match.group(1).strip()
 
     if current_start is not None:
         sections.append((current_start, len(lines), current_heading))

@@ -9,7 +9,7 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Optional
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from scripts.lib.logging_utils import log_message
@@ -19,7 +19,7 @@ LOG_FILE = Path(__file__).parent.parent / "improvement_log.txt"
 RUN_DURATION = 3600  # 1시간
 
 
-def extract_post_info(file_path: Path) -> Dict:
+def extract_post_info(file_path: Path) -> Optional[Dict]:
     """포스팅 정보 추출"""
     try:
         content = file_path.read_text(encoding="utf-8")

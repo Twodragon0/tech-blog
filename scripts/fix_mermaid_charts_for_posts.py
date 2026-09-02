@@ -147,7 +147,7 @@ def determine_chart_type(
 
 def create_mermaid_code(
     chart_type: str, title: str, description: str, context: str
-) -> str:
+) -> Optional[str]:
     """머메이드 차트 코드 생성"""
 
     if chart_type == "devsecops_cycle":
