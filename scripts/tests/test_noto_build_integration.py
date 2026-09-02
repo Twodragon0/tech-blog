@@ -26,8 +26,8 @@ class TestBuildShNotoHook:
     """build.sh must reference the generator and the pinned URL."""
 
     def test_references_generator_script(self) -> None:
-        assert "generate_noto_2tier_subset.py" in _build_sh_text(), (
-            "build.sh must invoke generate_noto_2tier_subset.py"
+        assert "generate_noto_subset.py" in _build_sh_text(), (
+            "build.sh must invoke generate_noto_subset.py"
         )
 
     def test_exports_noto_vf_url(self) -> None:
@@ -45,8 +45,8 @@ class TestBuildShNotoHook:
         assert sha_match, f"NOTO_VF_URL must contain a pinned 40-char commit SHA; got: {url}"
 
     def test_references_syllable_list(self) -> None:
-        assert "noto_subset_top1k.txt" in _build_sh_text(), (
-            "build.sh must reference noto_subset_top1k.txt for the mtime check"
+        assert "noto_subset_hangul.txt" in _build_sh_text(), (
+            "build.sh must reference noto_subset_hangul.txt for the mtime check"
         )
 
     def test_stamp_file_variable_defined(self) -> None:
@@ -58,7 +58,7 @@ class TestBuildShNotoHook:
         """The regen step must not hard-fail the build on generator error."""
         text = _build_sh_text()
         # The || { ... } or || true pattern after python3 call signals graceful failure
-        assert re.search(r"generate_noto_2tier_subset\.py.*\|\|", text, re.DOTALL), (
+        assert re.search(r"generate_noto_subset\.py.*\|\|", text, re.DOTALL), (
             "build.sh must handle generator failure gracefully (|| pattern required)"
         )
 

@@ -7,11 +7,11 @@ the generator script or the syllable corpus.
 
 Usage:
     python3 scripts/dev/check_font_drift.py \\
-        --changed-files 'assets/fonts/noto-sans-kr-400-tier1.woff2'
+        --changed-files 'assets/fonts/noto-sans-kr-400-ksx1001.woff2'
     # exit 1 — fonts changed without generator/corpus update
 
     python3 scripts/dev/check_font_drift.py \\
-        --changed-files 'assets/fonts/noto-sans-kr-400-tier1.woff2,scripts/build/generate_noto_2tier_subset.py'
+        --changed-files 'assets/fonts/noto-sans-kr-400-ksx1001.woff2,scripts/build/generate_noto_subset.py'
     # exit 0
 
 Override: when the CI label "font-drift-allowed" is present the caller
@@ -28,8 +28,8 @@ WOFF2_PATTERN = re.compile(r"^assets/fonts/.*\.woff2$")
 # Source-of-truth files that must accompany any woff2 change
 GENERATOR_FILES = frozenset(
     [
-        "scripts/build/generate_noto_2tier_subset.py",
-        "scripts/build/noto_subset_top1k.txt",
+        "scripts/build/generate_noto_subset.py",
+        "scripts/build/noto_subset_hangul.txt",
     ]
 )
 
@@ -40,8 +40,8 @@ FAILURE_MESSAGE = """\
 generator or the syllable corpus.
 
 **Allowed source-of-truth files (at least one must also change):**
-- `scripts/build/generate_noto_2tier_subset.py`
-- `scripts/build/noto_subset_top1k.txt`
+- `scripts/build/generate_noto_subset.py`
+- `scripts/build/noto_subset_hangul.txt`
 
 **Why this gate exists:**
 The woff2 files are committed binaries. Any accidental regeneration

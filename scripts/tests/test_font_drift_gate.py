@@ -18,16 +18,29 @@ from check_font_drift import check_font_drift  # noqa: E402
 
 SCRIPT = Path(__file__).parent.parent / "dev" / "check_font_drift.py"
 
-WOFF2_A = "assets/fonts/noto-sans-kr-400-tier1.woff2"
-WOFF2_B = "assets/fonts/noto-sans-kr-700-tier2.woff2"
-GENERATOR = "scripts/build/generate_noto_2tier_subset.py"
-CORPUS = "scripts/build/noto_subset_top1k.txt"
+WOFF2_A = "assets/fonts/noto-sans-kr-400-ksx1001.woff2"
+WOFF2_B = "assets/fonts/noto-sans-kr-700-ksx1001.woff2"
+GENERATOR = "scripts/build/generate_noto_subset.py"
+CORPUS = "scripts/build/noto_subset_hangul.txt"
 UNRELATED = "README.md"
 
 
 # ---------------------------------------------------------------------------
 # Unit tests via check_font_drift()
 # ---------------------------------------------------------------------------
+
+
+def test_fixture_paths_exist_on_disk():
+    """The fixture constants must name real files.
+
+    These are string literals, so a font rename silently turns every other test
+    here into a no-op assertion about a path that no longer exists. That is
+    exactly what happened when the 2-tier layout was retired
+    (`noto-sans-kr-700-tier2.woff2` lingered as a constant).
+    """
+    repo_root = Path(__file__).resolve().parents[2]
+    for rel in (WOFF2_A, WOFF2_B, GENERATOR, CORPUS, UNRELATED):
+        assert (repo_root / rel).exists(), f"fixture path is stale: {rel}"
 
 
 def test_empty_diff_passes():

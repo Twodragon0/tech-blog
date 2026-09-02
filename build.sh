@@ -58,20 +58,20 @@ fi
 # ---------------------------------------------------------------------------
 # Noto Sans KR woff2 subset regeneration (conditional, graceful failure)
 # ---------------------------------------------------------------------------
-if [ -f "scripts/build/generate_noto_2tier_subset.py" ]; then
+if [ -f "scripts/build/generate_noto_subset.py" ]; then
   log "Checking Noto Sans KR woff2 subset freshness..."
   STAMP=".noto-subset.stamp"
   NEEDS_REGEN=0
-  if [ ! -f "assets/fonts/noto-sans-kr-400-tier1.woff2" ]; then NEEDS_REGEN=1; fi
-  if [ ! -f "assets/fonts/noto-sans-kr-700-tier2.woff2" ]; then NEEDS_REGEN=1; fi
-  if [ ! -f "$STAMP" ] || [ "scripts/build/generate_noto_2tier_subset.py" -nt "$STAMP" ] || [ "scripts/build/noto_subset_top1k.txt" -nt "$STAMP" ]; then
+  if [ ! -f "assets/fonts/noto-sans-kr-400-ksx1001.woff2" ]; then NEEDS_REGEN=1; fi
+  if [ ! -f "assets/fonts/noto-sans-kr-700-ksx1001.woff2" ]; then NEEDS_REGEN=1; fi
+  if [ ! -f "$STAMP" ] || [ "scripts/build/generate_noto_subset.py" -nt "$STAMP" ] || [ "scripts/build/noto_subset_hangul.txt" -nt "$STAMP" ]; then
     NEEDS_REGEN=1
   fi
   if [ "$NEEDS_REGEN" = "1" ]; then
     log "Regenerating Noto woff2 subsets (NOTO_VF_URL=${NOTO_VF_URL})..."
     # Ensure fonttools[woff] is available (graceful failure if pip not on PATH)
     pip install --quiet 'fonttools[woff]>=4.55.0' 2>/dev/null || true
-    python3 scripts/build/generate_noto_2tier_subset.py || {
+    python3 scripts/build/generate_noto_subset.py || {
       log "WARN: Noto regeneration failed; using existing woff2 files (build continues)"
     }
     touch "$STAMP"

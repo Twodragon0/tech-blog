@@ -1,41 +1,55 @@
 # Noto Sans KR Self-Host Runbook
 
-Operational guide for the self-hosted, two-tier Noto Sans KR woff2 subset that ships with this site (landed in PR #323).
+Operational guide for the self-hosted Noto Sans KR woff2 subset that ships with this site (self-host landed in PR #323 as a 2-tier layout; collapsed to a single tier 2026-08-07).
 
 ## 1. Overview
 
-The site self-hosts Noto Sans KR as two woff2 tiers per weight (400, 700) instead of fetching from Google Fonts. The motivation is twofold:
+The site self-hosts Noto Sans KR as one woff2 subset per weight (400, 700) instead of fetching from Google Fonts. The motivation is twofold:
 
 - PageSpeed flagged 45 KiB of unused CSS rules from the Google Fonts dynamic stylesheet on every page load.
 - Removing the Google Fonts network dependency eliminates third-party DNS, TLS, and request waterfall before first paint, plus the GDPR/privacy exposure of font fetches to `fonts.googleapis.com` and `fonts.gstatic.com`.
 
-The tradeoff with self-hosting Noto Sans KR is the full Hangul Syllables block (U+AC00–U+D7A3, 11,172 glyphs) compressing to ~545 KB per weight in woff2 — too heavy to preload eagerly. The two-tier strategy resolves this:
+The tradeoff with self-hosting Noto Sans KR is the full Hangul Syllables block (U+AC00–U+D7A3, 11,172 glyphs) compressing to ~545 KB per weight in woff2 — too heavy to preload eagerly. The subset resolves this by covering only what Korean text actually needs:
 
-- **Tier 1 (eager, preloaded)**: Latin Basic + Latin-1 Supplement + Hangul Jamo + CJK punctuation + the top-N most-frequent Hangul syllables from the corpus. Targets ≤230 KB per weight. Preloaded via `<link rel="preload">` so first paint has the font ready.
-- **Tier 2 (lazy, idle-loaded)**: The remaining Hangul codepoints. Targets ≤550 KB per weight. Loaded via the FontFace API inside `requestIdleCallback` after first paint. Browsers transparently fall back to tier-2 when a glyph isn't in tier-1.
+- Latin Basic + Latin-1 Supplement + Latin Extended-A + Hangul Jamo + CJK punctuation + halfwidth/fullwidth + arrows/geometry/symbols
+- **KS X 1001 Hangul (2,350 syllables) ∪ every syllable observed in `_posts/*.md`**
 
-Coverage analysis from PR #323: the corpus has 730,895 total Hangul characters across 155 posts and only 952 unique syllables. Tier-1 includes all 952, so **top-N covers 100.00% of every Hangul character ever published**. Tier-2 exists to handle rare syllables a future post might introduce — those render after a brief font-swap once tier-2 resolves.
+Measured 2026-08-07: the corpus has 1,250,662 Hangul characters across 258 posts and **1,035 distinct syllables — all 1,035 inside KS X 1001**, so the union is exactly the 2,350-syllable KS X 1001 set today. The subset therefore covers 100% of every Hangul character ever published, with ~1,315 syllables of headroom for novel content.
+
+Both faces are preloaded via `<link rel="preload">` so first paint has the font ready. There is no runtime font loading.
+
+### Why the 2-tier layout was retired (2026-08-07)
+
+The previous layout eager-loaded a ~200 KB "tier-1" face (top-1000 corpus syllables) and lazy-loaded a ~490 KB "tier-2" face with the remaining ~10,200 syllables — 1,374.6 KB across four files. Two structural defects made it a net loss:
+
+1. **The tiers were disjoint, not overlapping.** tier-1 carried 952 Hangul glyphs while its CSS `unicode-range` claimed all 11,172 of U+AC00–D7A3 (tier-1 ∩ tier-2 Hangul = 0). Chrome does **not** walk the CSS fallback stack for a code point that is inside a declared range but missing from the face — it goes straight to OS system fallback. The same-family fallback tier-2 was supposed to provide never worked.
+2. **The "lazy" load was not lazy.** `head-runtime.js` waited for `window.load` then `requestIdleCallback`, but on a warm load `window.load` fires before FCP so the idle callback ran immediately (84 ms observed, versus FCP at 261 ms). Worse, `FontFace.load()` fetches at Chrome priority `VeryHigh` — **above** the tier-1 preload's `High`. 972 KB of rare glyphs covering 0.0194% of body text competed with first paint.
+
+The single face sits between the two sizes and removes both defects. Total woff2 transfer: **1,374.6 KB → 562.8 KB (−59%)**.
+
+The `unicode-range` in `_includes/font-face.html` still declares the whole `U+AC00-D7A3` block. That is deliberate: narrowing it to the real 2,350-code-point coverage would add 10–12 KB of raw ranges to the inline `<style>`, and per defect (1) it would not change fallback behaviour for the ~8,800 unused syllables. Narrowing is tracked as a separate decision, not a bug.
 
 ## 2. File Layout
 
-| Source / generator                                  | Generated artifact                                  | Consumer                                             |
-|-----------------------------------------------------|------------------------------------------------------|------------------------------------------------------|
-| `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-400-tier1.woff2`         | `_includes/font-face.html` `@font-face` + `<link rel="preload">` |
-| `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-400-tier2.woff2`         | `assets/js/head-runtime.js#loadFontTier2()` via FontFace API |
-| `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-700-tier1.woff2`         | `_includes/font-face.html` `@font-face`             |
-| `scripts/build/generate_noto_2tier_subset.py`       | `assets/fonts/noto-sans-kr-700-tier2.woff2`         | `assets/js/head-runtime.js#loadFontTier2()`          |
-| `scripts/build/noto_subset_top1k.txt`               | source-of-truth for tier-1 Hangul syllable list     | the generator's `--text-file=` for tier-1 subsetting |
+| Source / generator                            | Generated artifact                                | Consumer                                                         |
+|-----------------------------------------------|---------------------------------------------------|------------------------------------------------------------------|
+| `scripts/build/generate_noto_subset.py`       | `assets/fonts/noto-sans-kr-400-ksx1001.woff2`     | `_includes/font-face.html` `@font-face` + `<link rel="preload">`  |
+| `scripts/build/generate_noto_subset.py`       | `assets/fonts/noto-sans-kr-700-ksx1001.woff2`     | `_includes/font-face.html` `@font-face` + `<link rel="preload">`  |
+| `scripts/build/generate_noto_subset.py`       | `scripts/build/noto_subset_hangul.txt`            | font-drift-gate source of truth (2,350 entries)                  |
 
-Current sizes (drift detection baseline as of PR #323):
+Current sizes (drift detection baseline as of 2026-08-07, fontTools 4.62.1):
 
-| File                                | Size     |
-|-------------------------------------|----------|
-| `noto-sans-kr-400-tier1.woff2`      | 199.3 KB |
-| `noto-sans-kr-400-tier2.woff2`      | 478.1 KB |
-| `noto-sans-kr-700-tier1.woff2`      | 203.3 KB |
-| `noto-sans-kr-700-tier2.woff2`      | 493.8 KB |
+| File                                  | Size     | Coverage                     |
+|---------------------------------------|----------|------------------------------|
+| `noto-sans-kr-400-ksx1001.woff2`      | 278.4 KB | 3,230 code points / 5,487 glyphs |
+| `noto-sans-kr-700-ksx1001.woff2`      | 284.4 KB | 3,230 code points / 5,487 glyphs |
+| **total**                             | 562.9 KB |                              |
 
-Cache headers for `/assets/fonts/*.woff2` are set in `vercel.json:184-198` to `Cache-Control: public, max-age=31536000, immutable` so each woff2 is fetched at most once per browser indefinitely.
+Code-point count is lower than the 3,694 the generator requests because the upstream VF has no glyph for some of them (parts of `U+FF00-FFEF` and `U+2600-26FF`). The corpus and the full KS X 1001 set are covered — that is what the gate asserts. Sizes vary by up to ~0.1% between runs; see §3.
+
+### Filenames must change when the bytes change
+
+Cache headers for `/assets/fonts/*.woff2` are set in `vercel.json:176-190` to `Cache-Control: public, max-age=31536000, immutable`, and the filenames carry **no content hash**. Rewriting bytes under a name a returning visitor already cached pins them to a stale face for up to a year — and a stale face plus new CSS is how the 2-tier retirement would have shipped a broken combination (cached 952-glyph tier-1 + CSS with no tier-2). The `ksx1001` stem encodes the Hangul coverage basis: **any change to the coverage set must also change the filename stem** (`FONT_STEM` in the generator).
 
 ## 3. Regenerate
 
@@ -44,22 +58,22 @@ Cache headers for `/assets/fonts/*.woff2` are set in `vercel.json:184-198` to `C
 `build.sh` automatically checks whether the woff2 files need to be regenerated before every Jekyll build. The check uses a stamp file (`.noto-subset.stamp`) to avoid redundant work.
 
 **When regen runs** (any of these conditions triggers it):
-- Any of the 4 woff2 files is missing from `assets/fonts/`
+- Either woff2 file is missing from `assets/fonts/`
 - The stamp file (`.noto-subset.stamp`) does not exist
-- `scripts/build/generate_noto_2tier_subset.py` is newer than the stamp
-- `scripts/build/noto_subset_top1k.txt` is newer than the stamp
+- `scripts/build/generate_noto_subset.py` is newer than the stamp
+- `scripts/build/noto_subset_hangul.txt` is newer than the stamp
 
 **When regen is skipped** (cache hit):
-- All 4 woff2 files exist AND the stamp is newer than both input files — regen outputs ~0 s overhead
+- Both woff2 files exist AND the stamp is newer than both input files — regen outputs ~0 s overhead
 
 **Stamp-file invariants**:
 - The stamp is written (via `touch "$STAMP"`) after a successful or attempted regeneration
 - `.noto-subset.stamp` is listed in `.gitignore` — it is a local build artifact, never committed
-- On a fresh Vercel/CI clone all 4 woff2 files are present in the repo (committed), so the stamp is absent but mtime of committed files equals checkout time — the stamp is created immediately and subsequent builds skip regen unless inputs change
+- On a fresh Vercel/CI clone both woff2 files are present in the repo (committed), so the stamp is absent but mtime of committed files equals checkout time — the stamp is created immediately and subsequent builds skip regen unless inputs change
 
 **Graceful-failure path**: if `fonttools[woff]` installation fails or the upstream URL is unreachable, the regeneration step prints a warning but does NOT abort the build. The last-known-good woff2 files already in the repo are used. This prevents a temporary upstream outage from breaking production deploys.
 
-**Cost**: ~10 s when regeneration is needed (font download + subsetting), ~0 s on cache hit.
+**Cost**: ~20 s when regeneration is needed (font download + subsetting), ~0 s on cache hit.
 
 `build.sh` also exports the pinned upstream URL so every invocation uses the same source:
 
@@ -71,26 +85,32 @@ To bump the pin: update the SHA in `build.sh`, regenerate locally, commit the ne
 
 ### Manual regeneration
 
+Always pass the same pinned URL `build.sh` uses, otherwise you build from upstream `main` and produce different bytes than production:
+
 ```bash
 cd /Users/yong/Desktop/personal/tech-blog
 source .venv/bin/activate          # ensures fonttools[woff] is on PATH
-python3 scripts/build/generate_noto_2tier_subset.py
+export NOTO_VF_URL="$(grep -o "https://[^']*" build.sh | head -1)"
+python3 scripts/build/generate_noto_subset.py
 git diff --stat assets/fonts/      # verify expected files changed
-ls -lh assets/fonts/noto-sans-kr-*.woff2
-```
-
-For deterministic CI reproducibility, pin the Noto upstream source:
-
-```bash
-NOTO_VF_URL='https://raw.githubusercontent.com/notofonts/noto-cjk/<commit-sha>/Sans/Variable/TTF/Subset/NotoSansKR-VF.ttf' \
-  python3 scripts/build/generate_noto_2tier_subset.py
+python3 -m pytest scripts/tests/test_font_glyph_coverage.py -q
 ```
 
 When to regenerate:
 
-- A new post introduces Hangul syllables not in `scripts/build/noto_subset_top1k.txt`. The corpus already has 100% coverage, so this is rare — only meaningful for novel content (new Korean technical terms, transliterated proper nouns, etc.).
+- **A new post introduces a Hangul syllable outside the coverage set.** `scripts/tests/test_font_glyph_coverage.py` fails CI in that case with the exact syllable(s) named. Since cron auto-publishes digests, this gate is the early warning. The generator's coverage set is `KS X 1001 ∪ corpus`, so re-running it picks up the new syllable automatically — but you must also bump `FONT_STEM` (see §2) because the bytes change under cache-immutable headers.
 - Noto upstream releases a new version. Review `notofonts/noto-cjk` releases quarterly and bump the pinned commit SHA.
-- Tier-1 size drifts above 230 KB per weight. Either trim the top-N syllable list or split tier-1 further.
+- Per-weight size drifts above 320 KB (the generator's `--max-kb` soft cap).
+
+### The generator is not byte-reproducible
+
+Re-running with an unchanged corpus, unchanged pinned upstream font, same fontTools, and even `PYTHONHASHSEED=0` yields woff2 that differ in bytes and in size by up to ~0.1% (measured 284,892 / 284,984 / 285,036 / 285,120 B for weight 400 across four runs — glyph count 5,487 and cmap 3,230 code points identical every time). brotli itself is deterministic, so the variance is inside fontTools' subsetting or woff2 transform.
+
+Consequences:
+
+- **Never gate on byte equality** against the committed files. `scripts/tests/test_font_glyph_coverage.py` is the authority; it asserts coverage, not bytes.
+- Vercel's cold-deploy regen therefore serves bytes that differ slightly from the committed ones. Harmless (same coverage, same metrics), and regen never commits back so git history stays clean.
+- Separately, rebuilding against upstream `main` instead of the pinned SHA also changes bytes. Always export `NOTO_VF_URL` from `build.sh` as shown above.
 
 ## 4. Size Monitoring
 
@@ -102,16 +122,16 @@ stat -f "%z %N" assets/fonts/noto-sans-kr-*.woff2 \
   | sort
 ```
 
-Acceptance thresholds (as of PR #323):
+Acceptance thresholds (as of 2026-08-07):
 
-- Tier-1 ≤ 230 KB per weight (preload budget — exceeding this hurts LCP)
-- Tier-2 ≤ 550 KB per weight (lazy budget — exceeding hurts perceived font-swap cost)
+- ≤ 320 KB per weight (preload budget — exceeding this hurts LCP)
+- ≤ 600 KB total across both weights
 
 If a threshold is exceeded after regeneration:
 
-1. Inspect `scripts/build/noto_subset_top1k.txt` for unexpected entries (e.g. stray non-Hangul codepoints).
-2. Reduce top-N by lowering the frequency cutoff in the generator (default keeps every syllable that appears at least once).
-3. Consider splitting tier-2 further into tier-2 + tier-3 if the rare-Hangul tail grows past 700 KB.
+1. Inspect `scripts/build/noto_subset_hangul.txt` for unexpected entries (e.g. stray non-Hangul codepoints).
+2. Check whether new posts pulled in a large number of syllables outside KS X 1001 — if so, decide whether they are real content or mojibake.
+3. Consider the variable-font route (one VF file serving both weights) before re-introducing tiering — tiering failed for the reasons in §1.
 
 ## 5. Rollback
 
@@ -121,7 +141,7 @@ If a threshold is exceeded after regeneration:
 git revert -m 1 12bd01d6
 ```
 
-This restores the Google Fonts `<link>` tag, the `wireGoogleFonts()` JS branch, and the Google Fonts hosts in CSP. The 4 woff2 files remain on disk but are no longer referenced. Vercel redeploys automatically.
+This restores the Google Fonts `<link>` tag, the `wireGoogleFonts()` JS branch, and the Google Fonts hosts in CSP. The woff2 files remain on disk but are no longer referenced. Vercel redeploys automatically.
 
 ### Hard rollback (manual)
 
@@ -136,28 +156,28 @@ After rollback, verify the build:
 
 ```bash
 bundle exec jekyll build --quiet --destination _site
-grep -c 'fonts.googleapis.com' _site/index.html   # should be >= 1
-grep -c 'noto-sans-kr-tier1' _site/index.html     # should be 0
+grep -c 'fonts.googleapis.com' _site/index.html    # should be >= 1
+grep -c 'noto-sans-kr-400-ksx1001' _site/index.html # should be 0
 ```
 
 Manually re-add `https://fonts.googleapis.com` to CSP `style-src` and `https://fonts.gstatic.com` to CSP `font-src` in `vercel.json` if they were removed by the hard rollback.
 
 ## 6. Troubleshooting
 
-### Korean text shows as boxes (tofu)
+### Korean text shows as boxes (tofu) or in the wrong typeface
 
-Tier-2 woff2 didn't load. Diagnose in browser DevTools:
+The syllable is outside the subset, so Chrome fell through to OS system fallback — silently, with no console warning and no network error.
 
-1. Network tab → filter `noto-sans-kr-tier2`. Both 400 and 700 should show 200 OK with `Content-Type: font/woff2`.
-2. If 404: verify the path in `assets/js/head-runtime.js#loadFontTier2()` matches the file name in `assets/fonts/`.
-3. If blocked by CSP: confirm `vercel.json` has `font-src 'self'` (no `https://fonts.gstatic.com` needed since we self-host).
-4. If FontFace API throws: check console for `Failed to load FontFace` errors — possibly a corrupted woff2 file. Regenerate (section 3).
+1. Run the gate: `python3 -m pytest scripts/tests/test_font_glyph_coverage.py -q`. It names the missing syllable(s).
+2. If the gate passes, the woff2 failed to load. Network tab → filter `noto-sans-kr`. Both 400 and 700 should show 200 OK with `Content-Type: font/woff2`.
+3. If 404: verify the paths in `_includes/font-face.html` match the file names in `assets/fonts/`. A `FONT_STEM` bump without an include update produces exactly this.
+4. If blocked by CSP: confirm `vercel.json` has `font-src 'self'` (no `https://fonts.gstatic.com` needed since we self-host).
 
 ### FOUT (Flash of Unstyled Text)
 
-Expected for ~50 ms while tier-1 woff2 loads. If the FOUT lasts longer:
+Expected for ~50 ms while the woff2 loads. If the FOUT lasts longer:
 
-- Verify `<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/noto-sans-kr-400-tier1.woff2">` is present in `_site/index.html`.
+- Verify `<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/noto-sans-kr-400-ksx1001.woff2">` is present in `_site/index.html`.
 - Verify the `@font-face` declaration uses `font-display: swap` (allows fallback during fetch).
 - Verify the woff2 file is served with `Cache-Control: immutable` so repeat visits don't re-fetch.
 
@@ -175,7 +195,7 @@ GitHub may rate-limit or the upstream may have moved. Override:
 
 ```bash
 NOTO_VF_URL='https://github.com/notofonts/noto-cjk/raw/<commit-sha>/Sans/Variable/TTF/NotoSansKR-VF.ttf' \
-  python3 scripts/build/generate_noto_2tier_subset.py
+  python3 scripts/build/generate_noto_subset.py
 ```
 
 ## 7. Decision Log
@@ -183,22 +203,25 @@ NOTO_VF_URL='https://github.com/notofonts/noto-cjk/raw/<commit-sha>/Sans/Variabl
 - **2026-05** — Chose two-tier eager + lazy because the all-or-nothing self-host attempt produced ~1.1 MB initial transfer (both weights × full Hangul block), unacceptable for first paint. Corpus analysis revealed 952 unique syllables → ~200 KB tier-1 with 100% real-content coverage, fitting the preload budget.
 - **2026-05** — Rejected Korean Linguistic Society frequency tables for tier selection. Discarded because corpus-driven analysis is more accurate for THIS site (technical security vocabulary skews different than general Korean).
 - **2026-05** — Rejected FontFace API only with no preload. Discarded because tier-1 must be available before first paint — preload is required.
+- **2026-08-07** — Collapsed to a single tier. tier-2 was 972 KB (71% of all font bytes) covering 0.0194% of body-text syllable instances, and it did not even function as a same-family fallback because the tiers were disjoint while tier-1's `unicode-range` over-claimed. Coverage basis switched from "top-N corpus frequency" to "KS X 1001 ∪ corpus" so the set no longer shrinks/grows with post churn. 1,374.6 KB → 562.8 KB.
+- **2026-08-07** — Rejected narrowing `unicode-range` to real coverage. It adds 10–12 KB of raw ranges to the inline `<style>` and changes nothing behaviourally at 2,350-syllable coverage, because Chrome skips the CSS fallback stack for in-range-but-missing glyphs. Revisit only if coverage drops far below KS X 1001.
+- **2026-08-07** — Deferred the variable-font route (one VF file serving both weights). Separate PR.
 
 ## 8. Related References
 
-- PR #323 — feature implementation (`12bd01d6`)
-- `scripts/build/generate_noto_2tier_subset.py` — generator source
-- `scripts/build/noto_subset_top1k.txt:1` — checked-in syllable list (952 entries)
-- `_includes/font-face.html:1` — eager tier-1 `@font-face` + preload tag
+- PR #323 — self-host feature implementation (`12bd01d6`)
+- `scripts/build/generate_noto_subset.py` — generator source
+- `scripts/build/noto_subset_hangul.txt:1` — checked-in coverage list (2,350 entries)
+- `_includes/font-face.html:1` — `@font-face` + preload tags
 - `_includes/head.html` — integration point (just after the `theme-init` script)
-- `assets/js/head-runtime.js#loadFontTier2` — lazy tier-2 loader
-- `vercel.json:34` — CSP without Google Fonts hosts; `vercel.json:184-198` — woff2 cache headers
+- `scripts/tests/test_font_glyph_coverage.py` — blocking Hangul coverage gate
+- `vercel.json:34` — CSP without Google Fonts hosts; `vercel.json:176-190` — woff2 cache headers
 
 ## 9. Why Not Git LFS?
 
-**Short answer:** The four woff2 files (~1.34 MiB total) have been touched in only two commits across the project's entire history. LFS would add per-build bandwidth cost on Vercel (~5–10 s per build, ~400 MiB/month) and contributor friction (`git lfs install` required after clone), with negligible repo-size benefit at today's scale.
+**Short answer:** The woff2 files (~550 KiB total since 2026-08-07, 1.34 MiB before) have been touched in only a handful of commits across the project's entire history. LFS would add per-build bandwidth cost on Vercel (~5–10 s per build, ~400 MiB/month) and contributor friction (`git lfs install` required after clone), with negligible repo-size benefit at today's scale.
 
-The full cost-benefit analysis — including clone time metrics, Vercel build budget, and GitHub LFS bandwidth projections — lives in [`docs/optimization/WOFF2_LFS_DECISION.md`](./WOFF2_LFS_DECISION.md). The recommendation is to stay in the main git pack and enforce the rule that woff2 files may only change when the generator or corpus also changes.
+The full cost-benefit analysis — including clone time metrics, Vercel build budget, and GitHub LFS bandwidth projections — lives in [`docs/optimization/WOFF2_LFS_DECISION.md`](./WOFF2_LFS_DECISION.md). The recommendation is to stay in the main git pack and enforce the rule that woff2 files may only change when the generator or coverage list also changes.
 
 **The CI discipline that replaces LFS migration:**
 
@@ -206,14 +229,14 @@ Instead of LFS, a dedicated CI gate enforces the invariant that no woff2 can ent
 
 - **`.gitattributes`** marks `assets/fonts/*.woff2` as `binary` so git never attempts a text diff on font files and CRLF normalization is suppressed on Windows clones.
 - **`.github/workflows/font-drift-gate.yml`** triggers on every PR that touches `assets/fonts/**`. If any `*.woff2` appears in the diff, at least one of the following must also appear:
-  - `scripts/build/generate_noto_2tier_subset.py`
-  - `scripts/build/noto_subset_top1k.txt`
+  - `scripts/build/generate_noto_subset.py`
+  - `scripts/build/noto_subset_hangul.txt`
 - **`scripts/dev/check_font_drift.py`** implements the same logic as a pure-stdlib CLI so the gate can be verified locally without CI:
   ```bash
   python3 scripts/dev/check_font_drift.py \
-      --changed-files 'assets/fonts/noto-sans-kr-400-tier1.woff2'
+      --changed-files 'assets/fonts/noto-sans-kr-400-ksx1001.woff2'
   # exit 1 — fonts changed without generator/corpus update
   ```
-- **Override:** For intentional font swaps that don't change the generator (e.g. an upstream Noto upstream bump committed separately), a maintainer can apply the `font-drift-allowed` label to the PR to bypass the gate.
+- **Override:** For intentional font swaps that don't change the generator (e.g. an upstream Noto bump committed separately), a maintainer can apply the `font-drift-allowed` label to the PR to bypass the gate.
 
 Revisit the LFS decision if any of the triggers in `WOFF2_LFS_DECISION.md §6` becomes true (≥5 woff2-touching commits in 90 days, total woff2 size >5 MiB, etc.). Next scheduled review: 2027-04-30.

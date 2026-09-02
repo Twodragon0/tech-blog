@@ -574,31 +574,53 @@ describe('head-runtime.js', () => {
   });
 
   // =========================================================================
-  // loadFontTier2()
+  // No runtime font loading
+  //
+  // Replaces the two loadFontTier2() tests. Noto Sans KR ships as one eager
+  // subset per weight, preloaded from _includes/font-face.html. The lazy tier
+  // fetched at FontFace `VeryHigh` priority (above the preload's `High`) and
+  // its "after idle" schedule fired before FCP on warm loads, so it competed
+  // with first paint to cover 0.02% of body text.
   // =========================================================================
 
-  it('loadFontTier2: __fontTier2Loaded guard prevents duplicate scheduling', () => {
-    window.__fontTier2Loaded = true;
-    const addEventListenerLoadCallsBefore = addEventListenerSpy.mock.calls.filter(
-      (c) => c[0] === 'load',
-    ).length;
+  it('does not construct any FontFace at runtime', () => {
+    const FontFaceSpy = vi.fn();
+    const originalFontFace = window.FontFace;
+    window.FontFace = FontFaceSpy;
+    const originalFonts = document.fonts;
+    const addSpy = vi.fn();
+    Object.defineProperty(document, 'fonts', {
+      value: { add: addSpy },
+      configurable: true,
+    });
+
     setupConfigScript();
     runScript();
-    const addEventListenerLoadCallsAfter = addEventListenerSpy.mock.calls.filter(
-      (c) => c[0] === 'load',
-    ).length;
-    // Guard returns before scheduling anything new for font tier2.
-    expect(addEventListenerLoadCallsAfter).toBe(addEventListenerLoadCallsBefore);
+    // Drain every deferred hook the runtime may have registered.
+    addEventListenerSpy.mock.calls
+      .filter((c) => c[0] === 'load')
+      .forEach((c) => {
+        expect(() => c[1]()).not.toThrow();
+      });
+
+    expect(FontFaceSpy).not.toHaveBeenCalled();
+    expect(addSpy).not.toHaveBeenCalled();
+
+    if (originalFontFace === undefined) {
+      delete window.FontFace;
+    } else {
+      window.FontFace = originalFontFace;
+    }
+    Object.defineProperty(document, 'fonts', { value: originalFonts, configurable: true });
   });
 
-  it('loadFontTier2: schedules via window load event when document.readyState is not complete', () => {
-    delete window.__fontTier2Loaded;
-    Object.defineProperty(document, 'readyState', { value: 'loading', configurable: true });
-    setupConfigScript();
-    runScript();
-    const loadCall = addEventListenerSpy.mock.calls.find((c) => c[0] === 'load');
-    expect(loadCall).toBeTruthy();
-    expect(() => loadCall[1]()).not.toThrow();
-    Object.defineProperty(document, 'readyState', { value: 'complete', configurable: true });
+  it('head-runtime source carries no woff2 reference', () => {
+    // The @font-face + <link rel=preload> in _includes/font-face.html are the
+    // only font-loading path; nothing in the runtime should name a woff2.
+    // Read the file directly (not SCRIPT_SOURCE) so the appended
+    // //# sourceURL=<abs path> trailer cannot influence the match.
+    const source = readFileSync(SCRIPT_PATH, 'utf8');
+    expect(source).not.toMatch(/woff2/);
+    expect(source).not.toMatch(/loadFontTier2/);
   });
 });

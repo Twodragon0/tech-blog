@@ -8,6 +8,30 @@
 
 ---
 
+## Addendum — 2026-08-07: single-tier layout
+
+**The recommendation below still stands (stay in the main pack); the inventory it measures has changed.** The 2-tier layout was retired, so every section beneath this addendum describes the *former* file set. Current state:
+
+| Then (4 files, 1,407,564 B) | Now (2 files, 576,396 B) |
+|---|---|
+| `noto-sans-kr-400-tier1.woff2` (204,116) | `noto-sans-kr-400-ksx1001.woff2` (285,120) |
+| `noto-sans-kr-400-tier2.woff2` (489,548) | `noto-sans-kr-700-ksx1001.woff2` (291,276) |
+| `noto-sans-kr-700-tier1.woff2` (208,216) | — |
+| `noto-sans-kr-700-tier2.woff2` (505,684) | — |
+
+The "now" byte counts vary by up to ~0.1% between generator runs (fontTools subsetting is not byte-reproducible — see `NOTO_SANS_SELF_HOST_RUNBOOK.md §3`), so treat them as a snapshot, not an invariant.
+
+Renamed source-of-truth paths (substitute these wherever the body text names the old ones):
+
+- `scripts/build/generate_noto_2tier_subset.py` → `scripts/build/generate_noto_subset.py`
+- `scripts/build/noto_subset_top1k.txt` → `scripts/build/noto_subset_hangul.txt`
+
+The LFS argument is *strengthened*, not weakened: total working-tree footprint dropped 59% (1.34 MiB → 563 KiB), so the clone-size case for LFS is even weaker than the analysis below concluded. The `§6` revisit triggers are unchanged. Rationale for the layout change lives in [`NOTO_SANS_SELF_HOST_RUNBOOK.md §1`](./NOTO_SANS_SELF_HOST_RUNBOOK.md).
+
+One new consideration: the filenames carry **no content hash** while `vercel.json` serves them `immutable` for a year, so the coverage basis is encoded in the stem (`ksx1001`). Any future re-subsetting must rename, which means a woff2 *rename* — not just a content change — is the expected shape of a font commit from here on.
+
+---
+
 ## Executive Summary
 
 **Recommendation: STAY in the main pack with a small enforcement discipline. Do NOT migrate to Git LFS now.**

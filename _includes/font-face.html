@@ -1,9 +1,26 @@
 {%- comment -%}
-  Self-hosted Noto Sans KR — 2-tier woff2 subset.
-  Tier-1 (this @font-face): top ~1k Hangul syllables + Latin + Jamo + symbols (~200 KB / weight, eager preload).
-  Tier-2 (lazy): remaining ~10k Hangul syllables (~480-500 KB / weight, injected by head-runtime.js after idle).
-  Both tiers claim the same unicode-range U+AC00-U+D7A3 so the browser uses whichever face has the requested glyph.
-  See scripts/build/generate_noto_2tier_subset.py for the source pipeline.
+  Self-hosted Noto Sans KR — one eager woff2 subset per weight (~280 KB each).
+
+  Hangul coverage is KS X 1001 (2,350 syllables) UNION every syllable the
+  corpus actually publishes; the two sets coincide today because all 1,035
+  corpus syllables fall inside KS X 1001.
+
+  The `unicode-range` below still declares the whole U+AC00-D7A3 block even
+  though the face carries 2,350 of its 11,172 code points. That is a deliberate
+  trade-off, not an oversight: narrowing the range to the real coverage would
+  add 10-12 KB of raw ranges to this inline <style>, and Chrome does NOT walk
+  the CSS fallback stack for an in-range-but-missing glyph — it goes straight to
+  OS system fallback either way. So the narrow range buys nothing for the
+  ~8,800 syllables no post has ever used.
+
+  Replaced the previous 2-tier layout (eager ~200 KB + lazily-injected ~490 KB
+  per weight, 1,374.6 KB total). The lazy tier fetched at FontFace `VeryHigh`
+  priority — above this preload's `High` — to cover 0.02% of body text, and its
+  glyph set was disjoint from tier-1 rather than overlapping, so the
+  same-family fallback it was supposed to provide never actually worked.
+
+  See scripts/build/generate_noto_subset.py for the source pipeline and
+  scripts/tests/test_font_glyph_coverage.py for the coverage gate.
 {%- endcomment -%}
 <style>
   @font-face {
@@ -11,7 +28,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('/assets/fonts/noto-sans-kr-400-tier1.woff2') format('woff2');
+    src: url('/assets/fonts/noto-sans-kr-400-ksx1001.woff2') format('woff2');
     unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+1100-11FF, U+3000-303F, U+FF00-FFEF, U+2190-21FF, U+25A0-25FF, U+2600-26FF, U+AC00-D7A3;
   }
   @font-face {
@@ -19,10 +36,9 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('/assets/fonts/noto-sans-kr-700-tier1.woff2') format('woff2');
+    src: url('/assets/fonts/noto-sans-kr-700-ksx1001.woff2') format('woff2');
     unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+1100-11FF, U+3000-303F, U+FF00-FFEF, U+2190-21FF, U+25A0-25FF, U+2600-26FF, U+AC00-D7A3;
   }
-  /* Tier-2 (rare Hangul syllables) is lazy-loaded by head-runtime.js#loadFontTier2 after idle. */
 </style>
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/noto-sans-kr-400-tier1.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/noto-sans-kr-700-tier1.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/noto-sans-kr-400-ksx1001.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/noto-sans-kr-700-ksx1001.woff2">
