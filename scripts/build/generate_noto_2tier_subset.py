@@ -16,21 +16,37 @@ syllables are ever used. We therefore split into:
     * CJK punctuation, halfwidth/fullwidth, arrows, geometry, misc symbols
     * Every Hangul syllable that appears anywhere in the corpus
 
-  Tier 2 (on-demand safety net, ~470-500 KB / weight)
-    * The Hangul tail: syllables NOT in the corpus
+  Tier 2 (on-demand margin, ~92-95 KB / weight)
+    * KS X 1001 minus tier-1: the 2,350-syllable modern-use set, less what
+      tier-1 already ships. Plus, defensively, any corpus syllable tier-1 is
+      missing, so `tier-1 union tier-2 covers the corpus` holds by
+      construction even when only tier-2 is regenerated.
 
 Both tiers share the family name, but their `unicode-range` descriptors are
 disjoint: tier-1 declares the syllables it actually contains, tier-2 declares
-exactly the tail. A browser therefore fetches tier-2 only when a page renders
-a syllable the corpus has never used before — normally never. The tail
+exactly the margin. A browser therefore fetches tier-2 only when a page renders
+a syllable the corpus has never used before — normally never. The margin
 descriptor is emitted to `assets/css/font-tier2.css` (see TIER2_CSS_PATH),
-which `head-runtime.js` attaches after `load` so it stays off the critical
-path.
+which `_includes/font-face.html` links as deferred CSS so it stays off the
+critical path.
 
 Before 2026-08-10 tier-2 was fetched unconditionally by the FontFace API on
 every first visit — ~996 KB of glyphs no page needed. Keeping the descriptor
 generated (not hand-written) is what makes the disjointness a build invariant
 rather than a comment.
+
+Why tier-2 is a margin and not the whole Hangul tail (changed 2026-09-02):
+carrying all 10,128 non-corpus syllables cost 964 KB across the two weights,
+and the published corpus reached exactly 22 of them — ~44 KB of committed
+binary per syllable that ever renders. KS X 1001 is the ceiling for
+naturally-occurring modern Korean prose (it is the syllable repertoire of the
+pre-CP949 EUC-KR encoding), so a margin of `KS X 1001 - tier-1` = 1,307
+syllables at ~186 KB total keeps every realistic novel syllable covered at
+19% of the old weight. What makes the shrink safe is
+`scripts/tests/test_font_tier_split.py::test_every_corpus_syllable_is_covered_by_a_shipped_tier`,
+which fails the build if a published syllable falls outside tier-1 UNION
+tier-2. While tier-2 spanned the entire block that assertion was vacuous, so
+it did not exist; shrinking tier-2 is what makes it load-bearing.
 
 Source
 ------
@@ -42,6 +58,7 @@ two static weights without depending on per-weight static OTFs.
 Usage
 -----
     python3 scripts/build/generate_noto_2tier_subset.py [--top-n N] [--posts-glob '_posts/*.md']
+    python3 scripts/build/generate_noto_2tier_subset.py --only-tier2   # freeze tier-1
 
 Outputs
 -------
@@ -49,7 +66,8 @@ Outputs
     assets/css/font-tier2.css
     assets/fonts/noto-sans-kr-{400,700}-{tier1,tier2}.woff2
 
-Idempotent: re-running with the same corpus yields identical bytes.
+Idempotent: re-running with the same corpus yields identical bytes. This was
+false until 2026-09-02 — see the `recalcTimestamp` note in `subset_woff2`.
 """
 
 from __future__ import annotations
@@ -92,11 +110,17 @@ CORPUS_GLOBS = (
 )
 
 # Pinned upstream source: Noto Sans KR variable font (subset TTF) from
-# notofonts/noto-cjk. Pinning to `main` for now — caller can override via env
-# `NOTO_VF_URL` if reproducibility against a specific commit is required.
+# notofonts/noto-cjk, frozen at commit f8d1575 (2024-09-19), which is the
+# repository's `main` HEAD as of 2026-09-02 — so pinning changes no bytes today
+# and stops a future upstream push from silently altering the output. Verified
+# on 2026-09-02: the blob at this SHA and the blob at `main` are both
+# git-object 15b3f19b80b9b21c0f0696c70b6c6243bbda231e (10,415,420 B,
+# sha256 9e1d729e…3b86f76). Caller can still override via env `NOTO_VF_URL`.
+NOTO_VF_SHA = "f8d157532fbfaeda587e826d4cd5b21a49186f7c"
 NOTO_VF_URL = os.environ.get(
     "NOTO_VF_URL",
-    "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/Variable/TTF/Subset/NotoSansKR-VF.ttf",
+    f"https://raw.githubusercontent.com/notofonts/noto-cjk/{NOTO_VF_SHA}"
+    "/Sans/Variable/TTF/Subset/NotoSansKR-VF.ttf",
 )
 
 # Hangul syllables block
@@ -149,6 +173,27 @@ def hangul_frequency(globs: tuple[str, ...] | list[str]) -> tuple[dict[str, int]
     return counts, total
 
 
+def ksx1001_syllables() -> set[int]:
+    """The 2,350 Hangul syllables of KS X 1001 — the tier-2 margin's base set.
+
+    Python's `euc_kr` codec is really CP949/UHC, which extends EUC-KR to cover
+    all 11,172 syllables by using lead bytes 0x81-0xA0 or trail bytes below
+    0xA1. Encoding alone therefore selects nothing: every syllable in the block
+    round-trips. The KS X 1001 rows are exactly those whose BOTH bytes land in
+    the 0xA1-0xFE GR range, which is the filter applied here. `main()` asserts
+    the result is 2,350 so a codec change cannot quietly widen or empty it.
+    """
+    out: set[int] = set()
+    for cp in range(HANGUL_START, HANGUL_END + 1):
+        try:
+            encoded = chr(cp).encode("euc_kr")
+        except UnicodeEncodeError:  # pragma: no cover - block is fully mapped
+            continue
+        if len(encoded) == 2 and all(0xA1 <= b <= 0xFE for b in encoded):
+            out.add(cp)
+    return out
+
+
 def pick_top_n(counts: dict[str, int], n: int) -> tuple[list[str], int]:
     """Return top-N syllables by frequency (deterministic by code point on ties).
 
@@ -192,12 +237,12 @@ def format_unicode_range(codepoints: set[int] | list[int]) -> str:
 
 
 def render_tier2_css(tier2_codepoints: set[int]) -> str:
-    """Build assets/css/font-tier2.css — the on-demand tail @font-face pair.
+    """Build assets/css/font-tier2.css — the on-demand margin @font-face pair.
 
-    The `unicode-range` is exactly the tail, i.e. disjoint from what tier-1
+    The `unicode-range` is exactly the margin, i.e. disjoint from what tier-1
     contains. That disjointness is the whole mechanism: the browser resolves a
-    page's glyphs against tier-1 and only reaches for these ~500 KB faces when
-    a page renders a syllable the corpus has never used.
+    page's glyphs against tier-1 and only reaches for these ~92-95 KB faces
+    when a page renders a syllable the corpus has never used.
     """
     ranges = format_unicode_range(tier2_codepoints)
     # `../fonts/` (not `/assets/fonts/`) so the same file works on Vercel and on
@@ -216,14 +261,15 @@ def render_tier2_css(tier2_codepoints: set[int]) -> str:
     )
     return f"""/* GENERATED by scripts/build/generate_noto_2tier_subset.py — do not edit by hand.
  *
- * Tier-2 = the Hangul tail: syllables absent from
- * scripts/build/noto_subset_top1k.txt (and therefore absent from the tier-1
- * woff2 files preloaded in _includes/font-face.html).
+ * Tier-2 = the KS X 1001 margin: the 2,350-syllable modern-use set minus the
+ * syllables listed in scripts/build/noto_subset_top1k.txt (which the tier-1
+ * woff2 files preloaded in _includes/font-face.html already carry), plus any
+ * corpus syllable tier-1 is missing.
  *
- * Attached after `load` by assets/js/head-runtime.js#loadFontTier2 so it never
- * touches the critical path. Because the unicode-range below is disjoint from
- * tier-1's, the woff2 files referenced here are fetched only when a page
- * actually renders a tail syllable — normally never.
+ * Linked as deferred CSS from _includes/font-face.html so it never touches the
+ * critical path. Because the unicode-range below is disjoint from tier-1's,
+ * the woff2 files referenced here are fetched only when a page actually
+ * renders a margin syllable — normally never.
  *
  * Regenerate with: python3 scripts/build/generate_noto_2tier_subset.py
  */
@@ -276,12 +322,26 @@ def _make_subsetter():
 
 
 def subset_woff2(font, *, unicodes: list[int], text: str, out_path: Path) -> int:
-    """Subset `font` (a TTFont) to the given unicodes/text, save woff2, return bytes."""
+    """Subset `font` (a TTFont) to the given unicodes/text, save woff2, return bytes.
+
+    `recalcTimestamp = False` on both saves is what makes the output a pure
+    function of (source font, codepoint set). fontTools defaults it to True and
+    stamps the wall clock into `head.modified`, which then perturbs
+    `head.checkSumAdjustment` and the whole compressed stream. Measured
+    2026-09-02: two runs 88 minutes apart, identical inputs, produced tier-2
+    files differing in exactly those two fields and nothing else — same cmap,
+    same glyph order, same table set — at 94,172 B vs 94,280 B. That is also
+    why the committed tier-1 files cannot be reproduced from their own inputs:
+    they carry the clock of their 2026-08-10 build. Without this the pinned
+    NOTO_VF_URL buys reproducible CONTENT but never reproducible BYTES, and the
+    font-drift gate polices bytes.
+    """
     from fontTools.ttLib import TTFont
 
     _, Subsetter, opts = _make_subsetter()
     # Clone font so we don't mutate the shared source between tier subsets.
     buf = io.BytesIO()
+    font.recalcTimestamp = False
     font.save(buf)
     buf.seek(0)
     work = TTFont(buf)
@@ -291,6 +351,7 @@ def subset_woff2(font, *, unicodes: list[int], text: str, out_path: Path) -> int
     subsetter.subset(work)
 
     work.flavor = "woff2"
+    work.recalcTimestamp = False
     work.save(out_path)
     return out_path.stat().st_size
 
@@ -329,8 +390,18 @@ def main() -> int:
     ap.add_argument(
         "--max-tier2-kb",
         type=int,
-        default=500,
-        help="Soft cap for tier-2 woff2 KB (default: 500)",
+        default=120,
+        help="Soft cap for tier-2 woff2 KB (default: 120)",
+    )
+    ap.add_argument(
+        "--only-tier2",
+        action="store_true",
+        help=(
+            "Regenerate only font-tier2.css and the two tier-2 woff2 files. "
+            "Reads noto_subset_top1k.txt instead of rewriting it, and leaves the "
+            "tier-1 woff2 bytes untouched — use this when the tail must change "
+            "but tier-1 must not."
+        ),
     )
     args = ap.parse_args()
 
@@ -348,23 +419,36 @@ def main() -> int:
         return 2
     print(f"  total Hangul chars: {total:,} across {len(counts):,} unique syllables")
 
-    top_n = min(args.top_n, len(counts)) if args.top_n > 0 else 0
-    top_syllables, covered = pick_top_n(counts, top_n)
-    coverage_pct = (covered / total) * 100
-    label = "all corpus syllables" if top_n == 0 else f"top-{top_n}"
-    print(
-        f"  {label} ({len(top_syllables):,}) cover {coverage_pct:.2f}% of total Hangul characters"
-    )
+    if args.only_tier2:
+        # Tier-1 is frozen: read its syllable list rather than recomputing it, so
+        # the committed tier-1 woff2 cmap and this list cannot drift apart.
+        top_syllables = sorted(
+            set(TOP1K_PATH.read_text(encoding="utf-8").split()), key=ord
+        )
+        covered = sum(counts.get(c, 0) for c in top_syllables)
+        coverage_pct = (covered / total) * 100
+        print(
+            f"  --only-tier2: reusing {TOP1K_PATH.relative_to(REPO_ROOT)} "
+            f"({len(top_syllables):,} syllables, {coverage_pct:.2f}% of corpus Hangul characters)"
+        )
+    else:
+        top_n = min(args.top_n, len(counts)) if args.top_n > 0 else 0
+        top_syllables, covered = pick_top_n(counts, top_n)
+        coverage_pct = (covered / total) * 100
+        label = "all corpus syllables" if top_n == 0 else f"top-{top_n}"
+        print(
+            f"  {label} ({len(top_syllables):,}) cover {coverage_pct:.2f}% of total Hangul characters"
+        )
 
-    # Persist the syllable list (sorted by code point so diffs stay small)
-    sorted_for_disk = sorted(top_syllables, key=lambda c: ord(c))
-    TOP1K_PATH.write_text(
-        "\n".join(sorted_for_disk) + "\n",
-        encoding="utf-8",
-    )
-    print(
-        f"  wrote {TOP1K_PATH.relative_to(REPO_ROOT)} ({len(sorted_for_disk)} entries)"
-    )
+        # Persist the syllable list (sorted by code point so diffs stay small)
+        sorted_for_disk = sorted(top_syllables, key=lambda c: ord(c))
+        TOP1K_PATH.write_text(
+            "\n".join(sorted_for_disk) + "\n",
+            encoding="utf-8",
+        )
+        print(
+            f"  wrote {TOP1K_PATH.relative_to(REPO_ROOT)} ({len(sorted_for_disk)} entries)"
+        )
 
     # 2. Fetch variable font once
     print("[2/4] Downloading Noto Sans KR variable TTF ...")
@@ -379,12 +463,27 @@ def main() -> int:
     tier1_codepoints = set(expand_ranges(TIER1_BASE_RANGES))
     tier1_codepoints.update(ord(c) for c in top_syllables)
 
-    all_hangul = set(range(HANGUL_START, HANGUL_END + 1))
+    ksx1001 = ksx1001_syllables()
+    if len(ksx1001) != 2350:
+        print(
+            f"  ERROR: KS X 1001 filter yielded {len(ksx1001)} syllables, expected 2350.",
+            file=sys.stderr,
+        )
+        return 4
     top_hangul_codepoints = {ord(c) for c in top_syllables}
-    tier2_codepoints = all_hangul - top_hangul_codepoints
+    corpus_hangul_codepoints = {ord(c) for c in counts}
+    # Union with the corpus, not just KS X 1001: under --only-tier2 the tier-1
+    # list is frozen while the corpus keeps growing, and this term is what keeps
+    # "tier-1 union tier-2 covers the corpus" true by construction rather than by
+    # the coincidence that every published syllable happens to sit inside KS X 1001.
+    tier2_codepoints = (ksx1001 | corpus_hangul_codepoints) - top_hangul_codepoints
 
     print(f"  tier-1 codepoints: {len(tier1_codepoints):,}")
-    print(f"  tier-2 codepoints: {len(tier2_codepoints):,} (Hangul tail)")
+    print(
+        f"  tier-2 codepoints: {len(tier2_codepoints):,} "
+        f"(KS X 1001 margin; {len(corpus_hangul_codepoints - top_hangul_codepoints):,} "
+        "of them are corpus syllables tier-1 lacks)"
+    )
 
     # The tail descriptor must match the tier-2 subset exactly, so it is written
     # from the same `tier2_codepoints` set the subsetter consumes below.
@@ -405,17 +504,18 @@ def main() -> int:
         out1 = ASSETS_FONTS_DIR / f"noto-sans-kr-{weight}-tier1.woff2"
         out2 = ASSETS_FONTS_DIR / f"noto-sans-kr-{weight}-tier2.woff2"
 
-        size1 = subset_woff2(
-            font, unicodes=sorted(tier1_codepoints), text="", out_path=out1
-        )
-        size2 = subset_woff2(
+        if args.only_tier2:
+            print(f"    tier-1 -> {out1.name}: unchanged (--only-tier2)")
+        else:
+            sizes[out1.name] = subset_woff2(
+                font, unicodes=sorted(tier1_codepoints), text="", out_path=out1
+            )
+            print(f"    tier-1 -> {out1.name}: {sizes[out1.name] / 1024:,.1f} KB")
+
+        sizes[out2.name] = subset_woff2(
             font, unicodes=sorted(tier2_codepoints), text="", out_path=out2
         )
-        sizes[out1.name] = size1
-        sizes[out2.name] = size2
-
-        print(f"    tier-1 -> {out1.name}: {size1 / 1024:,.1f} KB")
-        print(f"    tier-2 -> {out2.name}: {size2 / 1024:,.1f} KB")
+        print(f"    tier-2 -> {out2.name}: {sizes[out2.name] / 1024:,.1f} KB")
 
     # 5. Validate caps
     print("[4/4] Validating size caps ...")
@@ -428,7 +528,7 @@ def main() -> int:
         print("  WARNING: some files exceed soft caps:")
         for line in over:
             print(f"    - {line}")
-        print("  Consider lowering --top-n.")
+        print("  Consider lowering --top-n or narrowing the tier-2 margin.")
     else:
         print("  all files within caps.")
 
