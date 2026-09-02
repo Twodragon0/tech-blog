@@ -5,8 +5,10 @@
   "default_agent": "lead",
   "autoupdate": true,
   "instructions": [
+    "GEMINI.md",
     "AGENTS.md",
     "CLAUDE.md",
+    "OPENCODE.md",
     ".opencode/README.md"
   ],
   "compaction": {

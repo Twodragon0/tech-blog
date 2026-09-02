@@ -621,13 +621,14 @@ opencode sisyphus
 
 ## 17. Related Documentation
 
-| Document | Purpose |
-|----------|---------|
+| `GEMINI.md` | Google Antigravity (AGY) guidelines & multi-agent orchestration |
 | `CLAUDE.md` | Claude Code workflow instructions (Plan Mode, Boris Cherny tips) |
+| `OPENCODE.md` | OpenCode & OMC manual (Sisyphus, Ralph loop, lead agent routing) |
 | `.cursorrules` | Detailed Cursor AI rules |
 | `SECURITY.md` | Security policy |
 | `docs/README.md` | Documentation index |
 | `scripts/README.md` | Script guide |
+| `scripts/agent_hub.sh` | Unified multi-agent CLI hub (AGY + Claude + OMC) |
 | `.opencode/README.md` | OpenCode Sisyphus + Ralph Loop guide |
 | `notes/learnings.md` | Technical discoveries and patterns |
 | `notes/decisions.md` | Architecture decision records |
@@ -651,6 +652,7 @@ Multi-agent orchestration matrix combining Google Antigravity (AGY), Oh-My-Claud
 | **Tech Blog QA Audit** | `skills/techblog-qa-audit/` | Full quality assurance, tests, security, and link audit | Pre-release check, `/team-audit` |
 
 ### Master Playbook & Rules
+- Unified CLI Hub: `bash scripts/agent_hub.sh status|verify|scenario <1-6>`
 - Detailed guide: `docs/pipeline/AGY_OMC_CCG_BEST_SCENARIOS.md`
 - Synergy rules: `.agents/rules/03-multi-tool-synergy.md`
 - Scenarios definition: `.agents/rules/04-best-scenarios.md`

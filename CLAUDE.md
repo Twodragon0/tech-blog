@@ -668,6 +668,26 @@ python3 scripts/verify_images_unified.py --all
 | **User Features** | 9/10 | Giscus comments, DeepSeek chatbot, Dark/Light mode, Search | Accessibility improvements |
 | **Cost Optimization** | 9/10 | API caching, rate limiting, free tier optimization | Monitor usage, optimize further |
 | **Operational Efficiency** | 8/10 | Automation scripts, CI/CD, monitoring | Enhanced error recovery |
+## Tri-Agent Synergy: Claude Code + Antigravity (AGY) + OpenCode (OMC)
+
+This repository operates a unified multi-agent pipeline combining **Claude Code**, **Google Antigravity (AGY)**, and **OpenCode / Oh-My-Claude (OMC)**.
+
+### Division of Roles
+1. **Claude Code (`claude`)**:
+   - Primary technical author, DevSecOps domain architect, and Korean technical tone specialist.
+   - Authoring Mermaid architecture diagrams and structured post sections.
+   - Managing `.claude/agents/` and executing specialized commands (`/new-post`, `/team-create-post`, `/team-audit`).
+2. **Google Antigravity (`agy`)**:
+   - System orchestrator & native execution runtime: shell commands, pytest runner, git operations.
+   - Gemini engine with 1M+ context window and free OAuth allocations for deep research across RFCs, CVEs, and upstream specs.
+   - Native slash commands: `/goal` (long-running goal execution), `/schedule` (background cron/timers), `/plan`, `/grill-me`, `/teamwork-preview`, `/learn`, `/boost`.
+   - Quality gate enforcement (`scripts/check_posts.py`, `scripts/verify_images_unified.py`, `scripts/install-hooks.sh`).
+3. **OpenCode / OMC (`opencode`)**:
+   - Sisyphus mode and Ralph continuous loops (`/improve-posts`, `/validate-posts`, `/write-code`, `/refactor`).
+   - Lead agent routing (`lead`, `code`, `explore`, `validate`) in `.opencode/opencode.json`.
+   - Safe policy enforcement at execution time via `.opencode/plugins/safety-hooks.js`.
+4. **CCG Tri-Model Lane**:
+   - Claude (Architecture & Draft) -> Codex (AST & YAML Rigor) -> Gemini/AGY (Fact-Checking & 1M Context) -> Local Pytest Gate.
 
 ## OpenCode Integration
 

@@ -300,6 +300,91 @@ if [ -n "$STAGED_ANY_POSTS" ]; then
   fi
   echo "[pre-commit] Template-echo check: passed."
 fi
+
+# 14. Resource-hint cache-buster consistency gate — a preload/prefetch href that
+#     omits the ?v= its loader uses is a separate cache entry, so the browser
+#     downloads it and never uses it. Five such hints in head.html wasted ~14 KB
+#     compressed per post view until 2026-08-14; Chrome never warned because it
+#     flags only unused *preload*, not unused prefetch. Runs whenever a template
+#     is staged: the hint and its versioned loader live in different files, so
+#     editing either side can introduce the mismatch.
+STAGED_TEMPLATES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_(includes|layouts)/.*\.html$' || true)
+if [ -n "$STAGED_TEMPLATES" ]; then
+  echo "[pre-commit] Checking resource-hint cache-buster consistency..."
+  python3 "$REPO_ROOT/scripts/check_asset_hint_version.py" --all
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] Version-mismatched resource hint found."
+    echo "             Delete the hint, or append the same ?v= the loader uses."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Resource-hint version check: passed."
+fi
+
+# 15. Post-body boilerplate gate — a block repeated verbatim across posts
+#     describes none of them. autonomous_post_modernizer.py (removed
+#     2026-08-24) put the same hardcoded Mermaid diagram in 43 posts and the
+#     same four-item checklist in 55, and every other gate passed it: the
+#     checklist-heading gate matches the canonical string and the injected
+#     heading was a different one, template-echo inspects card attributes not
+#     body prose, and the honesty scorer governs covers. The corpus is at 0
+#     duplicates across 11 distinct Mermaid fences and 213 distinct
+#     checklists, so any hit is new drift. Whole blocks only — 119 posts
+#     legitimately share one canonical checklist line, so a per-line rule
+#     would be all false positives.
+if [ -n "$STAGED_ANY_POSTS" ]; then
+  echo "[pre-commit] Checking staged posts for repeated body boilerplate..."
+  python3 "$REPO_ROOT/scripts/check_post_boilerplate.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] A body block is repeated verbatim across posts."
+    echo "             Write content specific to each post, or remove the block."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Post-boilerplate check: passed."
+fi
+
+# 16. Internal /posts/ link gate — a link to a post that does not exist and has
+#     no declared redirect is a 404 for the reader. This gate was inert until
+#     2026-08-24 (printed a count, never exited, wired to nothing) and its
+#     revival was not a one-liner: the old version reported 370 broken links and
+#     all 370 were `redirect_from` YAML items matched inside front matter. Now
+#     front matter is skipped and declared redirect_from targets count as valid,
+#     which is what the KST/UTC filename-vs-URL date split depends on. Corpus is
+#     at 0 across 275 posts, so any hit is new drift.
+if [ -n "$STAGED_ANY_POSTS" ]; then
+  echo "[pre-commit] Checking staged posts for broken internal /posts/ links..."
+  python3 "$REPO_ROOT/scripts/check_broken_links.py" --staged --quiet
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] A body link points at no post and no declared redirect."
+    echo "             Fix the link, or add the URL to the target post's"
+    echo "             \`redirect_from:\` if it is a legitimate old address."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Internal link check: passed."
+fi
+
+# 17. News-card title language gate — this blog is Korean and card titles are
+#     faithful translations of the source headline with proper nouns left in
+#     English. Measured 2026-08-24: 51 of 2312 titles were English (2.2 %), so
+#     they were drift, not a citation convention. 48 were translated; 3 pure
+#     proper-noun strings are allow-listed WITH REASONS in the script. Deny by
+#     default — check_digest_untranslated's is_untranslated() cannot serve here
+#     because it deliberately exempts cited English titles (it flagged 1 of 51).
+if [ -n "$STAGED_ANY_POSTS" ]; then
+  echo "[pre-commit] Checking staged posts for English news-card titles..."
+  python3 "$REPO_ROOT/scripts/check_card_title_language.py" --staged --quiet
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] A card title has no Korean text."
+    echo "             Translate the headline (keep proper nouns in English), or"
+    echo "             if it is a pure product/event name add it to"
+    echo "             ENGLISH_TITLE_ALLOW with its reason."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Card-title language check: passed."
+fi
 HOOK
 
 chmod +x "$HOOK_FILE"
