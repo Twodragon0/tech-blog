@@ -15,6 +15,7 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
+from typing import Any
 
 # Language detection patterns
 # Each entry: (language_name, list_of_regex_patterns)
@@ -281,7 +282,7 @@ def process_file(filepath: Path, dry_run: bool) -> dict:
     content = filepath.read_text(encoding="utf-8")
     lines = content.splitlines(keepends=True)
 
-    stats = {
+    stats: dict[str, Any] = {
         "total_blocks": 0,
         "fixed_blocks": 0,
         "languages": defaultdict(int),

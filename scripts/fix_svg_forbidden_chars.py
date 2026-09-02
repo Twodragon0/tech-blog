@@ -28,6 +28,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from typing import Any
 
 PROJECT_ROOT = Path(__file__).parent.parent
 IMAGES_DIR = PROJECT_ROOT / "assets" / "images"
@@ -130,7 +131,7 @@ def fix_svg_file(path: Path, dry_run: bool = False) -> dict:
         skipped_attrs: list[str]   # attrs that contained forbidden chars (skipped)
         error: str | None
     """
-    result = {
+    result: dict[str, Any] = {
         "modified": False,
         "forbidden_replacements": 0,
         "korean_replacements": 0,

@@ -1425,7 +1425,7 @@ def motif_robot_agent(x: int, y: int, color: str) -> str:
 
 
 # --- Motif dispatcher ---
-_MOTIF_REGISTRY = {
+_MOTIF_REGISTRY: Dict[str, Callable[..., str]] = {
     "bitcoin": motif_bitcoin,
     "apple": motif_apple,
     "flag_strip": motif_flag_strip,
@@ -2525,7 +2525,7 @@ def _illust_rollup_index(
 
 # Map normalised category to illustration function (defined after all
 # illustration functions so forward references are resolved).
-SINGLE_ILLUSTRATIONS = {
+SINGLE_ILLUSTRATIONS: Dict[str, Callable[..., str]] = {
     "shield": _illust_shield,
     "cloud": _illust_cloud,
     "lock": _illust_lock,

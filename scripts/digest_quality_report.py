@@ -13,6 +13,7 @@ import re
 import sys
 from collections import Counter
 from pathlib import Path
+from typing import Any
 
 POSTS_DIR = Path(__file__).resolve().parent.parent / "_posts"
 
@@ -59,7 +60,7 @@ def find_digest_posts(month: str = None) -> list:
 
 def analyze_post(filepath: Path) -> dict:
     """Analyze a single post for quality issues."""
-    issues = {
+    issues: dict[str, Any] = {
         "truncated_cells": [],
         "english_headers": [],
         "incomplete_highlights": [],
@@ -131,7 +132,7 @@ def analyze_post(filepath: Path) -> dict:
 
 def generate_report(posts: list) -> dict:
     """Generate quality report across all posts."""
-    report = {
+    report: dict[str, Any] = {
         "total_posts": len(posts),
         "posts_with_issues": 0,
         "truncated_cells_total": 0,
