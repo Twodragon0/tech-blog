@@ -2110,7 +2110,10 @@ def _panel_from_source_title(
             # do NOT mark _src_fallback (a real subject must not be demoted).
             src_cve_m = _CVE_RE.search(_html.unescape(src))
             src_entity = build_lead_headline(src) if src_cve_m else ""
-            if src_entity:
+            # `src_cve_m` is redundant at runtime — line above makes src_entity
+            # "" whenever it is None — but mypy cannot carry that implication,
+            # so state it explicitly rather than assert/ignore.
+            if src_cve_m and src_entity:
                 src_name = src.split("(")[0].strip()
                 sub = (
                     f"{src_cve_m.group(0).upper()} - {src_name}"

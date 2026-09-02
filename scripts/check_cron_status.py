@@ -185,7 +185,9 @@ def main() -> int:
 
     ai_lock, ai_pid = get_lock_status(Path("/tmp/ai-tools-update.lock"))
 
-    report_data = {
+    # Heterogeneous value types — without the annotation mypy joins them to
+    # `Collection[str]` and rejects the `.get("status")` lookup below.
+    report_data: Dict[str, Any] = {
         "timestamp": datetime.now().isoformat(),
         "crontab": check_crontab_entries(),
         "locks": {

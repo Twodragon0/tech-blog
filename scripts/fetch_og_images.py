@@ -21,6 +21,7 @@ import time
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
+from typing import cast
 from urllib.parse import urljoin, urlparse
 
 import requests
@@ -118,7 +119,11 @@ def fetch_og_image(url: str) -> str | None:
         if not meta:
             meta = soup.find("meta", attrs={"name": prop, "content": True})
         if meta:
-            img_url = meta["content"].strip()
+            # bs4 types every attribute as `str | AttributeValueList` because
+            # *some* attributes are CDATA lists. `content` is not one of them
+            # (html.parser's list-valued set is class/dropzone/accesskey only),
+            # so this is always a str at runtime. cast() is erased at runtime.
+            img_url = cast(str, meta["content"]).strip()
             if not img_url or img_url.startswith("data:"):
                 continue
             # Convert relative URLs to absolute

@@ -148,8 +148,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             skipped_no_rows.append(path)
             continue
         changed.append(path)
-        # show the new highlights for review
-        block = _HIGHLIGHTS_BLOCK_RE.search(_FRONT_MATTER_RE.match(new_text).group(2))
+        # show the new highlights for review. The re-match cannot fail —
+        # backfill_text only returns non-None after its own _FRONT_MATTER_RE
+        # match succeeded, and it reassembles the same `---\n` delimiters — but
+        # mypy cannot carry that across the call, so bind it and guard.
+        fm = _FRONT_MATTER_RE.match(new_text)
+        block = _HIGHLIGHTS_BLOCK_RE.search(fm.group(2)) if fm else None
         print(f"\n{'[APPLY]' if args.apply else '[DRY-RUN]'} {path}")
         print((block.group(0) if block else "").rstrip())
         if args.apply:
