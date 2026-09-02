@@ -36,8 +36,29 @@ summary_card:
 
 ---
 
+## Executive Summary
+
+- **배경 및 과제**: 수십~수백 개의 AWS 다계정(Multi-Account) 환경에서 전통적인 역할 기반 접근 제어(RBAC)는 계정마다 기하급수적으로 IAM 역할이 늘어나는 역할 폭발(Role Explosion)과 거버넌스 사각지대를 유발합니다.
+- **핵심 아키텍처 전략**: AWS IAM Identity Center를 중심으로 기업 IdP(Okta/Entra) 속성을 STS 세션 태그(`aws:PrincipalTag`)로 전달하고, 리소스 태그(`aws:ResourceTag`) 일치 기반 ABAC 정책과 Organizations SCP 태그 보호 가드레일을 결합합니다.
+- **도입 기대 효과**: 역할 수를 90% 이상 감축하면서도 신규 프로젝트 온보딩 시간을 수일에서 즉시(0초)로 단축하고, 제로 트러스트 최소 권한 컴플라이언스를 완벽하게 충족합니다.
+
+---
+
+## 위험 스코어카드 (Threat & Risk Scorecard)
+
+| 위협 카테고리 | 위험도 수준 | 영향도(Impact) | 발생 가능성 | 주요 완화 전략 |
+|---|---|---|---|---|
+| **역할 폭발 및 레거시 방치** | **High (높음)** | 미사용 고권한 계정 침해 및 관리 부채 | 높음 (High) | IAM Identity Center 기반 동적 ABAC 정책 단일화 |
+| **리소스 태그 변조를 통한 우회** | **Critical (치명적)** | 권한 없는 사용자의 태그 조작으로 접근 탈취 | 중간 (Medium) | Organizations SCP 기반 거버넌스 태그 변경 원천 차단 |
+| **IAM 역할 생성 시 권한 상승** | **High (높음)** | 개발팀의 `AdministratorAccess` 임의 바인딩 | 높음 (High) | IAM Permission Boundary 필수 첨부 정책 강제 |
+| **세션 태그 위변조 위험** | **Critical (치명적)** | 클라이언트 위조 태그를 통한 인가 통과 | 낮음 (Low) | IdP SAML/OIDC 클레임 매핑 기반 신뢰 STS 발급 |
+| **과도한 와일드카드 권한 위임** | **Medium (중간)** | 의도치 않은 계정 전역 데이터 노출 | 중간 (Medium) | ABAC 조건절(`StringEquals`) 필수 적용 및 분기 감사 |
+
+---
+
 ## 1. 개요: 역할 폭발(Role Explosion)과 전통적 RBAC의 한계
 
+### 1.1 Multi-Account 확장에 따른 IAM 관리의 한계
 엔터프라이즈 규모의 클라우드 환경이 수십~수백 개의 AWS 계정(Multi-Account)과 수천 명의 엔지니어로 확장될 때, 가장 먼저 직면하는 보안 및 운영 병목은 **역할 폭발(Role Explosion)**입니다.
 
 전통적인 **역할 기반 접근 제어(RBAC)** 방식에서는 다음과 같은 심각한 문제가 발생합니다:
@@ -45,6 +66,7 @@ summary_card:
 2. **권한 상승(Privilege Escalation) 위험**: 역할 수가 과도하게 늘어나면 사용하지 않는 레거시 역할이 방치되고, 권한 리뷰와 최소 권한(Least Privilege) 검증이 불가능해집니다.
 3. **온보딩/오프보딩 지연**: 개발자가 프로젝트를 이동하거나 새로운 리소스에 접근할 때마다 IAM 정책 업데이트 티켓을 발행해야 하므로 배포 민첩성이 저하됩니다.
 
+### 1.2 ABAC(속성 기반 접근 제어)로의 패러다임 전환
 이러한 문제를 근본적으로 해결하는 표준 엔터프라이즈 아키텍처가 바로 **AWS IAM Identity Center(구 AWS SSO)**와 **속성 기반 접근 제어(ABAC: Attribute-Based Access Control)**의 결합입니다.
 
 사용자의 신원 속성(부서, 프로젝트, 환경 등)을 **동적 세션 태그(`aws:PrincipalTag`)**로 전달하고, AWS 리소스에 부여된 태그(`aws:ResourceTag`)와 일치할 때만 접근을 허용하는 단일 범용 정책을 배포함으로써 수백 개의 정적 역할을 단 하나로 통합할 수 있습니다.
@@ -52,8 +74,6 @@ summary_card:
 ---
 
 ## 2. 엔터프라이즈 제로 트러스트 아키텍처 및 인증 흐름
-
-외부 IdP(Okta, Microsoft Entra ID 등)에서 인증된 사용자의 속성이 AWS 계정 리소스까지 전달되어 평가되는 엔드투엔드 시퀀스입니다.
 
 ```mermaid
 sequenceDiagram
@@ -79,86 +99,77 @@ sequenceDiagram
     end
 ```
 
+### 2.1 인증 및 속성 주입 메커니즘
+엔터프라이즈 IdP에서 전달된 SAML 2.0 어설션의 클레임은 IAM Identity Center를 거쳐 STS `AssumeRoleWithSAML` 호출 시 세션 태그(`aws:PrincipalTag/Department`, `aws:PrincipalTag/Project`)로 자동 변환됩니다.
+
+### 2.2 런타임 리소스 평가 원리
+AWS 정책 평가 엔진은 호출자의 요청에 포함된 세션 태그와 대상 리소스의 메타데이터 태그를 실시간 비교하여 정책을 인라인으로 해석합니다.
+
 ---
 
 ## 3. 핵심 거버넌스 정책 레시피 (Production Policy Recipes)
 
-### 레시피 1: IAM Identity Center 세션 태그 기반 범용 ABAC 정책
-
+### 3.1 레시피 1: IAM Identity Center 세션 태그 기반 범용 ABAC 정책
 IAM Identity Center의 **Permission Set**에 단 한 번만 등록하여 모든 계정의 데이터 및 암호화 키에 적용하는 단일 범용 정책입니다.
 
 ```json
 // https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html
 {
   "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowResourceAccessIfTagsMatch",
-      "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:PutObject", "secretsmanager:GetSecretValue", "kms:Decrypt"],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "aws:ResourceTag/Department": "${aws:PrincipalTag/Department}",
-          "aws:ResourceTag/Project": "${aws:PrincipalTag/Project}",
-          "aws:ResourceTag/Environment": "${aws:PrincipalTag/Environment}"
-        }
+  "Statement": [{
+    "Sid": "AllowResourceAccessIfTagsMatch",
+    "Effect": "Allow",
+    "Action": ["s3:GetObject", "s3:PutObject", "kms:Decrypt"],
+    "Resource": "*",
+    "Condition": {
+      "StringEquals": {
+        "aws:ResourceTag/Department": "${aws:PrincipalTag/Department}",
+        "aws:ResourceTag/Project": "${aws:PrincipalTag/Project}"
       }
     }
-  ]
+  }]
 }
 ```
 
-### 레시피 2: AWS Organizations SCP를 통한 리소스 태그 변조 방지 가드레일
-
+### 3.2 레시피 2: AWS Organizations SCP를 통한 리소스 태그 변조 방지 가드레일
 개발자가 임의로 프로덕션 리소스의 태그를 변경하여 접근 통제를 우회하는 것을 원천 차단하는 **서비스 제어 정책(SCP)**입니다.
 
 ```json
 // https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html
 {
   "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "DenyModifyingGovernanceTags",
-      "Effect": "Deny",
-      "Action": ["tag:UntagResources", "tag:TagResources", "s3:PutBucketTagging"],
-      "Resource": "*",
-      "Condition": {
-        "ForAnyValue:StringEquals": {
-          "aws:TagKeys": ["Department", "Project", "Environment", "DataClassification"]
-        },
-        "ArnNotLike": {
-          "aws:PrincipalARN": ["arn:aws:iam::*:role/AWSControlTowerExecution"]
-        }
+  "Statement": [{
+    "Sid": "DenyModifyingGovernanceTags",
+    "Effect": "Deny",
+    "Action": ["tag:UntagResources", "tag:TagResources"],
+    "Resource": "*",
+    "Condition": {
+      "ForAnyValue:StringEquals": {
+        "aws:TagKeys": ["Department", "Project", "Environment"]
       }
     }
-  ]
+  }]
 }
 ```
 
-### 레시피 3: Permission Boundary를 활용한 개발팀 권한 상승 차단
-
-개발자가 CI/CD 파이프라인이나 Lambda 실행용 IAM 역할을 생성할 때, 관리자 권한(`AdministratorAccess`)을 부여하는 것을 방지하고 반드시 사내 보안 경계선(Boundary)을 첨부하도록 강제합니다.
+### 3.3 레시피 3: Permission Boundary를 활용한 개발팀 권한 상승 차단
+개발자가 CI/CD 파이프라인이나 Lambda 실행용 IAM 역할을 생성할 때, 관리자 권한을 부여하는 것을 방지하고 반드시 사내 보안 경계선(Boundary)을 첨부하도록 강제합니다.
 
 ```json
+// https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html
 {
   "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "RequirePermissionBoundaryOnRoleCreation",
-      "Effect": "Deny",
-      "Action": [
-        "iam:CreateRole",
-        "iam:PutRolePermissionsBoundary"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringNotEquals": {
-          "iam:PermissionsBoundary": "arn:aws:iam::*:policy/EnterpriseDevSecOpsBoundary"
-        }
+  "Statement": [{
+    "Sid": "RequirePermissionBoundaryOnRoleCreation",
+    "Effect": "Deny",
+    "Action": ["iam:CreateRole", "iam:PutRolePermissionsBoundary"],
+    "Resource": "*",
+    "Condition": {
+      "StringNotEquals": {
+        "iam:PermissionsBoundary": "arn:aws:iam::*:policy/EnterpriseBoundary"
       }
     }
-  ]
+  }]
 }
 ```
 
@@ -166,46 +177,48 @@ IAM Identity Center의 **Permission Set**에 단 한 번만 등록하여 모든 
 
 ## 4. 아키텍처 비교 분석: RBAC vs ABAC
 
-| 비교 기준 | 전통적인 역할 기반 접근 제어 (RBAC) | 속성 기반 접근 제어 (ABAC) |
-|---|---|---|
-| **역할 관리 수** | 팀/프로젝트/환경마다 신규 생성 (수백~수천 개) | **단일 범용 역할/Permission Set 유지 (1~3개)** |
-| **신규 프로젝트 온보딩** | IAM 정책 수정 및 배포 티켓 필수 (수일 소요) | **리소스에 태그만 부여하면 즉시 적용 (0초)** |
-| **운영 복잡도** | 레거시 역할 누적 및 권한 폭발(Role Explosion) | **중앙 집중식 신원 속성 관리로 매우 단순** |
-| **최소 권한 준수도** | 와일드카드(`*`) 남용 위험 높음 | **동적 태그 일치 조건으로 정밀 통제** |
-| **감사 용이성** | 수많은 역할 추적으로 인한 감사 난이도 증가 | **CloudTrail에 사용자 신원 태그가 자동 기록됨** |
+### 4.1 핵심 거버넌스 지표별 비교
+
+| 비교 기준 | 전통적인 역할 기반 접근 제어 (RBAC) | 속성 기반 접근 제어 (ABAC) | 엔터프라이즈 권장 방안 |
+|---|---|---|---|
+| **역할 관리 수** | 팀/프로젝트/환경마다 신규 생성 (수백~수천 개) | **단일 범용 역할/Permission Set 유지 (1~3개)** | Identity Center 중앙 단일화 |
+| **신규 프로젝트 온보딩** | IAM 정책 수정 및 배포 티켓 필수 (수일 소요) | **리소스에 태그만 부여하면 즉시 적용 (0초)** | IaC 태그 표준화 강제 |
+| **운영 복잡도** | 레거시 역할 누적 및 권한 폭발(Role Explosion) | **중앙 집중식 신원 속성 관리로 매우 단순** | IdP 디렉터리 동기화 연계 |
+| **최소 권한 준수도** | 관리 한계로 인한 와일드카드(`*`) 남용 위험 | **동적 태그 일치 조건으로 정밀 통제** | 세션 태그 조건문 적용 |
+| **감사 용이성** | 수많은 역할 추적으로 인한 감사 난이도 증가 | **CloudTrail에 사용자 신원 태그가 자동 기록됨** | CloudTrail Lake 통합 쿼리 |
+| **권한 리뷰 주기** | 계정별 수동 검토로 수주 소요 | **속성 매핑 테이블만 분기별 검토** | 분기별 자동화 감사 |
+
+### 4.2 태그 드리프트 방지 및 거버넌스 원칙
+1. **일관된 네이밍 컨벤션**: PascalCase 또는 kebab-case 중 하나를 전사 표준으로 지정.
+2. **필수 태그 강제**: AWS Config 및 Organizations Tag Policy를 통한 위반 리소스 감지.
+3. **태그 무결성 보호**: 서비스 제어 정책(SCP)을 통해 파이프라인 외 수동 태그 변경 거부.
 
 ---
 
 ## 5. CloudTrail Lake를 활용한 실시간 권한 및 이상 행위 감사
 
-ABAC 환경에서는 CloudTrail Lake의 이벤트 데이터 스토어를 통해 사용자의 신원 속성과 리소스 태그 간의 불일치로 발생한 접근 거부(`AccessDenied`) 이벤트를 SQL로 즉시 분석할 수 있습니다.
+### 5.1 태그 기반 권한 감사 SQL 쿼리
+CloudTrail Lake를 활용하여 세션 태그와 리소스 태그가 불일치하여 거부된 접근 시도를 실시간 조회합니다.
 
 ```sql
-SELECT
-    eventTime,
-    userIdentity.sessionContext.sessionIssuer.userName AS AssumedRole,
-    userIdentity.principalId AS PrincipalUser,
-    recipientAccountId AS AWSAccount,
-    eventName AS AttemptedAction,
-    errorCode,
-    errorMessage
-FROM
-    "12345678-abcd-1234-abcd-123456789012"
-WHERE
-    errorCode = 'AccessDenied'
-    AND eventTime >= '2026-08-30 00:00:00'
-ORDER BY
-    eventTime DESC
-LIMIT 50;
+-- CloudTrail Lake 감사 쿼리: ABAC 불일치로 인한 AccessDenied 탐지
+SELECT eventTime, userIdentity.principalId, eventName, errorMessage
+FROM "aws-cloudtrail-lake-eds-id"
+WHERE errorCode = 'AccessDenied'
+  AND errorMessage LIKE '%aws:PrincipalTag%'
+ORDER BY eventTime DESC LIMIT 20;
 ```
+
+### 5.2 지속적 거버넌스 및 체크리스트
+- [ ] **IdP 속성 매핑 검증**: Okta/Entra ID에서 부서(`Department`), 프로젝트(`Project`) 속성이 SAML 클레임으로 정상 전달되는지 확인.
+- [ ] **Identity Center 속성 활성화**: AWS IAM Identity Center 콘솔에서 "Attributes for access control" 활성화.
+- [ ] **Organizations SCP 배포**: 모든 멤버 계정의 OU에 거버넌스 태그 변경 거부 SCP 적용.
+- [ ] **IaC 태깅 규격 강제**: Terraform/CloudFormation 파이프라인에서 기본 태그(`default_tags`) 누락 시 배포 차단.
+- [ ] **정기 감사 자동화**: CloudTrail Lake 및 EventBridge를 연동하여 고위험 비정상 접근 시도 즉시 알림.
 
 ---
 
-## 6. 실무 적용 및 운영 체크리스트 (Actionable Checklist)
+## 6. 관련 포스트 및 참고 자료 (Cross References)
 
-- [ ] **IdP 속성 동기화**: SCIM 또는 SAML 어설션을 통해 `Department`, `Project`, `Environment` 속성이 IAM Identity Center로 정확히 전달되는지 검증합니다.
-- [ ] **세션 태그 활성화**: IAM Identity Center의 **Attributes for access control** 설정에서 `PrincipalTag` 매핑을 활성화합니다.
-- [ ] **표준 태그 정책(Tag Policy) 강제**: AWS Organizations Tag Policy를 배포하여 리소스 생성 시 필수 거버넌스 태그 누락을 차단합니다.
-- [ ] **SCP 태그 변조 방지 배포**: 운영 계정에 SCP를 적용하여 승인된 자동화 파이프라인 외에는 거버넌스 태그를 수정할 수 없도록 격리합니다.
-- [ ] **Permission Boundary 적용**: 개발팀에게 IAM 역할 생성 권한을 위임할 때 사내 권한 경계선을 필수로 강제합니다.
-- [ ] **CloudTrail Lake 쿼리 자동화**: 주간 `AccessDenied` 급증 및 태그 불일치 접근 시도를 자동 집계하여 알림을 구성합니다.
+- AI 에이전트 MCP 보안 아키텍처: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 쿠버네티스 인프로세스 정책 통제: {% post_url 2026-08-31-Kubernetes_Validating_Admission_Policy_CEL_Security_Guide %}

@@ -4203,47 +4203,47 @@
     }
   },
   "2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense.md": {
-    "total": 53,
+    "total": 95,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
-      "executive_summary": 0,
-      "risk_scorecard": 0,
-      "sections": 7,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
       "checklists": 10,
-      "tables": 4,
-      "code_blocks": 6,
-      "cross_refs": 0,
-      "length": 1
+      "tables": 10,
+      "code_blocks": 8,
+      "cross_refs": 5,
+      "length": 2
     }
   },
   "2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance.md": {
-    "total": 54,
+    "total": 93,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
-      "executive_summary": 0,
-      "risk_scorecard": 0,
-      "sections": 7,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
       "checklists": 10,
-      "tables": 4,
+      "tables": 10,
       "code_blocks": 6,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
   "2026-08-31-Kubernetes_Validating_Admission_Policy_CEL_Security_Guide.md": {
-    "total": 57,
+    "total": 93,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
-      "executive_summary": 0,
-      "risk_scorecard": 0,
-      "sections": 7,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
       "checklists": 10,
-      "tables": 9,
-      "code_blocks": 4,
-      "cross_refs": 0,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 5,
       "length": 2
     }
   },

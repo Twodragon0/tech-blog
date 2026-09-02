@@ -44,6 +44,10 @@ cat > "$HOOK_FILE" << 'HOOK'
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 
+if [ -d "$REPO_ROOT/.venv/bin" ]; then
+  export PATH="$REPO_ROOT/.venv/bin:$PATH"
+fi
+
 # 1. HTML entity residue guard — check staged filenames and frontmatter image: fields
 python3 "$REPO_ROOT/scripts/check_filename_entities.py" --staged
 if [ $? -ne 0 ]; then
