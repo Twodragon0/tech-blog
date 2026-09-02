@@ -10,6 +10,11 @@ _plugins/lazy_data_generator.rb#compute_image_flags):
     Card      : <S>_card.avif, <S>_card.webp  (warn if missing)
     Fallback  : the literal image: value itself (.svg / .png)
 
+A derived variant absent from the repo is not automatically a defect: build.sh
+regenerates most of them on every build. Absent variants are therefore split
+into two buckets — see _build_source() for the derivation rules — and only the
+ones no build step can seed are reported as missing.
+
 Exit codes:
   0  all posts OK (primary variant present or image: is already a raster)
   1  one or more posts missing their primary variant
@@ -56,7 +61,9 @@ class PostResult(NamedTuple):
     post: Path
     image_field: str
     missing_primary: list[str]  # blocks push
-    missing_secondary: list[str]  # warns only
+    missing_secondary: list[str]  # warns only — nothing on disk can seed these
+    pending_build: list[str]  # absent, but build.sh derives them this build
+    build_source: str | None  # the on-disk file that seeds pending_build
 
 
 def _extract_image_field(post_path: Path) -> str | None:
@@ -96,6 +103,36 @@ def _base_stem(image_field: str) -> str:
     return _STEM_STRIP_RE.sub("", name)
 
 
+def _build_source(stem: str, image_field: str) -> str | None:
+    """Return the on-disk file build.sh derives this post's variants from.
+
+    build.sh runs three idempotent skip-if-exists steps in this order:
+
+      1. scripts/build/rasterize_svg_covers.py
+         <S>.svg (referenced by a post's ``image:``)  ->  <S>_og.png
+      2. scripts/build/backfill_og_modern_variants.py
+         <S>_og.png  ->  <S>_og.avif, <S>_og.webp
+      3. scripts/build/backfill_card_variants.py
+         <S>_og.png  ->  <S>_card.avif, <S>_card.webp
+
+    Steps 2 and 3 glob ``assets/images/*_og.png`` when they run, so a PNG
+    produced by step 1 in the same build feeds both of them. That makes the
+    derived variants recoverable whenever *either* the PNG or the cover SVG is
+    present, and unrecoverable when neither is — which is the split this
+    function encodes.
+
+    Returns the seed filename, or None when no build step can produce them.
+    """
+    if (IMAGES_DIR / f"{stem}_og.png").exists():
+        return f"{stem}_og.png"
+    # Step 1 only rasterizes SVGs named by an `image:` field, which is exactly
+    # what this post's image_field is — so an existing literal .svg qualifies.
+    literal = Path(_strip_query(image_field).lstrip("/")).name
+    if literal.lower().endswith(".svg") and (IMAGES_DIR / literal).is_file():
+        return literal
+    return None
+
+
 def check_post(post_path: Path) -> PostResult | None:
     """Return a PostResult if the post has an image: field, else None."""
     image_field = _extract_image_field(post_path)
@@ -120,22 +157,27 @@ def check_post(post_path: Path) -> PostResult | None:
     if not og_png.exists() and not literal_exists:
         missing_primary.append(str(og_png.relative_to(PROJECT_ROOT)))
 
-    # Secondary (warn-only): modern/card variants.
+    # Secondary (never blocks): modern/card variants. Absent ones are split by
+    # whether build.sh can still derive them — see _build_source().
+    build_source = _build_source(stem, image_field)
     missing_secondary: list[str] = []
-    for p, label in [
-        (og_avif, "_og.avif"),
-        (og_webp, "_og.webp"),
-        (card_avif, "_card.avif"),
-        (card_webp, "_card.webp"),
-    ]:
-        if not p.exists():
-            missing_secondary.append(str(p.relative_to(PROJECT_ROOT)))
+    pending_build: list[str] = []
+    for p in (og_avif, og_webp, card_avif, card_webp):
+        if p.exists():
+            continue
+        rel = str(p.relative_to(PROJECT_ROOT))
+        if build_source:
+            pending_build.append(rel)
+        else:
+            missing_secondary.append(rel)
 
     return PostResult(
         post=post_path,
         image_field=image_field,
         missing_primary=missing_primary,
         missing_secondary=missing_secondary,
+        pending_build=pending_build,
+        build_source=build_source,
     )
 
 
@@ -166,6 +208,7 @@ def run_check(
     """Check all given posts. Return 0 (pass) or 1 (fail)."""
     errors: list[PostResult] = []
     warnings: list[PostResult] = []
+    pending: list[PostResult] = []
 
     for post in posts:
         result = check_post(post)
@@ -173,12 +216,28 @@ def run_check(
             continue
         if result.missing_primary:
             errors.append(result)
-        elif result.missing_secondary:
+            continue
+        if result.missing_secondary:
             warnings.append(result)
+        if result.pending_build:
+            pending.append(result)
+
+    if pending:
+        total_pending = sum(len(r.pending_build) for r in pending)
+        print(
+            f"\n[variant-check] INFO: {len(pending)} post(s) / {total_pending} variant(s) "
+            "not in the repo but derived by build.sh — not missing:"
+        )
+        for r in pending:
+            print(
+                f"  {r.post.name}: {len(r.pending_build)} pending, seeded by "
+                f"assets/images/{r.build_source}"
+            )
 
     if warnings:
         print(
-            f"\n[variant-check] WARNING: {len(warnings)} post(s) missing optional variants:"
+            f"\n[variant-check] WARNING: {len(warnings)} post(s) missing optional variants "
+            "that no build step can derive:"
         )
         for r in warnings:
             print(f"  {r.post.name}  (image: {r.image_field})")
