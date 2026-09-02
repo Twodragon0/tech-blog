@@ -481,3 +481,10 @@ Krebs on Security의 분석이 AI 에이전트가 만들어내는 새로운 공�
 - [암호화폐 침해 사고, 모바일 제로데이 패치, AI 운영 리스크](/posts/2026/03/10/Tech_Security_Weekly_Digest_AI_Malware_Security_Data/) — 2026-03-10
 - [CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석](/posts/2026/03/06/Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/) — 2026-03-06
 
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

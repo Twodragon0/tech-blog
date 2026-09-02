@@ -313,3 +313,11 @@ aws ec2 authorize-security-group-ingress \
 | AWS Control Tower | 멀티 계정 거버넌스 | [docs.aws.amazon.com/controltower](https://docs.aws.amazon.com/controltower/) |
 | AWS Organizations | 계정 그룹 관리 | [docs.aws.amazon.com/organizations](https://docs.aws.amazon.com/organizations/) |
 | AWS WAF | 네트워크 시나리오 - AWS WAF와 전체적인 네트워크 보안 구성 | [youtu.be/r84IuPv_4TI](https://youtu.be/r84IuPv_4TI) |
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

@@ -484,3 +484,10 @@ Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 �
 - [AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) — 2026-01-26
 - [Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) — 2026-01-28
 
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

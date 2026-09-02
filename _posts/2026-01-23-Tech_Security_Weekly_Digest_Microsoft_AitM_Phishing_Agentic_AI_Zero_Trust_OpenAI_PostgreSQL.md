@@ -438,3 +438,10 @@ SIEM & 탐지:
 - [AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) — 2026-01-26
 - [Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
 
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

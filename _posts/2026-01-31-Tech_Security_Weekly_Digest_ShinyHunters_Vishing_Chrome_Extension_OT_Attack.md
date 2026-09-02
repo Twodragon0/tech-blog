@@ -316,3 +316,10 @@ Google 산하 Mandiant가 금전적 동기의 해킹 그룹 ShinyHunters (UNC394
 - [AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet 패치](/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/) — 2026-02-01
 - [Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) — 2026-01-28
 
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+- AWS Multi-Account 제로 트러스트 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+

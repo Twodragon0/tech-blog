@@ -613,3 +613,11 @@ Rate Limiting 규칙 추가:
 작성자: DevSecOps Team
 
 검토 필요: 개발팀 (애플리케이션 에러 수정), 보안팀 (Cloudflare 차단 검토)
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

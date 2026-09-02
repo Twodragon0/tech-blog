@@ -375,3 +375,11 @@ AI 도구의 비용 관리가 자동화되고 있습니다:
 ---
 
 다음 포스트 예고: Claude Code 실전 활용 - oh-my-claudecode 플러그인으로 생산성 5배 향상하기
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

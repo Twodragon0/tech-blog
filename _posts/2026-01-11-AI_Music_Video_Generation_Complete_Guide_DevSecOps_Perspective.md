@@ -403,3 +403,11 @@ DevSecOps 커뮤니티:
 원본 포스트: 이 포스팅은 YouTube의 "Pioneer" AI 음악 비디오를 참고하여 작성되었습니다.
 
 면책 조항: 본 포스팅의 법률 정보는 일반적인 가이드라인이며, 실제 법적 조언은 전문 변호사와 상담하시기 바랍니다. AI 도구의 가격 및 기능은 변경될 수 있으므로 공식 문서를 참조하세요.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

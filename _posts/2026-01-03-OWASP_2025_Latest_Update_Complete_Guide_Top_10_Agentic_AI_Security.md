@@ -364,3 +364,11 @@ rules:
 > 3. 양자내성 암호화 전환: 2026-2030 로드맵 수립 및 하이브리드 방식 점진적 도입
 > 4. 문화 개선: Shift Left 보안, 개발자 보안 교육, 보안 메트릭 통합
 > 5. 지속적 학습: OWASP 커뮤니티 참여, 최신 보안 동향 모니터링
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

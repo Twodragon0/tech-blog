@@ -490,3 +490,11 @@ AWS 서비스 버전: 2026년 1월 기준 최신 버전
 ---
 
 저작권: 이 포스팅의 코드 예제와 아키텍처 다이어그램은 [MIT 라이선스](https://opensource.org/licenses/MIT)를 따릅니다. 자유롭게 사용 및 수정 가능하며, 출처 표기를 권장합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

@@ -11,6 +11,10 @@
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 
+if [ -d "$REPO_ROOT/.venv/bin" ]; then
+  export PATH="$REPO_ROOT/.venv/bin:$PATH"
+fi
+
 # ---------------------------------------------------------------------------
 # Read push refspecs once — we need them for both checks.
 # ---------------------------------------------------------------------------

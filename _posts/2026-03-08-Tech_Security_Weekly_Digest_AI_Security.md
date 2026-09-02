@@ -347,3 +347,11 @@ Go 언어에 UUID 생성·파싱 기능을 표준 라이브러리(`unique/uuid`)
 - [Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
 - [AI 에이전트 보안 위협, Saylor Bitcoin 매수, Agent Safehouse](/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/) — 2026-03-09
 - [Coruna iOS 익스플로잇, 핵티비스트 DDoS, 보안 대응 우선순위](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

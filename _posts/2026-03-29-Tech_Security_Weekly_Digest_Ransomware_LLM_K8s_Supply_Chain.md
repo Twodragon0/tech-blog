@@ -556,3 +556,11 @@ az ad sign-in-activity list --filter "clientAppUsed eq 'Exchange ActiveSync'"
 - [AI 에이전트 보안, 클라우드 Zero-Day, 컨테이너 공급망 공격](/posts/2026/03/28/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/) — 2026-03-28
 - [Kubernetes RBAC 취약점, SLSA 공급망 보안, AI 프롬프트 인젝션 방어](/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/) — 2026-03-26
 - [Android Developer, TrueConf 제로데이, 동남아시아 정부, AWS에서 제공하는 새로운 규정 준수 가이드](/posts/2026/04/01/Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/) — 2026-04-01
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- Kubernetes 인프로세스 검증 정책(VAP): {% post_url 2026-08-31-Kubernetes_Validating_Admission_Policy_CEL_Security_Guide %}
+- eBPF 기반 Tetragon 런타임 보안 아키텍처: {% post_url 2026-09-03-eBPF_Tetragon_Kubernetes_Runtime_Security_Architecture %}
+

@@ -376,3 +376,11 @@ SSL 검사, 샌드박스, 브라우저 제어 등 다양한 보안 기능을 통
 업데이트 로그:
 - 2025-11-04: 초기 작성 (Executive Summary, MITRE ATT&CK, SIEM 쿼리, 한국 특화 분석, 경영진 보고 형식, 아키텍처 다이어그램, 위협 탐지 규칙, 참고 자료 추가)
 - 기존 컨텐츠: Zscaler 개요, ZCC 설정, SSL 검사, 샌드박스, 브라우저 제어, AI/광고/유해 사이트 차단, 2025년 ZTNA/SASE 트렌드
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

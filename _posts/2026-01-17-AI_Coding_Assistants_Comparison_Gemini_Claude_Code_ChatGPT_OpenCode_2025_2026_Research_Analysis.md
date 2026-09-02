@@ -629,3 +629,11 @@ AI 코딩 어시스턴트는 개발 생산성을 크게 향상시킬 수 있지�
 
 마지막 업데이트: 2026-01-17
 작성 기준: 2025-2026년 최신 연구 논문 및 벤치마크 결과
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

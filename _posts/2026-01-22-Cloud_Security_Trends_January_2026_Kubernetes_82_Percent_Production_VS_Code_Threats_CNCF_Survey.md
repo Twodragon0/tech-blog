@@ -265,3 +265,11 @@ index=k8s_network OR index=firewall
 3. OSTIF. (2026). "CRI-O Completes Second OSTIF Audit". [Link](https://www.cncf.io/blog/2026/01/16/cri-o-completes-second-ostif-audit/)
 4. Mandiant. (2026). "Closing the Door on Net-NTLMv1: Releasing Rainbow Tables". [Link](https://cloud.google.com/blog/topics/threat-intelligence/net-ntlmv1-deprecation-rainbow-tables/)
 5. HPE/CNCF. (2026). "Reclaiming Underutilized GPUs in Kubernetes". [Link](https://www.cncf.io/blog/2026/01/20/reclaiming-underutilized-gpus-in-kubernetes-using-scheduler-plugins/)
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 쿠버네티스 인프로세스 검증 정책(VAP): {% post_url 2026-08-31-Kubernetes_Validating_Admission_Policy_CEL_Security_Guide %}
+- eBPF 기반 Tetragon 런타임 보안 아키텍처: {% post_url 2026-09-03-eBPF_Tetragon_Kubernetes_Runtime_Security_Architecture %}
+

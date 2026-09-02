@@ -781,3 +781,11 @@ Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화
 **마지막 업데이트**: 2025-05-24
 **작성자**: Yongho Ha
 **라이선스**: CC BY-NC-SA 4.0
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

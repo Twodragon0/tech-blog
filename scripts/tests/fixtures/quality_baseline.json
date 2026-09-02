@@ -45,7 +45,7 @@
     }
   },
   "2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.md": {
-    "total": 81,
+    "total": 86,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -55,12 +55,12 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 6,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
   "2025-05-09-Cloud_Security_Course_7Batch_-_4Week_AWS_Vulnerability_Inspection_And_ISMS_Response_Guide.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -70,12 +70,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
   "2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -85,7 +85,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 9,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
@@ -105,7 +105,7 @@
     }
   },
   "2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS.md": {
-    "total": 81,
+    "total": 86,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -115,7 +115,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 6,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -195,7 +195,7 @@
     }
   },
   "2025-09-10-npm_Ecosystem_Large_scale_Security_Breach_20_Download_Package_Malware_Infection.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -205,12 +205,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
   "2025-09-16-AWS_reInforce_2025_Cloud_Security_Current_and_Future.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -220,12 +220,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
   "2025-09-17-NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -235,12 +235,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 9,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -250,7 +250,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
@@ -285,7 +285,7 @@
     }
   },
   "2025-11-04-Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -295,12 +295,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
   "2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -310,12 +310,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
   "2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -325,7 +325,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
@@ -390,7 +390,7 @@
     }
   },
   "2025-12-19-Cloud_Security_8Batch_4Week_Integration_Security_Vulnerability_Inspection_And_ISMS-P_Certification_Response.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 14,
       "ai_summary": 10,
@@ -400,7 +400,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -435,7 +435,7 @@
     }
   },
   "2026-01-03-OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security.md": {
-    "total": 80,
+    "total": 85,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -445,12 +445,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 7,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
   "2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 14,
       "ai_summary": 10,
@@ -460,12 +460,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
   "2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_And_Best_Practice.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 14,
       "ai_summary": 10,
@@ -475,12 +475,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 8,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
   "2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical.md": {
-    "total": 80,
+    "total": 85,
     "scores": {
       "front_matter": 11,
       "ai_summary": 10,
@@ -490,7 +490,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
@@ -510,7 +510,7 @@
     }
   },
   "2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -520,12 +520,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_In_Environment_Management_System_Establishment_And_Protection_Measures_Implementation.md": {
-    "total": 81,
+    "total": 87,
     "scores": {
       "front_matter": 14,
       "ai_summary": 10,
@@ -535,12 +535,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 8,
-      "cross_refs": 0,
-      "length": 4
+      "cross_refs": 5,
+      "length": 5
     }
   },
   "2026-01-14-AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -550,7 +550,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
@@ -570,7 +570,7 @@
     }
   },
   "2026-01-14-GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -580,7 +580,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 7,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -600,7 +600,7 @@
     }
   },
   "2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.md": {
-    "total": 81,
+    "total": 86,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -610,12 +610,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 6,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
   "2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -625,12 +625,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 8,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
   "2026-01-22-AWS_GCP_Cloud_Updates_January_2026_EC2_G7e_X8i_Bangkok_Region_European_Sovereign_Cloud.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -640,7 +640,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
@@ -660,7 +660,7 @@
     }
   },
   "2026-01-22-Cloud_Security_Trends_January_2026_Kubernetes_82_Percent_Production_VS_Code_Threats_CNCF_Survey.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -670,12 +670,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
   "2026-01-22-KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -685,7 +685,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
@@ -705,7 +705,7 @@
     }
   },
   "2026-01-22-Security_Vendor_Blog_Weekly_Review.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -715,12 +715,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-01-23-Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -730,7 +730,7 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
@@ -750,7 +750,7 @@
     }
   },
   "2026-01-25-Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 13,
       "ai_summary": 10,
@@ -760,7 +760,7 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
@@ -795,7 +795,7 @@
     }
   },
   "2026-01-28-Claude_MD_Security_Guide.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -805,7 +805,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
@@ -866,7 +866,7 @@
     }
   },
   "2026-01-31-Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -876,7 +876,7 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
@@ -956,7 +956,7 @@
     }
   },
   "2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Comparison.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -966,7 +966,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
@@ -986,7 +986,7 @@
     }
   },
   "2026-02-05-AI_Content_Creator_Workflow_2026_Blog_Video_Music_Animation.md": {
-    "total": 81,
+    "total": 86,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -996,7 +996,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 6,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -1076,7 +1076,7 @@
     }
   },
   "2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1086,12 +1086,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
   "2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1101,12 +1101,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
   "2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1116,12 +1116,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
   "2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.md": {
-    "total": 82,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1131,8 +1131,8 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
-      "length": 2
+      "cross_refs": 5,
+      "length": 3
     }
   },
   "2026-02-11-Tech_Security_Weekly_Digest_Security_Ransomware_Patch_AI.md": {
@@ -1181,7 +1181,7 @@
     }
   },
   "2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 12,
       "ai_summary": 10,
@@ -1191,12 +1191,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
   "2026-02-16-Daily_Tech_Digest_RSS_Roundup.md": {
-    "total": 81,
+    "total": 86,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1206,12 +1206,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 1
     }
   },
   "2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1221,12 +1221,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-02-18-Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1236,7 +1236,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
@@ -1286,7 +1286,7 @@
     }
   },
   "2026-02-21-Tech_Security_Weekly_Digest_Data_Rust_AI_Threat.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1296,7 +1296,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
@@ -1447,7 +1447,7 @@
     }
   },
   "2026-03-01-Tech_Security_Weekly_Digest_AI_Agent_Ransomware.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1457,12 +1457,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-03-02-Tech_Security_Weekly_Digest_Ransomware_AI_Agent.md": {
-    "total": 83,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1472,8 +1472,8 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 9,
-      "cross_refs": 0,
-      "length": 4
+      "cross_refs": 5,
+      "length": 5
     }
   },
   "2026-03-04-Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin.md": {
@@ -1492,7 +1492,7 @@
     }
   },
   "2026-03-05-Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1502,7 +1502,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
@@ -1552,7 +1552,7 @@
     }
   },
   "2026-03-08-Tech_Security_Weekly_Digest_AI_Security.md": {
-    "total": 83,
+    "total": 88,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1562,12 +1562,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
   "2026-03-09-Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1577,7 +1577,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
@@ -1627,7 +1627,7 @@
     }
   },
   "2026-03-15-Tech_Security_Weekly_Digest_AWS_AI_Bitcoin.md": {
-    "total": 81,
+    "total": 86,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1637,12 +1637,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 6,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
   "2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1652,12 +1652,12 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
   "2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1667,7 +1667,7 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
@@ -1762,7 +1762,7 @@
     }
   },
   "2026-03-23-Tech_Security_Weekly_Digest_Ransomware.md": {
-    "total": 82,
+    "total": 87,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1772,7 +1772,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 2
     }
   },
@@ -1852,7 +1852,7 @@
     }
   },
   "2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain.md": {
-    "total": 84,
+    "total": 89,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1862,7 +1862,7 @@
       "checklists": 0,
       "tables": 10,
       "code_blocks": 9,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -4290,6 +4290,21 @@
       "code_blocks": 10,
       "cross_refs": 0,
       "length": 4
+    }
+  },
+  "2026-09-03-eBPF_Tetragon_Kubernetes_Runtime_Security_Architecture.md": {
+    "total": 93,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 6,
+      "cross_refs": 5,
+      "length": 2
     }
   }
 }

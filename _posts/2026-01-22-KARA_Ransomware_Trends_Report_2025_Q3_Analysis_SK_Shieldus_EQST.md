@@ -371,3 +371,11 @@ SK쉴더스 EQST에서 제공하는 랜섬웨어 관련 리소스:
 ---
 
 > 면책 조항: 본 포스팅은 SK쉴더스 EQST insight 및 공개된 위협 인텔리전스를 바탕으로 작성되었습니다. 정확한 최신 정보는 원본 보고서를 참조하시기 바랍니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+- AWS Multi-Account 제로 트러스트 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+

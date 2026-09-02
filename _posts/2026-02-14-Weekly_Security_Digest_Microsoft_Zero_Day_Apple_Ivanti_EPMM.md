@@ -519,3 +519,11 @@ Flow 블록체인에서 $3.9M 규모의 익스플로잇이 발생했으며, 이�
 
 
 ---
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+- AWS Multi-Account 제로 트러스트 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+

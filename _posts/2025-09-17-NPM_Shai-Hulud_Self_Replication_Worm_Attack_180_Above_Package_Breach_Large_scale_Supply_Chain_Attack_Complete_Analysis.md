@@ -463,3 +463,11 @@ CISA 경고에 따라 모든 조직은 즉시 의존성 감사를 실시하고, 
 ---
 
 마지막 업데이트: 2025-11-15 (Shai-Hulud 2.0, CISA 경고, Nx 공격 등 추가)
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

@@ -376,3 +376,11 @@ DevSecOps와 FinOps를 모두 아우르는 실무 역량을 키워, 보안과 �
 보안은 단순히 도구를 도입하는 것이 아니라, 문화와 프로세스의 변화가 필요합니다. 이번 과정을 통해 그 변화를 함께 만들어가시길 바랍니다.
 
 클라우드 시큐리티 8기에서 만나요! 🚀
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

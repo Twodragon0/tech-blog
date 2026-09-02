@@ -262,3 +262,11 @@ AWS re:Inforce 2025는 클라우드 보안의 현재와 미래를 보여주는 �
 - 단기 (1-3개월): GuardDuty, Security Hub 전사 활성화
 - 중기 (3-6개월): IAM Policy Autopilot, Security Agent 파일럿
 - 장기 (6-12개월): AgentCore Identity, Zero Trust 완전 구현
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

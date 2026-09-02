@@ -515,3 +515,11 @@ UN R155는 유엔 자동차 규정으로, 2024년부터 한국을 포함한 여�
 | **UN Regulation No. 155** | Cyber security and cyber security management system | UNECE | [링크](https://unece.org/transport/documents/2021/01/standards/un-regulation-no-155-cyber-security-and-cyber-security) |
 | **OWASP Internet of Things** | IoT 보안 프로젝트 (자동차 포함) | OWASP | [링크](https://owasp.org/www-project-internet-of-things/) |
 | **SAE J3061** | Cybersecurity Guidebook for Cyber-Physical Vehicle Systems | SAE International | [링크](https://www.sae.org/standards/content/j3061_201601/) |
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+- AWS Multi-Account 제로 트러스트 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+

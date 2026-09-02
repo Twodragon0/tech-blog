@@ -482,3 +482,11 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 승인: CTO
 
 *이 포스트는 실제 프로덕션 장애 경험을 바탕으로 작성되었으며, 민감 정보는 익명화 처리되었습니다.*
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+- AWS Multi-Account 제로 트러스트 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+

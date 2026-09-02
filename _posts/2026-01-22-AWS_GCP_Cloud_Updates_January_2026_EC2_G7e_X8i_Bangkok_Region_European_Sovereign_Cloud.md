@@ -423,3 +423,11 @@ Trade-off:
 4. Google Cloud. (2026). "Google Cloud launches new region in Bangkok". [Link](https://cloud.google.com/blog/products/infrastructure/google-cloud-launches-new-region-in-bangkok-thailand/)
 5. Google Cloud. (2026). "Getting Started with Gemini 3 Flash". [Link](https://cloud.google.com/blog/topics/developers-practitioners/getting-started-with-gemini-3-hello-world-with-gemini-3-flash/)
 6. Google Cloud. (2026). "BigQuery managed and SQL-native inference". [Link](https://cloud.google.com/blog/products/data-analytics/introducing-bigquery-managed-and-sql-native-inference-for-open-models/)
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+
