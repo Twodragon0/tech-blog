@@ -1,22 +1,35 @@
 """Invariants for the 2-tier Noto Sans KR split.
 
-The bandwidth win of the tier split rests on ONE property: the
-`unicode-range` in `assets/css/font-tier2.css` must be exactly the set of
-Hangul syllables the tier-1 woff2 files do NOT contain. If the two drift
-apart the failure is silent in both directions:
+The bandwidth win of the tier split rests on the `unicode-range` in
+`assets/css/font-tier2.css` describing exactly what the tier-2 woff2 files
+contain, with no overlap onto tier-1. If the two drift apart the failure is
+silent in both directions:
 
-  * range too wide (overlaps tier-1) → browsers fetch ~500 KB of tier-2 for
-    glyphs tier-1 already had, i.e. back to the pre-2026-08-10 waste.
-  * range too narrow (misses part of the tail) → a rare syllable resolves to
-    no face at all and renders in the system fallback font forever.
+  * range too wide (overlaps tier-1) → browsers fetch tier-2 for glyphs tier-1
+    already had, i.e. back to the pre-2026-08-10 waste.
+  * range too narrow (misses part of what tier-2 ships) → a rare syllable
+    resolves to no face at all and renders in the system fallback font forever.
 
 Both artifacts come from one codepoint set in
 `scripts/build/generate_noto_2tier_subset.py`, so these tests assert the
-on-disk outputs still agree with each other and with the committed woff2
-cmaps. Corpus coverage (does tier-1 still cover every published syllable?) is
-reported as a WARNING rather than a failure — cron publishes digests without
-regenerating fonts, and an uncovered syllable degrades gracefully via tier-2
-instead of breaking the build. See docs/optimization/NOTO_SANS_SELF_HOST_RUNBOOK.md.
+on-disk outputs still agree with each other and with the committed woff2 cmaps.
+
+Two coverage questions are asked here and they are NOT the same question:
+
+``test_every_corpus_syllable_is_covered_by_a_shipped_tier``
+    ENFORCING, and a correctness gate. Every Hangul syllable the published
+    corpus renders must appear in the cmap of a shipped woff2 — tier-1 OR
+    tier-2. Until 2026-09-02 tier-2 carried the entire remaining Hangul block,
+    so this held vacuously and no test asserted it; shrinking tier-2 to the
+    KS X 1001 margin is what makes it load-bearing. A syllable outside both
+    tiers renders in the system fallback font, silently and permanently.
+
+``test_corpus_syllables_outside_tier1_are_reported``
+    NON-ENFORCING, and a performance hint. Cron publishes digests without
+    regenerating fonts, so a syllable landing in tier-2 rather than tier-1 is
+    routine: it costs one deferred stylesheet fetch, not correctness.
+
+See docs/optimization/NOTO_SANS_SELF_HOST_RUNBOOK.md.
 """
 
 from __future__ import annotations
@@ -38,6 +51,7 @@ from generate_noto_2tier_subset import (  # noqa: E402
     compact_ranges,
     format_unicode_range,
     hangul_frequency,
+    ksx1001_syllables,
     render_tier2_css,
 )
 
@@ -139,22 +153,38 @@ def test_tier2_css_weights_share_one_range():
     )
 
 
-def test_tier2_range_is_exact_complement_of_tier1_corpus():
-    """The declared tail == all Hangul minus the tier-1 syllable list."""
-    tail = _parse_unicode_ranges(TIER2_CSS.read_text(encoding="utf-8"))[0]
-    covered = {ord(c) for c in _tier1_syllables()}
-    expected = set(range(HANGUL_START, HANGUL_END + 1)) - covered
+def test_tier2_range_is_disjoint_from_tier1():
+    """No syllable may be claimed by both tiers.
 
-    overlap = tail & covered
+    Overlap is the expensive direction: the browser would pull the tier-2
+    faces to render glyphs the preloaded tier-1 already carries.
+    """
+    margin = _parse_unicode_ranges(TIER2_CSS.read_text(encoding="utf-8"))[0]
+    covered = {ord(c) for c in _tier1_syllables()}
+    overlap = margin & covered
     assert not overlap, (
         f"{len(overlap)} tier-1 syllable(s) also claimed by tier-2 "
         f"(e.g. {''.join(chr(c) for c in sorted(overlap)[:10])}) — "
-        "browsers would fetch ~500 KB of tier-2 needlessly"
+        "browsers would fetch tier-2 needlessly"
     )
-    missing = expected - tail
+
+
+def test_tier2_range_covers_the_declared_ksx1001_margin():
+    """Tier-2 must still be the KS X 1001 margin, not just today's corpus tail.
+
+    Pinned because the cheap version of this shrink — ship only the ~20
+    syllables the corpus currently uses outside tier-1 — passes every other
+    test in this file and every gate in CI, and then breaks the first time a
+    digest introduces a novel syllable. The margin is the deliberate part.
+    """
+    margin = _parse_unicode_ranges(TIER2_CSS.read_text(encoding="utf-8"))[0]
+    covered = {ord(c) for c in _tier1_syllables()}
+    expected = ksx1001_syllables() - covered
+    missing = expected - margin
     assert not missing, (
-        f"{len(missing)} tail codepoint(s) absent from font-tier2.css — "
-        "those syllables would silently fall back to the system font"
+        f"{len(missing)} KS X 1001 syllable(s) covered by neither tier "
+        f"(e.g. {''.join(chr(c) for c in sorted(missing)[:10])}) — "
+        "the margin has been narrowed below its documented floor"
     )
 
 
@@ -167,17 +197,27 @@ def test_tier2_range_stays_inside_hangul_block():
 
 
 def test_tier2_css_matches_generator_output():
-    """The committed CSS is byte-identical to a fresh render — no hand edits."""
-    covered = {ord(c) for c in _tier1_syllables()}
-    tail = set(range(HANGUL_START, HANGUL_END + 1)) - covered
-    assert TIER2_CSS.read_text(encoding="utf-8") == render_tier2_css(tail)
+    """The committed CSS is byte-identical to a fresh render — no hand edits.
+
+    The codepoint set is taken from the shipped weight-400 woff2 cmap rather
+    than recomputed from the corpus: that keeps this a check on the CSS text
+    (header, url(), descriptor formatting) instead of a second, weaker copy of
+    the margin rule, which `test_tier2_range_covers_the_declared_ksx1001_margin`
+    already owns.
+    """
+    margin = {
+        cp
+        for cp in _cmap_codepoints(FONTS_DIR / "noto-sans-kr-400-tier2.woff2")
+        if HANGUL_START <= cp <= HANGUL_END
+    }
+    assert TIER2_CSS.read_text(encoding="utf-8") == render_tier2_css(margin)
 
 
 @pytest.mark.parametrize("weight", [400, 700])
 def test_woff2_cmaps_match_the_declared_split(weight: int):
     """Each woff2's actual Hangul cmap agrees with the range it is declared under."""
     covered = {ord(c) for c in _tier1_syllables()}
-    tail = _parse_unicode_ranges(TIER2_CSS.read_text(encoding="utf-8"))[0]
+    margin = _parse_unicode_ranges(TIER2_CSS.read_text(encoding="utf-8"))[0]
 
     tier1_hangul = {
         cp
@@ -194,9 +234,9 @@ def test_woff2_cmaps_match_the_declared_split(weight: int):
         f"tier-1 woff2 (weight {weight}) cmap disagrees with noto_subset_top1k.txt: "
         f"{len(covered - tier1_hangul)} listed-but-absent, {len(tier1_hangul - covered)} present-but-unlisted"
     )
-    assert tier2_hangul == tail, (
+    assert tier2_hangul == margin, (
         f"tier-2 woff2 (weight {weight}) cmap disagrees with the font-tier2.css range: "
-        f"{len(tail - tier2_hangul)} declared-but-absent, {len(tier2_hangul - tail)} present-but-undeclared"
+        f"{len(margin - tier2_hangul)} declared-but-absent, {len(tier2_hangul - margin)} present-but-undeclared"
     )
 
 
@@ -209,6 +249,63 @@ def test_tier1_preload_budget_holds():
         assert size_kb <= 230, (
             f"tier-1 weight {weight} is {size_kb:.1f} KB (budget 230 KB)"
         )
+
+
+def test_tier2_stays_a_margin_not_the_whole_block():
+    """Tier-2 must not silently regrow into the full Hangul tail.
+
+    Before 2026-09-02 tier-2 spanned all 10,128 non-corpus syllables at 964 KB
+    across the two weights, of which the corpus reached 22. Widening the margin
+    back to the block would pass every other test here, because every other
+    test only asks that the artifacts agree with each other.
+    """
+    total_kb = 0.0
+    for weight in (400, 700):
+        size_kb = (
+            FONTS_DIR / f"noto-sans-kr-{weight}-tier2.woff2"
+        ).stat().st_size / 1024
+        assert size_kb <= 120, (
+            f"tier-2 weight {weight} is {size_kb:.1f} KB (budget 120 KB) — "
+            "the margin has been widened; see --max-tier2-kb in the generator"
+        )
+        total_kb += size_kb
+    assert total_kb <= 240, f"tier-2 totals {total_kb:.1f} KB across both weights"
+
+
+def _head_modified(woff2: Path) -> int:
+    pytest.importorskip("fontTools", reason="fonttools not installed")
+    from fontTools.ttLib import TTFont
+
+    font = TTFont(woff2)
+    try:
+        return int(font["head"].modified)
+    finally:
+        font.close()
+
+
+def test_tier2_build_is_not_clock_stamped():
+    """Both tier-2 weights must carry ONE `head.modified`, inherited from the source.
+
+    fontTools stamps the wall clock into `head.modified` unless
+    `recalcTimestamp` is disabled, which makes the woff2 bytes a function of
+    when you built rather than what you built. The tell is that the two weights
+    are written seconds apart and so disagree: the committed tier-1 pair, built
+    before the fix, reads 3869170260 / 3869170269 — nine seconds. A shared
+    value means the timestamp came from the pinned source font instead.
+
+    Tier-1 is deliberately not asserted here. Its bytes are frozen from the
+    2026-08-10 build and regenerating them is out of scope for the tier-2
+    shrink; a future full regeneration will bring it under this rule too.
+    """
+    modified = {
+        w: _head_modified(FONTS_DIR / f"noto-sans-kr-{w}-tier2.woff2")
+        for w in (400, 700)
+    }
+    assert modified[400] == modified[700], (
+        f"tier-2 head.modified differs between weights ({modified}) — the build "
+        "is clock-stamped again, so identical inputs no longer yield identical "
+        "bytes. See recalcTimestamp in generate_noto_2tier_subset.subset_woff2."
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -340,11 +437,64 @@ def test_deferred_css_promoter_still_exists():
 
 
 # ---------------------------------------------------------------------------
-# Coverage report (warning only — cron publishes without regenerating fonts)
+# Corpus coverage
 # ---------------------------------------------------------------------------
 
 
-def test_corpus_coverage_is_reported_not_enforced():
+def _shipped_hangul_codepoints() -> set[int]:
+    """Every Hangul codepoint reachable from a shipped woff2, across both tiers.
+
+    Read from the woff2 cmaps rather than from `noto_subset_top1k.txt` and
+    `font-tier2.css`, because those are declarations: the question this
+    answers is what a browser can actually render, and only the fonts know
+    that.
+    """
+    shipped: set[int] = set()
+    for weight in (400, 700):
+        for tier in ("tier1", "tier2"):
+            shipped |= {
+                cp
+                for cp in _cmap_codepoints(
+                    FONTS_DIR / f"noto-sans-kr-{weight}-{tier}.woff2"
+                )
+                if HANGUL_START <= cp <= HANGUL_END
+            }
+    return shipped
+
+
+def test_every_corpus_syllable_is_covered_by_a_shipped_tier():
+    """ENFORCING. A published syllable outside tier-1 UNION tier-2 never renders.
+
+    It falls back to whatever the OS supplies, at a different weight and
+    metrics, on every visit, forever — and nothing on the page reports it. That
+    is why this is an assertion and not the warning below.
+
+    Fix by regenerating the tail so the new syllable is folded in:
+        python3 scripts/build/generate_noto_2tier_subset.py --only-tier2
+    (or a full run, which additionally promotes it into preloaded tier-1).
+    """
+    counts, _total = hangul_frequency(CORPUS_GLOBS)
+    assert counts, "corpus scan found no Hangul at all — the globs are broken"
+    shipped = _shipped_hangul_codepoints()
+    uncovered = sorted(
+        (c for c in counts if ord(c) not in shipped), key=lambda c: -counts[c]
+    )
+    assert not uncovered, (
+        f"{len(uncovered)} corpus syllable(s) ship in NEITHER tier "
+        f"({''.join(uncovered[:20])}) — they render in the system fallback "
+        "font. Regenerate: "
+        "python3 scripts/build/generate_noto_2tier_subset.py --only-tier2"
+    )
+
+
+def test_corpus_syllables_outside_tier1_are_reported():
+    """NON-ENFORCING. Tier-1 misses cost a fetch, not correctness.
+
+    Deliberately separate from the assertion above: cron publishes digests
+    without regenerating fonts, so this drifts by design between font rebuilds.
+    Promoting it to a failure would make every novel syllable a red main, which
+    is not what a deferred stylesheet fetch deserves.
+    """
     covered = _tier1_syllables()
     counts, _total = hangul_frequency(CORPUS_GLOBS)
     uncovered = sorted(set(counts) - covered, key=lambda c: -counts[c])

@@ -12,7 +12,7 @@ The site self-hosts Noto Sans KR as two woff2 tiers per weight (400, 700) instea
 The tradeoff with self-hosting Noto Sans KR is the full Hangul Syllables block (U+AC00–U+D7A3, 11,172 glyphs) compressing to ~545 KB per weight in woff2 — too heavy to preload eagerly. The two-tier strategy resolves this:
 
 - **Tier 1 (eager, preloaded)**: Latin Basic + Latin-1 Supplement + Hangul Jamo + CJK punctuation + **every** Hangul syllable that appears anywhere in the corpus. Targets ≤230 KB per weight. Preloaded via `<link rel="preload">` so first paint has the font ready.
-- **Tier 2 (on-demand safety net)**: The Hangul tail — syllables the corpus has never used. Targets ≤550 KB per weight. Declared in the generated `assets/css/font-tier2.css` with a `unicode-range` **disjoint from tier-1's actual glyph set**, linked from `_includes/font-face.html` with the repo's deferred-CSS idiom (`media="print"` + `class="deferred-css"`, promoted to `media="all"` by the promoter script in `head.html`). The browser fetches the woff2 only when a page renders a tail syllable, which for current content means never.
+- **Tier 2 (on-demand margin)**: the KS X 1001 repertoire minus tier-1, unioned with every syllable the corpus actually uses. Targets ≤120 KB per weight. It is a *margin*, not the whole Hangul tail — that changed on 2026-09-02 (964 KB → 186 KB total); before then it carried all 10,128 remaining syllables. Declared in the generated `assets/css/font-tier2.css` with a `unicode-range` **disjoint from tier-1's actual glyph set**, linked from `_includes/font-face.html` with the repo's deferred-CSS idiom (`media="print"` + `class="deferred-css"`, promoted to `media="all"` by the promoter script in `head.html`). The browser fetches the woff2 only when a page renders a tail syllable, which for current content means never.
 
 Coverage analysis (regenerated 2026-08-10): the corpus has 1,286,806 total Hangul characters across 260 posts plus templates, `_data`, and scripts, using 1,044 unique syllables. Tier-1 includes all 1,044 → **100.00% coverage of every Hangul character the site can render**. Full coverage costs only ~5 KB per weight over the old 952-syllable list, which is what makes the on-demand tier-2 practical.
 
@@ -45,8 +45,8 @@ Current sizes (regenerated 2026-08-10, 1,044-syllable tier-1):
 |-------------------------------------|----------|---------------------------------------|
 | `noto-sans-kr-400-tier1.woff2`      | 204.7 KB | always (preload)                      |
 | `noto-sans-kr-700-tier1.woff2`      | 208.2 KB | always (preload)                      |
-| `noto-sans-kr-400-tier2.woff2`      | 474.2 KB | page renders a tail syllable in 400   |
-| `noto-sans-kr-700-tier2.woff2`      | 490.3 KB | page renders a tail syllable in 700   |
+| `noto-sans-kr-400-tier2.woff2`      | 92.1 KB  | page renders a margin syllable in 400 |
+| `noto-sans-kr-700-tier2.woff2`      | 94.3 KB  | page renders a margin syllable in 700 |
 | `assets/css/font-tier2.css`         | 20.8 KB (2.5 KB brotli) | always, after `load`    |
 
 Cache headers for `/assets/fonts/*.woff2` are set in `vercel.json:184-198` to `Cache-Control: public, max-age=31536000, immutable` so each woff2 is fetched at most once per browser indefinitely.
@@ -109,7 +109,11 @@ NOTO_VF_URL='https://raw.githubusercontent.com/notofonts/noto-cjk/<commit-sha>/S
 
 When to regenerate:
 
-- A new post introduces Hangul syllables not in `scripts/build/noto_subset_top1k.txt`. This is no longer urgent: an uncovered syllable now pulls tier-2 on demand and renders correctly. Regenerating just folds it into tier-1 so that page stops paying ~500 KB. `pytest scripts/tests/test_font_tier_split.py` emits a `UserWarning` listing uncovered syllables — deliberately a warning, not a failure, because cron publishes digests without regenerating fonts and a hard gate would turn that into a red `main`.
+- A new post introduces Hangul syllables that ship in **neither** tier. **This is now a hard failure, not a warning** — `test_font_tier_split.py::test_every_corpus_syllable_is_covered_by_a_shipped_tier` reads the four shipped woff2 cmaps and asserts tier-1 ∪ tier-2 covers every corpus syllable. Fix with `python3 scripts/build/generate_noto_2tier_subset.py --only-tier2`.
+  - This inverts what this runbook said until 2026-09-02. The old text read: *"deliberately a warning, not a failure, because cron publishes digests without regenerating fonts and a hard gate would turn that into a red `main`."* That reasoning was sound **while tier-2 carried the entire Hangul tail** — anything outside tier-1 still rendered, so the check had nothing to protect (measured: pre-shrink tier-1 ∪ tier-2 covered 11,172 / 11,172, i.e. the assertion could not fail). Once tier-2 became a 1,307-syllable margin, an uncovered syllable renders in the system fallback font, so the check had to become enforcing.
+  - **The risk that old sentence named is real and is now accepted.** A cron-published post is pushed with `GITHUB_TOKEN`, which GitHub blocks from triggering workflows, so `jekyll.yml` never runs on it — verified: bot commits `14f691dc`, `9b39d1da`, `e322eaaf` appear nowhere in that workflow's run history. Detection is therefore deferred to the next human PR or push matching its paths filter (~4.5 h on the most recent digest) and surfaces as a red build on someone else's unrelated change.
+  - Why it is tolerable meanwhile: the margin is `(KS X 1001 ∪ corpus) − tier-1`, and across 286 posts / 1,403,914 Hangul characters the corpus uses 1,064 distinct syllables of which 1,063 sit inside KS X 1001 (the one that does not is already in tier-1). The consequence of a miss is one character in a fallback typeface, not missing text.
+  - **Required follow-up:** add `fonttools[woff]>=4.63.0` to `scripts/requirements-blogwatcher.txt` and run this test in `ai-blogwatcher.yml` before publish. Do not wire it without that dependency — the test guards its import with `pytest.importorskip("fontTools")`, so on a runner lacking it the test would **skip silently**, which is the fail-open trap `test_ci_pytest_deps_guard.py` exists to prevent.
 - Noto upstream releases a new version. Review `notofonts/noto-cjk` releases quarterly and bump the pinned commit SHA.
 - Tier-1 size drifts above 230 KB per weight. Either trim the top-N syllable list or split tier-1 further.
 
@@ -126,13 +130,13 @@ stat -f "%z %N" assets/fonts/noto-sans-kr-*.woff2 \
 Acceptance thresholds (as of PR #323):
 
 - Tier-1 ≤ 230 KB per weight (preload budget — exceeding this hurts LCP; asserted by `test_font_tier_split.py::test_tier1_preload_budget_holds`)
-- Tier-2 ≤ 550 KB per weight (on-demand budget — exceeding hurts the font-swap cost on the rare pages that need it)
+- Tier-2 ≤ 120 KB per weight, ≤ 240 KB total (enforced by `test_tier2_stays_a_margin_not_the_whole_block`; the generator's `--max-tier2-kb` default is 120)
 
 If a threshold is exceeded after regeneration:
 
 1. Inspect `scripts/build/noto_subset_top1k.txt` for unexpected entries (e.g. stray non-Hangul codepoints).
 2. Reduce top-N by lowering the frequency cutoff in the generator (default keeps every syllable that appears at least once).
-3. Consider splitting tier-2 further into tier-2 + tier-3 if the rare-Hangul tail grows past 700 KB.
+3. Wire the coverage gate into the blogwatcher cron (see the note under "A new post introduces…"). Until then a cron-published novel syllable surfaces late, on an unrelated PR.
 
 ## 5. Rollback
 
