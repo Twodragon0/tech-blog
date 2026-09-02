@@ -57,6 +57,10 @@ def optimize_image(
         log_message(f"이미지 파일을 찾을 수 없습니다: {image_path}", "ERROR")
         return created_files
 
+    # ``Image.open`` hands back an ``ImageFile``; ``exif_transpose``/``convert``
+    # below rebind ``img`` to a plain ``Image.Image``. Declare the wider type so
+    # the rebinding is the documented intent rather than a type error.
+    img: Image.Image
     try:
         with Image.open(image_path) as img:
             # 이미지 최적화 (EXIF 데이터 제거, 회전 정규화)

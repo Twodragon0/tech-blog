@@ -90,7 +90,7 @@ def read_key_from_config() -> Optional[str]:
 
 def resolve_key() -> str:
     """Resolve IndexNow key: env var INDEXNOW_KEY > _config.yml."""
-    key = os.environ.get("INDEXNOW_KEY", "").strip()
+    key: Optional[str] = os.environ.get("INDEXNOW_KEY", "").strip()
     if key:
         return key
     key = read_key_from_config()

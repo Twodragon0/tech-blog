@@ -34,6 +34,7 @@ import argparse
 import re
 import sys
 from pathlib import Path
+from typing import Any
 
 REPO = Path(__file__).resolve().parent.parent
 POSTS = REPO / "_posts"
@@ -80,7 +81,12 @@ def _post_info(post_path: Path) -> dict:
     byte-identical to the cron render.
     """
     content = post_path.read_text(encoding="utf-8")
-    info = {"title": "", "filename": post_path.name, "excerpt": "", "content": content}
+    info: dict[str, Any] = {
+        "title": "",
+        "filename": post_path.name,
+        "excerpt": "",
+        "content": content,
+    }
     m_title = _TITLE_RE.search(content)
     m_excerpt = _EXCERPT_RE.search(content)
     if m_title:

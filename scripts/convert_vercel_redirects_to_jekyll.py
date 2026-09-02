@@ -318,8 +318,8 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  ... +{len(skipped) - 20} more", file=sys.stderr)
     if posts_modified:
         print(f"\nModified posts ({len(posts_modified)}):")
-        for p in posts_modified[:20]:
-            print(f"  {p}")
+        for rel_path in posts_modified[:20]:
+            print(f"  {rel_path}")
         if len(posts_modified) > 20:
             print(f"  ... +{len(posts_modified) - 20} more")
 

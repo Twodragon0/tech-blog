@@ -21,6 +21,7 @@ import sys
 import textwrap
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from typing import Any
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -299,7 +300,7 @@ def parse_front_matter(text: str) -> dict:
     if end is None:
         return {}
     fm_lines = lines[1:end]
-    fm = {}
+    fm: dict[str, Any] = {}
     current_key = None
     current_list: list[str] | None = None
     for line in fm_lines:

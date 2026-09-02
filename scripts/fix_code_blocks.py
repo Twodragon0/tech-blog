@@ -13,7 +13,8 @@ from typing import Any
 POSTS_DIR = Path(__file__).parent.parent / "_posts"
 
 # Language detection patterns (order matters - more specific first)
-LANG_PATTERNS = [
+# Entries are either (regex, language) or (regex, language, re-flags).
+LANG_PATTERNS: list[tuple[str, str] | tuple[str, str, re.RegexFlag]] = [
     # Shell/Bash
     (
         r"^\s*(sudo |apt |yum |brew |npm |pip |gem |bundle |docker |kubectl |helm |terraform |aws |gcloud |az |curl |wget |chmod |chown |mkdir |cp |mv |rm |ls |cd |cat |grep |sed |awk |export |source |echo |git |ssh |scp |systemctl |journalctl |make |go |cargo |rustup)",
@@ -118,6 +119,7 @@ def detect_language(code_content: str) -> str:
 
     scores: dict[Any, int] = {}
 
+    flags: int | re.RegexFlag
     for line in check_lines:
         for pattern_tuple in LANG_PATTERNS:
             if len(pattern_tuple) == 3:

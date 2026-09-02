@@ -175,7 +175,7 @@ def detect_language(lines: list[str]) -> str:
                 return "json"
 
     # --- YAML ---
-    yaml_hits = 0
+    yaml_hits: float = 0
     if stripped_text.startswith("---"):
         yaml_hits += 3
     for line in lines:

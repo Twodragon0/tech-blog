@@ -123,7 +123,7 @@ def filter_and_prioritize_news(news_data: Dict, hours: int = 24) -> List[Dict]:
         return []
 
     collected_at_str = news_data.get("collected_at", "")
-    data_age_hours = 0
+    data_age_hours: float = 0
     if collected_at_str:
         try:
             collected_at = datetime.fromisoformat(

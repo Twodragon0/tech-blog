@@ -161,7 +161,7 @@ def find_related_posts(news_item: dict, posts_dir: Path) -> List[dict]:
                 post_excerpt = str(post.get("excerpt", ""))
 
                 # 카테고리 일치 또는 키워드 일치
-                score = 0
+                score: float = 0
                 if post_category == category:
                     score += 2
 
