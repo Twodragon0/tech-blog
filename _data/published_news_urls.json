@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-01T02:48:25.224931+00:00",
+  "updated_at": "2026-09-02T02:08:58.537158+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/microsoft-copilot-personal-flaws-could.html",
-      "title": "Microsoft Copilot Personal Flaws Could Let One Click Exfiltrate Data From Connec",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/attackers-exploit-mlflow-ssrf-flaw-to.html",
-      "title": "Attackers Exploit MLflow SSRF Flaw to Steal Cloud Credentials and Secrets",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/ransom-busters-claims-it-hacked.html",
-      "title": "Ransom Busters Claims It Hacked Ransomware Servers, Asks Victims for Up to $60,0",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/implement-custom-authentication-for-tools-integration-using-request-lambda-interceptor-in-agentcore-gateway/",
-      "title": "Implement custom authentication for tools integration using request Lambda inter",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/ai-mind-viruses-can-spread-between.html",
-      "title": "AI \"Mind Viruses\" Can Spread Between Agents Through Persistent Prompt Files",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
-      "title": "Strengthening democratic oversight in national security",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://openai.com/index/partnering-with-codeai",
-      "title": "Partnering with CodeAI to prepare the first AI generation",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://openai.com/index/pacing-model-development-cyber-capabilities",
-      "title": "Pacing model development in an era of cyber-critical capabilities",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://openai.com/index/chatgpt-for-teens",
-      "title": "Introducing ChatGPT for Teens: Built for learning, backed by protections",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://openai.com/index/asana",
-      "title": "Asana cleared 5 years of engineering work in 2 weeks with Codex",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/governance-on-autopilot-automate-data-governance-with-lineage/",
-      "title": "Governance on autopilot, minus the turbulence",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/cost-effective-genai-workflows-in-google-dataflow/",
-      "title": "Building cost-effective, high-throughput gen AI workflows in Google Dataflow",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/partners/box-ai-agents-gemini-embeddings-multimodal-enterprise-ai/",
-      "title": "How Box is unlocking multimodal enterprise agents with Gemini Embeddings 2",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/staying-ahead-of-adversarial-ai-through-agentic-source-code-review/",
-      "title": "Staying Ahead of Adversarial AI Through Agentic Source Code Review",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/financial-services/building-operational-resilience-with-agentic-ai-in-financial-services/",
-      "title": "Building operational resilience with agentic AI in financial services",
-      "published_date": "2026-08-19",
-      "expires_at": "2026-08-26T00:44:48.963832+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/cloudflare-workers-spectre-attack-leaks.html",
       "title": "Cloudflare Workers Spectre Attack Leaks JWT From Co-Located Worker at 12 Bits/Se",
@@ -1248,6 +1158,96 @@
       "title": "Amazon EC2 R9g and R9gd instances powered by AWS Graviton5 processors are now ge",
       "published_date": "2026-09-01",
       "expires_at": "2026-09-08T02:48:25.224834+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/attackers-exploit-critical-jfrog.html",
+      "title": "Attackers Exploit Critical JFrog Artifactory Flaw to Mint Admin Tokens Days Afte",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/breeze-comet-executes-hundreds-of.html",
+      "title": "Breeze Comet Executes Hundreds of Fraudulent Transactions via Brazilian Payment ",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign/",
+      "title": "Counterfeit installers to system compromise: Tracking a deceptive software downl",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/13-malicious-packagist-packages-target.html",
+      "title": "13 Malicious Packagist Packages Target Unpatched iPhones to Steal Crypto Wallet ",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/cybersecurity-ir-workshop-you-shouldnt-miss/",
+      "title": "Cybersecurity IR Workshop: The workshop you shouldn’t miss",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-crowdstrike-fal-con-2026/",
+      "title": "NVIDIA and CrowdStrike Strengthen Agentic Cybersecurity Frontier",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/",
+      "title": "The latest AI news we announced in August 2026",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://openai.com/index/ai-native-company-workflows",
+      "title": "How AI-native companies turn workflows into operating capability",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/workspace/google-pics/",
+      "title": "Try Google Pics: Easy image creation and editing in Google Workspace",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://openai.com/index/path-to-astra",
+      "title": "Path to Astra: critical capabilities and frontier safeguards",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/what-google-cloud-announced-in-ai-this-month/",
+      "title": "What Google Cloud announced in AI this month",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/customers/how-blackline-prevents-data-exfiltration-with-vpc-service-controls/",
+      "title": "How Blackline simplifies perimeter policy intelligence with VPC Service Controls",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/tabfm-adds-predictive-ml-to-bigquery/",
+      "title": "Introducing TabFM in BigQuery: Predictive analytics reimagined",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/financially-motivated-threat-actor-breeze-comet-targets-brazil/",
+      "title": "Financially Motivated Threat Actor BREEZE COMET Targets Brazil",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/claude-code-token-economy-02/",
+      "title": "Claude Code 토큰 비용 최적화하기 – 2부: 캐시 경제학과 Amazon Bedrock 조직 비용 관리",
+      "published_date": "2026-09-02",
+      "expires_at": "2026-09-09T02:08:58.537060+00:00"
     }
   ]
 }
