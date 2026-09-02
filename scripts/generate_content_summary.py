@@ -26,7 +26,7 @@ import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import frontmatter
@@ -424,7 +424,7 @@ def _extract_highlights(content: str) -> List[Dict[str, str]]:
     return highlights[:6]
 
 
-def _extract_sections(content: str) -> List[Dict[str, str]]:
+def _extract_sections(content: str) -> List[Dict[str, Any]]:
     """Extract H2 and H3 section headers from markdown content."""
     sections = []
     for match in re.finditer(r"^(#{2,3})\s+(.+)$", content, re.MULTILINE):
