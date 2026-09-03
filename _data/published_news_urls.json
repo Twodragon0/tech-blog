@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-02T02:08:58.537158+00:00",
+  "updated_at": "2026-09-03T00:56:32.393291+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/cloudflare-workers-spectre-attack-leaks.html",
-      "title": "Cloudflare Workers Spectre Attack Leaks JWT From Co-Located Worker at 12 Bits/Se",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/openai-pauses-frontier-rl-training-as.html",
-      "title": "OpenAI Pauses Frontier RL Training as It Tightens Defenses Against Unsafe AI Beh",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-confirms-chatgpt-is-down-as-logins-and-signups-fail/",
-      "title": "OpenAI confirms ChatGPT is down as logins and signups fail",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/silkparasite-espionage-campaign-targets.html",
-      "title": "SilkParasite Espionage Campaign Targets Central Asian Governments with Five New ",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/08/19/microsoft-named-a-leader-in-the-frost-radar-cloud-workload-protection-platforms-2026/",
-      "title": "Microsoft named a Leader in the Frost Radar™: Cloud Workload Protection Platform",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
-      "title": "Offering Zero Data Retention for frontier models",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/back-to-school-study-tools/",
-      "title": "5 new ways to level up your learning with Search",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://openai.com/index/replit",
-      "title": "Replit expands access to software creation with GPT-5.6 Luna",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/domain-and-publish-date-filters-for-web-search-on-agentcore/",
-      "title": "Domain and publish date filters for Web Search on AgentCore",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/automate-document-processing-with-quick-automate-and-the-idp-accelerator/",
-      "title": "Automate Document Processing with Quick Automate and the IDP Accelerator",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/serverless-apache-spark-on-google-cloud-architecture-ai-troubleshooting/",
-      "title": "Serverless Apache Spark on Google Cloud: Architecture Choices & AI Troubleshooti",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/lakehouse-runtime-catalog-helps-modernize-apache-hive/",
-      "title": "How to modernize Apache Hive using Google Cloud’s Lakehouse runtime catalog",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-19-codeql-2-26-3-improves-github-actions-queries-and-javascript-modeling",
-      "title": "CodeQL 2.26.3 improves GitHub Actions queries and JavaScript modeling",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-19-track-organization-code-quality-trends",
-      "title": "Track organization code quality trends",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/08/19/kyverno-is-a-platform-primitive-not-a-security-tool/",
-      "title": "Kyverno is a platform primitive, not a security tool",
-      "published_date": "2026-08-20",
-      "expires_at": "2026-08-27T00:45:07.367694+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html",
       "title": "Rust Supply Chain Attack Puts Build-Time Malware in Crates with 245 Million Down",
@@ -1248,6 +1158,96 @@
       "title": "Claude Code 토큰 비용 최적화하기 – 2부: 캐시 경제학과 Amazon Bedrock 조직 비용 관리",
       "published_date": "2026-09-02",
       "expires_at": "2026-09-09T02:08:58.537060+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html",
+      "title": "Malicious .git Configs Can Make Claude, Codex, Cursor, and Other AI Agents Run A",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/malicious-apache-modules-hijack.html",
+      "title": "Malicious Apache Modules Hijack Brazilian Government Site Traffic to Push Bettin",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/bgp-hijack-delivers-malicious.html",
+      "title": "BGP Hijack Delivers Malicious Virtualizor Update That Establishes Persistent Roo",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/meta-ads-push-streamrat-android-trojan.html",
+      "title": "Meta Ads Push StreamRat Android Trojan That Can Gain Near-Complete Device Contro",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/how-to-secure-enterprise-ai-from.html",
+      "title": "How to Secure Enterprise AI: From Adoption to Incident Readiness",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
+      "title": "Real-Time Intelligence with IBM Time Series Models on Confluent",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/09/02/openai-says-its-new-astra-ai-can-build-attacks-without-human-help",
+      "title": "OpenAI says its new 'Astra' AI can build attacks without human help",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://www.docker.com/blog/below-the-harness-governing-a-multi-model-multi-harness-world/",
+      "title": "Below the Harness: Governing a Multi-Model, Multi-Harness World",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/09/02/metal3-meets-kubevirtbmc-provisioning-kubevirt-vms-like-bare-metal/",
+      "title": "Metal3 meets KubeVirtBMC: Provisioning KubeVirt VMs like bare metal",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/full-sail-sui-wind-down-switchboard-incident?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Sui DeFi protocol Full Sail to wind down after Switchboard incident",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/btc-will-hit-1m-by-2030-but-arthur-hayes-is-buying-eth-instead?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "BTC will hit $1M by 2030... but Arthur Hayes is buying ETH instead",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/hashkey-dtcc-first-asian-crypto-service-provider?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Hashkey joins DTCC working group as first Asian crypto service provider",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/thai-sue-tether-freezing-61m-pig-butchering-case?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Thai businessmen sue Tether for freezing $42M in $61M pig butchering case",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/thailand-crypto-travel-rule-self-custodial-wallet-checks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Thailand adopts crypto Travel Rule with self-custodial wallet checks",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://d2.naver.com/news/3092933",
+      "title": "[네이버피셜] 네이버 개발자라면 꼭 만나게 됩니다",
+      "published_date": "2026-09-03",
+      "expires_at": "2026-09-10T00:56:32.393040+00:00"
     }
   ]
 }
