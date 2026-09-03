@@ -784,6 +784,15 @@ Amazon Q Developer와 GitHub Advanced Security를 활용한 코드 보안 강화
 
 ---
 
+
+## 📋 AI 기반 개발 및 GHAS 코드 보안 체크리스트 (Code Security Checklist)
+
+- [ ] **GitHub Advanced Security(GHAS) Secret Scanning 전사 활성화**: 모든 저장소에서 시크릿 스캐닝과 푸시 프로텍션이 켜져 토큰 유출이 원천 차단되는지 확인합니다.
+- [ ] **CodeQL 정적 분석 CI/CD 파이프라인 연동**: PR 생성 시 CodeQL이 자동 실행되어 CWE Top 25 및 OWASP 보안 취약점을 탐지하는지 점검합니다.
+- [ ] **Amazon Q Developer 기업 코드 프라이버시 설정**: 사내 개발 환경에서 제안된 코드와 프롬프트가 외부 모델 학습 데이터셋에 포함되지 않도록 엔터프라이즈 정책을 강제했는지 확인합니다.
+- [ ] **Dependabot 보안 업데이트 자동화**: 알려진 CVE 취약점이 존재하는 오픈소스 라이브러리에 대해 자동 패치 PR이 생성되고 리뷰되는지 점검합니다.
+- [ ] **보안 알림 해결 SLA 수립 및 관리**: Critical 등급 취약점은 7일 이내, High 등급은 14일 이내 패치되도록 보안 대시보드에서 추적하는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}

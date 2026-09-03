@@ -616,6 +616,15 @@ Rate Limiting 규칙 추가:
 
 ---
 
+
+## 📋 Next.js SSR 및 하이브리드 인프라 장애 복원력 체크리스트 (Incident Prevention Checklist)
+
+- [ ] **오리진 ALB 타임아웃 및 Cloudflare 타임아웃 정합성 검증**: ALB Idle Timeout이 Cloudflare 프록시 타임아웃(100초)보다 크게 설정되어 524 오류가 발생하는 것을 방지하는지 확인합니다.
+- [ ] **Next.js SSR 데이터 페칭 서킷 브레이커 구현**: 백엔드 마이크로서비스 지연 시 SSR 렌더링이 블로킹되지 않도록 Fallback UI를 렌더링하고 캐시를 반환하는지 점검합니다.
+- [ ] **Cloudflare WAF 챌린지 및 정상 트래픽 오차단(False Positive) 방어**: 검색 엔진 봇 및 사내 관리자 트래픽이 비정상 차단되지 않도록 WAF 바이패스 예외 규칙을 정밀 검증했는지 점검합니다.
+- [ ] **Node.js 서버 프로세스 힙 메모리 누수 및 Crash 모니터링**: 대용량 트래픽 인입 시 SSR 렌더링 프로세스가 OOM으로 사망하지 않도록 PM2/Kubernetes liveness probe를 구성했는지 확인합니다.
+- [ ] **합성 모니터링(Synthetic Monitoring) 기반 E2E 헬스체크**: 엣지부터 백엔드 DB까지 전체 렌더링 여정을 1분 주기로 실측하여 5xx 에러 발생 즉시 당직 엔지니어에게 페이저를 전송하는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}

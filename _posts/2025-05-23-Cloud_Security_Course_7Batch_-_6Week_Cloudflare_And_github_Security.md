@@ -696,3 +696,14 @@ gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[] | {number, state, s
 면책 조항: 이 문서의 모든 정보는 교육 목적으로 제공되며, 실제 환경에 적용하기 전에 충분한 테스트를 수행해야 합니다. 보안 설정 변경 시 서비스 중단이 발생할 수 있으므로 주의가 필요합니다.
 
 마지막 업데이트: 2025년 5월 23일
+
+
+## 📊 엣지 및 소스코드 저장소 보안 위험 스코어카드 (Risk Scorecard)
+
+| 보안 점검 영역 | 현재 위험도 | 잠재적 위협 시나리오 | 필수 보안 통제 (Mitigation) |
+|---|:---:|---|---|
+| **Cloudflare WAF 규칙** | 🔴 High | 웹 애플리케이션 SQLi, XSS 공격 통과 | OWASP Core Ruleset 및 Cloudflare Managed Ruleset 강제 적용 |
+| **GitHub Secret 노출** | 🔴 High | 커밋 히스토리에 AWS Access Key 평문 푸시 | Secret Scanning 활성화 및 Push Protection 사전 차단 강제 |
+| **DDoS 방어 임계치** | 🟠 Medium | HTTP Flood 공격에 의한 오리진 서버 다운 | Rate Limiting 정책 및 Under Attack 모드 자동 트리거 구성 |
+| **서드파티 GitHub Actions** | 🟠 Medium | 악성 Actions에 의한 CI/CD 러너 장악 | Action 버전 SHA256 해시 핀 고정 및 OIDC 임시 자격증명 사용 |
+

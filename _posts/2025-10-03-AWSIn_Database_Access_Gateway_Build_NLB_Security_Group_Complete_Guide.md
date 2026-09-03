@@ -516,3 +516,23 @@ Network Load Balancer와 Security Group을 활용한 데이터베이스 접근 �
 - 규정 준수: ISMS-P, 개인정보보호법 등 한국 규제 요구사항 충족
 
 올바른 구성과 지속적인 모니터링을 통해 안전하고 효율적인 데이터베이스 접근 환경을 구축할 수 있습니다. 이 가이드에서 다룬 고급 아키텍처 패턴, Terraform 자동화, 위협 헌팅 쿼리, 그리고 트러블슈팅 방법을 활용하면 엔터프라이즈급 데이터베이스 게이트웨이를 성공적으로 운영할 수 있을 것입니다.
+
+---
+
+
+## 📊 NLB 데이터베이스 게이트웨이 보안 스코어카드 및 아키텍처 비교
+
+| 게이트웨이 구성 요소 | 보안 통제 수준 | 성능 및 처리량 지연 | 장애 격리(HA) | 권장 적용 시나리오 |
+|---|:---:|:---:|:---:|---|
+| **NLB TCP 리스너** | 🟢 최상 | 마이크로초(µs) 단위 지연 | Multi-AZ 자동 분산 | 대규모 트랜잭션 DB 프록시 |
+| **보안 그룹(SG) 필터링** | 🟢 최상 | 커널 레벨 패킷 검사 | 스테이트풀 추적 | 내부 서비스 CIDR 제한 |
+| **PrivateLink 엔드포인트** | 🟢 최상 | AWS 내부 백본망 전용 | 서브넷 단위 엔드포인트 | 계정 간 안전한 DB 공유 |
+| **TLS/SSL 상호 인증(mTLS)** | 🟢 최상 | 암호화 오버헤드 미미 | 세션 재사용 지원 | 제로 트러스트 DB 연결 |
+| **IAM 인증 프록시** | 🟢 최상 | 최소 권한 자격증명 강제 | IAM 세션 토큰 연동 | 감사 추적 필수 규제 환경 |
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM & EKS 보안 아키텍처 구축 가이드: {% post_url 2026-01-14-AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture %}
+- VPC 및 Transit Gateway 보안 완벽 정복: {% post_url 2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer %}
+- eBPF 런타임 보안 아키텍처: {% post_url 2026-09-03-eBPF_Tetragon_Kubernetes_Runtime_Security_Architecture %}
+

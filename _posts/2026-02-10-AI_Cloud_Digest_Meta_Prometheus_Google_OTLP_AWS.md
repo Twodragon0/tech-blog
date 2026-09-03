@@ -234,6 +234,15 @@ DevSecOps 실무 적용:
 
 ---
 
+
+## 📋 OpenTelemetry(OTel) 및 클라우드 옵저버빌리티 보안 체크리스트 (Observability Checklist)
+
+- [ ] **OTel Collector 전송 구간 TLS 1.3 암호화**: 메트릭 및 트레이스 데이터 수집기(Collector)와 백엔드 간 gRPC 통신 시 상호 TLS(mTLS) 인증을 적용했는지 확인합니다.
+- [ ] **텔레메트리 데이터 내 민감정보(PII/Secret) 스크러빙**: 스팬 속성 및 로그 메시지에서 비밀번호, 토큰, 신용카드 번호가 사전 마스킹되도록 프로세서를 구성했는지 점검합니다.
+- [ ] **Prometheus 원격 쓰기(Remote Write) 인증 및 Rate Limit**: 시계열 데이터 수집 엔드포인트에 인증 토큰을 강제하고 DoS 방지용 수신 속도 제한을 설정했는지 확인합니다.
+- [ ] **모니터링 대시보드(Grafana) RBAC 세분화**: 대시보드 접근 권한을 팀별 네임스페이스 단위로 분리하고 익명 접근이 비활성화되었는지 점검합니다.
+- [ ] **이상 징후 알림 채널 보안(Slack Webhook 등)**: 알림 페이로드에 민감 정보가 포함되지 않도록 알림 템플릿을 정제하고 서명 검증을 적용했는지 확인합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}

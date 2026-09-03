@@ -272,6 +272,15 @@ Bitcoin이 $60,000 지지선에서 강력하게 반등하여 $70,315 근처에�
 
 ---
 
+
+## 📋 블록체인 노드 인프라 및 DevSecOps 체크리스트 (Blockchain Ops Checklist)
+
+- [ ] **RPC 노드 엔드포인트 접근 제어 및 WAF 적용**: 공용 RPC 포트에 대해 IP 화이트리스트, API Key 인증 및 요청 수 제한(Rate Limiting)을 적용했는지 확인합니다.
+- [ ] **검증자(Validator) 노드 프라이빗 서브넷 격리**: 블록 서명 키를 보유한 핵심 검증자 노드를 퍼블릭 인터넷과 단절된 Private VPC에 배치하고 Sentry 노드로 보호하는지 점검합니다.
+- [ ] **클라우드 인프라 자동화(IaC) 형상 드리프트 감사**: 노드 배포 Terraform 코드와 실제 클라우드 인프라 상태 간의 불일치를 매일 감시하는지 확인합니다.
+- [ ] **블록체인 지갑 서명 키 HSM/KMS 보관**: 프라이빗 키를 평문 파일로 저장하지 않고 AWS CloudHSM 또는 전용 암호화 하드웨어로 안전하게 보호하는지 점검합니다.
+- [ ] **노드 디스크 I/O 성능 및 블록 동기화 지연 모니터링**: 체인 분기(Fork) 및 슬래싱(Slashing) 위험을 방지하기 위해 노드 피어 수와 블록 높이 차이 알림을 연동했는지 확인합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}

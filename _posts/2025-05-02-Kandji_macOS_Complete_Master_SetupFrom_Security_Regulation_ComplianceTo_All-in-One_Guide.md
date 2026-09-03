@@ -763,6 +763,16 @@ Kandji를 통해 Apple 디바이스 관리를 자동화하고, 보안 태세를 
 
 ---
 
+
+## 📊 macOS 엔드포인트 보안 및 컴플라이언스 위험 스코어카드 (Risk Scorecard)
+
+| 관리 영역 | 현재 위험도 | 잠재적 보안 취약점 | 필수 통제 및 완화 조치 (Mitigation) |
+|---|:---:|---|---|
+| **FileVault 디스크 암호화** | 🔴 High | 기기 분실/도난 시 로컬 디스크 평문 노출 | Kandji 프로파일로 FileVault 강제 적용 및 에스크로 키 관리 |
+| **macOS 관리자 권한 부여** | 🟠 Medium | 사용자 임의 소프트웨어 설치 및 악성코드 실행 | 표준 사용자 권한 기본 부여 및 Auto-Elevate 승인제 도입 |
+| **방화벽 및 스텔스 모드** | 🟡 Low | 내부망 스캔에 의한 단말 정보 노출 | 시스템 방화벽 활성화 및 ICMP 핑 무응답 스텔스 모드 설정 |
+| **TCC 및 개인정보 보호** | 🟠 Medium | 비인가 앱의 화면 녹화, 키로깅, 마이크 접근 | Kandji PPPC(Privacy Preferences Policy Control) 정책 배포 |
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}

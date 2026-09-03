@@ -237,6 +237,15 @@ AWS에서 ASP.NET 모노리스 애플리케이션의 마이크로서비스 전�
 
 ---
 
+
+## 📋 VirusTotal 연동 및 Agentic AI 보안 체크리스트 (Security Digest Checklist)
+
+- [ ] **VirusTotal API 기반 위협 인텔리전스 자동 쿼리**: 의심스러운 파일 업로드 및 외부 도메인 인입 시 VT Enterprise API로 해시 평판을 실시간 조회하는지 확인합니다.
+- [ ] **에이전틱 AI 도구 권한 최소화**: 자율형 AI 에이전트에 시스템 전역 쓰기 권한 대신 특정 디렉토리/컨테이너에 한정된 실행 권한을 부여했는지 점검합니다.
+- [ ] **클라우드 이상 결제 및 인스턴스 급증 모니터링**: 침해 사고 시 암호화폐 채굴로 인한 비용 폭증을 방지하기 위해 AWS Cost Anomaly Detection 경보를 설정했는지 확인합니다.
+- [ ] **서드파티 API 토큰 순환(Rotation) 주기 준수**: 보안 솔루션 및 클라우드 연동 API 키를 최소 90일 주기로 자동 교체하도록 Secrets Manager를 구성했는지 점검합니다.
+- [ ] **의심스러운 Egress 네트워크 트래픽 실시간 차단**: 워크로드에서 비정상 국가 IP 또는 C2 목록으로의 연결 시도를 즉각 드롭하는 방화벽 규칙을 적용했는지 확인합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}

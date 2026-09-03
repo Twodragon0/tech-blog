@@ -45,12 +45,12 @@
     }
   },
   "2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.md": {
-    "total": 86,
+    "total": 96,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
-      "risk_scorecard": 0,
+      "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
       "tables": 10,
@@ -90,12 +90,12 @@
     }
   },
   "2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security.md": {
-    "total": 86,
+    "total": 96,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
-      "risk_scorecard": 0,
+      "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
       "tables": 10,
@@ -105,14 +105,14 @@
     }
   },
   "2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS.md": {
-    "total": 86,
+    "total": 96,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 6,
       "cross_refs": 5,
@@ -255,7 +255,7 @@
     }
   },
   "2025-10-03-AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.md": {
-    "total": 87,
+    "total": 96,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -263,9 +263,9 @@
       "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
-      "tables": 2,
+      "tables": 6,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -495,11 +495,11 @@
     }
   },
   "2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis.md": {
-    "total": 86,
+    "total": 96,
     "scores": {
       "front_matter": 11,
       "ai_summary": 10,
-      "executive_summary": 0,
+      "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
@@ -600,14 +600,14 @@
     }
   },
   "2026-01-16-Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis.md": {
-    "total": 86,
+    "total": 96,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 6,
       "cross_refs": 5,
@@ -1076,14 +1076,14 @@
     }
   },
   "2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -1091,14 +1091,14 @@
     }
   },
   "2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -1106,14 +1106,14 @@
     }
   },
   "2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -1181,14 +1181,14 @@
     }
   },
   "2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 12,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
