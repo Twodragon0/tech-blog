@@ -108,7 +108,8 @@ class TestCheckPost:
         assert result is not None
         assert len(result.missing_primary) > 0
 
-    def test_secondary_missing(self, tmp_path, monkeypatch):
+    def test_secondary_pending_when_og_png_seeds_them(self, tmp_path, monkeypatch):
+        """_og.png on disk means both backfill steps will derive all four."""
         images_dir = tmp_path / "assets" / "images"
         images_dir.mkdir(parents=True)
         stem = "2026-05-06-Test"
@@ -121,11 +122,105 @@ class TestCheckPost:
         result = m.check_post(post)
         assert result is not None
         assert result.missing_primary == []
+        assert result.missing_secondary == []
+        pending_names = [Path(p).name for p in result.pending_build]
+        assert sorted(pending_names) == sorted(
+            [
+                f"{stem}_og.avif",
+                f"{stem}_og.webp",
+                f"{stem}_card.avif",
+                f"{stem}_card.webp",
+            ]
+        )
+        assert result.build_source == f"{stem}_og.png"
+
+    def test_secondary_pending_when_only_cover_svg_exists(self, tmp_path, monkeypatch):
+        """rasterize_svg_covers.py makes the _og.png, then the backfills run.
+
+        This is the shape of every real warning in the corpus as of the split.
+        """
+        images_dir = tmp_path / "assets" / "images"
+        images_dir.mkdir(parents=True)
+        stem = "2026-05-06-Test"
+        (images_dir / f"{stem}.svg").write_text("<svg/>")
+        monkeypatch.setattr(m, "IMAGES_DIR", images_dir)
+        monkeypatch.setattr(m, "PROJECT_ROOT", tmp_path)
+
+        post = _make_post(tmp_path, f"/assets/images/{stem}.svg")
+        result = m.check_post(post)
+        assert result is not None
+        assert result.missing_primary == []
+        assert result.missing_secondary == []
+        assert len(result.pending_build) == 4
+        assert result.build_source == f"{stem}.svg"
+
+    def test_secondary_genuinely_missing_for_raster_image_field(
+        self, tmp_path, monkeypatch
+    ):
+        """A plain .png cover seeds nothing: no rasterize input, no _og.png.
+
+        This is the discriminating case — without it the split would be
+        vacuous, since every post would land in the pending bucket.
+        """
+        images_dir = tmp_path / "assets" / "images"
+        images_dir.mkdir(parents=True)
+        stem = "2026-05-06-Test"
+        # Literal raster cover satisfies the primary requirement, but neither
+        # build step can derive the modern/card variants from it.
+        (images_dir / f"{stem}.png").write_bytes(b"PNG")
+        monkeypatch.setattr(m, "IMAGES_DIR", images_dir)
+        monkeypatch.setattr(m, "PROJECT_ROOT", tmp_path)
+
+        post = _make_post(tmp_path, f"/assets/images/{stem}.png")
+        result = m.check_post(post)
+        assert result is not None
+        assert result.missing_primary == []
+        assert result.pending_build == []
+        assert result.build_source is None
         missing_names = [Path(p).name for p in result.missing_secondary]
-        assert f"{stem}_og.avif" in missing_names
-        assert f"{stem}_og.webp" in missing_names
-        assert f"{stem}_card.avif" in missing_names
-        assert f"{stem}_card.webp" in missing_names
+        assert sorted(missing_names) == sorted(
+            [
+                f"{stem}_og.avif",
+                f"{stem}_og.webp",
+                f"{stem}_card.avif",
+                f"{stem}_card.webp",
+            ]
+        )
+
+
+# ---------------------------------------------------------------------------
+# _build_source
+# ---------------------------------------------------------------------------
+
+
+class TestBuildSource:
+    @pytest.fixture
+    def images_dir(self, tmp_path, monkeypatch):
+        d = tmp_path / "assets" / "images"
+        d.mkdir(parents=True)
+        monkeypatch.setattr(m, "IMAGES_DIR", d)
+        return d
+
+    def test_og_png_wins_over_svg(self, images_dir):
+        (images_dir / "S_og.png").write_bytes(b"PNG")
+        (images_dir / "S.svg").write_text("<svg/>")
+        assert m._build_source("S", "/assets/images/S.svg") == "S_og.png"
+
+    def test_cover_svg(self, images_dir):
+        (images_dir / "S.svg").write_text("<svg/>")
+        assert m._build_source("S", "/assets/images/S.svg") == "S.svg"
+
+    def test_cover_svg_with_cachebust_query(self, images_dir):
+        (images_dir / "S.svg").write_text("<svg/>")
+        assert m._build_source("S", "/assets/images/S.svg?v=20260518") == "S.svg"
+
+    def test_raster_image_field_seeds_nothing(self, images_dir):
+        (images_dir / "S.png").write_bytes(b"PNG")
+        assert m._build_source("S", "/assets/images/S.png") is None
+
+    def test_broken_svg_reference_seeds_nothing(self, images_dir):
+        # image: names an .svg that is not on disk — rasterize skips it.
+        assert m._build_source("S", "/assets/images/S.svg") is None
 
 
 # ---------------------------------------------------------------------------
@@ -171,6 +266,43 @@ class TestRunCheck:
 
         post = _make_post(tmp_path, "/assets/images/2026-05-06-Bad.svg")
         assert m.run_check([post], warn_only=True) == 0
+
+    def test_build_pending_reported_as_info_not_missing(
+        self, tmp_path, monkeypatch, capsys
+    ):
+        images_dir = tmp_path / "assets" / "images"
+        images_dir.mkdir(parents=True)
+        monkeypatch.setattr(m, "IMAGES_DIR", images_dir)
+        monkeypatch.setattr(m, "PROJECT_ROOT", tmp_path)
+        stem = "2026-05-06-Pending"
+        (images_dir / f"{stem}.svg").write_text("<svg/>")
+
+        post = _make_post(tmp_path, f"/assets/images/{stem}.svg")
+        assert m.run_check([post]) == 0
+
+        out = capsys.readouterr().out
+        assert "derived by build.sh" in out
+        assert "4 pending" in out
+        assert "WARNING" not in out
+        # The per-file violation lines are indented "    missing: <path>";
+        # match that exactly, since the INFO header itself ends "not missing:".
+        assert "    missing: " not in out
+
+    def test_unseedable_variants_still_warn(self, tmp_path, monkeypatch, capsys):
+        images_dir = tmp_path / "assets" / "images"
+        images_dir.mkdir(parents=True)
+        monkeypatch.setattr(m, "IMAGES_DIR", images_dir)
+        monkeypatch.setattr(m, "PROJECT_ROOT", tmp_path)
+        stem = "2026-05-06-Raster"
+        (images_dir / f"{stem}.png").write_bytes(b"PNG")
+
+        post = _make_post(tmp_path, f"/assets/images/{stem}.png")
+        assert m.run_check([post]) == 0
+
+        out = capsys.readouterr().out
+        assert "WARNING" in out
+        assert "    missing: " in out
+        assert "derived by build.sh" not in out
 
 
 # ---------------------------------------------------------------------------
