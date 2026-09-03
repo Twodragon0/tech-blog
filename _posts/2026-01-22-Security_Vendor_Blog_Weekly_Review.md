@@ -424,6 +424,15 @@ Splunk SPL (통합 분석):
 
 ---
 
+
+## 📋 글로벌 위협 인텔리전스(TI) 대응 실무 체크리스트 (Threat Intel Checklist)
+
+- [ ] **보안 벤더별 긴급 침해지표(IoC) 방화벽 연동**: Palo Alto, CrowdStrike가 발표한 신규 C2 도메인 및 악성 해시를 사내 EDR/IPS에 자동 동기화하는지 확인합니다.
+- [ ] **클라우드 위협 인텔리전스 피드 업데이트**: AWS GuardDuty, Microsoft Sentinel에 최신 위협 피드를 연동하여 비정상 리전 API 호출을 즉각 감지하는지 점검합니다.
+- [ ] **제로데이 취약점 영향도 긴급 전수 실사**: 벤더 공지에 명시된 취약 소프트웨어 버전이 사내 자산 인벤토리에 존재하는지 SBOM 및 취약점 스캐너로 대조했는지 확인합니다.
+- [ ] **EDR 행동 기반 탐지 룰(Detection Rule) 보강**: Living off the Land(LotL) 기법 및 난독화된 PowerShell/Bash 스크립트 실행을 탐지하는 시그마(Sigma) 룰을 배포했는지 점검합니다.
+- [ ] **보안 관제(SOC) 에스컬레이션 경로 최신화**: 고위험 경보 발생 시 인시던트 대응팀(CERT)과 개발/인프라 리드가 15분 이내 소집될 수 있는 비상 연락망을 검증합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}

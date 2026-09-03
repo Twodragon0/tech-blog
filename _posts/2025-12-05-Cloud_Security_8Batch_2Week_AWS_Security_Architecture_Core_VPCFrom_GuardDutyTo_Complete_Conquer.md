@@ -342,3 +342,14 @@ AWS 보안 아키텍처는 단순한 서비스 구성이 아닌, 각 구성요�
 ---
 
 원본 포스트: [클라우드 시큐리티 8기 2주차: AWS 보안 아키텍처의 핵심, VPC부터 GuardDuty까지 완벽 정복!](https://twodragon.tistory.com/702)
+
+
+## 📊 AWS 네트워크 보안 아키텍처 위험 스코어카드 (Risk Scorecard)
+
+| 보안 점검 영역 | 현재 위험도 | 잠재적 위협 시나리오 | 필수 완화 조치 (Mitigation) |
+|---|:---:|---|---|
+| **VPC 퍼블릭 서브넷 라우팅** | 🔴 High | 공인 IP를 부여받은 데이터베이스/캐시 인스턴스 인터넷 직접 노출 | Private 서브넷 분리 및 NAT Gateway/VPC 엔드포인트 경유 강제 |
+| **보안 그룹(Security Group)** | 🟠 Medium | `0.0.0.0/0` 대상 인바운드 허용 규칙 잔존 | 최소 권한 CIDR 제한 및 AWS Network Firewall 심층 패킷 검사 |
+| **Transit Gateway 라우팅** | 🟡 Low | 개발계와 운영계 VPC 간 비인가 동서(East-West) 트래픽 통신 | TGW 라우팅 테이블 완전 분리 및 세그멘테이션 강제 |
+| **GuardDuty 위협 탐지 지연** | 🟠 Medium | 비정상 암호화폐 채굴 및 자격증명 도용 인지 지연 | GuardDuty Findings EventBridge 연동 및 Lambda 자동 격리 구현 |
+

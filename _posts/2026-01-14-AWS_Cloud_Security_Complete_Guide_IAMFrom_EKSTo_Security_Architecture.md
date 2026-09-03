@@ -334,6 +334,15 @@ AWS 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 EKS�
 
 ---
 
+
+## 📋 AWS IAM 및 EKS 클라우드 보안 점검 체크리스트 (AWS Security Checklist)
+
+- [ ] **루트 계정 및 관리자 IAM 보안**: 루트 계정에 FIDO2 하드웨어 보안키(MFA)를 적용하고, 장기 자격증명(Access Key)을 완전히 제거했는지 확인합니다.
+- [ ] **EKS 파드 자격증명(IRSA / Pod Identity) 전환**: 노드 인스턴스 프로파일 대신 EKS Pod Identity 또는 IRSA를 적용해 파드 단위 최소 권한 IAM Role을 부여했는지 점검합니다.
+- [ ] **EKS 프라이빗 API 엔드포인트 활성화**: 쿠버네티스 클러스터 API 엔드포인트를 퍼블릭 인터넷에 노출하지 않고 사내 VPN/베스천 전용 Private으로 제한했는지 확인합니다.
+- [ ] **KMS 엔벨로프 암호화(Secrets Encryption)**: EKS 클러스터 내부의 k8s Secret 객체가 AWS KMS 고객 관리형 키(CMEK)로 암호화되어 etcd에 저장되는지 검증합니다.
+- [ ] **IMDSv2 강제 적용**: 모든 EC2 및 EKS 워커 노드에서 인스턴스 메타데이터 서비스 v2(IMDSv2)를 필수로 적용하여 SSRF 공격을 원천 차단했는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}

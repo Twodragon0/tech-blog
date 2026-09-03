@@ -343,6 +343,15 @@ CDN & Failover:
 
 ---
 
+
+## 📋 대규모 CDN/Edge 글로벌 장애 복원력 체크리스트 (Edge Resilience Checklist)
+
+- [ ] **DNS 폴백 및 멀티 CDN 장애 조치(Failover) 검증**: Cloudflare 장애 시 Route 53 또는 CloudFront로 5분 이내 트래픽을 자동 우회하는 DNS 헬스체크 정책이 작동하는지 확인합니다.
+- [ ] **오리진 직접 연결(Origin Direct Bypass) 비상 경로 확보**: 엣지 프록시 계층이 마비되었을 때 인가된 내부 관리자 트래픽이 오리진 서버로 안전하게 인입될 수 있는 비상 수단을 점검합니다.
+- [ ] **클라이언트 측 캐싱 및 오프라인 복원력(Service Worker)**: CDN 오류 시에도 사용자 화면에 커스텀 502/504 정적 오프라인 페이지가 렌더링되도록 Service Worker 캐시를 구성했는지 확인합니다.
+- [ ] **인시던트 런북(Runbook) 및 카오스 엔지니어링 훈련**: CDN 완전 마비 시나리오를 가정한 정기 모의 훈련을 분기별 1회 이상 수행하고 소통 채널(Statuspage 등)을 사전에 확보했는지 점검합니다.
+- [ ] **API 게이트웨이 타임아웃 및 재시도 백오프 통제**: 엣지 장애로 인한 연쇄적 리퀘스트 폭주(Cascading Failure)를 막기 위해 지수 백오프 및 서킷 브레이커를 적용했는지 확인합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}

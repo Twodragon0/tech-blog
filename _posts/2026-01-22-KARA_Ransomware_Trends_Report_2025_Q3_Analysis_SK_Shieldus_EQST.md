@@ -374,6 +374,15 @@ SK쉴더스 EQST에서 제공하는 랜섬웨어 관련 리소스:
 
 ---
 
+
+## 📋 기업 랜섬웨어 침해 예방 및 대응 점검 체크리스트 (Ransomware Defense Checklist)
+
+- [ ] **불변 백업(Immutable Backup) 및 WORM 스토리지 적용**: 랜섬웨어 감염 시 백업 파일 변조를 원천 차단하기 위해 S3 Object Lock 또는 에어갭 분리 백업을 운영하는지 확인합니다.
+- [ ] **원격 접속(VPN/RDP) 다중 인증(MFA) 의무화**: 초기 침투 경로 1위인 사내 원격 접속 게이트웨이에 조건부 액세스 및 MFA를 전사 강제했는지 점검합니다.
+- [ ] **액티브 디렉토리(AD) 및 권한 계층 보호**: Tier 0 도메인 컨트롤러 접근을 전용 관리자 단말(PAW)로만 제한하고 Kerberoasting 공격 방어 정책을 적용했는지 확인합니다.
+- [ ] **데이터 유출(Double Extortion) 탐지 및 DLP 연동**: 랜섬웨어의 2차 협박인 대용량 데이터 외부 유출을 방지하기 위해 네트워크 Egress 트래픽 이상 징후를 모니터링하는지 점검합니다.
+- [ ] **비상 침해사고 대응 모의 훈련(Tabletop Exercise)**: 랜섬웨어 공격 발생 시 시스템 격리, C-레벨 보고, KISA 및 경찰청 침해사고 신고 절차를 담은 플레이북을 검증합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}

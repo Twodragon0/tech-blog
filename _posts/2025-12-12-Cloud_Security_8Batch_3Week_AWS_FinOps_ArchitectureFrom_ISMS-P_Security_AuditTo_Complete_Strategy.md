@@ -303,3 +303,11 @@ FinOps와 보안은 상호 보완적인 관계입니다. 비용 최적화와 보
 ---
 
 원본 포스트: [클라우드 시큐리티 8기 3주차: AWS FinOps 아키텍처부터 ISMS-P 보안 감사까지 완벽 공략!](https://twodragon.tistory.com/703)
+
+
+## 📌 Executive Summary (핵심 요약)
+
+- **FinOps와 보안 컴플라이언스의 공존**: 클라우드 비용 최적화(FinOps)와 ISMS-P 보안 감사는 상충하는 목표가 아니며, 유휴 자원 정리와 최소 권한 인프라 유지를 통해 공격 표면과 비용을 동시에 축소하는 시너지 관계입니다.
+- **아키텍처 단위 비용/보안 가시성 확보**: AWS Cost Allocation Tags와 AWS Organizations SCP를 결합하여 비용 추적성과 보안 통제를 단일 정책 파이프라인으로 통합 관리합니다.
+- **지속적 거버넌스 자동화**: AWS Compute Optimizer 및 Trusted Advisor 추천을 주기적으로 검토하고, 격리된 워크로드의 자동 전원 차단(Auto-Stopping) 및 장기 보관 로그의 S3 Glacier 이관을 자동화합니다.
+

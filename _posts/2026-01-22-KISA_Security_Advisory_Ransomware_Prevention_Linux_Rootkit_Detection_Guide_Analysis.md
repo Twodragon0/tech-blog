@@ -355,3 +355,11 @@ KISA의 최신 보안 공지는 랜섬웨어, 루트킷, 피싱이라는 세 가
 48. AlienVault OTX (Open Threat Exchange). [https://otx.alienvault.com/](https://otx.alienvault.com/)
 49. MISP (Malware Information Sharing Platform). [https://www.misp-project.org/](https://www.misp-project.org/)
 50. r/netsec - Reddit 네트워크 보안 커뮤니티. [https://www.reddit.com/r/netsec/](https://www.reddit.com/r/netsec/)
+
+
+## 📌 Executive Summary (핵심 요약)
+
+- **리눅스 서버 표적 공격 급증**: 공격자들은 윈도우 환경을 넘어 기업의 핵심 데이터베이스와 클라우드 인프라가 집중된 리눅스 서버에 LKM(Loadable Kernel Module) 기반 루트킷을 심어 장기 잠복합니다.
+- **커널 레벨 무결성 검증 필수**: 기존 사용자 공간(User-space) 백신을 우회하는 은닉형 루트킷을 탐지하기 위해 eBPF 런타임 보안 센서와 `chkrootkit`, `rkhunter`를 결합한 다계층 커널 감사 체계가 요구됩니다.
+- **KISA 보안 권고안 핵심 실천**: 비인가 커널 모듈 로딩 차단(`kernel.modules_disabled`), SSH 루트 로그인 금지, 불변 파일 속성(`chattr +i`) 설정을 기본 보안 베이스라인으로 확립해야 합니다.
+

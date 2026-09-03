@@ -300,14 +300,14 @@
     }
   },
   "2025-11-19-Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -315,14 +315,14 @@
     }
   },
   "2025-11-21-Cloud_Security_8Batch_OT_Guide_DevSecOpsFrom_FinOpsTo_Practical_Talent_Leap.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -345,12 +345,12 @@
     }
   },
   "2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
-      "risk_scorecard": 0,
+      "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
       "tables": 10,
@@ -360,11 +360,11 @@
     }
   },
   "2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
-      "executive_summary": 0,
+      "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
@@ -540,14 +540,14 @@
     }
   },
   "2026-01-14-AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -615,14 +615,14 @@
     }
   },
   "2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 8,
       "cross_refs": 5,
@@ -675,14 +675,14 @@
     }
   },
   "2026-01-22-KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -690,11 +690,11 @@
     }
   },
   "2026-01-22-KISA_Security_Advisory_Ransomware_Prevention_Linux_Rootkit_Detection_Guide_Analysis.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
-      "executive_summary": 0,
+      "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
@@ -705,14 +705,14 @@
     }
   },
   "2026-01-22-Security_Vendor_Blog_Weekly_Review.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -956,14 +956,14 @@
     }
   },
   "2026-02-04-AI_vs_Claude_Code_AI_Coding_Assistant_Comparison.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,

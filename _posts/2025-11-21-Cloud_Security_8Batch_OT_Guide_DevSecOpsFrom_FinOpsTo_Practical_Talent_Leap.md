@@ -379,6 +379,15 @@ DevSecOps와 FinOps를 모두 아우르는 실무 역량을 키워, 보안과 �
 
 ---
 
+
+## 📋 DevSecOps 및 FinOps 실무 전환 성장 체크리스트 (Career & Practice Checklist)
+
+- [ ] **클라우드 보안 거버넌스 프레임워크 학습**: AWS Well-Architected Security Pillar 및 CIS Benchmark를 기반으로 엔터프라이즈 멀티 계정 보안 표준을 설계할 수 있는지 점검합니다.
+- [ ] **CI/CD 보안 자동화 파이프라인 실습**: GitHub Actions에서 SAST(Semgrep), SCA(Trivy), Secret Scan(Gitleaks)을 구축하고 자동 차단 정책을 적용해 보았는지 확인합니다.
+- [ ] **쿠버네티스 런타임 보안 실무 검증**: Pod Security Standards, NetworkPolicy, Falco/Tetragon 기반 커널 런타임 탐지 환경을 직접 핸즈온으로 구축해 보았는지 점검합니다.
+- [ ] **FinOps 비용 최적화 메트릭 수립**: AWS Cost Explorer 및 CUR을 분석하여 유휴 자원(Idle Resources), 미사용 EBS 볼륨, Reserved/Savings Plans 커버리지를 산출할 수 있는지 확인합니다.
+- [ ] **ISMS-P 및 컴플라이언스 감사 증적 자동화**: 수동 캡처 방식 대신 AWS Config 및 CloudTrail Athena 쿼리를 통해 규제 요구사항 증적을 코드로 자동 추출할 수 있는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
