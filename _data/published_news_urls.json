@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-03T00:56:32.393291+00:00",
+  "updated_at": "2026-09-03T15:08:26.584685+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html",
@@ -1248,6 +1248,96 @@
       "title": "[네이버피셜] 네이버 개발자라면 꼭 만나게 됩니다",
       "published_date": "2026-09-03",
       "expires_at": "2026-09-10T00:56:32.393040+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/us-becomes-top-target-in-rmm-phishing.html",
+      "title": "US Becomes Top Target in RMM Phishing Campaign Spanning 46 Countries",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/attackers-turn-trusted-nodejs-runtime.html",
+      "title": "Attackers Turn Trusted Node.js Runtime Into Malware Delivery Tool in Targeted At",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/shai-huluds-reach-just-grew-to-469.html",
+      "title": "Shai-Hulud's Reach Just Grew to 469 Credential Locations. Here's What That Means",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/pegasus-zero-click-spyware-exploit.html",
+      "title": "Pegasus Zero-Click Spyware Exploit Infects Serbian Student Movement Member's iPh",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/researcher-releases-falconflank-poc.html",
+      "title": "Researcher Releases FalconFlank PoC Showing Privilege Escalation in CrowdStrike ",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
+      "title": "‘NBA 2K27’ With NVIDIA DLSS 5 Leads 28 New Games Coming to GeForce NOW",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/",
+      "title": "Proactive cyber defense for governments and enterprises",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/accessing-openai-gpt-5-6-models-on-amazon-bedrock-from-australia-with-global-cross-region-inference/",
+      "title": "Accessing OpenAI models on Amazon Bedrock from Australia with global cross-Regio",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/modernizing-and-scaling-support-operations-with-generative-ai-on-aws/",
+      "title": "Modernizing and scaling support operations with generative AI on AWS",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-an-aws-team-detects-dashboard-content-failures-at-scale-using-amazon-bedrock/",
+      "title": "How an AWS team detects dashboard content failures at scale using Amazon Bedrock",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-identity-columns-to-auto-generate-sequential-integers/",
+      "title": "Simplify pipelines with new BigQuery identity columns",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/agentcore-aiops-samsung-2/",
+      "title": "삼성 계정 AIOps: AgentCore기반 AlOps의 실전 활용과 자율성 확장",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/agentcore-aiops-samsung-1/",
+      "title": "삼성 계정 AIOps: AgentCore기반 멀티 에이전트 운영 자동화 여정",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/ec2-nitro-v6-connection-tracking/",
+      "title": "Amazon EC2 Nitro V6의 Connection Tracking 유휴 타임아웃 변경 대응하기",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/automating_finops_tasks_with_amazon_quick/",
+      "title": "Amazon Quick으로 FinOps 업무 자동화하기",
+      "published_date": "2026-09-04",
+      "expires_at": "2026-09-10T15:08:26.584565+00:00"
     }
   ]
 }
