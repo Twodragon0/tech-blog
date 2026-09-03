@@ -591,6 +591,23 @@ jobs:
           # cron fail every night. Run a dormant gate before you wire it.
           python3 scripts/check_filename_entities.py --all
 
+          # The whole pytest suite, not just the corpus check_*.py gates above.
+          # Every guard in scripts/tests/ that reads _posts/ — excerpt quality,
+          # digest structure, cover honesty — runs only in jekyll.yml's build
+          # job, and that job never fires for this push: a commit made with the
+          # default GITHUB_TOKEN triggers no push-event workflows. Measured
+          # 2026-09-03 on 35854337: 1 run total (CodeQL 'dynamic'), 0 push-event
+          # runs, against 9 for the comparable human push b81ed099. So until
+          # this line existed, a digest could introduce a duplicate excerpt and
+          # nothing would object until the next human push or PR.
+          #
+          # Feasibility measured in a clean venv holding only
+          # requirements-blogwatcher.txt: 5169 passed / 5 skipped in 85s once
+          # fonttools, python-dotenv and ruff were added there (they were, in
+          # the same commit). No Ruby or built _site here, so the
+          # jekyll-build and compiled-CSS tests skip by design.
+          python3 -m pytest scripts/tests/ -q --no-header -p no:randomly
+
       - name: Commit and publish
         id: publish
         if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'

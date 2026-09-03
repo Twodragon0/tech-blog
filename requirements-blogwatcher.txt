@@ -18,3 +18,17 @@ Pillow>=10.0
 # qrcode[pil] pulls Pillow for svg_l22_generator.gen_qr (cover QR) and the
 # check_cover_qr_urls.py canonical-URL gate.
 qrcode[pil]>=7.0
+
+# Added 2026-09-03 so the pre-flight can run the whole pytest suite, not just
+# test_briefing_stats.py. Measured in a clean venv against this file: without
+# these three the suite is 2 failed / 5162 passed / 10 skipped; with them,
+# 5169 passed / 5 skipped / 0 failed in 85s.
+#
+# The failures are not where static analysis predicts. fontTools and PIL are
+# behind importorskip (pinned by test_ci_pytest_deps_guard.py), so their tests
+# skip rather than fail; the two real failures were in
+# test_optional_narrowing_guards.py. Re-measure in a clean venv before trimming
+# this list — the local environment has more packages and hides the difference.
+fonttools[woff]>=4.63.0
+python-dotenv>=1.2.3
+ruff>=0.15.0
