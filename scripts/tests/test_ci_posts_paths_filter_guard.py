@@ -16,11 +16,28 @@ shape as `check_filename_entities`, wired `--staged`-only and therefore never
 run at all, and `check_broken_links`, which printed a count and never called
 `sys.exit()`. Neither was noticed by the CI going green.
 
-The blogwatcher makes this concrete rather than theoretical: it pushes a new
-digest straight to main at 00:00 UTC, touching `_posts/` and its cover. That
-push is the single highest-volume producer of post content in the repo and it
-has no human reviewer, so the paths-filter is what decides whether anything
-inspects it before the 03:45 UTC svg-lint sweep.
+Which pushes this actually covers, measured 2026-09-03. The original version of
+this docstring got it wrong, and the correction is the useful part:
+
+  - **Human/agent pushes to main that touch posts.** `b81ed099` ("elevate 10
+    DevSecOps posts") produced 9 `push`-event runs including `Jekyll site CI`.
+    This is the case the filter governs, and the reason the guard exists.
+  - **Pull requests.** Moot: `build` also runs on
+    `github.event_name == 'pull_request'` unconditionally, so the filter is not
+    consulted. Convenient for testing this guard — a PR that deletes the
+    pattern still runs the job that catches the deletion (verified in #663).
+  - **The blogwatcher cron.** *Not* covered, contrary to what this docstring
+    first claimed. Its 02:10 UTC commit `35854337` produced exactly one run —
+    CodeQL's `dynamic` "Push on main" — and zero `push`-event runs, because a
+    push made with the default `GITHUB_TOKEN` does not trigger workflows. The
+    filter is never consulted on that path, so it cannot be what protects it.
+
+That last point leaves a real gap, recorded here rather than fixed in this
+file: the full pytest suite runs *only* in jekyll.yml, which has no `schedule`
+trigger. svg-lint's 03:45 sweep runs the `check_*.py` gates, not pytest, and the
+blogwatcher's own pre-flight runs those gates plus a single-file
+`pytest scripts/tests/test_briefing_stats.py`. So a cron digest that introduced
+a duplicate excerpt would go unflagged until the next human push or PR.
 
 Direction: presence + coupling. Removing the pattern, renaming the filter key,
 or decoupling the build job from it all trip this. Adding patterns does not.
