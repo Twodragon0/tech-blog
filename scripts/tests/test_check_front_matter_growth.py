@@ -10,6 +10,7 @@ the cap, and it must PASS on legacy size, shrinkage, and new posts under the cap
 
 from __future__ import annotations
 
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -106,8 +107,47 @@ def test_check_notes_deleted_file_without_failing(tmp_path, monkeypatch):
 # ---------------------------------------------------------------------------
 
 
+def _clean_env() -> dict[str, str]:
+    """The caller's environment with every ``GIT_*`` variable removed.
+
+    Load-bearing, not hygiene. Git exports ``GIT_INDEX_FILE`` and ``GIT_DIR`` to
+    hooks, so when the pre-commit hook runs pytest, anything this file spawns
+    inherits them and operates on the *real* repository instead of the throwaway
+    one under ``tmp_path``. Both directions were measured 2026-09-02:
+
+    * the fixtures' ``git add -A`` wrote to the caller's index, taking it from
+      3,349 entries to 2 and leaving ``_posts/a.md`` pointing at a blob that the
+      temp dir's deletion made unreachable — every later commit then died with
+      ``fatal: unable to read ca41b6a1...``;
+    * the checker invocations below resolved ``GIT_DIR`` to the outer repo, so
+      ``git diff`` against the fixture's ``base`` ref exited 128 and
+      ``test_growth_fails`` failed — but only under the hook, which is why the
+      same command passed when run by hand.
+
+    Recovery from the first is ``git reset`` (mixed): it rebuilds the index from
+    HEAD and leaves the working tree alone.
+    """
+    return {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+
+
 def _git(repo: Path, *args: str) -> None:
-    subprocess.run(["git", *args], cwd=repo, check=True, capture_output=True)
+    """Run git against the throwaway repo, with the caller's git env stripped.
+
+    `env=` is load-bearing, not hygiene. Git exports `GIT_INDEX_FILE` (and
+    `GIT_DIR`) to hooks, so when the pre-commit hook runs pytest these fixtures
+    inherit them: `cwd=repo` still resolves the object store to the temp repo,
+    but `git add -A` writes the index to the *caller's* `GIT_INDEX_FILE`.
+
+    Measured 2026-09-02: running this file with `GIT_INDEX_FILE` pointed at a
+    copy of the real index took it from **3,349 entries to 2** — `add -A` writes
+    a complete index for the temp repo, so afterwards every tracked path in the
+    real tree reads as deleted. The temp dir is then removed, leaving an entry
+    for `_posts/a.md` whose blob is unreachable, and the next commit dies with
+    `fatal: unable to read ca41b6a1...`. Recovery is `git reset` (mixed).
+    """
+    subprocess.run(
+        ["git", *args], cwd=repo, check=True, capture_output=True, env=_clean_env()
+    )
 
 
 @pytest.fixture()
@@ -148,6 +188,7 @@ def test_growth_fails(git_repo: Path, script_in_repo: Path):
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "base"],
         cwd=git_repo,
+        env=_clean_env(),
         capture_output=True,
         text=True,
     )
@@ -163,6 +204,7 @@ def test_shrinkage_passes(git_repo: Path, script_in_repo: Path):
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "base"],
         cwd=git_repo,
+        env=_clean_env(),
         capture_output=True,
         text=True,
     )
@@ -185,6 +227,7 @@ def test_legacy_size_is_grandfathered(git_repo: Path, script_in_repo: Path):
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "base"],
         cwd=git_repo,
+        env=_clean_env(),
         capture_output=True,
         text=True,
     )
@@ -199,6 +242,7 @@ def test_new_post_is_noted_not_failed(git_repo: Path, script_in_repo: Path):
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "base"],
         cwd=git_repo,
+        env=_clean_env(),
         capture_output=True,
         text=True,
     )
@@ -222,6 +266,7 @@ def test_new_post_over_cap_fails(git_repo: Path, script_in_repo: Path):
             "200",
         ],
         cwd=git_repo,
+        env=_clean_env(),
         capture_output=True,
         text=True,
     )
@@ -235,6 +280,7 @@ def test_unresolvable_base_is_an_error_not_a_pass(git_repo: Path, script_in_repo
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "no-such-ref"],
         cwd=git_repo,
+        env=_clean_env(),
         capture_output=True,
         text=True,
     )
