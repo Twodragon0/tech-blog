@@ -794,6 +794,15 @@ Rate Limiting 전략:
 
 ---
 
+
+## 📋 스마트 컨트랙트 및 Web3 DevSecOps 체크리스트 (Smart Contract Checklist)
+
+- [ ] **정적 분석 도구(Slither / Mythril) CI 파이프라인 연동**: Solidity 코드 커밋 시 재진입성(Reentrancy), 정수 오버플로우, 비인가 selfdestruct 취약점을 자동 스캔하는지 확인합니다.
+- [ ] **공식 검증(Formal Verification) 및 퍼징(Fuzzing) 테스트**: Echidna, Foundry Fuzz를 활용해 극한의 경계 조건 및 불변성(Invariant) 검증을 거쳤는지 점검합니다.
+- [ ] **다중 서명(Multi-sig) 및 타임락(Timelock) 거버넌스 적용**: 중요 컨트랙트 업그레이드 및 자금 이동 권한을 단일 EOA가 아닌 Gnosis Safe 다중 서명과 타임락으로 통제하는지 확인합니다.
+- [ ] **오라클(Oracle) 조작 방지 및 TWAP 메커니즘 검증**: 플래시론 공격에 취약한 스팟 가격 참조 대신 Chainlink 탈중앙화 오라클 또는 Uniswap TWAP을 사용하는지 점검합니다.
+- [ ] **온체인 실시간 이상 거래 모니터링(Forta 연동)**: 컨트랙트 배포 후 비정상 자금 인출 징후를 감지하고 즉시 긴급 일시중지(Pause)할 수 있는 가디언 체계를 검증합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}

@@ -265,6 +265,15 @@ AWS re:Inforce 2025는 클라우드 보안의 현재와 미래를 보여주는 �
 
 ---
 
+
+## 📋 차세대 클라우드 보안 트렌드 도입 체크리스트 (re:Inforce Action Checklist)
+
+- [ ] **생성형 AI 보안 통제(Bedrock Guardrails) 구현**: LLM 기반 워크로드에 PII 마스킹, 유해 프롬프트 차단, 모델 인젝션 방어 정책을 적용했는지 점검합니다.
+- [ ] **IAM 자격증명 수명 축소 및 임시 토큰 의무화**: 장기 보관용 Access Key를 완전히 퇴출하고 AWS STS 기반 1시간 미만 임시 자격증명 사용을 강제하는지 확인합니다.
+- [ ] **보안 데이터 레이크(Amazon Security Lake) 통합**: CloudTrail, VPC Flow, EKS Audit, 외부 보안 솔루션 로그를 OCSF 표준으로 정규화하여 중앙 분석하는지 점검합니다.
+- [ ] **자동화된 인시던트 플레이북(Automated Remediation)**: GuardDuty 또는 Security Hub 탐지 이벤트 발생 시 비인가 보안 그룹을 자동 롤백하는 EventBridge-Lambda 루프를 검증합니다.
+- [ ] **암호화 알고리즘 양자 내성(PQC) 로드맵 수립**: 향후 양자 컴퓨팅 위협에 대비해 TLS 1.3 하이브리드 포스트 퀀텀 키 교환 알고리즘 도입 일정을 검토했는지 확인합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}

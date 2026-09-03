@@ -60,14 +60,14 @@
     }
   },
   "2025-05-09-Cloud_Security_Course_7Batch_-_4Week_AWS_Vulnerability_Inspection_And_ISMS_Response_Guide.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -75,14 +75,14 @@
     }
   },
   "2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 9,
       "cross_refs": 5,
@@ -210,14 +210,14 @@
     }
   },
   "2025-09-16-AWS_reInforce_2025_Cloud_Security_Current_and_Future.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -465,14 +465,14 @@
     }
   },
   "2026-01-08-Blockchain_Cryptocurrency_Security_Complete_Guide_DevSecOps_From_Perspective_View_GitHub_Security_Tools_And_Best_Practice.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 14,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 8,
       "cross_refs": 5,
@@ -525,14 +525,14 @@
     }
   },
   "2026-01-14-2025_ISMS-P_Certification_Complete_Guide_AWS_In_Environment_Management_System_Establishment_And_Protection_Measures_Implementation.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 14,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 8,
       "cross_refs": 5,
@@ -570,14 +570,14 @@
     }
   },
   "2026-01-14-GCP_Cloud_Security_Complete_Guide_IAMFrom_GKETo_Security_Architecture.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 7,
       "cross_refs": 5,
@@ -660,14 +660,14 @@
     }
   },
   "2026-01-22-Cloud_Security_Trends_January_2026_Kubernetes_82_Percent_Production_VS_Code_Threats_CNCF_Survey.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -795,14 +795,14 @@
     }
   },
   "2026-01-28-Claude_MD_Security_Guide.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -881,11 +881,11 @@
     }
   },
   "2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture.md": {
-    "total": 87,
+    "total": 97,
     "scores": {
       "front_matter": 13,
       "ai_summary": 10,
-      "executive_summary": 0,
+      "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
@@ -1121,14 +1121,14 @@
     }
   },
   "2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,

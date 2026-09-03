@@ -268,6 +268,15 @@ index=k8s_network OR index=firewall
 
 ---
 
+
+## 📋 쿠버네티스 프로덕션 및 개발 환경 보안 체크리스트 (K8s & IDE Checklist)
+
+- [ ] **개발 IDE(VS Code/Cursor) 확장 프로그램 공급망 검증**: 신뢰할 수 없는 마켓플레이스 익스텐션 설치를 제한하고 서명된 엔터프라이즈 확장만 허용하는 정책이 적용되었는지 확인합니다.
+- [ ] **쿠버네티스 프로덕션 Admission Control 의무화**: ValidatingAdmissionPolicy(CEL) 또는 OPA Gatekeeper를 통해 특권(Privileged) 컨테이너 및 root 사용자 실행을 원천 차단하는지 점검합니다.
+- [ ] **워크스페이스 `.vscode` 설정 파일 감시**: 저장소 클론 시 자동으로 악성 바이너리를 트리거할 수 있는 `tasks.json`, `launch.json`의 임의 스크립트 실행을 차단했는지 확인합니다.
+- [ ] **네트워크 폴리시(NetworkPolicy) 전면 적용**: 네임스페이스 간 무제한 통신을 금지하고 파드 단위 Ingress/Egress 트래픽을 화이트리스트로 통제하는지 점검합니다.
+- [ ] **이미지 서명(Cosign) 기반 배포 통제**: 빌드 파이프라인에서 생성된 컨테이너 이미지의 전자서명을 클러스터 배포 시점에 검증하여 무결성을 보장하는지 확인합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - 쿠버네티스 인프로세스 검증 정책(VAP): {% post_url 2026-08-31-Kubernetes_Validating_Admission_Policy_CEL_Security_Guide %}

@@ -316,6 +316,15 @@ aws ec2 authorize-security-group-ingress \
 
 ---
 
+
+## 📋 멀티 계정 거버넌스 및 ZTNA 구축 체크리스트 (Control Tower Checklist)
+
+- [ ] **AWS Control Tower 랜딩 존(Landing Zone) 가드레일 활성화**: 필수 가드레일(SCP)을 통해 하위 계정에서 CloudTrail 비활성화나 인터넷 게이트웨이 임의 생성을 원천 차단했는지 점검합니다.
+- [ ] **AWS IAM Identity Center(SSO) 기반 중앙 집중 인증**: 개별 계정의 IAM User 생성을 금지하고 조직 SSO와 IdP(Okta/Azure AD)를 연동하여 세션을 관리하는지 확인합니다.
+- [ ] **보안 전용 OU(Audit/Log Archive) 분리 및 격리**: 침해 사고 시에도 로그가 훼손되지 않도록 감사 전용 계정에 WORM 불변 S3 버킷을 구성했는지 점검합니다.
+- [ ] **ZTNA 기반 클라우드 프라이빗 엔드포인트 통신**: 사내 엔지니어가 클라우드 워크로드에 접근할 때 공인 IP가 아닌 ZTNA 터널을 통해 앱 단위 최소 권한으로 접속하는지 검증합니다.
+- [ ] **AWS Config 적합성 팩(Conformance Pack) 배포**: 조직 전체 계정에 CIS AWS Foundations Benchmark 적합성 팩을 배포하여 실시간 컴플라이언스 준수도를 모니터링하는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}

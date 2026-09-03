@@ -676,6 +676,15 @@ GCP 클라우드 환경에서 보안을 강화하기 위해서는 IAM부터 GKE�
 
 ---
 
+
+## 📋 GCP 클라우드 거버넌스 및 GKE 보안 체크리스트 (GCP Security Checklist)
+
+- [ ] **조직 정책(Organization Policy) 기반 가드레일 강제**: 서비스 계정 키 생성 제한, 외부 IP 사용 제한, 공용 버킷 공유 금지(Domain Restricted Sharing)를 전사 적용했는지 점검합니다.
+- [ ] **GKE 워크로드 아이덴티티(Workload Identity) 활성화**: 노드 서비스 계정 대신 쿠버네티스 서비스 계정과 IAM 역할을 안전하게 매핑하여 파드별 최소 권한을 부여했는지 확인합니다.
+- [ ] **GKE Private Cluster 및 마스터 인가 네트워크 적용**: 쿠버네티스 제어 평면 및 워커 노드를 프라이빗 네트워크에 배치하고 승인된 CIDR에서만 통신하도록 제한했는지 점검합니다.
+- [ ] **VPC Service Controls(VPC-SC) 데이터 경계선 구축**: BigQuery, Cloud Storage 등 관리형 서비스로의 데이터 유출을 막기 위해 서비스 경계를 구성했는지 확인합니다.
+- [ ] **Security Command Center(SCC) 위협 탐지 활성화**: Event Threat Detection 및 Container Threat Detection을 연동해 비정상 커널 호출 및 크립토마이닝 행위를 실시간 감지하는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
