@@ -458,8 +458,12 @@ AWS WAF와 CloudFront의 정교한 보안 구성뿐만 아니라, 실제 코드�
 
 ---
 
-## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
-- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
-- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+## 📋 AWS WAF 및 CloudFront 엣지 보안 실무 체크리스트 (WAF & Edge Checklist)
+
+- [ ] **CloudFront 전용 커스텀 오리진 헤더 검증**: 사용자가 ALB 공인 IP로 직접 우회하지 못하도록 CloudFront가 주입하는 비밀 헤더를 ALB 리스너에서 강제 검증하는지 확인합니다.
+- [ ] **AWS WAF Rate-based Rule 적용**: 특정 IP 또는 세션에서 초당 100회 이상 비정상 HTTP 요청 발생 시 일시 차단하는 DDoS 방어 규칙을 활성화했는지 점검합니다.
+- [ ] **CloudFront TLS 1.3 및 최신 보안 정책 강제**: 구버전 SSL/TLS 프로토콜 접속을 금지하고 `TLSv1.2_2021` 이상의 최신 암호화 스위트를 적용했는지 확인합니다.
+- [ ] **GitHub Actions OIDC 연동 및 IAM 권한 최소화**: AWS 배포 시 영구 Access Key를 사용하지 않고 GitHub OIDC 토큰 기반 단기 임시 자격증명을 사용하는지 점검합니다.
+- [ ] **WAF 실시간 차단 로그 Kinesis Firehose 파이프라인**: 모든 차단된 요청의 페이로드 및 IP 정보를 S3 보안 감사 버킷으로 실시간 스트리밍하는지 점검합니다.
 

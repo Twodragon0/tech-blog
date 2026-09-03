@@ -556,3 +556,21 @@ Phase 1 작업만 해도 대부분의 기회주의적 공격을 차단한다. �
 - [HuggingFace Security - Model Safety](https://huggingface.co/docs/hub/security){:target="_blank"}
 - [Presidio - PII Detection and Anonymization](https://github.com/microsoft/presidio){:target="_blank"}
 - [금융보안원 AI 보안 가이드라인 (예정)](https://www.fsec.or.kr/){:target="_blank"}
+
+
+## 📋 RAG 및 MCP 파이프라인 엔터프라이즈 보안 체크리스트 (RAG & MCP Checklist)
+
+- [ ] **RAG 벡터 데이터베이스 지식 오염(Data Poisoning) 차단**: 임베딩 파이프라인 인입 문서의 출처 서명 검증 및 악의적 프롬프트 주입 여부를 사전 스캔하는지 확인합니다.
+- [ ] **MCP 서버 로컬 도구 인증 및 허가(Authorization)**: MCP 서버가 노출하는 시스템 리소스에 대해 API 키 기반 인가 및 최소 권한 호출을 적용했는지 점검합니다.
+- [ ] **LLM 출력물(Output) 자동 살균 및 XSS/SQLi 차단**: 모델이 생성한 코드나 HTML을 웹 UI 또는 백엔드 DB에 반영하기 전 정밀 살균(Sanitization)을 거치는지 확인합니다.
+- [ ] **벡터 검색 유사도 임계치 및 비정상 청크 필터링**: 임베딩 공간에서 인위적으로 조작된 적대적 청크가 상위 검색 결과로 노출되지 않도록 이상치를 제거하는지 점검합니다.
+- [ ] **PII 및 엔터프라이즈 기밀 유출 차단(DLP 필터링)**: LLM 응답 스트림에서 주민등록번호, 신용카드 번호, 사내 비밀 토큰을 실시간 탐지하고 마스킹하는지 확인합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 서버 보안 위협 모델링 및 방어 아키텍처: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- Claude.md 및 AI 코딩 에이전트 보안 설정 완벽 가이드: {% post_url 2026-01-28-Claude_MD_Security_Guide %}
+- OWASP Top 10 Agentic AI 보안 가이드: {% post_url 2026-01-03-OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security %}
+

@@ -367,8 +367,12 @@ rules:
 
 ---
 
-## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
-- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
-- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+## 📋 OWASP Agentic AI 보안 거버넌스 점검 체크리스트 (OWASP Agentic Checklist)
+
+- [ ] **ASI01(에이전트 제어 상실) 방지용 격리 샌드박스**: LLM 에이전트의 터미널 명령어 실행 환경을 gVisor 또는 마이크로VM 컨테이너로 격리했는지 확인합니다.
+- [ ] **ASI02(도구 오용 및 권한 남용) 방어**: MCP 툴 정의 시 파일 삭제, 전역 네트워크 스캔 등 고위험 액션에 사용자 명시적 승인(Human-in-the-loop)을 강제했는지 점검합니다.
+- [ ] **ASI03(간접 프롬프트 인젝션) 방어**: 웹 검색 결과나 외부 이메일 인입 시 텍스트 전처리 필터링 및 프롬프트-데이터 경계선 분리를 적용했는지 확인합니다.
+- [ ] **ASI04(공급망 취약점) 차단**: 서드파티 에이전트 플러그인과 사전 훈련된 LoRA 가중치의 악성 페이로드 포함 여부를 정적 분석했는지 점검합니다.
+- [ ] **ASI05(컨텍스트 오염 및 기억 전이) 방지**: 에이전트 간 세션 공유 시 민감 자격증명이 이전 세션 컨텍스트 캐시에 남아있지 않도록 상태 초기화를 검증합니다.
 

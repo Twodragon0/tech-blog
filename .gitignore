@@ -158,3 +158,4 @@ _data/source_articles_cache.json
 
 # Digest quality gate diagnostics (uploaded as a CI artifact, never committed)
 .digest-gate-failure/
+openclaw-workspace-state.json

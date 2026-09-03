@@ -533,3 +533,21 @@ Level 1부터 시작하자. 입력 검증과 도구 허용 목록만 적용해�
 - [AWS Cedar Policy Language](https://www.cedarpolicy.com/){:target="_blank"}
 - [OWASP LLM Top 10 (2025)](https://owasp.org/www-project-top-10-for-large-language-model-applications/){:target="_blank"}
 - [CrowdStrike - AI Tool Poisoning Research](https://www.crowdstrike.com/en-us/blog/tag/ai-security/){:target="_blank"}
+
+
+## 📋 자율형 AI 에이전트 보안 아키텍처 설계 체크리스트 (Agent Security Design Checklist)
+
+- [ ] **도구 호출(Tool Execution) 제어 평면 격리**: 에이전트의 파일 입출력 및 네트워크 호출을 단일 게이트웨이 프록시를 통해서만 라우팅하도록 통제하는지 확인합니다.
+- [ ] **인증 토큰 및 최소 권한 IAM 매핑**: 에이전트 인스턴스마다 고유한 단기 토큰을 발급하고 작업 범위 밖의 리소스 접근 권한을 거부하는지 점검합니다.
+- [ ] **적대적 프롬프트 인젝션 실시간 가드레일**: 사용자 입력 및 외부 인입 데이터에 대해 정규식 및 가드레일 모델을 통한 다단계 필터링을 구축했는지 확인합니다.
+- [ ] **에이전트 실행 감사 로그(Audit Trail) 불변 보관**: 모델이 내린 모든 중간 의사결정(Chain of Thought)과 도구 호출 파라미터를 WORM 스토리지에 암호화 보관하는지 점검합니다.
+- [ ] **임의 코드 실행(Arbitrary Code Execution) 방지 샌드박스**: Python/Bash 스크립트 실행 환경을 마이크로VM 또는 분리된 임시 컨테이너에서 실행 후 폐기하는지 확인합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 서버 보안 위협 모델링 및 방어 아키텍처: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- 2026 자율형 AI 에이전트 보안 공격 벡터 및 방어 아키텍처: {% post_url 2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture %}
+- OWASP Top 10 Agentic AI 보안 완벽 가이드: {% post_url 2026-01-03-OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security %}
+

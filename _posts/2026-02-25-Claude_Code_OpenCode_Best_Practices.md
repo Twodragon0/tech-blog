@@ -785,3 +785,21 @@ disable-model-invocation: true
 작성자: Twodragon
 작성일: 2026년 2월 25일
 카테고리: DevOps, AI Coding
+
+
+## 📋 Claude Code 및 OpenCode 에이전트 개발 실무 체크리스트 (Agent Best Practices Checklist)
+
+- [ ] **프로젝트 전용 시스템 프롬프트(CLAUDE.md / AGENTS.md) 표준화**: 코딩 스타일, 금지 패턴, 테스트 게이트 명령어를 루트 문서에 명확히 정의하여 에이전트의 일관된 행동을 유도하는지 확인합니다.
+- [ ] **에이전트 터미널 실행 안전 플래그(`--dangerously-skip-permissions` 주의)**: 자동 실행 모드 사용 시 중요 파일 삭제 방지 및 파괴적 명령어 사전 차단 가드레일을 갖추었는지 점검합니다.
+- [ ] **컨텍스트 캐싱(Prompt Caching) 및 토큰 효율화**: 반복 실행되는 룰셋과 대규모 파일 목록을 컨텍스트 상단에 배치하여 캐시 적중률을 90% 이상으로 유지하는지 확인합니다.
+- [ ] **단계별 테스트 자동화(Test-Driven Loop)**: 코드 생성 후 `pytest`, `npm test`, `ruff`를 에이전트 루프 내에서 자체 실행하고 결함을 스스로 수정하도록 지시하는지 점검합니다.
+- [ ] **비밀 정보(.env, API 키) 에이전트 컨텍스트 노출 원천 차단**: `.gitignore` 및 보안 마스킹 스크립트를 통해 API 토큰이 프롬프트 히스토리에 인입되지 않도록 통제하는지 확인합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- Claude.md 및 AI 코딩 에이전트 보안 설정 완벽 가이드: {% post_url 2026-01-28-Claude_MD_Security_Guide %}
+- AI 코딩 어시스턴트 심층 비교 분석 (Gemini, Claude, ChatGPT, OpenCode): {% post_url 2026-01-17-AI_Coding_Assistants_Comparison_Gemini_Claude_Code_ChatGPT_OpenCode_2025_2026_Research_Analysis %}
+- 2026 자율형 AI 에이전트 보안 공격 벡터 및 방어 전략: {% post_url 2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture %}
+

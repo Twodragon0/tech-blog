@@ -355,27 +355,26 @@ Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부�
 
 ### P0 (즉시 조치)
 
-- Outlook Add-In 사이드로딩: IT 승인 애드인만 허용하도록 제한, 0-Day 패치 즉시 배포
-- AI 에이전트 자격증명: 모든 AI 에이전트 토큰/설정 파일이 Secrets Manager/Vault에 저장되어 있는지 확인 (로컬 파일 또는 git 저장소 저장 금지)
-- 패스워드 매니저 복구: Bitwarden/Dashlane/LastPass의 복구 메커니즘 설정 감사, 가능한 경우 비활성화
+- [ ] Outlook Add-In 사이드로딩: IT 승인 애드인만 허용하도록 제한, 0-Day 패치 즉시 배포
+- [ ] AI 에이전트 자격증명: 모든 AI 에이전트 토큰/설정 파일이 Secrets Manager/Vault에 저장되어 있는지 확인 (로컬 파일 또는 git 저장소 저장 금지)
+- [ ] 패스워드 매니저 복구: Bitwarden/Dashlane/LastPass의 복구 메커니즘 설정 감사, 가능한 경우 비활성화
 
 ### P1 (7일 이내)
 
-- AI 에이전트 설정 디렉토리 접근 탐지를 위한 EDR 규칙 구현
-- 조직 전체 볼트에 대한 패스워드 매니저 MFA 적용 현황 검토
-- 최소 권한 준수를 위한 Lambda 실행 역할 권한 감사
+- [ ] AI 에이전트 설정 디렉토리 접근 탐지를 위한 EDR 규칙 구현
+- [ ] 조직 전체 볼트에 대한 패스워드 매니저 MFA 적용 현황 검토
+- [ ] 최소 권한 준수를 위한 Lambda 실행 역할 권한 감사
 
 ### P2 (30일 이내)
 
-- 서버리스 환경을 위한 AI 기반 Defense-in-Depth 구현 (GuardDuty Lambda Protection)
-- AI 에이전트 인증을 위한 단기 자동 갱신 토큰 전략 검토
-- Hpc8a 인스턴스를 활용한 HPC 워크로드 마이그레이션 기회 검토
+- [ ] 서버리스 환경을 위한 AI 기반 Defense-in-Depth 구현 (GuardDuty Lambda Protection)
+- [ ] AI 에이전트 인증을 위한 단기 자동 갱신 토큰 전략 검토
+- [ ] Hpc8a 인스턴스를 활용한 HPC 워크로드 마이그레이션 기회 검토
 
 ---
 
 
 ---
-
 ## 참고자료
 
 | 리소스 | 링크 |

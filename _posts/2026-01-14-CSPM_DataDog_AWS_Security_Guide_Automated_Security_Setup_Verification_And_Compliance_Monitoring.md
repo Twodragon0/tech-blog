@@ -699,3 +699,21 @@ DataDog CSPM을 활용하면 AWS 환경의 보안 설정을 자동으로 검증�
 
 마지막 업데이트: 2026-01-14
 작성 기준: SK Shieldus 2025년 CSPM(DataDog) AWS 보안 가이드
+
+
+## 📋 Datadog CSPM 및 클라우드 보안 태세 관리 체크리스트 (CSPM Checklist)
+
+- [ ] **AWS 계정 전체 Datadog 통합 IAM Role 최소 권한 검증**: SecurityAudit 정책 기반의 읽기 전용 권한만을 부여하고 외부 ID(External ID)를 적용해 혼란스러운 대리인(Confused Deputy) 문제를 방지했는지 확인합니다.
+- [ ] **CIS AWS Foundations Benchmark 프레임워크 활성화**: 루트 계정 MFA, 비인가 SG 개방, S3 퍼블릭 노출 등 주요 컴플라이언스 규칙 준수도를 매일 자동 평가하는지 점검합니다.
+- [ ] **CloudTrail 및 GuardDuty 실시간 이벤트 스트림 연동**: 계정 내 비정상 API 호출 및 IAM 권한 상승 징후를 Datadog Cloud SIEM과 즉각 동기화하는지 확인합니다.
+- [ ] **미준수 인프라 리소스 자동 티켓팅(Jira/Slack) 파이프라인**: High/Critical 보안 위반 사항 발생 시 인프라 담당자에게 실시간 알림과 해결 가이드가 자동 발송되는지 점검합니다.
+- [ ] **컨테이너 이미지 취약점 스캔(CSVM) 통합**: ECR에 푸시되는 모든 컨테이너 이미지의 CVE 취약점 상태를 단일 CSPM 대시보드에서 파악하는지 확인합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS IAM & EKS 클라우드 보안 아키텍처 구축 완벽 가이드: {% post_url 2026-01-14-AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture %}
+- AWS Control Tower 및 Datadog SIEM 거버넌스 구축: {% post_url 2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security %}
+- 클라우드 취약점 진단 및 ISMS-P 인증 심사 대응 전략: {% post_url 2025-12-19-Cloud_Security_8Batch_4Week_Integration_Security_Vulnerability_Inspection_And_ISMS-P_Certification_Response %}
+

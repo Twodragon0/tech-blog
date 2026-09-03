@@ -435,17 +435,17 @@
     }
   },
   "2026-01-03-OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security.md": {
-    "total": 85,
+    "total": 90,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 7,
-      "cross_refs": 5,
+      "cross_refs": 0,
       "length": 3
     }
   },
@@ -480,17 +480,17 @@
     }
   },
   "2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical.md": {
-    "total": 85,
+    "total": 90,
     "scores": {
       "front_matter": 11,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 5,
+      "cross_refs": 0,
       "length": 4
     }
   },
@@ -555,17 +555,17 @@
     }
   },
   "2026-01-14-CSPM_DataDog_AWS_Security_Guide_Automated_Security_Setup_Verification_And_Compliance_Monitoring.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -720,17 +720,17 @@
     }
   },
   "2026-01-23-Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL.md": {
-    "total": 89,
+    "total": 94,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
-      "risk_scorecard": 0,
+      "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 5,
+      "cross_refs": 0,
       "length": 4
     }
   },
@@ -1211,14 +1211,14 @@
     }
   },
   "2026-02-17-Tech_Security_Weekly_Digest_AI_Agent_Cloud_Security.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -1226,14 +1226,14 @@
     }
   },
   "2026-02-18-Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -1346,17 +1346,17 @@
     }
   },
   "2026-02-25-Claude_Code_OpenCode_Best_Practices.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -1406,17 +1406,17 @@
     }
   },
   "2026-02-28-AI_Agent_Security_Architecture_Design_Guide.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -1447,14 +1447,14 @@
     }
   },
   "2026-03-01-Tech_Security_Weekly_Digest_AI_Agent_Ransomware.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -1522,17 +1522,17 @@
     }
   },
   "2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },

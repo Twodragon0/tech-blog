@@ -384,27 +384,26 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
 
 ### P0 (즉시)
 
-- Gentlemen 랜섬웨어 행위 기반 탐지 규칙 등록: 본문 SIEM 쿼리(PowerShell 인코딩 탐지, 대량 파일 암호화 조기 경보)를 SIEM/SOAR에 즉시 배포
-- 볼륨 섀도 삭제 시도 알림 설정: Windows EventCode 4688 기반 `vssadmin delete shadows` 명령 탐지 규칙 활성화
-- IT/OT 경계 방화벽 규칙 긴급 검토: 불필요한 IT→OT 인바운드 규칙 비활성화 및 허용 포트 최소화
+- [ ] Gentlemen 랜섬웨어 행위 기반 탐지 규칙 등록: 본문 SIEM 쿼리(PowerShell 인코딩 탐지, 대량 파일 암호화 조기 경보)를 SIEM/SOAR에 즉시 배포
+- [ ] 볼륨 섀도 삭제 시도 알림 설정: Windows EventCode 4688 기반 `vssadmin delete shadows` 명령 탐지 규칙 활성화
+- [ ] IT/OT 경계 방화벽 규칙 긴급 검토: 불필요한 IT→OT 인바운드 규칙 비활성화 및 허용 포트 최소화
 
 ### P1 (7일 내)
 
-- Purdue 모델 기반 OT 자산 인벤토리 갱신: L0~L3 레벨별 자산 목록 최신화, 레벨 간 통신 허용 목록 검증
-- 랜섬웨어 이중 협박 대응 플레이북 업데이트: 데이터 유출 탐지 → 법무·PR 연계 → 협박 대응 시나리오 포함하여 갱신
-- AI 에이전트 Action Policy 정의: 에이전트가 호출 가능한 도구 목록(화이트리스트)과 고위험 작업의 Human-in-the-Loop 게이트 설계
-- AWS MCP Registry 아키텍처 검토: AgentCore Gateway의 IAM 역할 분리 및 에이전트별 최소 권한 정책 검토
+- [ ] Purdue 모델 기반 OT 자산 인벤토리 갱신: L0~L3 레벨별 자산 목록 최신화, 레벨 간 통신 허용 목록 검증
+- [ ] 랜섬웨어 이중 협박 대응 플레이북 업데이트: 데이터 유출 탐지 → 법무·PR 연계 → 협박 대응 시나리오 포함하여 갱신
+- [ ] AI 에이전트 Action Policy 정의: 에이전트가 호출 가능한 도구 목록(화이트리스트)과 고위험 작업의 Human-in-the-Loop 게이트 설계
+- [ ] AWS MCP Registry 아키텍처 검토: AgentCore Gateway의 IAM 역할 분리 및 에이전트별 최소 권한 정책 검토
 
 ### P2 (30일 내)
 
-- 3-2-1 백업 정책 검증: 오프라인/오프사이트 백업 복원 테스트 수행, 복원 목표 시간(RTO) 측정
-- OT 원격 접속 보안 강화: OT 전용 Jump Server 배포 또는 세션 녹화 기능이 있는 PAM(Privileged Access Management) 솔루션 도입 검토
-- Agentic AI 도입 보안 영향평가: 통신·제조 환경의 AI 에이전트 도입 시 프롬프트 인젝션·공급망 공격 위협 모델링 수행
+- [ ] 3-2-1 백업 정책 검증: 오프라인/오프사이트 백업 복원 테스트 수행, 복원 목표 시간(RTO) 측정
+- [ ] OT 원격 접속 보안 강화: OT 전용 Jump Server 배포 또는 세션 녹화 기능이 있는 PAM(Privileged Access Management) 솔루션 도입 검토
+- [ ] Agentic AI 도입 보안 영향평가: 통신·제조 환경의 AI 에이전트 도입 시 프롬프트 인젝션·공급망 공격 위협 모델링 수행
 
 ---
 
 ---
-
 ## 참고 자료
 
 | 리소스 | 링크 | 용도 |

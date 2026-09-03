@@ -430,18 +430,13 @@ SIEM & 탐지:
 
 ---
 
-## 🔗 관련 포스트
 
-<!-- related-posts:v1 -->
+## 📊 주간 테크 & 보안 이슈 위험 스코어카드 (Risk Scorecard)
 
-- [BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안](/posts/2026/01/24/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/) — 2026-01-24
-- [AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) — 2026-01-26
-- [Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
-
----
-
-## 🔗 관련 포스트 및 참고 자료 (Cross References)
-
-- AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
-- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+| 보안 이슈 영역 | 위협 심각도 | 핵심 공격 메커니즘 | 필수 대응 방안 (Mitigation) |
+|---|:---:|---|---|
+| **Microsoft AitM 피싱** | 🔴 High | 중간자 프록시를 통한 세션 쿠키 탈취 및 MFA 우회 | FIDO2 하드웨어 보안키 및 Passkey 피싱 저항 MFA 적용 |
+| **Agentic AI 비인가 실행** | 🔴 High | 간접 프롬프트 인젝션에 의한 로컬 셸 명령어 트리거 | 도구 호출 화이트리스트 및 샌드박스 마이크로VM 격리 |
+| **PostgreSQL 인프라 보안** | 🟠 Medium | 비인가 원격 접근 및 평문 연결 노출 | SSL 강제 연결(`sslmode=require`) 및 pg_hba.conf 엄격 통제 |
+| **제로 트러스트 네트워크** | 🟡 Low | 내부망 횡적 이동(Lateral Movement) 시도 | 마이크로 세그멘테이션 및 디바이스 상태 기반 조건부 액세스 |
 
