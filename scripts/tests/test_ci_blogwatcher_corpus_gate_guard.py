@@ -28,6 +28,7 @@ Direction: presence + non-softening + ordering. Removing a gate, wrapping one in
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 import pytest
@@ -180,3 +181,39 @@ def test_filename_entities_is_wired_only_at_all_scope():
         "check_filename_entities is wired with --staged, which matches nothing "
         "here and reproduces the dormancy that hid two failures for months"
     )
+
+
+# The whole-directory run, not a single-file one. ai-blogwatcher.yml already
+# contains `pytest scripts/tests/test_briefing_stats.py` in another step, and a
+# plain `"pytest scripts/tests/" in line` substring test matches that too — the
+# same near-miss that let a mutation probe pass in #660 after the full-suite
+# step had been deleted. Require whitespace or end-of-line after the directory.
+_FULL_SUITE_RE = re.compile(r"pytest\s+scripts/tests/(?=\s|$)")
+
+
+def test_pytest_suite_runs_in_the_preflight():
+    """The corpus check_*.py gates above are not the whole story.
+
+    Every guard in scripts/tests/ that reads `_posts/` — excerpt quality,
+    digest structure, cover honesty — otherwise runs only in jekyll.yml's build
+    job, and that job never fires for the cron's push: a commit made with the
+    default GITHUB_TOKEN triggers no push-event workflows. Measured 2026-09-03
+    on `35854337`: 1 run total (CodeQL `dynamic`), 0 push-event runs, against 9
+    for the comparable human push `b81ed099`.
+
+    So this line is the only thing that runs those guards before a digest is
+    published. Deleting it restores the gap silently — the cron stays green.
+    """
+    body = _uncommented(_find(PREFLIGHT_STEP)["run"])
+    line = next((ln for ln in body.splitlines() if _FULL_SUITE_RE.search(ln)), None)
+    assert line is not None, (
+        "the pre-flight no longer runs pytest over all of scripts/tests/. A "
+        "single-file invocation does not count. Without it, every pytest guard "
+        "that reads _posts/ is dormant on the one push that creates posts."
+    )
+    for softener in ("|| true", "|| echo", "|| :"):
+        assert softener not in line, (
+            f"the pre-flight pytest run is softened with {softener!r}. A gate "
+            "that cannot end the step is decoration — the digest publishes "
+            "anyway."
+        )
