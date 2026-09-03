@@ -120,11 +120,11 @@
     }
   },
   "2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 14,
       "ai_summary": 10,
-      "executive_summary": 0,
+      "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
@@ -195,14 +195,14 @@
     }
   },
   "2025-09-10-npm_Ecosystem_Large_scale_Security_Breach_20_Download_Package_Malware_Infection.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -225,14 +225,14 @@
     }
   },
   "2025-09-17-NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 9,
       "cross_refs": 5,
@@ -240,18 +240,18 @@
     }
   },
   "2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution.md": {
-    "total": 89,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
-      "length": 4
+      "length": 5
     }
   },
   "2025-10-03-AWSIn_Database_Access_Gateway_Build_NLB_Security_Group_Complete_Guide.md": {
@@ -285,14 +285,14 @@
     }
   },
   "2025-11-04-Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block.md": {
-    "total": 88,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -330,11 +330,11 @@
     }
   },
   "2025-11-26-Cloud_Security_8Batch_1Week_Infrastructure_EssenceFrom_Security_FutureTo.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
-      "executive_summary": 0,
+      "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
@@ -390,14 +390,14 @@
     }
   },
   "2025-12-19-Cloud_Security_8Batch_4Week_Integration_Security_Vulnerability_Inspection_And_ISMS-P_Certification_Response.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 14,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -450,14 +450,14 @@
     }
   },
   "2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 14,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -510,14 +510,14 @@
     }
   },
   "2026-01-11-AI_Music_Video_Generation_Complete_Guide_DevSecOps_Perspective.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,
@@ -630,14 +630,14 @@
     }
   },
   "2026-01-22-AWS_GCP_Cloud_Updates_January_2026_EC2_G7e_X8i_Bangkok_Region_European_Sovereign_Cloud.md": {
-    "total": 89,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 5,

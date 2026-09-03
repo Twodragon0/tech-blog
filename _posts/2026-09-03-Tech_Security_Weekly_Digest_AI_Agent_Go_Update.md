@@ -59,16 +59,16 @@ summary_card:
 
 | 분야 | 소스 | 핵심 내용 | 영향도 |
 |------|------|----------|--------|
-| 🔒 **Security** | The Hacker News | Malicious .git Configs Can Make Claude, Codex, Cursor | 🟠 High |
-| 🔒 **Security** | The Hacker News | Malicious Apache Modules Hijack Brazilian Government Site Traffic to | 🟠 High |
-| 🔒 **Security** | The Hacker News | BGP Hijack Delivers Malicious Virtualizor Update That Establishes | 🟡 Medium |
-| 🤖 **AI/ML** | Hugging Face Blog | Real-Time Intelligence with IBM Time Series Models on | 🟡 Medium |
-| 🤖 **AI/ML** | CoinDesk | OpenAI says its new 'Astra' AI can build attacks without | 🟡 Medium |
-| ⚙️ **DevOps** | Docker Blog | Below the Harness: Governing a Multi-Model | 🟡 Medium |
-| ⚙️ **DevOps** | CNCF Blog | Metal3 meets KubeVirtBMC: Provisioning KubeVirt VMs like | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | Sui DeFi protocol Full Sail to wind down after Switchboard | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | BTC will hit $1M by 2030... but Arthur Hayes is buying ETH | 🟡 Medium |
-| ⛓️ **Blockchain** | Cointelegraph | Hashkey joins DTCC working group as first Asian crypto | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | 악성 .git 설정으로 Claude, Codex, Cursor 개발 도구 탈취 위험 | 🟠 High |
+| 🔒 **Security** | The Hacker News | 악성 Apache 모듈, 브라질 정부 웹사이트 트래픽 불법 탈취 | 🟠 High |
+| 🔒 **Security** | The Hacker News | BGP 하이재킹 공격으로 악성 Virtualizor 업데이트 배포 및 백도어 수립 | 🟡 Medium |
+| 🤖 **AI/ML** | Hugging Face Blog | AWS 환경에서 IBM 시계열 모델 기반 실시간 인텔리전스 구현 | 🟡 Medium |
+| 🤖 **AI/ML** | CoinDesk | OpenAI, 신규 'Astra' AI가 사람 개입 없이 사이버 공격을 구축할 수 있다고 발표 | 🟡 Medium |
+| ⚙️ **DevOps** | Docker Blog | Harness 하부 구조: 멀티 모델 AI 에이전트 거버넌스 및 통제 전략 | 🟡 Medium |
+| ⚙️ **DevOps** | CNCF Blog | Metal3와 KubeVirtBMC 결합: 베어메탈처럼 KubeVirt 가상머신 프로비저닝 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Sui 기반 DeFi 프로토콜 Full Sail, Switchboard 공격 여파로 서비스 종료 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Arthur Hayes, 'BTC 2030년 100만 달러 도달 전망에도 ETH 매수' 발언 | 🟡 Medium |
+| ⛓️ **Blockchain** | Cointelegraph | Hashkey, 아시아 암호화폐 기업 최초로 DTCC 실무 워킹그룹 합류 | 🟡 Medium |
 
 ---
 

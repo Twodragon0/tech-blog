@@ -406,6 +406,15 @@ DevSecOps 커뮤니티:
 
 ---
 
+
+## 📋 생성형 AI 미디어 파이프라인 DevSecOps 체크리스트 (AI Pipeline Checklist)
+
+- [ ] **프롬프트 인젝션 및 유해 콘텐츠 필터링**: 사용자 입력 프롬프트 단계에서 Llama Guard 또는 NeMo Guardrails를 적용해 탈옥(Jailbreak) 및 악의적 인젝션을 사전 차단하는지 확인합니다.
+- [ ] **AI 모델 가중치 및 체크포인트 무결성 검증**: Safetensors 형식을 우선 채택하고, Hugging Face/S3에서 다운로드한 모델 체크포인트의 SHA256 해시 및 전자서명을 검증하는지 점검합니다.
+- [ ] **GPU 워크로드 컨테이너 격리 및 자원 제한**: Kubernetes GPU 슬라이싱(MIG) 환경에서 비인가 노드 메모리 접근을 차단하고 파드별 리소스 Limit/Request를 엄격히 강제하는지 확인합니다.
+- [ ] **생성 아티팩트 워터마킹 및 저작권 추적성 확보**: 생성된 오디오/비디오 결과물에 C2PA 기반 암호학적 출처 메타데이터 및 비가시성 디지털 워터마크를 자동 삽입하는지 검증합니다.
+- [ ] **데이터 파이프라인 PII 및 민감정보 유출 방지**: 모델 파인튜닝 또는 전처리 파이프라인에서 입력 데이터셋 내 개인식별정보(PII) 마스킹과 암호화 전송을 준수하는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}

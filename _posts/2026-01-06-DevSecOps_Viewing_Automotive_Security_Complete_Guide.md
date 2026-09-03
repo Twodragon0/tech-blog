@@ -518,6 +518,15 @@ UN R155는 유엔 자동차 규정으로, 2024년부터 한국을 포함한 여�
 
 ---
 
+
+## 📋 차량용 전장 소프트웨어 DevSecOps 체크리스트 (Automotive Security Checklist)
+
+- [ ] **ISO/SAE 21434 규격 기반 TARA(위협 분석 및 위험 평가) 수행**: ECU 및 인포테인먼트(IVI) 시스템의 공격 표면과 잠재적 위험도를 체계적으로 분류했는지 확인합니다.
+- [ ] **차량용 SBOM 및 오픈소스 라이선스 검증**: OTA 배포 전 Yocto/QNX/Android Automotive 빌드 아티팩트의 SBOM(SPDX/CycloneDX)을 자동 생성하고 CVE를 매핑했는지 점검합니다.
+- [ ] **CAN/Ethernet 버스 보안 및 세큐어 부트 적용**: 차량 내부 네트워크 통신 시 SecOC(Secure Onboard Communication) 기반 메시지 인증과 하드웨어 신뢰점(HSM) 부팅 무결성을 검증합니다.
+- [ ] **OTA 소프트웨어 업데이트 보안(UNECE R156)**: 펌웨어 전송 시 TLS 1.3 암호화, 이중 비대칭 키 서명 검증, 롤백 방지(Anti-Rollback) 메커니즘이 구현되었는지 확인합니다.
+- [ ] **VSOC(차량 보안관제센터) 텔레메트리 연동**: 차량 내 이상 행위 탐지 센서(IDS) 로그를 클라우드 VSOC로 안전하게 실시간 집계하여 공격 징후를 분석하는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}

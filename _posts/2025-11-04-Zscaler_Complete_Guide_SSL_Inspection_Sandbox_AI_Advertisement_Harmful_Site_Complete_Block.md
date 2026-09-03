@@ -379,6 +379,15 @@ SSL 검사, 샌드박스, 브라우저 제어 등 다양한 보안 기능을 통
 
 ---
 
+
+## 📋 Zscaler 보안 아키텍처 구축 및 운영 체크리스트 (Zscaler Security Checklist)
+
+- [ ] **SSL/TLS 복호화(Inspection) 인증서 전사 배포**: 기업 사설 루트 CA 인증서가 모든 사내 단말(Windows, macOS, 모바일)의 신뢰할 수 있는 루트 인증 기관에 안전하게 배포되었는지 확인합니다.
+- [ ] **금융 및 의료 등 프라이버시 예외 카테고리 설정**: 개인정보 및 컴플라이언스 보호를 위해 인터넷 뱅킹, 건강 관련 사이트는 SSL 복호화 예외(Bypass) 정책에 등록되었는지 점검합니다.
+- [ ] **Zscaler Cloud Sandbox 차단 우선 정책 적용**: 미지의 의심스러운 실행 파일 및 문서 다운로드 시 분석 완료 전까지 전송을 보류하는 First-time-seen 차단 정책이 켜져 있는지 확인합니다.
+- [ ] **ZTNA 기반 제로 트러스트 애플리케이션 세그멘테이션**: 사내 내부망 접근 시 레거시 VPN 대신 ZPA(Zscaler Private Access)를 통해 앱 단위 최소 권한으로 연결되도록 설정했는지 점검합니다.
+- [ ] **SIEM/SOAR 연동 실시간 보안 이벤트 분석**: Zscaler NSS(Nanolog Streaming Service)를 통해 웹/네트워크 이상 트래픽 로그를 사내 SIEM(Splunk/Datadog)으로 실시간 스트리밍하는지 확인합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}

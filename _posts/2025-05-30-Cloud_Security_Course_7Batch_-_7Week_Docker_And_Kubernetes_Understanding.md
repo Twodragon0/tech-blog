@@ -541,3 +541,11 @@ cat /var/log/falco/events.txt | \
 - [Aqua Security Trivy](https://aquasecurity.github.io/trivy/)
 - [MITRE ATT&CK for Containers](https://attack.mitre.org/matrices/enterprise/containers/)
 - [NSA/CISA Kubernetes Hardening Guidance](https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/)
+
+
+## 📌 Executive Summary (핵심 요약)
+
+- **컨테이너 격리 핵심 아키텍처**: Docker와 Kubernetes는 리눅스 커널의 Namespace(격리)와 Cgroups(자원 통제), Seccomp/AppArmor를 결합하여 가상화 오버헤드 없이 고밀도 워크로드를 안전하게 실행합니다.
+- **쿠버네티스 파드 보안 전환**: 단순 컨테이너 실행을 넘어 Pod Security Standards(PSS) 및 K8s Admission Control을 적용해 root 실행 방지, 읽기 전용 루트 파일시스템, 불필요한 Linux Capability(CAP_SYS_ADMIN 등) 박탈이 필수적입니다.
+- **DevSecOps 파이프라인 통합**: 빌드 단계의 Trivy 이미지 정적 스캔, 레지스트리 서명 검증(Cosign), 런타임 eBPF 감시 체계를 3단계 방어선으로 구축해야 운영 안정성을 담보할 수 있습니다.
+

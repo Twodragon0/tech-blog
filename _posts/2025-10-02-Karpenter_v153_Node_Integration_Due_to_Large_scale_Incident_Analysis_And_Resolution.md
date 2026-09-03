@@ -485,6 +485,15 @@ sum(last_5m):rate(kubernetes.node.status{status:NotReady}) > 2
 
 ---
 
+
+## 📋 Karpenter 노드 오토스케일링 장애 예방 체크리스트 (Operational Checklist)
+
+- [ ] **통합 중단 예산(Consolidation Disruption Budget) 설정**: NodePool 스펙에 `disruption.budgets`를 정의하여 동시 축소 비율을 최대 10~20%로 제한했는지 확인합니다.
+- [ ] **Graceful Termination 및 PDB 검증**: 중요 서비스 파드에 PodDisruptionBudget(PDB)이 적절히 정의되어 노드 축소 시 파드 강제 축출이 방지되는지 검증합니다.
+- [ ] **인스턴스 타입 다양화(Instance Flexibility)**: 스팟 인스턴스 고갈에 대비해 단일 패밀리가 아닌 최소 4개 이상의 다양한 EC2 인스턴스 타입을 NodePool 요구조건에 명시했는지 점검합니다.
+- [ ] **EC2 인터럽트 핸들러 및 SQS 큐 모니터링**: AWS Node Termination Handler 또는 Karpenter Native Interruption 모니터링(Spot Interruption, Rebalance)이 정상 수신되는지 확인합니다.
+- [ ] **Karpenter 컨트롤러 지연 메트릭 알림**: `karpenter_provisioner_scheduling_duration_seconds` 및 `karpenter_nodes_termination_duration_seconds` 알림을 Prometheus/Datadog에 연동했는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}

@@ -474,3 +474,11 @@ MITRE ATT&CK 매핑을 통해 클라우드 환경의 실제 공격 기법과 탐
 ---
 
 원본 포스트: [클라우드 시큐리티 8기 1주차: 인프라의 본질부터 보안의 미래까지](https://twodragon.tistory.com/701)
+
+
+## 📌 Executive Summary (핵심 요약)
+
+- **클라우드 인프라 본질의 이해**: 클라우드 보안은 물리적 데이터센터의 경계 보안에서 벗어나 Identity(IAM)와 소프트웨어 정의 인프라(Software-Defined Infrastructure)를 중심으로 재편된 제로 트러스트 체계입니다.
+- **IaC 보안 거버넌스 시프트 레프트**: Terraform, OpenTofu, CloudFormation 코드 배포 전 `tfsec`, `checkov`, `trivy`를 CI 파이프라인에 통합하여 인프라 형상 취약점의 프로덕션 유입을 원천 차단합니다.
+- **보안 엔지니어의 핵심 역량 확장**: 단순 인프라 구축을 넘어 감사 로그(CloudTrail/VPC Flow) 수집 자동화, 최소 권한 원칙 기반 ABAC 적용, 사고 대응 파이프라인 구축 역량이 실무 경쟁력의 핵심입니다.
+

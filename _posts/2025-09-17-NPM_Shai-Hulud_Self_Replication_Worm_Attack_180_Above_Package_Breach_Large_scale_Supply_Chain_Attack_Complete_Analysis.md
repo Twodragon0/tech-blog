@@ -466,6 +466,15 @@ CISA 경고에 따라 모든 조직은 즉시 의존성 감사를 실시하고, 
 
 ---
 
+
+## 📋 자기 증식형 웜(Worm) 공급망 공격 대응 체크리스트 (Supply Chain Incident Checklist)
+
+- [ ] **침해된 패키지 의존성 긴급 전수 차단**: 침해 지표(IoC)에 등재된 180여 개 패키지 목록을 방화벽 및 사내 리포지토리 프록시에서 즉각 블랙리스트로 차단했는지 확인합니다.
+- [ ] **빌드 머신 및 개발자 토큰 전면 폐기 및 교체**: 웜 페이로드에 노출되었을 가능성이 있는 npm 인증 토큰, GitHub PAT, AWS 자격증명을 즉시 폐기하고 재발급했는지 점검합니다.
+- [ ] **소프트웨어 패키지 서명 및 출처(Provenance) 검증**: npm 배포 시 Sigstore 기반의 증명서(Attestation)와 GitHub Actions OIDC 연동 서명이 적용되어 있는지 검증합니다.
+- [ ] **런타임 아웃바운드 네트워크 통제 강화**: CI/CD 러너에서 승인되지 않은 외부 IP/도메인으로의 비정상 아웃바운드 커넥션을 차단하는 Egress 필터링이 활성화되었는지 확인합니다.
+- [ ] **전사 프로젝트 의존성 그래프 SBOM 전수 분석**: 사내 운영 중인 모든 마이크로서비스의 의존성 트리를 재스캔하여 감염된 하위 전이 의존성(Transitive Dependencies)이 잔존하지 않는지 점검합니다.
+
 ## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
