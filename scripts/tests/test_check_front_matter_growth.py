@@ -180,6 +180,77 @@ def script_in_repo(git_repo: Path) -> Path:
     return dest / SCRIPT.name
 
 
+# ---------------------------------------------------------------------------
+# Regression guards for the env isolation above (#657)
+#
+# #657 stripped GIT_* from every subprocess in this file after the fixtures'
+# `git add -A`, running under .githooks/pre-commit, rewrote the caller's real
+# index — measured 3,349 entries down to 2, leaving `_posts/a.md` pointing at a
+# blob the temp dir's deletion made unreachable. Nothing asserted the fix, so a
+# later edit could undo it and the symptom would only reappear at someone's
+# next commit, far from the change that caused it. These two cover it from
+# both directions: behaviour, and shape.
+# ---------------------------------------------------------------------------
+
+
+def test_git_helper_does_not_write_to_an_inherited_index(tmp_path, monkeypatch):
+    """Running under a hook's GIT_INDEX_FILE must leave that index alone.
+
+    Direction: the sentinel path must not come into existence. Pointing
+    GIT_INDEX_FILE at a path that does not exist yet — rather than at a copy of
+    a real index — keeps the verdict unambiguous. An empty placeholder would
+    instead make git fail on an invalid index and surface as
+    CalledProcessError: a different failure wearing the same result.
+    """
+    sentinel = tmp_path / "inherited-index"
+    assert not sentinel.exists()
+    monkeypatch.setenv("GIT_INDEX_FILE", str(sentinel))
+
+    repo = tmp_path / "repo"
+    (repo / "_posts").mkdir(parents=True)
+    _git(repo, "init", "-q")
+    _git(repo, "config", "user.email", "t@example.com")
+    _git(repo, "config", "user.name", "t")
+    _commit_post(repo, "a.md", 200, "base")
+
+    assert not sentinel.exists(), (
+        "the throwaway repo wrote to the GIT_INDEX_FILE it inherited. Under "
+        ".githooks/pre-commit that path is the developer's real index, and "
+        "`git add -A` replaces it wholesale — every tracked file then reads as "
+        "deleted and the next commit fails with `invalid object ... for "
+        "'_posts/a.md'`. Recovery is `git reset`; keep the GIT_* strip."
+    )
+    # The temp repo still has to be a working repo, or this could pass by
+    # having done nothing at all.
+    assert (repo / ".git" / "index").is_file()
+
+
+def test_no_subprocess_in_this_file_inherits_git_env():
+    """Structural: a new call site must not be able to reintroduce the leak.
+
+    The test above only covers the paths it happens to exercise — the fixtures'
+    direct git calls. Six more launches in this file run the checker, which
+    shells out to git itself. Reading the file and requiring `env=` on every
+    launch covers those, and any added later, without having to exercise each.
+
+    Deliberately shape-agnostic: it passes whether call sites repeat
+    `env=_clean_env()` (as #657 wrote them) or route through a shared helper.
+    """
+    token = "subprocess" + ".run("  # built, not a literal, or it matches itself
+    src = Path(__file__).read_text(encoding="utf-8")
+    bare = [
+        n
+        for n, chunk in enumerate(src.split(token)[1:], start=1)
+        if "env=" not in chunk.split("\n    )")[0]
+    ]
+    assert not bare, (
+        f"{len(bare)} subprocess launch(es) in this file do not pass `env=` "
+        f"(occurrence {bare}, counting from the top). Pass "
+        "`env=_clean_env()` — otherwise running this suite from "
+        ".githooks/pre-commit rewrites the developer's real index."
+    )
+
+
 def test_growth_fails(git_repo: Path, script_in_repo: Path):
     _commit_post(git_repo, "a.md", 200, "base")
     _git(git_repo, "branch", "-M", "base")
