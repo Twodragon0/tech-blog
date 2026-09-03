@@ -532,3 +532,21 @@ Datadog SIEM 연동 탐지 규칙:
 | 주제 | 설명 | 링크 |
 |------|------|------|
 | AWS WAF 네트워크 시나리오 | AWS WAF와 전체적인 네트워크 보안 구성 | [시청하기](https://youtu.be/r84IuPv_4TI) |
+
+
+## 📋 엔터프라이즈 멀티 클라우드 거버넌스 및 SIEM 체크리스트 (Multi-Cloud SIEM Checklist)
+
+- [ ] **조직 SCP 기반 데이터 삭제 및 인프라 파괴 방지**: 프로덕션 계정에서 백업 S3 버킷, CloudTrail 로그를 영구 삭제하지 못하도록 명시적 Deny 정책을 적용했는지 점검합니다.
+- [ ] **Datadog Cloud SIEM 보안 탐지 규칙(Detection Rule) 최적화**: 루트 계정 로그인, 비인가 보안그룹 수정, 대량 IAM 정책 변경 탐지 룰을 커스터마이징했는지 확인합니다.
+- [ ] **Cloudflare 엣지 로그 실시간 SIEM 파이프라인 연동**: Cloudflare Logpush를 통해 모든 HTTP 요청 및 WAF 차단 이벤트를 Datadog으로 1분 이내 인입하는지 검증합니다.
+- [ ] **멀티 계정 침해사고 대응 격리 자동화(Automated Isolation)**: 이상 징후 발생 시 의심 인스턴스를 즉각 격리 VPC로 이동시키는 SOAR 플레이북을 구현했는지 점검합니다.
+- [ ] **보안 감사 리포트 월간 대시보드 공유**: 전사 클라우드 컴플라이언스 준수율과 보안 취약점 해결 추이를 C-레벨 경영진에게 정기 보고하는지 점검합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS Control Tower 및 ZTNA 아키텍처 구축 가이드: {% post_url 2025-05-16-Cloud_Security_Course_7Batch_-_5Week_AWS_Control_Tower_And_ZTNA %}
+- VPC 및 GuardDuty 기반 AWS 네트워크 보안 완벽 정복: {% post_url 2025-12-05-Cloud_Security_8Batch_2Week_AWS_Security_Architecture_Core_VPCFrom_GuardDutyTo_Complete_Conquer %}
+- Cloudflare 및 GitHub 연계 인프라 보안 실무: {% post_url 2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security %}
+

@@ -689,3 +689,22 @@ SPF, DKIM, DMARC를 올바르게 설정하면 이메일 발송 신뢰도를 크�
 3. 전사 이메일 보안 거버넌스 구축
 
 이메일 보안은 한 번 설정하고 끝나는 것이 아닙니다. 지속적인 모니터링과 개선을 통해 비즈니스 연속성을 확보하고, 고객 신뢰를 지켜나가는 것이 중요합니다.
+
+
+## 📊 이메일 발송 인프라 및 도메인 신뢰도 위험 스코어카드 (Risk Scorecard)
+
+| 보안 인증 영역 | 현재 위험도 | 잠재적 취약점 시나리오 | 필수 보안 구성 (Mitigation) |
+|---|:---:|---|---|
+| **SPF(Sender Policy Framework)** | 🔴 High | 사칭 공격자가 임의 서버에서 기업 도메인으로 스팸 발송 | DNS TXT 레코드에 승인된 발송 IP/메일서버 명시 (`v=spf1 ... ~all`) |
+| **DKIM(DomainKeys Identified Mail)** | 🔴 High | 전송 구간에서 메일 본문 및 첨부파일 변조 | 2048비트 비대칭 암호화 키 쌍 생성 및 CNAME 레코드 서명 연동 |
+| **DMARC 정책(Policy: Reject)** | 🟠 Medium | 사칭 메일이 수신자 스팸함 대신 정상함으로 유입 | `p=reject` 강제 정책 및 `rua` 집계 리포트 모니터링 체계 구축 |
+| **BIMI(Brand Indicators)** | 🟡 Low | 피싱 메일과 구분이 어려워 사용자 개봉률 저하 | VMC 상표권 인증서 및 SVG 공식 브랜드 로고 등록 |
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- Cloudflare 및 GitHub 연계 인프라 보안 실무: {% post_url 2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security %}
+- AWS 인프라 취약점 점검 및 보안 가이드: {% post_url 2025-05-09-Cloud_Security_Course_7Batch_-_4Week_AWS_Vulnerability_Inspection_And_ISMS_Response_Guide %}
+- 2026 DevSecOps 기술 로드맵 완벽 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

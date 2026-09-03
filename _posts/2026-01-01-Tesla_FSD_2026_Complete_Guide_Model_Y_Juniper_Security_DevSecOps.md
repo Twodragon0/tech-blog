@@ -972,3 +972,21 @@ DevSecOps 엔지니어로서, 자동차가 단순한 운송 수단을 넘어 이
 | [CycloneDX](https://github.com/CycloneDX/cyclonedx-cli) | SBOM 생성 도구 | OWASP |
 | [Grype](https://github.com/anchore/grype) | 취약점 스캐너 | Anchore |
 | [SPDX Specification](https://spdx.dev/) | SBOM 표준 스펙 | Linux Foundation |
+
+
+## 📋 모빌리티 자율주행(FSD) 및 커넥티드 카 DevSecOps 체크리스트 (Automotive FSD Checklist)
+
+- [ ] **차량 온보드 센서(카메라/레이더) 데이터 파이프라인 무결성**: 신경망 추론 엔진으로 입력되는 비디오 스트림이 물리적 주입 공격에 변조되지 않는지 하드웨어 암호화 통신을 검증합니다.
+- [ ] **차량용 리눅스 커널 보안 패치 및 부트로더 잠금**: U-Boot 및 안전 커널(Safety Kernel)의 세큐어 부트를 활성화하고 비인가 펌웨어 플래싱을 원천 차단했는지 확인합니다.
+- [ ] **OTA(Over-the-Air) 소프트웨어 릴리즈 롤백 및 안전 격리**: 펌웨어 업데이트 실패 시 이전 안정 버전으로 100% 무중단 복구되는 A/B 파티션 메커니즘을 테스트했는지 점검합니다.
+- [ ] **차량 외부 통신(V2X / 셀룰러) 엔드투엔드 TLS 1.3 암호화**: 텔레매틱스 서버와 차량 게이트웨이 간 모든 원격 제어 통신에 상호 인증(mTLS)을 적용했는지 확인합니다.
+- [ ] **인공지능 비전 모델 적대적 공격(Adversarial Attack) 방어**: 도로 표지판 스티커 등 시각적 적대적 패턴에 자율주행 비전 모델이 오작동하지 않도록 강건성(Robustness) 훈련을 거쳤는지 점검합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- DevSecOps 관점에서 본 자동차 전장 보안 완벽 가이드: {% post_url 2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide %}
+- OWASP Top 10 Agentic AI 보안 가이드: {% post_url 2026-01-03-OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security %}
+- eBPF Tetragon 런타임 보안 아키텍처: {% post_url 2026-09-03-eBPF_Tetragon_Kubernetes_Runtime_Security_Architecture %}
+

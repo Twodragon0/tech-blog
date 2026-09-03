@@ -643,8 +643,12 @@ if not api_key:
 
 ---
 
-## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
-- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
-- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+## 📋 AI 멀티미디어 크리에이터 파이프라인 보안 체크리스트 (AI Media Checklist)
+
+- [ ] **AI 생성 에셋 저작권 및 C2PA 메타데이터 서명 검증**: 생성된 이미지/영상에 위변조 방지 디지털 출처 증명(Provenance)이 포함되어 있는지 확인합니다.
+- [ ] **로컬 생성 툴(ComfyUI/Automatic1111) API 외부 노출 차단**: 로컬 AI 도구의 WebUI 포트(`7860`, `8188`)가 공인 IP에 바인딩되지 않고 `127.0.0.1`로 제한되었는지 점검합니다.
+- [ ] **커스텀 노드 및 파이썬 확장 스크립트 악성코드 검사**: 비공식 GitHub 저장소에서 클론한 ComfyUI Custom Node의 파이썬 설치 스크립트를 정적 분석했는지 확인합니다.
+- [ ] **클라우드 GPU 인스턴스 자동 종료(Auto-Stop) 스케줄러 구성**: 미사용 유휴 상태의 GPU 인스턴스로 인한 비용 낭비를 방지하기 위해 15분 유휴 시 자동 셧다운을 적용했는지 점검합니다.
+- [ ] **상업적 이용 라이선스 및 데이터 프라이버시 약관 검토**: 구독 중인 생성형 AI 서비스가 상업적 이용 권리를 보장하며 입력 프롬프트를 재학습하지 않는지 확인합니다.
 

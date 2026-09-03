@@ -606,3 +606,21 @@ GET /auth_logs/_search
   }
 }
  -->
+
+
+## 📋 유심 스와핑(SIM Swapping) 및 모바일 침해 방어 체크리스트 (Mobile Security Checklist)
+
+- [ ] **통신사 유심(USIM/eSIM) 비밀번호(PIN) 필수 설정**: 단말 분실 또는 유심 탈취 시 타 기기에서 복제 인식을 방지하기 위해 USIM PIN 잠금을 활성화했는지 확인합니다.
+- [ ] **휴대폰 단말 고유 식별번호(IMEI) 사전 기록 및 관리**: 분실 시 즉각적인 분실 신고 및 단말 잠금(Blacklist) 등록을 위해 기기 설정에서 IMEI 번호를 별도 보관하는지 점검합니다.
+- [ ] **SMS 기반 2차 인증을 앱 기반(OTP/Passkey)으로 전면 교체**: 심 스와핑 공격으로 인한 문자 가로채기를 방어하기 위해 Google Authenticator 또는 Passkey를 의무 적용했는지 확인합니다.
+- [ ] **통신사 번호이동/기기변경 알림 부가서비스 가입**: 명의도용에 의한 무단 기기변경이나 번호이동 시 즉각 SMS/이메일 통보가 이뤄지도록 보호 서비스를 신청했는지 점검합니다.
+- [ ] **모바일 금융 앱 생체 인증 및 이상 거래 알림(FDS) 활성화**: 스마트폰 침해 시 금융 자산 피해를 최소화하도록 이체 한도 축소와 실시간 알림을 설정했는지 점검합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 공공 PC에서도 안전한 Passkey 및 OTP 보안 관리 가이드: {% post_url 2025-04-30-Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage %}
+- Kandji macOS 엔드포인트 보안 컴플라이언스 구축: {% post_url 2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide %}
+- Zscaler 제로 트러스트 엔드포인트 보안 아키텍처: {% post_url 2025-11-04-Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block %}
+

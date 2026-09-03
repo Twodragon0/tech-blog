@@ -1,16 +1,16 @@
 {
   "2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -135,47 +135,47 @@
     }
   },
   "2025-05-30-Kubernetes_Minikube_and_K9s_Practice_Guide.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
-      "sections": 15,
-      "checklists": 0,
-      "tables": 10,
-      "code_blocks": 10,
-      "cross_refs": 0,
-      "length": 5
-    }
-  },
-  "2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.md": {
-    "total": 85,
-    "scores": {
-      "front_matter": 15,
-      "ai_summary": 10,
-      "executive_summary": 10,
-      "risk_scorecard": 0,
       "sections": 15,
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
-  "2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide.md": {
-    "total": 85,
+  "2025-06-05-Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide.md": {
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
+      "length": 5
+    }
+  },
+  "2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide.md": {
+    "total": 100,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -270,17 +270,17 @@
     }
   },
   "2025-10-31-AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -375,17 +375,17 @@
     }
   },
   "2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
-      "risk_scorecard": 0,
+      "risk_scorecard": 10,
       "sections": 15,
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -405,32 +405,32 @@
     }
   },
   "2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
   "2026-01-01-Tesla_FSD_2026_Complete_Guide_Model_Y_Juniper_Security_DevSecOps.md": {
-    "total": 85,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 5
     }
   },
@@ -986,17 +986,17 @@
     }
   },
   "2026-02-05-AI_Content_Creator_Workflow_2026_Blog_Video_Music_Animation.md": {
-    "total": 86,
+    "total": 91,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 6,
-      "cross_refs": 5,
+      "cross_refs": 0,
       "length": 5
     }
   },
@@ -1196,17 +1196,17 @@
     }
   },
   "2026-02-16-Daily_Tech_Digest_RSS_Roundup.md": {
-    "total": 86,
+    "total": 91,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
       "sections": 15,
-      "checklists": 0,
+      "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 5,
+      "cross_refs": 0,
       "length": 1
     }
   },

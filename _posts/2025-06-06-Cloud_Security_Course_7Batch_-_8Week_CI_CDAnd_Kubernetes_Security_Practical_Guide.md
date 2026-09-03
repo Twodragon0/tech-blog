@@ -521,3 +521,21 @@ Kubernetes 클러스터 배포 전후 확인 항목입니다.
 | 5 | 최적화됨 | 제로트러스트, eBPF 기반 | Cilium, Tetragon |
 
 ---
+
+
+## 📋 CI/CD 파이프라인 및 K8s 컨테이너 보안 실무 체크리스트 (CI/CD K8s Checklist)
+
+- [ ] **빌드 파이프라인 정적 취약점 스캔(Trivy/Grype) 강제**: 베이스 이미지와 서드파티 라이브러리의 Critical/High CVE 발견 시 빌드를 자동 중단하는 게이트를 구성했는지 확인합니다.
+- [ ] **컨테이너 레지스트리 불변(Immutable) 태그 정책**: `latest` 태그 사용을 금지하고 Git 커밋 SHA 기반 고유 태그와 다이제스트(`@sha256:...`)를 참조하는지 점검합니다.
+- [ ] **쿠버네티스 RBAC 최소 권한 원칙(Least Privilege)**: 개발자 및 서비스 어카운트에 클러스터 어드민(`cluster-admin`)을 금지하고 네임스페이스 단위 RoleBinding을 적용했는지 점검합니다.
+- [ ] **루트 파일시스템 읽기 전용(readOnlyRootFilesystem) 설정**: 컨테이너 런타임에 파일시스템 변경을 차단하고 임시 파일 저장은 `emptyDir` 메모리 볼륨으로 격리했는지 확인합니다.
+- [ ] **GitOps 배포 파이프라인(ArgoCD) 무결성 감사**: 프로덕션 클러스터 변경이 오직 승인된 Git PR 병합을 통해서만 반영되는 단방향 동기화 구조를 확립했는지 점검합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- Docker 및 쿠버네티스 아키텍처 완벽 정복: {% post_url 2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding %}
+- eBPF Tetragon 런타임 보안 아키텍처: {% post_url 2026-09-03-eBPF_Tetragon_Kubernetes_Runtime_Security_Architecture %}
+- Karpenter 노드 오토스케일링 장애 분석 및 해결: {% post_url 2025-10-02-Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution %}
+

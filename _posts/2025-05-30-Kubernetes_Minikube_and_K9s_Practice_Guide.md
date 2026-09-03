@@ -1339,3 +1339,21 @@ Minikube 1.37.0에서는 AI 워크로드 지원, AMD GPU 지원, containerd 기�
 - [CNCF Korea 커뮤니티](https://community.cncf.io/ko/)
 - [Kubernetes Korea Slack](https://kubernetes.slack.com/archives/C7G9Z1Q9L)
 - [AWS Korea 기술 블로그 - Kubernetes](https://aws.amazon.com/ko/blogs/korea/category/compute/amazon-elastic-kubernetes-service/)
+
+
+## 📋 로컬 쿠버네티스 개발 및 K9s 운영 점검 체크리스트 (K8s Practice Checklist)
+
+- [ ] **Minikube 드라이버 격리 및 리소스 할당 검증**: Docker 또는 Hyperkit 드라이버에서 CPU 4코어, 메모리 8GB 이상을 균형 있게 할당했는지 확인합니다.
+- [ ] **K9s 단축키 및 네임스페이스 빠른 전환 숙달**: `:ns`, `:pod`, `:svc` 및 `Shift+F` 포트포워딩 명령어를 활용해 클러스터 상태를 신속히 진단할 수 있는지 점검합니다.
+- [ ] **로컬 레지스트리 및 Ingress 애드온 활성화**: `minikube addons enable ingress`를 통해 로컬 환경에서도 실무 프로덕션과 동일한 라우팅을 테스트하는지 확인합니다.
+- [ ] **컨테이너 이미지 로컬 빌드 및 캐시 주입(minikube image load)**: 외부 Docker Hub 푸시 없이 로컬에서 빌드한 이미지를 클러스터로 직접 주입하여 빌드 속도를 단축하는지 점검합니다.
+- [ ] **리소스 Limit/Request 및 파드 OOMCrash 방어 훈련**: 매니페스트 작성 시 CPU/Memory 리소스 제한을 명시하고 의도적 부하 테스트를 통해 파드 복원력을 검증했는지 확인합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- Docker 및 쿠버네티스 아키텍처 심층 이해: {% post_url 2025-05-30-Cloud_Security_Course_7Batch_-_7Week_Docker_And_Kubernetes_Understanding %}
+- CI/CD 및 쿠버네티스 보안 실무 완벽 가이드: {% post_url 2025-06-06-Cloud_Security_Course_7Batch_-_8Week_CI_CDAnd_Kubernetes_Security_Practical_Guide %}
+- eBPF Tetragon 런타임 보안 아키텍처: {% post_url 2026-09-03-eBPF_Tetragon_Kubernetes_Runtime_Security_Architecture %}
+

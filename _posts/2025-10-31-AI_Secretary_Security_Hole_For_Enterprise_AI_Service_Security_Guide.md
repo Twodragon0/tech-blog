@@ -641,3 +641,21 @@ AI 브라우저 에이전트와 같은 AI 서비스는 생산성을 크게 향�
 ---
 
 원본 포스트: [AI 시대, 당신의 '비서'가 '보안 구멍'이 되지 않도록: 기업을 위한 AI 서비스 보안 가이드](https://twodragon.tistory.com/697)
+
+
+## 📋 엔터프라이즈 AI 비서 서비스 보안 취약점 점검 체크리스트 (AI Secretary Checklist)
+
+- [ ] **사내 메신저(Slack/Teams) 봇 토큰 권한 격리**: AI 봇에 채널 전역 읽기 권한(`channels:history`) 대신 멘션된 대화만 수신하는 최소 스코프(`app_mentions:read`)를 부여했는지 확인합니다.
+- [ ] **프롬프트 탈옥(Jailbreak) 및 간접 인젝션 방어**: 수신된 이메일이나 웹 본문 분석 시 숨겨진 악성 지시문이 시스템 명령으로 실행되지 않도록 입력값을 정제하는지 점검합니다.
+- [ ] **민감 데이터베이스 직접 조회 차단(API Gateway 경유)**: AI 모델이 사내 DB에 직접 쿼리하지 못하게 하고, 인가 및 감사 로깅이 내장된 마이크로서비스 API만을 경유하도록 제한했는지 확인합니다.
+- [ ] **사용자 확인 기반 다단계 실행 승인(Human-in-the-loop)**: 이메일 전송, 코드 배포, 파일 삭제 등 파괴적 행위 수행 전 반드시 사용자에게 최종 승인 팝업을 요청하는지 점검합니다.
+- [ ] **대화 로그 및 사용자 질문 데이터 암호화 보관**: 모델과 주고받은 모든 인터랙션 로그를 고객 식별정보 마스킹 후 KMS로 암호화하여 저장하는지 확인합니다.
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AI 에이전트 MCP 서버 보안 위협 모델링 및 방어 아키텍처: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
+- Claude.md 및 AI 코딩 에이전트 보안 설정 완벽 가이드: {% post_url 2026-01-28-Claude_MD_Security_Guide %}
+- 2026 자율형 AI 에이전트 보안 공격 벡터 및 방어 전략: {% post_url 2026-02-01-Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture %}
+

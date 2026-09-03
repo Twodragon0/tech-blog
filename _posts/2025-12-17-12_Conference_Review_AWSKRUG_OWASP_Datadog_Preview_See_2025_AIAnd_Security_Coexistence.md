@@ -513,3 +513,21 @@ AWS re:Invent 2025에서 발표된 Security Agent, Security Hub GA, GuardDuty Ex
 - [ ] Post-quantum 암호화 전환 계획 수립 및 인벤토리 정리
 - [ ] Datadog SIEM 또는 동급 통합 모니터링 도구 도입 검토
 
+
+## 📊 AI 및 클라우드 보안 컨퍼런스 핵심 인사이트 위험 스코어카드 (Risk Scorecard)
+
+| 기술 도메인 | 위협 심각도 | 잠재적 보안 리스크 | 필수 전략 및 완화 방안 (Mitigation) |
+|---|:---:|---|---|
+| **생성형 AI 에이전트** | 🔴 High | 에이전트의 비인가 API 호출 및 사내 지식 베이스 유출 | MCP 인증 가드레일 및 Human-in-the-loop 승인제 강제 |
+| **서버리스/컨테이너 런타임** | 🟠 Medium | 임시 워크로드(Ephemeral Workloads) 추적성 상실 | Datadog eBPF 센서 및 CloudWatch 실시간 트레이싱 통합 |
+| **클라우드 계정 거버넌스** | 🟠 Medium | 멀티 계정 간 보안 설정 드리프트 발생 | AWS Control Tower SCP 및 Config 적합성 팩 전사 배포 |
+| **오픈소스 소프트웨어 공급망** | 🟡 Low | 패키지 의존성 내 악성 코드 및 백도어 침투 | SBOM 자동 생성 및 Sigstore 기반 전자서명 검증 의무화 |
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- AWS FinOps 및 ISMS-P 보안 감사 아키텍처 완벽 가이드: {% post_url 2025-12-12-Cloud_Security_8Batch_3Week_AWS_FinOps_ArchitectureFrom_ISMS-P_Security_AuditTo_Complete_Strategy %}
+- 클라우드 취약점 진단 및 ISMS-P 인증 심사 대응: {% post_url 2025-12-19-Cloud_Security_8Batch_4Week_Integration_Security_Vulnerability_Inspection_And_ISMS-P_Certification_Response %}
+- 2026 DevSecOps 기술 로드맵 완벽 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+

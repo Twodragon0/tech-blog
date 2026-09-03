@@ -162,8 +162,12 @@ summary_card:
 
 ---
 
-## 🔗 관련 포스트 및 참고 자료 (Cross References)
 
-- AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
-- 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+## 📋 오픈소스 기술 동향 및 개발 생산성 점검 체크리스트 (Tech Digest Checklist)
+
+- [ ] **오픈소스 패키지 의존성 무결성 정기 감사**: 프로젝트 빌드 시 `npm audit` 또는 `cargo audit`를 자동 실행하여 제로데이 및 고위험 취약점을 차단하는지 확인합니다.
+- [ ] **개발팀 내부 기술 피드 공유 및 문서화 자동화**: 일일 RSS 피드 중 유의미한 기술 아티클을 내부 위키/슬랙에 큐레이션하여 팀 지식으로 축적하는지 점검합니다.
+- [ ] **CI/CD 파이프라인 빌드 캐시 최적화**: Docker 레이어 캐싱 및 의존성 캐시를 구성하여 일일 빌드 시간을 50% 이상 단축하고 있는지 검증합니다.
+- [ ] **Git 브랜치 보호 규칙 및 커밋 서명 의무화**: `main` 브랜치 직접 푸시를 금지하고 GPG/SSH 서명된 커밋만 병합되도록 브랜치 보호를 강제했는지 확인합니다.
+- [ ] **개발 환경 IaC 코드 버전 관리**: 로컬 개발 컨테이너(DevContainer) 구성을 코드로 표준화하여 온보딩 시간을 최소화했는지 점검합니다.
 
