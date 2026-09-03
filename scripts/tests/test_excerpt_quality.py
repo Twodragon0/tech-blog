@@ -128,7 +128,7 @@ def test_posts_dir_is_not_empty(posts) -> None:
     )
 
 
-def test_every_post_has_an_excerpt(posts) -> None:
+def test_every_post_has_an_excerpt_and_a_title(posts) -> None:
     missing = [name for name, _title, excerpt in posts if not excerpt]
     assert not missing, (
         "these posts have no `excerpt:` in front matter, so listing pages, the RSS "

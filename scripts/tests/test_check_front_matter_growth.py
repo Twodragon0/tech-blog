@@ -259,7 +259,6 @@ def test_growth_fails(git_repo: Path, script_in_repo: Path):
     proc = subprocess.run(
         [sys.executable, str(script_in_repo), "--changed", "base"],
         cwd=git_repo,
-        env=_clean_env(),
         capture_output=True,
         text=True,
     )

@@ -42,7 +42,6 @@ jobs:
         with:
           filters: |
             should-build:
-              - '**_posts/**'
               - '**_includes/**'
               - '**_layouts/**'
               - '**_sass/**'
