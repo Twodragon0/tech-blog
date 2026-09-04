@@ -25,6 +25,7 @@ decoration — the thing this file exists to prevent.
 
 from __future__ import annotations
 
+import datetime
 import json
 import re
 from pathlib import Path
@@ -32,6 +33,27 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 HOOKS_DIR = REPO_ROOT / ".claude" / "hooks"
 SETTINGS = REPO_ROOT / ".claude" / "settings.json"
+
+# Hooks that exist to diagnose one specific open question, not to enforce a
+# standing rule — and the date by which that question must be closed out.
+#
+# A diagnostic carries a standing cost (core-bare-watch is ~140ms on every Bash
+# tool call, measured) and stops earning it the moment the question is answered
+# or goes cold. This repo has already let three temporary things become
+# permanent: memory-guard.sh and protect-files.sh sat unwired for months,
+# check_broken_links never called sys.exit() from the day it was written, and
+# check_filename_entities was wired --staged-only so it had never run at --all.
+# None of those had an owner or a date; all three were found by accident.
+#
+# So the date is enforced rather than remembered. On expiry the two legitimate
+# moves are: delete the hook (the question went cold, or the log answered it),
+# or move the date and say in the same commit what is still being waited on.
+DIAGNOSTIC_HOOKS = {
+    # core.bare flipped to true twice on 2026-09-02 with no identified cause;
+    # every plain-git reproduction attempt failed (see the script header), so
+    # only observation can catch it. Four weeks of quiet is enough to call it.
+    "core-bare-watch.sh": datetime.date(2026, 10, 1),
+}
 
 
 def _hook_commands() -> list[str]:
@@ -96,4 +118,46 @@ def test_every_wired_script_exists():
         f"settings.json wires {len(missing)} script(s) that are not on disk: "
         f"{missing}. The hook fails at runtime, and a failing PostToolUse hook "
         "surfaces only as a stderr line nobody reads."
+    )
+
+
+def test_diagnostic_hooks_have_not_outlived_their_review_date():
+    """A diagnostic with a standing cost needs an expiry, not a good intention.
+
+    Direction: today must be on or before each review date. Moving a date
+    forward is fine and is the documented escape hatch — it just has to be a
+    deliberate edit with a reason, which is the whole point.
+    """
+    today = datetime.date.today()
+    overdue = {
+        name: due
+        for name, due in DIAGNOSTIC_HOOKS.items()
+        if today > due and (HOOKS_DIR / name).is_file()
+    }
+    assert not overdue, (
+        "diagnostic hook(s) past their review date: "
+        + ", ".join(f"{n} (due {d})" for n, d in sorted(overdue.items()))
+        + ".\nTwo legitimate moves, both one edit:\n"
+        "  (a) the question is answered or went cold -> delete the hook, its "
+        "settings.json entry, and its DIAGNOSTIC_HOOKS row;\n"
+        "  (b) still waiting on something -> move the date here and say what, "
+        "in the same commit.\n"
+        "Leaving it is the option that turned three earlier temporaries into "
+        "permanent fixtures of this repo."
+    )
+
+
+def test_diagnostic_registry_names_real_hooks():
+    """Non-vacuity: a renamed hook must not silently leave the registry inert.
+
+    The expiry check skips entries whose file is absent, so that a deleted
+    diagnostic does not keep failing CI. That same skip would hide a typo or a
+    rename — the row would sit there matching nothing, and the expiry would
+    never fire again.
+    """
+    ghosts = sorted(n for n in DIAGNOSTIC_HOOKS if not (HOOKS_DIR / n).is_file())
+    assert not ghosts, (
+        f"DIAGNOSTIC_HOOKS names {ghosts}, which are not in .claude/hooks/. "
+        "If the hook was removed, drop its row too; if it was renamed, update "
+        "the key — otherwise the expiry silently stops applying."
     )
