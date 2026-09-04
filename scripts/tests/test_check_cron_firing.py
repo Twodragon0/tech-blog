@@ -395,6 +395,36 @@ class TestAudit:
         assert [u["workflow"] for u in report["unmeasurable"]] == ["new.yml"]
         assert "new.yml" in mod.format_report(report)
 
+    def test_no_second_read_when_nothing_dropped(self):
+        """The confirming read is spent only on drops.
+
+        This is the cost guard for the re-read. On an ordinary day exactly one
+        workflow here reports a drop, so confirmation costs one extra `gh` call
+        for the whole repo; confirming every workflow unconditionally would
+        double the API traffic to re-prove 30 deliveries that were never in
+        doubt.
+        """
+        calls: list[str] = []
+
+        def runs_for(filename):
+            calls.append(filename)
+            return [dt(27, 1, 30)]
+
+        schedules = [
+            mod.WorkflowSchedule(
+                filename="a.yml", name="A", crons=[mod.CronExpr.parse("0 0 * * *")]
+            )
+        ]
+        report = mod.audit(
+            now=dt(27, 12, 0),
+            lookback=timedelta(hours=13),
+            settle=timedelta(hours=18),
+            schedules=schedules,
+            runs_for=runs_for,
+        )
+        assert report["dropped"] == 0
+        assert calls == ["a.yml"]
+
     def test_workflow_with_no_due_fires_is_omitted(self):
         schedules = [
             mod.WorkflowSchedule(
@@ -410,3 +440,370 @@ class TestAudit:
         )
         assert report["workflows"] == []
         assert report["expected"] == 0
+
+
+class TestStaleListingIsNotADrop:
+    """`gh run list` is not a consistent read, and the audit accused the innocent.
+
+    Measured 2026-09-04 against an unchanged run history: ten runs of this audit
+    inside six minutes produced four different verdicts (1, 1, 1, 1, 1, 2, 2, 3
+    drops) with the accused workflow rotating between `monitoring`,
+    `googlebot-access-monitor`, `slack-category-digest` and `ai-blogwatcher`.
+    `monitoring.yml` was reported `0/2 no delivery observed` while `gh run list`
+    showed both of its runs succeeding; re-evaluating it seconds later returned
+    `2/2, lag 251-255m`. Pinning `--now` gave five identical verdicts, which is
+    what rules out the arithmetic and leaves the listing.
+
+    The bad pages were the hard part: not empty and not an error (40 probe calls,
+    0 anomalies), just 100 rows of older history with the recent runs missing. So
+    the shape being pinned here is a *plausible* page, not a broken one.
+    """
+
+    @staticmethod
+    def _daily(filename: str = "a.yml"):
+        return [
+            mod.WorkflowSchedule(
+                filename=filename, name="A", crons=[mod.CronExpr.parse("0 0 * * *")]
+            )
+        ]
+
+    def test_stale_first_read_does_not_become_a_drop(self):
+        """The monitoring.yml case: first page misses the run, second has it.
+
+        Read 1 carries an old row rather than being empty, because that is the
+        shape actually measured — a plausible page, not a broken one. It also
+        makes `newest_run_observed` load-bearing: reported off the stale read it
+        says 08-20, which is the misleading value the field exists to expose.
+        """
+        pages = [[dt(20, 1, 30)], [dt(20, 1, 30), dt(27, 1, 30)]]
+
+        def runs_for(filename):
+            return pages.pop(0)
+
+        report = mod.audit(
+            now=dt(28, 7, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=runs_for,
+        )
+        assert report["dropped"] == 0, "a stale page must not accuse a workflow"
+        assert report["delivered"] == 1
+        wf = report["workflows"][0]
+        assert wf["listing_disagreement"] is True
+        assert wf["confirmation"] == "confirmed"
+        assert wf["newest_run_observed"] == "2026-08-27T01:30Z"
+
+    def test_a_late_run_in_the_second_read_cannot_manufacture_a_drop(self):
+        """The counterexample that killed the union-as-verdict design.
+
+        `ops-orchestrator.yml`'s real crons, 2h minimum gap. The 04:00 cycle ran
+        130 minutes late and only read 2 sees it. Recomputing over the union
+        raises `last_served` past 09-04T04:00, whose run is then mis-credited
+        forward to the 06:00 fire — so the union reports 4 drops where read 1
+        reported 3, and the extra one is false.
+
+        Measured before the downgrade-only rule:
+            read1 -> dropped 09-02T12:00, 09-02T18:00, 09-03T04:00
+            union -> the same three PLUS 09-04T04:00
+
+        The 13 daily workflows in this repo cannot reach this (24h gap > 18h
+        settle leaves a pending fire with no later sibling to serve), which is
+        why it would have shipped looking right: the only exposed workflow is
+        the only one that genuinely drops.
+        """
+        crons = [mod.CronExpr.parse("0 */6 * * *"), mod.CronExpr.parse("0 4 * * *")]
+        schedules = [mod.WorkflowSchedule(filename="ops.yml", name="O", crons=crons)]
+        first = [
+            datetime(2026, 9, 3, 1, 0, tzinfo=timezone.utc),
+            datetime(2026, 9, 3, 7, 30, tzinfo=timezone.utc),
+            datetime(2026, 9, 3, 13, 0, tzinfo=timezone.utc),
+            datetime(2026, 9, 3, 19, 0, tzinfo=timezone.utc),
+            datetime(2026, 9, 4, 2, 43, tzinfo=timezone.utc),
+        ]
+        late = datetime(2026, 9, 4, 6, 10, tzinfo=timezone.utc)
+        pages = [list(first), first + [late]]
+
+        report = mod.audit(
+            now=datetime(2026, 9, 4, 6, 20, tzinfo=timezone.utc),
+            lookback=timedelta(hours=48),
+            settle=timedelta(hours=18),
+            schedules=schedules,
+            runs_for=lambda f: pages.pop(0),
+        )
+        wf = report["workflows"][0]
+        assert "2026-09-04T04:00Z" not in wf["dropped"]
+        assert wf["withheld_accusations"] == ["2026-09-04T04:00Z"]
+        assert "2026-09-04T04:00Z" in wf["pending"]
+        assert wf["dropped"] == [
+            "2026-09-02T12:00Z",
+            "2026-09-02T18:00Z",
+            "2026-09-03T04:00Z",
+        ]
+        assert "withheld: 2026-09-04T04:00Z" in mod.format_report(report)
+
+    def test_confirmation_never_raises_the_accusation_count(self):
+        """The invariant the whole design rests on, over the staleness model.
+
+        Read 1 is a subset of read 2 — rows missing from the top, never invented
+        — which is the shape measured on 2026-09-04. Asserted as a property
+        because the counterexample above was found by fuzzing, not by reading:
+        a single hand-picked case cannot stand in for a monotonicity claim.
+        """
+        crons = [mod.CronExpr.parse("0 */6 * * *"), mod.CronExpr.parse("0 4 * * *")]
+        schedules = [mod.WorkflowSchedule(filename="ops.yml", name="O", crons=crons)]
+        now = datetime(2026, 9, 4, 6, 20, tzinfo=timezone.utc)
+        base = [
+            datetime(2026, 9, 2, 13, 0, tzinfo=timezone.utc) + timedelta(hours=6 * i)
+            for i in range(8)
+        ]
+        for hidden in range(len(base) + 1):
+            visible = base[: len(base) - hidden] if hidden else list(base)
+            pages = [list(visible), list(base)]
+            single = mod.audit(
+                now=now,
+                lookback=timedelta(hours=48),
+                settle=timedelta(hours=18),
+                schedules=schedules,
+                runs_for=lambda f, v=visible: list(v),
+            )
+            merged = mod.audit(
+                now=now,
+                lookback=timedelta(hours=48),
+                settle=timedelta(hours=18),
+                schedules=schedules,
+                runs_for=lambda f: pages.pop(0),
+            )
+            assert set(merged["workflows"][0]["dropped"]) <= set(
+                single["workflows"][0]["dropped"]
+            ), f"confirmation added an accusation when {hidden} row(s) were hidden"
+
+    def test_union_credits_a_run_seen_in_either_read(self):
+        """Neither read alone is complete, and the merge is not "trust read 2".
+
+        Read 1 sees the 27th's run and misses the 28th's; read 2 the reverse.
+        Taking either page wholesale reports one drop. The union reports none,
+        which is the truth: both runs happened.
+        """
+        pages = [[dt(27, 1, 0)], [dt(28, 2, 0)]]
+
+        def runs_for(filename):
+            return pages.pop(0)
+
+        report = mod.audit(
+            now=dt(28, 20, 0),
+            lookback=timedelta(hours=45),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=runs_for,
+        )
+        assert report["dropped"] == 0
+        assert report["delivered"] == 2
+
+    def test_a_genuinely_lost_cycle_survives_both_reads(self):
+        """The guard must not have bought quiet by going blind.
+
+        A lost cycle is permanent — GitHub never backfills it — so it is absent
+        from every read, and the union of two absences is still an absence. This
+        is `ops-orchestrator.yml`'s 2026-09-03T04:00Z drop, which reproduced in
+        10 of 10 runs while the false ones rotated.
+        """
+        calls: list[str] = []
+
+        def runs_for(filename):
+            calls.append(filename)
+            return []
+
+        report = mod.audit(
+            now=dt(28, 7, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=runs_for,
+        )
+        assert report["dropped"] == 1
+        assert calls == ["a.yml", "a.yml"], "the drop must have been re-read"
+        assert report["workflows"][0]["listing_disagreement"] is False
+
+    def test_confirming_read_failure_leaves_the_first_verdict_standing(self):
+        """One observation and no grounds to overrule it is not a third outcome.
+
+        Discarding the drop would let an unreadable re-read silence a real one;
+        promoting it to `unmeasurable` would throw away the only measurement we
+        actually have.
+        """
+
+        def runs_for(filename):
+            if len(calls) == 0:
+                calls.append(filename)
+                return []
+            raise mod.WorkflowNotMeasurable("HTTP 404: not found on the default branch")
+
+        calls: list[str] = []
+        report = mod.audit(
+            now=dt(28, 7, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=runs_for,
+        )
+        assert report["dropped"] == 1
+        assert report["unmeasurable"] == []
+
+    def test_drop_carries_the_evidence_it_rests_on(self):
+        """`0/2 no delivery observed` alone cannot be triaged.
+
+        A reader needs to know whether the listing showed recent activity for
+        this workflow at all: "newest run seen: none" is the stale-page
+        signature, and a fresh timestamp next to a missing slot is a real skip.
+        """
+        report = mod.audit(
+            now=dt(28, 20, 0),
+            lookback=timedelta(hours=45),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=lambda f: [dt(27, 1, 0)],
+        )
+        wf = report["workflows"][0]
+        assert wf["dropped"] == ["2026-08-28T00:00Z"]
+        assert wf["newest_run_observed"] == "2026-08-27T01:00Z"
+        assert "newest run seen: 2026-08-27T01:00Z" in mod.format_report(report)
+
+    def test_disagreement_is_surfaced_in_the_report_text(self):
+        """A silent correction is how a flaky source passes for a reliable one."""
+        pages = [[], [dt(27, 1, 30)]]
+        report = mod.audit(
+            now=dt(28, 7, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=lambda f: pages.pop(0),
+        )
+        assert "listings disagreed" in mod.format_report(report)
+
+    def test_duplicate_rows_in_the_first_read_do_not_suppress_the_correction(self):
+        """`len(union) != len(actual)` compared a set size against a list size.
+
+        With a duplicate timestamp in read 1, `len(set(actual)) < len(actual)`
+        made the lengths match even though read 2 supplied a genuine run — so
+        the recompute was skipped, the false drop survived, and
+        `listing_disagreement` reported clean. Two runs of one workflow can
+        share a `createdAt` second whenever two cron entries coincide; none of
+        this repo's 14 collide today, which makes this one cron edit away rather
+        than impossible.
+        """
+        pages = [
+            [dt(20, 1, 30), dt(20, 1, 30)],
+            [dt(20, 1, 30), dt(27, 1, 30)],
+        ]
+        report = mod.audit(
+            now=dt(28, 7, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=lambda f: pages.pop(0),
+        )
+        assert report["dropped"] == 0
+        assert report["workflows"][0]["listing_disagreement"] is True
+
+    def test_a_stale_page_served_twice_is_marked_confirmed_not_corrected(self):
+        """The fix is a no-op when both reads are the same stale page.
+
+        Nothing can be done about that from here, but the report must not imply
+        two independent observations agreed on fresh data. `newest_run_observed`
+        predating the window is the only signature available, so it has to be
+        present and truthful.
+        """
+        report = mod.audit(
+            now=dt(28, 7, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=lambda f: [dt(20, 1, 30)],
+        )
+        wf = report["workflows"][0]
+        assert wf["dropped"] == ["2026-08-27T00:00Z"]
+        assert wf["confirmation"] == "confirmed"
+        assert wf["listing_disagreement"] is False
+        assert wf["newest_run_observed"] == "2026-08-20T01:30Z"
+
+    def test_a_failed_confirming_read_is_labelled_not_silently_equated(self):
+        """One observation and two must not produce identical reports.
+
+        Before `confirmation`, a drop whose re-read raised and a drop confirmed
+        by two agreeing reads were byte-identical in the report dict — which is
+        the opposite of carrying the evidence the verdict rests on.
+        """
+        calls: list[str] = []
+
+        def runs_for(filename):
+            if not calls:
+                calls.append(filename)
+                return [dt(20, 1, 30)]
+            raise mod.WorkflowNotMeasurable("HTTP 404: not found on the default branch")
+
+        report = mod.audit(
+            now=dt(28, 7, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=runs_for,
+        )
+        wf = report["workflows"][0]
+        assert wf["dropped"] == ["2026-08-27T00:00Z"]
+        assert wf["confirmation"] == "unconfirmed"
+        assert report["unmeasurable"] == []
+        assert "rests on a single listing" in mod.format_report(report)
+
+    def test_a_transport_error_on_the_re_read_does_not_abort_the_audit(self):
+        """This job's contract is that it never goes red, and `main()` returns 2.
+
+        `fetch_schedule_runs` raises a plain `RuntimeError` for a 502 or a rate
+        limit — not `WorkflowNotMeasurable`. Letting it escape empties
+        `report.json`, the workflow's `json.load` then fails, and
+        `ops-orchestrator`'s `AUTO_RECOVER_GHA=true` re-runs the job forever
+        over a cycle lost hours ago. The re-read is a new call on exactly the
+        days something is already wrong, so it widens that exposure.
+        """
+        calls: list[str] = []
+
+        def runs_for(filename):
+            if not calls:
+                calls.append(filename)
+                return []
+            raise RuntimeError("gh run list failed for a.yml: HTTP 502")
+
+        report = mod.audit(
+            now=dt(28, 7, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=runs_for,
+        )
+        assert report["dropped"] == 1
+        assert report["workflows"][0]["confirmation"] == "unconfirmed"
+
+    def test_pending_alone_does_not_buy_a_second_read(self):
+        """The cost guard, exercised against the realistic over-fetch.
+
+        A fully-delivered workflow is the easy case. Pending is the common one
+        here — 18h settle over a 30-100 minute baseline lag means something is
+        usually in flight — so `if dropped or pending:` is the mutation that
+        would actually double this audit's API traffic, and it has to fail.
+        """
+        calls: list[str] = []
+
+        def runs_for(filename):
+            calls.append(filename)
+            return [dt(27, 1, 30)]
+
+        report = mod.audit(
+            now=dt(28, 7, 0),
+            lookback=timedelta(hours=32),
+            settle=timedelta(hours=18),
+            schedules=self._daily(),
+            runs_for=runs_for,
+        )
+        assert report["pending"] == 1
+        assert report["dropped"] == 0
+        assert calls == ["a.yml"]
