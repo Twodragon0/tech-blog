@@ -101,11 +101,26 @@ jobs:
           # One annotation per lost cycle, carrying the command that re-runs it.
           # A dropped cycle is never backfilled, so this is the only route by
           # which the work it was the sole trigger for ever happens.
+          #
+          # The evidence rides along with the accusation, not just in the job
+          # summary. This annotation is what asks a human to spend a rerun, and
+          # `gh run list` is a known-inconsistent read (see the script's "Stale
+          # listings"): "newest run seen" is what lets the reader tell a skipped
+          # slot from a listing that showed nothing recent at all, and it is
+          # useless to them one collapsed panel away from the ask.
           for wf in report["workflows"]:
+              newest = wf.get("newest_run_observed") or "none"
+              caveat = (
+                  " Verdict rests on a single listing (the confirming read"
+                  " failed), so re-check before acting."
+                  if wf.get("confirmation") == "unconfirmed"
+                  else ""
+              )
               for due in wf["dropped"]:
                   print(
                       f"::error title=Dropped schedule::{wf['workflow']} cycle "
                       f"{due} was never delivered. GitHub does not backfill it. "
+                      f"Newest run seen for this workflow: {newest}.{caveat} "
                       f"Re-run with: gh workflow run {wf['workflow']}"
                   )
           print(
