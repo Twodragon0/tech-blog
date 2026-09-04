@@ -67,6 +67,11 @@ SELF_HEALS = (
         "scripts/check_digest_structure.py",
         "scripts/restore_digest_structure.py",
     ),
+    (
+        "Cover QR URL pre-flight",
+        "scripts/check_cover_qr_urls.py",
+        "scripts/fix_qr_url_in_covers.py",
+    ),
 )
 
 

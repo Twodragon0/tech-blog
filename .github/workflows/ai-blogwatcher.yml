@@ -318,6 +318,7 @@ jobs:
           fi
 
       - name: Verify L20 cover (QR block present)
+        id: cover
         if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'
         run: |
           # Asserts today's auto-published SVG is an L20 family cover with
@@ -360,8 +361,14 @@ jobs:
           # 2026-06-03..05 cron covers (non-canonical QR + "Cisco FMC·" title)
           # only after the fact on a PR merge; running them here fails the cron
           # before the bad cover is committed.
+          # Published for the QR self-heal step below, which needs the same
+          # resolved path. Re-running the `find` there would let the two steps
+          # disagree about which file today's cover is.
+          echo "svg=${SVG}" >> "$GITHUB_OUTPUT"
+
           echo "Running cover correctness gates on ${SVG} ..."
-          python3 scripts/check_cover_qr_urls.py --glob "${SVG}"
+          # check_cover_qr_urls moved to its own step below — it is the one gate
+          # here with a deterministic repair, and it must end its step to block.
           python3 scripts/check_svg_title_ascii.py "${SVG}"
           python3 scripts/check_svg_quality.py --ci "${SVG}"
           # No hero-scale advisory shield in a side card (occludes the band
@@ -379,7 +386,43 @@ jobs:
           #     band.
           python3 scripts/check_l20_generic_hero.py "${SVG}"
           python3 scripts/check_svg_size_gate.py "${SVG}"
-          echo "OK: canonical QR URL + ASCII <title> + body-text quality + side-card advisory + generic-hero + size-band gates passed."
+          echo "OK: ASCII <title> + body-text quality + side-card advisory + generic-hero + size-band gates passed."
+
+      - name: Cover QR URL pre-flight (self-heal, then block)
+        if: steps.check_post.outputs.post_created == 'true' && env.DRY_RUN != 'true'
+        run: |
+          # This gate cost a whole digest. On 2026-09-04 the 02:04Z cron failed
+          # here on 2026-09-04-Tech_Security_Weekly_Digest_AI_Malware_Rust.svg
+          # ("Failures: 1 [mismatch]") and published nothing; GitHub does not
+          # backfill a cron cycle, so that day is simply gone. It had blocked
+          # one other scheduled run in the preceding 40 (2026-08-23), so the
+          # trade was rare-but-total: a day of content for a wrong QR code.
+          #
+          # Self-heal does not relax the rule. The rule was "never commit a bad
+          # cover", and fix_qr_url_in_covers rewrites the QR block from the
+          # canonical permalink derived from the filename — so what gets
+          # committed is a *corrected* cover, not an unverified one. Verified
+          # end-to-end 2026-09-04 on the 09-03 cover: swapping in a QR for a
+          # bogus slug made the gate report Failures: 1, the fixer restored it
+          # (Changed: 1), the re-check returned OK, and the result was
+          # byte-identical to the original file.
+          #
+          # Warned, never silently absorbed. No QR decoder is shipped (by
+          # design — see the script docstring), so the gate cannot say which URL
+          # the QR actually encoded, and a healed mismatch is the only trace a
+          # generator bug leaves behind. Without the `::warning::` a recurring
+          # cause would vanish into a green job, which is how this repo has
+          # twice ended up with a gate that reported clean.
+          SVG="${{ steps.cover.outputs.svg }}"
+          if [ -z "$SVG" ] || [ ! -f "$SVG" ]; then
+            echo "::error::cover path not resolved by the Verify L20 cover step"
+            exit 1
+          fi
+          if ! python3 scripts/check_cover_qr_urls.py --glob "$SVG"; then
+            echo "::warning::Cover QR URL mismatch on ${SVG} — attempting fix_qr_url_in_covers self-heal."
+            python3 scripts/fix_qr_url_in_covers.py --commit --glob "$SVG" || true
+          fi
+          python3 scripts/check_cover_qr_urls.py --glob "$SVG"
 
       - name: Validate new post
         if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
