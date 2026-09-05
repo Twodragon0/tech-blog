@@ -488,6 +488,12 @@ Terraform 상태 파일에는 리소스 ID, IP 주소, 자격 증명 등 민감 
 
 **DevSecOps 팀 액션 아이템**
 
+- [ ] IngressNightmare 취약 패키지(Ingress-NGINX v1.12.0 이하) 긴급 패치 적용
+- [ ] Helm 차트 레포지토리 위변조 점검 및 SHA 서명 무결성 검증
+- [ ] Next.js v15.2.3/v14.2.25 이상으로 미들웨어 인증 우회 취약점 패치
+- [ ] GitHub Actions 워크플로 캐시/아티팩트 포이즈닝 방지 핀 고정
+- [ ] Azure Entra ID 레거시 프로토콜(IMAP, SMTP, POP3) 기본 인증 차단
+
 ```bash
 # 1. IngressNightmare 취약점 점검
 kubectl get pods -n ingress-nginx -o jsonpath='{.items[*].spec.containers[*].image}'

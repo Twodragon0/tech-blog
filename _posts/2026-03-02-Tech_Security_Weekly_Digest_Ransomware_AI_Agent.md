@@ -425,24 +425,24 @@ MCP가 Cursor, Windsurf, VS Code Copilot 등 주요 AI 개발 도구에서 공�
 
 ### P0 (즉시)
 
-- 제로트러스트 가시성 점검: SIEM에 네트워크·엔드포인트·ID 이벤트 세 레이어가 모두 수집되는지 인벤토리 확인. 누락 레이어 식별 및 담당자 지정
-- SIEM 탐지 룰 등록: 위 Lateral Movement 탐지 쿼리(Splunk/Sentinel/QRadar 버전) 중 현재 환경에 맞는 쿼리 테스트 환경 적용. False positive 임계값 조정 후 프로덕션 배포
-- Anthropic Courses 팀 공유: 개발팀에 Anthropic Courses URL([anthropic.com/education](https://www.anthropic.com/education)) 공유. MCP 서버 보안 과정은 AI 도구 도입 검토 중인 보안팀 필수 안내
-- X 광고 라벨링 점검: X 플랫폼에서 암호화폐 관련 유료 마케팅 진행 중인 경우, "Paid Partnership" 라벨 적용 여부 즉시 확인. 미적용 시 콘텐츠 수정
+- [ ] 제로트러스트 가시성 점검: SIEM에 네트워크·엔드포인트·ID 이벤트 세 레이어가 모두 수집되는지 인벤토리 확인. 누락 레이어 식별 및 담당자 지정
+- [ ] SIEM 탐지 룰 등록: 위 Lateral Movement 탐지 쿼리(Splunk/Sentinel/QRadar 버전) 중 현재 환경에 맞는 쿼리 테스트 환경 적용. False positive 임계값 조정 후 프로덕션 배포
+- [ ] Anthropic Courses 팀 공유: 개발팀에 Anthropic Courses URL([anthropic.com/education](https://www.anthropic.com/education)) 공유. MCP 서버 보안 과정은 AI 도구 도입 검토 중인 보안팀 필수 안내
+- [ ] X 광고 라벨링 점검: X 플랫폼에서 암호화폐 관련 유료 마케팅 진행 중인 경우, "Paid Partnership" 라벨 적용 여부 즉시 확인. 미적용 시 콘텐츠 수정
 
 ### P1 (7일 내)
 
-- East-West 트래픽 모니터링 현황 파악: 내부 서버 간 통신 모니터링 솔루션(NDR) 도입 현황 파악. 미도입 시 PoC 예산 검토 및 벤더 선정 기준 수립(Vectra AI, Darktrace, ExtraHop 비교)
-- UEBA 기준선 재검토: 기존 SIEM 또는 EDR의 행동 기준선이 최근 3개월 이내 업데이트되었는지 확인. 재택/하이브리드 근무 전환 이후 기준선이 현실을 반영하는지 검증
-- 암호화폐 컴플라이언스 갭 분석: 법무팀·컴플라이언스팀과 협업하여 Trump Media Truth.Fi ETF 및 X 정책 변화가 자사 암호화폐 관련 활동에 미치는 영향 분석
-- MCP 서버 보안 감사: 조직 내 Claude Code 또는 기타 MCP 클라이언트를 사용 중인 경우, 인증 없이 노출된 MCP 서버 포트 스캔 및 접근 제어 강화
+- [ ] East-West 트래픽 모니터링 현황 파악: 내부 서버 간 통신 모니터링 솔루션(NDR) 도입 현황 파악. 미도입 시 PoC 예산 검토 및 벤더 선정 기준 수립(Vectra AI, Darktrace, ExtraHop 비교)
+- [ ] UEBA 기준선 재검토: 기존 SIEM 또는 EDR의 행동 기준선이 최근 3개월 이내 업데이트되었는지 확인. 재택/하이브리드 근무 전환 이후 기준선이 현실을 반영하는지 검증
+- [ ] 암호화폐 컴플라이언스 갭 분석: 법무팀·컴플라이언스팀과 협업하여 Trump Media Truth.Fi ETF 및 X 정책 변화가 자사 암호화폐 관련 활동에 미치는 영향 분석
+- [ ] MCP 서버 보안 감사: 조직 내 Claude Code 또는 기타 MCP 클라이언트를 사용 중인 경우, 인증 없이 노출된 MCP 서버 포트 스캔 및 접근 제어 강화
 
 ### P2 (30일 내)
 
-- 제로트러스트 갭 분석: NIST SP 800-207 체크리스트와 SK쉴더스 리포트 기준 교차 적용. 현재 가시성 성숙도 레벨 문서화 및 로드맵 수립. UEBA 플랫폼 PoC 착수 (Sentinel/Splunk 우선 검토)
-- AI 교육 커리큘럼 수립: Anthropic Courses를 바탕으로 직군별(개발자/운영자/관리자) AI 교육 커리큘럼 초안 작성. 사내 AI 사용 정책(Shadow AI 포함)과 연계한 교육 모듈 설계
-- 예측 시장 규제 동향 모니터링: 국내 핀테크/법무 팀과 협력하여 Kalshi 사례가 국내 규제 샌드박스 전략에 미치는 영향 분석. 2026년 하반기 예상 KISA 가이드라인 업데이트 대비
-- 암호화폐 마케팅 정책 표준화: X·YouTube·Instagram 3개 플랫폼의 암호화폐 광고 정책을 단일 내부 컴플라이언스 가이드로 통합. 분기별 정책 변경 모니터링 체계 수립
+- [ ] 제로트러스트 갭 분석: NIST SP 800-207 체크리스트와 SK쉴더스 리포트 기준 교차 적용. 현재 가시성 성숙도 레벨 문서화 및 로드맵 수립. UEBA 플랫폼 PoC 착수 (Sentinel/Splunk 우선 검토)
+- [ ] AI 교육 커리큘럼 수립: Anthropic Courses를 바탕으로 직군별(개발자/운영자/관리자) AI 교육 커리큘럼 초안 작성. 사내 AI 사용 정책(Shadow AI 포함)과 연계한 교육 모듈 설계
+- [ ] 예측 시장 규제 동향 모니터링: 국내 핀테크/법무 팀과 협력하여 Kalshi 사례가 국내 규제 샌드박스 전략에 미치는 영향 분석. 2026년 하반기 예상 KISA 가이드라인 업데이트 대비
+- [ ] 암호화폐 마케팅 정책 표준화: X·YouTube·Instagram 3개 플랫폼의 암호화폐 광고 정책을 단일 내부 컴플라이언스 가이드로 통합. 분기별 정책 변경 모니터링 체계 수립
 
 ---
 

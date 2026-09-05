@@ -61,7 +61,7 @@ summary_card:
 ---
 {% include ai-summary-card.html %}
 
-## 경영진 요약
+## 경영진 브리핑 (Executive Summary)
 
 ### 위험도 평가 스코어카드 (Risk Assessment Scorecard)
 
@@ -367,17 +367,17 @@ Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 �
 
 ### P0 (즉시)
 
-- [ ] **vCenter CVE-2024-37079 KEV 추가** 관련 보안 영향도 분석 및 모니터링 강화
+- [ ] [ ] **vCenter CVE-2024-37079 KEV 추가** 관련 보안 영향도 분석 및 모니터링 강화
 
 ### P1 (7일 내)
 
-- [ ] 보안 뉴스 기반 SIEM/EDR 탐지 룰 업데이트
-- [ ] **Airflow 3.1 + ADK Datadog 통합** 관련 인프라 설정 점검
+- [ ] [ ] 보안 뉴스 기반 SIEM/EDR 탐지 룰 업데이트
+- [ ] [ ] **Airflow 3.1 + ADK Datadog 통합** 관련 인프라 설정 점검
 
 ### P2 (30일 내)
 
-- [ ] **에이전틱 시스템 제로트러스트** 관련 AI 보안 정책 검토
-- [ ] 클라우드 인프라 보안 설정 정기 감사
+- [ ] [ ] **에이전틱 시스템 제로트러스트** 관련 AI 보안 정책 검토
+- [ ] [ ] 클라우드 인프라 보안 설정 정기 감사
 
 ---
 

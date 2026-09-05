@@ -249,6 +249,9 @@ EU의 금융감독기관 EBA가 주요 토큰 발행자에 대해 연간 수익�
 
 - [ ] **HP Inc., OpenAI와 Frontier 전략적 파트너십 체결** 관련 AI 보안 정책 검토
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+- [ ] 주요 클라우드 및 컨테이너 런타임 보안 패치 상태 정기 검증
+- [ ] 네트워크 방화벽 및 WAF 차단 룰셋 최신 인텔리전스 동기화
+
 ## 참고 자료
 
 | 리소스 | 링크 | 용도 |
@@ -263,3 +266,11 @@ EU의 금융감독기관 EBA가 주요 토큰 발행자에 대해 연간 수익�
 ---
 
 **작성자**: Twodragon
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 이전 주간 보안 다이제스트: {% post_url 2026-06-28-Tech_Security_Weekly_Digest_AI_GPT_Malware_Agent %}
+- 다음 주간 보안 다이제스트: {% post_url 2026-06-30-Tech_Security_Weekly_Digest_Go_AI_AWS_Malware %}
+

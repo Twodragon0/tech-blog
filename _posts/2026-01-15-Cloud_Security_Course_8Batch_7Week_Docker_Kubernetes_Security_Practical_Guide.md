@@ -255,6 +255,12 @@ CMD ["node", "server.js"]
 
 ### Kubernetes 보안 체크
 
+### 컨테이너 런타임 격리 및 루트리스 실행
+
+### Pod Security Standards (PSS) 정책 적용
+
+### Kubernetes 네트워크 정책 및 트래픽 격리
+
 - [ ] Pod Security Standards 정책 Namespace에 적용
 - [ ] Network Policies로 Pod 간 불필요한 통신 차단
 - [ ] RBAC 최소 권한 원칙 검토 및 적용

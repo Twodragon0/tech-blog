@@ -176,16 +176,16 @@ UK Finance는 토큰화 예금이 다른 디지털 자산과 함께 미래 다�
 
 ### P0 (즉시)
 
-- **Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협** 관련 보안 영향도 분석 및 모니터링 강화
+- [ ] **Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협** 관련 보안 영향도 분석 및 모니터링 강화
 
 ### P1 (7일 내)
 
-- **Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협** 관련 보안 검토 및 모니터링
-- **Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석** 관련 보안 검토 및 모니터링
+- [ ] **Keep up with Ransomware 12월호 확산되는 Gentlemen 랜섬웨어 위협** 관련 보안 검토 및 모니터링
+- [ ] **Keep up with Ransomware 1월호 Sinobi 랜섬웨어와 Lynx 그룹과의 연계 정황 분석** 관련 보안 검토 및 모니터링
 
 ### P2 (30일 내)
 
-- 암호화폐/블록체인 관련 컴플라이언스 점검
+- [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
 ## 요약 및 다음 단계
 
 ### 이번 주 핵심 정리

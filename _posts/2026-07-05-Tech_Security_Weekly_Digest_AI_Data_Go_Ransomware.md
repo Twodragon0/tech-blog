@@ -286,6 +286,9 @@ Kalshi가 FIFA 월드컵 확대로 인한 예측 시장 활동 증가에 힘입�
 ### P2 (30일 내)
 
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+- [ ] 주요 클라우드 및 컨테이너 런타임 보안 패치 상태 정기 검증
+- [ ] 네트워크 방화벽 및 WAF 차단 룰셋 최신 인텔리전스 동기화
+
 ## 참고 자료
 
 | 리소스 | 링크 | 용도 |
@@ -300,3 +303,11 @@ Kalshi가 FIFA 월드컵 확대로 인한 예측 시장 활동 증가에 힘입�
 ---
 
 **작성자**: Twodragon
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 이전 주간 보안 다이제스트: {% post_url 2026-07-04-Tech_Security_Weekly_Digest_Patch_AWS_AI_Malware %}
+- 다음 주간 보안 다이제스트: {% post_url 2026-07-06-Tech_Security_Weekly_Digest_AI_Agent_AWS %}
+

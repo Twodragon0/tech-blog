@@ -215,6 +215,9 @@ Tom Lee의 Ethereum 포트폴리오는 ETH 가격 전망 악화로 73억 5천만
 ### P2 (30일 내)
 
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+- [ ] 주요 클라우드 및 컨테이너 런타임 보안 패치 상태 정기 검증
+- [ ] 네트워크 방화벽 및 WAF 차단 룰셋 최신 인텔리전스 동기화
+
 ## 참고 자료
 
 | 리소스 | 링크 | 용도 |
@@ -228,3 +231,11 @@ Tom Lee의 Ethereum 포트폴리오는 ETH 가격 전망 악화로 73억 5천만
 ---
 
 **작성자**: Twodragon
+
+---
+
+## 🔗 관련 포스트 및 참고 자료 (Cross References)
+
+- 이전 주간 보안 다이제스트: {% post_url 2026-05-24-Tech_Security_Weekly_Digest_AI_Malware_AWS_Bitcoin %}
+- 다음 주간 보안 다이제스트: {% post_url 2026-05-26-Tech_Security_Weekly_Digest_AI_AWS_Botnet_CVE %}
+

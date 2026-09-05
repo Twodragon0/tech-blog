@@ -84,6 +84,8 @@ summary_card:
 
 ## 1. 블록체인 뉴스
 
+### 1.0 보안 아키텍처 개요
+
 ### 1.1 아르헨티나 대통령 Libra 토큰 $5M 거래 포렌식 분석
 
 {% include news-card.html

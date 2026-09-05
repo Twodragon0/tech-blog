@@ -314,6 +314,8 @@ CI/CD와 Kubernetes 보안은 DevSecOps의 핵심입니다. 개발부터 배포�
 
 ### Kubernetes 운영 보안 점검
 
+### GitOps 파이프라인 무결성 및 이미지 서명(Cosign) 검증
+
 - [ ] Namespace별 Network Policies 적용 여부 확인
 - [ ] RBAC ServiceAccount 최소 권한 원칙 검토
 - [ ] Pod Security Standards(restricted 레벨) Namespace 적용
