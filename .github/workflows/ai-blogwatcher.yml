@@ -546,6 +546,41 @@ jobs:
           fi
           python3 scripts/check_digest_untranslated.py "$POST_FILE"
 
+      - name: Quality baseline pre-flight (self-heal, then block)
+        if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
+        run: |
+          # Must run BEFORE the corpus gate below, and after every self-heal above.
+          #
+          # scripts/tests/fixtures/quality_baseline.json is a golden snapshot of
+          # per-post quality scores, and test_regen_quality_baseline's
+          # test_check_passes_when_baseline_current reads the live _posts/ against
+          # the committed baseline. By the time the corpus gate runs, this job has
+          # already written today's digest into _posts/ — a post that is missing
+          # from the baseline by construction. So that test cannot pass on any run
+          # that publishes, and the corpus gate runs the whole pytest suite.
+          #
+          # The refresh that fixes it already existed, but it lives inside "Commit
+          # and publish" below, i.e. AFTER the gate that blocks on its absence.
+          # Deadlock: the pipeline blocks on a condition it is designed to heal one
+          # step later. Measured 2026-09-06 with a control — with no extra post the
+          # test passes; drop one unbaselined post into _posts/ and it fails with
+          # `assert 1 == 0`, which is verbatim what runs 33938036103 (09-05) and
+          # 34005321661 (09-06) reported as their sole failure out of 5180 tests.
+          # Both digests were lost; GitHub does not backfill a skipped cron cycle.
+          #
+          # Ordering: this has to come after the checklist/structure/template-echo/
+          # proper-noun/untranslated self-heals, because each of them rewrites post
+          # prose and therefore changes the score this snapshot records.
+          #
+          # The regen stays in "Commit and publish" as well: that step also runs on
+          # the RUN_CHECKS=false path, where this pre-flight is skipped, and the
+          # regen is idempotent so running it twice costs a no-op diff.
+          if ! python3 scripts/regen_quality_baseline.py --check; then
+            echo "::warning::quality baseline does not cover the new digest yet — refreshing it before the corpus gate reads it."
+            python3 scripts/regen_quality_baseline.py || true
+          fi
+          python3 scripts/regen_quality_baseline.py --check
+
       - name: Corpus gate pre-flight (block)
         if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
         run: |
