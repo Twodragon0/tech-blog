@@ -16,11 +16,23 @@ QR decoder dependency. ``gen_qr`` is deterministic per input URL, so a
 byte-equal match between rendered path data and a fresh encode proves
 the URL the renderer used was the canonical one.
 
+That proof holds only while ``qrcode`` is importable. Without it
+``gen_qr`` returns ``""`` for every input, so the comparison becomes
+``"" == ""`` and this gate reports OK on a cover whose QR is a blank
+white square. Measured 2026-09-06 on the real 09-04 cover: with
+``qrcode`` installed the gate returns ``Failures: 1``; with its import
+blocked, the byte-identical file returns ``OK: 1`` and exit 0. That is
+how ``2026-09-04-Tech_Security_Weekly_Digest_AI_Malware_Rust.svg``
+shipped with ``d=""`` from a local publish (f4a459d1) and then held
+main red for three days once CI — which does install ``qrcode`` — read
+the same file. So refuse to run rather than pass vacuously: a gate that
+cannot verify must not say OK.
+
 Exit codes
 ----------
 - ``0`` — all covers verified.
 - ``1`` — at least one cover has a mismatched / missing QR.
-- ``2`` — usage error.
+- ``2`` — usage error, or ``qrcode`` is unavailable so nothing can be verified.
 
 Usage
 -----
@@ -38,7 +50,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from scripts.lib.svg_l22_generator import gen_qr  # noqa: E402
+from scripts.lib.svg_l22_generator import QRCODE_AVAILABLE, gen_qr  # noqa: E402
 from scripts.news.l20_dispatch import _post_url_from_filename  # noqa: E402
 
 _QR_PATH_RE = re.compile(
@@ -87,6 +99,22 @@ def main(argv: list[str] | None = None) -> int:
         help="cover SVG glob",
     )
     args = parser.parse_args(argv)
+
+    # Before anything else: without qrcode the expected value is "" for every
+    # cover, so every comparison succeeds and the report reads "Failures: 0".
+    # Blocking here is safe for all three wired callers — check-svg.yml and
+    # jekyll.yml install scripts/requirements-ci.txt (qrcode>=8.2) and
+    # ai-blogwatcher.yml installs requirements-blogwatcher.txt (qrcode[pil]).
+    # It fires only where the dependency is genuinely absent, which is exactly
+    # where the previous "OK" was a lie.
+    if not QRCODE_AVAILABLE:
+        print(
+            "cannot verify: the 'qrcode' package is not importable, so gen_qr() "
+            "returns '' for every URL and every cover would compare equal. "
+            "Install it (pip install -r scripts/requirements-ci.txt) and re-run.",
+            file=sys.stderr,
+        )
+        return 2
 
     paths = sorted(ROOT.glob(args.glob))
     if not paths:
