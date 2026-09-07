@@ -1,148 +1,148 @@
 {
   "2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP.svg": {
     "png": "2026-03-07-LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP.png",
-    "sha256": "8b82c4fa16a5372ee62b49ab870cf94af15235c091fa48ea3cb6f78c112f8b74",
-    "bytes": 302162
+    "sha256": "c7216568395009d0a3f4235fcc8d5122c78f1ecc7777be5210e1da38806a0de8",
+    "bytes": 302136
   },
   "2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update.svg": {
     "png": "2026-03-16-Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update.png",
-    "sha256": "a227aebca40faf00042fd84d74abeb71f5ea3998cc901a63ef445a5b5cfd12e7",
-    "bytes": 158629
+    "sha256": "e3623fc63f77b4f828456eac9413d5658fb9bd8683c37976fd0e366d932faf1d",
+    "bytes": 158616
   },
   "2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin.svg": {
     "png": "2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin.png",
-    "sha256": "b5e091ee2ab48336903b2fc48fcaa3cc41c7574d6eeb475d1b5f668987a18acb",
-    "bytes": 133399
+    "sha256": "d245af93440a38e43b6855d9e5fa92913021c758eb3d15c999972adc8c0096f4",
+    "bytes": 133378
   },
   "2026-03-17-Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet.svg": {
     "png": "2026-03-17-Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet.png",
-    "sha256": "158846aece1fb347623a85bed1d2981f9e18dc0da25379c6478dacde83d78284",
-    "bytes": 155766
+    "sha256": "00cee8d8ac1e2081c4df4615ba36cc88404f13636eceb45f885f37e65c00bc08",
+    "bytes": 155773
   },
   "2026-03-18-Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware.svg": {
     "png": "2026-03-18-Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware.png",
-    "sha256": "64f9acaad2bacbf1d61eafd7fdb080baa001c863e6f9e16a563b746382141a61",
-    "bytes": 150146
+    "sha256": "4c1bcb44df54f8786c69087d029579721eb04344549b9a59bc46094ad788600c",
+    "bytes": 150156
   },
   "2026-03-19-Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch.svg": {
     "png": "2026-03-19-Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch.png",
-    "sha256": "51207d60b8cd40798796157fafb271ef3b30a31f05f52615940f61d2c143acd1",
-    "bytes": 151108
+    "sha256": "464d4e0bfbfe0216a56e12edaf7ad97969d539fdcb3c0750c5b83ddae96f82a0",
+    "bytes": 151078
   },
   "2026-03-20-Tech_Security_Weekly_Digest_Malware_Data_Security_Threat.svg": {
     "png": "2026-03-20-Tech_Security_Weekly_Digest_Malware_Data_Security_Threat.png",
-    "sha256": "63455559087dca8fa74f2720338d446752ac1bb5fb9147bb49a94aa057085daf",
-    "bytes": 155243
+    "sha256": "47eb6f8cea7c7b0901e038b0f41d9f83a2a4f252a3a68ccc93019be7c32cc124",
+    "bytes": 155187
   },
   "2026-03-21-Tech_Security_Weekly_Digest_Security_CVE_AI_Malware.svg": {
     "png": "2026-03-21-Tech_Security_Weekly_Digest_Security_CVE_AI_Malware.png",
-    "sha256": "e6646aba53ecf529d242a965f1df1e670e3b90b99a32d132df19cabe675dce67",
+    "sha256": "5ba3f44a2b535195f3c884f8ea20318679600a1bf943cdd65c38255f432a6935",
     "bytes": 141164
   },
   "2026-03-22-Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple.svg": {
     "png": "2026-03-22-Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple.png",
-    "sha256": "784a56a9ebfc13b91944ec02cde72416681c67221579534be9fc2e54f8025a7e",
-    "bytes": 142086
+    "sha256": "fe801e95581b4c2fd8fb4076dfc4136da04011283b81ed14fc9798ca4e16ee43",
+    "bytes": 142053
   },
   "2026-03-23-Tech_Security_Weekly_Digest_Ransomware.svg": {
     "png": "2026-03-23-Tech_Security_Weekly_Digest_Ransomware.png",
-    "sha256": "6f3bc5cdec798df9879788d40264e6531c03b50019dcc376751f391c9bba3e39",
-    "bytes": 142795
+    "sha256": "51ff02940758c78dddfb0153e84bca4aff0eac6e61aefe6feb6a00717622642e",
+    "bytes": 142780
   },
   "2026-03-24-Tech_Security_Weekly_Digest_Malware_Data_AWS_AI.svg": {
     "png": "2026-03-24-Tech_Security_Weekly_Digest_Malware_Data_AWS_AI.png",
-    "sha256": "c3486a6160e512b763a8e525f6334f5bf914bbe7434cc512396c82f276212248",
-    "bytes": 149630
+    "sha256": "2cd3cba68e567053e0c65db9bbb532ef654d5caa5181ada6ad4c77dbd4e9d04a",
+    "bytes": 149621
   },
   "2026-03-25-Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent.svg": {
     "png": "2026-03-25-Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent.png",
-    "sha256": "e77af0fb3e7efc5bff7742a79587dd083cd7cc1572f4481409c1092669625044",
-    "bytes": 139056
+    "sha256": "36e5d3e1620c1bb2f6eb9768dfbd21d173fdaec8661538ec76c64de9f93bece0",
+    "bytes": 139067
   },
   "2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI.svg": {
     "png": "2026-03-26-Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI.png",
-    "sha256": "e9abd9136d4fc11dc0a58951eecbaa5f81801b2773ab5f6f8a2fa503f70241f0",
-    "bytes": 148142
+    "sha256": "fe5b0a0fd2e1337711dbda926915f8cd0d6989bb957ca48c6e15cdb1c7e3df0c",
+    "bytes": 148122
   },
   "2026-03-27-Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps.svg": {
     "png": "2026-03-27-Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps.png",
-    "sha256": "dc8e4a023fd0bcc9489dff29e6f6afc8da30cd2f519b4bfc0a23455bc04a2aac",
-    "bytes": 154489
+    "sha256": "b2c275365f23daf204944b47f4173f10a3e0b1ffeea3e902913fe7fbe8a73a1e",
+    "bytes": 154490
   },
   "2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day.svg": {
     "png": "2026-03-28-Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day.png",
-    "sha256": "63323f1e34efa6b4ecc2279e8dcde841b8d57560c27bf673f35afae525fb2216",
-    "bytes": 141697
+    "sha256": "bd28feee55ca5a45315d0348d2ef80e401b4ecc4da7a897f2f5b1f262fa8dc0b",
+    "bytes": 141691
   },
   "2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain.svg": {
     "png": "2026-03-29-Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain.png",
-    "sha256": "88019ca1c9978051b0fa9cbe0103a568c2b05eefc7c7599d6ff5955be1556d86",
-    "bytes": 136881
+    "sha256": "55e8c5399118678dcedd412a8ccfe5b336d2a36d08d643ba1cbad3265ca8f430",
+    "bytes": 136855
   },
   "2026-03-30-March_2026_Security_Digest_Monthly_Index.svg": {
     "png": "2026-03-30-March_2026_Security_Digest_Monthly_Index.png",
-    "sha256": "a4461e86b98b74c54dca03257e9a2de05a65d645b1d4c921dec7977a503a74df",
-    "bytes": 150614
+    "sha256": "0e4b07ad8ed0cb088a210066f8104d73d64729c1551c67afd90983fb278450b5",
+    "bytes": 150609
   },
   "2026-03-31-Tech_Security_Weekly_Digest_Vulnerability_Patch_AI_GPT.svg": {
     "png": "2026-03-31-Tech_Security_Weekly_Digest_Vulnerability_Patch_AI_GPT.png",
-    "sha256": "e2b22c5328b07a8934ebaccb367c5e53629248a0f2775a7dee9df8057fbcddc6",
-    "bytes": 146525
+    "sha256": "a78b83095825bdad9ece95aad1b5b5b3e05b25bae2be1cd73ab02c663beebc4e",
+    "bytes": 146520
   },
   "2026-02-02-Weekly_Security_Threat_Intelligence_Digest.svg": {
     "png": "2026-02-02-Weekly_Security_Threat_Intelligence_Digest.png",
-    "sha256": "a75fda594f0bd7aa599af35908b2f4169e4732435de4bf52f98d437c8d1007f9",
-    "bytes": 145778
+    "sha256": "86be3a7472ccaa8df8ef5111d7ee6030f0060ea4e6fce295865df6f4a156ae42",
+    "bytes": 145758
   },
   "2026-02-02-Weekly_Tech_AI_Blockchain_Digest.svg": {
     "png": "2026-02-02-Weekly_Tech_AI_Blockchain_Digest.png",
-    "sha256": "f0feef6d154eb04dbd4fdbaa28588698cce3b9a1d1aa5b240c8eb75f30f8c61c",
-    "bytes": 130285
+    "sha256": "c93ba531c33e059a87db1287d9c697b7398602bfcc1adf1b9691a2bc41b7500f",
+    "bytes": 130284
   },
   "2026-02-03-Weekly_Security_DevOps_Digest.svg": {
     "png": "2026-02-03-Weekly_Security_DevOps_Digest.png",
-    "sha256": "c4105c993ef4abfa80f493672cc36ff6a77520cc81a2a1b3f1a041b948cc8940",
-    "bytes": 139854
+    "sha256": "b950abb812fa875887d488d6552ed23457bfb24a83c0c01f10af300cb34b3e8e",
+    "bytes": 139839
   },
   "2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.svg": {
     "png": "2026-02-09-Blockchain_Tech_Digest_Bithumb_Bitcoin.png",
-    "sha256": "b75a623dcc4d2ade6799e38d1da6d212d21518450641f85b335aac7e4c7839be",
-    "bytes": 134450
+    "sha256": "82ab9a7fda6aeec639433688afc78770ba40d2493b33a8052541d741ca8b130a",
+    "bytes": 134447
   },
   "2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic.svg": {
     "png": "2026-02-09-Security_Cloud_Digest_AI_VirusTotal_AWS_Agentic.png",
-    "sha256": "0873b6f417c292d01b86facfe7dafe73b9277bd895f46119a0aed244299679aa",
-    "bytes": 148028
+    "sha256": "af3fe48bff91e5188f5f6094eaede07db64e50bc4ef702e3d4b1cacbb5f1e5c6",
+    "bytes": 147990
   },
   "2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.svg": {
     "png": "2026-02-10-AI_Cloud_Digest_Meta_Prometheus_Google_OTLP_AWS.png",
-    "sha256": "e5bdd18b8aa5700658c253eea30b23b138594cd668005816d98e993d07d46c80",
-    "bytes": 141283
+    "sha256": "7223da1f49aba0fe2793107362c8fd7054e92b4728601c812262cdf6831d28e4",
+    "bytes": 141275
   },
   "2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.svg": {
     "png": "2026-02-10-DevOps_Blockchain_Digest_CNCF_Chainalysis_Bitcoin.png",
-    "sha256": "61a0a738b1fc98afe025e7a4e4df45dab20aa8af9a1cc044dd89f2d541d8518a",
-    "bytes": 144434
+    "sha256": "102e11c55d3eee8c6e304cfbb22be14d552ee5603eff37b3bfdb4cf5f6f14c28",
+    "bytes": 144427
   },
   "2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.svg": {
     "png": "2026-02-10-Security_Digest_SolarWinds_UNC3886_LLM_Attack.png",
-    "sha256": "8cd50abfccbee370f1164d29ca03c958bee4f7ac17c1cc55a592794aa6b848be",
-    "bytes": 146264
+    "sha256": "0312adbb110c66962d6e45324d0c57d9d57bc27f231b96bbcaf50b6da9911351",
+    "bytes": 146232
   },
   "2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.svg": {
     "png": "2026-02-14-Weekly_Security_Digest_Microsoft_Zero_Day_Apple_Ivanti_EPMM.png",
-    "sha256": "1d8fa8df878d84ea401562dccb8cca2bcb63c458bde84c36404dd8e37ff634af",
-    "bytes": 143827
+    "sha256": "68d600fc5356c49e54f4f2b1930f1f589b81a67f8fe0fb3220e98013dc5698ad",
+    "bytes": 143791
   },
   "2026-02-16-Daily_Tech_Digest_RSS_Roundup.svg": {
     "png": "2026-02-16-Daily_Tech_Digest_RSS_Roundup.png",
-    "sha256": "edef240cf3ce04dfdadb10946328855860111ab5722527f8bb0b106f05cf9b39",
-    "bytes": 138787
+    "sha256": "0b5919bd643d5daeba5cdc68bf297f40c19a4ca67f4e4505d031b00221ff5279",
+    "bytes": 138773
   },
   "2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud.svg": {
     "png": "2026-02-20-Tech_Blog_Weekly_Digest_AI_Data_Cloud.png",
-    "sha256": "2b9d7690267dec4eb29669f08f745502a64b77931576549e75dd4c1677529ada",
-    "bytes": 154775
+    "sha256": "05b842369ade9e20b12749b05f0bae6441be5824dbfa8b3a1d17eaaf7dc78af5",
+    "bytes": 154768
   },
   "2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.svg": {
     "png": "2026-02-20-Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes.png",
@@ -151,12 +151,12 @@
   },
   "2026-04-05-Week1_April_2026_Security_Digest.svg": {
     "png": "2026-04-05-Week1_April_2026_Security_Digest.png",
-    "sha256": "b63424ccb97361021f4bae30437c1a5a31ee20f35fbd4e9a6d8027eb4d41ce6b",
-    "bytes": 156440
+    "sha256": "918c0847659c36e358e46b88088a4cf7d5a9ac5151cc769af0071be489e4f748",
+    "bytes": 156427
   },
   "2026-04-12-Week2_April_2026_Security_Digest.svg": {
     "png": "2026-04-12-Week2_April_2026_Security_Digest.png",
-    "sha256": "6eea3910ed0aa51dda72ded462f3196a4766d191739fd66149766f1417e35d0d",
-    "bytes": 158252
+    "sha256": "370ed130b54672278b3330cf78406fa0452f0ceb8d9a1e6ace2e1a03cdfb813a",
+    "bytes": 158243
   }
 }
