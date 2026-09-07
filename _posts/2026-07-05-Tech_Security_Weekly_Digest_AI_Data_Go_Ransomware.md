@@ -256,7 +256,7 @@ Kalshi가 FIFA 월드컵 확대로 인한 예측 시장 활동 증가에 힘입�
 |------|------|----------|
 | [Command &amp; Conquer Generals, Fable로 macOS·iPhone·iPad 네이티브 포팅](https://news.hada.io/topic?id=31138) | GeekNews (긱뉴스) | Command & Conquer Generals: Zero Hour 가 Apple Silicon Mac, iPhone, iPad에서 에뮬레이션 없이 실행되며, 고전 RTS를 최신 Apple 기기에서 직접 플레이할 수 있게 됨 핵심은 2003년 실제 엔진의 ARM64 컴파일 이며, 그래픽은 DirectX 8 → DXVK → Vulkan → |
 | [Linux htop/top 화면에 보이는 값들 해설 (2019)](https://news.hada.io/topic?id=31136) | GeekNews (긱뉴스) | Ubuntu Server 16.04 x64의 htop 화면 을 출발점으로 uptime, load average, Tasks, PID, 프로세스 트리, 상태, CPU 시간, 우선순위, 메모리 지표가 실제로 무엇을 뜻하는지 /proc 와 명령어 출력으로 추적함 화면의 많은 값은 procfs 와 /etc/pas |
-| [YouTube 크리에이터의 비공개 영상 유출](https://news.hada.io/topic?id=31135) | GeekNews (긱뉴스) | YouTube Studio의 Ask Studio 가 댓글을 요약할 때, 공격자가 댓글에 넣은 지시문을 모델 지시처럼 따르는 저장형 프롬프트 인젝션 이 가능했음 공격자는 정상 댓글을 먼저 남긴 뒤 나중에 페이로드로 수정할 수 있고, YouTube는 댓글 수정 사실을 크리에이터에게 다 |
+| [YouTube 크리에이터의 비공개 영상 유출](https://news.hada.io/topic?id=31135) | GeekNews (긱뉴스) | YouTube Studio의 Ask Studio 가 댓글을 요약할 때, 공격자가 댓글에 넣은 지시문을 모델 지시처럼 따르는 저장형 프롬프트 인젝션 이 가능했음 공격자는 정상 댓글을 먼저 남긴 뒤 나중에 페이로드로 수정할 수 있고, YouTube는 댓글 수정 사실을 크리에이터에게 |
 
 ---
 

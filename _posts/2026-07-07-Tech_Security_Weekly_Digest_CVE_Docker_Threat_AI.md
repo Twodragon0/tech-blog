@@ -403,7 +403,7 @@ Tether가 지원하는 UTEXO가 Bitcoin 네이티브 USDT를 곧 출시할 예�
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [[AI 해커톤 후기] 코드와 문서만 읽은 LLM은 어떻게 사람과 같은 팀을 1위로 골랐을까](https://d2.naver.com/helloworld/2541696) | 네이버 D2 | 2026년 봄, 네이버는 개발 직군 중심으로 열리던 Engineering Day를 모든 직군이 함께하는 '모두의 Engineering Day'로 넓혔습니다. 행사의 마지막 순서는 AI 해커톤이었습니다 |
-| [Amazon, Mechanical Turk 신규 고객 접수 중단 예정](https://news.hada.io/topic?id=31204) | GeekNews (긱뉴스) | Amazon의 크라우드소싱 서비스 Mechanical Turk 는 2026년 7월 30일부터 신규 고객을 받지 않고, 기존 고객만 계속 사용할 수 있음 AWS는 “신중한 검토” 뒤 내린 결정이라며 보안과 가용성 개선 은 이어가지만 새 기능은 추가하지 않겠다고 밝힘 2005년 시 |
+| [Amazon, Mechanical Turk 신규 고객 접수 중단 예정](https://news.hada.io/topic?id=31204) | GeekNews (긱뉴스) | Amazon의 크라우드소싱 서비스 Mechanical Turk 는 2026년 7월 30일부터 신규 고객을 받지 않고, 기존 고객만 계속 사용할 수 있음 AWS는 “신중한 검토” 뒤 내린 결정이라며 보안과 가용성 개선 은 이어가지만 새 기능은 추가하지 않겠다고 밝힘 2005년 |
 | [저커버그, &quot;AI 에이전트 기술이 기대보다 느리게 발전하고 있다&quot;](https://news.hada.io/topic?id=31203) | GeekNews (긱뉴스) | AI 에이전트 개발 속도가 기대에 미치지 못했으며, 최근 최소 4개월간의 개발 궤적이 예상만큼 가속화되지 못함 올해 초 도입된 대규모 조직 개편이 충분히 "깔끔하지" 못했고, 경영진이 변화 시점 판단에서 오판 함 5월에 전체 |
 
 ---

@@ -439,8 +439,8 @@ Strive의 SATA 우선주가 Bitcoin 채굴 일일 공급량의 100% 이상을 �
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [오픈소스 패키지의 치명적 취약점으로 수백만 AI 에이전트 위협](https://arstechnica.com/information-technology/2026/05/millions-of-ai-agents-imperiled-by-critical-vulnerability-in-open-source-package/) | Ars Technica | 오픈소스 패키지 Starlette에서 발견된 'BadHost' 취약점으로 인해 수백만 개의 AI 에이전트가 위험에 처했습니다. 이 패키지는 주간 다운로드 수가 3억 2,500만에 달합니다 |
-| [압박](https://news.hada.io/topic?id=29905) | GeekNews (긱뉴스) | curl 유지보수 는 공익성, 엔지니어링 도전, 품질 목표가 결합된 전업 작업이 되었고 주 50시간 안팎으로 이어져 왔음 curl은 약 300억 개 설치 기반 을 가진 전송 라이브러리와 도구로, 보안 실패가 사용자에게 번지지 않게 해야 한다는 부담이 큼 현재 보 |
-| [유휴 Inference GPU Pool을 이용한 GPU Job 스케줄링](https://news.hada.io/topic?id=29904) | GeekNews (긱뉴스) | 유휴 Inference GPU Pool을 이용한 GPU job 스케줄링: LG AI연구원의 인프라 효율화 사례 LG AI연구원 Platform&Infra Team이 공개한 이번 글은 대규모 언어 모델(LLM) 서비스 운영 과정에서 발생하는 유휴 GPU 자원을 어떻게 연구·실험 작업에 재활용했는지를 다룹니다. AI 서비스 운영 기업은 보통 트 |
+| [압박](https://news.hada.io/topic?id=29905) | GeekNews (긱뉴스) | curl 유지보수 는 공익성, 엔지니어링 도전, 품질 목표가 결합된 전업 작업이 되었고 주 50시간 안팎으로 이어져 왔음 curl은 약 300억 개 설치 기반 을 가진 전송 라이브러리와 도구로, 보안 실패가 사용자에게 번지지 않게 해야 한다는 부담이 큼 현재 |
+| [유휴 Inference GPU Pool을 이용한 GPU Job 스케줄링](https://news.hada.io/topic?id=29904) | GeekNews (긱뉴스) | 유휴 Inference GPU Pool을 이용한 GPU job 스케줄링: LG AI연구원의 인프라 효율화 사례 LG AI연구원 Platform&Infra Team이 공개한 이번 글은 대규모 언어 모델(LLM) 서비스 운영 과정에서 발생하는 유휴 GPU 자원을 어떻게 연구·실험 작업에 재활용했는지를 다룹니다. AI 서비스 운영 기업은 보통 |
 
 ---
 

@@ -402,7 +402,7 @@ Winklevoss 쌍둥이가 Gemini에 1억 달러 규모의 Bitcoin 투자를 발표
 |------|------|----------|
 | [Windows XP 데스크톱처럼 Wikipedia 탐색하기](https://news.hada.io/topic?id=29551) | GeekNews (긱뉴스) | Wikipedia File Explorer 는 Wikipedia 카테고리를 Windows XP 데스크톱의 폴더처럼 열어 탐색하는 웹 인터페이스임 Wikipedia의 카테고리 는 폴더처럼, 문서는 파일처럼 열리며 카테고리 없는 약 100개 안팎의 페이지를 제외하면 모든 항목에 접근 가능함 |
 | [Mullvad exit IP는 놀라울 정도로 식별 가능함](https://news.hada.io/topic?id=29550) | GeekNews (긱뉴스) | Mullvad 는 서버 하나에 여러 exit IP를 두지만, WireGuard 키 기반으로 결정적으로 배정해 접속마다 무작위로 바뀌지 않음 9개 서버에서 pubkey를 반복 변경해 모은 3,650개 데이터 포인트 는 가능한 8.2조 개 조합 중 284개 조합에만 배정됨 각 서버의 ex |
-| [지금 많은 기업이 AI 집단 광기에 빠져 있다고 믿는다](https://news.hada.io/topic?id=29549) | GeekNews (긱뉴스) | 미첼 하시모토: " 지금 많은 기업이 심각한 AI 집단 광기에 빠져 있으며, 그들과 이성적인 대화를 나누는 것은 불가능하다 " 클라우드 인프라 자동화 시대의 MTBF vs MTTR 논쟁 이 이제 소프트웨어 개발 산업 전체로 확산되고 있으며, AI 에이전트에 대한 맹 |
+| [지금 많은 기업이 AI 집단 광기에 빠져 있다고 믿는다](https://news.hada.io/topic?id=29549) | GeekNews (긱뉴스) | 미첼 하시모토: " 지금 많은 기업이 심각한 AI 집단 광기에 빠져 있으며, 그들과 이성적인 대화를 나누는 것은 불가능하다 " 클라우드 인프라 자동화 시대의 MTBF vs MTTR 논쟁 이 이제 소프트웨어 개발 산업 전체로 확산되고 있으며, AI |
 
 ---
 

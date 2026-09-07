@@ -243,7 +243,7 @@ Strategy의 Michael Saylor는 기업이 2020년 이후 105건의 Bitcoin 거래�
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Pro Max 5x 요금제, 중간 사용에도 1.5시간 만에 할당량 소진 문제](https://news.hada.io/topic?id=28459) | GeekNews (긱뉴스) | Pro Max 5x(1M 컨텍스트) 요금제에서 중간 수준의 Q&A와 개발 작업만으로 1.5시간 만에 토큰 한도 초과 가 발생 원인으로 cache_read 토큰이 전체 비율(1.0x) 로 계산되는 오류가 지목되며, 캐싱 효과가 사라져 급격한 소모가 발 |
+| [Pro Max 5x 요금제, 중간 사용에도 1.5시간 만에 할당량 소진 문제](https://news.hada.io/topic?id=28459) | GeekNews (긱뉴스) | Pro Max 5x(1M 컨텍스트) 요금제에서 중간 수준의 Q&A와 개발 작업만으로 1.5시간 만에 토큰 한도 초과 가 발생 원인으로 cache_read 토큰이 전체 비율(1.0x) 로 계산되는 오류가 지목되며, 캐싱 효과가 사라져 |
 | [스페인에서 Cloudflare의 축구 관련 차단으로 Docker Pull 실패 발생](https://news.hada.io/topic?id=28458) | GeekNews (긱뉴스) | 스페인 지역에서 Docker 이미지 다운로드(docker pull) 요청이 차단되는 현상 발생 원인은 Cloudflare의 축구 경기 중계 관련 차단 정책 이 Docker Hub 트래픽에도 영향을 준 것으로 확인 해당 차단으로 인해 개발 환경 구축 및 배포 자동화 과정 |
 | [월 20달러 기술 스택으로 여러 개의 월 1만 달러 MRR 회사를 운영하는 방법](https://news.hada.io/topic?id=28457) | GeekNews (긱뉴스) | 복잡한 인프라와 구독비를 제거 해 월 20달러 수준의 기술 스택으로 여러 회사를 안정적으로 운영하는 구조 제시 단일 VPS, Go, SQLite, 로컬 AI 만으로도 확장 가능한 서비스를 구축하고 유지할 수 있음을 입증 로컬 GPU와 오픈소스 도구 |
 

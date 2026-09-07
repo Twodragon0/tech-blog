@@ -353,7 +353,7 @@ UAE와 연결된 ADI Chain이 Ledger의 지원을 받게 되면서 ADI 토큰 �
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [미국의 양자 컴퓨팅에 대한 큰 베팅이 완전히 합법적이지 않을 수 있다](https://arstechnica.com/tech-policy/2026/05/uss-big-bet-on-quantum-computing-may-not-be-entirely-legal/) | Ars Technica | 미국이 양자 컴퓨팅에 대규모 투자를 단행했지만, 이 결정이 완전히 합법적이지 않을 수 있다는 논란이 제기됐다. 이와 함께 최초의 quantum foundry 회사가 설립됐으나, 과연 그 필요성이 있는지 의문이 제기되고 있다 |
-| [nb-cli - AI 에이전트와 노트북 자동화를 위한 CLI](https://news.hada.io/topic?id=29871) | GeekNews (긱뉴스) | AI 코딩 에이전트가 Jupyter 노트북을 아티팩트로 다룰 수 있도록 설계된 실험적 오픈소스 CLI 도구로, Rust 기반으로 구현되어 빠르고 안정적인 노트북 조작을 지원 .ipynb JSON 구조가 자동화·LLM 처리에 적합하지 않다는 문제를 해결하기 위해, nbformat 사 |
+| [nb-cli - AI 에이전트와 노트북 자동화를 위한 CLI](https://news.hada.io/topic?id=29871) | GeekNews (긱뉴스) | AI 코딩 에이전트가 Jupyter 노트북을 아티팩트로 다룰 수 있도록 설계된 실험적 오픈소스 CLI 도구로, Rust 기반으로 구현되어 빠르고 안정적인 노트북 조작을 지원 .ipynb JSON 구조가 자동화·LLM 처리에 적합하지 않다는 문제를 해결하기 위해, nbformat |
 | [AI를 사용해 더 나은 코드를 더 천천히 작성하기](https://news.hada.io/topic?id=29870) | GeekNews (긱뉴스) | AI 코딩 은 저품질 코드를 빠르게 대량 생성하는 방식뿐 아니라, PR을 깊게 검토해 고품질 코드를 천천히 만드는 데도 활용 가능함 LLM 에이전트는 코드베이스에서 버그 탐지 에 강하지만, 실제 난점은 발견한 항목의 우선순위 지정과 검증에 있음 여러 모델 |
 
 ---

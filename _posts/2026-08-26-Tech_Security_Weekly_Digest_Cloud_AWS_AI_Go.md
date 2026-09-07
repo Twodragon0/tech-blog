@@ -403,8 +403,8 @@ Fairlead Strategies의 Katie Stockton에 따르면 Bitcoin이 더 이상 과매�
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [Project Lighthouse — 3부: project-lighthouse-anonymize 소개](https://medium.com/airbnb-engineering/project-lighthouse-part-3-introducing-project-lighthouse-anonymize-74f8b26653fb?source=rss----53c7c27702d5---4) | Airbnb Engineering | 프로젝트 라이트하우스는 개인 정보 보호 익명화 코드를 기반으로 데이터를 처리하는 프로젝트로, 이 코드가 'project-lighthouse-anonymize'라는 이름으로 오픈 소스화되었습니다. 이와 함께 코드의 확장 가능한 알고리즘과 데이터 품질 프레임워크를 상세히 다룬 두 편의 기술 논문도 공개되었습니다 |
-| [key-amnesia - AI 에이전트에 시크릿을 노출하지 않고 명령을 실행하는 도구](https://news.hada.io/topic?id=32893) | GeekNews (긱뉴스) | env 를 .gitignore 에 넣는 방식은 비밀값이 Git에 커밋되는 것은 막지만, 로컬 프로젝트에 평문으로 남아 에이전트가 읽는 것까지 막지는 못함 이제 위협은 Git뿐 아니라 프로젝트 파일과 명령 실행 환경에 접근하는 AI 에이전트 .env /셸 기록/MCP 설 |
-| [OpenAI Jalapeño: Nvidia Blackwell을 앞선 LLM 추론 칩](https://news.hada.io/topic?id=32892) | GeekNews (긱뉴스) | OpenAI가 Broadcom과 공동 설계한 범용 LLM 추론 ASIC Jalapeño 는 초기 A0 실리콘만으로 여러 오픈 모델에서 Nvidia Blackwell보다 높은 전력당 처리량을 기록했으며, Rubin의 공개 결과도 앞섬 HBM4와 단순화한 메모리·네트워크 구조 , 작은 행렬에서도 효율적인 코 |
+| [key-amnesia - AI 에이전트에 시크릿을 노출하지 않고 명령을 실행하는 도구](https://news.hada.io/topic?id=32893) | GeekNews (긱뉴스) | env 를 .gitignore 에 넣는 방식은 비밀값이 Git에 커밋되는 것은 막지만, 로컬 프로젝트에 평문으로 남아 에이전트가 읽는 것까지 막지는 못함 이제 위협은 Git뿐 아니라 프로젝트 파일과 명령 실행 환경에 접근하는 AI 에이전트 .env /셸 기록/MCP |
+| [OpenAI Jalapeño: Nvidia Blackwell을 앞선 LLM 추론 칩](https://news.hada.io/topic?id=32892) | GeekNews (긱뉴스) | OpenAI가 Broadcom과 공동 설계한 범용 LLM 추론 ASIC Jalapeño 는 초기 A0 실리콘만으로 여러 오픈 모델에서 Nvidia Blackwell보다 높은 전력당 처리량을 기록했으며, Rubin의 공개 결과도 앞섬 HBM4와 단순화한 메모리·네트워크 구조 , 작은 행렬에서도 효율적인 |
 
 
 ---

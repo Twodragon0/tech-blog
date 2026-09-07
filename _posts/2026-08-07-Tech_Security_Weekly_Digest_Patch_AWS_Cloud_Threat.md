@@ -417,7 +417,7 @@ Breez가 오픈소스 Bitcoin-to-Stablecoins Progressive Web App인 Glow를 발�
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [GitHub Actions와 Pages에서 가용성 저하 발생](https://news.hada.io/topic?id=32225) | GeekNews (긱뉴스) | 2026년 8월 6일 GitHub Actions에서 시작된 장애가 Pages·Copilot·GitHub Enterprise Importer 등으로 확산됐으며, 이튿날 완화 조치 후 안정성 모니터링 단계로 전환됨 워크플로가 시작되지 않거나 실행 중 실패했고, Actions REST API 오류 와 예상치 못한 속도 제 |
+| [GitHub Actions와 Pages에서 가용성 저하 발생](https://news.hada.io/topic?id=32225) | GeekNews (긱뉴스) | 2026년 8월 6일 GitHub Actions에서 시작된 장애가 Pages·Copilot·GitHub Enterprise Importer 등으로 확산됐으며, 이튿날 완화 조치 후 안정성 모니터링 단계로 전환됨 워크플로가 시작되지 않거나 실행 중 실패했고, Actions REST API 오류 와 예상치 못한 속도 |
 | [AMD, 모델을 실리콘에 새기는 AI 칩 스타트업 Taalas 인수](https://news.hada.io/topic?id=32224) | GeekNews (긱뉴스) | AMD가 모델 가중치를 실리콘에 직접 새기는 Taalas 를 인수해 Nvidia가 주도하는 고성능 추론 시장 공략을 강화함 TSMC 6nm 공정의 모델 전용 칩 HC1 은 Meta Llama 3.1 8B를 초당 16,960토큰으로 처리해 발표 당시 Nvidia GPU보다 48배, Cerebras |
 | [프롬프트로 프로토타입은 만들 수 있어도, 안목까지 만들 수는 없다](https://news.hada.io/topic?id=32223) | GeekNews (긱뉴스) | 생성형 AI로 누구나 빠르게 완성품처럼 보이는 결과물을 만들 수 있게 됐지만, 무엇을 만들고 무엇을 버릴지 결정하는 안목과 판단력 은 오랜 비평과 반복적인 교정을 통해 형성됨 AI도 피드백을 통해 개선되지만, 점수를 높이는 방향으로 학습하는 것과 낯선 문제에서도 판단 근거를 |
 

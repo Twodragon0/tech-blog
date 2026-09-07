@@ -237,7 +237,7 @@ Swan CEO Klippsten은 Bitcoin이 이전 최고점 이후 약 1년 만인 10월�
 |------|------|----------|
 | [celld - 셀프호스팅 가능한 분산 Durable Objects](https://news.hada.io/topic?id=32545) | GeekNews (긱뉴스) | Deno가 공개한 오픈소스 런타임으로, Cloudflare Workers와 Durable Objects 모델을 자신의 서버에서 실행 할 수 있게 함 Cloudflare용 코드를 비교적 적은 변경으로 셀프호스팅 하는 것이 목표: 기존 Wrangler 프로젝트의 Module Worker, fetch , Servi |
 | [Graph 엔지니어링 vs Loop 엔지니어링: 실제로 달라진 것은 무엇인가](https://news.hada.io/topic?id=32544) | GeekNews (긱뉴스) | Graph Engineering은 완전히 새로운 개념이라기보다 여러 Agent Loop를 하나의 작업 흐름으로 연결하는 오케스트레이션 에 가까움 병렬 실행/검증/작업 인계/공유 상태/중단 조건을 명시적으로 구성하는 방식 Loop와 Graph는 경쟁 개념이 아님 Loop는 하나의 목표 |
-| [내가 여전히 회의적인 이유](https://news.hada.io/topic?id=32543) | GeekNews (긱뉴스) | 환경·사회·정치적 우려에 앞서, LLM이 비자명한 소프트웨어 개발 에 실제로 효과적인지조차 아직 입증되지 않았다고 봄 4년간의 ‘혁명’에도 소프트웨어의 품질·속도·비용·기능·보안은 뚜렷하게 개선되지 않았으며, 신뢰받는 오픈소스는 단순한 기능 복제 만으로 대 |
+| [내가 여전히 회의적인 이유](https://news.hada.io/topic?id=32543) | GeekNews (긱뉴스) | 환경·사회·정치적 우려에 앞서, LLM이 비자명한 소프트웨어 개발 에 실제로 효과적인지조차 아직 입증되지 않았다고 봄 4년간의 ‘혁명’에도 소프트웨어의 품질·속도·비용·기능·보안은 뚜렷하게 개선되지 않았으며, 신뢰받는 오픈소스는 단순한 기능 복제 |
 
 
 ---
