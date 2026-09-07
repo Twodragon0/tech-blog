@@ -302,8 +302,8 @@ Quantstamp에 따르면, 3600만 달러 규모의 Humanity Protocol 해킹 사�
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [World Monitor - 실시간 글로벌 인텔리전스 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. Real-time global intelligence dashboard with live news, markets, military tracking, infrastructure monitoring, and geopolitical data |
-| [소프트웨어는 죽는 게 아니라 진화 중이다](https://news.hada.io/topic?id=30491) | GeekNews (긱뉴스) | AI로 코드 생성이 저렴해지며 "기능을 먼저 만들었다"라는 해자가 무너지고, 기능만 잔뜩 쌓아온 소프트웨들은 실시간으로 가치가 재평가(repriced) 되는 중 이제 방어력은 기능 속도가 아닌 고정확도 워크플로우, 독점 데이터, 깊은 기록 시스템 에서 나 |
-| [Automerge로 멀티플레이어 팟캐스트 에디터 만들기](https://news.hada.io/topic?id=30490) | GeekNews (긱뉴스) | 몇년 전만 해도 실시간 멀티플레이어 데이터 동기화는 전문 인력과 기업 수준의 투자가 필요한 가장 어려운 문제였으나, 이제는 npm install 한 번 으로 취미 프로젝트에도 멀티플레이어 UI 구현 가능 Automerge 는 로컬 우선·멀티플레이어 안전·버전 관 |
+| [소프트웨어는 죽는 게 아니라 진화 중이다](https://news.hada.io/topic?id=30491) | GeekNews (긱뉴스) | AI로 코드 생성이 저렴해지며 "기능을 먼저 만들었다"라는 해자가 무너지고, 기능만 잔뜩 쌓아온 소프트웨들은 실시간으로 가치가 재평가(repriced) 되는 중 이제 방어력은 기능 속도가 아닌 고정확도 워크플로우, 독점 데이터, 깊은 기록 시스템 |
+| [Automerge로 멀티플레이어 팟캐스트 에디터 만들기](https://news.hada.io/topic?id=30490) | GeekNews (긱뉴스) | 몇년 전만 해도 실시간 멀티플레이어 데이터 동기화는 전문 인력과 기업 수준의 투자가 필요한 가장 어려운 문제였으나, 이제는 npm install 한 번 으로 취미 프로젝트에도 멀티플레이어 UI 구현 가능 Automerge 는 로컬 우선·멀티플레이어 안전·버전 |
 
 ---
 

@@ -186,7 +186,7 @@ Tom Lee의 Ethereum 포트폴리오는 ETH 가격 전망 악화로 73억 5천만
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [omarchy는 배포판이 아니다](https://news.hada.io/topic?id=29843) | GeekNews (긱뉴스) | omarchy 는 “아름답고 현대적이며 주관적인 Linux 배포판”을 표방하지만, 실제로는 Arch Linux 위에 DHH의 개인 dotfiles를 얹은 구성에 가까움 Linux 데스크톱 관심 확대는 긍정적이지만, 컨퍼런스·스폰서·상품 까지 갖춘 대형 프로젝트처럼 포장되는 점이 핵심 비 |
+| [omarchy는 배포판이 아니다](https://news.hada.io/topic?id=29843) | GeekNews (긱뉴스) | omarchy 는 “아름답고 현대적이며 주관적인 Linux 배포판”을 표방하지만, 실제로는 Arch Linux 위에 DHH의 개인 dotfiles를 얹은 구성에 가까움 Linux 데스크톱 관심 확대는 긍정적이지만, 컨퍼런스·스폰서·상품 까지 갖춘 대형 프로젝트처럼 포장되는 점이 핵심 |
 | [FBI는 미국 번호판 판독기에 ‘준실시간’ 접근을 원한다](https://news.hada.io/topic?id=29842) | GeekNews (긱뉴스) | FBI 는 미국 전역 도로변 자동 번호판 판독기 데이터에 수백만 달러를 지불하고, 차량 이동 정보를 준실시간 으로 확보하려 함 ALPR 카메라는 지나가는 차량 이미지를 촬영해 번호판·위치·시간·날짜를 검색 가능한 데이터베이스에 넣고, 지방·연방 |
 | [미국 기술기업, 네덜란드 규제 당국자 이름을 상원에 공유](https://news.hada.io/topic?id=29841) | GeekNews (긱뉴스) | Microsoft와 Meta 등 미국 기술기업들이 유럽 기술 규제에 관여한 네덜란드 공무원·학계 인사의 이름을 미국 상원 위원회에 공유함 상원 위원회는 “기술 검열” 또는 jawboning 을 조사 중이며, Vrij Nederland가 금요일 이 명단 공유를 보도함 네덜란드 |
 

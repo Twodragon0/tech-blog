@@ -19,19 +19,23 @@ reasoned allow-list — the shape ``check_card_title_language`` already uses. Of
 the 96 corpus cells with such a tail, 52 end in one of 18 complete words and 44
 are genuine cuts.
 
-The remaining 42 are baselined rather than repaired, and the baseline keeps the
-gate BLOCKING for everything new instead of leaving it dormant.
+All 44 were repaired, so the baseline is EMPTY and the gate has no exemptions
+left. Getting there took three passes, and the middle one is the lesson:
 
-Two corrections, measured 2026-09-07 (see the baseline file's own header):
+* 2 of the 44 were never this bug. They were category-rollup rows cut by
+  ``_extract_trend_keyword``'s Korean hard slice — a second, still-live
+  truncation site that the RSS fix had not touched, and a latent publish
+  blocker. Guarded now by ``test_trend_keyword_word_boundary.py``.
+* The other 42 were rewound to a word boundary (only the dangling partial token
+  removed: min 2 / median 2 / max 16 characters). The baseline's old claim that
+  "their source text is gone" was wrong — every source was live and still held
+  the fragment verbatim — but restoring the full sentences was rejected on
+  measurement anyway: appending to the next terminator added a median of 268 and
+  up to 8402 characters, because Korean summary bullets end in ~음/~함 rather
+  than a period. ``notes/midword-resummarize.md`` compares the options.
 
-* 2 of the original 44 were never this bug. They were category-rollup rows cut
-  by ``_extract_trend_keyword``'s Korean hard slice — a second, still-live
-  truncation site that the RSS fix did not touch. Repaired, and guarded by
-  ``test_trend_keyword_word_boundary.py``.
-* "Their source text is gone" was wrong. All 42 sources are live and still
-  contain the cut fragment verbatim, so re-summarising them would not mean
-  inventing text. Whether it is worth editing 42 published posts is a separate
-  open question, not a blocker on this gate.
+A fresh baseline entry is therefore a regression, not a grandfather: it means a
+THIRD truncation source, or a word that belongs in the allow-list.
 """
 
 from __future__ import annotations
@@ -45,10 +49,12 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[2]
 BASELINE = REPO_ROOT / "scripts" / "digest_midword_baseline.txt"
 
-# A ratchet, not a target: the generator no longer emits these, so this number
-# must only ever go DOWN. 44 at the sweep, then 42 once the 2 category-rollup
-# rows were traced to _extract_trend_keyword and repaired.
-BASELINE_MAX = 42
+# A ratchet, not a target: neither generator path emits these any more, so this
+# number must only ever go DOWN. 44 at the sweep, 42 once the 2 category-rollup
+# rows were traced to _extract_trend_keyword and repaired, then 0 once the
+# remaining 42 cells were rewound to a word boundary. At 0 the gate has no
+# exemptions left — any new entry is a regression, not a grandfather.
+BASELINE_MAX = 0
 
 
 def _post_with_cell(tmp_path: Path, cell: str) -> Path:

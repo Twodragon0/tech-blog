@@ -411,7 +411,7 @@ Strategy는 최근 Bitcoin보다 현금(USD) 보유를 늘리고 있으며, 이�
 |------|------|----------|
 | [Chrome, 계정 탈취에 대한 최고의 보호 기능을 채택하다](https://arstechnica.com/security/2026/08/chrome-adopts-what-may-be-the-best-protection-yet-against-account-takeovers/) | Ars Technica | Chrome이 계정 탈취에 대한 가장 강력한 보호책으로 Device-bound session credentials를 채택했습니다. 이는 최근 증가하는 계정 탈취 공격 형태를 차단하는 방식입니다 |
 | [새 Pass-ta-key 공격이 패스키에 대해 우리가 몰랐던 모든 것을 드러내다](https://arstechnica.com/security/2026/08/heres-why-the-new-pass-ta-key-attack-is-mostly-a-nothingburger/) | Ars Technica | Windows에서 passkey 앱이 다른 운영체제와 다르게 동작하는 이유를 밝히는 새로운 "Pass-ta-key" 공격이 발견되었습니다. 이 공격은 passkey의 보안 가정에 대한 기존의 인식과 다른 취약점을 드러냈습니다. 연구 결과는 passkey 구현의 차이와 관련된 보안 위험을 재조명합니다 |
-| [LLM Evals에 대해 알아야 할 모든 것](https://news.hada.io/topic?id=32421) | GeekNews (긱뉴스) | 700명 넘는 엔지니어와 PM에게 AI 평가를 가르쳐 온 Hamel Husain 팀이 강의에서 반복해서 받은 질문들을 모아 정리한 FAQ 문서 (2026년 7월에도 갱신 중) 무엇에 대한 문서인가 "AI 응답이 좋은지 나쁜지 어떻게 확인하나"에 대한 실무 답변 모음. 벤치마크 점수 얘기가 아니라, 내 제 |
+| [LLM Evals에 대해 알아야 할 모든 것](https://news.hada.io/topic?id=32421) | GeekNews (긱뉴스) | 700명 넘는 엔지니어와 PM에게 AI 평가를 가르쳐 온 Hamel Husain 팀이 강의에서 반복해서 받은 질문들을 모아 정리한 FAQ 문서 (2026년 7월에도 갱신 중) 무엇에 대한 문서인가 "AI 응답이 좋은지 나쁜지 어떻게 확인하나"에 대한 실무 답변 모음. 벤치마크 점수 얘기가 아니라 |
 
 
 ---

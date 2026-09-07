@@ -261,7 +261,7 @@ AI가 고용 호황을 가져올 것이라는 C-suite의 낙관론과 달리, �
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [AI 사이버보안의 새로운 경계: Mythos 이후의 현실](https://news.hada.io/topic?id=28428) | GeekNews (긱뉴스) | Anthropic의 Claude Mythos 가 대규모 제로데이 취약점을 자동 탐지한 이후, 소형 오픈 모델들도 동일한 취약점 탐지에 성공 3.6B~5.1B 파라미터급 모델 이 FreeBSD·OpenBSD 버그를 재현하며, 일부는 Mythos와 다른 창의적 익스플로잇 경 |
+| [AI 사이버보안의 새로운 경계: Mythos 이후의 현실](https://news.hada.io/topic?id=28428) | GeekNews (긱뉴스) | Anthropic의 Claude Mythos 가 대규모 제로데이 취약점을 자동 탐지한 이후, 소형 오픈 모델들도 동일한 취약점 탐지에 성공 3.6B~5.1B 파라미터급 모델 이 FreeBSD·OpenBSD 버그를 재현하며, 일부는 Mythos와 다른 창의적 익스플로잇 |
 | [Managed Agents 확장하기: 두뇌와 손을 분리하기](https://news.hada.io/topic?id=28427) | GeekNews (긱뉴스) | 장기 실행 에이전트를 위한 호스팅 서비스 Managed Agents는 하네스(harness)가 모델 발전에 따라 변해도 안정적으로 유지되는 인터페이스 기반 아키텍처를 채택. 모델이 발전하면 해당 가정을 점진적으로 제거하는 구조 |
 | [아르테미스 II, 역사적 달 임무 후 샌디에이고 인근 해상에 안전 착수](https://news.hada.io/topic?id=28426) | GeekNews (긱뉴스) | 오리온 캡슐이 10일간의 달 비행을 마치고 샌디에이고 인근 태평양 에 착수, NASA는 이를 “ 완벽한 명중 착수 ”로 평가 재진입 중 약 6분간 통신 두절 이 있었으나, 내부 온도와 시스템은 안정적으로 유지되어 모든 승무원이 무사 귀환 |
 

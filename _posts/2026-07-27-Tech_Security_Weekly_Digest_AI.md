@@ -285,9 +285,9 @@ Storj가 파산 신청을 했으며, 챕터 11 절차 중에도 네트워크는 
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Cloudflare, 고객별 AI 트래픽 제어 옵션 공개](https://news.hada.io/topic?id=31857) | GeekNews (긱뉴스) | 모든 요금제 고객이 자동화 트래픽을 Search·Agent·Training 으로 나눠 허용하거나 차단할 수 있어, 기존의 일괄적인 AI 봇 차단보다 세밀한 정책 설정이 가능해짐 AI 사용 여부가 아니라 사이트에서 수행하는 행동과 콘텐츠 용도 를 분류 기준으로 삼으며, 다목적 크 |
+| [Cloudflare, 고객별 AI 트래픽 제어 옵션 공개](https://news.hada.io/topic?id=31857) | GeekNews (긱뉴스) | 모든 요금제 고객이 자동화 트래픽을 Search·Agent·Training 으로 나눠 허용하거나 차단할 수 있어, 기존의 일괄적인 AI 봇 차단보다 세밀한 정책 설정이 가능해짐 AI 사용 여부가 아니라 사이트에서 수행하는 행동과 콘텐츠 용도 를 분류 기준으로 삼으며, 다목적 |
 | [Netflix의 사내 LLM 서빙 플랫폼](https://news.hada.io/topic?id=31856) | GeekNews (긱뉴스) | 넷플릭스는 LLM을 별도 사일로로 분리하지 않고 기존 ML 인프라에서 함께 운영하며, vLLM과 Triton 을 통합 서빙 체계에 연결함 기본 엔진으로 선택한 vLLM 은 사용자 정의 모델 지원, 디버깅 용이성, 확장 훅, 연구 환경과의 친숙성을 갖췄으며, Triton의 vLLM back |
-| [Claude Code로 대규모 코드 마이그레이션을 수행한 방법](https://news.hada.io/topic?id=31855) | GeekNews (긱뉴스) | Anthropic 개발자들은 Claude Fable 5, Claude Opus 4.8과 동적 워크플로를 이용해 최근 한 달간 수만~수십만 줄 규모의 패키지 10개를 이전했으며, 개별 코드를 고치는 대신 코드를 생성하는 반복 과정 을 개선함 Bun의 Zig→Rust 이전은 2주 미만에 100만 줄 을 생 |
+| [Claude Code로 대규모 코드 마이그레이션을 수행한 방법](https://news.hada.io/topic?id=31855) | GeekNews (긱뉴스) | Anthropic 개발자들은 Claude Fable 5, Claude Opus 4.8과 동적 워크플로를 이용해 최근 한 달간 수만~수십만 줄 규모의 패키지 10개를 이전했으며, 개별 코드를 고치는 대신 코드를 생성하는 반복 과정 을 개선함 Bun의 Zig→Rust 이전은 2주 |
 
 
 ---

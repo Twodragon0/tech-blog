@@ -396,7 +396,7 @@ Coldcard Bitcoin 해킹 피해자들의 중간 손실액이 1 BTC로 확인됐�
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [개인 AI 활용의 다음 단계는 무엇인가 - LY Corporation에서 AIDD 워크숍을 통해 살펴본 AIDD 조직 도입의 조건](https://techblog.lycorp.co.jp/ko/conditions-for-organizational-aidd-adoption) | LINE Engineering | LY Corporation에서는 지금까지 AI 활용 역량 향상 워크숍인 Orchestration Development Workshop (ODW)를 통해, 개인이 AI를 활용해 개발 |
-| [AI가 재편하는 차세대 사이버보안 스택](https://news.hada.io/topic?id=32256) | GeekNews (긱뉴스) | AI가 취약점을 찾아 악용하는 속도가 빨라지면서 평균 악용까지 걸리는 시간(TTE) 은 공개 9시간 전인 -9시간 까지 줄었고, 공개 전 제로데이로 악용되는 취약점 비율도 5년 전 약 30%에서 현재 80% 이상으로 증가함 보안 조직은 여러 도구를 직접 운용하는 방식에서 벗 |
+| [AI가 재편하는 차세대 사이버보안 스택](https://news.hada.io/topic?id=32256) | GeekNews (긱뉴스) | AI가 취약점을 찾아 악용하는 속도가 빨라지면서 평균 악용까지 걸리는 시간(TTE) 은 공개 9시간 전인 -9시간 까지 줄었고, 공개 전 제로데이로 악용되는 취약점 비율도 5년 전 약 30%에서 현재 80% 이상으로 증가함 보안 조직은 여러 도구를 직접 |
 | [AI가 린 스타트업 플레이북을 무너뜨리고 있는가? [유튜브]](https://news.hada.io/topic?id=32255) | GeekNews (긱뉴스) | AI로 소프트웨어를 더 빠르고 저렴하게 만들 수 있게 되면서, 좁은 틈새에서 출발하는 린 스타트업 방식 뿐 아니라 처음부터 차별화된 영역에서 크고 야심 찬 제품을 만드는 선택지도 넓어짐 AI에 지식을 맡길 수 있어도 머릿속 인지적 L1 캐시 에서 꺼내는 편이 훨씬 |
 
 

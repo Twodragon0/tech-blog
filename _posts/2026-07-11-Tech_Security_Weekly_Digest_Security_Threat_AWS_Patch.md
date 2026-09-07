@@ -420,8 +420,8 @@ Metaplanet이 Bitcoin 전략을 재무부 축적을 넘어 확장하며, 일본 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [초당 100만 건, LINE 앱에 Apache Kafka 종단 간 암호화 적용기](https://techblog.lycorp.co.jp/ko/applying-e2ee-to-apache-kafka-in-line-app) | LINE Engineering | 들어가며: 왜 Kafka 종단 간 암호화인가?LINE 메신저에서는 매일 수십억 건의 메시지가 오갑니다. 이 방대한 데이터는 다양한 시스템으로 전달되며, 그중에는 개인 정보와 같이 |
-| [Apple, OpenAI를 상대로 소송 제기하며 전 직원들이 영업비밀을 훔쳤다고 주장](https://news.hada.io/topic?id=31318) | GeekNews (긱뉴스) | 애플은 전 직원 2명과 OpenAI 및 Jony Ive의 io Products를 상대로 영업비밀 부정취득 과 계약 위반 소송을 제기하며, OpenAI의 하드웨어 진출이 Apple 기밀에 기대고 있다고 주장 소장에 따르면 OpenAI는 io Products 인수와 전 Apple 임원·엔지니어 채용을 통해 소비자 하드웨어 시 |
-| [뉴욕시, 기만적 구독 관행 금지 예정](https://news.hada.io/topic?id=31317) | GeekNews (긱뉴스) | 뉴욕시는 헬스장 멤버십·스트리밍 같은 반복 과금에서 소비자가 빠져나오기 어렵게 만드는 기만적 구독 관행 을 금지하며, 미국 도시 중 첫 사례가 됨 10월 1일 부터 간단한 해지 방법을 제공하지 않는 기업은 사용자 구독 1건당 525달러 와 환급 수 |
+| [Apple, OpenAI를 상대로 소송 제기하며 전 직원들이 영업비밀을 훔쳤다고 주장](https://news.hada.io/topic?id=31318) | GeekNews (긱뉴스) | 애플은 전 직원 2명과 OpenAI 및 Jony Ive의 io Products를 상대로 영업비밀 부정취득 과 계약 위반 소송을 제기하며, OpenAI의 하드웨어 진출이 Apple 기밀에 기대고 있다고 주장 소장에 따르면 OpenAI는 io Products 인수와 전 Apple 임원·엔지니어 채용을 통해 소비자 하드웨어 |
+| [뉴욕시, 기만적 구독 관행 금지 예정](https://news.hada.io/topic?id=31317) | GeekNews (긱뉴스) | 뉴욕시는 헬스장 멤버십·스트리밍 같은 반복 과금에서 소비자가 빠져나오기 어렵게 만드는 기만적 구독 관행 을 금지하며, 미국 도시 중 첫 사례가 됨 10월 1일 부터 간단한 해지 방법을 제공하지 않는 기업은 사용자 구독 1건당 525달러 와 환급 |
 
 ---
 

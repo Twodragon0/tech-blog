@@ -407,7 +407,7 @@ FBI 국장 Kash Patel이 Strategy(MSTR)에 대한 6자리 규모의 지분 투�
 |------|------|----------|
 | [World Monitor - 실시간 글로벌 인텔리전스 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor 글로벌 대시보드 기반 기술 동향 요약입니다. Real-time global intelligence dashboard with live news, markets, military tracking, infrastructure monitoring, and geopolitical data |
 | [AI로 웹 엔지니어 없이 LINE 앱 안에서 그룹 영상 통화 서비스 만들기](https://techblog.lycorp.co.jp/ko/building-group-video-calls-inside-line-app-with-ai-and-line-planet) | LINE Engineering | 들어가며LINE Developers를 통해 이용할 수 있는 LIFF(LINE Front-end Framework)를 활용하면, LINE 앱 사용자를 대상으로 나만의 서비스 공간을 |
-| [버지니아주, 위치정보 데이터 판매 금지](https://news.hada.io/topic?id=31077) | GeekNews (긱뉴스) | 버지니아주는 VCDPA 개정 으로 위치정보 데이터 판매를 금지해, 주 단위 개인정보보호법에서 위치 데이터 거래 제한을 강화함 이번 개정은 S.B. 388 서명으로 확정됐으며, 금지는 2026년 7월 1일부터 적용됨 VCDPA의 판매(sale) 정의는 개 |
+| [버지니아주, 위치정보 데이터 판매 금지](https://news.hada.io/topic?id=31077) | GeekNews (긱뉴스) | 버지니아주는 VCDPA 개정 으로 위치정보 데이터 판매를 금지해, 주 단위 개인정보보호법에서 위치 데이터 거래 제한을 강화함 이번 개정은 S.B. 388 서명으로 확정됐으며, 금지는 2026년 7월 1일부터 적용됨 VCDPA의 판매(sale) |
 
 ---
 

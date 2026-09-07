@@ -3,6 +3,12 @@
 **결론: 재요약하지 말고, 셀 자체를 단어 경계로 되감아라.** 중위 2자 제거로
 42/42가 게이트를 통과하고, 네트워크도 새 텍스트 생성도 필요 없다.
 
+> **실행 완료 (2026-09-07).** 안 D를 42셀 / 35포스트에 적용했다. 제거 문자수
+> min 2 / 중위 2 / 최대 16. `digest_midword_baseline.txt` 는 **0 엔트리**,
+> `BASELINE_MAX = 0` — midword 게이트는 이제 예외 없는 순수 차단 게이트다.
+> `regen_quality_baseline` 은 변동 없었다(0 added / 0 removed): 되감기가 어떤
+> 포스트의 점수 구간도 넘기지 않았다.
+
 대상: `scripts/digest_midword_baseline.txt` 의 42개 셀 / **35개 발행 포스트**.
 (원래 44였고, 카테고리 집계 행 2건은 다른 결함이어서 이미 복구됐다 — 아래 §4.)
 
@@ -50,14 +56,19 @@
 있었다. 별개의 **살아 있던** 절단 지점이고, 꼬리 `워`/`방` 은 게이트가 막으므로
 잠재 발행 차단이었다. 수정 + 복구 완료(`test_trend_keyword_word_boundary.py`).
 
-## 5. D를 실행할 때의 잔여 비용
+## 5. D 실행 결과 (실측)
 
-- 35개 발행 포스트 수정 → `regen_quality_baseline.py` 갱신 필요(산문 점수 변화).
-  크론이 baseline 을 읽는 순서 때문에 이건 반드시 같은 커밋에 포함해야 한다.
-- 재검증 대상: 구조 diff 래칫 · 체크리스트 H2 · 템플릿 에코 · 보일러플레이트 ·
-  깨진 링크 · 카드 제목 언어. 커버/정직성 게이트는 본문을 읽지 않으므로 무관.
-- 완료 후 `digest_midword_baseline.txt` 는 **0 엔트리**, `BASELINE_MAX` 는 0.
-  게이트는 그랜드파더 없이 순수 차단 게이트가 된다.
+- 42셀 / 35 발행 포스트 수정. 제거 문자수 min 2 / 중위 2 / 최대 16.
+- `regen_quality_baseline` **변동 없음** (0 added / 0 removed). 산문 점수가
+  구간을 넘지 않았다 — 사전에 갱신이 필요할 것으로 봤으나 불필요했다.
+- 게이트 11종 exit 0: `digest_quality_report --all`(mid-word 0, grandfathered 0)
+  · `regen_quality_baseline --check` · 체크리스트 H2 · 템플릿 에코 ·
+  보일러플레이트 · 깨진 링크 · 카드 제목 언어 · KST · `check_posts` ·
+  미번역 · ruff. pytest 5295 passed / 5 skipped.
+- `digest_midword_baseline.txt` **0 엔트리**, `BASELINE_MAX = 0`.
+- 변환 재현: 각 셀에 `_drop_dangling_lone_syllable` + `_trim_dangling_particles`
+  를 고정점까지 반복. 베이스라인 tail 로 **끝나는** 셀이 정확히 1개일 때만
+  수정하고 그 외에는 ABORT — 다른 위치의 부분 문자열 일치를 잘못 고치지 않도록.
 
 ## 6. 범위 밖이지만 붙어 있는 문제 (별건)
 

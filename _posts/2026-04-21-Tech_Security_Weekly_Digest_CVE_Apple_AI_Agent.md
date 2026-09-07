@@ -397,7 +397,7 @@ Capital B가 12 Bitcoin을 추가 매입하여 재무부 보유량을 총 2,937 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
 | [MIQPS로 대규모 콘텐츠 중복 제거를 강화하는 Pinterest의 스마트 URL 정규화](https://medium.com/pinterest-engineering/smarter-url-normalization-at-scale-how-miqps-powers-content-deduplication-at-pinterest-4aa42e807d7d?source=rss----4c5a5f6279b6---4) | Pinterest Engineering | Pinterest는 정확한 콘텐츠 이해를 위해 MIQPS를 활용한 스마트한 URL 정규화를 대규모로 수행하고 있습니다. 이는 콘텐츠 중복 제거를 가능하게 하여 이미지와 아웃바운드 링크에 대한 심층적인 통찰을 제공합니다 |
-| [사우나가 심박수에 미치는 효과](https://news.hada.io/topic?id=28741) | GeekNews (긱뉴스) | 고온·건조 환경 노출은 심혈관계 자극 과 함께 사우나 중 심박수 상승을 일으키고, 같은 날 밤에는 최저 심박수 감소 로 이어짐 약 5만9천 건 의 일일 기록과 256명 사용자 데이터를 비교한 결과, 사우나 사용일은 비사용일보다 활 |
+| [사우나가 심박수에 미치는 효과](https://news.hada.io/topic?id=28741) | GeekNews (긱뉴스) | 고온·건조 환경 노출은 심혈관계 자극 과 함께 사우나 중 심박수 상승을 일으키고, 같은 날 밤에는 최저 심박수 감소 로 이어짐 약 5만9천 건 의 일일 기록과 256명 사용자 데이터를 비교한 결과, 사우나 사용일은 비사용일보다 |
 | [NSA가 블랙리스트에도 불구하고 Anthropic의 Mythos를 사용 중](https://news.hada.io/topic?id=28740) | GeekNews (긱뉴스) | Anthropic Mythos Preview 가 NSA에서 사용 중이며, DoD 고위 당국자들이 Anthropic를 공급망 리스크 로 규정한 뒤에도 활용이 이어짐 DoD는 2월 Anthropic 차단과 함께 벤더들에도 같은 조치를 추진했지만, 군 내부에서는 해당 도구의 사용 범위가 더 넓게 이어짐 |
 
 ---
