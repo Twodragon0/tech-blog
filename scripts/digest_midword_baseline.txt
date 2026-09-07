@@ -1,0 +1,63 @@
+# scripts/digest_midword_baseline.txt
+# Grandfathered mid-word table cells (deny-by-default single-syllable tail).
+#
+# Each line is "<post filename>\t<last 24 chars of the offending cell>" — keyed
+# on the text, NOT the line number, because line numbers shift on any edit and a
+# baseline that silently stops matching turns a blocking gate green.
+#
+# These 44 cells in 37 cron digests were produced by the bug fixed in the same
+# change: the RSS feed handed us a summary it had already cut, and
+# _korean_brief_summary erased the trailing ellipsis that marked the cut. Their
+# source text is long gone, so completing the words would mean inventing them.
+# Recording them keeps the gate BLOCKING for every new post instead of leaving
+# it dormant; the count is ratcheted by
+# test_digest_midword_baseline_does_not_grow.
+#
+# Do NOT add a line here to make a new digest pass. The generator no longer
+# emits these — a fresh hit means either a new source of truncation or a word
+# that belongs in _SINGLE_SYLLABLE_ALLOW (check the actual cell first).
+
+2026-03-24-Tech_Security_Weekly_Digest_Malware_Data_AWS_AI.md	 주요 기능이 동시 장애를 겪었고, 일부 서
+2026-04-03-Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI.md	 개별 생명을 기억(remember) 할 수
+2026-04-06-Tech_Security_Weekly_Digest_Patch_AI.md	링 없이 마크다운 파일 하나 만 프로젝트 루
+2026-04-12-Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI.md	는 Mythos와 다른 창의적 익스플로잇 경
+2026-04-13-Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust.md	되며, 캐싱 효과가 사라져 급격한 소모가 발
+2026-04-18-Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go.md	gents와 AWS Support 자동화 워
+2026-04-21-Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent.md	교한 결과, 사우나 사용일은 비사용일보다 활
+2026-04-27-Tech_Security_Weekly_Digest_AI_Agent.md	한 번 쓰고 나갈 환경인데 흔적은 영구히 남
+2026-05-10-Tech_Security_Weekly_Digest_Malware_Patch_AI_Agent.md	ipt 상호작용, 이미지, 캔버스와 절대 위
+2026-05-13-Tech_Security_Weekly_Digest_AI_Vulnerability_Security_Agent.md	stagram과 Facebook에서 자체 최
+2026-05-16-Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security.md	 확산되고 있으며, AI 에이전트에 대한 맹
+2026-05-19-Tech_Security_Weekly_Digest_Cloud_AI_Malware_Go.md	 중심의 벤치마크 한계를 극복하기 위해, 수
+2026-05-19-Tech_Security_Weekly_Digest_Cloud_AI_Malware_Go.md	고 분노를 보상했다고 말함 AI 전환 을 꺼
+2026-05-25-Tech_Security_Weekly_Digest_AI_Ethereum_Blockchain.md	춘 대형 프로젝트처럼 포장되는 점이 핵심 비
+2026-05-26-Tech_Security_Weekly_Digest_AI_AWS_Botnet_CVE.md	 문제를 해결하기 위해, nbformat 사
+2026-05-27-Tech_Security_Weekly_Digest_AI_AWS_CVE_Patch.md	다룹니다. AI 서비스 운영 기업은 보통 트
+2026-05-27-Tech_Security_Weekly_Digest_AI_AWS_CVE_Patch.md	번지지 않게 해야 한다는 부담이 큼 현재 보
+2026-05-30-Tech_Security_Weekly_Digest_Vulnerability_GPT_CVE_LLM.md	까지 함께 따라옴 Yocto 도입에는 수 시
+2026-05-31-Tech_Security_Weekly_Digest_CVE_Vulnerability_AI.md	명령 수정, 권한 결정, 컨텍스트 주입, 파
+2026-06-14-Tech_Security_Weekly_Digest_AI_Go.md	집계하지 않음 공식 불승인 공지가 없어도 새
+2026-06-15-Tech_Security_Weekly_Digest_AI_Security_Go_Ethereum.md	, 독점 데이터, 깊은 기록 시스템 에서 나
+2026-06-15-Tech_Security_Weekly_Digest_AI_Security_Go_Ethereum.md	e 는 로컬 우선·멀티플레이어 안전·버전 관
+2026-06-22-Tech_Security_Weekly_Digest_Threat_AI_Security.md	 않아도 신규 대형 기술주를 보유하게 될 수
+2026-07-03-Tech_Security_Weekly_Digest_Go_AI_Ransomware_Threat.md	용됨 VCDPA의 판매(sale) 정의는 개
+2026-07-04-Tech_Security_Weekly_Digest_Patch_AWS_AI_Malware.md	 130,000개 SKU나 Amazon식 무
+2026-07-04-Tech_Security_Weekly_Digest_Patch_AWS_AI_Malware.md	시키고, AI가 off the rails 상
+2026-07-05-Tech_Security_Weekly_Digest_AI_Data_Go_Ransomware.md	ube는 댓글 수정 사실을 크리에이터에게 다
+2026-07-07-Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI.md	기능은 추가하지 않겠다고 밝힘 2005년 시
+2026-07-11-Tech_Security_Weekly_Digest_Security_Threat_AWS_Patch.md	 사용자 구독 1건당 525달러 와 환급 수
+2026-07-11-Tech_Security_Weekly_Digest_Security_Threat_AWS_Patch.md	원·엔지니어 채용을 통해 소비자 하드웨어 시
+2026-07-13-Tech_Security_Weekly_Digest_AI_GPT_Malware.md	이 어려워지고 , 10%라면 매년 사용자 기
+2026-07-18-Tech_Security_Weekly_Digest_AI_Blockchain_Cloud_Kubernetes.md	은 대기층에 다른 기체가 존재할 가능성은 남
+2026-07-19-Tech_Security_Weekly_Digest_Update_Patch_AWS_Malware.md	 최상위 모델보다 크게 저렴함 Kimi는 월
+2026-07-25-Tech_Security_Weekly_Digest_Malware_AWS_Agent_AI.md	의 기여를 인정받고 독자는 읽을 콘텐츠를 더
+2026-07-27-Tech_Security_Weekly_Digest_AI.md	 용도 를 분류 기준으로 삼으며, 다목적 크
+2026-07-27-Tech_Security_Weekly_Digest_AI.md	st 이전은 2주 미만에 100만 줄 을 생
+2026-07-31-Tech_Security_Weekly_Digest_Update_Malware_AI_Agent.md	으로 대규모 서명키 관리 시스템을 구축한 방
+2026-08-07-Tech_Security_Weekly_Digest_Patch_AWS_Cloud_Threat.md	EST API 오류 와 예상치 못한 속도 제
+2026-08-08-Tech_Security_Weekly_Digest_AI_Data_Cloud_AWS.md	직은 여러 도구를 직접 운용하는 방식에서 벗
+2026-08-12-Tech_Security_Weekly_Digest_Zero-Day_Patch_AWS_Botnet.md	모음. 벤치마크 점수 얘기가 아니라, 내 제
+2026-08-16-Tech_Security_Weekly_Digest_Botnet_AI_Threat_Agent.md	받는 오픈소스는 단순한 기능 복제 만으로 대
+2026-08-25-Tech_Security_Weekly_Digest_AI_Malware.md	MP 메타데이터 를 읽을 수 있을 것으로 예
+2026-08-26-Tech_Security_Weekly_Digest_Cloud_AWS_AI_Go.md	AI 에이전트 .env /셸 기록/MCP 설
+2026-08-26-Tech_Security_Weekly_Digest_Cloud_AWS_AI_Go.md	트워크 구조 , 작은 행렬에서도 효율적인 코

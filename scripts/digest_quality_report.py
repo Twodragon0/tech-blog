@@ -22,6 +22,31 @@ _TRUNCATION_PARTICLES = re.compile(
     r"\s+(의|에|를|을|이|가|은|는|와|과|로|으로|에서|한|된|인|할|위한|하기|대한)\s*$"
 )
 
+# A lone trailing Hangul syllable is the OTHER half of a mid-word cut, and the
+# particle set above is blind to it: `…괜찮아서 틈` (of 틈틈이) sat in the same
+# table as the cell that blocked the 2026-09-07 digest and shipped untouched,
+# because `틈` is not a particle.
+_SINGLE_SYLLABLE_TAIL = re.compile(r"\s([가-힣])\s*$")
+
+# Deny-by-default, mirroring check_card_title_language's ENGLISH_TITLE_ALLOW.
+# Derived by reading all 96 corpus cells with a lone-syllable tail (2026-09-07)
+# rather than by guessing: these 18 are complete words that legitimately end a
+# Korean noun phrase or a nominalized clause. The other 78 cells split 44
+# genuine cuts / 34 allow-listed occurrences.
+#
+#   등 "etc."          중 "in progress"   팁 "tip"        때 "when"
+#   것 "thing"         후 "after"          됨 nominalized  법 "method"
+#   바 "what it means" 명 "persons"        봇 "bot"        외 "besides"
+#   일 "task"          점 "point"          길 "path"       함 nominalized
+#   앱 "app"           칩 "chip"
+#
+# Adding one here is a claim that the word ends a phrase on its own. Check the
+# actual cell first — `수` looks like a noun but every corpus occurrence was
+# `할 수` cut from `할 수 있다`, and `시` was 시간/시작/시장.
+_SINGLE_SYLLABLE_ALLOW = frozenset(
+    "등 중 팁 때 것 후 됨 법 바 명 봇 외 일 점 길 함 앱 칩".split()
+)
+
 # English-only trend header (no Korean chars)
 _ENGLISH_HEADER = re.compile(r"^\*\*[A-Za-z0-9 /\-&.]+\*\*$")
 
@@ -58,10 +83,45 @@ def find_digest_posts(month: str | None = None) -> list:
     return posts
 
 
+MIDWORD_BASELINE = Path(__file__).resolve().parent / "digest_midword_baseline.txt"
+
+
+def midword_key(post_name: str, text: str) -> str:
+    """Stable identity for a grandfathered mid-word cell.
+
+    Keyed on the post filename plus the cell's last 24 characters, NOT on the
+    line number: line numbers shift whenever a post is edited, and a baseline
+    that silently stops matching turns a blocking gate green.
+    """
+    return f"{post_name}\t{text[-24:]}"
+
+
+def load_midword_baseline(path: Path | None = None) -> frozenset[str]:
+    path = MIDWORD_BASELINE if path is None else Path(path)
+    if not path.is_file():
+        return frozenset()
+    keys = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.startswith("#") or not line.strip():
+            continue
+        keys.add(line.rstrip("\n"))
+    return frozenset(keys)
+
+
+def unbaselined_midword(post_name: str, issues: dict, baseline) -> list:
+    """The mid-word cells in ``issues`` that the baseline does not grandfather."""
+    return [
+        mc
+        for mc in issues.get("midword_cells", [])
+        if midword_key(post_name, mc["text"]) not in baseline
+    ]
+
+
 def analyze_post(filepath: Path) -> dict:
     """Analyze a single post for quality issues."""
     issues: dict[str, Any] = {
         "truncated_cells": [],
+        "midword_cells": [],
         "english_headers": [],
         "incomplete_highlights": [],
         "summary_quality": "ok",
@@ -74,6 +134,7 @@ def analyze_post(filepath: Path) -> dict:
     lines = content.split("\n")
     issues = {
         "truncated_cells": [],
+        "midword_cells": [],
         "english_headers": [],
         "incomplete_highlights": [],
         "summary_quality": "ok",
@@ -92,6 +153,10 @@ def analyze_post(filepath: Path) -> dict:
             for cell in cells:
                 if len(cell) > 30 and _TRUNCATION_PARTICLES.search(cell):
                     issues["truncated_cells"].append({"line": i, "text": cell[-60:]})
+                    continue
+                m = _SINGLE_SYLLABLE_TAIL.search(cell) if len(cell) > 30 else None
+                if m and m.group(1) not in _SINGLE_SYLLABLE_ALLOW:
+                    issues["midword_cells"].append({"line": i, "text": cell[-60:]})
 
             # Check for English-only trend headers
             for cell in cells:
@@ -130,12 +195,22 @@ def analyze_post(filepath: Path) -> dict:
     return issues
 
 
-def generate_report(posts: list) -> dict:
-    """Generate quality report across all posts."""
+def generate_report(posts: list, baseline: frozenset[str] | None = None) -> dict:
+    """Generate quality report across all posts.
+
+    ``baseline`` grandfathers historical mid-word cells. 44 of them sit in 37
+    cron digests whose source text is long gone, so they cannot be repaired
+    without inventing words; recording them keeps the gate blocking for
+    everything new instead of leaving it dormant.
+    """
+    if baseline is None:
+        baseline = load_midword_baseline()
     report: dict[str, Any] = {
         "total_posts": len(posts),
         "posts_with_issues": 0,
         "truncated_cells_total": 0,
+        "midword_cells_total": 0,
+        "midword_baselined": 0,
         "english_headers_total": 0,
         "incomplete_highlights_total": 0,
         "generic_summaries": 0,
@@ -144,8 +219,12 @@ def generate_report(posts: list) -> dict:
 
     for post in posts:
         issues = analyze_post(post)
+        fresh_midword = unbaselined_midword(post.name, issues, baseline)
+        report["midword_baselined"] += len(issues["midword_cells"]) - len(fresh_midword)
+        issues["midword_cells"] = fresh_midword
         has_issues = (
             issues["truncated_cells"]
+            or fresh_midword
             or issues["english_headers"]
             or issues["incomplete_highlights"]
             or issues["summary_quality"] != "ok"
@@ -153,6 +232,7 @@ def generate_report(posts: list) -> dict:
 
         if has_issues:
             report["posts_with_issues"] += 1
+            report["midword_cells_total"] += len(fresh_midword)
             report["truncated_cells_total"] += len(issues["truncated_cells"])
             report["english_headers_total"] += len(issues["english_headers"])
             report["incomplete_highlights_total"] += len(
@@ -180,6 +260,10 @@ def print_report(report: dict):
     print("  Issue Type                Count")
     print("  " + "-" * 40)
     print(f"  Truncated table cells:   {report['truncated_cells_total']}")
+    print(
+        f"  Mid-word table cells:    {report['midword_cells_total']}"
+        f"  (grandfathered: {report.get('midword_baselined', 0)})"
+    )
     print(f"  English trend headers:   {report['english_headers_total']}")
     print(f"  Incomplete highlights:   {report['incomplete_highlights_total']}")
     print(f"  Generic summaries:       {report['generic_summaries']}")
@@ -199,6 +283,8 @@ def print_report(report: dict):
             issues = detail["issues"]
             for tc in issues["truncated_cells"]:
                 print(f"    L{tc['line']} TRUNCATED: ...{tc['text']}")
+            for mc in issues["midword_cells"]:
+                print(f"    L{mc['line']} MID-WORD:  ...{mc['text']}")
             for eh in issues["english_headers"]:
                 print(f"    L{eh['line']} ENGLISH:   {eh['text']}")
             for ih in issues["incomplete_highlights"]:
@@ -221,9 +307,12 @@ def check_file(path: Path) -> list:
     that a quality gate can run immediately after writing a new post.
     """
     issues = analyze_post(path)
+    baseline = load_midword_baseline()
     messages = []
     for tc in issues.get("truncated_cells", []):
         messages.append(f"L{tc['line']} TRUNCATED: ...{tc['text']}")
+    for mc in unbaselined_midword(path.name, issues, baseline):
+        messages.append(f"L{mc['line']} MID-WORD: ...{mc['text']}")
     for eh in issues.get("english_headers", []):
         messages.append(f"L{eh['line']} ENGLISH_HEADER: {eh['text']}")
     for ih in issues.get("incomplete_highlights", []):
@@ -243,6 +332,12 @@ def main():
     parser.add_argument(
         "--files", nargs="+", help="Check specific files instead of searching"
     )
+    parser.add_argument(
+        "--baseline",
+        default=None,
+        help="Grandfather list for historical mid-word cells "
+        "(default: scripts/digest_midword_baseline.txt)",
+    )
     args = parser.parse_args()
 
     if args.files:
@@ -260,7 +355,7 @@ def main():
         print("No Digest posts found")
         sys.exit(0)
 
-    report = generate_report(posts)
+    report = generate_report(posts, load_midword_baseline(args.baseline))
     all_clean = print_report(report)
 
     if args.ci and not all_clean:
