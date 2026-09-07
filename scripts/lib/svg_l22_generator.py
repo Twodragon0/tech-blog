@@ -110,14 +110,10 @@ THEMES: Dict[str, Dict[str, str]] = {
 QR_PX = 108.0
 
 
-def gen_qr(url: str) -> str:
-    """Return SVG path data encoding ``url`` as a ``QR_PX`` x ``QR_PX`` matrix.
-
-    Only the render scale changed (84 -> 108 px); the underlying QR matrix is
-    identical for the same URL, so the decoded payload is unchanged.
-    """
+def _qr_matrix(url: str):
+    """The QR module matrix for ``url``, or ``None`` without the qrcode package."""
     if not QRCODE_AVAILABLE:
-        return ""
+        return None
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_M,
@@ -126,9 +122,45 @@ def gen_qr(url: str) -> str:
     )
     qr.add_data(url)
     qr.make(fit=True)
-    matrix = qr.get_matrix()
+    return qr.get_matrix()
+
+
+def qr_scale(url: str) -> float:
+    """Module-to-pixel scale for ``url``'s matrix, for ``transform="scale(...)"``.
+
+    Returns ``0.0`` without the qrcode package, matching :func:`gen_qr`'s empty
+    return. Callers that emit a block must treat that as "no QR available"; the
+    gate refuses to run at all in that state (see check_cover_qr_urls).
+    """
+    matrix = _qr_matrix(url)
+    return QR_PX / len(matrix) if matrix else 0.0
+
+
+def gen_qr(url: str) -> str:
+    """Return SVG path data encoding ``url`` in INTEGER MODULE coordinates.
+
+    One module = one unit; the caller scales the path with
+    ``transform="scale(qr_scale(url))"``. The rendered geometry is unchanged —
+    the same matrix at the same 108 px edge — but the path text shrinks 58 %
+    because ``M0 0h7v1h-7z`` replaces ``M0.0 0.0h18.439v2.634h-18.439z``.
+    Measured 2026-09-07 across the 287 covers that carry a QR: 2.45 MB of SVG
+    text removed, and the two covers that had been pushed over the hq size band
+    by a longer canonical URL came back in-band.
+
+    Why not simply round the absolute coordinates to fewer decimals: it is worse
+    on both axes. 2 decimals saves 2224 bytes on a sample cover against 8627
+    here, and moves 2549 rendered pixels against 177 — rounding shifts module
+    EDGES, whereas the transform lets the renderer scale at full precision and
+    only antialiasing differs.
+
+    The 177 px (0.023 % of a 1200x630 frame, entirely inside the QR square) is
+    why every cover's rasters were rebuilt with this change rather than left
+    alone.
+    """
+    matrix = _qr_matrix(url)
+    if not matrix:
+        return ""
     size = len(matrix)
-    scale = QR_PX / size
     parts: List[str] = []
     for ri, row in enumerate(matrix):
         j = 0
@@ -137,11 +169,7 @@ def gen_qr(url: str) -> str:
                 run = 0
                 while j + run < size and row[j + run]:
                     run += 1
-                parts.append(
-                    f"M{round(j * scale, 3)} {round(ri * scale, 3)}"
-                    f"h{round(run * scale, 3)}v{round(scale, 3)}"
-                    f"h-{round(run * scale, 3)}z"
-                )
+                parts.append(f"M{j} {ri}h{run}v1h-{run}z")
                 j += run
             else:
                 j += 1
@@ -164,7 +192,13 @@ def qr_block(url: str) -> str:
     return (
         f'<g transform="translate(1080,504)" filter="url(#softShadow)">\n'
         f'  <rect x="-12" y="-12" width="132" height="132" rx="8" fill="#FFFFFF"/>\n'
-        f'  <path fill="#0A1020" d="{gen_qr(url)}"/>\n'
+        # `transform` comes AFTER `d` deliberately. check_cover_qr_urls'
+        # _QR_PATH_RE matches `<path fill="#0A1020" d="([^"]*)"`, so putting the
+        # attribute first breaks the gate — measured, it stops matching and the
+        # cover reads as missing-qr. Keeping the order costs nothing and leaves
+        # the gate and fix_qr_url_in_covers regexes untouched.
+        f'  <path fill="#0A1020" d="{gen_qr(url)}" '
+        f'transform="scale({qr_scale(url)!r})"/>\n'
         f"</g>\n"
         f'<text x="1134" y="486" font-family="Inter, Helvetica, Arial, sans-serif" '
         f'font-size="10" font-weight="700" fill="#F5F7FA" text-anchor="middle">scan / full post</text>'

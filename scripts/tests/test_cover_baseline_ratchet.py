@@ -39,28 +39,22 @@ SIZE_BASELINE = SCRIPTS / "svg_size_gate_baseline.txt"
 
 # Frozen maxima. All baselines were retired to empty as of 2026-06-24.
 #
-# 2026-09-07: SIZE_MAX 0 -> 2. Not a new legacy file — two existing covers grew
-# past the hq cap because their QR was re-encoded to a URL that actually
-# resolves. Both had carried a QR built from the COVER filename, which returned
-# 404 in production (16/16 covers checked; the owner-post URL returned 200
-# 16/16), so the QR is now derived from the post that declares the cover in its
-# `image:` field. The post slug is longer, which bumps the QR to a higher
-# version and adds modules. 100 % of the growth is inside the QR block:
+# 2026-09-07, twice in one day. First 0 -> 2: two covers grew past the hq cap
+# because their QR was re-encoded to a URL that actually resolves (the old one
+# derived from the COVER filename and returned 404 in production for 16/16
+# covers checked). The longer post slug bumps the QR to a higher version, and
+# 100 % of the growth was inside the QR block.
 #
-#   2025-09-17-NPM_Shai-Hulud_180…      67652 -> 76791  (+9139, cap+3063)
-#   2025-12-17-12_Conference_Review…    73625 -> 74148   (+523, cap+420)
+# Then back to 0, by taking the escape hatch that entry described: `gen_qr` now
+# emits integer module coordinates under a `transform="scale(...)"` instead of
+# 3-decimal absolute ones, which shrinks the path text 58 %.
 #
-# The Conference cover is the same one the docstring above records as brought
-# in-band by a ~410 B honest-shield swap, so this partly undoes that — it sat
-# 103 B under the cap and had no headroom for a single extra QR version.
+#   2025-09-17-NPM_Shai-Hulud_180…      76791 -> 64669  (cap 73728)
+#   2025-12-17-12_Conference_Review…    74148 -> 61569
 #
-# "Shrink the cover" does not apply here: the bytes are QR modules, not artwork,
-# and the alternative is shipping two QR codes that scan to a 404. The way back
-# to 0 is to make `gen_qr` emit integer module coordinates under a `scale()`
-# transform instead of 3-decimal absolute ones, which would shrink the path data
-# on all 336 covers — a corpus-wide re-render that drifts every spec cover
-# (see the cover-system skill, gotcha 2), so it belongs in its own change.
-SIZE_MAX = 2
+# So the Conference cover's ~410 B honest-shield saving recorded in the
+# docstring above is intact again, with ~12 KB of headroom on top.
+SIZE_MAX = 0
 
 
 def _entry_count(path: Path) -> int:
