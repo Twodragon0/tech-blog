@@ -107,12 +107,25 @@ jobs:
             echo "- Summary: \`${{ steps.inspect.outputs.summary }}\`"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # include-hidden-files: the path is under a dot-directory, which
+      # upload-artifact v4+ drops by default.
+      #
+      # LATENT, not yet observed: unlike the ai-blogwatcher case this fix came
+      # from, this step has never actually run. GSC_SERVICE_ACCOUNT_JSON is
+      # unprovisioned, so the guard above sets should_run=false and both uploads
+      # are skipped — checked on runs 31367562521 and 31300312257, where the step
+      # conclusion is literally `skipped`. The runs do show 0 artifacts, but that
+      # is the skip, not this bug. Fixed now because the header above anticipates
+      # the secret being provisioned and the schedule restored, and at that moment
+      # these two uploads would silently produce nothing with only a `warn` in a
+      # green log to say so.
       - name: Upload state artifact
         if: steps.guard.outputs.should_run == 'true' && always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
         with:
           name: gsc-queue-${{ github.run_id }}
           path: .omc/state/gsc-queue.json
+          include-hidden-files: true
           if-no-files-found: warn
           retention-days: 14
 
@@ -151,5 +164,7 @@ jobs:
         with:
           name: gsc-action-${{ github.run_id }}
           path: .omc/reports/gsc-daily-action-*.md
+          # Same dot-directory exclusion as the state upload above.
+          include-hidden-files: true
           if-no-files-found: warn
           retention-days: 30
