@@ -389,6 +389,42 @@ if [ -n "$STAGED_ANY_POSTS" ]; then
   fi
   echo "[pre-commit] Card-title language check: passed."
 fi
+
+# 18. Digest cover QR gate — the QR must encode the canonical post permalink.
+#     Until now this gate ran ONLY in check-svg.yml and inside the blogwatcher
+#     cron, so the local publish path had no QR check at all. That is the path
+#     the 2026-09-04 incident came through: f4a459d1 was a hand-run publish from
+#     a laptop and it committed a cover whose QR path data was the empty string
+#     — a blank white square under a "scan / full post" label — which then held
+#     main red for three days.
+#
+#     DIGEST COVERS ONLY, and that scope is load-bearing. The gate derives the
+#     expected URL from the COVER filename, which is only the post's slug when
+#     cover stem == post stem. Measured 2026-09-07 by running it over all 336
+#     covers instead of the 214 digests: 12 "failures", and every one is a false
+#     positive. Resolving each cover to its owner post via the post's `image:`
+#     field (never by filename stem — that misreports owners) shows 11 encode
+#     the owner post's canonical URL, whose filename differs from the cover's by
+#     case ("...Governance_and_..." vs "..._And_...") or by truncation, and the
+#     12th encodes a URL the post declares in `redirect_from`. Zero were broken.
+#     So widening this to every cover would block 12 unrelated commits and teach
+#     everyone to pass --no-verify. Fix the derivation first if you want that.
+STAGED_DIGEST_COVERS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^assets/images/[^/]*Tech_.*Weekly_Digest_.*\.svg$' || true)
+if [ -n "$STAGED_DIGEST_COVERS" ]; then
+  echo "[pre-commit] Checking staged digest cover QR codes against canonical permalinks..."
+  for COVER in $STAGED_DIGEST_COVERS; do
+    python3 "$REPO_ROOT/scripts/check_cover_qr_urls.py" --glob "$COVER"
+    if [ $? -ne 0 ]; then
+      echo "[pre-commit] A digest cover QR does not encode its canonical permalink."
+      echo "             Fix with: python3 scripts/fix_qr_url_in_covers.py --commit --glob '$COVER'"
+      echo "             then re-generate the rasters, because _og/_card are"
+      echo "             rendered from the SVG and still hold the old QR."
+      echo "             To bypass (not recommended): git commit --no-verify"
+      exit 1
+    fi
+  done
+  echo "[pre-commit] Digest cover QR check: passed."
+fi
 HOOK
 
 chmod +x "$HOOK_FILE"
