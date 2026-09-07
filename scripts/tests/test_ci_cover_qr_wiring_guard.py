@@ -11,22 +11,23 @@ it then held main red for three days.
 
 The scope assertion is the load-bearing part of this file
 -------------------------------------------------------
-The gate derives the expected URL from the **cover** filename, which equals the
-post's slug only when cover stem == post stem. Digest covers satisfy that by
-construction; the rest of the corpus does not.
+It briefly pinned the local gate to digest covers only, because the gate derived
+the expected URL from the **cover** filename and that equals the post's slug only
+when cover stem == post stem — true for digests by construction, not for the rest
+of the corpus, where running it produced 16 extra failures.
 
-Measured 2026-09-07 by running the gate over all 336 covers instead of the 214
-digests: 12 "failures", **all false positives**. Resolving each cover to its
-owner post through the post's ``image:`` field — never by filename stem, which
-misreports owners — shows 11 encode the owner post's canonical URL, whose
-filename differs from the cover's by case (``..._Governance_and_...`` vs
-``..._Governance_And_...``) or by truncation, and the 12th encodes a URL the
-post declares in ``redirect_from``. None were broken.
+Re-measured the same day: those 16 were **not** false positives. Probed against
+production, the cover-derived URL returned **404 for 16/16** and the URL derived
+from the owner post — resolved through the post's ``image:`` field, never by
+filename stem, which misreports owners — returned **200 for 16/16**. The gate and
+``fix_qr_url_in_covers.py`` had each derived it from the filename, so they agreed
+with each other while both were wrong, and 16 covers shipped a QR that scans to a
+404. One further cover legitimately encodes a ``redirect_from`` target its post
+declares, which serves the post, so the derivation accepts those too.
 
-So a well-meaning "why only digests?" widening would block 12 unrelated commits
-and train everyone to reach for ``--no-verify``. If you want corpus-wide local
-coverage, fix the derivation (resolve cover -> post via ``image:``) first, then
-widen this — and update this test with the new measurement.
+With the derivation fixed and the 16 QRs re-encoded the corpus is 336/336, so the
+scope is now the whole corpus. Narrowing it back to digests would silently stop
+checking 122 covers.
 """
 
 from __future__ import annotations
@@ -41,10 +42,11 @@ INSTALL = REPO / "scripts" / "install-hooks.sh"
 CHECK_SVG = REPO / ".github" / "workflows" / "check-svg.yml"
 BLOGWATCHER = REPO / ".github" / "workflows" / "ai-blogwatcher.yml"
 
-# The staged-cover selector must not widen past digest covers. Matching on the
-# distinctive part of the pattern rather than the whole regex keeps this from
-# failing on cosmetic edits to the character classes around it.
-_DIGEST_SCOPE_RE = re.compile(r"Weekly_Digest_[^'\"\s]*\\\.svg")
+# The staged-cover selector must cover the whole assets/images/*.svg corpus.
+# A `Weekly_Digest` fragment in it means someone narrowed the scope back to
+# digests, which would stop checking 122 covers.
+_CORPUS_SCOPE_RE = re.compile(r"\^assets/images/\[\^/\]\*\\\.svg\$")
+_NARROWED_RE = re.compile(r"Weekly_Digest_[^'\"\s]*\\\.svg")
 
 
 def _noncomment(text: str) -> str:
@@ -83,17 +85,21 @@ def test_wired_into_canonical_hook_source():
     )
 
 
-def test_local_gate_stays_scoped_to_digest_covers():
-    """Direction: scope must stay narrow. See the module docstring for the 12."""
+def test_local_gate_covers_the_whole_corpus():
+    """Direction: scope must stay wide. See the module docstring for the 16."""
     for path in (HOOK, INSTALL):
         body = _noncomment(path.read_text(encoding="utf-8"))
-        assert _DIGEST_SCOPE_RE.search(body), (
-            f"{path.name}: the staged-cover selector for {SCRIPT} is no longer "
-            "restricted to '*Weekly_Digest_*.svg'. Widening it to every cover "
-            "produces 12 false positives — the gate derives the expected URL "
-            "from the COVER filename, which is only the post slug for digests. "
-            "Fix the derivation (cover -> post via the post's image: field) "
-            "before widening, and re-measure."
+        assert _CORPUS_SCOPE_RE.search(body), (
+            f"{path.name}: the staged-cover selector for {SCRIPT} no longer "
+            "matches the whole 'assets/images/*.svg' corpus."
+        )
+        assert not _NARROWED_RE.search(body), (
+            f"{path.name}: the staged-cover selector for {SCRIPT} was narrowed "
+            "back to '*Weekly_Digest_*.svg'. That stops checking 122 non-digest "
+            "covers — and it is where 16 QRs that scan to a 404 were hiding, "
+            "because the old cover-filename derivation agreed with the fixer "
+            "while both were wrong. The derivation now resolves the owner post "
+            "via its image: field and the corpus is 336/336."
         )
 
 

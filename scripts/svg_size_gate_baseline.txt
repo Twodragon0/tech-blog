@@ -6,3 +6,16 @@
 # Re-run --update-baseline whenever a legacy file is fixed or a new
 # legacy-class file enters the repo.
 
+# Both entries are the price of a QR that resolves. Their covers carried a QR
+# encoding a URL derived from the COVER filename, which 404s (verified against
+# production 2026-09-07); re-encoding the owner post's real permalink is a
+# longer string, which bumps the QR to a higher version and so adds modules.
+# 100 % of the growth is inside the QR block:
+#   NPM_Shai-Hulud_180   67652 -> 76791 (+9139, over the 73728 hq cap by 3063)
+#   12_Conference_Review 73625 -> 74148  (+523, over by 420 — it sat 103 bytes
+#                                         under the cap before)
+# The alternative to these two lines is shipping two QR codes that scan to a
+# 404, so this is grandfathered rather than "fixed". Do not widen the hq band
+# to absorb it — that would relax the gate for all 336 covers.
+assets/images/2025-09-17-NPM_Shai-Hulud_180_Large-scale_Analysis.svg
+assets/images/2025-12-17-12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIand_Security_Coexistence.svg
