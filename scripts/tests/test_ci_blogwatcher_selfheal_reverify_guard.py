@@ -67,6 +67,15 @@ SELF_HEALS = (
         "scripts/check_digest_structure.py",
         "scripts/restore_digest_structure.py",
     ),
+    # Checker and fixer are the same script here — `--check` reads, bare writes —
+    # so the fixer token carries its `|| true` to stay distinguishable from the
+    # checker. Without that, `run.find(fixer)` would match inside the opening
+    # `if ! … --check` line and the tests would assert against the wrong offset.
+    (
+        "Quality baseline pre-flight",
+        "scripts/regen_quality_baseline.py --check",
+        "scripts/regen_quality_baseline.py || true",
+    ),
 )
 
 
