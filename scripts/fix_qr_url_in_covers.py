@@ -16,7 +16,16 @@ Fixing this without re-running the upgrade scripts (which would
 overwrite the curated artwork) requires a surgical replacement: locate
 the QR ``<g transform="translate(1080,504)"...>`` block produced by
 ``svg_l22_generator.qr_block`` and swap it with a freshly-generated one
-encoding the canonical URL derived from the filename.
+encoding the canonical URL.
+
+That URL comes from :mod:`scripts.check_cover_qr_urls`, resolved through the
+owner post's ``image:`` field — NOT from the cover filename. Deriving it here
+independently is how 16 covers came to carry a QR that scans to a 404: the
+cover filename differs from the post filename by case
+(``..._Replace_and_MFA_...`` vs ``..._Replace_And_MFA_...``) or by a shortened
+slug, and because the gate derived it the same way, both agreed while both were
+wrong. Verified against production 2026-09-07: cover-derived URL 404 for 16/16,
+owner-derived URL 200 for 16/16.
 
 Usage
 -----
@@ -37,8 +46,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+# The gate is the single source of truth for "which URL should this cover
+# encode". Importing from it keeps the fixer from writing a URL the gate would
+# then reject — or, as happened before 2026-09-07, from writing a URL that 404s
+# because both sides derived it from the cover filename and so agreed while
+# being wrong.
+from scripts.check_cover_qr_urls import (  # noqa: E402
+    accepted_urls_for_cover,
+    canonical_url_for_cover,
+    cover_owners,
+)
 from scripts.lib.svg_l22_generator import qr_block  # noqa: E402
-from scripts.news.l20_dispatch import _post_url_from_filename  # noqa: E402
 
 # QR block template emitted by ``svg_l22_generator.qr_block``:
 #   <g transform="translate(1080,504)" filter="url(#softShadow)">
@@ -66,18 +84,36 @@ _QR_BLOCK_RE = re.compile(
 )
 
 
-def fix_one(path: Path) -> tuple[bool, str]:
+def _needs_fix(text: str, cover_name: str, owners: dict) -> bool:
+    """True when the rendered QR encodes none of the URLs the gate accepts.
+
+    Accept-first, deliberately: one live cover encodes a ``redirect_from``
+    target its post declares, which serves the post and which the gate treats
+    as valid. Rewriting it to canonical would be a change nothing asked for, so
+    the fixer touches only what the gate would reject.
+    """
+    m = _QR_BLOCK_RE.search(text)
+    if not m:
+        return False
+    for url in accepted_urls_for_cover(cover_name, owners):
+        if text[: m.start()] + qr_block(url) + text[m.end() :] == text:
+            return False
+    return True
+
+
+def fix_one(path: Path, owners: dict | None = None) -> tuple[bool, str]:
     """Return (changed, reason)."""
     text = path.read_text(encoding="utf-8")
     m = _QR_BLOCK_RE.search(text)
     if not m:
         return False, "no QR block found"
-    canonical = _post_url_from_filename(path.name)
-    new_qr = qr_block(canonical)
-    new_text = text[: m.start()] + new_qr + text[m.end() :]
-    if new_text == text:
+    if owners is None:
+        owners = cover_owners()
+    if not _needs_fix(text, path.name, owners):
         return False, "QR matches canonical URL already"
-    path.write_text(new_text, encoding="utf-8")
+    canonical = canonical_url_for_cover(path.name, owners)
+    new_qr = qr_block(canonical)
+    path.write_text(text[: m.start()] + new_qr + text[m.end() :], encoding="utf-8")
     return True, f"QR URL → {canonical}"
 
 
@@ -102,10 +138,11 @@ def main(argv: list[str] | None = None) -> int:
     changed = 0
     skipped_no_qr = 0
     already_correct = 0
+    owners = cover_owners()
 
     for p in paths:
         if args.commit:
-            ok, reason = fix_one(p)
+            ok, reason = fix_one(p, owners)
             if ok:
                 changed += 1
                 print(f"[fix] {p.name}: {reason}")
@@ -115,18 +152,16 @@ def main(argv: list[str] | None = None) -> int:
                 already_correct += 1
         else:
             text = p.read_text(encoding="utf-8")
-            m = _QR_BLOCK_RE.search(text)
-            if not m:
+            if not _QR_BLOCK_RE.search(text):
                 skipped_no_qr += 1
                 continue
-            canonical = _post_url_from_filename(p.name)
-            new_qr = qr_block(canonical)
-            new_text = text[: m.start()] + new_qr + text[m.end() :]
-            if new_text == text:
-                already_correct += 1
-            else:
+            if _needs_fix(text, p.name, owners):
                 changed += 1
-                print(f"[needs-fix] {p.name} → {canonical}")
+                print(
+                    f"[needs-fix] {p.name} → {canonical_url_for_cover(p.name, owners)}"
+                )
+            else:
+                already_correct += 1
 
     mode = "COMMIT" if args.commit else "DRY-RUN"
     print()

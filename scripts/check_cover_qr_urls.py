@@ -45,6 +45,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -61,7 +62,102 @@ _QR_PATH_RE = re.compile(
 )
 
 
-def check_one(path: Path) -> tuple[str, str]:
+_IMAGE_FIELD_RE = re.compile(r"^image:\s*[\"']?(\S+?)[\"']?\s*$", re.M)
+_REDIRECT_ITEM_RE = re.compile(r"^\s*-\s*(/\S+)\s*$", re.M)
+_FRONT_MATTER_RE = re.compile(r"\A---\r?\n(.*?)\r?\n---", re.S)
+
+SITE_ORIGIN = "https://tech.2twodragon.com"
+
+
+def _front_matter(post: Path) -> str:
+    m = _FRONT_MATTER_RE.match(post.read_text(encoding="utf-8", errors="replace"))
+    return m.group(1) if m else ""
+
+
+def cover_owners(posts_dir: Path | None = None) -> dict[str, Path]:
+    """Map ``assets/images/<cover>.svg`` -> the post that declares it.
+
+    Keyed on the post's ``image:`` field, never on the filename stem. Stem
+    matching misreports owners: on a case-insensitive filesystem
+    ``..._Governance_and_...svg`` appears to match ``..._Governance_And_....md``
+    while the live URL uses the post's casing, and several covers carry a
+    shortened slug that shares no stem with their post at all.
+    """
+    posts_dir = (ROOT / "_posts") if posts_dir is None else posts_dir
+    owners: dict[str, Path] = {}
+    for post in sorted(posts_dir.glob("*.md")):
+        m = _IMAGE_FIELD_RE.search(_front_matter(post))
+        if m:
+            owners.setdefault(m.group(1).lstrip("/"), post)
+    return owners
+
+
+def _declared_urls(post: Path) -> list[str]:
+    """Canonical URL first, then any ``redirect_from`` target, as absolute URLs.
+
+    A ``redirect_from`` entry is a real destination — it serves the post — so a
+    QR encoding one is not broken. One live cover
+    (``2025-12-24-Cloud_Security_Course_8Batch_5Week_...``) encodes the older
+    ``/posts/{YYYY}/{MM}/{slug}/`` shape its post still declares.
+    """
+    urls = [_post_url_from_filename(post.name)]
+    fm = _front_matter(post)
+    if "redirect_from" in fm:
+        after = fm.split("redirect_from", 1)[1]
+        for item in _REDIRECT_ITEM_RE.findall(after):
+            urls.append(f"{SITE_ORIGIN}{item}")
+    return urls
+
+
+def accepted_urls_for_cover(
+    cover_name: str, owners: dict[str, Path] | None = None
+) -> list[str]:
+    """Every URL a QR on ``cover_name`` may legitimately encode, canonical first.
+
+    Shared with ``fix_qr_url_in_covers.py`` on purpose: when the fixer derives
+    the URL independently, the two can agree on a wrong answer. That is exactly
+    what happened until 2026-09-07 — both used the cover filename, so the gate
+    passed 16 covers whose QR scanned to a 404 and the fixer would have written
+    the same 404 back.
+    """
+    if owners is None:
+        owners = cover_owners()
+    owner = owners.get(f"assets/images/{cover_name}")
+    if owner is None:
+        return [_post_url_from_filename(cover_name)]
+    return _declared_urls(owner)
+
+
+def canonical_url_for_cover(
+    cover_name: str, owners: dict[str, Path] | None = None
+) -> str:
+    """The one URL a fixer should write."""
+    return accepted_urls_for_cover(cover_name, owners)[0]
+
+
+@lru_cache(maxsize=1)
+def _cached_owners() -> dict[str, Path]:
+    return cover_owners()
+
+
+def spec_qr_url(cover_name: str, fallback: str) -> str:
+    """Resolve the QR URL for a cover a YAML spec is about to render.
+
+    For the ``upgrade_*_cover.py`` generators, whose spec models previously
+    derived the URL from ``(date, slug)`` — i.e. from the cover's own name.
+    That is the same derivation that put a 404 in 16 covers' QR, and here it is
+    worse than in the checker: the generator WRITES it, so a re-render undoes
+    any fix. ``fallback`` is used only when no post claims the cover (a spec
+    with no live post yet), so behaviour for those is unchanged.
+
+    The owner map is cached: it reads every post's front matter, and
+    ``--all`` calls this once per spec.
+    """
+    owner = _cached_owners().get(f"assets/images/{cover_name}")
+    return _declared_urls(owner)[0] if owner else fallback
+
+
+def check_one(path: Path, owners: dict[str, Path] | None = None) -> tuple[str, str]:
     """Return ``("ok", "")`` or ``(reason, expected_url)``.
 
     Hand-drawn covers (research-based, certain L25 / hero variants) do
@@ -69,8 +165,24 @@ def check_one(path: Path) -> tuple[str, str]:
     was emitted by the L20 hero pipeline — those *must* have a QR
     block at translate(1080,504) per
     :func:`scripts.lib.svg_l22_generator.qr_block`.
+
+    The expected URL comes from the **owner post**, resolved through that
+    post's ``image:`` field, falling back to the cover filename when no post
+    claims the cover. Deriving it from the cover filename was correct only for
+    digests, where cover stem == post stem by construction.
+
+    Measured 2026-09-07 over all 336 covers: 16 mismatches, and they were
+    **real** — probed against production, the cover-derived URL returned 404 for
+    16/16 while the owner-derived URL returned 200 for 16/16. The post filename
+    differs from the cover's by case (``..._Replace_and_MFA_...`` vs
+    ``..._Replace_And_MFA_...``, invisible on a case-insensitive filesystem) or
+    by a longer slug. One further cover encodes a URL its post declares in
+    ``redirect_from``, which serves the post and is accepted.
     """
     text = path.read_text(encoding="utf-8")
+    accepted = accepted_urls_for_cover(path.name, owners)
+    canonical = accepted[0]
+
     m = _QR_PATH_RE.search(text)
     if not m:
         # L20 auto-generated covers always emit the QR block. Hand-drawn
@@ -81,14 +193,12 @@ def check_one(path: Path) -> tuple[str, str]:
             in text
         )
         if is_l20_auto:
-            return ("missing-qr", _post_url_from_filename(path.name))
+            return ("missing-qr", canonical)
         return ("ok", "")
     rendered = m.group(1)
-    canonical = _post_url_from_filename(path.name)
-    expected = gen_qr(canonical)
-    if rendered != expected:
-        return ("mismatch", canonical)
-    return ("ok", "")
+    if any(rendered == gen_qr(url) for url in accepted):
+        return ("ok", "")
+    return ("mismatch", canonical)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -123,8 +233,11 @@ def main(argv: list[str] | None = None) -> int:
 
     failures: list[tuple[Path, str, str]] = []
     ok_count = 0
+    # Built once: it reads every post's front matter, and re-deriving it per
+    # cover turns a 336-file sweep into 336 corpus scans.
+    owners = cover_owners()
     for p in paths:
-        reason, expected = check_one(p)
+        reason, expected = check_one(p, owners)
         if reason == "ok":
             ok_count += 1
         else:
