@@ -5,13 +5,29 @@
 # on the text, NOT the line number, because line numbers shift on any edit and a
 # baseline that silently stops matching turns a blocking gate green.
 #
-# These 44 cells in 37 cron digests were produced by the bug fixed in the same
-# change: the RSS feed handed us a summary it had already cut, and
-# _korean_brief_summary erased the trailing ellipsis that marked the cut. Their
-# source text is long gone, so completing the words would mean inventing them.
-# Recording them keeps the gate BLOCKING for every new post instead of leaving
-# it dormant; the count is ratcheted by
-# test_digest_midword_baseline_does_not_grow.
+# These 42 cells in 36 cron digests were produced by the RSS pre-truncation bug:
+# the feed handed us a summary it had already cut, and _korean_brief_summary
+# erased the trailing ellipsis that marked the cut. Recording them keeps the
+# gate BLOCKING for every new post instead of leaving it dormant; the count is
+# ratcheted by test_digest_midword_baseline_does_not_grow.
+#
+# CORRECTION (2026-09-07). This header used to say "their source text is long
+# gone, so completing the words would mean inventing them", and used to count
+# 44. Both were wrong, measured:
+#
+#   * All 42 sources are LIVE and each one still contains the cut fragment
+#     verbatim, so the continuation is available (not invented) if the cells are
+#     ever re-summarised. The first probe reported 8 dead; the variable was the
+#     User-Agent, not the link — GeekNews answers an unrecognised UA with a
+#     browser check served as HTTP 200 with a 260-character body. A real browser
+#     UA returned the article for 8/8.
+#   * 2 of the original 44 were not this bug at all. They were category-rollup
+#     rows, cut by our own _extract_trend_keyword hard slice, and they are
+#     repaired in the commit that added this note. Full measurement:
+#     .omc/research/midword_baseline_recoverability_2026_09_07.md
+#
+# Whether to actually re-summarise the remaining 42 is an open cost/benefit
+# question (42 published posts would be edited): notes/midword-resummarize.md.
 #
 # Do NOT add a line here to make a new digest pass. The generator no longer
 # emits these — a fresh hit means either a new source of truncation or a word
@@ -22,7 +38,6 @@
 2026-04-06-Tech_Security_Weekly_Digest_Patch_AI.md	링 없이 마크다운 파일 하나 만 프로젝트 루
 2026-04-12-Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI.md	는 Mythos와 다른 창의적 익스플로잇 경
 2026-04-13-Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust.md	되며, 캐싱 효과가 사라져 급격한 소모가 발
-2026-04-18-Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go.md	gents와 AWS Support 자동화 워
 2026-04-21-Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent.md	교한 결과, 사우나 사용일은 비사용일보다 활
 2026-04-27-Tech_Security_Weekly_Digest_AI_Agent.md	한 번 쓰고 나갈 환경인데 흔적은 영구히 남
 2026-05-10-Tech_Security_Weekly_Digest_Malware_Patch_AI_Agent.md	ipt 상호작용, 이미지, 캔버스와 절대 위
@@ -53,7 +68,6 @@
 2026-07-25-Tech_Security_Weekly_Digest_Malware_AWS_Agent_AI.md	의 기여를 인정받고 독자는 읽을 콘텐츠를 더
 2026-07-27-Tech_Security_Weekly_Digest_AI.md	 용도 를 분류 기준으로 삼으며, 다목적 크
 2026-07-27-Tech_Security_Weekly_Digest_AI.md	st 이전은 2주 미만에 100만 줄 을 생
-2026-07-31-Tech_Security_Weekly_Digest_Update_Malware_AI_Agent.md	으로 대규모 서명키 관리 시스템을 구축한 방
 2026-08-07-Tech_Security_Weekly_Digest_Patch_AWS_Cloud_Threat.md	EST API 오류 와 예상치 못한 속도 제
 2026-08-08-Tech_Security_Weekly_Digest_AI_Data_Cloud_AWS.md	직은 여러 도구를 직접 운용하는 방식에서 벗
 2026-08-12-Tech_Security_Weekly_Digest_Zero-Day_Patch_AWS_Botnet.md	모음. 벤치마크 점수 얘기가 아니라, 내 제

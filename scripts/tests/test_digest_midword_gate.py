@@ -19,9 +19,19 @@ reasoned allow-list — the shape ``check_card_title_language`` already uses. Of
 the 96 corpus cells with such a tail, 52 end in one of 18 complete words and 44
 are genuine cuts.
 
-The 44 are baselined rather than repaired: their source text is gone, so
-finishing the words would mean inventing them. The baseline keeps the gate
-BLOCKING for everything new instead of leaving it dormant.
+The remaining 42 are baselined rather than repaired, and the baseline keeps the
+gate BLOCKING for everything new instead of leaving it dormant.
+
+Two corrections, measured 2026-09-07 (see the baseline file's own header):
+
+* 2 of the original 44 were never this bug. They were category-rollup rows cut
+  by ``_extract_trend_keyword``'s Korean hard slice — a second, still-live
+  truncation site that the RSS fix did not touch. Repaired, and guarded by
+  ``test_trend_keyword_word_boundary.py``.
+* "Their source text is gone" was wrong. All 42 sources are live and still
+  contain the cut fragment verbatim, so re-summarising them would not mean
+  inventing text. Whether it is worth editing 42 published posts is a separate
+  open question, not a blocker on this gate.
 """
 
 from __future__ import annotations
@@ -35,9 +45,10 @@ import pytest
 REPO_ROOT = Path(__file__).resolve().parents[2]
 BASELINE = REPO_ROOT / "scripts" / "digest_midword_baseline.txt"
 
-# Frozen at the count measured on 2026-09-07. A ratchet, not a target: the
-# generator no longer emits these, so this number must only ever go DOWN.
-BASELINE_MAX = 44
+# A ratchet, not a target: the generator no longer emits these, so this number
+# must only ever go DOWN. 44 at the sweep, then 42 once the 2 category-rollup
+# rows were traced to _extract_trend_keyword and repaired.
+BASELINE_MAX = 42
 
 
 def _post_with_cell(tmp_path: Path, cell: str) -> Path:
@@ -58,7 +69,8 @@ _ALLOWED_CELL = "VPC 설정과 Security Group 그리고 IAM 정책 등"
 
 def test_baseline_file_exists():
     """Canary: a missing baseline silently disables the grandfathering, which
-    would make the gate fail on 44 historical posts rather than pass wrongly —
+    would make the gate fail on the grandfathered historical posts rather than
+    pass wrongly —
     still worth failing loudly instead of guessing."""
     assert BASELINE.is_file(), f"{BASELINE} not found"
 
