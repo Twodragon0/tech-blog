@@ -31,4 +31,4 @@ qrcode[pil]>=7.0
 # this list — the local environment has more packages and hides the difference.
 fonttools[woff]>=4.63.0
 python-dotenv>=1.2.3
-ruff>=0.15.0
+ruff>=0.16.6
