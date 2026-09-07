@@ -28,7 +28,7 @@ fonttools[woff]>=4.63.0
 # Local interpreters are 3.13/3.14, so post-3.11 syntax otherwise reaches CI and
 # aborts test collection rather than failing a single test (PR #599).
 # `ast.parse(feature_version=...)` does not reject PEP 701 f-strings; ruff does.
-ruff>=0.15.0
+ruff>=0.16.6
 
 # python-dotenv — test_optional_narrowing_guards imports generate_missing_diagrams,
 # which does a module-level `from dotenv import load_dotenv`. It was already declared
