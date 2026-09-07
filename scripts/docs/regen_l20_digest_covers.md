@@ -36,8 +36,11 @@ trap where a digest shares a date with a guide-post spec):
 
 ```python
 # pseudo: target = L20 + digest-name + NOT exact-stem spec + NOT monthly/rollup
-spec_stems = {p.stem for d in ("digest_covers","l25_covers")
-              for p in Path(f"_data/{d}").glob("*.yml")}
+spec_stems = {
+    p.stem
+    for d in ("digest_covers", "l25_covers")
+    for p in Path(f"_data/{d}").glob("*.yml")
+}
 ```
 
 ## Usage

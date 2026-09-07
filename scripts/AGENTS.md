@@ -52,6 +52,7 @@ Always use `scripts/lib/security.py` for any output that might contain secrets:
 ```python
 from scripts.lib.security import mask_sensitive_info
 
+
 def safe_log(message: str) -> None:
     print(f"[INFO] {mask_sensitive_info(message)}")
 ```

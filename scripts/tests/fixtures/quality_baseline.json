@@ -4338,7 +4338,7 @@
     }
   },
   "2026-09-07-Tech_Security_Weekly_Digest_Patch_Go_GPT_Update.md": {
-    "total": 93,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4348,7 +4348,7 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   }

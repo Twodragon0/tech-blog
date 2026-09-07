@@ -362,7 +362,11 @@ Bitcoin 사이드체인 리퀴드가 ‘화이트햇’으로 알려진 행위�
 - [ ] **우크라이나의 독립 저널리즘 지원** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
-## 참고 자료
+## 관련 포스트 및 참고 자료
+
+- 2026년 09월 04일 주간 보안 다이제스트: {% post_url 2026-09-04-Tech_Security_Weekly_Digest_AI_Malware_Rust %}
+- eBPF Tetragon Kubernetes 런타임 보안 아키텍처: {% post_url 2026-09-03-eBPF_Tetragon_Kubernetes_Runtime_Security_Architecture %}
+- AI 에이전트 MCP 서버 보안 위협 모델링 및 방어 아키텍처: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
 
 | 리소스 | 링크 |
 |--------|------|

@@ -2404,9 +2404,15 @@ def process_post(post_path: Path, dry_run: bool, force: bool) -> tuple[bool, str
     excerpt = str(post.get("excerpt", ""))
     date_val = str(post.get("date", ""))
     raw_tags = post.get("tags", []) or []
-    tags: list[str] = [str(t) for t in raw_tags] if isinstance(raw_tags, list) else [str(raw_tags)]
+    tags: list[str] = (
+        [str(t) for t in raw_tags] if isinstance(raw_tags, list) else [str(raw_tags)]
+    )
     raw_categories = post.get("categories", []) or []
-    categories: list[str] = [str(c) for c in raw_categories] if isinstance(raw_categories, list) else [str(raw_categories)]
+    categories: list[str] = (
+        [str(c) for c in raw_categories]
+        if isinstance(raw_categories, list)
+        else [str(raw_categories)]
+    )
     cat = post.get("category", "")
     if cat and isinstance(cat, str):
         categories = categories + [cat]
