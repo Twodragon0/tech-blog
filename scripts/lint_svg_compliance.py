@@ -192,7 +192,7 @@ def detect_category(filename: str) -> tuple[str, dict] | tuple[None, None]:
 def check_accent_colors(content: str, filename: str) -> str | None:
     """Flag accent/category mismatch. Only runs on Family A template SVGs."""
     cat_id, rule = detect_category(filename)
-    if cat_id is None:
+    if cat_id is None or rule is None:
         return None  # unrecognised category — skip conservatively
 
     required = rule["required_colors"]

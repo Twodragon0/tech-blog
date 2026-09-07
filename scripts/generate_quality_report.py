@@ -23,22 +23,22 @@ OUTPUT_FILE = Path("/tmp/quality-report.md")
 
 def generate_trend_coverage() -> str:
     """Analyze _TREND_KR_MAP coverage against collected news data."""
-    try:
-        sys.path.insert(0, str(Path(__file__).parent.parent))
-        from scripts.news.content_generator import (
-            _STOP_WORDS,
-            _TECH_PRESERVE,
-            _TREND_KR_MAP,
-        )
-    except ImportError:
+    import importlib
+
+    sys.path.insert(0, str(Path(__file__).parent.parent))
+    mod = None
+    for mod_name in ("scripts.news.content_generator", "news.content_generator"):
         try:
-            from news.content_generator import (
-                _STOP_WORDS,
-                _TECH_PRESERVE,
-                _TREND_KR_MAP,
-            )
+            mod = importlib.import_module(mod_name)
+            break
         except ImportError:
-            return "⚠️ content_generator.py import 실패"
+            continue
+    if mod is None:
+        return "⚠️ content_generator.py import 실패"
+
+    _STOP_WORDS: set[str] = getattr(mod, "_STOP_WORDS", set())
+    _TECH_PRESERVE: set[str] = getattr(mod, "_TECH_PRESERVE", set())
+    _TREND_KR_MAP: dict[str, str] = getattr(mod, "_TREND_KR_MAP", {})
 
     if not NEWS_DATA.exists():
         return "⚠️ 뉴스 데이터 없음 (collected_news.json)"

@@ -248,7 +248,7 @@ class WorkflowSchedule:
     crons: list[CronExpr] = field(default_factory=list)
 
 
-def _on_block(doc: dict[str, Any]) -> dict[str, Any]:
+def _on_block(doc: dict[Any, Any]) -> dict[str, Any]:
     # YAML 1.1 parses a bare `on:` key as the boolean True.
     block = doc.get(True)
     if block is None:

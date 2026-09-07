@@ -143,7 +143,7 @@ def backend_available() -> bool:
     is reachable. Used to short-circuit to a clean no-op when no key exists."""
     if check_gemini_available():
         return True
-    if _allow_deepseek() and os.getenv("DEEPSEEK_API_KEY", ""):
+    if _allow_deepseek() and os.environ.get("DEEPSEEK_API_KEY", ""):
         return True
     return False
 
@@ -167,7 +167,7 @@ def translate(text: str, mode: str, context: str = "기술 뉴스") -> str:
             return candidate
 
     # 2) DeepSeek API fallback (reads DEEPSEEK_API_KEY internally).
-    if _allow_deepseek() and os.getenv("DEEPSEEK_API_KEY", ""):
+    if _allow_deepseek() and os.environ.get("DEEPSEEK_API_KEY", ""):
         candidate = _postprocess(
             _translate_to_korean_deepseek(text, context=context, mode=mode)
         )

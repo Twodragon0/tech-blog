@@ -2400,22 +2400,24 @@ def process_post(post_path: Path, dry_run: bool, force: bool) -> tuple[bool, str
     if current_size > SIZE_THRESHOLD and not force:
         return False, f"SKIP (already {current_size / 1024:.1f}KB): {svg_path.name}"
 
-    title = post.get("title", post_path.stem)
+    title = str(post.get("title", post_path.stem))
     excerpt = str(post.get("excerpt", ""))
-    date_val = post.get("date", "")
-    tags = post.get("tags", []) or []
-    categories = post.get("categories", []) or []
+    date_val = str(post.get("date", ""))
+    raw_tags = post.get("tags", []) or []
+    tags: list[str] = [str(t) for t in raw_tags] if isinstance(raw_tags, list) else [str(raw_tags)]
+    raw_categories = post.get("categories", []) or []
+    categories: list[str] = [str(c) for c in raw_categories] if isinstance(raw_categories, list) else [str(raw_categories)]
     cat = post.get("category", "")
     if cat and isinstance(cat, str):
         categories = categories + [cat]
     if cat and isinstance(cat, list):
-        categories = categories + cat
+        categories = categories + [str(c) for c in cat]
 
     theme = detect_theme(tags, categories, title)
     svg_content = generate_svg(
         title=title,
         excerpt=excerpt,
-        date_str=str(date_val),
+        date_str=date_val,
         tags=tags,
         categories=categories,
         theme=theme,

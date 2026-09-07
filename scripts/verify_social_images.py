@@ -9,7 +9,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 from PIL import Image
 
@@ -39,7 +39,7 @@ def extract_front_matter(content: str) -> Dict[str, str]:
     return fm_data
 
 
-def check_image_size(image_path: Path) -> Dict[str, any]:
+def check_image_size(image_path: Path) -> Dict[str, Any]:
     """이미지 크기 확인 및 플랫폼 호환성 검증"""
     if not image_path.exists():
         return {"exists": False}
@@ -55,9 +55,11 @@ def check_image_size(image_path: Path) -> Dict[str, any]:
 
         return {
             "exists": True,
-            "size": (width, height),
-            "compatible_platforms": compatible,
+            "width": width,
+            "height": height,
+            "compatible": compatible,
             "format": img.format,
+            "mode": img.mode,
         }
     except Exception as e:
         return {"exists": True, "error": str(e)}
@@ -81,9 +83,9 @@ def get_post_url(post_filename: str, base_url: str) -> Optional[str]:
     return None
 
 
-def verify_posts(posts: List[Path], base_url: str) -> List[Dict]:
+def verify_posts(posts: List[Path], base_url: str) -> List[Dict[str, Any]]:
     """포스트 목록 검증"""
-    results = []
+    results: List[Dict[str, Any]] = []
 
     for post_file in posts:
         try:
@@ -138,7 +140,7 @@ def verify_posts(posts: List[Path], base_url: str) -> List[Dict]:
     return results
 
 
-def print_markdown_report(results: List[Dict]) -> None:
+def print_markdown_report(results: List[Dict[str, Any]]) -> None:
     """마크다운 형식 리포트 출력"""
     print("# 소셜 미디어 이미지 검증 결과\n")
     print(f"총 {len(results)}개 포스트 검증\n")

@@ -325,16 +325,24 @@ def extract_post_info(post_file: Path) -> Optional[Dict]:
         return None
 
     meta = post.metadata
-    title = meta.get("title", "")
-    categories = meta.get("categories", [])
-    if isinstance(categories, str):
-        categories = [categories]
-    categories = [str(c) for c in categories]  # coerce to str
+    title = str(meta.get("title", ""))
+    categories_raw = meta.get("categories", [])
+    if isinstance(categories_raw, str):
+        categories_list = [categories_raw]
+    elif isinstance(categories_raw, (list, tuple, set)):
+        categories_list = list(categories_raw)
+    else:
+        categories_list = []
+    categories = [str(c) for c in categories_list]  # coerce to str
     category = categories[0] if categories else str(meta.get("category", "tech"))
-    tags = meta.get("tags", [])
-    if isinstance(tags, str):
-        tags = [tags]
-    tags = [str(t) for t in tags]  # coerce ints (e.g. 2026) to str
+    tags_raw = meta.get("tags", [])
+    if isinstance(tags_raw, str):
+        tags_list = [tags_raw]
+    elif isinstance(tags_raw, (list, tuple, set)):
+        tags_list = list(tags_raw)
+    else:
+        tags_list = []
+    tags = [str(t) for t in tags_list]  # coerce ints (e.g. 2026) to str
     image_path = meta.get("image", "")
     excerpt = meta.get("excerpt", "")
     date_raw = meta.get("date", "")

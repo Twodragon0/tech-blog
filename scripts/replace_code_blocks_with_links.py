@@ -174,6 +174,7 @@ def get_replacement_link(
 ) -> Optional[str]:
     """코드 블록을 대체할 링크 반환"""
     code_lower = code_block.lower()
+    link: Optional[str] = None
 
     # AWS 관련 코드는 AWS 예제 저장소 우선
     if "aws" in code_lower or "boto3" in code_lower or "amazon" in code_lower:
@@ -213,7 +214,7 @@ def get_replacement_link(
 
     # GitHub 링크 우선
     if code_type in GITHUB_LINKS and GITHUB_LINKS[code_type]:
-        link: Optional[str] = GITHUB_LINKS[code_type]
+        link = GITHUB_LINKS[code_type]
         # 보안: URL 검증
         if isinstance(link, str) and validate_url(link):
             return link

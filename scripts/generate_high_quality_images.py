@@ -82,6 +82,8 @@ def extract_post_info(post_file: Path) -> Dict:
         categories = post.metadata.get("categories", [])
         if isinstance(categories, str):
             categories = [categories]
+        elif not isinstance(categories, list):
+            categories = []
         category = categories[0] if categories else post.metadata.get("category", "")
         tags = post.metadata.get("tags", [])
         image_path = post.metadata.get("image", "")

@@ -17,7 +17,7 @@ import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional, cast
 
 # Ensure project root is on sys.path so ``scripts.news`` is importable
 _PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
@@ -348,7 +348,7 @@ class _ConfigProxy:
         return repr(object.__getattribute__(self, "_real"))
 
 
-sys.modules[__name__] = _ConfigProxy(_this_module)
+sys.modules[__name__] = cast(Any, _ConfigProxy(_this_module))
 
 
 # ---------------------------------------------------------------------------

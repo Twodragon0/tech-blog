@@ -35,7 +35,7 @@ import logging
 import os
 import re
 from pathlib import Path
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 # Module-level feature flag. Evaluated once at import time so callers may
 # override it for tests via ``monkeypatch.setattr(...)`` or by mutating the
@@ -2502,8 +2502,11 @@ def load_post_fields(
     """
     if path is None and text is None:
         return None
+    _frontmatter: Any = None
     try:  # Optional: mirrors the generator routing the scorer replays.
-        import frontmatter as _frontmatter  # type: ignore
+        import frontmatter as _fm  # type: ignore
+
+        _frontmatter = _fm
     except Exception:  # pragma: no cover - frontmatter optional in minimal envs
         _frontmatter = None
     if _frontmatter is not None:

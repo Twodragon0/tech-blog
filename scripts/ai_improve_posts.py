@@ -11,7 +11,7 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import requests
@@ -330,7 +330,7 @@ def improve_with_claude(post_info: Dict) -> Optional[str]:
             "content-type": "application/json",
         }
 
-        data = {
+        data: Dict[str, Any] = {
             "model": "claude-3-5-sonnet-20241022",
             "max_tokens": 4000,
             "messages": [{"role": "user", "content": prompt}],
@@ -425,7 +425,7 @@ def improve_with_gemini(post_info: Dict) -> Optional[str]:
         url = GEMINI_API_URL
         headers = {"x-goog-api-key": GEMINI_API_KEY}
 
-        data = {
+        data: Dict[str, Any] = {
             "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "temperature": 0.7,

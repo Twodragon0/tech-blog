@@ -1159,11 +1159,12 @@ def _finish_three_band(
     evidence = _EVIDENCE_RE_BY_SYSTEM[system]
 
     # Band identity — dual path.
+    routed: List[Optional[str]]
     if system == "L20":
-        routed = _routed_visual_ids(title, excerpt, svg_path.name, post)
+        routed = [str(x) for x in _routed_visual_ids(title, excerpt, svg_path.name, post)]
     else:  # L22
         try:
-            routed = _routed_visual_kinds_l22(title, excerpt, svg_path.name)
+            routed = [str(x) for x in _routed_visual_kinds_l22(title, excerpt, svg_path.name)]
         except Exception:
             routed = [None, None, None]
     fingerprinted = _fingerprint_visual_ids(svg_text, taxonomy, n_bands=3)

@@ -30,6 +30,7 @@ import shutil
 import subprocess
 import tempfile
 from pathlib import Path
+from typing import Generator
 
 import pytest
 
@@ -66,7 +67,7 @@ def _gate_is_armed() -> bool:
 
 
 @pytest.fixture(scope="module")
-def built_site_dir() -> Path:
+def built_site_dir() -> Generator[Path, None, None]:
     """Run `bundle exec jekyll build` once and return the destination dir."""
     if not _bundle_available():
         if _gate_is_armed():

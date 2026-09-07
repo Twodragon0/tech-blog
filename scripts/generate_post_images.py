@@ -288,6 +288,8 @@ def extract_post_info(post_file: Path) -> Dict:
         categories = post.metadata.get("categories", [])
         if isinstance(categories, str):
             categories = [categories]
+        elif not isinstance(categories, list):
+            categories = []
         category = categories[0] if categories else post.metadata.get("category", "")
         tags = post.metadata.get("tags", [])
         image_path = post.metadata.get("image", "")
@@ -405,7 +407,7 @@ def _enhance_prompt_with_gpt54(base_prompt: str, post_info: Dict) -> str:
             "Content-Type": "application/json",
         }
 
-        payload = {
+        payload: Dict[str, Any] = {
             "model": GPT54_MODEL,
             "temperature": 0.4,
             "messages": [
@@ -626,7 +628,7 @@ def generate_image_with_gemini(
             )
 
             # Gemini 이미지 생성 API 요청
-            data = {
+            data: Dict[str, Any] = {
                 "contents": [{"parts": [{"text": prompt}]}],
                 "generationConfig": {
                     "temperature": 0.7,

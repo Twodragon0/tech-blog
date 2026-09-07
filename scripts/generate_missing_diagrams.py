@@ -16,7 +16,7 @@ import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import List, Tuple
+from typing import Any, Dict, List, Tuple
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 import requests
@@ -175,7 +175,7 @@ def generate_image_with_gemini(
             # Security: Don't log URL with API key
             log_message("🎨 Gemini API로 이미지 생성 시도 중...")
 
-            data = {
+            data: Dict[str, Any] = {
                 "contents": [{"parts": [{"text": prompt}]}],
                 "generationConfig": {
                     "temperature": 0.7,
