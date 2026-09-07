@@ -398,7 +398,7 @@ Bitcoin Magazine는 'The Whole Entire Universe: 21 Million, One Painting'이라�
 | 트렌드 | 관련 뉴스 수 | 주요 키워드 |
 |--------|-------------|------------|
 | **기타** | 10건 | 기타 주제 |
-| **클라우드 보안** | 3건 | Google Cloud Blog 관련 동향, Eximbay의 AWS Kiro 기반 AX 표준화 여정, Amazon Bedrock Agents와 AWS Support 자동화 워 |
+| **클라우드 보안** | 3건 | Google Cloud Blog 관련 동향, Eximbay의 AWS Kiro 기반 AX 표준화 여정, Amazon Bedrock Agents와 AWS Support 자동화 |
 | **제로데이** | 1건 | The Hacker News 관련 동향 |
 | **랜섬웨어** | 1건 | BleepingComputer 관련 동향 |
 

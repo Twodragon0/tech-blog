@@ -11,6 +11,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+from scripts.digest_quality_report import _SINGLE_SYLLABLE_ALLOW
 from scripts.news.analyzer import (
     extract_cve_id,
     generate_mitre_mapping,
@@ -361,6 +362,37 @@ def _trim_dangling_particles(text: str, min_len: int = 6) -> str:
             break
         text = stripped
     return text.rstrip(" ,.")
+
+
+# `_trim_dangling_particles` is keyed on a particle list, so it cannot see a cut
+# that lands on a lone syllable which happens to be a noun or adverb: `할 수`
+# (of 할 수 있다), `더`, `될`, `존` (of 랜딩 존). Measured over the 334 over-cap
+# Korean title segments in the corpus, _smart_truncate_korean alone still left 14
+# such phrases, and the mid-word publish gate rejects every one of them.
+_LONE_SYLLABLE_TAIL_RE = re.compile(r"\s([가-힣])\s*$")
+
+
+def _drop_dangling_lone_syllable(text: str, min_len: int = 12) -> str:
+    """Drop a trailing single-syllable token the mid-word publish gate rejects.
+
+    The allow-list is imported from the gate instead of restated here, so the
+    two cannot drift: a syllable the gate accepts as a legitimate phrase ending
+    must not be stripped (``가짜 통화 기록 앱`` keeps its ``앱``).
+    """
+    # Loops, because one drop can expose the next: `…으로 몇 분` -> `…으로 몇`,
+    # and `몇` is rejected in turn. A single pass made that phrase worse rather
+    # than clean, so this mirrors _trim_dangling_particles' while-loop shape.
+    while True:
+        match = _LONE_SYLLABLE_TAIL_RE.search(text)
+        if not match or match.group(1) in _SINGLE_SYLLABLE_ALLOW:
+            return text
+        trimmed = text[: match.start()].rstrip(" ,.")
+        # Refuse a cut that would leave a stub. Returning the rejected phrase is
+        # deliberate: it is rare (0 of the 334 corpus segments) and a loud gate
+        # failure beats a meaningless cell shipped quietly.
+        if len(trimmed) < min_len:
+            return text
+        text = trimmed
 
 
 def _smart_truncate_korean(text: str, max_len: int) -> str:
@@ -4848,7 +4880,18 @@ def _extract_trend_keyword(title: str, source: str) -> str:
         parts = re.split(r"[,:\-–—·]", title)
         segment = parts[0].strip()
         if len(segment) > 40:
-            segment = segment[:40]
+            # `segment[:40]` used to hard slice here, which is where the
+            # baselined `자동화 워` (of 워크플로) and `구축한 방` (of 방법) came
+            # from. A trailing lone syllable is what the mid-word publish gate
+            # rejects, so the hard slice was a latent publish blocker rather
+            # than a cosmetic defect. The English branch below already rewinds
+            # (`phrase[:60].rsplit(" ", 1)[0]`) — but this module's purpose-built
+            # helper is strictly better: it prefers a sentence/phrase boundary
+            # over a bare space and then drops dangling particles, so the cell
+            # does not end on a hanging `및` either. Called only on the over-cap
+            # path so shorter segments keep their current output.
+            segment = _smart_truncate_korean(segment, 40)
+            segment = _drop_dangling_lone_syllable(segment)
         return segment
     # For English titles, extract product/topic name then apply Korean mapping
     words = title.split()
