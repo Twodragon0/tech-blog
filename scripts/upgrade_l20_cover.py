@@ -94,6 +94,7 @@ import yaml
 # Make project imports work whether invoked as script or module.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from scripts.check_cover_qr_urls import spec_qr_url  # noqa: E402
 from scripts.lib import svg_l20_hero as l20  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -195,7 +196,17 @@ class Spec:
 
     @property
     def url(self) -> str:
-        return self.url_override or _post_url(self.date, self.slug)
+        # NOT `_post_url(self.date, self.slug)`: self.slug is the COVER slug,
+        # and it differs from the post's filename by case or by length often
+        # enough that deriving the QR URL from it produced 16 covers whose QR
+        # returned 404 in production (owner-derived URL returned 200 for all
+        # 16). The generator WRITES this URL, so the wrong derivation here is
+        # worse than in the checker — a re-render undoes any fix. Resolve the
+        # owner post via its `image:` field; the (date, slug) form stays as the
+        # fallback for a spec no live post claims yet.
+        if self.url_override:
+            return self.url_override
+        return spec_qr_url(self.filename, _post_url(self.date, self.slug))
 
 
 def _post_url(date: str, slug: str) -> str:

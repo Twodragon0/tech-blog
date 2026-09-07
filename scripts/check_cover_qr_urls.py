@@ -45,6 +45,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -134,6 +135,28 @@ def canonical_url_for_cover(
     return accepted_urls_for_cover(cover_name, owners)[0]
 
 
+@lru_cache(maxsize=1)
+def _cached_owners() -> dict[str, Path]:
+    return cover_owners()
+
+
+def spec_qr_url(cover_name: str, fallback: str) -> str:
+    """Resolve the QR URL for a cover a YAML spec is about to render.
+
+    For the ``upgrade_*_cover.py`` generators, whose spec models previously
+    derived the URL from ``(date, slug)`` — i.e. from the cover's own name.
+    That is the same derivation that put a 404 in 16 covers' QR, and here it is
+    worse than in the checker: the generator WRITES it, so a re-render undoes
+    any fix. ``fallback`` is used only when no post claims the cover (a spec
+    with no live post yet), so behaviour for those is unchanged.
+
+    The owner map is cached: it reads every post's front matter, and
+    ``--all`` calls this once per spec.
+    """
+    owner = _cached_owners().get(f"assets/images/{cover_name}")
+    return _declared_urls(owner)[0] if owner else fallback
+
+
 def check_one(path: Path, owners: dict[str, Path] | None = None) -> tuple[str, str]:
     """Return ``("ok", "")`` or ``(reason, expected_url)``.
 
@@ -145,12 +168,16 @@ def check_one(path: Path, owners: dict[str, Path] | None = None) -> tuple[str, s
 
     The expected URL comes from the **owner post**, resolved through that
     post's ``image:`` field, falling back to the cover filename when no post
-    claims the cover. Deriving it from the cover filename alone was correct
-    only for digests, where cover stem == post stem by construction. Measured
-    2026-09-07 over all 336 covers: 12 "mismatches", and every one was a false
-    positive — 11 encoded the owner post's canonical URL (the post filename
-    differs from the cover's by case or by truncation) and 1 encoded a URL the
-    post declares in ``redirect_from``.
+    claims the cover. Deriving it from the cover filename was correct only for
+    digests, where cover stem == post stem by construction.
+
+    Measured 2026-09-07 over all 336 covers: 16 mismatches, and they were
+    **real** — probed against production, the cover-derived URL returned 404 for
+    16/16 while the owner-derived URL returned 200 for 16/16. The post filename
+    differs from the cover's by case (``..._Replace_and_MFA_...`` vs
+    ``..._Replace_And_MFA_...``, invisible on a case-insensitive filesystem) or
+    by a longer slug. One further cover encodes a URL its post declares in
+    ``redirect_from``, which serves the post and is accepted.
     """
     text = path.read_text(encoding="utf-8")
     accepted = accepted_urls_for_cover(path.name, owners)
