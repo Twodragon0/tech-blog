@@ -331,7 +331,14 @@ class TestQrScannabilityGeometry:
         assert QR_PX >= 104.0, f"QR_PX regressed below scannable size: {QR_PX}"
 
     def test_qr_path_max_extent_matches_qr_px(self):
-        from scripts.lib.svg_l22_generator import QR_PX, gen_qr
+        """The QR still fills the locked QR_PX edge.
+
+        Same invariant as before, expressed in the coordinate system gen_qr now
+        emits: integer MODULE units, scaled by `qr_scale(url)` in the path's
+        `transform`. Reading `M(\\d+)` as pixels would compare 40 against 108 and
+        fail for a reason that has nothing to do with geometry.
+        """
+        from scripts.lib.svg_l22_generator import QR_PX, gen_qr, qr_scale
 
         url = (
             "https://tech.2twodragon.com/posts/2026/05/23/"
@@ -339,10 +346,11 @@ class TestQrScannabilityGeometry:
         )
         d = gen_qr(url)
         assert d, "gen_qr returned empty path"
-        xs = [float(x) for x in re.findall(r"M([0-9.]+) ", d)]
+        scale = qr_scale(url)
+        xs = [int(x) * scale for x in re.findall(r"M(\d+) ", d)]
         # Last dark module starts at (size-1)*scale; full extent reaches QR_PX.
         # Allow a one-module slack below QR_PX for the final module's origin.
-        one_module = QR_PX / 41.0
+        one_module = scale
         assert max(xs) <= QR_PX, "QR path overshoots QR_PX"
         assert max(xs) >= QR_PX - 2 * one_module, "QR path far smaller than QR_PX"
 
