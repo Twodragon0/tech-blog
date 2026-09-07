@@ -292,12 +292,27 @@ jobs:
       # `failure()` and not `always()`: on success the directory does not exist
       # and an unconditional upload would log a "no files found" warning on
       # every healthy run, which is how real warnings stop being read.
+      #
+      # include-hidden-files is REQUIRED because the path is a dot-directory.
+      # upload-artifact v4+ excludes hidden files by default, so for its whole
+      # life this step uploaded nothing: run 34074671646 (2026-09-07) rejected a
+      # truncated digest, auto_publish_news.py printed "Rejected draft preserved
+      # at .digest-gate-failure/…", and the upload logged
+      #   include-hidden-files: false
+      #   No files were found with the provided path: .digest-gate-failure/.
+      # then reported success — 0 artifacts on the run. The diagnostic added
+      # after 08-27 to stop exactly this evidence loss was itself losing the
+      # evidence, and `if-no-files-found: ignore` (correct, per the note above)
+      # meant it never even warned. Keep `ignore`: this step fires on ANY job
+      # failure, most of which happen before the gate and legitimately leave no
+      # draft. The flag is the fix, not the found-policy.
       - name: Upload rejected draft (quality gate diagnostics)
         if: failure()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
         with:
           name: digest-gate-failure-${{ github.run_id }}
           path: .digest-gate-failure/
+          include-hidden-files: true
           if-no-files-found: ignore
           retention-days: 14
 
