@@ -2877,9 +2877,39 @@ def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
                     KOREAN_SUMMARY_CACHE[cache_key] = generated
                     return generated
 
-        concise = _restore_sentence_period(
-            " ".join(selected).replace("...", " ").replace("…", " ").strip(" .")
-        )
+        # THE erasure site. `selected` is the source's first sentences, and RSS
+        # feeds hand us summaries the publisher already cut, marked with a
+        # trailing ellipsis (measured 2026-09-07 on a live collection: 32 of 165
+        # items, at 90-170 chars — under every cap downstream). Stripping the
+        # ellipsis here removes the ONLY evidence of the cut, and nothing after
+        # this point can recover it: `_table_summary`'s own cleanup hangs off
+        # `len > max_len`, so a short pre-cut fragment sailed through both.
+        #
+        # Result on 2026-09-07: the digest was rejected at the publish gate with
+        # `L259 TRUNCATED: … 성장하는 시스템에 가`, and because that gate only
+        # catches tails that happen to be a dangling particle, quieter cases had
+        # already shipped — a corpus sweep found 36+ cells ending mid-word
+        # (`수 시`→시간, `버전 관`→관리, `자체 최`→최적화), nearly all in cron
+        # digests.
+        #
+        # So: read the marker before destroying it, and either rewind to the
+        # publisher's last complete sentence or close the fragment.
+        # A trailing ellipsis alone is NOT enough: publishers also write one
+        # after a finished sentence ("공격이 확산되고 있습니다..."), where it is
+        # decoration. Treating that as a cut rewrote a complete sentence into
+        # "공격이 확산되고 등이 확인되었습니다." — caught by
+        # test_korean_summary_period. So require that what remains does not
+        # already end on a sentence-ending morpheme, reusing the same test
+        # _restore_sentence_period uses to decide whether a period is warranted.
+        joined = " ".join(selected)
+        stripped = joined.replace("...", " ").replace("…", " ").strip(" .")
+        source_was_cut = bool(
+            _TRAILING_ELLIPSIS_RE.search(joined)
+        ) and not _SENTENCE_ENDING_RE.search(stripped)
+        if source_was_cut and stripped:
+            at_sentence = _cut_at_sentence_boundary(stripped, len(stripped))
+            stripped = at_sentence if at_sentence else _finish_korean_fragment(stripped)
+        concise = _restore_sentence_period(stripped)
         if len(concise) > 220:
             concise = _truncate_korean_sentence(concise, 220)
         KOREAN_SUMMARY_CACHE[cache_key] = concise
@@ -3157,7 +3187,46 @@ def generate_news_section(
     return section
 
 
+_TRAILING_ELLIPSIS_RE = re.compile(r"(?:\.{2,}|…)\s*$")
+
+# Sentence terminators to rewind to, longest-first so the search prefers the
+# more specific form. `요.` / `음.` / `죠.` were missing and that mattered: a
+# GeekNews summary ending its first sentence in `…생기더라구요.` offered no
+# boundary at all, so a pre-truncated cell had nothing to rewind to.
+_SENTENCE_TERMINATORS = (
+    "했습니다.",
+    "습니다.",
+    "됩니다.",
+    "입니다.",
+    "니다.",
+    "다.",
+    "됨.",
+    "임.",
+    "요.",
+    "죠.",
+    "음.",
+)
+
+# Connective endings (연결어미). A clause ending in one of these cannot end a
+# sentence — the following clause was cut away. Appending the house closing
+# phrase after one produces broken Korean ("괜찮아서 등이 확인되었습니다."),
+# so drop the connective token first. Kept narrow and suffix-anchored: these
+# forms do not appear as complete words on their own.
+_TRAILING_CONNECTIVE_RE = re.compile(
+    r"\s*\S*(?:아서|어서|해서|하여|하며|되며|는데|지만|면서|으므로|이므로|라서|다가)$"
+)
+
+
 def _table_summary(text: str, max_len: int = 200) -> str:
+    """Normalize an already-summarized string into a single table cell.
+
+    Deliberately unchanged: both callers pass ``_korean_brief_summary(item)``,
+    and that function strips the feed's trailing ellipsis before this ever sees
+    it (verified 2026-09-07: the ellipsis survived into here 0 times out of 6
+    live ellipsis-terminated items). Adding a "was the source cut?" branch here
+    would be unreachable code — the signal is gone by this point. The fix lives
+    at the erasure site, in ``_korean_brief_summary``.
+    """
     cleaned = re.sub(r"\s+", " ", (text or "").strip())
     cleaned = cleaned.replace("...", " ").replace("…", " ").strip(" .")
     if len(cleaned) <= max_len:
@@ -3165,29 +3234,25 @@ def _table_summary(text: str, max_len: int = 200) -> str:
     return _truncate_korean_sentence(cleaned, max_len)
 
 
-def _truncate_korean_sentence(text: str, max_len: int) -> str:
-    """Truncate text at a Korean sentence boundary, ensuring proper ending."""
-    if len(text) <= max_len:
-        return text
-    clipped = text[:max_len]
-    # Find the latest sentence boundary (prefer more text over separator type)
+def _cut_at_sentence_boundary(clipped: str, max_len: int) -> str:
+    """Longest prefix of ``clipped`` ending at a Korean sentence terminator.
+
+    Returns ``""`` when no terminator sits past 40 % of ``max_len`` — cutting
+    earlier than that throws away most of the summary.
+    """
     best_idx, best_len = -1, 0
-    for sep in [
-        "습니다.",
-        "니다.",
-        "했습니다.",
-        "됩니다.",
-        "입니다.",
-        "다.",
-        "됨.",
-        "임.",
-    ]:
+    for sep in _SENTENCE_TERMINATORS:
         idx = clipped.rfind(sep)
         if idx > max_len * 0.4 and idx > best_idx:
             best_idx, best_len = idx, len(sep)
-    if best_idx > 0:
-        return clipped[: best_idx + best_len]
-    # Word boundary fallback
+    return clipped[: best_idx + best_len] if best_idx > 0 else ""
+
+
+def _finish_korean_fragment(clipped: str) -> str:
+    """Drop a dangling particle and close an unterminated Korean fragment."""
+    # Unconditional, exactly as before the extraction: with no space present
+    # rsplit returns the whole string, so this reduces to the rstrip. Making the
+    # rsplit conditional would have dropped that rstrip for single-token input.
     clipped = clipped.rsplit(" ", 1)[0].rstrip(" ,.·:;")
     if re.search(r"[가-힣]", clipped):
         # Keep in lockstep with _TRUNCATION_PARTICLES in
@@ -3208,8 +3273,24 @@ def _truncate_korean_sentence(text: str, max_len: int) -> str:
             clipped,
         )
         if not re.search(r"[.다됨임]$", clipped):
+            # Drop a trailing connective before closing, or the appended phrase
+            # lands after a clause that grammatically demands a continuation.
+            trimmed = _TRAILING_CONNECTIVE_RE.sub("", clipped).rstrip(" ,.·:;")
+            if trimmed and re.search(r"[가-힣]", trimmed):
+                clipped = trimmed
             clipped += " 등이 확인되었습니다."
     return clipped
+
+
+def _truncate_korean_sentence(text: str, max_len: int) -> str:
+    """Truncate text at a Korean sentence boundary, ensuring proper ending."""
+    if len(text) <= max_len:
+        return text
+    clipped = text[:max_len]
+    at_sentence = _cut_at_sentence_boundary(clipped, max_len)
+    if at_sentence:
+        return at_sentence
+    return _finish_korean_fragment(clipped)
 
 
 def _generate_security_analysis_template(item: Dict) -> str:
