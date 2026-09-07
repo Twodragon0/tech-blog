@@ -794,6 +794,38 @@ def main():
         logging.debug(f"digest quality self-check skipped: {_qe}")
         quality_issues = []
 
+    # Self-heal, then block — the shape the six pre-flight steps in
+    # ai-blogwatcher.yml already use. It has to live HERE rather than in the
+    # workflow: those steps all run after the post exists, and this gate deletes
+    # the post, so they never get a turn. That asymmetry cost two publish days
+    # (2026-08-27, 2026-09-06).
+    #
+    # Only TRUNCATED/MID-WORD are healable, and the fixer only removes a
+    # dangling partial token — the result is always a prefix of the original
+    # cell, never new text. Everything else (English headers, incomplete
+    # highlights, generic summaries) has no deterministic fixer and must keep
+    # blocking; the bare re-check below is what enforces that.
+    if any(("TRUNCATED" in qi or "MID-WORD" in qi) for qi in quality_issues):
+        try:
+            from rewind_midword_cells import rewind_post as _rewind_post
+
+            healed = _rewind_post(post_path)
+        except Exception as _he:
+            logging.warning(f"mid-word self-heal failed: {_he}")
+            healed = []
+        if healed:
+            print(
+                f"⚠️  Rewound {len(healed)} mid-word cell(s) in {post_path.name} "
+                "before re-checking the quality gate:",
+                file=sys.stderr,
+            )
+            for _edit in healed:
+                print(f"   {_edit}", file=sys.stderr)
+            # Re-verify. Not `or []`, not guarded: whatever this returns decides
+            # whether the post ships, so a heal that did not actually fix the
+            # cell still blocks.
+            quality_issues = _check_digest_quality(post_path)
+
     if quality_issues:
         # Preserve the rejected draft BEFORE deleting it. Without this the only
         # trace of a gate failure is the issue list, which quotes at most the
