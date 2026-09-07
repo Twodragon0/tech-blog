@@ -36,6 +36,56 @@ silence. Given the 08-27 outage went unnoticed until a reader hit a 404, that is
 the difference that matters. ``workflow_dispatch`` is kept so a human who
 suspects a gap can ask immediately without waiting for the next tick.
 
+Stale listings
+--------------
+``gh run list`` is not a consistent read. Measured 2026-09-04: the same audit,
+run ten times inside six minutes over an unchanged run history, returned four
+different verdicts (1, 1, 1, 1, 1, 2, 2, 3 drops), and the workflow accused
+rotated between ``monitoring``, ``googlebot-access-monitor``,
+``slack-category-digest`` and ``ai-blogwatcher``. ``monitoring.yml`` was reported
+``0/2 no delivery observed`` while ``gh run list`` showed both of its runs
+(09-03T05:15Z, 09-04T05:11Z, both ``success``); re-evaluating that same workflow
+seconds later gave ``2/2, lag 251-255m``. Pinning ``--now`` proves the logic is
+deterministic — five consecutive runs at a fixed ``now`` agree exactly — so what
+changed was the listing, not the arithmetic. The bad pages were not empty and did
+not error (40 probe calls, 0 anomalies): they carried a full 100 rows of older
+history with the recent runs missing, so nothing downstream could tell them from
+the truth.
+
+Hence :func:`audit` never reports a drop from a single read. A drop triggers a
+second fetch and the verdict is recomputed over the **union** of both reads: a
+run present in either page did happen, while absence from one page is not
+evidence of anything.
+
+The union alone is not safe to publish, and the reason is worth stating because
+the obvious version of this fix is wrong. Recomputing over the union is monotone
+in *deliveries* but **not** in *drops*: :func:`match_fires` calls a fire lost as
+soon as a later fire has been served (``moved_past``), so a run supplied by the
+second read can raise ``last_served`` and flip a fire from ``pending`` to
+``dropped``. Measured with ``ops-orchestrator.yml``'s real crons
+(``0 */6 * * *`` + ``0 4 * * *``, 2h minimum gap) at ``now=2026-09-04T06:20Z``,
+with the 04:00 cycle's run sitting 130 minutes late and visible only to the
+second read: read 1 gives 3 drops, the union gives 4 — and the added one is
+**false**, its run mis-credited forward to the 06:00 fire. The 13 daily
+workflows here are immune (a 24h gap exceeds the 18h settle, so a pending fire
+has no later sibling to serve), which is precisely why this would have shipped
+looking correct: the one exposed workflow is the only one that actually drops.
+
+So the second read is a *confirmation*, not a re-decision. It may only withdraw
+an accusation, never add one: a fire the union newly accuses is held in
+``pending`` and listed under ``withheld_accusations``. Nothing is lost by
+waiting — a genuinely lost cycle is permanent and is accused by the *first* read
+of the next audit, while a false accusation is transient by construction.
+``listing_disagreement`` compares the two reads in both directions, and
+``confirmation`` records whether the second read happened at all, so a
+once-observed drop is never mistaken for a twice-confirmed one.
+
+This matters because the audit is not a blocking gate: each drop prints an
+``::error::`` annotation telling a human to run ``gh workflow run <wf>``. A false
+drop therefore asks someone to re-run a workflow that already succeeded, and the
+one channel in this repo that can see an absence is the one that must not cry
+wolf.
+
 Known residual
 --------------
 Each workflow's window is clamped to its GitHub ``created_at``, which removes the
@@ -425,6 +475,58 @@ def audit(
             unmeasurable.append({"workflow": wf.filename, "reason": str(exc)})
             continue
         dropped, delivered, pending = match_fires(expected, actual, settle, now)
+        # A drop is the only verdict here that accuses anyone, and it is the one
+        # `gh run list` gets wrong intermittently (see "Stale listings" above).
+        # So it costs a second read before it is believed. Only drops pay this —
+        # on an ordinary day that is one extra call for the whole repo — because
+        # a stale page can only ever manufacture a drop, never erase one.
+        disagreement = False
+        confirmation = "not_attempted"
+        withheld: list[datetime] = []
+        if dropped:
+            try:
+                second = runs_for(wf.filename)
+            except (WorkflowNotMeasurable, RuntimeError):
+                # Any failed re-read, not only a 404. `fetch_schedule_runs`
+                # raises a plain RuntimeError for a 502 or a rate limit, and
+                # letting that escape leaves `report.json` empty — which makes
+                # cron-firing-audit.yml red, the one thing its header says it
+                # must never be, and `AUTO_RECOVER_GHA` would then re-run it
+                # forever over a cycle that was lost hours ago.
+                #
+                # The first read's verdict stands rather than being upgraded or
+                # discarded: we have one observation and no grounds to overrule
+                # it. `confirmation` says it was only one.
+                confirmation = "unconfirmed"
+            else:
+                confirmation = "confirmed"
+                # Merging inside `else:` rather than behind a `second is not
+                # None` sentinel. A sentinel makes an absent re-read and a
+                # `runs_for` that returned nothing the same value, so a caller
+                # returning None would be labelled "confirmed" while no merge
+                # ever ran — the exact conflation `confirmation` was added to
+                # remove.
+                #
+                # Judged in both directions, and deliberately not derived from
+                # "did the union grow". Which of the two reads is the stale one
+                # is a coin flip, so a one-directional test reports about half
+                # of the disagreements — in a field whose whole purpose is to
+                # keep a flaky source from passing for a reliable one. Set
+                # comparison also avoids reading `len(list)` against
+                # `len(set)`, where a single duplicate row hides a real
+                # correction.
+                disagreement = set(second) != set(actual)
+                union = sorted(set(actual) | set(second))
+                accused_by_first = set(dropped)
+                u_dropped, delivered, u_pending = match_fires(
+                    expected, union, settle, now
+                )
+                # Downgrade-only. See "Stale listings": the union can invent a
+                # drop out of a late run, so an accusation needs both reads.
+                withheld = [d for d in u_dropped if d not in accused_by_first]
+                dropped = [d for d in u_dropped if d in accused_by_first]
+                pending = sorted(set(u_pending) | set(withheld))
+                actual = union
         lags = [int((got - due).total_seconds() // 60) for due, got in delivered]
         results.append(
             {
@@ -443,6 +545,31 @@ def audit(
                 "delivered": len(delivered),
                 "dropped": [d.strftime("%Y-%m-%dT%H:%MZ") for d in dropped],
                 "pending": [p.strftime("%Y-%m-%dT%H:%MZ") for p in pending],
+                # The evidence the verdict rests on, not just the verdict. A
+                # reader who sees `0/2 no delivery observed` cannot tell "the
+                # scheduler skipped this slot" from "this listing showed us
+                # nothing recent at all" — the second is the stale-page
+                # signature, and it was indistinguishable until this line.
+                "newest_run_observed": (
+                    max(actual).strftime("%Y-%m-%dT%H:%MZ") if actual else None
+                ),
+                # True when the confirming read disagreed with the first one.
+                # Surfaced because a silent correction is how a known-flaky
+                # data source gets mistaken for a reliable one.
+                "listing_disagreement": disagreement,
+                # How many observations this verdict rests on:
+                # "not_attempted" (nothing was accused, so no re-read was owed),
+                # "confirmed" (two reads), "unconfirmed" (the re-read failed, so
+                # one). Without this a single-sourced drop and a twice-confirmed
+                # one are byte-identical.
+                "confirmation": confirmation,
+                # Fires the union accused but the first read did not. Held in
+                # `pending`, and listed rather than silently absorbed: this is
+                # the audit refusing to escalate on one read, and a reader who
+                # cannot see it has no way to know a judgement was deferred.
+                "withheld_accusations": [
+                    w.strftime("%Y-%m-%dT%H:%MZ") for w in withheld
+                ],
                 # min and max, not a median: over a 48h window most workflows
                 # have two deliveries, and a two-sample median is just the
                 # larger one wearing a statistical hat. The spread is the
@@ -494,8 +621,26 @@ def format_report(report: dict[str, Any]) -> str:
                 f"         window starts {r['window_clamped_to_birth']} "
                 f"(workflow created then; earlier cycles were never scheduled)"
             )
+        if r.get("listing_disagreement"):
+            lines.append(
+                "         note: the two run listings disagreed; verdict computed "
+                "over the union of both reads"
+            )
+        if r.get("confirmation") == "unconfirmed":
+            lines.append(
+                "         note: the confirming read failed — this verdict rests "
+                "on a single listing, which is the one known to go stale"
+            )
+        for w in r.get("withheld_accusations", []):
+            lines.append(
+                f"         withheld: {w} looked dropped only after the second "
+                f"read; held as pending rather than accused on one read"
+            )
         for d in r["dropped"]:
-            lines.append(f"         DROPPED: {d}  [{', '.join(r['crons'])}]")
+            lines.append(
+                f"         DROPPED: {d}  [{', '.join(r['crons'])}]  "
+                f"(newest run seen: {r.get('newest_run_observed') or 'none'})"
+            )
         for p in r["pending"]:
             lines.append(f"         not yet delivered: {p}  (still within settle)")
     for u in report.get("unmeasurable", []):
