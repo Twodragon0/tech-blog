@@ -212,11 +212,18 @@ def test_publisher_exists():
 def test_heal_runs_before_the_post_is_deleted():
     src = _publisher_source()
     heal = src.find("from rewind_midword_cells import rewind_post")
-    unlink = src.find("post_path.unlink(missing_ok=True)")
+    # Anchor on THIS gate's rejection, not on the first unlink in the file.
+    # Since the post-quality gate was promoted (2026-09-08) the publisher has
+    # two preserve/unlink pairs, and the earlier one belongs to a gate this heal
+    # has nothing to do with — comparing against it reported the heal as
+    # misplaced while it was in exactly the right spot.
+    reject = src.find("_preserve_rejected_post(post_path, quality_issues)")
     assert heal != -1, "the self-heal import is gone; the gate deletes again"
-    assert unlink != -1, "the delete moved; re-anchor this guard"
-    assert heal < unlink, (
-        "the heal now runs after the delete, so it can never save a draft"
+    assert reject != -1, (
+        "the digest gate's rejection block moved; re-anchor this guard on it"
+    )
+    assert heal < reject, (
+        "the heal now runs after the digest gate rejects, so it can never save a draft"
     )
 
 

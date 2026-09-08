@@ -195,6 +195,10 @@ from scripts.news.svg_generator import (  # noqa: E402,F401
 # that this table matches the code — including that a blocking gate must have a
 # self-heal, which is the invariant whose absence caused the two lost days.
 #
+# The score a digest must reach to publish. Referenced by both the gate call
+# and the block below it, so the two cannot drift apart.
+POST_QUALITY_TARGET = 80
+
 #   (symbol called here, canonical implementation, blocking?, self-heals?)
 INLINE_PUBLISH_GATES = (
     (
@@ -206,7 +210,7 @@ INLINE_PUBLISH_GATES = (
     (
         "_run_post_quality_gate",
         "scripts.news.content_generator._run_post_quality_gate",
-        False,  # logs a warning when the score stays under target
+        True,  # unlink(post) + sys.exit(1) when the score stays under target
         True,  # upgrade_digest_post_quality
     ),
     (
@@ -824,7 +828,36 @@ def main():
     except Exception as _diversify_err:
         logging.debug(f"Excerpt diversification skipped: {_diversify_err}")
 
-    _run_post_quality_gate(post_path, target=80)
+    # Self-heal, then block. Promoted from advisory on 2026-09-08 after
+    # measuring the corpus: all 216 published digests score at or above 90
+    # against a target of 80, so nothing legitimate is near the line. It already
+    # carried a self-heal (upgrade_digest_post_quality), which is what the
+    # registry's blocking => self_heal invariant requires.
+    #
+    # Fail-CLOSED on an unmeasurable score. "Could not check" is not "passed",
+    # and the publisher is the one context where the scorer is reliably
+    # importable — verified in production (2026-09-08 02:15: "Post quality score
+    # 94/100 (target 80)").
+    quality_score = _run_post_quality_gate(post_path, target=POST_QUALITY_TARGET)
+    if quality_score is None or quality_score < POST_QUALITY_TARGET:
+        _preserve_rejected_post(
+            post_path,
+            [
+                f"POST_QUALITY: score {quality_score}/100 < {POST_QUALITY_TARGET} "
+                "after auto-upgrade"
+            ],
+        )
+        post_path.unlink(missing_ok=True)
+        print(
+            f"❌ Post quality gate FAILED for {post_path.name}: "
+            f"{quality_score}/100 < {POST_QUALITY_TARGET} after auto-upgrade",
+            file=sys.stderr,
+        )
+        print(
+            "   Post file removed. The auto-upgrade could not reach the target.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
     # --- Digest quality self-check (truncation / English-header gate) ---
     try:
