@@ -187,20 +187,35 @@ def test_publish_terminating_statements_belong_to_the_blocking_gate():
     blocking = [e for e in apn.INLINE_PUBLISH_GATES if e[2]]
     assert blocking, "no blocking gate is registered, yet the publisher can exit"
 
-    # Each blocking gate rejects the same way: preserve the draft, delete it,
-    # exit 1. So two terminators per blocking gate. This is what catches a new
-    # blocker whose name the symbol scan above would not recognise — blocking
-    # requires ending the run, and ending the run requires one of these.
-    assert len(terminators) == 2 * len(blocking), (
-        f"expected {2 * len(blocking)} publish-terminating statements (one "
-        f"unlink + one exit for each of {[b[0] for b in blocking]}), found "
-        f"{len(terminators)}: {[t[1] for t in terminators]}. A new one means a "
-        "new blocking path — register it and give it a self-heal."
+    # A blocking gate ends the run exactly once, so exits track the registry
+    # one-for-one. This is what catches a new blocker whose name the symbol scan
+    # above would not recognise: blocking requires ending the run.
+    #
+    # Unlinks are NOT one-per-gate. A gate that runs BEFORE the post file is
+    # written has no draft to delete — validate_stats_consistency (promoted
+    # 2026-09-08) rejects with a bare exit for exactly that reason. So the
+    # relationship is an inequality, and the preserve/unlink pairing is pinned
+    # separately by test_digest_gate_failure_artifact.
+    exits = [t for t in terminators if t[1] == "sys.exit("]
+    unlinks = [t for t in terminators if t[1] == "post_path.unlink("]
+    assert len(exits) == len(blocking), (
+        f"expected {len(blocking)} sys.exit( — one per blocking gate "
+        f"{[b[0] for b in blocking]} — found {len(exits)}. An extra one means a "
+        "new blocking path: register it and give it a self-heal. A missing one "
+        "means a registered gate no longer blocks."
+    )
+    assert len(unlinks) <= len(blocking), (
+        f"{len(unlinks)} unlink(s) for {len(blocking)} blocking gate(s); a gate "
+        "cannot delete the draft twice"
     )
 
+    # Anchor on `symbol(`, not `symbol(post_path`: the gates do not share an
+    # argument. validate_stats_consistency takes the post CONTENT, because it
+    # runs before the file exists. The registry's own string literals are
+    # blanked by _code_only, so the import list cannot be mistaken for a call.
     call_sites = []
     for symbol, _canonical, _blocking, _heal in blocking:
-        pos = source.find(f"{symbol}(post_path")
+        pos = source.find(f"{symbol}(")
         assert pos != -1, f"{symbol}'s call site moved; re-anchor this guard"
         call_sites.append(pos)
     assert all(pos > min(call_sites) for pos, _ in terminators), (

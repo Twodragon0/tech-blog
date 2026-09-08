@@ -137,6 +137,50 @@ def validate_stats_consistency(content: str) -> List[str]:
     return issues
 
 
+def heal_stats_total(content: str) -> "str | None":
+    """Rewrite ``총 뉴스 수`` to the sum of the category lines. None = refuse.
+
+    The self-heal for the blocking stats gate, and deliberately narrow. The
+    only repair that introduces no guess is to re-derive the total from the
+    per-category counts the block already carries — the same direction the
+    generator derives it (``total = sum(stats.values())``).
+
+    IT REFUSES WHEN A CATEGORY SITS EXACTLY AT ``MAX_NEWS_PER_CATEGORY``.
+    That is the fingerprint of the historical defect: the 23 grandfathered
+    posts from 2026-02..04 reported CAPPED per-category counts against an
+    uncapped total, which is why ``stated - sum`` is ``{+5: 22, -5: 1}``
+    regardless of post size. Healing that shape would silently UNDERSTATE the
+    collected count — a content regression dressed as a repair. Refusing means
+    the caller blocks, which is the honest outcome when the right total is not
+    recoverable.
+
+    Returns the repaired content, or None when it declines. Never raises: the
+    caller's bare re-verify decides the outcome either way.
+    """
+    from scripts.news.config import MAX_NEWS_PER_CATEGORY
+
+    stats_match = re.search(r"\*\*수집 통계:\*\*\s*\n((?:- .+\n)+)", content)
+    if not stats_match:
+        return None
+    block = stats_match.group(0)
+
+    total_m = _TOTAL_NEWS_RE.search(block)
+    if not total_m:
+        return None
+    category_counts = [int(m) for m in _CATEGORY_COUNT_RE.findall(block)]
+    if not category_counts:
+        return None
+    if any(c == MAX_NEWS_PER_CATEGORY for c in category_counts):
+        return None
+
+    corrected = sum(category_counts)
+    if corrected == int(total_m.group(1)):
+        return None
+
+    healed_block = block.replace(total_m.group(0), f"**총 뉴스 수**: {corrected}개", 1)
+    return content.replace(block, healed_block, 1)
+
+
 # ---------------------------------------------------------------------------
 # 3. Trend analysis table consistency
 # ---------------------------------------------------------------------------

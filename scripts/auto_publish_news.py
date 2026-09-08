@@ -149,6 +149,7 @@ from scripts.news.loader import (  # noqa: E402,F401
 # Re-export QA gate functions
 from scripts.news.qa_gate import (  # noqa: E402,F401
     QAGateError,
+    heal_stats_total,
     run_qa_gate,
     validate_sentence_completeness,
     validate_stats_consistency,
@@ -206,6 +207,15 @@ INLINE_PUBLISH_GATES = (
         "scripts.news.qa_gate.run_qa_gate",
         False,  # prints the issues and continues
         False,
+    ),
+    (
+        # The stats subset of run_qa_gate's findings, promoted on 2026-09-08.
+        # Blocks with a bare exit and no unlink because it runs BEFORE the post
+        # file is written — there is no draft to preserve.
+        "validate_stats_consistency",
+        "scripts.news.qa_gate.validate_stats_consistency",
+        True,  # sys.exit(1)
+        True,  # heal_stats_total, which refuses the capped shape
     ),
     (
         "_run_post_quality_gate",
@@ -799,6 +809,49 @@ def main():
         print(f"\u26a0\ufe0f QA gate found {len(qa_issues)} issue(s):")
         for qi in qa_issues:
             print(f"   - {qi}")
+
+    # Stats consistency is BLOCKING as of 2026-09-08. `run_qa_gate` as a whole
+    # stays advisory \u2014 it also carries validate_trend_analysis and
+    # validate_sentence_completeness, and only this rule has both a clean recent
+    # corpus and a repair that introduces no guess.
+    #
+    # Self-heal, then block. This gate runs BEFORE the post file exists, so
+    # rejecting is a plain exit \u2014 there is no draft to preserve or delete, which
+    # is why it adds an exit without an unlink.
+    #
+    # Why promotion is safe here: the generator derives the total from the
+    # category counts and asserts it (`total = sum(stats.values())` plus
+    # `_format_stats_block`'s own assert), so a violation means that single
+    # source was bypassed. The 23 historical violations are all pre-helper
+    # (2026-02..04) and never pass through this path \u2014 nothing published since
+    # 2026-05 violates. Ratchet: test_stats_consistency_corpus_ratchet.py.
+    stats_issues = [qi for qi in qa_issues if qi.startswith("Stats mismatch")]
+    if stats_issues:
+        healed_content = heal_stats_total(post_content)
+        if healed_content is not None:
+            post_content = healed_content
+            print(
+                "\u26a0\ufe0f  Rebuilt \ucd1d \ub274\uc2a4 \uc218 from the category counts before "
+                "re-checking the stats gate.",
+                file=sys.stderr,
+            )
+        # Re-verify. Unguarded on purpose: heal_stats_total REFUSES the capped
+        # shape rather than understating the collected count, and a refusal must
+        # block rather than pass.
+        stats_issues = validate_stats_consistency(post_content)
+    if stats_issues:
+        print(
+            f"\u274c Stats consistency gate FAILED for {post_filename}:",
+            file=sys.stderr,
+        )
+        for si in stats_issues:
+            print(f"   {si}", file=sys.stderr)
+        print(
+            "   Nothing was written. The \uc218\uc9d1 \ud1b5\uacc4 total and its category counts "
+            "disagree and the total is not safely derivable.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
     if args.dry_run:
         print("\n\U0001f4dd [DRY RUN] Would create:")
