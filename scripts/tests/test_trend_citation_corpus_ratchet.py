@@ -7,21 +7,22 @@ dormant artifact nobody reads. This test IS the baseline: it runs over every
 published digest on every pytest invocation, and the constant below can only be
 lowered.
 
-The 4 grandfathered posts are genuine prose/table contradictions from
-2026-03/04, all of the same shape — the prose names a trend the table does not
-carry:
+EMPTY as of 2026-09-08. All four historical contradictions were repaired by
+pointing the prose at the row the post's own table already carried — no facts
+were introduced:
 
-    2026-03-16-…AI_Bitcoin        블록체인 규제 리스크(5건)   row: 블록체인/규제(5건)
-    2026-04-04-…Go_AI_Data…       AI 플랫폼 진화(2건)        row: AI 플랫폼(2건)
-    2026-04-06-…Patch_AI          북한 연계 대형 해킹(1건)    no such row at all
-    2026-04-08-…AI_CVE_Docker…    AI 플랫폼 확장(3건)        row: AI 플랫폼 & 비용(3건)
+    2026-03-16-…AI_Bitcoin       블록체인 규제 리스크(5건) -> 블록체인/규제(5건)
+    2026-04-04-…Go_AI_Data…      AI 플랫폼 진화(2건)      -> AI 플랫폼(2건)
+    2026-04-08-…AI_CVE_Docker…   AI 플랫폼 확장(3건)      -> AI 플랫폼 & 비용(3건)
+    2026-04-06-…Patch_AI         북한 연계 대형 해킹(1건)  -> 피싱 & 사회공학(2건)
 
-Three are a prettified label the generator no longer writes; the fourth cites a
-trend that does not exist. Repairing the prose of four published posts is a
-follow-up, not a blocker on the rule.
+The first three were a prettified label the generator no longer writes. The
+fourth cited a trend the table did not contain at all; the row that does carry
+its subject is ``피싱 & 사회공학``, whose keywords include the very hack the
+sentence goes on to describe (``북한 Drift 해킹 $285M``), so the citation was
+retargeted rather than invented.
 
-Everything from 2026-05 onward is clean, which is what makes this a ratchet
-rather than a target.
+At zero this is a plain corpus invariant: any entry is a regression.
 """
 
 from __future__ import annotations
@@ -33,19 +34,12 @@ from scripts.news.qa_gate import validate_trend_analysis
 REPO_ROOT = Path(__file__).resolve().parents[2]
 POSTS = REPO_ROOT / "_posts"
 
-# Measured 2026-09-08: 169 of the 173 digests that carry both a trend table and
-# a prose citation pass. Lower this when a post is repaired; raising it means a
-# new contradiction shipped, which is a regression, not a grandfather.
-MAX_VIOLATIONS = 4
+# 173/173 of the digests that carry both a trend table and a prose citation now
+# pass (was 169 before the four repairs). Raising this means a new contradiction
+# shipped, which is a regression, not a grandfather.
+MAX_VIOLATIONS = 0
 
-GRANDFATHERED = frozenset(
-    {
-        "2026-03-16-Tech_Security_Weekly_Digest_AI_Bitcoin.md",
-        "2026-04-04-Tech_Security_Weekly_Digest_Go_AI_Data_Security.md",
-        "2026-04-06-Tech_Security_Weekly_Digest_Patch_AI.md",
-        "2026-04-08-Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet.md",
-    }
-)
+GRANDFATHERED: frozenset = frozenset()
 
 
 def _violations() -> dict:

@@ -411,7 +411,7 @@ FBI에 따르면 2025년 미국에서 발생한 암호화폐 사기 피해액이
 | **DevOps 자동화** | 3건 | Copilot BYOK, Dependabot AI, Dynatrace 런타임 |
 | **암호화폐 규제** | 2건 | FDIC 스테이블코인, FBI 사기 $11B |
 
-이번 주기의 핵심 트렌드는 **AI 플랫폼 확장**(3건)과 **DevOps 자동화**(3건)입니다. Claude Mythos의 Vertex AI 출시, Bedrock Projects 비용 관리, Nova 2 Sonic 실시간 오디오 등 AI 플랫폼이 빠르게 확장되고 있으며, Copilot CLI의 BYOK 지원과 Dependabot의 AI 에이전트 할당 기능은 DevSecOps 워크플로우의 자동화를 가속화하고 있습니다. **보안** 측면에서는 APT28의 DNS 하이재킹과 Docker 인증 우회 취약점이 즉각적인 대응을 요구합니다.
+이번 주기의 핵심 트렌드는 **AI 플랫폼 & 비용**(3건)과 **DevOps 자동화**(3건)입니다. Claude Mythos의 Vertex AI 출시, Bedrock Projects 비용 관리, Nova 2 Sonic 실시간 오디오 등 AI 플랫폼이 빠르게 확장되고 있으며, Copilot CLI의 BYOK 지원과 Dependabot의 AI 에이전트 할당 기능은 DevSecOps 워크플로우의 자동화를 가속화하고 있습니다. **보안** 측면에서는 APT28의 DNS 하이재킹과 Docker 인증 우회 취약점이 즉각적인 대응을 요구합니다.
 
 ---
 
