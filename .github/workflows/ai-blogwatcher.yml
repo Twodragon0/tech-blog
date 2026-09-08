@@ -246,6 +246,19 @@ jobs:
 
           sudo chmod +x /usr/local/bin/gemini
 
+      # THREE MORE GATES RUN INSIDE THIS STEP, not as steps of their own, and
+      # one of them deletes the draft and exits. They are not greppable from
+      # this file — that invisibility is why the six self-heal-then-block steps
+      # further down were built as though they covered every gate, when in fact
+      # the earliest and most destructive one runs before any of them and used
+      # to have no self-heal at all (two publish days lost: 2026-08-27,
+      # 2026-09-06). The authoritative list, with blocking/self-heal per gate:
+      #
+      #   scripts/auto_publish_news.py -> INLINE_PUBLISH_GATES
+      #
+      # Kept honest by scripts/tests/test_inline_gate_registry.py, which fails
+      # if a gate is added without registering it, or if a blocking gate has no
+      # self-heal, or if this pointer disappears.
       - name: Auto publish digest
         if: steps.check_news.outputs.has_enough_news == 'true'
         env:

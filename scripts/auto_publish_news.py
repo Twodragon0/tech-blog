@@ -176,6 +176,47 @@ from scripts.news.svg_generator import (  # noqa: E402,F401
     generate_svg_image,
 )
 
+# Gates that run INSIDE this module, not in ai-blogwatcher.yml.
+#
+# Reading the workflow gives no hint that these exist — `grep
+# digest_quality_report .github/workflows/ai-blogwatcher.yml` returns nothing —
+# and one of them DELETES the draft and exits. That invisibility had a cost: the
+# workflow's six self-heal-then-block steps were built as though they covered
+# the gate set, but they all run after the post exists, so the earliest and most
+# destructive gate never got a turn. Two publish days were lost (2026-08-27,
+# 2026-09-06) and both were diagnosed by grepping this file, not by reading the
+# workflow.
+#
+# Two of the three are named "gate" but only warn. The `blocking` column is the
+# point of this table: it is the difference between a false positive costing a
+# few characters and costing a day.
+#
+# `scripts/tests/test_inline_gate_registry.py` enforces, in both directions,
+# that this table matches the code — including that a blocking gate must have a
+# self-heal, which is the invariant whose absence caused the two lost days.
+#
+#   (symbol called here, canonical implementation, blocking?, self-heals?)
+INLINE_PUBLISH_GATES = (
+    (
+        "run_qa_gate",
+        "scripts.news.qa_gate.run_qa_gate",
+        False,  # prints the issues and continues
+        False,
+    ),
+    (
+        "_run_post_quality_gate",
+        "scripts.news.content_generator._run_post_quality_gate",
+        False,  # logs a warning when the score stays under target
+        True,  # upgrade_digest_post_quality
+    ),
+    (
+        "_check_digest_quality",
+        "digest_quality_report.check_file",
+        True,  # unlink(post) + sys.exit(1)
+        True,  # rewind_midword_cells.rewind_post
+    ),
+)
+
 # Feature flag: enable the L20 Hero+2-Card cover for weekly digests.
 # Defaults to ON so future digests use the new style. Set USE_L20_HERO=0
 # (or "false"/"") to fall back to the existing generate_svg_image path.
