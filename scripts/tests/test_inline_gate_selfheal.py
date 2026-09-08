@@ -34,10 +34,9 @@ PUBLISHER = REPO_ROOT / "scripts" / "auto_publish_news.py"
 # Filler long enough to clear the gate's 30-character floor.
 FILLER = "보안 점검 절차와 로그 보존 그리고 대응 담당자 배정"
 
-# The gate's own particle list, read from the regex so it cannot drift.
-GATE_PARTICLES = sorted(
-    re.search(r"\\s\+\((.+?)\)", dqr._TRUNCATION_PARTICLES.pattern).group(1).split("|")
-)
+_m = re.search(r"\\s\+\((.+?)\)", dqr._TRUNCATION_PARTICLES.pattern)
+assert _m is not None
+GATE_PARTICLES = sorted(_m.group(1).split("|"))
 
 
 def _post(tmp_path: Path, *cells: str) -> Path:

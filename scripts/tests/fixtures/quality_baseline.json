@@ -4353,7 +4353,7 @@
     }
   },
   "2026-09-08-Tech_Security_Weekly_Digest_Data_AI_Cloud_Security.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4363,7 +4363,7 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   }
