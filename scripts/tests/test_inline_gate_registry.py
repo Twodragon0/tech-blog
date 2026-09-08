@@ -185,19 +185,27 @@ def test_publish_terminating_statements_belong_to_the_blocking_gate():
         for m in re.finditer(r"sys\.exit\(|post_path\.unlink\(", source)
     ]
     blocking = [e for e in apn.INLINE_PUBLISH_GATES if e[2]]
-    assert len(blocking) == 1, f"expected exactly one blocking gate, got {blocking}"
+    assert blocking, "no blocking gate is registered, yet the publisher can exit"
 
-    first_call = source.find(f"{blocking[0][0]}(post_path)")
-    assert first_call != -1, "the blocking gate's call site moved"
-    assert len(terminators) == 2, (
-        f"expected exactly 2 publish-terminating statements (the unlink and the "
-        f"exit of {blocking[0][0]}), found {len(terminators)}: "
-        f"{[t[1] for t in terminators]}. A new one means a new blocking path — "
-        "register it and give it a self-heal."
+    # Each blocking gate rejects the same way: preserve the draft, delete it,
+    # exit 1. So two terminators per blocking gate. This is what catches a new
+    # blocker whose name the symbol scan above would not recognise — blocking
+    # requires ending the run, and ending the run requires one of these.
+    assert len(terminators) == 2 * len(blocking), (
+        f"expected {2 * len(blocking)} publish-terminating statements (one "
+        f"unlink + one exit for each of {[b[0] for b in blocking]}), found "
+        f"{len(terminators)}: {[t[1] for t in terminators]}. A new one means a "
+        "new blocking path — register it and give it a self-heal."
     )
-    assert all(pos > first_call for pos, _ in terminators), (
-        "a publish-terminating statement runs before the blocking gate, so it "
-        "cannot be attributed to it"
+
+    call_sites = []
+    for symbol, _canonical, _blocking, _heal in blocking:
+        pos = source.find(f"{symbol}(post_path")
+        assert pos != -1, f"{symbol}'s call site moved; re-anchor this guard"
+        call_sites.append(pos)
+    assert all(pos > min(call_sites) for pos, _ in terminators), (
+        "a publish-terminating statement runs before every blocking gate, so it "
+        "cannot be attributed to one"
     )
 
 

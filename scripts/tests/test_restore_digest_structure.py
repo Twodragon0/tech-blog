@@ -24,7 +24,7 @@ from restore_digest_structure import (  # noqa: E402
     main,
     renumber_sections,
     transform,
-    unbox_item_checkboxes,
+    unbox_checkboxes_outside_checklist,
 )
 
 _FM = '---\ntitle: "x"\n---\n'
@@ -94,7 +94,7 @@ def test_leaves_other_headings_alone():
 
 def test_unboxes_checkbox_inside_item_region():
     body = "## 1. 보안 뉴스\n### 1.1 기사\n- [ ] 패치 적용\n- [x] 로그 점검\n"
-    out = unbox_item_checkboxes(_FM + body)
+    out = unbox_checkboxes_outside_checklist(_FM + body)
     assert "- 패치 적용" in out and "- 로그 점검" in out
     assert "[ ]" not in out and "[x]" not in out
 
@@ -102,13 +102,13 @@ def test_unboxes_checkbox_inside_item_region():
 def test_keeps_global_checklist_checkboxes():
     # 전역 '## 실무 체크리스트' 하위 체크박스는 정당한 산출물이므로 보존.
     body = "## 1. 보안 뉴스\n### 1.1 기사\n본문.\n## 실무 체크리스트\n- [ ] 전역 항목\n"
-    out = unbox_item_checkboxes(_FM + body)
+    out = unbox_checkboxes_outside_checklist(_FM + body)
     assert "- [ ] 전역 항목" in out
 
 
 def test_preserves_checkbox_text_exactly():
     body = "## 1. 보안 뉴스\n### 1.1 기사\n- [ ]   여백 있는 항목\n"
-    out = unbox_item_checkboxes(_FM + body)
+    out = unbox_checkboxes_outside_checklist(_FM + body)
     assert "여백 있는 항목" in out
 
 
@@ -507,7 +507,7 @@ def test_r2_does_not_boldify_inside_a_code_fence():
 
 def test_r3_does_not_unbox_inside_a_code_fence():
     body = "## 1. 보안 뉴스\n### 1.1 기사\n```markdown\n- [ ] 예시 항목\n```\n"
-    out = unbox_item_checkboxes(_FM + body)
+    out = unbox_checkboxes_outside_checklist(_FM + body)
     assert "- [ ] 예시 항목" in out
 
 

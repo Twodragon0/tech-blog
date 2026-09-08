@@ -1393,35 +1393,73 @@ def _generate_unique_post_commentary(
     return _validate_commentary(raw)
 
 
-def _run_post_quality_gate(post_path: Path, target: int = 80) -> None:
-    try:
-        from upgrade_digest_post_quality import process_file as _upgrade_post
-        from validate_post_quality import validate_post as _validate_post
-    except Exception as e:
-        logging.debug(f"quality gate import skipped: {e}")
-        return
+def _post_quality_helpers():
+    """The scorer and upgrader, under whichever module path is importable.
 
-    first = _validate_post(post_path)
-    first_score = first.get("total", 0)
-    score_before = first_score if isinstance(first_score, int) else 0
+    This repo reaches its ``scripts/`` modules by two paths and both are live:
+    ``auto_publish_news`` runs with ``scripts/`` on ``sys.path`` so the bare
+    names resolve, while pytest imports this file as
+    ``scripts.news.content_generator`` with only the repo root on the path,
+    where only the prefixed names do. Measured both ways on 2026-09-08 — the
+    bare form raises ``ModuleNotFoundError`` in the second context, which is
+    why this used to sit behind a blanket ``except Exception: return``.
 
+    Trying both matters now that the caller BLOCKS on the result: a swallowed
+    import made "could not measure" indistinguishable from "passed".
+    """
+    import importlib
+
+    for prefix in ("", "scripts."):
+        try:
+            upgrade = importlib.import_module(
+                f"{prefix}upgrade_digest_post_quality"
+            ).process_file
+            validate = importlib.import_module(
+                f"{prefix}validate_post_quality"
+            ).validate_post
+        except ModuleNotFoundError:
+            continue
+        return upgrade, validate
+    return None, None
+
+
+def _run_post_quality_gate(post_path: Path, target: int = 80) -> Optional[int]:
+    """Score the post, auto-upgrade if it is under `target`, then re-score.
+
+    Returns the FINAL score, or None when the scorer could not be imported at
+    all. Deliberately does not raise or exit: the blocking decision belongs to
+    the publisher, next to the other publish gates and the registry that
+    describes them (``auto_publish_news.INLINE_PUBLISH_GATES``).
+
+    The re-score is unconditional. It used to be skipped when the upgrader
+    reported no change, which meant an under-target post that could not be
+    repaired was logged as a warning and published anyway.
+    """
+    upgrade, validate = _post_quality_helpers()
+    if upgrade is None or validate is None:
+        logging.warning(
+            "post quality gate: scorer unavailable "
+            "(upgrade_digest_post_quality / validate_post_quality not importable)"
+        )
+        return None
+
+    def _score() -> int:
+        result = validate(post_path)
+        value = result.get("total", 0)
+        return value if isinstance(value, int) else 0
+
+    score_before = _score()
     if score_before >= target:
         logging.info(f"Post quality score {score_before}/100 (target {target})")
-        return
+        return score_before
 
-    upgraded = _upgrade_post(post_path)
-    if not upgraded:
-        logging.warning(
-            f"Post quality score {score_before}/100 below target {target} (no auto-upgrade applied)"
-        )
-        return
-
-    second = _validate_post(post_path)
-    second_score = second.get("total", 0)
-    score_after = second_score if isinstance(second_score, int) else score_before
+    upgrade(post_path)
+    score_after = _score()
     logging.info(
-        f"Post quality auto-upgrade: {score_before}/100 -> {score_after}/100 (target {target})"
+        f"Post quality auto-upgrade: {score_before}/100 -> {score_after}/100 "
+        f"(target {target})"
     )
+    return score_after
 
 
 def _format_stats_block(stats: Dict[str, int], total: int) -> str:

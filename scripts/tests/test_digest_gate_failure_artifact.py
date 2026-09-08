@@ -104,9 +104,15 @@ def test_call_site_preserves_before_it_unlinks():
     # for the call. A plain `.find()` matched the definition instead, and this
     # test passed with the call moved below the unlink: vacuous, and it reported
     # as a healthy guard until a mutation probe said otherwise.
+    # `post_path` is NOT required on the same line: ruff wraps a call whose
+    # argument list is long, and requiring adjacency made this guard miss the
+    # post-quality gate's multi-line call entirely — reporting "1 preserve but
+    # 2 unlinks", i.e. a real gate looked like a missing one. The indent anchor
+    # is what still excludes the column-0 `def`, which is the vacuity this
+    # pattern exists to prevent.
     calls = [
         m.start()
-        for m in re.finditer(r"^[ \t]+_preserve_rejected_post\(post_path", source, re.M)
+        for m in re.finditer(r"^[ \t]+_preserve_rejected_post\(", source, re.M)
     ]
     unlinks = [
         m.start()
@@ -114,18 +120,30 @@ def test_call_site_preserves_before_it_unlinks():
             r"^[ \t]+post_path\.unlink\(missing_ok=True\)", source, re.M
         )
     ]
-    assert len(calls) == 1, (
-        f"expected exactly one call to _preserve_rejected_post, found {len(calls)}; "
-        "an extra call site would make the ordering check ambiguous"
+    # One preserve/unlink pair per blocking gate. There were two gates from
+    # 2026-09-08, when the post-quality gate was promoted from advisory, so
+    # asserting "exactly one" would now fail for a correct publisher. What must
+    # hold is that EVERY unlink has a preserve ahead of it — checked pairwise in
+    # source order rather than by count alone, so a second unlink cannot borrow
+    # the first gate's preserve.
+    assert len(calls) == len(unlinks), (
+        f"{len(calls)} _preserve_rejected_post call(s) but {len(unlinks)} "
+        "unlink(s) — one of the blocking gates deletes the draft without "
+        "preserving it, and its artifact will be empty."
     )
-    assert len(unlinks) == 1, (
-        f"expected exactly one post_path.unlink(missing_ok=True), found {len(unlinks)}"
-    )
-    preserve, unlink = calls[0], unlinks[0]
-    assert preserve < unlink, (
-        "_preserve_rejected_post is called after post_path.unlink(), so it "
-        "copies a file that no longer exists and the artifact is empty."
-    )
+    assert calls, "no gate preserves the draft before deleting it"
+    for i, (preserve, unlink) in enumerate(zip(calls, unlinks)):
+        assert preserve < unlink, (
+            f"pair {i}: _preserve_rejected_post is called after "
+            "post_path.unlink(), so it copies a file that no longer exists and "
+            "the artifact is empty."
+        )
+    # And the pairs must not interleave: preserve[i] < unlink[i] < preserve[i+1].
+    for i in range(len(unlinks) - 1):
+        assert unlinks[i] < calls[i + 1], (
+            f"gate {i}'s unlink runs after gate {i + 1}'s preserve; the pairing "
+            "above is then meaningless"
+        )
 
 
 # --------------------------------------------------------------------------

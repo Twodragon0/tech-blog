@@ -7,7 +7,11 @@ from pathlib import Path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import check_digest_structure as cds
 import pytest
-from check_digest_structure import check_post
+from check_digest_structure import (
+    check_post,
+    global_checklist_section,
+    misplaced_checkbox_counts,
+)
 
 _GOOD = """---
 title: x
@@ -281,13 +285,16 @@ def _fence_stripped(text: str) -> str:
     return "\n".join(out)
 
 
-def _global_checklist_section(clean_body: str) -> str:
-    m = re.search(r"^## 실무 체크리스트[ \t]*$", clean_body, re.MULTILINE)
-    if not m:
-        return ""
-    rest = clean_body[m.end() :]
-    nxt = re.search(r"^## ", rest, re.MULTILINE)
-    return rest[: nxt.start()] if nxt else rest
+# Kept as a thin delegate so the existing call sites read the same, but the
+# computation now lives in the production module. This file used to own a second
+# implementation, and the two disagreed: check_digest_structure inspected only
+# the half BEFORE the checklist heading while this guard compared both halves.
+# The self-heal verifies with the production checker, so on 2026-09-06 it healed
+# the "before" checkboxes, reported OK, and this guard then blocked the publish
+# with doc-wide=8 in-section=5 — a lost day, and the self-heal step's own
+# conclusion was `success`. Trace:
+# .omc/research/digest_structure_selfheal_gap_2026_09_08.md
+_global_checklist_section = global_checklist_section
 
 
 def test_every_digest_checkbox_lives_under_the_global_checklist():
@@ -295,11 +302,22 @@ def test_every_digest_checkbox_lives_under_the_global_checklist():
     offenders = {}
     for p in sorted((repo / "_posts").glob("*Weekly_Digest*.md")):
         clean = _fence_stripped(p.read_text(encoding="utf-8"))
-        doc_wide = len(re.findall(r"- \[ \]", clean))
-        in_section = len(re.findall(r"- \[ \]", _global_checklist_section(clean)))
+        doc_wide, in_section = misplaced_checkbox_counts(clean)
         if doc_wide != in_section:
             offenders[p.name] = f"doc-wide={doc_wide} in-section={in_section}"
     assert offenders == {}, offenders
+
+
+def test_the_checker_and_this_guard_agree_by_construction():
+    """The two must not drift apart again.
+
+    Asserted on the objects, not by reading the code: if someone reintroduces a
+    local copy here, this fails.
+    """
+    import check_digest_structure as cds
+
+    assert misplaced_checkbox_counts is cds.misplaced_checkbox_counts
+    assert _global_checklist_section is cds.global_checklist_section
 
 
 def test_fenced_checkboxes_do_not_inflate_any_digest_score():
