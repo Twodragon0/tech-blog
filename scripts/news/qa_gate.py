@@ -13,8 +13,15 @@ Three independent checks are provided:
 Integration
 -----------
 Call ``run_qa_gate(content)`` before writing.  By default warnings are
-logged; set env ``AUTO_PUBLISH_STRICT_QA=1`` (or ``CI=1``) to raise
-``QAGateError`` and block publication.
+logged; set env ``AUTO_PUBLISH_STRICT_QA=1`` to raise ``QAGateError`` and
+block publication.  That is the ONLY switch — a ``CI=1`` clause used to sit
+beside it and never fired (Actions sets ``CI=true``), and enabling it would
+have promoted two rules that were deliberately left advisory.  See
+``run_qa_gate`` for the measurements.
+
+Note that ``validate_stats_consistency`` blocks the publish on its own,
+independently of this flag: ``auto_publish_news`` acts on its findings with a
+self-heal in front (``heal_stats_total``).
 """
 
 import logging
@@ -288,9 +295,24 @@ def run_qa_gate(content: str, post_filename: str = "") -> List[str]:
         for issue in all_issues:
             logger.warning("QA gate [%s]: %s", label, issue)
 
-    strict = (
-        os.getenv("AUTO_PUBLISH_STRICT_QA", "") == "1" or os.getenv("CI", "") == "1"
-    )
+    # ONE explicit switch. There used to be a second clause,
+    # `os.getenv("CI", "") == "1"`, and it never fired: GitHub Actions sets
+    # `CI=true`, and the blogwatcher workflow sets neither variable. Proven by
+    # outcome rather than by reading the docs — before the trend rule was
+    # replaced, this function returned an issue for the 2026-09-08 content and
+    # that publish SUCCEEDED, so `strict` was False in Actions.
+    #
+    # It was removed rather than "fixed" to truthy, because turning it on is not
+    # an env-var correction — it is a silent double promotion. Measured: the
+    # stats rule is ALREADY blocking on its own (with a self-heal that refuses
+    # the capped shape), so strict would only re-raise it while skipping that
+    # heal; and the two rules left, validate_trend_analysis and
+    # validate_sentence_completeness, were deliberately NOT promoted and carry
+    # no self-heal. `INLINE_PUBLISH_GATES` lists run_qa_gate as blocking=False,
+    # so its `blocking => self_heal` invariant would not catch that bypass.
+    #
+    # Verdict: .omc/plans/run-qa-gate-ci-detection-2026-09-08.md
+    strict = os.getenv("AUTO_PUBLISH_STRICT_QA", "") == "1"
     if strict and all_issues:
         msg = f"QA gate blocked publication of {label}:\n" + "\n".join(
             f"  - {i}" for i in all_issues
