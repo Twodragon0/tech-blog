@@ -188,64 +188,86 @@ class TestStatsConsistency:
 
 
 class TestTrendAnalysis:
-    """Trend table counts should not be less than total news count."""
+    """Every trend the prose cites must exist as a row in the trend table.
 
-    TREND_OK = (
-        "- **총 뉴스 수**: 10개\n"
-        "\n"
+    Replaced the old ``trend_sum < 총 뉴스 수`` rule on 2026-09-08: that premise
+    fired on 140 of 216 published digests because a trend count double-counts an
+    article matching several trends while the analysis runs over a capped
+    subset — the two numbers are incomparable by design. See
+    ``validate_trend_analysis``'s docstring for the three measurements that
+    ruled out tuning it, and for why "must be the table's TOP row" was rejected
+    too (it flagged hand-edited posts that headline a better trend than
+    ``max()`` picks).
+    """
+
+    _TABLE = (
         "## 5. 트렌드 분석\n\n"
         "| 트렌드 | 관련 뉴스 수 | 주요 키워드 |\n"
         "|--------|-------------|------------|\n"
-        "| **AI/LLM** | 5건 | GPT, LLM |\n"
-        "| **보안** | 4건 | CVE, 패치 |\n"
-        "| **클라우드** | 3건 | AWS, GCP |\n"
+        "| **공급망 공격** | 3건 | RCE, CVE |\n"
+        "| **블록체인 동향** | 5건 | Bitcoin |\n"
+        "| **기타** | 2건 | 기타 주제 |\n"
     )
 
-    TREND_UNDERCOUNT = (
-        "- **총 뉴스 수**: 15개\n"
-        "\n"
-        "## 3. 트렌드 분석\n\n"
-        "| 트렌드 | 관련 뉴스 수 | 주요 키워드 |\n"
-        "|--------|-------------|------------|\n"
-        "| **AI/LLM** | 3건 | GPT |\n"
-        "| **보안** | 2건 | CVE |\n"
-    )
+    def test_a_non_top_row_is_allowed(self):
+        """The editorial choice this rule exists to preserve.
 
-    def test_trend_ok(self):
-        """Sum >= total is acceptable (overlap)."""
-        assert validate_trend_analysis(self.TREND_OK) == []
-
-    def test_trend_undercount(self):
-        """Sum < total is flagged."""
-        issues = validate_trend_analysis(self.TREND_UNDERCOUNT)
-        assert len(issues) == 1
-        assert "Trend analysis under-count" in issues[0]
-        assert "trend sum=5" in issues[0]
-        assert "total=15" in issues[0]
-
-    def test_no_trend_section(self):
-        """Content without trend section should pass."""
-        content = "- **총 뉴스 수**: 10개\nSome content\n"
+        2026-04-13 headlines 공급망 공격(3건) over the larger 블록체인 동향(5건),
+        which is right for a security digest. A "must be the top row" rule
+        flagged that and four other correct posts.
+        """
+        content = self._TABLE + "\n핵심 트렌드는 **공급망 공격**(3건)입니다.\n"
         assert validate_trend_analysis(content) == []
 
-    def test_no_total(self):
-        """Content without total should pass."""
+    def test_two_cited_trends_both_checked(self):
         content = (
-            "## 5. 트렌드 분석\n\n"
-            "| 트렌드 | 관련 뉴스 수 | 주요 키워드 |\n"
-            "| **AI** | 3건 | GPT |\n"
+            self._TABLE
+            + "\n핵심 트렌드는 **공급망 공격**(3건)와 **블록체인 동향**(5건)입니다.\n"
         )
         assert validate_trend_analysis(content) == []
 
-    def test_exact_match(self):
-        """Sum == total should pass."""
+    def test_a_name_the_table_does_not_carry_is_flagged(self):
+        """The real corpus defect: 블록체인 규제 리스크 against a 블록체인/규제 row."""
+        content = self._TABLE + "\n핵심 트렌드는 **공급망 침해**(3건)입니다.\n"
+        issues = validate_trend_analysis(content)
+        assert len(issues) == 1, issues
+        assert "Trend citation not in the table" in issues[0]
+        assert "공급망 침해(3건)" in issues[0]
+
+    def test_a_count_that_does_not_match_its_row_is_flagged(self):
+        content = self._TABLE + "\n핵심 트렌드는 **공급망 공격**(9건)입니다.\n"
+        issues = validate_trend_analysis(content)
+        assert len(issues) == 1, issues
+        assert "공급망 공격(9건)" in issues[0]
+
+    def test_only_the_prose_after_the_table_is_scanned(self):
+        """Control against a vacuous rule.
+
+        Scanning the whole section would match the rows' own bold names, so
+        every citation would be trivially present and the check would never
+        fire. This fixture puts a bogus citation only in the prose.
+        """
+        content = self._TABLE + "\n**존재하지 않는 트렌드**(1건)이 주목됩니다.\n"
+        assert validate_trend_analysis(content) != []
+
+    def test_no_trend_section_passes(self):
+        assert validate_trend_analysis("- **총 뉴스 수**: 10개\n본문\n") == []
+
+    def test_a_table_with_no_prose_citation_passes(self):
+        """Nothing to contradict."""
+        assert validate_trend_analysis(self._TABLE) == []
+
+    def test_the_old_undercount_rule_is_gone(self):
+        """A post whose trend sum is under the stated total must now pass.
+
+        Pinned because reinstating that comparison would re-block roughly two
+        thirds of the corpus, and under strict mode it would have blocked the
+        2026-09-08 publish on its own.
+        """
         content = (
-            "- **총 뉴스 수**: 8개\n"
-            "\n## 4. 트렌드 분석\n\n"
-            "| 트렌드 | 관련 뉴스 수 | 주요 키워드 |\n"
-            "|--------|-------------|------------|\n"
-            "| **AI** | 5건 | GPT |\n"
-            "| **보안** | 3건 | CVE |\n"
+            "- **총 뉴스 수**: 30개\n\n"
+            + self._TABLE
+            + "\n핵심 트렌드는 **블록체인 동향**(5건)입니다.\n"
         )
         assert validate_trend_analysis(content) == []
 
@@ -343,19 +365,33 @@ class TestRealWorldRegressions:
         assert len(issues) == 1
         assert "sum=10" in issues[0]
 
-    def test_apr13_trend_mismatch(self):
-        """4/13 post: trend sum didn't match total."""
-        content = (
-            "- **총 뉴스 수**: 12개\n\n"
+    def test_apr13_trend_citation_now_governs_that_post(self):
+        """4/13 used to be pinned against the retired trend-sum rule.
+
+        That post's real shape is a prose citation of 공급망 공격 및 RCE
+        취약점(3건) while the numerically largest row is Bitcoin 및 블록체인
+        동향(5건) — an editorial choice, not a defect, and the live post passes
+        (TestAprilDigestRegression asserts zero issues on it). What IS a defect
+        for that shape is a citation the table does not carry, so the fixture is
+        retargeted rather than deleted: deleting it would retire the regression
+        silently.
+        """
+        table = (
             "## 5. 트렌드 분석\n\n"
             "| 트렌드 | 관련 뉴스 수 | 주요 키워드 |\n"
             "|--------|-------------|------------|\n"
-            "| **공급망 보안** | 2건 | supply chain |\n"
-            "| **제로데이** | 1건 | zero-day |\n"
+            "| **공급망 공격 및 RCE 취약점** | 3건 | supply chain |\n"
+            "| **Bitcoin 및 블록체인 동향** | 5건 | Bitcoin |\n"
         )
-        issues = validate_trend_analysis(content)
-        assert len(issues) == 1
-        assert "trend sum=3" in issues[0]
+        headline_non_top = (
+            table + "\n핵심 트렌드는 **공급망 공격 및 RCE 취약점**(3건)입니다.\n"
+        )
+        assert validate_trend_analysis(headline_non_top) == []
+
+        phantom = table + "\n핵심 트렌드는 **북한 연계 대형 해킹**(1건)입니다.\n"
+        issues = validate_trend_analysis(phantom)
+        assert len(issues) == 1, issues
+        assert "북한 연계 대형 해킹(1건)" in issues[0]
 
     def test_normal_post_no_false_positive(self):
         """A well-formed post should produce zero issues."""

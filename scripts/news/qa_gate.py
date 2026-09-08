@@ -7,8 +7,8 @@ Three independent checks are provided:
   complete Korean/English sentence (not dangling particles/adjectives).
 * ``validate_stats_consistency`` -- category counts in the "수집 통계"
   block sum to the stated total.
-* ``validate_trend_analysis`` -- trend-table row counts do not exceed
-  the stated total news count.
+* ``validate_trend_analysis`` -- every trend the prose cites exists as a
+  row in the trend table.
 
 Integration
 -----------
@@ -141,43 +141,85 @@ def validate_stats_consistency(content: str) -> List[str]:
 # 3. Trend analysis table consistency
 # ---------------------------------------------------------------------------
 
-_TREND_TABLE_ROW_RE = re.compile(r"\|\s*\*\*[^|]+\*\*\s*\|\s*(\d+)\s*건\s*\|")
+_TREND_TABLE_ROW_RE = re.compile(r"\|\s*\*\*([^|*]+)\*\*\s*\|\s*(\d+)\s*건\s*\|")
+_TREND_SECTION_RE = re.compile(
+    r"##\s*\d+\.\s*트렌드 분석\s*\n([\s\S]*?)(?=\n## |\n---|\Z)"
+)
+# Every "**name**(N건)" the prose cites, not just the first: a post may headline
+# two trends ("**A**(2건)와 **B**(4건)입니다").
+_TREND_CITATION_RE = re.compile(r"\*\*([^*]+)\*\*\s*\((\d+)건\)")
 
 
 def validate_trend_analysis(content: str) -> List[str]:
-    """Check that trend table row counts don't exceed the stated total news count."""
+    """Every trend the prose cites must exist as a row in the trend table.
+
+    The prose under the table headlines one or two trends by name and count
+    ("이번 주기의 핵심 트렌드는 **공급망 공격 및 RCE 취약점**(3건)입니다"). If that
+    citation does not match a row, the reader is told about a trend the table
+    contradicts.
+
+    WHAT THIS REPLACED, AND WHY
+    ---------------------------
+    Until 2026-09-08 this function flagged ``trend_sum < 총 뉴스 수``. That
+    premise is not an invariant of this generator, and the rule fired on **140
+    of 216** published digests. Two distortions make the two numbers
+    incomparable by design: a trend count DOUBLE-COUNTS an article that matches
+    several trends, while the trend analysis itself runs over a list capped by
+    ``MAX_NEWS_PER_CATEGORY``. Measured three ways over the 179 posts that carry
+    both numbers — ``== 총 뉴스 수`` held for 32, ``== 본문 항목 수`` for 26, and
+    even the loosest ``>= 본문 항목 수`` for only 162. There was no threshold to
+    fix, so the rule went rather than being tuned.
+
+    The noise had teeth: ``run_qa_gate`` raises under ``AUTO_PUBLISH_STRICT_QA=1``
+    or ``CI=1``, and this rule alone would have blocked the 2026-09-08 publish
+    (``trend sum=20 < stated total=23``) had either been set.
+
+    WHY NOT "the claim must be the table's TOP row"
+    -----------------------------------------------
+    That was the first replacement drafted, and the corpus rejected it: 168 of
+    173 conformed, which looked strong, but the 5 exceptions were hand-edited
+    posts making a BETTER editorial choice than the generator's ``max()``.
+    2026-04-13 headlines ``공급망 공격 및 RCE 취약점``(3건) over the numerically
+    larger ``Bitcoin 및 블록체인 동향``(5건) — correct for a security digest — and
+    2026-04-12's numeric top is the catch-all ``기타``(5건), which should never
+    be headlined. The 168/173 was measuring conformance to the generator, not
+    the absence of a defect.
+
+    Requiring only that the citation EXISTS as a row keeps that editorial
+    freedom and still catches the real contradiction: 169/173 hold, and the 4
+    that do not cite a trend the table does not contain (``블록체인 규제 리스크``
+    against a ``블록체인/규제`` row, or ``북한 연계 대형 해킹``(1건) against no
+    such row at all).
+
+    Count-only ("some row has this count") is deliberately NOT the rule: it
+    holds for 173/173, so it carries no signal.
+
+    Verdict and measurements:
+    .omc/plans/validate-trend-analysis-verdict-2026-09-08.md
+    """
     issues: List[str] = []
 
-    total_m = _TOTAL_NEWS_RE.search(content)
-    if not total_m:
+    section = _TREND_SECTION_RE.search(content)
+    if not section:
         return issues
-    stated_total = int(total_m.group(1))
+    block = section.group(1)
 
-    # Find trend analysis section
-    trend_section = re.search(
-        r"##\s*\d+\.\s*트렌드 분석\s*\n([\s\S]*?)(?=\n## |\n---|\Z)",
-        content,
-    )
-    if not trend_section:
+    rows = {
+        (name.strip(), int(count)) for name, count in _TREND_TABLE_ROW_RE.findall(block)
+    }
+    if not rows:
         return issues
 
-    trend_block = trend_section.group(1)
-    row_counts = [int(m) for m in _TREND_TABLE_ROW_RE.findall(trend_block)]
-
-    if not row_counts:
-        return issues
-
-    trend_sum = sum(row_counts)
-    # Trend counts can overlap (one article matches multiple trends),
-    # so sum > total is acceptable.  But sum should not be less than total
-    # when there are many categories, and a large discrepancy is suspicious.
-    # The user's complaint is about sum != total, so we flag when they differ
-    # significantly.  However, overlap is natural so we only flag sum < total
-    # (under-counting) as a hard error.
-    if trend_sum < stated_total:
-        issues.append(
-            f"Trend analysis under-count: trend sum={trend_sum} < stated total={stated_total}"
-        )
+    # Only the prose AFTER the table. Scanning the whole block would match the
+    # rows' own bold names and make every citation trivially present.
+    prose = block[block.rfind("|") + 1 :]
+    for name, count in _TREND_CITATION_RE.findall(prose):
+        cited = (name.strip(), int(count))
+        if cited not in rows:
+            issues.append(
+                f"Trend citation not in the table: {cited[0]}({cited[1]}건) — "
+                f"rows are {sorted(rows, key=lambda r: -r[1])}"
+            )
     return issues
 
 
