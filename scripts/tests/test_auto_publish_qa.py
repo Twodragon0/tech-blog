@@ -4,12 +4,15 @@ Covers:
 - validate_sentence_completeness: incomplete / complete checklist items
 - validate_stats_consistency: category sum vs stated total
 - validate_trend_analysis: trend table sum vs stated total
-- run_qa_gate: strict mode (env var) raises QAGateError
+- run_qa_gate: strict mode (AUTO_PUBLISH_STRICT_QA only) raises QAGateError
 """
 
 import os
+import re
+from pathlib import Path
 
 import pytest
+from news import qa_gate
 from news.qa_gate import (
     QAGateError,
     run_qa_gate,
@@ -321,12 +324,59 @@ class TestRunQAGate:
         with pytest.raises(QAGateError, match="QA gate blocked"):
             run_qa_gate(content, "strict-test.md")
 
-    def test_ci_mode_raises(self, monkeypatch):
-        monkeypatch.setenv("CI", "1")
+    def test_ci_alone_no_longer_raises(self, monkeypatch):
+        """Retargeted, not deleted, on 2026-09-08.
+
+        This used to assert that ``CI=1`` raises. That clause was removed: it
+        never fired in Actions (which sets ``CI=true``), and switching it to a
+        truthy check would have promoted ``validate_trend_analysis`` and
+        ``validate_sentence_completeness`` — both deliberately left advisory,
+        both without a self-heal — as a side effect.
+
+        Deleting the case would have retired the coverage silently, so it now
+        pins the new contract: CI alone does NOT block. Both spellings are
+        checked because ``true`` is what the platform actually sets and ``1``
+        is what this repo's own docs suggest.
+        """
         monkeypatch.setenv("AUTO_PUBLISH_STRICT_QA", "")
         content = "- [ ] 시스템이 지속적으로 취약\n"
+        for ci_value in ("1", "true"):
+            monkeypatch.setenv("CI", ci_value)
+            issues = run_qa_gate(content)
+            assert issues, f"fixture stopped being a violation (CI={ci_value})"
+
+    def test_strict_env_still_raises_on_the_same_content(self, monkeypatch):
+        """Control for the test above.
+
+        Without it, "CI does not raise" would pass just as well for a strict
+        path that raises for nothing at all.
+        """
+        monkeypatch.setenv("CI", "1")
+        monkeypatch.setenv("AUTO_PUBLISH_STRICT_QA", "1")
         with pytest.raises(QAGateError):
-            run_qa_gate(content)
+            run_qa_gate("- [ ] 시스템이 지속적으로 취약\n")
+
+    def test_the_strict_switch_stays_single_and_ci_free(self):
+        """The point of the removal, guarded at the source.
+
+        The runtime tests above only prove that CI does not raise TODAY. The
+        failure mode is someone reading ``== "1"`` as a bug, switching it to a
+        truthy check, and thereby promoting two advisory rules that have no
+        self-heal. This makes that edit fail instead of shipping.
+
+        Anchored on the assignment rather than the whole file so an unrelated
+        mention of CI in a comment does not trip it.
+        """
+        source = Path(qa_gate.__file__).read_text(encoding="utf-8")
+        match = re.search(r"^\s*strict = (.+)$", source, re.M)
+        assert match, "the strict switch was renamed or removed"
+        expression = match.group(1)
+        assert expression == 'os.getenv("AUTO_PUBLISH_STRICT_QA", "") == "1"', (
+            f"the strict switch changed to {expression!r}. If a CI clause is "
+            "being re-added, that is a promotion of validate_trend_analysis and "
+            "validate_sentence_completeness — decide it explicitly and give "
+            "them self-heals first (see INLINE_PUBLISH_GATES)."
+        )
 
     def test_warn_mode_does_not_raise(self, monkeypatch):
         monkeypatch.setenv("AUTO_PUBLISH_STRICT_QA", "")
