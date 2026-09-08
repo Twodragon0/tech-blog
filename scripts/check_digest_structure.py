@@ -57,6 +57,54 @@ def _strip_code_fences(lines: list) -> list:
     return out
 
 
+_CHECKLIST_H2_RE = re.compile(r"^## 실무 체크리스트[ \t]*$", re.MULTILINE)
+_ANY_H2_RE = re.compile(r"^## ", re.MULTILINE)
+# Broader than the `- [ ]` literal the corpus guard used to carry: this also
+# catches an indented box and a ticked one. Measured over the 216-post corpus on
+# 2026-09-08 — both spellings report 0 violations, so adopting the stricter one
+# costs nothing and closes two spellings the narrow form would miss.
+_CHECKBOX_RE = re.compile(r"^\s*-\s*\[[ xX]?\]", re.MULTILINE)
+
+
+def global_checklist_section(clean_body: str) -> str:
+    """The text under the canonical checklist H2, up to the next H2.
+
+    Anchored on a full line, not a substring: the canonical heading is what
+    check_digest_checklist_heading enforces, and a substring match would also
+    hit prose that mentions the section by name.
+    """
+    m = _CHECKLIST_H2_RE.search(clean_body)
+    if not m:
+        return ""
+    rest = clean_body[m.end() :]
+    nxt = _ANY_H2_RE.search(rest)
+    return rest[: nxt.start()] if nxt else rest
+
+
+def misplaced_checkbox_counts(clean_body: str) -> tuple:
+    """``(doc_wide, in_section)`` checkbox counts for a fence-stripped body.
+
+    THE canonical computation. It used to exist twice, and the two copies did
+    not agree: this module inspected only ``split("## 실무 체크리스트")[0]`` —
+    the half BEFORE the checklist — while
+    ``test_every_digest_checkbox_lives_under_the_global_checklist`` compared
+    document-wide against in-section, i.e. both halves.
+
+    That gap cost a publish day. On 2026-09-06 the cron produced a post with
+    checkboxes after the checklist: this checker said FAIL for the ones before
+    it, ``restore_digest_structure`` removed those, this checker re-verified OK,
+    and the corpus gate then blocked with ``doc-wide=8 in-section=5``. The
+    self-heal did not fail — it verified the wrong thing. Full trace:
+    ``.omc/research/digest_structure_selfheal_gap_2026_09_08.md``.
+
+    So the corpus guard now imports this function instead of restating it.
+    """
+    return (
+        len(_CHECKBOX_RE.findall(clean_body)),
+        len(_CHECKBOX_RE.findall(global_checklist_section(clean_body))),
+    )
+
+
 def check_text(text: str) -> list:
     """Structural violations for a post's full text (front matter included)."""
     body = _body(text)
@@ -83,12 +131,18 @@ def check_text(text: str) -> list:
         violations.append(
             f"expected exactly one 실무 체크리스트, found {clean_body.count('## 실무 체크리스트')}"
         )
-    # any checkbox item appearing BEFORE the global checklist lives in an item
-    # body → it is a per-item checklist (the empirical defect).
-    head = clean_body.split("## 실무 체크리스트")[0]
-    if re.search(r"^\s*-\s*\[[ xX]?\]", head, re.MULTILINE):
+    # Any checkbox OUTSIDE the global checklist section is a duplicate
+    # checklist surface. Counted document-wide vs in-section rather than
+    # scanning only the half before the heading — see
+    # misplaced_checkbox_counts for the publish day that distinction cost.
+    doc_wide, in_section = misplaced_checkbox_counts(clean_body)
+    if doc_wide != in_section:
+        # The counts go AFTER ": " on purpose — _kind() keys the ratchet on the
+        # prefix, so embedding them in the kind would make the same defect read
+        # as "one disappeared + one new" whenever the count shifted.
         violations.append(
-            "per-item checkbox checklist present in an item body (should be removed)"
+            "checkbox checklist outside the global 실무 체크리스트: "
+            f"doc-wide={doc_wide} in-section={in_section}"
         )
     # Heading-anchored, NOT a bare substring: the defect is a per-item
     # "대응 체크리스트" HEADING (## / ### / ####). A bare substring also matched

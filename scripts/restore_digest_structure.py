@@ -11,7 +11,7 @@ this module converts markers instead:
 
     R1  item-region '#'/'##'/'###' non-section heading  ->  '####'
     R2  '#{1,4} 대응 체크리스트'                        ->  '**대응 체크리스트**'
-    R3  item-region '- [ ] x'                          ->  '- x'
+    R3  '- [ ] x' outside the global checklist          ->  '- x'
     R4  remaining top-level '## N.' sections           ->  renumbered 1..N
     R5  '## N. 실무 체크리스트'                         ->  '## 실무 체크리스트'
     R6  global-checklist plain '- x'                   ->  '- [ ] x'
@@ -37,9 +37,15 @@ tests and by CI (the first draft had the first two backwards and lacked R6):
   * R6 AFTER R5 — R6 anchors on the canonical '## 실무 체크리스트' heading, which
     R5 is what produces for the numbered legacy form.
 
+  * R3 AFTER R5 — R3 now anchors on the canonical '## 실무 체크리스트' to decide
+    what to leave alone (it used to key on item regions, which made it blind to
+    a checkbox under '## 참고 자료' — the 2026-09-06 lost publish day). With the
+    numbered legacy heading still present, R3 would treat the whole checklist as
+    outside itself and strip the deliverable.
+
 R1 vs R2 is order-INDEPENDENT: _RESP_HEADING_RE spans '#{1,4}', so it catches the
 heading whether or not R1 has already demoted it to '####'. R3 vs R6 likewise:
-their scopes are disjoint (item regions vs the global checklist section).
+their scopes are disjoint (outside vs inside the global checklist section).
 
 WHY R6 EXISTS: R3 strips the per-item checkboxes, and in the legacy corpus those
 were the ONLY '- [ ]' in the file — so validate_post_quality.validate_checklists
@@ -164,31 +170,54 @@ def boldify_response_checklist(text: str) -> str:
 
 _ITEM_CHECKBOX_RE = re.compile(r"^(\s*)-\s*\[[ xX]?\]\s*(.*)$")
 
+# ANY level-2 heading, deliberately not the enumerated TOP_SECTION_RE. R3 leaves
+# the checklist section alone, so it needs a reliable signal for "the checklist
+# section ended". With the enumerated list, an H2 that is not on it would fail
+# to close the region and every checkbox after it would be preserved as though
+# it were part of the checklist.
+_ANY_TOP_SECTION_RE = re.compile(r"^##\s+")
 
-def unbox_item_checkboxes(text: str) -> str:
-    """R3: inside an item region, '- [ ] x' becomes a plain '- x' bullet.
 
-    Scoped to item regions on purpose: the checkboxes under the global
-    '## 실무 체크리스트' are the intended deliverable and must survive.
+def unbox_checkboxes_outside_checklist(text: str) -> str:
+    """R3: anywhere OUTSIDE the global checklist, '- [ ] x' becomes '- x'.
+
+    The checkboxes under '## 실무 체크리스트' are the intended deliverable and
+    must survive; everything else is a duplicate checklist surface.
+
+    This used to be scoped to item regions (``in_item``, toggled on
+    ``### N.N`` and off on any top-level section), which made it blind in the
+    same place ``check_digest_structure`` was blind: a checkbox under
+    ``## 참고 자료`` sits outside every item region, so R3 left it and the
+    checker did not see it either. On 2026-09-06 that pair cost a publish day —
+    checker FAIL, heal, checker OK, then the corpus gate blocked with
+    ``doc-wide=8 in-section=5``. Measured on the trailing-checkbox fixture
+    before the change: ``rewrote 0/1``, zero bytes changed.
+
+    Widening it also closed a case neither half covered: a checkbox in a
+    non-item top-level section BEFORE the checklist (``## 📊 빠른 참조``) was
+    flagged by the old checker but never repaired by the old R3, so the
+    self-heal reported success and the bare re-verify blocked anyway.
+
+    Anchors on the canonical heading, which is why R5 must keep running first.
     """
     front, body = _split_front_matter(text)
     lines = body.split("\n")
     fenced = _fence_flags(lines)
     out = []
-    in_item = False
+    in_checklist = False
     for i, line in enumerate(lines):
         if fenced[i]:
             out.append(line)
             continue
-        if ITEM_HEADING_RE.match(line):
-            in_item = True
+        if _CHECKLIST_HEADING_RE.match(line):
+            in_checklist = True
             out.append(line)
             continue
-        if TOP_SECTION_RE.match(line):
-            in_item = False
+        if _ANY_TOP_SECTION_RE.match(line):
+            in_checklist = False
             out.append(line)
             continue
-        m = _ITEM_CHECKBOX_RE.match(line) if in_item else None
+        m = None if in_checklist else _ITEM_CHECKBOX_RE.match(line)
         out.append(f"{m.group(1)}- {m.group(2)}" if m else line)
     return front + "\n".join(out)
 
@@ -295,7 +324,7 @@ _RULES = (
     canonicalize_checklist_heading,  # R5 — first: unblocks R1/R6 and frees R4's index
     demote_item_headings,  # R1
     boldify_response_checklist,  # R2 (order vs R1 is irrelevant)
-    unbox_item_checkboxes,  # R3
+    unbox_checkboxes_outside_checklist,  # R3
     checkbox_global_checklist,  # R6 — after R5 (needs canonical heading)
     renumber_sections,  # R4 — last: counts only genuine sections
 )
