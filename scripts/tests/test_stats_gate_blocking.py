@@ -261,16 +261,18 @@ def test_every_current_mismatch_is_a_deliberate_refusal():
 
     A note on verifying this test, because the first attempt drew the wrong
     conclusion. Breaking the heal's stats-block pattern appeared to leave this
-    test GREEN, which looked like proof that the check was vacuous. It was not:
-    the stats-block ``re.search`` call is written out twice in ``qa_gate``,
-    character for character — once in
-    ``validate_stats_consistency`` and once in ``heal_stats_total`` — and a
+    test GREEN, which looked like proof the check was vacuous. It was not: the
+    same search was written out twice, character for character, in
+    ``validate_stats_consistency`` and in ``heal_stats_total``, and a
     single-occurrence replace had hit the GATE. With the gate blind, no post
     was a mismatch, the loop below never ran, and passing meant nothing.
-    Targeting the heal's own copy makes this test fail as intended.
 
-    So when mutating either of those two functions, mutate the LAST occurrence
-    (``rindex``) and print the enclosing function to confirm where it landed.
+    That duplication is gone — both now read through ``_parse_stats_block``,
+    verified equivalent over 293 posts on both the normal and repair paths — so
+    a mutation to the pattern reaches the gate and the heal together, and the
+    ambiguity that produced the false conclusion cannot recur. The general
+    lesson survives the fix: when a probe reports MISSED, first establish that
+    the mutation landed where you aimed it.
     """
     stalled = []
     for post, text, counts in _stats_posts():
@@ -297,3 +299,42 @@ def test_every_current_mismatch_is_a_deliberate_refusal():
         "cannot parse these blocks. Check its stats-block pattern before "
         "touching anything else."
     )
+
+
+def test_the_stats_block_is_located_in_exactly_one_place():
+    """The gate and the heal must not carry separate copies of the search.
+
+    They did until 2026-09-09, and the duplication was not merely untidy: a
+    mutation aimed at one copy landed on the other, the gate went blind, and a
+    corpus test whose loop never executed reported green. A single parser makes
+    that class of confusion impossible, so the count is pinned.
+    """
+    source = (REPO_POSTS.parent / "scripts" / "news" / "qa_gate.py").read_text(
+        encoding="utf-8"
+    )
+    compiled = re.findall(r"re\.compile\(r\"\\\*\\\*수집 통계", source)
+    inline = re.findall(r"re\.search\(r\"\\\*\\\*수집 통계", source)
+    assert len(compiled) == 1, (
+        f"expected exactly one compiled stats-block pattern, found {len(compiled)}"
+    )
+    assert not inline, (
+        f"{len(inline)} inline re.search for the stats block — route it through "
+        "_parse_stats_block instead, or a mutation to one copy will silently "
+        "leave the other in charge"
+    )
+
+
+def test_both_callers_read_through_the_shared_parser():
+    """The other direction: one parser that nobody uses is not single-sourcing."""
+    source = (REPO_POSTS.parent / "scripts" / "news" / "qa_gate.py").read_text(
+        encoding="utf-8"
+    )
+    for symbol in ("validate_stats_consistency", "heal_stats_total"):
+        start = source.index(f"def {symbol}(")
+        body = source[start:]
+        end = body.find("\ndef ", 1)
+        body = body[:end] if end != -1 else body
+        assert "_parse_stats_block(content)" in body, (
+            f"{symbol} no longer reads the stats block through the shared "
+            "parser, so it can drift from the other caller"
+        )

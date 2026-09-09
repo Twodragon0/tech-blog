@@ -27,7 +27,7 @@ self-heal in front (``heal_stats_total``).
 import logging
 import os
 import re
-from typing import List
+from typing import List, NamedTuple
 
 logger = logging.getLogger(__name__)
 
@@ -156,37 +156,70 @@ def validate_sentence_completeness(content: str) -> List[str]:
 # ---------------------------------------------------------------------------
 
 _TOTAL_NEWS_RE = re.compile(r"\*\*총 뉴스 수\*\*\s*:\s*(\d+)\s*개")
-# Match category lines but NOT the "총 뉴스 수" line
+
+# Category lines only. The negative lookahead is what excludes the total, and
+# it is the ONLY thing that does: the generator writes the total as
+# `- **총 뉴스 수**: 30개`, with the same `- ` prefix as every category line
+# (`_format_stats_block` builds it that way). A comment here used to claim the
+# prefix was the discriminator — measured 2026-09-09, it is not, and dropping
+# the lookahead on that belief would fold the total into its own sum.
 _CATEGORY_COUNT_RE = re.compile(r"- \*\*(?!총 뉴스 수)[^*]+\*\*\s*:\s*(\d+)\s*개")
+
+_STATS_BLOCK_RE = re.compile(r"\*\*수집 통계:\*\*\s*\n((?:- .+\n)+)")
+
+
+class _StatsBlock(NamedTuple):
+    """The parsed 수집 통계 block: the text, and the numbers inside it."""
+
+    text: str
+    total_match: "re.Match[str]"
+    stated_total: int
+    category_counts: List[int]
+
+
+def _parse_stats_block(content: str) -> "_StatsBlock | None":
+    """Locate and read the 수집 통계 block, or None if it is not usable.
+
+    The gate and its self-heal both need exactly this, and both used to carry
+    their own copy of the search — the same three-line sequence written out
+    twice. That cost real time on 2026-09-09: a mutation aimed at the heal's
+    copy landed on the gate's, the gate went blind, every post stopped being a
+    mismatch, and a test that never executed its loop reported green. The
+    conclusion drawn from that green ("the test is vacuous") was wrong, and
+    chasing it produced a false claim in a docstring.
+
+    None collapses the three original early exits — no block, no total line, no
+    category lines — which both callers already treated identically.
+    """
+    block_match = _STATS_BLOCK_RE.search(content)
+    if not block_match:
+        return None
+    block = block_match.group(0)
+
+    total_match = _TOTAL_NEWS_RE.search(block)
+    if not total_match:
+        return None
+
+    category_counts = [int(m) for m in _CATEGORY_COUNT_RE.findall(block)]
+    if not category_counts:
+        return None
+
+    return _StatsBlock(block, total_match, int(total_match.group(1)), category_counts)
 
 
 def validate_stats_consistency(content: str) -> List[str]:
     """Check that category counts in '수집 통계' sum to the stated total."""
     issues: List[str] = []
 
-    # Find the stats block
-    stats_match = re.search(r"\*\*수집 통계:\*\*\s*\n((?:- .+\n)+)", content)
-    if not stats_match:
+    parsed = _parse_stats_block(content)
+    if parsed is None:
         return issues
 
-    block = stats_match.group(0)
-    total_m = _TOTAL_NEWS_RE.search(block)
-    if not total_m:
-        return issues
-
-    stated_total = int(total_m.group(1))
-    category_counts = [int(m) for m in _CATEGORY_COUNT_RE.findall(block)]
-
-    if not category_counts:
-        return issues
-
-    actual_sum = sum(category_counts)
-    # The total line is also matched by _CATEGORY_COUNT_RE if it has the
-    # same format, but it uses "총 뉴스 수" which is distinct.  The regex
-    # requires "- **" prefix so the total line (which lacks "-") won't match.
-    if actual_sum != stated_total:
+    actual_sum = sum(parsed.category_counts)
+    if actual_sum != parsed.stated_total:
         issues.append(
-            f"Stats mismatch: category sum={actual_sum} != stated total={stated_total}"
+            f"Stats mismatch: category sum={actual_sum} != "
+            f"stated total={parsed.stated_total}"
         )
     return issues
 
@@ -213,26 +246,20 @@ def heal_stats_total(content: str) -> "str | None":
     """
     from scripts.news.config import MAX_NEWS_PER_CATEGORY
 
-    stats_match = re.search(r"\*\*수집 통계:\*\*\s*\n((?:- .+\n)+)", content)
-    if not stats_match:
+    parsed = _parse_stats_block(content)
+    if parsed is None:
         return None
-    block = stats_match.group(0)
-
-    total_m = _TOTAL_NEWS_RE.search(block)
-    if not total_m:
-        return None
-    category_counts = [int(m) for m in _CATEGORY_COUNT_RE.findall(block)]
-    if not category_counts:
-        return None
-    if any(c == MAX_NEWS_PER_CATEGORY for c in category_counts):
+    if any(c == MAX_NEWS_PER_CATEGORY for c in parsed.category_counts):
         return None
 
-    corrected = sum(category_counts)
-    if corrected == int(total_m.group(1)):
+    corrected = sum(parsed.category_counts)
+    if corrected == parsed.stated_total:
         return None
 
-    healed_block = block.replace(total_m.group(0), f"**총 뉴스 수**: {corrected}개", 1)
-    return content.replace(block, healed_block, 1)
+    healed_block = parsed.text.replace(
+        parsed.total_match.group(0), f"**총 뉴스 수**: {corrected}개", 1
+    )
+    return content.replace(parsed.text, healed_block, 1)
 
 
 # ---------------------------------------------------------------------------
