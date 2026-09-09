@@ -65,7 +65,7 @@ summary_card:
 | 🔒 **Security** | AWS Security Blog | 놓치셨다면: 2026년 6월 AWS Security 소식 | 🔴 Critical |
 | 🔒 **Security** | 안랩 ASEC 블로그 | 모든 Fox가 Silver는 아니다: AtlasRAT 로더 체인 내부 | 🟡 Medium |
 | 🤖 **AI/ML** | NVIDIA AI Blog | Nemotron Labs: 오픈 모델이 기업과 국가에 신뢰, 통제 및 맞춤화가 가능한 AI를 제공하는 방법 | 🟡 Medium |
-| 🤖 **AI/ML** | Google AI Blog | 시각 검색 혁신 25주년을 기념하며 | 🟡 Medium |
+| 🤖 **AI/ML** | Google AI Blog | 시각 검색 혁신 25주년을 기념합니다 | 🟡 Medium |
 | 🤖 **AI/ML** | NVIDIA AI Blog | 성능 대비 전력 소비가 AI 인프라 효율성의 궁극적 지표인 이유 | 🟡 Medium |
 | ☁️ **Cloud** | Google Cloud Blog | Google, 2026 IDC MarketScape 세계 기반 모델 소프트웨어 부문 리더로 선정 | 🟡 Medium |
 | ☁️ **Cloud** | Google Cloud Blog | Google Cloud에서 Claude at scale: 엔터프라이즈 프로덕션을 위해 구축된 프론티어 AI | 🟡 Medium |
@@ -217,10 +217,10 @@ Nemotron Labs는 기업과 국가가 신뢰하고 통제하며 맞춤화할 수 
 
 ---
 
-### 2.2 시각 검색 혁신 25주년을 기념하며
+### 2.2 시각 검색 혁신 25주년을 기념합니다
 
 {% include news-card.html
-  title="시각 검색 혁신 25주년을 기념하며"
+  title="시각 검색 혁신 25주년을 기념합니다"
   url="https://blog.google/products-and-platforms/products/search/google-images-25th-anniversary/"
   image="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Images_25th_hero.max-600x600.format-webp.webp"
   summary="Google Images가 다양한 이미지 검색을 하는 사람들의 일러스트와 함께 25주년을 맞아 시각 검색 혁신을 기념하고 있습니다."
