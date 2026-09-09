@@ -4507,6 +4507,33 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
         "랜섬웨어": ["ransomware", "랜섬웨어"],
         "컨테이너/K8s": ["kubernetes", "k8s", "container", "docker", "컨테이너"],
         "인증 보안": ["authentication", "인증", "credential", "identity", "sso"],
+        # Blockchain was the largest single gap in this table: 블록체인 뉴스 is
+        # the SECOND largest collected category (882 articles) and had no trend
+        # group at all, so 428 of the 1704 unmatched card titles — 25% — were
+        # blockchain stories being counted as "기타". Not a tuning problem; an
+        # omission. Research: .omc/research/trend-defs-coverage-2026-09-09.md
+        #
+        # Each keyword earns its place by marginal contribution over the others,
+        # measured on 2449 real card titles. Three candidates were rejected:
+        #   `blockchain` +0  — English always co-occurs with 블록체인 or bitcoin
+        #   `etf`        +0  — same
+        #   `crypto`     +14 but WRONG: substring matching puts it inside
+        #                `Encryptor`, `decryptor` and `cryptography`, so it
+        #                classifies ransomware and cryptography stories as
+        #                blockchain. The audit caught it on a real title,
+        #                "신종 StormEncryptor 랜섬웨어".
+        # `토큰` was rejected too — it matches 게이트웨이 토큰 탈취 (auth) and
+        # 100만 토큰 컨텍스트 (AI), both already covered elsewhere.
+        "블록체인/암호화폐": [
+            "bitcoin",
+            "비트코인",
+            "블록체인",
+            "암호화폐",
+            "스테이블코인",
+            "ethereum",
+            "defi",
+            "xrp",
+        ],
     }
 
     trend_results = []
@@ -4548,6 +4575,27 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
 
     # Add "기타" for unmatched items so trend sum == total
     etc_count = len(news_items) - len(matched_indices)
+
+    # Coverage, logged because it cannot be recovered after publication. The
+    # matcher reads every collected item, but only a subset is rendered as a
+    # card, so reconstructing this from a published post can only sample — the
+    # 2026-09-09 investigation had to state that limitation and could not close
+    # it. One line here makes the real figure observable per publish.
+    #
+    # `logging.info` rather than a print: the sibling call at line ~1453 emits
+    # "Post quality score 94/100" and that line was confirmed present in the
+    # 2026-09-09 cron job log, so this transport is known to reach it.
+    #
+    # Sampled baseline for comparison, on 2449 card titles: 30% matched before
+    # the blockchain group, 48% after.
+    if news_items:
+        matched_n = len(matched_indices)
+        logging.info(
+            f"Trend coverage {matched_n}/{len(news_items)} "
+            f"({100 * matched_n // len(news_items)}%) matched across "
+            f"{len(trend_defs)} trend groups; {etc_count} unmatched -> 기타"
+        )
+
     if etc_count > 0:
         trend_results.append((_TREND_CATCH_ALL, etc_count, "기타 주제", []))
 
