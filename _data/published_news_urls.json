@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-08T02:15:01.430239+00:00",
+  "updated_at": "2026-09-09T02:19:39.054349+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/us-sanctions-iran-linked-hackers-behind.html",
-      "title": "U.S. Sanctions Iran-Linked Hackers Behind Critical Infrastructure Breaches",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/fast-track-ism-ready-cloud-environments-and-irap-assessments-with-landing-zone-accelerator-on-aws/",
-      "title": "Fast Track ISM-ready cloud environments and IRAP Assessments with Landing Zone A",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/a-malicious-webpage-could-poison-your.html",
-      "title": "A Malicious Webpage Could Poison Your Local AI Model Behind NVIDIA NemoClaw",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/whatsapp-adds-multiple-passkeys-for.html",
-      "title": "WhatsApp Adds Multiple Passkeys for Phishing-Resistant Sign-Ins Across iOS and A",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/marimo-notebook-flaw-could-run-mcp.html",
-      "title": "Marimo Notebook Flaw Could Run MCP Commands Before Cells Execute in Edit Mode",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/home-decor-tips/",
-      "title": "5 ways to upgrade your home decor with Google Search",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/gamescom-rtx-spark-pc-games-technology/",
-      "title": "Leading Publishers Bring Blockbuster PC Games and Technology to NVIDIA RTX Spark",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://openai.com/index/the-full-stack-behind-abundant-intelligence",
-      "title": "The full stack behind abundant intelligence",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://openai.com/index/jalapeno-first-results",
-      "title": "Jalapeño’s first results show industry-leading speed and efficiency in AI infere",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/agentic-observability-with-amazon-opensearch-service-mcp-apps/",
-      "title": "Agentic observability with Amazon OpenSearch Service MCP Apps",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gvisor-sandboxes-for-ray-clusters-on-gke/",
-      "title": "Bringing gVisor sandboxes to distributed Ray clusters",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal/",
-      "title": "Now introducing Gemini Enterprise for Legal",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-financial-services/",
-      "title": "Now introducing Gemini Enterprise for Financial Services",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/happy-20th-birthday-amazon-ec2/",
-      "title": "Happy 20th Birthday, Amazon EC2",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/moving-from-minimus-to-docker-hardened-images/",
-      "title": "Moving from Minimus to Docker Hardened Images",
-      "published_date": "2026-08-26",
-      "expires_at": "2026-09-02T00:48:40.386100+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/fbi-disrupts-china-linked-qtfy.html",
       "title": "FBI Disrupts China-Linked QTFY Infrastructure Used to Steal Data From U.S. Organ",
@@ -1080,6 +990,96 @@
       "title": "UK financial watchdog weighs lifting prediction markets ban: Report",
       "published_date": "2026-09-08",
       "expires_at": "2026-09-15T02:15:01.430122+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/slim-spider-steals-crypto-custody.html",
+      "title": "Slim Spider Steals Crypto Custody Secrets From Brazilian Financial Institution",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-adds-age-awareness-apis-that-can-tell-if-users-are-children-teens-or-adults/",
+      "title": "Microsoft adds age-awareness APIs that can tell if users are children, teens, or",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/liquid-hackers-return-3400-bitcoin.html",
+      "title": "Liquid Hackers Return 3,400 Bitcoin Taken via Elements Bug, Still Holding $47M i",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/chatgpt-flaw-let-planted-prompt-send.html",
+      "title": "ChatGPT Flaw Let a Planted Prompt Send a Victim's Gmail Data to Another Account",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html",
+      "title": "Autonomous AI Agents Compromise Thousands of Credentials in Under Six Hours",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://openai.com/index/codex-quantum-computing-experiments",
+      "title": "How GPT-5.6 Sol helps run quantum computing experiments",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+      "title": "AlphaGenome Atlas: A predictive map of every possible DNA letter change in the h",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://openai.com/index/the-work-now-within-reach",
+      "title": "The Work Now Within Reach",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-chatgpt-images-2-5",
+      "title": "Introducing ChatGPT Images 2.5",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://openai.com/index/navier-stokes-solution",
+      "title": "On the Navier–Stokes Millennium Prize Problem",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/power-agent-hubs-or-custom-harnesses-with-the-antigravity-sdk/",
+      "title": "Power agent hubs or custom harnesses with the Antigravity SDK in one toolkit",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/agentic-analytics-with-the-data-agent-kit/",
+      "title": "Agentic analytics with the Data Agent Kit",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/customers/how-kddi-optimized-rag-performance-with-agent-development-kit/",
+      "title": "How KDDI built Buffmee, a faster, reliable consumer RAG app",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai/",
+      "title": "GTIG AI Threat Tracker: From Prompting to Autonomy – The Evolution of Adversaria",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/sonic-rumble-party-dynamodb-elasticache/",
+      "title": "주식회사 SEGA, 소규모 팀으로 「Sonic Rumble Party」 글로벌 출시를 위한 Amazon DynamoDB 및 Amazon Elas",
+      "published_date": "2026-09-09",
+      "expires_at": "2026-09-16T02:19:39.054265+00:00"
     }
   ]
 }
