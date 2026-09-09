@@ -201,6 +201,71 @@ _TREND_SECTION_RE = re.compile(
 _TREND_CITATION_RE = re.compile(r"\*\*([^*]+)\*\*\s*\((\d+)건\)")
 
 
+def _trend_prose(block: str) -> str:
+    """The prose after the table.
+
+    Sliced at the last LINE that is a table row, not at the last ``|``
+    CHARACTER. A markdown table row starts its line with ``|``, so this asks
+    the grammar where the table ends instead of guessing from a character that
+    also occurs in prose.
+
+    Why it matters: an article title reaches this prose verbatim through
+    ``content_generator._extract_trend_keyword``, and tech headlines routinely
+    contain a pipe. Measured 2026-09-08 with ``랜섬웨어 | 이중 협박 재확산`` as a
+    title, ``rfind("|")`` put the boundary INSIDE the prose and dropped the
+    first citation:
+
+        prose  '이중 협박 재확산 등이 주요 이슈입니다. **기타**(1건)도 …'
+        cites  [('기타', 1)]          # **랜섬웨어**(1건) never seen
+
+    The gate then reported 0 issues for a post it had only half-read — the
+    vacuity failure mode, where nothing-found reads exactly like nothing-wrong.
+
+    Zero effect on the corpus as it stands: 195 citations over 176 posts either
+    way, 0 posts change. So this is a latent-vacuity fix, not a live-defect fix,
+    and the ``MAX_VIOLATIONS = 0`` ratchet was not being fooled today.
+    """
+    lines = block.splitlines()
+    last_row = -1
+    for i, line in enumerate(lines):
+        if line.lstrip().startswith("|"):
+            last_row = i
+    return "\n".join(lines[last_row + 1 :])
+
+
+def extract_trend_rows_and_citations(
+    content: str,
+) -> "tuple[set[tuple[str, int]], list[tuple[str, int]]]":
+    """The gate's own extractor, exposed so the generator can assert on it.
+
+    Returned as ``(rows, citations)``. ``citations`` is a LIST, not a set: the
+    generator needs the count to detect a citation that went missing from the
+    prose slice, which a set would hide by deduplicating.
+
+    Public so that ``content_generator`` asserts against the same code the gate
+    runs. A parallel re-implementation there could agree with the generator
+    while disagreeing with the gate, which is the drift this replaces.
+    """
+    section = _TREND_SECTION_RE.search(content)
+    if not section:
+        return set(), []
+    block = section.group(1)
+
+    rows = {
+        (name.strip(), int(count)) for name, count in _TREND_TABLE_ROW_RE.findall(block)
+    }
+    if not rows:
+        return set(), []
+
+    # Only the prose AFTER the table. Scanning the whole block would match the
+    # rows' own bold names and make every citation trivially present.
+    citations = [
+        (name.strip(), int(count))
+        for name, count in _TREND_CITATION_RE.findall(_trend_prose(block))
+    ]
+    return rows, citations
+
+
 def validate_trend_analysis(content: str) -> List[str]:
     """Every trend the prose cites must exist as a row in the trend table.
 
@@ -250,22 +315,11 @@ def validate_trend_analysis(content: str) -> List[str]:
     """
     issues: List[str] = []
 
-    section = _TREND_SECTION_RE.search(content)
-    if not section:
-        return issues
-    block = section.group(1)
-
-    rows = {
-        (name.strip(), int(count)) for name, count in _TREND_TABLE_ROW_RE.findall(block)
-    }
+    rows, citations = extract_trend_rows_and_citations(content)
     if not rows:
         return issues
 
-    # Only the prose AFTER the table. Scanning the whole block would match the
-    # rows' own bold names and make every citation trivially present.
-    prose = block[block.rfind("|") + 1 :]
-    for name, count in _TREND_CITATION_RE.findall(prose):
-        cited = (name.strip(), int(count))
+    for cited in citations:
         if cited not in rows:
             issues.append(
                 f"Trend citation not in the table: {cited[0]}({cited[1]}건) — "

@@ -4430,6 +4430,58 @@ def _generate_blockchain_template(item: Optional[Dict] = None) -> str:
     return _contextualize_practical_points(template, item)
 
 
+def _assert_trend_single_source(content: str, emitted: List[Tuple[str, int]]) -> None:
+    """Invariant: the trend table and the prose citations are one source.
+
+    Mirrors the two stats assertions (``_format_stats_block`` and the
+    topic-group sum) and exists for the same reason: catch the divergence where
+    it is created, rather than discovering it later in a published post.
+
+    Why an assertion and not a blocking publish gate
+    ------------------------------------------------
+    ``validate_trend_analysis`` was deliberately NOT promoted to blocking.
+    Promotion requires a self-heal, and the only repair anyone can name —
+    rewriting the prose citation to the table's largest row — was rejected by
+    the corpus: 2026-04-13 headlines ``공급망 공격 및 RCE 취약점``(3건) over the
+    larger ``Bitcoin 및 블록체인 동향``(5건), which is the better editorial call
+    for a security digest, and 2026-04-12's numeric top is the catch-all
+    ``기타``(5건), which should never be headlined.
+
+    An assertion here is the stronger control anyway. Both renderings come from
+    ``trend_results`` in this one function, so a mismatch is a code defect, not
+    content that needs judgement — and this stops it being written at all
+    instead of reporting it afterwards. Hand-edited posts, which is where all
+    four historical violations lived, never pass through this function; those
+    stay covered by ``test_trend_citation_corpus_ratchet.py``
+    (``MAX_VIOLATIONS = 0``).
+    Verdict: ``.omc/plans/advisory-rules-promotion-verdict-2026-09-08.md``
+
+    Two checks, because the membership one alone can pass vacuously
+    --------------------------------------------------------------
+    ``set(recovered) <= rows`` is satisfied by recovering NOTHING. That is not
+    hypothetical here: a pipe inside an article title used to move the
+    prose-slice boundary and swallow the first citation, and the gate then
+    reported zero issues for a post it had half-read. So the count is asserted
+    first — every citation written must be readable back.
+    """
+    from news.qa_gate import extract_trend_rows_and_citations
+
+    rows, recovered = extract_trend_rows_and_citations(content)
+
+    assert len(recovered) == len(emitted), (
+        f"Trend citation round-trip lost one: wrote {emitted}, read back "
+        f"{recovered}. The prose slice or a citation format changed, so the "
+        f"gate would now read this section only partly."
+    )
+    unmatched = [c for c in recovered if c not in rows]
+    assert not unmatched, (
+        f"Trend citation not in the table it was written beside: {unmatched}, "
+        f"rows={sorted(rows, key=lambda r: -r[1])}. Both come from "
+        f"trend_results, so a trend name carrying '|' or '*' (which the row "
+        f"pattern excludes) is the likely cause."
+    )
+
+
 def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
     """뉴스 기반 트렌드 분석 섹션 생성 - 기사 제목 기반 구체적 키워드 추출"""
     content = f"\n---\n\n## {section_num}. 트렌드 분석\n\n"
@@ -4496,10 +4548,16 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
             content += f"| **{name}** | {count}건 | {kws} |\n"
         content += "\n"
 
+        # Every "**name**(N건)" written below, in emission order. The table
+        # above and this prose are two renderings of `trend_results`, and the
+        # assertion at the end of the block re-reads both to prove they agree.
+        emitted: List[Tuple[str, int]] = []
+
         # Generate specific analysis based on actual articles
         top = trend_results[0]
         top_refs = top[3][:2]  # top 2 representative titles
         content += f"이번 주기의 핵심 트렌드는 **{top[0]}**({top[1]}건)입니다. "
+        emitted.append((top[0], top[1]))
         if top_refs:
             content += f"{', '.join(top_refs)} 등이 주요 이슈입니다. "
 
@@ -4509,8 +4567,15 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
             if second_refs:
                 content += f"**{second[0]}** 분야에서는 {', '.join(second_refs)} 관련 동향에 주목할 필요가 있습니다."
             else:
+                # This branch cites a SECOND trend with its count. It is not
+                # rare: `기타` is appended with empty representative_titles by
+                # construction, so any digest where `기타` places second lands
+                # here. 21 of the 176 published posts carry two citations.
                 content += f"**{second[0]}**({second[1]}건)도 주목할 트렌드입니다."
+                emitted.append((second[0], second[1]))
         content += "\n\n"
+
+        _assert_trend_single_source(content, emitted)
     else:
         content += "이번 주기에는 두드러진 트렌드가 감지되지 않았습니다.\n\n"
 
