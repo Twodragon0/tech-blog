@@ -155,3 +155,145 @@ def test_the_healed_content_is_what_gets_written():
     assert re.search(r"^\s+post_content = healed_content$", source, re.M), (
         "the healed content is no longer assigned back to post_content"
     )
+
+
+# ---------------------------------------------------------------------------
+# Reachability: where the heal actually helps, measured on the real corpus
+# ---------------------------------------------------------------------------
+#
+# Verdict 2026-09-09, after the promoted gate's first live cron publish:
+# `.omc/plans/stats-self-heal-honesty-2026-09-09.md`
+#
+# The 2026-09-09 digest passed the gate WITHOUT it firing, and that post has all
+# six categories at MAX_NEWS_PER_CATEGORY — the exact shape the heal declines.
+# So the run proved the gate does not fire on consistent generator output; it
+# proved nothing about the heal. Classifying every one of the 184 posts that
+# carry a stats block by why `heal_stats_total` returns None:
+#
+#     178  refuses  (a category sits at the cap)
+#       6  no-op    (already consistent, nothing to rewrite)
+#       0  cannot locate the stats block
+#       0  would repair
+#
+# All 23 current mismatches fall in the refusal group. So the heal's repair rate
+# on this corpus is zero, and the question raised was whether `self_heal=True`
+# in INLINE_PUBLISH_GATES is therefore dishonest.
+#
+# It is not, and the registry stays two-state. `self_heal` is a CONTRACT — "a
+# repair path runs ahead of the block" — and that contract holds: the repair
+# region is reachable (6 posts have no capped category) and the repair works
+# there, which the first test below proves against a real post rather than a
+# synthetic fixture. A rate of zero is a property of today's CONTENT, not of the
+# code, and would flip the day an uncapped digest mismatches. Encoding a corpus
+# statistic as a schema flag would make the registry wrong in the other
+# direction, so the frequency is pinned here, where it can be re-measured.
+#
+# What the run did establish: this gate's safety comes from the generator
+# asserting `shown_sum == total` at derivation (content_generator.py:1501 and
+# :1948), NOT from the heal. Do not remember it as "there is a heal, so a false
+# positive cannot cost a publish day" — for the dominant capped shape a mismatch
+# is a block, by design, because the true total is not recoverable.
+
+REPO_POSTS = Path(__file__).resolve().parents[2] / "_posts"
+_STATS_BLOCK_RE = re.compile(r"\*\*수집 통계:\*\*\s*\n((?:- .+\n)+)")
+_TOTAL_RE = re.compile(r"\*\*총 뉴스 수\*\*\s*:\s*(\d+)\s*개")
+_CATS_RE = re.compile(r"- \*\*(?!총 뉴스 수)[^*]+\*\*\s*:\s*(\d+)\s*개")
+
+
+def _stats_posts():
+    """Every post carrying a parseable stats block, with its category counts."""
+    out = []
+    for post in sorted(REPO_POSTS.glob("*.md")):
+        text = post.read_text(encoding="utf-8")
+        block_match = _STATS_BLOCK_RE.search(text)
+        if not block_match or not _TOTAL_RE.search(block_match.group(0)):
+            continue
+        counts = [int(c) for c in _CATS_RE.findall(block_match.group(0))]
+        if counts:
+            out.append((post, text, counts))
+    return out
+
+
+def test_the_heal_is_reachable_on_a_real_post_not_only_a_fixture():
+    """The repair region exists in the corpus, and the repair works there.
+
+    ``test_an_inconsistent_total_is_rederived_from_the_categories`` already
+    proves the repair on a hand-built block. That is not enough to answer
+    "is this heal dead code?", because a synthetic fixture can satisfy
+    preconditions no real post ever satisfies. So: find a real post with no
+    capped category, break its total, and require a repair.
+    """
+    uncapped = [
+        (p, t)
+        for p, t, counts in _stats_posts()
+        if not any(c == MAX_NEWS_PER_CATEGORY for c in counts)
+    ]
+    assert uncapped, (
+        "no post has an uncapped category any more, so the heal's repair "
+        "region is empty in this corpus. That does NOT mean delete it — it "
+        "means a low-volume digest can no longer occur, which is worth "
+        "checking before acting on."
+    )
+
+    post, text = uncapped[0]
+    total_match = _TOTAL_RE.search(text)
+    broken = text.replace(total_match.group(0), "**총 뉴스 수**: 999개", 1)
+    assert validate_stats_consistency(broken), f"{post.name} did not break"
+
+    healed = heal_stats_total(broken)
+    assert healed is not None, (
+        f"the heal declined {post.name}, which has no capped category. The "
+        "repair region is now unreachable and the promotion's premise is gone."
+    )
+    assert validate_stats_consistency(healed) == []
+
+
+def test_every_current_mismatch_is_a_deliberate_refusal():
+    """Pins the REASON, not just the outcome.
+
+    A mismatch the heal cannot parse (no stats block, no total line) returns
+    None exactly like a principled refusal, and both read as "did not heal".
+    Separating them has to be behavioural: asking "is it capped?" with this
+    file's own regex would explain the refusal without ever establishing that
+    ``heal_stats_total`` could see the block. So each mismatched post is probed
+    with its caps lowered and its total made impossible — nothing then justifies
+    a refusal, and a heal that still declines is one that cannot parse.
+
+    A note on verifying this test, because the first attempt drew the wrong
+    conclusion. Breaking the heal's stats-block pattern appeared to leave this
+    test GREEN, which looked like proof that the check was vacuous. It was not:
+    the stats-block ``re.search`` call is written out twice in ``qa_gate``,
+    character for character — once in
+    ``validate_stats_consistency`` and once in ``heal_stats_total`` — and a
+    single-occurrence replace had hit the GATE. With the gate blind, no post
+    was a mismatch, the loop below never ran, and passing meant nothing.
+    Targeting the heal's own copy makes this test fail as intended.
+
+    So when mutating either of those two functions, mutate the LAST occurrence
+    (``rindex``) and print the enclosing function to confirm where it landed.
+    """
+    stalled = []
+    for post, text, counts in _stats_posts():
+        if not validate_stats_consistency(text):
+            continue
+        if heal_stats_total(text) is not None:
+            continue  # would repair — fine, and informative
+
+        # Remove the documented reason for refusing, and only that.
+        probe = re.sub(
+            r"(- \*\*(?!총 뉴스 수)[^*]+\*\*\s*:\s*)%d(\s*개)" % MAX_NEWS_PER_CATEGORY,
+            r"\g<1>4\g<2>",
+            text,
+        )
+        probe = _TOTAL_RE.sub("**총 뉴스 수**: 999개", probe, count=1)
+        assert validate_stats_consistency(probe), f"{post.name} probe is consistent"
+
+        if heal_stats_total(probe) is None:
+            stalled.append(post.name)
+
+    assert not stalled, (
+        f"{stalled}: with no capped category and an impossible total, the heal "
+        "STILL declined. That is not the documented refusal — heal_stats_total "
+        "cannot parse these blocks. Check its stats-block pattern before "
+        "touching anything else."
+    )
