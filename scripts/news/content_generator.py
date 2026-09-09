@@ -4430,6 +4430,18 @@ def _generate_blockchain_template(item: Optional[Dict] = None) -> str:
     return _contextualize_practical_points(template, item)
 
 
+# `기타` is the trend table's catch-all row, not a trend. Named so the string
+# is not repeated between the row that creates it and the filter that excludes
+# it from the headline.
+_TREND_CATCH_ALL = "기타"
+
+# Minimum article count for a trend to be called the cycle's key trend.
+# Measured floor — see the comment at the filter for the 13/120 it excludes.
+_TREND_HEADLINE_MIN = 2
+
+_NO_PROMINENT_TREND = "이번 주기에는 두드러진 트렌드가 감지되지 않았습니다."
+
+
 def _assert_trend_single_source(content: str, emitted: List[Tuple[str, int]]) -> None:
     """Invariant: the trend table and the prose citations are one source.
 
@@ -4537,7 +4549,7 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
     # Add "기타" for unmatched items so trend sum == total
     etc_count = len(news_items) - len(matched_indices)
     if etc_count > 0:
-        trend_results.append(("기타", etc_count, "기타 주제", []))
+        trend_results.append((_TREND_CATCH_ALL, etc_count, "기타 주제", []))
 
     trend_results.sort(key=lambda x: x[1], reverse=True)
 
@@ -4553,31 +4565,72 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
         # assertion at the end of the block re-reads both to prove they agree.
         emitted: List[Tuple[str, int]] = []
 
-        # Generate specific analysis based on actual articles
-        top = trend_results[0]
-        top_refs = top[3][:2]  # top 2 representative titles
-        content += f"이번 주기의 핵심 트렌드는 **{top[0]}**({top[1]}건)입니다. "
-        emitted.append((top[0], top[1]))
-        if top_refs:
-            content += f"{', '.join(top_refs)} 등이 주요 이슈입니다. "
+        # `기타` collects the articles no trend keyword matched, so it is the
+        # absence of a trend rather than one — and because the list is sorted by
+        # count it lands first in 126 of the 174 published digests (72%). That is
+        # how "이번 주기의 핵심 트렌드는 **기타**(12건)입니다" shipped that often,
+        # including the 2026-09-09 cron digest. It stays a TABLE ROW (the counts
+        # have to add up) but is no longer eligible to be headlined.
+        #
+        # The >= 2 floor is measured, not chosen for tidiness. Of the 120 such
+        # digests that do have a real alternative, 13 have one carrying a single
+        # article, and calling one article the cycle's key trend asserts a
+        # significance the data will not support. At >= 2, 107 of 120 (89%) get a
+        # real headline and the remaining 13 fall through to the no-trend
+        # sentence, which is the honest output for them.
+        #
+        # Note this does NOT re-introduce the rule the corpus rejected in #692:
+        # the requirement is still only that a citation exist as a row, so a
+        # hand-edited post may headline a smaller trend than the generator would
+        # (2026-04-13 picks 공급망 공격 및 RCE 취약점(3건) over Bitcoin 및 블록체인
+        # 동향(5건), which is the better call for a security digest).
+        #
+        # Verdict: .omc/plans/etc-top-trend-citation-2026-09-09.md
+        headline_pool = [
+            t
+            for t in trend_results
+            if t[0] != _TREND_CATCH_ALL and t[1] >= _TREND_HEADLINE_MIN
+        ]
 
-        if len(trend_results) > 1:
-            second = trend_results[1]
-            second_refs = second[3][:2]
-            if second_refs:
-                content += f"**{second[0]}** 분야에서는 {', '.join(second_refs)} 관련 동향에 주목할 필요가 있습니다."
-            else:
-                # This branch cites a SECOND trend with its count. It is not
-                # rare: `기타` is appended with empty representative_titles by
-                # construction, so any digest where `기타` places second lands
-                # here. 21 of the 176 published posts carry two citations.
-                content += f"**{second[0]}**({second[1]}건)도 주목할 트렌드입니다."
-                emitted.append((second[0], second[1]))
+        if headline_pool:
+            # Generate specific analysis based on actual articles
+            top = headline_pool[0]
+            top_refs = top[3][:2]  # top 2 representative titles
+            content += f"이번 주기의 핵심 트렌드는 **{top[0]}**({top[1]}건)입니다. "
+            emitted.append((top[0], top[1]))
+            if top_refs:
+                content += f"{', '.join(top_refs)} 등이 주요 이슈입니다. "
+
+            if len(headline_pool) > 1:
+                second = headline_pool[1]
+                second_refs = second[3][:2]
+                if second_refs:
+                    content += (
+                        f"**{second[0]}** 분야에서는 {', '.join(second_refs)} "
+                        "관련 동향에 주목할 필요가 있습니다."
+                    )
+                else:
+                    # A SECOND citation with its own count. This used to be the
+                    # common case — `기타` carries empty representative_titles
+                    # by construction, so 21 of 176 posts reached it — and the
+                    # exclusion above makes it effectively unreachable, because
+                    # an article only joins a trend by carrying its keyword in
+                    # the title, and such a title always yields a reference.
+                    # Kept, with the bookkeeping, rather than deleted: the
+                    # reachability argument rests on _extract_trend_keyword's
+                    # behaviour, not on this function's, and it is exercised
+                    # directly by the _assert_trend_single_source tests.
+                    content += f"**{second[0]}**({second[1]}건)도 주목할 트렌드입니다."
+                    emitted.append((second[0], second[1]))
+        else:
+            # A table with rows but nothing worth headlining: every row is the
+            # catch-all, or every real trend has a single article.
+            content += _NO_PROMINENT_TREND
         content += "\n\n"
 
         _assert_trend_single_source(content, emitted)
     else:
-        content += "이번 주기에는 두드러진 트렌드가 감지되지 않았습니다.\n\n"
+        content += _NO_PROMINENT_TREND + "\n\n"
 
     return content
 
