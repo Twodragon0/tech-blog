@@ -55,12 +55,16 @@ def _item(title: str, category: str = "security", source: str = "Src") -> dict:
 # (the two-citation branch), and the dynamic-text path where an article title
 # reaches the prose verbatim.
 GENERATOR_PATHS = {
+    # Each real trend carries >= 2 articles. One-article trends are no longer
+    # headlined (see test_trend_headline_selection.py), so a fixture of five
+    # single-article trends would produce no citation at all and quietly turn
+    # every citation assertion below into a check on the empty list.
     "several trends": [
-        _item("Kubernetes zero-day container escape"),
-        _item("AWS cloud IAM misconfiguration"),
-        _item("New ransomware campaign"),
-        _item("LLM prompt injection bypass", "ai"),
-        _item("Supply chain attack on npm"),
+        _item("랜섬웨어 공격 하나"),
+        _item("랜섬웨어 공격 둘"),
+        _item("제로데이 취약점 하나"),
+        _item("제로데이 취약점 둘"),
+        _item("제로데이 취약점 셋"),
     ],
     "single trend": [_item("Ransomware group leaks data")],
     "기타 only": [_item("An entirely unrelated gardening story", "tech")],
@@ -74,8 +78,8 @@ GENERATOR_PATHS = {
         _item("랜섬웨어 조직이 병원을 공격했다"),
     ],
     "title containing a pipe": [
-        _item("쿠버네티스 | 치명적 RCE 패치 공개"),
         _item("랜섬웨어 | 이중 협박 재확산"),
+        _item("랜섬웨어 | 신종 변종 등장"),
     ],
     "title containing asterisks": [
         _item("쿠버네티스 **치명적** RCE 공개"),
@@ -129,13 +133,25 @@ def test_prose_is_sliced_at_the_last_row_line_not_the_last_pipe():
     )
 
 
-def test_the_pipe_case_recovers_both_citations_end_to_end():
-    """The same defect through the real generator, not a hand-built block."""
+def test_the_pipe_case_recovers_the_citation_end_to_end():
+    """The same defect through the real generator, not a hand-built block.
+
+    Both fixture titles carry a pipe, and both reach the prose as references —
+    so the last ``|`` in the block sits AFTER the citation. The line-based slice
+    still recovers it; the character-based one loses it, which the second
+    assertion pins so this cannot pass for the wrong reason.
+    """
     content = _generate_trend_analysis(GENERATOR_PATHS["title containing a pipe"], 7)
     assert " | " in content, "the fixture's pipe did not reach the output"
     _rows, citations = qa_gate.extract_trend_rows_and_citations(content)
-    assert len(citations) == 2, (
-        f"expected both citations to be readable, got {citations}"
+    assert len(citations) == 1, f"expected the citation to be readable, got {citations}"
+
+    block = qa_gate._TREND_SECTION_RE.search(content).group(1)
+    old_slice = block[block.rfind("|") + 1 :]
+    assert not qa_gate._TREND_CITATION_RE.findall(old_slice), (
+        "the character-based slice no longer loses this citation, so the "
+        "fixture has stopped reproducing the defect — rebuild it around a pipe "
+        "that lands in the prose after the citation"
     )
 
 
@@ -153,21 +169,32 @@ def test_generator_output_holds_the_invariant(items):
         assert cited in rows, f"{cited} is cited but is not a row of {rows}"
 
 
-def test_the_two_citation_branch_is_actually_exercised():
-    """Control for the parametrization above.
+def test_the_two_citation_branch_is_unreachable_from_the_generator():
+    """It used to fire for 21 of 176 posts; excluding `기타` closed it.
 
-    Without this, "every path holds" would be satisfied by a fixture set that
-    never reaches the second citation — the branch most likely to drift, since
-    it only fires when the runner-up trend has no representative titles.
+    The second citation only happens when the runner-up trend has no
+    representative titles, and `기타` was the only trend built that way — its
+    tuple carries an empty list by construction. Now that `기타` cannot be
+    headlined, reaching this branch would need a real trend whose every matched
+    article yields no reference, and an article joins a trend by carrying its
+    keyword in the title, which always yields one.
+
+    Asserted rather than deleted because the reachability argument rests on
+    ``_extract_trend_keyword``, not on the generator. The branch's bookkeeping
+    stays covered by the direct ``_assert_trend_single_source`` tests below,
+    which pass two citations in explicitly.
     """
-    content = _generate_trend_analysis(
-        GENERATOR_PATHS["기타 second (two citations)"], 7
-    )
-    _rows, citations = qa_gate.extract_trend_rows_and_citations(content)
-    assert len(citations) == 2, (
-        f"the second-citation branch stopped firing for this fixture: {citations}"
-    )
-    assert "도 주목할 트렌드입니다" in content
+    for name, items in GENERATOR_PATHS.items():
+        content = _generate_trend_analysis(items, 7)
+        _rows, citations = qa_gate.extract_trend_rows_and_citations(content)
+        assert len(citations) <= 1, (
+            f"{name!r} produced {citations}. A second citation means either "
+            "`기타` is headline-eligible again or a real trend lost its "
+            "references — find out which before relaxing this."
+        )
+        assert "도 주목할 트렌드입니다" not in content, (
+            f"{name!r} reached the second-citation branch"
+        )
 
 
 # ---------------------------------------------------------------------------
