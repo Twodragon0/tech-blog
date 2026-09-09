@@ -4533,7 +4533,54 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
             "ethereum",
             "defi",
             "xrp",
+            # Ticker symbols, added 2026-09-09 while auditing the `유출`
+            # keyword below. Without them "바이낸스 자금 유출 … ETH 인출" had no
+            # blockchain home and landed in 데이터 유출 alone — a fund outflow
+            # filed as a data leak. `btc` +9 titles, `eth` +5. Both are
+            # three-character ASCII so they match on word boundaries, which is
+            # why `eth` does not fire inside Beth or Seth.
+            "btc",
+            "eth",
         ],
+        # Three security groups, added 2026-09-09 after the blockchain one.
+        # A security digest had no group for "vulnerability", none for
+        # "malware", and none for "data leak" — 165 of the then-1274 unmatched
+        # card titles fell into these three.
+        #
+        # Re-measured against the post-blockchain baseline rather than reused
+        # from the original research, which had said 188: the blockchain group
+        # had already absorbed 23 of them.
+        #
+        # Every keyword below yields at least one match in the corpus. Dropped
+        # for yielding exactly ZERO, on the same rule that dropped `blockchain`
+        # and `etf`: `vulnerability`, `vulnerabilities`, `xss`, `phishing`,
+        # `트로이`, `breach`, `exposed`. The corpus is Korean-translated, so an
+        # English synonym of a covered Korean term never fires.
+        #
+        # `악성코드` is absent because `악성` subsumes it — but only because of
+        # the ASCII fix above. Under the old rule `악성` was word-boundary
+        # matched and missed 악성코드 entirely, so the two were disjoint sets
+        # (38 and 23 titles), not redundant ones.
+        #
+        # Audited for over-matching on real titles:
+        #   `rat`  — word-boundary matched (len <= 3); all 12 hits are genuine
+        #            Remote Access Trojan stories, no false positives.
+        #   `유출` — 21 newly-matched titles, of which 20 are genuine data
+        #            leaks. The one exception (바이낸스 자금 유출) is a fund
+        #            outflow; the other fund-outflow titles were already
+        #            classified as blockchain, so they add double-counting
+        #            rather than a wrong home.
+        #   `악성` — broader than malware (악성 워크플로, 악성 NGINX 설정), but
+        #            every hit is a genuine attack story.
+        #
+        # Second-order check, because a generic group can displace a specific
+        # one the way `기타` used to: simulated over 203 digests, only 7 change
+        # headline and NONE of them takes it from 제로데이 or 랜섬웨어. Two of
+        # the seven previously had no prominent trend at all.
+        # Research: .omc/research/trend-defs-coverage-2026-09-09.md
+        "취약점/CVE": ["cve-", "취약점", "rce", "sqli"],
+        "악성코드/피싱": ["악성", "malware", "피싱", "rat", "botnet"],
+        "데이터 유출": ["유출", "노출", "leak"],
     }
 
     trend_results = []
@@ -4545,12 +4592,24 @@ def _generate_trend_analysis(news_items: List[Dict], section_num: int) -> str:
             # Use title primarily for classification to avoid false positives
             title_text = item.get("title", "").lower()
             for kw in keywords:
-                # Require word boundary match for short keywords (<=3 chars)
-                if len(kw) <= 3:
-                    if re.search(r"\b" + re.escape(kw) + r"\b", title_text):
-                        matched = True
-                    else:
-                        matched = False
+                # Word boundaries for short ASCII keywords only.
+                #
+                # The rule exists so `ai` does not fire inside "said" and `ml`
+                # not inside "html" — an ASCII problem. Applied to Korean it
+                # does the opposite of what it is for: 조사 attach directly to
+                # the noun with no boundary, so `\b취약점\b` misses 취약점으로,
+                # 취약점을 and 취약점이, and `\b악성\b` misses 악성코드 outright.
+                #
+                # Measured 2026-09-09 over 2449 card titles: restricting the
+                # rule to ASCII recovers 24 articles — 취약점/CVE +22,
+                # 데이터 유출 +11, 악성코드/피싱 +5 — and also unblocks two
+                # groups that predate this change, 인증 보안 +13 (인증되지 않은
+                # 루트 RCE now counts) and 공급망 보안 +3.
+                #
+                # Korean needs no boundary guard: words are space-delimited from
+                # each other, and matching through a suffix is the intent.
+                if len(kw) <= 3 and kw.isascii():
+                    matched = bool(re.search(r"\b" + re.escape(kw) + r"\b", title_text))
                 else:
                     matched = kw in title_text
                 if matched:

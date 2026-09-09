@@ -34,6 +34,11 @@ EXPECTED_KEYWORDS = [
     "ethereum",
     "defi",
     "xrp",
+    # Tickers, added while auditing the `유출` keyword of the security groups:
+    # without them "바이낸스 자금 유출 … ETH 인출" had no blockchain home and was
+    # filed as a data leak alone. `btc` +9 titles, `eth` +5.
+    "btc",
+    "eth",
 ]
 
 # Rejected, with the measurement that rejected each one.
@@ -84,6 +89,21 @@ def _trend_defs_source() -> str:
     match = re.search(r"trend_defs = \{(.+?)\n    \}", source, re.S)
     assert match, "trend_defs was restructured; re-anchor this guard"
     return match.group(1)
+
+
+def _trend_group_names() -> list[str]:
+    """The group names, in declaration order, read from the same literal.
+
+    Derived rather than hardcoded: the coverage line reports how many groups
+    ran, and pinning that as a number made this file break every time a group
+    was added — which is a guard that trains people to edit the guard. Counting
+    the keys keeps the assertion meaningful (a log saying 8 while 11 exist still
+    fails) without being a maintenance tax.
+
+    Keys sit at eight spaces; keyword strings inside a multi-line list sit at
+    twelve, and comments start with `#`, so neither is picked up.
+    """
+    return re.findall(r'^        "([^"]+)":', _trend_defs_source(), re.M)
 
 
 # ---------------------------------------------------------------------------
@@ -231,7 +251,11 @@ def test_coverage_is_logged_with_matched_and_unmatched(caplog):
     line = lines[0]
     assert "1/4 (25%)" in line, line
     assert "3 unmatched" in line, line
-    assert "8 trend groups" in line, line
+    expected_groups = len(_trend_group_names())
+    assert f"{expected_groups} trend groups" in line, (
+        f"the coverage line reports a different group count than trend_defs "
+        f"declares ({expected_groups}): {line}"
+    )
 
 
 def test_the_logged_counts_partition_the_input(caplog):
