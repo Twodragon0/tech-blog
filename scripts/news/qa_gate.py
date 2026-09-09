@@ -71,7 +71,16 @@ _DANGLING_ENDING_RE = re.compile(
     r"|대한|관한|위한|통한"  # relative clause stems
     r"|인한|따른"
     r"|하는|되는|있는|없는|같은"  # modifier endings
-    r"|할|될|있을|없을"  # prospective modifier
+    # Prospective modifier -ㄹ. The lookbehind is not decoration: `할` is also
+    # the last SYLLABLE of the ordinary nouns 역할 / 분할 / 관할, and matching
+    # those is a substring accident rather than a grammar judgement. Measured
+    # 2026-09-09 over 52996 units (checklist items + card attributes + table
+    # cells): terminal `할` matched 25, of which 23 were those nouns
+    # (`주요 역할`, `네트워크 분할`, `법적 관할`) and 2 were real truncations.
+    # With the lookbehind: 2 matches, both real. No verb is lost — terminal
+    # 번역할 / 구분할 / 배분할 / 통역할 occur 0 times in the corpus, so the
+    # exclusion costs nothing measurable.
+    r"|(?<![역분관])할|될|있을|없을"
     r")\s*\**\s*$"
 )
 
@@ -80,6 +89,44 @@ def validate_sentence_completeness(content: str) -> List[str]:
     """Return warnings for checklist items that appear to be incomplete sentences.
 
     Scans lines matching ``- [ ]`` or ``- [x]`` patterns.
+
+    Kept advisory on purpose (verdict 2026-09-09)
+    ---------------------------------------------
+    It has never fired: 0 of 2052 checklist items across 292 posts. That was
+    put forward as grounds to delete it, and the measurement says otherwise —
+    the comparable population of LLM-written Korean prose in this corpus (4895
+    card attributes) carries 3 genuine dangling tails, a rate of ~0.06%. Over
+    the 829 free-form digest checklist items that rate predicts about 0.5
+    defects. **Zero observed is the expected output of a working rare-event
+    detector, not evidence of a broken one**, so "never fired, therefore
+    delete" would repeat the reasoning error of wiring a dormant gate — base
+    rate mistaken for capability.
+
+    Equally it is not promoted to blocking. ``_COMPLETE_ENDING_RE`` describes
+    only 82 of the 1691 digest checklist items, so 95% pass because they match
+    neither list. This is a deny-list, not a definition of completeness, and
+    risking a publish day over ~0.5 expected defects is the wrong trade. The
+    strict switch that would have promoted it is pinned by
+    ``test_the_strict_switch_stays_single_and_ci_free``.
+
+    Two blind spots, measured — do not re-derive them
+    ------------------------------------------------
+    1. **Half the digest items put their dynamic text in the middle.** 862 of
+       1691 are ``**<headline>** 관련 <fixed suffix>``, and the 862 share only
+       18 distinct 12-character tails (``… 보안 검토 및 모니터링`` alone covers
+       515). Since only the tail is inspected, a truncated *headline* is
+       invisible here. Zero digest items end in the bold slot. So the rule is
+       structurally blind on that half and applicable only to the other 829.
+    2. **Its deny-list is wrong outside checklist prose.** Retargeting it to
+       card attributes or table cells — where every truncation this repo has
+       actually observed lived — matches 438 units of which 390 (89%) are
+       correct Korean: ``실행 가능``, ``24시간 내 필수 조치 필요``, ``✅ 가능``
+       are terminal noun predicates, dangling only in the running prose this
+       list was built for. Retargeting needs a new deny-list, not a new call
+       site.
+
+    Verdict and measurements:
+    ``.omc/plans/sentence-rule-verdict-2026-09-09.md``
     """
     issues: List[str] = []
     for line in content.splitlines():
