@@ -100,6 +100,29 @@ def _post_url(date_str: str, slug: str) -> str:
     return f"/posts/{y}/{m}/{d}/{slug}/"
 
 
+def _canonicalize(title: str) -> str:
+    """Apply the repo's proper-noun policy to text about to become body prose.
+
+    The anchor text is copied from the target's front-matter ``title:``, and some
+    of those titles still carry Hangul transliterations (``쿠버네티스``). Front
+    matter is out of ``check_digest_proper_nouns``'s scope, so they sit there
+    unflagged — but the moment they are copied into a body they are in scope,
+    and the 2026-09-10 backfill turned that gate red on 4 posts.
+
+    Fixing it with ``--fix`` alone would loop: the next injector run would
+    regenerate the Hangul form and break the gate again. So the substitution is
+    imported from the gate itself — one josa-aware derivation, no second opinion
+    to drift from. Falls back to the raw title if that import ever fails, since
+    a missing related-posts block is worse than a non-canonical noun.
+    """
+    try:
+        from check_digest_proper_nouns import fix_body
+
+        return fix_body(title)[0]
+    except Exception:  # pragma: no cover - import guard
+        return title
+
+
 def _extract_title(path: Path) -> str:
     try:
         text = path.read_text(encoding="utf-8")
@@ -109,7 +132,7 @@ def _extract_title(path: Path) -> str:
         return ""
     fm = text.split("---", 2)[1]
     m = _TITLE_RE.search(fm)
-    return m.group(1).strip() if m else ""
+    return _canonicalize(m.group(1).strip()) if m else ""
 
 
 def _gather_digests(posts_dir: Path) -> dict[Date, tuple[Path, str, str]]:

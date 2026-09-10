@@ -312,3 +312,42 @@ class TestRefreshExistingBlock:
         assert not changed and reason == "no-change", reason
         assert target.read_text(encoding="utf-8") == first
         assert first.count(MARKER) == 1
+
+
+class TestAnchorTextIsCanonical:
+    """Anchor text becomes body prose, so the proper-noun policy applies to it.
+
+    The 2026-09-10 backfill copied target titles verbatim and turned
+    ``check_digest_proper_nouns`` red on 4 posts (``쿠버네티스 -> Kubernetes``).
+    Front matter is outside that gate's scope, so the titles sit there
+    unflagged; a body copy is in scope. Fixing it with ``--fix`` alone would
+    loop — the next injector run regenerates the Hangul form — so the injector
+    reuses the gate's own josa-aware substitution.
+    """
+
+    def test_hangul_transliteration_is_canonicalized(self, tmp_path: Path) -> None:
+        p = tmp_path / "2026-04-10-Tech_Security_Weekly_Digest_K.md"
+        p.write_text(
+            '---\nlayout: post\ntitle: "주간 다이제스트: 쿠버네티스·제로데이"\n'
+            "date: 2026-04-10 09:00:00 +0900\n---\n\n# Body\n",
+            encoding="utf-8",
+        )
+        cat = _gather_digests(tmp_path)
+        title = cat[Date(2026, 4, 10)][2]
+        assert "쿠버네티스" not in title, (
+            "the anchor text still carries a Hangul transliteration; "
+            "check_digest_proper_nouns will fail on any post linking here."
+        )
+        assert "Kubernetes" in title, title
+
+    def test_non_entity_korean_is_left_alone(self, tmp_path: Path) -> None:
+        """Control: only allow-listed proper nouns are substituted."""
+        p = tmp_path / "2026-04-11-Tech_Security_Weekly_Digest_P.md"
+        p.write_text(
+            '---\nlayout: post\ntitle: "주간 보안 다이제스트: 제로데이·악성코드"\n'
+            "date: 2026-04-11 09:00:00 +0900\n---\n\n# Body\n",
+            encoding="utf-8",
+        )
+        cat = _gather_digests(tmp_path)
+        title = cat[Date(2026, 4, 11)][2]
+        assert title == "주간 보안 다이제스트: 제로데이·악성코드", title
