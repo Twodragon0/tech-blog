@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T02:19:39.054349+00:00",
+  "updated_at": "2026-09-10T02:17:40.802271+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/08/fbi-disrupts-china-linked-qtfy.html",
@@ -1080,6 +1080,96 @@
       "title": "주식회사 SEGA, 소규모 팀으로 「Sonic Rumble Party」 글로벌 출시를 위한 Amazon DynamoDB 및 Amazon Elas",
       "published_date": "2026-09-09",
       "expires_at": "2026-09-16T02:19:39.054265+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/us-disrupts-xinbi-guarantee-scam.html",
+      "title": "U.S. Disrupts Xinbi Guarantee Scam Marketplace, Freezes $52.8 Million in Crypto",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/four-spy-groups-used-same-chrome-and.html",
+      "title": "Four Spy Groups Used the Same Chrome and Windows Exploit Kit Within a Week",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/09/threat-matrix-mapping-threats-across-cloud-web-applications/",
+      "title": "Threat matrix: Mapping threats across cloud web applications",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/infostealer-logs-expose-replayable-ai.html",
+      "title": "Infostealer Logs Expose Replayable AI Tokens That Can Bypass MFA",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/the-state-of-ai-for-security-measuring-what-matters-most-for-building-trust/",
+      "title": "The state of AI for security: Measuring what matters most for building trust",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
+      "title": "Paul Christiano joins OpenAI Foundation Board",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ibc-news-2026/",
+      "title": "NVIDIA Brings Real-Time AI to Broadcast, Sports and Global Streaming at IBC",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/football-features-google-search/",
+      "title": "Get ready for the game with new football features in Search",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/",
+      "title": "Recreating a 70-year love story frame by frame",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://openai.com/index/ai-policy-window",
+      "title": "The AI policy window is open. We need to act.",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/alloydb-omni-rpm-orchestrator-is-generally-available/",
+      "title": "Enterprise-grade PostgreSQL with AlloyDB Omni RPM Orchestrator is generally avai",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-2026-gartner-magic-quadrant-for-enterprise-ai-assistants/",
+      "title": "Google is a Leader in the 2026 Gartner® Magic Quadrant™ for Enterprise AI Assist",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/how-to-replicate-sql-server-logins-and-passwords-to-cloud-sql/",
+      "title": "Beyond DMS: Accelerating Migrations SQL Server Logins and Users to Cloud SQL",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/spanner-removes-dml-mutation-limits/",
+      "title": "Spanner: Removing cumulative mutation limits for DML transactions",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/media-entertainment/how-airtel-delivered-its-flawless-indian-premiere-league-2026-cricket-broadcasts/",
+      "title": "How Airtel delivered its flawless Indian Premiere League 2026 cricket broadcasts",
+      "published_date": "2026-09-10",
+      "expires_at": "2026-09-17T02:17:40.802153+00:00"
     }
   ]
 }
