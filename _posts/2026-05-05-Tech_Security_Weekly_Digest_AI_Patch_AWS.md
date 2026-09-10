@@ -468,9 +468,9 @@ Strategy (MSTR)가 실적 발표를 앞두고 Bitcoin 매수를 중단했으며,
 
 <!-- related-posts:v1 -->
 
-- [Instructure, 데이터 유출 확인, Microsoft, CISA, 적극적으로 악용되는 Linux 루트](/posts/2026/05/04/Tech_Security_Weekly_Digest_AI_Data_CVE_Malware/) — 2026-05-04
-- [Apache HTTP/2의 치명적, DAEMON Tools 공급망 공격으로 공식, 중국과 연계된 UAT-8302](/posts/2026/05/06/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-05-06
-- [3만 개의 Facebook 계정, AI 시대의 보안 태세 개선, Microsoft, 현대화된 Windows](/posts/2026/05/02/Tech_Security_Weekly_Digest_AI_Go_Security_AWS/) — 2026-05-02
+- [2026년 05월 04일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (6건)](/posts/2026/05/04/Tech_Security_Weekly_Digest_AI_Data_CVE_Malware/) — 2026-05-04
+- [2026년 05월 06일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (15건)](/posts/2026/05/06/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-05-06
+- [2026년 05월 02일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (10건)](/posts/2026/05/02/Tech_Security_Weekly_Digest_AI_Go_Security_AWS/) — 2026-05-02
 
 ---
 

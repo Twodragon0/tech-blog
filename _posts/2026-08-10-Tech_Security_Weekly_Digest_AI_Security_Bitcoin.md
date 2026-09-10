@@ -238,6 +238,16 @@ BIP-110 Bitcoin 포크가 두 블록 이후 정체되며, 의무적 시그널링
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 09일 주간 보안 다이제스트: 제로데이·클라우드·보안 위협 (16건)](/posts/2026/08/09/Tech_Security_Weekly_Digest_Data_AI_Zero-Day/) — 2026-08-09
+- [2026년 08월 11일 주간 보안 다이제스트: 랜섬웨어·제로데이·클라우드 (30건)](/posts/2026/08/11/Tech_Security_Weekly_Digest_AI_Ransomware_Go_AWS/) — 2026-08-11
+- [2026년 08월 07일 주간 보안 다이제스트: 제로데이·Cisco FMC·클라우드 (28건)](/posts/2026/08/07/Tech_Security_Weekly_Digest_Patch_AWS_Cloud_Threat/) — 2026-08-07
+
+---
+
 **작성자**: Twodragon
 
 ---

@@ -665,7 +665,7 @@ EU의 MiCA(Markets in Crypto-Assets Regulation)가 전면 시행에 들어갔습
 
 <!-- related-posts:v1 -->
 
-- [CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석](/posts/2026/03/06/Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/) — 2026-03-06
-- [OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향](/posts/2026/03/08/Tech_Security_Weekly_Digest_AI_Security/) — 2026-03-08
-- [JWT 인증 위협, 암호화폐 유출 사고, 금융 AI 거버넌스](/posts/2026/03/04/Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin/) — 2026-03-04
+- [2026년 03월 06일 주간 보안 다이제스트: 제로데이·악성코드·Cisco FMC (4건)](/posts/2026/03/06/Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/) — 2026-03-06
+- [2026년 03월 08일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (8건)](/posts/2026/03/08/Tech_Security_Weekly_Digest_AI_Security/) — 2026-03-08
+- [2026년 03월 04일 주간 보안 다이제스트: 랜섬웨어·DNS 유출·클라우드 (3건)](/posts/2026/03/04/Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin/) — 2026-03-04
 

@@ -501,9 +501,9 @@ Bitcoin 옵션 시장에서 강세론자들이 연말까지 115,000달러를 목
 
 <!-- related-posts:v1 -->
 
-- [Mirai 기반 xlabs_v1 봇넷, AWS에서 ISO/IEC 42001, MuddyWater, 가짜 랜섬웨어](/posts/2026/05/07/Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware/) — 2026-05-07
-- [TCLBANKER Banking, 가짜 통화 기록 앱, 730만 회 Play, Active attack](/posts/2026/05/09/Tech_Security_Weekly_Digest_Vulnerability_AI_Threat/) — 2026-05-09
-- [피싱 캠페인, SimpleHelp, Progress, 인증 우회 가능한 치명적, 주간 요약: AI 기반 피싱](/posts/2026/05/05/Tech_Security_Weekly_Digest_AI_Patch_AWS/) — 2026-05-05
+- [2026년 05월 07일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (15건)](/posts/2026/05/07/Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware/) — 2026-05-07
+- [2026년 05월 09일 주간 보안 다이제스트: 악성코드·BYOVD EDR·DNS 유출 (14건)](/posts/2026/05/09/Tech_Security_Weekly_Digest_Vulnerability_AI_Threat/) — 2026-05-09
+- [2026년 05월 05일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (14건)](/posts/2026/05/05/Tech_Security_Weekly_Digest_AI_Patch_AWS/) — 2026-05-05
 
 ---
 

@@ -263,4 +263,14 @@ Bitcoin 사용자들이 Coldcard 해킹 사태 속에서 39,600 BTC를 소액 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 02일 주간 보안 다이제스트: 제로데이·패치·악성코드 (15건)](/posts/2026/08/02/Tech_Security_Weekly_Digest_Bitcoin_AI_Update_Malware/) — 2026-08-02
+- [2026년 08월 04일 주간 보안 다이제스트: 악성코드·클라우드·랜섬웨어 (29건)](/posts/2026/08/04/Tech_Security_Weekly_Digest_Malware_Go_AWS_Ransomware/) — 2026-08-04
+- [2026년 07월 31일 주간 보안 다이제스트: 악성코드·북한 위협·패치 (30건)](/posts/2026/07/31/Tech_Security_Weekly_Digest_Update_Malware_AI_Agent/) — 2026-07-31
+
+---
+
 **작성자**: Twodragon

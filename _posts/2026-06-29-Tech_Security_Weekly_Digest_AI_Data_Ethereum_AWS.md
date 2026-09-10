@@ -265,6 +265,16 @@ EU의 금융감독기관 EBA가 주요 토큰 발행자에 대해 연간 수익�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 28일 주간 보안 다이제스트: AI 에이전트·악성코드·클라우드 (18건)](/posts/2026/06/28/Tech_Security_Weekly_Digest_AI_GPT_Malware_Agent/) — 2026-06-28
+- [2026년 06월 30일 주간 보안 다이제스트: 악성코드·클라우드·패치 (30건)](/posts/2026/06/30/Tech_Security_Weekly_Digest_Go_AI_AWS_Malware/) — 2026-06-30
+- [2026년 06월 26일 주간 보안 다이제스트: 클라우드·보안 위협·AI (26건)](/posts/2026/06/26/Tech_Security_Weekly_Digest_AI_Threat/) — 2026-06-26
+
+---
+
 **작성자**: Twodragon
 
 ---

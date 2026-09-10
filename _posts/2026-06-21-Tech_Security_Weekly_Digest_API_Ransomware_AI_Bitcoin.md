@@ -305,4 +305,14 @@ Pudgy Penguins가 NFT 기반 프랜차이즈에서 물리적 제품으로 확장
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 20일 주간 보안 다이제스트: 패치·랜섬웨어·BYOVD EDR (19건)](/posts/2026/06/20/Tech_Security_Weekly_Digest_Patch_AI_Apple_Security/) — 2026-06-20
+- [2026년 06월 22일 주간 보안 다이제스트: 블록체인·보안 위협·AI (10건)](/posts/2026/06/22/Tech_Security_Weekly_Digest_Threat_AI_Security/) — 2026-06-22
+- [2026년 06월 18일 주간 보안 다이제스트: 악성코드·제로데이·클라우드 (26건)](/posts/2026/06/18/Tech_Security_Weekly_Digest_Malware_Patch_AWS_AI/) — 2026-06-18
+
+---
+
 **작성자**: Twodragon

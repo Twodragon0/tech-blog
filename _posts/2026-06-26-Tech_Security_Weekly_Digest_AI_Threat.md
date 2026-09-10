@@ -452,4 +452,14 @@ Perception이 베타 버전을 종료하고 디지털 자산 내러티브 인텔
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 25일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (25건)](/posts/2026/06/25/Tech_Security_Weekly_Digest_Malware_AWS_Go_AI/) — 2026-06-25
+- [2026년 06월 27일 주간 보안 다이제스트: 패치·악성코드·제로데이 (27건)](/posts/2026/06/27/Tech_Security_Weekly_Digest_Malware_AI_GPT/) — 2026-06-27
+- [2026년 06월 23일 주간 보안 다이제스트: 패치·AI 에이전트·클라우드 (27건)](/posts/2026/06/23/Tech_Security_Weekly_Digest_AI_AWS_Go/) — 2026-06-23
+
+---
+
 **작성자**: Twodragon

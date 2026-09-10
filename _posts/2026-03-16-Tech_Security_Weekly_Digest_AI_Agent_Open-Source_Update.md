@@ -279,9 +279,9 @@ Venus Protocol이 'supply cap' 공격으로 약 370만 달러의 피해를 입�
 
 <!-- related-posts:v1 -->
 
-- [GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전](/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/) — 2026-03-15
-- [GlassWorm GitHub 토큰 탈취, Chrome 제로데이, 라우터 봇넷 위협](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) — 2026-03-17
-- [북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
+- [2026년 03월 15일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (6건)](/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/) — 2026-03-15
+- [2026년 03월 17일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (15건)](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) — 2026-03-17
+- [2026년 03월 19일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
 
 ---
 

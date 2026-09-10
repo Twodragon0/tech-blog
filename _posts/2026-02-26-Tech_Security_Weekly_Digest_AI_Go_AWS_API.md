@@ -492,6 +492,7 @@ Bitcoin 가격이 하루 만에 8% 이상 상승하여 $69,000을 돌파했습�
 
 <!-- related-posts:v1 -->
 
-- [Copilot 악용 토큰 유출, UAC-0050 금융기관 공격, LLM 보안 운영](/posts/2026/02/25/Tech_Security_Weekly_Digest_AI_Malware_Ransomware_LLM/) — 2026-02-25
-- [Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안](/posts/2026/02/27/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/) — 2026-02-27
-- [Vertical AI 보안 전략, BlackField 랜섬웨어, 데이터 보호 동향](/posts/2026/02/23/Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/) — 2026-02-23
+- [2026년 02월 25일 주간 보안 다이제스트: 랜섬웨어·악성코드·DNS 유출 (3건)](/posts/2026/02/25/Tech_Security_Weekly_Digest_AI_Malware_Ransomware_LLM/) — 2026-02-25
+- [2026년 02월 27일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (3건)](/posts/2026/02/27/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/) — 2026-02-27
+- [2026년 02월 23일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (3건)](/posts/2026/02/23/Tech_Security_Weekly_Digest_AI_Ransomware_Data_Bitcoin/) — 2026-02-23
+

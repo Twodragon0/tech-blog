@@ -515,6 +515,7 @@ Chainalysis 분석에 따르면 동남아 기반 인신매매 관련 서비스�
 
 <!-- related-posts:v1 -->
 
-- [공급망 침해 사례, Windows 보안 업데이트, APT36 분석](/posts/2026/02/12/Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent/) — 2026-02-12
-- [CrashFix RAT, 초대형 DDoS 봇넷, Codespaces RCE 취약점](/posts/2026/02/06/Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/) — 2026-02-06
-- [Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+- [2026년 02월 12일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (3건)](/posts/2026/02/12/Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent/) — 2026-02-12
+- [2026년 02월 06일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (3건)](/posts/2026/02/06/Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/) — 2026-02-06
+- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·쿠버네티스 (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+

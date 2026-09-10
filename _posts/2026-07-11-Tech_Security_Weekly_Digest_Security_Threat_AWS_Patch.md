@@ -474,4 +474,14 @@ Metaplanet이 Bitcoin 전략을 재무부 축적을 넘어 확장하며, 일본 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 10일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (30건)](/posts/2026/07/10/Tech_Security_Weekly_Digest_AWS/) — 2026-07-10
+- [2026년 07월 12일 주간 보안 다이제스트: 패치·AI 에이전트·BYOVD EDR (16건)](/posts/2026/07/12/Tech_Security_Weekly_Digest_Rust_AI_Agent/) — 2026-07-12
+- [2026년 07월 08일 주간 보안 다이제스트: 악성코드·클라우드·AI 에이전트 (30건)](/posts/2026/07/08/Tech_Security_Weekly_Digest_Agent_Go_Data_AI/) — 2026-07-08
+
+---
+
 **작성자**: Twodragon

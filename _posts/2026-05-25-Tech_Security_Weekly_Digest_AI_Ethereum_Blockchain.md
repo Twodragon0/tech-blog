@@ -230,6 +230,16 @@ Tom Lee의 Ethereum 포트폴리오는 ETH 가격 전망 악화로 73억 5천만
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 05월 24일 주간 보안 다이제스트: 악성코드·클라우드·보안 위협 (15건)](/posts/2026/05/24/Tech_Security_Weekly_Digest_AI_Malware_AWS_Bitcoin/) — 2026-05-24
+- [2026년 05월 26일 주간 보안 다이제스트: 제로데이·클라우드·패치 (19건)](/posts/2026/05/26/Tech_Security_Weekly_Digest_AI_AWS_Botnet_CVE/) — 2026-05-26
+- [2026년 05월 22일 주간 보안 다이제스트: 클라우드·악성코드·제로데이 (29건)](/posts/2026/05/22/Tech_Security_Weekly_Digest_AI_AWS_Malware_Threat/) — 2026-05-22
+
+---
+
 **작성자**: Twodragon
 
 ---

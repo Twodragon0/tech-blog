@@ -480,4 +480,14 @@ Coinbase의 최고 정책 책임자 Faryar Shirzad는 Crypto Clarity Act를 "매
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 27일 주간 보안 다이제스트: BYOVD EDR·클라우드·블록체인 (16건)](/posts/2026/07/27/Tech_Security_Weekly_Digest_AI/) — 2026-07-27
+- [2026년 07월 29일 주간 보안 다이제스트: Telnetd·제로데이·AI 에이전트 (29건)](/posts/2026/07/29/Tech_Security_Weekly_Digest_AI_Botnet_Zero-Day_Cloud/) — 2026-07-29
+- [2026년 07월 25일 주간 보안 다이제스트: 악성코드·북한 위협·클라우드 (25건)](/posts/2026/07/25/Tech_Security_Weekly_Digest_Malware_AWS_Agent_AI/) — 2026-07-25
+
+---
+
 **작성자**: Twodragon

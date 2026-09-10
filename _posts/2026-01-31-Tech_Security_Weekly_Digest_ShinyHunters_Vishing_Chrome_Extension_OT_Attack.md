@@ -306,15 +306,6 @@ Google 산하 Mandiant가 금전적 동기의 해킹 그룹 ShinyHunters (UNC394
 작성자: Twodragon
 작성일: 2026-01-31
 
----
-
-## 🔗 관련 포스트
-
-<!-- related-posts:v1 -->
-
-- [Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
-- [AI가 OpenSSL 제로데이 12건 발견, OWASP Agentic AI 프레임워크, Fortinet 패치](/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/) — 2026-02-01
-- [Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) — 2026-01-28
 
 ---
 
@@ -322,4 +313,14 @@ Google 산하 Mandiant가 금전적 동기의 해킹 그룹 ShinyHunters (UNC394
 
 - 2026 DevSecOps 기술 로드맵 완벽 분석: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
 - AWS Multi-Account 제로 트러스트 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 01월 30일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (5건)](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
+- [2026년 02월 01일 주간 보안 다이제스트: 제로데이·AI 에이전트·쿠버네티스 (4건)](/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/) — 2026-02-01
+- [2026년 01월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (4건)](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) — 2026-01-28
 

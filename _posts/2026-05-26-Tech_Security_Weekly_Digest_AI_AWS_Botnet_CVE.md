@@ -405,4 +405,14 @@ UAE와 연결된 ADI Chain이 Ledger의 지원을 받게 되면서 ADI 토큰 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 05월 25일 주간 보안 다이제스트: 제로데이·클라우드·블록체인 (11건)](/posts/2026/05/25/Tech_Security_Weekly_Digest_AI_Ethereum_Blockchain/) — 2026-05-25
+- [2026년 05월 27일 주간 보안 다이제스트: 클라우드·패치·제로데이 (30건)](/posts/2026/05/27/Tech_Security_Weekly_Digest_AI_AWS_CVE_Patch/) — 2026-05-27
+- [2026년 05월 23일 주간 보안 다이제스트: 랜섬웨어·악성코드·DNS 유출 (25건)](/posts/2026/05/23/Tech_Security_Weekly_Digest_Ransomware_AI_Malware_Go/) — 2026-05-23
+
+---
+
 **작성자**: Twodragon

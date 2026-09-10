@@ -302,6 +302,16 @@ Kalshi가 FIFA 월드컵 확대로 인한 예측 시장 활동 증가에 힘입�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 04일 주간 보안 다이제스트: 클라우드·패치·제로데이 (17건)](/posts/2026/07/04/Tech_Security_Weekly_Digest_Patch_AWS_AI_Malware/) — 2026-07-04
+- [2026년 07월 06일 주간 보안 다이제스트: AI 에이전트·클라우드·블록체인 (14건)](/posts/2026/07/06/Tech_Security_Weekly_Digest_AI_Agent_AWS/) — 2026-07-06
+- [2026년 07월 02일 주간 보안 다이제스트: 쿠버네티스·패치·DNS 유출 (30건)](/posts/2026/07/02/Tech_Security_Weekly_Digest_Patch_Kubernetes_Go_AI/) — 2026-07-02
+
+---
+
 **작성자**: Twodragon
 
 ---

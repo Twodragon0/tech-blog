@@ -394,4 +394,14 @@ GitHub Copilot은 강력하고 일관된 경험을 제공하기 위해 정책 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (28건)](/posts/2026/08/28/Tech_Security_Weekly_Digest_Zero-Day_AI_Agent_Patch/) — 2026-08-28
+- [2026년 08월 30일 주간 보안 다이제스트: 제로데이·클라우드·패치 (15건)](/posts/2026/08/30/Tech_Security_Weekly_Digest_AWS_AI_Data_Security/) — 2026-08-30
+- [2026년 08월 26일 주간 보안 다이제스트: 클라우드·AI 에이전트·보안 위협 (29건)](/posts/2026/08/26/Tech_Security_Weekly_Digest_Cloud_AWS_AI_Go/) — 2026-08-26
+
+---
+
 **작성자**: Twodragon

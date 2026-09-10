@@ -492,4 +492,14 @@ Fold Holdings는 약 4,500만 달러 상당의 Bitcoin을 매도하여 담보 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 10일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (30건)](/posts/2026/06/10/Tech_Security_Weekly_Digest_AI_Data_Zero-Day_Cloud/) — 2026-06-10
+- [2026년 06월 12일 주간 보안 다이제스트: 제로데이·패치·랜섬웨어 (30건)](/posts/2026/06/12/Tech_Security_Weekly_Digest_Zero-Day_CVE_ML_AI/) — 2026-06-12
+- [2026년 06월 08일 주간 보안 다이제스트: 악성코드·AI 에이전트·블록체인 (18건)](/posts/2026/06/08/Tech_Security_Weekly_Digest_AI_Malware_Botnet_Vulnerability/) — 2026-06-08
+
+---
+
 **작성자**: Twodragon

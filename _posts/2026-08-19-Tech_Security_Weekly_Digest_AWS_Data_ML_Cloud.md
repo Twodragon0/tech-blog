@@ -444,4 +444,14 @@ VanEck의 새로운 연구에 따르면 Bitcoin의 변동성이 크게 완화되
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 18일 주간 보안 다이제스트: 제로데이·패치·DNS 유출 (26건)](/posts/2026/08/18/Tech_Security_Weekly_Digest_Go/) — 2026-08-18
+- [2026년 08월 20일 주간 보안 다이제스트: 클라우드·AI 에이전트·보안 위협 (25건)](/posts/2026/08/20/Tech_Security_Weekly_Digest_Cloud_AI_GPT_Go/) — 2026-08-20
+- [2026년 08월 16일 주간 보안 다이제스트: 악성코드·AI 에이전트·쿠버네티스 (13건)](/posts/2026/08/16/Tech_Security_Weekly_Digest_Botnet_AI_Threat_Agent/) — 2026-08-16
+
+---
+
 **작성자**: Twodragon

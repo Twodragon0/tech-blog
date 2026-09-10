@@ -277,4 +277,14 @@ Swan CEO Klippsten은 Bitcoin이 이전 최고점 이후 약 1년 만인 10월�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 15일 주간 보안 다이제스트: 클라우드·패치·AI 에이전트 (24건)](/posts/2026/08/15/Tech_Security_Weekly_Digest_AI_Security_Go_Cloud/) — 2026-08-15
+- [2026년 08월 17일 주간 보안 다이제스트: 악성코드·DNS 유출·블록체인 (14건)](/posts/2026/08/17/Tech_Security_Weekly_Digest_Data_Malware_DeFi_Apple/) — 2026-08-17
+- [2026년 08월 13일 주간 보안 다이제스트: 제로데이·북한 위협·패치 (27건)](/posts/2026/08/13/Tech_Security_Weekly_Digest_Zero-Day_AI_AWS_Data/) — 2026-08-13
+
+---
+
 **작성자**: Twodragon

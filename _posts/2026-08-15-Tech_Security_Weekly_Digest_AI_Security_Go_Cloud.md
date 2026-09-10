@@ -385,4 +385,14 @@ Edelman Financial과 Tudor Investment가 상당한 Bitcoin 보유를 공개했�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 14일 주간 보안 다이제스트: DNS 유출·클라우드·랜섬웨어 (27건)](/posts/2026/08/14/Tech_Security_Weekly_Digest_AI_AWS_Data_Go/) — 2026-08-14
+- [2026년 08월 16일 주간 보안 다이제스트: 악성코드·AI 에이전트·쿠버네티스 (13건)](/posts/2026/08/16/Tech_Security_Weekly_Digest_Botnet_AI_Threat_Agent/) — 2026-08-16
+- [2026년 08월 12일 주간 보안 다이제스트: 제로데이·BYOVD EDR·클라우드 (29건)](/posts/2026/08/12/Tech_Security_Weekly_Digest_Zero-Day_Patch_AWS_Botnet/) — 2026-08-12
+
+---
+
 **작성자**: Twodragon

@@ -498,4 +498,14 @@ Visa, Mastercard, Stripe, Coinbase 등 140개 이상의 기업이 합류하여 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 30일 주간 보안 다이제스트: 악성코드·클라우드·패치 (30건)](/posts/2026/06/30/Tech_Security_Weekly_Digest_Go_AI_AWS_Malware/) — 2026-06-30
+- [2026년 07월 02일 주간 보안 다이제스트: 쿠버네티스·패치·DNS 유출 (30건)](/posts/2026/07/02/Tech_Security_Weekly_Digest_Patch_Kubernetes_Go_AI/) — 2026-07-02
+- [2026년 06월 28일 주간 보안 다이제스트: AI 에이전트·악성코드·클라우드 (18건)](/posts/2026/06/28/Tech_Security_Weekly_Digest_AI_GPT_Malware_Agent/) — 2026-06-28
+
+---
+
 **작성자**: Twodragon

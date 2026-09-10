@@ -388,15 +388,6 @@ Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부�
 
 작성자: Twodragon
 
----
-
-## 🔗 관련 포스트
-
-<!-- related-posts:v1 -->
-
-- [클라우드 보안 위협, Android 악성코드, 업데이트 리스크 분석](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
-- [Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
-- [APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
 
 ---
 
@@ -404,4 +395,14 @@ Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부�
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
 - 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 02월 18일 주간 보안 다이제스트: 악성코드·클라우드·패치 (3건)](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
+- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·쿠버네티스 (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+- [2026년 02월 24일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (3건)](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
 

@@ -494,4 +494,14 @@ Strive의 SATA 우선주가 Bitcoin 채굴 일일 공급량의 100% 이상을 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 05월 26일 주간 보안 다이제스트: 제로데이·클라우드·패치 (19건)](/posts/2026/05/26/Tech_Security_Weekly_Digest_AI_AWS_Botnet_CVE/) — 2026-05-26
+- [2026년 05월 28일 주간 보안 다이제스트: 악성코드·AI 에이전트·Cisco FMC (25건)](/posts/2026/05/28/Tech_Security_Weekly_Digest_AI_Malware/) — 2026-05-28
+- [2026년 05월 24일 주간 보안 다이제스트: 악성코드·클라우드·보안 위협 (15건)](/posts/2026/05/24/Tech_Security_Weekly_Digest_AI_Malware_AWS_Bitcoin/) — 2026-05-24
+
+---
+
 **작성자**: Twodragon

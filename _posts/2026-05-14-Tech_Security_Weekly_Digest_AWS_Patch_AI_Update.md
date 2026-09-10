@@ -482,9 +482,9 @@ Bitcoin Suisse (International) Ltd.가 버뮤다통화청(Bermuda Monetary Autho
 
 <!-- related-posts:v1 -->
 
-- [AI 기반 합성 공격 로그 생성을 통한 탐지, 새로운 Exim BDAT 취약점으로 GnuTLS, AI 속도의 방어](/posts/2026/05/13/Tech_Security_Weekly_Digest_AI_Vulnerability_Security_Agent/) — 2026-05-13
-- [Cisco Catalyst SD-WAN, Stealer Backdoor가 개발자, ThreatsDay 게시판](/posts/2026/05/15/Tech_Security_Weekly_Digest_AI_Threat_AWS_Go/) — 2026-05-15
-- [Funnel Builder Flaw, Microsoft, 중요한 Azure 취약점, 러시아 해커, Kazuar 백도어를 모듈형](/posts/2026/05/17/Tech_Security_Weekly_Digest_CVE_Vulnerability_Azure_Botnet/) — 2026-05-17
+- [2026년 05월 13일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (15건)](/posts/2026/05/13/Tech_Security_Weekly_Digest_AI_Vulnerability_Security_Agent/) — 2026-05-13
+- [2026년 05월 15일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/05/15/Tech_Security_Weekly_Digest_AI_Threat_AWS_Go/) — 2026-05-15
+- [2026년 05월 17일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (7건)](/posts/2026/05/17/Tech_Security_Weekly_Digest_CVE_Vulnerability_Azure_Botnet/) — 2026-05-17
 
 ---
 

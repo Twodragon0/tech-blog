@@ -582,6 +582,7 @@ Citi 경영진이 Bitcoin을 자사 뱅킹 시스템에 통합하고 수탁(cust
 
 <!-- related-posts:v1 -->
 
-- [UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향](/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/) — 2026-02-26
-- [Pig Butchering $6100만 압수, FreePBX 대규모 침해, Go Crypto 백도어](/posts/2026/02/28/Tech_Security_Weekly_Digest_Go_AI_Malware/) — 2026-02-28
-- [APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
+- [2026년 02월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (3건)](/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/) — 2026-02-26
+- [2026년 02월 28일 주간 보안 다이제스트: 악성코드·AI 에이전트·쿠버네티스 (3건)](/posts/2026/02/28/Tech_Security_Weekly_Digest_Go_AI_Malware/) — 2026-02-28
+- [2026년 02월 24일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (3건)](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
+

@@ -338,4 +338,14 @@ Storj가 파산 신청을 했으며, 챕터 11 절차 중에도 네트워크는 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 26일 주간 보안 다이제스트: 악성코드·제로데이·패치 (15건)](/posts/2026/07/26/Tech_Security_Weekly_Digest_Malware_Vulnerability_Patch_AI/) — 2026-07-26
+- [2026년 07월 28일 주간 보안 다이제스트: Cisco FMC·클라우드·악성코드 (29건)](/posts/2026/07/28/Tech_Security_Weekly_Digest_AI_Open-Source_Botnet_Blockchain/) — 2026-07-28
+- [2026년 07월 30일 주간 보안 다이제스트: 랜섬웨어·제로데이·클라우드 (30건)](/posts/2026/07/30/Tech_Security_Weekly_Digest_AI_AWS_Open-Source/) — 2026-07-30
+
+---
+
 **작성자**: Twodragon

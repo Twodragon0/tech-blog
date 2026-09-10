@@ -408,6 +408,7 @@ DDoS 이커머스 대응 핵심:
 
 <!-- related-posts:v1 -->
 
-- [n8n RCE, NGINX 하이재킹, AsyncRAT 캠페인 분석](/posts/2026/02/05/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-02-05
-- [APT 침해 분석, AitM 라우터 공격, 공급망 보안 동향](/posts/2026/02/07/Tech_Security_Weekly_Digest_AI_Malware_Go_Security/) — 2026-02-07
-- [Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
+- [2026년 02월 05일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (3건)](/posts/2026/02/05/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-02-05
+- [2026년 02월 07일 주간 보안 다이제스트: 악성코드·BYOVD EDR·DNS 유출 (3건)](/posts/2026/02/07/Tech_Security_Weekly_Digest_AI_Malware_Go_Security/) — 2026-02-07
+- [2026년 01월 30일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (5건)](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
+

@@ -501,9 +501,9 @@ Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투�
 
 <!-- related-posts:v1 -->
 
-- [AWS 환경에서 암호화폐 채굴 탐지 및 방지, Microsoft의 MDASH AI 시스템, 업데이트된 AWS User Guide 소개](/posts/2026/05/14/Tech_Security_Weekly_Digest_AWS_Patch_AI_Update/) — 2026-05-14
-- [Turla, Kazuar 백도어를 모듈형 P2P, AWS AI 보안 프레임워크, 45일간의 자체 도구 모니터링이 실제 공격](/posts/2026/05/16/Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security/) — 2026-05-16
-- [TeamPCP, Checkmarx Jenkins, cPanel CVE-2026-41940 활성, 해커들이 AI를 사용해 최초로 알려진](/posts/2026/05/12/Tech_Security_Weekly_Digest_AI_CVE_Zero-Day_Data/) — 2026-05-12
+- [2026년 05월 14일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (15건)](/posts/2026/05/14/Tech_Security_Weekly_Digest_AWS_Patch_AI_Update/) — 2026-05-14
+- [2026년 05월 16일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·쿠버네티스 (13건)](/posts/2026/05/16/Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security/) — 2026-05-16
+- [2026년 05월 12일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (15건)](/posts/2026/05/12/Tech_Security_Weekly_Digest_AI_CVE_Zero-Day_Data/) — 2026-05-12
 
 ---
 

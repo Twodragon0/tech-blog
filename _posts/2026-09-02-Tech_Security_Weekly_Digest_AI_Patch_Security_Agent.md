@@ -467,4 +467,14 @@ Enterprise Live Migrations (ELM)가 이제 정식 출시되었습니다. 이를 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 09월 01일 주간 보안 다이제스트: 북한 위협·AI 에이전트·클라우드 (29건)](/posts/2026/09/01/Tech_Security_Weekly_Digest_AI_Agent_Go_Security/) — 2026-09-01
+- [2026년 09월 03일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (19건)](/posts/2026/09/03/Tech_Security_Weekly_Digest_AI_Agent_Go_Update/) — 2026-09-03
+- [2026년 08월 30일 주간 보안 다이제스트: 제로데이·클라우드·패치 (15건)](/posts/2026/08/30/Tech_Security_Weekly_Digest_AWS_AI_Data_Security/) — 2026-08-30
+
+---
+
 **작성자**: Twodragon

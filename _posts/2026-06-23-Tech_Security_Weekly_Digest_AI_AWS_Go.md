@@ -473,4 +473,14 @@ Franklin Templeton이 250 Digital 인수를 완료하고 기관용 암호화폐 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 22일 주간 보안 다이제스트: 블록체인·보안 위협·AI (10건)](/posts/2026/06/22/Tech_Security_Weekly_Digest_Threat_AI_Security/) — 2026-06-22
+- [2026년 06월 24일 주간 보안 다이제스트: AI 에이전트·패치·제로데이 (28건)](/posts/2026/06/24/Tech_Security_Weekly_Digest_AI_Security_Agent_Update/) — 2026-06-24
+- [2026년 06월 20일 주간 보안 다이제스트: 패치·랜섬웨어·BYOVD EDR (19건)](/posts/2026/06/20/Tech_Security_Weekly_Digest_Patch_AI_Apple_Security/) — 2026-06-20
+
+---
+
 **작성자**: Twodragon

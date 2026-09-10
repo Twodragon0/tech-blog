@@ -312,9 +312,9 @@ Michael Saylor가 추가 Bitcoin 매수 의사를 밝히며, 소매 투자자들
 
 <!-- related-posts:v1 -->
 
-- [Funnel Builder Flaw, Microsoft, 중요한 Azure 취약점, 러시아 해커, Kazuar 백도어를 모듈형](/posts/2026/05/17/Tech_Security_Weekly_Digest_CVE_Vulnerability_Azure_Botnet/) — 2026-05-17
-- [Cisco Catalyst SD-WAN, Stealer Backdoor가 개발자, ThreatsDay 게시판](/posts/2026/05/15/Tech_Security_Weekly_Digest_AI_Threat_AWS_Go/) — 2026-05-15
-- [Turla, Kazuar 백도어를 모듈형 P2P, AWS AI 보안 프레임워크, 45일간의 자체 도구 모니터링이 실제 공격](/posts/2026/05/16/Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security/) — 2026-05-16
+- [2026년 05월 17일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (7건)](/posts/2026/05/17/Tech_Security_Weekly_Digest_CVE_Vulnerability_Azure_Botnet/) — 2026-05-17
+- [2026년 05월 19일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (15건)](/posts/2026/05/19/Tech_Security_Weekly_Digest_Cloud_AI_Malware_Go/) — 2026-05-19
+- [2026년 05월 15일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/05/15/Tech_Security_Weekly_Digest_AI_Threat_AWS_Go/) — 2026-05-15
 
 ---
 

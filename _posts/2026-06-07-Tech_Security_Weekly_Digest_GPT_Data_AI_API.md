@@ -340,4 +340,14 @@ Meta가 크리에이터에게 스테이블코인으로 대금을 지급하지만
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 06일 주간 보안 다이제스트: 악성코드·패치·쿠버네티스 (25건)](/posts/2026/06/06/Tech_Security_Weekly_Digest_AI_Threat/) — 2026-06-06
+- [2026년 06월 08일 주간 보안 다이제스트: 악성코드·AI 에이전트·블록체인 (18건)](/posts/2026/06/08/Tech_Security_Weekly_Digest_AI_Malware_Botnet_Vulnerability/) — 2026-06-08
+- [2026년 06월 04일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (24건)](/posts/2026/06/04/Tech_Security_Weekly_Digest_Go_AI_Zero-Day_CVE/) — 2026-06-04
+
+---
+
 **작성자**: Twodragon

@@ -315,4 +315,14 @@ flowchart TD
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 05일 주간 보안 다이제스트: 랜섬웨어·북한 위협·AI 에이전트 (14건)](/posts/2026/07/05/Tech_Security_Weekly_Digest_AI_Data_Go_Ransomware/) — 2026-07-05
+- [2026년 07월 07일 주간 보안 다이제스트: 쿠버네티스·제로데이·패치 (24건)](/posts/2026/07/07/Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI/) — 2026-07-07
+- [2026년 07월 03일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (26건)](/posts/2026/07/03/Tech_Security_Weekly_Digest_Go_AI_Ransomware_Threat/) — 2026-07-03
+
+---
+
 **작성자**: Twodragon

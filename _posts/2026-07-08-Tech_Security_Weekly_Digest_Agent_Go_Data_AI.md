@@ -485,4 +485,14 @@ Vanguard가 최초의 디지털 자산 책임자를 채용하며 암호화폐에
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 07일 주간 보안 다이제스트: 쿠버네티스·제로데이·패치 (24건)](/posts/2026/07/07/Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI/) — 2026-07-07
+- [2026년 07월 09일 주간 보안 다이제스트: 악성코드·제로데이·클라우드 (30건)](/posts/2026/07/09/Tech_Security_Weekly_Digest_AI_Security_Agent_Malware/) — 2026-07-09
+- [2026년 07월 05일 주간 보안 다이제스트: 랜섬웨어·북한 위협·AI 에이전트 (14건)](/posts/2026/07/05/Tech_Security_Weekly_Digest_AI_Data_Go_Ransomware/) — 2026-07-05
+
+---
+
 **작성자**: Twodragon

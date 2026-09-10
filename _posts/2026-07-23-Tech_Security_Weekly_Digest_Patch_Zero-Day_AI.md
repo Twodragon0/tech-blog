@@ -473,4 +473,14 @@ Bitcoin Magazine의 보고서에 따르면 미국 내 crypto 업계 종사자 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 22일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (28건)](/posts/2026/07/22/Tech_Security_Weekly_Digest_AI_Apple_AWS_Go/) — 2026-07-22
+- [2026년 07월 20일 주간 보안 다이제스트: 제로데이·패치·악성코드 (15건)](/posts/2026/07/20/Tech_Security_Weekly_Digest_Vulnerability_AI_Malware_Zero-Day/) — 2026-07-20
+- [2026년 07월 26일 주간 보안 다이제스트: 악성코드·제로데이·패치 (15건)](/posts/2026/07/26/Tech_Security_Weekly_Digest_Malware_Vulnerability_Patch_AI/) — 2026-07-26
+
+---
+
 **작성자**: Twodragon

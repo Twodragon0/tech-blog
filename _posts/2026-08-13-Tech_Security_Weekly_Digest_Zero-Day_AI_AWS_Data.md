@@ -430,4 +430,14 @@ Bitcoin이 바닥 신호를 보이며 "디지털 골드(Digital Gold)" 서사가
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 12일 주간 보안 다이제스트: 제로데이·BYOVD EDR·클라우드 (29건)](/posts/2026/08/12/Tech_Security_Weekly_Digest_Zero-Day_Patch_AWS_Botnet/) — 2026-08-12
+- [2026년 08월 14일 주간 보안 다이제스트: DNS 유출·클라우드·랜섬웨어 (27건)](/posts/2026/08/14/Tech_Security_Weekly_Digest_AI_AWS_Data_Go/) — 2026-08-14
+- [2026년 08월 10일 주간 보안 다이제스트: AI 에이전트·블록체인·보안 위협 (12건)](/posts/2026/08/10/Tech_Security_Weekly_Digest_AI_Security_Bitcoin/) — 2026-08-10
+
+---
+
 **작성자**: Twodragon

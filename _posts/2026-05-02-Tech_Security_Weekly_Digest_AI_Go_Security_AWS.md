@@ -404,9 +404,9 @@ Galoy가 미국 은행 및 신용협동조합을 위해 대출, 결제, 보관 �
 
 <!-- related-posts:v1 -->
 
-- [PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어](/posts/2026/05/01/Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud/) — 2026-05-01
-- [중요한 cPanel 취약점 'Sorry', Trellix, 승인되지 않은 저장소, ConsentFix v3 공격](/posts/2026/05/03/Tech_Security_Weekly_Digest_Ransomware_Azure_CVE_Vulnerability/) — 2026-05-03
-- [연구진, 단일 Git Push로 악용, 브라질의 LofyGang, 3년, VECT 2.0 랜섬웨어](/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/) — 2026-04-29
+- [2026년 05월 01일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (15건)](/posts/2026/05/01/Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud/) — 2026-05-01
+- [2026년 05월 03일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (6건)](/posts/2026/05/03/Tech_Security_Weekly_Digest_Ransomware_Azure_CVE_Vulnerability/) — 2026-05-03
+- [2026년 05월 05일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (14건)](/posts/2026/05/05/Tech_Security_Weekly_Digest_AI_Patch_AWS/) — 2026-05-05
 
 ---
 

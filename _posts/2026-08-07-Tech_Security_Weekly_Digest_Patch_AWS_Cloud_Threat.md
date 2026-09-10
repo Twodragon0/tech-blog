@@ -465,4 +465,14 @@ Breez가 오픈소스 Bitcoin-to-Stablecoins Progressive Web App인 Glow를 발�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 06일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (27건)](/posts/2026/08/06/Tech_Security_Weekly_Digest_AI_Malware_GPT_AWS/) — 2026-08-06
+- [2026년 08월 08일 주간 보안 다이제스트: 악성코드·쿠버네티스·클라우드 (29건)](/posts/2026/08/08/Tech_Security_Weekly_Digest_AI_Data_Cloud_AWS/) — 2026-08-08
+- [2026년 08월 04일 주간 보안 다이제스트: 악성코드·클라우드·랜섬웨어 (29건)](/posts/2026/08/04/Tech_Security_Weekly_Digest_Malware_Go_AWS_Ransomware/) — 2026-08-04
+
+---
+
 **작성자**: Twodragon

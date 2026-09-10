@@ -282,4 +282,14 @@ Polygon이 최근 하드포크를 통해 해결된 보안 취약점을 공개했
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 29일 주간 보안 다이제스트: 클라우드·패치·제로데이 (25건)](/posts/2026/08/29/Tech_Security_Weekly_Digest_Data_AI_Blockchain_AWS/) — 2026-08-29
+- [2026년 08월 31일 주간 보안 다이제스트: 클라우드·악성코드·BYOVD EDR (15건)](/posts/2026/08/31/Tech_Security_Weekly_Digest_Cloud_AI_Data_Malware/) — 2026-08-31
+- [2026년 08월 27일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (30건)](/posts/2026/08/27/Tech_Security_Weekly_Digest_Data_AWS_Security_AI/) — 2026-08-27
+
+---
+
 **작성자**: Twodragon

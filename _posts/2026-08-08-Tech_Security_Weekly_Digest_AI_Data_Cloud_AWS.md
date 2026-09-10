@@ -443,4 +443,14 @@ Coldcard Bitcoin 해킹 피해자들의 중간 손실액이 1 BTC로 확인됐�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 07일 주간 보안 다이제스트: 제로데이·Cisco FMC·클라우드 (28건)](/posts/2026/08/07/Tech_Security_Weekly_Digest_Patch_AWS_Cloud_Threat/) — 2026-08-07
+- [2026년 08월 09일 주간 보안 다이제스트: 제로데이·클라우드·보안 위협 (16건)](/posts/2026/08/09/Tech_Security_Weekly_Digest_Data_AI_Zero-Day/) — 2026-08-09
+- [2026년 08월 05일 주간 보안 다이제스트: 패치·AI 에이전트·보안 위협 (30건)](/posts/2026/08/05/Tech_Security_Weekly_Digest_AI_Agent_Update/) — 2026-08-05
+
+---
+
 **작성자**: Twodragon

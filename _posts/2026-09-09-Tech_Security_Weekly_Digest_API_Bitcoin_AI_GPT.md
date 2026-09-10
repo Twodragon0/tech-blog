@@ -453,4 +453,14 @@ GitHub 지원 포털이 새롭게 디자인되어 help.github.com으로 이전�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 09월 08일 주간 보안 다이제스트: 쿠버네티스·제로데이·클라우드 (23건)](/posts/2026/09/08/Tech_Security_Weekly_Digest_Data_AI_Cloud_Security/) — 2026-09-08
+- [2026년 09월 02일 주간 보안 다이제스트: 제로데이·패치·악성코드 (30건)](/posts/2026/09/02/Tech_Security_Weekly_Digest_AI_Patch_Security_Agent/) — 2026-09-02
+- [2026년 09월 07일 주간 보안 다이제스트: 패치·악성코드·AI 에이전트 (20건)](/posts/2026/09/07/Tech_Security_Weekly_Digest_Patch_Go_GPT_Update/) — 2026-09-07
+
+---
+
 **작성자**: Twodragon

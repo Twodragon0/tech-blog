@@ -466,4 +466,14 @@ Moody's는 트럼프 대통령의 양자 컴퓨팅 행정명령이 Bitcoin과 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 01일 주간 보안 다이제스트: AI 에이전트·악성코드·제로데이 (30건)](/posts/2026/07/01/Tech_Security_Weekly_Digest_AI_Agent_Data_Botnet/) — 2026-07-01
+- [2026년 07월 03일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (26건)](/posts/2026/07/03/Tech_Security_Weekly_Digest_Go_AI_Ransomware_Threat/) — 2026-07-03
+- [2026년 06월 29일 주간 보안 다이제스트: 클라우드·블록체인·AI (12건)](/posts/2026/06/29/Tech_Security_Weekly_Digest_AI_Data_Ethereum_AWS/) — 2026-06-29
+
+---
+
 **작성자**: Twodragon

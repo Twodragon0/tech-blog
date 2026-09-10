@@ -436,4 +436,14 @@ Sam Bankman-Fried의 FTX 사기 혐의에 대한 유죄 판결과 25년형을 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 12일 주간 보안 다이제스트: 제로데이·패치·랜섬웨어 (30건)](/posts/2026/06/12/Tech_Security_Weekly_Digest_Zero-Day_CVE_ML_AI/) — 2026-06-12
+- [2026년 06월 14일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (18건)](/posts/2026/06/14/Tech_Security_Weekly_Digest_AI_Go/) — 2026-06-14
+- [2026년 06월 10일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (30건)](/posts/2026/06/10/Tech_Security_Weekly_Digest_AI_Data_Zero-Day_Cloud/) — 2026-06-10
+
+---
+
 **작성자**: Twodragon

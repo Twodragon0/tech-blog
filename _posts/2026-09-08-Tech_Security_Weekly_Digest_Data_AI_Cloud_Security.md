@@ -406,4 +406,14 @@ Ethereum 재단은 헤고타 업그레이드의 필수 반영 EIP로 FOCIL과 Fr
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 09월 07일 주간 보안 다이제스트: 패치·악성코드·AI 에이전트 (20건)](/posts/2026/09/07/Tech_Security_Weekly_Digest_Patch_Go_GPT_Update/) — 2026-09-07
+- [2026년 09월 09일 주간 보안 다이제스트: 쿠버네티스·AI 에이전트·보안 위협 (30건)](/posts/2026/09/09/Tech_Security_Weekly_Digest_API_Bitcoin_AI_GPT/) — 2026-09-09
+- [2026년 09월 01일 주간 보안 다이제스트: 북한 위협·AI 에이전트·클라우드 (29건)](/posts/2026/09/01/Tech_Security_Weekly_Digest_AI_Agent_Go_Security/) — 2026-09-01
+
+---
+
 **작성자**: Twodragon

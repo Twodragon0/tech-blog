@@ -472,4 +472,14 @@ Jane Street가 현물 ETF를 통해 약 10억 달러 규모의 Bitcoin을 매수
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 17일 주간 보안 다이제스트: 악성코드·DNS 유출·블록체인 (14건)](/posts/2026/08/17/Tech_Security_Weekly_Digest_Data_Malware_DeFi_Apple/) — 2026-08-17
+- [2026년 08월 19일 주간 보안 다이제스트: DNS 유출·클라우드·랜섬웨어 (30건)](/posts/2026/08/19/Tech_Security_Weekly_Digest_AWS_Data_ML_Cloud/) — 2026-08-19
+- [2026년 08월 15일 주간 보안 다이제스트: 클라우드·패치·AI 에이전트 (24건)](/posts/2026/08/15/Tech_Security_Weekly_Digest_AI_Security_Go_Cloud/) — 2026-08-15
+
+---
+
 **작성자**: Twodragon

@@ -453,4 +453,14 @@ Coinbase와 Better Mortgage가 Bitcoin 담보 대출 서비스의 정식 출시�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 26일 주간 보안 다이제스트: 클라우드·AI 에이전트·보안 위협 (29건)](/posts/2026/08/26/Tech_Security_Weekly_Digest_Cloud_AWS_AI_Go/) — 2026-08-26
+- [2026년 08월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (28건)](/posts/2026/08/28/Tech_Security_Weekly_Digest_Zero-Day_AI_Agent_Patch/) — 2026-08-28
+- [2026년 08월 24일 주간 보안 다이제스트: 악성코드·제로데이·블록체인 (13건)](/posts/2026/08/24/Tech_Security_Weekly_Digest_Malware_Go_AI_Bitcoin/) — 2026-08-24
+
+---
+
 **작성자**: Twodragon

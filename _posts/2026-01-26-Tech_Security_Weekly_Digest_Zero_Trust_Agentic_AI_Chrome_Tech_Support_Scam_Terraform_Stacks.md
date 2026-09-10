@@ -313,3 +313,13 @@ HashiCorp가 발표한 2026년 클라우드 리더들의 5가지 핵심 전략 �
 - [MS Office Zero-Day 긴급패치, Kimi K2.5 오픈소스 에이전트, Kimwolf 봇넷](/posts/2026/01/27/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/) — 2026-01-27
 - [Microsoft AitM 피싱, Agentic AI Zero Trust, OpenAI PostgreSQL](/posts/2026/01/23/Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/) — 2026-01-23
 
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 01월 25일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (5건)](/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/) — 2026-01-25
+- [2026년 01월 27일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (5건)](/posts/2026/01/27/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/) — 2026-01-27
+- [2026년 01월 23일 주간 보안 다이제스트: AI 에이전트·클라우드·피싱 (5건)](/posts/2026/01/23/Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/) — 2026-01-23
+

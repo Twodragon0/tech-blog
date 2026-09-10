@@ -416,15 +416,6 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
 
 작성자: Twodragon
 
----
-
-## 🔗 관련 포스트
-
-<!-- related-posts:v1 -->
-
-- [Pig Butchering $6100만 압수, FreePBX 대규모 침해, Go Crypto 백도어](/posts/2026/02/28/Tech_Security_Weekly_Digest_Go_AI_Malware/) — 2026-02-28
-- [제로트러스트 가시성, 암호화폐 규제 동향, 랜섬웨어 대응 전략](/posts/2026/03/02/Tech_Security_Weekly_Digest_Ransomware_AI_Agent/) — 2026-03-02
-- [UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향](/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/) — 2026-02-26
 
 ---
 
@@ -432,4 +423,14 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
 - 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 02월 28일 주간 보안 다이제스트: 악성코드·AI 에이전트·쿠버네티스 (3건)](/posts/2026/02/28/Tech_Security_Weekly_Digest_Go_AI_Malware/) — 2026-02-28
+- [2026년 03월 02일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (3건)](/posts/2026/03/02/Tech_Security_Weekly_Digest_Ransomware_AI_Agent/) — 2026-03-02
+- [2026년 02월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (3건)](/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/) — 2026-02-26
 

@@ -326,9 +326,9 @@ SEC의 디지털 자산 시장 분류 체계가 대부분의 cryptocurrency와 t
 
 <!-- related-posts:v1 -->
 
-- [Trivy CI/CD 침해, Langflow 긴급 RCE, Android 사이드로딩 보안 강화](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) — 2026-03-21
-- [Gentlemen 랜섬웨어 확산, 제로트러스트 가시성, EQST 위협 인사이트](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/) — 2026-03-23
-- [북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
+- [2026년 03월 21일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (11건)](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) — 2026-03-21
+- [2026년 03월 23일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·클라우드 (3건)](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/) — 2026-03-23
+- [2026년 03월 19일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
 
 ---
 

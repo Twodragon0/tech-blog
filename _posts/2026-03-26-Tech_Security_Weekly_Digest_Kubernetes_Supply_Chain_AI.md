@@ -496,9 +496,9 @@ GitOps 환경에서 ArgoCD와 Kyverno를 조합한 보안 정책 자동화가 �
 
 <!-- related-posts:v1 -->
 
-- [Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어 - 보안 주간 다이제스트](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) — 2026-03-25
-- [AWS IAM Zero Trust, GCP Workload Identity, FinOps 최적화](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/) — 2026-03-27
-- [Gentlemen 랜섬웨어 확산, 제로트러스트 가시성, EQST 위협 인사이트](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/) — 2026-03-23
+- [2026년 03월 25일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (15건)](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) — 2026-03-25
+- [2026년 03월 27일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (10건)](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/) — 2026-03-27
+- [2026년 03월 23일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·클라우드 (3건)](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/) — 2026-03-23
 
 ---
 

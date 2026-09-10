@@ -490,4 +490,14 @@ GitHub Copilot SDK가 정식 출시되어 안정적인 API와 프로덕션 지�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 02일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (30건)](/posts/2026/06/02/Tech_Security_Weekly_Digest_AI_Update_Data_Go/) — 2026-06-02
+- [2026년 06월 04일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (24건)](/posts/2026/06/04/Tech_Security_Weekly_Digest_Go_AI_Zero-Day_CVE/) — 2026-06-04
+- [2026년 05월 31일 주간 보안 다이제스트: 제로데이·블록체인·보안 위협 (15건)](/posts/2026/05/31/Tech_Security_Weekly_Digest_CVE_Vulnerability_AI/) — 2026-05-31
+
+---
+
 **작성자**: Twodragon

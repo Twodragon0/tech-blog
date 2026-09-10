@@ -482,15 +482,6 @@ MCP가 Cursor, Windsurf, VS Code Copilot 등 주요 AI 개발 도구에서 공�
 
 작성자: Twodragon
 
----
-
-## 🔗 관련 포스트
-
-<!-- related-posts:v1 -->
-
-- [AI 에이전트 보안 위협, Gentlemen 랜섬웨어, 운영 대응 전략](/posts/2026/03/01/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/) — 2026-03-01
-- [Aeternum 블록체인 C2 봇넷, AWS ISO 42001 AI 감사, 공급망 보안](/posts/2026/02/27/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/) — 2026-02-27
-- [Coruna iOS 익스플로잇, 핵티비스트 DDoS, 보안 대응 우선순위](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
 
 ---
 
@@ -498,4 +489,14 @@ MCP가 Cursor, Windsurf, VS Code Copilot 등 주요 AI 개발 도구에서 공�
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
 - 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 03월 01일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (3건)](/posts/2026/03/01/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/) — 2026-03-01
+- [2026년 02월 27일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (3건)](/posts/2026/02/27/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/) — 2026-02-27
+- [2026년 03월 05일 주간 보안 다이제스트: 제로데이·랜섬웨어·쿠버네티스 (4건)](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
 

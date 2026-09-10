@@ -501,4 +501,14 @@ GitHub이 Copilot Business와 Copilot Enterprise 요금제에서 일반 공급�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 29일 주간 보안 다이제스트: Telnetd·제로데이·AI 에이전트 (29건)](/posts/2026/07/29/Tech_Security_Weekly_Digest_AI_Botnet_Zero-Day_Cloud/) — 2026-07-29
+- [2026년 07월 31일 주간 보안 다이제스트: 악성코드·북한 위협·패치 (30건)](/posts/2026/07/31/Tech_Security_Weekly_Digest_Update_Malware_AI_Agent/) — 2026-07-31
+- [2026년 07월 27일 주간 보안 다이제스트: BYOVD EDR·클라우드·블록체인 (16건)](/posts/2026/07/27/Tech_Security_Weekly_Digest_AI/) — 2026-07-27
+
+---
+
 **작성자**: Twodragon

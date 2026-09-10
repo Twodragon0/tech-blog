@@ -501,9 +501,9 @@ Strategy (MSTR)가 Michael Saylor가 처음으로 Bitcoin 보유량 일부를 �
 
 <!-- related-posts:v1 -->
 
-- [AI 기반 합성 공격 로그 생성을 통한 탐지, 새로운 Exim BDAT 취약점으로 GnuTLS, AI 속도의 방어](/posts/2026/05/13/Tech_Security_Weekly_Digest_AI_Vulnerability_Security_Agent/) — 2026-05-13
-- [TCLBANKER Banking, 가짜 통화 기록 앱, 730만 회 Play, Active attack](/posts/2026/05/09/Tech_Security_Weekly_Digest_Vulnerability_AI_Threat/) — 2026-05-09
-- [Cisco Catalyst SD-WAN, Stealer Backdoor가 개발자, ThreatsDay 게시판](/posts/2026/05/15/Tech_Security_Weekly_Digest_AI_Threat_AWS_Go/) — 2026-05-15
+- [2026년 05월 13일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (15건)](/posts/2026/05/13/Tech_Security_Weekly_Digest_AI_Vulnerability_Security_Agent/) — 2026-05-13
+- [2026년 05월 09일 주간 보안 다이제스트: 악성코드·BYOVD EDR·DNS 유출 (14건)](/posts/2026/05/09/Tech_Security_Weekly_Digest_Vulnerability_AI_Threat/) — 2026-05-09
+- [2026년 05월 15일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/05/15/Tech_Security_Weekly_Digest_AI_Threat_AWS_Go/) — 2026-05-15
 
 ---
 

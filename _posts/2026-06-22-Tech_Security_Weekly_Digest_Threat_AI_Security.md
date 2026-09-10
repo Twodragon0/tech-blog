@@ -265,4 +265,14 @@ Strategy의 우선주 STRC가 액면가를 잃고 폭락하기까지의 과정�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 21일 주간 보안 다이제스트: 제로데이·패치·랜섬웨어 (15건)](/posts/2026/06/21/Tech_Security_Weekly_Digest_API_Ransomware_AI_Bitcoin/) — 2026-06-21
+- [2026년 06월 23일 주간 보안 다이제스트: 패치·AI 에이전트·클라우드 (27건)](/posts/2026/06/23/Tech_Security_Weekly_Digest_AI_AWS_Go/) — 2026-06-23
+- [2026년 06월 19일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/19/Tech_Security_Weekly_Digest_Patch_AWS_AI_Agent/) — 2026-06-19
+
+---
+
 **작성자**: Twodragon

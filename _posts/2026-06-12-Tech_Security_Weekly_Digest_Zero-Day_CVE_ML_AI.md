@@ -484,4 +484,14 @@ BitGo가 Lightning Earn을 출시하여 기관 투자자들이 Amboss Rails와�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 11일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/11/Tech_Security_Weekly_Digest_AI_Botnet_Patch_CVE/) — 2026-06-11
+- [2026년 06월 13일 주간 보안 다이제스트: 악성코드·AI 에이전트·BYOVD EDR (24건)](/posts/2026/06/13/Tech_Security_Weekly_Digest_AI_Go_Agent/) — 2026-06-13
+- [2026년 06월 09일 주간 보안 다이제스트: 제로데이·패치·클라우드 (29건)](/posts/2026/06/09/Tech_Security_Weekly_Digest_AWS_Security_AI/) — 2026-06-09
+
+---
+
 **작성자**: Twodragon

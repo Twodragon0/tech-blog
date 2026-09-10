@@ -478,4 +478,14 @@ Better와 Coinbase가 Fannie Mae의 지원을 받는 첫 번째 모기지 대출
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 04일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (24건)](/posts/2026/06/04/Tech_Security_Weekly_Digest_Go_AI_Zero-Day_CVE/) — 2026-06-04
+- [2026년 06월 06일 주간 보안 다이제스트: 악성코드·패치·쿠버네티스 (25건)](/posts/2026/06/06/Tech_Security_Weekly_Digest_AI_Threat/) — 2026-06-06
+- [2026년 06월 02일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (30건)](/posts/2026/06/02/Tech_Security_Weekly_Digest_AI_Update_Data_Go/) — 2026-06-02
+
+---
+
 **작성자**: Twodragon

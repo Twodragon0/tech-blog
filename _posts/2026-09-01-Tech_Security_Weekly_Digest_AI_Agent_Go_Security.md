@@ -450,4 +450,14 @@ OpenTelemetry(OTel)가 마침내 CNCF 졸업 프로젝트 지위를 공식적으
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 31일 주간 보안 다이제스트: 클라우드·악성코드·BYOVD EDR (15건)](/posts/2026/08/31/Tech_Security_Weekly_Digest_Cloud_AI_Data_Malware/) — 2026-08-31
+- [2026년 09월 02일 주간 보안 다이제스트: 제로데이·패치·악성코드 (30건)](/posts/2026/09/02/Tech_Security_Weekly_Digest_AI_Patch_Security_Agent/) — 2026-09-02
+- [2026년 08월 29일 주간 보안 다이제스트: 클라우드·패치·제로데이 (25건)](/posts/2026/08/29/Tech_Security_Weekly_Digest_Data_AI_Blockchain_AWS/) — 2026-08-29
+
+---
+
 **작성자**: Twodragon

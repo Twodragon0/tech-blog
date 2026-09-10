@@ -494,9 +494,9 @@ Boltz가 Circle의 CCTP를 활용해 Bitcoin을 Circle의 규제 달러인 USDC�
 
 <!-- related-posts:v1 -->
 
-- [Apache HTTP/2의 치명적, DAEMON Tools 공급망 공격으로 공식, 중국과 연계된 UAT-8302](/posts/2026/05/06/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-05-06
-- [Ivanti EPMM CVE-2026-6973, PCPJack 자격 증명 탈취기가 5개, 프롬프트가 셸이 될 때](/posts/2026/05/08/Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent/) — 2026-05-08
-- [Instructure, 데이터 유출 확인, Microsoft, CISA, 적극적으로 악용되는 Linux 루트](/posts/2026/05/04/Tech_Security_Weekly_Digest_AI_Data_CVE_Malware/) — 2026-05-04
+- [2026년 05월 06일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (15건)](/posts/2026/05/06/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-05-06
+- [2026년 05월 08일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (15건)](/posts/2026/05/08/Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent/) — 2026-05-08
+- [2026년 05월 04일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (6건)](/posts/2026/05/04/Tech_Security_Weekly_Digest_AI_Data_CVE_Malware/) — 2026-05-04
 
 ---
 

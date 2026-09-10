@@ -457,4 +457,14 @@ Bitcoin 담보 우선주가 6월 첫 주요 스트레스 테스트를 겪었으�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 09일 주간 보안 다이제스트: 악성코드·제로데이·클라우드 (30건)](/posts/2026/07/09/Tech_Security_Weekly_Digest_AI_Security_Agent_Malware/) — 2026-07-09
+- [2026년 07월 11일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (29건)](/posts/2026/07/11/Tech_Security_Weekly_Digest_Security_Threat_AWS_Patch/) — 2026-07-11
+- [2026년 07월 07일 주간 보안 다이제스트: 쿠버네티스·제로데이·패치 (24건)](/posts/2026/07/07/Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI/) — 2026-07-07
+
+---
+
 **작성자**: Twodragon

@@ -560,9 +560,9 @@ Solana 네트워크가 새로운 합의 메커니즘을 도입하여 네트워�
 
 <!-- related-posts:v1 -->
 
-- [AWS IAM Zero Trust, GCP Workload Identity, FinOps 최적화](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/) — 2026-03-27
-- [랜섬웨어 진화, LLM 탈옥 공격, K8s 공급망 위협 분석](/posts/2026/03/29/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/) — 2026-03-29
-- [Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어 - 보안 주간 다이제스트](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) — 2026-03-25
+- [2026년 03월 27일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (10건)](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/) — 2026-03-27
+- [2026년 03월 29일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/03/29/Tech_Security_Weekly_Digest_Ransomware_LLM_K8s_Supply_Chain/) — 2026-03-29
+- [2026년 03월 25일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (15건)](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) — 2026-03-25
 
 ---
 

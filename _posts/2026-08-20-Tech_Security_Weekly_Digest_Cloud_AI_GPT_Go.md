@@ -431,4 +431,14 @@ Fidelity는 Bitcoin의 변동성이 낮아졌지만 곧 '의미 있는 움직임
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 19일 주간 보안 다이제스트: DNS 유출·클라우드·랜섬웨어 (30건)](/posts/2026/08/19/Tech_Security_Weekly_Digest_AWS_Data_ML_Cloud/) — 2026-08-19
+- [2026년 08월 21일 주간 보안 다이제스트: 악성코드·쿠버네티스·BYOVD EDR (30건)](/posts/2026/08/21/Tech_Security_Weekly_Digest_AI_Malware_Rust_Go/) — 2026-08-21
+- [2026년 08월 17일 주간 보안 다이제스트: 악성코드·DNS 유출·블록체인 (14건)](/posts/2026/08/17/Tech_Security_Weekly_Digest_Data_Malware_DeFi_Apple/) — 2026-08-17
+
+---
+
 **작성자**: Twodragon

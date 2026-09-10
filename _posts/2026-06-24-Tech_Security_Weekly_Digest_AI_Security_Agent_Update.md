@@ -471,4 +471,14 @@ Bull Bitcoin이 프랑스에서 MiCA 라이선스를 획득했으며, 창립자 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 23일 주간 보안 다이제스트: 패치·AI 에이전트·클라우드 (27건)](/posts/2026/06/23/Tech_Security_Weekly_Digest_AI_AWS_Go/) — 2026-06-23
+- [2026년 06월 25일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (25건)](/posts/2026/06/25/Tech_Security_Weekly_Digest_Malware_AWS_Go_AI/) — 2026-06-25
+- [2026년 06월 21일 주간 보안 다이제스트: 제로데이·패치·랜섬웨어 (15건)](/posts/2026/06/21/Tech_Security_Weekly_Digest_API_Ransomware_AI_Bitcoin/) — 2026-06-21
+
+---
+
 **작성자**: Twodragon

@@ -464,4 +464,14 @@ Bitcoin 채굴 대기업 Foundry Digital이 자사의 채굴 풀을 이용하는
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 17일 주간 보안 다이제스트: 랜섬웨어·악성코드·패치 (30건)](/posts/2026/07/17/Tech_Security_Weekly_Digest_AI_Threat_Ransomware_Malware/) — 2026-07-17
+- [2026년 07월 19일 주간 보안 다이제스트: 패치·클라우드·악성코드 (15건)](/posts/2026/07/19/Tech_Security_Weekly_Digest_Update_Patch_AWS_Malware/) — 2026-07-19
+- [2026년 07월 15일 주간 보안 다이제스트: 제로데이·클라우드·패치 (29건)](/posts/2026/07/15/Tech_Security_Weekly_Digest_Zero-Day_Patch_AWS_Security/) — 2026-07-15
+
+---
+
 **작성자**: Twodragon

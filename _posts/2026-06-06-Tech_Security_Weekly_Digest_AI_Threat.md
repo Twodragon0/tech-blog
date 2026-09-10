@@ -476,4 +476,14 @@ Travala는 AI 에이전트가 Base 네트워크에서 USDC로 호텔을 검색�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 05일 주간 보안 다이제스트: 제로데이·Cisco FMC·패치 (29건)](/posts/2026/06/05/Tech_Security_Weekly_Digest_CVE_Patch_Go_AI/) — 2026-06-05
+- [2026년 06월 07일 주간 보안 다이제스트: DNS 유출·제로데이·AI 에이전트 (16건)](/posts/2026/06/07/Tech_Security_Weekly_Digest_GPT_Data_AI_API/) — 2026-06-07
+- [2026년 06월 03일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/03/Tech_Security_Weekly_Digest_Patch_Update_AWS_Go/) — 2026-06-03
+
+---
+
 **작성자**: Twodragon

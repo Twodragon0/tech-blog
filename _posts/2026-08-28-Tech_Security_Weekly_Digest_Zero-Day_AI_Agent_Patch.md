@@ -468,4 +468,14 @@ Copilot 코드 리뷰 기능이 확대되었습니다. 특히, 봇이 작성한 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 27일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (30건)](/posts/2026/08/27/Tech_Security_Weekly_Digest_Data_AWS_Security_AI/) — 2026-08-27
+- [2026년 08월 29일 주간 보안 다이제스트: 클라우드·패치·제로데이 (25건)](/posts/2026/08/29/Tech_Security_Weekly_Digest_Data_AI_Blockchain_AWS/) — 2026-08-29
+- [2026년 08월 25일 주간 보안 다이제스트: 악성코드·랜섬웨어·제로데이 (30건)](/posts/2026/08/25/Tech_Security_Weekly_Digest_AI_Malware/) — 2026-08-25
+
+---
+
 **작성자**: Twodragon

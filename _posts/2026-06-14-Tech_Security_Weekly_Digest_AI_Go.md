@@ -365,4 +365,14 @@ ETH 선물 시장에서 약세 신호가 나타났지만, 스테이커들의 회
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 13일 주간 보안 다이제스트: 악성코드·AI 에이전트·BYOVD EDR (24건)](/posts/2026/06/13/Tech_Security_Weekly_Digest_AI_Go_Agent/) — 2026-06-13
+- [2026년 06월 15일 주간 보안 다이제스트: 악성코드·AI 에이전트·북한 위협 (15건)](/posts/2026/06/15/Tech_Security_Weekly_Digest_AI_Security_Go_Ethereum/) — 2026-06-15
+- [2026년 06월 11일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/11/Tech_Security_Weekly_Digest_AI_Botnet_Patch_CVE/) — 2026-06-11
+
+---
+
 **작성자**: Twodragon

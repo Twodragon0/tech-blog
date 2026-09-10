@@ -475,4 +475,14 @@ Strategy가 32 BTC를 매도했지만, 이는 Bitcoin treasury 모델을 강화�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 01일 주간 보안 다이제스트: 블록체인·보안 위협·봇넷 (12건)](/posts/2026/06/01/Tech_Security_Weekly_Digest_Botnet/) — 2026-06-01
+- [2026년 06월 03일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/03/Tech_Security_Weekly_Digest_Patch_Update_AWS_Go/) — 2026-06-03
+- [2026년 05월 30일 주간 보안 다이제스트: 제로데이·AI 에이전트·클라우드 (27건)](/posts/2026/05/30/Tech_Security_Weekly_Digest_Vulnerability_GPT_CVE_LLM/) — 2026-05-30
+
+---
+
 **작성자**: Twodragon

@@ -303,4 +303,14 @@ IMF의 단장 대행 Dan Katz는 사용자들이 유동성, 네트워크 효과,
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 08일 주간 보안 다이제스트: 악성코드·쿠버네티스·클라우드 (29건)](/posts/2026/08/08/Tech_Security_Weekly_Digest_AI_Data_Cloud_AWS/) — 2026-08-08
+- [2026년 08월 10일 주간 보안 다이제스트: AI 에이전트·블록체인·보안 위협 (12건)](/posts/2026/08/10/Tech_Security_Weekly_Digest_AI_Security_Bitcoin/) — 2026-08-10
+- [2026년 08월 06일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (27건)](/posts/2026/08/06/Tech_Security_Weekly_Digest_AI_Malware_GPT_AWS/) — 2026-08-06
+
+---
+
 **작성자**: Twodragon

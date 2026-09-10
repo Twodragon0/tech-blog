@@ -457,4 +457,14 @@ Tether가 지원하는 UTEXO가 Bitcoin 네이티브 USDT를 곧 출시할 예�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 06일 주간 보안 다이제스트: AI 에이전트·클라우드·블록체인 (14건)](/posts/2026/07/06/Tech_Security_Weekly_Digest_AI_Agent_AWS/) — 2026-07-06
+- [2026년 07월 08일 주간 보안 다이제스트: 악성코드·클라우드·AI 에이전트 (30건)](/posts/2026/07/08/Tech_Security_Weekly_Digest_Agent_Go_Data_AI/) — 2026-07-08
+- [2026년 07월 04일 주간 보안 다이제스트: 클라우드·패치·제로데이 (17건)](/posts/2026/07/04/Tech_Security_Weekly_Digest_Patch_AWS_AI_Malware/) — 2026-07-04
+
+---
+
 **작성자**: Twodragon

@@ -420,4 +420,14 @@ Tether가 마침내 KPMG와 함께 준비금에 대한 독립 감사를 완료�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 13일 주간 보안 다이제스트: 제로데이·북한 위협·패치 (27건)](/posts/2026/08/13/Tech_Security_Weekly_Digest_Zero-Day_AI_AWS_Data/) — 2026-08-13
+- [2026년 08월 15일 주간 보안 다이제스트: 클라우드·패치·AI 에이전트 (24건)](/posts/2026/08/15/Tech_Security_Weekly_Digest_AI_Security_Go_Cloud/) — 2026-08-15
+- [2026년 08월 11일 주간 보안 다이제스트: 랜섬웨어·제로데이·클라우드 (30건)](/posts/2026/08/11/Tech_Security_Weekly_Digest_AI_Ransomware_Go_AWS/) — 2026-08-11
+
+---
+
 **작성자**: Twodragon

@@ -232,9 +232,9 @@ UK Finance는 토큰화 예금이 다른 디지털 자산과 함께 미래 다�
 
 <!-- related-posts:v1 -->
 
-- [Signal 피싱 경고, Oracle Identity RCE, Trivy CanisterWorm 공급망 공격](/posts/2026/03/22/Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/) — 2026-03-22
-- [북한 VS Code 멀웨어, IAM 정책 설계, Bedrock 보안 운영 포인트](/posts/2026/03/24/Tech_Security_Weekly_Digest_Malware_Data_AWS_AI/) — 2026-03-24
-- [Speagle 데이터 유출, BYOVD EDR 킬러, AI 코드 에이전트 모니터링](/posts/2026/03/20/Tech_Security_Weekly_Digest_Malware_Data_Security_Threat/) — 2026-03-20
+- [2026년 03월 22일 주간 보안 다이제스트: 제로데이·BYOVD EDR·클라우드 (6건)](/posts/2026/03/22/Tech_Security_Weekly_Digest_CVE_Patch_AI_Apple/) — 2026-03-22
+- [2026년 03월 24일 주간 보안 다이제스트: 악성코드·BYOVD EDR·북한 위협 (15건)](/posts/2026/03/24/Tech_Security_Weekly_Digest_Malware_Data_AWS_AI/) — 2026-03-24
+- [2026년 03월 20일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (13건)](/posts/2026/03/20/Tech_Security_Weekly_Digest_Malware_Data_Security_Threat/) — 2026-03-20
 
 ---
 

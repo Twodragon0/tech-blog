@@ -449,4 +449,14 @@ Fairlead Strategies의 Katie Stockton에 따르면 Bitcoin이 더 이상 과매�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 25일 주간 보안 다이제스트: 악성코드·랜섬웨어·제로데이 (30건)](/posts/2026/08/25/Tech_Security_Weekly_Digest_AI_Malware/) — 2026-08-25
+- [2026년 08월 27일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (30건)](/posts/2026/08/27/Tech_Security_Weekly_Digest_Data_AWS_Security_AI/) — 2026-08-27
+- [2026년 08월 23일 주간 보안 다이제스트: 클라우드·악성코드·패치 (15건)](/posts/2026/08/23/Tech_Security_Weekly_Digest_AWS_Malware_Botnet_AI/) — 2026-08-23
+
+---
+
 **작성자**: Twodragon

@@ -474,15 +474,6 @@ Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 �
 수집 소스: 47개 RSS 피드 (166개 뉴스)
 분석 방법론: DevSecOps 실무 영향도 기반 우선순위화
 
----
-
-## 🔗 관련 포스트
-
-<!-- related-posts:v1 -->
-
-- [BitLocker FBI 키 제공, Cloudflare Route Leak, Docker 보안](/posts/2026/01/24/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/) — 2026-01-24
-- [AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) — 2026-01-26
-- [Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) — 2026-01-28
 
 ---
 
@@ -490,4 +481,14 @@ Google Agent Development Kit(ADK)와 Datadog의 LLM Observability 통합으로 �
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
 - 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 01월 24일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·AI 에이전트 (5건)](/posts/2026/01/24/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/) — 2026-01-24
+- [2026년 01월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (5건)](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) — 2026-01-26
+- [2026년 01월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (4건)](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) — 2026-01-28
 

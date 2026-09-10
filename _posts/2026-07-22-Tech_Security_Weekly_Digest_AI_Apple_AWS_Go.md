@@ -453,4 +453,14 @@ Coinbase가 캐나다에서 암호화폐, 토큰화된 주식, 예측 시장을 
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 21일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (28건)](/posts/2026/07/21/Tech_Security_Weekly_Digest_AI_Malware_Threat_Agent/) — 2026-07-21
+- [2026년 07월 23일 주간 보안 다이제스트: 제로데이·패치·악성코드 (29건)](/posts/2026/07/23/Tech_Security_Weekly_Digest_Patch_Zero-Day_AI/) — 2026-07-23
+- [2026년 07월 19일 주간 보안 다이제스트: 패치·클라우드·악성코드 (15건)](/posts/2026/07/19/Tech_Security_Weekly_Digest_Update_Patch_AWS_Malware/) — 2026-07-19
+
+---
+
 **작성자**: Twodragon

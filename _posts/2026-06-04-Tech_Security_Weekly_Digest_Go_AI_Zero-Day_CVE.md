@@ -443,4 +443,14 @@ Blockware가 Megan Brooks-Anderson을 새로운 CEO로 임명했습니다. 그�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 03일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/03/Tech_Security_Weekly_Digest_Patch_Update_AWS_Go/) — 2026-06-03
+- [2026년 06월 05일 주간 보안 다이제스트: 제로데이·Cisco FMC·패치 (29건)](/posts/2026/06/05/Tech_Security_Weekly_Digest_CVE_Patch_Go_AI/) — 2026-06-05
+- [2026년 06월 01일 주간 보안 다이제스트: 블록체인·보안 위협·봇넷 (12건)](/posts/2026/06/01/Tech_Security_Weekly_Digest_Botnet/) — 2026-06-01
+
+---
+
 **작성자**: Twodragon

@@ -673,15 +673,6 @@ def audit_agent_io(func):
 
 **작성자**: Twodragon
 
----
-
-## 🔗 관련 포스트
-
-<!-- related-posts:v1 -->
-
-- [AI 에이전트 레드팀 오픈소스, Bedrock 멀티에이전트, Aave Shield 출시](/posts/2026/03/16/Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/) — 2026-03-16
-- [블록체인 신뢰 리스크, Vertical AI 전략, AWS 보안 패치](/posts/2026/03/12/Tech_Security_Weekly_Digest_AI_Malware_AWS_Patch/) — 2026-03-12
-- [AI 샌드박스 DNS 유출·LeakNet 랜섬웨어 ClickFix·GKE 멀티클러스터 보안](/posts/2026/03/18/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/) — 2026-03-18
 
 ---
 
@@ -689,4 +680,14 @@ def audit_agent_io(func):
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
 - 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 03월 16일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (5건)](/posts/2026/03/16/Tech_Security_Weekly_Digest_AI_Agent_Open-Source_Update/) — 2026-03-16
+- [2026년 03월 12일 주간 보안 다이제스트: BYOVD EDR·클라우드·패치 (3건)](/posts/2026/03/12/Tech_Security_Weekly_Digest_AI_Malware_AWS_Patch/) — 2026-03-12
+- [2026년 03월 18일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (13건)](/posts/2026/03/18/Tech_Security_Weekly_Digest_AI_AWS_Data_Ransomware/) — 2026-03-18
 

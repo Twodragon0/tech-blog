@@ -486,4 +486,14 @@ Axios에 따르면 전통 금융(TradFi) 기관들이 Bitcoin 가격 하락을 �
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 09일 주간 보안 다이제스트: 제로데이·패치·클라우드 (29건)](/posts/2026/06/09/Tech_Security_Weekly_Digest_AWS_Security_AI/) — 2026-06-09
+- [2026년 06월 11일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/11/Tech_Security_Weekly_Digest_AI_Botnet_Patch_CVE/) — 2026-06-11
+- [2026년 06월 07일 주간 보안 다이제스트: DNS 유출·제로데이·AI 에이전트 (16건)](/posts/2026/06/07/Tech_Security_Weekly_Digest_GPT_Data_AI_API/) — 2026-06-07
+
+---
+
 **작성자**: Twodragon

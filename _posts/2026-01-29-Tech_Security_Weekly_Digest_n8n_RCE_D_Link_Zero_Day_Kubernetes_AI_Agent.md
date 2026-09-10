@@ -347,7 +347,7 @@ Kubernetes 환경에서 AI 에이전트 보안은 2026년 가장 중요한 과�
 
 <!-- related-posts:v1 -->
 
-- [Microsoft Office Zero-Day 패치, CTEM 실무 적용, Grist Core RCE](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) — 2026-01-28
-- [Ollama AI 175K 노출, SolarWinds WHD RCE, Google IPIDEA](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
-- [AI Zero Trust, Chrome 기술지원 사기 방지, Terraform Stacks](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) — 2026-01-26
+- [2026년 01월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (4건)](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) — 2026-01-28
+- [2026년 01월 30일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (5건)](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
+- [2026년 01월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (5건)](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) — 2026-01-26
 
