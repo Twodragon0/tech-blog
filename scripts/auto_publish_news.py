@@ -881,6 +881,39 @@ def main():
     except Exception as _diversify_err:
         logging.debug(f"Excerpt diversification skipped: {_diversify_err}")
 
+    # Give the new post its "🔗 관련 포스트" block. Same shape as the excerpt
+    # diversifier above: inline, non-blocking, before the quality gate.
+    #
+    # scripts/seo_inject_related_links.py was written for the 2026-05-19 GSC
+    # orphan audit, ran once, and then had ZERO call sites — so internal linking
+    # froze at that date. Measured 2026-09-10: posts with an outbound internal
+    # link went 34/34 in 2026-04 to 1/30 in 2026-06, and 163 of 293 posts (55%)
+    # had no inbound internal link at all.
+    #
+    # Only today's post is injected, not the corpus: tomorrow's digest links
+    # back to today's (the neighbour ladder is +/-1, +/-3, +/-7 days), so
+    # inbound links accrue on their own without every publish rewriting its
+    # neighbours. The injector skips `superseded_by` posts, so it cannot link a
+    # URL that vercel.json 301s elsewhere.
+    try:
+        from seo_inject_related_links import POSTS_DIR as _RELINK_POSTS_DIR
+        from seo_inject_related_links import (
+            _gather_digests as _relink_catalog,
+        )
+        from seo_inject_related_links import (
+            _process_file as _inject_related,
+        )
+
+        _changed, _relink_reason = _inject_related(
+            post_path, _relink_catalog(_RELINK_POSTS_DIR), apply=True
+        )
+        if _changed:
+            print(f"✅ Injected related posts: {post_path.name}")
+        else:
+            logging.debug(f"Related-posts injection: {_relink_reason}")
+    except Exception as _relink_err:
+        logging.debug(f"Related-posts injection skipped: {_relink_err}")
+
     # Self-heal, then block. Promoted from advisory on 2026-09-08 after
     # measuring the corpus: all 216 published digests score at or above 90
     # against a target of 80, so nothing legitimate is near the line. It already
