@@ -1,10 +1,10 @@
 name: SVG Compliance Lint
 
-# This workflow carries 19 corpus-wide gates (`--all`): cover drift for four
+# This workflow carries 20 corpus-wide gates (`--all`): cover drift for four
 # generator families, the honesty scorer, title-ASCII, spec-slug consistency,
 # KST-midnight URLs, checklist headings, bare URLs, template-echo, and repeated
 # body boilerplate, internal post links, digest translation and digest proper
-# nouns, and card-title language. They scan the
+# nouns, card-title language, and duplicate card summaries. They scan the
 # WHOLE corpus, so the same trigger-narrower-than-scan hazard that hid a
 # three-week regression in check-svg.yml applies here — see that file's header.
 #
@@ -17,9 +17,9 @@ name: SVG Compliance Lint
 # the bot cover commit 685ca468 carried 12 workflow runs, every one of them
 # `schedule` and not a single `push` or `pull_request` event.
 #
-# So the dominant producer of the artifacts these 19 gates exist to check was
+# So the dominant producer of the artifacts these 20 gates exist to check was
 # invisible to both triggers. The daily `schedule` below closes that: it scans main
-# regardless of paths, exactly as check-svg.yml does. All 19 gates were verified
+# regardless of paths, exactly as check-svg.yml does. All 20 gates were verified
 # green against the current corpus before this was added, so it is not born red.
 # The count above is MEASURED, not maintained by hand: it drifted twice while
 # gates were moved to --all in 2026-08. test_ci_svg_lint_schedule_guard.py
@@ -78,6 +78,7 @@ on:
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/check_post_boilerplate.py'
+      - 'scripts/check_duplicate_card_summary.py'
       - 'scripts/check_broken_links.py'
       - 'scripts/check_card_title_language.py'
       - 'scripts/linkify_bare_urls.py'
@@ -137,6 +138,7 @@ on:
       - 'scripts/check_digest_proper_nouns.py'
       - 'scripts/check_digest_checklist_heading.py'
       - 'scripts/check_post_boilerplate.py'
+      - 'scripts/check_duplicate_card_summary.py'
       - 'scripts/check_broken_links.py'
       - 'scripts/check_card_title_language.py'
       - 'scripts/linkify_bare_urls.py'
@@ -395,6 +397,16 @@ jobs:
         # Whole blocks only: 119 posts legitimately share one canonical
         # checklist line, so a per-line rule would be all false positives.
         run: python3 scripts/check_post_boilerplate.py --all
+
+      - name: Duplicate card-summary gate
+        # `_includes/news-card.html:54` renders summary= already, so a `#### 요약`
+        # block repeating it prints the same sentence twice one line apart.
+        # Corpus-wide because the producer is the cron: its GITHUB_TOKEN push
+        # fires no push event, so this schedule-driven --all sweep is what sees
+        # a bot digest. Before the generator fix, 1,583 of 2,043 adjacent blocks
+        # (77%) were byte-identical to their card across 193 posts; the corpus is
+        # at 0 now, so any hit is fresh drift.
+        run: python3 scripts/check_duplicate_card_summary.py --all
 
       - name: Internal /posts/ link gate
         id: broken_links_gate
