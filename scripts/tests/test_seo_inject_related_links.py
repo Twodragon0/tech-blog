@@ -137,10 +137,21 @@ class TestProcessFile:
         assert text.count(MARKER) == 1
         assert "## 🔗 관련 포스트" in text
 
-        # Second run: no-op
+        # Second run: no-op.
+        #
+        # The reason moved from "already-v1" to "no-change" on 2026-09-10 and the
+        # distinction matters. "already-v1" meant "the marker is present, so I
+        # refuse to look" — which froze every block against the catalog it was
+        # first built from, so a block linking a since-superseded post could
+        # never be corrected. Now the section is recomputed and compared, and
+        # equality is what makes the run a no-op. Idempotence is still asserted
+        # (changed2 is False, one marker, byte-identical file below); it is now
+        # earned rather than assumed.
         changed2, reason2 = _process_file(target, catalog, apply=True)
         assert changed2 is False
-        assert reason2 == "already-v1"
+        assert reason2 == "no-change"
+        assert target.read_text(encoding="utf-8") == text
+        assert text.count(MARKER) == 1
 
     def test_skipped_when_too_few_neighbors(self, tmp_path: Path) -> None:
         _fixture_post(tmp_path, "2026-05-18")
@@ -170,3 +181,134 @@ class TestProcessFile:
         text = target.read_text(encoding="utf-8")
         assert MARKER in text
         assert "## 🔗 관련 포스트" in text
+
+
+# --- superseded posts must never become link targets ------------------------
+#
+# The 30 April 2026 dailies were consolidated into 4 weekly rollups: vercel.json
+# 301s their URLs, and `superseded_by` in their front matter records where to.
+# A "관련 포스트" entry pointing at one of them shows the reader the daily's
+# title and lands them on a different article — measured 2026-09-10 on 5 live
+# posts (2026-03-29/31, 05-01/02/03) carrying 7 such entries.
+#
+# This script is also the fix for the dead internal-link pipeline (it has had
+# zero call sites since the one-off 2026-05-19 run), so it is about to run on
+# every publish. It must not regenerate the bad links it is here to remove.
+
+
+def _superseded_post(
+    tmp_path: Path,
+    date_str: str,
+    dest: str,
+    slug: str = "Tech_Security_Weekly_Digest_Old",
+) -> Path:
+    p = tmp_path / f"{date_str}-{slug}.md"
+    p.write_text(
+        f'---\nlayout: post\ntitle: "Superseded digest {date_str}"\n'
+        f"date: {date_str} 09:00:00 +0900\nsuperseded_by: {dest}\n---\n\n"
+        "# Body\n\n---\n\n**작성자**: Twodragon\n",
+        encoding="utf-8",
+    )
+    return p
+
+
+class TestSupersededExclusion:
+    def test_superseded_post_is_not_in_the_catalog(self, tmp_path: Path) -> None:
+        _fixture_post(tmp_path, "2026-04-10")
+        _superseded_post(
+            tmp_path,
+            "2026-04-11",
+            "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+        )
+        cat = _gather_digests(tmp_path)
+        dates = {d.isoformat() for d in cat}
+        assert "2026-04-10" in dates, (
+            "control: a normal digest must still be catalogued"
+        )
+        assert "2026-04-11" not in dates, (
+            "a post whose URL 301s elsewhere is still offered as a link target; "
+            "readers would be sent to a different article than the link text names."
+        )
+
+    def test_neighbors_skip_superseded_and_reach_further(self, tmp_path: Path) -> None:
+        """The ladder must step over a superseded neighbour, not link it."""
+        _fixture_post(tmp_path, "2026-04-08")
+        _superseded_post(
+            tmp_path,
+            "2026-04-09",
+            "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+        )
+        target = _fixture_post(tmp_path, "2026-04-10")
+        _fixture_post(tmp_path, "2026-04-13")
+        cat = _gather_digests(tmp_path)
+        picked = _pick_neighbors(Date(2026, 4, 10), cat, n=3)
+        got = {d.isoformat() for d, _s, _t in picked}
+        assert "2026-04-09" not in got
+        assert got == {"2026-04-08", "2026-04-13"}, got
+        assert target.is_file()
+
+    def test_superseded_post_itself_is_not_processed(self, tmp_path: Path) -> None:
+        """No point injecting a related-posts block into a page nobody reaches."""
+        _fixture_post(tmp_path, "2026-04-08")
+        _fixture_post(tmp_path, "2026-04-09")
+        sup = _superseded_post(
+            tmp_path,
+            "2026-04-10",
+            "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+        )
+        cat = _gather_digests(tmp_path)
+        changed, reason = _process_file(sup, cat, apply=True)
+        assert not changed and reason == "superseded", reason
+        assert MARKER not in sup.read_text(encoding="utf-8")
+
+
+class TestRefreshExistingBlock:
+    """An existing v1 block must be refreshed, not skipped forever.
+
+    ``_process_file`` used to return ``already-v1`` on sight of the marker, so a
+    block generated against a stale catalog could never be corrected — the 7 bad
+    entries above would have survived every future run.
+    """
+
+    def test_stale_block_is_rewritten(self, tmp_path: Path) -> None:
+        _fixture_post(tmp_path, "2026-04-08")
+        _superseded_post(
+            tmp_path,
+            "2026-04-09",
+            "/posts/2026/04/12/Week2_April_2026_Security_Digest/",
+        )
+        _fixture_post(tmp_path, "2026-04-13")
+        target = _fixture_post(tmp_path, "2026-04-10")
+        # Seed a block that links the now-superseded neighbour.
+        text = target.read_text(encoding="utf-8")
+        stale = (
+            f"\n---\n\n## 🔗 관련 포스트\n\n{MARKER}\n\n"
+            "- [Old daily](/posts/2026/04/09/Tech_Security_Weekly_Digest_Old/) — 2026-04-09\n"
+            "- [Other](/posts/2026/04/08/Tech_Security_Weekly_Digest_X/) — 2026-04-08\n"
+        )
+        target.write_text(
+            text.replace("\n---\n\n**작성자**", stale + "\n---\n\n**작성자**"),
+            encoding="utf-8",
+        )
+
+        cat = _gather_digests(tmp_path)
+        changed, reason = _process_file(target, cat, apply=True)
+        after = target.read_text(encoding="utf-8")
+        assert changed, f"stale block was not refreshed ({reason})"
+        assert "/posts/2026/04/09/" not in after, (
+            "the superseded link survived the refresh"
+        )
+        assert after.count(MARKER) == 1, "refresh duplicated the section"
+
+    def test_current_block_is_left_untouched(self, tmp_path: Path) -> None:
+        """Control: idempotence. A correct block must not be rewritten."""
+        _fixture_post(tmp_path, "2026-04-08")
+        _fixture_post(tmp_path, "2026-04-13")
+        target = _fixture_post(tmp_path, "2026-04-10")
+        cat = _gather_digests(tmp_path)
+        assert _process_file(target, cat, apply=True)[0] is True
+        first = target.read_text(encoding="utf-8")
+        changed, reason = _process_file(target, cat, apply=True)
+        assert not changed and reason == "no-change", reason
+        assert target.read_text(encoding="utf-8") == first
+        assert first.count(MARKER) == 1

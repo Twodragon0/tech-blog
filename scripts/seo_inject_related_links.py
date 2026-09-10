@@ -65,6 +65,19 @@ _FILENAME_RE = re.compile(
     r"^(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>Tech_Security_Weekly_Digest_.+)\.md$"
 )
 _TITLE_RE = re.compile(r'^title:\s*"(.+?)"\s*$', re.MULTILINE)
+# A post carrying this key has its URL 301'd elsewhere by vercel.json (the 30
+# April 2026 dailies consolidated into 4 weekly rollups). Such a post must
+# neither be offered as a link target nor receive a block of its own: the link
+# text names the daily and the click lands on a different article. Matched on
+# the front matter only — the body of a rollup legitimately discusses it.
+_SUPERSEDED_RE = re.compile(r"^superseded_by:\s*\S+", re.MULTILINE)
+
+
+def _is_superseded(text: str) -> bool:
+    if not text.startswith("---"):
+        return False
+    parts = text.split("---", 2)
+    return len(parts) >= 3 and bool(_SUPERSEDED_RE.search(parts[1]))
 
 
 def _is_monthly_rollup(name: str) -> bool:
@@ -110,6 +123,11 @@ def _gather_digests(posts_dir: Path) -> dict[Date, tuple[Path, str, str]]:
             continue
         d = _parse_date(m.group("date"))
         if d is None:
+            continue
+        try:
+            if _is_superseded(path.read_text(encoding="utf-8")):
+                continue
+        except OSError:
             continue
         title = _extract_title(path)
         if not title:
@@ -186,10 +204,23 @@ def _inject(body: str, section: str) -> str:
     return body.rstrip() + "\n" + section + "\n"
 
 
+# The whole generated block, marker included, so an existing one can be
+# REPLACED rather than skipped. `_process_file` used to bail on sight of the
+# marker, which made every block permanent: one generated against a stale
+# catalog could never be corrected, and the 7 links to superseded April dailies
+# found on 2026-09-10 would have survived every future run. Anchored on the
+# marker and consuming only the list items that follow it, so it cannot swallow
+# the trailing footer.
+_SECTION_RE = re.compile(
+    r"\n---\s*\n+##\s*🔗\s*관련 포스트\s*\n+" + re.escape(MARKER) + r"\s*\n+"
+    r"(?:-\s*\[[^\n]*\n)*",
+)
+
+
 def _process_file(path: Path, catalog: dict, apply: bool) -> tuple[bool, str]:
     text = path.read_text(encoding="utf-8")
-    if MARKER in text:
-        return False, "already-v1"
+    if _is_superseded(text):
+        return False, "superseded"
     if not text.startswith("---"):
         return False, "no-front-matter"
     parts = text.split("---", 2)
@@ -210,6 +241,10 @@ def _process_file(path: Path, catalog: dict, apply: bool) -> tuple[bool, str]:
         return False, "no-neighbors"
 
     section = _build_section(neighbors)
+    # Strip any existing block first, then inject the freshly computed one. The
+    # equality check below turns this into a no-op when nothing changed, so the
+    # script stays idempotent while becoming self-correcting.
+    body = _SECTION_RE.sub("\n", body, count=1)
     new_body = _inject(body, section)
     new_text = "---" + fm + "---" + new_body
 
@@ -241,9 +276,14 @@ def main() -> int:
         candidates = [p for p in candidates if p.name.startswith(args.month)]
     candidates = [p for p in candidates if not _is_monthly_rollup(p.name)]
 
+    # `already-v1` is gone: the marker no longer short-circuits the run, so
+    # "nothing to do" is now `no-change` — an answer the script computed rather
+    # than one it assumed. `superseded` counts posts skipped because their URL
+    # 301s elsewhere.
     stats = {
         "rewritten": 0,
-        "already-v1": 0,
+        "no-change": 0,
+        "superseded": 0,
         "no-neighbors": 0,
         "skipped": 0,
     }
@@ -252,8 +292,8 @@ def main() -> int:
         if changed:
             stats["rewritten"] += 1
             print(f"[REWRITE] {path.relative_to(ROOT)}")
-        elif reason == "already-v1":
-            stats["already-v1"] += 1
+        elif reason in ("no-change", "superseded"):
+            stats[reason] += 1
         elif reason == "no-neighbors":
             stats["no-neighbors"] += 1
             print(f"[SKIP   ] {path.name} (no-neighbors)")
@@ -264,7 +304,8 @@ def main() -> int:
     print()
     print(f"Total candidates  : {len(candidates)}")
     print(f"  Rewritten       : {stats['rewritten']}")
-    print(f"  Already v1      : {stats['already-v1']}")
+    print(f"  Unchanged       : {stats['no-change']}")
+    print(f"  Superseded      : {stats['superseded']}")
     print(f"  No neighbors    : {stats['no-neighbors']}")
     print(f"  Other skipped   : {stats['skipped']}")
     if not args.apply:
