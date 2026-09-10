@@ -69,15 +69,16 @@ summary_card:
 
 | 날짜 | 주요 이슈 | 링크 |
 |------|-----------|------|
-| 4월 1일 | Android Developer 검증 제도, TrueConf 제로데이(CVE-2026-3502), AWS ISO/IEC 27001:2022 가이드 | [바로가기](/posts/2026/04/01/Tech_Security_Weekly_Digest_Zero-Day_Go_AI_AWS/) |
-| 4월 2일 | AI 에이전트 보안, 멀웨어 탐지 동향 | [바로가기](/posts/2026/04/02/Tech_Security_Weekly_Digest_AI_Malware/) |
-| 4월 3일 | CVE 긴급 패치, AWS 클라우드 보안 업데이트 | [바로가기](/posts/2026/04/03/Tech_Security_Weekly_Digest_CVE_Patch_AWS_AI/) |
-| 4월 4일 | Go 런타임 보안, AI 데이터 보안 이슈 | [바로가기](/posts/2026/04/04/Tech_Security_Weekly_Digest_Go_AI_Data_Security/) |
-| 4월 5일 | AWS LZA Universal Configuration, Axios npm 공급망 공격, 디바이스 코드 피싱 37배 급증 | [바로가기](/posts/2026/04/05/Tech_Security_Weekly_Digest_AWS_AI_Security_Malware/) |
+| 4월 1일 | Android Developer 검증 제도, TrueConf 제로데이(CVE-2026-3502), AWS ISO/IEC 27001:2022 가이드 | [바로가기](#day-2026-04-01) |
+| 4월 2일 | AI 에이전트 보안, 멀웨어 탐지 동향 | [바로가기](#day-2026-04-02) |
+| 4월 3일 | CVE 긴급 패치, AWS 클라우드 보안 업데이트 | [바로가기](#day-2026-04-02) |
+| 4월 4일 | Go 런타임 보안, AI 데이터 보안 이슈 | [바로가기](#day-2026-04-02) |
+| 4월 5일 | AWS LZA Universal Configuration, Axios npm 공급망 공격, 디바이스 코드 피싱 37배 급증 | [바로가기](#day-2026-04-05) |
 
 ---
 
 ## 4월 1일: TrueConf 제로데이와 Android 개발자 검증 제도
+{: #day-2026-04-01 }
 
 ### 핵심 이슈: TrueConf CVE-2026-3502 제로데이 악용
 
@@ -99,6 +100,7 @@ AWS가 최신 ISMS 국제 표준에 대한 실용적 구현 가이드를 발표�
 ---
 
 ## 4월 2일~4일: AI 에이전트 보안과 CVE 패치 집중
+{: #day-2026-04-02 }
 
 이 기간에는 AI 에이전트가 코드 실행 환경에서 샌드박스 격리 없이 동작할 때 발생하는 보안 취약점과, Go 런타임 환경의 메모리 안전성 관련 이슈가 집중 보고됐습니다. 클라우드 환경에서는 잘못 구성된 S3 버킷과 IAM 정책을 통한 데이터 노출 사례가 이어졌습니다.
 
@@ -109,6 +111,7 @@ AWS가 최신 ISMS 국제 표준에 대한 실용적 구현 가이드를 발표�
 ---
 
 ## 4월 5일: Axios npm 공급망 공격과 디바이스 코드 피싱 급증
+{: #day-2026-04-05 }
 
 ### Axios npm 해킹: 북한 연계 추정 공급망 공격
 

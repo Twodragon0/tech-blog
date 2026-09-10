@@ -70,17 +70,18 @@ summary_card:
 
 | 날짜 | 주요 이슈 | 링크 |
 |------|-----------|------|
-| 4월 6일 | Drift 해킹(2.85억 달러), QR 코드 피싱, FortiClient EMS 취약점 | [바로가기](/posts/2026/04/06/Tech_Security_Weekly_Digest_Patch_AI/) |
-| 4월 7일 | 이란·북한 연계 한국 표적 공격, REvil·GangCrab 기소 | [바로가기](/posts/2026/04/07/Tech_Security_Weekly_Digest_AI_Ransomware_Go_Palantir/) |
-| 4월 8일 | APT28 DNS 하이재킹, Docker CVE-2026-34040, AI 스타트업 보안 리스크 | [바로가기](/posts/2026/04/08/Tech_Security_Weekly_Digest_AI_CVE_Docker_Botnet/) |
-| 4월 9일 | Chaos 클라우드 변종, Masjesu IoT 봇넷, APT28 PRISMEX 캠페인 | [바로가기](/posts/2026/04/09/Tech_Security_Weekly_Digest_Cloud_Botnet_AI_Malware/) |
-| 4월 10일 | EngageLab SDK 취약점(5천만 Android 노출), LucidRook 스피어 피싱, Microsoft 에이전트 SOC | [바로가기](/posts/2026/04/10/Tech_Security_Weekly_Digest_AI_Malware_Go_Agent/) |
-| 4월 11일 | GlassWorm Zig 드로퍼 IDE 감염, Chrome 146 DBSC 쿠키 탈취 차단 | [바로가기](/posts/2026/04/11/Tech_Security_Weekly_Digest_AI_Go_CVE_Update/) |
-| 4월 12일 | Citizen Lab 스파이웨어 공개, 국제 암호화폐 사기 단속(2만 명+), ChatGPT·Claude 안전성 논란 | [바로가기](/posts/2026/04/12/Tech_Security_Weekly_Digest_Data_GPT_Cloud_AI/) |
+| 4월 6일 | Drift 해킹(2.85억 달러), QR 코드 피싱, FortiClient EMS 취약점 | [바로가기](#day-2026-04-06) |
+| 4월 7일 | 이란·북한 연계 한국 표적 공격, REvil·GangCrab 기소 | [바로가기](#day-2026-04-07) |
+| 4월 8일 | APT28 DNS 하이재킹, Docker CVE-2026-34040, AI 스타트업 보안 리스크 | [바로가기](#day-2026-04-08) |
+| 4월 9일 | Chaos 클라우드 변종, Masjesu IoT 봇넷, APT28 PRISMEX 캠페인 | [바로가기](#day-2026-04-09) |
+| 4월 10일 | EngageLab SDK 취약점(5천만 Android 노출), LucidRook 스피어 피싱, Microsoft 에이전트 SOC | [바로가기](#day-2026-04-10) |
+| 4월 11일 | GlassWorm Zig 드로퍼 IDE 감염, Chrome 146 DBSC 쿠키 탈취 차단 | [바로가기](#day-2026-04-11) |
+| 4월 12일 | Citizen Lab 스파이웨어 공개, 국제 암호화폐 사기 단속(2만 명+), ChatGPT·Claude 안전성 논란 | [바로가기](#day-2026-04-12) |
 
 ---
 
 ## 4월 6일: Drift 해킹과 신종 피싱 기법
+{: #day-2026-04-06 }
 
 ### 핵심 이슈: Drift 프로토콜 2.85억 달러 해킹
 
@@ -97,6 +98,7 @@ FortiClient EMS에 대한 신규 취약점 패치가 배포됐습니다. Fortine
 ---
 
 ## 4월 7일: 이란·북한 연계 APT와 랜섬웨어 기소
+{: #day-2026-04-07 }
 
 ### 이란 연계 패스워드 스프레이링과 북한의 한국 표적 공격
 
@@ -114,6 +116,7 @@ FortiClient EMS에 대한 신규 취약점 패치가 배포됐습니다. Fortine
 ---
 
 ## 4월 8일: APT28 DNS 하이재킹과 Docker 인증 우회
+{: #day-2026-04-08 }
 
 ### APT28 글로벌 DNS 하이재킹 캠페인
 
@@ -135,6 +138,7 @@ Docker API 엔드포인트의 인증 우회 취약점(CVE-2026-34040)이 공개�
 ---
 
 ## 4월 9일: Chaos 봇넷과 Masjesu IoT 위협
+{: #day-2026-04-09 }
 
 ### Chaos 클라우드 변종과 Masjesu DDoS 봇넷
 
@@ -152,6 +156,7 @@ Docker API 엔드포인트의 인증 우회 취약점(CVE-2026-34040)이 공개�
 ---
 
 ## 4월 10일: EngageLab SDK와 에이전트 기반 SOC
+{: #day-2026-04-10 }
 
 ### EngageLab SDK 결함: 5천만 Android 사용자·3천만 암호화폐 지갑 노출
 
@@ -169,6 +174,7 @@ EngageLab SDK의 보안 결함으로 5천만 Android 사용자와 3천만 암호
 ---
 
 ## 4월 11일: GlassWorm의 IDE 감염 경로
+{: #day-2026-04-11 }
 
 ### GlassWorm Zig 드로퍼를 통한 IDE 감염
 
@@ -186,6 +192,7 @@ Chrome 146에 도입된 Device Bound Session Credentials(DBSC)가 Windows 환경
 ---
 
 ## 4월 12일: Citizen Lab 스파이웨어 공개
+{: #day-2026-04-12 }
 
 ### Citizen Lab 스파이웨어 연구 공개
 
