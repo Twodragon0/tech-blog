@@ -52,11 +52,55 @@ DEFAULT_MAX_CHARS = 3000
 
 _FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
 
+# Keys exempt from the GROWTH ratchet — never from the absolute cap.
+#
+# The ratchet's message is "Trim it, or move the content into the body", which is
+# the right advice for prose and impossible advice for a structural key: Jekyll
+# exposes per-post metadata only through front matter, so there is no body to
+# move it to. Adding `superseded_by` to the 30 consolidated April 2026 posts
+# tripped this gate 30 times at +67 chars each on 2026-09-10 — a change the gate
+# was never aimed at.
+#
+# Each entry must name what reads it, so the list cannot quietly become a
+# dumping ground. Growth is measured with these lines removed; `front_matter_len`
+# (and therefore --max-chars) still counts every character, so the exemption
+# narrows the ratchet without opening a hole in the ceiling.
+#
+#   superseded_by — the rollup URL a vercel.json 301 sends this post to. Read by
+#     sitemap.xml, llms.txt, llms-full.txt and _plugins/lazy_data_generator.rb.
+RATCHET_EXEMPT_KEYS = ("superseded_by",)
+
+# Scalar keys only. Line-based removal, so a multi-line YAML value under an
+# exempt key would leak its continuation lines into the measurement — keep this
+# list to one-line values (a URL, a flag), which is all it is for.
+_EXEMPT_KEY_RE = re.compile(
+    r"^(?:%s):" % "|".join(re.escape(k) for k in RATCHET_EXEMPT_KEYS)
+)
+
 
 def front_matter_len(text: str) -> int | None:
-    """Length of the YAML front matter block, or None when there is none."""
+    """Length of the YAML front matter block, or None when there is none.
+
+    Counts everything. This is what the absolute cap is measured against.
+    """
     match = _FRONT_MATTER_RE.match(text)
     return len(match.group(1)) if match else None
+
+
+def ratchet_len(text: str) -> int | None:
+    """Front-matter length with :data:`RATCHET_EXEMPT_KEYS` lines removed.
+
+    This is what the growth comparison uses, so adding a structural key is not
+    growth while adding prose still is.
+    """
+    match = _FRONT_MATTER_RE.match(text)
+    if match is None:
+        return None
+    # Dropped line-wise, not by regex substitution: removing the line must also
+    # remove its separator, or the exempt key still costs one character and the
+    # ratchet trips by +1.
+    kept = [ln for ln in match.group(1).split("\n") if not _EXEMPT_KEY_RE.match(ln)]
+    return len("\n".join(kept))
 
 
 def _git(args: list[str]) -> tuple[int, str]:
@@ -83,11 +127,17 @@ def changed_posts(base: str) -> list[str]:
 
 
 def baseline_len(base: str, rel_path: str) -> int | None:
-    """Front-matter length of `rel_path` at `base`, or None when it did not exist."""
+    """Ratchet-measured front-matter length of `rel_path` at `base`.
+
+    None when the file did not exist there. Uses :func:`ratchet_len`, not
+    :func:`front_matter_len`, so both sides of the comparison exclude the same
+    exempt keys — otherwise REMOVING one would read as shrinkage and adding one
+    as growth.
+    """
     code, out = _git(["show", f"{base}:{rel_path}"])
     if code != 0:
         return None
-    return front_matter_len(out)
+    return ratchet_len(out)
 
 
 def check(
@@ -102,11 +152,13 @@ def check(
         if not path.is_file():
             notes.append(f"{rel}: deleted or moved — skipped")
             continue
-        current = front_matter_len(path.read_text(encoding="utf-8", errors="replace"))
+        raw = path.read_text(encoding="utf-8", errors="replace")
+        current = front_matter_len(raw)
         if current is None:
             violations.append(f"{rel}: no front matter block found")
             continue
 
+        # The cap counts every character, exempt keys included.
         if current > max_chars:
             violations.append(
                 f"{rel}: front matter {current} chars exceeds the {max_chars}-char cap"
@@ -116,6 +168,8 @@ def check(
         if base is None:
             continue
 
+        # The ratchet does not. See RATCHET_EXEMPT_KEYS.
+        current = ratchet_len(raw)
         previous = baseline_len(base, rel)
         if previous is None:
             notes.append(

@@ -370,3 +370,105 @@ def test_live_corpus_is_under_the_cap():
         "some post now exceeds the front-matter cap. Trim it, or raise --max-chars "
         "deliberately and say why in the same PR."
     )
+
+
+# ---------------------------------------------------------------------------
+# Structural-key exemption
+#
+# The ratchet's stated purpose is "a post must not grow its front matter" —
+# aimed at prose being stuffed where it does not belong ("Trim it, or move the
+# content into the body"). A structural key has nowhere else to go: Jekyll only
+# exposes per-post metadata through front matter, so `superseded_by` (read by
+# sitemap.xml, llms.txt, llms-full.txt and _plugins/lazy_data_generator.rb) had
+# to live there, and adding it to the 30 consolidated April posts tripped this
+# gate 30 times on 2026-09-10 at +67 chars each.
+#
+# So growth is measured with allow-listed key lines removed, while the absolute
+# cap still counts every character. That keeps the exemption from becoming a
+# bypass: it cannot be used to exceed --max-chars, and it does not exempt prose.
+# ---------------------------------------------------------------------------
+
+
+def test_ratchet_len_excludes_allow_listed_keys():
+    import check_front_matter_growth as mod
+
+    plain = "---\ntitle: hi\n---\nbody"
+    with_key = "---\ntitle: hi\nsuperseded_by: /posts/2026/04/12/Week2/\n---\nbody"
+    assert mod.ratchet_len(with_key) == mod.ratchet_len(plain), (
+        "the allow-listed structural key still counts toward the growth ratchet"
+    )
+    assert mod.front_matter_len(with_key) > mod.front_matter_len(plain), (
+        "the absolute cap must still see the key — otherwise the exemption is a "
+        "hole in the 3000-char ceiling, not a narrowing of the ratchet"
+    )
+
+
+def test_adding_a_structural_key_is_not_growth(git_repo, script_in_repo):
+    _commit_post(git_repo, "a.md", 200, "base")
+    # The base ref must stay AT the base commit. Naming the current branch
+    # "main" instead leaves `main...HEAD` empty, and the script then prints
+    # "No posts to check." and exits 0 — a pass that proves nothing.
+    _git(git_repo, "branch", "base-ref")
+    p = git_repo / "_posts" / "a.md"
+    p.write_text(
+        p.read_text(encoding="utf-8").replace(
+            "\n---\n", "\nsuperseded_by: /posts/2026/04/12/Week2/\n---\n", 1
+        ),
+        encoding="utf-8",
+    )
+    _git(git_repo, "add", "-A")
+    _git(git_repo, "commit", "-qm", "add superseded_by")
+    proc = subprocess.run(
+        [sys.executable, str(script_in_repo), "--changed", "base-ref"],
+        cwd=git_repo,
+        capture_output=True,
+        text=True,
+        env=_clean_env(),
+    )
+    assert "No posts to check" not in proc.stdout, (
+        "the diff was empty, so this asserts nothing: " + proc.stdout
+    )
+    assert proc.returncode == 0, (
+        f"adding only a structural key failed the ratchet:\n{proc.stdout}\n{proc.stderr}"
+    )
+
+
+def test_adding_prose_is_still_growth(git_repo, script_in_repo):
+    """Direction: the exemption must not soften the rule it narrows."""
+    _commit_post(git_repo, "b.md", 200, "base")
+    _git(git_repo, "branch", "base-ref")
+    p = git_repo / "_posts" / "b.md"
+    p.write_text(
+        p.read_text(encoding="utf-8").replace(
+            "\n---\n", '\nexcerpt: "' + "y" * 120 + '"\n---\n', 1
+        ),
+        encoding="utf-8",
+    )
+    _git(git_repo, "add", "-A")
+    _git(git_repo, "commit", "-qm", "add prose")
+    proc = subprocess.run(
+        [sys.executable, str(script_in_repo), "--changed", "base-ref"],
+        cwd=git_repo,
+        capture_output=True,
+        text=True,
+        env=_clean_env(),
+    )
+    assert "No posts to check" not in proc.stdout, (
+        "the diff was empty, so this asserts nothing: " + proc.stdout
+    )
+    assert proc.returncode == 1, (
+        f"prose added to front matter no longer fails the ratchet:\n{proc.stdout}"
+    )
+
+
+def test_cap_still_counts_allow_listed_keys(tmp_path, monkeypatch):
+    """The exemption narrows the ratchet only — never the ceiling."""
+    import check_front_matter_growth as mod
+
+    monkeypatch.setattr(mod, "REPO_ROOT", tmp_path)
+    post = tmp_path / "_posts" / "c.md"
+    post.parent.mkdir(parents=True)
+    key_line = "superseded_by: /posts/2026/04/12/Week2_April_2026_Security_Digest/\n"
+    post.write_text("---\n" + key_line * 200 + "---\nbody", encoding="utf-8")
+    violations, _ = mod.check(None, ["_posts/c.md"], DEFAULT_MAX_CHARS)
+    assert any("cap" in v for v in violations), violations
