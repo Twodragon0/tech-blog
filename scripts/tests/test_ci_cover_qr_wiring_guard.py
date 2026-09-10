@@ -119,3 +119,82 @@ def test_still_wired_into_blogwatcher_cron():
         f"ai-blogwatcher.yml no longer invokes {SCRIPT}. The cron commits covers "
         "with no local hooks, so this is the only gate on that path."
     )
+
+
+# --- cron self-heal wiring ---------------------------------------------------
+#
+# The cron gate was blocking with no self-heal while printing the name of a
+# deterministic fixer it never ran. On 2026-09-04 that failed the publish and a
+# human hand-published the digest hours later (f4a459d1). It now follows the
+# self-heal-then-block shape the six post pre-flight steps in the same workflow
+# use. These assertions pin the three parts that make that shape a gate rather
+# than a rubber stamp: the fixer runs, it runs BEFORE a re-verify, and the
+# re-verify is bare (an un-negated, unswallowed invocation is what blocks).
+
+FIXER = "scripts/fix_qr_url_in_covers.py"
+_COVER_STEP_RE = re.compile(r"\s*-\s+name:\s*Verify L20 cover\b")
+
+
+def _cover_step_commands() -> list[str]:
+    """Executable (non-comment, non-blank) lines of the cover-verify step."""
+    lines = BLOGWATCHER.read_text(encoding="utf-8").splitlines()
+    start = next((i for i, ln in enumerate(lines) if _COVER_STEP_RE.match(ln)), None)
+    assert start is not None, (
+        "the 'Verify L20 cover' step is gone from ai-blogwatcher.yml; this guard "
+        "cannot see the QR gate any more. If the step was renamed, update "
+        "_COVER_STEP_RE in the same PR."
+    )
+    indent = len(lines[start]) - len(lines[start].lstrip())
+    end = start + 1
+    while end < len(lines):
+        ln = lines[end]
+        if re.match(r"\s*-\s+name:", ln) and (len(ln) - len(ln.lstrip())) == indent:
+            break
+        end += 1
+    return [
+        ln for ln in lines[start:end] if ln.strip() and not ln.lstrip().startswith("#")
+    ]
+
+
+def test_cron_qr_gate_has_a_self_heal():
+    cmds = _cover_step_commands()
+    assert any(FIXER in ln for ln in cmds), (
+        f"The cron QR gate no longer runs {FIXER}. It is back to blocking while "
+        "telling the log about a fixer nobody invokes — the 2026-09-04 shape, "
+        "which cost a publish day and needed a hand-published digest (f4a459d1)."
+    )
+
+
+def test_self_heal_precedes_a_bare_re_verify():
+    """Heal first, then block on an un-negated re-run — order is the whole point."""
+    cmds = _cover_step_commands()
+    fix_i = next(i for i, ln in enumerate(cmds) if FIXER in ln)
+    bare = [
+        i
+        for i, ln in enumerate(cmds)
+        if SCRIPT in ln
+        and ln.lstrip().startswith("python3")
+        and "||" not in ln
+        and "if " not in ln
+    ]
+    assert bare, (
+        f"No bare `python3 {SCRIPT}` re-verify in the cover step. Without it the "
+        "self-heal decides whether the cover ships, and a cover the fixer could "
+        "not repair (no QR block, no owner post) would be published anyway."
+    )
+    assert any(i > fix_i for i in bare), (
+        "the re-verify runs BEFORE the self-heal, so it re-checks the unhealed "
+        "cover. Keep the order: gate-in-if -> fixer -> bare gate."
+    )
+
+
+def test_self_heal_does_not_swallow_the_blocking_re_verify():
+    cmds = _cover_step_commands()
+    for ln in cmds:
+        if SCRIPT in ln and ln.lstrip().startswith("python3"):
+            assert "|| true" not in ln, (
+                f"the blocking `{SCRIPT}` re-verify is neutralised with '|| true'. "
+                "A cover with a QR that scans to a 404 would ship silently — the "
+                "exact failure the 16-cover incident in this module's docstring "
+                "describes. Only the self-heal line may swallow its exit code."
+            )

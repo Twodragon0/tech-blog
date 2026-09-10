@@ -389,6 +389,25 @@ jobs:
           # only after the fact on a PR merge; running them here fails the cron
           # before the bad cover is committed.
           echo "Running cover correctness gates on ${SVG} ..."
+          # Self-heal, then block — the shape the six post pre-flight steps below
+          # already use, and the one this gate was missing. On 2026-09-04 it
+          # failed the cron with `[mismatch] … expected URL: …` and printed
+          # "Fix with: python3 scripts/fix_qr_url_in_covers.py --commit" — a
+          # deterministic fixer the workflow then never ran, so the publish died
+          # and a human hand-published the digest hours later (f4a459d1).
+          #
+          # Safe to heal rather than block outright because the fixer is not a
+          # second opinion: it imports the expected URL from check_cover_qr_urls
+          # itself (`from scripts.check_cover_qr_urls import ...`), resolved
+          # through the owner post's `image:` field rather than the cover
+          # filename. One derivation, so the heal cannot disagree with the gate
+          # the way the digest-structure checker and its fixer once did.
+          # The bare re-verify below is what still blocks: a cover the fixer
+          # could not repair (no QR block, no owner post) never ships.
+          if ! python3 scripts/check_cover_qr_urls.py --glob "${SVG}"; then
+            echo "::warning::Non-canonical QR URL in ${SVG} — attempting fix_qr_url_in_covers self-heal."
+            python3 scripts/fix_qr_url_in_covers.py --commit --glob "${SVG}" || true
+          fi
           python3 scripts/check_cover_qr_urls.py --glob "${SVG}"
           python3 scripts/check_svg_title_ascii.py "${SVG}"
           python3 scripts/check_svg_quality.py --ci "${SVG}"
