@@ -167,9 +167,6 @@ Tengu 봇넷은 Mirai 계열 변종으로, Linux 기반 IoT/임베디드 장비�
   severity="Medium"
 %}
 
-#### 요약
-
-사이버보안 연구진이 36,000개 이상의 Baseboard Management Controller(BMC) 관리 인터페이스가 Intelligent Platform Management Interface(IPMI) 프로토콜을 공용 인터넷에 노출하고 있다고 경고했습니다. 이 중 24,650개는 로그인 전에 IPMI 비밀번호 해시를 유출하는 것으로 확인되었습니다.
 
 
 #### 권장 조치
@@ -194,9 +191,6 @@ Tengu 봇넷은 Mirai 계열 변종으로, Linux 기반 IoT/임베디드 장비�
   severity="Medium"
 %}
 
-#### 요약
-
-과학자들이 AI 코딩 에이전트를 활용해 유전체학 등 과학 컴퓨팅 분야의 소프트웨어 개발과 발견을 가속화하고 있다는 새로운 현장 보고서가 발표되었다. 이는 에이전틱 AI(agentic AI) 시대에 과학 컴퓨팅을 현대화하는 방식을 보여준다.
 
 
 ---
@@ -212,9 +206,6 @@ Tengu 봇넷은 Mirai 계열 변종으로, Linux 기반 IoT/임베디드 장비�
   severity="Medium"
 %}
 
-#### 요약
-
-Google의 Gemini API에서 Managed Agents 기능이 업데이트되어 Gemini 3.6 Flash 모델을 지원하고, Hooks 및 Triggers 기능이 추가되었습니다. 이를 통해 개발자는 에이전트의 동작을 더욱 세밀하게 제어하고 자동화할 수 있게 되었습니다.
 
 
 ---
@@ -230,9 +221,6 @@ Google의 Gemini API에서 Managed Agents 기능이 업데이트되어 Gemini 3.
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA Jetson 플랫폼이 소형화된 강력한 컴퓨팅 성능으로 어디서나 AI를 구축할 수 있게 해준다고 강조하며, AI 투자자 Sarah Guo가 이 플랫폼을 최신 명품 가방보다 돋보이는 액세서리로 평가했다.
 
 
 ---
@@ -250,9 +238,6 @@ NVIDIA Jetson 플랫폼이 소형화된 강력한 컴퓨팅 성능으로 어디�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud의 Conversational Analytics(CA)가 기업 전반으로 확장되며, 제너레이티브 AI 도입을 위해 엔터프라이즈 의미 체계에 기반한 신뢰와 거버넌스가 중요해지고 있습니다.
 
 
 ---
@@ -267,9 +252,6 @@ Google Cloud의 Conversational Analytics(CA)가 기업 전반으로 확장되며
   severity="Medium"
 %}
 
-#### 요약
-
-양자 컴퓨터(CRQC)의 등장에 대비해 장기적인 데이터 무결성과 신뢰성을 보호하기 위해 양자 안전 디지털 서명으로의 전환이 중요해지고 있습니다. 미국 정부는 기관들이 이 전환을 완료해야 하는 일정을 업데이트하며 이러한 시급성을 강조했습니다.
 
 
 ---
@@ -285,9 +267,6 @@ Google Cloud의 Conversational Analytics(CA)가 기업 전반으로 확장되며
   severity="High"
 %}
 
-#### 요약
-
-Best Buy는 Google Cloud에서 AI 워크로드를 확장하면서 Microsoft Entra ID 사용자 동기화의 관리 마찰과 위험을 해결하기 위해 Google Cloud의 Workforce Identity Federation을 도입했습니다. 이를 통해 대규모 클라우드 확장의 기반을 마련했습니다.
 
 
 ---
@@ -305,9 +284,6 @@ Best Buy는 Google Cloud에서 AI 워크로드를 확장하면서 Microsoft Entr
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot의 앱 사용량 메트릭이 Copilot usage metrics API 전반으로 확장되어 보고되며, 개별 Copilot 앱 활동이 enterprise-user 및 organization-user 보고서에서 사용자별로 귀속됩니다.
 
 
 ---
@@ -323,9 +299,6 @@ GitHub Copilot의 앱 사용량 메트릭이 Copilot usage metrics API 전반으
   severity="Medium"
 %}
 
-#### 요약
-
-xAI의 최신 추론 모델인 Grok 4.5가 GitHub Copilot에서 사용 가능해졌으며, 빠른 에이전틱 코딩과 복잡한 다단계 워크플로우를 위해 설계되었습니다. 이 모델은 최대 컨텍스트 윈도우를 지원하여 개발 생산성을 높이는 데 초점을 맞추고 있습니다.
 
 
 ---
@@ -340,9 +313,6 @@ xAI의 최신 추론 모델인 Grok 4.5가 GitHub Copilot에서 사용 가능해
   severity="Medium"
 %}
 
-#### 요약
-
-AI 코딩 에이전트가 공급망 공격에서 자격 증명을 노출할 수 있는 위험성을 다루며, Docker Sandbox를 통해 에이전트가 비밀 정보에 접근하지 못하도록 차단하는 방법을 설명합니다.
 
 
 ---
@@ -360,9 +330,6 @@ AI 코딩 에이전트가 공급망 공격에서 자격 증명을 노출할 수 
   severity="Medium"
 %}
 
-#### 요약
-
-SEC Chairman Paul Atkins가 Crypto Clarity Act를 지원하겠다고 밝혔으며, 이는 Bitcoin Magazine이 보도한 내용입니다.
 
 
 ---
@@ -378,9 +345,6 @@ SEC Chairman Paul Atkins가 Crypto Clarity Act를 지원하겠다고 밝혔으�
   severity="Medium"
 %}
 
-#### 요약
-
-두바이에 본사를 둔 항공사 Emirates Airline이 Bitcoin 및 암호화폐 결제를 도입했습니다. 이 항공사는 2022년에 처음 Bitcoin 결제 가능성을 시사한 바 있습니다.
 
 
 ---
@@ -396,9 +360,6 @@ SEC Chairman Paul Atkins가 Crypto Clarity Act를 지원하겠다고 밝혔으�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin이 Crypto Clarity Act에 대한 기대감이 줄어들면서 하락세를 보였다. 일부 의원들은 다음 주까지 이 법안에 대한 표결이 이루어지길 희망하고 있다.
 
 
 ---

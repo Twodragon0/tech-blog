@@ -199,9 +199,6 @@ OpenAI의 ChatGPT Pro 구독 출시는 생성형 AI 시장의 경쟁 심화를 �
   severity="High"
 %}
 
-#### 요약
-
-고등학생 연사로서 첫 KubeCon + CloudNativeCon 참가 경험담이 공유되었으며, 이 행사는 Cloud Native Computing Foundation이 주관하는 세계적 규모의 오픈소스 컨퍼런스입니다.
 
 ---
 
@@ -218,9 +215,6 @@ OpenAI의 ChatGPT Pro 구독 출시는 생성형 AI 시장의 경쟁 심화를 �
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Core의 메인테이너 시스템은 사토시 나카모토가 모든 커밋을 직접 병합하던 것에서 시작되었습니다. 현재는 Ava Chow, Gloria Zhao, TheCharlatan과 같은 신뢰받는 키 홀더들이 마스터 브랜치 병합을 통제하며, 실적 기반 합의를 통해 2조 달러 이상의 네트워크 안정성을 보장하고 있습니다.
 
 ---
 
@@ -235,9 +229,6 @@ Bitcoin Core의 메인테이너 시스템은 사토시 나카모토가 모든 �
   severity="High"
 %}
 
-#### 요약
-
-Telegram 창립자 Pavel Durov는 메시징 앱의 푸시 알림이 개인정보 공격 표면이 될 수 있다고 경고했습니다. 이 발언은 법 집행 기관이 Signal의 삭제된 메시지를 푸시 알림 로그를 통해 복구했다는 보도에 따른 것입니다.
 
 ---
 
@@ -252,9 +243,6 @@ Telegram 창립자 Pavel Durov는 메시징 앱의 푸시 알림이 개인정보
   severity="Medium"
 %}
 
-#### 요약
-
-AI가 고용 호황을 가져올 것이라는 C-suite의 낙관론과 달리, 실제로는 초급 직원 채용을 위축시키고 생산성에는 복합적인 결과를 보이고 있습니다.
 
 ---
 

@@ -214,9 +214,6 @@ DevSecOps 환경에서 이 공격은 **CI/CD 파이프라인, 컨테이너 이�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA Blackwell Ultra NVL72 플랫폼이 업계 최초의 agentic AI 벤치마크인 Artificial Analysis의 AgentPerf에서 선도적인 성능을 보여주었습니다. 이 플랫폼은 테스트된 agentic AI 워크로드에서 메가와트당 20배 더 많은 에이전트를 실행하며 성능을 입증했습니다.
 
 ---
 
@@ -230,9 +227,6 @@ NVIDIA Blackwell Ultra NVL72 플랫폼이 업계 최초의 agentic AI 벤치마�
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 새로운 Academy 과정 세 가지를 발표했으며, 이는 실용적인 AI 기술 습득, 반복 가능한 워크플로우 구축, 그리고 일상 업무에서의 에이전트 활용을 돕기 위해 설계되었습니다.
 
 ---
 
@@ -246,9 +240,6 @@ OpenAI가 새로운 Academy 과정 세 가지를 발표했으며, 이는 실용�
   severity="Medium"
 %}
 
-#### 요약
-
-Rocket Close는 Strands Agents, LLM, Amazon Bedrock, Amazon Bedrock Knowledge Bases, MCP 도구를 활용하여 title 운영을 최적화하는 솔루션을 구축했습니다. 이 게시물에서는 솔루션의 기능, 기술 스택 선정 이유, 교훈 및 비즈니스 영향을 다룹니다.
 
 ---
 
@@ -264,9 +255,6 @@ Rocket Close는 Strands Agents, LLM, Amazon Bedrock, Amazon Bedrock Knowledge Ba
   severity="Medium"
 %}
 
-#### 요약
-
-Cloud가 LLM-wiki 패턴을 휴대 가능하고 상호 운용 가능한 형식으로 공식화한 Open Knowledge Format(OKF)을 도입했습니다. 이는 foundation model이 에이전트 시스템 구축 시 관련 컨텍스트 부족으로 인해 정확한 결과를 생성하지 못하는 한계를 해결하기 위한 개방형 사양입니다.
 
 ---
 
@@ -283,9 +271,6 @@ Cloud가 LLM-wiki 패턴을 휴대 가능하고 상호 운용 가능한 형식�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 Copilot code review에 조직 러너 제어, Copilot 콘텐츠 제외 지원, 저장소 사용자 지정 지침의 문자 제한 제거 등 새로운 설정과 제어 기능을 추가하여 리뷰를 더 쉽게 맞춤 구성할 수 있게 되었습니다.
 
 ---
 
@@ -300,9 +285,6 @@ GitHub이 Copilot code review에 조직 러너 제어, Copilot 콘텐츠 제외 
   severity="High"
 %}
 
-#### 요약
-
-GitHub Actions가 github.com 및 Data Residency가 적용되는 GitHub Enterprise Cloud에서 self-hosted runner의 최소 버전 요구 사항 적용을 재개한다고 발표했습니다. 이는 시스템 재구축 작업의 일환으로, 관련 일정이 공개되었습니다.
 
 ---
 
@@ -317,9 +299,6 @@ GitHub Actions가 github.com 및 Data Residency가 적용되는 GitHub Enterpris
   severity="High"
 %}
 
-#### 요약
-
-Cilium 오픈소스 프로젝트의 CI/CD 파이프라인 보안 강화 시리즈 두 번째 글에서는 의존성 잠금에 대해 다룹니다. 첫 번째 파트에서는 액세스 제어, 즉 누가 빌드를 트리거할 수 있고 CI가 어떤 코드를 실행할 수 있는지에 대해 설명했습니다.
 
 ---
 
@@ -336,9 +315,6 @@ Cilium 오픈소스 프로젝트의 CI/CD 파이프라인 보안 강화 시리�
   severity="Medium"
 %}
 
-#### 요약
-
-Blockworks가 약 1,000만 달러에 Messari를 인수하며 두 주요 암호화폐 데이터 플랫폼이 결합되었고, 이는 암호화폐 데이터 통합 경쟁을 부각시키는 거래로 평가된다.
 
 ---
 
@@ -353,9 +329,6 @@ Blockworks가 약 1,000만 달러에 Messari를 인수하며 두 주요 암호�
   severity="Medium"
 %}
 
-#### 요약
-
-SpaceX가 18,712 BTC(약 12억 9천만 달러)를 보유하며 공개 Bitcoin 기업 보유 순위에서 8위에 올랐습니다. 이는 일론 머스크의 SpaceX가 Nasdaq에 SPCX 티커로 상장되면서 공개된 정보입니다.
 
 ---
 

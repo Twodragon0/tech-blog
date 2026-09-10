@@ -131,9 +131,6 @@ summary_card:
   severity="Critical"
 %}
 
-#### 요약
-
-보안 연구원들이 AWS ECS(Elastic Container Service)에서 컨테이너 탈출을 허용하는 Zero-Day 취약점을 발견했습니다. 이 취약점을 악용하면 공격자가 컨테이너 격리를 우회하여 호스트 EC2 인스턴스의 루트 권한을 획득하고, 같은 노드에서 실행 중인 다른 컨테이너의 데이터에 접근할 수 있습니다.
 
 #### 위협 분석
 
@@ -164,9 +161,6 @@ summary_card:
   severity="High"
 %}
 
-#### 요약
-
-공격자들이 Harbor 컨테이너 레지스트리의 인증 우회 취약점을 악용하여 악성 레이어가 포함된 컨테이너 이미지를 주입하는 공급망 공격 캠페인이 발견되었습니다. 감염된 이미지에는 암호화폐 채굴기와 자격 증명 탈취 도구가 포함되어 있습니다.
 
 #### 위협 분석
 
@@ -196,9 +190,6 @@ summary_card:
   severity="High"
 %}
 
-#### 요약
-
-AI 코딩 어시스턴트(Copilot, Cursor 등)가 추천하는 패키지명을 악용하여 동일 이름의 악성 패키지를 npm/PyPI에 등록하는 공격이 급증하고 있습니다. AI가 존재하지 않는 패키지명을 환각(hallucination)으로 생성하면 공격자가 이를 선점합니다.
 
 #### 위협 분석
 
@@ -228,9 +219,6 @@ AI 코딩 어시스턴트(Copilot, Cursor 등)가 추천하는 패키지명을 �
   severity="High"
 %}
 
-#### 요약
-
-북한 연계 위협 그룹 Lazarus가 가짜 채용 면접을 미끼로 새로운 macOS 백도어 'DevShell'을 개발자들에게 배포하고 있습니다. 이 백도어는 SSH 키, AWS 자격 증명, 암호화폐 지갑 정보를 탈취합니다.
 
 #### 위협 분석
 
@@ -262,9 +250,6 @@ AI 코딩 어시스턴트(Copilot, Cursor 등)가 추천하는 패키지명을 �
   severity="High"
 %}
 
-#### 요약
-
-Google DeepMind가 Gemini 2.5 Pro의 코드 에이전트에 적용된 다계층 보안 샌드박싱 기술을 공개했습니다. gVisor 기반 격리, 네트워크 정책 제한, 파일 시스템 읽기 전용 마운트 등 에이전트 실행 환경의 보안 아키텍처를 상세히 설명합니다.
 
 ---
 
@@ -278,9 +263,6 @@ Google DeepMind가 Gemini 2.5 Pro의 코드 에이전트에 적용된 다계층 
   severity="High"
 %}
 
-#### 요약
-
-OpenAI가 GPT-5 API에 적용된 향상된 프롬프트 인젝션 방어 프레임워크를 공개했습니다. 입력 검증 계층, 컨텍스트 경계 강화, 도구 호출 권한 분리 등 다층 방어 전략을 소개합니다.
 
 ---
 
@@ -294,9 +276,6 @@ OpenAI가 GPT-5 API에 적용된 향상된 프롬프트 인젝션 방어 프레�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA가 NeMo Guardrails 2.0을 출시하여 엔터프라이즈 AI 애플리케이션의 안전성을 대폭 강화했습니다. 실시간 콘텐츠 필터링, 할루시네이션 탐지, 정책 기반 응답 제어 기능이 추가되었습니다.
 
 ---
 
@@ -314,9 +293,6 @@ NVIDIA가 NeMo Guardrails 2.0을 출시하여 엔터프라이즈 AI 애플리케
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud가 Cloud Armor의 차세대 WAF 엔진을 공개했습니다. ML 기반 적응형 위협 탐지, 실시간 봇 관리, API 보호 기능이 추가되었으며 기존 규칙 기반 WAF 대비 오탐률을 60% 이상 줄였습니다.
 
 ---
 
@@ -331,9 +307,6 @@ Google Cloud가 Cloud Armor의 차세대 WAF 엔진을 공개했습니다. ML �
   severity="High"
 %}
 
-#### 요약
-
-AWS가 Amazon GuardDuty의 ECS Runtime Monitoring 기능을 정식 출시했습니다. ECS Fargate 및 EC2 기반 컨테이너의 런타임 행위를 실시간으로 모니터링하여 암호화폐 채굴, 권한 상승, 의심스러운 네트워크 활동 등을 탐지합니다.
 
 ---
 
@@ -347,9 +320,6 @@ AWS가 Amazon GuardDuty의 ECS Runtime Monitoring 기능을 정식 출시했습�
   severity="Medium"
 %}
 
-#### 요약
-
-Microsoft Azure가 AKS(Azure Kubernetes Service)에서 Confidential Containers를 정식 지원합니다. SEV-SNP 기반 하드웨어 격리로 처리 중인 데이터를 클라우드 운영자로부터도 보호할 수 있습니다.
 
 ---
 
@@ -368,9 +338,6 @@ Microsoft Azure가 AKS(Azure Kubernetes Service)에서 Confidential Containers�
   severity="High"
 %}
 
-#### 요약
-
-CNCF가 Sigstore 2.0의 GA(General Availability)를 발표했습니다. 향상된 Rekor 투명성 로그, 교차 서명 검증, 엔터프라이즈 PKI 통합 등이 포함되어 소프트웨어 공급망 보안의 새로운 표준을 제시합니다.
 
 ---
 
@@ -384,9 +351,6 @@ CNCF가 Sigstore 2.0의 GA(General Availability)를 발표했습니다. 향상�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub가 Actions에서 OIDC 토큰을 활용한 시크릿 제로(Secretless) 배포 패턴의 공식 가이드를 발표했습니다. AWS, GCP, Azure 등 주요 클라우드에 장기 자격 증명 없이 배포하는 방법을 설명합니다.
 
 ---
 
@@ -400,9 +364,6 @@ GitHub가 Actions에서 OIDC 토큰을 활용한 시크릿 제로(Secretless) �
   severity="Medium"
 %}
 
-#### 요약
-
-ArgoCD 3.0이 출시되어 멀티테넌시 보안과 RBAC 기능이 대폭 강화되었습니다. 프로젝트 레벨 격리, 세밀한 권한 제어, SSO 통합 개선 등이 포함됩니다.
 
 ---
 
@@ -420,9 +381,6 @@ ArgoCD 3.0이 출시되어 멀티테넌시 보안과 RBAC 기능이 대폭 강�
   severity="High"
 %}
 
-#### 요약
-
-주요 DeFi 프로토콜에서 스마트 컨트랙트의 재진입(reentrancy) 취약점이 악용되어 약 1.2억 달러 규모의 자산이 유출되었습니다. 공격자는 Flash Loan을 활용한 정교한 공격 체인을 구성했습니다.
 
 ---
 
@@ -436,9 +394,6 @@ ArgoCD 3.0이 출시되어 멀티테넌시 보안과 RBAC 기능이 대폭 강�
   severity="Medium"
 %}
 
-#### 요약
-
-EU의 MiCA(Markets in Crypto-Assets) 규제 시행 이후 유럽 내 암호화폐 거래소들이 보안 기준을 대폭 강화하고 있습니다. 콜드 스토리지 비율 증가, MFA 의무화, 실시간 거래 모니터링 등이 적용되고 있습니다.
 
 ---
 
@@ -452,9 +407,6 @@ EU의 MiCA(Markets in Crypto-Assets) 규제 시행 이후 유럽 내 암호화�
   severity="Medium"
 %}
 
-#### 요약
-
-Solana 네트워크가 새로운 합의 메커니즘을 도입하여 네트워크 보안과 트랜잭션 처리 성능을 동시에 개선했습니다. 검증자 스테이킹 요구사항 변경과 Sybil 공격 방어가 강화되었습니다.
 
 ---
 

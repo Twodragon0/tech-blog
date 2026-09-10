@@ -208,9 +208,6 @@ DevSecOps 실무자로서 가장 우려되는 점은 **운영 환경의 비밀�
   severity="High"
 %}
 
-#### 요약
-
-GeForce NOW가 토론토에 새로운 GeForce RTX 5080 기반 서버를 도입하며 클라우드 게이밍 성능을 확장합니다. 이번 GFN Thursday 업데이트로 더 많은 게임과 향상된 플레이 방식을 제공하며, NTE: Neverness to Everness도 클라우드에서 업데이트됩니다.
 
 ---
 
@@ -224,9 +221,6 @@ GeForce NOW가 토론토에 새로운 GeForce RTX 5080 기반 서버를 도입�
   severity="Medium"
 %}
 
-#### 요약
-
-GPT-5.6이 Microsoft 365 Copilot의 기본 모델로 채택되어 Word, Excel, PowerPoint, Chat, Cowork 전반에서 더 강력한 AI 성능을 제공하며 더 빠르고 고품질의 작업을 지원합니다.
 
 ---
 
@@ -240,9 +234,6 @@ GPT-5.6이 Microsoft 365 Copilot의 기본 모델로 채택되어 Word, Excel, P
   severity="Medium"
 %}
 
-#### 요약
-
-ChatGPT Work는 사용자의 앱과 파일을 넘나들며 장시간 프로젝트를 수행하고 목표를 완성된 작업으로 전환하는 에이전트입니다.
 
 ---
 
@@ -276,9 +267,6 @@ Google Cloud에서 AI가 생성한 코드나 신뢰할 수 없는 바이너리�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud에서 AlphaEvolve를 모든 사용자에게 공개했습니다. AlphaEvolve는 AI를 활용하여 마이크로칩 설계, 배송 네트워크 계획, 대규모 AI 모델 학습 구조 최적화 등 기존 방식으로는 탐색이 어려웠던 복잡한 최적화 문제를 해결합니다.
 
 ---
 
@@ -292,9 +280,6 @@ Google Cloud에서 AlphaEvolve를 모든 사용자에게 공개했습니다. Alp
   severity="Medium"
 %}
 
-#### 요약
-
-Google Kubernetes Engine (GKE) managed DRANET이 Autopilot 클러스터에서 GPU와 TPU를 모두 지원합니다. 표준 클러스터와 달리 Autopilot은 Google이 구성을 대신 처리해 주는 방식입니다. 이 블로그에서는 Autopilot 클러스터 설정 방법을 다룹니다.
 
 ---
 
@@ -310,9 +295,6 @@ Google Kubernetes Engine (GKE) managed DRANET이 Autopilot 클러스터에서 GP
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI의 GPT-5.6 제품군(Sol, Terra, Luna)이 GitHub Copilot에서 사용 가능해졌으며, 세 가지 변형 모델을 작업에 맞춰 선택할 수 있습니다.
 
 ---
 
@@ -327,9 +309,6 @@ OpenAI의 GPT-5.6 제품군(Sol, Terra, Luna)이 GitHub Copilot에서 사용 가
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Code Quality에서 조직 소유자가 모든 리포지토리가 아닌 일부 리포지토리만 선택하여 기능을 활성화 또는 비활성화할 수 있게 되었습니다. 이를 통해 더 세분화된 제어가 가능해졌습니다.
 
 ---
 
@@ -344,9 +323,6 @@ GitHub Code Quality에서 조직 소유자가 모든 리포지토리가 아닌 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot이 처음 방문하는 리포지토리의 홈페이지에서 해당 리포지토리에 대한 개괄적인 설명을 제공하는 기능이 추가되었습니다. 이 기능은 사용자가 익숙하지 않은 코드베이스를 빠르게 이해할 수 있도록 돕습니다.
 
 ---
 
@@ -363,9 +339,6 @@ GitHub Copilot이 처음 방문하는 리포지토리의 홈페이지에서 해�
   severity="Medium"
 %}
 
-#### 요약
-
-JPMorgan은 Strategy(MSTR)의 Bitcoin 매도가 단기적 우려에 불과하지만, 장기적으로는 은행과 기관들이 퍼블릭 네트워크 대신 프라이빗 블록체인을 채택함으로써 암호화폐 생태계 전반의 활동과 자본 흐름이 감소하는 것이 더 큰 위협이라고 분석했습니다.
 
 ---
 
@@ -380,9 +353,6 @@ JPMorgan은 Strategy(MSTR)의 Bitcoin 매도가 단기적 우려에 불과하지
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 담보 우선주가 6월 첫 주요 스트레스 테스트를 겪었으며, Strategy의 STRC와 Strive의 SATA는 급격한 매도 이후 반등하며 기업 Bitcoin 금융 모델에 대한 신뢰를 강화했습니다.
 
 ---
 
@@ -397,9 +367,6 @@ Bitcoin 담보 우선주가 6월 첫 주요 스트레스 테스트를 겪었으�
   severity="Medium"
 %}
 
-#### 요약
-
-뉴햄프셔 주 행정위원회가 3대 2 표결로 1억 달러 규모의 Bitcoin-backed municipal bond 발행 제안을 거부했습니다. 지지자들은 이 채권이 납세자에게 위험을 초래하지 않으며 세계 최초의 사례가 될 것이라고 주장했지만, 위원회는 이를 받아들이지 않았습니다.
 
 ---
 
@@ -463,7 +430,7 @@ Bitcoin 담보 우선주가 6월 첫 주요 스트레스 테스트를 겪었으�
 
 - [2026년 07월 09일 주간 보안 다이제스트: 악성코드·제로데이·클라우드 (30건)](/posts/2026/07/09/Tech_Security_Weekly_Digest_AI_Security_Agent_Malware/) — 2026-07-09
 - [2026년 07월 11일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (29건)](/posts/2026/07/11/Tech_Security_Weekly_Digest_Security_Threat_AWS_Patch/) — 2026-07-11
-- [2026년 07월 07일 주간 보안 다이제스트: 쿠버네티스·제로데이·패치 (24건)](/posts/2026/07/07/Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI/) — 2026-07-07
+- [2026년 07월 07일 주간 보안 다이제스트: Kubernetes·제로데이·패치 (24건)](/posts/2026/07/07/Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI/) — 2026-07-07
 
 ---
 

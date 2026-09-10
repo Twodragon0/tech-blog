@@ -115,9 +115,6 @@ summary_card:
   severity="Medium"
 -%}
 
-#### 요약
-
-The Hacker News에서 기업의 AI 사용 통제를 위한 구매 가이드를 발표했습니다. 직원들이 무분별하게 사용하는 생성형 AI 서비스(ChatGPT, Claude, Gemini 등)로 인한 데이터 유출, 지적재산 노출, 규정 준수 위험을 관리하기 위한 솔루션 선택 기준과 평가 프레임워크를 제시합니다.
 
 #### 핵심 포인트
 
@@ -140,9 +137,6 @@ The Hacker News에서 기업의 AI 사용 통제를 위한 구매 가이드를 �
   severity="Medium"
 -%}
 
-#### 요약
-
-Microsoft Security Blog에서 보안 도구 도입과 실제 구현 사이의 간극(Implementation Gap)을 분석했습니다. 많은 조직이 최신 보안 솔루션을 도입하지만, 올바르게 구성하고 운영하지 못해 실질적인 보안 효과를 달성하지 못하는 현상을 다루며, Microsoft의 보안 구현 지원 전략을 소개합니다.
 
 #### 핵심 포인트
 
@@ -169,9 +163,6 @@ Microsoft Security Blog에서 보안 도구 도입과 실제 구현 사이의 �
   severity="Medium"
 -%}
 
-#### 요약
-
-Google Cloud에서 Anthropic의 최신 모델 Claude Opus 4.6을 Vertex AI에서 사용할 수 있게 되었다고 발표했습니다. Claude Opus 4.6는 복잡한 코딩 작업과 고도화된 AI 에이전트 생성에서 뛰어난 성능을 보이며, 기존 모델 대비 더 깊은 맥락 파악 능력과 향상된 지시 따르기 성능을 제공합니다.
 
 #### 핵심 포인트
 
@@ -208,9 +199,6 @@ Claude Opus 4.6의 향상된 에이전트 능력은 OWASP Agentic AI Top 10에�
   severity="Medium"
 -%}
 
-#### 요약
-
-Docker와 Wiz가 협력하여 VEX(Vulnerability Exploitability eXchange) 표준을 활용한 취약점 노이즈 감소 방안을 발표했습니다. 하드닝된 컨테이너 이미지를 사용하더라도 취약점 스캐너가 수십~수백 개의 CVE를 보고하지만, 실제로 악용 가능한 취약점은 극소수입니다. VEX는 이러한 우선순위 결정 문제를 해결합니다.
 
 #### 핵심 포인트
 
@@ -242,9 +230,6 @@ Docker와 Wiz가 협력하여 VEX(Vulnerability Exploitability eXchange) 표준�
   severity="Medium"
 -%}
 
-#### 요약
-
-CNCF 프로젝트 Dragonfly v2.4.0이 출시되었습니다. P2P(Peer-to-Peer) 기반 컨테이너 이미지 배포 시스템으로, 대규모 클러스터에서 이미지 풀(pull) 시간을 획기적으로 단축합니다. 이번 버전에서는 부하 인식 스케줄링 알고리즘(중앙 스케줄링 + 노드 수준 보조 스케줄링 2단계)이 추가되었습니다.
 
 #### 핵심 포인트
 
@@ -267,9 +252,6 @@ CNCF 프로젝트 Dragonfly v2.4.0이 출시되었습니다. P2P(Peer-to-Peer) �
   severity="Medium"
 -%}
 
-#### 요약
-
-Microsoft가 새로운 Windows 버전에서 .NET Framework 3.5의 독립 배포(Standalone Deployment) 방식 전환을 발표했습니다. 기존에는 Windows 구성 요소로 기본 포함되었으나, 향후 새 Windows 버전에서는 별도 설치가 필요합니다.
 
 #### 핵심 포인트
 

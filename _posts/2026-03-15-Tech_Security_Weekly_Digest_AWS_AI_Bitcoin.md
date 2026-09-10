@@ -108,9 +108,6 @@ summary_card:
   severity="Critical"
 %}
 
-#### 요약
-
-GlassWorm은 VSCodium, Eclipse Che 등 오픈소스 IDE가 의존하는 Open VSX 레지스트리를 표적으로 삼았습니다. 공격 방식은 인기 있는 정상 확장을 복제한 뒤 이름을 유사하게 변조(typosquatting)하거나, 기존 확장 유지관리자 계정을 탈취해 악성 업데이트를 배포하는 두 가지입니다.
 
 감염된 확장은 설치 후 다음 행위를 수행합니다.
 
@@ -343,9 +340,6 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   severity="Medium"
 %}
 
-#### 요약
-
-현행 Basel III 체계에서 Bitcoin은 Group 2b 자산으로 분류돼 1,250%의 위험 가중치가 적용됩니다. 이는 은행이 BTC 1달러를 보유하려면 자기자본 12.5달러를 적립해야 한다는 의미로, 사실상 은행의 BTC 직접 보유를 금지하는 수준입니다.
 
 논의 중인 규칙 변경은 Bitcoin을 별도 자산군으로 분류하고 위험 가중치를 실질적으로 낮추는 방향입니다. 이 변경이 실현되면 미국·유럽 대형 은행들이 custody 서비스, ETF 발행, 직접 보유를 통해 BTC 시장에 진입할 수 있는 제도적 기반이 마련됩니다.
 
@@ -381,9 +375,6 @@ resource "aws_ssoadmin_account_assignment" "prod_ap_northeast" {
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy의 Michael Saylor 모델(채권 발행 → BTC 매수)이 기관 투자자들의 레퍼런스 케이스로 자리 잡으면서, 유사 전략을 채택하는 상장사가 늘고 있습니다. 이번 $776M 매수 계획은 STRC라는 수익 공유형 채권 상품을 통해 조달하며, BTC 가격 상승 시 채권 이자를 BTC로 지급하는 구조입니다.
 
 보안 관점에서 기관 BTC 보유 확대는 custody 솔루션 보안 수요 증가를 의미합니다. Fireblocks, BitGo 등 기관 custody 플랫폼의 보안 감사 요청이 늘고 있으며, 멀티시그(Multi-sig) 키 관리와 HSM(Hardware Security Module) 기반 서명 인프라에 대한 관심도 높아지고 있습니다.
 

@@ -104,9 +104,6 @@ superseded_by: /posts/2026/04/30/Week4_April_2026_Security_Digest/
   severity="Critical"
 %}
 
-#### 요약
-
-SGLang에서 원격 코드 실행(RCE)을 허용하는 치명적 취약점 CVE-2026-5760(CVSS 9.8)이 공개되었습니다. 이 취약점은 악성 GGUF 모델 파일을 통해 명령어 삽입을 유발하여 임의 코드 실행으로 이어질 수 있습니다.
 
 #### 위협 분석
 
@@ -195,9 +192,6 @@ index=security sourcetype=syslog ("exploit" OR "remote code execution" OR "shell
   severity="Medium"
 %}
 
-#### 요약
-
-북한의 국가 지원 해커 집단인 Lazarus가 KelpDAO DeFi 프로젝트에서 2억 9천만 달러 규모의 암호화폐를 탈취한 것으로 보입니다.
 
 #### 위협 분석
 
@@ -230,9 +224,6 @@ index=security sourcetype=syslog ("exploit" OR "remote code execution" OR "shell
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA는 Adobe 및 WPP와의 전략적 협력을 확대해 에이전트 AI를 기업 마케팅 운영의 핵심으로 끌어올리고 있습니다. 이 협력은 창작 생산과 고객 경험 오케스트레이션 분야에서 혁신적인 지능을 제공할 것으로 기대됩니다.
 
 ---
 
@@ -247,9 +238,6 @@ NVIDIA는 Adobe 및 WPP와의 전략적 협력을 확대해 에이전트 AI를 �
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA와 파트너사들이 Hannover Messe 2026에서 AI 기반 제조의 미래를 선보였습니다. 더 빠른 설계 주기와 숙련된 인력 부족으로 인해 주요 산업 경제 전반에서 AI 기반 생산으로의 전환이 가속화되고 있습니다.
 
 ---
 
@@ -263,9 +251,6 @@ NVIDIA와 파트너사들이 Hannover Messe 2026에서 AI 기반 제조의 미�
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon SageMaker AI에서 NVIDIA RTX PRO 6000 Blackwell Server Edition GPU로 구동되는 G7e 인스턴스를 출시했다. 이 인스턴스는 1, 2, 4, 8개의 GPU 구성을 제공하며 각 GPU는 96GB의 GDDR7 메모리를 갖추고 있다.
 
 ---
 
@@ -300,9 +285,6 @@ Amazon Bedrock에 향상된 에이전트 코딩 기능과 1M 토큰 컨텍스트
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub는 개인용 Copilot 요금제를 변경하여 서비스 안정성과 지속 가능성을 확보하고자 합니다. 이 변경 사항은 GitHub 블로그를 통해 공식 발표되었습니다.
 
 ---
 
@@ -317,9 +299,6 @@ GitHub는 개인용 Copilot 요금제를 변경하여 서비스 안정성과 지
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub가 GitHub 웹사이트와 CDN의 HTTPS 연결에서 SHA-1 해시 알고리즘 사용을 중단할 예정입니다. 이 변경은 오래된 브라우저와 소프트웨어에 영향을 미칠 수 있습니다.
 
 ---
 
@@ -334,9 +313,6 @@ GitHub가 GitHub 웹사이트와 CDN의 HTTPS 연결에서 SHA-1 해시 알고�
   severity="Medium"
 %}
 
-#### 요약
-
-C# Dev Kit 팀이 C++ Node.js addons를 C#과 Native AOT로 대체하여 Python 의존성을 제거했습니다. 이 글은 N-API, LibraryImport, UnmanagedCallersOnly를 사용해 C#으로 Node.js 네이티드 애드온을 구축하는 과정을 안내합니다.
 
 ---
 
@@ -353,9 +329,6 @@ C# Dev Kit 팀이 C++ Node.js addons를 C#과 Native AOT로 대체하여 Python 
   severity="Medium"
 %}
 
-#### 요약
-
-Alcoa가 뉴욕주에 있는 가동 중단된 알루미늄 제련소를 Bitcoin 채굴 회사 NYDIG에 매각하기 위한 협상을 진행 중입니다. 이 거래는 Bitcoin Magazine을 통해 처음 보도되었습니다.
 
 ---
 
@@ -370,9 +343,6 @@ Alcoa가 뉴욕주에 있는 가동 중단된 알루미늄 제련소를 Bitcoin 
   severity="High"
 %}
 
-#### 요약
-
-미국 우주군 출신 제이슨 로어리가 미국 인도-태평양 사령부 사령관의 특별 보좌관으로 임명되었습니다. 그는 Bitcoin을 전력 투사 기술로 보는 독특한 관점을 바탕으로 전략적 우선순위에 대해 자문할 예정입니다.
 
 ---
 
@@ -387,9 +357,6 @@ Alcoa가 뉴욕주에 있는 가동 중단된 알루미늄 제련소를 Bitcoin 
   severity="Medium"
 %}
 
-#### 요약
-
-Capital B가 12 Bitcoin을 추가 매입하여 재무부 보유량을 총 2,937 BTC로 확장했습니다. 이는 디지털 자산에 중점을 둔 해당 회사의 재무부 전략의 일환입니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 

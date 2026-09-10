@@ -242,9 +242,6 @@ DevSecOps 실무자에게 **가장 큰 위협은 공급망 전반의 취약점 �
   severity="High"
 %}
 
-#### 요약
-
-Subnautica 2가 출시와 동시에 GeForce NOW에 합류하여, 멤버들은 거의 모든 기기에서 새로운 외계 해양을 탐험할 수 있습니다. 이번 주에는 총 11개의 신규 게임이 클라우드에 추가되며, 한정 기간 HITMAN 관련 콘텐츠도 제공됩니다. Gaijin SSO 기능이 정상 작동 중입니다.
 
 ---
 
@@ -259,9 +256,6 @@ Subnautica 2가 출시와 동시에 GeForce NOW에 합류하여, 멤버들은 �
   severity="Medium"
 %}
 
-#### 요약
-
-ChatGPT 모바일 앱을 통해 어디서나 Codex를 사용할 수 있으며, 여러 기기와 원격 환경에서 실시간으로 코딩 작업을 모니터링, 제어 및 승인할 수 있습니다.
 
 ---
 
@@ -275,9 +269,6 @@ ChatGPT 모바일 앱을 통해 어디서나 Codex를 사용할 수 있으며, �
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon Lex Assisted NLU를 효과적으로 구현하여 봇의 정확도를 개선하는 방법을 설명합니다. 의도와 슬롯 설명을 통해 봇 설계를 향상시키고 Test Workbench로 구현을 검증하며, 신규 및 기존 봇 모두에서 기존 NLU에서 Assisted NLU로 전환하는 방법을 다룹니다.
 
 ---
 
@@ -310,9 +301,6 @@ Google Cloud CISO Perspectives 2026년 5월호에서는 Vinod D’Souza가 RSA C
   severity="Medium"
 %}
 
-#### 요약
-
-Google Data Cloud의 Managed Service for Apache Airflow에 Airflow 3.1 정식 출시, AI 기반 에이전트 문제 해결, 커스텀 에이전트 통합을 위한 관리형 Airflow MCP Server, 선언적 YAML 기반 오케스트레이션 파이프라인 등 새로운 기능이 추가되었습니다.
 
 ---
 
@@ -326,9 +314,6 @@ Google Data Cloud의 Managed Service for Apache Airflow에 Airflow 3.1 정식 �
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon Bedrock Advanced Prompt Optimization을 통해 고객은 내장된 평가 피드백 루프로 프롬프트를 최적화하거나 새 모델로 마이그레이션할 수 있으며, 최대 5개 모델의 결과를 동시에 비교할 수 있습니다.
 
 ---
 
@@ -345,9 +330,6 @@ Amazon Bedrock Advanced Prompt Optimization을 통해 고객은 내장된 평가
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Copilot 사용량 메트릭 API가 새롭게 user-teams 리포트를 제공하여 각 Copilot 라이선스 사용자를 소속 팀에 매핑할 수 있게 되었습니다. 이 기능을 통해 기존 리포트와 결합하여 팀 수준의 Copilot 사용 현황을 분석할 수 있습니다.
 
 ---
 
@@ -362,9 +344,6 @@ GitHub의 Copilot 사용량 메트릭 API가 새롭게 user-teams 리포트를 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Actions에서 두 가지 이미지 마이그레이션이 예정되어 있으며, GitHub는 호스팅 러너의 Arm64 이미지 소유권을 이전받아 직접 유지보수하게 됩니다.
 
 ---
 
@@ -378,9 +357,6 @@ GitHub Actions에서 두 가지 이미지 마이그레이션이 예정되어 있
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot app이 기술 프리뷰로 출시되었으며, GitHub 네이티브 데스크톱 환경에서 에이전틱 개발을 지원합니다.
 
 ---
 
@@ -397,9 +373,6 @@ GitHub Copilot app이 기술 프리뷰로 출시되었으며, GitHub 네이티�
   severity="Medium"
 %}
 
-#### 요약
-
-Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투자를 유치하여 기관용 Bitcoin 커스터디 플랫폼을 확장합니다. 이번 투자는 다중 기관 Bitcoin 보관 서비스의 규모를 키우는 데 사용될 예정입니다.
 
 ---
 
@@ -414,9 +387,6 @@ Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투�
   severity="Medium"
 %}
 
-#### 요약
-
-엘살바도르의 BINAES 도서관은 중국 기부로 건립되었으며, Bitcoin과 가족 놀이 공간을 결합한 미래지향적 시설입니다. Miss Bitcoin의 주도로 6층에는 첨단 기술이 도입되었고, LEGO와 Star Wars 컬렉션 등이 갖춰져 엘살바도르를 문화적 선도국가로 자리매김하고 있습니다.
 
 ---
 
@@ -431,9 +401,6 @@ Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 상원 은행위원회가 초당적 15대 9 투표로 Digital Asset Market Clarity Act를 통과시켰으며, 두 명의 민주당 상원의원 Ruben Gallego와 Angela Alsobrooks가 공화당에 합류해 이 광범위한 암호화폐 시장 구조 법안을 진전시켰습니다.
 
 ---
 
@@ -502,7 +469,7 @@ Onramp가 1억 3500만 달러의 기업가치로 1250만 달러의 Series A 투�
 <!-- related-posts:v1 -->
 
 - [2026년 05월 14일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (15건)](/posts/2026/05/14/Tech_Security_Weekly_Digest_AWS_Patch_AI_Update/) — 2026-05-14
-- [2026년 05월 16일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·쿠버네티스 (13건)](/posts/2026/05/16/Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security/) — 2026-05-16
+- [2026년 05월 16일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·Kubernetes (13건)](/posts/2026/05/16/Tech_Security_Weekly_Digest_Botnet_AI_AWS_Security/) — 2026-05-16
 - [2026년 05월 12일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (15건)](/posts/2026/05/12/Tech_Security_Weekly_Digest_AI_CVE_Zero-Day_Data/) — 2026-05-12
 
 ---

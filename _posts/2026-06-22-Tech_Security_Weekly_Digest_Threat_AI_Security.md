@@ -177,9 +177,6 @@ DevSecOps 실무자에게 이 위협은 다음과 같은 직접적 영향을 미
   severity="Medium"
 %}
 
-#### 요약
-
-Sonic Labs 이사회에서 Andre Cronje, Michael Kong, David Richardson 등 전직 임원 3명이 사임하면서 Sonic 토큰이 5% 하락했습니다. Matt Visser가 2월에 사임한 Mitchell Demeter를 대신해 새로운 CEO로 임명되었습니다.
 
 ---
 
@@ -194,9 +191,6 @@ Sonic Labs 이사회에서 Andre Cronje, Michael Kong, David Richardson 등 전�
   severity="Medium"
 %}
 
-#### 요약
-
-AI 기반 자동화 도구가 스마트 컨트랙트 감사와 위협 탐지를 더 저렴하고 빠르게 만들면서 암호화폐 보안이 더 이상 무시하기 어려운 과제가 되고 있다고 CoinDesk가 분석했습니다.
 
 ---
 
@@ -211,9 +205,6 @@ AI 기반 자동화 도구가 스마트 컨트랙트 감사와 위협 탐지를 
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy의 우선주 STRC가 액면가를 잃고 폭락하기까지의 과정을 CoinDesk가 시간 순으로 정리했습니다.
 ---
 
 ## 3. 기타 주목할 뉴스

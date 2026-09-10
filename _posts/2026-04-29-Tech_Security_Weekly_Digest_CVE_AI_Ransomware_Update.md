@@ -256,9 +256,6 @@ VECT 2.0은 기존 랜섬웨어와 달리 **암호화 구현의 치명적 결함
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA가 개방형 멀티모달 모델인 Nemotron 3 Nano Omni를 출시하여 비전, 오디오, 언어를 하나의 시스템으로 통합했습니다. 동일한 상호작용성 조건에서 다른 오픈 옴니 모델 대비 최대 9배 높은 처리량(throughput)을 제공해 더 빠르고 효율적인 응답을 가능하게 합니다.
 
 ---
 
@@ -273,9 +270,6 @@ NVIDIA가 개방형 멀티모달 모델인 Nemotron 3 Nano Omni를 출시하여 
   severity="Medium"
 %}
 
-#### 요약
-
-Google Translate가 20주년을 맞아 기념일을 축하하며, 실시간 대화 번역 등 다양한 기능을 소개하는 새로운 특징과 팁을 공개했습니다.
 
 ---
 
@@ -290,9 +284,6 @@ Google Translate가 20주년을 맞아 기념일을 축하하며, 실시간 대�
   severity="Medium"
 %}
 
-#### 요약
-
-Palantir의 Ontology 기반 소프트웨어는 재난 대응부터 원자력 에너지 생산까지 전 세계 주요 상업 및 정부 환경에서 실시간 인간-에이전트 의사결정을 지원합니다. 고객들은 Palantir AIP를 통해 기업 내 AI를 안전하고 효과적으로 활용하여 운영 혁신을 추진하고 있습니다.
 
 ---
 
@@ -326,9 +317,6 @@ Google Cloud Next '26에서 공공 부문 리더들이 AI와 에이전트를 활
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud Next '26에서 50개 이상의 Google 관리형 MCP 서버가 정식 출시 또는 프리뷰로 제공된다고 발표했습니다. 이 서버들은 AI 에이전트가 실제 데이터에 접근하고 복잡한 문제를 자율적으로 해결할 수 있도록 Google 및 Google Cloud 생태계와의 연결을 제공합니다.
 
 ---
 
@@ -342,9 +330,6 @@ Google Cloud Next '26에서 50개 이상의 Google 관리형 MCP 서버가 정�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud은 독일 연방정보보안청(BSI)의 C3A-Framework을 통해 독일 내 디지털 주권을 구체화하고 있으며, 기업 및 공공 부문 리더들은 혁신과 데이터 통제의 조화 및 디지털 주권 기준에 대한 질문을 제기하고 있습니다.
 
 ---
 
@@ -361,9 +346,6 @@ Google Cloud은 독일 연방정보보안청(BSI)의 C3A-Framework을 통해 독
   severity="High"
 %}
 
-#### 요약
-
-SkiaSharp 4.0 Preview 1이 출시되었으며, Uno Platform이 공동 유지 관리자로 참여하게 되었습니다. 이번 프리뷰에서는 새로운 기능들을 확인할 수 있습니다.
 
 ---
 
@@ -378,9 +360,6 @@ SkiaSharp 4.0 Preview 1이 출시되었으며, Uno Platform이 공동 유지 관
   severity="High"
 %}
 
-#### 요약
-
-Azure에서 .NET과 Postgres를 활용한 고성능 분산 캐싱 아키텍처를 소개하며, 캐싱 모범 사례와 재사용 가능한 .NET 애플리케이션 패턴을 통해 지연 시간 단축 및 시스템 부하 감소 방법을 제시합니다.
 
 ---
 
@@ -394,9 +373,6 @@ Azure에서 .NET과 Postgres를 활용한 고성능 분산 캐싱 아키텍처�
   severity="Medium"
 %}
 
-#### 요약
-
-Kubernetes v1.36에서는 컨트롤러의 Staleness 문제를 완화하고 관찰성을 개선하는 기능이 도입되었습니다. Staleness는 컨트롤러가 잘못된 동작을 하게 만드는 원인이 되며, 프로덕션 환경에서 문제가 발견될 때는 이미 늦은 경우가 많습니다.
 
 ---
 
@@ -413,9 +389,6 @@ Kubernetes v1.36에서는 컨트롤러의 Staleness 문제를 완화하고 관�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 2026 컨퍼런스에서 업계 리더들은 Bitcoin이 경쟁사 간 협력을 통해 전통 금융에 필요한 도구와 인프라를 구축하며 제도적 성장을 주도하고 있다고 밝혔습니다. 이는 Bitcoin이 주류 금융으로 자리잡는 과정을 보여줍니다.
 
 ---
 
@@ -430,9 +403,6 @@ Bitcoin 2026 컨퍼런스에서 업계 리더들은 Bitcoin이 경쟁사 간 협
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Magazine가 제작 중인 다큐멘터리 'This Time Is Different'는 Bitcoin의 4년 주기와 David Bailey가 Nakamoto Inc.를 설립하고 상장 및 시장 변동을 겪는 과정을 다룰 예정이다.
 
 ---
 
@@ -446,9 +416,6 @@ Bitcoin Magazine가 제작 중인 다큐멘터리 'This Time Is Different'는 Bi
   severity="Medium"
 %}
 
-#### 요약
-
-호주 암호화폐 거래소들은 2027년 4월을 첫 규제 준수 시점으로 간주해선 안 되며, AUSTRAC 의무와 준비 기대치는 이미 적용되고 있습니다. 규제가 도입되었지만, 이제 본격적인 이행이 어려운 과제로 남아 있다는 내용이 Chainalysis를 통해 보도되었습니다.
 
 ---
 

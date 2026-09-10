@@ -231,9 +231,6 @@ DevSecOps 실무자에게 다음 영역에서 직접적인 대응이 필요합�
   severity="Medium"
 %}
 
-#### 요약
-
-FERC가 AI 공장, 반도체 제조 지원 시스템 및 첨단 제조 시설의 계통 연결 방식을 규정하는 대규모 부하 연계에 관한 주요 결정을 발표했습니다. FERC의 이번 결정은 AI 시대의 핵심 과제인 계통 스트레스 완화와 비용 효율성 개선을 목표로 합니다.
 
 ---
 
@@ -247,9 +244,6 @@ FERC가 AI 공장, 반도체 제조 지원 시스템 및 첨단 제조 시설의
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 ChatGPT Enterprise를 위한 새로운 지출 통제 및 사용량 분석 기능을 도입하여 조직이 비용을 관리하고 AI를 안정적으로 확장할 수 있도록 지원합니다.
 
 ---
 
@@ -264,9 +258,6 @@ OpenAI가 ChatGPT Enterprise를 위한 새로운 지출 통제 및 사용량 분
   severity="Medium"
 %}
 
-#### 요약
-
-Cannes Lions에서 NVIDIA 파트너들은 AI를 활용해 광고 및 마케팅 산업을 재편하고 있으며, 기업들은 AI 도입 여부보다 산업이 요구하는 속도와 규모를 지원할 수 있는 인프라 구축이 핵심 과제로 떠올랐다.
 
 ---
 
@@ -283,9 +274,6 @@ Cannes Lions에서 NVIDIA 파트너들은 AI를 활용해 광고 및 마케팅 �
   severity="Medium"
 %}
 
-#### 요약
-
-Ray Serve는 Anyscale이 개발한 확장 가능한 모델 서빙 라이브러리로, Google Kubernetes Engine(GKE)과 결합하여 LLM 추론 및 모델 서빙을 위한 강력한 플랫폼을 제공합니다. 그러나 이러한 유연성과 기능 세트는 이전에 성능 저하를 초래했습니다.
 
 ---
 
@@ -299,9 +287,6 @@ Ray Serve는 Anyscale이 개발한 확장 가능한 모델 서빙 라이브러�
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 차세대 글로벌 혁신을 확장하기 위해 스타트업이 프로토타입에서 시장을 선도하는 비즈니스로 도약할 수 있도록 지원합니다. 이 과정에서 자본뿐만 아니라 아키텍처 가이던스, 정책 정렬, 빠른 성장을 위한 기술 시스템이 필요합니다.
 
 ---
 
@@ -315,9 +300,6 @@ Google은 차세대 글로벌 혁신을 확장하기 위해 스타트업이 프�
   severity="Medium"
 %}
 
-#### 요약
-
-유럽연합 집행위원회의 Tech Sovereignty Package는 유럽의 디지털 미래를 위한 중대한 시점에 발표되었으며, 경쟁력과 안보를 위해 반도체, cloud 도입, AI 데이터 인프라에 대한 대규모 투자가 필요합니다. 이 패키지는 선택, 규정 준수, 협력을 통해 유럽의 개방형 디지털 주권을 확보하는 방안을 모색합니다.
 
 ---
 
@@ -334,9 +316,6 @@ Google은 차세대 글로벌 혁신을 확장하기 위해 스타트업이 프�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot에서 사용 중인 Opus 4.6 (fast) 모델이 2026년 6월 29일부로 모든 환경에서 지원 중단될 예정입니다. 이는 Copilot Chat, 인라인 편집, ask 및 agent 모드, 코드 완성 기능에 모두 적용됩니다.
 
 ---
 
@@ -351,9 +330,6 @@ GitHub Copilot에서 사용 중인 Opus 4.6 (fast) 모델이 2026년 6월 29일�
   severity="Medium"
 %}
 
-#### 요약
-
-Microsoft의 소형 코딩 모델 MAI-Code-1-Flash가 GitHub Copilot CLI, 앱, Chat 등 추가 Copilot 표면에서 사용 가능해졌습니다.
 
 ---
 
@@ -368,9 +344,6 @@ Microsoft의 소형 코딩 모델 MAI-Code-1-Flash가 GitHub Copilot CLI, 앱, C
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot code review가 이제 리포지토리 수준의 AGENTS.md 파일을 지원하며, 초안 pull request에서 Request 버튼을 통해 Copilot에 리뷰를 요청하는 것이 더 쉬워졌습니다. 이러한 변경 사항은 모두 일반적으로 사용 가능합니다.
 
 ---
 
@@ -404,9 +377,6 @@ BlackRock의 임원이 Bitcoin을 "무시하기엔 너무 큰 자산"이라고 �
   severity="Medium"
 %}
 
-#### 요약
-
-STRC는 Bitcoin을 가장한 정크 신용 상품이며, 소매 투자자들이 88억 달러 규모의 해당 증권을 보유하고 있습니다. Strategy의 STRC와 SATA 등 세 가지 증권은 Bitcoin 담보, 세금 혜택, 11.5% 수익률을 내세우며 마케팅되고 있지만, 구매자의 82.7%가 개인 투자자입니다.
 
 ---
 
@@ -421,9 +391,6 @@ STRC는 Bitcoin을 가장한 정크 신용 상품이며, 소매 투자자들이 
   severity="Medium"
 %}
 
-#### 요약
-
-미국 연방준비제도(Federal Reserve)가 스테이블코인 발행자에게 계좌 개설 또는 직접 토큰 상환 전 고객 신원 확인을 의무화하는 새로운 규정을 제안했습니다. 이는 은행 수준의 자금세탁방지 기준을 스테이블코인으로 확대하여 규제 허점을 막기 위한 조치입니다.
 
 ---
 

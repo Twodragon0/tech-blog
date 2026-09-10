@@ -234,9 +234,6 @@ DevSecOps 관점에서 이 취약점은 **인프라 레이어의 암묵적 신�
   severity="Medium"
 %}
 
-#### 요약
-
-Meta는 실시간 통신(RTC)을 위해 AV1 코덱을 도입하는 다년간의 노력을 진행했으며, 코덱 선택, 기기 호환성, 속도 제어 및 오류 복원력과 관련된 기술적 및 운영적 과제를 해결했습니다. 또한 AV1 통화 품질을 개선하기 위한 속도 제어 등의 여러 기술을 제시하고 있습니다.
 
 ---
 
@@ -251,9 +248,6 @@ Meta는 실시간 통신(RTC)을 위해 AV1 코덱을 도입하는 다년간의 
   severity="Medium"
 %}
 
-#### 요약
-
-ISC에서 유럽 최초의 엑사스케일 슈퍼컴퓨터 JUPITER가 NVIDIA Grace Hopper Superchips와 Quantum-X800 InfiniBand 네트워킹을 기반으로 운영되며, 인간 지도 작성 등 네 가지 프로젝트를 통해 엑사스케일 컴퓨팅의 실제 가능성을 보여주고 있습니다.
 
 ---
 
@@ -268,9 +262,6 @@ ISC에서 유럽 최초의 엑사스케일 슈퍼컴퓨터 JUPITER가 NVIDIA Gra
   severity="High"
 %}
 
-#### 요약
-
-미국 국립과학재단의 National Artificial Intelligence Research Resource (NAIRR) 파일럿 프로그램이 NVIDIA AI 인프라를 기반으로 700개 이상의 프로젝트를 지원하며 과학 연구를 재편하고 있습니다. 이 프로그램은 단백질 예측 및 전염병 관리 등 혁신적인 연구를 추진 중입니다.
 
 ---
 
@@ -286,9 +277,6 @@ ISC에서 유럽 최초의 엑사스케일 슈퍼컴퓨터 JUPITER가 NVIDIA Gra
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud의 BigQuery에서 Managed Python UDFs가 정식 출시되어, SQL로 처리하기 어려운 복잡한 절차 로직, 과학 연산, 고급 문자열 처리, 머신러닝 워크플로우를 Python으로 구현할 수 있게 되었습니다.
 
 ---
 
@@ -303,9 +291,6 @@ Google Cloud의 BigQuery에서 Managed Python UDFs가 정식 출시되어, SQL�
   severity="Medium"
 %}
 
-#### 요약
-
-Google AI Studio에서 프로토타입을 완성한 후, 팀이나 사용자와 공유할 라이브 URL이 필요할 때 Google Cloud의 Starter Tier를 사용할 수 있습니다. 이 티어는 결제 수단 없이 프로토타입을 빠르게 공개하기 위한 최소 구성의 관리형 프로젝트이며, 세분화된 IAM 제어·결제 관리·리전 선택 등 프로덕션 기능은 유료 Cloud 프로젝트로 업그레이드해야 이용할 수 있습니다.
 
 ---
 
@@ -319,9 +304,6 @@ Google AI Studio에서 프로토타입을 완성한 후, 팀이나 사용자와 
   severity="High"
 %}
 
-#### 요약
-
-AWS Lambda MicroVMs는 세션 간 커널이나 리소스를 공유하지 않는 VM 수준의 격리된 샌드박스를 제공하며, 빠른 시작 및 재개, 전체 수명 주기 제어, 최대 8시간의 상태 보존 기능을 지원합니다.
 
 ---
 
@@ -338,9 +320,6 @@ AWS Lambda MicroVMs는 세션 간 커널이나 리소스를 공유하지 않는 
   severity="Medium"
 %}
 
-#### 요약
-
-JetBrains IDE 업데이트에서 GitHub의 조직 및 엔터프라이즈 에이전트 지원, Copilot CLI 세션 메시지 큐 및 제어, 새로운 에이전트 디버그 로그 요약 보기가 추가되었으며, Claude를 에이전트 제공자로 미리 볼 수 있습니다.
 
 ---
 
@@ -355,9 +334,6 @@ JetBrains IDE 업데이트에서 GitHub의 조직 및 엔터프라이즈 에이�
   severity="Medium"
 %}
 
-#### 요약
-
-클라우드 네이티브 환경에서 시스템이 복잡해짐에 따라 과도한 텔레메트리 데이터가 오히려 장애가 되고 있습니다. 이에 따라 지속 가능하고 영향력 있는 observability pipeline을 설계하는 것이 중요해지고 있습니다.
 
 ---
 
@@ -373,9 +349,6 @@ JetBrains IDE 업데이트에서 GitHub의 조직 및 엔터프라이즈 에이�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 OFAC가 ISIS 운영자들이 암호화폐를 통해 테러 단체 자금을 조달한 혐의로 유럽, 중동, 서아프리카에 걸친 3명의 개인과 6개 법인을 제재 대상으로 지정했습니다. 이들은 암호화폐 거래를 통해 ISIS를 지원한 것으로 확인되었으며, 해당 내용은 Chainalysis를 통해 처음 보도되었습니다.
 
 ---
 
@@ -390,9 +363,6 @@ JetBrains IDE 업데이트에서 GitHub의 조직 및 엔터프라이즈 에이�
   severity="Medium"
 %}
 
-#### 요약
-
-도널드 트럼프가 양자 컴퓨팅 관련 행정명령에 서명하면서 미국의 양자 컴퓨팅 및 포스트퀀텀 암호화 일정이 가속화될 전망입니다. 이는 Bitcoin의 보안 체계에 잠재적 영향을 미칠 수 있어 업계의 주목을 받고 있습니다.
 
 ---
 
@@ -407,9 +377,6 @@ JetBrains IDE 업데이트에서 GitHub의 조직 및 엔터프라이즈 에이�
   severity="Medium"
 %}
 
-#### 요약
-
-Franklin Templeton이 250 Digital 인수를 완료하고 기관용 암호화폐 부서를 출범시켰습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 

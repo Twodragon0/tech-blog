@@ -403,6 +403,6 @@ Payjoin Dev Kit을 운영하는 비영리단체 Payjoin Foundation이 IRS로부�
 <!-- related-posts:v1 -->
 
 - [2026년 02월 18일 주간 보안 다이제스트: 악성코드·클라우드·패치 (3건)](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
-- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·쿠버네티스 (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·Kubernetes (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
 - [2026년 02월 24일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (3건)](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
 

@@ -228,9 +228,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-Hugging Face 소형 모델 해커톤에서 여러 팀이 소형 모델로 멀티모델 금융 시뮬레이션을 구축한 접근법을 소개합니다.
 
 ---
 
@@ -247,9 +244,6 @@ Hugging Face 소형 모델 해커톤에서 여러 팀이 소형 모델로 멀티
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin의 RSI가 2020년 폭락 이후 가장 과매도 상태를 기록하며, 이전 패턴과 유사한 흐름을 보이고 있다. 이는 2020년과 2026년 2월에 각각 50%와 30% 반등을 앞두고 나타난 신호와 일치해, BTC가 다시 70,000달러까지 회복할 가능성이 제기된다.
 
 ---
 
@@ -264,9 +258,6 @@ Bitcoin의 RSI가 2020년 폭락 이후 가장 과매도 상태를 기록하며,
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin과 이더가 FTX 붕괴 이후 최악의 주간 하락세를 보이며 암호화폐 시가총액 약 3,900억 달러가 증발했습니다.
 
 ---
 
@@ -281,9 +272,6 @@ Bitcoin과 이더가 FTX 붕괴 이후 최악의 주간 하락세를 보이며 �
   severity="Medium"
 %}
 
-#### 요약
-
-Meta가 크리에이터에게 스테이블코인으로 대금을 지급하지만, 이를 실제로 사용하는 문제는 별개라는 논평입니다.
 
 ---
 
@@ -344,7 +332,7 @@ Meta가 크리에이터에게 스테이블코인으로 대금을 지급하지만
 
 <!-- related-posts:v1 -->
 
-- [2026년 06월 06일 주간 보안 다이제스트: 악성코드·패치·쿠버네티스 (25건)](/posts/2026/06/06/Tech_Security_Weekly_Digest_AI_Threat/) — 2026-06-06
+- [2026년 06월 06일 주간 보안 다이제스트: 악성코드·패치·Kubernetes (25건)](/posts/2026/06/06/Tech_Security_Weekly_Digest_AI_Threat/) — 2026-06-06
 - [2026년 06월 08일 주간 보안 다이제스트: 악성코드·AI 에이전트·블록체인 (18건)](/posts/2026/06/08/Tech_Security_Weekly_Digest_AI_Malware_Botnet_Vulnerability/) — 2026-06-08
 - [2026년 06월 04일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (24건)](/posts/2026/06/04/Tech_Security_Weekly_Digest_Go_AI_Zero-Day_CVE/) — 2026-06-04
 

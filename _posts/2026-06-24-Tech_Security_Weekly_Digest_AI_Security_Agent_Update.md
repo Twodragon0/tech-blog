@@ -237,9 +237,6 @@ NVIDIA와 AWS가 협력하여 AI 시스템의 대규모 프로덕션 배포를 �
   severity="Medium"
 %}
 
-#### 요약
-
-GPT-5 Pro가 면역학자 Derya Unutmaz의 3년간 미해결 과제를 해결하며 T cell 행동에 대한 통찰을 제공했다. 이 돌파구는 암 및 자가면역 연구를 지원할 가능성이 있다.
 
 ---
 
@@ -253,9 +250,6 @@ GPT-5 Pro가 면역학자 Derya Unutmaz의 3년간 미해결 과제를 해결하
   severity="Medium"
 %}
 
-#### 요약
-
-Meta는 Ray-Ban Meta 및 Oakley Meta Vanguards 같은 AI 글래스의 얇은 안경다리에 카메라, 스피커, AI 작업 등을 구동할 충분한 에너지를 담기 위해 초소형 배터리를 엔지니어링했습니다.
 
 ---
 
@@ -271,9 +265,6 @@ Meta는 Ray-Ban Meta 및 Oakley Meta Vanguards 같은 AI 글래스의 얇은 안
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud Observability 제품군에서 Log Analytics가 Observability Analytics로 변경되었으며, 이제 SQL을 사용해 로그와 Trace 데이터를 쿼리할 수 있습니다. Trace 데이터는 일반 사용 가능(GA) 상태입니다.
 
 ---
 
@@ -288,9 +279,6 @@ Google Cloud Observability 제품군에서 Log Analytics가 Observability Analyt
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud가 Confidential Computing 영역을 확장하며, AI 데이터 보호를 위해 하드웨어 기반 TEE(Trusted Execution Environment) 내에서 암호화된 데이터 무결성을 제공합니다. 이 혁신은 클라우드 AI 배포에서 검증 가능한 프라이버시를 강화합니다.
 
 ---
 
@@ -304,9 +292,6 @@ Google Cloud가 Confidential Computing 영역을 확장하며, AI 데이터 보�
   severity="Medium"
 %}
 
-#### 요약
-
-AT&T와 GSMA는 Google의 Gemma 오픈 모델을 활용하여 통신 혁신을 가속화하고 있습니다. 통신 분야는 데이터 부족과 복잡한 멀티 벤더 환경이 AI 모델의 네트워크 이해에 큰 장애물이 되고 있습니다.
 
 ---
 
@@ -323,9 +308,6 @@ AT&T와 GSMA는 Google의 Gemma 오픈 모델을 활용하여 통신 혁신을 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Secret scanning이 Replicate secrets에 대한 확장 메타데이터를 추가하여 유출된 자격 증명에 대해 더 풍부한 컨텍스트를 제공합니다. 이제 이 패턴이 감지되면 확장 메타데이터가 포함되어 더 자세한 정보를 제공합니다.
 
 ---
 
@@ -340,9 +322,6 @@ GitHub의 Secret scanning이 Replicate secrets에 대한 확장 메타데이터�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에 따르면, 코드 품질 결과를 위한 Repository-level REST API가 공개 미리보기로 제공되며, GitHub UI에서 이미 사용 가능한 기능에 API 지원을 추가합니다. 두 개의 새로운 읽기 전용 엔드포인트가 포함됩니다.
 
 ---
 
@@ -375,9 +354,6 @@ Omdia의 2026년 소프트웨어 공급망 보안 보고서에 따르면 SBOM을
   severity="Medium"
 %}
 
-#### 요약
-
-미국 의회가 7월 17일 뉴욕에서 CLARITY Act 청문회를 개최할 예정이며, 암호화폐 시장 구조 법안에 대한 추진력이 커지고 있습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 
@@ -392,9 +368,6 @@ Omdia의 2026년 소프트웨어 공급망 보안 보고서에 따르면 SBOM을
   severity="High"
 %}
 
-#### 요약
-
-Craig Raw가 무료로 개발한 Bitcoin 지갑 Sparrow Wallet이 Apple의 개발자 계정 종료 위협에 직면했습니다. Apple은 가짜 Sparrow Wallet 사기 방지 앱을 제출한 Raw의 계정을 6월 30일자로 해지할 가능성이 있습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 
@@ -409,9 +382,6 @@ Craig Raw가 무료로 개발한 Bitcoin 지갑 Sparrow Wallet이 Apple의 개�
   severity="Medium"
 %}
 
-#### 요약
-
-Bull Bitcoin이 프랑스에서 MiCA 라이선스를 획득했으며, 창립자 Francis Pouliot는 자체 자금 조달로 3년 만에 이룬 성과라고 발표했습니다. 이 라이선스는 핵심 인프라를 아웃소싱하지 않고 PASSI 및 DORA 사이버 보안 감사를 통과하여 완전한 셀프 커스터디와 프라이버시 기능을 유지합니다.
 
 ---
 

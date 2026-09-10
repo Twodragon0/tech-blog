@@ -238,9 +238,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-천체물리학자 Chi-kwan Chan이 Codex를 활용하여 블랙홀 시뮬레이션을 구축하는 방법이 소개되었습니다. 이 시뮬레이션은 과학자들이 극한 물리 현상을 연구하고 아인슈타인의 일반 상대성 이론을 검증하는 데 도움을 줍니다.
 
 ---
 
@@ -254,9 +251,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-Oracle Cloud를 통해 기존 약정을 활용하여 OpenAI 모델과 Codex에 접근할 수 있으며, 엔터프라이즈 보안 및 거버넌스 환경에서 AI를 구축하고 배포할 수 있습니다.
 
 ---
 
@@ -271,9 +265,6 @@ Oracle Cloud를 통해 기존 약정을 활용하여 OpenAI 모델과 Codex에 �
   severity="Medium"
 %}
 
-#### 요약
-
-로보택시 산업이 프로토타입 단계를 넘어 상업 운영으로 전환되고 있지만, 안전성은 단순히 추가되는 것이 아니라 처음부터 시스템에 내장되어야 합니다. 현재 수십 개 도시에서 로보택시 서비스가 현실화되고 있으며, 운전석에 아무도 없는 차량이 승객을 태우고 있습니다.
 
 ---
 
@@ -290,9 +281,6 @@ Oracle Cloud를 통해 기존 약정을 활용하여 OpenAI 모델과 Codex에 �
   severity="Medium"
 %}
 
-#### 요약
-
-Lightning Engine은 Apache Spark 성능을 4.9배 향상시켜 데이터 처리 병목 현상을 해결합니다. 에이전틱 시대에는 수천 개의 동시 다중 홉 쿼리가 발생하므로, 이 성능 개선이 단위 경제성에 직접적인 영향을 미칩니다.
 
 ---
 
@@ -323,9 +311,6 @@ Antigravity 2.0은 여러 자율 에이전트를 병렬로 조율하는 데스�
   severity="Medium"
 %}
 
-#### 요약
-
-AWS가 AWS Graviton5 프로세서를 탑재한 Amazon EC2 M9g 및 M9gd 인스턴스를 출시했습니다. Graviton5는 AWS가 만든 가장 강력하고 에너지 효율적인 프로세서로, Graviton4 기반 인스턴스 대비 최대 25% 향상된 컴퓨팅 성능을 제공합니다.
 
 ---
 
@@ -342,9 +327,6 @@ AWS가 AWS Graviton5 프로세서를 탑재한 Amazon EC2 M9g 및 M9gd 인스턴
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub CLI에 새로운 gh discussion 명령어 그룹이 추가되어 터미널에서 바로 Discussions를 조회, 생성, 업데이트할 수 있게 되었습니다.
 
 ---
 
@@ -359,9 +341,6 @@ GitHub CLI에 새로운 gh discussion 명령어 그룹이 추가되어 터미널
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub CLI에서 이슈 유형, 상위 및 하위 이슈 관계, 이슈 의존성을 터미널에서 직접 관리할 수 있게 되었습니다. 이제 브라우저로 전환하지 않고도 작업을 구조화하고 추적할 수 있습니다.
 
 ---
 
@@ -376,9 +355,6 @@ GitHub CLI에서 이슈 유형, 상위 및 하위 이슈 관계, 이슈 의존�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 Copilot Chat과 Copilot cloud agent 간의 핸드오프 경험을 개선하고, 웹에서 과거 agent 세션을 검색 및 조회할 수 있는 새로운 기능을 추가했습니다.
 
 ---
 
@@ -412,9 +388,6 @@ Strategy (MSTR)의 CEO Phong Le는 2022년 이후 첫 Bitcoin 매각이 후퇴�
   severity="Medium"
 %}
 
-#### 요약
-
-Morgan Stanley의 디지털 자산 전략 책임자 Amy Oldenburg는 Bitcoin의 주류 채택에 가장 큰 장애물은 제품 가용성이 아닌 투자자와 자문가의 교육이라고 말했습니다. 이 내용은 Bitcoin Magazine에 Micah Zimmerman이 기고한 기사에서 인용되었습니다.
 
 ---
 
@@ -429,9 +402,6 @@ Morgan Stanley의 디지털 자산 전략 책임자 Amy Oldenburg는 Bitcoin의 
   severity="Medium"
 %}
 
-#### 요약
-
-Fold Holdings는 약 4,500만 달러 상당의 Bitcoin을 매도하여 담보 부채를 상환하고 성장 자금을 확보했으며, 이에 따라 주가가 일시적으로 130% 이상 급등했습니다. 회사는 담보(secured) 부채를 상환해 담보 기준 무부채 상태가 되었고 약 1,492 BTC를 보유하고 있으며, Bitcoin 리워드 및 금융 서비스 확장에 집중할 계획입니다.
 
 ---
 

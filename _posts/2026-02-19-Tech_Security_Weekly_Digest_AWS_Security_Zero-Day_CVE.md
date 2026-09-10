@@ -262,9 +262,6 @@ OpenAI for India는 인도 전역에 AI 접근성을 확대합니다. 현지 인
   severity="Medium"
 -%}
 
-#### 요약
-
-Google Gemini가 Lyria 3 음악 생성 모델을 통해 텍스트 프롬프트로 음악을 만드는 기능을 선보였습니다. 사용자는 장르, 분위기, 악기 등을 자연어로 설명하면 고품질 음악 트랙을 생성할 수 있으며, Gemini 앱에서 직접 사용 가능합니다.
 
 #### 핵심 포인트
 
@@ -289,9 +286,6 @@ Google Gemini가 Lyria 3 음악 생성 모델을 통해 텍스트 프롬프트�
   severity="Medium"
 -%}
 
-#### 요약
-
-Google이 인도에서 개최한 AI Impact Summit 2026에서 AI 기술의 사회적 영향과 포용적 AI 발전 방향을 논의했습니다. 인도 정부, 산업계, 학계 전문가들이 참여하여 AI 접근성 확대 및 사회 문제 해결을 위한 파트너십 방안을 발표했습니다.
 
 #### 핵심 포인트
 
@@ -330,9 +324,6 @@ Google이 인도에서 개최한 AI Impact Summit 2026에서 AI 기술의 사회
   severity="Medium"
 -%}
 
-#### 요약
-
-Google Threat Intelligence Group 수석 분석가 John Hultquist가 최신 AI Threat Tracker 보고서를 분석합니다. 모델 증류(distillation) 기반 공격, AI 모델 추출, 프롬프트 인젝션 등 2026년 AI 보안 위협 동향을 상세히 다룹니다.
 
 ---
 
@@ -366,9 +357,6 @@ Vertex AI Provisioned Throughput(PT)는 예약된 리소스를 제공하여 AI �
   severity="Medium"
 -%}
 
-#### 요약
-
-Observability Summit North America가 5월 21-22일 미니애폴리스에서 개최됩니다. 실무자, 기여자, 엔지니어가 모여 오픈 관측성 표준과 실천을 발전시킵니다.
 
 ---
 
@@ -383,9 +371,6 @@ Observability Summit North America가 5월 21-22일 미니애폴리스에서 개
   severity="Medium"
 -%}
 
-#### 요약
-
-Kyverno 1.17은 차세대 Common Expression Language(CEL) 정책 엔진의 안정화를 기념하는 획기적인 릴리스입니다. 1.16에서 베타로 도입된 'CEL 우선' 비전이 1.17에서 v1으로 승격되어 고성능 Kubernetes 정책 관리를 제공합니다.
 
 ---
 
@@ -404,9 +389,6 @@ Kyverno 1.17은 차세대 Common Expression Language(CEL) 정책 엔진의 안�
   severity="Medium"
 -%}
 
-#### 요약
-
-암호화폐 대출업체 Ledn Inc.가 Bitcoin 연계 대출을 담보로 한 증권화 채권 1억 8800만 달러를 판매했습니다. Bitcoin 담보 채권 발행의 업계 최초 사례로, 기관 투자자의 암호화폐 자산 활용 방식에 새로운 모델을 제시합니다.
 
 #### 핵심 포인트
 
@@ -426,9 +408,6 @@ Kyverno 1.17은 차세대 Common Expression Language(CEL) 정책 엔진의 안�
   severity="Medium"
 -%}
 
-#### 요약
-
-FutureBit이 Apollo III를 출시했습니다. 고성능 채굴기와 풀 Bitcoin 노드를 하나의 데스크톱 장치에 결합한 새로운 가정용 Bitcoin 채굴 시스템으로, 미국 내 설계·제조를 강조합니다.
 
 ---
 
@@ -524,6 +503,6 @@ AI/ML 분야에서는 Google의 MCP 확장과 AI 위협 보고서를 통해 AI �
 <!-- related-posts:v1 -->
 
 - [2026년 02월 18일 주간 보안 다이제스트: 악성코드·클라우드·패치 (3건)](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
-- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·쿠버네티스 (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·Kubernetes (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
 - [2026년 02월 22일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (3건)](/posts/2026/02/22/Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security/) — 2026-02-22
 

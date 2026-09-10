@@ -222,9 +222,6 @@ DevSecOps 환경에서 이번 조치는 **즉각적인 운영 중단**과 **규�
   severity="Medium"
 %}
 
-#### 요약
-
-Anthropic의 Mythos AI 모델이 Zcash에서 이전에 발견된 위조 버그를 패치한 후 더 이상 '심각한' 버그를 찾지 못했다고 Zcash 창립자 Zooko Wilcox가 밝혔다.
 
 ---
 
@@ -239,9 +236,6 @@ Anthropic의 Mythos AI 모델이 Zcash에서 이전에 발견된 위조 버그�
   severity="Medium"
 %}
 
-#### 요약
-
-Anthropic이 미국 정부의 국가 안보 지침에 따라 자사의 주력 AI 모델인 Fable 5와 Mythos 5에 대한 접근을 중단했습니다.
 
 ---
 
@@ -256,9 +250,6 @@ Anthropic이 미국 정부의 국가 안보 지침에 따라 자사의 주력 AI
   severity="Medium"
 %}
 
-#### 요약
-
-미국 정부가 Anthropic의 최강 AI 모델(Fable 5·Mythos 5) 접근을 차단하자 Anthropic의 IPO 전 장외 주가가 하락했다.
 
 ---
 
@@ -292,9 +283,6 @@ Strategy의 Michael Saylor는 최근 Bitcoin 매각이 회사의 "never sell" �
   severity="Medium"
 %}
 
-#### 요약
-
-Morpho의 1억 7500만 달러 조달은 스테이블코인 채택 확대 속에서 온체인 신용 인프라에 대한 투자자들의 관심이 증가하고 있음을 보여줍니다. 이는 암호화폐 VC 자금이 어디로 흘러가고 있는지를 나타냅니다.
 
 ---
 
@@ -309,9 +297,6 @@ Morpho의 1억 7500만 달러 조달은 스테이블코인 채택 확대 속에�
   severity="Medium"
 %}
 
-#### 요약
-
-ETH 선물 시장에서 약세 신호가 나타났지만, 스테이커들의 회복력과 기업들의 ETH 축적이 가격 하락을 방어할 가능성이 있습니다. 레버리지 수요는 낮지만, 이러한 펀더멘털 강세가 Ether 가격이 1,500달러까지 폭락하는 것을 막을 수 있습니다.
 
 ---
 

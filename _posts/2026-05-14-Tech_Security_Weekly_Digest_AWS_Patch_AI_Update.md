@@ -222,9 +222,6 @@ DevSecOps 실무자에게 이 가이드는 **AI 모델을 코드(Code), 인프�
   severity="High"
 %}
 
-#### 요약
-
-NVIDIA와 AlphaGo 설계자 David Silver가 이끄는 Ineffable Intelligence가 강화학습 인프라 구축을 위한 엔지니어링 협업을 시작했다. 이 협력은 시행착오를 통해 학습하는 강화학습 에이전트가 계산을 새로운 지식으로 전환하는 데 초점을 맞춘다.
 
 ---
 
@@ -238,9 +235,6 @@ NVIDIA와 AlphaGo 설계자 David Silver가 이끄는 Ineffable Intelligence가 
   severity="Medium"
 %}
 
-#### 요약
-
-Meta의 새로운 Friend Bubbles 기능은 친구들이 시청하고 반응한 Reels을 강조하는 단순한 기능처럼 보이지만, 이를 수십억 규모로 확장하기 위해 깊은 엔지니어링 작업이 필요했습니다. Meta Tech Podcast에서 소프트웨어 엔지니어 Subasree와 Joseph이 이 기능의 개발 과정을 논의했습니다.
 
 ---
 
@@ -255,9 +249,6 @@ Meta의 새로운 Friend Bubbles 기능은 친구들이 시청하고 반응한 R
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI는 Windows 환경에서 Codex를 안전하게 실행하기 위해 파일 접근 제어와 네트워크 제한을 적용한 샌드박스를 구축했습니다. 이를 통해 통제된 조건에서 안전하고 효율적인 코딩 에이전트를 구현할 수 있게 되었습니다.
 
 ---
 
@@ -274,9 +265,6 @@ OpenAI는 Windows 환경에서 Codex를 안전하게 실행하기 위해 파일 
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 Gartner Magic Quadrant for AI Application Development Platforms의 중간 업데이트에서 리더로 선정되었으며, 실행 능력 부문에서 가장 높은 평가를 받았습니다. 이번 업데이트는 지난해 11월 첫 보고서 발표 이후 플랫폼의 지속적인 발전과 모멘텀을 반영합니다.
 
 ---
 
@@ -308,9 +296,6 @@ Google은 Gartner Magic Quadrant for AI Application Development Platforms의 중
   severity="High"
 %}
 
-#### 요약
-
-Glance는 모바일 퍼스트 콘텐츠 플랫폼으로, 팟캐스트, 뉴스, 영화 등 1-2시간 분량의 장편 수평 영상을 AI를 활용해 30~180초 길이의 모바일 잠금화면에 최적화된 수직 클립으로 변환합니다.
 
 ---
 
@@ -327,9 +312,6 @@ Glance는 모바일 퍼스트 콘텐츠 플랫폼으로, 팟캐스트, 뉴스, �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub가 커뮤니티 피드백을 반영하여 GitHub App 개발자를 위한 새로운 Enterprise Installation API를 공개 프리뷰로 출시했습니다. 이 API를 통해 GitHub App이 자신이 엔터프라이즈에 설치되었는지 확인할 수 있습니다.
 
 ---
 
@@ -344,9 +326,6 @@ GitHub가 커뮤니티 피드백을 반영하여 GitHub App 개발자를 위한 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 Copilot Business 및 Copilot Enterprise 사용자를 위해 Agent tasks REST API의 공개 미리보기를 발표했습니다. 이 API를 통해 사용자는 프로그래밍 방식으로 Copilot cloud agent 작업을 시작할 수 있습니다.
 
 ---
 
@@ -361,9 +340,6 @@ GitHub이 Copilot Business 및 Copilot Enterprise 사용자를 위해 Agent task
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Enterprise Server 3.21 릴리스 후보가 공개되었으며, 배포 효율성, 모니터링 기능, 코드 보안 및 정책 관리가 개선되었고, 조직 맞춤 속성이 일반에 공개되었습니다.
 
 ---
 
@@ -380,9 +356,6 @@ GitHub Enterprise Server 3.21 릴리스 후보가 공개되었으며, 배포 효
   severity="Medium"
 %}
 
-#### 요약
-
-미국 상원이 Bitcoin 친화적인 전 연준 위원 Kevin Warsh를 연준 의장으로 승인했습니다. 이는 암호화폐 시장 구조에 관한 Clarity Act 투표를 하루 앞둔 시점으로, 미국 통화 정책의 변화 가능성을 예고합니다.
 
 ---
 
@@ -397,9 +370,6 @@ GitHub Enterprise Server 3.21 릴리스 후보가 공개되었으며, 배포 효
   severity="Medium"
 %}
 
-#### 요약
-
-Coinbase CEO Brian Armstrong은 CLARITY Act가 미국 금융 시스템을 근본적으로 재편할 수 있다고 밝혔으며, 해당 법안은 이번 주 상원 은행위원회 마크업(심의)에 부쳐지며, 전체 상원 표결은 6~7월로 예정되어 있습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
 
 ---
 
@@ -414,9 +384,6 @@ Coinbase CEO Brian Armstrong은 CLARITY Act가 미국 금융 시스템을 근본
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Suisse (International) Ltd.가 버뮤다통화청(Bermuda Monetary Authority)으로부터 이중 규제 승인을 획득했습니다. 이번 승인은 국제 디지털 자산 확장을 위한 중요한 이정표로 평가됩니다.
 
 ---
 

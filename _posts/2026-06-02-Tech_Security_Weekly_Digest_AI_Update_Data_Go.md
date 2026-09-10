@@ -219,9 +219,6 @@ DevSecOps 관점에서 이 공격은 **CI/CD 파이프라인, 애플리케이션
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI는 AI 정책과 정치적 옹호에 대한 접근 방식으로 투명성, 신중한 규제 및 AI 안전에 대한 지지를 밝히며, 외부 정치 단체가 회사를 대신해 발언하지 않음을 명시했습니다.
 
 ---
 
@@ -236,9 +233,6 @@ OpenAI는 AI 정책과 정치적 옹호에 대한 접근 방식으로 투명성,
   severity="Medium"
 %}
 
-#### 요약
-
-Google I/O 2026의 제작 과정에 Gemini가 어떻게 활용되었는지 소개하며, Antigravity Coffee Co. 팝업, 형형색색의 해파리, Timmy TPU 영상 등 다양한 I/O 관련 이미지와 AI라는 단어가 반복적으로 등장하는 콜라주가 포함되어 있습니다.
 
 ---
 
@@ -252,9 +246,6 @@ Google I/O 2026의 제작 과정에 Gemini가 어떻게 활용되었는지 소�
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 Stargate 프로젝트의 일환으로 미시간주에 1GW 규모의 데이터 센터 건설을 시작했습니다. 이는 AI 인프라를 확장하여 접근성을 높이고 일자리를 창출하며 지역사회를 지원하기 위한 목적입니다.
 
 ---
 
@@ -271,9 +262,6 @@ OpenAI가 Stargate 프로젝트의 일환으로 미시간주에 1GW 규모의 �
   severity="Medium"
 %}
 
-#### 요약
-
-Trustpilot은 Gemma 모델을 활용하여 실시간으로 수백만 건의 사용자 리뷰를 처리하는 고성능 스트리밍 파이프라인을 구축했습니다. 이는 엄격한 지연 시간과 비용 제약 하에서 기존의 custom machine learning에서 generative AI로의 전환을 의미합니다.
 
 ---
 
@@ -288,9 +276,6 @@ Trustpilot은 Gemma 모델을 활용하여 실시간으로 수백만 건의 사�
   severity="Medium"
 %}
 
-#### 요약
-
-AlloyDB용 완전 관리형 Remote MCP Server가 정식 출시되었습니다. 이 서버는 AI 에이전트가 운영 데이터베이스에 접근하여 더 신뢰할 수 있는 맥락을 활용할 수 있도록 지원합니다.
 
 ---
 
@@ -305,9 +290,6 @@ AlloyDB용 완전 관리형 Remote MCP Server가 정식 출시되었습니다. �
   severity="Medium"
 %}
 
-#### 요약
-
-BigQuery Graph를 활용해 식품 공급망의 디지털 트윈을 모델링하는 방법을 소개하며, 레스토랑 체인 성장 과정에서 발생하는 채찍 효과(bullwhip effect) 같은 마찰을 해결하기 위해 비즈니스의 디지털 복제본이 필요함을 설명합니다.
 
 ---
 
@@ -324,9 +306,6 @@ BigQuery Graph를 활용해 식품 공급망의 디지털 트윈을 모델링하
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot이 개인 사용자에게 평가 모델(evaluation models)에 대한 접근을 제공하며, 이 모델들은 Copilot 자동 모드 선택(auto model selection)에서 제공될 수 있습니다. 사용자는 Copilot을 통해 평가 모델 사용을 비활성화할 수 있습니다.
 
 ---
 
@@ -341,9 +320,6 @@ GitHub Copilot이 개인 사용자에게 평가 모델(evaluation models)에 대
   severity="High"
 %}
 
-#### 요약
-
-Sandbox Security는 격리 기술인 샌드박싱에 정책과 통제를 더해 실제 환경에서 경계가 유지되도록 하는 보안 계층입니다. State of Agentic AI 보고서에 따르면 응답자의 40%가 에이전틱 AI 확장의 최대 과제로 보안을 꼽았습니다.
 
 ---
 
@@ -357,9 +333,6 @@ Sandbox Security는 격리 기술인 샌드박싱에 정책과 통제를 더해 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot의 사용량 기반 요금제가 모든 사용자에게 적용되었으며, Copilot 코드 리뷰가 GitHub Actions 시간을 소비하게 되었습니다. 이 변경 사항은 최근 블로그 게시물을 통해 발표되었습니다.
 
 ---
 
@@ -376,9 +349,6 @@ GitHub Copilot의 사용량 기반 요금제가 모든 사용자에게 적용되
   severity="Medium"
 %}
 
-#### 요약
-
-CME Group이 CME Globex 플랫폼에서 연중무휴 24시간 암호화폐 선물 및 옵션 거래를 시작했으며, Bitcoin 변동성 계약도 함께 출시했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
 
 ---
 
@@ -393,9 +363,6 @@ CME Group이 CME Globex 플랫폼에서 연중무휴 24시간 암호화폐 선�
   severity="Medium"
 %}
 
-#### 요약
-
-Coinbase의 Faryar Shirzad는 CLARITY Act가 이번 달 상원 표결을 앞두고 암호화폐 업계의 'Dodd-Frank Act moment'가 될 수 있다고 말했습니다. 이 법안은 암호화폐 규제의 중요한 전환점이 될 것으로 기대됩니다.
 
 ---
 

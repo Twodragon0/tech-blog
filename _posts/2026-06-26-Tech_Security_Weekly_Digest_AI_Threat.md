@@ -245,9 +245,6 @@ DevSecOps 파이프라인에서 모바일 AI 에이전트 도입 시 다음과 �
   severity="Medium"
 %}
 
-#### 요약
-
-Google Finance가 새로운 앱을 포함한 최신 업그레이드를 발표했습니다. 이번 업데이트는 사용자 인터페이스 요소와 함께 Google Finance 로고를 중심으로 개선되었습니다.
 
 ---
 
@@ -281,9 +278,6 @@ Google Finance가 새로운 앱을 포함한 최신 업그레이드를 발표했
   severity="Medium"
 %}
 
-#### 요약
-
-Google Threat Intelligence Group(GTIG)은 러시아 연계 위협 행위자 Turla가 2022년 12월부터 지속적으로 개발 및 배포해 온 .NET 백도어 STOCKSTAY를 분석했습니다. Turla는 이 STOCKSTAY를 우크라이나의 정부 및 군사 조직과 이탈리아 외교 정책에 관심이 있는 단체를 대상으로 사용했습니다.
 
 ---
 
@@ -300,9 +294,6 @@ Google Threat Intelligence Group(GTIG)은 러시아 연계 위협 행위자 Turl
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Copilot code review가 Copilot CLI와 SDK의 파일 탐색 도구를 활용하도록 업데이트되어, 기존 워크플로우 변경 없이 리뷰 비용 효율성이 크게 개선되었습니다.
 
 ---
 
@@ -317,9 +308,6 @@ GitHub의 Copilot code review가 Copilot CLI와 SDK의 파일 탐색 도구를 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 VS Code와 GitHub Copilot CLI에서 기업이 사용자 플러그인 설치를 제어할 수 있는 strictKnownMarketplaces 설정을 퍼블릭 프리뷰로 제공한다. 이 설정은 엔터프라이즈 관리형 환경에 추가할 수 있다.
 
 ---
 
@@ -333,9 +321,6 @@ GitHub이 VS Code와 GitHub Copilot CLI에서 기업이 사용자 플러그인 �
   severity="Medium"
 %}
 
-#### 요약
-
-이 글은 컨테이너 이미지의 SBOM(Software Bill of Materials) 생성 시점과 방법을 다루며, 빌드 타임과 포스트 빌드 접근법, 품질 기준, CI/CD 통합 방안을 설명합니다.
 
 ---
 
@@ -352,9 +337,6 @@ GitHub이 VS Code와 GitHub Copilot CLI에서 기업이 사용자 플러그인 �
   severity="Medium"
 %}
 
-#### 요약
-
-Trezor Academy가 아프리카 전역의 Bitcoin 도입을 조명한 다큐멘터리를 공개하고, 글로벌 사우스의 Bitcoin 교육 이니셔티브를 지원하기 위한 기부 프로그램을 시작했습니다.
 
 ---
 
@@ -369,9 +351,6 @@ Trezor Academy가 아프리카 전역의 Bitcoin 도입을 조명한 다큐멘�
   severity="Medium"
 %}
 
-#### 요약
-
-Matt Corallo가 Rust Lightning 금지 이후 Bitcoin 프로젝트들이 GitHub를 떠나야 한다고 촉구했습니다. Andrew Poelstra 등 선임 개발자들은 깨진 병합 스크립트, 숨겨진 diff, 신뢰할 수 없는 추적을 지적하며 자체 호스팅 Forgejo 솔루션으로 전환을 권장했습니다.
 
 ---
 
@@ -386,9 +365,6 @@ Matt Corallo가 Rust Lightning 금지 이후 Bitcoin 프로젝트들이 GitHub�
   severity="High"
 %}
 
-#### 요약
-
-Perception이 베타 버전을 종료하고 디지털 자산 내러티브 인텔리전스 플랫폼을 출시했으며, BitGo, Swan, Relai, Bitcoin Well과의 통합을 통해 1,000개 이상의 업계 소스에서 AI 기반 시장 인사이트를 제공합니다.
 
 ---
 

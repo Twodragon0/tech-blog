@@ -327,7 +327,7 @@ AML/컴플라이언스 시사점:
 
 <!-- related-posts:v1 -->
 
-- [2026년 03월 05일 주간 보안 다이제스트: 제로데이·랜섬웨어·쿠버네티스 (4건)](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
+- [2026년 03월 05일 주간 보안 다이제스트: 제로데이·랜섬웨어·Kubernetes (4건)](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
 - [2026년 03월 01일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (3건)](/posts/2026/03/01/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/) — 2026-03-01
 - [2026년 03월 07일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (4건)](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
 

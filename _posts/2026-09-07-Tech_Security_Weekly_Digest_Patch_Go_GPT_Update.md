@@ -163,9 +163,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 자사의 가장 강력한 모델인 ChatGPT Astra를 월 20달러의 Plus 구독자들에게 배포하기 시작했습니다. 하지만 무료 사용자들의 접근 시기에 대해서는 아직 알려진 바가 없습니다.
 
 
 #### 권장 조치
@@ -190,9 +187,6 @@ OpenAI가 자사의 가장 강력한 모델인 ChatGPT Astra를 월 20달러의 
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI, AIRPPU, WAN-IFRA는 우크라이나 뉴스 기관을 지원하기 위한 AI 프로그램을 시작했습니다. 이 프로그램은 이들의 혁신, 회복력, 독립 저널리즘을 강화하는 데 기여할 것입니다.
 
 
 ---
@@ -207,9 +201,6 @@ OpenAI, AIRPPU, WAN-IFRA는 우크라이나 뉴스 기관을 지원하기 위한
   severity="Medium"
 %}
 
-#### 요약
-
-야쿠프 파초키는 점점 더 강력해지는 인공지능과 이를 인간의 가치에 부합하도록 유지하는 것의 어려움에 대해 성찰합니다. 그는 더 강력한 안전장치 마련과 국제적 공조를 촉구했습니다.
 
 
 ---
@@ -226,9 +217,6 @@ OpenAI, AIRPPU, WAN-IFRA는 우크라이나 뉴스 기관을 지원하기 위한
   severity="Medium"
 %}
 
-#### 요약
-
-이 글은 AI 에이전트를 위한 OpenSearch 검색 품질을 개선하는 방법을 다룬다. 이전 측정 결과를 바탕으로 Rerank와 Weight 튜닝 등 실제 품질을 높이는 구체적인 방안을 제시한다.
 
 
 ---
@@ -260,9 +248,6 @@ OpenAI, AIRPPU, WAN-IFRA는 우크라이나 뉴스 기관을 지원하기 위한
   severity="Medium"
 %}
 
-#### 요약
-
-LG에너지솔루션은 Amazon Bedrock AgentCore를 기반으로 ERCOT 분석 에이전트를 구축하여 실시간으로 변동하는 전력시장에서 가격 예측과 입찰 전략 분석을 가능하게 했습니다. 이 에이전트는 전력거래 솔루션의 핵심 기능으로, 급변하는 시장에서 ESS를 활용해 최대 수익을 창출하는 데 기여할 예정입니다.
 
 
 ---
@@ -280,9 +265,6 @@ LG에너지솔루션은 Amazon Bedrock AgentCore를 기반으로 ERCOT 분석 �
   severity="Medium"
 %}
 
-#### 요약
-
-리퀴드 네트워크는 자칭 화이트햇 해커들이 L-BTC를 지원하는 연합 지갑에서 약 4,000 Bitcoin을 인출했다고 밝혔습니다. 이에 따라 브리지 노드가 비활성화되고 사이드체인이 일시 중지된 상태입니다.
 
 
 ---
@@ -298,9 +280,6 @@ LG에너지솔루션은 Amazon Bedrock AgentCore를 기반으로 ERCOT 분석 �
   severity="Medium"
 %}
 
-#### 요약
-
-솔라나 기반의 Fomo가 금요일 일일 수익에서 Pump.fun을 앞질렀습니다. Fomo는 이날 176만 달러를 벌어들여 110만 달러를 기록한 Pump.fun을 제쳤지만, 30일 누적 수익에서는 Pump.fun이 여전히 우위를 지키고 있습니다.
 
 
 ---
@@ -380,7 +359,7 @@ Bitcoin 사이드체인 리퀴드가 ‘화이트햇’으로 알려진 행위�
 
 <!-- related-posts:v1 -->
 
-- [2026년 09월 08일 주간 보안 다이제스트: 쿠버네티스·제로데이·클라우드 (23건)](/posts/2026/09/08/Tech_Security_Weekly_Digest_Data_AI_Cloud_Security/) — 2026-09-08
+- [2026년 09월 08일 주간 보안 다이제스트: Kubernetes·제로데이·클라우드 (23건)](/posts/2026/09/08/Tech_Security_Weekly_Digest_Data_AI_Cloud_Security/) — 2026-09-08
 - [2026년 09월 04일 주간 보안 다이제스트: 악성코드·클라우드·제로데이 (30건)](/posts/2026/09/04/Tech_Security_Weekly_Digest_AI_Malware_Rust/) — 2026-09-04
 - [2026년 08월 31일 주간 보안 다이제스트: 클라우드·악성코드·BYOVD EDR (15건)](/posts/2026/08/31/Tech_Security_Weekly_Digest_Cloud_AI_Data_Malware/) — 2026-08-31
 

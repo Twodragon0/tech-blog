@@ -230,9 +230,6 @@ DevSecOps 팀은 **"런타임 보안 모니터링"** 과 **"에이전트 행동 
   severity="Medium"
 %}
 
-#### 요약
-
-Meta의 두 번째 Ranking Engineer Agent 시리즈는 AI 인프라 최적화에 초점을 맞추고 있습니다. 이번 글에서는 광고 순위 모델 실행의 기반이 되는 저수준 인프라를 KernelEvolve로 최적화하는 방법을 다룹니다.
 
 ---
 
@@ -247,9 +244,6 @@ Meta의 두 번째 Ranking Engineer Agent 시리즈는 AI 인프라 최적화에
   severity="Medium"
 %}
 
-#### 요약
-
-Google의 Gemma 4 모델군은 효율적인 로컬 실행을 위해 설계된 소형 고속 모델을 소개합니다. 이는 클라우드를 넘어 온디바이스 AI와 실시간 현지 컨텍스트 활용의 중요성을 강조하는 흐름을 반영합니다.
 
 ---
 
@@ -282,9 +276,6 @@ Flex Inference와 Priority Inference는 Gemini API의 비용과 신뢰성을 조
   severity="Medium"
 %}
 
-#### 요약
-
-Honeylove는 브라와 셰이프웨어 등 의류를 제작하지만 데이터와 기술을 핵심으로 하는 회사입니다. 제품 품질과 서비스 효율성을 높이기 위해 수천 개의 데이터 포인트를 활용하며, 데이터 통합 및 분석을 위해 BigQuery를 도입했습니다.
 
 ---
 
@@ -298,9 +289,6 @@ Honeylove는 브라와 셰이프웨어 등 의류를 제작하지만 데이터�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud가 가장 성능이 뛰어난 오픈 모델 제품군인 Gemma 4를 출시했습니다. 이 모델은 Gemini 3와 동일한 연구 기반으로 제작되었으며, 최대 256K의 컨텍스트 윈도우와 멀티모달 처리 능력을 바탕으로 복잡한 논리와 에이전트 워크플로에 탁월합니다.
 
 ---
 
@@ -315,9 +303,6 @@ Google Cloud가 가장 성능이 뛰어난 오픈 모델 제품군인 Gemma 4를
   severity="Medium"
 %}
 
-#### 요약
-
-Google Threat Intelligence Group(GTIG)의 최근 BRICKSTORM 연구를 바탕으로, 이 글은 VMware vSphere 생태계, 특히 vCenter Server Appliance(VCSA)와 ESXi 하이퍼바이저를 직접 표적으로 삼는 진화하는 위협을 탐구합니다.
 
 ---
 
@@ -333,9 +318,6 @@ Google Threat Intelligence Group(GTIG)의 최근 BRICKSTORM 연구를 바탕으�
   severity="Medium"
 %}
 
-#### 요약
-
-Software Supply Chain에 대한 지속적인 공격이 심화되고 있습니다. 이번 주에는 axios와 같은 핵심 라이브러리에서도 문제가 발견되었으며, 모든 엔지니어링 팀은 의존성 검토 및 SBOM 관리 등 즉각적인 대응이 필요합니다.
 
 ---
 
@@ -349,9 +331,6 @@ Software Supply Chain에 대한 지속적인 공격이 심화되고 있습니다
   severity="Medium"
 %}
 
-#### 요약
-
-Docker Hub는 경량 엣지 모델부터 고성능 LLM까지 OCI 아티팩트로 패키징된 AI 모델의 허브로 자리잡고 있습니다. Google의 최신 경량 오픈 모델인 Gemma 4가 Docker Hub에서 이용 가능해졌습니다.
 
 ---
 
@@ -365,9 +344,6 @@ Docker Hub는 경량 엣지 모델부터 고성능 LLM까지 OCI 아티팩트로
   severity="High"
 %}
 
-#### 요약
-
-Docker Offload가 정식 출시되어 VDI 플랫폼 등 제한된 환경의 엔터프라이즈 개발자들도 Docker Desktop의 모든 기능을 활용할 수 있게 되었습니다. 이는 리소스나 기능 부족으로 Docker Desktop 사용이 어려웠던 개발자들에게 전면적인 Docker 경험을 제공합니다.
 
 ---
 
@@ -384,9 +360,6 @@ Docker Offload가 정식 출시되어 VDI 플랫폼 등 제한된 환경의 엔�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Magazine가 Bitcoin 2026에서 'How Real Is The Quantum Threat?' 패널 토론을 공식 발표했습니다. 이 자리에서는 양자 컴퓨팅이 Bitcoin에 미치는 위협에 대한 다양한 관점을 가진 전문가들이 논의할 예정입니다.
 
 ---
 
@@ -401,9 +374,6 @@ Bitcoin Magazine가 Bitcoin 2026에서 'How Real Is The Quantum Threat?' 패널 
   severity="Medium"
 %}
 
-#### 요약
-
-MARA Holdings는 부채 감축을 위해 11억 달러 상당의 Bitcoin을 매각한 후 여러 부서에서 지속적인 감원을 진행하고 있습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman에 의해 보도되었습니다.
 
 ---
 
@@ -417,9 +387,6 @@ MARA Holdings는 부채 감축을 위해 11억 달러 상당의 Bitcoin을 매�
   severity="High"
 %}
 
-#### 요약
-
-Chainalysis Links NYC 2026 컨퍼런스에서 암호화폐 거래소, 글로벌 법 집행 기관, TradFi(전통 금융) 관계자들이 모여 AI 확산과 전통 금융과의 융합을 논의했습니다. 네트워크 지능의 힘을 중심으로 한 이 행사는 블록체인 생태계의 주요 동향을 살펴보는 자리였습니다.
 
 ---
 

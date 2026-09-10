@@ -230,9 +230,6 @@ Zero Trust 아키텍처의 핵심은 "모든 요청을 검증"하는 것이며, 
   severity="High"
 %}
 
-#### 요약
-
-AWS CloudTrail과 GuardDuty를 통합하여 클라우드 환경의 위협을 실시간으로 탐지하는 아키텍처가 2026년 AWS 보안 모범 사례로 재정립되었습니다. GuardDuty는 CloudTrail 관리 이벤트, VPC Flow Logs, DNS 로그를 분석하여 비정상적인 API 호출, 암호화폐 채굴, 자격 증명 탈취 시도 등을 탐지합니다.
 
 #### 위협 분석
 
@@ -444,9 +441,6 @@ jobs:
   severity="Medium"
 %}
 
-#### 요약
-
-Terraform 1.10이 릴리스되면서 보안 관련 주요 개선 사항이 포함되었습니다. Ephemeral Values 기능이 정식 지원되어 민감 데이터가 State 파일에 저장되지 않도록 제어할 수 있으며, Provider 설치 시 서명 검증이 강화되었습니다.
 
 #### 위협 분석
 

@@ -672,7 +672,7 @@ AI 분야에서는 GPT-5.4의 네이티브 컴퓨터 사용 기능 출시가 가
 
 <!-- related-posts:v1 -->
 
-- [2026년 03월 05일 주간 보안 다이제스트: 제로데이·랜섬웨어·쿠버네티스 (4건)](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
+- [2026년 03월 05일 주간 보안 다이제스트: 제로데이·랜섬웨어·Kubernetes (4건)](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
 - [2026년 03월 07일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (4건)](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
 - [2026년 03월 09일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (7건)](/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/) — 2026-03-09
 

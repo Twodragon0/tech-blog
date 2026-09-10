@@ -227,9 +227,6 @@ DevSecOps 실무자 관점에서 이번 사건은 **CI/CD 파이프라인을 공
   severity="High"
 %}
 
-#### 요약
-
-6월 GeForce NOW에 18개의 신규 게임이 추가되며, 대작부터 인디 게임까지 클라우드 스트리밍으로 즐길 수 있습니다.
 
 ---
 
@@ -243,9 +240,6 @@ DevSecOps 실무자 관점에서 이번 사건은 **CI/CD 파이프라인을 공
   severity="Medium"
 %}
 
-#### 요약
-
-Endava는 AI 에이전트, ChatGPT Enterprise, Codex를 활용하여 소프트웨어 전달을 가속화하고 워크플로를 자동화하며, 기업 전반에 AI 네이티브 문화를 구축하고 있다.
 
 ---
 
@@ -259,9 +253,6 @@ Endava는 AI 에이전트, ChatGPT Enterprise, Codex를 활용하여 소프트�
   severity="Medium"
 %}
 
-#### 요약
-
-ChatGPT가 대화 간 맥락을 유지하며 사용자 선호도를 더 잘 기억하는 새로운 메모리 시스템을 도입했다. 이 시스템은 더 도움이 되는 응답을 위해 기억을 개선하는 데 초점을 맞추고 있다.
 
 ---
 
@@ -278,9 +269,6 @@ ChatGPT가 대화 간 맥락을 유지하며 사용자 선호도를 더 잘 기�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud의 Dataproc 서비스가 Managed Service for Apache Spark로 변경되었으며, Agentic Data Cloud와의 통합을 강화하여 대규모 분석 및 데이터 과학 워크로드를 효율적으로 실행할 수 있도록 지원합니다.
 
 ---
 
@@ -294,9 +282,6 @@ Google Cloud의 Dataproc 서비스가 Managed Service for Apache Spark로 변경
   severity="Medium"
 %}
 
-#### 요약
-
-Google Data Cloud의 최신 소식으로, Bigtable, Firestore, Memorystore를 활용해 AI Agent를 구동하는 방법을 소개합니다. Next '26에서 발표된 새로운 기능을 기존 사용자와 신규 사용자 모두에게 선보이며, 참가 등록이 가능합니다.
 
 ---
 
@@ -310,9 +295,6 @@ Google Data Cloud의 최신 소식으로, Bigtable, Firestore, Memorystore를 �
   severity="Medium"
 %}
 
-#### 요약
-
-Google의 Agent Development Kit(ADK)으로 로컬에서 AI 에이전트를 프로토타이핑할 수 있지만, 프로덕션 환경에는 확장 가능한 인프라가 필요합니다. Google Kubernetes Engine(GKE) Autopilot은 유연성과 사용 편의성을 갖춘 관리형 컨테이너 오케스트레이션을 제공합니다.
 
 ---
 
@@ -329,9 +311,6 @@ Google의 Agent Development Kit(ADK)으로 로컬에서 AI 에이전트를 프�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Actions 작업이 실패할 때 Copilot Pro, Pro+, Max 구독자는 Fix with Copilot 버튼을 클릭하여 Copilot cloud agent가 문제를 수정하도록 요청할 수 있습니다.
 
 ---
 
@@ -346,9 +325,6 @@ GitHub Actions 작업이 실패할 때 Copilot Pro, Pro+, Max 구독자는 Fix w
   severity="Medium"
 %}
 
-#### 요약
-
-Copilot Pro, Pro+ 및 Max 사용자를 위해 Agent tasks REST API가 공개 미리보기로 제공되어, Copilot cloud agent 작업을 프로그래밍 방식으로 시작하고 추적할 수 있게 되었습니다.
 
 ---
 
@@ -363,9 +339,6 @@ Copilot Pro, Pro+ 및 Max 사용자를 위해 Agent tasks REST API가 공개 미
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot이 백만 토큰 규모의 확장된 컨텍스트 윈도우와 조정 가능한 추론 수준을 지원하여 더 깊고 복잡한 작업을 처리할 수 있게 되었습니다. 이 기능은 사용자가 더 방대한 코드베이스를 참조하고 문제 해결 능력을 향상시킬 수 있도록 돕습니다.
 
 ---
 
@@ -382,9 +355,6 @@ GitHub Copilot이 백만 토큰 규모의 확장된 컨텍스트 윈도우와 �
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin의 최근 하락세가 기관 채택 논리를 시험하고 있지만, Anthony Pompliano는 이번 조정이 정상적인 자본 순환과 Bitcoin의 주류 금융 자산으로의 성숙을 반영한다고 주장합니다.
 
 ---
 
@@ -399,9 +369,6 @@ Bitcoin의 최근 하락세가 기관 채택 논리를 시험하고 있지만, A
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin은 설계상 가명성을 제공하지만, 거래소와 데이터 유출로 인한 실질적 위협에 대응하기 위해 더 강력한 보호 조치가 필요합니다. 전문가들은 2026년의 주요 프라이버시 솔루션으로 Sparrow Wallet, Bisq, Boltz를 온체인 및 오프체인 환경에서 강조합니다. 이 가이드는 Bitcoin Magazine에 게재된 Juan Galt의 글입니다.
 
 ---
 
@@ -416,9 +383,6 @@ Bitcoin은 설계상 가명성을 제공하지만, 거래소와 데이터 유출
   severity="Medium"
 %}
 
-#### 요약
-
-Better와 Coinbase가 Fannie Mae의 지원을 받는 첫 번째 모기지 대출을 성사시켰으며, 이는 주택 구매자가 Bitcoin을 담보로 사용할 수 있도록 합니다. 이 대출은 Bitcoin을 활용한 다운페이먼트 대출 상품으로, 기존 금융 시스템과 암호화폐의 결합을 보여줍니다.
 
 ---
 
@@ -483,7 +447,7 @@ Better와 Coinbase가 Fannie Mae의 지원을 받는 첫 번째 모기지 대출
 <!-- related-posts:v1 -->
 
 - [2026년 06월 04일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (24건)](/posts/2026/06/04/Tech_Security_Weekly_Digest_Go_AI_Zero-Day_CVE/) — 2026-06-04
-- [2026년 06월 06일 주간 보안 다이제스트: 악성코드·패치·쿠버네티스 (25건)](/posts/2026/06/06/Tech_Security_Weekly_Digest_AI_Threat/) — 2026-06-06
+- [2026년 06월 06일 주간 보안 다이제스트: 악성코드·패치·Kubernetes (25건)](/posts/2026/06/06/Tech_Security_Weekly_Digest_AI_Threat/) — 2026-06-06
 - [2026년 06월 02일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (30건)](/posts/2026/06/02/Tech_Security_Weekly_Digest_AI_Update_Data_Go/) — 2026-06-02
 
 ---

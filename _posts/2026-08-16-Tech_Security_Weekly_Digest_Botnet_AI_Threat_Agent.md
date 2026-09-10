@@ -128,9 +128,6 @@ DevSecOps 환경에서 이 위협은 **공급망 및 인프라 경계의 취약�
   severity="Medium"
 %}
 
-#### 요약
-
-AI 플랫폼 계정 해킹 여부를 확인하는 방법을 안내하는 가이드가 공개됐다. 주요 AI 플랫폼에서 해커가 계정에 침입했는지 점검하는 절차를 다루며, 사용자들은 이를 통해 보안 위험을 조기에 발견할 수 있다.
 
 
 #### 권장 조치
@@ -188,9 +185,6 @@ DevSecOps 관점에서 이 위협은 **"Shift-Left"만으로는 해결 불가능
   severity="Medium"
 %}
 
-#### 요약
-
-Bybit이 Unitree와 Moonshot AI를 pre-IPO perpetuals 상품에 추가하며, TradFi perpetuals 라인업이 주식, ETF, 원자재, 지수, 비상장 기업을 포함해 200개 이상의 상품으로 확장됐다.
 
 
 ---
@@ -206,9 +200,6 @@ Bybit이 Unitree와 Moonshot AI를 pre-IPO perpetuals 상품에 추가하며, Tr
   severity="Medium"
 %}
 
-#### 요약
-
-토큰화된 주식 보유자가 지난 한 달간 131만 명으로 두 배 이상 증가했으며, 월간 전송량은 179% 급증한 231억 3천만 달러, 분배 가치는 5.9% 증가한 23억 8천만 달러를 기록했습니다.
 
 
 ---

@@ -217,9 +217,6 @@ Bitcoin Magazine의 'Relics of a Revolution, Part II: False Profits and Freedom'
   severity="Medium"
 %}
 
-#### 요약
-
-Justin Sun이 WLFI 플랫폼의 장기 토큰 록업 기간과 스마트 컨트랙트 수준의 블랙리스트 기능을 비판하자, WLFI 측은 소송을 제기하겠다고 맞섰습니다.
 
 ---
 
@@ -234,9 +231,6 @@ Justin Sun이 WLFI 플랫폼의 장기 토큰 록업 기간과 스마트 컨트�
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy의 Michael Saylor는 기업이 2020년 이후 105건의 Bitcoin 거래를 완료했으며, 회사채와 주식 발행을 통해 BTC를 지속적으로 매집하는 역발상 전략을 펼치고 있음을 시사했습니다.
 
 ---
 

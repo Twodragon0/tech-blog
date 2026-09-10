@@ -201,9 +201,6 @@ DNS(Domain Name System) 파서는 네트워크 통신의 가장 기본적이면�
   severity="Medium"
 %}
 
-#### 요약
-
-Google과 MIT FutureTech가 주최한 AI for the Economy Forum이 개최되었습니다. 이 포럼은 새로운 시대의 혁신과 적응을 주제로 진행되었습니다.
 
 ---
 
@@ -217,9 +214,6 @@ Google과 MIT FutureTech가 주최한 AI for the Economy Forum이 개최되었�
   severity="Medium"
 %}
 
-#### 요약
-
-AWS가 생성형 AI 프로젝트의 개념 단계부터 가치 창출까지 체계적으로 지원하는 'Generative AI Path-to-Value(P2V)' 프레임워크를 소개했습니다. 이 프레임워크는 생성형 AI 이니셔티브를 실제 운영 환경으로 성공적으로 전환하고 지속적인 가치를 창출하는 데 중점을 둡니다.
 
 ---
 
@@ -233,9 +227,6 @@ AWS가 생성형 AI 프로젝트의 개념 단계부터 가치 창출까지 체�
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon SageMaker JumpStart에 특정 사용 사례에 맞춘 최적화된 배포 기능이 추가되었습니다. 이 기능은 사전 정의된 배포 구성을 제공하여 배포 사용자 지정을 보다 풍부하고 간편하게 만듭니다. 고객은 제안된 배포의 세부 사항에 대한 동일한 수준의 가시성을 유지하면서도 특정 사용 사례와 성능 제약에 맞춰 최적화된 배포를 이용할 수 있습니다.
 
 ---
 
@@ -251,9 +242,6 @@ Amazon SageMaker JumpStart에 특정 사용 사례에 맞춘 최적화된 배포
   severity="Medium"
 %}
 
-#### 요약
-
-에이전트 시대는 새로운 보안 시대를 요구합니다. Google의 사명은 AI 기반 클라우드 기술로 모든 조직의 보안 전환을 가속화하며 이 새로운 시대에 가장 신뢰받는 보안 파트너가 되는 것입니다. 2026년 위협 환경은 사이버보안이 중요한 전환점에 도달했음을 보여줍니다.
 
 ---
 
@@ -268,9 +256,6 @@ Amazon SageMaker JumpStart에 특정 사용 사례에 맞춘 최적화된 배포
   severity="Medium"
 %}
 
-#### 요약
-
-Google이 BigQuery Graph를 프리뷰로 출시했다. BigQuery Graph는 대규모 데이터의 숨겨진 관계를 그래프 분석을 통해 새로운 방식으로 모델링하고 분석할 수 있는 확장성 높은 솔루션이다. 이는 데이터 엔지니어부터 AI 개발자에 이르기까지 다양한 사용자가 복잡한 관계를 이해하는 데 도움을 줄 것으로 기대된다.
 
 ---
 
@@ -303,9 +288,6 @@ Google이 BigQuery Graph를 프리뷰로 출시했다. BigQuery Graph는 대규�
   severity="Medium"
 %}
 
-#### 요약
-
-Docker Hardened Images 출시 1년을 앞두고 일일 pull 50만 회를 돌파하는 이정표를 달성했습니다. 이는 SLSA Level...에서 2만 5천 개 이상의 OS 레벨 아티팩트를 지속적으로 패치하며 구축해 온 성과입니다.
 
 ---
 
@@ -319,9 +301,6 @@ Docker Hardened Images 출시 1년을 앞두고 일일 pull 50만 회를 돌파�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Dependabot과 code scanning 기능이 조직 수준에서 구성된 프라이빗 레지스트리에 대해 OpenID Connect(OIDC) 인증을 지원하게 되어, 장기간 유효한 자격 증명을 리포지토리 시크릿으로 저장할 필요가 없어졌습니다.
 
 ---
 
@@ -336,9 +315,6 @@ GitHub의 Dependabot과 code scanning 기능이 조직 수준에서 구성된 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub에서 Artifact와 deployment context 정보를 이제 repository properties와 security alert 페이지에서 확인할 수 있습니다. 새로 추가된 'deployable' 및 'deployed'라는 두 가지 내장 repository 속성을 통해 배포 상태를 관리할 수 있습니다.
 
 ---
 
@@ -355,9 +331,6 @@ GitHub에서 Artifact와 deployment context 정보를 이제 repository properti
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy의 STRC ATM이 이번 주 단 두 번의 거래 세션에서 27억 달러의 거래량을 기록하며 지난 주 전체 거래량을 합친 것보다 많은 성과를 냈습니다. 이 소식은 Bitcoin Magazine을 통해 Nick Ward가 보도했습니다.
 
 ---
 
@@ -372,9 +345,6 @@ Strategy의 STRC ATM이 이번 주 단 두 번의 거래 세션에서 27억 달�
   severity="Medium"
 %}
 
-#### 요약
-
-Presidio Bitcoin이 Bitcoin을 양자 안전하게 만드는 연구 현황을 추적하기 위한 '살아있는 문서'로 정기 업데이트 및 유지할 계획의 양자 준비 보고서를 발표했습니다. 이 보고서는 Bitcoin Magazine에 처음 게재되었습니다.
 
 ---
 
@@ -389,9 +359,6 @@ Presidio Bitcoin이 Bitcoin을 양자 안전하게 만드는 연구 현황을 �
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 2026 컨퍼런스에서 'Is Bitcoin Still a Sovereign Tool?'이라는 제목의 패널 토론이 Matt Odell, Bruce Fenton 등이 참여해 진행될 예정이다. 이 토론에서는 Bitcoin이 개인의 자유와 주권 도구로서의 역할을 여전히 유지하고 있는지에 대한 논의가 이루어질 것이다.
 
 ---
 

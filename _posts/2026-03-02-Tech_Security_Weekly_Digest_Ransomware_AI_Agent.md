@@ -319,9 +319,6 @@ Kalshi의 carve-out 결정은 단순한 개별 사례를 넘어, 예측 시장 �
   severity="Medium"
 -%}
 
-#### 요약
-
-한 개발자가 광고 수익으로 운영되는 무료 AI 채팅 서비스의 미래를 풍자적으로 구현한 실시간 데모를 공개했다. 실제 작동하는 언어 모델에 다양한 광고 형식을 통합하여, AI 서비스의 지속 가능한 수익화 모델에 대한 질문을 던진다.
 
 구현된 광고 형식:
 - 배너 광고: 응답 상단/하단에 삽입되는 전통적 광고 형식
@@ -498,5 +495,5 @@ MCP가 Cursor, Windsurf, VS Code Copilot 등 주요 AI 개발 도구에서 공�
 
 - [2026년 03월 01일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (3건)](/posts/2026/03/01/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/) — 2026-03-01
 - [2026년 02월 27일 주간 보안 다이제스트: BYOVD EDR·AI 에이전트·클라우드 (3건)](/posts/2026/02/27/Tech_Security_Weekly_Digest_AI_Botnet_Blockchain_Go/) — 2026-02-27
-- [2026년 03월 05일 주간 보안 다이제스트: 제로데이·랜섬웨어·쿠버네티스 (4건)](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
+- [2026년 03월 05일 주간 보안 다이제스트: 제로데이·랜섬웨어·Kubernetes (4건)](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
 

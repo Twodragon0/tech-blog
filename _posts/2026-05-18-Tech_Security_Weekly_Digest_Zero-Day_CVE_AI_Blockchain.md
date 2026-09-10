@@ -217,9 +217,6 @@ DevSecOps 실무자에게 이번 동향은 **파이프라인 보안 강화와 �
   severity="Medium"
 %}
 
-#### 요약
-
-Bernstein 분석가들은 Figure Technology Solutions의 1분기 실적이 대부분의 대차대조표 기반 핀테크 대출 플랫폼과 차별화되는 blockchain 마켓플레이스의 독특함을 입증했다고 평가했습니다.
 
 ---
 
@@ -234,9 +231,6 @@ Bernstein 분석가들은 Figure Technology Solutions의 1분기 실적이 대�
   severity="Medium"
 %}
 
-#### 요약
-
-Michael Saylor가 추가 Bitcoin 매수 의사를 밝히며, 소매 투자자들에게 STRC 배당금 지급을 위한 대리 투표 참여를 촉구했습니다.
 
 ---
 
@@ -251,9 +245,6 @@ Michael Saylor가 추가 Bitcoin 매수 의사를 밝히며, 소매 투자자들
   severity="Medium"
 %}
 
-#### 요약
-
-일본의 주요 증권사 SBI, Rakuten, Nomura가 2028년까지 암호화폐 보유 펀드를 공식 허용하는 규제 움직임에 맞춰 개인 투자자 대상 crypto investment trust 출시를 준비 중입니다.
 
 ---
 

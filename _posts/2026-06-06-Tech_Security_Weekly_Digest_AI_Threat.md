@@ -221,9 +221,6 @@ DevSecOps 파이프라인 관점에서 이 위협은 다음과 같은 실무적 
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 5월 Google은 Gemini 3.5, Gemini Omni(영상 생성), Project Genie 등 새로운 AI 기능과 검색·클라우드·과학용 도구 업데이트를 발표했습니다.
 
 ---
 
@@ -238,9 +235,6 @@ DevSecOps 파이프라인 관점에서 이 위협은 다음과 같은 실무적 
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA의 CEO Jensen Huang이 서울에서 AI 인프라 및 로봇 혁신을 주도하는 한국 파트너들을 만나고 있습니다. 한국은 첨단 자체 AI 인프라와 열정적인 게임 커뮤니티를 갖춘 세계적인 AI 중심지 중 하나입니다.
 
 ---
 
@@ -255,9 +249,6 @@ NVIDIA의 CEO Jensen Huang이 서울에서 AI 인프라 및 로봇 혁신을 주
   severity="Medium"
 %}
 
-#### 요약
-
-Hugging Face 해커톤에서 3B 소형 모델로 멀티 에이전트 경제 시뮬레이션 'Thousand Token Wood'를 구축한 사례를 소개합니다.
 
 ---
 
@@ -273,9 +264,6 @@ Hugging Face 해커톤에서 3B 소형 모델로 멀티 에이전트 경제 시�
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud의 최신 업데이트, 공지사항, 리소스, 이벤트 및 학습 기회를 한곳에서 확인할 수 있습니다. Google Cloud 블로그에서 원하는 정보를 찾는 방법에 대한 팁도 제공됩니다.
 
 ---
 
@@ -290,9 +278,6 @@ Google Cloud의 최신 업데이트, 공지사항, 리소스, 이벤트 및 학�
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 1월부터 5월까지 Mandiant는 UNC3753(일명 Luna Moth, Chatty Spider, Silent Ransom Group)이 미국의 법률, 금융, 전문 서비스 분야 수십 개 조직을 대상으로 한 금전적 데이터 절도 협박 캠페인을 확인했습니다.
 
 ---
 
@@ -306,9 +291,6 @@ Google Cloud의 최신 업데이트, 공지사항, 리소스, 이벤트 및 학�
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon Bedrock의 새로운 콘솔 환경을 통해 Anthropic 및 OpenAI 호환 API에 최적화된 최신 AI 모델을 나란히 비교하고, 프로젝트 단위로 작업을 구성하며, 자동 입력된 코드 스니펫이 포함된 실시간 문서에 접근할 수 있습니다.
 
 ---
 
@@ -325,9 +307,6 @@ Amazon Bedrock의 새로운 콘솔 환경을 통해 Anthropic 및 OpenAI 호환 
   severity="Medium"
 %}
 
-#### 요약
-
-CodeQL 2.25.6이 Swift 6.3.2를 지원하고 C# 분석 범위를 개선했습니다. 이번 업데이트는 GitHub 코드 스캐닝의 정적 분석 엔진인 CodeQL의 최신 릴리스입니다.
 
 ---
 
@@ -342,9 +321,6 @@ CodeQL 2.25.6이 Swift 6.3.2를 지원하고 C# 분석 범위를 개선했습니
   severity="Medium"
 %}
 
-#### 요약
-
-지난달 GitHub는 Copilot CLI의 퍼블릭 프리뷰를 통해 엔터프라이즈 관리자가 조직 전체의 GitHub Copilot CLI 사용자에게 플러그인을 구성하고 배포할 수 있는 기능을 발표했습니다. 이제 VS Code에서도 엔터프라이즈 관리형 플러그인이 퍼블릭 프리뷰로 제공됩니다.
 
 ---
 
@@ -358,9 +334,6 @@ CodeQL 2.25.6이 Swift 6.3.2를 지원하고 C# 분석 범위를 개선했습니
   severity="Medium"
 %}
 
-#### 요약
-
-AI 에이전트의 빠른 도입에도 불구하고 40%의 조직이 보안 및 규정 준수를 확장의 주요 장벽으로 꼽고 있으며, 이러한 채택과 감독 간의 격차를 해소하는 것이 AI Governance의 핵심 역할입니다.
 
 ---
 
@@ -394,9 +367,6 @@ Bitcoin 매거진의 칼럼 "The Hyperinflation of 1971 at the Kindergarten"은 
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 가격이 압박을 받고 있지만, 다섯 가지 데이터 포인트는 공포가 수년 만에 최고의 축적 기회를 만들고 있음을 시사합니다. Bitcoin Magazine의 Matt Crosby는 현재의 가격 움직임이 역대 다섯 번째로 나쁜 수준이라며 99.8% 확률로 매수한다고 밝혔습니다.
 
 ---
 
@@ -411,9 +381,6 @@ Bitcoin 가격이 압박을 받고 있지만, 다섯 가지 데이터 포인트�
   severity="Medium"
 %}
 
-#### 요약
-
-Travala는 AI 에이전트가 Base 네트워크에서 USDC로 호텔을 검색하고 예약할 수 있는 새로운 프로토콜을 도입했지만, 최종 결제 승인은 여행자가 직접 해야 한다.
 
 ---
 

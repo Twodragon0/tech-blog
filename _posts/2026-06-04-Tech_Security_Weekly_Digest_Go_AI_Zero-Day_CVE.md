@@ -222,9 +222,6 @@ DevSecOps 팀에게 이는 **"패치 속도 경쟁에서 패배를 인정하고,
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA Research는 로봇이 처음 보는 도구로도 연속적으로 물체를 집을 수 있는 고급 파지 기술과, 자율주행 시스템의 상황 추론 능력을 향상시키는 기술을 개발했습니다. 또한 대규모 에이전트 훈련을 위한 기술도 함께 공개했습니다.
 
 ---
 
@@ -239,9 +236,6 @@ NVIDIA Research는 로봇이 처음 보는 도구로도 연속적으로 물체�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA가 CVPR에서 자율주행차, 로봇공학, 비전 AI를 위한 새로운 물리적 AI 에이전트 스킬을 공개하며 연구자와 개발자의 개발 속도를 가속화하고 있다. 물리적 AI 연구의 핵심 과제는 단순히 더 강력한 모델을 개발하는 것이 아니라, 실제 장면 재구성, 에지 케이스 시나리오 생성, 정책 훈련 및 평가를 포함한 전체 워크플로우를 구축하는 것이다.
 
 ---
 
@@ -255,9 +249,6 @@ NVIDIA가 CVPR에서 자율주행차, 로봇공학, 비전 AI를 위한 새로�
   severity="Medium"
 %}
 
-#### 요약
-
-GPT-Rosalind는 생물학적 추론, 의약 화학 전문성, 유전체 분석 및 실험 워크플로우 기능이 향상되어 생명과학 연구를 발전시킵니다.
 
 ---
 
@@ -274,9 +265,6 @@ GPT-Rosalind는 생물학적 추론, 의약 화학 전문성, 유전체 분석 �
   severity="Medium"
 %}
 
-#### 요약
-
-서버리스 Managed Service for Apache Spark 런타임 버전 3.0의 GA가 발표되었으며, 속도, 단순성, 신뢰성을 우선시합니다. 이 서비스는 데이터 준비, 실시간 대화형 쿼리, AI 모델 학습 등 Apache Spark를 대규모로 실행할 때 기본 인프라를 관리할 필요가 없도록 지원합니다.
 
 ---
 
@@ -290,9 +278,6 @@ GPT-Rosalind는 생물학적 추론, 의약 화학 전문성, 유전체 분석 �
   severity="High"
 %}
 
-#### 요약
-
-Amazon Cognito가 다중 리전 복제 기능을 출시하여 사용자 데이터, 자격 증명 및 풀 구성을 보조 AWS 리전에 자동으로 동기화하며, 리전 장애 조치 시 강제 비밀번호 재설정 없이 인증을 유지하고 고객 관리형 KMS 키를 통한 암호화 제어를 지원합니다.
 
 ---
 
@@ -309,9 +294,6 @@ Amazon Cognito가 다중 리전 복제 기능을 출시하여 사용자 데이�
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 5월과 6월 초에 출시된 Visual Studio Code의 안정적인 주간 릴리스(v1.120~v1.123)에 대한 변경 사항을 다루며, 특히 GitHub Copilot의 Agents 기능이 개선되었습니다.
 
 ---
 
@@ -326,9 +308,6 @@ Amazon Cognito가 다중 리전 복제 기능을 출시하여 사용자 데이�
   severity="High"
 %}
 
-#### 요약
-
-Inspektor Gadget, Kubernetes 가시성 및 Linux 호스트 검사를 위한 오픈소스 eBPF 기반 툴킷, Open Source Technology Improvement Fund(OSTIF)의 조정과 자금 지원으로 첫 번째 독립적인 보안 감사를 완료했습니다.
 
 ---
 
@@ -345,9 +324,6 @@ Inspektor Gadget, Kubernetes 가시성 및 Linux 호스트 검사를 위한 오�
   severity="Medium"
 %}
 
-#### 요약
-
-Franklin Templeton의 CEO Jenny Johnson은 전통 금융이 수수료 기반 수익을 위협하기 때문에 public blockchain을 저항한다고 말했으며, 해당 기업은 tokenization, bitcoin 상품, on-chain finance로 적극 확장 중입니다.
 
 ---
 
@@ -362,9 +338,6 @@ Franklin Templeton의 CEO Jenny Johnson은 전통 금융이 수수료 기반 수
   severity="Medium"
 %}
 
-#### 요약
-
-Blockware가 Megan Brooks-Anderson을 새로운 CEO로 임명했습니다. 그녀는 핵심 Bitcoin 채굴 사업을 강화하면서 AI 및 HPC 인프라로의 전략적 전환을 이끌 예정입니다.
 
 ---
 
@@ -379,9 +352,6 @@ Blockware가 Megan Brooks-Anderson을 새로운 CEO로 임명했습니다. 그�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 주 규제 당국이 Bitcoin ATM 운영업체를 금지하거나 과도한 규제를 부과하는 조치를 조용히 시행하기 시작했다는 내용이 Bitcoin Magazine에 게재되었다. 이 기사는 Michelle Weekley가 작성했으며, Bitcoin ATM이 규제 환경 변화를 감지하는 '카나리아' 역할을 한다고 지적한다.
 
 ---
 

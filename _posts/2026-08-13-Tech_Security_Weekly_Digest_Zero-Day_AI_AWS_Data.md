@@ -187,9 +187,6 @@ DevSecOps 관점에서 이 사건은 **개인 브라우저 보안이 곧 기업 
   severity="Medium"
 %}
 
-#### 요약
-
-Google이 Deaf 및 난청 사용자를 위한 새로운 수화 기능을 지원하는 혁신적인 모델 SL2T(sign-language-to-text)를 공개했습니다. 이 모델은 수화를 텍스트로 변환하는 기술로, 사용자에게 직접 제공되는 AI 기반 솔루션입니다.
 
 
 ---
@@ -205,9 +202,6 @@ Google이 Deaf 및 난청 사용자를 위한 새로운 수화 기능을 지원�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA 창립자이자 CEO인 Jensen Huang이 Glassdoor의 2026년 Best CEOs 목록에서 1위를 차지했으며, 직원들의 99% 지지율을 기록했습니다. 이 순위는 직원들의 직접 평가를 기반으로 한 것으로, AI와 변화하는 기대치 속에서 그의 리더십이 높이 평가받고 있음을 보여줍니다.
 
 
 ---
@@ -222,9 +216,6 @@ NVIDIA 창립자이자 CEO인 Jensen Huang이 Glassdoor의 2026년 Best CEOs 목
   severity="Medium"
 %}
 
-#### 요약
-
-WhatsApp은 종단간 암호화(End-to-End Encryption)를 유지하면서 사기 탐지 기능을 강화하기 위해 노력하고 있으며, 사칭, 사회공학, AI 생성 유인책 등 진화하는 사기 수법에 대응하기 위한 초기 단계의 보호 조치를 공유했습니다. 이 기능은 사용자의 개인 메시지 보호를 보장하면서 사기꾼보다 앞서 나가기 위한 것입니다.
 
 
 ---
@@ -241,9 +232,6 @@ WhatsApp은 종단간 암호화(End-to-End Encryption)를 유지하면서 사기
   severity="Medium"
 %}
 
-#### 요약
-
-들어가며 게임은 점점 더 화려한 그래픽과 풍부한 콘텐츠로 무장하며 진화하고 있습니다. 그러나 역설적이게도, 게임에 도달하기까지의 여정 또한 점점 길어지고 있습니다.
 
 
 ---
@@ -258,9 +246,6 @@ WhatsApp은 종단간 암호화(End-to-End Encryption)를 유지하면서 사기
   severity="Medium"
 %}
 
-#### 요약
-
-1편에서 모델 규모에 맞는 인스턴스 타입과 인터커넥트 기술을, 2편에서 Amazon EC2 UltraClusters(울트라클러스터) 및 Amazon EC2 UltraServer(울트라서버)와 고성능 GPU 인스턴스 확보 전략을 다뤘습니다. 무엇을 고르고 어떻게 확보할지가 정해졌다면, 이제 실제로 클러스터를 구성하고 운영할 차례입니다.
 
 
 ---
@@ -278,9 +263,6 @@ WhatsApp은 종단간 암호화(End-to-End Encryption)를 유지하면서 사기
   severity="High"
 %}
 
-#### 요약
-
-Agent Plugins 1.0이 8월 6일 AWS, Anysphere, Microsoft, OpenAI, Vercel과 함께 공개되어, 한 번 빌드한 플러그인을 VS Code, Copilot CLI, Copilot 앱 등 모든 호환 에이전트 클라이언트에서 사용할 수 있게 되었습니다. 이 소식은 GitHub Blog를 통해 발표되었습니다.
 
 
 ---
@@ -296,9 +278,6 @@ Agent Plugins 1.0이 8월 6일 AWS, Anysphere, Microsoft, OpenAI, Vercel과 함�
   severity="High"
 %}
 
-#### 요약
-
-GitHub의 rule insights 대시보드가 조직 수준에서 public preview로 제공됩니다. 이 기능은 GitHub가 저장소 rulesets를 평가하고 적용하는 방식을 시각적으로 보여주는 상위 레벨 뷰를 제공합니다.
 
 
 ---
@@ -313,9 +292,6 @@ GitHub의 rule insights 대시보드가 조직 수준에서 public preview로 �
   severity="Medium"
 %}
 
-#### 요약
-
-Docker VMM이 Mac과 Windows에서 공개 베타로 출시되었으며, 성능·안정성·거버넌스 측면에서 전면 개편된 것이 특징입니다. 사용자는 이번 베타를 통해 개선된 가상화 엔진을 직접 체험할 수 있습니다.
 
 
 ---
@@ -333,9 +309,6 @@ Docker VMM이 Mac과 Windows에서 공개 베타로 출시되었으며, 성능·
   severity="Medium"
 %}
 
-#### 요약
-
-Goldman Sachs가 22억 5천만 달러 규모의 거래로 NEOS Investments를 인수하여 Bitcoin Income ETF 상품을 라인업에 추가한다. 이번 인수로 은행은 Bitcoin 수익형 ETF 시장에 즉시 진출할 수 있는 기반을 확보하게 된다.
 
 
 ---
@@ -369,9 +342,6 @@ Bitcoin이 바닥 신호를 보이며 "디지털 골드(Digital Gold)" 서사가
   severity="Medium"
 %}
 
-#### 요약
-
-미국 연방은행 규제기관 OCC가 암호화폐 기업들의 은행 헌터 신청에 대해 '영업 중(Open for Business)'임을 밝혔으며, 주요 암호화폐 기업들이 조건부 승인을 받았다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 보도했다.
 
 
 ---

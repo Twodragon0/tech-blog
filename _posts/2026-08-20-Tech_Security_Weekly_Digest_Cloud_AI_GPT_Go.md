@@ -162,9 +162,6 @@ DevSecOps 관점에서 핵심 위협은 다음과 같습니다.
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 ChatGPT의 대규모 장애를 확인했으며, 사용자들은 로그인, 계정 생성, 기존 대화 불러오기가 불가능한 상태다. 현재 OpenAI는 문제를 해결하기 위해 조사 중이며, 복구 시점은 아직 공지되지 않았다.
 
 
 #### 권장 조치
@@ -189,9 +186,6 @@ OpenAI가 ChatGPT의 대규모 장애를 확인했으며, 사용자들은 로그
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI는 자격을 갖춘 API 고객을 대상으로 Zero Data Retention을 재확인하고, 데이터 프라이버시를 훼손하지 않으면서 고급 AI 안전성을 제공하는 Private Safety Processing을 미리 공개했습니다.
 
 
 ---
@@ -224,9 +218,6 @@ Google Search의 새로운 학습 기능 5가지를 소개하며, "Add Notebook"
   severity="Medium"
 %}
 
-#### 요약
-
-Replit이 GPT-5.6 Luna를 기반으로 한 Free Mode를 도입해, 토큰 비용 걱정 없이 누구나 아이디어를 작동하는 소프트웨어로 전환할 수 있게 했다.
 
 
 ---
@@ -244,9 +235,6 @@ Replit이 GPT-5.6 Luna를 기반으로 한 Free Mode를 도입해, 토큰 비용
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud의 Serverless Apache Spark는 클러스터 프로비저닝, YARN 설정 튜닝, 유휴 하드웨어 비용 같은 인프라 관리 부담을 줄여 데이터 파이프라인 구축에 집중할 수 있게 해주며, 이는 엔터프라이즈 데이터 엔지니어링에서 Apache Spark의 핵심 가치를 유지하면서도 운영 복잡성을 해결하는 아키텍처 선택입니다.
 
 
 ---
@@ -282,9 +270,6 @@ Apache Hive Metastore(HMS)는 10년 넘게 Hadoop 클러스터나 Compute Engine
   severity="High"
 %}
 
-#### 요약
-
-CodeQL 2.26.3이 JavaScript, TypeScript, Vue 소스 모델링을 추가하고 여러 GitHub Actions 쿼리의 정확성을 개선했습니다. 이번 업데이트는 GitHub code scanning의 정적 분석 엔진인 CodeQL의 기능을 강화합니다.
 
 
 ---
@@ -300,9 +285,6 @@ CodeQL 2.26.3이 JavaScript, TypeScript, Vue 소스 모델링을 추가하고 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에서 조직 수준의 Code Quality 대시보드에 Trends 탭이 추가되어, 저장소 전반의 코드 품질 변화를 시간 경과에 따라 추적할 수 있게 되었습니다. 이 기능은 특정 시점의 스냅샷 대신 과거부터 현재까지의 추세를 보여줍니다.
 
 
 ---
@@ -318,9 +300,6 @@ GitHub Blog에서 조직 수준의 Code Quality 대시보드에 Trends 탭이 �
   severity="Medium"
 %}
 
-#### 요약
-
-Kyverno는 단순한 보안 도구가 아닌 플랫폼 프리미티브로 간주되어야 하며, 조직 내에서 보안 팀의 예산과 슬라이드에만 등장하는 것이 아니라 더 넓은 플랫폼 운영의 일부로 자리 잡아야 합니다. 이는 Kyverno가 클러스터 내 위치보다 조직 구조와 팀 책임 측면에서 어떻게 분류되는지에 대한 질문에서 비롯된 논의입니다.
 
 
 ---
@@ -338,9 +317,6 @@ Kyverno는 단순한 보안 도구가 아닌 플랫폼 프리미티브로 간주
   severity="Medium"
 %}
 
-#### 요약
-
-트럼프가 디지털 자산 업계 관계자들과 회동한 후 상원에 암호화폐 시장 구조 법안인 CLARITY Act 통과를 촉구했으며, 추가 Bitcoin 매입 가능성도 시사했다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo 기자 명의로 보도했다.
 
 
 ---
@@ -356,9 +332,6 @@ Kyverno는 단순한 보안 도구가 아닌 플랫폼 프리미티브로 간주
   severity="Medium"
 %}
 
-#### 요약
-
-트럼프 대통령이 백악관에서 암호화폐 업계 임원들을 만날 예정이며, 이 회동은 Clarity Act에 대한 표결이 지연된 이후에 이뤄진다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo 기자 명의로 보도했다.
 
 
 ---
@@ -374,9 +347,6 @@ Kyverno는 단순한 보안 도구가 아닌 플랫폼 프리미티브로 간주
   severity="High"
 %}
 
-#### 요약
-
-Fidelity는 Bitcoin의 변동성이 낮아졌지만 곧 '의미 있는 움직임'이 있을 것이라고 전망했다. 분석가들은 현재의 정체된 가격 움직임이 곧 중요한 변화의 신호일 수 있다고 보고 있다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 처음 보도했다.
 
 
 ---
@@ -436,7 +406,7 @@ Fidelity는 Bitcoin의 변동성이 낮아졌지만 곧 '의미 있는 움직임
 <!-- related-posts:v1 -->
 
 - [2026년 08월 19일 주간 보안 다이제스트: DNS 유출·클라우드·랜섬웨어 (30건)](/posts/2026/08/19/Tech_Security_Weekly_Digest_AWS_Data_ML_Cloud/) — 2026-08-19
-- [2026년 08월 21일 주간 보안 다이제스트: 악성코드·쿠버네티스·BYOVD EDR (30건)](/posts/2026/08/21/Tech_Security_Weekly_Digest_AI_Malware_Rust_Go/) — 2026-08-21
+- [2026년 08월 21일 주간 보안 다이제스트: 악성코드·Kubernetes·BYOVD EDR (30건)](/posts/2026/08/21/Tech_Security_Weekly_Digest_AI_Malware_Rust_Go/) — 2026-08-21
 - [2026년 08월 17일 주간 보안 다이제스트: 악성코드·DNS 유출·블록체인 (14건)](/posts/2026/08/17/Tech_Security_Weekly_Digest_Data_Malware_DeFi_Apple/) — 2026-08-17
 
 ---

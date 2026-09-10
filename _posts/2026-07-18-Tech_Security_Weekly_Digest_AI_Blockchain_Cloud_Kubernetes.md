@@ -134,9 +134,6 @@ Assetnote(Searchlight Cyber)의 Adam Kues가 발견했으며, 공격 벡터는 W
   severity="Medium"
 %}
 
-#### 요약
-
-OpenSSL의 HollowByte 취약점은 11바이트의 TLS 요청으로 서버 메모리를 최대 131KB까지 고갈시킬 수 있으며, glibc 시스템에서는 프로세스가 재시작될 때까지 메모리가 회수되지 않습니다. Okta Red Team이 발견하고 명명한 이 서비스 거부 버그는 OpenSSL이 6월에 CVE, 권고, 변경 로그 없이 패치를 배포했습니다.
 
 
 #### 권장 조치
@@ -198,9 +195,6 @@ ViteVenom 캠페인은 **Vite 프론트엔드 빌드 도구 생태계**를 표�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA Vera Rubin은 에이전틱 AI 시대의 포스트 트레이닝 워크로드에서 극한의 코드사인을 통해 토큰당 최저 비용을 달성, 달러당 지능을 극대화합니다.
 
 
 ---
@@ -215,9 +209,6 @@ NVIDIA Vera Rubin은 에이전틱 AI 시대의 포스트 트레이닝 워크로�
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI의 CFO Sarah Friar가 AI 투자 수익률을 측정하기 위해 유용한 작업, 성공적 작업당 비용, 신뢰성, 컴퓨팅 대비 수익이라는 네 가지 기준을 포함한 실용적인 AI scorecard를 소개했습니다.
 
 
 ---
@@ -233,9 +224,6 @@ OpenAI의 CFO Sarah Friar가 AI 투자 수익률을 측정하기 위해 유용�
   severity="Medium"
 %}
 
-#### 요약
-
-Netflix의 AI Platform 팀은 자체 프로덕션 환경에서 LLM을 호스팅 API 대신 전체 스택을 직접 운영하며, 모델 배포부터 추론까지 내부에서 처리합니다. 이러한 결정 중 일부는 명확하지 않았으며, 일부는 프로덕션 부하 하에서야 트레이드오프가 드러났습니다.
 
 
 ---
@@ -252,9 +240,6 @@ Netflix의 AI Platform 팀은 자체 프로덕션 환경에서 LLM을 호스팅 
   severity="Medium"
 %}
 
-#### 요약
-
-BigQuery의 정책 태그는 민감한 컬럼 접근 제어에 효과적이었지만, 데이터 환경의 복잡성 증가에 따라 IAM Data Governance Tags를 사용한 컬럼 수준 보안 강화가 필요합니다.
 
 
 ---
@@ -269,9 +254,6 @@ BigQuery의 정책 태그는 민감한 컬럼 접근 제어에 효과적이었�
   severity="Medium"
 %}
 
-#### 요약
-
-올해 초 소개된 Gemini Enterprise Agent Platform에서 에이전트를 구축, 확장, 관리, 최적화할 수 있으며, 이 플랫폼의 기능을 보여주는 13개의 데모가 공개되었다. 각 데모는 즉시 활용 가능한 개념, 패턴, 아키텍처를 다루며, 반드시 순서대로 따라 할 필요는 없다.
 
 
 ---
@@ -286,9 +268,6 @@ BigQuery의 정책 태그는 민감한 컬럼 접근 제어에 효과적이었�
   severity="Medium"
 %}
 
-#### 요약
-
-AI 코딩 어시스턴트의 효율성을 높이기 위해 token 소비 최적화가 중요하며, context bloat는 지연 시간 증가와 모델의 명령 망각 및 환각을 유발합니다. 개발자는 각 token을 최대한 활용하도록 어시스턴트를 지시하는 책임을 지게 됩니다.
 
 
 ---
@@ -306,9 +285,6 @@ AI 코딩 어시스턴트의 효율성을 높이기 위해 token 소비 최적�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot usage metrics REST API가 이제 저장소 수준의 활동을 보고하며, 두 개의 새로운 엔드포인트가 Copilot coding agent와 Copilot code review에 대한 일별 풀 리퀘스트 활동을 제공합니다.
 
 
 ---
@@ -324,9 +300,6 @@ GitHub Copilot usage metrics REST API가 이제 저장소 수준의 활동을 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot 앱 사용량이 이제 usage metrics API의 enterprise 및 organization 1일 및 28일 보고서에 포함되어, 관리자들이 해당 데이터를 확인할 수 있게 되었습니다.
 
 
 ---
@@ -342,9 +315,6 @@ GitHub Copilot 앱 사용량이 이제 usage metrics API의 enterprise 및 organ
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Copilot code review가 방화벽, 커스텀 설정 단계, 독립적인 runner 구성을 도입했으며, head branch에서 커스텀 명령어를 읽어 테스트와 검증을 용이하게 하는 맞춤화 및 구성 가능성 개선이 이루어졌습니다.
 
 
 ---
@@ -362,9 +332,6 @@ GitHub의 Copilot code review가 방화벽, 커스텀 설정 단계, 독립적�
   severity="Medium"
 %}
 
-#### 요약
-
-Ocean Mining의 개발 및 엔지니어링 부사장 Jason Hughes는 BIP-110이 측정 가능한 합의를 확보하지 못했으며, 중요 블록 961632 윈도우를 앞두고 노드 시그널링은 7-15%, 해시레이트 지원은 1% 미만에 머물러 있어 실패할 것으로 예상된다고 주장했다.
 
 
 ---
@@ -380,9 +347,6 @@ Ocean Mining의 개발 및 엔지니어링 부사장 Jason Hughes는 BIP-110이 
   severity="Medium"
 %}
 
-#### 요약
-
-SBI Holdings가 싱가포르 통화청(MAS)의 승인을 받아 싱가포르의 Coinhako 지분을 과반수 인수했습니다. 이번 인수는 일본과 동남아시아를 연결하는跨境 디지털 자산 네트워크 구축을 강화하기 위한 전략적 움직임입니다.
 
 
 ---
@@ -398,9 +362,6 @@ SBI Holdings가 싱가포르 통화청(MAS)의 승인을 받아 싱가포르의 
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 채굴 대기업 Foundry Digital이 자사의 채굴 풀을 이용하는 고객들에게 BIP-110 소프트 포크에 대한 투표를 요청했습니다. 이는 Bitcoin Magazine이 Mathew Di Salvo와 Micah Zimmerman의 기사를 통해 보도한 내용입니다.
 
 
 ---

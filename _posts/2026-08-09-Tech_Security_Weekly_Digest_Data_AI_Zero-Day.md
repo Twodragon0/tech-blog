@@ -189,9 +189,6 @@ DevSecOps 관점에서 이번 사건은 **데이터 계층의 신뢰성 붕괴**
   severity="Medium"
 %}
 
-#### 요약
-
-Firebird가 아르메니아에 CIS 지역 최대 규모의 AI 공장을 공식 출범시켰으며, 이는 NVIDIA 가속 컴퓨팅과 Dell Technologies의 고성능 AI 인프라로 구동되는 새로운 AI 컴퓨팅 허브입니다. 아르메니아 총리 Nikol Pashinyan과 부총리 Zhaslan Madiyev가 출범식에 참석해 이번 발표를 기념했습니다.
 
 
 ---
@@ -209,9 +206,6 @@ Firebird가 아르메니아에 CIS 지역 최대 규모의 AI 공장을 공식 �
   severity="Medium"
 %}
 
-#### 요약
-
-미국 현물 Bitcoin ETF가 4월 이후 최고의 주간 실적을 기록하며 약 10억 달러의 순유입을 보였고, 이는 10월 이후 세 번째로 강한 성과로 기관 수요의 회복 조짐을 나타냈다.
 
 
 ---
@@ -227,9 +221,6 @@ Firebird가 아르메니아에 CIS 지역 최대 규모의 AI 공장을 공식 �
   severity="Medium"
 %}
 
-#### 요약
-
-미국 상원이 9월 중 CLARITY Act 진행을 위한 표결에 나설 예정이며, Thune 상원의원이 cloture(토론 종결)를 제출하면서 암호화폐 시장 구조 법안이 다시 추진 궤도에 올랐습니다. 법안은 윤리 및 스테이블코인 조항에 대한 협상이 계속되는 가운데 처리될 전망입니다.
 
 
 ---
@@ -245,9 +236,6 @@ Firebird가 아르메니아에 CIS 지역 최대 규모의 AI 공장을 공식 �
   severity="Medium"
 %}
 
-#### 요약
-
-IMF의 단장 대행 Dan Katz는 사용자들이 유동성, 네트워크 효과, 그리고 국경 간 수용성 때문에 디지털 달러를 선호할 수 있다고 밝혔다. 이에 따라 국내 스테이블코인이 달러 기반 토큰의 수요를 증가시킬 잠재력이 있다고 IMF는 전망했다.
 
 
 ---
@@ -307,7 +295,7 @@ IMF의 단장 대행 Dan Katz는 사용자들이 유동성, 네트워크 효과,
 
 <!-- related-posts:v1 -->
 
-- [2026년 08월 08일 주간 보안 다이제스트: 악성코드·쿠버네티스·클라우드 (29건)](/posts/2026/08/08/Tech_Security_Weekly_Digest_AI_Data_Cloud_AWS/) — 2026-08-08
+- [2026년 08월 08일 주간 보안 다이제스트: 악성코드·Kubernetes·클라우드 (29건)](/posts/2026/08/08/Tech_Security_Weekly_Digest_AI_Data_Cloud_AWS/) — 2026-08-08
 - [2026년 08월 10일 주간 보안 다이제스트: AI 에이전트·블록체인·보안 위협 (12건)](/posts/2026/08/10/Tech_Security_Weekly_Digest_AI_Security_Bitcoin/) — 2026-08-10
 - [2026년 08월 06일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (27건)](/posts/2026/08/06/Tech_Security_Weekly_Digest_AI_Malware_GPT_AWS/) — 2026-08-06
 

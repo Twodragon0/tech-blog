@@ -226,9 +226,6 @@ DevSecOps 실무자에게 이번 위협은 **CI/CD 파이프라인, 컨테이너
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 4월 Google은 Gemini Enterprise Agent Platform, 8세대 TPU, Gemma 4, Google Vids 등 한 달간의 주요 AI 업데이트를 정리해 발표했습니다.
 
 ---
 
@@ -243,9 +240,6 @@ DevSecOps 실무자에게 이번 위협은 **CI/CD 파이프라인, 컨테이너
   severity="Medium"
 %}
 
-#### 요약
-
-Gemini API에서 Webhooks를 사용하여 장기 실행 작업의 지연 시간과 마찰을 줄일 수 있습니다. 이 기능은 작업 완료 시 알림을 비동기적으로 전달하여 효율성을 높입니다.
 
 ---
 
@@ -278,9 +272,6 @@ Amazon Quick의 Dataset Q&A 기능은 기존 대시보드가 해결하지 못하
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud의 Cloud Composer가 Managed Service for Apache Airflow로 공식 전환되었습니다. 이는 오케스트레이션이 단순한 데이터 이동을 넘어 기업 인텔리전스를 관리하는 방향으로 진화했음을 의미하며, AI 시대 데이터 팀의 운영 방식을 재정의하는 큰 도약을 발표했습니다.
 
 ---
 
@@ -295,9 +286,6 @@ Google Cloud의 Cloud Composer가 Managed Service for Apache Airflow로 공식 �
   severity="Medium"
 %}
 
-#### 요약
-
-Firestore가 Next '26에서 에이전틱 개발, 검색 및 MongoDB 호환성을 지원한다고 발표했다. Google Cloud의 완전 관리형 문서 데이터베이스인 Firestore는 무한한 확장성과 고가용성을 바탕으로 에이전틱 애플리케이션에 적합하다.
 
 ---
 
@@ -311,9 +299,6 @@ Firestore가 Next '26에서 에이전틱 개발, 검색 및 MongoDB 호환성을
   severity="Medium"
 %}
 
-#### 요약
-
-Chrome Enterprise가 의료 분야를 위한 새로운 통합 기능을 도입했습니다. 전자 건강 기록(EHR)과 주요 애플리케이션이 웹으로 이동하면서 브라우저가 환자 치료와 데이터 보안의 최전선이 되고 있습니다. 의료 기관은 임상의에게 필요한 도구에 대한 빠르고 친숙한 접근을 제공하면서 민감한 환자 데이터를 보호하는 솔루션이 필요합니다.
 
 ---
 
@@ -330,9 +315,6 @@ Chrome Enterprise가 의료 분야를 위한 새로운 통합 기능을 도입�
   severity="Medium"
 %}
 
-#### 요약
-
-Microsoft Agent Framework의 Part 3에서는 .NET에서 도구, 다중 턴 대화, 메모리 및 그래프 기반 워크플로를 활용한 지능형 AI 에이전트를 구축하는 방법을 다룹니다. 이는 Parts 1과 2의 구성 요소를 통합하여 완성된 에이전트를 만드는 데 초점을 맞춥니다.
 
 ---
 
@@ -347,9 +329,6 @@ Microsoft Agent Framework의 Part 3에서는 .NET에서 도구, 다중 턴 대�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Actions 워크플로우에서 CI 의존성을 효율적으로 보호하기 위한 실질적인 단계를 제공하는 레시피 카드로, 프로젝트 유지관리자와 개발자를 대상으로 합니다. GitHub Actions 내 의존성 보안에 초점을 맞추고 있습니다.
 
 ---
 
@@ -366,9 +345,6 @@ GitHub Actions 워크플로우에서 CI 의존성을 효율적으로 보호하�
   severity="Medium"
 %}
 
-#### 요약
-
-Lomond School이 Bitcoin으로 전액 지원되는 'Satoshi Scholarship'을 도입하여 전 세계 학생들에게 문호를 열었습니다. 이는 캠퍼스를 Bitcoin 기반 교육의 실험장으로 전환하는 움직임의 일환입니다. 해당 소식은 Bitcoin Magazine에 Micah Zimmerman이 기고했습니다.
 
 ---
 
@@ -383,9 +359,6 @@ Lomond School이 Bitcoin으로 전액 지원되는 'Satoshi Scholarship'을 도�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 증권예탁결제기관 DTCC가 2026년 7월 토큰화 증권 거래 파일럿을 실시하고 10월에 정식 출시할 예정입니다. 이는 주식, 채권, ETF를 블록체인 기반으로 전환하려는 월스트리트의 주요 움직임입니다.
 
 ---
 
@@ -400,9 +373,6 @@ Lomond School이 Bitcoin으로 전액 지원되는 'Satoshi Scholarship'을 도�
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy (MSTR)가 실적 발표를 앞두고 Bitcoin 매수를 중단했으며, 이 소식 이후 주가가 2일 만에 10% 이상 급등했습니다. 투자자들은 회사의 손실과 자본 조달 능력의 지속 가능성에 주목하고 있습니다.
 
 ---
 

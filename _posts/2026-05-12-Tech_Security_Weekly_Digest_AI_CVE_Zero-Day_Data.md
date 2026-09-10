@@ -242,9 +242,6 @@ Google이 공개한 이번 사건은 AI가 실제 공격 환경에서 **제로�
   severity="Medium"
 %}
 
-#### 요약
-
-Labyrinth 1.1 버전이 출시되어 Messenger의 종단간 암호화 백업 신뢰성을 향상시킵니다. 새로운 하위 프로토콜을 통해 기기 분실, 기기 변경, 장기간 미접속 상황에서도 메시지가 보존됩니다.
 
 ---
 
@@ -259,9 +256,6 @@ Labyrinth 1.1 버전이 출시되어 Messenger의 종단간 암호화 백업 신
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 1분기 ChatGPT 도입이 급증했으며, 35세 이상 사용자층에서 가장 빠른 성장을 보이고 성별 사용 비율도 더 균형을 이루어 AI의 주류 채택이 확대되고 있음을 시사합니다.
 
 ---
 
@@ -276,9 +270,6 @@ Labyrinth 1.1 버전이 출시되어 Messenger의 종단간 암호화 백업 신
   severity="Medium"
 %}
 
-#### 요약
-
-기업들은 AI를 초기 실험 단계에서 신뢰, 거버넌스, 워크플로우 설계, 그리고 대규모 품질 관리를 통해 복합적인 영향력을 창출하는 방향으로 확장하고 있습니다.
 
 ---
 
@@ -295,9 +286,6 @@ Labyrinth 1.1 버전이 출시되어 Messenger의 종단간 암호화 백업 신
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud가 기존 Database Center에 Gemini 기반 fleet intelligence 기능을 새로 추가하며, 분산된 데이터베이스 신호를 통합 관리할 수 있도록 지원한다. 이는 단일 창에서 모든 Google Cloud 관리형 데이터베이스 서비스를 모니터링, 문제 해결 및 최적화할 수 있게 해준다.
 
 ---
 
@@ -312,9 +300,6 @@ Google Cloud가 기존 Database Center에 Gemini 기반 fleet intelligence 기�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud Next '26에서 발표된 Cloud Storage Rapid는 AI 및 분석과 같은 데이터 집약적 워크로드를 위한 객체 스토리지 제품군입니다. 여기에는 고성능 영역 객체 스토리지인 Rapid Bucket과 기존 버킷의 읽기를 가속화하는 Rapid Cache가 포함됩니다.
 
 ---
 
@@ -329,9 +314,6 @@ Google Cloud Next '26에서 발표된 Cloud Storage Rapid는 AI 및 분석과 �
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud는 수조 개의 파라미터 모델을 TPU에서 훈련할 때 클러스터 수준의 신뢰성이 중요하다고 강조하며, 기존의 인스턴스 수준 신뢰성 표준과 차별화를 두고 있습니다.
 
 ---
 
@@ -348,9 +330,6 @@ Google Cloud는 수조 개의 파라미터 모델을 TPU에서 훈련할 때 클
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Mobile 앱에서 이제 iOS와 Android 모두에서 바로 새 리포지토리를 생성할 수 있습니다. iOS에서는 홈이나 프로필 화면에서 + 버튼을 탭한 후 Create repository를 선택하면 됩니다. 이 기능을 통해 모바일 환경에서도 손쉽게 리포지토리를 만들 수 있게 되었습니다.
 
 ---
 
@@ -364,9 +343,6 @@ GitHub Mobile 앱에서 이제 iOS와 Android 모두에서 바로 새 리포지�
   severity="High"
 %}
 
-#### 요약
-
-Safari 26.5가 출시되어 :open 가상 클래스, random()의 element-scoped 키워드, SVG 그라디언트의 color-interpolation, popover를 위한 ToggleEvent.source 속성, Origin API를 지원합니다.
 
 ---
 
@@ -381,9 +357,6 @@ Safari 26.5가 출시되어 :open 가상 클래스, random()의 element-scoped �
   severity="High"
 %}
 
-#### 요약
-
-Kubernetes 업그레이드는 강력한 기능을 제공하지만, 조직이 오픈소스의 빠른 변화 속도를 따라잡기 어렵게 만드는 복잡성과 유지보수 문제를 야기합니다. 이에 따라 엔지니어링 시간을 확보하기 위한 전략이 필요합니다.
 
 ---
 
@@ -400,9 +373,6 @@ Kubernetes 업그레이드는 강력한 기능을 제공하지만, 조직이 오
   severity="Medium"
 %}
 
-#### 요약
-
-미국 은행가 협회 CEO Rob Nichols가 은행 지도자들에게 목요일 상원 법안 심의를 앞두고 Digital Asset Market Clarity Act의 스테이블코인 수익 조항에 반대 로비를 할 것을 촉구했습니다. 이는 암호화폐 시장 구조 법안을 무산시키기 위한 마지막 시도로 보입니다.
 
 ---
 
@@ -417,9 +387,6 @@ Kubernetes 업그레이드는 강력한 기능을 제공하지만, 조직이 오
   severity="Medium"
 %}
 
-#### 요약
-
-미국 상원 은행위원회가 약 1년간의 지연 끝에 CLARITY Act의 표결을 5월 14일로 예정했습니다. 은행 로비 단체와 민주당원들이 이 법안에 대해 반대 움직임을 보이고 있습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
 
 ---
 
@@ -434,9 +401,6 @@ Kubernetes 업그레이드는 강력한 기능을 제공하지만, 조직이 오
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy (MSTR)가 Michael Saylor가 처음으로 Bitcoin 보유량 일부를 매각할 가능성을 언급한 지 며칠 만에 535 BTC를 4,300만 달러에 추가 매수했습니다. 이 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했습니다.
 
 ---
 

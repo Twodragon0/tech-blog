@@ -106,9 +106,6 @@ superseded_by: /posts/2026/04/19/Week3_April_2026_Security_Digest/
   severity="Critical"
 %}
 
-#### 요약
-
-Huntress가 위협 행위자들이 Microsoft Defender의 최근 공개된 세 가지 보안 결함을 악용해 침해된 시스템에서 높은 권한을 얻고 있다고 경고합니다. 이 활동은 BlueHammer, RedSun, UnDefend라는 코드명의 취약점들을 이용하며, 이들은 모두 Chaotic Eclipse라는 연구자에 의해 제로데이로 공개되었습니다.
 
 #### 위협 분석
 
@@ -171,9 +168,6 @@ DevSecOps 실무자에게 이 솔루션은 **표준화된 데이터 파이프라
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 2025년 전 세계적으로 83억 건의 정책 위반 광고를 차단하고 2490만 개 계정을 정지시켰으며, 사용자 프라이버시 강화를 위한 Android 17의 연락처 및 위치 권한 관련 Play 정책 업데이트도 발표했습니다.
 
 #### 위협 분석
 
@@ -206,9 +200,6 @@ Google은 2025년 전 세계적으로 83억 건의 정책 위반 광고를 차�
   severity="Medium"
 %}
 
-#### 요약
-
-Google이 여름철 여행을 더 스마트하게 만드는 7가지 방법을 소개합니다. Pixel 폰을 활용해 해변 마을의 워터프론트 농산물 시장 같은 장소를 찾는 등 다양한 팁을 제공합니다.
 
 ---
 
@@ -222,9 +213,6 @@ Google이 여름철 여행을 더 스마트하게 만드는 7가지 방법을 �
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon Bedrock에 세분화된 비용 귀속 기능이 도입됐습니다. 이 기능의 작동 방식과 비용 추적 시나리오 예시를 소개합니다.
 
 ---
 
@@ -238,9 +226,6 @@ Amazon Bedrock에 세분화된 비용 귀속 기능이 도입됐습니다. 이 �
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon Bedrock의 Model Distillation 기술을 활용해 대형 교사 모델 Amazon Nova Premier의 라우팅 지식을 소형 학생 모델 Amazon Nova Micro로 이전하는 방법을 소개합니다. 이 방식은 작업에 필요한 세밀한 라우팅 품질을 유지하면서 추론 비용을 95% 이상 절감하고 지연 시간을 50% 줄입니다.
 
 ---
 
@@ -257,9 +242,6 @@ Amazon Bedrock의 Model Distillation 기술을 활용해 대형 교사 모델 Am
   severity="Medium"
 %}
 
-#### 요약
-
-Evolving Media CDN은 세계에서 가장 까다로운 방송 및 스트리밍 워크로드를 위해 설계되었습니다. 이 인사이트는 Raj Gulani과 Dan Rayburn의 공동 경험을 바탕으로 미디어 산업의 진화하는 환경을 다룹니다.
 
 ---
 
@@ -274,9 +256,6 @@ Evolving Media CDN은 세계에서 가장 까다로운 방송 및 스트리밍 �
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud는 개발자 경험 가속화를 위해 커뮤니티 신호를 전문가 콘텐츠로 전환하는 멀티 에이전트 시스템인 Dev Signal을 개발했습니다. 이 시스템은 Terraform과 Cloud Run을 사용해 배포되었습니다.
 
 ---
 
@@ -309,9 +288,6 @@ Google Cloud는 개발자 경험 가속화를 위해 커뮤니티 신호를 전�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot CLI에서 Copilot auto model selection 기능이 모든 요금제에 대해 정식 출시되었습니다. 이 기능을 활성화하면 Copilot이 사용자를 대신해 가장 효율적인 모델을 자동으로 선택합니다.
 
 ---
 
@@ -326,9 +302,6 @@ GitHub Copilot CLI에서 Copilot auto model selection 기능이 모든 요금제
   severity="Medium"
 %}
 
-#### 요약
-
-Kubernetes가 12주년을 맞이하며 다양한 환경에서 현대 인프라의 운영 체제로 자리잡았습니다. 이에 따라 On-Prem 환경에 K3s를 GitOps 방식으로 구축하기 위한 Custom k0rdent Template 작성법이 소개되었습니다.
 
 ---
 
@@ -344,9 +317,6 @@ Kubernetes가 12주년을 맞이하며 다양한 환경에서 현대 인프라�
   severity="Medium"
 %}
 
-#### 요약
-
-제재 대상인 러시아 계열 거래소 Grinex가 사이버 공격 주장 이후 운영을 중단했습니다. Grinex는 러시아 거래소 Garantex의 후속 거래소로, 약 137억 루블(약 1370만 달러) 규모의 공격을 주장받고 있습니다.
 
 ---
 
@@ -361,9 +331,6 @@ Kubernetes가 12주년을 맞이하며 다양한 환경에서 현대 인프라�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Magazine가 양자 컴퓨터를 활용한 Bitcoin 가상 도난 사례의 법적 측면과 관련 법률을 검토했습니다. 이 글은 Colin Crossman이 작성했으며 Bitcoin Magazine에 처음 게재되었습니다.
 
 ---
 
@@ -378,9 +345,6 @@ Bitcoin Magazine가 양자 컴퓨터를 활용한 Bitcoin 가상 도난 사례�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Magazine는 'The Whole Entire Universe: 21 Million, One Painting'이라는 제목의 글을 통해 Anik Malcolm과의 대화를 소개했습니다. 이 콘텐츠는 Dennis Koch가 작성하여 Bitcoin Magazine에 처음 게재되었습니다.
 
 ---
 

@@ -234,9 +234,6 @@ DevSecOps 환경에서 이는 **파이프라인 무결성**과 **운영 보안**
   severity="High"
 %}
 
-#### 요약
-
-Amazon Quick의 S3 knowledge base에서 문서 수준 ACL을 구성하여 민감한 문서에 대한 접근을 제한하는 방법을 설명합니다. 채팅 및 자동화 워크플로우에서 문서 수준 권한을 적용하는 ACL 설정 및 검증 과정을 다룹니다.
 
 ---
 
@@ -253,9 +250,6 @@ Amazon Quick의 S3 knowledge base에서 문서 수준 ACL을 구성하여 민감
   severity="Medium"
 %}
 
-#### 요약
-
-Google의 Gemini Live Agent Challenge가 종료되었으며, 전 세계 151개국에서 11,878명의 참가자와 1,536개의 제출 프로젝트를 기록했습니다. 이 대회는 개발자들이 전통적인 텍스트 박스 패러다임을 벗어난 차세대 AI 에이전트를 구축하도록 도전했습니다.
 
 ---
 
@@ -304,9 +298,6 @@ Google Threat Intelligence Group(GTIG)이 추적 중인 위협 행위자 UNC6671
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot의 모든 기능에서 Grok Code Fast 1 모델이 2026년 5월 15일자로 지원 중단되었습니다. 이는 모델 폐기의 일환으로, 해당 모델은 더 이상 사용할 수 없게 되었습니다.
 
 ---
 
@@ -320,9 +311,6 @@ GitHub Copilot의 모든 기능에서 Grok Code Fast 1 모델이 2026년 5월 15
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 Copilot Pro 및 Pro+ 사용자를 대상으로 Copilot Memory 기능의 얼리 액세스를 시작했습니다. 이 기능은 사용자가 명시하거나 유추된 개인 선호도를 저장하여 더 개인화된 경험을 제공합니다.
 
 ---
 
@@ -337,9 +325,6 @@ GitHub이 Copilot Pro 및 Pro+ 사용자를 대상으로 Copilot Memory 기능�
   severity="Medium"
 %}
 
-#### 요약
-
-Docker가 MCP 서버 관리를 위한 Custom Catalogs와 Profiles 기능을 정식 출시했습니다. Custom Catalogs는 조직이 승인된 MCP 서버 모음을 선별 및 배포할 수 있게 하고, MCP Profiles는 개별 개발자가 쉽게 구축 및 실행할 수 있도록 지원합니다.
 
 ---
 
@@ -356,9 +341,6 @@ Docker가 MCP 서버 관리를 위한 Custom Catalogs와 Profiles 기능을 정�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Open이 2026년 6월 8일, 온타리오주 오크빌의 상징적인 Glen Abbey Golf Club에서 개최된다고 발표했다. 이 행사는 팀 스크램블 골프 토너먼트와 저녁 Texas Hold'em 포커 토너먼트로 구성되며, Glen Abbey Golf Club의 개장 50주년이 되는 해에 열린다.
 
 ---
 
@@ -373,9 +355,6 @@ Bitcoin Open이 2026년 6월 8일, 온타리오주 오크빌의 상징적인 Gle
   severity="Medium"
 %}
 
-#### 요약
-
-아부다비의 무바달라 투자회사가 2026년 1분기 블랙록의 iShares Bitcoin Trust 지분을 16% 늘려 5억 6600만 달러 규모로 확대했다. 이 소식은 Bitcoin 매거진이 보도했다.
 
 ---
 
@@ -390,9 +369,6 @@ Bitcoin Open이 2026년 6월 8일, 온타리오주 오크빌의 상징적인 Gle
   severity="Medium"
 %}
 
-#### 요약
-
-Winklevoss 쌍둥이가 Gemini에 1억 달러 규모의 Bitcoin 투자를 발표하고, Q1 실적에서 전년 대비 42%의 매출 성장을 보고하면서 Gemini 주가가 상승했습니다. 이 소식은 Bitcoin Magazine에 Micah Zimmerman이 기고한 내용입니다.
 
 ---
 

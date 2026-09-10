@@ -212,9 +212,6 @@ DevSecOps 실무자에게 다음 측면에서 직접적 영향을 미친다.
   severity="Medium"
 %}
 
-#### 요약
-
-타사 AI 모델 서비스 사용은 고유한 기관 지식과 트레이드크래프트인 알파(alpha)가 호스티드 모델 프로바이더(Hosted Model Provider)에게 추출되어 시장에 재판매될 위험이 있습니다. 따라서 알파의 유출을 방지하려면 데이터 처리에 대한 주권적 통제권을 확보하는 것이 중요합니다.
 
 
 ---
@@ -230,9 +227,6 @@ DevSecOps 실무자에게 다음 측면에서 직접적 영향을 미친다.
   severity="High"
 %}
 
-#### 요약
-
-오픈소스 소프트웨어는 글로벌 경제의 핵심 기반이며, 사이버보안은 그 주요 수혜 분야 중 하나입니다. 이러한 배경에서 AI 안전과 보안을 위해 Open Secure AI Alliance가 출범했습니다.
 
 
 ---
@@ -247,9 +241,6 @@ DevSecOps 실무자에게 다음 측면에서 직접적 영향을 미친다.
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI의 새로운 연구는 AI가 직무 경계를 재편하며 ChatGPT 사용자들이 다양한 역할의 작업을 수행하도록 확장하고 있음을 보여줍니다.
 
 
 ---
@@ -267,9 +258,6 @@ OpenAI의 새로운 연구는 AI가 직무 경계를 재편하며 ChatGPT 사용
   severity="Medium"
 %}
 
-#### 요약
-
-SAP와 Google Cloud가 SAP Business Data Cloud Connect for BigQuery의 일반 공급을 발표했습니다. 이 솔루션은 기존 데이터 복제 기술의 한계를 극복하고 최신 워크플로우에 필요한 데이터 신선도를 제공합니다.
 
 
 ---
@@ -284,9 +272,6 @@ SAP와 Google Cloud가 SAP Business Data Cloud Connect for BigQuery의 일반 �
   severity="Medium"
 %}
 
-#### 요약
-
-Mandiant의 M-Trends 2026 보고서에 따르면, 기계 속도의 공격이 주목받지만 대부분의 성공적인 침입은 여전히 근본적인 인간 및 시스템 결함에서 비롯됩니다. 이는 toolchain을 넘어선 기업 복원력 구축의 필요성을 강조합니다.
 
 
 ---
@@ -301,9 +286,6 @@ Mandiant의 M-Trends 2026 보고서에 따르면, 기계 속도의 공격이 주
   severity="Medium"
 %}
 
-#### 요약
-
-미국 해양대기청(NOAA)이 Google Cloud를 기상 및 기후 운영 슈퍼컴퓨팅 시스템(WCOSS)의 고성능 컴퓨팅(HPC) 인프라 주요 제공자로 선정했습니다. 이 협력을 통해 NOAA는 지구 대기 패턴을 이해하고 예측하는 방식을 혁신적으로 개선할 계획입니다.
 
 
 ---
@@ -320,9 +302,6 @@ Mandiant의 M-Trends 2026 보고서에 따르면, 기계 속도의 공격이 주
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot 앱이 이제 전용 정책을 가지게 되어 엔터프라이즈 및 조직 수준에서 접근 권한을 제어할 수 있습니다. 기존에는 Copilot 접근 관리가 제한적이었으나, 이번 업데이트로 더 세밀한 통제가 가능해졌습니다.
 
 
 ---
@@ -338,9 +317,6 @@ GitHub Copilot 앱이 이제 전용 정책을 가지게 되어 엔터프라이�
   severity="High"
 %}
 
-#### 요약
-
-GitHub Copilot 앱과 Copilot cloud agent에 대해 엔터프라이즈 관리 설정을 적용할 수 있게 되었으며, 이는 기업 전반에서 Copilot을 제어하는 데 사용하는 중앙 관리 정책과 동일합니다.
 
 
 ---
@@ -355,9 +331,6 @@ GitHub Copilot 앱과 Copilot cloud agent에 대해 엔터프라이즈 관리 �
   severity="Medium"
 %}
 
-#### 요약
-
-Safari 26.6이 출시되었으며, WebKit 기능이 업데이트되었습니다.
 
 
 ---
@@ -393,9 +366,6 @@ Coinbase의 최고 정책 책임자 Faryar Shirzad는 Crypto Clarity Act를 "매
   severity="Medium"
 %}
 
-#### 요약
-
-공화당 의원들은 암호화폐 시장 구조 법안인 Crypto Clarity Act에 대해 민주당의 지지를 기대하고 있지만, 데이브 매코믹 상원의원에 따르면 민주당이 이를 저지하고 있습니다. 그는 Fox Business와의 인터뷰에서 이번 주에 표결이 이루어져야 한다고 강조했습니다.
 
 
 ---
@@ -411,9 +381,6 @@ Coinbase의 최고 정책 책임자 Faryar Shirzad는 Crypto Clarity Act를 "매
   severity="Medium"
 %}
 
-#### 요약
-
-지난주 말 미국 Bitcoin ETF에서 약 4억 7500만 달러가 유출되며 7일 연속 순유입 행진이 마감됐고, 블랙록의 iShares Bitcoin Trust가 대부분의 거래를 처리한 것으로 나타났다.
 
 
 ---

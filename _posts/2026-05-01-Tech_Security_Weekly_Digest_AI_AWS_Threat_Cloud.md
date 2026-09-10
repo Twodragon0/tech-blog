@@ -233,9 +233,6 @@ DevSecOps 관점에서 이 위협은 **공급망 공격(Supply Chain Attack)과 
   severity="Medium"
 %}
 
-#### 요약
-
-NHS가 75년 이상 운영되어 온 복잡한 의료 시스템으로, 수백 개 병원 트러스트에서 150만 직원이 5700만 환자를 돌보고 있지만 수십 년 된 레거시 인프라로 인해 데이터가 서로 연결되지 못했습니다. 이를 해결하기 위해 NHS Federated Data Platform을 구축하여 데이터 통합을 추진하고 있습니다.
 
 ---
 
@@ -250,9 +247,6 @@ NHS가 75년 이상 운영되어 온 복잡한 의료 시스템으로, 수백 �
   severity="High"
 %}
 
-#### 요약
-
-이번 달 GeForce NOW에 16개의 게임이 추가되며, NVIDIA GeForce RTX 5080 성능이 Install-to-Play 라이브러리로 확장됩니다. 새로운 AAA 타이틀들이 Steam, Xbox, PC Game Pass 등에서 출시 당일 클라우드로 제공됩니다.
 
 ---
 
@@ -267,9 +261,6 @@ NHS가 75년 이상 운영되어 온 복잡한 의료 시스템으로, 수백 �
   severity="Medium"
 %}
 
-#### 요약
-
-AI 공동 임상의(AI co-clinician) 모델을 통해 의료 현장에 AI가 접목된 새로운 진료 방식을 연구하고 있습니다. 이는 AI가 의사를 보조하여 진료의 효율성과 정확성을 높이는 방향으로 개발되고 있습니다.
 
 ---
 
@@ -286,9 +277,6 @@ AI 공동 임상의(AI co-clinician) 모델을 통해 의료 현장에 AI가 접
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud의 COO Francis deSouza가 Next '26에서 Google이 멀티클라우드와 멀티AI 전략을 채택한 이유를 설명합니다. 이 내용은 Cloud CISO Perspectives 뉴스레터의 일부로 Google Cloud 블로그에 게시됩니다.
 
 ---
 
@@ -303,9 +291,6 @@ Google Cloud의 COO Francis deSouza가 Next '26에서 Google이 멀티클라우�
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud는 4월 22일 라스베이거스에서 Google Cloud Next를 개최하여 Gemini Enterprise Agent Platform과 8세대 TPU 등 혁신적인 기술을 발표했습니다.
 
 ---
 
@@ -337,9 +322,6 @@ Google Cloud는 4월 22일 라스베이거스에서 Google Cloud Next를 개최�
   severity="High"
 %}
 
-#### 요약
-
-2025년 11월, Kubernetes에서 Langfuse를 자체 호스팅하던 팀이 ClickHouse 이미지를 AWS ECR에 업로드했으나, ClickHouse 자체가 아닌 베이스 이미지에서 세 가지 치명적 취약점이 발견되어 보안팀에 의해 차단되었습니다.
 
 ---
 
@@ -371,9 +353,6 @@ Visual Studio의 2026년 4월 업데이트는 에이전틱 워크플로우에 �
   severity="Medium"
 %}
 
-#### 요약
-
-nvptx64-nvidia-cuda 타겟은 NVIDIA GPU를 위한 컴파일 대상이며, 최종 출력은 PTX입니다. 이 PTX 출력은 GPU 아키텍처(sm_70, sm_80 등)와 PTX ISA 버전에 의해 결정되며, 각각 실행 가능한 GPU와 로드 가능한 CUDA 드라이버 버전을 제한합니다.
 
 ---
 
@@ -390,9 +369,6 @@ nvptx64-nvidia-cuda 타겟은 NVIDIA GPU를 위한 컴파일 대상이며, 최�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitso의 보고서에 따르면 라틴 아메리카의 암호화폐 구매에서 Stablecoins가 Bitcoin을 추월했습니다. 이는 달러 연동 Stablecoins이 인플레이션 영향을 받는 지역 경제에서 일상적인 금융 용도로 채택되고 있음을 보여줍니다.
 
 ---
 
@@ -407,9 +383,6 @@ Bitso의 보고서에 따르면 라틴 아메리카의 암호화폐 구매에서
   severity="High"
 %}
 
-#### 요약
-
-Polymarket이 내부자 거래 논란에 대응해 Chainalysis를 도입해 의심스러운 거래를 감시하기로 했다. 예측 시장에 대한 규제 당국의 감시가 강화되면서 이러한 조치가 취해졌다.
 
 ---
 
@@ -424,9 +397,6 @@ Polymarket이 내부자 거래 논란에 대응해 Chainalysis를 도입해 의�
   severity="Medium"
 %}
 
-#### 요약
-
-Sentora가 Smart Yield 플랫폼을 출시하며 기관 수준의 DeFi를 일반 대중에게 공개했습니다. 이제 모든 사용자가 Sentora의 DeFi Vault 발견 및 모니터링 플랫폼에 접근할 수 있습니다.
 
 ---
 

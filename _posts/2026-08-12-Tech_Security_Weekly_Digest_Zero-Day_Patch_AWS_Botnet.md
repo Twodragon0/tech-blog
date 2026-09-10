@@ -166,9 +166,6 @@ DevSecOps 관점에서 가장 우려되는 점은 **기존의 레거시 WAF(Web 
   severity="Medium"
 %}
 
-#### 요약
-
-Zoom의 화면 공유 중 주석(annotation) 기능에서 발견된 취약점으로, 회의 참가자가 다른 참가자의 클라이언트를 탈취하거나 발표자의 컴퓨터를 장악할 수 있었습니다. 이 공격은 피해자의 클릭이나 다운로드, 화면 표시 없이도 실행 가능했습니다. 해당 결함은 Zoom의 주석 도구에 존재했습니다.
 
 
 #### 권장 조치
@@ -212,9 +209,6 @@ NVIDIA는 Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR과 파�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Research의 의료 AI 시스템 AMIE가 최초의 연구에서 실시간 임상 영상 진료 역량을 입증했습니다. 이 연구는 AMIE가 실제 환자와의 화상 상담에서 진단 및 대화 능력을 발휘함을 보여줍니다.
 
 
 ---
@@ -230,9 +224,6 @@ Google Research의 의료 AI 시스템 AMIE가 최초의 연구에서 실시간 
   severity="Medium"
 %}
 
-#### 요약
-
-AI 가속 컴퓨팅의 성능 확장은 단순한 전력량이 아닌, grid에서 GPU까지의 전력 전달 방식 자체가 병목으로 작용한다. 기존의 AC 기반 전력 전달 구조로는 증가하는 rack 밀도와 확장성을 감당할 수 없어, 새로운 전력 아키텍처가 필수적이다. 이는 차세대 AI 인프라의 핵심 과제로 부상하고 있다.
 
 
 ---
@@ -268,9 +259,6 @@ Google Cloud가 2029년까지 post-quantum cryptography(PQC)로 전환하기 위
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud는 Gemini Enterprise에서 Looker의 semantic layer를 활용해 구조화된 데이터와 비구조화된 데이터 간의 격차를 해소하고, LLM과 NL2SQL 모델의 한계를 보완하여 신뢰할 수 있는 AI 에이전트 운영을 지원합니다. 이를 통해 데이터베이스 스키마 추측으로 인한 불일치 지표와 AI 환각 문제를 줄입니다.
 
 
 ---
@@ -306,9 +294,6 @@ Google Cloud의 Database Migration Service에서 Gemini를 활용해 PostgreSQL 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Enterprise Server (GHES) 3.22 릴리스 후보가 공개되었으며, 플랫폼 전반에 새로운 기능이 추가되었습니다. 관리자는 Copilot CLI를 구성할 수 있게 되었고, 이번 릴리스의 주요 개선 사항이 GitHub Blog에 게시되었습니다.
 
 
 ---
@@ -324,9 +309,6 @@ GitHub Enterprise Server (GHES) 3.22 릴리스 후보가 공개되었으며, 플
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot for JetBrains 업데이트로 Copilot 메모리와 Ollama 로컬 모델 접근이 추가되고, 엔터프라이즈 제어 기능이 강화되었습니다. 또한 일상적인 채팅 워크플로가 개선되고 MCP 서버 전반의 안정성 문제가 해결되었습니다.
 
 
 ---
@@ -342,9 +324,6 @@ GitHub Copilot for JetBrains 업데이트로 Copilot 메모리와 Ollama 로컬 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에서 branch protection rules를 repository rulesets로 자동 변환하는 기능이 새로 추가되었습니다. 이제 저장소 설정에서 기존 규칙을 직접 전환할 수 있어, 더 유연하고 확장 가능한 GitHub의 정책 프레임워크로 손쉽게 마이그레이션할 수 있습니다.
 
 
 ---
@@ -362,9 +341,6 @@ GitHub Blog에서 branch protection rules를 repository rulesets로 자동 변�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 의회에서 Clarity Act에 대한 표결이 지연된 가운데, 친(親) 암호화폐 규제 기관들은 디지털 자산 산업을 지원하기 위한 새로운 계획을 곧 발표할 것이라고 밝혔다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 처음 보도했다.
 
 
 ---
@@ -398,9 +374,6 @@ Strategy는 최근 Bitcoin보다 현금(USD) 보유를 늘리고 있으며, 이�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 CFTC가 Goliath Ventures를 4억 달러 규모의 Bitcoin 사기 혐의로 제소했으며, 규제 당국은 약 1,600명의 고객이 Bitcoin 및 암호화폐 운영에서 손실을 입었다고 밝혔다. 해당 회사의 CEO는 이미 유죄를 인정했으며, 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 처음 보도했다.
 
 
 ---

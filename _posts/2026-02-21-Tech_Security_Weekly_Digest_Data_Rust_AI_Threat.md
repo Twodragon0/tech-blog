@@ -309,7 +309,7 @@ Bitcoin이 고점 대비 50% 급락하며 $67,000대로 하락했습니다. 양�
 
 <!-- related-posts:v1 -->
 
-- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·쿠버네티스 (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·Kubernetes (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
 - [2026년 02월 22일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (3건)](/posts/2026/02/22/Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security/) — 2026-02-22
 - [2026년 02월 18일 주간 보안 다이제스트: 악성코드·클라우드·패치 (3건)](/posts/2026/02/18/Tech_Security_Weekly_Digest_AI_Cloud_Malware_Update/) — 2026-02-18
 

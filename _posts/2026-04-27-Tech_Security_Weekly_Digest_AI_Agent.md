@@ -137,9 +137,6 @@ DevSecOps 실무자 입장에서 이번 사고는 다음과 같은 즉각적인 
   severity="Medium"
 %}
 
-#### 요약
-
-Google DeepMind가 대한민국과 협력하여 최첨단 AI 모델을 활용한 과학적 혁신을 가속화하기로 발표했습니다. 이 파트너십은 한국의 연구 역량과 DeepMind의 AI 기술을 결합하는 데 초점을 맞추고 있습니다.
 
 ---
 
@@ -153,9 +150,6 @@ Google DeepMind가 대한민국과 협력하여 최첨단 AI 모델을 활용한
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI의 사명은 AGI가 모든 인류에게 혜택을 주도록 하는 것이며, Sam Altman이 이를 위한 다섯 가지 원칙을 공유했습니다.
 
 ---
 
@@ -171,9 +165,6 @@ OpenAI의 사명은 AGI가 모든 인류에게 혜택을 주도록 하는 것이
   severity="Medium"
 %}
 
-#### 요약
-
-이 글은 AWS Spatial Computing Blog에 게시된 Simulating Expert Teams with Agentic AI and Amazon Bedrock AgentCore 를 한국어로 번역 및 편집하였습니다. 소개 여러 전문 분야에 걸친 기술적 질문에 답하는 것은 단순히 정답을 찾는 문제가 아닙니다
 
 ---
 
@@ -190,9 +181,6 @@ OpenAI의 사명은 AGI가 모든 인류에게 혜택을 주도록 하는 것이
   severity="Medium"
 %}
 
-#### 요약
-
-UTXO Management이 고정 월 수익을 목표로 하는 선순위 소득 트렌치와 레버리지 상승에 초점을 맞춘 총수익 트렌치로 구성된 이중 클래스 디지털 신용 소득 펀드를 출시했습니다. 이 소식은 Bitcoin Magazine에 게재되었으며 Micah Zimmerman이 작성했습니다.
 
 ---
 
@@ -207,9 +195,6 @@ UTXO Management이 고정 월 수익을 목표로 하는 선순위 소득 트렌
   severity="Medium"
 %}
 
-#### 요약
-
-예측 시장에서 정보를 가진 소수(약 3.5%)의 거래자가 전체 수익의 30% 이상을 차지하는 반면, 약 67%의 사용자가 모든 손실을 떠안는다는 연구 결과가 나왔다. 이는 예측 시장이 군중의 지혜가 아닌 '정보를 가진 소수의 지혜'를 반영한다는 것을 시사한다.
 
 ---
 
@@ -224,9 +209,6 @@ UTXO Management이 고정 월 수익을 목표로 하는 선순위 소득 트렌
   severity="Medium"
 %}
 
-#### 요약
-
-Western Union CEO Devin McGranahan는 회사가 5월에 자체 스테이블코인 USDPT를 출시할 계획이며, 향후 핵심 송금 플랫폼에 디지털 자산을 통합하고 채택을 확대하는 데 집중할 것이라고 밝혔습니다.
 
 ---
 

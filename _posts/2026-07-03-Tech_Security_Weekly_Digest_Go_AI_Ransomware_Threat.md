@@ -239,9 +239,6 @@ Anthropic이 Claude Fable 5 모델을 7월 7일 이후 구독형 요금제에서
   severity="High"
 %}
 
-#### 요약
-
-GeForce NOW가 7월에 12개의 신규 게임을 클라우드에 추가하며, Monopoly: Star Wars Heroes vs. Villains로 여름 시즌을 시작한다. 이번 업데이트로 인기 보드게임 프랜차이즈에 스타워즈 세계관이 결합된다. 또한 가장 큰 GeForce 관련 소식을 놓치지 말아야 한다.
 
 ---
 
@@ -256,9 +253,6 @@ GeForce NOW가 7월에 12개의 신규 게임을 클라우드에 추가하며, M
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA는 AI 모델 개발에서 프로덕션 추론으로의 전환에 따라 확장 가능한 AI 컴퓨팅을 제공하며, 대규모 멀티테넌트 가속 컴퓨팅 인프라 구축을 위해 파트너를 초대하고 있습니다. 이는 지속적으로 운영되는 AI 팩토리에서 토큰을 대규모로 생성하는 수요를 충족하기 위한 것입니다.
 
 ---
 
@@ -273,9 +267,6 @@ NVIDIA는 AI 모델 개발에서 프로덕션 추론으로의 전환에 따라 �
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 트럼프 행정부 초기 회담에서 미국 정부에 5%의 지분을 제공하는 방안을 논의한 것으로 알려졌으며, 이는 워싱턴이 AI 모델 감독을 강화하는 가운데 나온 것이다.
 
 ---
 
@@ -291,9 +282,6 @@ OpenAI가 트럼프 행정부 초기 회담에서 미국 정부에 5%의 지분�
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 FBI, Lumen 등과 협력하여 NetNut(Popa) residential proxy network에 대한 조치를 취했으며, 이는 2026년 1월의 IPIDEA proxy network 방해 공작에 이어 악성 residential proxy network를 해체하려는 Google의 지속적인 노력의 일환입니다.
 
 ---
 
@@ -309,9 +297,6 @@ Google은 FBI, Lumen 등과 협력하여 NetNut(Popa) residential proxy network�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 Copilot 사용량 메트릭 API에 세 가지 개선 사항을 적용하여 보고서의 완전성과 정확성을 높였으며, 이제 GitHub Copilot CLI가 제안된 코드 라인을 보고하고 이전에 누락되던 사용자 데이터도 포함됩니다.
 
 ---
 
@@ -326,9 +311,6 @@ GitHub이 Copilot 사용량 메트릭 API에 세 가지 개선 사항을 적용�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot에서 사용 중이던 Gemini 2.5 Pro와 Gemini 3 Flash 모델이 7월 31일자로 모든 기능에서 지원이 중단됩니다. 이는 Copilot Chat, 인라인 편집, ask 및 agent 모드, 코드 완성 등 모든 환경에 적용됩니다.
 
 ---
 
@@ -342,9 +324,6 @@ GitHub Copilot에서 사용 중이던 Gemini 2.5 Pro와 Gemini 3 Flash 모델이
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Actions에서 Copilot CLI를 사용할 때 더 이상 개인 액세스 토큰(PAT)이 필요하지 않으며, 내장된 GITHUB_TOKEN을 활용할 수 있게 되었습니다.
 
 ---
 
@@ -361,9 +340,6 @@ GitHub Actions에서 Copilot CLI를 사용할 때 더 이상 개인 액세스 �
   severity="Medium"
 %}
 
-#### 요약
-
-Wavespace가 MiCA 규정을 준수하는 Bitcoin 전용 네오뱅크로, 자체 보관형 wavecard®를 출시했습니다. 이 카드는 Nostr Wallet Connect를 통해 사용자의 Lightning 노드에서 자동으로 잔액을 충전하여, 보관형 선불 충전의 위험을 제거합니다.
 
 ---
 
@@ -378,9 +354,6 @@ Wavespace가 MiCA 규정을 준수하는 Bitcoin 전용 네오뱅크로, 자체 
   severity="Medium"
 %}
 
-#### 요약
-
-Bitget이 Stock+ 플랫폼에 미국 주식 옵션 거래를 추가하며 long call과 put 옵션을 도입했습니다. 이는 암호화폐와 전통 금융 시장을 하나의 거래 플랫폼에 결합하려는 전략의 일환입니다.
 
 ---
 
@@ -395,9 +368,6 @@ Bitget이 Stock+ 플랫폼에 미국 주식 옵션 거래를 추가하며 long c
   severity="Medium"
 %}
 
-#### 요약
-
-FBI 국장 Kash Patel이 Strategy(MSTR)에 대한 6자리 규모의 지분 투자를 적시에 공개하지 않았다는 보도가 나왔으며, 이는 윤리 규정 준수에 대한 논란을 다시 불러일으켰습니다. 해당 소식은 Bitcoin Magazine이 Micah Zimmerman의 기사를 인용해 처음 보도했습니다.
 
 ---
 
@@ -463,7 +433,7 @@ FBI 국장 Kash Patel이 Strategy(MSTR)에 대한 6자리 규모의 지분 투�
 
 <!-- related-posts:v1 -->
 
-- [2026년 07월 02일 주간 보안 다이제스트: 쿠버네티스·패치·DNS 유출 (30건)](/posts/2026/07/02/Tech_Security_Weekly_Digest_Patch_Kubernetes_Go_AI/) — 2026-07-02
+- [2026년 07월 02일 주간 보안 다이제스트: Kubernetes·패치·DNS 유출 (30건)](/posts/2026/07/02/Tech_Security_Weekly_Digest_Patch_Kubernetes_Go_AI/) — 2026-07-02
 - [2026년 07월 04일 주간 보안 다이제스트: 클라우드·패치·제로데이 (17건)](/posts/2026/07/04/Tech_Security_Weekly_Digest_Patch_AWS_AI_Malware/) — 2026-07-04
 - [2026년 06월 30일 주간 보안 다이제스트: 악성코드·클라우드·패치 (30건)](/posts/2026/06/30/Tech_Security_Weekly_Digest_Go_AI_AWS_Malware/) — 2026-06-30
 

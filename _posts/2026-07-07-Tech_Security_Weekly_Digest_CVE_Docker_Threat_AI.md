@@ -235,9 +235,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-올해 ICML에서 채택된 논문들은 오픈 프론티어 모델과 오픈 AI 인프라가 현대 AI 연구의 기반이 되었음을 보여주며, NVIDIA는 74편의 논문을 채택받았다.
 
 ---
 
@@ -252,9 +249,6 @@ mitre_attack:
   severity="High"
 %}
 
-#### 요약
-
-각국은 경제 발전과 데이터 활용, 기술 기회 선점을 위해 AI에 투자하고 있으며, AI는 현대 사회의 모든 분야에서 혁신을 가속화하고 있습니다. 국가들은 AI 역량 강화를 통해 전략적 우선순위를 달성하고자 합니다.
 
 ---
 
@@ -269,9 +263,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-TeraWulf 주가가 상승한 이유는 Anthropic과 20년 AI 인프라 임대 계약을 체결하고, 별도 AI 데이터 센터 합작법인의 지분을 매각했기 때문입니다.
 
 ---
 
@@ -288,9 +279,6 @@ TeraWulf 주가가 상승한 이유는 Anthropic과 20년 AI 인프라 임대 �
   severity="Medium"
 %}
 
-#### 요약
-
-자동차 산업은 소프트웨어 정의 차량(SDV) 시대로 전환하며 급속한 혁신을 겪고 있습니다. SDV는 OTA(Over-the-Air) 업데이트를 통해 새로운 기능을 지속적으로 제공하는 것이 특징입니다.
 
 ---
 
@@ -304,9 +292,6 @@ TeraWulf 주가가 상승한 이유는 Anthropic과 20년 AI 인프라 임대 �
   severity="Medium"
 %}
 
-#### 요약
-
-AWS Weekly Roundup에서 Claude Sonnet 5가 AWS에서 제공되며, Amazon WorkSpaces가 AI 에이전트를 지원하고, AWS 서비스 가용성 업데이트 등이 발표되었습니다. 저자는 AWS Startups 팀과 함께 창업자들의 실제 문제 해결 사례를 청취하며 에너지를 얻었다고 전했습니다.
 
 ---
 
@@ -323,9 +308,6 @@ AWS Weekly Roundup에서 Claude Sonnet 5가 AWS에서 제공되며, Amazon WorkS
   severity="Medium"
 %}
 
-#### 요약
-
-SRE의 4-body 문제는 자율 운영이 성공하려면 단순한 자동화가 아닌 맥락(context)에 대한 깊은 이해가 필요함을 강조합니다. 방갈로르 행사에서 만난 시니어 SRE들은 신뢰 격차(trust gap)가 실제 작업의 시작점임을 확인해 주었습니다.
 
 ---
 
@@ -358,9 +340,6 @@ Platform Engineering 1.0은 Golden paths를 통한 배포 가속화와 Internal 
   severity="Medium"
 %}
 
-#### 요약
-
-블록체인 애널리틱스 벤더를 평가할 때 클러스터 수만으로 비교하는 것은 충분하지 않으며, 서비스의 폭(Breadth), 깊이(Depth), 품질(Quality)까지 고려해야 한다는 내용이 Chainalysis를 통해 보도되었다.
 
 ---
 
@@ -375,9 +354,6 @@ Platform Engineering 1.0은 Golden paths를 통한 배포 가속화와 Internal 
   severity="Medium"
 %}
 
-#### 요약
-
-트럼프가 지원하는 American Bitcoin (ABTC)의 재무부가 8,000 BTC를 돌파했다고 발표했습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 
@@ -392,9 +368,6 @@ Platform Engineering 1.0은 Golden paths를 통한 배포 가속화와 Internal 
   severity="Medium"
 %}
 
-#### 요약
-
-Tether가 지원하는 UTEXO가 Bitcoin 네이티브 USDT를 곧 출시할 예정(7월 중 예상)이며, 클라이언트 측 검증을 통해 Tron이나 Ethereum 대비 수수료와 중개자를 대폭 줄일 것으로 기대됩니다. RGB와 UTEXO는 Lightning Network에서 비공개 결제를 가능하게 합니다. 이는 USDT가 Bitcoin 생태계로 복귀했음을 의미합니다.
 
 ---
 

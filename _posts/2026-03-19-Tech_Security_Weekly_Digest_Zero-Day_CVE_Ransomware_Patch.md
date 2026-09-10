@@ -197,9 +197,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-Facebook Reels에 도입된 Friend Bubbles는 친구들이 좋아요를 누르거나 반응한 Reels를 강조 표시하여 새로운 콘텐츠를 발견하고 공유 관심사를 기반으로 연결을 용이하게 합니다. 이 기능은 관계 강도를 추정하고 친구가 상호작용한 콘텐츠를 순위 매기는 machine learning 기술을 기반으로 합니다.
 
 ---
 
@@ -214,9 +211,6 @@ Facebook Reels에 도입된 Friend Bubbles는 친구들이 좋아요를 누르�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA의 최신 오픈 모델과 프레임워크는 시뮬레이션, 로봇 학습, 임베디드 컴퓨팅을 통합해 클라우드-투-로봇 워크플로우를 가속화합니다. 이를 통해 AI 기반 로봇을 시뮬레이션부터 실제 생산까지 효율적으로 구축할 수 있게 됩니다.
 
 ---
 
@@ -230,9 +224,6 @@ NVIDIA의 최신 오픈 모델과 프레임워크는 시뮬레이션, 로봇 학
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon Nova 모델을 Amazon SageMaker AI Training Jobs로 학습시키기 위해 Nova Forge SDK 사용 과정을 소개합니다.
 
 ---
 
@@ -249,9 +240,6 @@ Amazon Nova 모델을 Amazon SageMaker AI Training Jobs로 학습시키기 위�
   severity="Medium"
 %}
 
-#### 요약
-
-Distributed AI Agent를 실제 React나 Node.js 애플리케이션에 안정적으로 통합하고 프로덕션 환경에서 운영하는 것은 단순히 작동시키는 것과는 차원이 다른 과제입니다. 이에 대한 구체적인 구현 예시로 Course Creator Agent Architecture가 GitHub에 공개되어 있습니다.
 
 ---
 
@@ -266,9 +254,6 @@ Distributed AI Agent를 실제 React나 Node.js 애플리케이션에 안정적�
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud는 완전 관리형 서비스인 Memorystore for Valkey의 9.0 버전을 정식 출시했습니다. 이번 업데이트는 오픈소스 키-값 데이터 저장소인 Valkey의 성능을 대폭 향상시키고 새로운 개발자 기능을 제공합니다.
 
 ---
 
@@ -318,9 +303,6 @@ Docker Captains는 개발자 커뮤니티의 리더로서 Docker 지식을 공�
   severity="Medium"
 %}
 
-#### 요약
-
-.NET MAUI 11의 Map 컨트롤에 Pin Clustering 기능이 추가되어 근접한 핀들을 클러스터 마커로 자동 그룹화합니다. 이 기능을 활성화하고 별도의 Clustering 그룹을 생성하며 Android와 iOS에서 클러스터 탭을 처리하는 방법을 소개합니다.
 
 ---
 
@@ -335,9 +317,6 @@ Docker Captains는 개발자 커뮤니티의 리더로서 Docker 지식을 공�
   severity="Medium"
 %}
 
-#### 요약
-
-KubeCon + CloudNativeCon Europe 2026에서 CiliumCon이 암스테르담에서 다시 열립니다. 이번 행사는 Cilium 출시 10주년을 맞아 개최되는 일곱 번째 CiliumCon입니다.
 
 ---
 
@@ -354,9 +333,6 @@ KubeCon + CloudNativeCon Europe 2026에서 CiliumCon이 암스테르담에서 �
   severity="Medium"
 %}
 
-#### 요약
-
-SEC가 특정 주식과 ETF를 토큰화된 증권으로 거래할 수 있도록 하는 나스닥 규정을 승인했습니다. 이는 블록체인 기술이 전통 금융 시장에 통합되는 길을 열었습니다.
 
 ---
 
@@ -371,9 +347,6 @@ SEC가 특정 주식과 ETF를 토큰화된 증권으로 거래할 수 있도록
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Magazine의 The Core Issue는 광범위한 인터넷의 다양한 위협으로부터 자신의 Bitcoin 노드를 방어하는 데 필요한 요소를 살펴봅니다. 이 글은 Julien Urraca, Fabian Jahr, 0xb10c, CedArctic이 작성했습니다.
 
 ---
 
@@ -388,9 +361,6 @@ Bitcoin Magazine의 The Core Issue는 광범위한 인터넷의 다양한 위협
   severity="Medium"
 %}
 
-#### 요약
-
-영국 여성이 남편을 감시하며 그의 하드웨어 월렛에서 1억 7200만 달러 상당의 Bitcoin을 훔친 혐의를 받고 있습니다. 이 사건은 Bitcoin Magazine을 통해 보도되었습니다.
 
 ---
 

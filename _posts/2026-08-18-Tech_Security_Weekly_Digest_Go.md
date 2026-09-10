@@ -212,9 +212,6 @@ mitre_attack:
   severity="High"
 %}
 
-#### 요약
-
-AI factory는 AI 시대의 핵심 인프라로, compute가 에너지와 데이터를 지능으로 전환하여 모든 비즈니스와 산업을 구동합니다. AI 경제에서 compute는 수익이며, AI factory는 고급 칩, 패키징, 메모리, 네트워킹뿐만 아니라 토지와 전력 등 전체 스택의 필수 자원을 요구합니다.
 
 
 ---
@@ -230,9 +227,6 @@ AI factory는 AI 시대의 핵심 인프라로, compute가 에너지와 데이�
   severity="Medium"
 %}
 
-#### 요약
-
-Google의 Gemini와 Pixel이 스포츠 관람 경험을 혁신하는 새로운 기능을 선보이며, 사용자가 경기에 더 가까이 다가갈 수 있게 한다. 이 기능은 선수의 동작을 실시간으로 분석하고 하이라이트를 제공하는 등 몰입감을 높인다. Pixel의 카메라와 Gemini의 AI가 결합되어 경기장의 역동적인 순간을 생생하게 포착한다.
 
 
 ---
@@ -247,9 +241,6 @@ Google의 Gemini와 Pixel이 스포츠 관람 경험을 혁신하는 새로운 �
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 AI 기반 사이버 공격에 대응하기 위해 자체 방어 체계를 강화하고 있으며, 보안 팀은 AI를 활용한 공격과 방어의 변화에 맞춰 즉각적인 대비 전략을 마련해야 한다는 내용을 다룬다.
 
 
 ---
@@ -300,9 +291,6 @@ AWS는 지난주 Open Source Summit Korea 2026과 MCP DevSummit Seoul 2026에서
   severity="Medium"
 %}
 
-#### 요약
-
-요즘 RAG(Retrieval-Augmented Generation) 기반 AI Agent를 구축하는 프로젝트가 정말 많습니다. 사내 문서를 검색해 답하는 어시스턴트, 고객 문의를 처리하는 봇, 방대한 기술 문서에서 근거를 찾아주는 에이전트까지
 
 
 ---
@@ -319,9 +307,6 @@ AWS는 지난주 Open Source Summit Korea 2026과 MCP DevSummit Seoul 2026에서
   severity="High"
 %}
 
-#### 요약
-
-공급망 공격이 계속 증가하고 AI가 더 많은 코드를 작성하는 가운데, Docker의 최신 업데이트는 소스에서 빌드된 소프트웨어를 이미지에 포함하고, 수명 종료 이후에도 보안 커버리지를 유지하며, 맞춤형 이미지에 모든 보증을 적용하고, 정책 시행을 모든 개발자 머신으로 확장합니다. 이를 통해 zero CVE를 새로운 기본값으로 삼는 것을 목표로 합니다.
 
 
 ---
@@ -337,9 +322,6 @@ AWS는 지난주 Open Source Summit Korea 2026과 MCP DevSummit Seoul 2026에서
   severity="Medium"
 %}
 
-#### 요약
-
-Falco와 Kyverno를 상징하는 두 마리 피레네 산맥 강아지인 Falkey와 Ky가 Phippy의 친구 그룹에 합류했습니다. 이로써 Phippy의 클라우드 네이티브 세계를 탐험하는 친구들은 총 18명으로 늘어났습니다.
 
 
 ---
@@ -355,9 +337,6 @@ Falco와 Kyverno를 상징하는 두 마리 피레네 산맥 강아지인 Falkey
   severity="High"
 %}
 
-#### 요약
-
-CNCF가 Kubeflow의 졸업(Graduation)을 발표하며 Kubernetes 상에서 AI/ML 수명주기를 자동화하는 클라우드 네이티브 AI 운영의 표준을 공고히 했습니다. 이는 기업의 광범위한 채택을 반영하는 이정표로, CNCF가 지속 가능한 클라우드 네이티브 생태계 구축을 위해 이 프로젝트를 공식 성숙 단계로 승격시켰습니다.
 
 
 ---
@@ -375,9 +354,6 @@ CNCF가 Kubeflow의 졸업(Graduation)을 발표하며 Kubernetes 상에서 AI/M
   severity="Medium"
 %}
 
-#### 요약
-
-Galaxy Research에 따르면 Coldcard Bitcoin 해킹으로 인한 손실이 1억 1,500만 달러를 초과한 것으로 확인됐다. Galaxy Digital의 최신 수치에 따르면 도난당한 Bitcoin 규모는 1억 1,500만 달러로 집계됐으며, 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 처음 보도했다.
 
 
 ---
@@ -393,9 +369,6 @@ Galaxy Research에 따르면 Coldcard Bitcoin 해킹으로 인한 손실이 1억
   severity="Medium"
 %}
 
-#### 요약
-
-Jane Street가 현물 ETF를 통해 약 10억 달러 규모의 Bitcoin을 매수했다고 공개했다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 처음 보도했다.
 
 
 ---
@@ -411,9 +384,6 @@ Jane Street가 현물 ETF를 통해 약 10억 달러 규모의 Bitcoin을 매수
   severity="Medium"
 %}
 
-#### 요약
-
-미국 재무부가 획기적인 암호화폐 법안인 GENIUS Act에 대한 공개 의견을 요청하며 규제 작업에 속도를 내고 있다. 이 법안은 스테이블코인 관련 규제를 포함한 주요 내용을 담고 있으며, 재무부는 업계와 대중의 피드백을 수렴 중이다.
 
 
 ---

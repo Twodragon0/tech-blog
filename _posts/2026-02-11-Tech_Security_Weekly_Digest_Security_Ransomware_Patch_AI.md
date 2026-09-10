@@ -121,9 +121,6 @@ summary_card:
   severity="Medium"
 -%}
 
-#### 요약
-
-북한(DPRK) 연계 IT 요원들이 실제 인물의 LinkedIn 계정을 도용해 원격 채용 공고에 지원하는 새로운 사기 수법이 포착되었습니다. 이들은 인증된 직장 이메일과 신원 배지를 갖춘 프로필을 활용해 채용 담당자의 검증을 우회하는 방식으로 공격을 고도화하고 있습니다.
 
 #### 핵심 포인트
 
@@ -251,9 +248,6 @@ Picus Labs의 Red Report 2026에 따르면, 2025년 한 해 동안 110만 개 �
   severity="Critical"
 -%}
 
-#### 요약
-
-Fortinet이 미인증 공격자가 SQL 인젝션으로 인증 없이 시스템에 접근할 수 있는 Critical 취약점(CVE-2026-21643)에 대한 긴급 패치를 발표했습니다. 영향받는 FortiOS 및 FortiProxy 버전을 운영 중인 조직은 즉시 패치 적용이 필요합니다.
 
 #### 핵심 포인트
 
@@ -289,9 +283,6 @@ Fortinet이 미인증 공격자가 SQL 인젝션으로 인증 없이 시스템�
   severity="Medium"
 -%}
 
-#### 요약
-
-ZAST.AI가 오탐(False Positive) 없는 AI 기반 보안 플랫폼을 표방하며 600만 달러 Pre-A 라운드 투자를 유치했습니다. 기존 SAST/DAST 도구의 높은 오탐률 문제를 AI로 해결한다는 접근이며, DevSecOps 파이프라인 통합을 핵심 기능으로 내세우고 있습니다.
 
 #### 핵심 포인트
 
@@ -337,9 +328,6 @@ Google Photos의 AI 기반 질의 기능 "Ask Photos"를 활용해 사진 컬렉
   severity="Medium"
 -%}
 
-#### 요약
-
-Amazon이 신규 물류 센터 개소 시 Amazon Bedrock의 Nova 모델을 활용해 모듈 컴포넌트 탐지·검증을 자동화한 사례를 소개합니다. AI 기반 이미지 인식으로 수동 검증 작업 부담을 크게 줄이고 정확도를 향상시켰습니다.
 
 #### 핵심 포인트
 
@@ -359,9 +347,6 @@ Amazon이 신규 물류 센터 개소 시 Amazon Bedrock의 Nova 모델을 활�
   severity="Medium"
 -%}
 
-#### 요약
-
-세계 최대 전력 기업 중 하나인 Iberdrola가 AWS와의 협력으로 ServiceNow IT 운영에 Amazon Bedrock AgentCore 기반 에이전틱 아키텍처를 도입했습니다. 변경 요청 검증, 인시던트 관리 지능화, 변경 모델 선택 자동화 3개 영역에서 효율을 크게 높였습니다.
 
 #### 핵심 포인트
 
@@ -429,9 +414,6 @@ Amazon이 신규 물류 센터 개소 시 Amazon Bedrock의 Nova 모델을 활�
   severity="High"
 -%}
 
-#### 요약
-
-현대전에서 전선은 더 이상 전장에만 국한되지 않으며, 국가 안보를 지탱하는 산업의 서버와 공급망까지 직접 확장되고 있습니다. Google Threat Intelligence Group(GTIG)은 최근 몇 년간 방위산업 기반(DIB)을 겨냥한 사이버 작전에서 국가 배후 행위자와 사이버 범죄 집단이 동시에 활동하는 뚜렷한 패턴을 관찰했습니다.
 
 #### 핵심 포인트
 
@@ -477,9 +459,6 @@ Docker Hardened Images(DHI)가 이제 무료로 제공됩니다. Alpine, Debian�
   severity="Medium"
 -%}
 
-#### 요약
-
-.NET 11 Preview 1이 공개되었습니다. .NET 런타임, SDK, 라이브러리, ASP.NET Core, Blazor, C#, .NET MAUI 전반에 걸친 신규 기능이 포함되었으며, 정식 출시 전 얼리 어답터 피드백 수집 단계입니다.
 
 #### 핵심 포인트
 
@@ -499,9 +478,6 @@ Docker Hardened Images(DHI)가 이제 무료로 제공됩니다. Alpine, Debian�
   severity="High"
 -%}
 
-#### 요약
-
-Microsoft가 2026년 2월 .NET 및 .NET Framework 최신 서비스 업데이트를 발표했습니다. CVE-2026-21218을 포함한 보안 패치와 안정성 수정 사항이 포함되어 있으며, 지원 중인 모든 .NET 버전에 대한 업데이트가 제공됩니다.
 
 #### 핵심 포인트
 
@@ -525,9 +501,6 @@ Microsoft가 2026년 2월 .NET 및 .NET Framework 최신 서비스 업데이트�
   severity="Medium"
 -%}
 
-#### 요약
-
-Goldman Sachs가 SEC 공시를 통해 Bitcoin ETF에 11억 달러 규모의 포지션을 보유하고 있음을 밝혔습니다. 전통 금융 대형 기관의 암호화폐 노출이 확대되는 추세를 보여주는 사례입니다.
 
 #### 핵심 포인트
 
@@ -547,9 +520,6 @@ Goldman Sachs가 SEC 공시를 통해 Bitcoin ETF에 11억 달러 규모의 포�
   severity="Medium"
 -%}
 
-#### 요약
-
-FTX 사기 혐의로 유죄 판결을 받은 샘 뱅크먼-프리드가 재심을 신청했습니다. 그는 자신의 기소가 바이든 행정부의 정치적 동기에 의한 것이라고 주장하며 판결 취소를 시도하고 있습니다.
 
 #### 핵심 포인트
 

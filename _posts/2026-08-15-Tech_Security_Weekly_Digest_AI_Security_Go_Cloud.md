@@ -98,9 +98,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-Anthropic은 Claude의 AI 생성 텍스트에 워터마킹을 도입할 계획이며, 이는 LinkedIn 등 소셜 미디어에서 흔히 볼 수 있는 일반적인 AI 콘텐츠 식별 방식을 넘어서는 기술이다. 이 기술은 생성된 텍스트의 출처를 더 정확하게 추적할 수 있게 해줄 것으로 기대된다.
 
 
 #### 권장 조치
@@ -199,9 +196,6 @@ DevSecOps 관점에서 이번 사건은 **CI/CD 파이프라인에 사용되는 
   severity="Medium"
 %}
 
-#### 요약
-
-Machine Learning은 블록체인 분석에서 유용한 도구이지만 책임감 있게 사용되어야 하며, 자동화된 도구가 특정 역할을 수행할 수 있습니다. 이 내용은 Chainalysis가 발표한 블록체인 인텔리전스에서 Machine Learning의 구체적인 역할을 강조한 기사입니다.
 
 
 ---
@@ -216,9 +210,6 @@ Machine Learning은 블록체인 분석에서 유용한 도구이지만 책임�
   severity="High"
 %}
 
-#### 요약
-
-Amazon Nova Forge의 multi-turn reinforcement learning에서 커스텀 reward function이 모델 학습을 결정하며, composite multi-turn reward 설계, 모델 생성 코드의 안전한 실행, 그리고 reward 붕괴를 유발하는 각 구성 요소의 함정을 계측하는 방법을 다룹니다.
 
 
 ---
@@ -236,9 +227,6 @@ Amazon Nova Forge의 multi-turn reinforcement learning에서 커스텀 reward fu
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에서 OAuth 앱과 GitHub App 플랫폼에 대한 여러 업데이트를 발표했으며, OAuth 앱은 만료되는 access token과 refresh token을 선택적으로 사용할 수 있게 되었습니다. 이 변경은 더 안전한 앱 개발을 지원하기 위한 것입니다.
 
 
 ---
@@ -254,9 +242,6 @@ GitHub Blog에서 OAuth 앱과 GitHub App 플랫폼에 대한 여러 업데이�
   severity="Medium"
 %}
 
-#### 요약
-
-xAI의 최신 추론 모델인 Grok 4.6이 GitHub Copilot에서 제공되기 시작했습니다. 이 모델은 에이전트 코딩과 복잡한 다단계 워크플로우를 위해 설계되었으며, 내부 테스트에서 성능을 입증했습니다.
 
 
 ---
@@ -271,9 +256,6 @@ xAI의 최신 추론 모델인 Grok 4.6이 GitHub Copilot에서 제공되기 시
   severity="Medium"
 %}
 
-#### 요약
-
-Docker 기반의 재현 가능한 ESP32 펌웨어 개발 환경을 구축하는 방법을 소개하며, Docker Sandboxes를 활용해 AI 지원 개발과 하드웨어 테스트를 격리된 환경에서 수행할 수 있음을 강조한다.
 
 
 ---
@@ -291,9 +273,6 @@ Docker 기반의 재현 가능한 ESP32 펌웨어 개발 환경을 구축하는 
   severity="Medium"
 %}
 
-#### 요약
-
-Edelman Financial과 Tudor Investment가 상당한 Bitcoin 보유를 공개했으며, 두 대형 투자 회사가 Bitcoin에 크게 투자하고 있음이 드러났다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 처음 보도했다.
 
 
 ---
@@ -309,9 +288,6 @@ Edelman Financial과 Tudor Investment가 상당한 Bitcoin 보유를 공개했�
   severity="Medium"
 %}
 
-#### 요약
-
-아부다비 국부펀드 두 곳이 규제 서류에서 Bitcoin을 가장 중요한 자산으로 보고하며, Mubadala Investment Company는 BlackRock의 iShares Bitcoin Trust에 4억 9천만 달러 규모의 지분을 보유하고 있다고 금요일에 공개했다. 이는 해당 펀드의 전체 13F 포트폴리오에서 두 번째로 큰 단일 보유 자산이다.
 
 
 ---
@@ -327,9 +303,6 @@ Edelman Financial과 Tudor Investment가 상당한 Bitcoin 보유를 공개했�
   severity="High"
 %}
 
-#### 요약
-
-프랑스 세무당국이 수십만 명에 영향을 미치는 데이터 유출을 확인한 후, Bitcoiners에 대한 경고가 발령되었다. 프랑스는 이미 투자자들이 표적이 되어 암호화폐를 강탈당하는 렌치 공격의 중심지로 알려져 있다. 이번 유출로 인해 추가적인 표적 공격 위험이 커질 수 있다는 우려가 제기된다.
 
 
 ---
@@ -390,7 +363,7 @@ Edelman Financial과 Tudor Investment가 상당한 Bitcoin 보유를 공개했�
 <!-- related-posts:v1 -->
 
 - [2026년 08월 14일 주간 보안 다이제스트: DNS 유출·클라우드·랜섬웨어 (27건)](/posts/2026/08/14/Tech_Security_Weekly_Digest_AI_AWS_Data_Go/) — 2026-08-14
-- [2026년 08월 16일 주간 보안 다이제스트: 악성코드·AI 에이전트·쿠버네티스 (13건)](/posts/2026/08/16/Tech_Security_Weekly_Digest_Botnet_AI_Threat_Agent/) — 2026-08-16
+- [2026년 08월 16일 주간 보안 다이제스트: 악성코드·AI 에이전트·Kubernetes (13건)](/posts/2026/08/16/Tech_Security_Weekly_Digest_Botnet_AI_Threat_Agent/) — 2026-08-16
 - [2026년 08월 12일 주간 보안 다이제스트: 제로데이·BYOVD EDR·클라우드 (29건)](/posts/2026/08/12/Tech_Security_Weekly_Digest_Zero-Day_Patch_AWS_Botnet/) — 2026-08-12
 
 ---

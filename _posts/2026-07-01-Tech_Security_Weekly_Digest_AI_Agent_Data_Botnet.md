@@ -245,9 +245,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA는 BioNeMo Agent Toolkit을 통해 생명과학 연구자들이 GPU 가속 컴퓨팅 스택을 활용해 더 정교한 워크플로우를 실행하고 반복 작업을 가속화할 수 있도록 지원합니다. 이번 주 Anthropic은 과학 분야 AI 워크벤치인 Claude Science를 발표했습니다.
 
 ---
 
@@ -261,9 +258,6 @@ NVIDIA는 BioNeMo Agent Toolkit을 통해 생명과학 연구자들이 GPU 가�
   severity="High"
 %}
 
-#### 요약
-
-올해는 Meta가 Python Software Foundation(PSF)의 후원사로서 10년째를 맞는 해입니다. Python은 세계에서 가장 영향력 있는 프로그래밍 언어 중 하나이며, Meta는 엔지니어링 전반에 걸쳐 이를 사용하고 있습니다.
 
 ---
 
@@ -278,9 +272,6 @@ NVIDIA는 BioNeMo Agent Toolkit을 통해 생명과학 연구자들이 GPU 가�
   severity="High"
 %}
 
-#### 요약
-
-NVIDIA의 추론 소프트웨어 스택은 GPU, CPU, 네트워킹 및 시스템과의 공동 설계와 오픈 소스 생태계를 통해 토큰당 비용을 최소화합니다. 조직이 AI 파일럿에서 프로덕션 AI 팩토리로 전환함에 따라 인프라 결정은 칩 사양보다 달러당, 와트당, 지연 시간 목표 내에서 제공 가능한 유용한 토큰 수에 초점을 맞추고 있습니다.
 
 ---
 
@@ -297,9 +288,6 @@ NVIDIA의 추론 소프트웨어 스택은 GPU, CPU, 네트워킹 및 시스템�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud가 BigQuery의 Conversational Analytics를 정식 출시하여, 비즈니스 및 기술 팀이 데이터가 저장된 위치에서 자연어로 데이터를 질의하고 다단계 분석 및 시각적 보고서를 생성할 수 있게 되었습니다.
 
 ---
 
@@ -313,9 +301,6 @@ Google Cloud가 BigQuery의 Conversational Analytics를 정식 출시하여, 비
   severity="Medium"
 %}
 
-#### 요약
-
-AlloyDB Omni는 금융 서비스 업계의 규제 준수, 초고속 트랜잭션, 보안 요구를 충족하며, 기존의 폐쇄적 데이터베이스 시스템이 초래한 기술 부채와 vendor lock-in 문제를 해결합니다.
 
 ---
 
@@ -329,9 +314,6 @@ AlloyDB Omni는 금융 서비스 업계의 규제 준수, 초고속 트랜잭션
   severity="High"
 %}
 
-#### 요약
-
-Schrödinger는 Alphaevolve를 통해 분자 발견 속도를 4배 향상시켰습니다. 기존의 고전적 force field는 정밀도가 낮고 양자역학적 방법은 대규모 작업에 느린 문제를, MLFFs가 신경망을 훈련해 해결했습니다.
 
 ---
 
@@ -348,9 +330,6 @@ Schrödinger는 Alphaevolve를 통해 분자 발견 속도를 4배 향상시켰�
   severity="Medium"
 %}
 
-#### 요약
-
-Anthropic의 최신 Sonnet-class 모델인 Claude Sonnet 5가 GitHub Copilot에서 일반 공급되며, 일상적인 개발과 에이전틱 워크플로우에 강력한 코딩 성능을 제공합니다.
 
 ---
 
@@ -365,9 +344,6 @@ Anthropic의 최신 Sonnet-class 모델인 Claude Sonnet 5가 GitHub Copilot에�
   severity="High"
 %}
 
-#### 요약
-
-GitHub에서 브랜치 rulesets를 사용해 테스트 커버리지가 설정한 임계값 아래로 떨어지면 pull request 병합을 차단할 수 있게 되었습니다. 최소 커버리지 비율과 최대 허용 감소치를 설정할 수 있습니다.
 
 ---
 
@@ -382,9 +358,6 @@ GitHub에서 브랜치 rulesets를 사용해 테스트 커버리지가 설정한
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub 블로그에 따르면, 릴리스 페이지에 사이드바 목차가 추가되어 탐색이 쉬워졌고, 개별 에셋별 다운로드 횟수를 확인할 수 있게 되었습니다. 또한 릴리스 메타데이터 배치가 개선되어 더 일관된 레이아웃을 제공합니다.
 
 ---
 
@@ -401,9 +374,6 @@ GitHub 블로그에 따르면, 릴리스 페이지에 사이드바 목차가 추
   severity="Medium"
 %}
 
-#### 요약
-
-도널드 트럼프 대통령의 2025년 재무 공개에서 5천만 달러 이상의 자체 보관 Bitcoin이 콜드 스토리지에 보유된 것으로 드러났으며, 라이선싱과 World Liberty Financial과 관련된 암호화폐 관련 수익 및 수입이 10억 달러를 초과하는 것으로 보고되었습니다.
 
 ---
 
@@ -418,9 +388,6 @@ GitHub 블로그에 따르면, 릴리스 페이지에 사이드바 목차가 추
   severity="Medium"
 %}
 
-#### 요약
-
-Anchorage Digital과 Binance가 기관 암호화폐 거래를 위한 off-exchange settlement를 출시했습니다. 이를 통해 기관 투자자들은 자산을 Binance가 아닌 Anchorage Digital Bank에 분리 보관하면서 거래할 수 있게 되었습니다.
 
 ---
 
@@ -435,9 +402,6 @@ Anchorage Digital과 Binance가 기관 암호화폐 거래를 위한 off-exchang
   severity="Medium"
 %}
 
-#### 요약
-
-Visa, Mastercard, Stripe, Coinbase 등 140개 이상의 기업이 합류하여 새로운 수익 공유형 스테이블코인 Open USD (OUSD)를 출시했습니다. 이는 Circle에 도전하고 3000억 달러 규모의 스테이블코인 시장 경제 구조를 재편하는 것을 목표로 합니다.
 
 ---
 
@@ -503,7 +467,7 @@ Visa, Mastercard, Stripe, Coinbase 등 140개 이상의 기업이 합류하여 �
 <!-- related-posts:v1 -->
 
 - [2026년 06월 30일 주간 보안 다이제스트: 악성코드·클라우드·패치 (30건)](/posts/2026/06/30/Tech_Security_Weekly_Digest_Go_AI_AWS_Malware/) — 2026-06-30
-- [2026년 07월 02일 주간 보안 다이제스트: 쿠버네티스·패치·DNS 유출 (30건)](/posts/2026/07/02/Tech_Security_Weekly_Digest_Patch_Kubernetes_Go_AI/) — 2026-07-02
+- [2026년 07월 02일 주간 보안 다이제스트: Kubernetes·패치·DNS 유출 (30건)](/posts/2026/07/02/Tech_Security_Weekly_Digest_Patch_Kubernetes_Go_AI/) — 2026-07-02
 - [2026년 06월 28일 주간 보안 다이제스트: AI 에이전트·악성코드·클라우드 (18건)](/posts/2026/06/28/Tech_Security_Weekly_Digest_AI_GPT_Malware_Agent/) — 2026-06-28
 
 ---

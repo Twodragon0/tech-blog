@@ -190,9 +190,6 @@ DevSecOps 관점에서 이 변화는 **애플리케이션 설계와 운영에 �
   severity="Medium"
 %}
 
-#### 요약
-
-CoreWeave가 Anthropic과 AI 워크로드를 실행하기 위한 다년간 계약을 체결했습니다. 이 계약으로 CoreWeave는 인공지능 대규모 언어 모델 주요 개발사 10곳 중 9곳을 고객으로 확보하게 되었습니다.
 
 ---
 
@@ -208,9 +205,6 @@ CoreWeave가 Anthropic과 AI 워크로드를 실행하기 위한 다년간 계�
   severity="High"
 %}
 
-#### 요약
-
-기업 환경에서 여러 소스 시스템에 분산된 데이터를 통합 및 정제하는 데이터 큐레이션은 AI와 분석의 주요 병목 현상입니다. Google Data Cloud는 이러한 전통적인 ETL, 수동 SQL 또는 Python 작업을 가속화하여 AI 활용에 적합한 고품질 데이터 자산으로 변환하는 프로세스를 지원합니다.
 
 ---
 
@@ -224,9 +218,6 @@ CoreWeave가 Anthropic과 AI 워크로드를 실행하기 위한 다년간 계�
   severity="Medium"
 %}
 
-#### 요약
-
-전 세계 산업 리더들은 강력한 기술을 효과적으로 확장해 실질적 문제를 해결하고 가치를 창출하는 방법을 모색하고 있습니다. Google은 25년 전 인터넷의 초석을 마련했으며, 현재는 Gemini Enterprise를 통해 기업 AI의 관문을 제공하고 있습니다.
 
 ---
 
@@ -241,9 +232,6 @@ CoreWeave가 Anthropic과 AI 워크로드를 실행하기 위한 다년간 계�
   severity="Medium"
 %}
 
-#### 요약
-
-SAP Concur는 에이전틱 AI를 통해 영수증의 훼손된 텍스트나 누락된 데이터를 처리하여 기존 자동화의 한계를 극복합니다. 이로써 사용자의 수동 입력 부담을 줄이고 비용 보고 프로세스를 효율화합니다.
 
 ---
 
@@ -260,9 +248,6 @@ SAP Concur는 에이전틱 AI를 통해 영수증의 훼손된 텍스트나 누�
   severity="High"
 %}
 
-#### 요약
-
-GitHub Copilot의 급속한 성장에 따라 높은 동시성 및 집중 사용 패턴이 증가함에 따라 GitHub는 Copilot Pro+에서 새로운 사용 제한을 시행하고 Opus 4.6 Fast 모델을 단계적으로 퇴출할 것이라고 발표했습니다.
 
 ---
 
@@ -277,9 +262,6 @@ GitHub Copilot의 급속한 성장에 따라 높은 동시성 및 집중 사용 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에 따르면 Copilot coding agent가 Copilot cloud agent로 이름이 변경되었으며, 이에 따라 기존 데이터 스키마가 업데이트됩니다. 또한 사용량 메트릭에 이 Copilot cloud agent의 활성 사용자 수가 집계되기 시작했습니다.
 
 ---
 
@@ -294,9 +276,6 @@ GitHub Blog에 따르면 Copilot coding agent가 Copilot cloud agent로 이름�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot Pro 무료 트라이얼 시스템의 남용이 크게 증가함에 따라 GitHub는 플랫폼 경험과 무결성을 보호하기 위해 새로운 Copilot Pro 트라이얼을 일시 중지했습니다. 이 소식은 The GitHub Blog를 통해 공개되었습니다.
 
 ---
 
@@ -313,9 +292,6 @@ GitHub Copilot Pro 무료 트라이얼 시스템의 남용이 크게 증가함�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Policy Institute는 양자 컴퓨팅 발전이 Bitcoin의 암호화에 대한 위험을 앞당길 수 있다고 경고했습니다. Bitcoin 개발자들은 이미 이에 대한 해결책을 연구 중입니다.
 
 ---
 
@@ -330,9 +306,6 @@ Bitcoin Policy Institute는 양자 컴퓨팅 발전이 Bitcoin의 암호화에 �
   severity="Medium"
 %}
 
-#### 요약
-
-투자은행 TD Cowen이 세 개의 공개 Bitcoin treasury 기업에 대한 애널리스트 커버리지를 시작했으며, PBTC 섹터를 투자 가능한 주식 범주로 규정했습니다. 또한 TD Cowen은 Bitcoin이 올해 약 14만 달러에 도달할 것으로 전망했습니다.
 
 ---
 
@@ -346,9 +319,6 @@ Bitcoin Policy Institute는 양자 컴퓨팅 발전이 Bitcoin의 암호화에 �
   severity="Medium"
 %}
 
-#### 요약
-
-Bloomberg는 이란의 Islamic Revolutionary Guard Corps(IRGC)가 Hormuz 해협 통과 선박에 암호화폐 통행료를 징수하고 있다고 보도했습니다. 이는 테헤란의 디지털 자산 활용이 진화하며 확장되고 있는 사례를 보여줍니다.
 
 ---
 

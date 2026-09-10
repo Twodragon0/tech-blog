@@ -232,9 +232,6 @@ DevSecOps 실무자 관점에서 이 위협은 **CI/CD 파이프라인, 자동�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA의 새로운 Vera CPU는 에이전틱 AI 시대를 위해 설계된 Max Single-Threaded CPU 카테고리에 속하며, 추론, 응답 시간 및 학습 과정에서 CPU가 핵심 경로를 담당합니다. 이 CPU는 AI 모델이 명령하는 도구 호출 및 코드 실행과 같은 작업을 처리합니다.
 
 ---
 
@@ -249,9 +246,6 @@ NVIDIA의 새로운 Vera CPU는 에이전틱 AI 시대를 위해 설계된 Max S
   severity="Medium"
 %}
 
-#### 요약
-
-Google Gemini API의 Managed Agents 기능이 확장되어 백그라운드 작업과 원격 MCP(Model Context Protocol) 지원 등이 추가되었습니다. 이번 업데이트는 Managed Agents 기능 번들 출시의 일환입니다.
 
 ---
 
@@ -266,9 +260,6 @@ Google Gemini API의 Managed Agents 기능이 확장되어 백그라운드 작�
   severity="High"
 %}
 
-#### 요약
-
-NVIDIA와 Hugging Face가 오픈 로보틱스 커뮤니티를 위해 LeRobot에 새로운 모델과 프레임워크를 도입했습니다. 이는 물리적 AI 개발의 비용 및 단편화 문제를 해결하고, 로봇공학 분야의 혁신을 가속화하기 위한 협력입니다.
 
 ---
 
@@ -284,9 +275,6 @@ NVIDIA와 Hugging Face가 오픈 로보틱스 커뮤니티를 위해 LeRobot에 
   severity="Medium"
 %}
 
-#### 요약
-
-IT 리더들은 에이전트 구축과 배포에 대한 많은 질문에 직면하고 있으며, 빠른 실행 압박 속에서도 복잡한 엔지니어링 현실을 해결해야 합니다. Agent Platform은 단절된 도구들을 정리하고, 민감한 데이터 유출이나 과도한 토큰 소모 같은 위험을 방지하는 데 도움을 줄 수 있습니다.
 
 ---
 
@@ -301,9 +289,6 @@ IT 리더들은 에이전트 구축과 배포에 대한 많은 질문에 직면�
   severity="Medium"
 %}
 
-#### 요약
-
-SaaS가 AaaS로 진화하면서 개발자들은 Agent2Agent (A2A) 프로토콜 같은 표준화된 개방형 프로토콜을 사용하는 AI 에이전트를 만들고 있습니다. 이러한 에이전트는 Gemini Enterprise Agent Platform과 같은 중앙 집중식 에이전트 플랫폼을 통해 오케스트레이션될 수 있습니다.
 
 ---
 
@@ -317,9 +302,6 @@ SaaS가 AaaS로 진화하면서 개발자들은 Agent2Agent (A2A) 프로토콜 �
   severity="Medium"
 %}
 
-#### 요약
-
-Cloud Router의 BGP route policies 기능이 일반 공급된 이후, 고객들은 타사 가상 어플라이언스 없이도 정교하고 복원력 있는 라우팅 아키텍처를 구축하고 있습니다. 네트워크 관리자는 이 기능을 통해 네트워크 경로 평가 및 전파 방식을 프로그래밍 가능하게 제어할 수 있습니다.
 
 ---
 
@@ -336,9 +318,6 @@ Cloud Router의 BGP route policies 기능이 일반 공급된 이후, 고객들�
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 7월 1일 발표된 Kimi K2.7이 Copilot Pro, Pro+, Max 플랜에 이어 Copilot Business와 Copilot Enterprise에서도 추가로 사용 가능해졌습니다.
 
 ---
 
@@ -352,9 +331,6 @@ Cloud Router의 BGP route policies 기능이 일반 공급된 이후, 고객들�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Enterprise Cloud에서 청구 UI 내 비용 센터별로 사용자 수준의 예산을 직접 생성할 수 있게 되었습니다. 이 기능은 엔터프라이즈 관리자가 비용 센터와 예산을 관리하는 화면에서 바로 설정 가능합니다.
 
 ---
 
@@ -369,9 +345,6 @@ GitHub Enterprise Cloud에서 청구 UI 내 비용 센터별로 사용자 수준
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Secret Scanning이 이제 지원되는 비밀 유형에 대해 확장된 메타데이터를 제공하여 유출된 비밀의 소유권과 영향을 파악할 수 있도록 도우며, 멀티파트 검증을 포함한 확장 메타데이터 검사가 일반 공급되었습니다.
 
 ---
 
@@ -388,9 +361,6 @@ GitHub Secret Scanning이 이제 지원되는 비밀 유형에 대해 확장된 
   severity="Medium"
 %}
 
-#### 요약
-
-Polymarket이 Spark를 활용해 Lightning Network를 통한 즉시 Bitcoin 입금 기능을 활성화했습니다. 이 기능은 사용자가 자체 보관 방식으로 Bitcoin을 즉시 입금할 수 있도록 지원합니다.
 
 ---
 
@@ -405,9 +375,6 @@ Polymarket이 Spark를 활용해 Lightning Network를 통한 즉시 Bitcoin 입�
   severity="Medium"
 %}
 
-#### 요약
-
-Kraken은 미국 규제 압력이 고조되는 시기에 전 감사법인 Mazars가 갑작스럽게 사임하여 재정적, 운영적 손해를 입혔다며 2,200만 달러의 중재 판정을 받은 후 델라웨어 법원에 최종 판결을 요청하고 있습니다.
 
 ---
 
@@ -422,9 +389,6 @@ Kraken은 미국 규제 압력이 고조되는 시기에 전 감사법인 Mazars
   severity="Medium"
 %}
 
-#### 요약
-
-Vanguard가 최초의 디지털 자산 책임자를 채용하며 암호화폐에 대한 입장을 전환하고 있습니다. 이 새로운 임원은 장기적인 crypto 및 blockchain 전략을 수립할 예정입니다.
 
 ---
 
@@ -489,7 +453,7 @@ Vanguard가 최초의 디지털 자산 책임자를 채용하며 암호화폐에
 
 <!-- related-posts:v1 -->
 
-- [2026년 07월 07일 주간 보안 다이제스트: 쿠버네티스·제로데이·패치 (24건)](/posts/2026/07/07/Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI/) — 2026-07-07
+- [2026년 07월 07일 주간 보안 다이제스트: Kubernetes·제로데이·패치 (24건)](/posts/2026/07/07/Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI/) — 2026-07-07
 - [2026년 07월 09일 주간 보안 다이제스트: 악성코드·제로데이·클라우드 (30건)](/posts/2026/07/09/Tech_Security_Weekly_Digest_AI_Security_Agent_Malware/) — 2026-07-09
 - [2026년 07월 05일 주간 보안 다이제스트: 랜섬웨어·북한 위협·AI 에이전트 (14건)](/posts/2026/07/05/Tech_Security_Weekly_Digest_AI_Data_Go_Ransomware/) — 2026-07-05
 

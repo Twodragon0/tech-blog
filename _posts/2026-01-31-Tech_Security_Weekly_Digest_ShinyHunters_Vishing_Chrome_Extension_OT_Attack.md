@@ -321,6 +321,6 @@ Google 산하 Mandiant가 금전적 동기의 해킹 그룹 ShinyHunters (UNC394
 <!-- related-posts:v1 -->
 
 - [2026년 01월 30일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (5건)](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
-- [2026년 02월 01일 주간 보안 다이제스트: 제로데이·AI 에이전트·쿠버네티스 (4건)](/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/) — 2026-02-01
+- [2026년 02월 01일 주간 보안 다이제스트: 제로데이·AI 에이전트·Kubernetes (4건)](/posts/2026/02/01/Tech_Security_Weekly_Digest_AI_OpenSSL_Zero_Day_OWASP_Agentic_Fortinet/) — 2026-02-01
 - [2026년 01월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (4건)](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) — 2026-01-28
 

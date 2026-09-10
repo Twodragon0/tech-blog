@@ -106,9 +106,6 @@ summary_card:
   severity="High"
 -%}
 
-#### 요약
-
-Google이 업계 파트너들과 협력하여 중국 연계 사이버 스파이 그룹 UNC2814의 인프라를 차단했습니다. 이 그룹은 42개국 53개 이상의 조직을 침해했으며, 아프리카·아시아·아메리카 전역의 정부기관과 통신사를 장기적으로 표적으로 삼아왔습니다.
 
 #### 핵심 포인트
 
@@ -144,9 +141,6 @@ Google이 업계 파트너들과 협력하여 중국 연계 사이버 스파이 
   severity="High"
 -%}
 
-#### 요약
-
-보안 연구원들이 Anthropic의 AI 코딩 어시스턴트 Claude Code에서 원격 코드 실행(RCE) 및 API 자격증명 탈취가 가능한 다수의 취약점을 공개했습니다. Hooks, MCP(Model Context Protocol) 서버, 환경 변수 등 다양한 설정 메커니즘을 악용하여 공격이 가능합니다.
 
 #### 핵심 포인트
 
@@ -174,9 +168,6 @@ Google이 업계 파트너들과 협력하여 중국 연계 사이버 스파이 
   severity="Medium"
 -%}
 
-#### 요약
-
-악명 높은 사이버 범죄 조직 Scattered LAPSUS$ Hunters(SLH)가 소셜 엔지니어링 공격을 위해 여성을 모집하고 있습니다. IT 헬프데스크를 대상으로 한 음성 피싱(Vishing) 캠페인에 투입하며, 건당 $500~$1,000의 선불 보수를 제공하는 것으로 Dataminr가 보고했습니다.
 
 #### 핵심 포인트
 
@@ -231,9 +222,6 @@ Google 검색에 AI 기반 도구가 추가되었습니다. "AI Overview"가 의
   severity="Medium"
 -%}
 
-#### 요약
-
-Samsung Galaxy S26 시리즈에 Google의 최신 AI 기능이 통합되었습니다. 이미지 인식 기반 검색, AI 기반 사진 편집, 실시간 통역 등 온디바이스 AI 기능이 대폭 강화되었습니다.
 
 #### 핵심 포인트
 
@@ -254,9 +242,6 @@ Samsung Galaxy S26 시리즈에 Google의 최신 AI 기능이 통합되었습니
   severity="Medium"
 -%}
 
-#### 요약
-
-AWS에서 vLLM을 활용하여 MoE(Mixture of Experts) 모델에 대한 다중 LoRA 추론을 구현한 방법과 커널 수준의 최적화를 설명합니다. GPT-OSS 20B 모델을 주요 예제로 사용합니다.
 
 #### 핵심 포인트
 
@@ -304,9 +289,6 @@ AWS에서 vLLM을 활용하여 MoE(Mixture of Experts) 모델에 대한 다중 L
   severity="High"
 -%}
 
-#### 요약
-
-Google Threat Intelligence Group(GTIG)과 Mandiant가 4개 대륙 수십 개 국가의 통신사 및 정부기관을 표적으로 한 글로벌 스파이 캠페인을 차단한 과정을 상세히 공개했습니다. UNC2814는 2017년부터 추적해온 중국(PRC) 연계 사이버 스파이 그룹입니다.
 
 #### 핵심 포인트
 
@@ -331,9 +313,6 @@ Google Threat Intelligence Group(GTIG)과 Mandiant가 4개 대륙 수십 개 국
   severity="Medium"
 -%}
 
-#### 요약
-
-Docker Model Runner(DMR)와 Open WebUI 간의 원활한 통합이 공개되었습니다. Open WebUI가 localhost:12434에서 실행 중인 Docker Model Runner를 자동 감지하고 연결하여, 별도 설정 없이 셀프 호스팅 AI 모델을 바로 사용할 수 있습니다.
 
 #### 핵심 포인트
 
@@ -354,9 +333,6 @@ Docker Model Runner(DMR)와 Open WebUI 간의 원활한 통합이 공개되었�
   severity="Medium"
 -%}
 
-#### 요약
-
-CNCF가 2026년 하반기 Kubernetes Community Days(KCDs) 전체 일정을 발표했습니다. 전 세계 로컬 실무자, 도입자, 기여자들이 모여 클라우드 네이티브 지식을 공유하는 커뮤니티 주도 행사입니다.
 
 #### 핵심 포인트
 
@@ -381,9 +357,6 @@ CNCF가 2026년 하반기 Kubernetes Community Days(KCDs) 전체 일정을 발�
   severity="Medium"
 -%}
 
-#### 요약
-
-Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 계획을 발표했습니다. 자체 암호화폐 수탁(Custody) 및 거래소 솔루션 출시를 포함하여, Bitcoin 거래·대출·수탁 전반에 걸친 서비스를 확장할 예정입니다.
 
 #### 핵심 포인트
 
@@ -404,9 +377,6 @@ Morgan Stanley가 Strategy World 행사에서 디지털 자산 서비스 확대 
   severity="Medium"
 -%}
 
-#### 요약
-
-Bitcoin 가격이 하루 만에 8% 이상 상승하여 $69,000을 돌파했습니다. 수개월간의 매도세 이후 가장 강력한 일일 상승 중 하나이며, 항복 매도(Capitulation) 이후 가격 범위를 시험하는 중입니다.
 
 #### 핵심 포인트
 
