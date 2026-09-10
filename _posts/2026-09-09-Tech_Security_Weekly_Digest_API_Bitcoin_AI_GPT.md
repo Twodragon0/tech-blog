@@ -416,8 +416,8 @@ summary_card:
 <!-- related-posts:v1 -->
 
 - [2026년 09월 08일 주간 보안 다이제스트: Kubernetes·제로데이·클라우드 (23건)](/posts/2026/09/08/Tech_Security_Weekly_Digest_Data_AI_Cloud_Security/) — 2026-09-08
+- [2026년 09월 10일 주간 보안 다이제스트: Kubernetes·클라우드·AI 에이전트 (30건)](/posts/2026/09/10/Tech_Security_Weekly_Digest_Cloud_Threat_AI_Security/) — 2026-09-10
 - [2026년 09월 02일 주간 보안 다이제스트: 제로데이·패치·악성코드 (30건)](/posts/2026/09/02/Tech_Security_Weekly_Digest_AI_Patch_Security_Agent/) — 2026-09-02
-- [2026년 09월 07일 주간 보안 다이제스트: 패치·악성코드·AI 에이전트 (20건)](/posts/2026/09/07/Tech_Security_Weekly_Digest_Patch_Go_GPT_Update/) — 2026-09-07
 
 ---
 

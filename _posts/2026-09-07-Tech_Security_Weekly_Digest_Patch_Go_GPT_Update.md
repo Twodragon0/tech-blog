@@ -361,7 +361,7 @@ Bitcoin 사이드체인 리퀴드가 ‘화이트햇’으로 알려진 행위�
 
 - [2026년 09월 08일 주간 보안 다이제스트: Kubernetes·제로데이·클라우드 (23건)](/posts/2026/09/08/Tech_Security_Weekly_Digest_Data_AI_Cloud_Security/) — 2026-09-08
 - [2026년 09월 04일 주간 보안 다이제스트: 악성코드·클라우드·제로데이 (30건)](/posts/2026/09/04/Tech_Security_Weekly_Digest_AI_Malware_Rust/) — 2026-09-04
-- [2026년 08월 31일 주간 보안 다이제스트: 클라우드·악성코드·BYOVD EDR (15건)](/posts/2026/08/31/Tech_Security_Weekly_Digest_Cloud_AI_Data_Malware/) — 2026-08-31
+- [2026년 09월 10일 주간 보안 다이제스트: Kubernetes·클라우드·AI 에이전트 (30건)](/posts/2026/09/10/Tech_Security_Weekly_Digest_Cloud_Threat_AI_Security/) — 2026-09-10
 
 ---
 
