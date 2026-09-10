@@ -862,3 +862,108 @@ jobs:
       # auto-publish ran on the pre-publish SHA. Without this the backup would
       # rebuild the corpus WITHOUT the post that just triggered it.
       ref: ${{ needs.auto-publish.outputs.published_sha }}
+
+  # A failed publish told nobody. notify-slack above fires only on
+  # `published_to_main == 'true'`, and deploy-backup likewise, so every failure
+  # path ended with all three downstream jobs `skipped` and a red run in a log
+  # nobody reads at 00:00 UTC.
+  #
+  # Measured 2026-09-10 over the preceding week: 2026-09-04, 09-05, 09-06 and
+  # 09-07 (x2) all failed. Two of those days — 09-05 and 09-06 — have NO post in
+  # `_posts/` at all, and the 09-04 digest was hand-published hours later
+  # (f4a459d1). The gap was found by reading run history on an unrelated audit,
+  # which is the wrong way to find out that the blog stopped publishing.
+  #
+  # Scoped to a real failure, not `always()`: a literal status string and an
+  # `if: always()` alert are two of the three ways this repo has already shipped
+  # a notification that could not report bad news (run-blog-autonomous-cron.sh's
+  # fixed "100% Passed", monthly-quality-report.yml's hardcoded --status
+  # SUCCESS). `failure()` excludes cancelled and skipped runs, so a manual stop
+  # or a concurrency cancel does not page anyone.
+  notify-failure:
+    needs: auto-publish
+    if: failure() && needs.auto-publish.result == 'failure'
+    runs-on: ubuntu-latest
+    # One API read and one HTTP POST, neither retried. If this is still running
+    # after 5 minutes something is hung, and a hung alarm is a missing alarm.
+    timeout-minutes: 5
+    # Deny-by-default re-grant (`permissions: {}` at the top). `actions: read`
+    # is for the jobs API below — naming the step that failed is what makes this
+    # alert actionable rather than "go read the log".
+    permissions:
+      actions: read
+    steps:
+      - name: Post publish failure to Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          EVENT_NAME: ${{ github.event_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Fail, do not skip — the same reasoning as slack-post-notify.yml:
+          # both secrets ARE configured in this repo (verified 2026-09-10 via
+          # `gh secret list`), so their absence is a regression, and an alerting
+          # job that goes green when it cannot alert is worse than no job.
+          if [ -z "${SLACK_BOT_TOKEN:-}" ]; then
+            echo "::error::SLACK_BOT_TOKEN is not available. It is configured in this repo, so this is a regression — check secret access for this workflow, not an optional integration."
+            exit 1
+          fi
+          if [ -z "${SLACK_CHANNEL_ID:-}" ]; then
+            echo "::error::SLACK_CHANNEL_ID is not available. It is configured in this repo, so this is a regression."
+            exit 1
+          fi
+          # Best-effort: the alert must go out even if the jobs API is
+          # unavailable, so this never aborts the step. An empty value renders
+          # as "(unknown)" below rather than dropping the notification.
+          FAILED_STEP="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs" \
+            --jq '[.jobs[] | select(.name == "auto-publish") | .steps[]? | select(.conclusion == "failure") | .name] | first // ""' \
+            2>/dev/null || true)"
+          export FAILED_STEP
+          # Every value is read into a plain local FIRST. An f-string expression
+          # here cannot contain a backslash-escaped quote: the shell passes the
+          # backslashes through literally and Python raises SyntaxError before
+          # anything runs (reproduced locally on 3.13 and via
+          # ast.parse(feature_version=(3,11)), the version CI pins). A broken
+          # alert only shows up on the day something else already broke.
+          payload=$(python3 -c '
+          import json, os
+          step = os.environ.get("FAILED_STEP", "").strip() or "(unknown — see run log)"
+          event = os.environ.get("EVENT_NAME", "")
+          run_url = os.environ.get("RUN_URL", "")
+          channel = os.environ.get("SLACK_CHANNEL_ID", "")
+          lines = [
+              ":rotating_light: 블로그 자동 발행 실패 — 오늘 다이제스트가 게시되지 않았습니다.",
+              f"• 실패 스텝: {step}",
+              f"• 트리거: {event}",
+              f"• 런: {run_url}",
+          ]
+          print(json.dumps({
+              "channel": channel,
+              "text": "\n".join(lines),
+              "unfurl_links": False,
+              "unfurl_media": False,
+          }, ensure_ascii=False))
+          ')
+          HTTP_STATUS=$(curl -sS -o /tmp/slack_resp.txt -w "%{http_code}" \
+            "https://slack.com/api/chat.postMessage" \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$payload")
+          echo "Slack response: $HTTP_STATUS"
+          # Same delivery contract as slack-post-notify.yml: a 2xx with
+          # `ok:false` is a failed delivery, not a success. Not retried —
+          # chat.postMessage is not idempotent.
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
+            ok=$(python3 -c 'import json; r=json.load(open("/tmp/slack_resp.txt")); print(r.get("ok",""))')
+            if [ "$ok" = "True" ]; then
+              echo "Publish-failure notification sent successfully"
+              exit 0
+            fi
+            echo "::error::Slack reported ok=false: $(cat /tmp/slack_resp.txt). The publish failure above was NOT announced."
+            exit 1
+          fi
+          echo "::error::Slack HTTP error (HTTP $HTTP_STATUS). The publish failure above was NOT announced."
+          exit 1

@@ -217,3 +217,89 @@ def test_missing_post_path_is_an_error_not_a_silent_diff_fallback():
         "post_path must reach the shell through env, not inlined via ${{ }} — "
         "same injection rule buttondown-notify.yml adopted (B-H1, 2026-06-30)"
     )
+
+
+# --- failure announcement ----------------------------------------------------
+#
+# The success path above was wired in #616. The FAILURE path told nobody: every
+# downstream job is gated on `published_to_main == 'true'`, so a failed publish
+# ended with all of them `skipped` and a red run in a log nobody reads at 00:00
+# UTC. Measured 2026-09-10 over the preceding week — 09-04, 09-05, 09-06 and
+# 09-07 (x2) all failed; 09-05 and 09-06 have no post in `_posts/` at all, and
+# the 09-04 digest was hand-published hours later (f4a459d1). Nobody noticed
+# until an unrelated audit read the run history.
+#
+# Direction: presence + the two ways an alert stops being able to report bad
+# news. This repo has shipped that failure three times already
+# (run-blog-autonomous-cron.sh's fixed "100% Passed", monitoring.yml's
+# never-firing Slack step, monthly-quality-report.yml's hardcoded
+# --status SUCCESS), so both are asserted rather than assumed.
+
+FAILURE_JOB = "notify-failure"
+
+
+def test_failure_notification_job_exists():
+    jobs = _wf(BLOGWATCHER)["jobs"]
+    assert FAILURE_JOB in jobs, (
+        f"'{FAILURE_JOB}' is gone from ai-blogwatcher.yml. Without it a failed "
+        "publish is silent: notify-slack and deploy-backup are both gated on "
+        "published_to_main, so they skip, and the only trace is a red cron run. "
+        "That is how 2026-09-05 and 09-06 shipped no post at all."
+    )
+
+
+def test_failure_notification_fires_only_on_a_real_failure():
+    """`always()` would make the alert fire on success too — a status that is
+    constant carries no information, which is the exact bug this repo shipped
+    three times."""
+    cond = str(_wf(BLOGWATCHER)["jobs"][FAILURE_JOB].get("if", ""))
+    assert "failure()" in cond, (
+        f"'{FAILURE_JOB}' no longer conditions on failure(). An alert that "
+        "cannot distinguish success from failure is not an alert."
+    )
+    assert "always()" not in cond, (
+        f"'{FAILURE_JOB}' uses always(), so it fires on every run including "
+        "successful ones. Readers learn to ignore it, and the one night it "
+        "matters it looks like every other night."
+    )
+    assert f"needs.{PUBLISH_JOB}.result" in cond, (
+        f"'{FAILURE_JOB}' should key on needs.{PUBLISH_JOB}.result so a "
+        "cancelled run (manual stop, concurrency) does not page anyone."
+    )
+
+
+def test_failure_notification_is_fail_closed_on_missing_secrets():
+    """A notifier that goes green when it cannot notify is worse than none."""
+    step = _wf(BLOGWATCHER)["jobs"][FAILURE_JOB]["steps"][0]
+    body = "\n".join(
+        ln for ln in step["run"].splitlines() if not ln.lstrip().startswith("#")
+    )
+    for secret in ("SLACK_BOT_TOKEN", "SLACK_CHANNEL_ID"):
+        assert secret in str(step.get("env") or {}), (
+            f"{secret} no longer reaches the step through env:."
+        )
+        assert f'if [ -z "${{{secret}:-}}" ]' in body, (
+            f"the {secret} presence check is gone. Both secrets ARE configured "
+            "in this repo, so falling through green on a missing one hides "
+            "exactly the regression worth knowing about."
+        )
+    assert body.count("exit 1") >= 3, (
+        "the failure branches no longer exit non-zero. A 2xx with ok=false and "
+        "a non-2xx are both failed deliveries — verified against stubs on "
+        "2026-09-10 (missing secret / ok=false / HTTP 500 all exit 1)."
+    )
+
+
+def test_failure_notification_passes_values_through_env_not_interpolation():
+    """Same injection rule as the success path: no ${{ }} inside the run body."""
+    step = _wf(BLOGWATCHER)["jobs"][FAILURE_JOB]["steps"][0]
+    assert "${{" not in step["run"], (
+        "a ${{ }} expression is interpolated straight into the run: body. Route "
+        "it through env: and quote it (CWE-94, see "
+        "test_ci_no_run_input_interpolation_guard.py)."
+    )
+    env = str(step.get("env") or {})
+    assert "RUN_URL" in env and "EVENT_NAME" in env, (
+        "the alert no longer carries the run URL / trigger, so the reader cannot "
+        "get from the message to the log."
+    )
