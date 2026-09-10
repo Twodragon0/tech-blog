@@ -80,6 +80,16 @@ jobs:
       # though main has no required status checks. Dependabot PRs are authored
       # by dependabot[bot] (not GITHUB_TOKEN), so their pull_request checks run
       # normally and there are real checks to watch.
+      #
+      # This used to be `gh pr checks --watch --fail-fast`, which DEADLOCKED:
+      # --watch waits on every check attached to the PR head SHA, and this very
+      # job is one of them, so it waited on itself until `timeout-minutes: 30`
+      # killed it. Measured 2026-09-10 on PRs #696-#701 — all real checks green
+      # (slowest `build` 5m39s) yet `auto-merge` ran 30m16s and was cancelled,
+      # so nothing ever merged. The helper below polls the same `gh pr checks`
+      # data with this run's own check runs excluded ($GITHUB_RUN_ID), and keeps
+      # the fail-closed contract: red / cancelled / unreadable / timed-out all
+      # exit non-zero. See scripts/tests/test_wait_for_pr_checks.py.
       - name: Wait for CI checks to pass (patch + minor only)
         if: |
           steps.meta.outputs.update-type == 'version-update:semver-patch' ||
@@ -90,13 +100,11 @@ jobs:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Give CI a moment to register check runs on the freshly-opened PR so
-          # `gh pr checks --watch` does not see "no checks" and pass vacuously.
+          # Give CI a moment to register check runs on the freshly-opened PR.
+          # The helper is fail-closed on "no checks" anyway, but starting after
+          # registration avoids burning poll cycles on an empty list.
           sleep 30
-          # --watch polls until every check completes; --fail-fast exits non-zero
-          # on the first failure. A non-zero exit fails this step -> the merge
-          # step is skipped (fail-closed).
-          gh pr checks "$PR_URL" --watch --fail-fast --interval 30
+          python3 scripts/wait_for_pr_checks.py --pr "$PR_URL" --timeout-seconds 1500
 
       - name: Enable auto-merge (patch + minor only)
         if: |

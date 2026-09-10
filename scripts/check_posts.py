@@ -845,8 +845,28 @@ def fix_duplicate_practical_points(content: str, overlap: int = 2):
     return "\n".join(ln for idx, ln in enumerate(lines) if idx not in drop), removed
 
 
-def main():
-    """메인 함수"""
+def _is_blocking(issue: str) -> bool:
+    """True for the ``❌`` class only.
+
+    ``❌`` is objective — a file is absent, a required field is missing. ``⚠️``
+    is ~22 heuristics (title shape, SVG text density, dummy-link guesses) and
+    ``💡`` is advice. Only the first kind is safe to fail a publish on: this
+    script gates the cron's digest of the day, and the repo has already lost
+    publish days (2026-09-05, 09-06) to gates that blocked more than they could
+    repair. To make a warning blocking, promote that specific check to ``❌``.
+    """
+    return issue.lstrip().startswith("❌")
+
+
+def main() -> int:
+    """메인 함수. Returns the process exit code (0 = no blocking issue).
+
+    Used to be a bare ``main()`` with no return, called as ``main()`` rather
+    than ``sys.exit(main())`` — so the script exited 0 with any number of
+    issues, including a nonexistent input file. Three callers read that exit
+    code, one of them being the publish path's "Validate new post" step in
+    ai-blogwatcher.yml, which therefore gated nothing.
+    """
     parser = argparse.ArgumentParser(
         description="통합 포스팅 검증 스크립트",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -890,7 +910,7 @@ def main():
 
     if not POSTS_DIR.exists():
         print(f"❌ Posts directory not found: {POSTS_DIR}")
-        return
+        return 1
 
     def _resolve_changed_posts() -> list[Path]:
         changed: set[str] = set()
@@ -1011,9 +1031,17 @@ def main():
     total_issues = 0
     total_fixed = 0
 
+    # A path the caller named explicitly that does not resolve is an error, not
+    # a warning: the workflow passes "$POST_FILE", and a rename, a bad glob or
+    # an empty variable used to print this line and exit 0 — the gate passing
+    # having inspected zero files. Left as a warning for --staged/--changed,
+    # where a legitimately deleted post shows up in the diff.
+    missing_named = False
     for post_file in post_files:
         if not post_file.exists():
             print(f"⚠️  File not found: {post_file}")
+            if args.file:
+                missing_named = True
             continue
 
         if not args.detailed_only:
@@ -1114,6 +1142,22 @@ def main():
     elif args.detailed_only:
         print("✅ No issues found in all posts!")
 
+    blocking = {
+        name: [i for i in issues if _is_blocking(i)]
+        for name, issues in all_issues.items()
+    }
+    blocking = {name: found for name, found in blocking.items() if found}
+    if blocking:
+        total = sum(len(v) for v in blocking.values())
+        print(
+            f"\n❌ {total} blocking issue(s) in {len(blocking)} file(s). "
+            "Warnings (⚠️) and advisories (💡) do not fail this check."
+        )
+        return 1
+    if missing_named:
+        return 1
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
