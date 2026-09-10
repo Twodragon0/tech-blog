@@ -34,6 +34,7 @@ summary_card:
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/
   - /posts/2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/
+superseded_by: /posts/2026/04/30/Week4_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

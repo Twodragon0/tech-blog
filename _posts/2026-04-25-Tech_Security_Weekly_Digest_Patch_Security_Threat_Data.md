@@ -35,6 +35,7 @@ summary_card:
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Patch_Security_Threat_Data/
   - /posts/2026-04-25-Tech_Security_Weekly_Digest_Patch_Security_Threat_Data/
+superseded_by: /posts/2026/04/30/Week4_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

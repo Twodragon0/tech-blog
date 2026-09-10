@@ -53,7 +53,17 @@ sitemap:
 
   <!-- Blog Posts with Image Sitemap -->
   {% for post in site.posts %}
-    {% unless post.sitemap == false or post.sitemap.exclude == 'yes' %}
+    {% comment %}
+      `superseded_by` means a vercel.json 301 sends this URL somewhere else, so
+      advertising it here can only produce a "Page with redirect" exclusion in
+      GSC. The 30 April 2026 dailies were consolidated into 4 weekly rollups in
+      2dcdc3e0, which added both the redirects AND a sitemap exclusion; 9d127b7d
+      then removed the exclusion alone, calling its origin "unclear", to recover
+      them from "Discovered - not indexed". That could not work — it moved 30
+      URLs from one exclusion bucket to another. The named key exists so the next
+      reader sees WHY and WHERE instead of an unexplained flag.
+    {% endcomment %}
+    {% unless post.sitemap == false or post.sitemap.exclude == 'yes' or post.superseded_by %}
     {% assign post_date = post.date | date: '%s' | plus: 0 %}
     {% assign current_date = site.time | date: '%s' | plus: 0 %}
     {% assign days_since = current_date | minus: post_date | divided_by: 86400 %}

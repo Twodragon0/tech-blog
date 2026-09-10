@@ -32,6 +32,7 @@ summary_card:
     - { source: "The Hacker News", title: "2억 8500만 달러 규모 Drift 해킹, 6개월간 북한 사회공학 작전으로 밝혀져" }
     - { source: "BleepingComputer", title: "신종 피싱 문자에 QR 코드를 활용한 교통위반 사기 등장" }
     - { source: "BleepingComputer", title: "New FortiClient EMS 취약점 공격에 악용, 긴급 패치 배포" }
+superseded_by: /posts/2026/04/12/Week2_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

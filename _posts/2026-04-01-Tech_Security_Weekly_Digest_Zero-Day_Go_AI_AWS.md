@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "TrueConf 제로데이, 동남아시아 정부 네트워크 공격에 악용" }
     - { source: "AWS Security Blog", title: "AWS에서 제공하는 새로운 규정 준수 가이드: ISO/IEC 27001:2022" }
     - { source: "Google Cloud Blog", title: "Spanner의 완전한 상호운용성 멀티모델 데이터베이스로 실현한 현실 세계의 성공" }
+superseded_by: /posts/2026/04/05/Week1_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

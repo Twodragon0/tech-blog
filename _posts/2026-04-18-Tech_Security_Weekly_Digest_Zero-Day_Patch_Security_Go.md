@@ -35,6 +35,7 @@ summary_card:
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/
   - /posts/2026-04-18-Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/
+superseded_by: /posts/2026/04/19/Week3_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

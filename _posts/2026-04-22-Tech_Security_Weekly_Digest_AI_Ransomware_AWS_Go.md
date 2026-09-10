@@ -35,6 +35,7 @@ summary_card:
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/
   - /posts/2026-04-22-Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/
+superseded_by: /posts/2026/04/30/Week4_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

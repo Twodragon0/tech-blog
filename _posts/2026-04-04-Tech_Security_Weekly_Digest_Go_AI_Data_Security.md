@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "Microsoft, Linux 서버에서 Cron을 통해 지속되는 쿠키 제어 PHP 웹 셸 상세 공개" }
     - { source: "BleepingComputer", title: "LinkedIn, 6,000개 이상 Chrome 확장 프로그램 은밀히 스캔해 데이터 수집" }
     - { source: "Google Cloud Blog", title: "Envoy: 에이전트 AI 네트워킹을 위한 미래 대비 기반" }
+superseded_by: /posts/2026/04/05/Week1_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

@@ -35,6 +35,7 @@ summary_card:
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/
   - /posts/2026-04-21-Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/
+superseded_by: /posts/2026/04/30/Week4_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

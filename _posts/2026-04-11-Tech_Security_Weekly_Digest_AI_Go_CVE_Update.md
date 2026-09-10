@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "브라우저 확장 프로그램은 아무도 논의하지 않는 새로운 AI 소비 채널입니다" }
     - { source: "The Hacker News", title: "Google, Windows에서 세션 도난 차단을 위해 Chrome 146에 DBSC 배포" }
     - { source: "Google Cloud Blog", title: "Google Data Cloud로 데이터 큐레이션 가속화" }
+superseded_by: /posts/2026/04/12/Week2_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

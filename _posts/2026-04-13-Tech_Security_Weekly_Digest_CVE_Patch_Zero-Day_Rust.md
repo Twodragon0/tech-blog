@@ -34,6 +34,7 @@ summary_card:
     - { source: "The Hacker News", title: "CPUID 침해로 인해 변조된 CPU-Z 및 HWMonitor 다운로드를 통해 STX RAT 유포" }
     - { source: "BleepingComputer", title: "Marimo의 치명적인 사전 인증 RCE 취약점, 현재 적극적으로 악용 중" }
     - { source: "The Hacker News", title: "Adobe, 악용 중인 Acrobat Reader 취약점 CVE-2026-34621 패치 배포" }
+superseded_by: /posts/2026/04/19/Week3_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

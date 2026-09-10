@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "새로운 PHP Composer 취약점으로 임의 명령어 실행 가능 — 패치 배포" }
     - { source: "The Hacker News", title: "Google, Pixel 10 모뎀 보안 강화를 위해 Rust 기반 DNS 파서 추가" }
     - { source: "Google Cloud Blog", title: "공공 부문 전반에 걸친 AI 시대의 보안 구축" }
+superseded_by: /posts/2026/04/19/Week3_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

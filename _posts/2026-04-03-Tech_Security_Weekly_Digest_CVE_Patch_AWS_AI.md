@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "Cisco, 원격 시스템 침해 가능한 9.8 CVSS IMC 및 SSM 취약점 패치" }
     - { source: "AWS Security Blog", title: "에이전트 AI 시스템을 위한 네 가지 보안 원칙" }
     - { source: "Google Cloud Blog", title: "Honeylove, BigQuery로 제품 품질과 서비스 효율성 향상시키는 방법" }
+superseded_by: /posts/2026/04/05/Week1_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

@@ -34,6 +34,7 @@ summary_card:
     - { source: "The Hacker News", title: "Citizen Lab: 법 집행 기관이 광고 데이터를 통해 5억 대 기기를 Webloc으로 추적" }
     - { source: "BleepingComputer", title: "국제 단속에서 2만 명 이상의 암호화폐 사기 피해자 확인" }
     - { source: "BleepingComputer", title: "ChatGPT, Claude에 맞서기 위해 100달러 Pro 구독 서비스 출시" }
+superseded_by: /posts/2026/04/12/Week2_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

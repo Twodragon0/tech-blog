@@ -34,6 +34,7 @@ summary_card:
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/
   - /posts/2026-04-19-Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/
+superseded_by: /posts/2026/04/19/Week3_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

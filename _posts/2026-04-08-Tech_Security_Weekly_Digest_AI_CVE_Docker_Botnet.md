@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "[웨비나] AI가 기업 리스크를 악용하기 전에 2026년까지 아이덴티티 격차를 해소하는 방법" }
     - { source: "The Hacker News", title: "Docker CVE-2026-34040으로 공격자 인증 우회 및 호스트 접근 권한 획득 가능" }
     - { source: "Google Cloud Blog", title: "Claude Mythos 프리뷰: Vertex AI에서 프라이빗 프리뷰로 이용 가능" }
+superseded_by: /posts/2026/04/12/Week2_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}

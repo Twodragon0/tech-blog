@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "북한 연계 해커들, 한국 표적 다단계 공격에서 GitHub를 C2로 활용" }
     - { source: "BleepingComputer", title: "독일 당국, REvil 및 GangCrab 랜섬웨어 조직 보스 신원 확인" }
     - { source: "Google Cloud Blog", title: "AI 인프라 효율성: Ironwood TPU, 3.7배 탄소 효율성 향상 제공" }
+superseded_by: /posts/2026/04/12/Week2_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}
