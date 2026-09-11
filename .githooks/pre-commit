@@ -384,3 +384,29 @@ if [ -n "$STAGED_COVERS" ]; then
   done
   echo "[pre-commit] Cover QR check: passed."
 fi
+
+# 19. Excerpt promise gate — the excerpt must not advertise content the post
+#     does not contain. Digest excerpts are generated, and the generator used
+#     to pick the closing sentence from a hash of the FILENAME: measured
+#     2026-09-10, 150 of the 217 non-rollup digests promised a table of IoCs,
+#     an SBOM section or a 공격 경로 walkthrough that is not in the text. The
+#     excerpt is what the listing pages, the RSS feed and the Google result
+#     show, so this is the copy a reader judges the post by before opening it.
+#
+#     Allow-by-default on purpose: only the closing sentences the generator
+#     knows are judged, each against its own declared predicate. Hand-written
+#     excerpts are out of scope — inferring promises from arbitrary prose is
+#     the heuristic-next-door trap this repo has already paid for once.
+if [ -n "$STAGED_ANY_POSTS" ]; then
+  echo "[pre-commit] Checking staged post excerpts against their bodies..."
+  python3 "$REPO_ROOT/scripts/check_excerpt_promises.py" --staged
+  if [ $? -ne 0 ]; then
+    echo "[pre-commit] An excerpt promises content the body does not contain."
+    echo "             Fix with: python3 scripts/seo_diversify_excerpts.py \\"
+    echo "                         --apply --repair-promises"
+    echo "             or add the promised content to the post."
+    echo "             To bypass (not recommended): git commit --no-verify"
+    exit 1
+  fi
+  echo "[pre-commit] Excerpt promise check: passed."
+fi

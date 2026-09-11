@@ -1,10 +1,10 @@
 name: SVG Compliance Lint
 
-# This workflow carries 19 corpus-wide gates (`--all`): cover drift for four
+# This workflow carries 20 corpus-wide gates (`--all`): cover drift for four
 # generator families, the honesty scorer, title-ASCII, spec-slug consistency,
 # KST-midnight URLs, checklist headings, bare URLs, template-echo, and repeated
 # body boilerplate, internal post links, digest translation and digest proper
-# nouns, and card-title language. They scan the
+# nouns, card-title language, and excerpt promises. They scan the
 # WHOLE corpus, so the same trigger-narrower-than-scan hazard that hid a
 # three-week regression in check-svg.yml applies here — see that file's header.
 #
@@ -17,9 +17,9 @@ name: SVG Compliance Lint
 # the bot cover commit 685ca468 carried 12 workflow runs, every one of them
 # `schedule` and not a single `push` or `pull_request` event.
 #
-# So the dominant producer of the artifacts these 19 gates exist to check was
+# So the dominant producer of the artifacts these 20 gates exist to check was
 # invisible to both triggers. The daily `schedule` below closes that: it scans main
-# regardless of paths, exactly as check-svg.yml does. All 19 gates were verified
+# regardless of paths, exactly as check-svg.yml does. All 20 gates were verified
 # green against the current corpus before this was added, so it is not born red.
 # The count above is MEASURED, not maintained by hand: it drifted twice while
 # gates were moved to --all in 2026-08. test_ci_svg_lint_schedule_guard.py
@@ -80,6 +80,8 @@ on:
       - 'scripts/check_post_boilerplate.py'
       - 'scripts/check_broken_links.py'
       - 'scripts/check_card_title_language.py'
+      - 'scripts/check_excerpt_promises.py'
+      - 'scripts/seo_diversify_excerpts.py'
       - 'scripts/linkify_bare_urls.py'
       - 'scripts/check_template_echo.py'
       - 'scripts/rewrite_template_echo_summaries.py'
@@ -139,6 +141,8 @@ on:
       - 'scripts/check_post_boilerplate.py'
       - 'scripts/check_broken_links.py'
       - 'scripts/check_card_title_language.py'
+      - 'scripts/check_excerpt_promises.py'
+      - 'scripts/seo_diversify_excerpts.py'
       - 'scripts/linkify_bare_urls.py'
       - 'scripts/check_template_echo.py'
       - 'scripts/rewrite_template_echo_summaries.py'
@@ -424,6 +428,29 @@ jobs:
         # check_digest_untranslated's is_untranslated() is NOT reusable here: it
         # exempts cited English titles by design and flagged 1 of the 51.
         run: python3 scripts/check_card_title_language.py --all
+
+      - name: Excerpt promise gate
+        id: excerpt_promises
+        # An excerpt must not advertise content the post does not contain — it
+        # is the copy shown on the listing pages, in the RSS feed and in the
+        # Google result, i.e. what a reader judges the post by before opening
+        # it. Digest excerpts are generated, and the generator picked the
+        # closing sentence from a hash of the FILENAME with no reference to the
+        # body: measured 2026-09-10, 150 of the 217 non-rollup digests promised
+        # a table of IoCs, an SBOM section or a 공격 경로 walkthrough that is
+        # simply not there.
+        #
+        # --all: the corpus is at 0 after the repair pass, so any hit is fresh
+        # drift — including one arriving via a cron push, which is the path a
+        # diff-scoped gate cannot see.
+        #
+        # Allow-by-default, deliberately: only the closing sentences the
+        # generator knows are judged, each against its own declared predicate,
+        # and both sides read one list. The clause that was always true (the
+        # checklist, kept by 35 of 35) is the reason this is not a general
+        # overclaim heuristic — such a heuristic would have been wrong about a
+        # seventh of the corpus.
+        run: python3 scripts/check_excerpt_promises.py --all
 
       - name: Bare-URL gate (unlinked https:// in post prose)
         id: bare_url_gate

@@ -5,7 +5,7 @@ date: 2026-07-12 10:52:25 +0900
 last_modified_at: 2026-07-12T10:52:25+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Rust, AI, Agent]
-excerpt: "2026년 07월 12일 수집한 16건의 보안 이슈 중 손상된 jscrambler 8.14.0 npm 릴리스 · 해커들, 다중 그룹 정찰 캠페인에서 Balochistan를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "2026년 07월 12일 수집한 16건의 보안 이슈 중 손상된 jscrambler 8.14.0 npm 릴리스 · 해커들, 다중 그룹 정찰 캠페인에서 Balochistan를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 07월 12일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 16건을 분석하고 손상된 jscrambler 8.14, 해커들, 다중 그룹 정찰 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Rust, AI, Agent]
 author: Twodragon

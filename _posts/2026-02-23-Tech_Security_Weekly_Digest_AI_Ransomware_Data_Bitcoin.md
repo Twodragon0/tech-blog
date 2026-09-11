@@ -7,7 +7,7 @@ last_modified_at: 2026-04-16T11:22:39+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Zero-Trust, OT-Security, Bitcoin]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Ransomware,  Zero-Trust,  OT-Security,  Bitcoin]
-excerpt: "SK쉴더스 5대 보안 리포트 심층 분석 — Vertical AI · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다를 비롯한 2026년 02월 23일 보안/기술 동향 15건을 DevSecOps 시선으로 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "SK쉴더스 5대 보안 리포트 심층 분석 — Vertical AI · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다를 비롯한 2026년 02월 23일 보안/기술 동향 15건을 DevSecOps 시선으로 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "SK쉴더스 11~12월호 보안 리포트 5건 심층 분석(Vertical AI, BlackField 랜섬웨어, 제로트러스트 데이터, EQST insight, OT 보안), 비트코인 $65K 급락, 러시아 제재 우회 거래소 네트워크 적발 등 DevSecOps 실무 위협 분석."
 author: Twodragon
 comments: true

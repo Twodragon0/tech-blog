@@ -5,7 +5,7 @@ date: 2026-08-28 17:05:13 +0900
 last_modified_at: 2026-08-28T17:05:13+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, AI, Agent, Patch]
-excerpt: "OpenAI는 Reward Hacking으로 AI Agents가 · Next.js, 인증되지 않은 RCE를 가능케 하는 치명적인 등 2026년 08월 28일 보고된 28건의 보안/기술 이슈를 운영 관점에서 점검합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "OpenAI는 Reward Hacking으로 AI Agents가 · Next.js, 인증되지 않은 RCE를 가능케 하는 치명적인 등 2026년 08월 28일 보고된 28건의 보안/기술 이슈를 운영 관점에서 점검합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 08월 28일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 28건을 분석하고 OpenAI는 Reward, Next.js, 인증되지 않은 RCE를 가능케 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, AI, Agent]
 author: Twodragon

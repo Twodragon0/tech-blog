@@ -5,7 +5,7 @@ date: 2026-08-27 16:06:28 +0900
 last_modified_at: 2026-08-27T16:06:28+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, AWS, Security, AI]
-excerpt: "FBI, 미국 기관 데이터 절취에 사용되던 중국 연계 QTFY · Nimbus Manticore, TWOSTROKE 같은 백도어 및 등 2026년 08월 27일 보고된 30건의 보안/기술 이슈를 운영 관점에서 점검합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "FBI, 미국 기관 데이터 절취에 사용되던 중국 연계 QTFY · Nimbus Manticore, TWOSTROKE 같은 백도어 및 등 2026년 08월 27일 보고된 30건의 보안/기술 이슈를 운영 관점에서 점검합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "2026년 08월 27일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 30건을 분석하고 FBI, 미국 기관 데이터 절취에 사용되던 중국, Nimbus Manticore 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, AWS, Security]
 author: Twodragon

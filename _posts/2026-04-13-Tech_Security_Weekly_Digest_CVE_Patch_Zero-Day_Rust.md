@@ -5,7 +5,7 @@ date: 2026-04-13 10:53:41 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, Zero-Day, Rust]
-excerpt: "2026년 04월 13일 수집한 15건의 보안 이슈 중 CPUID 침해로 인해 변조된 CPU-Z 및 HWMonitor · Marimo의 치명적인 사전 인증 RCE 취약점을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "2026년 04월 13일 수집한 15건의 보안 이슈 중 CPUID 침해로 인해 변조된 CPU-Z 및 HWMonitor · Marimo의 치명적인 사전 인증 RCE 취약점을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "2026년 04월 13일 보안 뉴스 요약. The Hacker News, BleepingComputer, SecurityWeek 등 15건을 분석하고 CPUID 침해로 인해 변조된 CPU-Z, Marimo의 치명적인 사전 인증 RCE 취약점, Adobe 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, Zero-Day]
 author: Twodragon

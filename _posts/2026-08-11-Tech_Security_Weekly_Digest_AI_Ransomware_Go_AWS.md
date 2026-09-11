@@ -5,7 +5,7 @@ date: 2026-08-11 10:02:02 +0900
 last_modified_at: 2026-08-11T10:02:02+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Go, AWS]
-excerpt: "AI 속도 개발 보안을 다루는 웨비나: 10~50배 더 많은 코드를 · 중국 연계 해커, N-central 취약점 통해 신종을 비롯한 2026년 08월 11일 보안/기술 동향 30건을 DevSecOps 시선으로 정리합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "AI 속도 개발 보안을 다루는 웨비나: 10~50배 더 많은 코드를 · 중국 연계 해커, N-central 취약점 통해 신종을 비롯한 2026년 08월 11일 보안/기술 동향 30건을 DevSecOps 시선으로 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "2026년 08월 11일 보안 뉴스 요약. The Hacker News, AWS Security Blog, BleepingComputer 등 30건을 분석하고 AI 속도 개발 보안을 다루는 웨비나, 중국 연계 해커, N-central 취약점 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ransomware, Go]
 author: Twodragon

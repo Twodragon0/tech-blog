@@ -5,7 +5,7 @@ date: 2026-06-09 09:30:32 +0900
 last_modified_at: 2026-06-09T09:30:32+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, AI]
-excerpt: "리눅스 커널의 단일 문자 결함으로 로컬 루트 접근 가능 · Meta, NSO 그룹의 새로운 WhatsApp 피싱 공격 차단 및 등 2026년 06월 09일 보고된 29건의 보안/기술 이슈를 운영 관점에서 점검합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "리눅스 커널의 단일 문자 결함으로 로컬 루트 접근 가능 · Meta, NSO 그룹의 새로운 WhatsApp 피싱 공격 차단 및 등 2026년 06월 09일 보고된 29건의 보안/기술 이슈를 운영 관점에서 점검합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 06월 09일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 29건을 분석하고 리눅스 커널의 단일 문자 결함으로 로컬 루트, Meta, NSO 그룹의 새로운 WhatsApp 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Security, AI]
 author: Twodragon

@@ -5,7 +5,7 @@ date: 2026-08-03 10:57:10 +0900
 last_modified_at: 2026-08-03T10:57:10+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Bitcoin, Go, Agent]
-excerpt: "2026년 08월 03일 수집한 15건의 보안 이슈 중 OpenAI, 10개의 오랜 난제를 해결한 후 차기 주요 AI 모델 · COLDCARD 지갑 RNG 결함, 8800만 달러 규모 비트코인을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
+excerpt: "2026년 08월 03일 수집한 15건의 보안 이슈 중 OpenAI, 10개의 오랜 난제를 해결한 후 차기 주요 AI 모델 · COLDCARD 지갑 RNG 결함, 8800만 달러 규모 비트코인을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 08월 03일 보안 뉴스 요약. BleepingComputer, Cointelegraph, Cloudflare Blog 등 15건을 분석하고 OpenAI, 10개의 오랜 난제를 해결한 후, COLDCARD 지갑 RNG 결함 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Bitcoin, Go]
 author: Twodragon

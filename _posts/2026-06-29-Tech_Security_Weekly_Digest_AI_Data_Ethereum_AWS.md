@@ -5,7 +5,7 @@ date: 2026-06-29 09:34:22 +0900
 last_modified_at: 2026-06-29T09:34:22+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Data, Ethereum, AWS]
-excerpt: "데이터 유출로 6개 ISP의 최대 1420만 개 이메일 로그인 정보 노출 등 2026년 06월 29일 보고된 12건의 보안/기술 이슈를 운영 관점에서 점검합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다. 다음 회차 다이제스트도 같은 형식으로 이어집니다."
+excerpt: "데이터 유출로 6개 ISP의 최대 1420만 개 이메일 로그인 정보 노출 등 2026년 06월 29일 보고된 12건의 보안/기술 이슈를 운영 관점에서 점검합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다. 다음 회차 다이제스트도 같은 형식으로 이어집니다."
 description: "2026년 06월 29일 보안 뉴스 요약. BleepingComputer, OpenAI Blog, Cointelegraph 등 12건을 분석하고 데이터 유출로 6개 ISP의 최대 1420만 개, HP Inc., OpenAI와 Frontier 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Data, Ethereum]
 author: Twodragon

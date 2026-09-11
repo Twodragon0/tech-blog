@@ -5,7 +5,7 @@ date: 2026-09-10 11:13:49 +0900
 last_modified_at: 2026-09-10T11:13:49+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Cloud, Threat, AI, Security]
-excerpt: "2026년 09월 10일 수집한 30건의 보안 이슈 중 U.S., Xinbi Guarantee Scam · 일주일 만에 4개 스파이 그룹 동일한 Chrome 및 Windows를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "2026년 09월 10일 수집한 30건의 보안 이슈 중 U.S., Xinbi Guarantee Scam · 일주일 만에 4개 스파이 그룹 동일한 Chrome 및 Windows를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 description: "2026년 09월 10일 보안 뉴스 요약. The Hacker News, Microsoft Security Blog, AWS Security Blog 등 30건을 분석하고 U.S., Xinbi Guarantee Scam, 일주일 만에 4개 스파이 그룹 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Cloud, Threat, AI]
 author: Twodragon

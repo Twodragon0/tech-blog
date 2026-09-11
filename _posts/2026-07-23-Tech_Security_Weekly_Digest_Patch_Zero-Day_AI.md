@@ -5,7 +5,7 @@ date: 2026-07-23 17:27:19 +0900
 last_modified_at: 2026-07-23T17:27:19+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, Zero-Day, AI]
-excerpt: "2026년 07월 23일 수집한 29건의 보안 이슈 중 Check Point, 전체 관리자 접근을 허용하는 악용된 · Check Point, 공격에 악용된 SmartConsole를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "2026년 07월 23일 수집한 29건의 보안 이슈 중 Check Point, 전체 관리자 접근을 허용하는 악용된 · Check Point, 공격에 악용된 SmartConsole를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
 description: "2026년 07월 23일 보안 뉴스 요약. The Hacker News, BleepingComputer, 안랩 ASEC 블로그 등 29건을 분석하고 Check Point, 전체 관리자, Check Point 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, Zero-Day, AI]
 author: Twodragon

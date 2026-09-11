@@ -9,16 +9,21 @@ the identical excerpt template (``"...을 중심으로 YYYY년 MM월 DD일 주�
 Google treats that boilerplate as a low-value duplicate signal.
 
 This script rewrites the ``excerpt:`` front-matter line of each daily-digest
-post with one of 25 (5 × 5) deterministic combinations of opening/closing
-sentence templates, biased by the post date so the same input produces the
-same output (idempotent re-runs).
+post by combining one of 5 opening sentences with a closing sentence, biased by
+the post date so the same input produces the same output (idempotent re-runs).
+
+The opener is chosen by a filename hash. The **closer is not** — each closer
+promises something specific and is only used where the body delivers it. See
+the ``CLOSERS`` block for the 129-post defect that produced that rule.
 
 Scope (safety)
 --------------
 - Only touches files matching ``_posts/YYYY-MM-DD-Tech_Security_Weekly_Digest_*.md``
 - Only modifies the single ``excerpt:`` line of YAML front matter
 - Skips monthly roll-ups (``Week3_*``, ``Week4_*``, ``MonthN_*``)
-- Skips posts that already contain a v2 marker in their excerpt
+- Skips posts that already contain a v2 marker in their excerpt, unless
+  ``--repair-promises`` is passed — the marker sits in the OPENER, so a v2
+  excerpt can still carry a closer whose promise the body never kept
 - Length kept within 150–200 chars (matches existing front-matter rules)
 
 Usage
@@ -28,6 +33,8 @@ Usage
     python3 scripts/seo_diversify_excerpts.py            # dry-run
     python3 scripts/seo_diversify_excerpts.py --apply    # write changes
     python3 scripts/seo_diversify_excerpts.py --apply --month 2026-05
+    python3 scripts/seo_diversify_excerpts.py --repair-promises          # dry-run
+    python3 scripts/seo_diversify_excerpts.py --apply --repair-promises
 """
 
 from __future__ import annotations
@@ -35,6 +42,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -42,6 +50,10 @@ ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = ROOT / "_posts"
 
 DIGEST_GLOB = "20*-Tech_Security_Weekly_Digest_*.md"
+
+# Appended when the generated excerpt falls under the 150-char floor. Split off
+# before closer matching, otherwise every padded excerpt reads as hand-written.
+_LENGTH_FLOOR_SENTENCE = " 다음 회차 다이제스트도 같은 형식으로 이어집니다."
 
 # Marker phrase — presence in excerpt means a v2 rewrite already happened.
 # We rotate this token through 5 variants so detection is robust even when
@@ -62,13 +74,135 @@ OPENERS: tuple[str, ...] = (
     "{date} 수집한 {n}건의 보안 이슈 중 {stories}을(를) 중심으로 영향 범위와 패치 우선순위를 분석합니다.",
 )
 
-CLOSERS: tuple[str, ...] = (
-    " 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다.",
-    " 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다.",
-    " 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다.",
-    " 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다.",
-    " 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다.",
+# --------------------------------------------------------------------------
+# Closers — each one PROMISES something, so each one carries the predicate that
+# decides whether this post can keep that promise.
+#
+# What was wrong
+# --------------
+# The closer used to be picked by ``(seed // 5) % 5`` — a hash of the filename,
+# with no reference to the body at all. Measured 2026-09-10 over the 217
+# non-rollup digests: only 88 (41%) landed on a closer the post actually
+# delivered. The rest promised things that are simply not in the text —
+# ``공격 경로`` appeared in 1 of the 42 posts whose excerpt promised it, ``SOC``
+# in 8 of 42, ``SBOM`` in 21 of 50. The excerpt is what the listing pages, the
+# RSS feed and the search result show, so this was 129 posts advertising
+# content they do not contain.
+#
+# Not every clause was a lie, which is the part worth remembering: the
+# checklist promise was kept by 35 of 35. The defect was the hash, not the
+# phrasing.
+#
+# Why eight and not five
+# ----------------------
+# Filtering the original five to "only the eligible ones" makes every excerpt
+# true but pushes 121 of 215 posts (56%) onto the single closer that always
+# qualifies — recreating the duplicate-boilerplate signal this whole script was
+# written to remove. Four closers were added whose promises are true by
+# construction for a digest (measured 209-217 / 217), so the eligible set is
+# always several wide and the rotation still spreads: max share 33%.
+#
+# ``requires`` reads the BODY. Anything asserted here must be visible to a
+# reader who opens the post, which is the same thing
+# ``scripts/check_excerpt_promises.py`` enforces corpus-wide.
+# --------------------------------------------------------------------------
+
+
+def _table_rows(body: str) -> list[str]:
+    return [ln for ln in body.split("\n") if ln.strip().startswith("|")]
+
+
+def _has_checklist(body: str) -> bool:
+    return "## 실무 체크리스트" in body and len(_CHECKBOX_RE.findall(body)) >= 3
+
+
+_CHECKBOX_RE = re.compile(r"^\s*-\s*\[[ xX]\]", re.MULTILINE)
+_LINK_RE = re.compile(r"\]\(https?://")
+_IOC_RE = re.compile(r"IoC|IOC")
+_ATTACK_PATH_RE = re.compile(r"공격 경로|공격경로|킬체인|kill chain", re.IGNORECASE)
+
+
+@dataclass(frozen=True)
+class Closer:
+    """A closing sentence plus the body evidence that makes it true.
+
+    ``why`` names the missing evidence in gate output, so a failure says what
+    to add rather than only that something is absent.
+    """
+
+    text: str
+    requires: "Callable[[str], bool]"
+    why: str
+
+
+CLOSERS: tuple[Closer, ...] = (
+    # Index 0 is the guaranteed fallback: measured true for 217/217 digests, so
+    # the eligible set is never empty and the rotation always has somewhere to
+    # land. If a future template drops the checklist, add another unconditional
+    # closer BEFORE weakening this predicate.
+    Closer(
+        " 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다.",
+        _has_checklist,
+        "a '## 실무 체크리스트' section with 3+ checkbox items",
+    ),
+    Closer(
+        " 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다.",
+        lambda b: _has_checklist(b) and "탐지" in b and "패치" in b,
+        "a checklist plus body mentions of 탐지 and 패치",
+    ),
+    Closer(
+        " 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다.",
+        lambda b: (
+            any(("소스" in r or "출처" in r) for r in _table_rows(b))
+            and any("영향" in r for r in _table_rows(b))
+        ),
+        "a table naming both a source column and an impact column",
+    ),
+    Closer(
+        " 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다.",
+        lambda b: len(_LINK_RE.findall(b)) >= 3,
+        "3+ external source links",
+    ),
+    Closer(
+        " 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다.",
+        lambda b: "SBOM" in b and "EDR" in b,
+        "body mentions of both SBOM and EDR",
+    ),
+    Closer(
+        " 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다.",
+        lambda b: "SOC" in b and ("차단" in b or "완화" in b),
+        "a body mention of SOC alongside 차단/완화",
+    ),
+    Closer(
+        " 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다.",
+        lambda b: (
+            bool(_IOC_RE.search(b)) and any(_IOC_RE.search(r) for r in _table_rows(b))
+        ),
+        "a table that actually lists IoCs",
+    ),
+    Closer(
+        " 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다.",
+        lambda b: bool(_ATTACK_PATH_RE.search(b)) and "영향" in b,
+        "a body discussion of 공격 경로/킬체인 plus 영향",
+    ),
 )
+
+CLOSER_TEXTS: tuple[str, ...] = tuple(c.text for c in CLOSERS)
+
+# Used only when NO closer qualifies — 0 of 217 digests today, but a body that
+# is empty or unlike a digest must not crash the cron publish and must not be
+# handed a promise by default. This sentence claims nothing, so it is safe
+# everywhere and deliberately dull enough that nobody reaches for it on purpose.
+# It is not part of the rotation.
+NEUTRAL_CLOSER = " 자세한 내용은 본문에서 확인할 수 있습니다."
+
+
+def eligible_closers(body: str) -> list[int]:
+    """Indices of the closers this body can honestly carry.
+
+    May be empty; callers fall back to :data:`NEUTRAL_CLOSER`.
+    """
+    return [i for i, c in enumerate(CLOSERS) if c.requires(body)]
 
 
 # Particle helper — Korean 받침 detection for grammatical clitics
@@ -204,11 +338,45 @@ def _count_from_existing_excerpt(existing: str) -> str:
     return m.group(1) if m else "15"
 
 
+def choose_closer_text(path: Path, body: str, current: int | None = None) -> str:
+    """Pick this post's closing sentence, deterministically.
+
+    ``current`` is the closer the excerpt already ends with, when it has one.
+    A fulfilled promise is left alone — rewriting an excerpt that is already
+    true would churn live, indexed pages for nothing. Only an unfulfilled one
+    rotates, and it rotates within the eligible set so the replacement is true
+    by construction.
+    """
+    ok = eligible_closers(body)
+    if not ok:
+        return NEUTRAL_CLOSER
+    if current is not None and current in ok:
+        return CLOSER_TEXTS[current]
+    return CLOSER_TEXTS[ok[(_seed_from_filename(path) // len(CLOSERS)) % len(ok)]]
+
+
+def _split_trailing_filler(excerpt: str) -> tuple[str, str]:
+    """Separate the length-floor sentence so closer matching sees the real end."""
+    if excerpt.endswith(_LENGTH_FLOOR_SENTENCE):
+        return excerpt[: -len(_LENGTH_FLOOR_SENTENCE)], _LENGTH_FLOOR_SENTENCE
+    return excerpt, ""
+
+
+def current_closer_index(excerpt: str) -> int | None:
+    """Which closer this excerpt ends with, or ``None`` if it is hand-written."""
+    core, _ = _split_trailing_filler(excerpt)
+    for i, text in enumerate(CLOSER_TEXTS):
+        if core.endswith(text.strip()):
+            return i
+    return None
+
+
 def _build_diverse_excerpt(
     path: Path,
     title: str,
     highlights: list[str],
     existing: str,
+    body: str,
 ) -> str:
     date_str = _date_from_filename(path)
     n = _count_from_existing_excerpt(existing)
@@ -231,7 +399,9 @@ def _build_diverse_excerpt(
             stories = "주요 보안 이슈"
 
     opener_tpl = OPENERS[seed % len(OPENERS)]
-    closer_tpl = CLOSERS[(seed // len(OPENERS)) % len(CLOSERS)]
+    # The closer is chosen from what the BODY can back up, not from the
+    # filename hash. See the CLOSERS block for the 129-post defect that caused.
+    closer_tpl = choose_closer_text(path, body)
 
     opener = opener_tpl.format(stories=stories, date=date_str, n=n)
     opener = _select_particles(opener, stories)
@@ -256,7 +426,7 @@ def _build_diverse_excerpt(
 
     # Floor
     if len(excerpt) < 150:
-        excerpt = excerpt + " 다음 회차 다이제스트도 같은 형식으로 이어집니다."
+        excerpt = excerpt + _LENGTH_FLOOR_SENTENCE
 
     return _yaml_safe(excerpt)
 
@@ -288,7 +458,39 @@ def _is_monthly_rollup(name: str) -> bool:
     )
 
 
-def _process_file(path: Path, apply: bool) -> tuple[bool, str]:
+def _repair_promise(path: Path, body: str, existing: str) -> str | None:
+    """Swap only the closing sentence when its promise is unmet.
+
+    Deliberately surgical. Regenerating the whole excerpt would rebuild the
+    opener from ``summary_card.highlights``, and those shift as the digest is
+    edited — a repair pass would then silently rewrite the story names too. The
+    closer is a known suffix, so replacing just that leaves everything a reader
+    recognises about the excerpt intact.
+
+    No length-floor pass here. A swapped-in closer can be a few characters
+    shorter than the one it replaces: measured over the 150 repairs, 3 land at
+    146-149 against the module's soft 150 target, and all 3 already carry the
+    floor sentence, so there is nothing left to append. The enforced band is
+    ``test_excerpt_quality.MIN_LEN``/``MAX_LEN`` (80-320) and all 150 sit well
+    inside it; a second filler sentence to buy 4 characters would add duplicate
+    boilerplate, which is the thing this script exists to remove.
+
+    Returns the new excerpt, or ``None`` when nothing needs doing.
+    """
+    core, filler = _split_trailing_filler(existing)
+    current = current_closer_index(existing)
+    if current is None:
+        return None  # hand-written ending — not ours to rewrite
+    if CLOSERS[current].requires(body):
+        return None  # promise already kept
+    chosen = choose_closer_text(path, body, current=None)
+    core = core[: -len(CLOSER_TEXTS[current].strip())].rstrip()
+    return _yaml_safe(core + chosen + filler)
+
+
+def _process_file(
+    path: Path, apply: bool, repair_promises: bool = False
+) -> tuple[bool, str]:
     text = path.read_text(encoding="utf-8")
     fm, body = _split_front_matter(text)
     if fm is None:
@@ -298,12 +500,29 @@ def _process_file(path: Path, apply: bool) -> tuple[bool, str]:
     if not existing:
         return False, "no-excerpt"
 
+    if repair_promises:
+        # Repair-only. Deliberately NOT combined with the v1 rewrite below: the
+        # rewrite path rebuilds the excerpt from scratch, including the story
+        # names in the opener, and a run asked to fix promises should not also
+        # regenerate two unrelated v1 excerpts it happens to pass. The v2 marker
+        # lives in the OPENER, so v2 posts reach this branch too — which is the
+        # point, since that is where the 150 unfulfilled closers are.
+        if current_closer_index(existing) is None:
+            return False, "not-generated"
+        repaired = _repair_promise(path, body, existing)
+        if repaired is None:
+            return False, "promise-kept"
+        new_fm = _EXCERPT_RE.sub(f'excerpt: "{repaired}"', fm.raw, count=1)
+        if apply:
+            path.write_text("---\n" + new_fm + "\n---\n" + body, encoding="utf-8")
+        return True, "repaired" if apply else "would-repair"
+
     if _is_v2(existing):
         return False, "already-v2"
 
     title = _extract_title(fm.raw)
     highlights = _extract_highlights(fm.raw)
-    new_excerpt = _build_diverse_excerpt(path, title, highlights, existing)
+    new_excerpt = _build_diverse_excerpt(path, title, highlights, existing, body)
 
     if new_excerpt == existing:
         return False, "no-change"
@@ -327,6 +546,14 @@ def main() -> int:
         default=None,
         help="Optional YYYY-MM filter (e.g. 2026-05)",
     )
+    parser.add_argument(
+        "--repair-promises",
+        action="store_true",
+        help=(
+            "Also revisit already-v2 excerpts and swap any closing sentence "
+            "whose promise the body does not keep"
+        ),
+    )
     args = parser.parse_args()
 
     candidates = sorted(POSTS_DIR.glob(DIGEST_GLOB))
@@ -338,16 +565,27 @@ def main() -> int:
         print("No matching posts.", file=sys.stderr)
         return 1
 
-    stats = {"rewritten": 0, "already-v2": 0, "no-change": 0, "skipped": 0}
+    stats = {
+        "rewritten": 0,
+        "repaired": 0,
+        "already-v2": 0,
+        "promise-kept": 0,
+        "not-generated": 0,
+        "no-change": 0,
+        "skipped": 0,
+    }
     for path in candidates:
-        changed, reason = _process_file(path, apply=args.apply)
-        if changed:
+        changed, reason = _process_file(
+            path, apply=args.apply, repair_promises=args.repair_promises
+        )
+        if changed and reason in ("repaired", "would-repair"):
+            stats["repaired"] += 1
+            print(f"[PROMISE] {path.relative_to(ROOT)}")
+        elif changed:
             stats["rewritten"] += 1
             print(f"[REWRITE] {path.relative_to(ROOT)}")
-        elif reason == "already-v2":
-            stats["already-v2"] += 1
-        elif reason == "no-change":
-            stats["no-change"] += 1
+        elif reason in ("already-v2", "promise-kept", "not-generated", "no-change"):
+            stats[reason] += 1
         else:
             stats["skipped"] += 1
             print(f"[SKIP   ] {path.relative_to(ROOT)} ({reason})")
@@ -355,7 +593,12 @@ def main() -> int:
     print()
     print(f"Total candidates : {len(candidates)}")
     print(f"  Rewritten      : {stats['rewritten']}")
-    print(f"  Already v2     : {stats['already-v2']}")
+    if args.repair_promises:
+        print(f"  Promise fixed  : {stats['repaired']}")
+        print(f"  Promise kept   : {stats['promise-kept']}")
+        print(f"  Hand-written   : {stats['not-generated']}")
+    else:
+        print(f"  Already v2     : {stats['already-v2']}")
     print(f"  No-change      : {stats['no-change']}")
     print(f"  Skipped (err)  : {stats['skipped']}")
     if not args.apply:

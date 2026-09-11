@@ -5,7 +5,7 @@ date: 2026-06-02 09:38:00 +0900
 last_modified_at: 2026-06-02T09:38:00+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Update, Data, Go]
-excerpt: "Miasma 공급망 공격, 자격증명 탈취 웜으로 Red Hat · ⚡ 주간 요약: 새로운 Linux 취약점, PAN-OS 익스플로잇이 부각된 2026년 06월 02일 보안 다이제스트 — 30건의 이슈와 실행 가능한 대응 액션을 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "Miasma 공급망 공격, 자격증명 탈취 웜으로 Red Hat · ⚡ 주간 요약: 새로운 Linux 취약점, PAN-OS 익스플로잇이 부각된 2026년 06월 02일 보안 다이제스트 — 30건의 이슈와 실행 가능한 대응 액션을 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 06월 02일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 30건을 분석하고 Miasma 공급망 공격, 자격증명 탈취, ⚡ 주간 요약: 새로운 Linux 취약점 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Update, Data]
 author: Twodragon

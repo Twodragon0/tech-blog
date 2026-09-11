@@ -5,7 +5,7 @@ date: 2026-08-09 10:00:53 +0900
 last_modified_at: 2026-08-09T10:00:53+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, AI, Zero-Day]
-excerpt: "Atlassian Rovo가 Jira 및 Confluence · 새로운 CSS 공격으로 웹메일 방어를 우회해 비밀번호와 토큰 탈취를 비롯한 2026년 08월 09일 보안/기술 동향 16건을 DevSecOps 시선으로 정리합니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
+excerpt: "Atlassian Rovo가 Jira 및 Confluence · 새로운 CSS 공격으로 웹메일 방어를 우회해 비밀번호와 토큰 탈취를 비롯한 2026년 08월 09일 보안/기술 동향 16건을 DevSecOps 시선으로 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 08월 09일 보안 뉴스 요약. The Hacker News 등 16건을 분석하고 Atlassian Rovo가 Jira, 새로운 CSS 공격으로 웹메일 방어를 우회해, Metabase 제로데이 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, AI, Zero-Day]
 author: Twodragon

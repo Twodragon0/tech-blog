@@ -5,7 +5,7 @@ date: 2026-08-20 09:43:38 +0900
 last_modified_at: 2026-08-20T09:43:38+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Cloud, AI, GPT, Go]
-excerpt: "2026년 08월 20일 수집한 25건의 보안 이슈 중 Cloudflare Workers Spectre 공격 · OpenAI, 안전하지 않은 AI 행동에 대한 방어를 강화하며를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "2026년 08월 20일 수집한 25건의 보안 이슈 중 Cloudflare Workers Spectre 공격 · OpenAI, 안전하지 않은 AI 행동에 대한 방어를 강화하며를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 description: "2026년 08월 20일 보안 뉴스 요약. The Hacker News, BleepingComputer, Microsoft Security Blog 등 25건을 분석하고 Cloudflare Workers Spectre, OpenAI, 안전하지 않은 AI 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Cloud, AI, GPT]
 author: Twodragon

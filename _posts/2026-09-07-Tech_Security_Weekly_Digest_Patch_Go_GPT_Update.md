@@ -5,7 +5,7 @@ date: 2026-09-07 17:20:24 +0900
 last_modified_at: 2026-09-07T17:20:24+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, Go, GPT, Update]
-excerpt: "N-able, 지속되는 공격 속 N-central 최대 심각도 · 리눅스 환경의 루트킷 Syslogk 탐지 및 치료를 비롯한 2026년 09월 07일 보안/기술 동향 20건을 DevSecOps 시선으로 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "N-able, 지속되는 공격 속 N-central 최대 심각도 · 리눅스 환경의 루트킷 Syslogk 탐지 및 치료를 비롯한 2026년 09월 07일 보안/기술 동향 20건을 DevSecOps 시선으로 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 09월 07일 보안 뉴스 요약. BleepingComputer, 안랩 ASEC 블로그, The Hacker News 등 20건을 분석하고 N-able, 지속되는 공격 속, 리눅스 환경의 루트킷 Syslogk 탐지 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, Go, GPT]
 author: Twodragon

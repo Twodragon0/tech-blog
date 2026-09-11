@@ -5,7 +5,7 @@ date: 2026-06-20 09:41:00 +0900
 last_modified_at: 2026-06-20T09:41:00+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, AI, Apple, Security]
-excerpt: "2026년 06월 20일 공개된 19건의 위협·취약점 가운데 패치 불가능한 'usbliter8' 익스플로잇 · Gentlemen RaaS, GentleKiller EDR가 즉각 대응 우선순위에 올랐습니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "2026년 06월 20일 공개된 19건의 위협·취약점 가운데 패치 불가능한 'usbliter8' 익스플로잇 · Gentlemen RaaS, GentleKiller EDR가 즉각 대응 우선순위에 올랐습니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 06월 20일 보안 뉴스 요약. The Hacker News 등 19건을 분석하고 패치 불가능한 'usbliter8' 익스플로잇, Gentlemen RaaS, AutoJack 공격으로 한 웹 페이지가 AI 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, AI, Apple]
 author: Twodragon

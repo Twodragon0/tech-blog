@@ -5,7 +5,7 @@ date: 2026-08-16 09:45:20 +0900
 last_modified_at: 2026-08-16T09:45:20+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Botnet, AI, Threat, Agent]
-excerpt: "새로운 Evooo1Bot 리눅스 봇넷 · AI 플랫폼 계정이 해킹당했는지 확인하는 방법 등 2026년 08월 16일 보고된 13건의 보안/기술 이슈를 운영 관점에서 점검합니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다. 다음 회차 다이제스트도 같은 형식으로 이어집니다."
+excerpt: "새로운 Evooo1Bot 리눅스 봇넷 · AI 플랫폼 계정이 해킹당했는지 확인하는 방법 등 2026년 08월 16일 보고된 13건의 보안/기술 이슈를 운영 관점에서 점검합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다. 다음 회차 다이제스트도 같은 형식으로 이어집니다."
 description: "2026년 08월 16일 보안 뉴스 요약. BleepingComputer, TechCrunch Security, Tenable Blog 등 13건을 분석하고 새로운 Evooo1Bot 리눅스 봇넷, AI 플랫폼 계정이 해킹당했는지 확인하는 방법, Agentic AI 위협 클러스터 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Botnet, AI, Threat]
 author: Twodragon

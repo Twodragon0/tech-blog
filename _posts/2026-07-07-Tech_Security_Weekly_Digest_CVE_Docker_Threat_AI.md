@@ -5,7 +5,7 @@ date: 2026-07-07 11:10:55 +0900
 last_modified_at: 2026-07-07T11:10:55+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Docker, Threat, AI]
-excerpt: "이란 연계 해커들, 새로운 Cavern C2 프레임워크로 이스라엘 · 16년 된 Linux KVM 취약점으로 Intel 및 AMD x86를 비롯한 2026년 07월 07일 보안/기술 동향 24건을 DevSecOps 시선으로 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "이란 연계 해커들, 새로운 Cavern C2 프레임워크로 이스라엘 · 16년 된 Linux KVM 취약점으로 Intel 및 AMD x86를 비롯한 2026년 07월 07일 보안/기술 동향 24건을 DevSecOps 시선으로 정리합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 07월 07일 보안 뉴스 요약. The Hacker News 등 24건을 분석하고 이란 연계 해커들, 새로운 Cavern C2, 16년 된 Linux KVM 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Docker, Threat]
 author: Twodragon
