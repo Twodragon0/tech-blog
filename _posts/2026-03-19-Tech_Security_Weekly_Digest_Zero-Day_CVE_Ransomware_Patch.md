@@ -286,9 +286,6 @@ Cloud SQL autoscaling read pools는 데이터베이스의 읽기 중심 워크�
   severity="Medium"
 %}
 
-#### 요약
-
-Docker Captains는 개발자 커뮤니티의 리더로서 Docker 지식을 공유하는 데 열정적인 전문가들입니다. "From the Captain’s Chair" 시리즈의 이번 인터뷰에서는 Naga Santhosh Reddy Vootukuri에 대해 알아봅니다.
 
 ---
 

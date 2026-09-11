@@ -1462,7 +1462,7 @@
     }
   },
   "2026-03-02-Tech_Security_Weekly_Digest_Ransomware_AI_Agent.md": {
-    "total": 99,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -1473,7 +1473,7 @@
       "tables": 10,
       "code_blocks": 9,
       "cross_refs": 5,
-      "length": 5
+      "length": 4
     }
   },
   "2026-03-04-Tech_Security_Weekly_Digest_AI_Ransomware_Bitcoin.md": {

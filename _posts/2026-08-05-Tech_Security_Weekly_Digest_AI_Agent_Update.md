@@ -350,9 +350,6 @@ Database Migration Service는 SQL Server의 다중 결과 집합 처리를 Postg
   severity="High"
 %}
 
-#### 요약
-
-SEC 위원 Hester ‘Crypto Mom’ Peirce가 오랫동안 기다려온 암호화폐 시장 구조 법안인 Clarity Act의 통과에 대해 낙관적인 입장을 밝혔다. 그녀는 이 법안이 규제 명확성을 높일 것이라는 기대를 표했다. 해당 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 처음 보도했다.
 
 
 ---

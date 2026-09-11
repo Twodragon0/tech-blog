@@ -13,20 +13,36 @@ across 193 of 217 digests — 215,858 characters of second printing.
 ``scripts/news/content_generator.py`` now suppresses the block in exactly that
 case; this gate is what keeps it suppressed.
 
-Scope, deliberately narrow
---------------------------
-Only **byte-identical** bodies are violations. The block legitimately survives
-when it carries more than the card: the card truncates at 200 characters, so a
-longer summary needs the block for its tail (213 such blocks remain), and an
-item with no card summary needs it as its only prose.
+Scope
+-----
+A block is a violation when it says the same thing as the card. The block
+legitimately survives when it carries MORE: the card truncates at 200
+characters, so a longer summary needs the block for its tail (152 such blocks
+remain), and an item with no card summary needs it as its only prose. 71 more
+differ outright. Neither is touched.
 
-Known non-goal: ~32 residual blocks differ from their card only by quote
-escaping (``\\”`` in the Liquid attribute vs ``”`` in prose) or are a strict
-prefix of it. Those are duplicates to a reader but not byte-identical, and
-catching them needs an escaping-aware normaliser. Flagging them with a
-hand-rolled one risks the false positives that a normaliser always brings, so
-they are left for a separate change rather than smuggled in here. This gate is
-therefore a floor, not a ceiling.
+The escaping-aware pass (2026-09-11)
+------------------------------------
+The first version compared bytes and said so: "~32 residual blocks differ from
+their card only by quote escaping … left for a separate change". This is that
+change, and the estimate was low — the real count is **66 of the 289 remaining
+adjacent pairs**, in three flavours:
+
+    45  quote shape only        '이슈'      vs  "이슈"
+    11  quote shape + backslash  \\”이슈\\”  vs  ”이슈”
+     1  backslash only
+     9  identical but for a trailing period (some also escaping-differing)
+
+All 66 read as the same sentence twice. :func:`canonical` folds exactly those
+four differences — Unicode form, backslashes, quote glyphs, whitespace runs and
+a trailing sentence mark — and nothing else.
+
+Why this is safe to fold rather than judgement-laden: the control is that
+folding must not merge a pair whose *real* characters differ. Stripping only
+quotes, backslashes, whitespace and periods from both sides and comparing
+lengths gives a delta of **0 for all 66** — so no pair is being called
+duplicate on the strength of content the reader would otherwise lose. Measured
+2026-09-11 across 295 posts.
 """
 
 from __future__ import annotations
@@ -34,6 +50,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -48,6 +65,27 @@ SUMMARY_ATTR_RE = re.compile(r"summary=([\"'])(.*?)\1", re.S)
 BLOCK_RE = re.compile(
     r"\n####[ \t]*요약[ \t]*\n\n(.+?)(?=\n[ \t]*\n|\n####|\n###|\n##|\n---)", re.S
 )
+
+
+_QUOTES_RE = re.compile(r"[\"“”‘’'`]")
+_WS_RE = re.compile(r"\s+")
+# Trailing sentence marks only. Not `.rstrip(".")` on arbitrary text: a summary
+# genuinely ending in an ellipsis or an exclamation is the same sentence as the
+# block whether or not the mark survived the Liquid attribute.
+_TRAILING_MARKS = ".。!?… "
+
+
+def canonical(text: str) -> str:
+    """Fold the four differences that do not change what a reader reads.
+
+    Unicode form, backslash escapes, quote glyph, whitespace runs, and a
+    trailing sentence mark. Deliberately nothing else — every additional fold
+    is a chance to call two different sentences the same.
+    """
+    text = unicodedata.normalize("NFKC", text)
+    text = text.replace("\\", "")
+    text = _QUOTES_RE.sub("", text)
+    return _WS_RE.sub(" ", text).strip().rstrip(_TRAILING_MARKS)
 
 
 def _fence_spans(text: str) -> list[tuple[int, int]]:
@@ -90,7 +128,7 @@ def find_violations(text: str) -> list[str]:
         if text[card.end() : block.start()].strip():
             continue
         body = block.group(1).strip()
-        if body == summary:
+        if canonical(body) == canonical(summary):
             out.append(body[:60])
     return out
 

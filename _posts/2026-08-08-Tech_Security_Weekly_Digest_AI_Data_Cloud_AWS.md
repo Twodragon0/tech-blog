@@ -304,9 +304,6 @@ DevSecOps 관점에서 가장 큰 문제는 **인적 요소가 보안 제어 체
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Copilot impact dashboard에 "Potential return on investment" 섹션이 추가되어 Copilot 지출과 pull request 산출량을 연결해 투자 수익을 보여줍니다. 이 기능은 Copilot 사용 비용 대비 생산성 효과를 정량적으로 파악할 수 있게 해줍니다.
 
 
 ---

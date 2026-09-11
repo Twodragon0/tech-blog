@@ -274,9 +274,6 @@ AWS는 지난주 Open Source Summit Korea 2026과 MCP DevSummit Seoul 2026에서
   severity="Medium"
 %}
 
-#### 요약
-
-“팀원들이 AI 코딩 도구를 쓰고 싶어 하는데, 키는 누가 어떻게 나눠주죠?” 생성형 AI를 도입하는 조직이라면 어디서든 나오는 질문입니다. 저희는 이 질문에 조금 다른 순서로 답했습니다.
 
 
 ---

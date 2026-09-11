@@ -399,9 +399,6 @@ Boltz가 Circle의 CCTP를 활용해 Bitcoin을 Circle의 규제 달러인 USDC�
   severity="Medium"
 %}
 
-#### 요약
-
-이 블로그는 전통 금융(TradFi)의 토큰화를 위한 블록체인 인프라에 대한 데이터 기반 가이드를 제공하며, 곧 발간될 보고서 "The New Rails: How Digital Assets Are Reshaping the Foundations of…"의 미리보기입니다. 해당 게시물은 Chainalysis에 처음 게재되었습니다.
 
 ---
 
