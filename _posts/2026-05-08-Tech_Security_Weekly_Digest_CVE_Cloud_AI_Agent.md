@@ -259,9 +259,6 @@ mitre_attack:
   severity="High"
 %}
 
-#### 요약
-
-GeForce NOW 업데이트로 Gaijin Single Sign-On이 도입되어 회원들이 더 빠르게 로그인하고 게임 액션에 집중할 수 있게 되었습니다. 이 기능은 클라우드 게이밍 환경에서 기기 간 즉각적인 접근을 지원하며, Gaijin 게임 진입 장벽을 낮춥니다.
 
 ---
 
@@ -275,9 +272,6 @@ GeForce NOW 업데이트로 Gaijin Single Sign-On이 도입되어 회원들이 �
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 GPT-5.5와 GPT-5.5-Cyber를 통해 Trusted Access for Cyber를 확장하여, 검증된 방어자가 취약점 연구를 가속화하고 중요 인프라를 보호할 수 있도록 지원한다.
 
 ---
 
@@ -294,9 +288,6 @@ OpenAI가 GPT-5.5와 GPT-5.5-Cyber를 통해 Trusted Access for Cyber를 확장�
   severity="Medium"
 %}
 
-#### 요약
-
-Gemini 3.1 Flash-Lite가 Gemini Enterprise Agent Platform에서 정식 출시되었습니다. 이 모델은 초저지연, 대용량 작업 및 비용 효율성을 위해 설계된 가장 빠르고 경제적인 Gemini 3 시리즈 모델입니다.
 
 ---
 
@@ -326,9 +317,6 @@ Google Cloud Next '26에서 발표된 Bigtable in-memory tier는 완전 관리�
   severity="Medium"
 %}
 
-#### 요약
-
-BASF Agricultural Solutions는 AlphaEvolve의 agentic 알고리즘을 활용하여 180개 생산 현장의 수천 가지 공급망 결정을 관리합니다. 농업 및 작물 보호 공급망은 활성 성분이 최종 제품이 되기까지 최대 2년이 소요될 정도로 복잡하며, 기상이나 규제 변화가 전체를 교란할 수 있습니다.
 
 ---
 
@@ -344,9 +332,6 @@ BASF Agricultural Solutions는 AlphaEvolve의 agentic 알고리즘을 활용하�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot에서 GPT-4.1 모델이 2026년 6월 1일부로 모든 환경에서 지원 중단될 예정이며, 대체 모델 사용이 권장됩니다.
 
 ---
 
@@ -361,9 +346,6 @@ GitHub Copilot에서 GPT-4.1 모델이 2026년 6월 1일부로 모든 환경에�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot에서 Claude Sonnet 4 모델이 2026년 5월 6일부로 모든 기능에서 지원 중단되었습니다. 이 모델은 Copilot Chat, 인라인 편집, ask 및 agent 모드, 코드 완성 등에서 더 이상 사용할 수 없습니다.
 
 ---
 
@@ -378,9 +360,6 @@ GitHub Copilot에서 Claude Sonnet 4 모델이 2026년 5월 6일부로 모든 �
   severity="Medium"
 %}
 
-#### 요약
-
-Enterprise Live Migrations(ELM)이 퍼블릭 프리뷰로 제공되며, 기업 관리자는 이를 통해 GitHub Enterprise Server(GHES)에서 GitHub Enterprise Cloud로 리포지토리를 마이그레이션할 수 있습니다.
 
 ---
 
@@ -396,9 +375,6 @@ Enterprise Live Migrations(ELM)이 퍼블릭 프리뷰로 제공되며, 기업 �
   severity="Medium"
 %}
 
-#### 요약
-
-Crypto prediction markets는 블록체인 기술을 활용해 실시간 이벤트 예측 및 헤징을 위한 유동성 플랫폼을 구축하며 큰 성장을 이끌고 있습니다. 이는 Chainalysis가 블록체인이 예측 시장을 어떻게 재편하는지 설명한 내용입니다.
 
 ---
 
@@ -413,9 +389,6 @@ Crypto prediction markets는 블록체인 기술을 활용해 실시간 이벤�
   severity="Medium"
 %}
 
-#### 요약
-
-ANTPOOL, Block Inc, F2Pool, Foundry, Spiderpool, MARA Foundation 및 DMND가 Stratum v2 Working Group에 합류했습니다. 이 그룹은 Bitcoin 채굴 프로토콜 개선을 목표로 하며, 새로운 멤버들의 참여로 확장되었습니다. 해당 소식은 Bitcoin Magazine을 통해 보도되었습니다.
 
 ---
 
@@ -430,9 +403,6 @@ ANTPOOL, Block Inc, F2Pool, Foundry, Spiderpool, MARA Foundation 및 DMND가 Str
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 옵션 시장에서 강세론자들이 연말까지 115,000달러를 목표로 하고 있지만, 트레이더들의 낙관론이 과도해지고 있는지 의문이 제기됩니다. 데이터가 이러한 기대를 뒷받침하는지 분석이 필요합니다.
 
 ---
 
@@ -501,9 +471,9 @@ Bitcoin 옵션 시장에서 강세론자들이 연말까지 115,000달러를 목
 
 <!-- related-posts:v1 -->
 
-- [Mirai 기반 xlabs_v1 봇넷, AWS에서 ISO/IEC 42001, MuddyWater, 가짜 랜섬웨어](/posts/2026/05/07/Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware/) — 2026-05-07
-- [TCLBANKER Banking, 가짜 통화 기록 앱, 730만 회 Play, Active attack](/posts/2026/05/09/Tech_Security_Weekly_Digest_Vulnerability_AI_Threat/) — 2026-05-09
-- [피싱 캠페인, SimpleHelp, Progress, 인증 우회 가능한 치명적, 주간 요약: AI 기반 피싱](/posts/2026/05/05/Tech_Security_Weekly_Digest_AI_Patch_AWS/) — 2026-05-05
+- [2026년 05월 07일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (15건)](/posts/2026/05/07/Tech_Security_Weekly_Digest_AI_Botnet_AWS_Ransomware/) — 2026-05-07
+- [2026년 05월 09일 주간 보안 다이제스트: 악성코드·BYOVD EDR·DNS 유출 (14건)](/posts/2026/05/09/Tech_Security_Weekly_Digest_Vulnerability_AI_Threat/) — 2026-05-09
+- [2026년 05월 05일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (14건)](/posts/2026/05/05/Tech_Security_Weekly_Digest_AI_Patch_AWS/) — 2026-05-05
 
 ---
 

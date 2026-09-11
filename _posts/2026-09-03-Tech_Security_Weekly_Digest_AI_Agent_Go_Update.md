@@ -339,6 +339,16 @@ BitMEX 공동 창업자 Arthur Hayes는 Bitcoin(BTC)이 2030년까지 장기적�
 
 ---
 
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 09월 02일 주간 보안 다이제스트: 제로데이·패치·악성코드 (30건)](/posts/2026/09/02/Tech_Security_Weekly_Digest_AI_Patch_Security_Agent/) — 2026-09-02
+- [2026년 09월 04일 주간 보안 다이제스트: 악성코드·클라우드·제로데이 (30건)](/posts/2026/09/04/Tech_Security_Weekly_Digest_AI_Malware_Rust/) — 2026-09-04
+- [2026년 08월 31일 주간 보안 다이제스트: 클라우드·악성코드·BYOVD EDR (15건)](/posts/2026/08/31/Tech_Security_Weekly_Digest_Cloud_AI_Data_Malware/) — 2026-08-31
+
+---
+
 **작성자**: Twodragon
 
 ---

@@ -230,9 +230,6 @@ Zero Trust 아키텍처의 핵심은 "모든 요청을 검증"하는 것이며, 
   severity="High"
 %}
 
-#### 요약
-
-AWS CloudTrail과 GuardDuty를 통합하여 클라우드 환경의 위협을 실시간으로 탐지하는 아키텍처가 2026년 AWS 보안 모범 사례로 재정립되었습니다. GuardDuty는 CloudTrail 관리 이벤트, VPC Flow Logs, DNS 로그를 분석하여 비정상적인 API 호출, 암호화폐 채굴, 자격 증명 탈취 시도 등을 탐지합니다.
 
 #### 위협 분석
 
@@ -444,9 +441,6 @@ jobs:
   severity="Medium"
 %}
 
-#### 요약
-
-Terraform 1.10이 릴리스되면서 보안 관련 주요 개선 사항이 포함되었습니다. Ephemeral Values 기능이 정식 지원되어 민감 데이터가 State 파일에 저장되지 않도록 제어할 수 있으며, Provider 설치 시 서명 검증이 강화되었습니다.
 
 #### 위협 분석
 
@@ -655,9 +649,9 @@ spec:
 
 <!-- related-posts:v1 -->
 
-- [Kubernetes RBAC 취약점, SLSA 공급망 보안, AI 프롬프트 인젝션 방어](/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/) — 2026-03-26
-- [AI 에이전트 보안, 클라우드 Zero-Day, 컨테이너 공급망 공격](/posts/2026/03/28/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/) — 2026-03-28
-- [북한 VS Code 멀웨어, IAM 정책 설계, Bedrock 보안 운영 포인트](/posts/2026/03/24/Tech_Security_Weekly_Digest_Malware_Data_AWS_AI/) — 2026-03-24
+- [2026년 03월 26일 주간 보안 다이제스트: 제로데이·DNS 유출·AI 에이전트 (11건)](/posts/2026/03/26/Tech_Security_Weekly_Digest_Kubernetes_Supply_Chain_AI/) — 2026-03-26
+- [2026년 03월 28일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (17건)](/posts/2026/03/28/Tech_Security_Weekly_Digest_AI_Cloud_Zero_Day/) — 2026-03-28
+- [2026년 03월 24일 주간 보안 다이제스트: 악성코드·BYOVD EDR·북한 위협 (15건)](/posts/2026/03/24/Tech_Security_Weekly_Digest_Malware_Data_AWS_AI/) — 2026-03-24
 
 ---
 

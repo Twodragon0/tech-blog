@@ -3161,6 +3161,11 @@ def generate_news_section(
 
     section = f"### {section_num} {title}\n\n"
 
+    # What the news-card will actually display, or "" when it shows no summary.
+    # Recorded here so the fallback below can tell whether a `#### 요약` block
+    # would add anything or just print the same sentence a second time.
+    card_shows = ""
+
     # 뉴스 카드 (이미지 + 요약)
     if image or ko_summary:
         card_parts = [
@@ -3182,6 +3187,7 @@ def generate_news_section(
                 _truncate_korean_sentence(ko_summary, 200)
             )
             card_parts.append('  summary="%s"' % card_summary)
+            card_shows = card_summary
         card_parts.append('  source="%s"' % _sanitize_liquid_param(source))
         card_parts.append('  severity="%s"' % severity)
         card_parts.append("%}")
@@ -3215,11 +3221,27 @@ def generate_news_section(
             return section
 
     # 폴백: 기존 템플릿
-    section += "#### 요약\n\n"
+    #
+    # The `#### 요약` block is emitted ONLY when it shows the reader something
+    # the card above does not. `_includes/news-card.html:54` already renders
+    # `summary=` in a `<p class="news-card__summary">`, so when the card carries
+    # the whole summary this block was a second printing one line below the
+    # first — measured 2026-09-10: 1,583 of 2,043 blocks (77%) byte-identical to
+    # their card, across 193 of 217 digests, 215,858 characters.
+    #
+    # Keyed on equality with what the card shows, NOT on "a card exists": the
+    # card truncates at 200 chars, so a longer summary still needs this block to
+    # carry its tail, and an item with no card summary needs it as its only
+    # prose. Both directions are pinned in
+    # scripts/tests/test_content_generator_card_summary.py.
+    summary_block = ""
     if ko_summary:
-        section += f"{ko_summary}\n\n"
+        if ko_summary.strip() != card_shows.strip():
+            summary_block = f"{ko_summary}\n\n"
     elif content_text:
-        section += f"{content_text[:800]}...\n\n"
+        summary_block = f"{content_text[:800]}...\n\n"
+    if summary_block:
+        section += "#### 요약\n\n" + summary_block
 
     # 실무 포인트/실무 적용 포인트 filler blocks are no longer emitted
     # (editorial decision 2026-07-14).

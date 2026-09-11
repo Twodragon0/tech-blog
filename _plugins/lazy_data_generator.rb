@@ -36,7 +36,13 @@ CLASSIFIER_KEYWORDS = {
 }.freeze
 
 Jekyll::Hooks.register :site, :post_write do |site|
-  posts = site.posts.docs
+  # Filtered ONCE, here, so the three JSONs below cannot disagree about which
+  # posts exist. `superseded_by` marks a post whose URL vercel.json 301s to a
+  # rollup: listing it in archive-data.json (the /archive/ page) or in the
+  # tag/category indexes (client-side search) shows a reader the daily's title
+  # and then lands them on a different article. Same predicate as sitemap.xml,
+  # llms.txt and llms-full.txt.
+  posts = site.posts.docs.reject { |p| p.data['superseded_by'] }
   static_paths = collect_static_paths(site)
 
   tag_index = build_tag_index(posts)

@@ -215,9 +215,6 @@ DevSecOps 실무자에게 이번 공격은 다음과 같은 직접적인 영향�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin의 시장 점유율이 주요 지지선 위를 유지하며 알트코인으로의 자본 이동이 붕괴되고 있습니다. 이는 Bitcoin이 알트코인으로부터 자금을 계속 흡수하여 광범위한 altseason을 지연시킬 수 있음을 시사합니다.
 
 ---
 
@@ -232,9 +229,6 @@ Bitcoin의 시장 점유율이 주요 지지선 위를 유지하며 알트코인
   severity="Medium"
 %}
 
-#### 요약
-
-유럽연합 집행위원회가 암호화폐 및 블록체인 규제 프레임워크인 MiCA의 개정안(MiCA 2.0)에 대한 의견 수렴에 나섰으며, 업계는 스테이블코인과 DeFi 부문의 규제 개선을 기대하고 있습니다.
 
 ---
 
@@ -249,9 +243,6 @@ Bitcoin의 시장 점유율이 주요 지지선 위를 유지하며 알트코인
   severity="Medium"
 %}
 
-#### 요약
-
-Pudgy Penguins가 NFT 기반 프랜차이즈에서 물리적 제품으로 확장하며 Vibes Series 3 트레이딩 카드를 미국 전역의 Target 매장에 출시합니다. 이는 주류 소매 유통 채널로의 진출을 의미합니다.
 
 ---
 
@@ -302,6 +293,16 @@ Pudgy Penguins가 NFT 기반 프랜차이즈에서 물리적 제품으로 확장
 | The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 1건 인용 |
 | BleepingComputer | [bleepingcomputer.com](https://www.bleepingcomputer.com) | 본문 2건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 20일 주간 보안 다이제스트: 패치·랜섬웨어·BYOVD EDR (19건)](/posts/2026/06/20/Tech_Security_Weekly_Digest_Patch_AI_Apple_Security/) — 2026-06-20
+- [2026년 06월 22일 주간 보안 다이제스트: 블록체인·보안 위협·AI (10건)](/posts/2026/06/22/Tech_Security_Weekly_Digest_Threat_AI_Security/) — 2026-06-22
+- [2026년 06월 18일 주간 보안 다이제스트: 악성코드·제로데이·클라우드 (26건)](/posts/2026/06/18/Tech_Security_Weekly_Digest_Malware_Patch_AWS_AI/) — 2026-06-18
 
 ---
 

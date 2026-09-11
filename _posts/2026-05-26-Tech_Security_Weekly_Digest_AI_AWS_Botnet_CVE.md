@@ -253,9 +253,6 @@ DevSecOps 실무자에게 이 변화는 **운영 효율성**과 **보안 거버�
   severity="High"
 %}
 
-#### 요약
-
-AWS는 이스탄불에 AWS Local Zones를 출시하고, 오픈소스 ExtendDB와 Kiro Web 등 새로운 서비스를 발표했습니다. 이번 주 AWS Weekly Roundup에서는 스타트업 지원 경험과 기술적 깊이를 바탕으로 한 클라우드 혁신 사례가 강조되었습니다.
 
 ---
 
@@ -272,9 +269,6 @@ AWS는 이스탄불에 AWS Local Zones를 출시하고, 오픈소스 ExtendDB와
   severity="High"
 %}
 
-#### 요약
-
-Kubernetes의 유연성은 빠른 개발과 배포를 가능하게 하지만, 정책 적용이 실제 리소스가 배포된 이후에 이루어져 보안 및 거버넌스에 문제가 발생합니다. 이를 해결하기 위해 배포 전 단계에서 정책을 검증하고 적용하는 Shift-Left 접근 방식이 필요합니다.
 
 ---
 
@@ -289,9 +283,6 @@ Kubernetes의 유연성은 빠른 개발과 배포를 가능하게 하지만, �
   severity="Medium"
 %}
 
-#### 요약
-
-Ingress NGINX에서 Envoy Gateway로의 무중단 마이그레이션 전략을 다루며, Kubernetes 네트워킹이 Gateway API로 진화함에 따라 조직들은 단순한 구현 선택이 아닌 체계적인 마이그레이션 설계가 필요함을 강조합니다.
 
 ---
 
@@ -308,9 +299,6 @@ Ingress NGINX에서 Envoy Gateway로의 무중단 마이그레이션 전략을 �
   severity="Medium"
 %}
 
-#### 요약
-
-XRP 가격이 1.35~1.40달러의 핵심 축적 및 지지 구간인 'value zone'에서 거래되고 있는 가운데, 고래들이 바이낸스에서 1억 7천만 달러 상당의 XRP를 인출했습니다.
 
 ---
 
@@ -325,9 +313,6 @@ XRP 가격이 1.35~1.40달러의 핵심 축적 및 지지 구간인 'value zone'
   severity="Medium"
 %}
 
-#### 요약
-
-UAE와 연결된 ADI Chain이 Ledger의 지원을 받게 되면서 ADI 토큰 보유자들은 Ledger의 자체 보관 플랫폼을 이용할 수 있게 되었습니다. 이는 ADI Chain이 스테이블코인과 토큰화된 자산 네트워크를 확장하는 과정에서 이루어졌습니다.
 
 ---
 
@@ -342,9 +327,6 @@ UAE와 연결된 ADI Chain이 Ledger의 지원을 받게 되면서 ADI 토큰 �
   severity="Medium"
 %}
 
-#### 요약
-
-암호화폐 관련 PAC인 Protect Progress가 디지털 자산에 적대적인 하원의원 Al Green에 맞서 민주당 후보를 위해 미디어에 75만 달러를 추가 지출했습니다. 텍사스 예비 선거 결선에서 암호화폐 자금이 대규모로 유입되고 있으며, 예측 시장에서는 도전자들이 유리한 것으로 나타났습니다.
 
 ---
 
@@ -402,6 +384,16 @@ UAE와 연결된 ADI Chain이 Ledger의 지원을 받게 되면서 ADI 토큰 �
 | AWS Blog | [aws.amazon.com](https://aws.amazon.com) | 본문 1건 인용 |
 | CNCF Blog | [cncf.io](https://www.cncf.io) | 본문 2건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 05월 25일 주간 보안 다이제스트: 제로데이·클라우드·블록체인 (11건)](/posts/2026/05/25/Tech_Security_Weekly_Digest_AI_Ethereum_Blockchain/) — 2026-05-25
+- [2026년 05월 27일 주간 보안 다이제스트: 클라우드·패치·제로데이 (30건)](/posts/2026/05/27/Tech_Security_Weekly_Digest_AI_AWS_CVE_Patch/) — 2026-05-27
+- [2026년 05월 23일 주간 보안 다이제스트: 랜섬웨어·악성코드·DNS 유출 (25건)](/posts/2026/05/23/Tech_Security_Weekly_Digest_Ransomware_AI_Malware_Go/) — 2026-05-23
 
 ---
 

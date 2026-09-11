@@ -210,9 +210,6 @@ DevSecOps 실무자에게 이 위협은 다음과 같은 구체적 영향을 미
   severity="Medium"
 %}
 
-#### 요약
-
-Nemotron Labs는 기업과 국가가 신뢰하고 통제하며 맞춤화할 수 있는 AI를 제공하기 위해 오픈 모델의 중요성을 강조합니다. 기업이 선택할 수 있는 강력한 모델은 많지만, 진정한 과제는 AI가 비즈니스의 고유한 요구를 해결하고 정확성과 신뢰 기준을 충족하는지 여부입니다.
 
 
 ---
@@ -228,9 +225,6 @@ Nemotron Labs는 기업과 국가가 신뢰하고 통제하며 맞춤화할 수 
   severity="Medium"
 %}
 
-#### 요약
-
-Google Images가 다양한 이미지 검색을 하는 사람들의 일러스트와 함께 25주년을 맞아 시각 검색 혁신을 기념하고 있습니다.
 
 
 ---
@@ -246,9 +240,6 @@ Google Images가 다양한 이미지 검색을 하는 사람들의 일러스트�
   severity="Medium"
 %}
 
-#### 요약
-
-AI 인프라의 핵심 제약은 전력이며, 고정된 전력 예산 내에서 생성할 수 있는 토큰 수가 수익성을 결정합니다. 따라서 실제 결과를 통해 입증되는 performance per watt가 AI 팩토리의 근본적인 지표입니다.
 
 
 ---
@@ -266,9 +257,6 @@ AI 인프라의 핵심 제약은 전력이며, 고정된 전력 예산 내에서
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 2026 IDC MarketScape의 Worldwide Foundation Model Software 부문에서 Leader로 선정되었습니다. Google은 생성형 AI가 주목받기 오래전부터 글로벌 인프라, 보안 프레임워크, 데이터 플랫폼을 구축하며 기업의 실질적 요구에 집중해 왔습니다.
 
 
 ---
@@ -284,9 +272,6 @@ Google은 2026 IDC MarketScape의 Worldwide Foundation Model Software 부문에�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud에서 Claude를 엔터프라이즈 프로덕션 환경에 맞게 제공하며, 가속기 관리, 대륙 간 지연 시간 안정화, 지역 내 규제 데이터 처리, 장문 맥락 요청의 안정적 서비스를 지원합니다. 프론티어 모델과 엔터프라이즈 플랫폼의 결합이 시너지를 창출한다는 점을 강조합니다.
 
 
 ---
@@ -301,9 +286,6 @@ Google Cloud에서 Claude를 엔터프라이즈 프로덕션 환경에 맞게 �
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon CloudWatch가 OpenTelemetry와 PromQL 지원을 정식 출시(GA)했습니다. 이를 통해 표준 OpenTelemetry 계측과 PromQL 쿼리를 활용해 지표를 수집하고 분석할 수 있습니다.
 
 
 ---
@@ -321,9 +303,6 @@ Amazon CloudWatch가 OpenTelemetry와 PromQL 지원을 정식 출시(GA)했습�
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 6월 GitHub Copilot for Visual Studio 업데이트는 사용량 가시성 향상, MCP 서버를 위한 새로운 신뢰 계층, 그리고 최초의 C++ 시나리오 지원을 포함합니다.
 
 
 ---
@@ -339,9 +318,6 @@ Amazon CloudWatch가 OpenTelemetry와 PromQL 지원을 정식 출시(GA)했습�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub code scanning이 이제 CodeQL이 지원하지 않는 언어와 프레임워크까지 포함하여 AI 기반 보안 탐지를 pull request에서 직접 표시합니다. 이 탐지는 팀이 취약점을 식별하고 대응하는 데 도움을 줍니다.
 
 
 ---
@@ -357,9 +333,6 @@ GitHub code scanning이 이제 CodeQL이 지원하지 않는 언어와 프레임
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Dependabot이 버전 업데이트 시 새로운 릴리스가 레지스트리에 등록된 후 최소 3일이 지나야 Pull Request를 생성하도록 기본 cooldown을 도입했습니다.
 
 
 ---
@@ -377,9 +350,6 @@ GitHub의 Dependabot이 버전 업데이트 시 새로운 릴리스가 레지스
   severity="Medium"
 %}
 
-#### 요약
-
-중국 최고인민검찰원이 crypto mixer와 프라이버시 코인의 사용을 자금세탁 의도를 추정하는 증거로 간주하는 내용의 제안을 발표했습니다. 이는 crypto 관련 자금세탁 기소를 용이하게 하기 위한 조치입니다.
 
 
 ---
@@ -395,9 +365,6 @@ GitHub의 Dependabot이 버전 업데이트 시 새로운 릴리스가 레지스
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin의 진정한 힘은 수수료를 지불하는 누구나 원장에 기록할 수 있다는 점에 있지만, BIP-110 지지자들은 데이터가 많은 트랜잭션을 제한하려는 소프트포크를 시도하고 있습니다. 그러나 이 제안에 대한 반발이 거세지면서 이미 실패하고 있는 것으로 보입니다. 이는 Bitcoin의 검열 저항성과 개방성이라는 핵심 가치가 위협받고 있음을 보여줍니다.
 
 
 ---
@@ -413,9 +380,6 @@ Bitcoin의 진정한 힘은 수수료를 지불하는 누구나 원장에 기록
   severity="Medium"
 %}
 
-#### 요약
-
-CleanSpark가 Nasdaq 상장 Bitcoin 채굴 기업으로, 조지아주 Sandersville 캠퍼스에서 미공개 고신용 글로벌 기술 기업과 20년간 66억 달러 규모의 데이터센터 임대 계약을 체결했습니다. 이는 순수 Bitcoin 채굴에서 하이퍼스케일 클라이언트를 위한 고성능 컴퓨팅으로 전환하는 가장 큰 움직임입니다.
 
 
 ---
@@ -477,6 +441,16 @@ CleanSpark가 Nasdaq 상장 Bitcoin 채굴 기업으로, 조지아주 Sandersvil
 | AWS Korea Blog | [aws.amazon.com](https://aws.amazon.com) | 본문 1건 인용 |
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 3건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 14일 주간 보안 다이제스트: 악성코드·랜섬웨어·BYOVD EDR (30건)](/posts/2026/07/14/Tech_Security_Weekly_Digest_AI_Security_Malware_Go/) — 2026-07-14
+- [2026년 07월 16일 주간 보안 다이제스트: AI 에이전트·악성코드·제로데이 (27건)](/posts/2026/07/16/Tech_Security_Weekly_Digest_Botnet_LLM_Malware_Update/) — 2026-07-16
+- [2026년 07월 12일 주간 보안 다이제스트: 패치·AI 에이전트·BYOVD EDR (16건)](/posts/2026/07/12/Tech_Security_Weekly_Digest_Rust_AI_Agent/) — 2026-07-12
 
 ---
 

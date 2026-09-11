@@ -387,7 +387,7 @@ Bitcoin이 일요일 저녁 2시간 만에 5% 이상 하락하며 $65,000 선 �
 
 <!-- related-posts:v1 -->
 
-- [AI 위협 행위자 분석, Roundcube KEV 긴급, Claude Code 보안 점검](/posts/2026/02/22/Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security/) — 2026-02-22
-- [APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
-- [Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+- [2026년 02월 22일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (3건)](/posts/2026/02/22/Tech_Security_Weekly_Digest_AI_Threat_Vulnerability_Security/) — 2026-02-22
+- [2026년 02월 24일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (3건)](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
+- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·Kubernetes (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
 

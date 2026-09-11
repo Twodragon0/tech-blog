@@ -6,9 +6,17 @@ sitemap: false
 # Twodragon's Tech Blog - Full Content
 
 > Complete markdown content of all posts for AI agent consumption.
-> Total Posts: {{ site.posts | size }} | Last Updated: {{ site.time | date: "%Y-%m-%d" }}
+{% comment %}
+  Same `superseded_by` filter as llms.txt / sitemap.xml / lazy_data_generator.rb.
+  This file is the heaviest surface to get wrong: it inlines full post bodies, so
+  including the 30 superseded April dailies alongside the 4 rollups that already
+  contain the same stories hands an agent the duplicate text twice, each copy
+  labelled with a URL that 301s elsewhere.
+{% endcomment %}
+{% assign listable = site.posts | where_exp: "p", "p.superseded_by == nil" %}
+> Total Posts: {{ listable | size }} | Last Updated: {{ site.time | date: "%Y-%m-%d" }}
 
-{% for post in site.posts %}
+{% for post in listable %}
 ---
 
 ## {{ post.title }}

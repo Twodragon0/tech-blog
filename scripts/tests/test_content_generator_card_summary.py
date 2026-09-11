@@ -119,3 +119,81 @@ def test_summary_stays_within_a_sane_bound():
     """Boundary-aware cutting may overshoot slightly, but not without limit."""
     summary = _card_summary(generate_news_section(_build_item(summary=_LONG), "1.1"))
     assert len(summary) <= _CAP + 20, f"summary grew to {len(summary)} chars"
+
+
+# --- the card and the "#### 요약" block must not print the same text ---------
+#
+# `_includes/news-card.html:54` already renders `summary=` in a `<p class=
+# "news-card__summary">`. The fallback path then emitted `#### 요약` with the
+# SAME text, so the reader saw one sentence twice, ~1 line apart.
+#
+# Measured 2026-09-10 over the corpus: 1,583 of 2,043 `#### 요약` blocks (77%)
+# are byte-identical to the `summary=` above them, across 193 of 217 digests —
+# 215,858 characters of second printing. Confirmed in built HTML: the same
+# sentence appears in `<p class="news-card__summary">` and again under
+# `<h4 id="요약">`.
+#
+# The block is NOT always redundant: the card truncates at 200 chars, so a
+# longer `ko_summary` carries information the card does not show. The rule is
+# therefore "skip the block only when the card already shows all of it", not
+# "never emit the block" — and both halves are asserted below.
+
+_SUMMARY_BLOCK_RE = re.compile(r"^####\s*요약\s*$", re.MULTILINE)
+
+
+def _summary_block_body(section: str) -> str | None:
+    """Prose under the first ``#### 요약``, or None when there is no such block."""
+    m = _SUMMARY_BLOCK_RE.search(section)
+    if not m:
+        return None
+    rest = section[m.end() :]
+    body = re.split(r"\n\s*\n|\n#{2,4}\s|\n---", rest, maxsplit=1)[0]
+    return body.strip()
+
+
+_SHORT = "Microsoft가 윈도우 11에 연령 인식 API를 추가했습니다. 생년월일을 노출하지 않습니다."
+
+
+def test_short_summary_emits_no_duplicate_block():
+    """The card shows all of it, so the block would be a second printing."""
+    assert len(_SHORT) <= _CAP, "fixture must fit under the cap to be a duplicate"
+    section = generate_news_section(_build_item(summary=_SHORT), "1.1")
+    card = _card_summary(section)
+    body = _summary_block_body(section)
+    assert card.strip(), "control: a card summary must still be emitted"
+    assert body != card.strip(), (
+        "the '#### 요약' block repeats the card summary verbatim. The reader sees "
+        "the same sentence twice, one line apart — 1,583 corpus instances."
+    )
+    assert body is None, (
+        f"expected no '#### 요약' block at all when the card is complete, got {body!r}"
+    )
+
+
+def test_long_summary_keeps_the_block_because_the_card_is_truncated():
+    """Direction check: the block must survive when it adds text.
+
+    Without this, "remove the duplicate" would slide into "remove the block",
+    silently dropping the tail of every summary longer than 200 chars.
+    """
+    section = generate_news_section(_build_item(summary=_LONG), "1.1")
+    card = _card_summary(section)
+    body = _summary_block_body(section)
+    assert len(card) <= _CAP + 5, f"card unexpectedly untruncated: {len(card)}"
+    assert body, "the '#### 요약' block was dropped even though the card is truncated"
+    assert len(body) > len(card), (
+        f"block ({len(body)}) should carry more than the card ({len(card)})"
+    )
+
+
+def test_block_survives_when_there_is_no_card_summary():
+    """Control: with no card summary, the block is the ONLY summary.
+
+    The fallback fills it from ``content`` in that case. Suppressing it here
+    would leave the item with no prose at all — the opposite failure to the one
+    being fixed, and the reason the rule is keyed on equality with the card
+    rather than on "a card exists".
+    """
+    section = generate_news_section(_build_item(summary=""), "1.1")
+    body = _summary_block_body(section)
+    assert body, "the item lost its only summary text"

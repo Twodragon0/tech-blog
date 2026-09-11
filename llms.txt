@@ -3,6 +3,12 @@ layout: null
 permalink: /llms.txt
 sitemap: false
 ---
+{% comment %}
+  Assigned up here, not next to its first use, because `Total Posts` below must
+  count the same set the listings enumerate. A total that includes the 30
+  superseded April dailies while the list omits them reads as a truncated file.
+{% endcomment %}
+{% assign listable = site.posts | where_exp: "p", "p.superseded_by == nil" %}
 # Twodragon's Tech Blog
 
 > DevSecOps, Cloud Security, Kubernetes Security technical blog by Twodragon.
@@ -14,7 +20,7 @@ sitemap: false
 - Language: Korean (ko-KR)
 - Author: Twodragon
 - Topics: DevSecOps, Cloud Security, Kubernetes, FinOps, AI Coding, Incident Response
-- Total Posts: {{ site.posts | size }}
+- Total Posts: {{ listable | size }}
 - Last Updated: {{ site.time | date: "%Y-%m-%d" }}
 
 ## How to Access Content
@@ -32,10 +38,16 @@ sitemap: false
 
 ## Recent Posts (Latest 30)
 
-{% for post in site.posts limit:30 %}- [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.excerpt | strip_html | truncate: 150 }} ({{ post.date | date: "%Y-%m-%d" }})
+{% comment %}
+  `superseded_by` posts are excluded from both listings below: a vercel.json 301
+  sends those URLs to a rollup, so handing an agent the daily URL and the daily
+  title yields a fetch that lands on a different article. Same predicate as
+  sitemap.xml and _plugins/lazy_data_generator.rb — one signal, three surfaces.
+{% endcomment %}
+{% for post in listable limit:30 %}- [{{ post.title }}]({{ site.url }}{{ post.url }}): {{ post.excerpt | strip_html | truncate: 150 }} ({{ post.date | date: "%Y-%m-%d" }})
 {% endfor %}
 
 ## All Posts
 
-{% for post in site.posts %}- [{{ post.title }}]({{ site.url }}{{ post.url }}) ({{ post.date | date: "%Y-%m-%d" }}, {{ post.categories | join: ", " }})
+{% for post in listable %}- [{{ post.title }}]({{ site.url }}{{ post.url }}) ({{ post.date | date: "%Y-%m-%d" }}, {{ post.categories | join: ", " }})
 {% endfor %}

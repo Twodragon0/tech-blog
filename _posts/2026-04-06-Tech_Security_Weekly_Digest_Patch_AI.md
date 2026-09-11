@@ -32,6 +32,7 @@ summary_card:
     - { source: "The Hacker News", title: "2억 8500만 달러 규모 Drift 해킹, 6개월간 북한 사회공학 작전으로 밝혀져" }
     - { source: "BleepingComputer", title: "신종 피싱 문자에 QR 코드를 활용한 교통위반 사기 등장" }
     - { source: "BleepingComputer", title: "New FortiClient EMS 취약점 공격에 악용, 긴급 패치 배포" }
+superseded_by: /posts/2026/04/12/Week2_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}
@@ -187,9 +188,6 @@ DevSecOps 관점에서 이 취약점은 다음과 같은 직접적 영향을 미
   severity="Medium"
 %}
 
-#### 요약
-
-북한 해커 조직이 개입된 것으로 추정되는 2억 8천만 달러 규모의 Drift Protocol 공격에 대해, 한 암호화폐 변호사는 이 사건이 '민사상 과실'에 해당할 수 있다고 지적했습니다.
 
 ---
 
@@ -204,9 +202,6 @@ DevSecOps 관점에서 이 취약점은 다음과 같은 직접적 영향을 미
   severity="Medium"
 %}
 
-#### 요약
-
-도널드 트럼프 대통령의 게시글 이후 Polymarket에서 올해 미국의 이란 침공 가능성이 63%까지 상승했습니다. 미국 대통령은 전쟁 확대와 수 주 내 종결이라는 상반된 신호를 계속 보내고 있습니다.
 
 ---
 
@@ -221,9 +216,6 @@ DevSecOps 관점에서 이 취약점은 다음과 같은 직접적 영향을 미
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin과 미국 달러는 상호 강화하는 공생 관계에 있다고 BPI의 Sam Lyman이 Cointelegraph에 설명했습니다. 이는 일반적인 인식과는 반대로 한 통화에 대한 수요가 양쪽을 모두 강화한다는 견해입니다.
 
 ---
 

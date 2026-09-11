@@ -101,9 +101,6 @@ summary_card:
   severity="Critical"
 %}
 
-#### 요약
-
-AI 에이전트 보안을 위한 오픈소스 레드팀링 플레이그라운드가 공개되었습니다. 이 도구는 실제 도구와 시스템 프롬프트를 가진 라이브 에이전트를 대상으로 취약점을 테스트하며, 각 챌린지가 끝나면 우승한 대화 기록과 가드레일 로그가 공개됩니다.
 
 #### 위협 분석
 
@@ -171,9 +168,6 @@ Kiro CLI나 Claude Code 같은 AI 코딩 에이전트를 사용하다 보면, �
   severity="High"
 %}
 
-#### 요약
-
-Aave는 거래자가 USDT를 AAVE로 스왑하는 과정에서 5천만 달러 이상 손실이 발생한 원인이 슬리피지가 아닌 유동성 부족 시장 때문이라고 사후 분석을 통해 밝혔습니다. 이에 따라 Aave는 'Aave Shield' 출시를 준비하고 있습니다.
 
 ---
 
@@ -188,9 +182,6 @@ Aave는 거래자가 USDT를 AAVE로 스왑하는 과정에서 5천만 달러 �
   severity="Medium"
 %}
 
-#### 요약
-
-Gnosis 공동 창립자는 CLARITY Act가 모든 암호화폐 활동이 미국 정부가 허가한 금융 중개자를 통과해야 한다고 가정한다고 경고합니다. 이 법안은 암호화폐 산업을 중앙화된 기업에 넘길 위험이 있습니다.
 
 ---
 
@@ -205,9 +196,6 @@ Gnosis 공동 창립자는 CLARITY Act가 모든 암호화폐 활동이 미국 �
   severity="High"
 %}
 
-#### 요약
-
-Venus Protocol이 'supply cap' 공격으로 약 370만 달러의 피해를 입었습니다. 공격자는 Thena 토큰을 이용해 최대 공급 한도를 우회하고 여러 디지털 자산을 빌려냈습니다.
 
 ---
 
@@ -279,9 +267,9 @@ Venus Protocol이 'supply cap' 공격으로 약 370만 달러의 피해를 입�
 
 <!-- related-posts:v1 -->
 
-- [GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전](/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/) — 2026-03-15
-- [GlassWorm GitHub 토큰 탈취, Chrome 제로데이, 라우터 봇넷 위협](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) — 2026-03-17
-- [북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
+- [2026년 03월 15일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (6건)](/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/) — 2026-03-15
+- [2026년 03월 17일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (15건)](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) — 2026-03-17
+- [2026년 03월 19일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
 
 ---
 

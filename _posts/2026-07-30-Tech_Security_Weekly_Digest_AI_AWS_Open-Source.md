@@ -232,9 +232,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-GPT-5.6에서 두 가지 API 설정을 활성화하여 추론 유지와 압축 기능을 켠 결과, ARC-AGI-3 벤치마크 점수가 세 배로 향상되고 효율성이 개선되었습니다.
 
 
 ---
@@ -249,9 +246,6 @@ GPT-5.6에서 두 가지 API 설정을 활성화하여 추론 유지와 압축 �
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 10만 명의 학술 연구자에게 ChatGPT의 최첨단 AI 모델을 무료로 제공하여 과학 연구, 협업 및 발견을 가속화하고 있습니다.
 
 
 ---
@@ -267,9 +261,6 @@ OpenAI가 10만 명의 학술 연구자에게 ChatGPT의 최첨단 AI 모델을 
   severity="Medium"
 %}
 
-#### 요약
-
-MoonPay의 PayBox vault를 통해 ChatGPT와 Claude 사용자가 자산 보관권을 유지하면서 암호화폐 구매, 토큰 스왑 및 크로스체인 거래를 승인할 수 있게 되었습니다.
 
 
 ---
@@ -286,9 +277,6 @@ MoonPay의 PayBox vault를 통해 ChatGPT와 Claude 사용자가 자산 보관�
   severity="Medium"
 %}
 
-#### 요약
-
-오늘날의 데이터 레이크하우스는 단순 저장소를 넘어 자율 AI 에이전트가 실시간 추론 루프를 통해 공급망 모니터링, 이상 징후 탐지, 비즈니스 워크플로우를 실행하는 시스템으로 진화하고 있습니다. 이러한 AI 에이전트가 확장 가능하게 작동하려면 AWS, Databricks, Snowflake 등 전체 데이터 자산에 접근하고 적절한 컨텍스트를 확보해야 합니다.
 
 
 ---
@@ -304,9 +292,6 @@ MoonPay의 PayBox vault를 통해 ChatGPT와 Claude 사용자가 자산 보관�
   severity="Medium"
 %}
 
-#### 요약
-
-Looker Agentic Workflows가 프리뷰로 출시되어, 기존의 단순한 지표 변경 알림을 넘어 지능형 백그라운드 에이전트를 통해 메트릭 모니터링과 근본 원인 분석을 자동화합니다. Looker의 Conversational Analytics를 통해 팀은 이미 자연어로 비즈니스 데이터를 질의할 수 있습니다.
 
 
 ---
@@ -321,9 +306,6 @@ Looker Agentic Workflows가 프리뷰로 출시되어, 기존의 단순한 지�
   severity="Medium"
 %}
 
-#### 요약
-
-Google이 Gemini Enterprise Agent Platform의 최신 업데이트를 발표했으며, 비즈니스와 개발자들의 진전을 확인할 수 있는 13개의 데모와 에이전트 기반 구축을 위한 20개의 질문을 공개했습니다.
 
 
 ---
@@ -341,9 +323,6 @@ Google이 Gemini Enterprise Agent Platform의 최신 업데이트를 발표했�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 Copilot Pro, Pro+, Business, Enterprise 사용자를 대상으로 Copilot 코드 리뷰에서 Agent skills와 MCP 서버 지원을 정식 출시했다고 발표했습니다. 이 기능들은 이전에 공개 미리보기로 제공되었으며, 이제 모든 해당 사용자가 이용할 수 있게 되었습니다.
 
 
 ---
@@ -359,9 +338,6 @@ GitHub이 Copilot Pro, Pro+, Business, Enterprise 사용자를 대상으로 Copi
   severity="High"
 %}
 
-#### 요약
-
-Dependabot의 기본 설정은 저장소에 과도한 Pull Request를 생성할 수 있지만, 업데이트를 그룹화하고 주기를 늦추며 보안 수정은 빠르게 유지함으로써 노이즈를 줄일 수 있습니다. 이 방법은 Microsoft 오픈소스 프로젝트에서 효과적으로 사용되었습니다.
 
 
 ---
@@ -377,9 +353,6 @@ Dependabot의 기본 설정은 저장소에 과도한 Pull Request를 생성할 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 Copilot Business와 Copilot Enterprise 요금제에서 일반 공급되는 Copilot 모델에 대해 전역 기본 활성화 정책을 도입했습니다. 이제 관리자가 각 새 모델을 수동으로 켤 필요가 없어집니다.
 
 
 ---
@@ -397,9 +370,6 @@ GitHub이 Copilot Business와 Copilot Enterprise 요금제에서 일반 공급�
   severity="Medium"
 %}
 
-#### 요약
-
-공화당 상원의원 Cynthia Lummis가 민주당 의원들이 Clarity Act 처리를 지연시키고 있다고 비난했습니다. 친암호화폐 성향의 이 의원은 법안 통과를 위해 압박을 가하고 있습니다.
 
 
 ---
@@ -415,9 +385,6 @@ GitHub이 Copilot Business와 Copilot Enterprise 요금제에서 일반 공급�
   severity="Medium"
 %}
 
-#### 요약
-
-연방준비제도(Fed)가 금리를 동결하면서 Bitcoin(Bitcoin)은 거의 움직이지 않았다. 향후 Fed의 정책 방향이 불확실한 가운데, 주요 암호화폐는 큰 변동을 보이지 않았다. 이 소식은 Bitcoin Magazine에 Mathew Di Salvo가 작성했다.
 
 
 ---
@@ -433,9 +400,6 @@ GitHub이 Copilot Business와 Copilot Enterprise 요금제에서 일반 공급�
   severity="High"
 %}
 
-#### 요약
-
-미국 민주당 상원의원이 오랫동안 기다려온 Clarity Act를 지지하며 법 집행 관련 변경 사항을 포함시킬 것을 제안했습니다. 이 법안은 주로 민주당 의원들이 추진 중이며, Bitcoin Magazine이 Mathew Di Salvo의 기사를 통해 보도했습니다.
 
 
 ---
@@ -498,6 +462,16 @@ GitHub이 Copilot Business와 Copilot Enterprise 요금제에서 일반 공급�
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 2건 인용 |
 | GitHub Engineering Blog | [github.blog](https://github.blog) | 본문 1건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 29일 주간 보안 다이제스트: Telnetd·제로데이·AI 에이전트 (29건)](/posts/2026/07/29/Tech_Security_Weekly_Digest_AI_Botnet_Zero-Day_Cloud/) — 2026-07-29
+- [2026년 07월 31일 주간 보안 다이제스트: 악성코드·북한 위협·패치 (30건)](/posts/2026/07/31/Tech_Security_Weekly_Digest_Update_Malware_AI_Agent/) — 2026-07-31
+- [2026년 07월 27일 주간 보안 다이제스트: BYOVD EDR·클라우드·블록체인 (16건)](/posts/2026/07/27/Tech_Security_Weekly_Digest_AI/) — 2026-07-27
 
 ---
 

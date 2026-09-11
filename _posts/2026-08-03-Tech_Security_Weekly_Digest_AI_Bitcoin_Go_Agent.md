@@ -95,9 +95,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI는 미공개 모델 Astra를 공개했으며, 내부 버전이 수학 및 이론 컴퓨터 과학 분야에서 10개의 오랜 난제를 해결한 후 복잡하고 장기적인 작업을 처리하도록 설계되었습니다. Astra는 아직 출시되지 않았지만, 이러한 성과는 차세대 AI 모델의 잠재력을 보여줍니다.
 
 
 #### 권장 조치
@@ -144,9 +141,6 @@ DevSecOps 관점에서는 **공급망 보안(Supply Chain)**과 **암호화폐 �
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 Chrome에 정책 설치(policy-installed) 확장 프로그램이 New Tab 페이지를 가로채거나 기본 검색 엔진을 변경하는 것을 기본적으로 차단하는 새로운 보안 기능을 준비 중입니다. 이 기능은 사용자 동의 없이 브라우저 설정을 조작하는 hijacker 확장 프로그램을 방지하기 위한 것입니다.
 
 
 #### 권장 조치
@@ -172,9 +166,6 @@ Google은 Chrome에 정책 설치(policy-installed) 확장 프로그램이 New T
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy는 STRC 우선주 배당률을 12%로 유지했으며, 주가가 액면가($100) 아래에 머물러도 추가 인상은 없었다. 과거에는 우선주가 한 달 이상 액면가를 크게 밑돌 때 배당 인상 혜택이 있었으나, 현재는 그 조건이 충족되지 않은 상태다.
 
 
 ---
@@ -190,9 +181,6 @@ Strategy는 STRC 우선주 배당률을 12%로 유지했으며, 주가가 액면
   severity="Medium"
 %}
 
-#### 요약
-
-BNB Chain은 전 직원이 회사 튜토리얼 지갑을 이용해 승인되지 않은 memecoin을 발행했다고 밝히며 법적 조치를 추진 중이다. 해당 블록체인 생태계는 이 코인을 공식적으로 인증하거나 지지한 적이 없다고 강조했다.
 
 
 ---
@@ -208,9 +196,6 @@ BNB Chain은 전 직원이 회사 튜토리얼 지갑을 이용해 승인되지 
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 사용자들이 Coldcard 해킹 사태 속에서 39,600 BTC를 소액 거래로 이동시켰으며, 이는 FTX 붕괴 이후 최대 규모의 1 BTC 미만 이동으로 기록됐다. CryptoQuant는 공격이 여전히 활성 상태라고 경고했다.
 
 
 ---
@@ -260,6 +245,16 @@ Bitcoin 사용자들이 Coldcard 해킹 사태 속에서 39,600 BTC를 소액 �
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) | 취약점 악용 확률 점수 — CVSS 보완 |
 | BleepingComputer | [bleepingcomputer.com](https://www.bleepingcomputer.com) | 본문 3건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 02일 주간 보안 다이제스트: 제로데이·패치·악성코드 (15건)](/posts/2026/08/02/Tech_Security_Weekly_Digest_Bitcoin_AI_Update_Malware/) — 2026-08-02
+- [2026년 08월 04일 주간 보안 다이제스트: 악성코드·클라우드·랜섬웨어 (29건)](/posts/2026/08/04/Tech_Security_Weekly_Digest_Malware_Go_AWS_Ransomware/) — 2026-08-04
+- [2026년 07월 31일 주간 보안 다이제스트: 악성코드·북한 위협·패치 (30건)](/posts/2026/07/31/Tech_Security_Weekly_Digest_Update_Malware_AI_Agent/) — 2026-07-31
 
 ---
 

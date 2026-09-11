@@ -234,9 +234,6 @@ DevSecOps 실무자로서 이 변경이 CI/CD 파이프라인 및 엔드포인�
   severity="Medium"
 %}
 
-#### 요약
-
-Meta는 HSM 기반 Backup Key Vault를 통해 WhatsApp과 Messenger의 종단간 암호화 백업을 강화하고 있습니다. 이 시스템은 사용자가 복구 코드로 메시지 기록을 보호하며, 해당 코드는 변조 방지 하드웨어 보안 모듈(HSM)에 저장되어 Meta나 클라우드 스토리지가 접근할 수 없도록 설계되었습니다.
 
 ---
 
@@ -250,9 +247,6 @@ Meta는 HSM 기반 Backup Key Vault를 통해 WhatsApp과 Messenger의 종단간
   severity="Medium"
 %}
 
-#### 요약
-
-AWS Transform이 BI 마이그레이션을 자동화하여 며칠 내에 Amazon QuickSight로 전환할 수 있게 해줍니다. AWS Transform에서 마이그레이션 작업 공간을 설정하고 AWS Marketplace를 통해 파트너 에이전트를 구독하면 Amazon QuickSight의 데이터 소비 방식을 혁신하는 기능을 활용할 수 있습니다.
 
 ---
 
@@ -268,9 +262,6 @@ AWS Transform이 BI 마이그레이션을 자동화하여 며칠 내에 Amazon Q
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot 전반에서 GPT-5.2와 GPT-5.2-Codex 모델이 2026년 6월 5일부로 지원 중단될 예정입니다. GPT-5.2는 Copilot Code Review에서만 계속 사용 가능하다는 예외가 있고, GPT-5.2-Codex는 모든 환경에서 예외 없이 지원 중단됩니다.
 
 ---
 
@@ -303,9 +294,6 @@ Docker의 Coding Agent Sandboxes 팀은 Claude Code, Gemini, Codex, Docker Agent
   severity="Medium"
 %}
 
-#### 요약
-
-Exodus는 오마하 서밋에서 자체 보관(self-custody)이 틈새 암호화폐 도구에서 일상 생활을 지원하는 종합 결제 인프라로 진화하고 있다고 주장했습니다. 이는 회사가 규제적 상처와 시장 침체를 겪는 가운데 나온 발언입니다.
 
 ---
 
@@ -320,9 +308,6 @@ Exodus는 오마하 서밋에서 자체 보관(self-custody)이 틈새 암호화
   severity="Medium"
 %}
 
-#### 요약
-
-Exodus (EXOD)가 오마하에서 주주와 고객 앞에서 공식 UFC 후원 계약을 발표하고, 개정된 자체 보관형 머니 앱인 Exodus Pay를 공개했습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 
@@ -337,9 +322,6 @@ Exodus (EXOD)가 오마하에서 주주와 고객 앞에서 공식 UFC 후원 �
   severity="Medium"
 %}
 
-#### 요약
-
-Galoy가 미국 은행 및 신용협동조합을 위해 대출, 결제, 보관 기능을 통합한 Bitcoin 기반 올인원 뱅킹 플랫폼을 확대 출시하고 있습니다. 이 플랫폼은 기존 코어 시스템을 대대적으로 개편하지 않고도 Bitcoin 네이티브 서비스를 제공할 수 있도록 지원합니다.
 
 ---
 
@@ -404,9 +386,9 @@ Galoy가 미국 은행 및 신용협동조합을 위해 대출, 결제, 보관 �
 
 <!-- related-posts:v1 -->
 
-- [PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어](/posts/2026/05/01/Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud/) — 2026-05-01
-- [중요한 cPanel 취약점 'Sorry', Trellix, 승인되지 않은 저장소, ConsentFix v3 공격](/posts/2026/05/03/Tech_Security_Weekly_Digest_Ransomware_Azure_CVE_Vulnerability/) — 2026-05-03
-- [연구진, 단일 Git Push로 악용, 브라질의 LofyGang, 3년, VECT 2.0 랜섬웨어](/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/) — 2026-04-29
+- [2026년 05월 01일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (15건)](/posts/2026/05/01/Tech_Security_Weekly_Digest_AI_AWS_Threat_Cloud/) — 2026-05-01
+- [2026년 05월 03일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (6건)](/posts/2026/05/03/Tech_Security_Weekly_Digest_Ransomware_Azure_CVE_Vulnerability/) — 2026-05-03
+- [2026년 05월 05일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (14건)](/posts/2026/05/05/Tech_Security_Weekly_Digest_AI_Patch_AWS/) — 2026-05-05
 
 ---
 

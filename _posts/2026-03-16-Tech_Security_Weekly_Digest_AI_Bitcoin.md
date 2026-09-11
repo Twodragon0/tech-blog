@@ -97,9 +97,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-아르헨티나 로비스트 Mauricio Novelli의 휴대폰 포렌식 분석에서 대통령의 Libra 토큰 홍보와 연결된 $5M 거래 계약서 초안이 발견되었습니다. 이 사건은 정치인이 특정 암호화폐 프로젝트를 홍보하는 행위의 법적·윤리적 리스크를 재확인시킵니다.
 
 ---
 
@@ -114,9 +111,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-스테이블코인에 대한 규제 불확실성이 크립토 기업보다 전통 금융 기관에 더 큰 타격을 줄 수 있다는 분석입니다. 크립토 기업은 규제 공백 속에서도 확장을 계속하는 반면, 은행은 명확한 규칙이 나올 때까지 디지털 자산 서비스 출시를 보류하고 있습니다.
 
 ---
 
@@ -131,9 +125,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 가격, DeFi, NFT, Web3, 규제 동향을 포함한 암호화폐 시장 일일 종합 리포트입니다. 최근 시장 변동성이 높아지면서 피싱·스캠 활동도 증가하는 추세입니다.
 
 ---
 
@@ -202,9 +193,9 @@ Bitcoin 가격, DeFi, NFT, Web3, 규제 동향을 포함한 암호화폐 시장 
 
 <!-- related-posts:v1 -->
 
-- [GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전](/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/) — 2026-03-15
-- [GlassWorm GitHub 토큰 탈취, Chrome 제로데이, 라우터 봇넷 위협](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) — 2026-03-17
-- [북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
+- [2026년 03월 15일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (6건)](/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/) — 2026-03-15
+- [2026년 03월 17일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (15건)](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) — 2026-03-17
+- [2026년 03월 19일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
 
 ---
 

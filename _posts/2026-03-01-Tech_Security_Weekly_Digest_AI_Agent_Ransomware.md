@@ -233,9 +233,6 @@ Agentic AI가 네트워크 인프라에 자율 제어권을 가지면서 새로�
   severity="Medium"
 -%}
 
-#### 요약
-
-NVIDIA와 T-Mobile, SoftBank, Indosat 등 글로벌 통신사가 소프트웨어 정의 AI-RAN을 실증에서 상용 배포 단계로 전환하는 데 성공했습니다. MWC에서 20건 이상의 시연을 통해, GPU 기반 소프트웨어 방식이 기존 하드웨어 의존 방식을 대체할 수 있음을 증명했습니다.
 
 주요 성과로 SynaXG가 단일 서버에서 다중 주파수 대역 동시 처리로 36Gbps 처리량, 10ms 미만 지연시간을 달성했으며, DeepSig의 AI 기반 신호 처리는 기존 대비 약 2배의 처리량 향상을 보여줬습니다.
 
@@ -313,9 +310,6 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
   severity="High"
 -%}
 
-#### 요약
-
-신규 생성된 Polymarket 지갑 6개가 테헤란 폭발 보도 수 시간 전에 미국의 이란 공습 예측 계약을 약 $0.10에 매수하여 총 약 100만 달러의 수익을 올렸습니다. 의심스러운 거래 타이밍으로 인해 내부자 거래 조사가 촉발되었으며, 미국 의회에서는 정부 관계자의 비공개 정보를 이용한 예측 시장 거래를 제한하는 법안을 검토 중입니다.
 
 ---
 
@@ -416,15 +410,6 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
 
 작성자: Twodragon
 
----
-
-## 🔗 관련 포스트
-
-<!-- related-posts:v1 -->
-
-- [Pig Butchering $6100만 압수, FreePBX 대규모 침해, Go Crypto 백도어](/posts/2026/02/28/Tech_Security_Weekly_Digest_Go_AI_Malware/) — 2026-02-28
-- [제로트러스트 가시성, 암호화폐 규제 동향, 랜섬웨어 대응 전략](/posts/2026/03/02/Tech_Security_Weekly_Digest_Ransomware_AI_Agent/) — 2026-03-02
-- [UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향](/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/) — 2026-02-26
 
 ---
 
@@ -432,4 +417,14 @@ PAX Gold(PAXG)와 Tether Gold(XAUt) 등 토큰화 금 자산이 CME 선물 시�
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
 - 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 02월 28일 주간 보안 다이제스트: 악성코드·AI 에이전트·Kubernetes (3건)](/posts/2026/02/28/Tech_Security_Weekly_Digest_Go_AI_Malware/) — 2026-02-28
+- [2026년 03월 02일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (3건)](/posts/2026/03/02/Tech_Security_Weekly_Digest_Ransomware_AI_Agent/) — 2026-03-02
+- [2026년 02월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (3건)](/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/) — 2026-02-26
 

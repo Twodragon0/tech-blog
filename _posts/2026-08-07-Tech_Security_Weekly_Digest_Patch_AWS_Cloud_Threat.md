@@ -177,9 +177,6 @@ DevSecOps 관점에서 이번 패치는 **즉시 적용 대상**입니다. 다�
   severity="Medium"
 %}
 
-#### 요약
-
-AWS Certificate Manager가 ACME(자동 인증서 관리 환경)를 지원하여 TLS 인증서 발급과 갱신을 자동화합니다. CA/Browser Forum의 규정에 따라 공개 인증서의 최대 유효 기간이 2027년 3월까지 100일, 2029년 3월까지 47일로 단축됨에 따라, 고객은 대규모 인증서 수명 주기 관리 부담을 줄일 수 있습니다.
 
 
 #### 권장 조치
@@ -205,9 +202,6 @@ AWS Certificate Manager가 ACME(자동 인증서 관리 환경)를 지원하여 
   severity="High"
 %}
 
-#### 요약
-
-GeForce NOW가 8월에 26개의 새로운 게임을 추가하며, 이번 주에는 8개 게임이 먼저 라이브러리에 포함됩니다. 또한 GeForce NOW는 텍사스 Grapevine에서 열리는 QuakeCon에 참가해 직접 체험 기회를 제공합니다.
 
 
 ---
@@ -240,9 +234,6 @@ NVIDIA는 7월, 200개 이상의 기업 및 기관과 함께 "Open Weights and A
   severity="Medium"
 %}
 
-#### 요약
-
-ChatGPT가 개선된 GPT-5.6 Sol의 정확성과 일관성을 강화했으며, 무료 사용자에게 GPT-5.6 Luna에 대한 접근을 확대하고 일상 대화를 무제한으로 제공합니다.
 
 
 ---
@@ -276,9 +267,6 @@ Google Cloud는 의료 AI 개발에서 환자 프라이버시 보호와 다양�
   severity="High"
 %}
 
-#### 요약
-
-Google 전문가들이 에이전트를 실제 프로덕션 환경에 배포하고 확장하는 방법을 무료로 배울 수 있는 자료를 제공하며, 외부 데이터 연동과 보안 가드레일 설계, 자가 최적화 워크플로우 등 실무 중심의 접근법을 강조합니다. 개발자와 IT 리더들의 공통 질문인 에이전트 구축 문제를 이론이 아닌 직접 체험형으로 해결할 수 있도록 돕습니다.
 
 
 ---
@@ -294,9 +282,6 @@ Google 전문가들이 에이전트를 실제 프로덕션 환경에 배포하�
   severity="Medium"
 %}
 
-#### 요약
-
-기업과 정부는 규제 준수와 주권 요구로 인해 민감 데이터를 온프레미스로 유지하면서 최신 AI 활용에 제약을 받고 있으며, 관할권 리스크(현지 규제 변화, 지식재산 보호, 외국 데이터 접근 요청 가능성)를 관리해야 합니다. AI 시대의 디지털 주권은 통제와 혁신 사이에서 반드시 하나를 선택할 필요가 없습니다.
 
 
 ---
@@ -314,9 +299,6 @@ Google 전문가들이 에이전트를 실제 프로덕션 환경에 배포하�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot에서 Kimi K3 모델을 사용할 수 있게 되었으나, GitHub Actions 관련 장애를 해결하기 위해 출시를 일시 중지했다. 문제가 완화되는 대로 출시를 재개할 예정이다.
 
 
 ---
@@ -350,9 +332,6 @@ Microsoft.Testing.Platform가 GitHub Actions와 Azure DevOps에 실패를 통합
   severity="High"
 %}
 
-#### 요약
-
-LitmusChaos는 클라우드 네이티브 기반의 오픈소스 카오스 엔지니어링 플랫폼으로, 통제된 실험을 통해 인프라의 취약점과 잠재적 장애를 식별하도록 돕는다. 2026년 Q1-Q2 업데이트에서는 커뮤니티 활동, 기여 현황, 프로젝트 진행 상황이 주요 내용으로 다뤄졌다.
 
 
 ---
@@ -370,9 +349,6 @@ LitmusChaos는 클라우드 네이티브 기반의 오픈소스 카오스 엔지
   severity="Medium"
 %}
 
-#### 요약
-
-전 뉴욕 주지사 Andrew Cuomo는 Clarity Act와 관련해 민주당이 정치적 게임을 하고 있다고 시사하며 명확성이 필요하다고 말했다. 이 발언은 Bitcoin Magazine에 게재된 기사에서 전해졌으며, 암호화폐 규제의 모호함에 대한 우려를 드러냈다.
 
 
 ---
@@ -388,9 +364,6 @@ LitmusChaos는 클라우드 네이티브 기반의 오픈소스 카오스 엔지
   severity="High"
 %}
 
-#### 요약
-
-Breez가 오픈소스 Bitcoin-to-Stablecoins Progressive Web App인 Glow를 발표했다. Glow는 Spark를 통해 BTC 잔액에서 stablecoin을 전송하고, Passkeys로 로그인하며, 완전한 자가 보관을 유지한다. 이 소식은 Bitcoin Magazine에 게재됐다.
 
 
 ---
@@ -406,9 +379,6 @@ Breez가 오픈소스 Bitcoin-to-Stablecoins Progressive Web App인 Glow를 발�
   severity="Medium"
 %}
 
-#### 요약
-
-상원 원내총무인 Barrasso 의원이 Crypto Clarity Act를 지지하는 최신 입법자가 되었지만, 상원이 휴회하기 전에 법안을 통과시킬 시간이 부족한 상황입니다. 공화당은 법안 통과를 촉구하고 있으나, 남은 일정이 촉박합니다.
 
 
 ---
@@ -462,6 +432,16 @@ Breez가 오픈소스 Bitcoin-to-Stablecoins Progressive Web App인 Glow를 발�
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 06일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (27건)](/posts/2026/08/06/Tech_Security_Weekly_Digest_AI_Malware_GPT_AWS/) — 2026-08-06
+- [2026년 08월 08일 주간 보안 다이제스트: 악성코드·Kubernetes·클라우드 (29건)](/posts/2026/08/08/Tech_Security_Weekly_Digest_AI_Data_Cloud_AWS/) — 2026-08-08
+- [2026년 08월 04일 주간 보안 다이제스트: 악성코드·클라우드·랜섬웨어 (29건)](/posts/2026/08/04/Tech_Security_Weekly_Digest_Malware_Go_AWS_Ransomware/) — 2026-08-04
 
 ---
 

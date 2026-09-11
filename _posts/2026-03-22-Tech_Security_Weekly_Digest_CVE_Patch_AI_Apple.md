@@ -202,9 +202,6 @@ DevSecOps 실무자에게 이 공격은 **이중의 위험**을 제기합니다.
   severity="Medium"
 %}
 
-#### 요약
-
-CFTC 직원들이 암호화폐를 담보로 사용하는 것에 대한 기대치를 명확히 했습니다. 이들은 암호화폐 담보 파일럿 프로그램에 관한 자주 묻는 질문들에 답변을 제공했습니다.
 
 ---
 
@@ -219,9 +216,6 @@ CFTC 직원들이 암호화폐를 담보로 사용하는 것에 대한 기대치
   severity="Medium"
 %}
 
-#### 요약
-
-브라질 재무부 장관이 2026년 10월 대선을 고려해 암호화폐 과세 정책을 보류했습니다. 현직 루이스 이나시우 룰라 다 시우바 대통령의 재선 도전이 예정되어 있습니다.
 
 ---
 
@@ -236,9 +230,6 @@ CFTC 직원들이 암호화폐를 담보로 사용하는 것에 대한 기대치
   severity="Medium"
 %}
 
-#### 요약
-
-SEC의 디지털 자산 시장 분류 체계가 대부분의 cryptocurrency와 token을 비증권으로 규정한 것은 미국 규제 당국의 중요한 진전입니다. 이 조치는 SEC 의장 Gary Gensler의 암호화폐 규제 접근 방식에 대한 결정적인 변화로 평가받고 있습니다.
 
 ---
 
@@ -326,9 +317,9 @@ SEC의 디지털 자산 시장 분류 체계가 대부분의 cryptocurrency와 t
 
 <!-- related-posts:v1 -->
 
-- [Trivy CI/CD 침해, Langflow 긴급 RCE, Android 사이드로딩 보안 강화](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) — 2026-03-21
-- [Gentlemen 랜섬웨어 확산, 제로트러스트 가시성, EQST 위협 인사이트](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/) — 2026-03-23
-- [북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
+- [2026년 03월 21일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (11건)](/posts/2026/03/21/Tech_Security_Weekly_Digest_Security_CVE_AI_Malware/) — 2026-03-21
+- [2026년 03월 23일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·클라우드 (3건)](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/) — 2026-03-23
+- [2026년 03월 19일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
 
 ---
 

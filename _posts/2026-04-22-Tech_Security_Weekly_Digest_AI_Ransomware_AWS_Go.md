@@ -35,6 +35,7 @@ summary_card:
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/
   - /posts/2026-04-22-Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/
+superseded_by: /posts/2026/04/30/Week4_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}
@@ -131,9 +132,6 @@ DevSecOps 실무자에게 이 소식은 **규정 준수 자동화 및 증적 관
   severity="High"
 %}
 
-#### 요약
-
-The Gentlemen RaaS 운영과 연계된 위협 행위자들이 SystemBC 프록시 멀웨어를 배포하려 한 것으로 확인되었습니다. Check Point 연구에 따르면 관련 C2 서버를 통해 1,570명 이상의 피해자를 포함한 봇넷이 발견되었습니다.
 
 #### 위협 분석
 
@@ -164,9 +162,6 @@ The Gentlemen RaaS 운영과 연계된 위협 행위자들이 SystemBC 프록시
   severity="High"
 %}
 
-#### 요약
-
-Forescout Research Vedere Labs는 Lantronix와 Silex의 Serial-to-IP 컨버터에서 BRIDGE:BREAK로 명명된 22개의 취약점을 발견했습니다. 이 결함으로 인해 노출된 수만 대의 장치가 탈취되거나 데이터가 조작될 위험이 있습니다.
 
 #### 위협 분석
 
@@ -215,9 +210,6 @@ Facebook은 커뮤니티 콘텐츠 검색의 주요 문제점을 해결하기 �
   severity="Medium"
 %}
 
-#### 요약
-
-Google이 Ads Advisor의 세 가지 새로운 기능(사전 문제 해결, 24/7 보안 모니터링, 즉시 인증)을 앞으로 몇 달에 걸쳐 순차 출시한다고 밝혔습니다. 이 업데이트는 Google Ads의 안전성과 속도를 개선하는 데 중점을 두고 있습니다.
 
 ---
 
@@ -231,9 +223,6 @@ Google이 Ads Advisor의 세 가지 새로운 기능(사전 문제 해결, 24/7 
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon Bedrock에서 Claude Cowork와 Claude Code Desktop을 실행할 수 있게 되었습니다. 이 게시물에서는 Claude Cowork가 Amazon Bedrock과 통합되는 방식과 실제 활용 사례를 설명합니다.
 
 ---
 
@@ -249,9 +238,6 @@ Amazon Bedrock에서 Claude Cowork와 Claude Code Desktop을 실행할 수 있�
   severity="Medium"
 %}
 
-#### 요약
-
-공공 부문의 AI 수요가 최고조에 달하며 실무자와 CXO들은 AI를 활용해 업무 성과와 보안을 개선하고 운영을 효율화하려 합니다. 하지만 복잡한 규정 준수 요건, 조달 장벽, 레거시 환경의 한계로 인해 공공 부문에 AI 기술을 도입하는 데 어려움이 따릅니다.
 
 ---
 
@@ -266,9 +252,6 @@ Amazon Bedrock에서 Claude Cowork와 Claude Code Desktop을 실행할 수 있�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud가 2026년 파트너 오브 더 이어 수상자를 발표했습니다. 이 상은 Google Cloud 기술을 활용해 고객 성공을 주도하는 혁신적 솔루션을 제공한 파트너들의 탁월한 성과를 인정합니다. 다양한 산업과 국가의 파트너들이 협업의 힘을 보여주며 전 세계적으로 업무에 혁명적인 영향을 미치고 있습니다.
 
 ---
 
@@ -282,9 +265,6 @@ Google Cloud가 2026년 파트너 오브 더 이어 수상자를 발표했습니
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud Next의 비전이 제시되는 메인 스테이지와 현장의 터미널을 연결하기 위해 Next '26 개발자 라이브스트림을 선보입니다. 이 라이브스트림은 키노트 발표 내용을 단순히 전달하는 것을 넘어, 즉시 실행 가능한 데모와 워크플로우로 해체하여 제공할 예정입니다.
 
 ---
 
@@ -301,9 +281,6 @@ Google Cloud Next의 비전이 제시되는 메인 스테이지와 현장의 터
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 정적 분석 엔진 CodeQL이 models-as-data에서 사용자 정의 sanitizer와 validator를 정의할 수 있도록 지원합니다. 이를 통해 GitHub 코드 스캐닝을 이용한 보안 문제 탐지 및 수정 기능이 확장되었습니다.
 
 ---
 
@@ -318,9 +295,6 @@ GitHub의 정적 분석 엔진 CodeQL이 models-as-data에서 사용자 정의 s
   severity="High"
 %}
 
-#### 요약
-
-Microsoft가 보안 취약점 CVE-2026-40372를 해결하기 위해 .NET 10.0.7을 정기 일정 외의 아웃오브밴드 보안 업데이트로 출시했습니다. 이 소식은 .NET Blog를 통해 처음 공개되었습니다.
 
 ---
 
@@ -335,9 +309,6 @@ Microsoft가 보안 취약점 CVE-2026-40372를 해결하기 위해 .NET 10.0.7�
   severity="Medium"
 %}
 
-#### 요약
-
-STCLab의 두 명으로 구성된 SRE 팀이 HolmesGPT와 CNCF 도구를 활용해 Kubernetes 경고 자동 진단 AI 파이프라인을 구축한 경험을 공유했습니다. 그들은 이 과정에서 AI 모델 자체보다 실행 문서(runbook)의 중요성을 더 크게 깨달았습니다.
 
 ---
 
@@ -354,9 +325,6 @@ STCLab의 두 명으로 구성된 SRE 팀이 HolmesGPT와 CNCF 도구를 활용�
   severity="Medium"
 %}
 
-#### 요약
-
-Kalshi와 Polymarket이 암호화폐 Perpetual Futures 출시 경쟁에 뛰어들어 이벤트 기반 베팅에서 지속적 파생상품 거래로의 전환을 알렸습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 
@@ -371,9 +339,6 @@ Kalshi와 Polymarket이 암호화폐 Perpetual Futures 출시 경쟁에 뛰어�
   severity="Medium"
 %}
 
-#### 요약
-
-Kalshi CEO Tarek Mansour가 Bitcoin 2026 컨퍼런스에서 예측 시장과 BTC에 대해 발표할 예정이다. 그는 BTC Inc의 CEO Brandon Green과 4월 27일 라스베이거스 The Venetian Resort의 Nakamoto Stage에서 대담을 진행한다.
 
 ---
 
@@ -388,9 +353,6 @@ Kalshi CEO Tarek Mansour가 Bitcoin 2026 컨퍼런스에서 예측 시장과 BTC
   severity="Medium"
 %}
 
-#### 요약
-
-뉴욕 법무장관 Letitia James가 Coinbase와 Gemini를 상대로 예측 시장 플랫폼이 불법 도박 사업에 해당한다고 주장하며 소송을 제기했습니다. 이 소식은 Bitcoin Magazine를 통해 보도되었습니다.
 
 ---
 

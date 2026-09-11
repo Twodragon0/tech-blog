@@ -187,9 +187,6 @@ DevSecOps 관점에서 이 공격은 **개발/운영 환경의 경계 허물어�
   severity="Medium"
 %}
 
-#### 요약
-
-Meta의 Ranking Engineer Agent(REA)는 광고 랭킹 모델을 위한 머신러닝(ML) 라이프사이클 전반의 핵심 단계를 자율적으로 실행합니다. REA는 가설 생성부터 훈련 작업 실행, 실패 디버깅, 결과 반복에 이르는 ML 실험 능력을 갖추고 있어 수동 개입 필요성을 줄입니다. 향후 게시글에서 REA의 추가 능력에 대해 다룰 예정입니다.
 
 ---
 
@@ -204,9 +201,6 @@ Meta의 Ranking Engineer Agent(REA)는 광고 랭킹 모델을 위한 머신러�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA와 Apple의 협력으로 NVIDIA CloudXR 6.0이 visionOS에 네이티브로 통합되었습니다. 이를 통해 NVIDIA RTX 기반 시뮬레이터 및 전문 3D 그래픽 애플리케이션이 Apple Vision Pro로 안전하게 전달됩니다.
 
 ---
 
@@ -221,9 +215,6 @@ NVIDIA와 Apple의 협력으로 NVIDIA CloudXR 6.0이 visionOS에 네이티브�
   severity="Medium"
 %}
 
-#### 요약
-
-Palantir는 Digital Rights Watch(DRW)가 호주에서의 업무에 대해 제기한 주장에 대해 공개적으로 답변하며 오해를 시정하고자 합니다. 회사는 기술과 비즈니스 관행에 대한 사실적 정확성과 투명성을 바탕으로 논의에 임하고 있습니다.
 
 ---
 
@@ -240,9 +231,6 @@ Palantir는 Digital Rights Watch(DRW)가 호주에서의 업무에 대해 제기
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud가 다중 클러스터 GKE Inference Gateway의 프리뷰를 발표했습니다. 이 서비스는 여러 Google Kubernetes Engine(GKE) 클러스터와 리전에 걸쳐 AI/ML 추론 워크로드의 확장성과 복원력을 향상시킵니다.
 
 ---
 
@@ -259,9 +247,6 @@ Google Cloud가 다중 클러스터 GKE Inference Gateway의 프리뷰를 발표
   severity="Medium"
 %}
 
-#### 요약
-
-.NET Blog의 게스트 포스트에서는 .NET, F#, Microsoft.Extensions.AI 및 .NET MAUI를 활용하여 OpenAI Realtime API로 실시간 어시스턴트인 RT.Assistant를 구축하는 방법을 소개합니다. 이 멀티 에이전트 음성 봇은 다양한 기술 스택을 통합한 개발 사례를 보여줍니다.
 
 ---
 
@@ -276,9 +261,6 @@ Google Cloud가 다중 클러스터 GKE Inference Gateway의 프리뷰를 발표
   severity="Medium"
 %}
 
-#### 요약
-
-Kubernetes의 기업 및 AI 워크로드 확산에 따라 보안과 거버넌스를 위한 자동화된 가드레일 필요성이 커지고 있습니다. 이에 Kyverno 커뮤니티를 위한 전용 컨퍼런스인 KyvernoCon이 2025년에 출범했습니다.
 
 ---
 
@@ -293,9 +275,6 @@ Kubernetes의 기업 및 AI 워크로드 확산에 따라 보안과 거버넌스
   severity="Medium"
 %}
 
-#### 요약
-
-Kubernetes 1.35 GA 기준으로 검증된 가이드에서 엔지니어들이 'pod restarted'라고 말할 때 실제로는 네 가지 다른 의미를 내포할 수 있음을 지적합니다. 이 용어의 혼동은 잘못된 runbook과 부적절한 on-call 결정으로 이어질 수 있습니다.
 
 ---
 
@@ -312,9 +291,6 @@ Kubernetes 1.35 GA 기준으로 검증된 가이드에서 엔지니어들이 'po
   severity="Medium"
 %}
 
-#### 요약
-
-Jack Mallers가 Bitcoin 2026 컨퍼런스의 스피커로 확정되었습니다. 그는 Bitcoin이 결제, 자본 시장, 글로벌 금융에서 확대되는 역할에 대한 자신의 관점을 공유하기 위해 무대로 돌아옵니다.
 
 ---
 
@@ -329,9 +305,6 @@ Jack Mallers가 Bitcoin 2026 컨퍼런스의 스피커로 확정되었습니다.
   severity="High"
 %}
 
-#### 요약
-
-Bitrefill이 이번 달 해킹 공격을 공개했으며, 이로 인해 자금이 도난당하고 제한된 고객 데이터가 유출되었습니다. Bitrefill은 공격 배후를 북한의 Lazarus Group으로 지목했습니다.
 
 ---
 
@@ -346,9 +319,6 @@ Bitrefill이 이번 달 해킹 공격을 공개했으며, 이로 인해 자금�
   severity="Medium"
 %}
 
-#### 요약
-
-MicroStrategy(MSTR)가 BlackRock의 iShares Bitcoin Trust(IBIT)가 보유한 Bitcoin 수량을 곧 추월할 것으로 보입니다. 이 소식은 Bitcoin Magazine를 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 
@@ -426,9 +396,9 @@ MicroStrategy(MSTR)가 BlackRock의 iShares Bitcoin Trust(IBIT)가 보유한 Bit
 
 <!-- related-posts:v1 -->
 
-- [GlassWorm GitHub 토큰 탈취, Chrome 제로데이, 라우터 봇넷 위협](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) — 2026-03-17
-- [북한 IT 노동자 제재, Cisco FMC 제로데이, Telnetd 루트 RCE](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
-- [GlassWorm 공급망 공격, AI 에이전트 보안, AWS IAM 멀티리전](/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/) — 2026-03-15
+- [2026년 03월 17일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (15건)](/posts/2026/03/17/Tech_Security_Weekly_Digest_Malware_AI_AWS_Botnet/) — 2026-03-17
+- [2026년 03월 19일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (15건)](/posts/2026/03/19/Tech_Security_Weekly_Digest_Zero-Day_CVE_Ransomware_Patch/) — 2026-03-19
+- [2026년 03월 15일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (6건)](/posts/2026/03/15/Tech_Security_Weekly_Digest_AWS_AI_Bitcoin/) — 2026-03-15
 
 ---
 

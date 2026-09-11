@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "TrueConf 제로데이, 동남아시아 정부 네트워크 공격에 악용" }
     - { source: "AWS Security Blog", title: "AWS에서 제공하는 새로운 규정 준수 가이드: ISO/IEC 27001:2022" }
     - { source: "Google Cloud Blog", title: "Spanner의 완전한 상호운용성 멀티모델 데이터베이스로 실현한 현실 세계의 성공" }
+superseded_by: /posts/2026/04/05/Week1_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}
@@ -194,9 +195,6 @@ DevSecOps 실무자에게 이 가이드는 단순한 규정 준수 문서가 아
   severity="Medium"
 %}
 
-#### 요약
-
-Meta는 AI 추천 시스템을 활용한 업계 선도적 위치를 바탕으로 광고 성과를 높이기 위해 Ads Recommender 모델을 LLM 규모로 확장하고 있습니다. 이는 사용자의 관심사와 의도를 더 깊이 이해하기 위한 것으로, Meta Adaptive Ranking Model을 통해 추론 확장 곡선을 극복하는 데 주력하고 있습니다.
 
 ---
 
@@ -211,9 +209,6 @@ Meta는 AI 추천 시스템을 활용한 업계 선도적 위치를 바탕으로
   severity="Medium"
 %}
 
-#### 요약
-
-Google DeepMind는 비용 효율적인 동영상 생성 모델인 Veo 3.1 Lite를 발표했습니다. 이 모델은 개발자들이 Google AI Studio와 Vertex AI를 통해 활용할 수 있도록 공개되었습니다.
 
 ---
 
@@ -228,9 +223,6 @@ Google DeepMind는 비용 효율적인 동영상 생성 모델인 Veo 3.1 Lite�
   severity="Medium"
 %}
 
-#### 요약
-
-CERAWeek에서 NVIDIA와 Emerald AI는 AI 팩토리를 유연하고 지능적인 그리드 자산으로 활용하는 새로운 방안을 공개했습니다. 이는 AI 팩토리를 고정된 전력 부하가 아닌 전력망을 강화하는 자원으로 전환하는 접근입니다.
 
 ---
 
@@ -246,9 +238,6 @@ CERAWeek에서 NVIDIA와 Emerald AI는 AI 팩토리를 유연하고 지능적인
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud Spanner의 완전한 상호 운용성을 갖춘 멀티 모델 데이터베이스가 실제 사례에서 어떻게 기존 데이터베이스 아키텍처의 한계를 극복하는지 살펴봅니다. 이번 글에서는 네 가지 일반적인 사용 사례를 중심으로 구체적인 예시들을 자세히 다룹니다.
 
 ---
 
@@ -262,9 +251,6 @@ Google Cloud Spanner의 완전한 상호 운용성을 갖춘 멀티 모델 데�
   severity="Medium"
 %}
 
-#### 요약
-
-Spanner는 에이전트 AI 시대에 데이터베이스를 수동 저장소에서 지능형 컨텍스트 허브로 변화시키는 멀티 모델 이점을 제공합니다. 이는 생성 AI 기반 모델을 구축하고 선제적 행동을 주도하는 추론 엔진 역할을 하도록 설계되었습니다.
 
 ---
 
@@ -278,9 +264,6 @@ Spanner는 에이전트 AI 시대에 데이터베이스를 수동 저장소에�
   severity="Medium"
 %}
 
-#### 요약
-
-GKE active buffer는 예상치 못한 트래픽 급증이나 예약된 스케일링 이벤트 시 사용자 워크로드의 빠르고 원활한 확장을 지원합니다. 이를 통해 필요한 순간에 즉시 사용 가능한 컴퓨트 용량을 확보하여 일관된 성능과 엔드 유저 레이턴시 SLO를 달성할 수 있습니다.
 
 ---
 
@@ -296,9 +279,6 @@ GKE active buffer는 예상치 못한 트래픽 급증이나 예약된 스케일
   severity="Medium"
 %}
 
-#### 요약
-
-Docker Model Runner on DGX Station을 통해 개발자들은 익숙한 Docker 경험으로 로컬에서 대규모 AI 모델을 더 빠르게 실행하고 반복할 수 있습니다. 이 접근법은 복잡한 설정을 간소화하여 수백 명의 개발자들이 컴팩트한 데스크톱 시스템으로 효율적으로 작업할 수 있게 합니다.
 
 ---
 
@@ -313,9 +293,6 @@ Docker Model Runner on DGX Station을 통해 개발자들은 익숙한 Docker �
   severity="Medium"
 %}
 
-#### 요약
-
-AI 에이전트의 자율 실행을 통한 생산성 향상이 중요해지면서, Docker Sandboxes를 활용해 안전하게 에이전트를 YOLO 모드로 실행하는 방법이 주목받고 있습니다. 이는 AI 작성 코드 비율이 25%를 넘고 에이전트 사용 개발자의 Pull Request 병합이 60% 증가하는 등 에이전트 의존도가 높아진 환경에서 필수적인 접근법입니다.
 
 ---
 
@@ -349,9 +326,6 @@ GitHub Blog의 Copilot Applied Science에서 코딩 에이전트를 활용해 �
   severity="Medium"
 %}
 
-#### 요약
-
-Moody's가 Ba2 등급을 부여하며 New Hampshire의 최초 Bitcoin-Backed Municipal Bond 발행이 가까워졌습니다. 이 채권은 납세자 위험 없이 Bitcoin 담보에 연동된 수익과 함께 투자자에게 수익률을 제공합니다.
 
 ---
 
@@ -366,9 +340,6 @@ Moody's가 Ba2 등급을 부여하며 New Hampshire의 최초 Bitcoin-Backed Mun
   severity="Medium"
 %}
 
-#### 요약
-
-Afroman이 Bitcoin 2026 컨퍼런스의 연사로 공식 확정되었습니다. Bitcoin Magazine가 이 소식을 발표했습니다.
 
 ---
 
@@ -383,9 +354,6 @@ Afroman이 Bitcoin 2026 컨퍼런스의 연사로 공식 확정되었습니다. 
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 창시자 사토시의 2010년 양자 컴퓨팅 대응 방안이 2026년 스트레스 테스트를 앞두고 있으며, Google 연구에 따르면 암호화 관련 양자 컴퓨팅의 실현 시점이 예상보다 빠를 수 있다고 경고했습니다.
 
 ---
 

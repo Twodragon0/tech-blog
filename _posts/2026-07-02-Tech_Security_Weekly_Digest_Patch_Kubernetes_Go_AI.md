@@ -212,9 +212,6 @@ DevSecOps 파이프라인 및 운영 환경에 미치는 주요 위험:
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 6월, Google은 Pixel Drop 업데이트를 통해 새로운 AI 기능들을 발표했습니다. 이번 업데이트는 Pixel 기기 사용자들을 위한 다양한 AI 기반 개선 사항을 포함하고 있습니다.
 
 ---
 
@@ -228,9 +225,6 @@ DevSecOps 파이프라인 및 운영 환경에 미치는 주요 위험:
   severity="Medium"
 %}
 
-#### 요약
-
-최근 몇 년간 AI 모델 성능과 학습 데이터셋 크기가 기하급수적으로 증가했으며, 최첨단 모델 출시 주기는 수개월에서 수주로 단축되었습니다. Meta는 이러한 AI 혁신의 속도와 계산 비용 최적화를 위해 안정적이고 빠른 스토리지 접근이 중요하다고 강조하며, 대규모 AI 스토리지 청사진을 제시했습니다.
 
 ---
 
@@ -245,9 +239,6 @@ DevSecOps 파이프라인 및 운영 환경에 미치는 주요 위험:
   severity="Medium"
 %}
 
-#### 요약
-
-뉴욕시 교육자와 업계 리더들이 Google 사무실에 모여 교실에서의 AI 미래를 논의했습니다. Google, New York Jobs CEO Council, Urban Assembly가 150명의 교육 및 업계 리더를 대상으로 AI 서밋을 주최했습니다.
 
 ---
 
@@ -263,9 +254,6 @@ DevSecOps 파이프라인 및 운영 환경에 미치는 주요 위험:
   severity="Medium"
 %}
 
-#### 요약
-
-SOCRadar는 PostgreSQL에서 AlloyDB로 마이그레이션하여 20배의 성능 향상을 달성했으며, Gemini Enterprise를 활용해 위협 탐지 속도를 높이고 있습니다. 이를 통해 운영 오버헤드를 줄이고 혁신과 성장을 위한 기반을 마련했습니다.
 
 ---
 
@@ -280,9 +268,6 @@ SOCRadar는 PostgreSQL에서 AlloyDB로 마이그레이션하여 20배의 성능
   severity="Medium"
 %}
 
-#### 요약
-
-AlloyDB는 AI 네이티브 데이터베이스로, 데이터를 수동적으로 저장하는 것을 넘어 지능적으로 이해하고 처리합니다. AlloyDB AI Functions는 업계 선도적인 벡터 및 하이브리드 검색, 자연어-to-SQL 기능, Gemini 같은 파운데이션 모델의 지능을 데이터에 직접 적용할 수 있는 기능을 제공합니다.
 
 ---
 
@@ -297,9 +282,6 @@ AlloyDB는 AI 네이티브 데이터베이스로, 데이터를 수동적으로 �
   severity="Medium"
 %}
 
-#### 요약
-
-Anthropic의 Claude Code가 Google Cloud와 통합되어, 개발자는 환경 변수와 IAM 역할 설정을 통해 GCP 프로젝트 내에서 추론을 유지할 수 있습니다. 이 방식은 소규모 팀에 효과적입니다.
 
 ---
 
@@ -333,9 +315,6 @@ GitHub 블로그에 따르면, 기업 관리자는 이제 enterprise managed-set
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Models가 2026년 7월 30일에 완전히 종료되며, 이미 6월부터 신규 고객 접수가 중단된 상태입니다. GitHub 블로그를 통해 이 같은 종료 일정이 공식 발표되었습니다.
 
 ---
 
@@ -350,9 +329,6 @@ GitHub Models가 2026년 7월 30일에 완전히 종료되며, 이미 6월부터
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Enterprise Cloud 고객이 .github-private 리포지토리의 managed-settings.json 파일을 통해 AI 표준을 구성하고 거버넌스를 정의할 수 있는 기능이 일반 공개되었습니다.
 
 ---
 
@@ -369,9 +345,6 @@ GitHub Enterprise Cloud 고객이 .github-private 리포지토리의 managed-set
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Magazine의 The 2036 Issue에서 Frank Corva가 Jeff Booth와의 인터뷰를 통해 향후 10년간 Bitcoin의 방향성에 대한 통찰을 다루었습니다.
 
 ---
 
@@ -385,9 +358,6 @@ Bitcoin Magazine의 The 2036 Issue에서 Frank Corva가 Jeff Booth와의 인터�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 OFAC가 ISIS-Khorasan(ISIS-K) 제재 대상에 134개의 암호화폐 지갑 주소(TRON 131개 포함)를 추가했습니다. 이번 업데이트는 테러 자금 조달 경로를 차단하기 위한 조치로, Chainalysis가 관련 내용을 보도했습니다.
 
 ---
 
@@ -402,9 +372,6 @@ Bitcoin Magazine의 The 2036 Issue에서 Frank Corva가 Jeff Booth와의 인터�
   severity="Medium"
 %}
 
-#### 요약
-
-Moody's는 트럼프 대통령의 양자 컴퓨팅 행정명령이 Bitcoin과 디지털 자산 산업에 양자 저항 암호화 도입의 필요성을 가속화한다고 경고했다. 이 경고는 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 처음 보도했다.
 
 ---
 
@@ -463,6 +430,16 @@ Moody's는 트럼프 대통령의 양자 컴퓨팅 행정명령이 Bitcoin과 �
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 3건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 2건 인용 |
 | Chainalysis Blog | [chainalysis.com](https://www.chainalysis.com) | 본문 1건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 01일 주간 보안 다이제스트: AI 에이전트·악성코드·제로데이 (30건)](/posts/2026/07/01/Tech_Security_Weekly_Digest_AI_Agent_Data_Botnet/) — 2026-07-01
+- [2026년 07월 03일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (26건)](/posts/2026/07/03/Tech_Security_Weekly_Digest_Go_AI_Ransomware_Threat/) — 2026-07-03
+- [2026년 06월 29일 주간 보안 다이제스트: 클라우드·블록체인·AI (12건)](/posts/2026/06/29/Tech_Security_Weekly_Digest_AI_Data_Ethereum_AWS/) — 2026-06-29
 
 ---
 

@@ -319,3 +319,13 @@ Microsoft Office의 Protected View 보안 기능을 우회하는 Zero-Day 취약
 - [n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/) — 2026-01-29
 - [VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper](/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/) — 2026-01-25
 
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 01월 27일 주간 보안 다이제스트: 제로데이·BYOVD EDR·DNS 유출 (5건)](/posts/2026/01/27/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/) — 2026-01-27
+- [2026년 01월 29일 주간 보안 다이제스트: 제로데이·DNS 유출·AI 에이전트 (5건)](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/) — 2026-01-29
+- [2026년 01월 25일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (5건)](/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/) — 2026-01-25
+

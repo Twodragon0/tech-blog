@@ -208,9 +208,6 @@ AWS가 자사 내부에서 운영 중인 'AWS Security Agent'의 아키텍처를
   severity="Medium"
 -%}
 
-#### 요약
-
-Google이 매사추세츠 AI Hub와 파트너십을 맺고 매사추세츠 주민 전원에게 Google의 AI 교육 과정을 무료로 제공합니다. AI 리터러시 격차 해소를 목표로 하는 이 이니셔티브는 기업 내 AI 역량 내재화를 검토 중인 DevSecOps 팀에도 실질적인 무료 학습 경로를 제공합니다.
 
 #### 핵심 포인트
 
@@ -384,9 +381,6 @@ Docker Model Runner가 Apple Silicon macOS 환경에서 Metal 백엔드를 통�
   severity="Medium"
 -%}
 
-#### 요약
-
-Apple이 macOS Tahoe 및 Sequoia 대상으로 Safari Technology Preview 238을 공개했습니다. 최신 웹 표준 실험적 지원이 포함되어 있으며, 웹 앱 개발팀은 Safari 호환성 이슈를 사전에 파악하는 데 활용할 수 있습니다.
 
 #### 핵심 포인트
 
@@ -483,9 +477,6 @@ Bitcoin의 모든 서명 검증과 키 생성을 담당하는 암호화 라이�
   severity="Medium"
 -%}
 
-#### 요약
-
-Citi 경영진이 Bitcoin을 자사 뱅킹 시스템에 통합하고 수탁(custody) 서비스를 출시할 계획을 공개했습니다. 글로벌 대형 은행의 Bitcoin 수탁 서비스 진입은 기관 투자자의 암호화폐 노출을 확대하는 동시에, 디지털 자산 보관 보안에 대한 금융권 표준을 높이는 계기가 됩니다.
 
 #### 핵심 포인트
 
@@ -582,6 +573,7 @@ Citi 경영진이 Bitcoin을 자사 뱅킹 시스템에 통합하고 수탁(cust
 
 <!-- related-posts:v1 -->
 
-- [UNC2814 GRIDTIDE 캠페인, Claude Code RCE 취약점, 음성 피싱 동향](/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/) — 2026-02-26
-- [Pig Butchering $6100만 압수, FreePBX 대규모 침해, Go Crypto 백도어](/posts/2026/02/28/Tech_Security_Weekly_Digest_Go_AI_Malware/) — 2026-02-28
-- [APT28 악성코드 분석, Docker 보안 강화, LLM 운영 리스크](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
+- [2026년 02월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (3건)](/posts/2026/02/26/Tech_Security_Weekly_Digest_AI_Go_AWS_API/) — 2026-02-26
+- [2026년 02월 28일 주간 보안 다이제스트: 악성코드·AI 에이전트·Kubernetes (3건)](/posts/2026/02/28/Tech_Security_Weekly_Digest_Go_AI_Malware/) — 2026-02-28
+- [2026년 02월 24일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (3건)](/posts/2026/02/24/Tech_Security_Weekly_Digest_Malware_AI_Docker_LLM/) — 2026-02-24
+

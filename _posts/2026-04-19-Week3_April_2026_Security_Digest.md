@@ -72,17 +72,18 @@ summary_card:
 
 | 날짜 | 주요 이슈 | 링크 |
 |------|-----------|------|
-| 4월 13일 | CPUID 공급망 침해(CPU-Z 변조), Marimo RCE 취약점, Adobe Acrobat 제로데이 악용 | [바로가기](/posts/2026/04/13/Tech_Security_Weekly_Digest_CVE_Patch_Zero-Day_Rust/) |
-| 4월 14일 | 2026년 3월 랜섬웨어 동향 보고서, JanelaRAT 신규 변종, FBI·인도네시아 2천만 달러 사기 단속 | [바로가기](/posts/2026/04/14/Tech_Security_Weekly_Digest_Malware_Vulnerability_AI_Data/) |
-| 4월 15일 | AWS Model Context Protocol AI 에이전트, PHP Composer 명령어 실행 취약점, Google Pixel 10 Rust DNS 파서 | [바로가기](/posts/2026/04/15/Tech_Security_Weekly_Digest_AI_AWS_Agent_Patch/) |
-| 4월 16일 | n8n Webhooks 피싱 악용, Nginx UI CVE-2026-33032 인증 우회, Cloud CISO 회복력 Q&A | [바로가기](/posts/2026/04/16/Tech_Security_Weekly_Digest_AI_Malware_CVE_Patch/) |
-| 4월 17일 | PowMix 봇넷 신규 발견, ThreatsDay Bulletin, Operation PowerOFF | [바로가기](/posts/2026/04/17/Tech_Security_Weekly_Digest_Botnet_Threat_AI_Malware/) |
-| 4월 18일 | Microsoft Defender ETL 구성 보안, Google 2025년 정책 위반 광고 분석 | [바로가기](/posts/2026/04/18/Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_Go/) |
-| 4월 19일 | Grinex 거래소 제재, 크로스 테넌트 헬프데스크 사칭 데이터 탈취, Mirai 변종 Nexcorium | [바로가기](/posts/2026/04/19/Tech_Security_Weekly_Digest_AI_Data_CVE_Botnet/) |
+| 4월 13일 | CPUID 공급망 침해(CPU-Z 변조), Marimo RCE 취약점, Adobe Acrobat 제로데이 악용 | [바로가기](#day-2026-04-13) |
+| 4월 14일 | 2026년 3월 랜섬웨어 동향 보고서, JanelaRAT 신규 변종, FBI·인도네시아 2천만 달러 사기 단속 | [바로가기](#day-2026-04-14) |
+| 4월 15일 | AWS Model Context Protocol AI 에이전트, PHP Composer 명령어 실행 취약점, Google Pixel 10 Rust DNS 파서 | [바로가기](#day-2026-04-15) |
+| 4월 16일 | n8n Webhooks 피싱 악용, Nginx UI CVE-2026-33032 인증 우회, Cloud CISO 회복력 Q&A | [바로가기](#day-2026-04-16) |
+| 4월 17일 | PowMix 봇넷 신규 발견, ThreatsDay Bulletin, Operation PowerOFF | [바로가기](#day-2026-04-17) |
+| 4월 18일 | Microsoft Defender ETL 구성 보안, Google 2025년 정책 위반 광고 분석 | [바로가기](#day-2026-04-18) |
+| 4월 19일 | Grinex 거래소 제재, 크로스 테넌트 헬프데스크 사칭 데이터 탈취, Mirai 변종 Nexcorium | [바로가기](#day-2026-04-19) |
 
 ---
 
 ## 4월 13일: CPUID 공급망 침해와 Adobe 제로데이
+{: #day-2026-04-13 }
 
 ### 핵심 이슈: CPUID 공급망 침해로 CPU-Z 변조 배포
 
@@ -104,6 +105,7 @@ Adobe Acrobat의 취약점이 실제 공격에 활용되고 있음이 확인됐�
 ---
 
 ## 4월 14일: 랜섬웨어 동향과 JanelaRAT 신규 변종
+{: #day-2026-04-14 }
 
 ### 2026년 3월 랜섬웨어 동향 보고서
 
@@ -125,6 +127,7 @@ JanelaRAT 원격 접근 트로이목마의 신규 변종이 발견됐습니다. 
 ---
 
 ## 4월 15일: AWS MCP 에이전트와 Rust 기반 보안
+{: #day-2026-04-15 }
 
 ### AWS Model Context Protocol 기반 AI 에이전트 보안
 
@@ -146,6 +149,7 @@ Google이 Pixel 10 모뎀에 Rust로 작성된 DNS 파서를 적용했습니다.
 ---
 
 ## 4월 16일: n8n Webhooks 악용과 Nginx UI 인증 우회
+{: #day-2026-04-16 }
 
 ### n8n Webhooks를 통한 피싱 이메일 악성코드 유포
 
@@ -168,6 +172,7 @@ Nginx 웹 서버 관리 UI의 인증 우회 취약점(CVE-2026-33032)이 실제 
 ---
 
 ## 4월 17일: PowMix 봇넷과 Operation PowerOFF
+{: #day-2026-04-17 }
 
 ### PowMix 봇넷 신규 발견
 
@@ -180,6 +185,7 @@ Nginx 웹 서버 관리 UI의 인증 우회 취약점(CVE-2026-33032)이 실제 
 ---
 
 ## 4월 18일: Microsoft Defender 구성 보안
+{: #day-2026-04-18 }
 
 ### Microsoft Defender ETL 기반 구성 보안
 
@@ -188,6 +194,7 @@ Microsoft Defender가 ETL(Event Tracing for Windows) 기반 구성 보안 기능
 ---
 
 ## 4월 19일: 크로스 테넌트 공격과 Nexcorium 봇넷
+{: #day-2026-04-19 }
 
 ### 크로스 테넌트 헬프데스크 사칭 데이터 탈취
 

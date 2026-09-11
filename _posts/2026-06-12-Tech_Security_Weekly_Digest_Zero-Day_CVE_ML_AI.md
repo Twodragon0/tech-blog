@@ -228,9 +228,6 @@ DevSecOps 환경에서는 **CI/CD 파이프라인 및 컨테이너 레지스트�
   severity="High"
 %}
 
-#### 요약
-
-Google은 버지니아 지역 일자리 창출과 에너지 비용 절감을 위해 차세대 인력 양성 및 에너지 프로그램에 대한 커뮤니티 투자를 확대하고 있습니다.
 
 ---
 
@@ -245,9 +242,6 @@ Google은 버지니아 지역 일자리 창출과 에너지 비용 절감을 위
   severity="High"
 %}
 
-#### 요약
-
-GeForce NOW의 여름 세일이 시작되어 12개월 멤버십을 최대 70달러 할인된 가격에 제공합니다. 이번 기회에 Ultimate 멤버십으로 업그레이드하여 클라우드 게이밍의 최고 성능을 경험할 수 있습니다.
 
 ---
 
@@ -280,9 +274,6 @@ AI 연구자 "Pliny the Liberator"가 Anthropic의 새 모델 Fable 5에서 안�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud는 가장 까다로운 AI 워크로드를 위한 고급 보안 인프라를 제공하며, WWDC 2026에서 발표된 Apple의 Private Cloud Compute(PCC) 시스템 확장에 협력하게 되어 기쁘게 생각합니다.
 
 ---
 
@@ -297,9 +288,6 @@ Google Cloud는 가장 까다로운 AI 워크로드를 위한 고급 보안 인�
   severity="High"
 %}
 
-#### 요약
-
-Looker agents를 통해 대시보드를 대화형 데이터 경험으로 전환할 수 있습니다. 기존 대시보드는 상호작용이 부족하고 후속 질문이 불가능하여 사용자가 워크플로우를 벗어나거나 데이터 분석가에게 의존해야 했습니다.
 
 ---
 
@@ -313,9 +301,6 @@ Looker agents를 통해 대시보드를 대화형 데이터 경험으로 전환�
   severity="Medium"
 %}
 
-#### 요약
-
-AI를 활용하는 고급 사용자들은 즉흥적으로 프롬프트를 작성하는 대신, 시간이 지남에 따라 개선하고 거의 모든 프로젝트에 사용하는 핵심 프롬프트 세트를 보유하고 있습니다. 이들은 단일 오류 메시지 디버깅, 이메일 리팩토링, 빠른 boilerplate 생성 등 특정 작업을 위해 고도로 정제된 프롬프트를 활용합니다.
 
 ---
 
@@ -332,9 +317,6 @@ AI를 활용하는 고급 사용자들은 즉흥적으로 프롬프트를 작성
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Enterprise Server 3.21이 정식 출시되어 배포 효율성, 모니터링 기능, 코드 보안 및 정책 관리가 개선되었으며, 조직 맞춤 속성 기능이 일반에 공개되었습니다.
 
 ---
 
@@ -349,9 +331,6 @@ GitHub Enterprise Server 3.21이 정식 출시되어 배포 효율성, 모니터
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub에서 github-actions[bot]이 생성한 Pull Request가 사용자 승인을 받으면 CI/CD 워크플로우를 실행할 수 있게 되었습니다. 이는 생성된 코드가 자동으로 실행되지 않도록 보안 조치로 승인 절차를 요구합니다.
 
 ---
 
@@ -366,9 +345,6 @@ GitHub에서 github-actions[bot]이 생성한 Pull Request가 사용자 승인�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 AI 사용량 보고서가 업데이트되어 표준 보고 필드에서 GitHub AI Credits 사용량을 반영합니다. 앞으로 AI 크레딧 사용량을 모니터링하려면 quantity와 gross_amount 필드를 사용하면 됩니다.
 
 ---
 
@@ -385,9 +361,6 @@ GitHub의 AI 사용량 보고서가 업데이트되어 표준 보고 필드에�
   severity="Medium"
 %}
 
-#### 요약
-
-엘살바도르의 Bukele 개혁으로 해외 소득과 Bitcoin 수익에 대해 0% 세율이 적용되며 최소한의 물리적 존재만으로도 세금 혜택을 누릴 수 있어 최고의 조세 피난처로 부상했습니다. Bitcoin 자본 이득세, 재산세, 상속세가 없고 기술 기업에 경쟁력 있는 인센티브를 제공하여 기업가와 가족을 대상으로 하는 Bitcoin 친화적 관할권으로 자리 잡았습니다.
 
 ---
 
@@ -402,9 +375,6 @@ GitHub의 AI 사용량 보고서가 업데이트되어 표준 보고 필드에�
   severity="High"
 %}
 
-#### 요약
-
-미국 연방 검찰이 다크 웹과 연계된 약 3억 8900만 달러 규모의 Bitcoin 및 암호화폐 세탁 사건과 관련해 두 명의 동유럽인을 기소했습니다. 이들은 암호화폐 믹싱 서비스이자 사이버 범죄 플랫폼인 AudiA6를 운영하며 약 4억 달러에 달하는 Bitcoin을 세탁한 혐의를 받고 있습니다.
 
 ---
 
@@ -419,9 +389,6 @@ GitHub의 AI 사용량 보고서가 업데이트되어 표준 보고 필드에�
   severity="Medium"
 %}
 
-#### 요약
-
-BitGo가 Lightning Earn을 출시하여 기관 투자자들이 Amboss Rails와의 통합을 통해 Lightning Network에 유동성을 제공하고 BTC로 수수료를 얻을 수 있게 했습니다. 이 서비스는 기관이 보유한 Bitcoin을 Lightning Network에서 활용할 수 있도록 지원합니다.
 
 ---
 
@@ -481,6 +448,16 @@ BitGo가 Lightning Earn을 출시하여 기관 투자자들이 Amboss Rails와�
 | Google Cloud Blog | [cloud.google.com](https://cloud.google.com) | 본문 3건 인용 |
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 3건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 11일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/11/Tech_Security_Weekly_Digest_AI_Botnet_Patch_CVE/) — 2026-06-11
+- [2026년 06월 13일 주간 보안 다이제스트: 악성코드·AI 에이전트·BYOVD EDR (24건)](/posts/2026/06/13/Tech_Security_Weekly_Digest_AI_Go_Agent/) — 2026-06-13
+- [2026년 06월 09일 주간 보안 다이제스트: 제로데이·패치·클라우드 (29건)](/posts/2026/06/09/Tech_Security_Weekly_Digest_AWS_Security_AI/) — 2026-06-09
 
 ---
 

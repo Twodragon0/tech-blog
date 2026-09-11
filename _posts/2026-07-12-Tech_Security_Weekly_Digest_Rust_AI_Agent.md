@@ -239,9 +239,6 @@ DevSecOps 관점에서 이번 사례는 다음과 같은 실무적 함의를 가
   severity="High"
 %}
 
-#### 요약
-
-Empery Digital이 AI 데이터 센터 프로젝트 자금을 확보하기 위해 보유 중인 Bitcoin을 매각한 후 주가가 상승했습니다. 이번 매각은 주요 주주가 회사의 Bitcoin 전략 포기를 요구하고 CEO와 이사회의 사임을 압박한 지 몇 달 만에 이루어졌습니다.
 
 ---
 
@@ -256,9 +253,6 @@ Empery Digital이 AI 데이터 센터 프로젝트 자금을 확보하기 위해
   severity="Medium"
 %}
 
-#### 요약
-
-Real Vision의 수석 암호화폐 애널리스트 Jamie Coutts는 Bitcoin이 2032~2033년까지 100만 달러에 도달할 것이라고 말하기에는 너무 이르지만, 향후 2~3년 내에 25만 달러까지 상승할 가능성이 있다고 밝혔습니다. 그는 Bitcoin이 약세장의 후반부에 접어들고 있다고 분석했습니다.
 
 ---
 
@@ -273,9 +267,6 @@ Real Vision의 수석 암호화폐 애널리스트 Jamie Coutts는 Bitcoin이 20
   severity="Medium"
 %}
 
-#### 요약
-
-Ethereum(ETH)이 토큰화 붐에 힘입어 3% 상승했지만, 온체인 및 파생상품 데이터가 약해 $1,800 돌파는 불확실하며 $1,700 재시험 가능성에 노출되어 있습니다.
 
 ---
 
@@ -325,6 +316,16 @@ Ethereum(ETH)이 토큰화 붐에 힘입어 3% 상승했지만, 온체인 및 �
 | The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 3건 인용 |
 | AWS Korea Blog | [aws.amazon.com](https://aws.amazon.com) | 본문 1건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 11일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (29건)](/posts/2026/07/11/Tech_Security_Weekly_Digest_Security_Threat_AWS_Patch/) — 2026-07-11
+- [2026년 07월 13일 주간 보안 다이제스트: AI 에이전트·악성코드·블록체인 (13건)](/posts/2026/07/13/Tech_Security_Weekly_Digest_AI_GPT_Malware/) — 2026-07-13
+- [2026년 07월 09일 주간 보안 다이제스트: 악성코드·제로데이·클라우드 (30건)](/posts/2026/07/09/Tech_Security_Weekly_Digest_AI_Security_Agent_Malware/) — 2026-07-09
 
 ---
 

@@ -227,9 +227,6 @@ flowchart TD
   severity="Medium"
 %}
 
-#### 요약
-
-두바이가 아시아 암호화폐 허브 중 선두를 차지했으며, 대만이 암호화폐 관련 법률을 통과시켰습니다. 일본의 SBI Crypto는 세계 12위 규모의 Bitcoin 채굴 풀을 폐쇄했고, 러시아는 EU 제재에도 불구하고 디지털 루블 출시를 준비 중입니다.
 
 ---
 
@@ -244,9 +241,6 @@ flowchart TD
   severity="Medium"
 %}
 
-#### 요약
-
-남아프리카공화국 국세청이 기존 소득세 및 자본이득세 체계 하에서 crypto 자산 과세 방식을 명확히 하는 지침 초안을 제안했으며, 8월 31일까지 대중의 의견을 수렴 중입니다.
 
 ---
 
@@ -261,9 +255,6 @@ flowchart TD
   severity="Medium"
 %}
 
-#### 요약
-
-바이낸스의 주간 순유출액이 12억 3천만 달러로 전주 대비 207% 증가했으며, ETH 인출량은 3년 만에 최고치를 기록했습니다.
 
 ---
 
@@ -312,6 +303,16 @@ flowchart TD
 | BleepingComputer | [bleepingcomputer.com](https://www.bleepingcomputer.com) | 본문 1건 인용 |
 | AWS Korea Blog | [aws.amazon.com](https://aws.amazon.com) | 본문 3건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 05일 주간 보안 다이제스트: 랜섬웨어·북한 위협·AI 에이전트 (14건)](/posts/2026/07/05/Tech_Security_Weekly_Digest_AI_Data_Go_Ransomware/) — 2026-07-05
+- [2026년 07월 07일 주간 보안 다이제스트: Kubernetes·제로데이·패치 (24건)](/posts/2026/07/07/Tech_Security_Weekly_Digest_CVE_Docker_Threat_AI/) — 2026-07-07
+- [2026년 07월 03일 주간 보안 다이제스트: 제로데이·랜섬웨어·BYOVD EDR (26건)](/posts/2026/07/03/Tech_Security_Weekly_Digest_Go_AI_Ransomware_Threat/) — 2026-07-03
 
 ---
 

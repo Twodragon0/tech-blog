@@ -177,9 +177,6 @@ DevSecOps 관점에서 이 취약점은 **CI/CD 파이프라인**과 **운영 �
   severity="Medium"
 %}
 
-#### 요약
-
-미국 연방준비제도 이사 크리스토퍼 월러는 스테이블코인이 미국 정책의 영향력을 확장한다고 주장한 반면, 영란은행의 메건 그린은 그 인기가 곧 사라질 것이라고 전망했다.
 
 ---
 
@@ -194,9 +191,6 @@ DevSecOps 관점에서 이 취약점은 **CI/CD 파이프라인**과 **운영 �
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy의 Michael Saylor가 'working better'라는 트윗으로 BTC 매수를 암시했습니다. Strategy는 최근 몇 주간 중단했던 Bitcoin 매수를 재개할 가능성이 있으며, 이는 가장 큰 암호화폐가 월간 3.5% 이상 하락 마감할 조짐을 보이는 가운데 나온 것입니다.
 
 ---
 
@@ -211,9 +205,6 @@ Strategy의 Michael Saylor가 'working better'라는 트윗으로 BTC 매수를 
   severity="Medium"
 %}
 
-#### 요약
-
-베트남 재무부가 중소기업(SMEs)이 대출 담보로 digital assets, virtual assets 및 지적 재산권을 사용할 수 있도록 허용하는 안을 제안했습니다.
 
 ---
 
@@ -261,6 +252,16 @@ Strategy의 Michael Saylor가 'working better'라는 트윗으로 BTC 매수를 
 | The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 1건 인용 |
 | BleepingComputer | [bleepingcomputer.com](https://www.bleepingcomputer.com) | 본문 1건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 05월 31일 주간 보안 다이제스트: 제로데이·블록체인·보안 위협 (15건)](/posts/2026/05/31/Tech_Security_Weekly_Digest_CVE_Vulnerability_AI/) — 2026-05-31
+- [2026년 06월 02일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (30건)](/posts/2026/06/02/Tech_Security_Weekly_Digest_AI_Update_Data_Go/) — 2026-06-02
+- [2026년 05월 29일 주간 보안 다이제스트: AI 에이전트·클라우드·악성코드 (29건)](/posts/2026/05/29/Tech_Security_Weekly_Digest_Vulnerability_Go_AWS_Threat/) — 2026-05-29
 
 ---
 

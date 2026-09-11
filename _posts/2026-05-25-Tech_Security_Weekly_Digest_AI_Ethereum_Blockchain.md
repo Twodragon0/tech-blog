@@ -142,9 +142,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-Ethereum 창시자 비탈릭 부테린이 Ethereum 재단 비판자들에게 반박하며 중립성 재확약을 강조했다. 그는 Ethereum 재단이 전체 ETH 유통량의 1% 미만을 보유한 반면, 다른 프로토콜 재단들은 보통 자체 토큰 공급량의 10-50%를 보유한다고 밝혔다.
 
 ---
 
@@ -159,9 +156,6 @@ Ethereum 창시자 비탈릭 부테린이 Ethereum 재단 비판자들에게 반
   severity="Medium"
 %}
 
-#### 요약
-
-FTX의 법률 자문사인 Fenwick & West가 FTX 붕괴 피해자들에게 5400만 달러를 지급하는 합의에 동의했습니다. 이 합의는 2026년 2월에 체결되었으며, 해당 로펌은 FTX 거래소 붕괴와 관련해 별도로 5억 2500만 달러 규모의 소송에 직면해 있습니다.
 
 ---
 
@@ -176,9 +170,6 @@ FTX의 법률 자문사인 Fenwick & West가 FTX 붕괴 피해자들에게 5400�
   severity="Medium"
 %}
 
-#### 요약
-
-Tom Lee의 Ethereum 포트폴리오는 ETH 가격 전망 악화로 73억 5천만 달러의 손실을 기록했다. ETH의 약세 차트 패턴은 25% 하락한 1,600달러를 가리키며, 앞으로 몇 주간 BitMine에 100억 달러 이상의 평가 손실 위험이 있다.
 
 ---
 
@@ -227,6 +218,16 @@ Tom Lee의 Ethereum 포트폴리오는 ETH 가격 전망 악화로 73억 5천만
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) | 취약점 악용 확률 점수 — CVSS 보완 |
 | BleepingComputer | [bleepingcomputer.com](https://www.bleepingcomputer.com) | 본문 1건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 05월 24일 주간 보안 다이제스트: 악성코드·클라우드·보안 위협 (15건)](/posts/2026/05/24/Tech_Security_Weekly_Digest_AI_Malware_AWS_Bitcoin/) — 2026-05-24
+- [2026년 05월 26일 주간 보안 다이제스트: 제로데이·클라우드·패치 (19건)](/posts/2026/05/26/Tech_Security_Weekly_Digest_AI_AWS_Botnet_CVE/) — 2026-05-26
+- [2026년 05월 22일 주간 보안 다이제스트: 클라우드·악성코드·제로데이 (29건)](/posts/2026/05/22/Tech_Security_Weekly_Digest_AI_AWS_Malware_Threat/) — 2026-05-22
 
 ---
 

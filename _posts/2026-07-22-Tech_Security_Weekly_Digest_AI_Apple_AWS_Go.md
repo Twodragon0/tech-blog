@@ -102,9 +102,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-Apple이 Hide My Email 서비스의 보안 결함을 수정했습니다. 이 결함은 사용자의 실제 이메일 주소가 Mail 로그에 노출되는 문제로, 2026년 7월 3일 EasyOptOuts 공동 창립자 Tyler Murphy의 제보 후 1년 이상 만에 패치가 배포되었습니다.
 
 
 #### 권장 조치
@@ -156,9 +153,6 @@ DevSecOps 파이프라인에서 **AI 기반 코딩 도구의 보안 위험**이 
   severity="Medium"
 %}
 
-#### 요약
-
-Google의 DeepMind가 Gemini 3.5 Flash 기반의 특화 AI 모델인 Gemini 3.5 Flash Cyber를 발표했으며, 이는 소프트웨어 취약점을 신속하게 발견, 검증 및 패치하도록 설계되었습니다. 이 모델은 CodeMender를 통해 정부 및 신뢰할 수 있는 파트너에게만 제한적으로 제공될 예정입니다.
 
 
 #### 권장 조치
@@ -184,9 +178,6 @@ Google의 DeepMind가 Gemini 3.5 Flash 기반의 특화 AI 모델인 Gemini 3.5 
   severity="Medium"
 %}
 
-#### 요약
-
-Wistron이 텍사스 포트워스에 324,000제곱피트 규모의 첫 미국 제조 공장을 열었으며, 이곳에서 NVIDIA AI 시스템의 핵심인 슈퍼칩을 생산합니다. 이 공장은 세계에서 가장 강력한 AI 시스템의 일부를 제작하고 테스트하는 역할을 합니다.
 
 
 ---
@@ -201,9 +192,6 @@ Wistron이 텍사스 포트워스에 324,000제곱피트 규모의 첫 미국 �
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 중소기업을 위한 ChatGPT for Small Businesses 프로그램을 출시하여 기업가들이 ChatGPT Work를 통해 AI 기술을 습득하고 업무를 자동화하며 성장할 수 있도록 지원합니다.
 
 
 ---
@@ -239,9 +227,6 @@ NVIDIA Vera Rubin이 출시되어 기가스케일로 확장 중이며, CoreWeave
   severity="Medium"
 %}
 
-#### 요약
-
-AI 앱이 프로덕션 환경에서 실패하는 이유는 기업의 엄격한 인프라와 대규모 사용자 처리 때문이며, Google은 이를 해결하기 위한 방법을 제시합니다. 주말 사이드 프로젝트처럼 빠르게 로컬에서 작동하는 앱을 만드는 것과 달리, 실제 운영 환경에서는 vibe coding이 한계에 부딪힙니다.
 
 
 ---
@@ -257,9 +242,6 @@ AI 앱이 프로덕션 환경에서 실패하는 이유는 기업의 엄격한 �
   severity="High"
 %}
 
-#### 요약
-
-AlloyDB는 PostgreSQL 호환 관리형 데이터베이스 서비스로, Google의 첨단 기술을 결합하여 확장성, 고가용성 및 AI 기능을 제공합니다. 이 서비스는 표준 PostgreSQL보다 최대 100배 빠른 분석 엔진이자 벡터 및 전문 검색을 위한 통합 백엔드 역할을 합니다. 특히 pgvector의 HNSW 벡터 검색 성능을 4배 향상시켰습니다.
 
 
 ---
@@ -295,9 +277,6 @@ CodeMender는 코드 스캔 및 수정 기능을 제공하는 관리형 코드 �
   severity="Medium"
 %}
 
-#### 요약
-
-Google의 최신 Flash 모델인 Gemini 3.6 Flash가 GitHub Copilot에서 사용 가능해졌으며, 웹 및 앱 개발, 코딩, 장기 에이전트 작업을 위해 설계되었습니다.
 
 
 ---
@@ -313,9 +292,6 @@ Google의 최신 Flash 모델인 Gemini 3.6 Flash가 GitHub Copilot에서 사용
   severity="High"
 %}
 
-#### 요약
-
-플랫폼 엔지니어링이 클라우드 네이티브 시대의 핵심 분야로 자리잡으며, Kubernetes, 마이크로서비스, GitOps, 분산 아키텍처 도입에 따른 복잡성을 관리하는 방향으로 진화하고 있습니다. 이는 에이전틱 엔터프라이즈 환경에서 애플리케이션, 리소스, AI 에이전트를 효과적으로 운영하기 위한 기반이 됩니다.
 
 
 ---
@@ -351,9 +327,6 @@ Google의 최신 Flash 모델인 Gemini 3.6 Flash가 GitHub Copilot에서 사용
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 매거진은 Proof of Node 제안이 Bitcoin을 변경하지 않는다고 주장하며, Bitcoin 거래의 임의 데이터를 제한하려는 이 제안은 경제적 노드, 프로토콜 개발자, 해시레이트의 지지를 받지 못한다고 설명합니다. 2017년 UASF 사례는 노드의 성공이 광범위한 투자자와 개발자의 지지가 있을 때만 가능함을 보여줍니다.
 
 
 ---
@@ -369,9 +342,6 @@ Bitcoin 매거진은 Proof of Node 제안이 Bitcoin을 변경하지 않는다�
   severity="High"
 %}
 
-#### 요약
-
-Jack Dorsey의 회사 Block이 그룹 채팅 플랫폼 Slack의 탈중앙화 경쟁 앱을 공개했습니다. 이 앱은 오픈 소스로 제공되며 Bitcoin Magazine이 보도했습니다.
 
 
 ---
@@ -387,9 +357,6 @@ Jack Dorsey의 회사 Block이 그룹 채팅 플랫폼 Slack의 탈중앙화 경
   severity="Medium"
 %}
 
-#### 요약
-
-Coinbase가 캐나다에서 암호화폐, 토큰화된 주식, 예측 시장을 제공하며 'Everything Exchange'가 되기 위해 노력하고 있습니다. 이는 캐나다 고객을 대상으로 한 확장 전략의 일환입니다.
 
 
 ---
@@ -450,6 +417,16 @@ Coinbase가 캐나다에서 암호화폐, 토큰화된 주식, 예측 시장을 
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 1건 인용 |
 | CNCF Blog | [cncf.io](https://www.cncf.io) | 본문 2건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 21일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (28건)](/posts/2026/07/21/Tech_Security_Weekly_Digest_AI_Malware_Threat_Agent/) — 2026-07-21
+- [2026년 07월 23일 주간 보안 다이제스트: 제로데이·패치·악성코드 (29건)](/posts/2026/07/23/Tech_Security_Weekly_Digest_Patch_Zero-Day_AI/) — 2026-07-23
+- [2026년 07월 19일 주간 보안 다이제스트: 패치·클라우드·악성코드 (15건)](/posts/2026/07/19/Tech_Security_Weekly_Digest_Update_Patch_AWS_Malware/) — 2026-07-19
 
 ---
 

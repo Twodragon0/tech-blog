@@ -208,9 +208,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-검색에서 여행을 계획하고 예약하는 데 도움이 되는 3가지 새로운 방법이 소개되었습니다. 이 기능들은 AI 모드를 통해 사용자에게 향상된 여행 경험을 제공합니다.
 
 
 ---
@@ -226,9 +223,6 @@ mitre_attack:
   severity="High"
 %}
 
-#### 요약
-
-엔비디아는 게임스컴에서 지포스 나우의 미래를 발표하며, 새로운 플레이 방식과 더 많은 기기 및 플랫폼 지원, 그리고 클라우드로 제공될 더 많은 PC 게임을 공개했습니다. 특히 새로운 엔비디아 DLSS 4.5 기술 컨트롤은 게임 플레이 미세 조정을 가능하게 하며, 스팀 기기, GOG 싱글 사인온, 파이어폭스 브라우저 등 지원이 확대됩니다.
 
 
 ---
@@ -244,9 +238,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-엔비디아의 첫 에이전트용 CPU인 베라 시스템이 본격적으로 출하되기 시작했습니다. 이에 엔비디아 하이퍼스케일 및 HPC 담당 부사장 이안 벅이 AI 생태계 전반에 걸쳐 베라 CPU 시스템을 직접 전달하고 있습니다.
 
 
 ---
@@ -263,9 +254,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-Pythian은 Google Cloud의 Gemini Enterprise를 자사 500명 직원에게 도입하여, 기업 AI가 실제 투자 수익률(ROI)을 어떻게 창출하는지 내부적으로 검증하고자 했다. 이 과정에서 Pythian은 많은 기업 AI 프로젝트가 실패하거나 지연되는 이유를 직접 파악하게 되었고, 이는 회사의 전략을 전면적으로 바꾸는 계기가 되었다.
 
 
 ---
@@ -280,9 +268,6 @@ Pythian은 Google Cloud의 Gemini Enterprise를 자사 500명 직원에게 도�
   severity="Medium"
 %}
 
-#### 요약
-
-관리형 PostgreSQL과 자가 호스팅 PostgreSQL의 비용, 제어, 보안, 탄력성, 확장성, 운영 노력 등 핵심적인 측면을 비교 분석합니다. 이 글은 두 방식의 주요 장점과 단점을 상세히 다룹니다.
 
 
 ---
@@ -297,9 +282,6 @@ Pythian은 Google Cloud의 Gemini Enterprise를 자사 500명 직원에게 도�
   severity="Medium"
 %}
 
-#### 요약
-
-AWS Lambda 사용 시 긴 워크플로우 처리, 상시 트래픽 서비스 적합성, 사용자 생성 코드의 안전한 실행 등 다양한 설계상의 난제에 부딪히곤 합니다. 이러한 문제들은 과거에 Lambda 외부 솔루션으로 해결되었으나, 이제는 Lambda의 4가지 실행 모델을 통해 구조와 선택 기준에 따라 효과적으로 해결할 수 있게 되었습니다.
 
 
 ---
@@ -317,9 +299,6 @@ AWS Lambda 사용 시 긴 워크플로우 처리, 상시 트래픽 서비스 적
   severity="Medium"
 %}
 
-#### 요약
-
-이슈의 레이블 관리를 더욱 용이하게 해주는 기능이 정식으로 출시되었습니다. 긴 레이블 목록이 있는 저장소에서도 레이블을 효율적으로 정리하고 원하는 것을 빠르게 찾을 수 있도록 'Suggested Labels' 등의 기능이 제공됩니다.
 
 
 ---
@@ -335,9 +314,6 @@ AWS Lambda 사용 시 긴 워크플로우 처리, 상시 트래픽 서비스 적
   severity="Medium"
 %}
 
-#### 요약
-
-Copilot 코드 리뷰 기능이 확대되었습니다. 특히, 봇이 작성한 풀 리퀘스트 등 이전에 다루지 못했던 두 가지 유형의 풀 리퀘스트를 검토할 수 있게 되었습니다.
 
 
 ---
@@ -353,9 +329,6 @@ Copilot 코드 리뷰 기능이 확대되었습니다. 특히, 봇이 작성한 
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 10월 1일부터 검사, 워크플로 실행 및 상태에도 GitHub Actions 보존 설정이 적용됩니다. 이는 이미 아티팩트와 로그의 보존 기간을 관리하는 데 사용되는 것과 동일한 설정입니다.
 
 
 ---
@@ -373,9 +346,6 @@ Copilot 코드 리뷰 기능이 확대되었습니다. 특히, 봇이 작성한 
   severity="Medium"
 %}
 
-#### 요약
-
-지니어스 그룹은 모든 Bitcoin 보유분을 청산한 지 불과 몇 달 만에 다시 Bitcoin을 매입할 계획을 발표했습니다. 이번 발표는 20억 달러 규모의 이중 국고(treasury) 목표의 일환으로 이루어졌습니다.
 
 
 ---
@@ -391,9 +361,6 @@ Copilot 코드 리뷰 기능이 확대되었습니다. 특히, 봇이 작성한 
   severity="Medium"
 %}
 
-#### 요약
-
-일본 Bitcoin 산업이 전 세계 애니메이션 팬들이 일본 콘텐츠를 구매하는 데 겪는 결제 문제 해결을 위해 '오로라'를 공개했습니다. 이는 Bitcoin과 라이트닝 네트워크를 활용하여 해외 팬들이 2조 엔 규모의 일본 애니메이션 및 게임 시장을 쉽게 지원할 수 있도록 돕는 것을 목표로 합니다.
 
 
 ---
@@ -409,9 +376,6 @@ Copilot 코드 리뷰 기능이 확대되었습니다. 특히, 봇이 작성한 
   severity="Medium"
 %}
 
-#### 요약
-
-최근 Bitcoin에서 첫 양자 내성 거래가 별도의 포크 없이 성공적으로 이루어졌습니다. 이 기술의 구현 방식은 Bitcoin 아시아 행사에서 샤크넷 재단에 의해 설명되었습니다.
 
 
 ---
@@ -465,6 +429,16 @@ Copilot 코드 리뷰 기능이 확대되었습니다. 특히, 봇이 작성한 
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 27일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (30건)](/posts/2026/08/27/Tech_Security_Weekly_Digest_Data_AWS_Security_AI/) — 2026-08-27
+- [2026년 08월 29일 주간 보안 다이제스트: 클라우드·패치·제로데이 (25건)](/posts/2026/08/29/Tech_Security_Weekly_Digest_Data_AI_Blockchain_AWS/) — 2026-08-29
+- [2026년 08월 25일 주간 보안 다이제스트: 악성코드·랜섬웨어·제로데이 (30건)](/posts/2026/08/25/Tech_Security_Weekly_Digest_AI_Malware/) — 2026-08-25
 
 ---
 

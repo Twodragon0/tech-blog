@@ -440,3 +440,13 @@ SIEM & 탐지:
 | **PostgreSQL 인프라 보안** | 🟠 Medium | 비인가 원격 접근 및 평문 연결 노출 | SSL 강제 연결(`sslmode=require`) 및 pg_hba.conf 엄격 통제 |
 | **제로 트러스트 네트워크** | 🟡 Low | 내부망 횡적 이동(Lateral Movement) 시도 | 마이크로 세그멘테이션 및 디바이스 상태 기반 조건부 액세스 |
 
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 01월 24일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·AI 에이전트 (5건)](/posts/2026/01/24/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/) — 2026-01-24
+- [2026년 01월 26일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·AI 에이전트 (5건)](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) — 2026-01-26
+- [2026년 01월 30일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (5건)](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) — 2026-01-30
+

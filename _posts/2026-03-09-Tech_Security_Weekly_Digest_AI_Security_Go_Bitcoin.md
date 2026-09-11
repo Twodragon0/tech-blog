@@ -102,9 +102,6 @@ summary_card:
   severity="High"
 %}
 
-#### 요약
-
-AI 기반 자율 에이전트가 사용자의 컴퓨터·파일·온라인 서비스에 완전한 접근권을 가지면서 심각한 보안 문제를 야기하고 있습니다. Krebs on Security는 실제 발생한 사건들을 바탕으로, AI 에이전트가 기존 보안 경계를 근본적으로 재정의하고 있음을 상세히 분석했습니다.
 
 실제 발생 사건:
 
@@ -255,9 +252,6 @@ Strategy의 매수 신호가 뉴스를 장식할 때마다, 이를 악용한 피
   severity="Medium"
 %}
 
-#### 요약
-
-브라질 중앙은행이 Pix 디지털 즉시결제 시스템을 아르헨티나 거주 브라질인들로 확장했습니다. 이들은 이제 양국에서 상품·서비스 구매 및 송금이 가능합니다.
 
 아르헨티나 암호화폐 채택의 폭발적 성장:
 
@@ -331,9 +325,6 @@ DevSecOps 관점에서의 인사이트:
   severity="Medium"
 %}
 
-#### 요약
-
-Anthropic의 Claude가 Palantir의 Maven Smart System을 통해 미군의 정보분석·표적 식별·시뮬레이션에 활용되고 있다는 사실이 알려지며 AI 업계에 큰 파장을 일으켰습니다. 이 사건의 핵심은 평시의 윤리 원칙이 전시에는 얼마나 쉽게 흔들리는가를 보여준다는 것입니다.
 
 역사적 맥락 — Project Maven에서 현재까지:
 
@@ -365,9 +356,6 @@ Anthropic의 Claude가 Palantir의 Maven Smart System을 통해 미군의 정보
   severity="Medium"
 %}
 
-#### 요약
-
-Agent Safehouse는 본 포스트 1.1절에서 다룬 AI 에이전트 보안 위협에 대한 실질적인 대응 도구입니다. LLM의 확률적 특성으로 인한 예기치 못한 명령 실행을 차단하여 시스템 파일 손상을 방지하며, macOS 커널 수준에서 민감한 파일 접근을 차단합니다.
 
 핵심 기능과 작동 원리 — Deny-first 접근 모델:
 
@@ -471,15 +459,6 @@ Krebs on Security의 분석이 AI 에이전트가 만들어내는 새로운 공�
 
 작성자: Twodragon
 
----
-
-## 🔗 관련 포스트
-
-<!-- related-posts:v1 -->
-
-- [OpenAI Codex 보안 스캔, Claude Firefox 취약점, USDC 동향](/posts/2026/03/08/Tech_Security_Weekly_Digest_AI_Security/) — 2026-03-08
-- [암호화폐 침해 사고, 모바일 제로데이 패치, AI 운영 리스크](/posts/2026/03/10/Tech_Security_Weekly_Digest_AI_Malware_Security_Data/) — 2026-03-10
-- [CVE-2026-20122 Cisco 보안 패치, AWS 운영 보안, AI 위협 분석](/posts/2026/03/06/Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/) — 2026-03-06
 
 ---
 
@@ -487,4 +466,14 @@ Krebs on Security의 분석이 AI 에이전트가 만들어내는 새로운 공�
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
 - 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 03월 08일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (8건)](/posts/2026/03/08/Tech_Security_Weekly_Digest_AI_Security/) — 2026-03-08
+- [2026년 03월 10일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (15건)](/posts/2026/03/10/Tech_Security_Weekly_Digest_AI_Malware_Security_Data/) — 2026-03-10
+- [2026년 03월 06일 주간 보안 다이제스트: 제로데이·악성코드·Cisco FMC (4건)](/posts/2026/03/06/Tech_Security_Weekly_Digest_Security_Threat_AI_AWS/) — 2026-03-06
 

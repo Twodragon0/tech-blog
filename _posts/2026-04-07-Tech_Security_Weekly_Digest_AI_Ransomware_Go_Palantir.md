@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "북한 연계 해커들, 한국 표적 다단계 공격에서 GitHub를 C2로 활용" }
     - { source: "BleepingComputer", title: "독일 당국, REvil 및 GangCrab 랜섬웨어 조직 보스 신원 확인" }
     - { source: "Google Cloud Blog", title: "AI 인프라 효율성: Ironwood TPU, 3.7배 탄소 효율성 향상 제공" }
+superseded_by: /posts/2026/04/12/Week2_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}
@@ -192,9 +193,6 @@ GandCrab(2018-2019)와 REvil(2019-2021)은 랜섬웨어-as-a-Service(RaaS) 모�
   severity="Medium"
 %}
 
-#### 요약
-
-Palantir의 프론트엔드 엔지니어링은 표준 웹 앱을 넘어 미션 크리티컬 의사 결정을 위한 인터페이스를 설계합니다. 엔지니어들은 'Backend-less Cross-Application API'를 구축하며, 네트워크가 불안정하고 오류 허용 범위가 제로인 극한 상황에서도 사용자가 필요로 하는 시스템을 만듭니다.
 
 ---
 
@@ -209,9 +207,6 @@ Palantir의 프론트엔드 엔지니어링은 표준 웹 앱을 넘어 미션 �
   severity="High"
 %}
 
-#### 요약
-
-OSDK와 모바일 애플리케이션은 엣지에서 운영하는 팀을 위한 강력한 엔터프라이즈 애플리케이션을 구축할 수 있는 Embedded Ontology를 제공합니다. 이를 통해 디바이스에서 풍부한 컨텍스트를 가진 전체 Ontology를 로컬로 실행하여 현장에서 Palantir의 역량을 활용할 수 있습니다.
 
 ---
 
@@ -225,9 +220,6 @@ OSDK와 모바일 애플리케이션은 엣지에서 운영하는 팀을 위한 
   severity="Medium"
 %}
 
-#### 요약
-
-Meta는 대규모 데이터 파이프라인에서 부족 지식을 매핑하기 위해 AI를 활용했습니다. AI 코딩 어시스턴트가 4개의 저장소와 4,100개 이상의 파일로 구성된 복잡한 시스템에서 유용한 편집을 빠르게 생성하지 못하는 문제를 발견했습니다. 이를 해결하기 위해 Meta는 AI 에이전트의 이해도를 향상시키는 방법을 개발했습니다.
 
 ---
 
@@ -244,9 +236,6 @@ Meta는 대규모 데이터 파이프라인에서 부족 지식을 매핑하기 
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 AI 인프라의 환경 영향에 대한 투명성을 위해 제조부터 데이터센터 운영까지 칩의 전 생애 배출량 지표를 공개하고 있습니다. 최신 세대 Ironwood TPU는 이전 성능 최적화 모델인 TPU v5p 대비 Compute Carbon Intensity(CCI)에서 약 3.7배의 탄소 효율성 향상을 보여줍니다.
 
 ---
 
@@ -260,9 +249,6 @@ Google은 AI 인프라의 환경 영향에 대한 투명성을 위해 제조부�
   severity="Medium"
 %}
 
-#### 요약
-
-RVU는 Dataproc을 활용해 소비자에게 단순 비교표를 넘어선 맞춤형 추천을 제공하며, Confused.com, Uswitch 등 자사 브랜드의 초개인화 서비스를 가속화하고 있습니다. 이를 통해 산업 변혁과 소비자 역량 강화라는 핵심 미션을 추구하고 있습니다.
 
 ---
 
@@ -277,9 +263,6 @@ RVU는 Dataproc을 활용해 소비자에게 단순 비교표를 넘어선 맞�
   severity="High"
 %}
 
-#### 요약
-
-Looker는 기업 시맨틱 플랫폼으로 단일 정보 출처 역할을 하여 데이터 정확성과 지표 일관성을 보장합니다. 이제 통제된 프레임워크를 보완하는 self-service Explores를 도입해 신속한 애드혹 분석을 가속화합니다.
 
 ---
 
@@ -296,9 +279,6 @@ Looker는 기업 시맨틱 플랫폼으로 단일 정보 출처 역할을 하여
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot 사용 메트릭이 이제 Copilot code review(CCR) 활동을 하는 사용자와 해당 활동이 능동적(active)이었는지 수동적(passive)이었는지를 구분하여 보여줍니다. 이를 통해 엔터프라이즈 및 조직 관리자는 사용자들의 CCR 참여 방식을 확인할 수 있습니다.
 
 ---
 
@@ -313,9 +293,6 @@ GitHub Copilot 사용 메트릭이 이제 Copilot code review(CCR) 활동을 하
   severity="Medium"
 %}
 
-#### 요약
-
-Dragonfly는 대규모 AI 모델 배포 시 발생하는 성능, 효율성, 비용 문제를 해결하기 위한 P2P 가속 솔루션을 제공합니다. 이 기술은 Kubernetes 클러스터와 같은 환경에서 여러 GPU 노드가 동일한 대용량 모델을 다운로드할 때 네트워크 대역폭을 절감하고 배포 속도를 크게 향상시킵니다.
 
 ---
 
@@ -332,9 +309,6 @@ Dragonfly는 대규모 AI 모델 배포 시 발생하는 성능, 효율성, 비�
   severity="Medium"
 %}
 
-#### 요약
-
-르완다 중앙은행은 Bybit이 르완다 프랑 P2P 거래 지원을 도입한 후 암호화폐 사용 금지를 재확인하며 금융 위험과 법적 보호 부재를 경고했습니다. 이 소식은 Bitcoin Magazine을 통해 Micah Zimmerman이 보도했습니다.
 
 ---
 
@@ -349,9 +323,6 @@ Dragonfly는 대규모 AI 모델 배포 시 발생하는 성능, 효율성, 비�
   severity="Medium"
 %}
 
-#### 요약
-
-Polymarket이 거래 시스템 개편과 자체 스테이블코인 출시를 포함한 대대적 거래소 업그레이드를 진행 중입니다. 이는 인프라 확장과 미국 시장 진출을 준비하기 위한 조치입니다.
 
 ---
 
@@ -366,9 +337,6 @@ Polymarket이 거래 시스템 개편과 자체 스테이블코인 출시를 포
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 개발 연구소 Second가 자체 Ark 프로토콜 구현체인 Bark를 공개했습니다. 이는 전 Blockstream 개발자들이 참여한 프로젝트로, Lightning 채널보다 빠르고 저렴한 자기 보관형 결제를 제공합니다.
 
 ---
 

@@ -226,9 +226,6 @@ OpenAI Codex Security와의 시너지:
   severity="Medium"
 %}
 
-#### 요약
-
-Anthropic이 수백만 건의 Claude Code 상호작용 데이터를 분석한 결과, AI 에이전트 도입의 핵심 병목은 모델 성능이 아니라 사용자가 에이전트를 신뢰하기까지 걸리는 시간이라는 사실을 확인했습니다. 사용자들은 처음에 단순 작업만 맡기다가, 에이전트가 일관되게 올바른 결과를 제공하는 것을 확인한 후에야 점차 복잡한 작업을 위임합니다.
 
 DevSecOps 시사점:
 
@@ -248,9 +245,6 @@ DevSecOps 시사점:
   severity="Medium"
 %}
 
-#### 요약
-
-Andrej Karpathy가 공개한 Autoresearch는 LLM 학습의 핵심을 단일 GPU·단일 파일 630줄로 압축한 자기완결형 연구 프레임워크입니다. AI 에이전트가 밤새 실험을 반복하고 인간은 프롬프트만 수정하는 방식으로, 연구 자동화의 새로운 패러다임을 제시합니다.
 
 보안 연구 적용 가능성:
 
@@ -338,15 +332,6 @@ Go 언어에 UUID 생성·파싱 기능을 표준 라이브러리(`unique/uuid`)
 
 작성자: Twodragon
 
----
-
-## 🔗 관련 포스트
-
-<!-- related-posts:v1 -->
-
-- [Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
-- [AI 에이전트 보안 위협, Saylor Bitcoin 매수, Agent Safehouse](/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/) — 2026-03-09
-- [Coruna iOS 익스플로잇, 핵티비스트 DDoS, 보안 대응 우선순위](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
 
 ---
 
@@ -354,4 +339,14 @@ Go 언어에 UUID 생성·파싱 기능을 표준 라이브러리(`unique/uuid`)
 
 - AI 에이전트 MCP 보안 위협 모델링 및 방어: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
 - 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 03월 07일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (4건)](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
+- [2026년 03월 09일 주간 보안 다이제스트: DNS 유출·AI 에이전트·클라우드 (7건)](/posts/2026/03/09/Tech_Security_Weekly_Digest_AI_Security_Go_Bitcoin/) — 2026-03-09
+- [2026년 03월 05일 주간 보안 다이제스트: 제로데이·랜섬웨어·Kubernetes (4건)](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
 

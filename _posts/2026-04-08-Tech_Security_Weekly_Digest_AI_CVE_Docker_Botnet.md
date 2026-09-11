@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "[웨비나] AI가 기업 리스크를 악용하기 전에 2026년까지 아이덴티티 격차를 해소하는 방법" }
     - { source: "The Hacker News", title: "Docker CVE-2026-34040으로 공격자 인증 우회 및 호스트 접근 권한 획득 가능" }
     - { source: "Google Cloud Blog", title: "Claude Mythos 프리뷰: Vertex AI에서 프라이빗 프리뷰로 이용 가능" }
+superseded_by: /posts/2026/04/12/Week2_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}
@@ -196,9 +197,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-Palantir의 프론트엔드 엔지니어링은 표준 웹 앱을 넘어 네트워크가 불안정하고 오류 허용 범위가 없는 상황에서도 사용자 요구를 충족하는 미션 크리티컬 인터페이스를 설계합니다. 이들은 대규모 데이터셋을 처리하며 통찰력을 실행으로 전환하는 운영 애플리케이션을 Three.js와 같은 기술로 구축합니다.
 
 ---
 
@@ -212,9 +210,6 @@ Palantir의 프론트엔드 엔지니어링은 표준 웹 앱을 넘어 네트�
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon Bedrock Projects를 사용하면 추론 비용을 특정 워크로드에 귀속시키고 AWS Cost Explorer 및 AWS Data Exports에서 분석할 수 있습니다. 이 게시물에서는 태깅 전략 설계부터 비용 분석에 이르는 Projects의 종단 간 설정 방법을 소개합니다.
 
 ---
 
@@ -228,9 +223,6 @@ Amazon Bedrock Projects를 사용하면 추론 비용을 특정 워크로드에 
   severity="High"
 %}
 
-#### 요약
-
-Amazon Nova 2 Sonic의 스트리밍 기능을 활용해 주제에 따라 두 AI 호스트 간의 대화를 생성하는 자동화된 팟캐스트 제작 방법이 소개됐습니다. 이는 스테이지 인식 콘텐츠 필터링과 실시간 오디오 생성 기술을 보여줍니다.
 
 ---
 
@@ -263,9 +255,6 @@ Anthropic의 최신 최강 모델인 Claude Mythos Preview가 Project Glasswing�
   severity="Medium"
 %}
 
-#### 요약
-
-클라우드 환경에서 기존 IP 기반 방어는 더 이상 충분하지 않습니다. Google Cloud NGFW Enterprise는 와일드카드 기능을 갖춘 도메인 필터링을 도입하여 동적 IP와 FQDN의 한계를 해결합니다.
 
 ---
 
@@ -279,9 +268,6 @@ Anthropic의 최신 최강 모델인 Claude Mythos Preview가 Project Glasswing�
   severity="Medium"
 %}
 
-#### 요약
-
-Google의 음악 생성 모델군 Lyria 3는 보컬, 악기 구성, 편곡에 대한 세밀한 제어를 제공하도록 설계되었습니다. 이 가이드는 다양한 음악 장르와 사용 사례를 테스트한 결과를 바탕으로 최상의 결과를 얻는 방법을 공유합니다.
 
 ---
 
@@ -298,9 +284,6 @@ Google의 음악 생성 모델군 Lyria 3는 보컬, 악기 구성, 편곡에 �
   severity="Medium"
 %}
 
-#### 요약
-
-Dynatrace의 런타임 컨텍스트를 활용해 Kubernetes 환경에서 배포된 아티팩트와 런타임 리스크를 기반으로 GitHub Advanced Security 알림의 우선순위를 지정할 수 있게 되었습니다. 이 기능은 GitHub 블로그를 통해 소개되었습니다.
 
 ---
 
@@ -315,9 +298,6 @@ Dynatrace의 런타임 컨텍스트를 활용해 Kubernetes 환경에서 배포�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot CLI가 이제 BYOK와 로컬 모델을 지원합니다. 사용자는 GitHub 호스팅 모델 대신 자체 모델 제공자를 연결하거나 완전히 로컬 모델을 실행할 수 있게 되었습니다.
 
 ---
 
@@ -332,9 +312,6 @@ GitHub Copilot CLI가 이제 BYOK와 로컬 모델을 지원합니다. 사용자
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Dependabot 알림을 이제 Copilot, Claude, Codex와 같은 AI 코딩 에이전트에 할당하여 수정할 수 있습니다. 이를 통해 단순한 버전 업데이트 이상의 코드 변경이 필요한 취약점을 AI가 해결할 수 있게 되었습니다.
 
 ---
 
@@ -351,9 +328,6 @@ GitHub의 Dependabot 알림을 이제 Copilot, Claude, Codex와 같은 AI 코딩
   severity="Medium"
 %}
 
-#### 요약
-
-FDIC가 GENIUS Act 하에 은행의 스테이블코인 발행 및 관리를 규정하는 새로운 건전성 규칙 제안을 발표했습니다. 이는 달러에 연동된 디지털 자산에 대한 연방 차원의 감독이 확대될 것을 시사합니다. 해당 소식은 Bitcoin Magazine를 통해 보도되었습니다.
 
 ---
 
@@ -368,9 +342,6 @@ FDIC가 GENIUS Act 하에 은행의 스테이블코인 발행 및 관리를 규�
   severity="Medium"
 %}
 
-#### 요약
-
-Paolo Ardoino가 Bitcoin 2026 컨퍼런스의 스피커로 공식 확정되었습니다. Bitcoin Magazine가 이 소식을 발표했습니다.
 
 ---
 
@@ -385,9 +356,6 @@ Paolo Ardoino가 Bitcoin 2026 컨퍼런스의 스피커로 공식 확정되었�
   severity="Medium"
 %}
 
-#### 요약
-
-FBI에 따르면 2025년 미국에서 발생한 암호화폐 사기 피해액이 110억 달러를 넘어 기록을 경신했으며, 대부분은 투자 사기에서 비롯됐습니다. 이 소식은 Micah Zimmerman이 작성해 Bitcoin Magazine에 처음 게재되었습니다.
 
 ---
 

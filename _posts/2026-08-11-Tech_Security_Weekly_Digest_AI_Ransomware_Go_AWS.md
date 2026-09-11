@@ -102,9 +102,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-AI가 개발 속도를 10~50배 높이면서 보안팀은 여전히 인간 속도로 취약점 검토, 의존성 관리, 위험 통제를 해야 하는 문제에 직면했다. 이제 핵심은 취약점 발견이 아니라, 보안이 병목이 되거나 배포 통제를 잃지 않도록 하는 것이다. 이 웨비나는 AI 속도 개발 환경에서의 보안 유지 전략을 다룬다.
 
 
 #### 권장 조치
@@ -186,9 +183,6 @@ Microsoft은 중국과 연계된 금전적 동기를 가진 위협 행위자 Sto
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI CFO Sarah Friar가 AI 네이티브 재무 조직 구축 과정에서 얻은 다섯 가지 교훈을 공유했으며, 자동화된 예측, 강화된 통제, AI ROI 측정 등을 핵심으로 다룬다.
 
 
 ---
@@ -204,9 +198,6 @@ OpenAI CFO Sarah Friar가 AI 네이티브 재무 조직 구축 과정에서 얻�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Ads와 Google Analytics에 Advisor UI라는 새로운 AI 도구가 도입되어 마케팅 최적화를 지원합니다. 이 기능은 AI를 활용해 캠페인 성과를 분석하고 개선 방안을 제시합니다. 마케터는 이를 통해 데이터 기반 의사결정을 더 효율적으로 할 수 있습니다.
 
 
 ---
@@ -221,9 +212,6 @@ Google Ads와 Google Analytics에 Advisor UI라는 새로운 AI 도구가 도입
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI는 텍사스 주지사 Greg Abbott에게 서한을 보내 책임 있는 AI 인프라 구축에 대한 의지를 밝혔으며, 이는 텍사스 주민들에게 혜택을 주는 신뢰할 수 있고 투명한 성장을 지지하는 내용을 담고 있습니다.
 
 
 ---
@@ -240,9 +228,6 @@ OpenAI는 텍사스 주지사 Greg Abbott에게 서한을 보내 책임 있는 A
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud가 agentic 모바일 앱 개발을 위한 Developer Device Platform을 발표했습니다. 이 플랫폼은 기업이 다양한 디바이스에서 로컬로 실행되는 앱의 성능과 고객 경험을 보장하기 위해 빌드 및 테스트를 지원하는 데 중점을 둡니다.
 
 
 ---
@@ -258,9 +243,6 @@ Google Cloud가 agentic 모바일 앱 개발을 위한 Developer Device Platform
   severity="Medium"
 %}
 
-#### 요약
-
-WPP는 시장 파편화와 경제적 변동성 속에서 전통적인 인간 직관에 의존하던 마케팅 방식을 대체하고, AI 기반의 WPP Open 에이전틱 마케팅 시스템을 통해 예측적 확신을 제공합니다. 이를 통해 브랜드는 시장 속도에 맞춰 자신 있게 투자할 수 있습니다.
 
 
 ---
@@ -276,9 +258,6 @@ WPP는 시장 파편화와 경제적 변동성 속에서 전통적인 인간 직
   severity="High"
 %}
 
-#### 요약
-
-Malachyte는 Spotify와 Priceline에서의 경험을 바탕으로 Sidd가 설립한 AI 기반 ecommerce 추천 플랫폼으로, 잘 알려지지 않은 사용자에게 개인화된 상품을 추천하는 retail의 cold-start 문제를 해결한다. 현대 소비자들은 개인화된 콘텐츠를 기대하며, 온라인 서비스는 이를 뛰어나게 수행해야 경쟁에서 살아남을 수 있다.
 
 
 ---
@@ -296,9 +275,6 @@ Malachyte는 Spotify와 Priceline에서의 경험을 바탕으로 Sidd가 설립
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot SDK for Java가 공개되어, 엔터프라이즈 Java 개발자들이 어노테이션과 virtual threads를 활용해 관용적인 Java 코드에서 GitHub Copilot을 구동할 수 있게 되었다. 이 소식은 GitHub Blog를 통해 처음 발표되었다.
 
 
 ---
@@ -313,9 +289,6 @@ GitHub Copilot SDK for Java가 공개되어, 엔터프라이즈 Java 개발자�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에 따르면, github.com의 Copilot Chat이 개선되어 최근 대화에 더 쉽게 접근하고 채팅을 최소화할 수 있는 등 대화 컨트롤이 확장되었습니다. 이번 업데이트는 사용자가 Copilot을 웹에서 더 편리하게 활용하도록 돕는 것이 목적입니다.
 
 
 ---
@@ -330,9 +303,6 @@ GitHub Blog에 따르면, github.com의 Copilot Chat이 개선되어 최근 대�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub 청구가 인도에서 이제 적격한 저장 신용카드를 통한 월간 및 연간 요금의 자동 반복 결제를 지원합니다. 이 업데이트는 결제 위임(payment mandate)을 사용하며, GitHub Blog를 통해 발표되었습니다.
 
 
 ---
@@ -350,9 +320,6 @@ GitHub 청구가 인도에서 이제 적격한 저장 신용카드를 통한 월
   severity="Medium"
 %}
 
-#### 요약
-
-Blockstream이 Boltz 중단 이후 신뢰 없는 Bitcoin 스왑 기능을 선보이며, 사용자가 Lightning Network와 메인 네트워크 간을 쉽게 이동할 수 있게 했다. 이 소식은 Bitcoin Magazine에 의해 보도됐다.
 
 
 ---
@@ -368,9 +335,6 @@ Blockstream이 Boltz 중단 이후 신뢰 없는 Bitcoin 스왑 기능을 선보
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin ETF가 지난달 Coldcard 해킹이라는 부정적 뉴스에도 불구하고 대규모 자금 유입을 기록하며 급증세를 보이고 있다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 보도했다.
 
 
 ---
@@ -385,9 +349,6 @@ Bitcoin ETF가 지난달 Coldcard 해킹이라는 부정적 뉴스에도 불구�
   severity="Medium"
 %}
 
-#### 요약
-
-FATF가 최초의 DeFi 전용 보고서를 발표하며, 탈중앙화 금융의 운영상 이점을 인정하면서도 기능적 접근법을 통해 각국이 AML/CFT 규제를 적용하는 방법을 설명했다. 이 보고서는 DeFi의 분산 구조에도 불구하고 기존 규제 체계 내에서 관리할 수 있음을 시사하며, Chainalysis를 통해 공개되었다.
 
 
 ---
@@ -439,6 +400,16 @@ FATF가 최초의 DeFi 전용 보고서를 발표하며, 탈중앙화 금융의 
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 10일 주간 보안 다이제스트: AI 에이전트·블록체인·보안 위협 (12건)](/posts/2026/08/10/Tech_Security_Weekly_Digest_AI_Security_Bitcoin/) — 2026-08-10
+- [2026년 08월 12일 주간 보안 다이제스트: 제로데이·BYOVD EDR·클라우드 (29건)](/posts/2026/08/12/Tech_Security_Weekly_Digest_Zero-Day_Patch_AWS_Botnet/) — 2026-08-12
+- [2026년 08월 08일 주간 보안 다이제스트: 악성코드·Kubernetes·클라우드 (29건)](/posts/2026/08/08/Tech_Security_Weekly_Digest_AI_Data_Cloud_AWS/) — 2026-08-08
 
 ---
 

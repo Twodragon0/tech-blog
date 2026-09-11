@@ -221,9 +221,6 @@ DevSecOps 실무자에게 이번 사건은 다음과 같은 직접적인 영향�
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 Partner Network을 출범하며 글로벌 파트너들의 기업 AI 도입, 배포 및 혁신을 가속화하기 위해 1억 5천만 달러를 투자한다.
 
 ---
 
@@ -238,9 +235,6 @@ OpenAI가 Partner Network을 출범하며 글로벌 파트너들의 기업 AI �
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon CEO 앤디 재시(Andy Jassy)와 다른 기술 기업들의 요청으로 트럼프 행정부가 금요일 Anthropic의 Fable 5와 Mythos 5 AI 모델에 대한 외국인 접근을 중단시켰다.
 
 ---
 
@@ -257,9 +251,6 @@ Amazon CEO 앤디 재시(Andy Jassy)와 다른 기술 기업들의 요청으로 
   severity="Medium"
 %}
 
-#### 요약
-
-Ethereum의 Kohaku 리드에 따르면, SPHINCS- 제안을 통해 Ethereum 계정을 양자 내성으로 보호하는 비용이 단 7센트로 낮아질 수 있습니다. 이 제안은 네트워크가 장기적인 해결책을 모색하는 동안 사후 양자 서명 검증 비용을 줄이는 것을 목표로 합니다.
 
 ---
 
@@ -274,9 +265,6 @@ Ethereum의 Kohaku 리드에 따르면, SPHINCS- 제안을 통해 Ethereum 계�
   severity="Medium"
 %}
 
-#### 요약
-
-Quantstamp에 따르면, 3600만 달러 규모의 Humanity Protocol 해킹 사건에 가짜 Bithumb 이메일이 사용되었으며, 이는 북한 해커의 연루를 시사합니다.
 
 ---
 
@@ -291,9 +279,6 @@ Quantstamp에 따르면, 3600만 달러 규모의 Humanity Protocol 해킹 사�
   severity="Medium"
 %}
 
-#### 요약
-
-암호화폐 분석가 Michaël van de Poppe는 호르무즈 해협을 재개방할 이란 평화 협정이 일요일 체결될 것이라는 트럼프의 발언이 암호화폐 같은 위험 자산으로 유동성을 되돌릴 가능성이 있다고 말했다.
 
 ---
 
@@ -345,6 +330,16 @@ Quantstamp에 따르면, 3600만 달러 규모의 Humanity Protocol 해킹 사�
 | Snyk Blog | [snyk.io](https://snyk.io) | 본문 1건 인용 |
 | OpenAI Blog | [openai.com](https://openai.com) | 본문 1건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 4건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 14일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (18건)](/posts/2026/06/14/Tech_Security_Weekly_Digest_AI_Go/) — 2026-06-14
+- [2026년 06월 16일 주간 보안 다이제스트: DNS 유출·악성코드·북한 위협 (28건)](/posts/2026/06/16/Tech_Security_Weekly_Digest_AI_Go_Malware_Vulnerability/) — 2026-06-16
+- [2026년 06월 12일 주간 보안 다이제스트: 제로데이·패치·랜섬웨어 (30건)](/posts/2026/06/12/Tech_Security_Weekly_Digest_Zero-Day_CVE_ML_AI/) — 2026-06-12
 
 ---
 

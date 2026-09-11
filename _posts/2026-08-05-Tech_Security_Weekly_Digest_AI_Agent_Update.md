@@ -189,9 +189,6 @@ DevSecOps 관점에서 이번 사건은 **기존 보안 테스트 프로세스�
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 최근 발생한 제3자 사이버보안 평가 사건에 대해 설명하고, AI 모델 테스트 및 평가를 강화하기 위한 새로운 보호 장치를 도입했다고 밝혔다.
 
 
 ---
@@ -207,9 +204,6 @@ OpenAI가 최근 발생한 제3자 사이버보안 평가 사건에 대해 설�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA가 미국 국립과학재단(NSF)의 State and Regional AI Infrastructure Hubs 프로그램에 참여하여 미국 전역의 AI 연구 및 교육을 위한 첨단 컴퓨팅, 데이터, 소프트웨어 접근성을 확대한다. 이 프로그램은 Genesis Mission의 목표에 부합하며 주 및 다주 단체를 지원할 예정이다.
 
 
 ---
@@ -225,9 +219,6 @@ NVIDIA가 미국 국립과학재단(NSF)의 State and Regional AI Infrastructure
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA의 로보택시 및 자율주행차(AV)용 오픈 모델인 Alpamayo 2 Super가 상업용으로 공개되었다. 이 모델은 일상적인 시나리오보다 예측과 훈련이 어려운 희귀하고 복잡한 장기(long-tail) 상황을 처리하기 위해 객체 탐지와 운동 예측을 넘어 상황 이해와 인과 추론, 올바른 행동 선택을 수행한다.
 
 
 ---
@@ -262,9 +253,6 @@ Google Cloud Next ‘26에서 Agentic Data Cloud 출시와 함께 Database Onboa
   severity="Medium"
 %}
 
-#### 요약
-
-Target의 Guest Product Confidence 플랫폼 팀은 Spanner Graph를 활용하여 소비자 맞춤형 상품 탐색 경험을 개선하고, 데이터베이스 유지보수 비용을 50% 절감했습니다. 이는 키워드 기반 검색을 넘어 제품, 카테고리, 고객 의도 간의 의미적 연결 관계를 이해하는 방식으로 전환한 결과입니다.
 
 
 ---
@@ -300,9 +288,6 @@ Database Migration Service는 SQL Server의 다중 결과 집합 처리를 Postg
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에서 code scanning default setup에 사용자 정의 구성 파일을 적용할 수 있는 새로운 github-codeql-config-file repository 속성을 발표했습니다. 이를 통해 CodeQL이 코드를 스캔하는 방식을 대규모로 제어할 수 있습니다.
 
 
 ---
@@ -318,9 +303,6 @@ GitHub Blog에서 code scanning default setup에 사용자 정의 구성 파일�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot Billing Preview 앱이 공식적으로 폐지되어 더 이상 사용할 수 없으며, 이제 GitHub 결제 설정에서 직접 Copilot 지출을 관리할 수 있습니다. 이 변경 사항은 GitHub Blog를 통해 발표되었습니다.
 
 
 ---
@@ -336,9 +318,6 @@ GitHub Copilot Billing Preview 앱이 공식적으로 폐지되어 더 이상 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에서 AI가 생성한 거대한 단일 pull request를 리뷰 가능한 스택으로 분해하는 방법을 소개했습니다. 코딩 에이전트가 작업을 정리된 순서의 스택으로 나누도록 지도하여 GitHub stacked pull requests를 활용하는 것이 핵심입니다. 이는 대규모 AI 생성 변경사항의 리뷰 부담을 줄이기 위한 접근법입니다.
 
 
 ---
@@ -356,9 +335,6 @@ GitHub Blog에서 AI가 생성한 거대한 단일 pull request를 리뷰 가능
   severity="Medium"
 %}
 
-#### 요약
-
-Coldcard의 보안 실패가 하드웨어 지갑에 대한 Bitcoin 커뮤니티의 신뢰를 흔들었지만, 자기 수탁(self-custody)을 포기하는 것은 Bitcoin의 존재 이유를 포기하는 것과 같다. 역사적 교훈은 수탁자(custodian)를 다시 신뢰하는 것이 아니라, 우리의 키를 더 강력하고 회복력 있게 보관하는 방법을 구축하는 데 있다.
 
 
 ---
@@ -392,9 +368,6 @@ SEC 위원 Hester ‘Crypto Mom’ Peirce가 오랫동안 기다려온 암호화
   severity="Medium"
 %}
 
-#### 요약
-
-캐나다 디지털 자산 운용사 3iQ Corp.가 부탄의 Gelephu Mindfulness City 프로젝트가 보유한 일부 Bitcoin 준비금을 관리하게 됐다. 이번 협력은 부탄 정부 차원의 Bitcoin 자산 운용을 민간 전문 기관에 맡기는 사례로 주목받고 있다.
 
 
 ---
@@ -454,6 +427,16 @@ SEC 위원 Hester ‘Crypto Mom’ Peirce가 오랫동안 기다려온 암호화
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 2건 인용 |
 | GitHub Engineering Blog | [github.blog](https://github.blog) | 본문 1건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 04일 주간 보안 다이제스트: 악성코드·클라우드·랜섬웨어 (29건)](/posts/2026/08/04/Tech_Security_Weekly_Digest_Malware_Go_AWS_Ransomware/) — 2026-08-04
+- [2026년 08월 06일 주간 보안 다이제스트: 악성코드·AI 에이전트·클라우드 (27건)](/posts/2026/08/06/Tech_Security_Weekly_Digest_AI_Malware_GPT_AWS/) — 2026-08-06
+- [2026년 08월 02일 주간 보안 다이제스트: 제로데이·패치·악성코드 (15건)](/posts/2026/08/02/Tech_Security_Weekly_Digest_Bitcoin_AI_Update_Malware/) — 2026-08-02
 
 ---
 

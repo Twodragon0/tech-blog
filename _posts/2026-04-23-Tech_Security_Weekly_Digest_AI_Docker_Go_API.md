@@ -35,6 +35,7 @@ summary_card:
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Docker_Go_API/
   - /posts/2026-04-23-Tech_Security_Weekly_Digest_AI_Docker_Go_API/
+superseded_by: /posts/2026/04/30/Week4_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}
@@ -104,9 +105,6 @@ redirect_from:
   severity="High"
 %}
 
-#### 요약
-
-Checkmarx의 공식 Docker Hub 리포지토리에 악성 KICS Docker 이미지가 업로드되었습니다. 위협 행위자는 기존 태그를 덮어쓰고 공식 릴리스에 없는 v2.1.21 태그도 추가했습니다.
 
 #### 위협 분석
 
@@ -141,9 +139,6 @@ Checkmarx의 공식 Docker Hub 리포지토리에 악성 KICS Docker 이미지�
   severity="High"
 %}
 
-#### 요약
-
-보안 연구진이 npm 패키지를 탈취해 개발자 토큰을 훔치는 Self-Propagating Supply Chain Worm을 발견했습니다. Socket과 StepSecurity는 이 공격을 CanisterSprawl로 명명하고 있으며, 공격자는 훔친 데이터를 ICP canister를 통해 유출시키고 있습니다.
 
 #### 위협 분석
 
@@ -178,9 +173,6 @@ Checkmarx의 공식 Docker Hub 리포지토리에 악성 KICS Docker 이미지�
   severity="High"
 %}
 
-#### 요약
-
-Harvester 위협 그룹이 남아시아를 대상으로 Linux 버전 GoGra 백도어를 배포한 것으로 확인되었습니다. 이 악성코드는 Microsoft Graph API와 Outlook 메일박스를 C2 채널로 악용해 기존 네트워크 방어를 우회합니다.
 
 #### 위협 분석
 
@@ -213,9 +205,6 @@ Harvester 위협 그룹이 남아시아를 대상으로 Linux 버전 GoGra 백�
   severity="Medium"
 %}
 
-#### 요약
-
-Palantir의 프론트엔드 엔지니어링은 표준 웹 앱 구축을 넘어선다. 이 시리즈는 다국어 협업을 구축하는 엔지니어링에 대해 다룬다.
 
 ---
 
@@ -229,9 +218,6 @@ Palantir의 프론트엔드 엔지니어링은 표준 웹 앱 구축을 넘어�
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 미국의 인증된 의사, 전문간호사(NP), 전담간호사(PA), 약사에게 무료로 제공하는 ChatGPT for Clinicians가 임상 진료와 문서화, 연구를 지원합니다. 이는 의료진을 위한 맞춤형 AI 도구의 접근성을 높이는 조치입니다.
 
 ---
 
@@ -246,9 +232,6 @@ OpenAI가 미국의 인증된 의사, 전문간호사(NP), 전담간호사(PA), 
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA AI는 기후, 보전, 재난 모니터링 및 재활용 분야에서 지구를 보호하는 응용 프로그램을 가능하게 합니다. 이 기술은 열대우림부터 재활용 공장까지 다양한 환경 문제 해결에 활용되고 있습니다.
 
 ---
 
@@ -265,9 +248,6 @@ NVIDIA AI는 기후, 보전, 재난 모니터링 및 재활용 분야에서 지�
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud는 AI 에이전트가 Firebase, Gemini API, BigQuery, GKE 등 Google Cloud 제품에 대한 정확한 정보를 활용할 수 있도록 공식 Skills Repository를 발표했습니다. 이를 위해 에이전트가 필요할 때만 로드하는 마크다운 기반 오픈 스킬 포맷(github.com/google/skills)을 공개했으며, 이는 MCP 서버 사용 시 발생하는 컨텍스트 팽창을 줄이기 위한 보완책입니다.
 
 ---
 
@@ -281,9 +261,6 @@ Google Cloud는 AI 에이전트가 Firebase, Gemini API, BigQuery, GKE 등 Googl
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud Next '26에서는 AI의 실용적 발전을 심층적으로 살펴볼 수 있습니다. 행사에서는 Megan O'Keefe와 Karl Weinmeister를 포함한 전문가들이 참여하며, 현장 및 온라인 참가자 모두를 위해 10개의 핵심 기술 Codelab을 제공합니다.
 
 ---
 
@@ -315,9 +292,6 @@ Google Cloud Next에서 발표한 새로운 컴퓨팅 기능은 코어 범용 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot for Jira 클라우드 에이전트가 더욱 강력하고 사용자 정의 가능하도록 개선되었습니다. 이번 향상된 기능을 통해 팀은 Jira와의 연동 방식을 더 세밀하게 제어할 수 있게 되었습니다.
 
 ---
 
@@ -332,9 +306,6 @@ GitHub Copilot for Jira 클라우드 에이전트가 더욱 강력하고 사용�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Copilot usage metrics API에서 이제 Copilot code review의 활성 및 수동 사용자 수가 집계되어 제공됩니다. 이를 통해 기업과 조직은 사용 현황 보고서에서 코드 리뷰 기능의 구체적인 활용도를 확인할 수 있게 되었습니다.
 
 ---
 
@@ -349,9 +320,6 @@ GitHub의 Copilot usage metrics API에서 이제 Copilot code review의 활성 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub CLI v2.91.0부터 제품 개선을 위해 가명(pseudonymous) 처리된 사용 원격 측정 데이터를 수집합니다. GitHub는 수집 내용과 이유를 설명하며, 사용자는 이 데이터 수집을 옵트아웃할 수 있습니다.
 
 ---
 
@@ -385,9 +353,6 @@ FBI 국장 Kash Patel이 Bitcoin 2026 컨퍼런스에서 "비트코인에 대한
   severity="Medium"
 %}
 
-#### 요약
-
-미국 재무부 장관이 상원에 암호화폐 시장 구조 법안 통과를 촉구하며, 포괄적인 법안 통과가 미국 금융 리더십 유지에 필수적이라고 강조했습니다. 이 소식은 Bitcoin Magazine를 통해 보도되었습니다.
 
 ---
 
@@ -402,9 +367,6 @@ FBI 국장 Kash Patel이 Bitcoin 2026 컨퍼런스에서 "비트코인에 대한
   severity="Medium"
 %}
 
-#### 요약
-
-러시아의 Sberbank가 암호화폐 거래에 진출할 준비를 하고 있으며, Ruslan Vesterovsky 선임 부행장은 규제와 조직화된 거래소 거래가 시작되면 암호화폐 거래 접근을 제공할 것이라고 밝혔습니다. 이 소식은 Bitcoin Magazine에 Micah Zimmerman이 기고한 내용입니다.
 
 ---
 

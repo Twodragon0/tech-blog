@@ -250,9 +250,6 @@ NVIDIA의 Confidential Computing 기술이 적용된 GPU가 Apple의 Private Clo
   severity="Medium"
 %}
 
-#### 요약
-
-Gemini 3.5 Live Translate가 Google AI Studio, Google Translate, Google Meet에 실시간 자연스러운 음성 번역 기능을 제공한다.
 
 ---
 
@@ -266,9 +263,6 @@ Gemini 3.5 Live Translate가 Google AI Studio, Google Translate, Google Meet에 
   severity="Medium"
 %}
 
-#### 요약
-
-Nextdoor의 엔지니어들은 Codex와 GPT-5.5를 활용하여 재현이 어려운 문제를 조사하고, 여러 플랫폼에서 빌드하며, 제품 성과에 집중하고 있습니다.
 
 ---
 
@@ -284,9 +278,6 @@ Nextdoor의 엔지니어들은 Codex와 GPT-5.5를 활용하여 재현이 어려
   severity="Medium"
 %}
 
-#### 요약
-
-Anthropic의 최신 프론티어 모델인 Claude Fable 5가 Google Cloud에서 일반 공급됩니다. 이번 출시는 최신 모델을 Agent Platform에 직접 제공하려는 지속적인 노력의 일환입니다. Claude Fable 5는 강력한 안전장치를 갖춘 Anthropic 모델의 최고 성능을 모든 고객에게 제공합니다.
 
 ---
 
@@ -301,9 +292,6 @@ Anthropic의 최신 프론티어 모델인 Claude Fable 5가 Google Cloud에서 
   severity="Medium"
 %}
 
-#### 요약
-
-공공 부문이 AI 파일럿 실험 단계를 넘어 실제 생산성 향상과 서비스 개선을 추구하는 중요한 전환점에 도달했습니다. Gemini for Government는 즉각적인 미션 임팩트 창출에 초점을 맞춘 청사진을 제공합니다.
 
 ---
 
@@ -318,9 +306,6 @@ Anthropic의 최신 프론티어 모델인 Claude Fable 5가 Google Cloud에서 
   severity="Medium"
 %}
 
-#### 요약
-
-Google Kubernetes Engine (GKE) Inference Gateway가 실시간 모델 서버 메트릭을 기반으로 생성형 AI 워크로드를 지능적으로 라우팅하여 AI 첫 토큰 응답 대기시간(TTFT)을 최대 약 92% 단축한다는 보고서가 발표되었습니다. 이는 비용이 많이 드는 가속기 유휴 시간을 최소화하고 인프라 효율성을 극대화하는 데 도움이 됩니다.
 
 ---
 
@@ -337,9 +322,6 @@ Google Kubernetes Engine (GKE) Inference Gateway가 실시간 모델 서버 메�
   severity="Medium"
 %}
 
-#### 요약
-
-npm v12가 npm install에 보안 관련 기본 변경 사항을 도입하며, 현재 npm 11.16.0 이상에서 경고를 통해 미리 확인할 수 있습니다.
 
 ---
 
@@ -354,9 +336,6 @@ npm v12가 npm install에 보안 관련 기본 변경 사항을 도입하며, �
   severity="Medium"
 %}
 
-#### 요약
-
-Anthropic의 Claude Fable 5가 GitHub Copilot에서 일반 공급되며, Mythos 클래스 최초의 모델로 장기 자율 코딩 및 지식 작업을 위해 설계되었습니다.
 
 ---
 
@@ -371,9 +350,6 @@ Anthropic의 Claude Fable 5가 GitHub Copilot에서 일반 공급되며, Mythos 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub code scanning이 이제 6개월 이상 푸시나 풀 리퀘스트가 없는 비활성 리포지토리에 대해 예약된 보안 스캔을 지원합니다. 조직은 이를 통해 지속적인 보안 유지가 가능합니다.
 
 ---
 
@@ -389,9 +365,6 @@ GitHub code scanning이 이제 6개월 이상 푸시나 풀 리퀘스트가 없�
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 4월, Chainalysis가 한국 경찰청(KNPA)과 가상자산 수사 역량 강화를 위한 업무협약(MoU)을 체결했습니다. 이번 협력은 블록체인 분석 기술을 활용한 디지털 범죄 대응 체계를 강화하는 데 목적이 있습니다.
 
 ---
 
@@ -405,9 +378,6 @@ GitHub code scanning이 이제 6개월 이상 푸시나 풀 리퀘스트가 없�
   severity="Medium"
 %}
 
-#### 요약
-
-오늘 체이널리시스는 대한민국 경찰청(KNPA)과 디지털 자산 범죄 수사 협력을 강화하기 위한 양해각서(MoU)를 체결했습니다. 이번 협약은 교육, 인증, 실무형 수사 프로그램  The post 체이널리시스와 대한민국 경찰청(KNPA), 디지털 자산 수사 역량 강화를 위한 양해각서(MoU) 체결 appeared first on Chainalysis
 
 ---
 
@@ -422,9 +392,6 @@ GitHub code scanning이 이제 6개월 이상 푸시나 풀 리퀘스트가 없�
   severity="Medium"
 %}
 
-#### 요약
-
-Axios에 따르면 전통 금융(TradFi) 기관들이 Bitcoin 가격 하락을 매수 기회로 삼으며 암호화폐에 대한 회의론을 버리고 있으며, 이러한 변화는 2026년에 가속화되고 있습니다.
 
 ---
 
@@ -483,6 +450,16 @@ Axios에 따르면 전통 금융(TradFi) 기관들이 Bitcoin 가격 하락을 �
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 3건 인용 |
 | Chainalysis Blog | [chainalysis.com](https://www.chainalysis.com) | 본문 2건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 1건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 09일 주간 보안 다이제스트: 제로데이·패치·클라우드 (29건)](/posts/2026/06/09/Tech_Security_Weekly_Digest_AWS_Security_AI/) — 2026-06-09
+- [2026년 06월 11일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/11/Tech_Security_Weekly_Digest_AI_Botnet_Patch_CVE/) — 2026-06-11
+- [2026년 06월 07일 주간 보안 다이제스트: DNS 유출·제로데이·AI 에이전트 (16건)](/posts/2026/06/07/Tech_Security_Weekly_Digest_GPT_Data_AI_API/) — 2026-06-07
 
 ---
 

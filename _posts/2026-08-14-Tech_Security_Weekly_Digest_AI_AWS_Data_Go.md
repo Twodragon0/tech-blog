@@ -100,9 +100,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-AWS Certificate Manager(ACM)가 2027년 9월 30일까지 이메일 검증 방식의 공개 인증서 지원을 중단합니다. 사용자는 이 기한 전에 DNS 검증으로 전환해야 하며, 이는 CA/B Forum의 업계 차원 이메일 도메인 검증 폐지에 따른 조치입니다.
 
 
 #### 권장 조치
@@ -126,9 +123,6 @@ AWS Certificate Manager(ACM)가 2027년 9월 30일까지 이메일 검증 방식
   severity="Medium"
 %}
 
-#### 요약
-
-우크라이나 당국이 전국적으로 94개의 사기성 콜센터를 폐쇄하고 수백만 달러에 달하는 현금을 압수했습니다. 이 콜센터들은 투자 사기로 사람들을 유인하거나 은행 계좌 접근 권한을 탈취하려 한 것으로 조사됐습니다.
 
 
 #### 권장 조치
@@ -152,9 +146,6 @@ AWS Certificate Manager(ACM)가 2027년 9월 30일까지 이메일 검증 방식
   severity="Medium"
 %}
 
-#### 요약
-
-Akira 랜섬웨어 계열 공격자가 손상된 시스템을 Safe Mode with Networking으로 재부팅하여 EDR(엔드포인트 탐지 및 대응) 솔루션을 비활성화한 뒤 데이터를 탈취했지만, 암호화에는 실패했습니다.
 
 
 #### 권장 조치
@@ -180,9 +171,6 @@ Akira 랜섬웨어 계열 공격자가 손상된 시스템을 Safe Mode with Net
   severity="Medium"
 %}
 
-#### 요약
-
-Sheets canvas는 스프레드시트 데이터를 시각적으로 표현하는 새로운 기능으로, 영상에서 그 작동 방식을 보여줍니다. 이 기능은 데이터를 더 생동감 있게 탐색하고 발표할 수 있게 해줍니다.
 
 
 ---
@@ -198,9 +186,6 @@ Sheets canvas는 스프레드시트 데이터를 시각적으로 표현하는 �
   severity="High"
 %}
 
-#### 요약
-
-GeForce NOW의 네이티브 Linux 앱이 정식 출시되었으며, Chromebook 등에서 클라우드 게이밍 경험이 향상되었습니다. 또한 Frame Generation의 반응성을 개선하는 클라우드 최적화가 추가되었고, Performance 멤버십 사용자는 더 높은 프레임 레이트를 누릴 수 있습니다.
 
 
 ---
@@ -215,9 +200,6 @@ GeForce NOW의 네이티브 Linux 앱이 정식 출시되었으며, Chromebook �
   severity="Medium"
 %}
 
-#### 요약
-
-스타트업들이 GPT-5.6을 활용해 더 빠르고 비용 효율적인 AI 에이전트를 구축하는 방법을 다루는 가이드가 공개됐다. 핵심은 더 스마트한 모델 선택과 새로운 Responses API 기능을 통해 개발 속도와 효율성을 높이는 것이다.
 
 
 ---
@@ -235,9 +217,6 @@ GeForce NOW의 네이티브 Linux 앱이 정식 출시되었으며, Chromebook �
   severity="Medium"
 %}
 
-#### 요약
-
-BigQuery Graph를 사용하면 기업이 단순 채팅 어시스턴트에서 자율적 agentic workloads로 전환할 때 발생하는 부정확한 인사이트 문제를 해결할 수 있습니다. 이는 평면적이고 정적인 테이블 대신 실제 세계처럼 상호 연결된 비즈니스 엔티티와 의존성을 표현하여 신뢰할 수 있는 에이전트 운영을 지원합니다.
 
 
 ---
@@ -252,9 +231,6 @@ BigQuery Graph를 사용하면 기업이 단순 채팅 어시스턴트에서 자
   severity="Medium"
 %}
 
-#### 요약
-
-AI Native 스타트업에게 보안 인증이 왜 어려운가 AI가 빠르게 발전하면서 한 명의 엔지니어가 하루에 50~100개의 커밋을 작성하는 일도 더 이상 낯설지 않게 되었습니다. 제품 개발, 테스트 코드 작성, 인프라 정의 변경, 운영 스크립트 작성까지 AI 에이전트와 함께 처리하는 조직이 늘고 있습니다.
 
 
 ---
@@ -272,9 +248,6 @@ AI Native 스타트업에게 보안 인증이 왜 어려운가 AI가 빠르게 �
   severity="High"
 %}
 
-#### 요약
-
-GitHub가 의존성 그래프의 라이선스 정보를 결정하기 위해 npmjs.org와 PyPI 같은 패키지 레지스트리를 사용하도록 개선했습니다. 이로써 표시되는 라이선스의 정확성과 완전성이 향상되었습니다.
 
 
 ---
@@ -290,9 +263,6 @@ GitHub가 의존성 그래프의 라이선스 정보를 결정하기 위해 npmj
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에서 개인 계정 소유의 리포지토리에서 pull request와 issue의 댓글을 통해 사용자를 직접 차단하거나 해제할 수 있는 기능을 발표했습니다. 이 기능은 개인 리포지토리에서 댓글 작성자를 관리할 수 있게 해줍니다.
 
 
 ---
@@ -307,9 +277,6 @@ GitHub Blog에서 개인 계정 소유의 리포지토리에서 pull request와 
   severity="Medium"
 %}
 
-#### 요약
-
-Google의 최신 Flash 모델인 Gemini 3.7 Flash가 GitHub Copilot에서 제공되기 시작했습니다. 초기 테스트 결과 웹 및 앱 개발과 에이전틱 작업에서 개선된 성능을 보여주고 있습니다.
 
 
 ---
@@ -327,9 +294,6 @@ Google의 최신 Flash 모델인 Gemini 3.7 Flash가 GitHub Copilot에서 제공
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin의 약세 사이클이 과거 패턴과 유사하다는 관측이 나왔으며, 이는 오히려 강세 근거가 될 수 있다는 분석이 제기됐다. Bitcoin Magazine의 Mathew Di Salvo 기고문에 따르면, 시장 관찰자들은 Bitcoin이 역사적으로 반복해온 행동을 보이고 있다고 평가한다.
 
 
 ---
@@ -345,9 +309,6 @@ Bitcoin의 약세 사이클이 과거 패턴과 유사하다는 관측이 나왔
   severity="Medium"
 %}
 
-#### 요약
-
-백악관이 다음 주 암호화폐 업계 임원들을 초청할 예정이며, POLITICO 보도에 따르면 이 회의는 CFTC의 신규 Innovation Advisory Committee 회의 하루 전에 열린다.
 
 
 ---
@@ -363,9 +324,6 @@ Bitcoin의 약세 사이클이 과거 패턴과 유사하다는 관측이 나왔
   severity="Medium"
 %}
 
-#### 요약
-
-Tether가 마침내 KPMG와 함께 준비금에 대한 독립 감사를 완료했습니다. 스테이블코인 거대 기업은 수년간 Big Four 회계법인의 감사를 받기 어려웠으나 이제 이를 달성했습니다. 이 소식은 Bitcoin Magazine에 게재되었으며 Mathew Di Salvo가 작성했습니다.
 
 
 ---
@@ -417,6 +375,16 @@ Tether가 마침내 KPMG와 함께 준비금에 대한 독립 감사를 완료�
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 13일 주간 보안 다이제스트: 제로데이·북한 위협·패치 (27건)](/posts/2026/08/13/Tech_Security_Weekly_Digest_Zero-Day_AI_AWS_Data/) — 2026-08-13
+- [2026년 08월 15일 주간 보안 다이제스트: 클라우드·패치·AI 에이전트 (24건)](/posts/2026/08/15/Tech_Security_Weekly_Digest_AI_Security_Go_Cloud/) — 2026-08-15
+- [2026년 08월 11일 주간 보안 다이제스트: 랜섬웨어·제로데이·클라우드 (30건)](/posts/2026/08/11/Tech_Security_Weekly_Digest_AI_Ransomware_Go_AWS/) — 2026-08-11
 
 ---
 

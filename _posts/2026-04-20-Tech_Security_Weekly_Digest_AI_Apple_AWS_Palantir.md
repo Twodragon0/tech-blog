@@ -34,6 +34,7 @@ summary_card:
 redirect_from:
   - /posts/2026/04/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/
   - /posts/2026-04-20-Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/
+superseded_by: /posts/2026/04/30/Week4_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}
@@ -203,9 +204,6 @@ DevSecOps 실무자에게 이는 **보안과 윤리의 경계**에서 실질적 
   severity="Medium"
 %}
 
-#### 요약
-
-Moody's 애널리스트에 따르면 수익이 발생하는 스테이블코인(Stablecoins)에 대한 금지와 미국의 견고한 결제 인프라로 인해, 단기적으로 스테이블코인이 은행의 시장 점유율을 잠식할 위협은 없다고 전망했습니다.
 
 ---
 
@@ -220,9 +218,6 @@ Moody's 애널리스트에 따르면 수익이 발생하는 스테이블코인(S
   severity="Medium"
 %}
 
-#### 요약
-
-Galaxy의 Alex Thorn에 따르면 각 Bitcoin halving cycle마다 변동성과 상승폭이 감소하고 있지만 2024년 BTC 사이클은 이전 halving에 비해 '극적으로' 부진한 성과를 보이고 있습니다. 이러한 새로운 역학 관계가 영구적이지 않을 수 있다고 분석했습니다.
 
 ---
 
@@ -237,9 +232,6 @@ Galaxy의 Alex Thorn에 따르면 각 Bitcoin halving cycle마다 변동성과 �
   severity="Medium"
 %}
 
-#### 요약
-
-Curve Finance 창립자는 Kelp exploit의 파급 효과가 자본 효율성을 희생하면 억제될 수 있었다고 지적합니다. 이는 비격리형 DeFi 대출의 고질적 문제점을 부각시킵니다.
 
 ---
 

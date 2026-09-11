@@ -97,9 +97,6 @@ summary_card:
   severity="High"
 -%}
 
-#### 요약
-
-Google은 북한 연계 위협 그룹 UNC2970이 생성형 AI 모델 Gemini를 표적 정찰과 공격 지원에 활용한 정황을 공개했습니다. 여러 해킹 그룹이 AI를 공격 라이프사이클의 가속 도구로 무기화하고 있으며, 정보전 수행이나 모델 추출 시도까지 관측되었습니다.
 
 #### 핵심 포인트
 
@@ -136,9 +133,6 @@ Google은 북한 연계 위협 그룹 UNC2970이 생성형 AI 모델 Gemini를 �
   severity="High"
 -%}
 
-#### 요약
-
-연구진이 북한 연계 Lazarus가 주도하는 위장 채용 캠페인과 연계된 악성 패키지를 npm·PyPI에서 다수 발견했습니다. 캠페인은 첫 npm 패키지명인 graphalgo를 기준으로 명명되었고, 2025년 5월부터 활동한 것으로 평가됩니다.
 
 #### 핵심 포인트
 
@@ -166,9 +160,6 @@ Google은 북한 연계 위협 그룹 UNC2970이 생성형 AI 모델 Gemini를 �
   severity="High"
 -%}
 
-#### 요약
-
-Copilot Studio 에이전트는 권한과 자동화 범위가 넓어지는 만큼 설정 실수나 과도한 공유, 인증 누락, 오케스트레이션 통제 부족이 곧바로 보안 노출로 이어질 수 있습니다. Microsoft는 현장에서 자주 발생하는 10대 리스크와 탐지·완화 방법을 Defender 관점에서 정리했습니다.
 
 #### 핵심 포인트
 
@@ -199,9 +190,6 @@ Copilot Studio 에이전트는 권한과 자동화 범위가 넓어지는 만큼
   severity="Medium"
 -%}
 
-#### 요약
-
-실시간 코딩 모델 GPT-5.3-Codex-Spark가 공개되었습니다. 기존 대비 15배 빠른 생성 속도와 128k 컨텍스트를 강조하며, ChatGPT Pro 연구 프리뷰로 제공됩니다.
 
 #### 핵심 포인트
 
@@ -221,9 +209,6 @@ Copilot Studio 에이전트는 권한과 자동화 범위가 넓어지는 만큼
   severity="Medium"
 -%}
 
-#### 요약
-
-PFCS Forward는 클라우드에서 엣지로 IL5/IL6 인증을 확장하는 하드웨어 독립적 접근을 제시합니다. 국방/정부 환경에서 엣지 시스템까지 일관된 인증 체계를 적용하는 방향성을 강조합니다.
 
 #### 핵심 포인트
 
@@ -243,9 +228,6 @@ PFCS Forward는 클라우드에서 엣지로 IL5/IL6 인증을 확장하는 하�
   severity="Medium"
 -%}
 
-#### 요약
-
-Amazon Bedrock과 Knowledge Bases, AWS Lambda 등을 활용해 채용 공고 작성, 후보자 커뮤니케이션, 면접 준비를 자동화하는 AI 채용 시스템 구축 사례를 소개합니다. 사람 중심의 검증 단계를 유지하는 것이 핵심 포인트입니다.
 
 #### 핵심 포인트
 
@@ -282,9 +264,6 @@ Amazon Bedrock과 Knowledge Bases, AWS Lambda 등을 활용해 채용 공고 작
   severity="Medium"
 -%}
 
-#### 요약
-
-Google Cloud는 2025년 7월부터 사용량 기반 CUD 모델을 업데이트해 비용/절감 구조를 더 쉽게 이해하도록 개선했습니다. Cloud Run 및 H3/M 시리즈 VM 등 신규 SKU로 범위를 확대하고 유연성을 높인 것이 핵심입니다.
 
 #### 핵심 포인트
 
@@ -305,9 +284,6 @@ Google Cloud는 2025년 7월부터 사용량 기반 CUD 모델을 업데이트�
   severity="High"
 -%}
 
-#### 요약
-
-GTIG는 2025년 4분기 이후 공격자들이 AI를 정찰·사회공학·악성코드 개발에 적극 활용하며 생산성을 끌어올리고 있다고 보고했습니다. 2025년 11월 보고서의 업데이트 성격으로, AI 악용 징후와 공격 PoC를 정리합니다.
 
 #### 핵심 포인트
 
@@ -328,9 +304,6 @@ GTIG는 2025년 4분기 이후 공격자들이 AI를 정찰·사회공학·악�
   severity="Medium"
 -%}
 
-#### 요약
-
-AWS Spatial Compute Blog의 내용을 바탕으로, VAMS가 NVIDIA Isaac Lab과 통합되어 GPU 가속 강화학습(RL) 훈련을 지원하는 흐름을 정리했습니다. 자산 관리 워크플로우 안에서 RL 정책을 훈련·평가하고, 확장 가능한 GPU 컴퓨팅을 활용하는 것이 핵심입니다.
 
 #### 핵심 포인트
 
@@ -355,9 +328,6 @@ AWS Spatial Compute Blog의 내용을 바탕으로, VAMS가 NVIDIA Isaac Lab과 
   severity="Medium"
 -%}
 
-#### 요약
-
-웹 개발자와 브라우저 생태계를 위한 Interop 2026이 발표되었습니다. 브라우저 간 호환성 개선을 지속적으로 추진하는 프로젝트입니다.
 
 #### 핵심 포인트
 
@@ -376,9 +346,6 @@ AWS Spatial Compute Blog의 내용을 바탕으로, VAMS가 NVIDIA Isaac Lab과 
   severity="Medium"
 -%}
 
-#### 요약
-
-Safari Technology Preview 237이 macOS Tahoe와 macOS Sequoia용으로 공개되었습니다.
 
 #### 핵심 포인트
 
@@ -401,9 +368,6 @@ Safari Technology Preview 237이 macOS Tahoe와 macOS Sequoia용으로 공개되
   severity="Medium"
 -%}
 
-#### 요약
-
-Chainalysis 분석에 따르면 동남아 기반 인신매매 관련 서비스로 유입되는 암호화폐가 2025년에 85% 증가했습니다. Telegram 기반 서비스가 중국계 자금세탁 네트워크와 연계되며 1만 달러 이상 거래 비중이 높은 것으로 보고되었습니다. 암호화폐의 투명성은 수사·컴플라이언스 관점에서 탐지 수단이 될 수 있습니다.
 
 #### 핵심 포인트
 
@@ -424,9 +388,6 @@ Chainalysis 분석에 따르면 동남아 기반 인신매매 관련 서비스�
   severity="Medium"
 -%}
 
-#### 요약
-
-태국이 파생상품·자본시장 내 Bitcoin 및 디지털 자산을 규제된 기준 자산으로 인정하는 방향을 추진하고 있습니다. 제도권 편입이 가속될 경우 거래소·수탁·리스크 관리 기준이 함께 강화될 가능성이 큽니다.
 
 #### 핵심 포인트
 
@@ -515,6 +476,7 @@ Chainalysis 분석에 따르면 동남아 기반 인신매매 관련 서비스�
 
 <!-- related-posts:v1 -->
 
-- [공급망 침해 사례, Windows 보안 업데이트, APT36 분석](/posts/2026/02/12/Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent/) — 2026-02-12
-- [CrashFix RAT, 초대형 DDoS 봇넷, Codespaces RCE 취약점](/posts/2026/02/06/Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/) — 2026-02-06
-- [Gemini 3.1 Pro 출시, AI 공급망 공격, Kubernetes 보안 강화](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+- [2026년 02월 12일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (3건)](/posts/2026/02/12/Tech_Security_Weekly_Digest_AI_Cloud_Security_Agent/) — 2026-02-12
+- [2026년 02월 06일 주간 보안 다이제스트: BYOVD EDR·DNS 유출·클라우드 (3건)](/posts/2026/02/06/Tech_Security_Weekly_Digest_AI_Botnet_Cloud_Threat/) — 2026-02-06
+- [2026년 02월 20일 주간 보안 다이제스트: 제로데이·악성코드·Kubernetes (3건)](/posts/2026/02/20/Tech_Security_Weekly_Digest_Gemini_AI_Supply_Chain_Kubernetes/) — 2026-02-20
+

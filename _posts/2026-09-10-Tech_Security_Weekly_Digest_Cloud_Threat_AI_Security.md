@@ -196,9 +196,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-폴 크리스티아노가 OpenAI 재단 이사회와 안전보안위원회에 합류했습니다. 그는 AI 정렬, 안전, 표준 분야에서의 경험을 기여할 예정입니다.
 
 
 ---
@@ -214,9 +211,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-9월 11일부터 14일까지 암스테르담에서 열리는 IBC 컨퍼런스는 미디어 및 엔터테인먼트 산업의 혁신을 논의하고 아이디어를 현실로 바꾸기 위해 창의, 기술, 비즈니스 커뮤니티를 한자리에 모읍니다. 170여 개국에서 온 44,000명 이상의 참석자들이 모여 1,300개 이상의 전시와 600명 이상의 연사들을 통해 새로운 아이디어를 탐구합니다.
 
 
 ---
@@ -232,9 +226,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-Google 검색에 경기를 위한 새로운 미식축구 기능들이 추가될 예정입니다. 이 소식은 황금 트로피, 파란색 헬멧 등 미식축구 요소를 담은 다채로운 그래픽으로 발표되었으며, Google 검색의 AI 모드 아이콘도 함께 포함되어 있습니다.
 
 
 ---
@@ -252,9 +243,6 @@ Google 검색에 경기를 위한 새로운 미식축구 기능들이 추가될 
   severity="Medium"
 %}
 
-#### 요약
-
-AlloyDB Omni Red Hat RPM 오케스트레이터가 정식 출시되어, 기업 환경에서 PostgreSQL 워크로드에 프로덕션 수준의 보안, 복원력 및 낮은 다운타임 운영을 제공합니다. 이를 통해 Google AI 기능을 활용하여 클라우드와 같은 데이터베이스 자동화를 가상 머신 및 베어메탈 서버에 직접 제공할 수 있습니다.
 
 
 ---
@@ -270,9 +258,6 @@ AlloyDB Omni Red Hat RPM 오케스트레이터가 정식 출시되어, 기업 �
   severity="Medium"
 %}
 
-#### 요약
-
-가트너는 2026년 기업 AI 어시스턴트 매직 쿼드런트에서 Google을 비전 완성도와 실행 능력 모두를 높이 평가하여 리더로 선정했습니다. Google의 제미니 엔터프라이즈는 조직이 유용하고 안전한 AI를 직원들의 일상 업무에 직접 도입하도록 지원합니다.
 
 
 ---
@@ -288,9 +273,6 @@ AlloyDB Omni Red Hat RPM 오케스트레이터가 정식 출시되어, 기업 �
   severity="Medium"
 %}
 
-#### 요약
-
-데이터베이스 현대화 과정에서 Google Cloud의 DMS를 통해 온프레미스 또는 클라우드 시스템의 애플리케이션 데이터베이스를 Cloud SQL for SQL Server로 성공적으로 동기화합니다. 데이터 복제가 완료되고 컷오버 준비가 되면, 다음 핵심 단계는 SQL Server 로그인 및 사용자를 Cloud SQL로 신속하게 마이그레이션하는 것입니다.
 
 
 ---
@@ -308,9 +290,6 @@ AlloyDB Omni Red Hat RPM 오케스트레이터가 정식 출시되어, 기업 �
   severity="Medium"
 %}
 
-#### 요약
-
-CodeQL 2.27.0이 이제 Linux ARM64에서 사용 가능해졌습니다. 이번 버전에는 새로운 Rust 보안 쿼리와 Java/Kotlin 및 C# 프레임워크 지원 확장, 그리고 여러 언어의 분석 정확도 개선이 포함됩니다.
 
 
 ---
@@ -326,9 +305,6 @@ CodeQL 2.27.0이 이제 Linux ARM64에서 사용 가능해졌습니다. 이번 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot Business 또는 Enterprise 관리자는 이제 에이전트 작업에 대한 권한을 중앙에서 관리할 수 있게 되었습니다. 이를 통해 특정 작업을 차단하거나, 사람의 승인을 요구하거나, 또는 프롬프트 없이 진행되도록 설정할 수 있습니다.
 
 
 ---
@@ -344,9 +320,6 @@ GitHub Copilot Business 또는 Enterprise 관리자는 이제 에이전트 작�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Advanced Security 평가판 이용 가능성이 더 많은 GitHub Enterprise Cloud 고객에게 확대되었습니다. 이에 따라 고객들은 자체적으로 GitHub 코드 보안 및 비밀 보호 기능을 직접 평가해볼 수 있게 됩니다.
 
 
 ---
@@ -364,9 +337,6 @@ GitHub Advanced Security 평가판 이용 가능성이 더 많은 GitHub Enterpr
   severity="Medium"
 %}
 
-#### 요약
-
-미국 재무장관 스콧 베센트가 상원에 Clarity Act를 통과시킬 것을 강력히 촉구했습니다. 상원 의원들은 다음 주에 이 오래 기다려온 암호화폐 Clarity Act에 대해 표결할 예정입니다.
 
 
 ---
@@ -381,9 +351,6 @@ GitHub Advanced Security 평가판 이용 가능성이 더 많은 GitHub Enterpr
   severity="Medium"
 %}
 
-#### 요약
-
-미국 재무부 해외자산통제국(OFAC)과 법무부(DOJ)가 수십억 달러 규모의 중국어 기반 사이버 범죄 마켓플레이스인 신비를 제재했습니다. 이 플랫폼은 범죄 조직과 돈세탁, 사기 등 다양한 불법 활동의 연계를 지원해왔습니다.
 
 
 ---
@@ -399,9 +366,6 @@ GitHub Advanced Security 평가판 이용 가능성이 더 많은 GitHub Enterpr
   severity="Medium"
 %}
 
-#### 요약
-
-잭 도시의 블록은 은행 인가를 신청한 최신 Bitcoin 전문 기업이 되었습니다. 블록은 Bitcoin 수탁 및 관련 신탁 서비스를 제공할 빌더스 뱅크를 설립하기 위해 이 라이선스를 원합니다.
 
 
 ---
@@ -452,6 +416,16 @@ GitHub Advanced Security 평가판 이용 가능성이 더 많은 GitHub Enterpr
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 09월 09일 주간 보안 다이제스트: Kubernetes·AI 에이전트·보안 위협 (30건)](/posts/2026/09/09/Tech_Security_Weekly_Digest_API_Bitcoin_AI_GPT/) — 2026-09-09
+- [2026년 09월 07일 주간 보안 다이제스트: 패치·악성코드·AI 에이전트 (20건)](/posts/2026/09/07/Tech_Security_Weekly_Digest_Patch_Go_GPT_Update/) — 2026-09-07
+- [2026년 09월 03일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (19건)](/posts/2026/09/03/Tech_Security_Weekly_Digest_AI_Agent_Go_Update/) — 2026-09-03
 
 ---
 

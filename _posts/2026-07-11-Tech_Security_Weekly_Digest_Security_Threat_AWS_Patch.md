@@ -219,9 +219,6 @@ DevSecOps 파이프라인에서 부트로더 취약점은 일반적으로 간과
   severity="Medium"
 %}
 
-#### 요약
-
-Deutsche Telekom은 OpenAI를 활용해 AI 기반 통신사로 전환 중이며, 고객 서비스, 직원 워크플로우, 네트워크 운영 및 음성 기술의 미래를 혁신하고 있습니다.
 
 ---
 
@@ -236,9 +233,6 @@ Deutsche Telekom은 OpenAI를 활용해 AI 기반 통신사로 전환 중이며,
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 채굴 기업 TeraWulf가 Morgan Stanley 주도로 35억 달러의 부채 조달을 추진 중이며, 이 자금은 AI 기업 Anthropic에 임대된 켄터키 데이터 센터 캠퍼스에 사용될 예정이다.
 
 ---
 
@@ -252,9 +246,6 @@ Bitcoin 채굴 기업 TeraWulf가 Morgan Stanley 주도로 35억 달러의 부�
   severity="Medium"
 %}
 
-#### 요약
-
-이 게시글은 NVIDIA Nemotron 3 아키텍처의 특징과 미세 조정 기법을 설명하며, Amazon SageMaker AI의 serverless model customization을 통해 SageMaker Studio에서 모델을 커스터마이징하는 방법을 단계별로 안내합니다.
 
 ---
 
@@ -270,9 +261,6 @@ Bitcoin 채굴 기업 TeraWulf가 Morgan Stanley 주도로 35억 달러의 부�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud EMEA가 영국 재무부로부터 금융 부문의 critical third party(CTP)로 지정되었으며, 이는 운영 탄력성과 책임 있는 혁신에 대한 Google Cloud의 지속적인 약속의 일환입니다.
 
 ---
 
@@ -287,9 +275,6 @@ Google Cloud EMEA가 영국 재무부로부터 금융 부문의 critical third p
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud이 AI 에이전트 평가의 신뢰성을 높이기 위해 정보 이론의 surprisal(놀라움) 지표와 반복적 난이도 조절(iSQR)을 적용한 Discovery Bench 메타벤치마크를 소개했습니다. 단일 표현 방식의 벤치마크가 성능 급락(capability cliff)을 감추고 정답 데이터셋 자체에 오류가 있을 수 있음을 지적하며, 평가자를 평가하는 문제를 다룹니다.
 
 ---
 
@@ -303,9 +288,6 @@ Google Cloud이 AI 에이전트 평가의 신뢰성을 높이기 위해 정보 �
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud의 최신 업데이트, 공지사항, 리소스, 이벤트 및 학습 기회를 한곳에서 확인할 수 있습니다. Google Cloud 블로그에서 원하는 정보를 찾는 방법에 대한 팁도 제공됩니다.
 
 ---
 
@@ -322,9 +304,6 @@ Google Cloud의 최신 업데이트, 공지사항, 리소스, 이벤트 및 학�
   severity="Medium"
 %}
 
-#### 요약
-
-CodeQL 2.26.0이 Kotlin 2.4.0을 지원하고 AI prompt injection 탐지 기능을 추가했습니다. 이는 GitHub code scanning의 정적 분석 엔진인 CodeQL의 최신 릴리스입니다.
 
 ---
 
@@ -339,9 +318,6 @@ CodeQL 2.26.0이 Kotlin 2.4.0을 지원하고 AI prompt injection 탐지 기능�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 secret scanning에서 사용하는 detector type의 이름을 각각이 비밀을 찾는 방식을 더 잘 반영하도록 변경했습니다. 이는 명칭 변경에 해당하며, 사용자가 secret scanning을 더 쉽게 이해할 수 있도록 하기 위한 조치입니다.
 
 ---
 
@@ -356,9 +332,6 @@ GitHub이 secret scanning에서 사용하는 detector type의 이름을 각각�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub 블로그에 따르면, Copilot 코드 리뷰에 더 나은 도구를 도입했지만 오히려 성능이 저하되었고, 이후 공유 Unix 스타일 코드 탐색 도구로 마이그레이션하여 에이전트 워크플로를 pull request 증거 중심으로 재구성함으로써 리뷰 비용을 절감했습니다.
 
 ---
 
@@ -375,9 +348,6 @@ GitHub 블로그에 따르면, Copilot 코드 리뷰에 더 나은 도구를 도
   severity="Medium"
 %}
 
-#### 요약
-
-미국 하원의원 French Hill이 8월 휴회 전에 상원이 CLARITY Act에 대한 표결을 진행할 것을 촉구했습니다. 이 법안은 투명한 암호화폐 시장 프레임워크를 구축하고 트럼프 대통령의 디지털 자산 벤처와 관련된 윤리적 우려를 해결할 것이라고 주장했습니다.
 
 ---
 
@@ -392,9 +362,6 @@ GitHub 블로그에 따르면, Copilot 코드 리뷰에 더 나은 도구를 도
   severity="Medium"
 %}
 
-#### 요약
-
-Circle(CRCL)이 OCC의 최종 승인을 받아 전국 신탁은행을 설립하게 되었으며, 이를 통해 USDC 준비금을 연방 감독 하에 두고 규제된 디지털 자산 수탁 사업을 확장할 수 있게 되었습니다.
 
 ---
 
@@ -409,9 +376,6 @@ Circle(CRCL)이 OCC의 최종 승인을 받아 전국 신탁은행을 설립하�
   severity="Medium"
 %}
 
-#### 요약
-
-Metaplanet이 Bitcoin 전략을 재무부 축적을 넘어 확장하며, 일본 부채 시장을 재편할 수 있는 토큰화된 Bitcoin 담보 신용 상품을 탐구하기 위한 공동 연구를 발표했습니다. 이 연구는 Bitcoin 기반 디지털 신용을 일본에 도입하는 것을 목표로 합니다.
 
 ---
 
@@ -471,6 +435,16 @@ Metaplanet이 Bitcoin 전략을 재무부 축적을 넘어 확장하며, 일본 
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 2건 인용 |
 | GitHub Engineering Blog | [github.blog](https://github.blog) | 본문 1건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 10일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (30건)](/posts/2026/07/10/Tech_Security_Weekly_Digest_AWS/) — 2026-07-10
+- [2026년 07월 12일 주간 보안 다이제스트: 패치·AI 에이전트·BYOVD EDR (16건)](/posts/2026/07/12/Tech_Security_Weekly_Digest_Rust_AI_Agent/) — 2026-07-12
+- [2026년 07월 08일 주간 보안 다이제스트: 악성코드·클라우드·AI 에이전트 (30건)](/posts/2026/07/08/Tech_Security_Weekly_Digest_Agent_Go_Data_AI/) — 2026-07-08
 
 ---
 

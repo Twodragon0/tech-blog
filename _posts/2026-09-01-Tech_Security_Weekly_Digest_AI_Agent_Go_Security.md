@@ -104,9 +104,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-북한과 연계된 위협 행위자들이 정보 기술(IT) 분야를 넘어 의료 및 영업 직종에서도 일자리를 구하는 것이 최근 조사에서 포착되었습니다. 이는 기존의 'IT 노동자 계획'으로 불리는 내부자 위협의 일환으로, 그 범위가 확대된 것으로 보입니다.
 
 
 #### 권장 조치
@@ -164,9 +161,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-AWS Security Hub Extended는 자사 서비스와 일부 중첩되는 경쟁사 솔루션인 Upwind를 플랫폼에 통합하는 이례적인 결정을 내렸습니다. 이는 고객들이 이미 효과적으로 사용하고 있는 솔루션을 수용하여 더 나은 엔터프라이즈 보안 경험을 제공하려는 전략적 선택입니다.
 
 
 #### 권장 조치
@@ -191,9 +185,6 @@ AWS Security Hub Extended는 자사 서비스와 일부 중첩되는 경쟁사 �
   severity="Medium"
 %}
 
-#### 요약
-
-폴리밀은 일본의 차세대 공공 AI 인프라를 구축하고 있습니다. 이 기업은 OpenAI의 GPT 모델과 코덱스를 활용하여 지자체의 행정 지식 검색 및 활용을 지원하고 개발 속도를 높입니다.
 
 
 ---
@@ -208,9 +199,6 @@ AWS Security Hub Extended는 자사 서비스와 일부 중첩되는 경쟁사 �
   severity="Medium"
 %}
 
-#### 요약
-
-ChatGPT 광고가 연간 10억 달러 매출을 달성하고 전 세계적으로 확장했습니다. 이는 무료 및 저렴한 옵션을 통해 AI에 대한 더 폭넓은 접근성을 지원합니다.
 
 
 ---
@@ -225,9 +213,6 @@ ChatGPT 광고가 연간 10억 달러 매출을 달성하고 전 세계적으로
   severity="Medium"
 %}
 
-#### 요약
-
-이 게시물에서는 AgentCore Runtime에 MCP 서버를 배포하고 호스팅하며 Amazon Quick과 통합하는 방법과 그 전제 조건에 대해 설명합니다. 이 패턴을 통해 AI 도구의 재사용성을 높이고 중복을 피하여, 클라이언트가 MCP 서버를 통해 노출된 도구와 에이전트를 처음부터 다시 작성하는 대신 재사용할 수 있게 됩니다.
 
 
 ---
@@ -245,9 +230,6 @@ ChatGPT 광고가 연간 10억 달러 매출을 달성하고 전 세계적으로
   severity="Medium"
 %}
 
-#### 요약
-
-기업 데이터에서 중요한 질문들은 개별 행을 넘어 데이터 간의 연결성에 관한 것이며, 기존에는 이를 위해 데이터를 별도의 그래프 데이터베이스로 추출해야 하는 한계가 있었습니다. 이를 해결하기 위해 BigQuery Graph는 데이터 웨어하우스에 네이티브 그래프 기능을 직접 통합하여, 관계형 인사이트를 제공하고 에이전트 시대의 지식 기반을 구축합니다.
 
 
 ---
@@ -263,9 +245,6 @@ ChatGPT 광고가 연간 10억 달러 매출을 달성하고 전 세계적으로
   severity="Medium"
 %}
 
-#### 요약
-
-2026년 8월 두 번째 클라우드 CISO 관점 글에서 크리스 시스트렁크와 스테파니 키엘은 물 산업이 직면한 중요한 문제들을 다룹니다. 이들은 OT 운영자들이 인프라를 안전하게 보호하기 위해 취할 수 있는 실행 가능한 조치들을 상세히 설명합니다.
 
 
 ---
@@ -300,9 +279,6 @@ ChatGPT 광고가 연간 10억 달러 매출을 달성하고 전 세계적으로
   severity="Medium"
 %}
 
-#### 요약
-
-새로운 팀원은 신뢰 여부를 판단하지 않고 발견하는 정보를 무분별하게 활용하여 보안 위험을 초래합니다. 이에 대한 해답은 강화된 기반과 에이전트를 위한 경계를 구축하는 것입니다.
 
 
 ---
@@ -318,9 +294,6 @@ ChatGPT 광고가 연간 10억 달러 매출을 달성하고 전 세계적으로
   severity="Medium"
 %}
 
-#### 요약
-
-VS Code용 GitHub Copilot의 2026년 8월 업데이트(v1.132-v1.135)가 공개되었습니다. 이번 업데이트를 통해 에이전트 세션 정리, 변경 사항 검토, 긴 대화 탐색 기능이 개선되었습니다.
 
 
 ---
@@ -336,9 +309,6 @@ VS Code용 GitHub Copilot의 2026년 8월 업데이트(v1.132-v1.135)가 공개�
   severity="High"
 %}
 
-#### 요약
-
-OpenTelemetry(OTel)가 마침내 CNCF 졸업 프로젝트 지위를 공식적으로 획득했습니다. 이로써 Kubernetes나 Prometheus와 같은 훌륭한 오픈소스 프로젝트들과 어깨를 나란히 하게 되었습니다.
 
 
 ---
@@ -356,9 +326,6 @@ OpenTelemetry(OTel)가 마침내 CNCF 졸업 프로젝트 지위를 공식적으
   severity="Medium"
 %}
 
-#### 요약
-
-마이크로스트레티지는 MSCI가 자사를 글로벌 투자 가능 시장 지수에서 제외하려는 제안에 반대했다. 회사 창립자 마이클 세일러와 CEO 퐁 르는 이 제안이 잘못되고 결함이 있으며 디지털 자산 기업을 차별하는 것이라고 비판했다.
 
 
 ---
@@ -374,9 +341,6 @@ OpenTelemetry(OTel)가 마침내 CNCF 졸업 프로젝트 지위를 공식적으
   severity="Medium"
 %}
 
-#### 요약
-
-스트라이브는 지난주 1억 4천3백만 달러 상당의 Bitcoin을 추가 매입하여 총 23,156 BTC를 보유하게 되었다. 이러한 매입으로 스트라이브는 다섯 번째로 큰 Bitcoin 보유 기업이 되었으며, 회사 주가는 급등했다.
 
 
 ---
@@ -392,9 +356,6 @@ OpenTelemetry(OTel)가 마침내 CNCF 졸업 프로젝트 지위를 공식적으
   severity="Medium"
 %}
 
-#### 요약
-
-러시아 스베르방크는 암호화폐 사업 구축 첫 해에 464억 달러 규모의 거래량을 예상하고 있습니다. 이는 러시아에서 Bitcoin 거래가 인기를 얻을 것으로 전망되며 암호화폐 규제 움직임이 활발하기 때문입니다.
 
 
 ---
@@ -447,6 +408,16 @@ OpenTelemetry(OTel)가 마침내 CNCF 졸업 프로젝트 지위를 공식적으
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 31일 주간 보안 다이제스트: 클라우드·악성코드·BYOVD EDR (15건)](/posts/2026/08/31/Tech_Security_Weekly_Digest_Cloud_AI_Data_Malware/) — 2026-08-31
+- [2026년 09월 02일 주간 보안 다이제스트: 제로데이·패치·악성코드 (30건)](/posts/2026/09/02/Tech_Security_Weekly_Digest_AI_Patch_Security_Agent/) — 2026-09-02
+- [2026년 08월 29일 주간 보안 다이제스트: 클라우드·패치·제로데이 (25건)](/posts/2026/08/29/Tech_Security_Weekly_Digest_Data_AI_Blockchain_AWS/) — 2026-08-29
 
 ---
 

@@ -205,9 +205,6 @@ DevSecOps 실무자에게 이번 공격은 다음과 같은 영향을 미친다.
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA CEO Jensen Huang이 캘리포니아 몬터레이에 있는 Naval Postgraduate School을 방문하여 NVIDIA DGX GB300 시스템을 가동했습니다. 이는 미국 군사 대학원의 학생, 연구자, 교수진을 위해 세계에서 가장 강력한 AI 플랫폼 중 하나를 완전히 온라인 상태로 전환한 것입니다.
 
 
 ---
@@ -222,9 +219,6 @@ NVIDIA CEO Jensen Huang이 캘리포니아 몬터레이에 있는 Naval Postgrad
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 Genesis Mission을 위해 40M 달러 상당의 AI 토큰과 크레딧을 지원하며 과학적 발견의 최전선을 가속화하겠다고 발표했습니다.
 
 
 ---
@@ -240,9 +234,6 @@ Google은 Genesis Mission을 위해 40M 달러 상당의 AI 토큰과 크레딧�
   severity="High"
 %}
 
-#### 요약
-
-NVIDIA가 최초의 GPU 가속 의료 물리 시뮬레이션 프레임워크를 오픈소스로 공개했습니다. 이 프레임워크는 의료 로봇이 실제 환경에서 유용해지기 위해 필요한 물리적 상호작용과 다양한 해부학적 변이, 드문 에지 시나리오를 학습할 수 있도록 지원합니다.
 
 
 ---
@@ -260,9 +251,6 @@ NVIDIA가 최초의 GPU 가속 의료 물리 시뮬레이션 프레임워크를 
   severity="Medium"
 %}
 
-#### 요약
-
-Checkout.com의 Data Platform 팀은 자체 호스팅 Apache Airflow 환경 유지보수에 많은 시간을 소비하며 파이프라인 구축에 집중하지 못하는 문제를 겪었습니다. 이에 따라 팀은 Cloud Composer 3로 마이그레이션하여 서버 관리와 패치 작업 부담을 줄이고 혁신에 집중할 수 있게 되었습니다.
 
 
 ---
@@ -277,9 +265,6 @@ Checkout.com의 Data Platform 팀은 자체 호스팅 Apache Airflow 환경 유�
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 Genesis Mission에 4천만 달러를 투자하여, 핵융합 플라즈마 시뮬레이션, 신소재 탐색, 첨단 실험 시설의 대규모 데이터 분석 등 현대 과학의 복잡한 과제를 해결하기 위해 Frontier AI를 활용할 계획입니다.
 
 
 ---
@@ -314,9 +299,6 @@ Google은 Genesis Mission에 4천만 달러를 투자하여, 핵융합 플라즈
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 enterprise 관리자와 organization 소유자를 위한 새로운 Copilot 사용 메트릭 영향 대시보드를 출시했습니다. 이 대시보드는 단순한 사용자 수를 넘어 Copilot의 더 깊은 영향력을 파악할 수 있도록 도와줍니다.
 
 
 ---
@@ -332,9 +314,6 @@ GitHub이 enterprise 관리자와 organization 소유자를 위한 새로운 Cop
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Enterprise Server(GHES)에서 지원 번들 업로드에 영향을 미치는 보안 변경이 2026년 8월 18일부터 적용될 예정입니다. 이 변경으로 인해 GitHub는 특정 조건에서 지원 번들 업로드를 거부하기 시작할 것이라고 공지했습니다.
 
 
 ---
@@ -349,9 +328,6 @@ GitHub Enterprise Server(GHES)에서 지원 번들 업로드에 영향을 미치
   severity="High"
 %}
 
-#### 요약
-
-Runtime Enforcement, Not Runtime Advice는 에이전틱 시스템에서 런타임 계층의 거버넌스 중요성을 강조하며, 격리, 정책 적용, 통제된 도구 접근이 핵심 요소로 부상하고 있음을 설명합니다.
 
 
 ---
@@ -369,9 +345,6 @@ Runtime Enforcement, Not Runtime Advice는 에이전틱 시스템에서 런타�
   severity="Medium"
 %}
 
-#### 요약
-
-스위스 은행 BancaStato가 Sygnum의 인프라를 통해 기존 뱅킹 앱에서 규제된 Bitcoin 거래 서비스를 시작했습니다. 이는 Sygnum과 Avaloq의 협력을 통해 이루어졌으며, 스위스 은행들의 암호화폐 채택 사례를 추가했습니다.
 
 
 ---
@@ -387,9 +360,6 @@ Runtime Enforcement, Not Runtime Advice는 에이전틱 시스템에서 런타�
   severity="Medium"
 %}
 
-#### 요약
-
-나스닥 상장사 Zhibao Technology가 3,500 Bitcoin을 수취하는 2억 2천만 달러 규모의 PIPE 자금 조달을 제안했습니다. 이는 중국 보험 기술 기업이 Bitcoin 재무를 구축하는 최신 상장사로 전환하는 움직임입니다.
 
 
 ---
@@ -405,9 +375,6 @@ Runtime Enforcement, Not Runtime Advice는 에이전틱 시스템에서 런타�
   severity="High"
 %}
 
-#### 요약
-
-Bitcoin Magazine의 보고서에 따르면 미국 내 crypto 업계 종사자 수는 적지만, 산업이 경제에 기여하는 비중은 상대적으로 크다고 분석했습니다.
 
 
 ---
@@ -470,6 +437,16 @@ Bitcoin Magazine의 보고서에 따르면 미국 내 crypto 업계 종사자 �
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 2건 인용 |
 | Docker Blog | [docker.com](https://www.docker.com) | 본문 1건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 07월 22일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (28건)](/posts/2026/07/22/Tech_Security_Weekly_Digest_AI_Apple_AWS_Go/) — 2026-07-22
+- [2026년 07월 20일 주간 보안 다이제스트: 제로데이·패치·악성코드 (15건)](/posts/2026/07/20/Tech_Security_Weekly_Digest_Vulnerability_AI_Malware_Zero-Day/) — 2026-07-20
+- [2026년 07월 26일 주간 보안 다이제스트: 악성코드·제로데이·패치 (15건)](/posts/2026/07/26/Tech_Security_Weekly_Digest_Malware_Vulnerability_Patch_AI/) — 2026-07-26
 
 ---
 

@@ -327,7 +327,7 @@ AML/컴플라이언스 시사점:
 
 <!-- related-posts:v1 -->
 
-- [Coruna iOS 익스플로잇, 핵티비스트 DDoS, 보안 대응 우선순위](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
-- [AI 에이전트 보안 위협, Gentlemen 랜섬웨어, 운영 대응 전략](/posts/2026/03/01/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/) — 2026-03-01
-- [Android 129개 취약점 패치, DevSecOps 보안 부채, K8s 공격 급증](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
+- [2026년 03월 05일 주간 보안 다이제스트: 제로데이·랜섬웨어·Kubernetes (4건)](/posts/2026/03/05/Tech_Security_Weekly_Digest_iOS_Exploit_Hacktivist_DDoS/) — 2026-03-05
+- [2026년 03월 01일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·DNS 유출 (3건)](/posts/2026/03/01/Tech_Security_Weekly_Digest_AI_Agent_Ransomware/) — 2026-03-01
+- [2026년 03월 07일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (4건)](/posts/2026/03/07/Tech_Security_Weekly_Digest_Android_Zero_Day_DevSecOps/) — 2026-03-07
 

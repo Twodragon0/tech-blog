@@ -255,9 +255,6 @@ NVIDIA와 12개 이상의 엔지니어링 소프트웨어 기업들이 GTC Taipe
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA와 Microsoft가 Windows 디바이스, Azure 클라우드, 로컬 배포를 아우르는 통합 스택을 통해 Agentic AI 배포를 지원한다고 발표했다. 이는 빠른 하드웨어, 보안 런타임, 반응형 데이터 레이어, 장기 추론에 최적화된 모델을 포함한 전체 스택을 개발자에게 제공하는 것을 목표로 한다.
 
 ---
 
@@ -271,9 +268,6 @@ NVIDIA와 Microsoft가 Windows 디바이스, Azure 클라우드, 로컬 배포�
   severity="Medium"
 %}
 
-#### 요약
-
-Travelers가 OpenAI와 협력하여 AI 기반 Claim Assistant를 구축, 전국적으로 고객의 보험 청구 접수를 안내하고 24/7 지원을 제공하며 수요 급증 시 운영을 확장하고 있다.
 
 ---
 
@@ -307,9 +301,6 @@ Google Cloud Storage (GCS)는 현대 에이전트 기술 스택의 핵심이며 
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud Next에서 Spanner Graph의 그래프 알고리즘 미리보기가 발표되었으며, Google Research의 최첨단 그래프 마이닝 기능을 데이터베이스에 기본적으로 제공합니다. 이를 통해 그래프 데이터에서 더 빠르고 저렴하게 대규모 인사이트를 얻을 수 있습니다.
 
 ---
 
@@ -324,9 +315,6 @@ Google Cloud Next에서 Spanner Graph의 그래프 알고리즘 미리보기가 
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud Storage(GCS) 최적화를 위한 오픈소스 Java 라이브러리 gcs-analytics-core가 출시되어 Apache Iceberg와 Spark의 성능을 향상시킵니다. 이 라이브러리는 여러 분석 엔진 간 호환성 문제를 해결하고 GCS에서 고성능을 제공합니다.
 
 ---
 
@@ -342,9 +330,6 @@ Google Cloud Storage(GCS) 최적화를 위한 오픈소스 Java 라이브러리 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub이 2026년 6월 1일부로 모든 GitHub Copilot 환경에서 GPT-4.1을 공식적으로 deprecated 처리했으며, 대체 모델 사용을 권장하고 있습니다.
 
 ---
 
@@ -359,9 +344,6 @@ GitHub이 2026년 6월 1일부로 모든 GitHub Copilot 환경에서 GPT-4.1을 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot 앱의 기술 프리뷰가 기존 Copilot Pro, Pro+, Business 및 Enterprise 고객 모두에게 확대 제공됩니다. Windows, macOS, Linux용 Copilot 앱을 다운로드하여 사용할 수 있습니다.
 
 ---
 
@@ -376,9 +358,6 @@ GitHub Copilot 앱의 기술 프리뷰가 기존 Copilot Pro, Pro+, Business 및
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot SDK가 정식 출시되어 안정적인 API와 프로덕션 지원을 통해 자체 애플리케이션, 서비스, 개발자 도구에 Copilot의 에이전틱 엔진을 임베드할 수 있게 되었습니다.
 
 ---
 
@@ -394,9 +373,6 @@ GitHub Copilot SDK가 정식 출시되어 안정적인 API와 프로덕션 지�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 재무부 OFAC가 이란의 주요 암호화폐 거래소 Nobitex, Bitpin 등을 제재 대상으로 지정하며 대규모 제재 회피 단속에 나섰습니다. 이번 조치는 이란 거래소들이 미국 제재를 우회하는 경로로 악용된 데 따른 것입니다. 해당 내용은 Chainalysis를 통해 처음 보도되었습니다.
 
 ---
 
@@ -411,9 +387,6 @@ GitHub Copilot SDK가 정식 출시되어 안정적인 API와 프로덕션 지�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 상원의원 Bernie Sanders와 Elizabeth Warren이 Donald Trump 행정부의 노동부에 대해 Bitcoin 및 기타 암호화폐를 퇴직 계좌에 포함시키는 제안된 규칙을 철회할 것을 촉구하고 있습니다. 이들은 해당 규칙이 근로자들의 은퇴 저축을 위험에 빠뜨릴 수 있다고 주장하며 반대 입장을 표명했습니다.
 
 ---
 
@@ -428,9 +401,6 @@ GitHub Copilot SDK가 정식 출시되어 안정적인 API와 프로덕션 지�
   severity="Medium"
 %}
 
-#### 요약
-
-미국 재무부가 이란 최대 거래소 Nobitex를 포함한 총 4개 플랫폼(Nobitex, Wallex, Bitpin, Ramzinex)과 주요 임원들을 제재 명단에 올리며 이란의 디지털 자산 네트워크와 제재 회피 활동을 차단하려는 경제 전쟁을 강화했습니다.
 
 ---
 
@@ -487,6 +457,16 @@ GitHub Copilot SDK가 정식 출시되어 안정적인 API와 프로덕션 지�
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 3건 인용 |
 | Chainalysis Blog | [chainalysis.com](https://www.chainalysis.com) | 본문 1건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 2건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 02일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (30건)](/posts/2026/06/02/Tech_Security_Weekly_Digest_AI_Update_Data_Go/) — 2026-06-02
+- [2026년 06월 04일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (24건)](/posts/2026/06/04/Tech_Security_Weekly_Digest_Go_AI_Zero-Day_CVE/) — 2026-06-04
+- [2026년 05월 31일 주간 보안 다이제스트: 제로데이·블록체인·보안 위협 (15건)](/posts/2026/05/31/Tech_Security_Weekly_Digest_CVE_Vulnerability_AI/) — 2026-05-31
 
 ---
 

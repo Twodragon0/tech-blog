@@ -187,9 +187,6 @@ AWS Korea Blog에서 소개한 Agentic AI 기반 플랫폼 구축 사례입니�
   severity="Medium"
 -%}
 
-#### 요약
-
-AWS에서 ASP.NET 모노리스 애플리케이션의 마이크로서비스 전환을 지원하는 새로운 도구인 AWS Transform Custom을 소개했습니다. 기존 AWS Microservice Extractor for .NET의 후속 도구로, CodeGuru 기반 분석 엔진을 활용하여 모노리스 코드의 의존성 그래프를 분석하고 최적의 분리 지점을 자동 식별합니다.
 
 #### 핵심 정보
 

@@ -212,9 +212,6 @@ DevSecOps 실무자에게 이번 업데이트는 다음과 같은 실질적 영�
   severity="Medium"
 %}
 
-#### 요약
-
-Palantir의 Gotham Core Platform 조직이 Elasticsearch 대규모 재색인 작업의 성능, 신뢰성 및 관측 가능성을 관리하는 방법을 시리즈의 네 번째 글로 소개합니다. 이 글은 Palantir가 인프라 소프트웨어를 안정적인 대규모 운영에 맞게 맞춤화하는 과정을 다룹니다.
 
 ---
 
@@ -228,9 +225,6 @@ Palantir의 Gotham Core Platform 조직이 Elasticsearch 대규모 재색인 작
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI가 SEC에 기밀 S-1 초안을 제출했음을 확인했으며, 추가 조치 시점은 아직 결정되지 않았습니다.
 
 ---
 
@@ -263,9 +257,6 @@ OpenAI가 SEC에 기밀 S-1 초안을 제출했음을 확인했으며, 추가 �
   severity="Medium"
 %}
 
-#### 요약
-
-Alcidion은 AlloyDB를 도입하여 임상 정보학 분야에서 더 큰 안정성과 성능을 달성했습니다. 이 스마트 헬스 솔루션 기업은 기술을 통해 임상의의 인지 부하를 줄이고 적시에 올바른 정보를 제공하여 생명을 구하는 것을 목표로 합니다.
 
 ---
 
@@ -279,9 +270,6 @@ Alcidion은 AlloyDB를 도입하여 임상 정보학 분야에서 더 큰 안정
   severity="Medium"
 %}
 
-#### 요약
-
-이번 주 AWS IoT Device SDK for Swift가 정식 출시되어 Swift 개발자들이 macOS, iOS, tvOS, Linux에서 MQTT 5 연결, Device Shadow, Jobs, fleet provisioning을 사용할 수 있게 되었습니다.
 
 ---
 
@@ -295,9 +283,6 @@ Alcidion은 AlloyDB를 도입하여 임상 정보학 분야에서 더 큰 안정
   severity="High"
 %}
 
-#### 요약
-
-AWS와 NVIDIA가 시뮬레이션과 실제 환경 학습을 결합하여 프로덕션 레디 수준의 Physical AI 애플리케이션을 구축하는 방법을 소개합니다. 로봇 등 물리 세계와 상호작용하는 AI 시스템을 개발하고 배포하기 위한 접근 방식을 다룹니다.
 
 ---
 
@@ -313,9 +298,6 @@ AWS와 NVIDIA가 시뮬레이션과 실제 환경 학습을 결합하여 프로�
   severity="High"
 %}
 
-#### 요약
-
-소프트웨어 공급망 보안의 중요성을 인식하는 것과 실제 파이프라인에서 이를 실행하는 것은 별개의 과제입니다. 대부분의 조직은 공격 표면이 증가하고 있음을 알지만, 이를 구체적이고 반복 가능한 실천으로 전환하는 데 어려움을 겪고 있습니다.
 
 ---
 
@@ -330,9 +312,6 @@ AWS와 NVIDIA가 시뮬레이션과 실제 환경 학습을 결합하여 프로�
   severity="High"
 %}
 
-#### 요약
-
-GitHub Enterprise Cloud의 Enterprise Managed Users(EMUs)가 이제 사용자 네임스페이스 전반에 걸쳐 GitHub의 기본 IP allow list 구성을 적용할 수 있게 되었으며, 이 기능이 일반 공급(GA)으로 전환되었습니다.
 
 ---
 
@@ -346,9 +325,6 @@ GitHub Enterprise Cloud의 Enterprise Managed Users(EMUs)가 이제 사용자 �
   severity="Medium"
 %}
 
-#### 요약
-
-Safari Technology Preview 245가 macOS Tahoe와 macOS Sequoia용으로 다운로드 가능해졌습니다. 이번 릴리스는 최신 웹 기술을 테스트할 수 있는 Safari의 실험적 브라우저 업데이트입니다.
 
 ---
 
@@ -365,9 +341,6 @@ Safari Technology Preview 245가 macOS Tahoe와 macOS Sequoia용으로 다운로
   severity="Medium"
 %}
 
-#### 요약
-
-Sam Bankman-Fried가 도널드 트럼프 대통령에게 공식적으로 사면을 요청하는 청원서를 제출했습니다. 그러나 트럼프 대통령은 FTX 창립자에게 사면을 허용할 의사가 없다고 공개적으로 밝힌 상태입니다.
 
 ---
 
@@ -382,9 +355,6 @@ Sam Bankman-Fried가 도널드 트럼프 대통령에게 공식적으로 사면�
   severity="Medium"
 %}
 
-#### 요약
-
-200개 이상의 기업과 단체로 구성된 Crypto Coalition이 미국 상원 지도부에 서한을 보내 Digital Asset Market Clarity Act를 본회의 표결에 상정할 것을 촉구했습니다. 이 법안은 암호화폐 규제 명확성을 제공하는 것을 목표로 합니다.
 
 ---
 
@@ -399,9 +369,6 @@ Sam Bankman-Fried가 도널드 트럼프 대통령에게 공식적으로 사면�
   severity="Medium"
 %}
 
-#### 요약
-
-Strive (ASST)가 미국 증권거래위원회에 제출한 Form 8-K에 따르면, 2026년 6월 2일부터 7일 사이에 평균 63,900달러에 32 Bitcoin을 매수하여 약 210만 달러를 지출했습니다. 이번 매수로 Strive의 총 Bitcoin 보유량은 19,032 BTC로 증가했습니다.
 
 ---
 
@@ -466,6 +433,16 @@ Strive (ASST)가 미국 증권거래위원회에 제출한 Form 8-K에 따르면
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 1건 인용 |
 | WebKit Blog | [webkit.org](https://webkit.org) | 본문 1건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 08일 주간 보안 다이제스트: 악성코드·AI 에이전트·블록체인 (18건)](/posts/2026/06/08/Tech_Security_Weekly_Digest_AI_Malware_Botnet_Vulnerability/) — 2026-06-08
+- [2026년 06월 10일 주간 보안 다이제스트: 제로데이·패치·AI 에이전트 (30건)](/posts/2026/06/10/Tech_Security_Weekly_Digest_AI_Data_Zero-Day_Cloud/) — 2026-06-10
+- [2026년 06월 06일 주간 보안 다이제스트: 악성코드·패치·Kubernetes (25건)](/posts/2026/06/06/Tech_Security_Weekly_Digest_AI_Threat/) — 2026-06-06
 
 ---
 

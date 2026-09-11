@@ -177,9 +177,6 @@ DevSecOps 실무자에게 이 위협은 다음과 같은 직접적 영향을 미
   severity="Medium"
 %}
 
-#### 요약
-
-Sonic Labs 이사회에서 Andre Cronje, Michael Kong, David Richardson 등 전직 임원 3명이 사임하면서 Sonic 토큰이 5% 하락했습니다. Matt Visser가 2월에 사임한 Mitchell Demeter를 대신해 새로운 CEO로 임명되었습니다.
 
 ---
 
@@ -194,9 +191,6 @@ Sonic Labs 이사회에서 Andre Cronje, Michael Kong, David Richardson 등 전�
   severity="Medium"
 %}
 
-#### 요약
-
-AI 기반 자동화 도구가 스마트 컨트랙트 감사와 위협 탐지를 더 저렴하고 빠르게 만들면서 암호화폐 보안이 더 이상 무시하기 어려운 과제가 되고 있다고 CoinDesk가 분석했습니다.
 
 ---
 
@@ -211,9 +205,6 @@ AI 기반 자동화 도구가 스마트 컨트랙트 감사와 위협 탐지를 
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy의 우선주 STRC가 액면가를 잃고 폭락하기까지의 과정을 CoinDesk가 시간 순으로 정리했습니다.
 ---
 
 ## 3. 기타 주목할 뉴스
@@ -262,6 +253,16 @@ Strategy의 우선주 STRC가 액면가를 잃고 폭락하기까지의 과정�
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 2건 인용 |
 | Unit 42 (Palo Alto) | [unit42.paloaltonetworks.com](https://unit42.paloaltonetworks.com) | 본문 1건 인용 |
 | CoinDesk | [coindesk.com](https://www.coindesk.com) | 본문 2건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 21일 주간 보안 다이제스트: 제로데이·패치·랜섬웨어 (15건)](/posts/2026/06/21/Tech_Security_Weekly_Digest_API_Ransomware_AI_Bitcoin/) — 2026-06-21
+- [2026년 06월 23일 주간 보안 다이제스트: 패치·AI 에이전트·클라우드 (27건)](/posts/2026/06/23/Tech_Security_Weekly_Digest_AI_AWS_Go/) — 2026-06-23
+- [2026년 06월 19일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/19/Tech_Security_Weekly_Digest_Patch_AWS_AI_Agent/) — 2026-06-19
 
 ---
 

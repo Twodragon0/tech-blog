@@ -322,3 +322,13 @@ OpenSSL은 지구상에서 가장 많이 검토되고 감사된 암호화 라이
 - [n8n Critical RCE, D-Link Zero-Day, Kubernetes AI Agent 보안](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/) — 2026-01-29
 - [VMware vCenter KEV 패치, Fortinet SSO 우회, Sandworm DynoWiper](/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/) — 2026-01-25
 
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 01월 31일 주간 보안 다이제스트: DNS 유출·클라우드·피싱 (4건)](/posts/2026/01/31/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/) — 2026-01-31
+- [2026년 01월 29일 주간 보안 다이제스트: 제로데이·DNS 유출·AI 에이전트 (5건)](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/) — 2026-01-29
+- [2026년 01월 25일 주간 보안 다이제스트: 제로데이·랜섬웨어·악성코드 (5건)](/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/) — 2026-01-25
+

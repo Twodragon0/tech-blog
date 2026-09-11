@@ -233,9 +233,6 @@ AutoJack 공격은 **AI 브라우징 에이전트**가 웹 페이지를 로드�
   severity="Medium"
 %}
 
-#### 요약
-
-Amazon Bedrock AgentCore의 Web Search 기능이 정식 출시되었습니다. 이 기능은 기존 검색 방식과 차별화된 특징을 가지며, 몇 줄의 코드로 쉽게 통합할 수 있습니다.
 
 ---
 
@@ -267,9 +264,6 @@ Amazon Bedrock AgentCore의 Web Search 기능이 정식 출시되었습니다. �
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud의 최신 업데이트, 공지사항, 리소스, 이벤트 및 학습 기회를 한곳에서 확인할 수 있습니다. Google Cloud 블로그에서 원하는 정보를 찾는 방법에 대한 팁도 제공됩니다.
 
 ---
 
@@ -285,9 +279,6 @@ Google Cloud의 최신 업데이트, 공지사항, 리소스, 이벤트 및 학�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Copilot usage metrics API가 이제 사용자별 일일 AI credits 소비량을 보고하며, 이 데이터는 usage-based billing API에서 사용되는 것과 동일한 AI credits 소비 데이터에서 파생됩니다.
 
 ---
 
@@ -304,9 +295,6 @@ GitHub의 Copilot usage metrics API가 이제 사용자별 일일 AI credits 소
   severity="Medium"
 %}
 
-#### 요약
-
-JPMorgan은 BTC가 예상 생산 비용인 78,000달러보다 약 19% 낮은 가격에 거래되면서 Bitcoin 채굴 경제성이 악화되었다고 밝혔습니다. 이로 인해 상장 채굴 기업들은 사상 최대 규모의 코인 매도에 나섰으며, 업계의 약 20%가 수익성을 잃은 상황입니다.
 
 ---
 
@@ -321,9 +309,6 @@ JPMorgan은 BTC가 예상 생산 비용인 78,000달러보다 약 19% 낮은 가
   severity="High"
 %}
 
-#### 요약
-
-예측 시장 플랫폼 Kalshi가 연간 매출 20억 달러를 돌파하며 2027년 또는 2028년 IPO를 추진 중이다. 이 소식은 Bitcoin Magazine이 보도했다.
 
 ---
 
@@ -338,9 +323,6 @@ JPMorgan은 BTC가 예상 생산 비용인 78,000달러보다 약 19% 낮은 가
   severity="Medium"
 %}
 
-#### 요약
-
-Kevin Warsh의 첫 FOMC 회의에서 매파적 기조가 드러나며 달러가 지속적인 관리가 필요함을 보여준 반면, Bitcoin은 고정된 공급량으로 자동 운영되도록 설계되었다는 점을 Bitcoin Magazine의 Nick Ward가 지적했다.
 
 ---
 
@@ -396,6 +378,16 @@ Kevin Warsh의 첫 FOMC 회의에서 매파적 기조가 드러나며 달러가 
 | Google Cloud Blog | [cloud.google.com](https://cloud.google.com) | 본문 1건 인용 |
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 1건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 06월 19일 주간 보안 다이제스트: 제로데이·클라우드·패치 (30건)](/posts/2026/06/19/Tech_Security_Weekly_Digest_Patch_AWS_AI_Agent/) — 2026-06-19
+- [2026년 06월 21일 주간 보안 다이제스트: 제로데이·패치·랜섬웨어 (15건)](/posts/2026/06/21/Tech_Security_Weekly_Digest_API_Ransomware_AI_Bitcoin/) — 2026-06-21
+- [2026년 06월 17일 주간 보안 다이제스트: AI 에이전트·클라우드·악성코드 (30건)](/posts/2026/06/17/Tech_Security_Weekly_Digest_AI_Go_Update_Malware/) — 2026-06-17
 
 ---
 

@@ -35,6 +35,7 @@ summary_card:
     - { source: "The Hacker News", title: "Microsoft, Linux 서버에서 Cron을 통해 지속되는 쿠키 제어 PHP 웹 셸 상세 공개" }
     - { source: "BleepingComputer", title: "LinkedIn, 6,000개 이상 Chrome 확장 프로그램 은밀히 스캔해 데이터 수집" }
     - { source: "Google Cloud Blog", title: "Envoy: 에이전트 AI 네트워킹을 위한 미래 대비 기반" }
+superseded_by: /posts/2026/04/05/Week1_April_2026_Security_Digest/
 ---
 
 {% include ai-summary-card.html %}
@@ -190,9 +191,6 @@ DevSecOps 실무자에게 이 사건은 **서드파티 스크립트 관리와 CS
   severity="Medium"
 %}
 
-#### 요약
-
-에이전트 AI 환경에서 네트워크는 모델 호출, 도구 실행, 에이전트 간 상호작용, 정책 결정의 중앙에 위치해 새로운 역할을 담당합니다. Envoy는 이러한 에이전트 네이티브 시대의 AI 네트워킹을 위한 미래지향적 기반으로 제시됩니다.
 
 ---
 
@@ -206,9 +204,6 @@ DevSecOps 실무자에게 이 사건은 **서드파티 스크립트 관리와 CS
   severity="Medium"
 %}
 
-#### 요약
-
-Google이 Vertex AI에 가장 비용 효율적인 비디오 모델인 Veo 3.1 Lite를 출시했습니다. 또한 기존 비디오 화질을 개선할 수 있는 새로운 독립형 Veo 업스케일링 기능도 Vertex AI에 함께 선보였습니다.
 
 ---
 
@@ -222,9 +217,6 @@ Google이 Vertex AI에 가장 비용 효율적인 비디오 모델인 Veo 3.1 Li
   severity="High"
 %}
 
-#### 요약
-
-Google Cloud의 최신 업데이트, 발표, 리소스, 이벤트 등을 한곳에서 확인할 수 있습니다. Google Cloud 블로그에서 원하는 정보를 찾는 방법은 'Google Cloud blog 101'을 참고하면 됩니다.
 
 ---
 
@@ -241,9 +233,6 @@ Google Cloud의 최신 업데이트, 발표, 리소스, 이벤트 등을 한곳�
   severity="High"
 %}
 
-#### 요약
-
-GitHub Copilot cloud agent가 작업을 수행할 때마다 GitHub Actions로 구동되는 새로운 개발 환경을 시작합니다. 이제 조직은 이를 위한 runner를 GitHub 호스팅 runner에서 자체 관리형 runner로 제어할 수 있게 되었습니다.
 
 ---
 
@@ -258,9 +247,6 @@ GitHub Copilot cloud agent가 작업을 수행할 때마다 GitHub Actions로 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub는 2026년 4월 1일부터 모든 GitHub Copilot 경험에서 GPT-5.1 Codex, GPT-5.1-Codex-Max, GPT-5.1-Codex-Mini 모델의 사용을 중단합니다. 이는 Copilot Chat, 인라인 편집, 에이전트 모드 등 모든 기능에 적용됩니다.
 
 ---
 
@@ -275,9 +261,6 @@ GitHub는 2026년 4월 1일부터 모든 GitHub Copilot 경험에서 GPT-5.1 Cod
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Blog에 따르면 성능 향상을 위한 길은 종종 단순함에서 찾을 수 있으며, 이는 diff lines 성능 개선을 위한 힘든 과정에서도 마찬가지입니다.
 
 ---
 
@@ -294,9 +277,6 @@ GitHub Blog에 따르면 성능 향상을 위한 길은 종종 단순함에서 �
   severity="Medium"
 %}
 
-#### 요약
-
-Charles Schwab가 'Schwab Crypto' 계좌를 통해 고객이 직접 Bitcoin을 매수 및 매도할 수 있는 신규 상품 출시를 계획하고 있습니다. 이는 Charles Schwab가 디지털 자산 영역으로 더욱 깊이 진출하는 것을 의미합니다.
 
 ---
 
@@ -328,9 +308,6 @@ Jack Dorsey가 "Bitcoin Day"와 연계해 Gavin Andresen의 2010년 방식과 �
   severity="Medium"
 %}
 
-#### 요약
-
-Riot Platforms가 채굴에서 AI 인프라로의 전환을 위해 1분기에 3,778 BTC를 생산량의 2.5배 이상 매각했습니다. 이는 Bitcoin Magazine에 Micah Zimmerman이 작성한 기사로 소개되었습니다.
 
 ---
 

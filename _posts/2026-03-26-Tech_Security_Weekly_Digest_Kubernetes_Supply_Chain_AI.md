@@ -306,9 +306,6 @@ Anthropic이 제안한 MCP(Model Context Protocol)가 AI 에이전트 생태계�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud가 GKE Autopilot의 보안 기능을 대폭 강화했습니다. Workload Identity Federation이 기본 활성화되어 서비스 계정 키 없이도 Google Cloud 서비스에 안전하게 접근할 수 있으며, Binary Authorization이 Autopilot 모드에서도 완전 지원됩니다.
 
 ---
 
@@ -322,9 +319,6 @@ Google Cloud가 GKE Autopilot의 보안 기능을 대폭 강화했습니다. Wor
   severity="Medium"
 %}
 
-#### 요약
-
-NIST가 마이크로서비스 아키텍처의 서비스 메시 보안과 API 게이트웨이 보안 모범 사례를 담은 SP 800-204D를 발행했습니다. 서비스 간 인증, mTLS 적용, API 보안 정책에 대한 실무 가이드를 제공합니다.
 
 ---
 
@@ -356,9 +350,6 @@ NIST가 마이크로서비스 아키텍처의 서비스 메시 보안과 API 게
   severity="Medium"
 %}
 
-#### 요약
-
-Tekton이 CNCF 인큐베이팅 프로젝트로 승격된 이후, SLSA Provenance 생성을 네이티브로 지원하는 Tekton Chains 기능이 안정화되었습니다. Tekton Chains는 파이프라인 실행 결과를 자동으로 서명하고, SLSA 레벨 3 수준의 빌드 보증을 제공합니다.
 
 ---
 
@@ -372,9 +363,6 @@ Tekton이 CNCF 인큐베이팅 프로젝트로 승격된 이후, SLSA Provenance
   severity="Medium"
 %}
 
-#### 요약
-
-GitOps 환경에서 ArgoCD와 Kyverno를 조합한 보안 정책 자동화가 업계 모범 사례로 자리잡고 있습니다. ArgoCD가 Git 저장소의 매니페스트를 클러스터에 동기화할 때, Kyverno가 정책 위반 여부를 실시간으로 검증하여 비준수 리소스의 배포를 차단합니다.
 
 ---
 
@@ -496,9 +484,9 @@ GitOps 환경에서 ArgoCD와 Kyverno를 조합한 보안 정책 자동화가 �
 
 <!-- related-posts:v1 -->
 
-- [Trivy 공급망 침해 대응, LiteLLM 백도어, EDR 우회 멀웨어 - 보안 주간 다이제스트](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) — 2026-03-25
-- [AWS IAM Zero Trust, GCP Workload Identity, FinOps 최적화](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/) — 2026-03-27
-- [Gentlemen 랜섬웨어 확산, 제로트러스트 가시성, EQST 위협 인사이트](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/) — 2026-03-23
+- [2026년 03월 25일 주간 보안 다이제스트: 랜섬웨어·악성코드·BYOVD EDR (15건)](/posts/2026/03/25/Tech_Security_Weekly_Digest_AI_LLM_Malware_Agent/) — 2026-03-25
+- [2026년 03월 27일 주간 보안 다이제스트: DNS 유출·클라우드·패치 (10건)](/posts/2026/03/27/Tech_Security_Weekly_Digest_Zero_Trust_Cloud_FinOps/) — 2026-03-27
+- [2026년 03월 23일 주간 보안 다이제스트: 랜섬웨어·BYOVD EDR·클라우드 (3건)](/posts/2026/03/23/Tech_Security_Weekly_Digest_Ransomware/) — 2026-03-23
 
 ---
 

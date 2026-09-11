@@ -184,9 +184,6 @@ DevSecOps 관점에서 가장 큰 문제는 **인적 요소가 보안 제어 체
   severity="Medium"
 %}
 
-#### 요약
-
-OpenAI는 Astra에 대한 예비 사이버보안 평가 결과를 공유하고, 보호 장치와 보안 통제를 강화하기 위한 조치를 취하고 있다고 발표했다. 이는 핵심 사이버 역량의 다음 단계에 대응하기 위한 노력의 일환이다.
 
 
 ---
@@ -201,9 +198,6 @@ OpenAI는 Astra에 대한 예비 사이버보안 평가 결과를 공유하고, 
   severity="Medium"
 %}
 
-#### 요약
-
-HSP GRUPPE는 ChatGPT Enterprise를 활용해 세무 자문과 고객 서비스의 생산성과 업무 품질을 향상시키고, 추가 역량을 확보하는 AI 역량을 구축하고 있다.
 
 
 ---
@@ -219,9 +213,6 @@ HSP GRUPPE는 ChatGPT Enterprise를 활용해 세무 자문과 고객 서비스�
   severity="Medium"
 %}
 
-#### 요약
-
-Netflix가 실시간 분산 그래프(RDG)를 구축한 방법과 이유를 설명하는 시리즈의 3부로, gRPC execution API를 통한 그래프 쿼리 방식을 다룹니다. 1부에서는 RDG의 동기와 데이터 처리 파이프라인 아키텍처를 소개했습니다.
 
 
 ---
@@ -238,9 +229,6 @@ Netflix가 실시간 분산 그래프(RDG)를 구축한 방법과 이유를 설�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud가 BigQuery Data Transfer Service(DTS)에 zero-code, 저비용 데이터 수집 기능을 추가했다. 기업들이 매주 100시간 이상을 허약한 사내 ETL 파이프라인 구축에 낭비하는 문제를 해결하며, 수천 명의 고객이 매일 신뢰하는 DTS가 이러한 엔지니어링 부담을 제거한다.
 
 
 ---
@@ -255,9 +243,6 @@ Google Cloud가 BigQuery Data Transfer Service(DTS)에 zero-code, 저비용 데�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud는 공유 운명 모델(shared fate model)을 기반으로 고객 데이터와 시스템 보안을 최우선 과제로 삼고, 워크로드의 안전한 배포를 위한 도구와 거버넌스를 제공합니다. 또한 잠재적 위협을 사전에 탐지하고 차단하여 인프라 악용과 데이터 침해를 방지하기 위해 지속적으로 노력하고 있습니다.
 
 
 ---
@@ -273,9 +258,6 @@ Google Cloud는 공유 운명 모델(shared fate model)을 기반으로 고객 �
   severity="Medium"
 %}
 
-#### 요약
-
-BigQuery의 새로운 검색 혁신을 통해 기업들은 PDF, 오디오, 이미지 등 비정형 데이터를 기존 정형 데이터와 통합해 분석할 수 있게 되었습니다. 이전에는 데이터 웨어하우스 외부로 데이터를 이동하고 복잡한 LLM 파이프라인과 별도의 검색 인덱스를 관리해야 했던 파편화된 구조가 필요했지만, 이제는 단일 플랫폼에서 통합된 인사이트를 얻을 수 있습니다.
 
 
 ---
@@ -293,9 +275,6 @@ BigQuery의 새로운 검색 혁신을 통해 기업들은 PDF, 오디오, 이�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot의 데스크톱 앱, CLI, VS Code에서 이번 주 업데이트가 제공되어 작업 재개 및 정리, 변경 사항 검토, 컨텍스트 유지 질문이 가능해졌습니다. 자세한 내용은 GitHub Blog에 게시되었습니다.
 
 
 ---
@@ -311,9 +290,6 @@ GitHub Copilot의 데스크톱 앱, CLI, VS Code에서 이번 주 업데이트�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Enterprise 소유자는 이제 기업 계정에 외부에서 생성된 공개 GitHub Apps를 설치할 수 있습니다. 이를 통해 서드파티 통합업체가 엔터프라이즈 관리 시나리오를 위한 앱을 구축할 수 있게 되었습니다. 이 기능은 GitHub Blog를 통해 공식 발표되었습니다.
 
 
 ---
@@ -348,9 +324,6 @@ GitHub의 Copilot impact dashboard에 "Potential return on investment" 섹션이
   severity="Medium"
 %}
 
-#### 요약
-
-Trump Media가 Axios 보도에 따르면 암호화폐 거래에서 발을 빼고 다른 사업 벤처에 집중하려는 의사를 밝혔다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo 기자 명의로 전했다.
 
 
 ---
@@ -366,9 +339,6 @@ Trump Media가 Axios 보도에 따르면 암호화폐 거래에서 발을 빼고
   severity="Medium"
 %}
 
-#### 요약
-
-미국 상원의원 Cynthia Lummis와 Angela Alsobrooks는 Clarity Act 법안이 지연되었음에도 불구하고 초당적 작업이 계속되고 있다고 밝혔다. 두 의원은 법안 통과를 위한 투쟁이 끝나지 않았다고 강조했다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사로 처음 보도했다.
 
 
 ---
@@ -384,9 +354,6 @@ Trump Media가 Axios 보도에 따르면 암호화폐 거래에서 발을 빼고
   severity="Medium"
 %}
 
-#### 요약
-
-Coldcard Bitcoin 해킹 피해자들의 중간 손실액이 1 BTC로 확인됐으며, 총 도난액은 1억 1,100만 달러를 넘어 최대 1억 3,000만 달러에 이를 수 있다고 Bitcoin Magazine이 보도했다.
 
 
 ---
@@ -440,6 +407,16 @@ Coldcard Bitcoin 해킹 피해자들의 중간 손실액이 1 BTC로 확인됐�
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 08월 07일 주간 보안 다이제스트: 제로데이·Cisco FMC·클라우드 (28건)](/posts/2026/08/07/Tech_Security_Weekly_Digest_Patch_AWS_Cloud_Threat/) — 2026-08-07
+- [2026년 08월 09일 주간 보안 다이제스트: 제로데이·클라우드·보안 위협 (16건)](/posts/2026/08/09/Tech_Security_Weekly_Digest_Data_AI_Zero-Day/) — 2026-08-09
+- [2026년 08월 05일 주간 보안 다이제스트: 패치·AI 에이전트·보안 위협 (30건)](/posts/2026/08/05/Tech_Security_Weekly_Digest_AI_Agent_Update/) — 2026-08-05
 
 ---
 

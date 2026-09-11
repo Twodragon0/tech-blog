@@ -206,9 +206,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA와 CrowdStrike는 자동화된 공격에 대응하기 위한 에이전틱 사이버보안 시스템인 CrowdStrike SafeMind를 발표했습니다. 양사는 공격이 자동화된 현 상황에서 방어 또한 자동화되어야 한다고 강조했습니다.
 
 
 ---
@@ -224,9 +221,6 @@ NVIDIA와 CrowdStrike는 자동화된 공격에 대응하기 위한 에이전틱
   severity="Medium"
 %}
 
-#### 요약
-
-Google은 최신 AI 소식으로 'Gemini 3.7 Flash'를 공개했습니다. 이 기능은 픽셀 폰과 연관되어 있으며, 학생들을 위한 1년 무료 Gemini 플랜도 함께 제공됩니다.
 
 
 ---
@@ -241,9 +235,6 @@ Google은 최신 AI 소식으로 'Gemini 3.7 Flash'를 공개했습니다. 이 �
   severity="Medium"
 %}
 
-#### 요약
-
-Basis, Clay, Exa Labs와 같은 AI 네이티브 기업들은 AI 에이전트를 활용하여 온보딩, 계정 관리 및 개발자 통합과 같은 워크플로우를 개선하고 있습니다. 이는 기업 리더들이 적용할 수 있는 운영 역량으로 전환되는 방식을 보여줍니다.
 
 
 ---
@@ -261,9 +252,6 @@ Basis, Clay, Exa Labs와 같은 AI 네이티브 기업들은 AI 에이전트를 
   severity="High"
 %}
 
-#### 요약
-
-Google 클라우드는 매달 AI 관련 최신 업데이트를 제공하며, 이번 달에는 AI를 기업에 실용적으로 적용하고 관련 비용을 효율적으로 관리하는 데 중점을 두었습니다. 이를 위해 금융 서비스 및 법률과 같은 특정 산업에 맞춰 모델을 개발하고 기업의 예산 관리를 지원합니다.
 
 
 ---
@@ -279,9 +267,6 @@ Google 클라우드는 매달 AI 관련 최신 업데이트를 제공하며, 이
   severity="Medium"
 %}
 
-#### 요약
-
-VPC 서비스 컨트롤은 데이터 유출, 계정 침해 및 내부자 위협으로부터 클라우드 환경을 보호하는 데 중요한 역할을 합니다. 이제 Google Cloud는 VPC-SC에 새로운 정책 인텔리전스 기능을 추가하여 운영을 더욱 간소화할 수 있게 되었습니다.
 
 
 ---
@@ -297,9 +282,6 @@ VPC 서비스 컨트롤은 데이터 유출, 계정 침해 및 내부자 위협�
   severity="Medium"
 %}
 
-#### 요약
-
-과거 기업들은 이탈 예측, 구매 의도, 사기 점수와 같은 예측 분석을 위해 XGBoost나 딥러닝 같은 라이브러리를 사용해 맞춤형 모델을 구축해왔습니다. 하지만 이러한 전통적인 모델들은 학습, 튜닝, 배포, 재학습 과정이 복잡하고 많은 시간이 소요되는 단점이 있었습니다.
 
 
 ---
@@ -317,9 +299,6 @@ VPC 서비스 컨트롤은 데이터 유출, 계정 침해 및 내부자 위협�
   severity="Medium"
 %}
 
-#### 요약
-
-Enterprise Live Migrations (ELM)가 이제 정식 출시되었습니다. 이를 통해 GitHub Enterprise Server (GHES)에서 GitHub Enterprise Cloud with Data Residency (GHEC DR)로 리포지토리를 거의 제로에 가까운 가동 중단 시간으로 이전할 수 있습니다.
 
 
 ---
@@ -335,9 +314,6 @@ Enterprise Live Migrations (ELM)가 이제 정식 출시되었습니다. 이를 
   severity="Medium"
 %}
 
-#### 요약
-
-이제 GitHub에서 개별 사용자 예산에 선택적 만료일을 설정할 수 있습니다. 설정된 만료일이 되면 GitHub가 자동으로 해당 예산을 제거하며, 이 기능은 현재 정식으로 제공됩니다.
 
 
 ---
@@ -353,9 +329,6 @@ Enterprise Live Migrations (ELM)가 이제 정식 출시되었습니다. 이를 
   severity="Medium"
 %}
 
-#### 요약
-
-코파일럿이 이제 풀 리퀘스트가 승인 준비가 되었는지 알려줄 수 있으며, 관리자는 코파일럿이 직접 승인하도록 권한을 부여할 수 있게 되었습니다. 하지만 코파일럿의 승인 기능은 기본적으로 비활성화되어 있어 관리자가 별도로 설정해야 합니다.
 
 
 ---
@@ -373,9 +346,6 @@ Enterprise Live Migrations (ELM)가 이제 정식 출시되었습니다. 이를 
   severity="Medium"
 %}
 
-#### 요약
-
-분석가들은 Bitcoin이 통상적인 여름 침체기를 벗어나 8월에 강세를 보였다고 지적했습니다. 이에 따라 Bitcoin은 역대 세 번째로 좋은 8월 실적을 기록했습니다.
 
 
 ---
@@ -391,9 +361,6 @@ Enterprise Live Migrations (ELM)가 이제 정식 출시되었습니다. 이를 
   severity="High"
 %}
 
-#### 요약
-
-블랙록의 아이셰어스 Bitcoin 신탁이 주요 S&P 500 ETF보다 높은 수익률을 기록하며 뛰어난 성과를 보이고 있습니다. 이 자산운용사의 주력 Bitcoin 펀드는 뱅가드의 S&P 500 ETF보다 더 나은 수익률을 제공하고 있습니다.
 
 
 ---
@@ -409,9 +376,6 @@ Enterprise Live Migrations (ELM)가 이제 정식 출시되었습니다. 이를 
   severity="Medium"
 %}
 
-#### 요약
-
-한국 Bitcoin 시장에서 '김치 프리미엄'이 다시 등장했습니다. 면밀히 주시되던 국내 Bitcoin 소매 시장이 다시 활발해지고 있음을 보여줍니다.
 
 
 ---
@@ -464,6 +428,16 @@ Enterprise Live Migrations (ELM)가 이제 정식 출시되었습니다. 이를 
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 09월 01일 주간 보안 다이제스트: 북한 위협·AI 에이전트·클라우드 (29건)](/posts/2026/09/01/Tech_Security_Weekly_Digest_AI_Agent_Go_Security/) — 2026-09-01
+- [2026년 09월 03일 주간 보안 다이제스트: AI 에이전트·클라우드·패치 (19건)](/posts/2026/09/03/Tech_Security_Weekly_Digest_AI_Agent_Go_Update/) — 2026-09-03
+- [2026년 08월 30일 주간 보안 다이제스트: 제로데이·클라우드·패치 (15건)](/posts/2026/08/30/Tech_Security_Weekly_Digest_AWS_AI_Data_Security/) — 2026-08-30
 
 ---
 

@@ -239,9 +239,6 @@ DevSecOps 실무자에게 이 업데이트는 **사고 대응을 '코드화'하�
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA의 Vera CPU가 에이전틱 AI(agentic AI) 시대에 필요한 빠른 코어와 대역폭을 갖춘 강력한 성능을 제공하며, Phoronix의 초기 벤치마크 결과에서 경쟁 제품을 압도하는 모습을 보여주고 있습니다.
 
 ---
 
@@ -271,9 +268,6 @@ Amazon Bedrock AgentCore payments가 프리뷰로 출시되어 유료 외부 서
   severity="Medium"
 %}
 
-#### 요약
-
-이 게시물은 AWS에서 LangGraph Agents를 오케스트레이터로 사용하고 Amazon Bedrock AgentCore Memory와 Amazon Bedrock AgentCore Observability를 통합하여 확장성이 뛰어난 서버리스 멀티 에이전트 생성형 AI 시스템을 구축하는 솔루션을 제공합니다.
 
 ---
 
@@ -290,9 +284,6 @@ Amazon Bedrock AgentCore payments가 프리뷰로 출시되어 유료 외부 서
   severity="High"
 %}
 
-#### 요약
-
-Google은 지난 25년간의 네트워크 구축 경험을 바탕으로 AI 시대에 진입했으며, AI 애플리케이션은 이전 시대와 달리 컴퓨팅 자원뿐만 아니라 네트워크에 대한 새롭고 까다로운 요구사항을 제기하고 있습니다.
 
 ---
 
@@ -307,9 +298,6 @@ Google은 지난 25년간의 네트워크 구축 경험을 바탕으로 AI 시�
   severity="Medium"
 %}
 
-#### 요약
-
-IT 리더들은 Generative AI(GenAI)의 급속한 채택으로 브라우저가 주요 업무 공간이자 AI 기반 워크플로우의 데이터 경로가 됨에 따라, 기업 정보 보호를 위한 브라우저 내 AI 보안을 최우선 과제로 삼고 있습니다.
 
 ---
 
@@ -342,9 +330,6 @@ IT 리더들은 Generative AI(GenAI)의 급속한 채택으로 브라우저가 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub의 Copilot Memory가 공개 미리보기 단계에서 메모리 삭제 기능 개선, 리포지토리 수준의 비활성화 옵션, 그리고 Copilot CLI에서의 추가 메모리 제어 기능을 제공한다.
 
 ---
 
@@ -359,9 +344,6 @@ GitHub의 Copilot Memory가 공개 미리보기 단계에서 메모리 삭제 �
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub에서 새로운 Repository Enablement API를 공개 미리보기로 출시하여, 개별 리포지토리에서 GitHub Code Quality를 프로그래밍 방식으로 활성화하고 구성할 수 있게 되었습니다. 이 API는 두 개의 새로운 엔드포인트를 제공합니다.
 
 ---
 
@@ -375,9 +357,6 @@ GitHub에서 새로운 Repository Enablement API를 공개 미리보기로 출�
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Enterprise 소유자는 이제 조직별로 사용 가능한 Copilot 모델을 세밀하게 제어할 수 있는 대상 모델 규칙을 사용할 수 있습니다. 이를 통해 특정 조직에 특정 모델만 허용하는 방식으로 접근을 관리할 수 있습니다.
 
 ---
 
@@ -394,9 +373,6 @@ GitHub Enterprise 소유자는 이제 조직별로 사용 가능한 Copilot 모�
   severity="Medium"
 %}
 
-#### 요약
-
-TeraWulf Inc.가 켄터키주에 1 GW 규모의 AI 데이터 센터 부지를 인수하며 고성능 컴퓨팅 인프라로 전환을 가속화했고, 이 소식에 주가가 11% 상승했습니다. 이 내용은 Bitcoin Magazine에 게재되었으며 Micah Zimmerman이 작성했습니다.
 
 ---
 
@@ -411,9 +387,6 @@ TeraWulf Inc.가 켄터키주에 1 GW 규모의 AI 데이터 센터 부지를 �
   severity="Medium"
 %}
 
-#### 요약
-
-런던 상장 기업 The Smarter Web Company가 부채 기반 전략을 통해 10 BTC를 추가 매수하여 총 보유량을 2,869 BTC로 늘렸으며, 이는 Bitcoin 중심의 재무 전략 확장의 일환입니다.
 
 ---
 
@@ -428,9 +401,6 @@ TeraWulf Inc.가 켄터키주에 1 GW 규모의 AI 데이터 센터 부지를 �
   severity="Medium"
 %}
 
-#### 요약
-
-Strive의 SATA 우선주가 Bitcoin 채굴 일일 공급량의 100% 이상을 일시적으로 흡수하며 주요 BTC 축적 수단으로 부상했다. 이는 Bitcoin Magazine이 Micah Zimmerman의 기사를 통해 보도한 내용이다.
 
 ---
 
@@ -491,6 +461,16 @@ Strive의 SATA 우선주가 Bitcoin 채굴 일일 공급량의 100% 이상을 �
 | AWS Korea Blog | [aws.amazon.com](https://aws.amazon.com) | 본문 1건 인용 |
 | GitHub Changelog | [github.blog](https://github.blog) | 본문 3건 인용 |
 | Bitcoin Magazine | [bitcoinmagazine.com](https://bitcoinmagazine.com) | 본문 3건 인용 |
+
+---
+
+## 🔗 관련 포스트
+
+<!-- related-posts:v1 -->
+
+- [2026년 05월 26일 주간 보안 다이제스트: 제로데이·클라우드·패치 (19건)](/posts/2026/05/26/Tech_Security_Weekly_Digest_AI_AWS_Botnet_CVE/) — 2026-05-26
+- [2026년 05월 28일 주간 보안 다이제스트: 악성코드·AI 에이전트·Cisco FMC (25건)](/posts/2026/05/28/Tech_Security_Weekly_Digest_AI_Malware/) — 2026-05-28
+- [2026년 05월 24일 주간 보안 다이제스트: 악성코드·클라우드·보안 위협 (15건)](/posts/2026/05/24/Tech_Security_Weekly_Digest_AI_Malware_AWS_Bitcoin/) — 2026-05-24
 
 ---
 

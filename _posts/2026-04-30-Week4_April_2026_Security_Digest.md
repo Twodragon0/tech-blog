@@ -76,21 +76,22 @@ summary_card:
 
 | 날짜 | 주요 이슈 | 링크 |
 |------|-----------|------|
-| 4월 20일 | Apple 계정 피싱, NIST 취약점 비우선순위 정책 변경, Palantir 논란 | [바로가기](/posts/2026/04/20/Tech_Security_Weekly_Digest_AI_Apple_AWS_Palantir/) |
-| 4월 21일 | SGLang CVE-2026-5760(CVSS 치명적), 라자루스 KelpDAO, 주간 보안 요약 | [바로가기](/posts/2026/04/21/Tech_Security_Weekly_Digest_CVE_Apple_AI_Agent/) |
-| 4월 22일 | AWS Winter 2025 SOC 1 보고서, SystemBC C2 서버 분석, 22 BRIDGE 캠페인 | [바로가기](/posts/2026/04/22/Tech_Security_Weekly_Digest_AI_Ransomware_AWS_Go/) |
-| 4월 23일 | 악성 KICS Docker 이미지·VS Code 확장, 자체 전파 npm 웜, Harvester·Microsoft Graph 악용 | [바로가기](/posts/2026/04/23/Tech_Security_Weekly_Digest_AI_Docker_Go_API/) |
-| 4월 24일 | UNC6692 위협 행위자, Microsoft 보안 업데이트, Bitwarden CLI 취약점, Checkmarx 공격 | [바로가기](/posts/2026/04/24/Tech_Security_Weekly_Digest_Malware_AI_Go_Threat/) |
-| 4월 25일 | FIRESTARTER 백도어(미 국방 소프트웨어 표적), NASA 직원 대상 공격, 양자 위협 대응 | [바로가기](/posts/2026/04/25/Tech_Security_Weekly_Digest_Patch_Security_Threat_Data/) |
-| 4월 26일 | 스턱스넷 변종(엔지니어링 소프트웨어), Microsoft Windows 개편, 위협 행위자의 Microsoft 도구 악용 | [바로가기](/posts/2026/04/26/Tech_Security_Weekly_Digest_Malware_Threat_AWS_Go/) |
-| 4월 27일 | 미국 유틸리티 기업 Itron 한국 파트너십, AI 에이전트 원칙 공개 | [바로가기](/posts/2026/04/27/Tech_Security_Weekly_Digest_AI_Agent/) |
-| 4월 28일 | Checkmarx 공격 사후 분석, Robinhood 계정 결함 피싱, Fast16 악성코드 주간 요약 | [바로가기](/posts/2026/04/28/Tech_Security_Weekly_Digest_Data_AI_Malware_AWS/) |
-| 4월 29일 | Git Push 악용 취약점, LofyGang 3년 활동 분석, VECT 2.0 랜섬웨어 | [바로가기](/posts/2026/04/29/Tech_Security_Weekly_Digest_CVE_AI_Ransomware_Update/) |
-| 4월 30일 | SAP npm 패키지 악성코드, 북한의 새로운 공급망 공격 물결, Amazon Bedrock 보안 가이드 | [바로가기](/posts/2026/04/30/Tech_Security_Weekly_Digest_AI_Malware_Rust/) |
+| 4월 20일 | Apple 계정 피싱, NIST 취약점 비우선순위 정책 변경, Palantir 논란 | [바로가기](#day-2026-04-20) |
+| 4월 21일 | SGLang CVE-2026-5760(CVSS 치명적), 라자루스 KelpDAO, 주간 보안 요약 | [바로가기](#day-2026-04-21) |
+| 4월 22일 | AWS Winter 2025 SOC 1 보고서, SystemBC C2 서버 분석, 22 BRIDGE 캠페인 | [바로가기](#day-2026-04-22) |
+| 4월 23일 | 악성 KICS Docker 이미지·VS Code 확장, 자체 전파 npm 웜, Harvester·Microsoft Graph 악용 | [바로가기](#day-2026-04-23) |
+| 4월 24일 | UNC6692 위협 행위자, Microsoft 보안 업데이트, Bitwarden CLI 취약점, Checkmarx 공격 | [바로가기](#day-2026-04-24) |
+| 4월 25일 | FIRESTARTER 백도어(미 국방 소프트웨어 표적), NASA 직원 대상 공격, 양자 위협 대응 | [바로가기](#day-2026-04-25) |
+| 4월 26일 | 스턱스넷 변종(엔지니어링 소프트웨어), Microsoft Windows 개편, 위협 행위자의 Microsoft 도구 악용 | [바로가기](#day-2026-04-26) |
+| 4월 27일 | 미국 유틸리티 기업 Itron 한국 파트너십, AI 에이전트 원칙 공개 | — |
+| 4월 28일 | Checkmarx 공격 사후 분석, Robinhood 계정 결함 피싱, Fast16 악성코드 주간 요약 | [바로가기](#day-2026-04-28) |
+| 4월 29일 | Git Push 악용 취약점, LofyGang 3년 활동 분석, VECT 2.0 랜섬웨어 | [바로가기](#day-2026-04-28) |
+| 4월 30일 | SAP npm 패키지 악성코드, 북한의 새로운 공급망 공격 물결, Amazon Bedrock 보안 가이드 | [바로가기](#day-2026-04-30) |
 
 ---
 
 ## 4월 20일: Apple 피싱과 NIST 취약점 정책 변화
+{: #day-2026-04-20 }
 
 ### Apple 계정 변경 알림 피싱
 
@@ -103,6 +104,7 @@ NIST가 증가하는 CVE 수 대응을 위해 취약점 분석 우선순위 정�
 ---
 
 ## 4월 21일: SGLang SSRF와 라자루스의 KelpDAO 공격
+{: #day-2026-04-21 }
 
 ### SGLang CVE-2026-5760: 치명적 SSRF 취약점
 
@@ -120,6 +122,7 @@ LLM 서빙 프레임워크 SGLang에서 치명적 수준의 Server-Side Request 
 ---
 
 ## 4월 22일: SystemBC C2와 22 BRIDGE 캠페인
+{: #day-2026-04-22 }
 
 ### SystemBC C2 서버 분석
 
@@ -132,6 +135,7 @@ SystemBC 악성코드의 C2(Command & Control) 서버 인프라가 분석됐습�
 ---
 
 ## 4월 23일: npm 생태계 복합 공격
+{: #day-2026-04-23 }
 
 ### 악성 KICS Docker 이미지와 VS Code 확장
 
@@ -157,6 +161,7 @@ Harvester 위협 행위자가 Microsoft Graph API를 C2 통신 채널로 악용�
 ---
 
 ## 4월 24일: Bitwarden CLI와 Checkmarx 공격
+{: #day-2026-04-24 }
 
 ### Bitwarden CLI 취약점
 
@@ -169,6 +174,7 @@ Harvester 위협 행위자가 Microsoft Graph API를 C2 통신 채널로 악용�
 ---
 
 ## 4월 25일: FIRESTARTER 백도어와 양자 위협
+{: #day-2026-04-25 }
 
 ### FIRESTARTER 백도어: 미국 국방 소프트웨어 표적
 
@@ -185,6 +191,7 @@ NASA 직원을 겨냥한 표적 공격이 확인됐습니다. 정부기관 관�
 ---
 
 ## 4월 26일: 스턱스넷 변종과 Microsoft 도구 악용
+{: #day-2026-04-26 }
 
 ### 스턱스넷 변종: 엔지니어링 소프트웨어 표적
 
@@ -197,6 +204,7 @@ NASA 직원을 겨냥한 표적 공격이 확인됐습니다. 정부기관 관�
 ---
 
 ## 4월 28일~29일: Fast16 악성코드와 LofyGang
+{: #day-2026-04-28 }
 
 ### Robinhood 계정 생성 결함 피싱
 
@@ -213,6 +221,7 @@ VECT 랜섬웨어의 2.0 버전이 출현했습니다. 이전 버전 대비 암�
 ---
 
 ## 4월 30일: 북한의 npm 공급망 공격
+{: #day-2026-04-30 }
 
 ### SAP 관련 npm 패키지를 통한 북한 공급망 공격
 

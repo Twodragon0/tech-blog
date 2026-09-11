@@ -235,9 +235,6 @@ DevSecOps 실무자 관점에서 이 공격은 다음과 같은 실무적 영향
   severity="Medium"
 %}
 
-#### 요약
-
-Google Search에서 바로 시도할 수 있는 5가지 정원 가꾸기 팁이 소개되었습니다. 배경에는 부드러운 점묘화 스타일의 꽃과 나비가 파란색, 초록색, 빨간색으로 그려져 있으며, 중앙의 흰색 원 안에는 돋보기 아이콘이 있습니다.
 
 ---
 
@@ -252,9 +249,6 @@ Google Search에서 바로 시도할 수 있는 5가지 정원 가꾸기 팁이 
   severity="Medium"
 %}
 
-#### 요약
-
-NVIDIA Spectrum-X는 AI-Native Ethernet Fabric으로 기가스케일 AI를 위한 표준을 제시하며, MRC를 추가로 지원합니다. 이는 성능과 복원력을 타협할 수 없는 업계 선도 기업들이 채택한 가장 진보된 AI 네트워킹 기술입니다.
 
 ---
 
@@ -268,9 +262,6 @@ NVIDIA Spectrum-X는 AI-Native Ethernet Fabric으로 기가스케일 AI를 위�
   severity="Medium"
 %}
 
-#### 요약
-
-Tomofun은 Furbo Pet Camera를 개발한 대만의 펫테크 스타트업으로, 비용 절감과 정확성 유지를 위해 AWS Inferentia2 기반의 EC2 Inf2 인스턴스를 도입했습니다. 이 게시물에서는 반려동물 행동 감지를 위한 vision-language model의 비용 효율적 배포 방법을 상세히 설명합니다.
 
 ---
 
@@ -304,9 +295,6 @@ Tomofun은 Furbo Pet Camera를 개발한 대만의 펫테크 스타트업으로,
   severity="Medium"
 %}
 
-#### 요약
-
-Google이 AI 코딩 에이전트를 활용하여 TensorFlow에서 JAX로의 코드 마이그레이션 속도를 6배 향상시켰습니다. 이는 기존의 국소적 작업에 특화된 AI 도구와 달리 대규모 시스템 전반의 마이그레이션에 새로운 접근법을 적용한 사례입니다.
 
 ---
 
@@ -321,9 +309,6 @@ Google이 AI 코딩 에이전트를 활용하여 TensorFlow에서 JAX로의 코�
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud의 새로운 시리즈 The Blueprint에서 Doist가 AI와 클라우드 기술을 활용하여 의식의 흐름 같은 음성을 반응형 작업 목록으로 변환하는 방법을 조명합니다. Doist는 Todoist와 Twist 앱을 통해 삶의 복잡성을 단순화하는 원격 근무 선구자입니다.
 
 ---
 
@@ -340,9 +325,6 @@ Google Cloud의 새로운 시리즈 The Blueprint에서 Doist가 AI와 클라우
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub Copilot CLI에서 엔터프라이즈 관리형 플러그인이 퍼블릭 프리뷰로 제공되며, 엔터프라이즈 관리자는 플러그인을 구성하고 사용자에게 배포할 수 있습니다. 이를 통해 조직 전체에 기준 표준을 설정하고 모든 사용자의 Copilot에서 사용할 수 있게 할 수 있습니다.
 
 ---
 
@@ -357,9 +339,6 @@ GitHub Copilot CLI에서 엔터프라이즈 관리형 플러그인이 퍼블릭 
   severity="Medium"
 %}
 
-#### 요약
-
-Visual Studio Code가 주간 안정화 릴리스로 전환되었으며, 2026년 4월부터 5월 초까지 배포된 v1.116~v1.119 릴리스에서 GitHub Copilot이 의미 기반 검색 기능을 지원하게 되었습니다.
 
 ---
 
@@ -374,9 +353,6 @@ Visual Studio Code가 주간 안정화 릴리스로 전환되었으며, 2026년 
   severity="Medium"
 %}
 
-#### 요약
-
-GitHub 저장소의 Security 탭에서 보안 권고 사항을 검색하고 필터링할 수 있는 새로운 검색창과 필터가 추가되었습니다.
 
 ---
 
@@ -393,9 +369,6 @@ GitHub 저장소의 Security 탭에서 보안 권고 사항을 검색하고 필�
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin Magazine의 Nick Ward는 eBay가 GameStop 대신 Bitcoin 결제를 도입하면 연간 12억 달러의 거래 비용을 절감할 수 있다고 주장합니다. 이는 글로벌 판매자에게 직접적인 수수료 절감 혜택을 제공하는 기회라고 설명합니다.
 
 ---
 
@@ -494,9 +467,9 @@ Boltz가 Circle의 CCTP를 활용해 Bitcoin을 Circle의 규제 달러인 USDC�
 
 <!-- related-posts:v1 -->
 
-- [Apache HTTP/2의 치명적, DAEMON Tools 공급망 공격으로 공식, 중국과 연계된 UAT-8302](/posts/2026/05/06/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-05-06
-- [Ivanti EPMM CVE-2026-6973, PCPJack 자격 증명 탈취기가 5개, 프롬프트가 셸이 될 때](/posts/2026/05/08/Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent/) — 2026-05-08
-- [Instructure, 데이터 유출 확인, Microsoft, CISA, 적극적으로 악용되는 Linux 루트](/posts/2026/05/04/Tech_Security_Weekly_Digest_AI_Data_CVE_Malware/) — 2026-05-04
+- [2026년 05월 06일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (15건)](/posts/2026/05/06/Tech_Security_Weekly_Digest_CVE_AI_Malware_Go/) — 2026-05-06
+- [2026년 05월 08일 주간 보안 다이제스트: 제로데이·BYOVD EDR·AI 에이전트 (15건)](/posts/2026/05/08/Tech_Security_Weekly_Digest_CVE_Cloud_AI_Agent/) — 2026-05-08
+- [2026년 05월 04일 주간 보안 다이제스트: 제로데이·악성코드·BYOVD EDR (6건)](/posts/2026/05/04/Tech_Security_Weekly_Digest_AI_Data_CVE_Malware/) — 2026-05-04
 
 ---
 

@@ -1,28 +1,68 @@
-{% comment %} 이전/다음 포스트 네비게이션 {% endcomment %}
-{% if page.previous or page.next %}
+{% comment %}
+  이전/다음 포스트 네비게이션
+
+  `page.previous` / `page.next` walk raw `site.posts`, so they happily point at a
+  post whose URL vercel.json 301s elsewhere (`superseded_by` — the 30 April 2026
+  dailies consolidated into 4 weekly rollups). This nav renders on EVERY post, so
+  it is the most-seen surface of that defect: measured 2026-09-10 on a local
+  build, 5 reader-reachable pages carried a prev/next into a 301, the 4 rollups
+  among them — a reader paging out of a rollup landed back on a redirect.
+
+  The default pair is kept for the common case (no extra work on 660 of 665
+  pages). Only when a default neighbour is superseded do we build the filtered,
+  date-ascending list and step over the whole superseded run at once — they are
+  contiguous through April, so a one-step walk would not be enough.
+
+  A superseded post itself is absent from `nav_posts`, so `nav_idx` stays -1 and
+  it renders no nav. That is correct: it is no longer part of the reading
+  sequence, and on Vercel nobody reaches it anyway.
+{% endcomment %}
+{% assign nav_prev = page.previous %}
+{% assign nav_next = page.next %}
+{% if nav_prev.superseded_by or nav_next.superseded_by or page.superseded_by %}
+  {% assign nav_posts = site.posts | where_exp: "p", "p.superseded_by == nil" | sort: "date" %}
+  {% assign nav_idx = -1 %}
+  {% for p in nav_posts %}
+    {% if p.url == page.url %}{% assign nav_idx = forloop.index0 %}{% break %}{% endif %}
+  {% endfor %}
+  {% assign nav_prev = nil %}
+  {% assign nav_next = nil %}
+  {% if nav_idx >= 0 %}
+    {% if nav_idx > 0 %}
+      {% assign nav_prev_i = nav_idx | minus: 1 %}
+      {% assign nav_prev = nav_posts[nav_prev_i] %}
+    {% endif %}
+    {% assign nav_next_i = nav_idx | plus: 1 %}
+    {% assign nav_last = nav_posts.size | minus: 1 %}
+    {% if nav_next_i <= nav_last %}
+      {% assign nav_next = nav_posts[nav_next_i] %}
+    {% endif %}
+  {% endif %}
+{% endif %}
+{% if nav_prev or nav_next %}
 <nav class="post-navigation" aria-label="Post navigation">
   <div class="post-nav-inner">
-    {% if page.previous %}
-    <a href="{{ page.previous.url | relative_url }}" class="post-nav-link post-nav-prev" rel="prev">
+    {% if nav_prev %}
+    <a href="{{ nav_prev.url | relative_url }}" class="post-nav-link post-nav-prev" rel="prev">
       <span class="post-nav-label">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
         Previous
       </span>
-      <span class="post-nav-title">{{ page.previous.title | escape | truncate: 60 }}</span>
-      <time class="post-nav-date" datetime="{{ page.previous.date | date_to_xmlschema }}">{{ page.previous.date | date: "%Y. %m. %d" }}</time>
+      <span class="post-nav-title">{{ nav_prev.title | escape | truncate: 60 }}</span>
+      <time class="post-nav-date" datetime="{{ nav_prev.date | date_to_xmlschema }}">{{ nav_prev.date | date: "%Y. %m. %d" }}</time>
     </a>
     {% else %}
     <span class="post-nav-link post-nav-placeholder"></span>
     {% endif %}
 
-    {% if page.next %}
-    <a href="{{ page.next.url | relative_url }}" class="post-nav-link post-nav-next" rel="next">
+    {% if nav_next %}
+    <a href="{{ nav_next.url | relative_url }}" class="post-nav-link post-nav-next" rel="next">
       <span class="post-nav-label">
         Next
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
       </span>
-      <span class="post-nav-title">{{ page.next.title | escape | truncate: 60 }}</span>
-      <time class="post-nav-date" datetime="{{ page.next.date | date_to_xmlschema }}">{{ page.next.date | date: "%Y. %m. %d" }}</time>
+      <span class="post-nav-title">{{ nav_next.title | escape | truncate: 60 }}</span>
+      <time class="post-nav-date" datetime="{{ nav_next.date | date_to_xmlschema }}">{{ nav_next.date | date: "%Y. %m. %d" }}</time>
     </a>
     {% else %}
     <span class="post-nav-link post-nav-placeholder"></span>
