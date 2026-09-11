@@ -5,7 +5,7 @@ date: 2026-05-08 11:10:33 +0900
 last_modified_at: 2026-05-21T18:36:46+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Cloud, AI, Agent]
-excerpt: "2026년 05월 08일 공개된 29건의 위협·취약점 가운데 Ivanti EPMM CVE-2026-6973 RCE가 활발히 악용 · PCPJack 자격 증명 탈취기가 5개 CVE를 악용해 클라우드가 즉각 대응 우선순위에 올랐습니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "2026년 05월 08일 공개된 29건의 위협·취약점 가운데 Ivanti EPMM CVE-2026-6973 RCE가 활발히 악용 · PCPJack 자격 증명 탈취기가 5개 CVE를 악용해 클라우드가 즉각 대응 우선순위에 올랐습니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 description: "2026년 05월 08일 보안 뉴스 요약. The Hacker News, Microsoft Security Blog 등 29건을 분석하고 Ivanti EPMM CVE-2026-6973, PCPJack 자격 증명 탈취기가 5개, 프롬프트가 셸이 될 때 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Cloud, AI]
 author: Twodragon

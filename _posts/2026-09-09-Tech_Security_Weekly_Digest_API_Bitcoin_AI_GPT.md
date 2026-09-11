@@ -5,7 +5,7 @@ date: 2026-09-09 11:16:03 +0900
 last_modified_at: 2026-09-09T11:16:03+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, API, Bitcoin, AI, GPT]
-excerpt: "2026년 09월 09일 공개된 30건의 위협·취약점 가운데 Slim Spider 브라질 금융 기관에서 암호화폐 보관 비밀 훔쳐 · Microsoft, 아동·청소년·성인 사용자 구별 가능한 연령 인식이 즉각 대응 우선순위에 올랐습니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "2026년 09월 09일 공개된 30건의 위협·취약점 가운데 Slim Spider 브라질 금융 기관에서 암호화폐 보관 비밀 훔쳐 · Microsoft, 아동·청소년·성인 사용자 구별 가능한 연령 인식이 즉각 대응 우선순위에 올랐습니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 description: "2026년 09월 09일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 30건을 분석하고 Slim Spider 브라질 금융, Microsoft, 아동·청소년·성인 사용자 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, API, Bitcoin, AI]
 author: Twodragon

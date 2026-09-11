@@ -5,7 +5,7 @@ date: 2026-08-29 13:53:08 +0900
 last_modified_at: 2026-08-29T13:53:08+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, AI, Blockchain, AWS]
-excerpt: "2026년 08월 29일 공개된 25건의 위협·취약점 가운데 베를린, 주정부 네트워크 데이터 탈취 해커에 지불 거부 · Cosmos Labs가 이를 실행하는 모든 블록체인이 취약하다는이 즉각 대응 우선순위에 올랐습니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "2026년 08월 29일 공개된 25건의 위협·취약점 가운데 베를린, 주정부 네트워크 데이터 탈취 해커에 지불 거부 · Cosmos Labs가 이를 실행하는 모든 블록체인이 취약하다는이 즉각 대응 우선순위에 올랐습니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 08월 29일 보안 뉴스 요약. The Hacker News 등 25건을 분석하고 베를린, 주정부 네트워크 데이터 탈취, Cosmos Labs가 이를 실행하는 모든 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, AI, Blockchain]
 author: Twodragon

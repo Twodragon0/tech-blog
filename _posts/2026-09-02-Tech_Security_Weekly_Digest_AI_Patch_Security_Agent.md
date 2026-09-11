@@ -5,7 +5,7 @@ date: 2026-09-02 11:05:30 +0900
 last_modified_at: 2026-09-02T11:05:30+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Patch, Security, Agent]
-excerpt: "2026년 09월 02일 공개된 30건의 위협·취약점 가운데 공격자들이 JFrog Artifactory의 치명적 취약점 악용 · Breeze Comet, Brazilian Payment가 즉각 대응 우선순위에 올랐습니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "2026년 09월 02일 공개된 30건의 위협·취약점 가운데 공격자들이 JFrog Artifactory의 치명적 취약점 악용 · Breeze Comet, Brazilian Payment가 즉각 대응 우선순위에 올랐습니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 description: "2026년 09월 02일 보안 뉴스 요약. The Hacker News, Microsoft Security Blog 등 30건을 분석하고 공격자들이 JFrog, Breeze Comet, Brazilian 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Patch, Security]
 author: Twodragon

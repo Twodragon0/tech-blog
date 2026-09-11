@@ -5,7 +5,7 @@ date: 2026-08-26 09:45:27 +0900
 last_modified_at: 2026-08-26T09:45:27+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Cloud, AWS, AI, Go]
-excerpt: "미국, 중요 기반 시설 침해 배후 이란 연계 해커 제재 · Landing Zone Accelerator on AWS를 활용하여 등 2026년 08월 26일 보고된 29건의 보안/기술 이슈를 운영 관점에서 점검합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "미국, 중요 기반 시설 침해 배후 이란 연계 해커 제재 · Landing Zone Accelerator on AWS를 활용하여 등 2026년 08월 26일 보고된 29건의 보안/기술 이슈를 운영 관점에서 점검합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 08월 26일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 29건을 분석하고 미국, 중요 기반 시설 침해 배후 이란 연계, Landing Zone Accelerator 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Cloud, AWS, AI]
 author: Twodragon

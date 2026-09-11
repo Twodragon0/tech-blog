@@ -5,7 +5,7 @@ date: 2026-09-08 11:11:30 +0900
 last_modified_at: 2026-09-08T11:11:30+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, AI, Cloud, Security]
-excerpt: "PEEP, Chrome과 Edge를 침해 후 호스트 명령 실행 · 사칭 IT 전화, Microsoft 365 데이터 절도 및 갈취가 부각된 2026년 09월 08일 보안 다이제스트 — 23건의 이슈와 실행 가능한 대응 액션을 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "PEEP, Chrome과 Edge를 침해 후 호스트 명령 실행 · 사칭 IT 전화, Microsoft 365 데이터 절도 및 갈취가 부각된 2026년 09월 08일 보안 다이제스트 — 23건의 이슈와 실행 가능한 대응 액션을 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 09월 08일 보안 뉴스 요약. The Hacker News 등 23건을 분석하고 PEEP, Chrome과 Edge를 침해 후, 사칭 IT 전화 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요. CVE, 패치, 인프라 보안 이슈를 빠르게 파악하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Data, AI, Cloud]
 author: Twodragon

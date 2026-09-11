@@ -5,7 +5,7 @@ date: 2026-08-18 09:43:05 +0900
 last_modified_at: 2026-08-18T09:43:05+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go]
-excerpt: "치명적인 GitLab GraphQL 취약점 · Snowflake GitHub Actions 취약점으로 조작된 등 2026년 08월 18일 보고된 26건의 보안/기술 이슈를 운영 관점에서 점검합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "치명적인 GitLab GraphQL 취약점 · Snowflake GitHub Actions 취약점으로 조작된 등 2026년 08월 18일 보고된 26건의 보안/기술 이슈를 운영 관점에서 점검합니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 description: "2026년 08월 18일 보안 뉴스 요약. The Hacker News 등 26건을 분석하고 치명적인 GitLab GraphQL 취약점, Snowflake GitHub Actions, Forminator WordPress 취약점 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go]
 author: Twodragon

@@ -5,7 +5,7 @@ date: 2026-05-25 09:31:41 +0900
 last_modified_at: 2026-05-25T09:31:41+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ethereum, Blockchain]
-excerpt: "Ghost CMS SQL injection 취약점, 대규모 ClickFix 캠페인에서 악용돼가 부각된 2026년 05월 25일 보안 다이제스트 — 11건의 이슈와 실행 가능한 대응 액션을 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "Ghost CMS SQL injection 취약점, 대규모 ClickFix 캠페인에서 악용돼가 부각된 2026년 05월 25일 보안 다이제스트 — 11건의 이슈와 실행 가능한 대응 액션을 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 05월 25일 보안 뉴스 요약. BleepingComputer, Cointelegraph 등 11건을 분석하고 Ghost CMS SQL injection, Buterin, 이더리움 재단 비판에 반박하며 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Ethereum, Blockchain]
 author: Twodragon

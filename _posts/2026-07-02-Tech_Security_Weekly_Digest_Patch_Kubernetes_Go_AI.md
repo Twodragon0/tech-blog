@@ -5,7 +5,7 @@ date: 2026-07-02 09:34:34 +0900
 last_modified_at: 2026-07-02T09:34:34+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, Kubernetes, Go, AI]
-excerpt: "2026년 07월 02일 수집한 30건의 보안 이슈 중 패치되지 않은 Argo CD Repo-Server 취약점으로 · 19세 Scattered Spider 용의자를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "2026년 07월 02일 수집한 30건의 보안 이슈 중 패치되지 않은 Argo CD Repo-Server 취약점으로 · 19세 Scattered Spider 용의자를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 07월 02일 보안 뉴스 요약. The Hacker News 등 30건을 분석하고 패치되지 않은 Argo CD, 19세 Scattered Spider 용의자, SEO에 중독된 소프트웨어 사이트 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, Kubernetes, Go]
 author: Twodragon

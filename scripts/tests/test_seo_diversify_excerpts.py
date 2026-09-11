@@ -1,13 +1,16 @@
 """Tests for ``scripts/seo_diversify_excerpts.py``.
 
 These tests guard the GSC-recovery patch that rewrites Weekly-Digest excerpts
-into one of 25 deterministic variants. Two layers of coverage:
+into deterministic variants. Three layers of coverage:
 
 1. Pure ``_build_diverse_excerpt`` — determinism, length window, v2 marker
    present, particle correctness on highlight anchors with trailing punctuation.
 2. ``_process_file`` integration — confirms the auto-publish post-process
    hook in ``auto_publish_news`` will replace a v1 boilerplate excerpt with
    a v2-marked one and is idempotent on a second run (no re-write).
+3. Promise honesty — the closing sentence must be one the BODY can back up.
+   Added 2026-09-10 after measuring that the filename-hash closer left 129 of
+   217 digests advertising content they do not contain.
 """
 
 from __future__ import annotations
@@ -25,6 +28,32 @@ from seo_diversify_excerpts import (  # noqa: E402
     _build_diverse_excerpt,
     _process_file,
 )
+
+# A body shaped like a real digest. The closer is now chosen from what the body
+# can back up, so a fixture body of "# Body\nThe body content lives here." would
+# make every one of these tests exercise the claim-free neutral path instead of
+# the rotation they are written to check. Carries a checklist, a source/impact
+# table and three source links — the three properties measured true for 217/217
+# digests on 2026-09-10.
+DIGEST_BODY = """
+## 주요 이슈
+
+| 분야 | 소스 | 핵심내용 | 영향도 |
+|---|---|---|---|
+| 취약점 | BleepingComputer | 커널 제로데이 | 높음 |
+
+- [원문 1](https://example.com/a)
+- [원문 2](https://example.com/b)
+- [원문 3](https://example.com/c)
+
+탐지 룰을 보강하고 패치를 적용합니다.
+
+## 실무 체크리스트
+
+- [ ] 영향 자산 식별
+- [ ] 패치 적용
+- [ ] 탐지 룰 배포
+"""
 
 V1_EXCERPT = (
     "X, Y, Z를 중심으로 2026년 05월 18일 주요 보안/기술 뉴스 15건과 대응 우선순위를 "
@@ -61,10 +90,7 @@ summary_card:
   highlights:
 {hl_lines}
 ---
-
-# Body
-The body content lives here.
-"""
+{DIGEST_BODY}"""
     p = tmp_path / filename
     p.write_text(body, encoding="utf-8")
     return p
@@ -82,6 +108,7 @@ class TestBuildDiverseExcerpt:
             title="Sample digest title",
             highlights=["Critical Linux kernel zero-day", "Cloudflare worker SSRF"],
             existing=V1_EXCERPT,
+            body=DIGEST_BODY,
         )
         assert 150 <= len(excerpt) <= 220, f"length out of range: {len(excerpt)}"
 
@@ -94,6 +121,7 @@ class TestBuildDiverseExcerpt:
             title="Sample digest title",
             highlights=["Critical kernel zero-day", "Worker SSRF disclosed"],
             existing=V1_EXCERPT,
+            body=DIGEST_BODY,
         )
         assert any(m in excerpt for m in V2_MARKERS), f"v2 marker missing in: {excerpt}"
 
@@ -106,6 +134,7 @@ class TestBuildDiverseExcerpt:
             title="Sample digest title",
             highlights=["A", "B"],
             existing=V1_EXCERPT,
+            body=DIGEST_BODY,
         )
         assert "DevSecOps 실무 대응 방안을 함께 다룹니다" not in excerpt
 
@@ -113,8 +142,8 @@ class TestBuildDiverseExcerpt:
         path = _write_fixture_post(
             tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md"
         )
-        e1 = _build_diverse_excerpt(path, "t", ["h1", "h2"], V1_EXCERPT)
-        e2 = _build_diverse_excerpt(path, "t", ["h1", "h2"], V1_EXCERPT)
+        e1 = _build_diverse_excerpt(path, "t", ["h1", "h2"], V1_EXCERPT, DIGEST_BODY)
+        e2 = _build_diverse_excerpt(path, "t", ["h1", "h2"], V1_EXCERPT, DIGEST_BODY)
         assert e1 == e2
 
     def test_no_yaml_breaking_double_quotes(self, tmp_path: Path) -> None:
@@ -131,6 +160,7 @@ class TestBuildDiverseExcerpt:
             title="t",
             highlights=['cPanel 취약점 "Sorry" 랜섬웨어', 'Trellix "Sample" 케이스'],
             existing=V1_EXCERPT,
+            body=DIGEST_BODY,
         )
         assert '"' not in excerpt
 

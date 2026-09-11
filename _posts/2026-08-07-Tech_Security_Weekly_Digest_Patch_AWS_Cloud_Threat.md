@@ -5,7 +5,7 @@ date: 2026-08-07 11:11:21 +0900
 last_modified_at: 2026-08-07T11:11:21+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, AWS, Cloud, Threat]
-excerpt: "새로운 Zapscape KVM 취약점으로 권한 있는 L1 게스트 · Cisco, SD-WAN 및 IOS XE 취약점 12건 패치를 비롯한 2026년 08월 07일 보안/기술 동향 28건을 DevSecOps 시선으로 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "새로운 Zapscape KVM 취약점으로 권한 있는 L1 게스트 · Cisco, SD-WAN 및 IOS XE 취약점 12건 패치를 비롯한 2026년 08월 07일 보안/기술 동향 28건을 DevSecOps 시선으로 정리합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 08월 07일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 28건을 분석하고 새로운 Zapscape KVM, Cisco, SD-WAN 및 IOS XE 취약점 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Patch, AWS, Cloud]
 author: Twodragon

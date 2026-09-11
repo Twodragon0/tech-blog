@@ -5,7 +5,7 @@ date: 2026-06-14 09:36:08 +0900
 last_modified_at: 2026-06-14T09:36:08+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go]
-excerpt: "2026년 06월 14일 공개된 18건의 위협·취약점 가운데 치명적인 Splunk Enterprise 취약점으로 인증 없이 코드 · 전직 교육청 직원, 전 직장 해킹 혐의로 구속이 즉각 대응 우선순위에 올랐습니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "2026년 06월 14일 공개된 18건의 위협·취약점 가운데 치명적인 Splunk Enterprise 취약점으로 인증 없이 코드 · 전직 교육청 직원, 전 직장 해킹 혐의로 구속이 즉각 대응 우선순위에 올랐습니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 description: "2026년 06월 14일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 18건을 분석하고 치명적인 Splunk Enterprise, 전직 교육청 직원, 전 직장 해킹 혐의로 구속 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Go]
 author: Twodragon

@@ -5,7 +5,7 @@ date: 2026-06-05 09:36:09 +0900
 last_modified_at: 2026-06-05T09:36:09+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, Go, AI]
-excerpt: "Cisco, 익스플로잇 코드 공개로 Unified CM의 · Amazon Cognito, 차세대 인프라로 고급 기능 잠금 해제 등 2026년 06월 05일 보고된 29건의 보안/기술 이슈를 운영 관점에서 점검합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "Cisco, 익스플로잇 코드 공개로 Unified CM의 · Amazon Cognito, 차세대 인프라로 고급 기능 잠금 해제 등 2026년 06월 05일 보고된 29건의 보안/기술 이슈를 운영 관점에서 점검합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 06월 05일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 29건을 분석하고 Cisco, 익스플로잇 코드, Amazon Cognito 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Patch, Go]
 author: Twodragon

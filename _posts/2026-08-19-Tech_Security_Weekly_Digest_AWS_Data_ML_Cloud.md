@@ -5,7 +5,7 @@ date: 2026-08-19 09:43:25 +0900
 last_modified_at: 2026-08-19T09:43:25+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Data, ML, Cloud]
-excerpt: "Microsoft Copilot Personal의 결함으로 한 번의 · 공격자들이 MLflow SSRF 취약점을 악용해 클라우드 자격이 부각된 2026년 08월 19일 보안 다이제스트 — 30건의 이슈와 실행 가능한 대응 액션을 정리합니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
+excerpt: "Microsoft Copilot Personal의 결함으로 한 번의 · 공격자들이 MLflow SSRF 취약점을 악용해 클라우드 자격이 부각된 2026년 08월 19일 보안 다이제스트 — 30건의 이슈와 실행 가능한 대응 액션을 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 08월 19일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 30건을 분석하고 Microsoft Copilot, 공격자들이 MLflow SSRF 취약점을 악용해, Ransom Busters 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, Data, ML]
 author: Twodragon

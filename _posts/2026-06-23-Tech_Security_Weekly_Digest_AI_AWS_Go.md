@@ -5,7 +5,7 @@ date: 2026-06-23 09:35:11 +0900
 last_modified_at: 2026-06-23T09:35:11+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Go]
-excerpt: "2026년 06월 23일 공개된 27건의 위협·취약점 가운데 ShapedPlugin WordPress Pro 플러그인 · 연구원들, Dify의 DifyTap 결함으로 AI 채팅이 테넌트 간이 즉각 대응 우선순위에 올랐습니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "2026년 06월 23일 공개된 27건의 위협·취약점 가운데 ShapedPlugin WordPress Pro 플러그인 · 연구원들, Dify의 DifyTap 결함으로 AI 채팅이 테넌트 간이 즉각 대응 우선순위에 올랐습니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 06월 23일 보안 뉴스 요약. The Hacker News, Microsoft Security Blog 등 27건을 분석하고 ShapedPlugin WordPress Pro, 연구원들, Dify의 DifyTap 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Go]
 author: Twodragon

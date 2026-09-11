@@ -5,7 +5,7 @@ date: 2026-04-23 10:52:45 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Docker, Go, API]
-excerpt: "악성 KICS Docker 이미지와 VS Code 확장이 · 자체 전파 공급망 웜이 npm 패키지를 탈취해 개발자 토큰을 훔치다가 부각된 2026년 04월 23일 보안 다이제스트 — 30건의 이슈와 실행 가능한 대응 액션을 정리합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "악성 KICS Docker 이미지와 VS Code 확장이 · 자체 전파 공급망 웜이 npm 패키지를 탈취해 개발자 토큰을 훔치다가 부각된 2026년 04월 23일 보안 다이제스트 — 30건의 이슈와 실행 가능한 대응 액션을 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 04월 23일 보안 뉴스 요약. The Hacker News, Microsoft Security Blog, BleepingComputer 등 30건을 분석하고 악성 KICS Docker 이미지와 VS, 자체 전파 공급망 웜이 npm 패키지를 탈취해, Harvester 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Docker, Go]
 author: Twodragon

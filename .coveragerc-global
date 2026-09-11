@@ -1,0 +1,34 @@
+# Global coverage floor — the whole of scripts/, not the curated slice.
+#
+# Why this file exists
+# --------------------
+# `[tool.coverage.report]` in pyproject.toml carries an `include` list of 9 path
+# patterns. Everything downstream of it — the terminal report, `coverage.json`,
+# the PR comment, and `fail_under` — therefore describes **17 files, 4,755
+# statements at 72%** (measured 2026-09-10), while `scripts/` actually holds
+# **218 files and 34,747 statements at 39.76%**.
+#
+# The curated slice is 13.7% of the code. A brand-new 500-line untested module
+# cannot move that number at all, so the ratchet the pyproject comment describes
+# was bolted to a fixed fraction of the repo. Both facts matter and neither
+# substitutes for the other, so there are now two named floors:
+#
+#   * pyproject.toml `fail_under` — the CORE slice. Stops the well-tested
+#     modules (content_generator at 84%, the lib/ helpers) from rotting. A global
+#     number alone would hide a 84% -> 60% regression there in the rounding.
+#   * this file's `fail_under` — EVERYTHING. Stops a large untested module from
+#     landing unnoticed, which the core slice alone cannot see.
+#
+# Reporting only, deliberately: `[run] source` stays in pyproject so both
+# reports read the same `.coverage` data file. Nothing is measured twice.
+#
+# The floor is MEASURED, not aspirational: 39.76% on 2026-09-10, pinned at 39.
+# Raise it when coverage improves; lowering it needs a reason in the PR body,
+# the same rule the pyproject comment states for the core slice.
+
+[report]
+omit =
+    scripts/tests/*
+show_missing = false
+skip_covered = true
+fail_under = 39

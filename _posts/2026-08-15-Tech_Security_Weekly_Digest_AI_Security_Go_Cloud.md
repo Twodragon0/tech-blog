@@ -5,7 +5,7 @@ date: 2026-08-15 09:43:35 +0900
 last_modified_at: 2026-08-15T09:43:35+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go, Cloud]
-excerpt: "2026년 08월 15일 수집한 24건의 보안 이슈 중 Anthropic, AI 생성 텍스트에 워터마크를 적용하는 · 서비스 제공업체 취약점 악용한 3천만 유로 은행 사기, 해커들 체포를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "2026년 08월 15일 수집한 24건의 보안 이슈 중 Anthropic, AI 생성 텍스트에 워터마크를 적용하는 · 서비스 제공업체 취약점 악용한 3천만 유로 은행 사기, 해커들 체포를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 08월 15일 보안 뉴스 요약. BleepingComputer 등 24건을 분석하고 Anthropic, AI 생성, 서비스 제공업체 취약점 악용한 3천만 유로 은행 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go]
 author: Twodragon

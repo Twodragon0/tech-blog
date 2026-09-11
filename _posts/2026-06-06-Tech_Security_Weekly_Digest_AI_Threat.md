@@ -5,7 +5,7 @@ date: 2026-06-06 09:33:28 +0900
 last_modified_at: 2026-06-06T09:33:28+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Threat]
-excerpt: "2026년 06월 06일 공개된 25건의 위협·취약점 가운데 IronWorm과 새로운 Miasma Worm 변종이 공급망 · Android 스파이웨어 Asin, 가짜 뉴스·PDF가 즉각 대응 우선순위에 올랐습니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "2026년 06월 06일 공개된 25건의 위협·취약점 가운데 IronWorm과 새로운 Miasma Worm 변종이 공급망 · Android 스파이웨어 Asin, 가짜 뉴스·PDF가 즉각 대응 우선순위에 올랐습니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 06월 06일 보안 뉴스 요약. The Hacker News, BleepingComputer, AWS Security Blog 등 25건을 분석하고 IronWorm과 새로운 Miasma Worm, Android 스파이웨어 Asin, 새로운 위협 클러스터 OP-512 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Threat]
 author: Twodragon

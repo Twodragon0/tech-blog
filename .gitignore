@@ -133,6 +133,10 @@ _drafts/prompts/
 .coverage
 .coverage.*
 coverage.xml
+# jekyll.yml writes this into the workspace (--cov-report=json:coverage.json)
+# and the PR-comment step reads it back. It was the one coverage artifact not
+# ignored, so a local run left it stageable.
+coverage.json
 htmlcov/
 
 # Coverage artifacts (vitest / v8)

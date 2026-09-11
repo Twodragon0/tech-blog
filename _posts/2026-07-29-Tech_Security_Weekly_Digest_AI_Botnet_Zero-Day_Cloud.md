@@ -5,7 +5,7 @@ date: 2026-07-29 10:48:11 +0900
 last_modified_at: 2026-07-29T10:48:11+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Zero-Day, Cloud]
-excerpt: "2026년 07월 29일 공개된 29건의 위협·취약점 가운데 Claude AI, 포스트퀀텀 테스트 체계를 돌파하고 더 빠른 · Tengu Botnet, 방어자가 프로세스를 종료하면 손상된이 즉각 대응 우선순위에 올랐습니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "2026년 07월 29일 공개된 29건의 위협·취약점 가운데 Claude AI, 포스트퀀텀 테스트 체계를 돌파하고 더 빠른 · Tengu Botnet, 방어자가 프로세스를 종료하면 손상된이 즉각 대응 우선순위에 올랐습니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 07월 29일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 29건을 분석하고 Claude AI, 포스트퀀텀 테스트, Tengu Botnet 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, Zero-Day]
 author: Twodragon
