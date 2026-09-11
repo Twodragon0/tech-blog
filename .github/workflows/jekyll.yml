@@ -212,19 +212,25 @@ jobs:
           # described 13.7% of the code. Now it reports both scopes, labels each,
           # and derives the test count instead of asserting one.
           COVERAGE=$(python3 -c "
-          import glob, json
+          import json
           with open('coverage.json') as f:
-              core = json.load(f)['totals']
-          rows = [
+              data = json.load(f)
+          core = data['totals']
+          print(
               '| Curated slice (pyproject include, %d files) | %d | %d | %s%% |'
-              % (len(json.load(open('coverage.json'))['files']),
+              % (len(data['files']),
                  core.get('num_statements', 0),
                  core.get('missing_lines', 0),
-                 core.get('percent_covered_display', 'N/A')),
-          ]
-          print('\n'.join(rows))
+                 core.get('percent_covered_display', 'N/A'))
+          )
           ")
-          GLOBAL=$(python3 -m coverage report --rcfile=.coveragerc-global 2>/dev/null | tail -3 | grep -E '^TOTAL' || echo '')
+          # No \`tail\`: coverage prints notes AFTER the TOTAL row ('N files
+          # skipped due to complete coverage.', and 'N empty files skipped.'
+          # once skip_empty is set). Measured today: exactly 2 trailing lines, so
+          # a \`tail -3\` window had zero margin — one more note would push TOTAL
+          # out of it and render an empty '| Whole of scripts/ | | | |' row.
+          # Only one line can start with TOTAL, so the grep alone is unambiguous.
+          GLOBAL=$(python3 -m coverage report --rcfile=.coveragerc-global 2>/dev/null | grep -E '^TOTAL' || echo '')
           BODY="## Test Coverage Report
 
           | Scope | Stmts | Miss | Cover |

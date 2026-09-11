@@ -165,6 +165,77 @@ class TestViolationDetection:
         assert violation(p) is None
 
 
+class TestStagedScope:
+    """`--staged` reads the index; the working tree can disagree with it.
+
+    `git add x.md && rm x.md` leaves the file staged as an addition, so
+    `--diff-filter=ACMR` lists it while there is nothing on disk. The gate used
+    to exit 1 with `not found` and block the commit over a file the commit does
+    not contain. Reproduced on main before the fix.
+
+    A missing path must still be an error everywhere else — that asymmetry is
+    the point, so both directions are asserted here.
+    """
+
+    def _repo(self, tmp_path: Path) -> Path:
+        import subprocess as sp
+
+        sp.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+        sp.run(
+            ["git", "config", "user.email", "t@example.com"], cwd=tmp_path, check=True
+        )
+        sp.run(["git", "config", "user.name", "t"], cwd=tmp_path, check=True)
+        (tmp_path / "_posts").mkdir()
+        (tmp_path / "seed").write_text("x", encoding="utf-8")
+        sp.run(["git", "add", "seed"], cwd=tmp_path, check=True)
+        sp.run(["git", "commit", "-qm", "seed"], cwd=tmp_path, check=True)
+        return tmp_path
+
+    def test_staged_then_deleted_post_is_skipped(self, tmp_path: Path, monkeypatch):
+        import subprocess as sp
+
+        repo = self._repo(tmp_path)
+        post = repo / "_posts" / "2026-09-12-x.md"
+        post.write_text(
+            f'---\nlayout: post\ntitle: "T"\nexcerpt: "{BASE}"\n---\n{PLAIN_BODY}',
+            encoding="utf-8",
+        )
+        sp.run(["git", "add", str(post)], cwd=repo, check=True)
+        post.unlink()
+
+        import check_excerpt_promises as mod
+
+        monkeypatch.setattr(mod, "ROOT", repo, raising=True)
+        assert mod._staged_posts() == [], (
+            "a staged-then-deleted post is still in the list; the gate will "
+            "report it as `not found` and fail a commit that does not contain it"
+        )
+        assert mod.main(["--staged"]) == 0
+
+    def test_staged_and_present_post_is_still_checked(
+        self, tmp_path: Path, monkeypatch
+    ):
+        """The control: filtering must not empty the staged list wholesale."""
+        import subprocess as sp
+
+        repo = self._repo(tmp_path)
+        post = repo / "_posts" / "2026-09-12-y.md"
+        post.write_text(
+            f'---\nlayout: post\ntitle: "T"\n'
+            f'excerpt: "{BASE + CLOSER_TEXTS[IOC_TABLE]}"\n---\n{PLAIN_BODY}',
+            encoding="utf-8",
+        )
+        sp.run(["git", "add", str(post)], cwd=repo, check=True)
+
+        import check_excerpt_promises as mod
+
+        monkeypatch.setattr(mod, "ROOT", repo, raising=True)
+        assert mod._staged_posts() == [post]
+        assert mod.main(["--staged"]) == 1, (
+            "the staged post carries an unmet promise and must still be caught"
+        )
+
+
 class TestExitCodes:
     def test_clean_file_exits_zero(self, tmp_path: Path) -> None:
         p = _post(tmp_path, BASE + CLOSER_TEXTS[CHECKLIST], PLAIN_BODY)
@@ -177,6 +248,27 @@ class TestExitCodes:
     def test_missing_named_file_exits_one(self, tmp_path: Path) -> None:
         """A typo'd path must not read as "nothing to check, all good"."""
         assert main([str(tmp_path / "nope.md")]) == 1
+
+    def test_missing_file_is_reported_as_missing_not_as_a_broken_promise(
+        self, tmp_path: Path, capsys
+    ) -> None:
+        """Exit 1 is not enough — the reason has to be right.
+
+        Without the explicit missing-path check the run still exits 1, because
+        `violation()` turns the read error into an `unreadable:` finding. But
+        the summary then tells the reader to run
+        `seo_diversify_excerpts --apply --repair-promises`, which cannot fix a
+        path that does not exist. Same exit code, wrong advice — only the
+        message distinguishes the two, so the message is what this asserts.
+        """
+        main([str(tmp_path / "nope.md")])
+        out = capsys.readouterr()
+        combined = out.out + out.err
+        assert "not found" in combined
+        assert "--repair-promises" not in combined, (
+            "a missing path was reported as an unmet promise, sending the "
+            "reader to a repair command that cannot help"
+        )
 
 
 class TestGeneratorPicksHonestly:
