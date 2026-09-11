@@ -5,7 +5,7 @@ date: 2026-08-12 10:09:09 +0900
 last_modified_at: 2026-08-12T10:09:09+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Patch, AWS, Botnet]
-excerpt: "마이크로소프트, 활성 공격 중인 Windows 드라이버 제로데이 · Kimwolf v7 Android 봇넷 등 2026년 08월 12일 보고된 29건의 보안/기술 이슈를 운영 관점에서 점검합니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
+excerpt: "마이크로소프트, 활성 공격 중인 Windows 드라이버 제로데이 · Kimwolf v7 Android 봇넷 등 2026년 08월 12일 보고된 29건의 보안/기술 이슈를 운영 관점에서 점검합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 08월 12일 보안 뉴스 요약. The Hacker News 등 29건을 분석하고 마이크로소프트, 활성 공격 중인 Windows, Kimwolf v7 Android 봇넷 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Patch, AWS]
 author: Twodragon

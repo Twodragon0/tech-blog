@@ -5,7 +5,7 @@ date: 2026-06-22 09:43:28 +0900
 last_modified_at: 2026-06-22T09:43:28+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Threat, AI, Security]
-excerpt: "악명 높은 ‘샌드위치 공격’ 봇 Jaredfromsubway.eth · 위협 브리프: 대규모 자격 증명 공격 완화 방안을 비롯한 2026년 06월 22일 보안/기술 동향 10건을 DevSecOps 시선으로 정리합니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "악명 높은 ‘샌드위치 공격’ 봇 Jaredfromsubway.eth · 위협 브리프: 대규모 자격 증명 공격 완화 방안을 비롯한 2026년 06월 22일 보안/기술 동향 10건을 DevSecOps 시선으로 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 06월 22일 보안 뉴스 요약. Cointelegraph, Unit 42 (Palo Alto), CoinDesk 등 10건을 분석하고 악명 높은 '샌드위치 공격' 봇, 위협 브리프: 대규모 자격 증명 공격 완화 방안, Sonic token 5% 하락 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Threat, AI, Security]
 author: Twodragon

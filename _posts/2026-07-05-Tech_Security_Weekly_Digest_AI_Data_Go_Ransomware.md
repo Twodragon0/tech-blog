@@ -5,7 +5,7 @@ date: 2026-07-05 11:10:01 +0900
 last_modified_at: 2026-07-05T11:10:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Data, Go, Ransomware]
-excerpt: "미국 정부 기관, 데이터 도난 갈취 사건에서 Kairos에 100만 · 북한 해커, PolinRider 캠페인에서 108개의 악성 패키지를 비롯한 2026년 07월 05일 보안/기술 동향 14건을 DevSecOps 시선으로 정리합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "미국 정부 기관, 데이터 도난 갈취 사건에서 Kairos에 100만 · 북한 해커, PolinRider 캠페인에서 108개의 악성 패키지를 비롯한 2026년 07월 05일 보안/기술 동향 14건을 DevSecOps 시선으로 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 07월 05일 보안 뉴스 요약. The Hacker News, BleepingComputer, TechCrunch Security 등 14건을 분석하고 미국 정부 기관, 데이터 도난 갈취, 북한 해커 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Data, Go]
 author: Twodragon

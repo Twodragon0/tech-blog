@@ -5,7 +5,7 @@ date: 2026-08-10 10:02:39 +0900
 last_modified_at: 2026-08-10T10:02:39+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Bitcoin]
-excerpt: "AI 안전성 테스트가 안전 위험이 되고 있다 · 이 '적대적' 패턴은 감시 카메라가 당신을 감지하지 못하게 할 수를 비롯한 2026년 08월 10일 보안/기술 동향 12건을 DevSecOps 시선으로 정리합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "AI 안전성 테스트가 안전 위험이 되고 있다 · 이 '적대적' 패턴은 감시 카메라가 당신을 감지하지 못하게 할 수를 비롯한 2026년 08월 10일 보안/기술 동향 12건을 DevSecOps 시선으로 정리합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 08월 10일 보안 뉴스 요약. TechCrunch Security, Cointelegraph 등 12건을 분석하고 AI 안전성 테스트가 안전 위험이 되고 있다, 이 '적대적' 패턴은 감시, BIP-110이 조용히 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Bitcoin]
 author: Twodragon

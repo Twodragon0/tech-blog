@@ -80,6 +80,17 @@ filterwarnings = [
 source = ["scripts"]
 
 [tool.coverage.report]
+# This `include` list narrows EVERY downstream report — the terminal table,
+# coverage.json, the PR comment, and `fail_under` below — to 17 files / 4,755
+# statements at 72% (measured 2026-09-10). `scripts/` actually holds 218 files
+# and 34,747 statements at 39.76%, so this slice is 13.7% of the code and a new
+# 500-line untested module cannot move the number at all.
+#
+# That is deliberate now rather than accidental: this is the CORE ratchet, and
+# `.coveragerc-global` carries a second floor over everything. Keep both. A
+# global-only floor would hide a regression in the well-tested modules here
+# (content_generator sits at 84%) inside the rounding; a core-only floor is what
+# let ~30,000 statements go unwatched.
 include = [
     "scripts/auto_publish_news.py",
     "scripts/check_posts.py",
@@ -95,4 +106,9 @@ show_missing = true
 # Note: raising this threshold is a ratchet. Lower it only when adding large
 # untested modules to the include list; otherwise prefer adding tests to meet
 # the existing bar.
+#
+# This is the ONLY place the core floor is set. jekyll.yml used to pass
+# `--cov-fail-under=40` on the pytest line, and the CLI flag wins — so CI
+# enforced 40 while this file, which is what anyone reads, said 50. The flag is
+# gone. Measured headroom on 2026-09-10: 72.13% against this 50.
 fail_under = 50

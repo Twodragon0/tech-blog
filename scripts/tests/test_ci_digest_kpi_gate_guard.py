@@ -16,8 +16,10 @@ must not perturb panel/visual routing, keeping the honesty scorer invariant).
 
 Those unit tests only protect against regression *while they actually run in CI*.
 The CORPUS-LEVEL enforcement is the ``Run script unit tests`` step in
-``.github/workflows/jekyll.yml``: it runs ``pytest scripts/tests/`` under a
-``--cov-fail-under`` floor. That protection disappears *silently* if someone drops
+``.github/workflows/jekyll.yml``: it runs ``pytest scripts/tests/`` with coverage
+collection under the ``fail_under`` floor that pyproject.toml owns (see
+``MIN_COV_FLOOR`` below for why it is no longer a CLI flag). That protection
+disappears *silently* if someone drops
 the pytest step, stops pointing it at ``scripts/tests/``, lowers/removes the
 coverage floor, marks the step ``continue-on-error``, or neutralises it with
 ``|| true`` — and the 5-column silent-break could then re-enter undetected. This
@@ -33,6 +35,7 @@ is intentional, update this guard in the same PR and say why.
 from __future__ import annotations
 
 import re
+import tomllib
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -42,6 +45,14 @@ REGRESSION_TEST = REPO_ROOT / "scripts" / "tests" / "test_l20_realcontent.py"
 # The coverage floor that gates ``scripts/tests/`` today. The guard asserts the
 # floor is never LOWERED below this; raising it (and bumping this constant in the
 # same PR) is the intended ratchet direction.
+#
+# 2026-09-10: the floor moved OUT of the workflow. It used to be
+# ``--cov-fail-under=40`` on the pytest line while pyproject.toml said
+# ``fail_under = 50``, and the CLI flag wins — CI enforced 40 while the file
+# everyone reads claimed 50. The flag is gone and pyproject owns the core floor,
+# so the effective floor ROSE to 50. Verified that pytest-cov honours the config
+# (a probe with ``fail_under = 99`` and no CLI flag exits 1 with "Required test
+# coverage of 99.0% not reached"), which is what makes the flag safe to drop.
 MIN_COV_FLOOR = 40
 
 
@@ -134,16 +145,36 @@ class TestDigestKpiGateGuard:
             "digest-KPI regression tests would stop running in CI."
         )
 
-    def test_coverage_floor_not_lowered(self):
+    def test_coverage_is_still_measured_in_the_step(self):
+        """A floor is only enforced while the run it reads is still collecting.
+
+        pytest-cov applies ``fail_under`` from the coverage config, but only when
+        coverage runs at all. Dropping ``--cov`` here would leave both floors
+        configured and neither enforced.
+        """
         cmd = _command_text(_unit_test_step_block(WORKFLOW.read_text(encoding="utf-8")))
-        floors = re.findall(r"--cov-fail-under=(\d+)", cmd)
-        assert floors, (
-            "--cov-fail-under was removed from the unit-test step; the coverage "
+        assert "--cov" in cmd, (
+            "the unit-test step no longer collects coverage, so pyproject's "
+            "fail_under has no run to apply to and the floor is inert."
+        )
+
+    def test_coverage_floor_not_lowered(self):
+        """The floor lives in pyproject now, not on the pytest command line."""
+        cfg = tomllib.loads((REPO_ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+        floor = cfg["tool"]["coverage"]["report"].get("fail_under")
+        assert floor is not None, (
+            "pyproject.toml lost [tool.coverage.report] fail_under; the coverage "
             "floor gating scripts/tests/ is gone. If intentional, update this guard."
         )
-        assert min(int(f) for f in floors) >= MIN_COV_FLOOR, (
+        assert floor >= MIN_COV_FLOOR, (
             f"the coverage floor was lowered below {MIN_COV_FLOOR}; raising it is "
             "fine (bump MIN_COV_FLOOR in the same PR), lowering it weakens the gate."
+        )
+        cmd = _command_text(_unit_test_step_block(WORKFLOW.read_text(encoding="utf-8")))
+        assert "--cov-fail-under" not in cmd, (
+            "a --cov-fail-under flag is back on the pytest line. The CLI flag beats "
+            "pyproject's fail_under, which is how CI came to enforce 40 while the "
+            "file said 50. Set one floor, in pyproject."
         )
 
     def test_step_not_neutralized(self):

@@ -5,7 +5,7 @@ date: 2026-08-14 10:10:29 +0900
 last_modified_at: 2026-08-14T10:10:29+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Data, Go]
-excerpt: "2026년 08월 14일 공개된 27건의 위협·취약점 가운데 AWS Certificate Manager · 우크라이나, 사기 콜센터 94곳 적발 및 현금 수백만 달러 압수가 즉각 대응 우선순위에 올랐습니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "2026년 08월 14일 공개된 27건의 위협·취약점 가운데 AWS Certificate Manager · 우크라이나, 사기 콜센터 94곳 적발 및 현금 수백만 달러 압수가 즉각 대응 우선순위에 올랐습니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 08월 14일 보안 뉴스 요약. AWS Security Blog, BleepingComputer 등 27건을 분석하고 AWS Certificate Manager, 우크라이나, 사기 콜센터 94곳 적발 및 현금 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Data]
 author: Twodragon

@@ -5,7 +5,7 @@ date: 2026-07-01 09:35:47 +0900
 last_modified_at: 2026-07-01T09:35:47+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Data, Botnet]
-excerpt: "Microsoft, 오염된 MCP 도구 설명이 AI 에이전트의 · RustDuck Botnet, Rust로 재구축되어 DDoS 공격용 등 2026년 07월 01일 보고된 30건의 보안/기술 이슈를 운영 관점에서 점검합니다. 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다."
+excerpt: "Microsoft, 오염된 MCP 도구 설명이 AI 에이전트의 · RustDuck Botnet, Rust로 재구축되어 DDoS 공격용 등 2026년 07월 01일 보고된 30건의 보안/기술 이슈를 운영 관점에서 점검합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 07월 01일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 30건을 분석하고 Microsoft, 오염된 MCP 도구, RustDuck Botnet 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Data]
 author: Twodragon

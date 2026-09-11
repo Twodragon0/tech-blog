@@ -5,7 +5,7 @@ date: 2026-07-15 10:28:29 +0900
 last_modified_at: 2026-07-15T10:28:29+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Patch, AWS, Security]
-excerpt: "Microsoft, 활성 공격 중인 제로데이 2건 포함 역대 최다 · 놓치셨다면: 2026년 6월 AWS Security 소식이 부각된 2026년 07월 15일 보안 다이제스트 — 29건의 이슈와 실행 가능한 대응 액션을 정리합니다. 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다."
+excerpt: "Microsoft, 활성 공격 중인 제로데이 2건 포함 역대 최다 · 놓치셨다면: 2026년 6월 AWS Security 소식이 부각된 2026년 07월 15일 보안 다이제스트 — 29건의 이슈와 실행 가능한 대응 액션을 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 07월 15일 보안 뉴스 요약. The Hacker News, AWS Security Blog, 안랩 ASEC 블로그 등 29건을 분석하고 Microsoft, 활성 공격 중인, 놓치셨다면: 2026년 6월 AWS 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Zero-Day, Patch, AWS]
 author: Twodragon

@@ -5,7 +5,7 @@ date: 2026-07-03 11:04:43 +0900
 last_modified_at: 2026-07-03T11:04:43+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go, AI, Ransomware, Threat]
-excerpt: "2026년 07월 03일 공개된 26건의 위협·취약점 가운데 Google, 200만 가정용 기기에 걸친 NetNut 리지덴셜 · 랜섬웨어 그룹, Citrix Bleed 2, BYOVD가 즉각 대응 우선순위에 올랐습니다. 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다."
+excerpt: "2026년 07월 03일 공개된 26건의 위협·취약점 가운데 Google, 200만 가정용 기기에 걸친 NetNut 리지덴셜 · 랜섬웨어 그룹, Citrix Bleed 2, BYOVD가 즉각 대응 우선순위에 올랐습니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 07월 03일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 26건을 분석하고 Google, 200만 가정용 기기에 걸친, 랜섬웨어 그룹 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go, AI, Ransomware]
 author: Twodragon

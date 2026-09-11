@@ -164,9 +164,35 @@ def test_reporting_steps_stay_soft_but_announce_failures(name: str):
 
 
 def test_coverage_floor_still_pinned():
-    """Canary: the pytest coverage floor is the other half of this job's value."""
+    """Canary: the pytest coverage floor is the other half of this job's value.
+
+    This used to pin the literal ``--cov-fail-under=40`` in the workflow. On
+    2026-09-10 the floors moved into two named config files, because the flag was
+    the bug: it silently overrode pyproject's ``fail_under = 50``, so CI enforced
+    40 while the file everyone reads claimed 50. Both floors are now asserted
+    where they live, and re-adding the flag is what trips.
+
+    Kept here as well as in ``test_ci_coverage_floor_guard.py`` deliberately: that
+    file guards the floors' *shape*, this one guards this job's *value*, and this
+    is the canary that broke when the flag was removed — retargeting it is the
+    record of that decision.
+    """
     body = _uncommented(WORKFLOW.read_text(encoding="utf-8"))
-    assert "--cov-fail-under=40" in body, (
-        "the coverage floor moved or vanished. Raising or removing it is a deliberate "
-        "decision that belongs in a PR description, not a silent edit."
+    assert "--cov-fail-under" not in body, (
+        "a --cov-fail-under flag is back in jekyll.yml. The CLI flag beats "
+        "pyproject's fail_under, so the floor CI applies stops being the floor the "
+        "repo documents. Set the core floor in pyproject.toml instead."
+    )
+    assert "--cov" in body, (
+        "jekyll.yml no longer collects coverage, so both configured floors are "
+        "inert — fail_under needs a coverage run to apply to."
+    )
+    assert re.search(
+        r"^\s*python3 -m coverage report --rcfile=\.coveragerc-global\s*$",
+        body,
+        re.MULTILINE,
+    ), (
+        "the global coverage floor step is gone. Without it the only floor is "
+        "pyproject's curated 17-file slice — 13.7% of scripts/ as measured on "
+        "2026-09-10 — and a large untested module can land unnoticed."
     )

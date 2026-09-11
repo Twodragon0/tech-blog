@@ -523,7 +523,7 @@ the 9 historical posts affected before the rule was introduced. The 7
 posts that still violated the rule were fixed in commit `b4ff35c4`
 (2026-05-28).
 
-### Active automation gates (13 enforcing)
+### Active automation gates (14 enforcing)
 
 | # | Script | Scope | Wired to |
 |---|--------|-------|----------|
@@ -540,6 +540,30 @@ posts that still violated the rule were fixed in commit `b4ff35c4`
 | 11 | `check_post_boilerplate.py` | a Mermaid fence or a whole checklist repeated verbatim across 2+ posts | pre-commit (15, `--staged`) + svg-lint CI (`--all`) |
 | 12 | `check_broken_links.py` | body `/posts/` link with no post and no declared `redirect_from` | pre-commit (16, `--staged`) + svg-lint CI (`--all`) |
 | 13 | `check_card_title_language.py` | news-card `title=` with no Korean text, outside a reasoned allow-list | pre-commit (17, `--staged`) + svg-lint CI (`--all`) |
+| 14 | `check_excerpt_promises.py` | `excerpt:` closing sentence promising content the body does not contain | pre-commit (19, `--staged`) + svg-lint CI (`--all`) |
+
+Gate 14 exists because `seo_diversify_excerpts.py` chose an excerpt's closing
+sentence from a hash of the **filename**. The closers make specific claims — a
+table of IoCs, an SBOM section, a 공격 경로 walkthrough — and nothing read the
+body. Measured 2026-09-10 across the 217 non-rollup digests, 150 advertised
+content that is not in the text, in the copy that listing pages, the RSS feed
+and the Google result show before a reader opens anything.
+
+Two things generalise from the fix. First, **the boilerplate was not uniformly
+false** — the checklist clause was kept by 35 of 35 — so a heuristic that
+flagged overclaiming excerpts wholesale would have been wrong about a seventh
+of the corpus, and the repair would have churned 65 correct excerpts. The gate
+is therefore keyed to the generator's own `CLOSERS` list, each entry carrying
+the predicate that makes its sentence true; both sides read that one list, so a
+new closer is covered automatically and hand-written excerpts are out of scope.
+Second, **filtering the five original closers to "only the eligible ones" is
+not enough**: it makes every excerpt true but puts 56% of posts on the single
+closer that always qualifies, recreating the duplicate-boilerplate signal the
+script exists to remove. Four closers whose promises hold by construction for a
+digest (measured 209-217 / 217) were added alongside, keeping the max share at
+33%. Repair with `seo_diversify_excerpts.py --apply --repair-promises`, which
+swaps only the closing sentence — the opener carries the story names and is
+rebuilt from `summary_card.highlights`, so regenerating it would rewrite them.
 
 Gate 13 is deny-by-default because the obvious reuse does not work:
 `check_digest_untranslated.py`'s `is_untranslated()` **exempts cited English
