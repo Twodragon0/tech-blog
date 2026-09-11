@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-10T02:17:40.802271+00:00",
+  "updated_at": "2026-09-11T02:13:58.056596+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/fbi-disrupts-china-linked-qtfy.html",
-      "title": "FBI Disrupts China-Linked QTFY Infrastructure Used to Steal Data From U.S. Organ",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/nimbus-manticore-expands-toolset-with.html",
-      "title": "Nimbus Manticore Expands Toolset With TWOSTROKE-Like Backdoor and SSH Tunneler",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/icymi-july-2026-aws-security/",
-      "title": "ICYMI: July 2026 @AWS Security",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/novacookies-campaigns-abuse-genuine.html",
-      "title": "NovaCookies Campaigns Abuse Genuine Docusign Notifications to Steal Microsoft 36",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/cisa-red-team-compromised-two-critical.html",
-      "title": "CISA Red Team Compromised Two Critical Infrastructure Orgs, One Detected Nothing",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvlink-fusion-nvhbm-custom-high-bandwidth-memory/",
-      "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/",
-      "title": "Intelligent transcription with Gemini 3.5 Transcribe",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
-      "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://openai.com/index/learning-never-stops",
-      "title": "Learning never stops: How AI makes learning continuous",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/evaluate-any-agent-framework-with-amazon-bedrock-agentcore-evaluations/",
-      "title": "Evaluate any agent framework with Amazon Bedrock AgentCore Evaluations",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/scale-okf-bundles-across-an-organization-with-knowledge-catalog/",
-      "title": "Using OKF with Knowledge Catalog to serve context for agents",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/networking/uber-de-risks-hybrid-ai-with-cloud-interconnect/",
-      "title": "How Uber improves network reliability while unblocking cloud migration",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/networking/introducing-google-cloud-fault-injection-testing-in-preview/",
-      "title": "Simplify your resilience testing strategy with Fault Injection Testing",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/flexible-billing-and-cost-controls-for-agents-on-google-cloud/",
-      "title": "FinOps for the AI era: New flexible billing and cost controls for agents",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/best-practices-for-dynamic-capacity-management/",
-      "title": "Dynamic capacity management for AI infrastructure",
-      "published_date": "2026-08-27",
-      "expires_at": "2026-09-03T07:10:59.204261+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/openai-says-reward-hacking-drove-ai.html",
       "title": "OpenAI Says Reward Hacking Drove AI Agents to Exploit Zero-Days and Breach Huggi",
@@ -1170,6 +1080,96 @@
       "title": "How Airtel delivered its flawless Indian Premiere League 2026 cricket broadcasts",
       "published_date": "2026-09-10",
       "expires_at": "2026-09-17T02:17:40.802153+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/threatsday-200-android-flaws-browser.html",
+      "title": "ThreatsDay: 200 Android Flaws, Browser-Built Phishing, 119K Scam Shops + 23 More",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/google-play-early-access-abused-to-push.html",
+      "title": "Google Play Early Access Abused to Push Thousands of Deceptive Android Apps",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-android-malware-encrypts-files-steals-data-and-harasses-victims/",
+      "title": "New Android malware encrypts files, steals data, and harasses victims",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/10/protecting-organizations-ai-assisted-executive-impersonation-invoice-fraud/",
+      "title": "Protecting organizations from AI-assisted executive impersonation and invoice fr",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/check-point-discloses-two-98-rated-vpn.html",
+      "title": "Check Point Discloses Two 9.8-Rated VPN Certificate Flaws Enabling Unauthenticat",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/",
+      "title": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform/",
+      "title": "Physical AI Takes the Wheel: How the World’s Robotaxi Leaders Are Building With ",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials",
+      "title": "How a researcher uses Codex and ChatGPT to search for new antimicrobial molecule",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/running-race-training-tips/",
+      "title": "3 ways to prep for your next big race with Search",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://openai.com/index/put-data-to-work",
+      "title": "Now everyone can put data to work",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/introducing-the-google-cloud-developer-plugin-for-ai-coding-agents/",
+      "title": "Introducing the Google Cloud Developer Plugin for AI Coding Agents",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/",
+      "title": "What’s new with Google Data Cloud",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/rendering-digital-humans-with-amazon-ec2-spot-instances/",
+      "title": "Amazon EC2 Spot 인스턴스로 디지털 휴먼 렌더링하기",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/running-pgvector-in-production-on-amazon-aurora-postgresql/",
+      "title": "Amazon Aurora PostgreSQL에서 pgvector를 프로덕션 환경으로 운영하기",
+      "published_date": "2026-09-11",
+      "expires_at": "2026-09-18T02:13:58.056502+00:00"
     }
   ]
 }

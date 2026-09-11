@@ -59,15 +59,21 @@ FAILURE_BRANCHES = (
 #   monitoring               — `if: failure()`, the production outage alert
 #   slack-category-digest    — 01:30 UTC scheduled digest
 #   googlebot-access-monitor — `if: failure()`, Googlebot 429/challenge alarm
+#   ai-blogwatcher           — `if: failure()`, the cron publish-failure alarm
+#                              (added 2026-09-10; the cron had no failure path
+#                              at all, and 09-05/09-06 shipped no post in
+#                              silence)
 #
 # The fourth was found by test_sender_list_is_complete below, not by reading the
 # audit request: it named three workflows and the canary immediately reported a
-# fourth carrying the same block. That is the argument for the canary existing.
+# fourth carrying the same block. That is the argument for the canary existing —
+# and it caught the fifth the same way, the moment it was written.
 SENDERS = (
     ("slack-post-notify.yml", "notify", POST_STEP),
     ("monitoring.yml", "monitor", "Slack notification on failure"),
     ("slack-category-digest.yml", "post-category-digest", POST_STEP),
     ("googlebot-access-monitor.yml", "probe", "Notify Slack on failure"),
+    ("ai-blogwatcher.yml", "notify-failure", "Post publish failure to Slack"),
 )
 
 
