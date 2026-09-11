@@ -7,7 +7,7 @@ last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI-Agent, Password-Manager, Serverless]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI-Agent,  Password-Manager,  Serverless]
-excerpt: "Infostealer 악성코드의 AI 에이전트 설정/토큰 탈취 신규 · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다가 부각된 2026년 02월 17일 보안 다이제스트 — 18건의 이슈와 실행 가능한 대응 액션을 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "Infostealer 악성코드의 AI 에이전트 설정/토큰 탈취 신규 · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다가 부각된 2026년 02월 17일 보안 다이제스트 — 18건의 이슈와 실행 가능한 대응 액션을 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "Infostealer 악성코드의 AI 에이전트 설정·토큰 탈취 신규 벡터, Bitwarden/Dashlane/LastPass 25개 패스워드 복구 공격, AWS AI 기반 서버리스 방어 심층 아키텍처 등 18건을 DevSecOps 실무 관점으로 분석한 2026년 2월 17일 주간 보안 다이제스트입니다."
 author: Twodragon
 comments: true

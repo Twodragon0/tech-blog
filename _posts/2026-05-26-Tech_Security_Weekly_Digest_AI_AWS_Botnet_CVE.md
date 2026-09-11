@@ -5,7 +5,7 @@ date: 2026-05-26 09:31:00 +0900
 last_modified_at: 2026-05-26T09:31:00+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Botnet, CVE]
-excerpt: "2026년 05월 26일 수집한 19건의 보안 이슈 중 ⚡ 주간 요약: Linux 취약점, Defender 제로데이 · Ghost CMS CVE-2026-26980 악용돼 700개 이상을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
+excerpt: "2026년 05월 26일 수집한 19건의 보안 이슈 중 ⚡ 주간 요약: Linux 취약점, Defender 제로데이 · Ghost CMS CVE-2026-26980 악용돼 700개 이상을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 05월 26일 보안 뉴스 요약. The Hacker News, Check Point Research 등 19건을 분석하고 ⚡ 주간 요약: Linux 취약점, Ghost CMS CVE-2026-26980, Alert Firehose가 드디어 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Botnet]
 author: Twodragon

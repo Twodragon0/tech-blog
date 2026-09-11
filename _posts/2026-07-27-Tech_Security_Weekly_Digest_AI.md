@@ -5,7 +5,7 @@ date: 2026-07-27 11:03:52 +0900
 last_modified_at: 2026-07-27T11:03:52+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI]
-excerpt: "GitHub, PyPI가 공급망 공격 대응을 위한 시간 기반 방어 · Hugging Face CEO, '전례 없는' OpenAI 해킹 등 2026년 07월 27일 보고된 16건의 보안/기술 이슈를 운영 관점에서 점검합니다. 영향받는 자산 식별과 SBOM 기반 의존성 패치, EDR 룰 보강 가이드를 다룹니다."
+excerpt: "GitHub, PyPI가 공급망 공격 대응을 위한 시간 기반 방어 · Hugging Face CEO, '전례 없는' OpenAI 해킹 등 2026년 07월 27일 보고된 16건의 보안/기술 이슈를 운영 관점에서 점검합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 07월 27일 보안 뉴스 요약. BleepingComputer, TechCrunch Security, Cointelegraph 등 16건을 분석하고 GitHub, PyPI가 공급망 공격, Hugging Face CEO 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI]
 author: Twodragon

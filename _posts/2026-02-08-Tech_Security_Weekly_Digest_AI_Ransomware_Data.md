@@ -8,7 +8,7 @@ comments: true
 date: 2026-02-08 10:58:46 +0900
 last_modified_at: 2026-04-16T11:22:39+09:00
 description: '2026년 02월 08일 보안 뉴스: 독일 BfV/BSI가 경고한 러시아 연계 Signal 피싱 공격(정치인/군인/언론인 타겟), BlackField 랜섬웨어 코드 재활용, 제로트러스트 데이터 중심 보안전략. DevSecOps 실무 위협 분석, MITRE ATT&CK 매핑, 탐지...'
-excerpt: "2026년 02월 08일 공개된 15건의 위협·취약점 가운데 2026-02-08 기술·보안 주간 다이제스트: Signal 피싱 · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다가 즉각 대응 우선순위에 올랐습니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
+excerpt: "2026년 02월 08일 공개된 15건의 위협·취약점 가운데 2026-02-08 기술·보안 주간 다이제스트: Signal 피싱 · 실무 관점에서 영향 범위와 우선순위를 함께 점검해야 합니다가 즉각 대응 우선순위에 올랐습니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 image: /assets/images/2026-02-08-Tech_Security_Weekly_Digest_AI_Ransomware_Data.svg
 image_alt: Tech Security Weekly Digest February 08 2026 Signal Phishing BlackField
   Ransomware Zero Trust Data

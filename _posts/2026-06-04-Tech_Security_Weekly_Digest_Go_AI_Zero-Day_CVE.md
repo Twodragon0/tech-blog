@@ -5,7 +5,7 @@ date: 2026-06-04 09:43:07 +0900
 last_modified_at: 2026-06-04T09:43:07+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go, AI, Zero-Day, CVE]
-excerpt: "WhatsApp, Slack 알림으로 Android에서 Google · Google DoubleClick이 새로운 Malspam 캠페인에서 등 2026년 06월 04일 보고된 24건의 보안/기술 이슈를 운영 관점에서 점검합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "WhatsApp, Slack 알림으로 Android에서 Google · Google DoubleClick이 새로운 Malspam 캠페인에서 등 2026년 06월 04일 보고된 24건의 보안/기술 이슈를 운영 관점에서 점검합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 06월 04일 보안 뉴스 요약. The Hacker News 등 24건을 분석하고 WhatsApp, Slack, Google DoubleClick이 새로운 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Go, AI, Zero-Day]
 author: Twodragon

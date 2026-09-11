@@ -95,6 +95,14 @@ PLAIN_BODY = """
 """
 
 
+# RICH_BODY with the IoC table row taken out: the IoC closer stops qualifying
+# while the longer ones (탐지·패치, SBOM/EDR, SOC) still do. That combination is
+# what makes the non-growth constraint observable.
+NO_IOC_BODY = "\n".join(
+    ln for ln in RICH_BODY.split("\n") if not ln.startswith("| IoC ")
+).replace("IoC", "지표")
+
+
 def _post(tmp_path: Path, excerpt: str, body: str, name: str = "p.md") -> Path:
     p = tmp_path / name
     p.write_text(
@@ -225,6 +233,61 @@ class TestRepairIsSurgical:
         )
         idx = current_closer_index(new)
         assert idx is not None and CLOSERS[idx].requires(PLAIN_BODY)
+
+    def test_replacement_never_grows_the_front_matter(self, tmp_path: Path) -> None:
+        """`check_front_matter_growth.py --changed` ratchets every existing post.
+
+        Swapping in a longer closing sentence grew front matter by 2-8 chars in
+        41 of the 150 repairs, which failed the build. Exempting `excerpt` from
+        that ratchet would blind it to real excerpt bloat, so the repair carries
+        the constraint instead. Local `--all` does NOT catch this — that mode is
+        a cap check with no baseline, which is why the first run looked clean.
+        """
+        # NO_IOC_BODY, not PLAIN_BODY: every closer PLAIN_BODY qualifies for is
+        # already shorter than the IoC one, so the filter is a no-op there and
+        # deleting it left this test green. The body below keeps the longer
+        # closers eligible, which is the only shape that can detect the loss.
+        longer = [
+            i
+            for i in eligible_closers(NO_IOC_BODY)
+            if len(CLOSER_TEXTS[i]) > len(CLOSER_TEXTS[IOC_TABLE])
+        ]
+        assert longer, (
+            "fixture no longer offers an eligible closer longer than the one "
+            "being replaced, so this test cannot detect a lost constraint"
+        )
+
+        # Seeded across many filenames because the pick rotates on the name.
+        for n in range(20):
+            name = f"2026-05-{n % 28 + 1:02d}-Tech_Security_Weekly_Digest_{n}.md"
+            p = _post(tmp_path, BASE + CLOSER_TEXTS[IOC_TABLE], NO_IOC_BODY, name=name)
+            before = len(p.read_text(encoding="utf-8").split("---")[1])
+            changed, reason = _process_file(p, apply=True, repair_promises=True)
+            assert changed, f"{name}: expected a repair, got {reason!r}"
+            after = len(p.read_text(encoding="utf-8").split("---")[1])
+            assert after <= before, (
+                f"{name}: front matter grew {before} -> {after}; the repair "
+                "picked a longer closer than the one it replaced"
+            )
+
+    def test_length_constraint_yields_to_honesty(self, tmp_path: Path) -> None:
+        """Fitting is a preference, not a veto — a true excerpt beats a short one.
+
+        If no eligible closer is short enough, the unfiltered eligible set is
+        used and the front matter grows. That is the correct trade: the ratchet
+        exists to stop bloat, not to hold an excerpt at a claim the post cannot
+        support.
+        """
+        shortest = min(len(t) for t in CLOSER_TEXTS)
+        chosen = choose_closer_text(
+            tmp_path / "2026-05-01-x.md", PLAIN_BODY, current=None, max_len=1
+        )
+        assert chosen in CLOSER_TEXTS and len(chosen) >= shortest
+        idx = CLOSER_TEXTS.index(chosen)
+        assert CLOSERS[idx].requires(PLAIN_BODY), (
+            "an impossible length budget produced a closer the body cannot back "
+            "up — the filter must yield to eligibility, never override it"
+        )
 
     def test_kept_promise_is_left_untouched(self, tmp_path: Path) -> None:
         p = _post(tmp_path, BASE + CLOSER_TEXTS[CHECKLIST], PLAIN_BODY)

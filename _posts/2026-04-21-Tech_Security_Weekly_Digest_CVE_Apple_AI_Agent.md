@@ -5,7 +5,7 @@ date: 2026-04-21 10:49:41 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Apple, AI, Agent]
-excerpt: "SGLang CVE-2026-5760(CVSS 9.8) 악성 · 주간 보안 뉴스 요약: Vercel 해킹, Push 사기를 비롯한 2026년 04월 21일 보안/기술 동향 25건을 DevSecOps 시선으로 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
+excerpt: "SGLang CVE-2026-5760(CVSS 9.8) 악성 · 주간 보안 뉴스 요약: Vercel 해킹, Push 사기를 비롯한 2026년 04월 21일 보안/기술 동향 25건을 DevSecOps 시선으로 정리합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 04월 21일 보안 뉴스 요약. The Hacker News, BleepingComputer 등 25건을 분석하고 SGLang CVE-2026-5760(CVSS, 주간 보안 뉴스 요약, KelpDAO 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, CVE, Apple, AI]
 author: Twodragon

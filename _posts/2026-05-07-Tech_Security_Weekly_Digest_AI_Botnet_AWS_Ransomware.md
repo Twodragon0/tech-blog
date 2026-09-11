@@ -5,7 +5,7 @@ date: 2026-05-07 11:04:16 +0900
 last_modified_at: 2026-05-21T18:36:46+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, AWS, Ransomware]
-excerpt: "Mirai 기반 xlabs_v1 봇넷 · AWS에서 ISO/IEC 42001:2023 준수 가이드 제공을 비롯한 2026년 05월 07일 보안/기술 동향 30건을 DevSecOps 시선으로 정리합니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
+excerpt: "Mirai 기반 xlabs_v1 봇넷 · AWS에서 ISO/IEC 42001:2023 준수 가이드 제공을 비롯한 2026년 05월 07일 보안/기술 동향 30건을 DevSecOps 시선으로 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 05월 07일 보안 뉴스 요약. The Hacker News, AWS Security Blog, BleepingComputer 등 30건을 분석하고 Mirai 기반 xlabs_v1 봇넷, AWS에서 ISO/IEC 42001, MuddyWater 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Botnet, AWS]
 author: Twodragon

@@ -5,7 +5,7 @@ date: 2026-07-28 10:45:58 +0900
 last_modified_at: 2026-07-28T10:45:58+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Open-Source, Botnet, Blockchain]
-excerpt: "2026년 07월 28일 수집한 29건의 보안 이슈 중 NVIDIA, 37개 회원으로 구성된 Open Secure AI · 모든 Fox가 Silver는 아니다: AtlasRAT 로더 체인 내부를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
+excerpt: "2026년 07월 28일 수집한 29건의 보안 이슈 중 NVIDIA, 37개 회원으로 구성된 Open Secure AI · 모든 Fox가 Silver는 아니다: AtlasRAT 로더 체인 내부를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 07월 28일 보안 뉴스 요약. The Hacker News, 안랩 ASEC 블로그, BleepingComputer 등 29건을 분석하고 NVIDIA, 37개 회원으로 구성된 Open, 모든 Fox가 Silver는 아니다 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Open-Source, Botnet]
 author: Twodragon

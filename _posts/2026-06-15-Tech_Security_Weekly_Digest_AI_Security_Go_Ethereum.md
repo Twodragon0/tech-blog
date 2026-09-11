@@ -5,7 +5,7 @@ date: 2026-06-15 09:38:20 +0900
 last_modified_at: 2026-06-15T09:38:20+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go, Ethereum]
-excerpt: "FBI, 백만 개 URL 사용한 대규모 AI 기반 피싱 서비스 무력화 · Arch Linux, 이제 악성코드 사고가 통제됐다고 판단: 등 2026년 06월 15일 보고된 15건의 보안/기술 이슈를 운영 관점에서 점검합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "FBI, 백만 개 URL 사용한 대규모 AI 기반 피싱 서비스 무력화 · Arch Linux, 이제 악성코드 사고가 통제됐다고 판단: 등 2026년 06월 15일 보고된 15건의 보안/기술 이슈를 운영 관점에서 점검합니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 description: "2026년 06월 15일 보안 뉴스 요약. BleepingComputer, GeekNews (긱뉴스), Snyk Blog 등 15건을 분석하고 FBI, 백만 개 URL 사용한 대규모 AI, Arch Linux 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go]
 author: Twodragon

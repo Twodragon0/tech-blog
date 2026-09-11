@@ -5,7 +5,7 @@ date: 2026-08-08 09:57:26 +0900
 last_modified_at: 2026-08-08T09:57:26+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Data, Cloud, AWS]
-excerpt: "거의 800개의 악성 npm 패키지가 크로스 플랫폼 RAT 및 · ClickFix 공격이 암호화폐 지갑을 비울 수 있는 macOS를 비롯한 2026년 08월 08일 보안/기술 동향 29건을 DevSecOps 시선으로 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "거의 800개의 악성 npm 패키지가 크로스 플랫폼 RAT 및 · ClickFix 공격이 암호화폐 지갑을 비울 수 있는 macOS를 비롯한 2026년 08월 08일 보안/기술 동향 29건을 DevSecOps 시선으로 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 08월 08일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 29건을 분석하고 거의 800개의 악성 npm 패키지가 크로스, ClickFix 공격이 암호화폐 지갑을 비울 수, UNC6671 비싱 공격 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Data, Cloud]
 author: Twodragon

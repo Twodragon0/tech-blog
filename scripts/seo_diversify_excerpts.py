@@ -338,7 +338,9 @@ def _count_from_existing_excerpt(existing: str) -> str:
     return m.group(1) if m else "15"
 
 
-def choose_closer_text(path: Path, body: str, current: int | None = None) -> str:
+def choose_closer_text(
+    path: Path, body: str, current: int | None = None, max_len: int | None = None
+) -> str:
     """Pick this post's closing sentence, deterministically.
 
     ``current`` is the closer the excerpt already ends with, when it has one.
@@ -346,12 +348,25 @@ def choose_closer_text(path: Path, body: str, current: int | None = None) -> str
     true would churn live, indexed pages for nothing. Only an unfulfilled one
     rotates, and it rotates within the eligible set so the replacement is true
     by construction.
+
+    ``max_len`` keeps the replacement from being longer than the sentence it
+    replaces. ``check_front_matter_growth.py --changed origin/main`` ratchets
+    every existing post's front matter, and a repair that swapped in a longer
+    closer grew it by 2-8 characters in 41 of the 150 posts — enough to fail the
+    build. Exempting ``excerpt`` from that ratchet would have blinded it to real
+    excerpt bloat, so the constraint belongs here instead. It costs nothing:
+    measured 2026-09-10, all 150 repairs had a non-growing option, and honouring
+    it actually spread the rotation better (max share 33% -> 26%) because the two
+    shortest closers were being under-picked. When nothing fits, the eligible set
+    is used unfiltered — a true excerpt beats a short one.
     """
     ok = eligible_closers(body)
     if not ok:
         return NEUTRAL_CLOSER
     if current is not None and current in ok:
         return CLOSER_TEXTS[current]
+    if max_len is not None:
+        ok = [i for i in ok if len(CLOSER_TEXTS[i]) <= max_len] or ok
     return CLOSER_TEXTS[ok[(_seed_from_filename(path) // len(CLOSERS)) % len(ok)]]
 
 
@@ -483,7 +498,9 @@ def _repair_promise(path: Path, body: str, existing: str) -> str | None:
         return None  # hand-written ending — not ours to rewrite
     if CLOSERS[current].requires(body):
         return None  # promise already kept
-    chosen = choose_closer_text(path, body, current=None)
+    chosen = choose_closer_text(
+        path, body, current=None, max_len=len(CLOSER_TEXTS[current])
+    )
     core = core[: -len(CLOSER_TEXTS[current].strip())].rstrip()
     return _yaml_safe(core + chosen + filler)
 

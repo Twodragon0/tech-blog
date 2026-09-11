@@ -5,7 +5,7 @@ date: 2026-06-26 09:36:30 +0900
 last_modified_at: 2026-06-26T09:36:30+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Threat]
-excerpt: "2026년 06월 26일 수집한 26건의 보안 이슈 중 Photo ZIP 캠페인이 호스피탈리티 업계를 노려 지속적 접근을 · Chrome Ad Blocker, 1000만 회 이상 설치를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "2026년 06월 26일 수집한 26건의 보안 이슈 중 Photo ZIP 캠페인이 호스피탈리티 업계를 노려 지속적 접근을 · Chrome Ad Blocker, 1000만 회 이상 설치를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 06월 26일 보안 뉴스 요약. Microsoft Security Blog, The Hacker News, BleepingComputer 등 26건을 분석하고 Photo ZIP 캠페인이 호스피탈리티, Chrome Ad Blocker, Anthropic 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Threat]
 author: Twodragon

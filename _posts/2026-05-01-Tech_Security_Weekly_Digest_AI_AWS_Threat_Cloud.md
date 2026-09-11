@@ -5,7 +5,7 @@ date: 2026-05-01 11:10:05 +0900
 last_modified_at: 2026-05-01T02:11:35Z
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Threat, Cloud]
-excerpt: "2026년 05월 01일 수집한 28건의 보안 이슈 중 PyTorch Lightning 및 Intercom-client · ThreatsDay 게시판: SMS 블래스터 적발을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "2026년 05월 01일 수집한 28건의 보안 이슈 중 PyTorch Lightning 및 Intercom-client · ThreatsDay 게시판: SMS 블래스터 적발을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "2026년 05월 01일 보안 뉴스 요약. The Hacker News, Microsoft Security Blog 등 28건을 분석하고 PyTorch Lightning, ThreatsDay 게시판, 새로운 Python 백도어 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, AWS, Threat]
 author: Twodragon

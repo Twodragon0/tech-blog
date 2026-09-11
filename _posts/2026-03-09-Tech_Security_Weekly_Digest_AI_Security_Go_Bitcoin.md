@@ -7,7 +7,7 @@ last_modified_at: 2026-04-16T11:29:01+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Security, Go, Bitcoin]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  AI,  Security,  Go,  Bitcoin]
-excerpt: "Krebs on Security — 프롬프트 인젝션·과도한 권한 · CLARITY Act 통과 여부에 따른 SEC/CFTC 역할 분담과를 비롯한 2026년 03월 09일 보안/기술 동향 15건을 DevSecOps 시선으로 정리합니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
+excerpt: "Krebs on Security — 프롬프트 인젝션·과도한 권한 · CLARITY Act 통과 여부에 따른 SEC/CFTC 역할 분담과를 비롯한 2026년 03월 09일 보안/기술 동향 15건을 DevSecOps 시선으로 정리합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
 description: "AI 에이전트 프롬프트 인젝션·공급망 보안 위협, Saylor 비트코인 대규모 매수 동향, Agent Safehouse 샌드박스 도구 이슈를 중심으로 공격 경로·영향 자산·탐지 포인트를 기술 관점에서 정리하고, 경영진이 즉시 판단할 우선순위·서비스 영향·대응 체크리스트를 함께 제시한 주간 다이제스트입니다."
 author: Twodragon
 comments: true
