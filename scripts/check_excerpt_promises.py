@@ -18,12 +18,17 @@ only whether the promised NOUN appears anywhere in the body:
     "…실무 체크리스트를 함께 제공합니다"         35 of 35  <- kept
 
 That is 129 posts. This gate then reported **150**, and the difference is not a
-contradiction: the predicates here are stricter than "the word appears". The
-IoC closer promises a 정리표, so it requires a table row that actually lists
-IoCs (6 of 47, not 23); the SBOM closer names EDR too, so it requires both.
-Each predicate is written to match what its sentence actually claims.
+contradiction: the predicates are stricter than "the word appears".
 
-The last row is why this gate is keyed to specific sentences rather than to a
+Word presence is not sentence truth, and the first cut of these predicates got
+that wrong twice — caught in review, not by the gate. `"SOC" in body` matched
+the SOC 1 / SOC 2 audit report on all 7 posts carrying the 보안 운영센터
+sentence, and the 공격 경로 closer promised three things while checking one.
+Both sentences were deleted rather than patched: corpus-wide there is 1 mention
+of 보안 운영센터, and 0 of 215 posts satisfy all three attack-path promises. A
+predicate that can never be true is a sentence that should not exist.
+
+The kept row is why this gate is keyed to specific sentences rather than to a
 general "does the excerpt overclaim" heuristic: the boilerplate was not
 uniformly false, and a heuristic that flagged all of it would have been wrong
 about a seventh of the corpus. The defect was the hash, not the phrasing.
@@ -113,7 +118,7 @@ def violation(path: Path) -> str | None:
 
 def _staged_posts() -> list[Path]:
     out = subprocess.run(
-        ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM", "-z"],
+        ["git", "diff", "--cached", "--name-only", "--diff-filter=ACMR", "-z"],
         capture_output=True,
         text=True,
         check=True,

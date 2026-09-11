@@ -47,10 +47,23 @@ from seo_diversify_excerpts import (  # noqa: E402
     eligible_closers,
 )
 
-# Indices used by name so a reordering of CLOSERS fails loudly here rather than
-# silently changing what these tests mean.
-CHECKLIST = 0
-IOC_TABLE = 6
+
+def _closer_index(fragment: str) -> int:
+    """Locate a closer by a fragment of its sentence, not by position.
+
+    These tests were written against hardcoded indices, and then two closers
+    were deleted — which silently repointed `IOC_TABLE = 6` at a different
+    sentence instead of failing. Looking the sentence up makes a rename or a
+    deletion an error here rather than a test that quietly checks the wrong
+    thing.
+    """
+    hits = [i for i, t in enumerate(CLOSER_TEXTS) if fragment in t]
+    assert len(hits) == 1, f"{fragment!r} matched {len(hits)} closers, expected 1"
+    return hits[0]
+
+
+CHECKLIST = _closer_index("팀에서 바로 나눠 가질 점검 항목")
+IOC_TABLE = _closer_index("IoC 정리표")
 
 RICH_BODY = """
 ## 주요 이슈
@@ -215,6 +228,168 @@ class TestGeneratorPicksHonestly:
         assert violation(_post(tmp_path, "요약." + chosen, "", name="q.md")) is None
 
 
+# Two SEPARATE tables, one naming a source column and the other an impact
+# column. The sentence claims one table carries both, so this must NOT qualify.
+# Without this fixture, reverting the predicate to a flat `any(...) and any(...)`
+# over all rows left every test green — no post in the corpus splits them today,
+# which is exactly why the hole needs a synthetic case.
+TWO_TABLE_BODY = """
+## 출처
+
+| 분야 | 소스 |
+|---|---|
+| 취약점 | BleepingComputer |
+
+## 등급
+
+| 항목 | 영향도 |
+|---|---|
+| 커널 | 높음 |
+
+- [원문 1](https://example.com/a)
+- [원문 2](https://example.com/b)
+- [원문 3](https://example.com/c)
+
+## 실무 체크리스트
+
+- [ ] 확인
+- [ ] 조치
+- [ ] 공유
+"""
+
+# A source-directory row that merely mentions IoC — a place that publishes them,
+# not the 정리표 the sentence promises. Taken from a real corpus row.
+IOC_MENTION_BODY = PLAIN_BODY.replace(
+    "| 동향 | 뉴스 | 요약 |",
+    "| KISA 사이버 위협 동향 | [krcert.or.kr](https://www.krcert.or.kr/) | "
+    "국내 보안 권고 및 IOC |",
+)
+
+
+class TestPredicatesMatchTheirSentences:
+    """Each predicate must be as strong as the claim it guards — no stronger.
+
+    Every case here was written after a mutation survived: the corpus happens
+    not to contain the shape that distinguishes the strong predicate from the
+    weak one, so only a synthetic body can hold the distinction in place.
+    """
+
+    def test_source_and_impact_must_share_one_table(self) -> None:
+        idx = _closer_index("소스와 영향도를 표로 정리해")
+        assert idx not in eligible_closers(TWO_TABLE_BODY), (
+            "two different tables satisfied a sentence that claims one table "
+            "carries both columns"
+        )
+        assert idx in eligible_closers(PLAIN_BODY) or idx in eligible_closers(
+            RICH_BODY
+        ), "the predicate now rejects a body that genuinely has both in one table"
+
+    def test_ioc_needs_a_column_not_a_mention(self) -> None:
+        assert IOC_TABLE not in eligible_closers(IOC_MENTION_BODY), (
+            "a row that merely mentions IOC satisfied a promise of an IoC 정리표"
+        )
+        assert IOC_TABLE in eligible_closers(RICH_BODY), (
+            "the predicate now rejects a body with a real IoC column"
+        )
+
+    def test_fenced_tables_are_not_evidence(self) -> None:
+        """A pipe table inside ``` is a code sample, not the post's own table.
+
+        14 digests contain them.
+        """
+        fenced = PLAIN_BODY + "\n```\n| 소스 | 영향도 |\n|---|---|\n| a | b |\n```\n"
+        idx = _closer_index("소스와 영향도를 표로 정리해")
+        assert idx not in eligible_closers(fenced)
+
+    def test_retirement_does_not_rely_on_the_predicate(self, monkeypatch) -> None:
+        """`retired` must gate selection on its own.
+
+        `_never` already makes a retired closer ineligible, so removing the
+        `not c.retired` filter changed no test — belt and braces where only the
+        braces were tested. If someone retires a closer whose predicate is still
+        satisfiable, selection must still refuse it.
+        """
+        live = CLOSERS[0]
+        trap = type(live)(
+            text=" 은퇴했지만 술어는 참인 문장입니다.",
+            requires=lambda _b: True,
+            why="never",
+            retired=True,
+        )
+        monkeypatch.setattr(
+            "seo_diversify_excerpts.CLOSERS", (live, trap), raising=True
+        )
+        import seo_diversify_excerpts as mod
+
+        assert 1 not in mod.eligible_closers(RICH_BODY), (
+            "a retired closer with a satisfiable predicate became eligible"
+        )
+
+
+class TestRetiredClosers:
+    """A withdrawn sentence must stay RECOGNISED, or its carriers go dark.
+
+    Deleting the two bad closers outright looked tidier and silently removed 84
+    published posts from coverage: `current_closer_index` returned None for
+    them, the repair classified them as hand-written and skipped them, and the
+    gate — allow-by-default on unknown endings — stopped reporting them. They
+    kept advertising a SOC discussion and an attack-path walkthrough that are
+    not in the text, which is the exact defect this whole change removes.
+    Measured: "Hand-written" jumped 2 -> 86 before the retirement mechanism
+    replaced the deletion.
+    """
+
+    def test_retired_closers_exist(self) -> None:
+        retired = [i for i, c in enumerate(CLOSERS) if c.retired]
+        assert retired, (
+            "no retired closers. If a sentence is being withdrawn, mark it "
+            "retired=True rather than deleting the entry — see this class's "
+            "docstring for what deletion cost."
+        )
+
+    def test_retired_closer_is_never_selected(self, tmp_path: Path) -> None:
+        for body in (RICH_BODY, PLAIN_BODY, NO_IOC_BODY, ""):
+            for i in eligible_closers(body):
+                assert not CLOSERS[i].retired, (
+                    f"retired closer {i} is eligible again for {body[:20]!r}"
+                )
+        # And it cannot be reached through the generator either.
+        for n in range(12):
+            path = tmp_path / f"2026-05-{n + 1:02d}-Tech_Security_Weekly_Digest_X.md"
+            text = choose_closer_text(path, RICH_BODY)
+            assert text != NEUTRAL_CLOSER
+            assert not CLOSERS[CLOSER_TEXTS.index(text)].retired
+
+    def test_retired_closer_is_still_a_violation(self, tmp_path: Path) -> None:
+        """The whole point: a carrier must be flagged, not skipped as prose."""
+        retired = next(i for i, c in enumerate(CLOSERS) if c.retired)
+        p = _post(tmp_path, BASE + CLOSER_TEXTS[retired], RICH_BODY)
+        assert current_closer_index(BASE + CLOSER_TEXTS[retired]) == retired, (
+            "a retired closer is no longer recognised, so its carriers read as "
+            "hand-written and leave the gate's scope entirely"
+        )
+        assert violation(p) is not None, (
+            "a retired closer passed the gate even against the richest body — "
+            "retired predicates must never be satisfiable"
+        )
+
+    def test_retired_carrier_is_repaired_onto_a_live_closer(
+        self, tmp_path: Path
+    ) -> None:
+        retired = next(i for i, c in enumerate(CLOSERS) if c.retired)
+        p = _post(tmp_path, BASE + CLOSER_TEXTS[retired], RICH_BODY)
+        changed, reason = _process_file(p, apply=True, repair_promises=True)
+        assert changed and reason == "repaired", (reason,)
+        assert violation(p) is None
+        new = next(
+            ln
+            for ln in p.read_text(encoding="utf-8").splitlines()
+            if ln.startswith("excerpt:")
+        )
+        idx = current_closer_index(new[len('excerpt: "') : -1])
+        assert idx is not None and not CLOSERS[idx].retired
+
+
 class TestRepairIsSurgical:
     def test_only_the_closing_sentence_changes(self, tmp_path: Path) -> None:
         opener = "인터폴 작전 · Storm-2949 를 중심으로 영향 범위와 패치 우선순위를 분석합니다."
@@ -287,6 +462,26 @@ class TestRepairIsSurgical:
         assert CLOSERS[idx].requires(PLAIN_BODY), (
             "an impossible length budget produced a closer the body cannot back "
             "up — the filter must yield to eligibility, never override it"
+        )
+
+    def test_opener_with_a_backslash_survives(self, tmp_path: Path) -> None:
+        """`_yaml_safe` must touch only the new closer, not the whole excerpt.
+
+        Applied to the whole string its `.replace("\\\\", "")` rewrote the
+        opener too — `오늘 C:\\temp\\x 경로` came back as `오늘 C:tempx 경로`.
+        That silently edits the part the "surgical" contract promises to leave
+        alone, and no fixture had a backslash so the regression was invisible.
+        """
+        opener = "오늘 C:\\temp\\x 경로 이슈를 정리합니다."
+        p = _post(tmp_path, opener + CLOSER_TEXTS[IOC_TABLE], PLAIN_BODY)
+        _process_file(p, apply=True, repair_promises=True)
+        new = next(
+            ln
+            for ln in p.read_text(encoding="utf-8").splitlines()
+            if ln.startswith("excerpt:")
+        )[len('excerpt: "') : -1]
+        assert new.startswith(opener), (
+            f"the opener was rewritten: {new[: len(opener) + 10]!r}"
         )
 
     def test_kept_promise_is_left_untouched(self, tmp_path: Path) -> None:

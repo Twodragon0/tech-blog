@@ -93,14 +93,17 @@ OPENERS: tuple[str, ...] = (
 # checklist promise was kept by 35 of 35. The defect was the hash, not the
 # phrasing.
 #
-# Why eight and not five
-# ----------------------
+# Why six and not five
+# --------------------
 # Filtering the original five to "only the eligible ones" makes every excerpt
 # true but pushes 121 of 215 posts (56%) onto the single closer that always
 # qualifies — recreating the duplicate-boilerplate signal this whole script was
-# written to remove. Four closers were added whose promises are true by
-# construction for a digest (measured 209-217 / 217), so the eligible set is
-# always several wide and the rotation still spreads: max share 33%.
+# written to remove. Closers whose promises are true by construction for a
+# digest (measured 206-215 / 215) were added alongside, so the eligible set is
+# always several wide and the rotation still spreads: max share 28.4%.
+#
+# Two of the original five were then removed outright — see the note below the
+# tuple. That is why the count went 5 -> 8 -> 6 rather than straight to 6.
 #
 # ``requires`` reads the BODY. Anything asserted here must be visible to a
 # reader who opens the post, which is the same thing
@@ -108,18 +111,79 @@ OPENERS: tuple[str, ...] = (
 # --------------------------------------------------------------------------
 
 
-def _table_rows(body: str) -> list[str]:
-    return [ln for ln in body.split("\n") if ln.strip().startswith("|")]
+_CHECKBOX_RE = re.compile(r"^\s*-\s*\[[ xX]\]", re.MULTILINE)
+_LINK_RE = re.compile(r"\]\(https?://")
+_FENCE_RE = re.compile(r"^```.*$", re.MULTILINE)
+
+# Cell texts that make a column an IoC column. Matched whole-cell, because the
+# bare substring finds a source-directory row like
+# `| KISA | krcert.or.kr | 국내 보안 권고 및 IOC |` — a place that publishes
+# IoCs, which is not the 정리표 the sentence promises.
+_IOC_HEADINGS = frozenset({"IoC", "IOC", "IoC 유형", "IOC 유형", "지표", "침해지표"})
+_SOURCE_HEADINGS = frozenset({"소스", "출처"})
+
+
+def _fence_spans(body: str) -> list[tuple[int, int]]:
+    """Character ranges inside ``` fences, which no predicate may inspect."""
+    spans: list[tuple[int, int]] = []
+    start: int | None = None
+    for m in _FENCE_RE.finditer(body):
+        if start is None:
+            start = m.start()
+        else:
+            spans.append((start, m.end()))
+            start = None
+    if start is not None:  # unterminated fence — treat the rest as fenced
+        spans.append((start, len(body)))
+    return spans
+
+
+def _table_blocks(body: str) -> list[list[list[str]]]:
+    """Contiguous runs of pipe rows, each row split into stripped cells.
+
+    Blocks rather than a flat row list, because "소스와 영향도를 표로 정리해"
+    claims ONE table carries both columns; two separate tables each carrying one
+    would satisfy a flat ``any(...) and any(...)`` while making the sentence
+    false. Fenced code is excluded — 14 digests contain pipe lines inside ```
+    blocks, and a predicate must not read a code sample as evidence.
+    """
+    spans = _fence_spans(body)
+    blocks: list[list[list[str]]] = []
+    current: list[list[str]] = []
+    pos = 0
+    for line in body.split("\n"):
+        fenced = any(a <= pos < b for a, b in spans)
+        if line.strip().startswith("|") and not fenced:
+            current.append([c.strip() for c in line.split("|")])
+        elif current:
+            blocks.append(current)
+            current = []
+        pos += len(line) + 1
+    if current:
+        blocks.append(current)
+    return blocks
 
 
 def _has_checklist(body: str) -> bool:
     return "## 실무 체크리스트" in body and len(_CHECKBOX_RE.findall(body)) >= 3
 
 
-_CHECKBOX_RE = re.compile(r"^\s*-\s*\[[ xX]\]", re.MULTILINE)
-_LINK_RE = re.compile(r"\]\(https?://")
-_IOC_RE = re.compile(r"IoC|IOC")
-_ATTACK_PATH_RE = re.compile(r"공격 경로|공격경로|킬체인|kill chain", re.IGNORECASE)
+def _source_and_impact_in_one_table(body: str) -> bool:
+    for block in _table_blocks(body):
+        has_source = any(c in _SOURCE_HEADINGS for row in block for c in row)
+        has_impact = any("영향" in c for row in block for c in row)
+        if has_source and has_impact:
+            return True
+    return False
+
+
+def _has_ioc_table(body: str) -> bool:
+    return any(
+        c in _IOC_HEADINGS
+        for block in _table_blocks(body)
+        for row in block
+        for c in row
+    )
 
 
 @dataclass(frozen=True)
@@ -128,11 +192,26 @@ class Closer:
 
     ``why`` names the missing evidence in gate output, so a failure says what
     to add rather than only that something is absent.
+
+    ``retired`` marks a sentence that is still RECOGNISED but never SELECTED.
+    Deleting a closer outright looks tidier and is a trap: 84 published posts
+    carried the two retired sentences, and once the entries were gone
+    ``current_closer_index`` returned ``None`` for them, so the repair skipped
+    them as hand-written and the gate — allow-by-default on unknown endings —
+    stopped seeing them. They would have kept advertising a SOC discussion and
+    an attack-path walkthrough, invisibly, which is the defect this file exists
+    to remove. A retired closer's ``requires`` is always False, so every carrier
+    is a violation until it rotates onto a live one.
     """
 
     text: str
     requires: "Callable[[str], bool]"
     why: str
+    retired: bool = False
+
+
+def _never(_body: str) -> bool:
+    return False
 
 
 CLOSERS: tuple[Closer, ...] = (
@@ -152,11 +231,8 @@ CLOSERS: tuple[Closer, ...] = (
     ),
     Closer(
         " 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다.",
-        lambda b: (
-            any(("소스" in r or "출처" in r) for r in _table_rows(b))
-            and any("영향" in r for r in _table_rows(b))
-        ),
-        "a table naming both a source column and an impact column",
+        _source_and_impact_in_one_table,
+        "one table carrying both a 소스/출처 column and an 영향 column",
     ),
     Closer(
         " 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다.",
@@ -169,24 +245,36 @@ CLOSERS: tuple[Closer, ...] = (
         "body mentions of both SBOM and EDR",
     ),
     Closer(
-        " 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다.",
-        lambda b: "SOC" in b and ("차단" in b or "완화" in b),
-        "a body mention of SOC alongside 차단/완화",
-    ),
-    Closer(
         " 변경 통제와 모니터링 적용 시점, 사후 회고에 활용할 IoC 정리표를 포함합니다.",
-        lambda b: (
-            bool(_IOC_RE.search(b)) and any(_IOC_RE.search(r) for r in _table_rows(b))
-        ),
-        "a table that actually lists IoCs",
+        _has_ioc_table,
+        "a table with an IoC column",
+    ),
+    # --- retired 2026-09-11: recognised so carriers are repaired, never picked
+    #
+    # Both were caught in review, not by the gate, and both had passed a
+    # word-presence check — the same shallow test the filename-hash defect is an
+    # instance of. "Does the word appear" is not "is the sentence true".
+    Closer(
+        " 보안 운영센터(SOC)와 DevSecOps 팀이 즉시 적용할 수 있는 차단·완화 조치를 요약합니다.",
+        _never,
+        'a 보안 운영센터 discussion. `"SOC" in body` matched the SOC 1 / SOC 2 '
+        "audit report, and on all 7 posts carrying this sentence that was the "
+        "only sense present — one spells out `System and Organization "
+        "Controls(SOC) 1 보고서`. Corpus-wide: 1 mention of 보안 운영센터, 2 of "
+        "보안관제, so no predicate makes this sentence usable here",
+        retired=True,
     ),
     Closer(
         " 본문에서는 공격 경로·영향 평가·운영 환경 검증 절차까지 단계별로 다룹니다.",
-        lambda b: bool(_ATTACK_PATH_RE.search(b)) and "영향" in b,
-        "a body discussion of 공격 경로/킬체인 plus 영향",
+        _never,
+        "a step-by-step treatment of all three promises. 운영 환경 검증 절차 was "
+        "never checked at all, all 4 carriers had one incidental 공격 경로 "
+        "clause, and requiring all three matches 0 of 215 posts",
+        retired=True,
     ),
 )
 
+# Every closer, live or retired — what `current_closer_index` and the gate read.
 CLOSER_TEXTS: tuple[str, ...] = tuple(c.text for c in CLOSERS)
 
 # Used only when NO closer qualifies — 0 of 217 digests today, but a body that
@@ -200,9 +288,13 @@ NEUTRAL_CLOSER = " 자세한 내용은 본문에서 확인할 수 있습니다."
 def eligible_closers(body: str) -> list[int]:
     """Indices of the closers this body can honestly carry.
 
+    Retired entries are excluded here but stay in :data:`CLOSER_TEXTS`, so a
+    post still carrying one is recognised, flagged and repaired rather than
+    silently reclassified as hand-written prose.
+
     May be empty; callers fall back to :data:`NEUTRAL_CLOSER`.
     """
-    return [i for i, c in enumerate(CLOSERS) if c.requires(body)]
+    return [i for i, c in enumerate(CLOSERS) if not c.retired and c.requires(body)]
 
 
 # Particle helper — Korean 받침 detection for grammatical clitics
@@ -366,7 +458,15 @@ def choose_closer_text(
     if current is not None and current in ok:
         return CLOSER_TEXTS[current]
     if max_len is not None:
-        ok = [i for i in ok if len(CLOSER_TEXTS[i]) <= max_len] or ok
+        fits = [i for i in ok if len(CLOSER_TEXTS[i]) <= max_len]
+        if not fits:
+            # Nothing fits — growth is unavoidable, so take the SHORTEST
+            # eligible rather than rotating over all of them. Rotating here
+            # would pick an arbitrarily long closer and grow the front matter
+            # more than necessary, and the ratchet that rejects it is triggered
+            # by the very command this gate prints as the fix.
+            return CLOSER_TEXTS[min(ok, key=lambda i: len(CLOSER_TEXTS[i]))]
+        ok = fits
     return CLOSER_TEXTS[ok[(_seed_from_filename(path) // len(CLOSERS)) % len(ok)]]
 
 
@@ -458,6 +558,19 @@ def _yaml_safe(text: str) -> str:
     return text.replace("\\", "").replace('"', "'")
 
 
+def _replace_excerpt(fm_raw: str, excerpt: str) -> str:
+    """Swap the excerpt line without letting ``re.sub`` read the replacement.
+
+    A template string is interpreted for backslash escapes, so an excerpt
+    containing ``C:\\temp\\x`` raised ``re.PatternError: bad escape \\x``. This
+    was latent before the repair path existed: ``_yaml_safe`` used to strip
+    every backslash from the whole excerpt, which hid it by accident. Making
+    that pass surgical exposed it, and a function replacement removes the class
+    of bug rather than the one character that happened to trigger it.
+    """
+    return _EXCERPT_RE.sub(lambda _m: f'excerpt: "{excerpt}"', fm_raw, count=1)
+
+
 def _is_v2(existing: str) -> bool:
     return any(m in existing for m in V2_MARKERS)
 
@@ -502,7 +615,12 @@ def _repair_promise(path: Path, body: str, existing: str) -> str | None:
         path, body, current=None, max_len=len(CLOSER_TEXTS[current])
     )
     core = core[: -len(CLOSER_TEXTS[current].strip())].rstrip()
-    return _yaml_safe(core + chosen + filler)
+    # `_yaml_safe` on the NEW text only. Applied to the whole excerpt it also
+    # rewrites the opener — its `.replace("\\", "")` turned
+    # `오늘 C:\temp\x 경로` into `오늘 C:tempx 경로` — which makes the
+    # "surgical" contract above false. `core` came out of a parsed front matter
+    # and is already safe inside the scalar it was read from.
+    return core + _yaml_safe(chosen) + filler
 
 
 def _process_file(
@@ -529,7 +647,7 @@ def _process_file(
         repaired = _repair_promise(path, body, existing)
         if repaired is None:
             return False, "promise-kept"
-        new_fm = _EXCERPT_RE.sub(f'excerpt: "{repaired}"', fm.raw, count=1)
+        new_fm = _replace_excerpt(fm.raw, repaired)
         if apply:
             path.write_text("---\n" + new_fm + "\n---\n" + body, encoding="utf-8")
         return True, "repaired" if apply else "would-repair"
@@ -545,7 +663,7 @@ def _process_file(
         return False, "no-change"
 
     # Replace the single excerpt line
-    new_fm = _EXCERPT_RE.sub(f'excerpt: "{new_excerpt}"', fm.raw, count=1)
+    new_fm = _replace_excerpt(fm.raw, new_excerpt)
     new_text = "---\n" + new_fm + "\n---\n" + body
 
     if apply:
