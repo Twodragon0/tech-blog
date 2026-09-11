@@ -29,6 +29,6 @@ qrcode[pil]>=7.0
 # skip rather than fail; the two real failures were in
 # test_optional_narrowing_guards.py. Re-measure in a clean venv before trimming
 # this list — the local environment has more packages and hides the difference.
-fonttools[woff]>=4.63.0
+fonttools[woff]>=4.64.0
 python-dotenv>=1.2.3
 ruff>=0.16.6
