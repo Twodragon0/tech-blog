@@ -44,6 +44,7 @@ from seo_diversify_excerpts import (  # noqa: E402
     _process_file,
     choose_closer_text,
     current_closer_index,
+    current_closer_match,
     eligible_closers,
 )
 
@@ -384,6 +385,40 @@ class TestPredicatesMatchTheirSentences:
             "the predicate now rejects a body with a real IoC column"
         )
 
+    def test_checklist_claim_is_judged_on_the_checklist(self) -> None:
+        """"체크리스트에 패치 항목" must not be satisfied by 패치 elsewhere.
+
+        The body below discusses 패치 in its prose and has a checklist that says
+        nothing about it. Matching anywhere in the body is the same shortcut
+        that let `"SOC" in body` read an audit report as an operations centre —
+        and it is what the old wording of this closer relied on: measured over
+        its 45 carriers, 35 checklists mention 패치 but the old predicate passed
+        all 45.
+        """
+        idx = _closer_index("실무 체크리스트에 패치 적용 항목")
+        patch_in_prose_only = """
+## 주요 이슈
+
+패치가 배포되었으므로 즉시 적용을 권고합니다.
+
+- [원문 1](https://example.com/a)
+- [원문 2](https://example.com/b)
+- [원문 3](https://example.com/c)
+
+## 실무 체크리스트
+
+- [ ] 자산 식별
+- [ ] 담당자 지정
+- [ ] 결과 공유
+"""
+        assert "패치" in patch_in_prose_only, "fixture must mention 패치 somewhere"
+        assert idx not in eligible_closers(patch_in_prose_only), (
+            "패치 outside the checklist satisfied a claim about the checklist"
+        )
+        assert idx in eligible_closers(PLAIN_BODY) or idx in eligible_closers(
+            RICH_BODY
+        ), "the predicate now rejects a body whose checklist genuinely has 패치"
+
     def test_fenced_tables_are_not_evidence(self) -> None:
         """A pipe table inside ``` is a code sample, not the post's own table.
 
@@ -416,6 +451,74 @@ class TestPredicatesMatchTheirSentences:
         assert 1 not in mod.eligible_closers(RICH_BODY), (
             "a retired closer with a satisfiable predicate became eligible"
         )
+
+
+class TestRewordedClosers:
+    """Rewording a closer has the deletion hazard, and a different right answer.
+
+    Changing a closer's text orphans every post carrying the old wording:
+    `current_closer_match` stops recognising them, so the repair calls them
+    hand-written and the gate — allow-by-default — stops looking. That is the
+    same trap as deleting an entry (see TestRetiredClosers), but the remedy
+    differs. A reworded closer is RENAMED, not withdrawn, so its carriers
+    should move to the new wording rather than rotate away at random: 35 of the
+    45 posts carrying the old sentence satisfy the new predicate and simply get
+    the new text.
+
+    The subtle part is the slice. `_repair_promise` cuts the closer off the end
+    of the excerpt, and after a rewording the text that is actually there is the
+    ALIAS, not the canonical text. Slicing by the canonical length would eat
+    into the opener — 20 characters of it, for the live rewording.
+    """
+
+    def _aliased(self):
+        for i, c in enumerate(CLOSERS):
+            if c.aliases:
+                return i, c.aliases[0]
+        return None, None
+
+    def test_an_alias_exists_to_exercise(self) -> None:
+        i, alias = self._aliased()
+        assert i is not None, (
+            "no closer carries an alias, so this class proves nothing. If a "
+            "closer was reworded, record the old spelling in `aliases`."
+        )
+        assert alias != CLOSER_TEXTS[i]
+
+    def test_old_wording_is_still_recognised(self) -> None:
+        i, alias = self._aliased()
+        match = current_closer_match(BASE + alias)
+        assert match is not None, (
+            "a post carrying the old wording reads as hand-written, which "
+            "removes it from the gate's scope entirely"
+        )
+        assert match == (i, alias)
+
+    def test_carrier_moves_to_the_new_wording_without_eating_the_opener(
+        self, tmp_path: Path
+    ) -> None:
+        i, alias = self._aliased()
+        assert CLOSERS[i].requires(RICH_BODY), "fixture must satisfy the predicate"
+        opener = "인터폴 작전 · Storm-2949 를 중심으로 영향 범위를 분석합니다."
+        p = _post(tmp_path, opener + alias, RICH_BODY)
+        changed, reason = _process_file(p, apply=True, repair_promises=True)
+        assert changed and reason == "repaired", (reason,)
+
+        new = next(
+            ln
+            for ln in p.read_text(encoding="utf-8").splitlines()
+            if ln.startswith("excerpt:")
+        )[len('excerpt: "') : -1]
+        assert new == opener + CLOSER_TEXTS[i], (
+            "expected the opener verbatim plus the new wording; got "
+            f"{new!r}. A wrong slice length shows up here as a truncated opener."
+        )
+
+    def test_rewording_is_idempotent(self, tmp_path: Path) -> None:
+        i, _ = self._aliased()
+        p = _post(tmp_path, BASE + CLOSER_TEXTS[i], RICH_BODY)
+        changed, reason = _process_file(p, apply=True, repair_promises=True)
+        assert changed is False and reason == "promise-kept"
 
 
 class TestRetiredClosers:

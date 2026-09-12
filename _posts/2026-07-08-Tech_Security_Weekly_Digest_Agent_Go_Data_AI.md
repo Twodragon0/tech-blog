@@ -5,7 +5,7 @@ date: 2026-07-08 10:51:49 +0900
 last_modified_at: 2026-07-08T10:51:49+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Agent, Go, Data, AI]
-excerpt: "2026년 07월 08일 수집한 30건의 보안 이슈 중 RedWing MaaS가 Android 은행 사기를 Telegram · Rogue Agent 결함으로 공격자가 Google를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "2026년 07월 08일 수집한 30건의 보안 이슈 중 RedWing MaaS가 Android 은행 사기를 Telegram · Rogue Agent 결함으로 공격자가 Google를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다."
 description: "2026년 07월 08일 보안 뉴스 요약. The Hacker News 등 30건을 분석하고 RedWing MaaS가 Android 은행, Rogue Agent, DEBULL Tooling 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Agent, Go, Data]
 author: Twodragon

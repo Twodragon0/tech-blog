@@ -5,7 +5,7 @@ date: 2026-06-21 09:43:15 +0900
 last_modified_at: 2026-06-21T09:43:15+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, API, Ransomware, AI, Bitcoin]
-excerpt: "해커들이 Gravity SMTP 워드프레스 플러그인 버그를 악용해 · 새로운 Prinz Eugen 랜섬웨어, 최근 파일 우선 암호화가 부각된 2026년 06월 21일 보안 다이제스트 — 15건의 이슈와 실행 가능한 대응 액션을 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "해커들이 Gravity SMTP 워드프레스 플러그인 버그를 악용해 · 새로운 Prinz Eugen 랜섬웨어, 최근 파일 우선 암호화가 부각된 2026년 06월 21일 보안 다이제스트 — 15건의 이슈와 실행 가능한 대응 액션을 정리합니다. 각 항목의 원문 링크를 함께 실어 1차 출처에서 바로 확인할 수 있습니다."
 description: "2026년 06월 21일 보안 뉴스 요약. The Hacker News, BleepingComputer, TechCrunch Security 등 15건을 분석하고 해커들이 Gravity SMTP 워드프레스, 새로운 Prinz Eugen 랜섬웨어, Microsoft 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, API, Ransomware, AI]
 author: Twodragon
