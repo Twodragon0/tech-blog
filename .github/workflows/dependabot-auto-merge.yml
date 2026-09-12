@@ -20,10 +20,18 @@ name: Dependabot Auto-Merge
 #   `gh pr merge --auto` alone would merge a dependency PR the instant it is
 #   mergeable — even with red CI. To close that hole WITHOUT depending on an
 #   external branch-protection setting, the "Wait for CI checks" step below
-#   blocks on `gh pr checks --watch --fail-fast` before arming auto-merge:
+#   blocks on `scripts/wait_for_pr_checks.py` before arming auto-merge:
 #   a failing check fails that step, which skips the merge step, so a red
 #   dependency PR is never auto-merged. If required status checks are later
 #   added to main, this step is harmless (it just confirms the same checks).
+#
+#   That step used to run `gh pr checks --watch --fail-fast`, which could never
+#   finish: --watch waits on every check attached to the PR head SHA, and this
+#   job's own check run is one of them. See the step's own comment for the
+#   measurement. This header kept describing the old mechanism for one commit
+#   after the step changed — the step comment was updated and the file header
+#   was not. The regression guard reads the executable lines only (by design:
+#   a stale comment must not keep it green), so nothing objected.
 #
 # Recommended repo settings:
 #   - Settings → General → "Allow auto-merge" enabled (so `--auto` can arm).
@@ -46,8 +54,9 @@ jobs:
     if: github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     # Long enough for the PR's CI (build + check-svg) to finish under the
-    # `gh pr checks --watch` gate below. If CI overruns this, the job times out
-    # and the merge step is skipped — fail-safe (PR stays open, never merged red).
+    # wait step below, whose own --timeout-seconds (1500) is set to expire
+    # first. If CI overruns both, the job times out and the merge step is
+    # skipped — fail-safe (PR stays open, never merged red).
     timeout-minutes: 30
     steps:
       - name: Checkout (for fallback classifier script)
