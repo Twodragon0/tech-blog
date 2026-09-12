@@ -336,9 +336,6 @@ Google Cloud Next에서 발표한 새로운 컴퓨팅 기능은 코어 범용 �
   severity="Medium"
 %}
 
-#### 요약
-
-FBI 국장 Kash Patel이 Bitcoin 2026 컨퍼런스에서 "비트코인에 대한 전쟁 종식"을 주제로 발표할 예정입니다. Patel은 이 패널에서 법률, 정부, Bitcoin 업계 인사들과 함께 'Code Is Free Speech: Ending The War On Bitcoin'을 논의합니다.
 
 ---
 

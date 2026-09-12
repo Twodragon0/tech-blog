@@ -85,6 +85,64 @@ class TestDetection:
         assert gate.find_violations(_post(s, s, fenced=True)) == []
 
 
+class TestEscapingAwareComparison:
+    """The 66 pairs that read as one sentence twice but never matched byte-wise.
+
+    The gate's first version compared bytes and named this as a follow-up,
+    estimating ~32. Measured 2026-09-11: 66 of the 289 remaining adjacent pairs
+    — 45 quote-shape, 11 quote-shape + backslash, 1 backslash, 9 differing only
+    by a trailing period.
+
+    Each case below is one fold. They are asserted separately so a regression
+    says which fold was lost, and paired with a near-miss that must still be
+    reported as different — a normaliser that folds too much is the failure mode
+    this class exists to catch.
+    """
+
+    def test_straight_vs_curly_quotes(self):
+        assert gate.find_violations(
+            _post("'MacroMaze' 웹훅 백도어입니다.", "“MacroMaze” 웹훅 백도어입니다.")
+        ), "quote-shape-only difference not caught (45 of the 66)"
+
+    def test_backslash_escaped_quotes(self):
+        assert gate.find_violations(
+            _post("\\”개인의 생산성\\” 질문입니다.", "”개인의 생산성” 질문입니다.")
+        ), "backslash-escaped quotes not caught (11 of the 66)"
+
+    def test_trailing_period_only(self):
+        assert gate.find_violations(
+            _post("AWS DevOps Agent 소개입니다.", "AWS DevOps Agent 소개입니다")
+        ), "trailing-period-only difference not caught (9 of the 66)"
+
+    def test_whitespace_run(self):
+        assert gate.find_violations(
+            _post("두   칸 띄어쓰기 문장입니다.", "두 칸 띄어쓰기 문장입니다.")
+        )
+
+    def test_one_real_character_is_still_a_difference(self):
+        """The control. Folding must not reach actual content.
+
+        The whole safety argument for folding is that no pair loses characters a
+        reader would miss: stripping quotes, backslashes, whitespace and periods
+        from both sides gave a length delta of 0 for all 66 live cases. A single
+        extra word must therefore still read as different.
+        """
+        assert (
+            gate.find_violations(
+                _post("'MacroMaze' 백도어입니다.", "“MacroMaze” 신규 백도어입니다.")
+            )
+            == []
+        ), "one added word was folded away — the normaliser reaches content"
+
+    def test_a_different_number_is_a_difference(self):
+        assert gate.find_violations(_post("CVSS 9.4 입니다.", "CVSS 9.9 입니다.")) == []
+
+    def test_canonical_leaves_interior_punctuation_alone(self):
+        """Only a TRAILING mark is folded; a sentence break is content."""
+        assert gate.canonical("가. 나") != gate.canonical("가 나")
+        assert gate.canonical("가 나.") == gate.canonical("가 나")
+
+
 class TestCorpusIsGreen:
     def test_live_corpus_has_no_violations(self):
         """A gate wired while red is a gate that gets muted."""

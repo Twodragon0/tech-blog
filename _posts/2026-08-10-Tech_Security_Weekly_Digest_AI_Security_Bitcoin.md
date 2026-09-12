@@ -141,9 +141,6 @@ summary_card:
   severity="Medium"
 %}
 
-#### 요약
-
-BIP-110이 "2-block chain"으로 스스로 소멸했고, CLARITY는 9월에 상원 표결을 앞두고 있으나 부결 가능성이 높다.
 
 
 ---

@@ -266,9 +266,6 @@ DevSecOps 환경에서 이번 조치는 **즉각적인 운영 중단**과 **규�
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy의 Michael Saylor는 최근 Bitcoin 매각이 회사의 "never sell" 원칙과 충돌하는 것처럼 보이지만, 이는 Strategy의 digital credit 비즈니스 운영 방식의 일환이라고 설명했습니다.
 
 ---
 

@@ -264,9 +264,6 @@ DevSecOps 환경에서 이는 **파이프라인 무결성**과 **운영 보안**
   severity="Medium"
 %}
 
-#### 요약
-
-Google Threat Intelligence Group(GTIG)이 추적 중인 위협 행위자 UNC6671은 "BlackFile" 브랜드로 조직을 대상으로 정교한 voice phishing(vishing)과 single sign-on(SSO) 침해를 통한 광범위한 갈취 캠페인을 전개하고 있습니다.
 
 ---
 
@@ -280,9 +277,6 @@ Google Threat Intelligence Group(GTIG)이 추적 중인 위협 행위자 UNC6671
   severity="Medium"
 %}
 
-#### 요약
-
-이 글은 AWS Artificial Intelligence Blog에 게시된 Introducing Claude Platform on AWS: Anthropic’s native platform, through your AWS account 를 한국어로 번역 및 편집하였습니다.
 
 ---
 

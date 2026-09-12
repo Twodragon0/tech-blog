@@ -256,9 +256,6 @@ DevSecOps 환경에서는 **CI/CD 파이프라인 및 컨테이너 레지스트�
   severity="Medium"
 %}
 
-#### 요약
-
-AI 연구자 "Pliny the Liberator"가 Anthropic의 새 모델 Fable 5에서 안전장치를 우회했다고 주장하며, "사상 경찰이 놓친 울타리의 구멍을 교묘히 찾아냈다"고 밝혔다.
 
 ---
 

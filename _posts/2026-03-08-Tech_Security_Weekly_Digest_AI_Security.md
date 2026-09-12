@@ -265,9 +265,6 @@ DevSecOps 시사점:
   severity="Medium"
 %}
 
-#### 요약
-
-Go 언어에 UUID 생성·파싱 기능을 표준 라이브러리(`unique/uuid`)로 추가하자는 제안이 논의 중입니다. 현재 대부분의 Go 프로젝트가 `google/uuid`나 `gofrs/uuid` 같은 외부 패키지에 의존하고 있어, 표준화가 공급망 보안 측면에서도 긍정적입니다.
 
 보안 관점:
 

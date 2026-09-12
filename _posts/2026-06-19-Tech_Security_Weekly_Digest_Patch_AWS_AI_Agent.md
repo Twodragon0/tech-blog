@@ -360,9 +360,6 @@ DevSecOps 실무자에게 다음 영역에서 직접적인 대응이 필요합�
   severity="Medium"
 %}
 
-#### 요약
-
-BlackRock의 임원이 Bitcoin을 "무시하기엔 너무 큰 자산"이라고 평가하며, 새로운 Bitcoin Premium Income ETF에 대해 논의했습니다. 이 ETF는 보유한 현물 Bitcoin ETF에 커버드콜 전략을 적용해 월별 수익을 창출합니다.
 
 ---
 

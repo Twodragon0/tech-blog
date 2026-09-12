@@ -242,9 +242,6 @@ mitre_attack:
   severity="Medium"
 %}
 
-#### 요약
-
-미국 에너지부 장관 Chris Wright과 NVIDIA 부사장 Ian Buck은 SCSP AI+ Expo에서 AI가 필요한 에너지를 스스로 구축할 것이라고 주장했습니다. 이들은 "Powering the Next American Century"라는 제목의 대담에서 미국의 미래를 위한 AI와 에너지의 시너지를 강조했습니다.
 
 ---
 

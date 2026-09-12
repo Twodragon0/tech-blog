@@ -285,9 +285,6 @@ DevSecOps 실무자에게 **가장 큰 위협은 공급망 전반의 취약점 �
   severity="Medium"
 %}
 
-#### 요약
-
-Google Cloud CISO Perspectives 2026년 5월호에서는 Vinod D’Souza가 RSA Conference에서 Wiz의 Anthony Belfiore와 진행한 대담을 통해 Google과 Wiz의 협력이 CISO의 멀티클라우드 전략을 어떻게 변화시키는지 조명합니다.
 
 ---
 

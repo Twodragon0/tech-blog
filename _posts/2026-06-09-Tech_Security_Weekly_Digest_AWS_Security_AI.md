@@ -239,9 +239,6 @@ DevSecOps 실무자에게 이번 업데이트는 다음과 같은 실질적 영�
   severity="Medium"
 %}
 
-#### 요약
-
-영국은 작년 London Tech Week에서 NVIDIA의 Jensen Huang과 Keir Starmer 총리가 선언한 "AI maker" 비전을 올해 행사에서 구체화하고 있습니다. NVIDIA와 파트너들은 국가 인프라와 스타트업 전반에 걸쳐 이 약속이 실질적인 추진력을 창출하고 있음을 보여주고 있습니다.
 
 ---
 

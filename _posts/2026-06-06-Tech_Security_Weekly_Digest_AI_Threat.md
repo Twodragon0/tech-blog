@@ -350,9 +350,6 @@ DevSecOps 파이프라인 관점에서 이 위협은 다음과 같은 실무적 
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin 매거진의 칼럼 "The Hyperinflation of 1971 at the Kindergarten"은 유치원생 수준에서 초인플레이션을 설명하며, Bitcoin이 법정화폐처럼 가치가 훼손될 수 없는 이유를 다루고 있습니다. 이 글은 Bitcoin: The Honest Money에서 발췌되었으며, Alex v. Frankenberg가 작성했습니다.
 
 ---
 

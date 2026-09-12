@@ -291,9 +291,6 @@ DevSecOps 실무자에게 이 사건은 **서드파티 스크립트 관리와 CS
   severity="Medium"
 %}
 
-#### 요약
-
-Jack Dorsey가 "Bitcoin Day"와 연계해 Gavin Andresen의 2010년 방식과 유사한 Bitcoin faucet 부활 가능성을 시사했습니다. 이 소식은 Bitcoin Magazine에 Micah Zimmerman이 기고한 내용입니다.
 
 ---
 

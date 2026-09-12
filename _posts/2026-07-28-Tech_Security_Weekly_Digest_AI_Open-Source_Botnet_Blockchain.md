@@ -348,9 +348,6 @@ DevSecOps 실무자에게 다음 측면에서 직접적 영향을 미친다.
   severity="Medium"
 %}
 
-#### 요약
-
-Coinbase의 최고 정책 책임자 Faryar Shirzad는 Crypto Clarity Act를 "매우 초당적"이라고 칭찬하며 민주당과 공화당이 이 법안에 대해 투표할 때라고 밝혔습니다. 이 소식은 Bitcoin Magazine이 Mathew Di Salvo의 기사를 통해 처음 보도했습니다.
 
 
 ---

@@ -371,9 +371,6 @@ Antigravity 2.0은 여러 자율 에이전트를 병렬로 조율하는 데스�
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy (MSTR)의 CEO Phong Le는 2022년 이후 첫 Bitcoin 매각이 후퇴가 아닌 시장 ‘접종(inoculation)’을 위한 의도된 테스트였다고 밝혔습니다. 이는 운영 유연성을 입증하고 투자자들에게 프로세스가 작동한다는 신뢰를 주기 위한 것이었습니다.
 
 ---
 

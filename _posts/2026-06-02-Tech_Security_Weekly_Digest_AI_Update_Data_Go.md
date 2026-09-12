@@ -377,9 +377,6 @@ DevSecOps 관점에서 이 공격은 **CI/CD 파이프라인, 애플리케이션
   severity="Medium"
 %}
 
-#### 요약
-
-Strategy가 32 BTC를 매도했지만, 이는 Bitcoin treasury 모델을 강화할 수 있는 긍정적인 신호로 평가됩니다. Michael Saylor의 "절대 비트코인을 팔지 말라"는 원칙과 달리 이번 매도는 전략적 결정으로 보입니다. 이 소식은 Bitcoin Magazine의 Nick Ward 기사에서 처음 보도되었습니다.
 
 ---
 

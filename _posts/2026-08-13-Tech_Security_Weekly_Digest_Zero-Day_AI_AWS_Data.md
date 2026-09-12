@@ -324,9 +324,6 @@ DevSecOps 관점에서 이 사건은 **개인 브라우저 보안이 곧 기업 
   severity="Medium"
 %}
 
-#### 요약
-
-Bitcoin이 바닥 신호를 보이며 "디지털 골드(Digital Gold)" 서사가 재부상하고 있다는 분석이 나왔다. 데이터상으로는 Bitcoin이 바닥을 찍었을 가능성이 제기되며, 이는 Bitcoin Magazine이 Mathew Di Salvo의 기사를 통해 보도했다.
 
 
 ---

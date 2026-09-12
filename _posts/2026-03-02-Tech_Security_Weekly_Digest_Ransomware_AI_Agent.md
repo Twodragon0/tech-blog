@@ -281,9 +281,6 @@ X 플랫폼 내 암호화폐 마케팅 적법 요건 (2026년 3월 기준):
   severity="Medium"
 -%}
 
-#### 요약
-
-미국 CFTC 승인을 받은 예측 시장 플랫폼 Kalshi의 창업자 Tarek Mansour가 이란 최고지도자 하메네이 관련 예측 시장에 대해 "carve-out(예외 적용)" 방침을 발표했다. Kalshi는 "이 특정 마켓은 플랫폼에서 운영하지 않겠다"는 입장을 명확히 했다.
 
 예측 시장 플랫폼의 규제 딜레마:
 
@@ -343,9 +340,6 @@ Kalshi의 carve-out 결정은 단순한 개별 사례를 넘어, 예측 시장 �
   severity="Medium"
 -%}
 
-#### 요약
-
-Anthropic이 개발자를 위한 무료 온라인 교육 과정 "Anthropic Courses"를 공개했다. Claude 기본 사용법부터 시작하여 API 심화 활용, Claude Code 개발 워크플로, MCP(Model Context Protocol) 서버 구축, Agent Skills 개발까지 실무 중심 커리큘럼으로 구성되어 있다.
 
 이 강의가 특히 주목받는 이유는 Anthropic이 직접 제공하는 공식 콘텐츠이기 때문이다. 서드파티 튜토리얼의 오래된 정보나 비공식 패턴에 의존하지 않고, Claude의 실제 권장 사용 패턴을 처음부터 올바르게 학습할 수 있다.
 
