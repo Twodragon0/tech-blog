@@ -4368,7 +4368,7 @@
     }
   },
   "2026-09-09-Tech_Security_Weekly_Digest_API_Bitcoin_AI_GPT.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4378,12 +4378,12 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-09-10-Tech_Security_Weekly_Digest_Cloud_Threat_AI_Security.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4393,12 +4393,12 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-09-11-Tech_Security_Weekly_Digest_AWS_Threat_Go_Malware.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4408,7 +4408,7 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   }

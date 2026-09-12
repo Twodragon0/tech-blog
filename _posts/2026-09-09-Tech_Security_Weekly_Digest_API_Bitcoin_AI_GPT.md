@@ -401,7 +401,11 @@ summary_card:
 
 - [ ] **GPT-5.6 Sol이 양자 컴퓨팅 실험 수행을 어떻게 돕는가** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
-## 참고 자료
+## 관련 포스트 및 참고 자료
+
+- 2026년 09월 08일 주간 보안 다이제스트: {% post_url 2026-09-08-Tech_Security_Weekly_Digest_Data_AI_Cloud_Security %}
+- eBPF Tetragon Kubernetes 런타임 보안 아키텍처: {% post_url 2026-09-03-eBPF_Tetragon_Kubernetes_Runtime_Security_Architecture %}
+- AI 에이전트 MCP 서버 보안 위협 모델링 및 방어 아키텍처: {% post_url 2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense %}
 
 | 리소스 | 링크 |
 |--------|------|
