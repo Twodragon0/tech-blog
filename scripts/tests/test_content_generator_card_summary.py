@@ -196,9 +196,18 @@ def test_long_summary_keeps_the_block_because_the_card_is_truncated():
 # byte comparison called them different, and the block was emitted. The gate
 # (`scripts/check_duplicate_card_summary.py`) folds quote glyphs, so it saw the
 # duplicate and failed. That gate runs fail-closed on the cron publish path with
-# no self-heal, so the disagreement costs a whole day's digest, and only for
-# items that happen to carry a quote under the 200-char cap — intermittent
-# enough to survive four published digests before it was found.
+# no self-heal, so one disagreement costs a whole day's digest.
+#
+# It is LATENT, not a repair of an outage: the producer's suppression and the
+# gate landed in the same commit (2638fd98, 2026-09-11 16:01 KST, PR #711),
+# which is after that day's 02:07 UTC cron run, and the only two runs carrying
+# the gate since — 34667033653 (09-12) and 34732354108 (09-13) — both report the
+# step as success. It fires only for an item carrying a quote under the 200-char
+# cap, so it had simply not come up yet.
+#
+# The quote is the common case but not the only one: `_CURLY_QUOTES` maps `‘` to
+# ASCII `'`, which the sanitizer then leaves alone, so a curly apostrophe
+# ("Next ‘26") diverges the same way.
 
 _SHORT_QUOTED = (
     'APT28이 "MacroMaze"라는 웹훅 기반 백도어를 배포했습니다. 다단계 인증을 우회합니다.'
@@ -239,6 +248,29 @@ def test_quoted_long_summary_still_keeps_its_block():
     assert body, "the block was dropped even though the card is truncated"
     assert len(body) > len(card), (
         f"block ({len(body)}) should carry more than the card ({len(card)})"
+    )
+
+
+def test_producer_uses_the_gates_own_fold():
+    """The point of the fix is ONE definition, and nothing else pins that.
+
+    Every behavioural test above still passes if someone inlines a private copy
+    of ``canonical()`` into ``content_generator`` — and from that moment the two
+    sides can drift apart again silently, which is the defect. Identity, not
+    equality of behaviour, is what has to hold.
+
+    The import must be ``scripts.check_duplicate_card_summary``. The sibling
+    suite loads the gate via ``spec_from_file_location``, which builds a
+    *separate* module object; an ``is`` check against that one would fail for a
+    reason that has nothing to do with this contract.
+    """
+    from scripts import check_duplicate_card_summary as gate
+    from scripts.news import content_generator as cg
+
+    assert cg._same_sentence is gate.canonical, (
+        "the generator no longer uses the gate's own canonical(). Producer and "
+        "consumer can now disagree about what 'the same sentence' means, and "
+        "the gate is fail-closed on the cron publish path."
     )
 
 
