@@ -186,6 +186,62 @@ def test_long_summary_keeps_the_block_because_the_card_is_truncated():
     )
 
 
+# --- the quote case: the producer and the gate must agree ------------------
+#
+# `_SHORT` above carries no quote character, so it pinned nothing about the one
+# input where the two sides disagreed. `_sanitize_liquid_param` maps an inner
+# ASCII `"` to U+201D — Liquid include attributes are delimited by ASCII `"` and
+# honour no backslash escape, so an unmapped quote would terminate the attribute
+# early. The card therefore differs from `ko_summary` by exactly that glyph, a
+# byte comparison called them different, and the block was emitted. The gate
+# (`scripts/check_duplicate_card_summary.py`) folds quote glyphs, so it saw the
+# duplicate and failed. That gate runs fail-closed on the cron publish path with
+# no self-heal, so the disagreement costs a whole day's digest, and only for
+# items that happen to carry a quote under the 200-char cap — intermittent
+# enough to survive four published digests before it was found.
+
+_SHORT_QUOTED = (
+    'APT28이 "MacroMaze"라는 웹훅 기반 백도어를 배포했습니다. 다단계 인증을 우회합니다.'
+)
+
+
+def test_quoted_short_summary_emits_no_duplicate_block():
+    assert '"' in _SHORT_QUOTED, "fixture must carry the character under test"
+    assert len(_SHORT_QUOTED) <= _CAP, "fixture must fit under the cap"
+
+    section = generate_news_section(_build_item(summary=_SHORT_QUOTED), "1.1")
+    card = _card_summary(section)
+
+    # Control: without this the test could pass vacuously on a build where the
+    # sanitizer no longer rewrites the quote, and would stop covering the defect.
+    assert "”" in card, (
+        f"the card summary no longer carries the sanitized quote: {card!r}. "
+        "This test is only meaningful while _sanitize_liquid_param rewrites it."
+    )
+
+    assert _summary_block_body(section) is None, (
+        "the '#### 요약' block came back for a quoted summary. The card already "
+        "shows this sentence; check_duplicate_card_summary.py folds the quote "
+        "glyph and fails the publish, which aborts the cron digest."
+    )
+
+
+def test_quoted_long_summary_still_keeps_its_block():
+    """Direction: folding the quote must not swallow a real tail."""
+    # A quote inside _LONG, so the two-sentence brief summary still exceeds the
+    # cap. Prepending a short sentence instead would keep it under 200 and the
+    # test would assert nothing about truncation.
+    quoted_long = _LONG.replace("Greatness가", '"Greatness"가', 1)
+    assert '"' in quoted_long and len(quoted_long) > _CAP
+    section = generate_news_section(_build_item(summary=quoted_long), "1.1")
+    card = _card_summary(section)
+    body = _summary_block_body(section)
+    assert body, "the block was dropped even though the card is truncated"
+    assert len(body) > len(card), (
+        f"block ({len(body)}) should carry more than the card ({len(card)})"
+    )
+
+
 def test_block_survives_when_there_is_no_card_summary():
     """Control: with no card summary, the block is the ONLY summary.
 
