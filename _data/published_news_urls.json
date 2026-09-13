@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-12T02:18:54.551595+00:00",
+  "updated_at": "2026-09-13T02:14:31.129148+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/berlin-refuses-to-pay-hackers-who-stole.html",
-      "title": "Berlin Refuses to Pay Hackers Who Stole Data From the City's State Network",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/cosmos-evm-flaw-exploited-after-cosmos.html",
-      "title": "Cosmos EVM Flaw Exploited After Cosmos Labs Knew Every Blockchain Running It Was",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/attackers-chain-two-papercut-flaws-to.html",
-      "title": "Attackers Chain Two PaperCut Flaws to Execute Code Without Authentication",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/android-17-adds-os-wide-ech-to-hide.html",
-      "title": "Android 17 Adds OS-Wide ECH to Hide Website Visits From Network Providers",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/snowflake-github-actions-flaw-lets.html",
-      "title": "ownCloud Flaw Exploited to Steal Nuclear Records From Philippine Research Body",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-      "title": "Our decision on Cursor following its acquisition by SpaceX",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://netflixtechblog.com/maps-netflixs-multimodal-asset-personalization-at-scale-32f96320785e?source=rss----2615bd06b42e---4",
-      "title": "MAPS: Netflix’s Multimodal Asset Personalization at Scale",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/batch-write-and-discover-records-in-amazon-sagemaker-feature-store/",
-      "title": "Batch write and discover records in Amazon SageMaker Feature Store",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-decathlon-runs-demand-forecasting-at-scale-with-chronos-2/",
-      "title": "How Decathlon runs demand forecasting at scale with Chronos-2",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/spreading-the-load-how-salesforce-met-multi-az-ha-with-sagemaker-inference-components/",
-      "title": "Spreading the load: How Salesforce met Multi-AZ HA with SageMaker Inference Comp",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-28-github-copilot-in-visual-studio-august-update-2",
-      "title": "GitHub Copilot in Visual Studio — August update",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-28-github-copilot-weekly-releases-august-24",
-      "title": "GitHub Copilot weekly releases — August 24",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-08-28-upcoming-changes-to-github-copilot-policies-and-billing",
-      "title": "Upcoming changes to GitHub Copilot policies and billing",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/08/28/scale-before-the-spike-predictive-autoscaling-for-gpu-workloads-on-kubernetes/",
-      "title": "Scale before the spike: Predictive autoscaling for GPU workloads on Kubernetes",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/08/28/your-kubernetes-platform-is-ready-for-containers-is-it-ready-for-ai/",
-      "title": "Your Kubernetes platform is ready for containers. Is it ready for AI?",
-      "published_date": "2026-08-29",
-      "expires_at": "2026-09-05T04:56:52.305051+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/five-critical-wordpress-plugin-and.html",
       "title": "Five Critical WordPress Plugin and Theme Flaws Enable Site Takeover or RCE",
@@ -1170,6 +1080,96 @@
       "title": "Release Notes for Safari Technology Preview 252",
       "published_date": "2026-09-12",
       "expires_at": "2026-09-19T02:18:54.551499+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/cisa-adds-5-actively-exploited.html",
+      "title": "CISA Adds 5 Actively Exploited Artifactory, ScreenConnect, and RouterOS Flaws to",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/when-whole-company-adopts-ai-what-it.html",
+      "title": "When the Whole Company Adopts AI: What It Does to Your SOC",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/openai-agents-linked-to-rubygems.html",
+      "title": "OpenAI Agents Linked to RubyGems Campaign That Gained RCE on RubyDoc Servers",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/dutch-ncsc-critical-check-point-vpn-flaws-exploitation-is-imminent/",
+      "title": "Dutch NCSC: Critical Check Point VPN flaws exploitation is imminent",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/09/12/revolut-confirms-customer-data-breach-through-fake-government-requests/",
+      "title": "Revolut confirms customer data breach through fake government requests",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/nvidia-considers-10b-investment-in-anthropic-record-ipo-reuters?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Nvidia considers $10B investment in potential record Anthropic IPO: Reuters",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/09/12/openai-ipo-won-t-happen-this-year-says-sam-altman",
+      "title": "OpenAI IPO won't happen this year, says Sam Altman",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/09/12/anthropic-ceo-calls-for-ai-race-to-slow-down-musk-and-openai-s-altman-agrees",
+      "title": "Anthropic CEO calls for AI race to slow down citing safety. Musk and OpenAI's Al",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/north-korea-using-foreign-talent-to-help-infiltrate-us-companies-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "North Korea using foreign talent to help infiltrate US companies: Report",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/farages-reform-uk-gets-biggest-donation-ever-from-crypto-billionaire-reports?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Farage’s Reform UK gets $97M from two crypto billionaires",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/09/12/bitcoin-suisse-plans-to-cut-up-to-half-its-swiss-jobs-as-it-shifts-work-abroad",
+      "title": "Bitcoin Suisse plans to cut up to half its Swiss jobs as it shifts work abroad",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/09/12/nigel-farage-s-reform-uk-lands-usd97-million-donations-from-two-crypto-billionaires-in-24-hours",
+      "title": "Nigel Farage’s Reform UK lands $97 million donations from two crypto billionaire",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/09/12/ripple-stablecoin-chief-sees-usd13-trillion-corporate-treasury-opportunity-for-rlusd",
+      "title": "Ripple stablecoin chief sees $13 trillion corporate treasury opportunity for RLU",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33607",
+      "title": "Show GN: irasutoya - (Claude Skill) いらすとや 이라스토야 일러스트를 검색·다운로드해 활용",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33606",
+      "title": "Dreeve - 운동 데이터를 직접 보관하고 분석하는 셀프 호스팅 대시보드",
+      "published_date": "2026-09-13",
+      "expires_at": "2026-09-20T02:14:31.129048+00:00"
     }
   ]
 }
