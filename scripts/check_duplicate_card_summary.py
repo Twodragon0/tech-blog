@@ -68,6 +68,19 @@ BLOCK_RE = re.compile(
 
 
 _QUOTES_RE = re.compile(r"[\"“”‘’'`]")
+# The same quote characters spelled as HTML entities. Folded by name rather
+# than with ``html.unescape``: that also rewrites ``&amp;``/``&lt;`` and, for
+# the entities Python matches without a trailing semicolon, stretches of
+# ordinary prose — a far wider licence than the live cases need. All five in
+# the corpus on 2026-09-13 were ``&quot;``; the sibling spellings are here
+# because a generator that emits one can emit the others.
+_QUOTE_ENTITY_RE = re.compile(
+    r"&(?:quot|apos|[lr]dquo|[lr]squo|#0*3[49]|#[xX]0*2[27]);", re.I
+)
+# Markdown emphasis, PAIRED only. A bare `**` is left alone, so `2**8` in one
+# text can never be folded into `28` in another — the fold reaches markup, not
+# arithmetic. Requiring a non-space on the inside is markdown's own rule.
+_BOLD_RE = re.compile(r"\*\*(?=\S)(.+?)(?<=\S)\*\*", re.S)
 _WS_RE = re.compile(r"\s+")
 # Trailing sentence marks only. Not `.rstrip(".")` on arbitrary text: a summary
 # genuinely ending in an ellipsis or an exclamation is the same sentence as the
@@ -76,15 +89,24 @@ _TRAILING_MARKS = ".。!?… "
 
 
 def canonical(text: str) -> str:
-    """Fold the four differences that do not change what a reader reads.
+    """Fold the differences that do not change what a reader reads.
 
-    Unicode form, backslash escapes, quote glyph, whitespace runs, and a
-    trailing sentence mark. Deliberately nothing else — every additional fold
-    is a chance to call two different sentences the same.
+    Unicode form, backslash escapes, quote glyph — as a character or as its
+    HTML entity — paired markdown emphasis, whitespace runs, and a trailing
+    sentence mark. Deliberately nothing else: every additional fold is a chance
+    to call two different sentences the same.
+
+    The producer imports this function (``scripts/news/content_generator.py``)
+    to decide whether to emit the block at all, so widening a fold here makes
+    the generator suppress strictly more. That is the intent — one definition,
+    both sides — but it means a new fold has to be judged on generated output,
+    not only on the corpus.
     """
     text = unicodedata.normalize("NFKC", text)
     text = text.replace("\\", "")
+    text = _QUOTE_ENTITY_RE.sub("", text)
     text = _QUOTES_RE.sub("", text)
+    text = _BOLD_RE.sub(lambda m: m.group(1), text)
     return _WS_RE.sub(" ", text).strip().rstrip(_TRAILING_MARKS)
 
 

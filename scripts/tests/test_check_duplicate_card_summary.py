@@ -143,6 +143,77 @@ class TestEscapingAwareComparison:
         assert gate.canonical("가 나.") == gate.canonical("가 나")
 
 
+class TestEntityAndEmphasisFolds:
+    """The 6 pairs left over after the escaping-aware pass (2026-09-13).
+
+    Measured over the 223 adjacent pairs that survived #714: 5 differ only by
+    ``&quot;`` facing a bare ``"``, and 1 only by markdown ``**`` the card does
+    not carry. Both read as the same sentence twice.
+
+    The folds are deliberately narrow. The entity fold names the quote
+    entities instead of calling ``html.unescape``, which would also rewrite
+    ``&amp;``/``&lt;`` and — for the entities Python matches without a trailing
+    semicolon — stretches of ordinary prose. The emphasis fold requires a
+    matching pair, so arithmetic is out of reach. A false negative here costs a
+    duplicated sentence; a false positive fails a fail-closed publish, so the
+    asymmetry is priced in on purpose.
+    """
+
+    def test_quote_entity_matches_the_bare_character(self):
+        assert gate.find_violations(
+            _post(
+                "랜섬웨어 &quot;Reynolds&quot;가 EDR을 무력화합니다.",
+                '랜섬웨어 "Reynolds"가 EDR을 무력화합니다.',
+            )
+        ), '&quot; vs " not caught (5 of the 6)'
+
+    def test_the_sibling_quote_entities_are_folded_too(self):
+        """None of these are live; a generator emitting one can emit the rest."""
+        for ent in ("&apos;", "&#39;", "&#x27;", "&ldquo;", "&rsquo;", "&QUOT;"):
+            assert gate.canonical(f"앞 {ent}가운데{ent} 뒤") == gate.canonical(
+                "앞 가운데 뒤"
+            ), f"{ent} survived the fold"
+
+    def test_paired_markdown_emphasis_is_markup_not_content(self):
+        assert gate.find_violations(
+            _post(
+                "이번 사례는 사회공학적 신뢰 조작의 전형입니다.",
+                "이번 사례는 **사회공학적 신뢰 조작**의 전형입니다.",
+            )
+        ), "** vs no ** not caught (1 of the 6)"
+
+    def test_unpaired_asterisks_are_left_alone(self):
+        """The control for the emphasis fold: `2**8` must not become `28`.
+
+        Stripping every `**` would make an exponent read as a different number
+        — the one way this fold could reach content rather than markup.
+        """
+        assert gate.canonical("2**8 회 반복합니다") != gate.canonical(
+            "28 회 반복합니다"
+        )
+        assert (
+            gate.find_violations(_post("28회 반복합니다.", "2**8회 반복합니다.")) == []
+        )
+
+    def test_emphasised_text_that_actually_differs_is_still_different(self):
+        assert (
+            gate.find_violations(
+                _post("**탐지 룰** 보강입니다.", "**패치 적용** 보강입니다.")
+            )
+            == []
+        )
+
+    def test_non_quote_entities_are_out_of_scope(self):
+        """Scope marker, not a requirement.
+
+        `&amp;` and `&lt;` render as `&` and `<`, so folding them would be
+        defensible — but no live pair needs it, and each added entity is
+        another chance to merge two different sentences. Widening this is a
+        change with its own evidence, not a silent drift.
+        """
+        assert gate.canonical("A &amp; B") != gate.canonical("A & B")
+
+
 class TestCorpusIsGreen:
     def test_live_corpus_has_no_violations(self):
         """A gate wired while red is a gate that gets muted."""
