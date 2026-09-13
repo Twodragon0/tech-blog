@@ -386,7 +386,7 @@ class TestPredicatesMatchTheirSentences:
         )
 
     def test_checklist_claim_is_judged_on_the_checklist(self) -> None:
-        """"체크리스트에 패치 항목" must not be satisfied by 패치 elsewhere.
+        """The 체크리스트 claim must not be satisfied by 패치 elsewhere in the body.
 
         The body below discusses 패치 in its prose and has a checklist that says
         nothing about it. Matching anywhere in the body is the same shortcut
