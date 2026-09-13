@@ -166,6 +166,41 @@ def test_ci_installs_something_that_provides_coverage():
     )
 
 
+def test_pr_comment_does_not_window_the_total_row():
+    """The global row is grepped out of `coverage report` — don't pipe it first.
+
+    `coverage` prints notes AFTER the TOTAL row ("N files skipped due to
+    complete coverage.", plus "N empty files skipped." once `skip_empty` is
+    set). Measured 2026-09-11: exactly 2 trailing lines, so the `| tail -3 |`
+    that used to sit before the grep had zero margin — one more note pushes
+    TOTAL out of the window and the comment renders an empty
+    `| Whole of scripts/ | | | |` row.
+
+    Cosmetic, since the step is `continue-on-error`. Pinned anyway because it
+    fails silently and the fix costs nothing: only one line can start with
+    TOTAL, so the grep needs no window.
+    """
+    body = _jekyll_body()
+    m = re.search(r"^\s*GLOBAL=\$\((.+)\)\s*$", body, re.MULTILINE)
+    assert m, "the PR comment no longer extracts a global coverage row"
+    pipeline = m.group(1)
+    assert "coverage report --rcfile=.coveragerc-global" in pipeline
+    assert "tail" not in pipeline and "head" not in pipeline, (
+        f"the TOTAL row is extracted through a line window: {pipeline!r}. "
+        "Coverage appends notes after TOTAL, so a window can drop it."
+    )
+
+
+def test_pr_comment_reads_coverage_json_once():
+    """One `open()`, one parse — the second call also leaked its handle."""
+    body = _jekyll_body()
+    assert body.count("json.load(open(") == 0, (
+        "coverage.json is parsed via a bare json.load(open(...)), which reads "
+        "the file a second time and leaks the handle"
+    )
+    assert "import glob" not in body, "unused import left in the inline script"
+
+
 def test_no_cli_flag_overrides_the_core_floor():
     """A `--cov-fail-under` on the pytest line silently beats pyproject.
 

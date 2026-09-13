@@ -5,7 +5,7 @@ date: 2026-08-30 11:34:08 +0900
 last_modified_at: 2026-08-30T11:34:08+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, AI, Data, Security]
-excerpt: "2026년 08월 30일 수집한 15건의 보안 이슈 중 다섯 가지 치명적인 WordPress 플러그인 및 테마 취약점으로 · Anthropic이 Claude Code의 현재 주간 한도를 17%를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "2026년 08월 30일 수집한 15건의 보안 이슈 중 다섯 가지 치명적인 WordPress 플러그인 및 테마 취약점으로 · Anthropic이 Claude Code의 현재 주간 한도를 17%를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다."
 description: "2026년 08월 30일 보안 뉴스 요약. The Hacker News, BleepingComputer, Microsoft Security Blog 등 15건을 분석하고 다섯 가지 치명적인 WordPress 플러그인, Anthropic이 Claude Code의 현재, Brave 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS, AI, Data]
 author: Twodragon

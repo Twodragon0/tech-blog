@@ -5,7 +5,7 @@ date: 2026-04-20 10:53:57 +0900
 last_modified_at: 2026-05-06T15:26:06+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Apple, AWS, Palantir]
-excerpt: "Apple 계정 변경 알림을 악용한 피싱 이메일 발송 · NIST, 증가하는 취약점 수로 인해 비우선순위 결함 평가 중단 등 2026년 04월 20일 보고된 14건의 보안/기술 이슈를 운영 관점에서 점검합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "Apple 계정 변경 알림을 악용한 피싱 이메일 발송 · NIST, 증가하는 취약점 수로 인해 비우선순위 결함 평가 중단 등 2026년 04월 20일 보고된 14건의 보안/기술 이슈를 운영 관점에서 점검합니다. 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다."
 description: "2026년 04월 20일 보안 뉴스 요약. BleepingComputer, TechCrunch Security, GeekNews (긱뉴스) 등 14건을 분석하고 Apple 계정 변경 알림을 악용한 피싱 이메일, NIST, 증가하는 취약점 수로 인해 비우선순위 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Apple, AWS]
 author: Twodragon

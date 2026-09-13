@@ -7,7 +7,7 @@ last_modified_at: 2026-03-30T17:41:34+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Android, Zero-Day, Kubernetes, Supply-Chain]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  Android,  Zero-Day,  Kubernetes,  Supply-Chain]
-excerpt: "2026년 03월 07일 수집한 15건의 보안 이슈 중 Qualcomm 제로데이 CVE-2026-21385 활성 공격 · CVE-2026-22719 CISA KEV 등재를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "2026년 03월 07일 수집한 15건의 보안 이슈 중 Qualcomm 제로데이 CVE-2026-21385 활성 공격 · CVE-2026-22719 CISA KEV 등재를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다."
 description: "Google Android 129개 취약점 패치(Qualcomm 제로데이 CVE-2026-21385 활성 공격), VMware Aria Operations CVE-2026-22719 KEV 등재, Datadog DevSecOps 보고서(87% 조직 취약), VoidLink AI..."
 author: Twodragon
 comments: true

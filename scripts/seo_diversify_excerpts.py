@@ -168,6 +168,20 @@ def _has_checklist(body: str) -> bool:
     return "## 실무 체크리스트" in body and len(_CHECKBOX_RE.findall(body)) >= 3
 
 
+def _checklist_section(body: str) -> str:
+    """The checklist's own text, not the whole post.
+
+    A closer that says what the CHECKLIST contains must be judged on the
+    checklist. Matching the word anywhere in the body is the same shortcut that
+    let `"SOC" in body` read an audit report as a security operations centre.
+    """
+    start = body.find("## 실무 체크리스트")
+    if start < 0:
+        return ""
+    end = body.find("\n## ", start + 5)
+    return body[start : end if end > 0 else len(body)]
+
+
 def _source_and_impact_in_one_table(body: str) -> bool:
     for block in _table_blocks(body):
         has_source = any(c in _SOURCE_HEADINGS for row in block for c in row)
@@ -202,12 +216,23 @@ class Closer:
     an attack-path walkthrough, invisibly, which is the defect this file exists
     to remove. A retired closer's ``requires`` is always False, so every carrier
     is a violation until it rotates onto a live one.
+
+    ``aliases`` holds earlier spellings of the SAME sentence. Rewording a
+    closer has the same hazard as deleting one — the 45 posts carrying the old
+    wording stop being recognised — but the fix differs: a reworded closer is
+    renamed, not withdrawn, so its carriers should move to the new wording
+    rather than rotate away at random. The matched spelling is what gets
+    sliced off, which is why :func:`current_closer_match` returns it.
     """
 
     text: str
     requires: "Callable[[str], bool]"
     why: str
     retired: bool = False
+    aliases: tuple[str, ...] = ()
+
+    def spellings(self) -> tuple[str, ...]:
+        return (self.text, *self.aliases)
 
 
 def _never(_body: str) -> bool:
@@ -224,10 +249,26 @@ CLOSERS: tuple[Closer, ...] = (
         _has_checklist,
         "a '## 실무 체크리스트' section with 3+ checkbox items",
     ),
+    # The sentence was rewritten on 2026-09-11 rather than the predicate
+    # tightened. It used to name THREE things — 위협 인텔리전스, 패치 적용,
+    # 탐지 룰 보강 — and claim the checklist was centred on them, while the
+    # predicate only looked for 탐지 and 패치 anywhere in the body. Measured
+    # across its 45 carriers: the checklist mentions 패치 in 35, 탐지 in 12,
+    # both in 7; 위협 인텔리전스 appears anywhere in the body in 11.
+    #
+    # Tightening the predicate to match the old sentence leaves 7 of 45, which
+    # retires the closer in all but name and pushes the rotation's top share
+    # from 26.9% to 32.4%. Rewriting the sentence to the claim the corpus
+    # actually supports keeps it alive at 35 and moves 10 posts instead of 38.
+    # When a generated sentence and its evidence disagree, the sentence is the
+    # cheaper thing to change.
     Closer(
-        " 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다.",
-        lambda b: _has_checklist(b) and "탐지" in b and "패치" in b,
-        "a checklist plus body mentions of 탐지 and 패치",
+        " 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다.",
+        lambda b: _has_checklist(b) and "패치" in _checklist_section(b),
+        "a 패치 item inside the '## 실무 체크리스트' section",
+        aliases=(
+            " 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다.",
+        ),
     ),
     Closer(
         " 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다.",
@@ -477,13 +518,26 @@ def _split_trailing_filler(excerpt: str) -> tuple[str, str]:
     return excerpt, ""
 
 
+def current_closer_match(excerpt: str) -> tuple[int, str] | None:
+    """``(index, matched spelling)``, or ``None`` if the ending is hand-written.
+
+    The spelling matters: an excerpt may end in an ALIAS — an older wording of
+    the same closer — and the repair has to slice off the text that is actually
+    there, not the current canonical text. Slicing by the canonical length after
+    a rewording would cut the wrong number of characters out of the opener.
+    """
+    core, _ = _split_trailing_filler(excerpt)
+    for i, closer in enumerate(CLOSERS):
+        for spelling in closer.spellings():
+            if core.endswith(spelling.strip()):
+                return i, spelling
+    return None
+
+
 def current_closer_index(excerpt: str) -> int | None:
     """Which closer this excerpt ends with, or ``None`` if it is hand-written."""
-    core, _ = _split_trailing_filler(excerpt)
-    for i, text in enumerate(CLOSER_TEXTS):
-        if core.endswith(text.strip()):
-            return i
-    return None
+    match = current_closer_match(excerpt)
+    return None if match is None else match[0]
 
 
 def _build_diverse_excerpt(
@@ -606,15 +660,19 @@ def _repair_promise(path: Path, body: str, existing: str) -> str | None:
     Returns the new excerpt, or ``None`` when nothing needs doing.
     """
     core, filler = _split_trailing_filler(existing)
-    current = current_closer_index(existing)
-    if current is None:
+    match = current_closer_match(existing)
+    if match is None:
         return None  # hand-written ending — not ours to rewrite
+    current, spelling = match
     if CLOSERS[current].requires(body):
-        return None  # promise already kept
-    chosen = choose_closer_text(
-        path, body, current=None, max_len=len(CLOSER_TEXTS[current])
-    )
-    core = core[: -len(CLOSER_TEXTS[current].strip())].rstrip()
+        # The promise holds. If the excerpt carries an older spelling of this
+        # closer, move it to the current wording — same claim, same evidence.
+        if spelling == CLOSER_TEXTS[current]:
+            return None
+        core = core[: -len(spelling.strip())].rstrip()
+        return core + _yaml_safe(CLOSER_TEXTS[current]) + filler
+    chosen = choose_closer_text(path, body, current=None, max_len=len(spelling))
+    core = core[: -len(spelling.strip())].rstrip()
     # `_yaml_safe` on the NEW text only. Applied to the whole excerpt it also
     # rewrites the opener — its `.replace("\\", "")` turned
     # `오늘 C:\temp\x 경로` into `오늘 C:tempx 경로` — which makes the

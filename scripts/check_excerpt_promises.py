@@ -117,6 +117,18 @@ def violation(path: Path) -> str | None:
 
 
 def _staged_posts() -> list[Path]:
+    """Staged posts that still exist in the working tree.
+
+    The index and the working tree can disagree. ``git add x.md && rm x.md``
+    leaves the file staged as an addition — so ``--diff-filter=ACMR`` lists it —
+    while there is nothing on disk to read. That made the gate exit 1 with
+    ``not found`` and block the commit over a file the commit does not contain.
+
+    Skipping it is right, not lenient: this gate reads body prose, and a deleted
+    file has none. A missing path is still an ERROR for ``--all`` and for
+    explicitly named paths, where it means a typo or a moved file and must not
+    read as "nothing to check, all good".
+    """
     out = subprocess.run(
         ["git", "diff", "--cached", "--name-only", "--diff-filter=ACMR", "-z"],
         capture_output=True,
@@ -124,11 +136,12 @@ def _staged_posts() -> list[Path]:
         check=True,
         cwd=ROOT,
     ).stdout
-    return [
+    staged = (
         ROOT / n
         for n in out.split("\0")
         if n.startswith("_posts/") and n.endswith(".md")
-    ]
+    )
+    return [p for p in staged if p.is_file()]
 
 
 def main(argv: list[str] | None = None) -> int:
