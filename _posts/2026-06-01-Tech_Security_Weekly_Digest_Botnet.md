@@ -5,7 +5,7 @@ date: 2026-06-01 09:33:53 +0900
 last_modified_at: 2026-06-01T09:33:53+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Botnet]
-excerpt: "네덜란드 당국, 1700만 대 감염 기기와 연결된 봇넷 해체 · WP Maps Pro 취약점 악용해 WordPress 사이트에가 부각된 2026년 06월 01일 보안 다이제스트 — 12건의 이슈와 실행 가능한 대응 액션을 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "네덜란드 당국, 1700만 대 감염 기기와 연결된 봇넷 해체 · WP Maps Pro 취약점 악용해 WordPress 사이트에가 부각된 2026년 06월 01일 보안 다이제스트 — 12건의 이슈와 실행 가능한 대응 액션을 정리합니다. 본문 말미의 실무 체크리스트에 팀에서 바로 나눠 가질 점검 항목을 정리했습니다."
 description: "2026년 06월 01일 보안 뉴스 요약. The Hacker News, BleepingComputer, Cointelegraph 등 12건을 분석하고 네덜란드 당국, 1700만 대 감염, WP Maps Pro 취약점 악용해 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Botnet]
 author: Twodragon

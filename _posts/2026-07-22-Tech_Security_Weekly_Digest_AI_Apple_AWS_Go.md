@@ -5,7 +5,7 @@ date: 2026-07-22 10:49:13 +0900
 last_modified_at: 2026-07-22T10:49:13+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Apple, AWS, Go]
-excerpt: "Apple, Hide My Email 버그 수정해 메일 로그에서 · AWS Kiro 결함으로 오염된 웹 페이지가 설정을 덮어쓰고 코드를 등 2026년 07월 22일 보고된 28건의 보안/기술 이슈를 운영 관점에서 점검합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "Apple, Hide My Email 버그 수정해 메일 로그에서 · AWS Kiro 결함으로 오염된 웹 페이지가 설정을 덮어쓰고 코드를 등 2026년 07월 22일 보고된 28건의 보안/기술 이슈를 운영 관점에서 점검합니다. 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다."
 description: "2026년 07월 22일 보안 뉴스 요약. The Hacker News 등 28건을 분석하고 Apple, Hide My Email 버그, AWS Kiro 결함으로 오염된 웹 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Apple, AWS]
 author: Twodragon

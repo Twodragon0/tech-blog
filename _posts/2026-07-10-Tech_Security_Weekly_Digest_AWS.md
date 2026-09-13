@@ -5,7 +5,7 @@ date: 2026-07-10 11:02:46 +0900
 last_modified_at: 2026-07-10T11:02:46+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS]
-excerpt: "2026년 07월 10일 수집한 30건의 보안 이슈 중 2026년 6월 다크웹 위협 행위자 동향 보고서 · 2026년 6월 다크웹 이슈 동향 보고서를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "2026년 07월 10일 수집한 30건의 보안 이슈 중 2026년 6월 다크웹 위협 행위자 동향 보고서 · 2026년 6월 다크웹 이슈 동향 보고서를 중심으로 영향 범위와 패치 우선순위를 분석합니다. 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다."
 description: "2026년 07월 10일 보안 뉴스 요약. 안랩 ASEC 블로그, The Hacker News, AWS Security Blog 등 30건을 분석하고 2026년 6월 다크웹 위협 행위자 동향 보고서, 2026년 6월 다크웹 이슈 동향 보고서, 2026년 6월 다크웹 침해사고 동향 보고서 등 DevSecOps 대응 포인트를 정리합니다."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AWS]
 author: Twodragon

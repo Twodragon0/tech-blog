@@ -5,7 +5,7 @@ date: 2026-06-07 09:34:57 +0900
 last_modified_at: 2026-06-07T09:34:57+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, GPT, Data, AI, API]
-excerpt: "새로운 ChatGPT Lockdown 모드 · 무료 앱들이 조용히 스마트 TV를 AI용 웹 스크래핑 프록시로가 부각된 2026년 06월 07일 보안 다이제스트 — 16건의 이슈와 실행 가능한 대응 액션을 정리합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "새로운 ChatGPT Lockdown 모드 · 무료 앱들이 조용히 스마트 TV를 AI용 웹 스크래핑 프록시로가 부각된 2026년 06월 07일 보안 다이제스트 — 16건의 이슈와 실행 가능한 대응 액션을 정리합니다. 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다."
 description: "2026년 06월 07일 보안 뉴스 요약. The Hacker News 등 16건을 분석하고 새로운 ChatGPT Lockdown 모드, 무료 앱들이 조용히 스마트 TV를 AI용 웹, CISA 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, GPT, Data, AI]
 author: Twodragon

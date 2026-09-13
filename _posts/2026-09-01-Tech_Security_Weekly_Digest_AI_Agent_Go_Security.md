@@ -5,7 +5,7 @@ date: 2026-09-01 11:44:48 +0900
 last_modified_at: 2026-09-01T11:44:48+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Go, Security]
-excerpt: "2026년 09월 01일 공개된 29건의 위협·취약점 가운데 북한 취업 사기, IT 넘어 헬스케어 및 영업 분야로 확대 · 주간 정리: 중국 스파이 프록시, AI 에이전트 임무 이탈이 즉각 대응 우선순위에 올랐습니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "2026년 09월 01일 공개된 29건의 위협·취약점 가운데 북한 취업 사기, IT 넘어 헬스케어 및 영업 분야로 확대 · 주간 정리: 중국 스파이 프록시, AI 에이전트 임무 이탈이 즉각 대응 우선순위에 올랐습니다. 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다."
 description: "2026년 09월 01일 보안 뉴스 요약. The Hacker News, AWS Security Blog 등 29건을 분석하고 북한 취업 사기, IT 넘어 헬스케어 및 영업, 주간 정리: 중국 스파이 프록시 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
 keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, AI, Agent, Go]
 author: Twodragon

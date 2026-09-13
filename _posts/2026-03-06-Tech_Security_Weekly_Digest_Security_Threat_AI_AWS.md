@@ -7,7 +7,7 @@ last_modified_at: 2026-03-31T12:28:24+09:00
 categories: [security, devsecops]
 tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Security, Threat, AI, AWS]
 keywords: [Security-Weekly,  DevSecOps,  Cloud-Security,  Weekly-Digest,  2026,  Security,  Threat,  AI,  AWS]
-excerpt: "CVE-2026-20122 활성 공격 확인 · Europol 주도 국제공조로 64,000건 AitM 피싱 공격에 등 2026년 03월 06일 보고된 15건의 보안/기술 이슈를 운영 관점에서 점검합니다. 위협 인텔리전스·패치 적용·탐지 룰 보강을 중심으로 한 실무 체크리스트를 함께 제공합니다."
+excerpt: "CVE-2026-20122 활성 공격 확인 · Europol 주도 국제공조로 64,000건 AitM 피싱 공격에 등 2026년 03월 06일 보고된 15건의 보안/기술 이슈를 운영 관점에서 점검합니다. 실무 체크리스트에 패치 적용 항목을 함께 정리했습니다."
 description: "Cisco Catalyst SD-WAN Manager CVE-2026-20122 활성 공격 확인, Europol의 Tycoon 2FA PhaaS 해체(64,000건 공격), APT28 우크라이나 표적 신규 악성코드 배포, GPT-5.4 출시 및 Google Cloud 보안..."
 author: Twodragon
 comments: true
