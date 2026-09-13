@@ -650,6 +650,14 @@ Non-negotiables (each one has caused a corpus-wide regression):
   in svg-lint CI). A band must not assert evidence the post lacks. Never bypass
   the baseline to make a cover pass.
 - **Render + grep to verify; never reason about routing statically.**
+- **Iterate a design on the 32-cover canary, not the corpus.** Every cover you
+  regenerate and commit is a new blob forever. Measured over the last 500
+  commits: 2,930 image paths, **29,177 revisions** — 10 rewrites per image, one
+  cover 60 times, one commit touching 444 images. That is why the repo is
+  1,420 MB against a 141 MB HEAD tree. Render `TARGET_SVGS`
+  (`scripts/svg_visual_baseline.py`, 32 covers) while iterating, and run
+  `upgrade_*_cover.py --all` **once**, after the design is accepted. The skill
+  file records the three fixes that look right and do nothing.
 - Run the full cover verify workflow (drift checks + `check_svg_quality` +
   honesty gate + gates + pytest) locally before committing cover changes — CI
   runs checks that pre-commit does not.
