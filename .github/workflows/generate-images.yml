@@ -54,7 +54,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
         with:
-          fetch-depth: 0
+          # Scans the working tree and commits what it generates; no history
+          # command is run. `git diff --staged` and the push both work at depth 1.
+          fetch-depth: 1
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python

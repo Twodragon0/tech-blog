@@ -35,7 +35,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
         with:
-          fetch-depth: 0
+          # This job runs no git history command -- it reads the SHA and posts a
+          # notification. A full-history clone here would pull ~1.4 GB for nothing.
+          fetch-depth: 1
       
       - name: Get Commit SHA
         id: get_sha
