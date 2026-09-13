@@ -11,6 +11,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+from scripts.check_duplicate_card_summary import canonical as _same_sentence
 from scripts.digest_quality_report import _SINGLE_SYLLABLE_ALLOW
 from scripts.news.analyzer import (
     extract_cve_id,
@@ -3234,9 +3235,20 @@ def generate_news_section(
     # carry its tail, and an item with no card summary needs it as its only
     # prose. Both directions are pinned in
     # scripts/tests/test_content_generator_card_summary.py.
+    #
+    # The comparison is the GATE'S OWN `canonical()`, not `==` on the raw
+    # strings, because `card_shows` has been through `_sanitize_liquid_param`:
+    # an inner ASCII `"` becomes U+201D so it cannot terminate the Liquid
+    # attribute. A summary carrying one quote therefore never compared equal to
+    # its own card, the block was emitted, and the gate — which compares
+    # canonically — failed the publish. That path is fail-closed in
+    # `.github/workflows/ai-blogwatcher.yml` with no self-heal, so the digest
+    # would simply not be published that day. Producer and gate read one
+    # definition of "the same sentence"; changing the fold on one side cannot
+    # silently diverge from the other.
     summary_block = ""
     if ko_summary:
-        if ko_summary.strip() != card_shows.strip():
+        if _same_sentence(ko_summary) != _same_sentence(card_shows):
             summary_block = f"{ko_summary}\n\n"
     elif content_text:
         summary_block = f"{content_text[:800]}...\n\n"
