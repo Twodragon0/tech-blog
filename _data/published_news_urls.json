@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-09-13T02:14:31.129148+00:00",
+  "updated_at": "2026-09-14T02:32:13.489483+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/five-critical-wordpress-plugin-and.html",
-      "title": "Five Critical WordPress Plugin and Theme Flaws Enable Site Takeover or RCE",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-is-cutting-claude-codes-current-weekly-limits-by-17-percent/",
-      "title": "Anthropic is cutting Claude Code's current weekly limits by 17%",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/brave-browser-adds-email-aliases-to-help-users-evade-tracking/",
-      "title": "Brave browser adds email aliases to help users evade tracking",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/08/28/terminalfix-campaign-deploys-reverse-tunnel-through-multistage-intrusion/",
-      "title": "TerminalFix campaign deploys a reverse tunnel through multistage intrusion",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://www.securityweek.com/hasbro-data-breach-exposed-employee-personal-information/",
-      "title": "Hasbro Data Breach Exposed Employee Personal Information",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/polygon-discloses-security-flaws-fixed-in-recent-hard-forks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Polygon discloses security flaws fixed in recent hard forks",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/stellar-tokenized-rwa-market-nears-4b-after-fourfold-2026-growth?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Stellar tokenized RWA market more than quadruples to nearly $4B",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/tokenized-stock-transfer-volume-jumps-416-in-30-days-to-295b?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Tokenized stock transfer volume jumps 415% in 30 days to $29.5B",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/trump-linked-account-list-gold-token-crash?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Trump-promoted brand touts GOLD before token collapse",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/stablecoins-not-credible-payments-scale-bis-chief?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Stablecoins not credible for payments at scale, BIS chief says",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33024",
-      "title": "GrapheneOS 프로젝트, Pixel 11의 하드웨어 메모리 태깅(MTE) 미지원으로 포팅 중단",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33023",
-      "title": "Tencent Hy4 프리뷰 공개",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33022",
-      "title": "DHS, 잘 알려지지 않은 세관법으로 언론인·비영리단체·노조 감시",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33021",
-      "title": "GeoLibre - Tauri 기반의 경량 클라우드 네이티브 데스크톱 GIS",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33020",
-      "title": "Debian의 LLM 사용, 지지도 금지도 하지 않음",
-      "published_date": "2026-08-30",
-      "expires_at": "2026-09-06T02:35:40.182313+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/terminalfix-uses-fake-cloudflare.html",
-      "title": "TerminalFix Uses Fake Cloudflare CAPTCHAs to Deploy Reverse-Tunnel Backdoor",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/fulcrumsec-claims-manchester-airports-hack-theft-of-86-gb-of-data/",
-      "title": "FulcrumSec claims Manchester Airports hack, theft of 86 GB of data",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-warns-infostealer-malware-is-hijacking-claude-sessions-to-drain-usage/",
-      "title": "Anthropic warns infostealer malware is hijacking Claude sessions to drain usage",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/chrome-web-store-extensions-caught-stealing-crypto-browser-data/",
-      "title": "Chrome Web Store extensions caught stealing crypto, browser data",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/amazon-bedrock-agentcore-multi-datasource-nlp-agent-production/",
-      "title": "Amazon Bedrock AgentCore로 멀티 데이터소스 자연어 질의 에이전트를 프로덕션에 배포하기",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/bitcoins-new-quantum-defenses-189m-sol-cancelled-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin’s new quantum defenses, 18.9M SOL cancelled: Hodler’s Digest",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/saylor-signals-strategy-is-back-to-bitcoin-buying?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Saylor signals Strategy is ‘Back’ to Bitcoin buying",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/russia-sber-bank-bitcoin-ether-usdt-crypto-loans?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Russia’s Sber eyes USDT loans, questions digital ruble demand",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/real-trump-coins-denies-gold-token-launch?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Real Trump Coins denies launching GOLD token, blames ‘bad actors’",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Here’s what happened in crypto today",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://arstechnica.com/ai/2026/08/inside-metas-push-to-put-robots-to-work-in-data-centers/",
-      "title": "Inside Meta’s push to put robots to work in data centers",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33062",
-      "title": "AI 시대의 데이터 아키텍처 - 저장보다 의미와 계약이 중요해지는 이유",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33061",
-      "title": "Booking.com이 OpenSearch 대신 Weaviate를 벡터 DB로 선택한 과정",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33059",
-      "title": "NVIDIA-labs OO Agents (NOOA) - Python 클래스로 에이전트를 정의하는 프레임워크",
-      "published_date": "2026-08-31",
-      "expires_at": "2026-09-07T02:31:11.338693+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/08/north-korean-job-fraud-expands-beyond.html",
       "title": "North Korean Job Fraud Expands Beyond IT Into Healthcare and Sales",
@@ -1170,6 +990,96 @@
       "title": "Dreeve - 운동 데이터를 직접 보관하고 분석하는 셀프 호스팅 대시보드",
       "published_date": "2026-09-13",
       "expires_at": "2026-09-20T02:14:31.129048+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/attackers-use-passkey-phishing-to.html",
+      "title": "Attackers Use Passkey Phishing to Hijack Microsoft Cloud Accounts and Exfiltrate",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/95384/",
+      "title": "2026년 8월 다크웹 침해사고 동향 보고서",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/95388/",
+      "title": "2026년 8월 다크웹 이슈 동향 보고서",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/95389/",
+      "title": "2026년 8월 다크웹 위협 행위자 동향 보고서",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-tencent-app-flaw-to-deploy-grayrabbit-malware/",
+      "title": "Hackers exploit Tencent app flaw to deploy GrayRabbit malware",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/anthropic-chief-urges-slowdown-in-ai-development-to-safer-pace?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Anthropic chief urges slowdown in AI development to safer pace",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/eks-advanced-control-plane/",
+      "title": "Amazon EKS 고급 컨트롤 플레인 구성하기",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/celltrion-pharm-oms-develop-with-ai-dlc/",
+      "title": "셀트리온제약의 AI-DLC 방법론과 Kiro를 활용한 OMS 서비스 구축하기",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/revolut-attackers-threaten-daily-customer-data-leaks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Revolut attackers threaten daily customer data leaks",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/revolut-says-customer-data-exposed-through-fake-government-email?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Revolut says customer data exposed through fake government email",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/cryptos-biggest-week-ever-swarm-fears-prompt-ai-slowdown-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Crypto’s biggest week ever? Swarm fears prompt AI slowdown: Hodler’s Digest",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/policy/2026/09/13/is-clarity-dead-a-vibes-based-analysis-state-of-crypto",
+      "title": "Is Clarity dead? A vibes-based analysis: State of Crypto",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/opinion/2026/09/13/quantum-proof-blockchain-why-math-not-machines-holds-the-key",
+      "title": "Quantum-proof blockchain: why math, not machines, holds the key",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33667",
+      "title": "공포의 전염",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33665",
+      "title": "Alien - 고객 환경에 설치한 소프트웨어를 원격으로 운영하는 플랫폼",
+      "published_date": "2026-09-14",
+      "expires_at": "2026-09-21T02:32:13.489357+00:00"
     }
   ]
 }
