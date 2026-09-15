@@ -68,11 +68,12 @@ jobs:
         # 0.15.8 -> 0.16.6 also brings scripts/**/*.md into formatting scope:
         # 0.16 formats Python inside Markdown, which is what turned the
         # 2026-08-31 ops run red on scripts/AGENTS.md. Measured 2026-09-15, all
-        # 6 Markdown files under scripts/ are already clean under 0.16.6, so the
-        # reason for holding at 0.15.8 no longer reproduces — but a future edit
-        # to a fenced Python block in those files can now fail this gate. That is
-        # the intended trade, not an accident.
-        run: python3 -m pip install --upgrade pip 'ruff==0.16.6'
+        # 6 Markdown files under scripts/ are clean under the pin (re-measured
+        # on the 0.16.6 -> 0.16.7 bump, same day), so the reason for holding at
+        # 0.15.8 no longer reproduces — but a future edit to a fenced Python
+        # block in those files can now fail this gate. That is the intended
+        # trade, not an accident.
+        run: python3 -m pip install --upgrade pip 'ruff==0.16.7'
 
       - name: ruff check (blocking)
         # No --fix. That is the entire point of this step existing.
