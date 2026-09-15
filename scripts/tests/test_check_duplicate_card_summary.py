@@ -182,11 +182,13 @@ class TestEntityAndEmphasisFolds:
             )
         ), "** vs no ** not caught (1 of the 6)"
 
-    def test_unpaired_asterisks_are_left_alone(self):
-        """The control for the emphasis fold: `2**8` must not become `28`.
+    def test_a_single_unpaired_run_is_left_alone(self):
+        """One `**` run has nothing to pair with, so an exponent survives.
 
-        Stripping every `**` would make an exponent read as a different number
-        — the one way this fold could reach content rather than markup.
+        Stripping every `**` unconditionally would make `2**8` read as `28` —
+        the one way this fold could reach content rather than markup. See
+        ``test_two_exponent_runs_do_pair_with_each_other`` for where that
+        protection ends.
         """
         assert gate.canonical("2**8 회 반복합니다") != gate.canonical(
             "28 회 반복합니다"
@@ -194,6 +196,39 @@ class TestEntityAndEmphasisFolds:
         assert (
             gate.find_violations(_post("28회 반복합니다.", "2**8회 반복합니다.")) == []
         )
+
+    def test_two_exponent_runs_do_pair_with_each_other(self):
+        """Known limit, pinned so nobody re-derives the wrong reassurance.
+
+        "Paired" is satisfied by the closing ``**`` of a DIFFERENT expression,
+        so two runs in one string fold into each other. An earlier version of
+        this file claimed `2**8` could never become `28`; that holds only for a
+        single run, and the fixture above happened to be exactly that case.
+
+        Why it is left open: the fold deletes markers, never content, so the
+        worst outcome is two tokens joining. Measured 2026-09-13 over the 297
+        posts — 12,718 emphasis matches, **0** where the removal joins two
+        ASCII alphanumerics. (A bare ``isalnum()`` reports 1,566, because
+        Hangul is alphanumeric and ``**강조**의`` → ``강조의`` counts; that is
+        the fold working, not the hazard.) And the producer cannot reach this
+        at all — the card is a derivative of the block, so both sides fold
+        identically.
+        """
+        assert gate.canonical("2**8 + 3**4") == gate.canonical("28 + 34")
+        assert gate.canonical("2**32 개와 2**64 개") == gate.canonical(
+            "232 개와 264 개"
+        )
+
+    def test_space_padded_markers_are_not_emphasis(self):
+        """Pins the ``(?=\\S)`` / ``(?<=\\S)`` guards.
+
+        Markdown does not bold ``** x **``, and these guards are what keeps
+        spaced arithmetic out of the fold: without them ``2 ** 8 + 3 ** 4``
+        collapses to ``2 8 + 3 4``. Deleting them used to break no test at all,
+        which is the reason this assertion exists.
+        """
+        assert gate.canonical("2 ** 8 + 3 ** 4") != gate.canonical("2 8 + 3 4")
+        assert gate.canonical("** 공백 ** 입니다") == "** 공백 ** 입니다"
 
     def test_emphasised_text_that_actually_differs_is_still_different(self):
         assert (

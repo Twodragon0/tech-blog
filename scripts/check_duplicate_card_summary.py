@@ -74,12 +74,32 @@ _QUOTES_RE = re.compile(r"[\"“”‘’'`]")
 # ordinary prose — a far wider licence than the live cases need. All five in
 # the corpus on 2026-09-13 were ``&quot;``; the sibling spellings are here
 # because a generator that emits one can emit the others.
+#
+# Not covered: the NUMERIC spellings of the curly quotes (``&#8220;``,
+# ``&#x201C;`` …), while their named forms are. By the same "can emit the
+# others" argument they belong here too; they are left out because missing one
+# is fail-OPEN — one duplicated sentence, never a failed publish — and no live
+# case needs them.
 _QUOTE_ENTITY_RE = re.compile(
     r"&(?:quot|apos|[lr]dquo|[lr]squo|#0*3[49]|#[xX]0*2[27]);", re.I
 )
-# Markdown emphasis, PAIRED only. A bare `**` is left alone, so `2**8` in one
-# text can never be folded into `28` in another — the fold reaches markup, not
-# arithmetic. Requiring a non-space on the inside is markdown's own rule.
+# Markdown emphasis, PAIRED only, with a non-space required just inside each
+# marker — markdown's own rule, and what keeps `2 ** 8 + 3 ** 4` out of reach.
+#
+# KNOWN LIMIT, measured rather than assumed: "paired" can be satisfied by the
+# closing `**` of a DIFFERENT expression, so two exponent runs in one string do
+# fold — `2**32 개와 2**64 개` collapses to `232 개와 264 개`. The fold deletes
+# only the markers (`m.group(1)`), never content, so the failure mode is token
+# concatenation, not a dropped clause. Incidence across the 297 posts on
+# 2026-09-13: 12,718 matches, **0** where the removal joins two ASCII
+# alphanumerics — the `2`+`8` signature. (Re-measuring with a bare
+# `str.isalnum()` gives 1,566 instead: Hangul is alphanumeric too, so
+# `**강조**의` → `강조의` counts. That join is the fold working as intended —
+# Korean has no word separator — and is not the hazard.)
+# Tightening this to demand a non-alphanumeric outside each marker would close
+# it, and is deliberately not done — it is a wider change than the evidence
+# asks for, and on the producer side it cannot bite at all (the card derives
+# from the block, so both sides fold identically).
 _BOLD_RE = re.compile(r"\*\*(?=\S)(.+?)(?<=\S)\*\*", re.S)
 _WS_RE = re.compile(r"\s+")
 # Trailing sentence marks only. Not `.rstrip(".")` on arbitrary text: a summary
