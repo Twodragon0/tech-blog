@@ -213,3 +213,51 @@ def test_no_cli_flag_overrides_the_core_floor():
         "pyproject's fail_under, so the file everyone reads stops being the "
         "floor that CI applies."
     )
+
+
+CLAUDE_MD = REPO_ROOT / "CLAUDE.md"
+
+# The ENFORCEMENT form, with a value. Prose that merely names the flag while
+# explaining that it is not used must stay legal — jekyll.yml's own comment and
+# this file's module docstring both do exactly that, and a guard that greps for
+# the bare string would fail on its own explanation.
+_ENFORCED_CLI_FLOOR_RE = re.compile(r"--cov-fail-under=\d")
+
+
+class TestTheDocumentMatchesTheFloors:
+    """CLAUDE.md described a floor that had been deleted.
+
+    Until 2026-09-15 it read: "커버리지 목표: `auto_publish_news.py` 40% 이상 유지
+    (`--cov-fail-under=40` CI 강제)". Three things were wrong at once. The flag
+    is gone from jekyll.yml, and ``test_no_cli_flag_overrides_the_core_floor``
+    above asserts it stays gone. The number 40 never matched pyproject either.
+    And there is no per-file floor at all — ``fail_under`` applies to the
+    AGGREGATE of the nine ``include`` patterns, so no single file has a target.
+
+    A document that names a flag CI forbids sends the next reader to add it
+    back. Direction: presence for the two real sources, absence for the
+    enforcement claim.
+    """
+
+    def test_claude_md_exists(self):
+        assert CLAUDE_MD.is_file(), f"{CLAUDE_MD} not found"
+
+    def test_the_document_does_not_claim_the_cli_floor_is_enforced(self):
+        hits = _ENFORCED_CLI_FLOOR_RE.findall(CLAUDE_MD.read_text(encoding="utf-8"))
+        assert not hits, (
+            f"CLAUDE.md asserts a `--cov-fail-under=<n>` floor again ({hits}). "
+            "That flag beats pyproject's fail_under and is deliberately absent "
+            "from jekyll.yml — see test_no_cli_flag_overrides_the_core_floor. "
+            "Naming the flag while saying it is NOT used is fine; stating a "
+            "value is the claim this rejects."
+        )
+
+    def test_the_document_names_both_real_floors(self):
+        text = CLAUDE_MD.read_text(encoding="utf-8")
+        for source in (".coveragerc-global", "pyproject.toml"):
+            assert source in text, (
+                f"CLAUDE.md no longer names {source}. Both floors have to be "
+                "findable from the document, or the next person reads the core "
+                "slice as if it governed all of scripts/ — it governs 9 include "
+                "patterns."
+            )

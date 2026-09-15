@@ -885,7 +885,15 @@ serves the HTML.
 - **테스트 입력 설계**: 다른 분기 키워드를 포함하지 않도록 주의
 - **우선순위 충돌 테스트**: `TestBranchPriorityConflicts` parametrized 테스트로 자동 감지
 - **pre-commit hook**: `scripts/auto_publish_news.py` 또는 `scripts/tests/` 변경 시 pytest 자동 실행
-- **커버리지 목표**: `auto_publish_news.py` 40% 이상 유지 (`--cov-fail-under=40` CI 강제)
+- **커버리지 하한은 두 개다.** `auto_publish_news.py` 는 **core** 슬라이스에 들어간다
+  (`pyproject.toml` `[tool.coverage.report]` 의 `include` 9패턴 중 하나). 나머지 전부는
+  **global** 슬라이스(`.coveragerc-global`)가 받는다. 값은 그 두 파일에 있고, 여기 옮겨
+  적지 않는다 — 옮겨 적은 수치는 낡는다.
+  - **파일당 하한은 없다.** core 하한은 9패턴의 **합계**에 걸리므로 "auto_publish_news.py
+    를 N% 이상"이라고 읽으면 틀린다. 이 줄은 오래 그렇게 적혀 있었다.
+  - **`--cov-fail-under` 는 쓰지 않는다.** CLI 플래그가 `pyproject.toml` 의 `fail_under`
+    를 이기기 때문에, 한때 CI 는 40을 강제하면서 파일은 50이라고 적고 있었다. 다시
+    들어오면 `test_ci_coverage_floor_guard.py` 가 실패시킨다.
 - **테스트 현황**: `test_news_templates.py` **439건** (템플릿 분기 커버리지). 이 개수의 하한은
   `scripts/tests/test_news_templates_floor_guard.py` 가 단정한다 — **문서가 아니라 테스트가 근거다.**
   - **전체 스위트 규모는 여기 적지 않는다.** 세 번 적었고 세 번 낡았다. 마지막 두 판 사이
