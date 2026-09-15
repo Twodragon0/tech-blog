@@ -68,6 +68,39 @@ BLOCK_RE = re.compile(
 
 
 _QUOTES_RE = re.compile(r"[\"“”‘’'`]")
+# The same quote characters spelled as HTML entities. Folded by name rather
+# than with ``html.unescape``: that also rewrites ``&amp;``/``&lt;`` and, for
+# the entities Python matches without a trailing semicolon, stretches of
+# ordinary prose — a far wider licence than the live cases need. All five in
+# the corpus on 2026-09-13 were ``&quot;``; the sibling spellings are here
+# because a generator that emits one can emit the others.
+#
+# Not covered: the NUMERIC spellings of the curly quotes (``&#8220;``,
+# ``&#x201C;`` …), while their named forms are. By the same "can emit the
+# others" argument they belong here too; they are left out because missing one
+# is fail-OPEN — one duplicated sentence, never a failed publish — and no live
+# case needs them.
+_QUOTE_ENTITY_RE = re.compile(
+    r"&(?:quot|apos|[lr]dquo|[lr]squo|#0*3[49]|#[xX]0*2[27]);", re.I
+)
+# Markdown emphasis, PAIRED only, with a non-space required just inside each
+# marker — markdown's own rule, and what keeps `2 ** 8 + 3 ** 4` out of reach.
+#
+# KNOWN LIMIT, measured rather than assumed: "paired" can be satisfied by the
+# closing `**` of a DIFFERENT expression, so two exponent runs in one string do
+# fold — `2**32 개와 2**64 개` collapses to `232 개와 264 개`. The fold deletes
+# only the markers (`m.group(1)`), never content, so the failure mode is token
+# concatenation, not a dropped clause. Incidence across the 297 posts on
+# 2026-09-13: 12,718 matches, **0** where the removal joins two ASCII
+# alphanumerics — the `2`+`8` signature. (Re-measuring with a bare
+# `str.isalnum()` gives 1,566 instead: Hangul is alphanumeric too, so
+# `**강조**의` → `강조의` counts. That join is the fold working as intended —
+# Korean has no word separator — and is not the hazard.)
+# Tightening this to demand a non-alphanumeric outside each marker would close
+# it, and is deliberately not done — it is a wider change than the evidence
+# asks for, and on the producer side it cannot bite at all (the card derives
+# from the block, so both sides fold identically).
+_BOLD_RE = re.compile(r"\*\*(?=\S)(.+?)(?<=\S)\*\*", re.S)
 _WS_RE = re.compile(r"\s+")
 # Trailing sentence marks only. Not `.rstrip(".")` on arbitrary text: a summary
 # genuinely ending in an ellipsis or an exclamation is the same sentence as the
@@ -76,15 +109,24 @@ _TRAILING_MARKS = ".。!?… "
 
 
 def canonical(text: str) -> str:
-    """Fold the four differences that do not change what a reader reads.
+    """Fold the differences that do not change what a reader reads.
 
-    Unicode form, backslash escapes, quote glyph, whitespace runs, and a
-    trailing sentence mark. Deliberately nothing else — every additional fold
-    is a chance to call two different sentences the same.
+    Unicode form, backslash escapes, quote glyph — as a character or as its
+    HTML entity — paired markdown emphasis, whitespace runs, and a trailing
+    sentence mark. Deliberately nothing else: every additional fold is a chance
+    to call two different sentences the same.
+
+    The producer imports this function (``scripts/news/content_generator.py``)
+    to decide whether to emit the block at all, so widening a fold here makes
+    the generator suppress strictly more. That is the intent — one definition,
+    both sides — but it means a new fold has to be judged on generated output,
+    not only on the corpus.
     """
     text = unicodedata.normalize("NFKC", text)
     text = text.replace("\\", "")
+    text = _QUOTE_ENTITY_RE.sub("", text)
     text = _QUOTES_RE.sub("", text)
+    text = _BOLD_RE.sub(lambda m: m.group(1), text)
     return _WS_RE.sub(" ", text).strip().rstrip(_TRAILING_MARKS)
 
 
