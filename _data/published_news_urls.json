@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T02:32:13.489483+00:00",
+  "updated_at": "2026-09-15T02:38:37.678346+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/08/north-korean-job-fraud-expands-beyond.html",
@@ -1080,6 +1080,96 @@
       "title": "Alien - 고객 환경에 설치한 소프트웨어를 원격으로 운영하는 플랫폼",
       "published_date": "2026-09-14",
       "expires_at": "2026-09-21T02:32:13.489357+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/new-ddrop-attack-breaks-intel-tdx-and.html",
+      "title": "New DDRop Attack Breaks Intel TDX and AMD SEV-SNP Confidential Computing",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/3bb-attacker-used-meshcentral-backdoor.html",
+      "title": "3BB Attacker Used MeshCentral Backdoor for Root Access, Targeted Subscriber Cred",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/telegram-desktop-flaw-lets-hidden.html",
+      "title": "Telegram Desktop Flaw Lets Hidden JavaScript Exfiltrate Messages From HTML Expor",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/red-heron-exploits-gitea-rce-to.html",
+      "title": "Red Heron Exploits Gitea RCE to Compromise 13 Organizations Across Six Countries",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/wordpress-adds-automated-plugin-reviews.html",
+      "title": "WordPress Adds Automated Plugin Reviews to Block High-Risk Updates Before Distri",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/dialogues-christina-koch/",
+      "title": "Watch astronaut Christina Koch and Google’s James Manyika discuss space, technol",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/",
+      "title": "DevFest is back",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs/",
+      "title": "Perplexity Portable Computer Is Now Available on Windows, Powered by NVIDIA RTX",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://openai.com/index/fyxer",
+      "title": "How Fyxer built an AI executive assistant people trust",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/abnormal-ai-amazon-bedrock-agentcore-for-agentic-email-security-at-scale/",
+      "title": "Abnormal AI: Amazon Bedrock AgentCore for agentic email security at scale",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-augmented-analytics-tvfs/",
+      "title": "Agent-ready analytics: Unlocking insights with BigQuery augmented analytics",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/new-dataflow-features-to-enable-large-scale-ai-workloads/",
+      "title": "Announcing Pause/Resume and NVIDIA RTX PRO 6000 Blackwell GPU support in Dataflo",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/forrester-wave-public-cloud-platforms-q3-2026-report/",
+      "title": "Google is a leader in The Forrester Wave™: Public Cloud Platforms, Q3 2026",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-openai-gpt-6-astra-on-amazon-bedrock-amazon-quick-desktop-ga-kiro-for-students-and-more-september-14-2026/",
+      "title": "AWS Weekly Roundup: OpenAI GPT-6 Astra on Amazon Bedrock, Amazon Quick desktop G",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection",
+      "title": "Configure cost and quality in Copilot auto model selection",
+      "published_date": "2026-09-15",
+      "expires_at": "2026-09-22T02:38:37.678243+00:00"
     }
   ]
 }
