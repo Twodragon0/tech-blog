@@ -886,11 +886,17 @@ serves the HTML.
 - **우선순위 충돌 테스트**: `TestBranchPriorityConflicts` parametrized 테스트로 자동 감지
 - **pre-commit hook**: `scripts/auto_publish_news.py` 또는 `scripts/tests/` 변경 시 pytest 자동 실행
 - **커버리지 목표**: `auto_publish_news.py` 40% 이상 유지 (`--cov-fail-under=40` CI 강제)
-- **테스트 현황** (2026-09-10 실측): `test_news_templates.py` **439건 / 0.50초**, `scripts/tests/` 전체 **5541 passed + 5 skipped / 약 39초** (Python 3.13.12; conftest.py에서 API 비활성화, lazy import 적용)
-  - 이 줄은 **두 번 스테일해졌다.** 처음엔 `287건 / 0.19초`(전체 스위트도 이 파일도 아닌 유령 수치), 다음엔 `5083 + 5 / 약 25초`(2026-09-01). 실측하면 전체는 +458건이고 시간은 1.5배다.
-  - **그러니 이 수치를 읽고 인용하지 말고 다시 재라.** 스위트가 주당 수백 건씩 늘어서, 여기 적힌 값은 적는 순간부터 낡는다. `python3 -m pytest scripts/tests/ -q | tail -2` 가 1분 안에 끝난다.
-  - 런타임은 인터프리터에 따라 크게 갈린다 — 같은 날 `.venv`(3.14)에서는 73초로 측정됐다. 어느 파이썬으로 쟀는지 함께 적을 것.
-  - **두 수치를 병기하는 이유**: pre-commit hook은 `scripts/tests/` 전체를 돌리므로 체감 시간은 25초 쪽이고, 이 섹션이 다루는 템플릿 분기 커버리지는 439 쪽이다. 하나만 적으면 다음 사람이 어느 쪽을 본 건지 알 수 없다.
+- **테스트 현황**: `test_news_templates.py` **439건** (템플릿 분기 커버리지). 이 개수의 하한은
+  `scripts/tests/test_news_templates_floor_guard.py` 가 단정한다 — **문서가 아니라 테스트가 근거다.**
+  - **전체 스위트 규모는 여기 적지 않는다.** 세 번 적었고 세 번 낡았다. 마지막 두 판 사이
+    9일 동안 600건 넘게 늘었으니, 적는 순간부터 낡는다 (이력은 `git log -L`로 볼 것).
+    필요하면 직접 재라 — `python3 -m pytest scripts/tests/ -q | tail -2` 가 1분 안에 끝난다.
+  - **교훈은 "다시 재라"가 아니었다.** 이전 판이 바로 그 경고를 굵게 적어 놨고, 그 문장을 적은
+    커밋 자체가 세 번째 스테일의 시작이었다. 경고문으로는 못 막는다. 진짜 규칙은 이것이다 —
+    **읽어도 행동이 달라지지 않는 수치는 적지 말 것.** 전체 스위트 개수가 그렇고, 439는 아니다
+    (분기를 늘리면서 테스트를 안 늘렸는지가 여기서 드러난다).
+  - 런타임을 적을 일이 생기면 **어느 파이썬으로 쟀는지 함께 적을 것.** 인터프리터에 따라 크게
+    갈린다 — 같은 날 3.13에서 39초, `.venv`(3.14)에서 73초로 측정됐다.
 
 ### Security Checklist
 - [ ] Input validation implemented
