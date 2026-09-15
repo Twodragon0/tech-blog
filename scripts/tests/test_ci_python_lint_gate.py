@@ -251,3 +251,93 @@ class TestOrchestratorDoesNotRepairBeforeVerifying:
             "blocks it — two gates disagreeing about the same rule is how a "
             "violation ends up on main with a green tick somewhere to point at."
         )
+
+
+REQUIREMENTS = (
+    REPO_ROOT / "scripts" / "requirements-ci.txt",
+    REPO_ROOT / "requirements-blogwatcher.txt",
+)
+
+_RUFF_DECL_RE = re.compile(r"^\s*ruff\s*(==|>=|>)\s*(\d+\.\d+\.\d+)\s*$", re.M)
+
+
+def _version(text: str) -> tuple[int, ...]:
+    return tuple(int(part) for part in text.split("."))
+
+
+def _ruff_declarations() -> dict[Path, tuple[str, str]]:
+    """``{path: (operator, version)}`` for every file that declares ruff."""
+    out: dict[Path, tuple[str, str]] = {}
+    for path in REQUIREMENTS:
+        m = _RUFF_DECL_RE.search(path.read_text(encoding="utf-8"))
+        if m:
+            out[path] = (m.group(1), m.group(2))
+    return out
+
+
+class TestThePinSatisfiesTheDeclaration:
+    """There is a THIRD ruff, and for 18 days nothing compared it to the others.
+
+    ``TestBothRuffGatesRunTheSameVersion`` above pins python-lint.yml against
+    ops-orchestrator.yml. Neither is the only ruff in CI:
+    ``scripts/requirements-ci.txt`` declares one too, and jekyll.yml and
+    svg-lint.yml install it into the jobs that run pytest — where
+    ``test_ci_python_syntax_floor_guard.py`` shells out to ``ruff`` by name.
+    ``requirements-blogwatcher.txt`` declares the same for the publish path.
+
+    Measured 2026-09-15: both files said ``ruff>=0.16.6`` while all four
+    workflow sites pinned ``ruff==0.15.8`` — **a version that does not satisfy
+    the declaration they sit next to**. Nothing objected, because the existing
+    class compares the two workflows to each other and stops there. The cost was
+    real and was paid in this repo: a local ``ruff format --check`` run using the
+    declared version reported a file clean that the pinned version in CI wanted
+    reformatted, so a PR went red for a file its author had already formatted.
+
+    Direction: containment, not equality. The declarations are ``>=`` and
+    dependabot maintains them; the workflows pin an exact version. The invariant
+    is that the pin lies inside the declared range — so bumping the declaration
+    without moving the pin fails here, loudly, with the four line numbers to fix.
+    """
+
+    def test_both_requirements_files_declare_ruff(self):
+        """Canary: if a declaration is dropped, this class must not go quiet."""
+        found = _ruff_declarations()
+        missing = [p.name for p in REQUIREMENTS if p not in found]
+        assert not missing, (
+            f"no parseable `ruff` declaration in {missing}. Either the pin is no "
+            "longer compared against anything, or the declaration uses a "
+            "specifier this guard cannot read — add it to _RUFF_DECL_RE rather "
+            "than letting the check pass vacuously."
+        )
+
+    def test_the_workflow_pin_satisfies_every_declaration(self):
+        pins = _ruff_pins(WORKFLOW.read_text(encoding="utf-8")) | _ruff_pins(
+            OPS_WORKFLOW.read_text(encoding="utf-8")
+        )
+        assert pins, "no pinned ruff to compare — see test_ruff_is_version_pinned."
+
+        for path, (op, declared) in _ruff_declarations().items():
+            for pin in sorted(pins):
+                ok = {
+                    "==": _version(pin) == _version(declared),
+                    ">=": _version(pin) >= _version(declared),
+                    ">": _version(pin) > _version(declared),
+                }[op]
+                assert ok, (
+                    f"{path.name} declares `ruff{op}{declared}` but the workflows "
+                    f"pin `ruff=={pin}`, which does not satisfy it. CI then runs "
+                    "two different ruffs: the pinned one in the lint gate, the "
+                    "declared one in the pytest jobs that shell out to `ruff`. "
+                    "Move all four `ruff==` sites in python-lint.yml and "
+                    "ops-orchestrator.yml to a version inside the declared range, "
+                    "and run `ruff format scripts/` with it before doing so."
+                )
+
+    def test_the_declarations_agree_with_each_other(self):
+        decls = _ruff_declarations()
+        distinct = {spec for spec in decls.values()}
+        assert len(distinct) <= 1, (
+            f"the two requirements files declare different ruffs: "
+            f"{ {p.name: s for p, s in decls.items()} }. The publish path and the "
+            "test path would then lint with different rulesets."
+        )

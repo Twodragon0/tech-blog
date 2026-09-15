@@ -53,12 +53,26 @@ jobs:
           python-version: '3.11'
 
       - name: Install ruff
-        # Pinned to the version the 9 pre-existing violations were measured and
-        # cleared with. An unpinned ruff adds rules between releases and turns a
-        # green PR red for something its author did not write — and ruff is
-        # currently unpinned in ops-orchestrator.yml, so "it passed there" says
-        # nothing about which ruleset ran.
-        run: python3 -m pip install --upgrade pip 'ruff==0.15.8'
+        # Pinned, because an unpinned ruff adds rules between releases and turns
+        # a green PR red for something its author did not write.
+        #
+        # The version must SATISFY `ruff>=…` in scripts/requirements-ci.txt and
+        # requirements-blogwatcher.txt. Those files install a THIRD ruff into the
+        # jekyll.yml / svg-lint.yml jobs, where pytest shells out to it by name
+        # (test_ci_python_syntax_floor_guard.py). Until 2026-09-15 the pin was
+        # 0.15.8 while both files declared >=0.16.6 — a version the pin does not
+        # satisfy — so CI ran two different ruffs and said so in writing without
+        # anyone reading it back. test_ci_python_lint_gate.py now asserts the
+        # containment.
+        #
+        # 0.15.8 -> 0.16.6 also brings scripts/**/*.md into formatting scope:
+        # 0.16 formats Python inside Markdown, which is what turned the
+        # 2026-08-31 ops run red on scripts/AGENTS.md. Measured 2026-09-15, all
+        # 6 Markdown files under scripts/ are already clean under 0.16.6, so the
+        # reason for holding at 0.15.8 no longer reproduces — but a future edit
+        # to a fenced Python block in those files can now fail this gate. That is
+        # the intended trade, not an accident.
+        run: python3 -m pip install --upgrade pip 'ruff==0.16.6'
 
       - name: ruff check (blocking)
         # No --fix. That is the entire point of this step existing.
