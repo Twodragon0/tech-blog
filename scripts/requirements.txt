@@ -2,7 +2,15 @@ requests>=2.34.2
 certifi>=2026.7.22
 beautifulsoup4>=4.15.0
 python-frontmatter>=1.3.0
-lxml>=6.1.3
+# lxml removed 2026-09-16: dead. bs4 picks lxml automatically WHEN INSTALLED, so
+# this could have been load-bearing — but all 15 `BeautifulSoup(` call sites pass
+# "html.parser" explicitly, nothing else imports lxml, and no installed package
+# requires it. If you ever drop the explicit parser argument, lxml comes back.
+# tweepy is NOT dead — share_sns.py:32 loads it with
+# `importlib.import_module("tweepy")`, which a `^import tweepy` grep cannot see.
+# test_ci_secret_absence_guard.py::test_share_sns_script_is_kept_for_manual_use
+# asserts that script stays. Audit dynamic imports before calling anything here
+# unused.
 tweepy>=4.17.0
 PyYAML>=6.0.3
 Pillow>=11.3.0,<12.0  # moviepy 2.x requires pillow<12.0; ceiling prevents transitive break
@@ -13,13 +21,25 @@ feedparser>=6.0.14
 
 # Google OAuth 2.0 및 Gemini API (선택적)
 google-auth>=2.58.0
-google-auth-oauthlib>=1.4.1
+# google-auth-oauthlib removed 2026-09-16: dead. Nothing imports it (statically or
+# dynamically) and NO installed package requires it — it was a direct declaration
+# only, added by b7b39e95 for an OAuth flow that never landed. The auth path that
+# exists is gsc_inspect.py's `service_account.Credentials.from_service_account_info`,
+# which needs google-auth alone.
+#
+# google-auth-httplib2 below is different: also unimported, but google-api-python-client
+# requires it (<1.0.0,>=0.2.0) via google-generativeai, so it installs either way.
 google-auth-httplib2>=0.4.2
 google-generativeai>=0.8.6
 
 # TTS (선택적) — generate_post_images.py:106 `from gtts import gTTS`
 gTTS>=2.5.4
-edge-tts>=7.2.8
+# edge-tts removed 2026-09-16, same class as Coqui TTS below: nothing here imports
+# it, no shell or workflow invokes the `edge-tts` CLI, and its only mention was
+# docs/scripts/TTS_OPENSOURCE_GUIDE.md — the guide for generate_enhanced_audio.py,
+# which moved to the online-course repo in cfe0d82d. It pulled the whole aiohttp
+# tree (aiohttp, yarl, multidict, frozenlist, aiosignal, propcache,
+# aiohappyeyeballs, attrs) for zero call sites.
 #
 # Coqui `TTS` was removed here on 2026-09-16. It was dead: nothing in this repo
 # imports it (`import TTS` / `from TTS`: 0 hits) and its only documented consumer,
