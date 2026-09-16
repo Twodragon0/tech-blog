@@ -553,3 +553,112 @@ def test_transform_leaves_fenced_blocks_byte_identical():
     )
     out = transform(_FM + "## 1. 보안 뉴스\n### 1.1 기사\n" + fenced)
     assert fenced in out
+
+
+# --- R7: refuse posts whose sections predate the schema ---------------------
+#
+# Why this precondition exists (measured 2026-09-16 over the 223-post corpus):
+# TOP_SECTION_RE is a whitelist of section-BOUNDARY markers, not a description of
+# a valid digest — canonical posts also carry '## Executive Summary', which it
+# does not list. So an unknown '## N.' means "older schema", and the rules then
+# damage the post twice: R1 demotes a genuine section to '####' (because a
+# non-delimiter heading inside an item region is item-body by definition), and R4
+# closes the numbering gap while leaving the '### N.M' item numbers behind.
+#
+# Over the 15 posts the rules used to rewrite, section-vs-item number mismatches
+# went 46 -> 80: 34 introduced in 5 posts that were internally consistent, and
+# none of the pre-existing 46 repaired. The lossless audit is blind to it by
+# construction — it drops exactly the leading heading number R4 owns.
+
+
+def test_unrecognized_top_sections_flags_unknown_numbered_section():
+    """'DevSecOps' is not 'DevOps': the whitelist is prefix-matched, not fuzzy.
+
+    This is the real 2026-02-20 case. Its siblings '## 1. 보안 뉴스' and
+    '## 3. AI/ML 뉴스' pass only because '보안' and 'AI/ML' are listed prefixes.
+    """
+    import restore_digest_structure as mod
+
+    body = "## 1. 보안 뉴스\n### 1.1 기사\n## 2. DevSecOps 뉴스\n### 2.1 기사\n"
+    found = mod.unrecognized_top_sections(_FM + body)
+    assert found == ["## 2. DevSecOps 뉴스"], found
+
+
+def test_unrecognized_top_sections_accepts_canonical_digest():
+    """A current-schema digest must not be flagged, or publishing regresses."""
+    import restore_digest_structure as mod
+
+    body = (
+        "## Executive Summary\n"
+        "## 1. 보안 뉴스\n### 1.1 기사\n"
+        "## 2. AI/ML 뉴스\n### 2.1 기사\n"
+        "## 7. 트렌드 분석\n"
+        "## 실무 체크리스트\n- [ ] x\n"
+    )
+    assert mod.unrecognized_top_sections(_FM + body) == []
+
+
+def test_unrecognized_top_sections_ignores_code_fences():
+    """R0 applies here too — a '## N.' inside a fence is example text."""
+    import restore_digest_structure as mod
+
+    body = "## 1. 보안 뉴스\n```markdown\n## 3. 기술 뉴스\n```\n"
+    assert mod.unrecognized_top_sections(_FM + body) == []
+
+
+def test_main_skips_unrecognized_post_without_writing(tmp_path, capsys):
+    """The file must be left byte-identical and the run must not report success.
+
+    Exit 1 matters: ai-blogwatcher.yml runs the fixer with `|| true` and then
+    RE-VERIFIES. A silent success would let it publish a post this tool had just
+    damaged; refusing makes the re-verify block instead.
+    """
+    p = tmp_path / "2026-02-20-X_Weekly_Digest.md"
+    body = "## 1. 보안 뉴스\n### 1.1 기사\n## 2. DevSecOps 뉴스\n### 2.1 기사\n## 3. 트렌드 분석\n"
+    p.write_text(_FM + body, encoding="utf-8")
+    original = p.read_text(encoding="utf-8")
+
+    assert main([str(p)]) == 1
+    assert p.read_text(encoding="utf-8") == original
+    err = capsys.readouterr().err
+    assert "SKIP" in err and "DevSecOps" in err
+
+
+def test_r7_does_not_touch_anything_published_since_the_legacy_window():
+    """The guard must cost the publish path nothing.
+
+    Every post it skips is from the legacy window (2026-01-23..2026-03-15). If a
+    newer digest ever trips it, the generator has started emitting a section name
+    TOP_SECTION_RE does not know — fix the whitelist, do not widen this window.
+    """
+    import pathlib
+
+    import restore_digest_structure as mod
+
+    repo = pathlib.Path(__file__).resolve().parent.parent.parent
+    recent = [
+        p.name
+        for p in sorted((repo / "_posts").glob("*Weekly_Digest*.md"))
+        if p.name[:10] > "2026-03-15"
+        and mod.unrecognized_top_sections(p.read_text(encoding="utf-8"))
+    ]
+    assert recent == [], recent
+
+
+def test_r7_is_not_vacuous():
+    """The corpus must still contain posts the guard catches.
+
+    Without this, a regression that made `unrecognized_top_sections` always
+    return [] would leave every test above green while the damage came back.
+    """
+    import pathlib
+
+    import restore_digest_structure as mod
+
+    repo = pathlib.Path(__file__).resolve().parent.parent.parent
+    caught = [
+        p.name
+        for p in sorted((repo / "_posts").glob("*Weekly_Digest*.md"))
+        if mod.unrecognized_top_sections(p.read_text(encoding="utf-8"))
+    ]
+    assert len(caught) >= 15, f"only {len(caught)} post(s) caught: {caught}"
