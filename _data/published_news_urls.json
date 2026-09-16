@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-09-15T02:38:37.678346+00:00",
+  "updated_at": "2026-09-16T02:33:45.593229+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/08/north-korean-job-fraud-expands-beyond.html",
-      "title": "North Korean Job Fraud Expands Beyond IT Into Healthcare and Sales",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/weekly-recap-chinese-spy-proxy-ai.html",
-      "title": "⚡ Weekly Recap: Chinese Spy Proxy, AI Agents Go Off-Task, Router Backdoors and M",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/we-invited-a-direct-competitor-into-security-hub-extended-heres-why/",
-      "title": "We invited a direct competitor into Security Hub Extended. Here’s why.",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/08/valleyrat-backdoor-hides-in-signed.html",
-      "title": "ValleyRAT Backdoor Hides in Signed Adware That Users Add to Antivirus Exclusions",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/automate-iam-identity-center-governance-with-continuous-discovery-and-reporting/",
-      "title": "Automate IAM Identity Center governance with continuous discovery and reporting",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://openai.com/index/polimill",
-      "title": "Polimill builds Japan's next-generation public AI infrastructure",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads",
-      "title": "A milestone in expanding access to AI",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/connect-an-agentcore-runtime-hosted-mcp-server-to-amazon-quick/",
-      "title": "Connect an AgentCore Runtime hosted MCP server to Amazon Quick",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/aws-recognized-as-a-leader-in-the-forrester-wave-ai-infrastructure-solutions-q4-2025/",
-      "title": "AWS recognized as a Leader in The Forrester Wave: AI Infrastructure Solutions, Q",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/manage-agents-tools-and-skills-at-scale-with-aws-agent-registry/",
-      "title": "Manage agents, tools and skills at scale with AWS Agent Registry",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-graph-connecting-data-and-ai-at-scale/",
-      "title": "BigQuery Graph is now GA: the knowledge foundation for the agentic era",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-tips-on-securing-water-sector-ai-era/",
-      "title": "Cloud CISO Perspectives: Tips on securing the water sector in the AI era",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/build-data-pipelines-in-less-time-with-data-agent-kit/",
-      "title": "From weeks to minutes: The new agentic era of data pipelines",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month/",
-      "title": "What’s new in AI infrastructure and orchestration in August",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/amazon-ec2-r9g-and-r9gd-instances-powered-by-aws-graviton5-processors-are-now-generally-available/",
-      "title": "Amazon EC2 R9g and R9gd instances powered by AWS Graviton5 processors are now ge",
-      "published_date": "2026-09-01",
-      "expires_at": "2026-09-08T02:48:25.224834+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/attackers-exploit-critical-jfrog.html",
-      "title": "Attackers Exploit Critical JFrog Artifactory Flaw to Mint Admin Tokens Days Afte",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/breeze-comet-executes-hundreds-of.html",
-      "title": "Breeze Comet Executes Hundreds of Fraudulent Transactions via Brazilian Payment ",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/counterfeit-installers-system-compromise-tracking-deceptive-software-download-campaign/",
-      "title": "Counterfeit installers to system compromise: Tracking a deceptive software downl",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/13-malicious-packagist-packages-target.html",
-      "title": "13 Malicious Packagist Packages Target Unpatched iPhones to Steal Crypto Wallet ",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/01/cybersecurity-ir-workshop-you-shouldnt-miss/",
-      "title": "Cybersecurity IR Workshop: The workshop you shouldn’t miss",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-crowdstrike-fal-con-2026/",
-      "title": "NVIDIA and CrowdStrike Strengthen Agentic Cybersecurity Frontier",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/",
-      "title": "The latest AI news we announced in August 2026",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://openai.com/index/ai-native-company-workflows",
-      "title": "How AI-native companies turn workflows into operating capability",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/workspace/google-pics/",
-      "title": "Try Google Pics: Easy image creation and editing in Google Workspace",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://openai.com/index/path-to-astra",
-      "title": "Path to Astra: critical capabilities and frontier safeguards",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/what-google-cloud-announced-in-ai-this-month/",
-      "title": "What Google Cloud announced in AI this month",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/customers/how-blackline-prevents-data-exfiltration-with-vpc-service-controls/",
-      "title": "How Blackline simplifies perimeter policy intelligence with VPC Service Controls",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/tabfm-adds-predictive-ml-to-bigquery/",
-      "title": "Introducing TabFM in BigQuery: Predictive analytics reimagined",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/financially-motivated-threat-actor-breeze-comet-targets-brazil/",
-      "title": "Financially Motivated Threat Actor BREEZE COMET Targets Brazil",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/claude-code-token-economy-02/",
-      "title": "Claude Code 토큰 비용 최적화하기 – 2부: 캐시 경제학과 Amazon Bedrock 조직 비용 관리",
-      "published_date": "2026-09-02",
-      "expires_at": "2026-09-09T02:08:58.537060+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html",
       "title": "Malicious .git Configs Can Make Claude, Codex, Cursor, and Other AI Agents Run A",
@@ -1170,6 +990,96 @@
       "title": "Configure cost and quality in Copilot auto model selection",
       "published_date": "2026-09-15",
       "expires_at": "2026-09-22T02:38:37.678243+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/kremlin-banking-malware-hijacks-chrome.html",
+      "title": "KREMLIN Banking Malware Hijacks Chrome and Edge to Steal Credentials and Session",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/aws-sts-simplifies-session-token-size-limits-and-adds-session-token-size-monitoring/",
+      "title": "AWS STS simplifies session token size limits and adds session token size monitor",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/iranian-hackers-use-telegram-controlled.html",
+      "title": "Iranian Hackers Use Telegram-Controlled Malware to Spy on Dissidents and Journal",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/bambootoken-malware-uses-mqtt-to.html",
+      "title": "BambooToken Malware Uses MQTT to Control Windows and Linux Systems",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/architecting-resilient-authentication-with-amazon-cognito-multi-region-replication/",
+      "title": "Architecting resilient authentication with Amazon Cognito multi-Region replicati",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/jensen-huang-dreamforce/",
+      "title": "‘Now We Can Know Everything and Do Anything,’ Jensen Huang Says at Dreamforce",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/from-megawatts-to-tokens-how-nvidia-maximizes-ai-factory-production/",
+      "title": "From Megawatts to Tokens: How NVIDIA Maximizes AI Factory Production",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-infra-summit-vera-rubin-dsx-energy-efficiencies-tokens-per-watt-ai-factories/",
+      "title": "AI Infra Summit: NVIDIA Vera Rubin and DSX Platform Advancements Showcase Energy",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
+      "title": "AI for Societal Impact",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-applications-science-people/",
+      "title": "Building AI to accelerate science and improve lives",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/introducing-new-session-management-tools-with-native-granular-controls/",
+      "title": "Introducing new session management tools with native, granular controls",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/cloud-reliability-incident-handling-best-practices/",
+      "title": "Best practices for handling cloud reliability incidents",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/agent-substrate-available-on-gke/",
+      "title": "Agent Substrate brings high-density, scalable, trusted infrastructure to GKE",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/run-gnns-at-scale-with-ease-introducing-distributed-graphflow/",
+      "title": "Scaling Telco Autonomy: Leveraging GNNs with Distributed GraphFlow",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/storage-data-transfer/filestore-agent-volumes/",
+      "title": "Introducing Filestore agent volumes: fully managed storage for agent workspaces",
+      "published_date": "2026-09-16",
+      "expires_at": "2026-09-23T02:33:45.593132+00:00"
     }
   ]
 }
