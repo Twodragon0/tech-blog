@@ -20,8 +20,21 @@ google-generativeai>=0.8.6
 # TTS (선택적)
 gTTS>=2.5.4
 edge-tts>=7.2.8
-# Coqui TTS currently does not publish wheels for Python 3.14+
-TTS>=0.22.0; python_version < "3.14"
+# Coqui TTS caps itself at Python <3.12 — this is Requires-Python metadata, not
+# a wheel-availability gap. TTS 0.22.0 (the latest release, and the lower bound
+# here) declares `Requires-Python: >=3.9.0, <3.12`, and every release back to
+# 0.20.4 says the same. Measured 2026-09-16 via
+#   curl -s https://pypi.org/pypi/TTS/json | python3 -c \
+#     "import json,sys; print(json.load(sys.stdin)['info']['requires_python'])"
+#
+# The marker said `< "3.14"` and the comment blamed missing 3.14 wheels. Both
+# were wrong by two minor versions, so on 3.12/3.13 the marker evaluated true,
+# pip tried to install TTS, and `pip install -r scripts/requirements.txt` died
+# with "Could not find a version that satisfies the requirement TTS>=0.22.0".
+# CI never saw it — generate-images.yml pins python 3.11 — so the breakage was
+# local-only and silent for as long as nobody set up a dev env on 3.12+.
+# Guard: scripts/tests/test_requirements_tts_marker.py
+TTS>=0.22.0; python_version < "3.12"
 
 # 비디오/SVG 처리 (선택적)
 moviepy>=2.2.1
