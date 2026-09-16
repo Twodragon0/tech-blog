@@ -21,6 +21,16 @@ move any rule's state machine — see _fence_flags. Added after the tier-B/C
 batches caught R1 rewriting '# 예시' comments to '#### 예시' inside bash / yaml /
 python fences of 2026-03-11 and 2026-03-27.
 
+R7 (a precondition, not a rewrite): a post carrying a numbered '## N.' section
+TOP_SECTION_RE does not recognize is SKIPPED, not rewritten — see
+unrecognized_top_sections for the measurement. In short: the whitelist is a list
+of section-boundary markers, not a description of a valid digest, so an unknown
+'## N.' means the post predates this schema. R1 then demotes a real section to
+'####' and R4 renumbers around the hole while leaving '### N.M' item numbers
+behind, and the lossless audit cannot object because it drops exactly the
+heading number R4 owns. Measured 2026-09-16: skips 19/223 posts, all
+2026-01-23..2026-03-15, and nothing published since.
+
 APPLY ORDER: R5, R1, R2, R3, R6, R4. Constraints found empirically by the unit
 tests and by CI (the first draft had the first two backwards and lacked R6):
 
@@ -409,6 +419,63 @@ def lossless_tokens(text: str) -> collections.Counter:
     return counter
 
 
+def unrecognized_top_sections(text: str) -> list:
+    """R7 (a precondition, not a rewrite): numbered '## N.' sections TOP_SECTION_RE
+    does not know.
+
+    TOP_SECTION_RE is a CLOSED whitelist of section-boundary markers, not a
+    description of a valid digest — canonical posts also carry '## Executive
+    Summary', which it does not list. So an unrecognized '## N.' heading does not
+    mean "malformed"; it means "this post predates the schema these rules encode",
+    and the rules then do the wrong thing twice over:
+
+    * R1 sees the heading as item-body content (it is not a region delimiter) and
+      demotes a real section to '####'. Measured 2026-09-16 over the 223-post
+      digest corpus: 7 genuine top-level news sections would be demoted, among
+      them '## 2. DevSecOps 뉴스' (whose sibling '## 1. 보안 뉴스' and
+      '## 3. AI/ML 뉴스' are whitelisted only because 'DevOps' and 'AI/ML' happen
+      to be prefixes, and 'DevSecOps' is not). Its '### 2.1'/'### 2.2' items then
+      sit under an h4, an outline inversion.
+    * R4 closes the numbering gap the demotion just made, renumbering the
+      SECTION headings while leaving the '### N.M' item numbers alone. Section
+      and item numbers then disagree by construction: over the same corpus the
+      mismatch count goes 46 -> 80, all 34 new ones in 5 posts that were
+      internally consistent beforehand, and none of the pre-existing 46 repaired.
+
+    The lossless audit cannot catch either: `lossless_tokens` deliberately drops
+    the leading 'N.' slot of a heading (the one number R4/R5 own) and erases
+    markers, so a demotion plus a renumber is invisible to it by construction.
+    An invariant built around R4 cannot police R4.
+
+    Refusing is the right direction. Measured over the corpus this skips 19 of
+    223 posts (all 2026-01-23..2026-03-15) and 12 of the 15 the rules would
+    otherwise rewrite; the 3 that still run change only '###' item-body headings
+    to '####', which is R1 doing its actual job. Nothing published since
+    2026-03-15 is affected, so the blogwatcher self-heal path is untouched.
+
+    Deliberately keyed to NUMBERED headings only. Widening it to every '## '
+    heading skips all 223 posts, because the whitelist was never meant to
+    enumerate them.
+
+    '## N. 실무 체크리스트' is explicitly NOT unrecognized, even though
+    TOP_SECTION_RE lists only the unnumbered form. That numbered form is the
+    legacy spelling R5 exists to canonicalize, so treating it as unknown would
+    make this guard refuse exactly the input the module was written for. The
+    repo's own tests caught that on the first draft.
+    """
+    _, body = _split_front_matter(text)
+    lines = body.split("\n")
+    fenced = _fence_flags(lines)
+    return [
+        line.rstrip()
+        for i, line in enumerate(lines)
+        if not fenced[i]
+        and _NUMBERED_TOP_RE.match(line)
+        and not TOP_SECTION_RE.match(line)
+        and not _NUMBERED_CHECKLIST_RE.match(line)
+    ]
+
+
 def _is_digest_post(path: Path) -> bool:
     return "Weekly_Digest" in path.name
 
@@ -432,8 +499,26 @@ def main(argv) -> int:
         return 0
 
     changed = 0
+    skipped = 0
     for f in files:
         original = f.read_text(encoding="utf-8")
+        # R7 precondition. Skip rather than abort the batch: an unrecognized
+        # section is expected data variance in the legacy corpus, not a bug in
+        # the rules, so the remaining files should still be processed. The
+        # non-zero exit below keeps it from passing silently — a caller that
+        # self-heals and re-verifies (ai-blogwatcher.yml) then blocks instead of
+        # publishing a post this tool just damaged.
+        unknown = unrecognized_top_sections(original)
+        if unknown:
+            skipped += 1
+            print(
+                f"SKIP {f}: {len(unknown)} '## N.' section(s) outside "
+                f"TOP_SECTION_RE — this post predates the schema these rules "
+                f"encode, and R1/R4 would demote a real section and renumber "
+                f"around the hole. First: {unknown[0]!r}",
+                file=sys.stderr,
+            )
+            continue
         new = transform(original)
         if new == original:
             print(f"OK   {f}")
@@ -454,8 +539,9 @@ def main(argv) -> int:
             f.write_text(new, encoding="utf-8")
             print(f"FIXED {f}")
     verb = "would rewrite" if args.dry_run else "rewrote"
-    print(f"[restore-structure] {verb} {changed}/{len(files)} post(s).")
-    return 0
+    tail = f", skipped {skipped}" if skipped else ""
+    print(f"[restore-structure] {verb} {changed}/{len(files)} post(s){tail}.")
+    return 1 if skipped else 0
 
 
 if __name__ == "__main__":
