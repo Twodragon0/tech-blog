@@ -1,5 +1,16 @@
 # TTS 오픈소스 가이드
 
+> **이 문서가 설명하는 스크립트는 이 저장소에 없다.** `generate_enhanced_audio.py`
+> 를 비롯한 오디오/영상 스크립트는 커밋 `cfe0d82d` 에서 **online-course 레포**로
+> 이전했다 (`scripts/README.md` 의 스크립트 표가 그렇게 가리킨다). 아래 절차는
+> 그쪽에서 읽을 것.
+>
+> 이 저장소의 `scripts/requirements.txt` 는 2026-09-16 부로 Coqui `TTS` 를 선언하지
+> 않는다 — import 하는 코드가 없는데 Python `<3.12` 상한을 걸고 설치를 81→191 패키지
+> (torch 포함 약 639 MB)로 불리고 있었다. 아래 "2순위: Coqui TTS" 절의
+> `pip install TTS` 는 **이 저장소에서 실행하지 말 것.** 다시 넣으면 파일 전체에
+> `<3.12` 천장이 되돌아온다.
+
 ## 개요
 
 비용 최적화를 위한 오픈소스 TTS (Text-to-Speech) 옵션 가이드입니다.
