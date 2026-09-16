@@ -22,6 +22,7 @@ CLAUDE.md에서 이 디렉토리를 참조합니다.
 | [seo-canonical-fix.md](seo-canonical-fix.md) | canonical/share URL, `absolute_url` 금지 규칙 |
 | [codeql-setup-and-fp-suppression.md](codeql-setup-and-fp-suppression.md) | CodeQL 설정, false positive 처리 |
 | [ci-security-hardening-2026-07.md](ci-security-hardening-2026-07.md) | 워크플로 권한·액션 핀·시크릿 위생 |
+| [gate-constant-drift-audit-2026-09-16.md](gate-constant-drift-audit-2026-09-16.md) | 게이트에 박힌 상수(하드코딩 목록·핀·마커·allow-list)가 실제 대상 집합과 여전히 같은지 확인할 때. 임시 추출기가 5번 틀린 기록과 그 예방 절차 포함 |
 
 ## Usage
 
