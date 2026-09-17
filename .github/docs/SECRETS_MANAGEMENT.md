@@ -150,17 +150,47 @@
 | `VERCEL_PROJECT_ID` | `vercel-firewall-backup` | ✅ 가드 주석 |
 | `VERCEL_TEAM_ID` | `vercel-firewall-backup` | ✅ 가드 주석 |
 | `SLACK_WEBHOOK` | `monitoring` | ✅ 가드 주석 (한 번도 발화한 적 없음) |
-| `AI_GATEWAY_TOKEN` | `ops-orchestrator` | ❌ |
-| `AI_GATEWAY_URL` | `ops-orchestrator` | ❌ |
-| `CLAUDE_API_KEY` | `ai-blogwatcher` | ❌ |
-| `OPENAI_API_KEY` | `ai-blogwatcher` | ❌ |
-| `PAGESPEED_API_KEY` | `monitoring`, `ops-orchestrator` | ❌ |
-| `SLACK_CHANNEL_ID_OPS` | `ops-orchestrator` | ❌ |
-| `USE_GEMINI_PRO_IMAGE` | `generate-images` | ❌ (시크릿이 아니라 플래그로 보인다) |
+| `AI_GATEWAY_TOKEN` | `ops-orchestrator` | ✅ 2026-09-17 — 아래 "단계 단위 게이트" |
+| `AI_GATEWAY_URL` | `ops-orchestrator` | ✅ 2026-09-17 — 아래 "단계 단위 게이트" |
+| `SLACK_CHANNEL_ID_OPS` | `ops-orchestrator` | ✅ 2026-09-17 — 아래 "단계 단위 게이트" |
+| `CLAUDE_API_KEY` | `ai-blogwatcher` | ✅ 2026-09-17 — 선택적 프로바이더 |
+| `OPENAI_API_KEY` | `ai-blogwatcher` | ✅ 2026-09-17 — 선택적 프로바이더 |
+| `PAGESPEED_API_KEY` | `monitoring`, `ops-orchestrator` | ❌ 미판단 |
 
-❌ 7건은 **아직 아무도 판단하지 않았다.** 프로비저닝할지, 참조를 걷어낼지, 부재를
-fail-closed 로 만들지가 미결이다. 하나씩 결론이 나면
-`test_ci_secret_absence_guard.py` 의 해당 목록으로 옮길 것.
+**단계 단위 게이트 (AI_GATEWAY_* + SLACK_CHANNEL_ID_OPS).**
+`ops-orchestrator.yml:204` 의 알림 단계가
+`if: always() && env.AI_GATEWAY_URL != '' && env.AI_GATEWAY_TOKEN != '' && env.SLACK_CHANNEL_ID_OPS != ''`
+로 묶여 있다. 셋 다 미등록이라 **그 단계는 존재한 이래 한 번도 실행되지 않았다** —
+`monitoring.yml` 의 `SLACK_WEBHOOK` 과 같은 모양이다.
+
+`test_ci_secret_absence_guard.py` 의 `NEVER_CONFIGURED` 로 옮기지 **않았다.** 그 목록의
+계약은 "시크릿이 없으면 **워크플로 전체**가 아무 일도 안 한다" 이고, 그래서 짝이 되는
+테스트가 cron 제거까지 요구한다. 여기는 워크플로가 실제 작업을 하고 **알림 한 단계만**
+막히는 경우다. ops-orchestrator 는 6시간마다 도는 스케줄이 있으므로 그 목록에 넣으면
+테스트가 깨지고, 더 중요하게는 **틀린 서술**이 된다. 비슷해 보이는 옆 목록을 재사용하면
+안 되는 사례다.
+
+**선택적 프로바이더 (`CLAUDE_API_KEY`, `OPENAI_API_KEY`).** `USE_AI` 기본값 `auto` 는
+네 프로바이더 키를 모두 넘기고, `GEMINI_API_KEY` 와 `DEEPSEEK_API_KEY` 는 등록돼 있다.
+부재는 실패가 아니라 **선택지 축소**다 — 다이제스트는 매일 정상 발행된다.
+
+`USE_GEMINI_PRO_IMAGE` 는 2026-09-17 에 이 목록에서 빠졌다. 시크릿이 아니라 기본값을
+가진 불리언 플래그였고, `vars.USE_GEMINI_PRO_IMAGE` 로 옮겼다. 저장소 변수 문서는
+아래 "저장소 변수" 절을 볼 것.
+
+### 저장소 변수 (`vars.`) — 시크릿이 아닌 설정
+
+값이 비밀이 아니고 감사에서 보이는 편이 나은 스위치는 시크릿이 아니라 변수다.
+시크릿에 넣으면 값이 가려져 "지금 무엇이 켜져 있나" 를 아무도 못 본다.
+
+- `USE_GEMINI_PRO_IMAGE`: 이미지 생성에 Gemini Pro 를 쓸지 (미설정 시 `false` → Flash)
+  - 소비자: `scripts/generate_post_images.py`, `scripts/generate_missing_diagrams.py`
+  - ⚠️ 두 소비자의 **로컬 기본값이 서로 다르다** — `generate_post_images.py:146` 은
+    `"true"`, `generate_missing_diagrams.py:42` 는 `"false"`. CI 는 워크플로가 항상
+    `'false'` 를 넘기므로 일치하지만, 환경변수 없이 로컬 실행하면 두 스크립트가 다른
+    모델을 쓴다. 어느 쪽으로 맞출지는 비용·품질 결정이라 미정.
+- `AI_BLOGWATCHER_SCHEDULE`, `ULTRAWORK_LOOP_SCHEDULE`, `GSC_SITE_URL`,
+  `AUTO_PUBLISH_GEMINI_MODEL`, `SLACK_CATEGORY_DIGEST_SCHEDULE` 도 같은 범주다.
 
 ### SNS 공유 관련 — Actions 시크릿으로 설정하지 말 것
 
