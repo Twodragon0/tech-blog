@@ -141,6 +141,31 @@ def test_real_names_survive_the_sanitizer(name: str) -> None:
     assert _safe_name(name) == name
 
 
+def test_config_flags_are_variables_not_secrets() -> None:
+    """A switch with a documented default is configuration, not a credential.
+
+    `USE_GEMINI_PRO_IMAGE` was read as `${{ secrets.USE_GEMINI_PRO_IMAGE ||
+    'false' }}` — a boolean with a default, stored where its value is masked. The
+    cost is not theoretical: nobody can answer "is Pro on right now?" from an
+    audit of secrets, and a credential-contract check like this one counts it as
+    a key. Moved to `vars.` on 2026-09-17, alongside the five switches already
+    using that context (AI_BLOGWATCHER_SCHEDULE, GSC_SITE_URL, …).
+
+    Add a name here when you introduce another flag; do not relax the assertion.
+    """
+    flags = ("USE_GEMINI_PRO_IMAGE",)
+    offenders = []
+    for path in sorted((REPO_ROOT / ".github" / "workflows").glob("*.yml")):
+        text = path.read_text(encoding="utf-8")
+        for flag in flags:
+            if f"secrets.{flag}" in text:
+                offenders.append(f"{path.name} reads secrets.{flag}")
+    assert offenders == [], (
+        "\n".join(offenders) + "\n\nThese are configuration flags with defaults, "
+        "not credentials. Use `vars.<NAME>` so the value stays visible."
+    )
+
+
 def test_this_module_does_not_count_as_a_consumer() -> None:
     """The checker must not be its own consumer.
 
