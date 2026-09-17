@@ -29,8 +29,11 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
+import pytest  # noqa: E402
 from check_secret_contract import (  # noqa: E402
+    _REDACTED,
     DOCUMENTED_WITHOUT_CONSUMER,
+    _safe_name,
     check_doc_consumer_sync,
     documented_secrets,
     workflow_secrets,
@@ -93,6 +96,61 @@ def test_elevenlabs_exemption_is_still_flagged_as_pending() -> None:
         "provisioned credential awaiting an owner decision. Either resolve it "
         "(revoke + `gh secret delete`, or move it to the online-course repo) and "
         "drop the entry, or keep the wording explicit."
+    )
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        "xoxb-1234567890-abcdefghijkl",  # Slack bot token shape
+        "sk_abcdef0123456789abcdef0123456789",  # ElevenLabs / OpenAI shape
+        "ghp_AbCdEf0123456789AbCdEf0123456789AbCd",  # GitHub PAT shape
+        '{"type": "service_account", "private_key": "-----BEGIN"}',  # GCP JSON
+        "AbCdEf123+/=",  # mixed case / base64 padding
+        "lowercase_name",
+        "",
+    ],
+)
+def test_value_shaped_strings_are_redacted(value: str) -> None:
+    """Only bare SCREAMING_SNAKE names may leave this tool.
+
+    Not hypothetical: CodeQL alert 290 (py/clear-text-logging-sensitive-data,
+    high) fired on this script's own `print` because names parsed out of
+    workflow `secrets.X` are a sensitive-data source to its taint analysis. The
+    tool never handled values — `gh secret list` does not return them — but on a
+    PUBLIC repo that has to be a checked property rather than a comment. Every
+    real credential shape above must come back redacted.
+    """
+    assert _safe_name(value) == _REDACTED
+
+
+@pytest.mark.parametrize(
+    "name", ["SLACK_BOT_TOKEN", "GEMINI_API_KEY", "A1B", "ELEVENLABS_VOICE_ID"]
+)
+def test_real_names_survive_the_sanitizer(name: str) -> None:
+    """The sanitizer must not be vacuous — a redact-everything version would
+    pass the test above while making every message useless."""
+    assert _safe_name(name) == name
+
+
+def test_this_module_does_not_count_as_a_consumer() -> None:
+    """The checker must not be its own consumer.
+
+    First draft was. `DOCUMENTED_WITHOUT_CONSUMER` spells out
+    ELEVENLABS_API_KEY and the tests above assert on it, so `git grep` found
+    those two files and `--gh` reported **zero** dormant credentials on the run
+    that was supposed to find two. A scanner that reads the file describing the
+    rule always finds the rule's own example.
+    """
+    import check_secret_contract as mod
+
+    assert "scripts/check_secret_contract.py" in mod._SELF_REFERENCES
+    assert "scripts/tests/test_secret_contract.py" in mod._SELF_REFERENCES
+    # And the exclusion must actually bite: this file names ELEVENLABS_API_KEY.
+    assert mod.code_consumers("ELEVENLABS_API_KEY") == [], (
+        "ELEVENLABS_API_KEY looks consumed. If a real consumer landed, drop it "
+        "from DOCUMENTED_WITHOUT_CONSUMER; if it is this file again, extend "
+        "_SELF_REFERENCES."
     )
 
 

@@ -116,6 +116,37 @@ UNDOCUMENTED_ON_PURPOSE: Dict[str, str] = {
     "GITHUB_TOKEN": "injected by Actions; nothing to provision",
 }
 
+# A GitHub secret NAME. Every token this tool prints must match it.
+#
+# The tool only ever handles names — `gh secret list` does not return values and
+# the regexes above match identifiers — but on a PUBLIC repo "only names" must be
+# a checked property, not a comment. CodeQL agreed: alert 290
+# (py/clear-text-logging-sensitive-data, high) fired on the print in main()
+# because names parsed out of workflow `secrets.X` are a sensitive-data source to
+# its taint analysis. Routing every emitted token through `_safe_name` makes the
+# guarantee structural: anything that is not a bare SCREAMING_SNAKE identifier —
+# which is what a leaked value would look like — cannot reach stdout/stderr.
+_SECRET_NAME_RE = re.compile(r"^[A-Z][A-Z0-9_]{2,}$")
+_REDACTED = "<redacted: not a secret name>"
+
+# This tool and its test name the secrets they reason about — DOCUMENTED_WITHOUT_
+# CONSUMER spells out ELEVENLABS_API_KEY, and the test asserts on it. Counting
+# those as consumers made the `--gh` scan report zero dormant credentials on the
+# very run that was supposed to find two: the checker had become its own
+# consumer. A scanner that reads the file describing the rule always finds the
+# rule's own example.
+_SELF_REFERENCES = frozenset(
+    {
+        "scripts/check_secret_contract.py",
+        "scripts/tests/test_secret_contract.py",
+    }
+)
+
+
+def _safe_name(raw: str) -> str:
+    """Return `raw` only if it is a bare secret NAME; otherwise redact it."""
+    return raw if _SECRET_NAME_RE.fullmatch(raw or "") else _REDACTED
+
 
 def documented_secrets() -> Set[str]:
     # findall returns a tuple per match (one group per alternative); exactly one
@@ -154,7 +185,11 @@ def code_consumers(name: str) -> List[str]:
         capture_output=True,
         text=True,
     )
-    return [p for p in proc.stdout.split() if p and "_archive" not in p]
+    return [
+        p
+        for p in proc.stdout.split()
+        if p and "_archive" not in p and p not in _SELF_REFERENCES
+    ]
 
 
 def check_doc_consumer_sync() -> List[str]:
@@ -168,19 +203,20 @@ def check_doc_consumer_sync() -> List[str]:
         if name in DOCUMENTED_WITHOUT_CONSUMER:
             continue
         problems.append(
-            f"{name} is documented in {DOC.name} but nothing reads it. Either "
-            "wire a consumer, or add it to DOCUMENTED_WITHOUT_CONSUMER with the "
-            "reason and what would remove it."
+            f"{_safe_name(name)} is documented in {DOC.name} but nothing reads "
+            "it. Either wire a consumer, or add it to "
+            "DOCUMENTED_WITHOUT_CONSUMER with the reason and what would remove it."
         )
 
     for name, files in sorted(in_workflows.items()):
         if name in documented or name in UNDOCUMENTED_ON_PURPOSE:
             continue
         problems.append(
-            f"{name} is read by {files} but is missing from {DOC.name}. Someone "
-            "setting this repo up from the guide would leave those jobs without "
-            "it — which is how SLACK_BOT_TOKEN/SLACK_CHANNEL_ID went undocumented "
-            "while five fail-closed workflows depended on them."
+            f"{_safe_name(name)} is read by {files} but is missing from "
+            f"{DOC.name}. Someone setting this repo up from the guide would "
+            "leave those jobs without it — which is how SLACK_BOT_TOKEN/"
+            "SLACK_CHANNEL_ID went undocumented while five fail-closed "
+            "workflows depended on them."
         )
     return problems
 
@@ -191,15 +227,28 @@ def check_provisioned_without_consumer() -> List[str]:
         ["gh", "secret", "list"], cwd=REPO_ROOT, capture_output=True, text=True
     )
     if proc.returncode != 0:
-        return [f"`gh secret list` failed: {proc.stderr.strip()[:200]}"]
-    provisioned = [ln.split("\t")[0] for ln in proc.stdout.splitlines() if ln.strip()]
+        # Deliberately not echoing proc.stderr: `gh` error text is attacker- and
+        # environment-controlled, and this tool's whole contract is that only
+        # secret NAMES leave it. The exit code is enough to tell you to re-auth.
+        return [
+            f"`gh secret list` failed (exit {proc.returncode}); run `gh auth status`"
+        ]
+    # Keep only the name column, and only tokens that ARE names. `gh secret list`
+    # does not emit values, so a non-matching token means the output format
+    # changed — drop it rather than print something unexamined.
+    provisioned = [
+        ln.split("\t")[0]
+        for ln in proc.stdout.splitlines()
+        if ln.strip() and _SECRET_NAME_RE.fullmatch(ln.split("\t")[0])
+    ]
     in_workflows = workflow_secrets()
     dormant = [
         n for n in provisioned if n not in in_workflows and not code_consumers(n)
     ]
     return [
-        f"{n} is provisioned but nothing consumes it — a live credential with no "
-        f"reader. ({DOCUMENTED_WITHOUT_CONSUMER.get(n, 'no recorded reason')})"
+        f"{_safe_name(n)} is provisioned but nothing consumes it — a live "
+        "credential with no reader. "
+        f"({DOCUMENTED_WITHOUT_CONSUMER.get(n, 'no recorded reason')})"
         for n in dormant
     ]
 
