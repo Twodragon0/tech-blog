@@ -49,23 +49,22 @@
   - 참고: DeepSeek 또는 Gemini 중 하나는 필수
   - 기본값 예시: `your-gemini-api-key` (선택적, Secret이 없을 때 사용, 실제 키로 교체 필요)
 
-- `GEMINI_SERVICE_ACCOUNT_KEY`: Google Cloud 서비스 계정 키 (선택적, OAuth 2.0 방식) ⭐ 권장
-  - 생성 방법: 
-    1. [Google Cloud Console](https://console.cloud.google.com/)에서 프로젝트 생성
-    2. 서비스 계정 생성 및 Gemini API 활성화
-    3. 서비스 계정 키 다운로드 (JSON 파일)
-    4. JSON 파일 전체 내용을 Secret으로 저장
-  - 형식: JSON 파일 전체 내용
-  - 사용처: `.github/workflows/ai-video-gen.yml`, `scripts/generate_enhanced_audio.py`
-  - 장점: API Key보다 안전, 토큰 자동 갱신, 비용 절감 가능
-  - 참고: `GOOGLE_CLOUD_PROJECT` Secret도 함께 설정 필요
+- `GEMINI_SERVICE_ACCOUNT_KEY`: Google Cloud 서비스 계정 키 — **설정하지 말 것**
+  - 2026-09-17 실측: 등록돼 있지 않고, 이 저장소의 워크플로·코드 어디서도 읽지 않는다.
+    유일한 사용처였던 `ai-video-gen.yml` / `generate_enhanced_audio.py` 는 `cfe0d82d`
+    에서 online-course 레포로 이전했다. 오래 "⭐ 권장" 으로 적혀 있었으나 그 권장을
+    따르면 소비자 없는 자격증명이 하나 생긴다.
+  - Gemini 를 쓰는 현재 경로는 아래 `GEMINI_API_KEY` 하나다.
+  - 되살릴 때: 소비자를 같은 PR 에서 함께 넣고
+    `scripts/check_secret_contract.py` 의 예외에서 지울 것.
 
-- `GOOGLE_CLOUD_PROJECT`: Google Cloud 프로젝트 ID (OAuth 2.0 사용 시)
+- `GOOGLE_CLOUD_PROJECT`: Google Cloud 프로젝트 ID
   - 생성 방법: Google Cloud Console에서 프로젝트 ID 확인
   - 형식: 프로젝트 ID 문자열
-  - 사용처: `.github/workflows/ai-video-gen.yml` (OAuth 2.0 인증)
-  - 참고: `GEMINI_SERVICE_ACCOUNT_KEY`와 함께 사용
-  - 기본값 예시: `your-project-id` (선택적, Secret이 없을 때 사용, 실제 프로젝트 ID로 교체 필요)
+  - 사용처: 런타임 소비자 **없음**. `scripts/setup_gemini_oauth.sh` 와
+    `scripts/gemini_oauth_setup.py` 가 로컬 설정 안내로 `export ...` 문자열을 **출력만**
+    한다 — 읽는 코드는 없다. Actions 시크릿으로 둘 필요가 없다는 뜻이다.
+  - 기본값 예시: `your-project-id`
 
 ### DeepSeek API 관련 (보이스 생성)
 - `DEEPSEEK_API_KEY`: DeepSeek AI API 키 (선택적)
@@ -75,12 +74,25 @@
   - 비용: 토큰 기반 과금 (비용 효율적)
   - 참고: DeepSeek 또는 Gemini 중 하나는 필수
 
-### ElevenLabs API 관련
+### ElevenLabs API 관련 — ⚠️ 이 저장소에 소비자가 없다 (조치 대기)
+
+> **두 시크릿 모두 등록돼 있으나(2026-01-11) 이 저장소의 어떤 워크플로도 코드도 읽지
+> 않는다** (2026-09-17 실측: 워크플로 0건, 코드 0건). 아래에 "사용처"로 적혀 있던
+> `.github/workflows/ai-video-gen.yml` 과 `scripts/generate_enhanced_audio.py` 는
+> **둘 다 커밋 `cfe0d82d` 에서 online-course 레포로 이전**되면서 이 저장소에서
+> 사라졌다. 시크릿만 남았다.
+>
+> 즉 유료 3rd-party 자격증명이 소비자 없이 저장소 설정에 남아 있는 상태다. 폐기할지
+> (ElevenLabs 대시보드에서 revoke 후 `gh secret delete`) online-course 레포로 옮길지는
+> **저장소 소유자의 결정**이므로 여기서는 상태만 기록한다. 결정 전까지
+> `scripts/check_secret_contract.py` 의 `DOCUMENTED_WITHOUT_CONSUMER` 가 이 예외를
+> 붙들고 있다.
+
 - `ELEVENLABS_API_KEY`: ElevenLabs Text-to-Speech API 키
   - 생성 방법: [ElevenLabs Creative Platform](https://elevenlabs.io/app) → Developers → API Keys
   - 형식: `sk_`로 시작하는 문자열
   - 권한: Text to Speech (Access)만 활성화 (최소 권한 원칙)
-  - 사용처: `.github/workflows/ai-video-gen.yml`, `scripts/generate_enhanced_audio.py`
+  - 사용처: **없음** (이전: `ai-video-gen.yml`, `generate_enhanced_audio.py` — `cfe0d82d` 에서 이전)
   - 비용 관리: 월간 크레딧 제한 설정 권장 (ElevenLabs 대시보드에서 설정)
   - 참고: 무료 티어는 월 10,000자 제한
 
@@ -88,7 +100,7 @@
   - 생성 방법: ElevenLabs Creative Platform → Voices → Voice 선택 → Voice ID 복사
   - 또는 Voice Cloning으로 본인 목소리 생성 후 Voice ID 확인
   - 형식: UUID 문자열
-  - 사용처: `.github/workflows/ai-video-gen.yml`, `scripts/generate_enhanced_audio.py`
+  - 사용처: **없음** (위와 같다)
 
 ### Vercel 관련
 - Vercel 대시보드에서 직접 관리 (GitHub Integration 사용 시 자동 동기화)
@@ -108,15 +120,61 @@
   - API 엔드포인트: `https://api.buttondown.com/v1/subscribers`
   - 인증 방식: `Authorization: Token $BUTTONDOWN_API_KEY` 헤더 사용
 
-### SNS 공유 관련
-- `TWITTER_API_KEY`: Twitter/X API Key
-- `TWITTER_API_SECRET`: Twitter/X API Secret
-- `TWITTER_ACCESS_TOKEN`: Twitter/X Access Token
-- `TWITTER_ACCESS_SECRET`: Twitter/X Access Secret
-- `FACEBOOK_PAGE_ID`: Facebook Page ID
-- `FACEBOOK_ACCESS_TOKEN`: Facebook Access Token
-- `LINKEDIN_ACCESS_TOKEN`: LinkedIn Access Token
-- `LINKEDIN_PERSON_ID`: LinkedIn Person ID
+### Slack 알림 관련
+6개 워크플로(`slack-post-notify`, `slack-category-digest`, `monitoring`,
+`googlebot-access-monitor`, `monthly-quality-report`, `ai-blogwatcher`)가 쓴다.
+그중 다섯은 `test_ci_secret_absence_guard.py` 의 `FAIL_CLOSED` 라서, 이 둘이 없으면
+**잡이 실패한다** — 조용히 건너뛰지 않는다.
+
+- `SLACK_BOT_TOKEN`: Slack Bot User OAuth Token
+  - 생성 방법: Slack App → OAuth & Permissions → Bot User OAuth Token
+  - 형식: `xoxb-` 로 시작
+  - 권한: `chat:write` (채널에 초대 필요)
+- `SLACK_CHANNEL_ID`: 알림을 보낼 채널 ID
+  - 형식: `C` 로 시작하는 ID (채널명 아님)
+
+### 워크플로가 읽지만 프로비저닝되지 않은 것 (2026-09-17 실측)
+
+아래 12개는 `secrets.<NAME>` 으로 **참조되지만 등록돼 있지 않다.** 그래서 해당 경로는
+건너뛰거나 실패한다 — 어느 쪽인지는 워크플로마다 다르고, 그 비대칭을
+`scripts/tests/test_ci_secret_absence_guard.py` 가 붙들고 있다. 여기서는 목록과 상태만
+기록한다. **설정 절차를 추측해서 적지 않는다** — 그게 이 문서가 처음 어긋난 방식이다.
+
+| Secret | 읽는 워크플로 | 기존 가드가 판단했나 |
+|---|---|---|
+| `GSC_SERVICE_ACCOUNT_JSON` | `gsc-queue-refresh` | ✅ `NEVER_CONFIGURED` |
+| `VERCEL_TOKEN` | `vercel-firewall-backup`, `monitoring`, `ops-orchestrator` | ✅ `NEVER_CONFIGURED` |
+| `VERCEL_PROJECT_ID` | `vercel-firewall-backup` | ✅ 가드 주석 |
+| `VERCEL_TEAM_ID` | `vercel-firewall-backup` | ✅ 가드 주석 |
+| `SLACK_WEBHOOK` | `monitoring` | ✅ 가드 주석 (한 번도 발화한 적 없음) |
+| `AI_GATEWAY_TOKEN` | `ops-orchestrator` | ❌ |
+| `AI_GATEWAY_URL` | `ops-orchestrator` | ❌ |
+| `CLAUDE_API_KEY` | `ai-blogwatcher` | ❌ |
+| `OPENAI_API_KEY` | `ai-blogwatcher` | ❌ |
+| `PAGESPEED_API_KEY` | `monitoring`, `ops-orchestrator` | ❌ |
+| `SLACK_CHANNEL_ID_OPS` | `ops-orchestrator` | ❌ |
+| `USE_GEMINI_PRO_IMAGE` | `generate-images` | ❌ (시크릿이 아니라 플래그로 보인다) |
+
+❌ 7건은 **아직 아무도 판단하지 않았다.** 프로비저닝할지, 참조를 걷어낼지, 부재를
+fail-closed 로 만들지가 미결이다. 하나씩 결론이 나면
+`test_ci_secret_absence_guard.py` 의 해당 목록으로 옮길 것.
+
+### SNS 공유 관련 — Actions 시크릿으로 설정하지 말 것
+
+`sns-share.yml` 은 2026-08-11 에 폐기됐다. 여덟 개 모두 미설정 상태였고, 매 push 마다
+약 3분을 의존성 설치에 쓴 뒤 "아무 데도 공유하지 않고" 성공을 보고했다. X/Twitter API v2
+게시는 유료 티어를, Facebook/LinkedIn 은 앱 심사를 요구해서 CLAUDE.md 의 free-tier-first
+원칙과 충돌한다.
+
+`scripts/share_sns.py` 와 `scripts/linkedin_oauth.py` 는 **수동 실행용으로 남아 있고**
+(`test_ci_secret_absence_guard.py::test_share_sns_script_is_kept_for_manual_use`),
+값은 로컬 `.env` / 셸 환경변수로 준다. Actions 시크릿으로 넣으면 소비자 없는 자격증명이
+된다 — `test_retired_social_secrets_are_not_referenced_by_any_workflow` 가 워크플로에서
+다시 참조하는 것을 막는다.
+
+- `TWITTER_API_KEY` / `TWITTER_API_SECRET` / `TWITTER_ACCESS_TOKEN` / `TWITTER_ACCESS_SECRET`
+- `FACEBOOK_PAGE_ID` / `FACEBOOK_ACCESS_TOKEN`
+- `LINKEDIN_ACCESS_TOKEN` / `LINKEDIN_PERSON_ID`
 
 ## 기본값 설정 (선택적)
 
@@ -155,15 +213,11 @@ gh secret set SENTRY_AUTH_TOKEN --body "your-sentry-auth-token"
 # Buttondown 이메일 (선택)
 gh secret set BUTTONDOWN_API_KEY --body "your-buttondown-api-key"
 
-# SNS 공유 (선택)
-gh secret set TWITTER_API_KEY --body "your-twitter-api-key"
-gh secret set TWITTER_API_SECRET --body "your-twitter-api-secret"
-gh secret set TWITTER_ACCESS_TOKEN --body "your-twitter-access-token"
-gh secret set TWITTER_ACCESS_SECRET --body "your-twitter-access-secret"
-gh secret set FACEBOOK_PAGE_ID --body "your-facebook-page-id"
-gh secret set FACEBOOK_ACCESS_TOKEN --body "your-facebook-access-token"
-gh secret set LINKEDIN_ACCESS_TOKEN --body "your-linkedin-access-token"
-gh secret set LINKEDIN_PERSON_ID --body "your-linkedin-person-id"
+# Slack 알림 (6개 워크플로가 사용 — 사실상 필수)
+gh secret set SLACK_BOT_TOKEN --body "your-slack-bot-token"
+gh secret set SLACK_CHANNEL_ID --body "your-slack-channel-id"
+
+# SNS 공유는 Actions 시크릿으로 설정하지 않는다 — 아래 "SNS 공유 관련" 절 참조
 
 # Secrets 확인
 gh secret list
