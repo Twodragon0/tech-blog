@@ -74,19 +74,22 @@
   - 비용: 토큰 기반 과금 (비용 효율적)
   - 참고: DeepSeek 또는 Gemini 중 하나는 필수
 
-### ElevenLabs API 관련 — ⚠️ 이 저장소에 소비자가 없다 (조치 대기)
+### ElevenLabs API 관련 — 여기에 설정하지 말 것 (2026-09-17 삭제 완료)
 
-> **두 시크릿 모두 등록돼 있으나(2026-01-11) 이 저장소의 어떤 워크플로도 코드도 읽지
-> 않는다** (2026-09-17 실측: 워크플로 0건, 코드 0건). 아래에 "사용처"로 적혀 있던
-> `.github/workflows/ai-video-gen.yml` 과 `scripts/generate_enhanced_audio.py` 는
-> **둘 다 커밋 `cfe0d82d` 에서 online-course 레포로 이전**되면서 이 저장소에서
-> 사라졌다. 시크릿만 남았다.
+> **두 시크릿은 2026-09-17 에 이 저장소의 Actions 시크릿에서 삭제됐다.**
+> 2026-01-11 부터 등록돼 있었지만 워크플로 0건·코드 0건이었다 — 아래 "사용처"로 적혀
+> 있던 `ai-video-gen.yml` 과 `generate_enhanced_audio.py` 가 커밋 `cfe0d82d` 에서
+> online-course 로 이전하면서 시크릿만 남았기 때문이다.
 >
-> 즉 유료 3rd-party 자격증명이 소비자 없이 저장소 설정에 남아 있는 상태다. 폐기할지
-> (ElevenLabs 대시보드에서 revoke 후 `gh secret delete`) online-course 레포로 옮길지는
-> **저장소 소유자의 결정**이므로 여기서는 상태만 기록한다. 결정 전까지
-> `scripts/check_secret_contract.py` 의 `DOCUMENTED_WITHOUT_CONSUMER` 가 이 예외를
-> 붙들고 있다.
+> **"online-course 로 이관" 은 애초에 선택지가 아니었다.** Actions 시크릿은 저장소
+> 범위라 이 저장소의 시크릿을 저쪽이 쓴 적이 없다. 게다가 online-course 도 CI 에서
+> 이 키를 쓰지 않는다 — 워크플로 6개 중 참조 0건, Actions 시크릿 0개이고, 스크립트
+> (`generate_elevenlabs_audio.py`, `scripts/video/audio_video/generate_enhanced_audio.py`)
+> 가 `os.getenv("ELEVENLABS_API_KEY")` 로 **로컬 환경변수**를 읽는다.
+>
+> 그래서 삭제로 깨지는 것이 없다. ElevenLabs 대시보드의 키 자체는 **revoke 하지
+> 않았다** — 로컬 오디오 생성이 계속 그 키를 쓴다. 이름을 문서에 남겨 두는 이유는,
+> 지우면 누군가 다시 등록하기 때문이다.
 
 - `ELEVENLABS_API_KEY`: ElevenLabs Text-to-Speech API 키
   - 생성 방법: [ElevenLabs Creative Platform](https://elevenlabs.io/app) → Developers → API Keys

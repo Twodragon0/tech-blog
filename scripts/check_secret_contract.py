@@ -82,12 +82,17 @@ _WORKFLOW_SECRET_RE = re.compile(r"secrets\.([A-Z][A-Z0-9_]{2,})")
 # is just a permanent hole.
 DOCUMENTED_WITHOUT_CONSUMER: Dict[str, str] = {
     "ELEVENLABS_API_KEY": (
-        "PROVISIONED but unused since cfe0d82d moved ai-video-gen.yml and "
-        "generate_enhanced_audio.py to the online-course repo. Pending an owner "
-        "decision: revoke + `gh secret delete`, or move it to that repo. Remove "
-        "from this list either way."
+        "RESOLVED 2026-09-17: deleted from this repo's Actions secrets. It had "
+        "been provisioned since 2026-01-11 with no consumer, because cfe0d82d "
+        "moved ai-video-gen.yml and generate_enhanced_audio.py to online-course. "
+        "Documented only so the guide can say 'do not set this here' — the "
+        "scripts that use it live in online-course and read it from the local "
+        "environment, and Actions secrets are repo-scoped, so a secret here "
+        "could never have served them. Remove when a consumer lands here."
     ),
-    "ELEVENLABS_VOICE_ID": "Same as ELEVENLABS_API_KEY — same commit, same decision.",
+    "ELEVENLABS_VOICE_ID": (
+        "RESOLVED 2026-09-17 — deleted alongside ELEVENLABS_API_KEY, same reason."
+    ),
     "GEMINI_SERVICE_ACCOUNT_KEY": (
         "Not provisioned and not read. Documented so the guide can say 'do not "
         "set this' — following the old '⭐ 권장' text created a credential with "

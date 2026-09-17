@@ -150,13 +150,13 @@ python3 scripts/collect_kisa_security.py --use-cache --generate-draft
 
 ### Audio/Video Generation
 
-> **Moved to online-course**: Audio/video scripts have been migrated to `~/Desktop/online-course/scripts/audio_video/` for centralized media production.
+> **Moved to online-course**: Audio/video scripts have been migrated to `~/Desktop/personal/online-course/scripts/video/audio_video/` for centralized media production.
 >
 > See [AUDIO_VIDEO_MOVED.md](./AUDIO_VIDEO_MOVED.md) for details.
 
 ```bash
 # From online-course directory
-cd ~/Desktop/online-course/scripts/audio_video/
+cd ~/Desktop/personal/online-course/scripts/video/audio_video/
 
 # Generate video from tech-blog post
 python3 generate_post_to_video.py ~/Desktop/tech-blog/_posts/2026-01-15-Example.md
@@ -341,13 +341,13 @@ Complete reference of all 61 active Python scripts and 20 active shell scripts, 
 
 ### Audio/Video Generation (MOVED)
 
-> **Migrated to online-course**: 14 audio/video scripts moved to `~/Desktop/online-course/scripts/audio_video/`
+> **Migrated to online-course**: audio/video scripts moved to `~/Desktop/personal/online-course/scripts/video/audio_video/`
 >
 > See [AUDIO_VIDEO_MOVED.md](./AUDIO_VIDEO_MOVED.md) for full list and usage.
 
 | Location | Scripts | Purpose |
 |----------|---------|---------|
-| `online-course/scripts/audio_video/` | 14 scripts | TTS, video generation, segment images |
+| `personal/online-course/scripts/video/audio_video/` | see AUDIO_VIDEO_MOVED.md | TTS, video generation, segment images |
 | `_archive/` | Archived copies | Backup of original scripts |
 
 ### Content Improvement (4 scripts)
@@ -359,7 +359,7 @@ Complete reference of all 61 active Python scripts and 20 active shell scripts, 
 | `continuous_improve_posts.py` | Continuous improvement loop | `--interval`, `--max-iterations` |
 | `improve_post_summary.py` | Improve post summaries | `--all`, `--min-quality` |
 
-> Note: `improve_scripts_for_audio_video.py` moved to `online-course/scripts/audio_video/`
+> Note: `improve_scripts_for_audio_video.py` moved to `personal/online-course/scripts/video/audio_video/`
 
 ### News & Newsletter (9 scripts)
 
