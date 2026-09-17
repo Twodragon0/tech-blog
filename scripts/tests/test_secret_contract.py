@@ -82,20 +82,28 @@ def test_every_exemption_states_what_would_remove_it() -> None:
     )
 
 
-def test_elevenlabs_exemption_is_still_flagged_as_pending() -> None:
-    """The dormant credential must not quietly become 'normal'.
+def test_elevenlabs_exemption_records_the_resolution() -> None:
+    """The entry must say the credential is gone, not that a decision is pending.
 
-    ELEVENLABS_* is exempted only because deleting or rotating a secret is an
-    owner decision, not because the situation is fine. If someone resolves it,
-    the entry should leave DOCUMENTED_WITHOUT_CONSUMER — not have its wording
-    softened until the exemption reads like a design choice.
+    It was provisioned 2026-01-11 with no consumer and deleted 2026-09-17 after
+    measuring that "move it to online-course" was not even a real option:
+    Actions secrets are repo-scoped, online-course has zero Actions secrets, and
+    its copies of the scripts read `os.getenv("ELEVENLABS_API_KEY")` from the
+    local environment. The name stays documented so the guide can say "do not
+    set this here" — an undocumented name invites someone to re-add it.
+
+    If a consumer ever lands in THIS repo, drop the entry entirely rather than
+    editing this reason.
     """
     reason = DOCUMENTED_WITHOUT_CONSUMER.get("ELEVENLABS_API_KEY", "")
-    assert "PROVISIONED" in reason and "decision" in reason, (
-        "The ELEVENLABS_API_KEY exemption no longer records that it is a live, "
-        "provisioned credential awaiting an owner decision. Either resolve it "
-        "(revoke + `gh secret delete`, or move it to the online-course repo) and "
-        "drop the entry, or keep the wording explicit."
+    assert "RESOLVED" in reason, (
+        "The ELEVENLABS_API_KEY exemption no longer records that the secret was "
+        "deleted. If it was re-provisioned, say why and what consumes it; if a "
+        "consumer landed, drop the entry."
+    )
+    assert "pending" not in reason.lower(), (
+        "The exemption still reads as awaiting a decision. It was decided on "
+        "2026-09-17 — the secret is deleted."
     )
 
 
