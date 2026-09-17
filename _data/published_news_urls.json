@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-16T02:33:45.593229+00:00",
+  "updated_at": "2026-09-17T02:37:13.231609+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/malicious-git-configs-can-make-claude.html",
-      "title": "Malicious .git Configs Can Make Claude, Codex, Cursor, and Other AI Agents Run A",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/malicious-apache-modules-hijack.html",
-      "title": "Malicious Apache Modules Hijack Brazilian Government Site Traffic to Push Bettin",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/bgp-hijack-delivers-malicious.html",
-      "title": "BGP Hijack Delivers Malicious Virtualizor Update That Establishes Persistent Roo",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/meta-ads-push-streamrat-android-trojan.html",
-      "title": "Meta Ads Push StreamRat Android Trojan That Can Gain Near-Complete Device Contro",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/how-to-secure-enterprise-ai-from.html",
-      "title": "How to Secure Enterprise AI: From Adoption to Incident Readiness",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
-      "title": "Real-Time Intelligence with IBM Time Series Models on Confluent",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/tech/2026/09/02/openai-says-its-new-astra-ai-can-build-attacks-without-human-help",
-      "title": "OpenAI says its new 'Astra' AI can build attacks without human help",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://www.docker.com/blog/below-the-harness-governing-a-multi-model-multi-harness-world/",
-      "title": "Below the Harness: Governing a Multi-Model, Multi-Harness World",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/09/02/metal3-meets-kubevirtbmc-provisioning-kubevirt-vms-like-bare-metal/",
-      "title": "Metal3 meets KubeVirtBMC: Provisioning KubeVirt VMs like bare metal",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/full-sail-sui-wind-down-switchboard-incident?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Sui DeFi protocol Full Sail to wind down after Switchboard incident",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/btc-will-hit-1m-by-2030-but-arthur-hayes-is-buying-eth-instead?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "BTC will hit $1M by 2030... but Arthur Hayes is buying ETH instead",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/hashkey-dtcc-first-asian-crypto-service-provider?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Hashkey joins DTCC working group as first Asian crypto service provider",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/thai-sue-tether-freezing-61m-pig-butchering-case?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Thai businessmen sue Tether for freezing $42M in $61M pig butchering case",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/thailand-crypto-travel-rule-self-custodial-wallet-checks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Thailand adopts crypto Travel Rule with self-custodial wallet checks",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
-    {
-      "url": "https://d2.naver.com/news/3092933",
-      "title": "[네이버피셜] 네이버 개발자라면 꼭 만나게 됩니다",
-      "published_date": "2026-09-03",
-      "expires_at": "2026-09-10T00:56:32.393040+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/us-becomes-top-target-in-rmm-phishing.html",
       "title": "US Becomes Top Target in RMM Phishing Campaign Spanning 46 Countries",
@@ -1080,6 +990,96 @@
       "title": "Introducing Filestore agent volumes: fully managed storage for agent workspaces",
       "published_date": "2026-09-16",
       "expires_at": "2026-09-23T02:33:45.593132+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/attackers-exploit-issabel-framework.html",
+      "title": "Attackers Exploit Issabel Framework Flaw Enabling Unauthenticated OS Command Exe",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/architecting-a-secure-landing-zone-in-the-aws-european-sovereign-cloud/",
+      "title": "Architecting a secure landing zone in the AWS European Sovereign Cloud",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/three-threat-groups-target-russian.html",
+      "title": "Three Threat Groups Target Russian Enterprises With Backdoors, Ransomware, and W",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-wants-claude-to-analyze-your-bank-account-and-financial-data/",
+      "title": "Anthropic wants Claude to analyze your bank account and financial data",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/one-extension-could-hijack-ai.html",
+      "title": "One Extension Could Hijack AI Assistants Across Chrome, Comet, Edge, Opera Neon ",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://openai.com/index/model-misalignment-reporting-framework",
+      "title": "Our framework for reporting model misalignment",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://openai.com/index/helping-older-adults-use-ai-in-everyday-life",
+      "title": "Helping older adults use AI in everyday life",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/",
+      "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 De",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
+      "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Center",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://openai.com/index/reimagining-advertising-with-ai",
+      "title": "Reimagining advertising with AI",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/seaverse-chooses-gke-agent-sandbox/",
+      "title": "For SeaVerse, GKE Agent Sandbox reduces infrastructure costs by 60%",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-google-monitors-ai-threats-advances-ai-defenses/",
+      "title": "Cloud CISO Perspectives: How Google monitors AI threats and advances AI defenses",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/compute-engine-m4n-vms/",
+      "title": "M4N VM family, now GA: Highest per-core IOPS and throughput for I/O and memory-b",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/telecommunications/how-orange-uses-agents-to-make-finops-everyones-responsibility/",
+      "title": "How Orange built FinOps accountability, and why agents are next",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-reimagines-the-getting-started-experience/",
+      "title": "AWS reimagines the getting started experience",
+      "published_date": "2026-09-17",
+      "expires_at": "2026-09-24T02:37:13.231523+00:00"
     }
   ]
 }
