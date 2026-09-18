@@ -154,7 +154,7 @@ env:
 | 잡 | 트리거 | 게이트 | 권한 | 시크릿 | 비고 |
 |----|--------|--------|------|--------|------|
 | `multi_agent` | 6h cron 또는 dispatch profile `full`/`multi-agent` | `OPS_MULTI_AGENT_SCHEDULE != 'false'` (기본 ON) | `contents:read`+`actions:write`+`issues:write` | job-level | 전체 roundtable + 아티팩트 + 실패 시 이슈 생성 |
-| `priority` | daily cron(`0 4`) 또는 dispatch profile `priority` | `OPS_PRIORITY_LOOP_SCHEDULE == 'true'` (기본 OFF) | `contents:read` | Slack만 | `--skip-sentry --skip-uiux`, ruff+mypy 설치, rc 캡처 후 non-zero면 RED |
+| `priority` | daily cron(`0 4`) 또는 dispatch profile `priority` | `OPS_PRIORITY_LOOP_SCHEDULE == 'true'` (기본 OFF) | `contents:read` | Slack만 | `--skip-sentry`, ruff+mypy 설치, rc 캡처 후 non-zero면 RED |
 | `on_demand` | `repository_dispatch`(`ai_ops_task`) 또는 dispatch profile `full` | — | `contents:read` | **step-scoped** | 신뢰할 수 없는 경로에서 도달 가능한 유일한 잡. RUN_* = inputs → client_payload → 'true' |
 
 ### 보안 불변식 (회귀 금지)

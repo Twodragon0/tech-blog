@@ -59,6 +59,10 @@ def test_scanners_are_not_vacuous() -> None:
                                         SLACK_CHANNEL_ID_OPS references removed
                                         with the three never-executed
                                         ops-orchestrator Slack steps
+        2026-09-18  …            / 16   PAGESPEED_API_KEY removed with
+                                        check_uiux() — the measurement already
+                                        existed in lighthouse-ci.yml and
+                                        lighthouse.yml
 
     A collapse to single digits means `_DOC_ENTRY_RE` / `_WORKFLOW_SECRET_RE`
     stopped matching — fix the regex, do not lower the floor to meet it.
@@ -71,7 +75,7 @@ def test_scanners_are_not_vacuous() -> None:
         "rather than letting the contract check pass on an empty set."
     )
     assert len(consumed) >= 15, (
-        f"Only {len(consumed)} secret(s) found in .github/workflows/ (17 on "
+        f"Only {len(consumed)} secret(s) found in .github/workflows/ (16 on "
         "2026-09-18). Check _WORKFLOW_SECRET_RE before assuming secrets were "
         "removed on purpose."
     )
@@ -206,3 +210,54 @@ def test_check_script_is_wired_to_this_test() -> None:
     """
     assert (REPO_ROOT / "scripts" / "check_secret_contract.py").is_file()
     assert os.environ.get("PYTEST_CURRENT_TEST"), "expected to run under pytest"
+
+
+def test_comments_do_not_count_as_consumers() -> None:
+    """Prose about a secret is not a read of it.
+
+    Two instances on 2026-09-18, hours apart, in opposite directions:
+
+    * The AI-Gateway trio survived only in `test_ci_ops_orchestrator_partition_
+      guard.py`'s COMMENTS after their steps were deleted, so the contract check
+      passed for the wrong reason.
+    * Removing `PAGESPEED_API_KEY` left three files explaining WHY it was
+      removed. `git grep -l` counted all three as consumers and the check again
+      reported 0 violations — for a secret that by then had none.
+
+    A checker whose only question is "does anything actually read this" cannot
+    answer it with a scan that reads its own removal notes as usage.
+    """
+    import check_secret_contract as mod
+
+    assert mod.code_consumers("PAGESPEED_API_KEY") == [], (
+        "PAGESPEED_API_KEY looks consumed. If the hits are the removal-rationale "
+        "comments again, the comment filter regressed; if a real consumer landed, "
+        "drop it from DOCUMENTED_WITHOUT_CONSUMER and see the entry there first — "
+        "the decision was DO NOT PROVISION."
+    )
+    # Not vacuous: live credentials must still resolve to real consumers.
+    for name in ("VERCEL_TOKEN", "SENTRY_AUTH_TOKEN", "SLACK_BOT_TOKEN"):
+        assert mod.code_consumers(name), (
+            f"{name} now looks unused. The comment filter is over-stripping — it "
+            "must drop whole-line comments only, never code."
+        )
+
+
+def test_pagespeed_decision_says_do_not_provision() -> None:
+    """The entry must carry the decision, not just the absence.
+
+    "Nothing reads it" invites someone to wire it back up. The measured reason
+    is the opposite: `check_uiux` gated on a performance score the repo recorded
+    at 0.55-0.86 on unchanged content and an LCP threshold below BOTH modes of a
+    bimodal distribution, and its failures are P1 — the priority that opens an
+    ops issue on a 6-hourly cron.
+    """
+    reason = DOCUMENTED_WITHOUT_CONSUMER.get("PAGESPEED_API_KEY", "")
+    assert "DO NOT PROVISION" in reason, (
+        "The PAGESPEED_API_KEY entry no longer records that provisioning it is "
+        "the wrong move. If that changed, say what measurement changed it."
+    )
+    assert "lighthouse" in reason.lower(), (
+        "The entry should name where the measurement actually lives, or the next "
+        "reader will think CWV monitoring was simply dropped."
+    )

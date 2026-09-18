@@ -65,14 +65,6 @@ on:
         options:
           - "true"
           - "false"
-      run_uiux_checks:
-        description: "Run UI/UX checks (on_demand)"
-        required: false
-        default: "true"
-        type: choice
-        options:
-          - "true"
-          - "false"
       auto_recover_gha:
         description: "Auto rerun failed GitHub Actions workflows"
         required: false
@@ -97,7 +89,7 @@ env:
 jobs:
   # ---------------------------------------------------------------------------
   # multi_agent — 6h cron OR dispatch profile full/multi-agent.
-  # Full roundtable: lint+vercel+gha+sentry+uiux, auto-recover, artifact + Slack
+  # Full roundtable: lint+vercel+gha+sentry, auto-recover, artifact + Slack
   # + create-issue-on-failure. Elevated perms (actions:write, issues:write) and
   # job-level secrets. NOT reachable from repository_dispatch.
   # ---------------------------------------------------------------------------
@@ -116,7 +108,6 @@ jobs:
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-      PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
@@ -296,7 +287,7 @@ jobs:
   # ---------------------------------------------------------------------------
   # priority — daily cron OR dispatch profile priority.
   # Lightweight: only the blocking lint-and-types check matters; advisory
-  # service checks are skipped (--skip-sentry --skip-uiux). Slack secret only,
+  # service checks are skipped (--skip-sentry). Slack secret only,
   # contents:read. Gate default OFF (OPS_PRIORITY_LOOP_SCHEDULE == 'true').
   # ---------------------------------------------------------------------------
   priority:
@@ -342,7 +333,7 @@ jobs:
           # report to Slack below, then fail in the trailing step so a broken
           # lint/types state is a RED run, not a silent green. (Fix A-H2, audit.)
           set +e
-          message=$(python3 scripts/ops_health_orchestrator.py --skip-sentry --skip-uiux)
+          message=$(python3 scripts/ops_health_orchestrator.py --skip-sentry)
           rc=$?
           set -e
           {
@@ -387,7 +378,6 @@ jobs:
       RUN_VERCEL_CHECKS: ${{ github.event.inputs.run_vercel_checks || github.event.client_payload.run_vercel_checks || 'true' }}
       RUN_GITHUB_ACTIONS_CHECKS: ${{ github.event.inputs.run_github_actions_checks || github.event.client_payload.run_github_actions_checks || 'true' }}
       RUN_SENTRY_CHECKS: ${{ github.event.inputs.run_sentry_checks || github.event.client_payload.run_sentry_checks || 'true' }}
-      RUN_UIUX_CHECKS: ${{ github.event.inputs.run_uiux_checks || github.event.client_payload.run_uiux_checks || 'true' }}
       AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || github.event.client_payload.auto_recover_gha || 'true' }}
       # if: 조건용 boolean (시크릿 값이 아님 — 존재 여부만 노출).
 
@@ -417,7 +407,6 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail

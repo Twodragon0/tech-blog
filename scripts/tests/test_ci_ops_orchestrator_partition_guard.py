@@ -176,8 +176,9 @@ class TestOpsOrchestratorPartitionGuard:
     def test_on_demand_actually_uses_step_scoped_secrets(self):
         # Positive check: step-scoped secrets still exist in on_demand (guards
         # against a "fix" that just deletes them, killing the Vercel/Sentry
-        # checks). VERCEL_TOKEN / SENTRY_* / PAGESPEED_API_KEY / GITHUB_TOKEN
-        # live here.
+        # checks). VERCEL_TOKEN / SENTRY_* / GITHUB_TOKEN live here.
+        # (PAGESPEED_API_KEY was here until 2026-09-18; it went with check_uiux
+        # — the measurement already existed in the Lighthouse workflows.)
         #
         # `priority` used to be in this set. Its ONLY secret usage was the
         # AI-Gateway Slack step, removed 2026-09-18 after measuring that it had
