@@ -295,6 +295,73 @@ $0 에 Path B 를 연다.
 
 ## 2026-09
 
+### main 에 required status check 5개 — ruleset + Actions 봇 bypass (2026-09-18)
+
+[이름 목록 통제 감사](name-list-control-audit-2026-09-18.md) 중 별개 관찰로 나왔다:
+main 에 보호 설정은 있지만 **required status check 가 0개**였다 (force-push·삭제만
+차단, enforce_admins=false, 필수 리뷰 없음).
+
+**전제가 되는 제약이 하나 있다.** `ai-blogwatcher`·`generate-images`·
+`vercel-firewall-backup`·`visual-baseline-refresh` 4개 워크플로가
+`secrets.GITHUB_TOKEN` 으로 main 에 **직접 push** 한다 (최근 200 커밋 중 크론 봇
+직접 push 24건). classic 브랜치 보호의 required check 는 push 자체를 거부하므로,
+그대로 걸면 매일 발행이 멈춘다. 이 저장소는 이미
+[`branch_protection_bot_token`](../CLAUDE.md) 로 같은 결론을 기록해 뒀다.
+
+그래서 classic 보호가 아니라 **ruleset** 을 쓴다 — bypass actor 를 지정할 수 있는
+유일한 수단이고, 이 저장소의 ruleset 은 0개였다. bypass actor 는 GitHub Actions 앱
+(`actor_id: 15368`, `Integration`, `bypass_mode: always`).
+
+한계를 분명히: **크론 산출물은 여전히 미검사**다. 기존 사각지대
+([`ci_gates_blind_to_cron_bot_push`](../CLAUDE.md))가 유지된다는 뜻이고, 이 변경은
+사람 PR 에만 게이트를 건다. 사각지대를 닫으려면 4개 크론을 PR 경로로 바꿔야 하는데,
+blogwatcher 는 이미 신뢰 경계로 분기(외부 `repository_dispatch` → 브랜치+PR 격리,
+스케줄 → main 직접 push)하고 있어 그 설계 결정을 뒤집는 일이 된다. 지금은 하지 않는다.
+
+**자격 기준은 실측으로 정했다.** 최근 병합 PR 8건에서 체크별 결론을 수집했다.
+
+| 걸 수 있음 (8/8 실제 결론) | 근거 |
+|---|---|
+| `ruff` | `python-lint.yml`, paths 필터·`if:` 없음 |
+| `build` | `if:` 가 `github.event_name == 'pull_request'` 를 무조건 포함 — PR 에서 skip 불가 |
+| `Security Audit Summary` | `if: always()` |
+| `CodeQL` | `github-advanced-security` 앱의 집계 게이트 |
+| `GitGuardian Security Checks` | 8/8 ok, 공개 저장소 시크릿 스캔 |
+
+| 뺀 것 | 이유 |
+|---|---|
+| paths 필터 걸린 잡 13개 | **워크플로가 안 돌면 상태가 아예 보고되지 않아 PR 이 영구 pending.** `Validate action pin consistency` 가 표본 8건 중 **4건에서 미보고** 로 실측됐다 |
+| `check-changes` | `jekyll.yml` 과 `security-audit.yml` 이 **같은 잡 이름**을 쓴다. 이름 매칭으로는 어느 쪽이 만족시켰는지 알 수 없다 |
+| `Analyze (actions|javascript-typescript|python|ruby)` | 이름이 **탐지된 언어 목록에 결합**된다. Ruby 를 저장소에서 빼는 날 `Analyze (ruby)` 가 생산되지 않아 전 PR 차단 — A-H3 를 머지 큐에 조준한 셈. 집계 `CodeQL` 이 같은 판정을 담으므로 손실 없다 |
+| `auto-merge`, `npm Security Audit`, `Ruby Gem Security Audit` | 표본 8/8 skip |
+| `Vercel Preview Comments` | 품질 신호가 아니다 |
+
+**중요한 구분**: 영구 pending 을 만드는 것은 잡의 `if:` 가 아니라 **워크플로 레벨
+`paths:` 필터**다. `if:` 로 건너뛴 잡은 `skipped` 로 **보고된다** — `auto-merge`·
+`npm Security Audit`·`Ruby Gem Security Audit` 가 표본 8건 전부에서 그랬다. 워크플로가
+트리거되지 않으면 보고 자체가 없다.
+
+`strict_required_status_checks_policy` 는 **false** 로 둔다. true 면 모든 PR 브랜치를
+최신으로 강제하는데, #735 가 auto-merge 거짓 red 의 일부 원인을 리베이스가 형제 실행을
+교착시킨 것으로 추적했다.
+
+**required 목록 자체가 이름 목록이라서** UI 에만 두지 않고
+`.github/rulesets/main-required-status-checks.json` 으로 선언하고
+`scripts/check_required_checks_contract.py` + 테스트 18건이 검증한다. 생산하는 잡을
+리네임하면 전 PR 이 영구 차단되는데, 그 변이가 뮤테이션 프로브 7종 중 하나로
+확인됐다(대조군 PASS, 변이 FAIL).
+
+**적용은 별도 단계다.** ruleset 생성(`POST /repos/.../rulesets`)이 세션 권한
+분류기에 막혀 파일만 커밋했다. `--gh` 는 현재 `NOT APPLIED` 를 보고하며 적용 명령을
+출력한다:
+
+```bash
+gh api --method POST repos/Twodragon0/tech-blog/rulesets \
+  --input .github/rulesets/main-required-status-checks.json
+python3 scripts/check_required_checks_contract.py --gh   # 적용·동기 확인
+```
+
+
 ### A-H3 자기-재실행 차단이 무효였다 — 이름 목록에서 런타임 유도로 (2026-09-18)
 
 `ops_health_orchestrator.py` 에 테스트를 붙이려다 발견했다. `check_github_actions`
