@@ -295,6 +295,56 @@ $0 에 Path B 를 연다.
 
 ## 2026-09
 
+### Gemini 이미지 플래그 — 기본값 Flash 통일 + 래스터 경로 opt-in (2026-09-18)
+
+"로컬 기본값을 Pro/Flash 중 어느 쪽으로 통일할지" 를 비용·품질 판단으로 열어 뒀는데,
+실측하니 **문제가 Pro/Flash 가 아니었다.**
+
+**세 갈래로 갈라져 있었다.**
+
+| 위치 | 기본값 |
+|---|---|
+| `generate_post_images.py:146` | `"true"` → Gemini 3 Pro |
+| `generate_missing_diagrams.py:42` | `"false"` → Gemini 2.5 Flash |
+| `generate-images.yml` (2곳) | `'false'` → Flash |
+| `docs/setup/MULTI_TOOL_HARNESS_ENV.md` | `true` |
+
+**CI 는 애초에 Gemini 를 안 쓴다.** `use_api` 는 workflow_dispatch 입력이고 기본값이
+`false` 라, push 트리거에서는 `GEMINI_API_KEY` 가 `''` 로 전달된다. 최근 12회 실행이
+전부 push 였고 로그의 실제 출력은 `📝 Using SVG fallback generator (no API cost)` 다.
+즉 CI 에서 이 플래그는 **API 호출에 도달한 적이 없다.** 비용·품질 비교가 성립하는
+무대 자체가 없었다.
+
+**진짜 문제는 로컬의 선점이었다.** `generate_post_images.py` 에서 Gemini 경로의 유일한
+가드가 `if GEMINI_API_KEY:` 였다. 셸에 키를 export 해 둔 것만으로 (a) 이미지 API 를
+호출하고 (b) 성공 시 `True` 를 반환해 그 아래 `if not image_generated:` 블록 —
+**L20/L22/L25/rollup SVG 커버 생성기, honesty 스코어러, 블로킹 게이트 전부** — 를
+건너뛴다. 포스트의 `image:` 는 `.svg` 를 가리키는데 성공한 Gemini 호출은
+`<stem>.png` 를 쓰므로, 참조되는 SVG 는 생성되지 않는다.
+
+**발화한 적은 없다.** 2026-09-18 실측: `image:` 가 해석되지 않는 포스트 **0건**. 기존
+커버가 있으면 `has_image and not force` 에서 조기 반환하고 CI 는 키를 넘기지 않기
+때문이다. 잠재 함정이지 사고가 아니다 — 다만 `--force` 로 다이제스트를 훑는 실행이
+정확히 이걸 건드리고, CLAUDE.md 는 이미 그 명령을 **다른 이유로** 경고하고 있다.
+
+**결정**
+1. 기본값을 `false`(Flash)로 통일. Pro 는 `--use-pro-image` 또는 저장소 변수로 명시 요청.
+2. 래스터 경로에 opt-in 게이트 `USE_GEMINI_IMAGE_API` / `--use-api` 추가 (기본 OFF).
+   CI 동작은 불변 — `generate-images.yml` 이 같은 `api_check` 판정을 새 변수로도
+   넘긴다. 이미 opt-in 이었으므로 의미가 바뀌지 않는다.
+3. 문서 정정 (`MULTI_TOOL_HARNESS_ENV.md` 가 `true` 라고 적고 있었다).
+4. Segment 스텝의 `USE_GEMINI_PRO_IMAGE` 제거 — 그 스텝의 스크립트
+   `generate_segment_images.py` 는 아카이브돼 없고 워크플로가 warning 후 exit 0 한다.
+
+**가드**: `scripts/tests/test_gemini_image_flag_defaults.py` 8건.
+
+**뮤테이션 프로브가 내 가드의 결함을 잡았다.** 첫 판은 호출 지점 가드를
+`"USE_IMAGE_API and GEMINI_API_KEY" in source` 부분문자열로 검사했는데, **같은 문자열이
+로그 줄에도 있어서** 호출 지점을 원래 함정으로 되돌려도 통과했다. 오늘 세 번째로 같은
+결함이다([`substring_scan_counts_comments_as_usage`](../CLAUDE.md)). `ast` 로 호출을
+감싸는 `if` 조건을 직접 읽도록 고쳤다. 재프로브에서 7/7 전부 FAIL, 대조군 PASS.
+
+
 ### main 에 required status check 5개 — ruleset + Actions 봇 bypass (2026-09-18)
 
 [이름 목록 통제 감사](name-list-control-audit-2026-09-18.md) 중 별개 관찰로 나왔다:

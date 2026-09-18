@@ -142,8 +142,33 @@ GEMINI_IMAGE_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/
 # 대체 모델: Gemini 3 Pro Image (Nano Banana Pro) - 더 높은 품질
 GEMINI_IMAGE_PRO_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image:generateContent"
 
-# 모델 선택 (환경 변수로 제어 가능)
-USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "true").lower() == "true"
+# 모델 선택 (환경 변수로 제어 가능). 기본은 Flash.
+#
+# This defaulted to "true" (Pro) until 2026-09-18 while every other reader
+# defaulted to Flash — generate_missing_diagrams.py:42 and both
+# generate-images.yml steps use `vars.USE_GEMINI_PRO_IMAGE || 'false'`. The docs
+# said `true`. Unified downward: the cheap model is the default and Pro is an
+# explicit request (`--use-pro-image`, or the repo variable).
+USE_PRO_MODEL = os.getenv("USE_GEMINI_PRO_IMAGE", "false").lower() == "true"
+
+# Whether the Gemini raster path may run at all. OFF by default, and that is the
+# point: the only gate used to be `if GEMINI_API_KEY:`, so merely having the key
+# exported in a shell was enough to (a) spend on the image API and (b) return
+# True, which SKIPS the whole `if not image_generated:` branch below — the
+# L20/L22/L25/rollup SVG cover system, its honesty scorer, and the blocking
+# gate. A post's `image:` field points at `.svg`, but a successful Gemini call
+# writes `<stem>.png`, so the SVG the post references would never be built.
+#
+# Never observed in the corpus (2026-09-18: 0 posts whose `image:` fails to
+# resolve), because an existing cover returns early at `has_image and not force`
+# and CI withholds the key. It is a latent trap, not an incident — but `--force`
+# over digests is exactly the run that would spring it, and CLAUDE.md already
+# warns against that command for a different reason.
+#
+# CI has always been opt-in this way: `generate-images.yml` passes the key only
+# when its `use_api` input (default false) is set, so the workflow sets
+# USE_GEMINI_IMAGE_API from the same check and its behaviour is unchanged.
+USE_IMAGE_API = os.getenv("USE_GEMINI_IMAGE_API", "false").lower() == "true"
 
 # Optional GPT-5.4 prompt enhancement (disabled automatically when key is missing)
 # lgtm[py/clear-text-storage-sensitive-data] - Environment variable, not hardcoded
@@ -2681,7 +2706,7 @@ def process_post(
     log_message("📝 이미지 생성 프롬프트 생성 완료", "SUCCESS")
 
     image_generated = False
-    if GEMINI_API_KEY:
+    if USE_IMAGE_API and GEMINI_API_KEY:
         image_generated = generate_image_with_gemini(prompt, output_path)
 
     if not image_generated:
@@ -2781,9 +2806,17 @@ def main():
         help="기존 PNG에서 AVIF만 생성 (SVG/PNG 재생성 없음)",
     )
     parser.add_argument(
+        "--use-api",
+        action="store_true",
+        help=(
+            "Gemini 이미지 API 사용 (기본 OFF). 켜면 SVG 커버 생성기 대신 "
+            "래스터가 만들어지고 포스트의 image: 가 가리키는 .svg 는 생성되지 않는다"
+        ),
+    )
+    parser.add_argument(
         "--use-pro-image",
         action="store_true",
-        help="Gemini 3 Pro Image 모델 사용 강제",
+        help="Gemini 3 Pro Image 모델 사용 강제 (--use-api 와 함께 써야 효과가 있다)",
     )
     parser.add_argument(
         "--use-gpt54-prompt",
@@ -2808,7 +2841,9 @@ def main():
 
     args = parser.parse_args()
 
-    global USE_PRO_MODEL, USE_GPT54_PROMPT_ENHANCER
+    global USE_PRO_MODEL, USE_GPT54_PROMPT_ENHANCER, USE_IMAGE_API
+    if args.use_api:
+        USE_IMAGE_API = True
     if args.use_pro_image:
         USE_PRO_MODEL = True
     if args.use_gpt54_prompt:
@@ -2821,7 +2856,13 @@ def main():
         "INFO",
     )
     log_message(
-        f"🎨 Image model: {'Gemini 3 Pro Image' if USE_PRO_MODEL else 'Gemini 2.5 Flash Image'}",
+        "🎨 Image path: "
+        + (
+            f"Gemini API ON ({'3 Pro' if USE_PRO_MODEL else '2.5 Flash'}) "
+            "— raster output, SVG cover generators are bypassed"
+            if USE_IMAGE_API and GEMINI_API_KEY
+            else "SVG cover generators (Gemini API off)"
+        ),
         "INFO",
     )
 
