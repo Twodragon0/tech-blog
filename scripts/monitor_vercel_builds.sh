@@ -42,9 +42,9 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Thresholds (조정 가능)
-LCP_THRESHOLD=2500      # ms - Largest Contentful Paint
-FID_THRESHOLD=100       # ms - First Input Delay
-CLS_THRESHOLD=0.1       # - Cumulative Layout Shift
+# LCP/FID/CLS thresholds were removed 2026-09-18 with the PageSpeed block.
+# Printing a target this script does not measure is how a check comes to look
+# enforcing while enforcing nothing. CWV lives in lighthouse-ci.yml / lighthouse.yml.
 BUILD_TIME_THRESHOLD=120 # seconds
 
 ALERT_COUNT=0
@@ -144,31 +144,16 @@ else
     _info "Vercel CLI not available or not authenticated - skipping Vercel deployment checks"
 fi
 
-# === 2. Core Web Vitals (Lighthouse API) ===
-_section "3. Core Web Vitals Analysis"
+# Core Web Vitals via PageSpeed Insights was removed 2026-09-18 along with
+# PAGESPEED_API_KEY. The secret was never provisioned, so this block only ever
+# printed "PageSpeed Insights API key not configured" — and it asked for
+# `first-input-delay`, which is not a Lighthouse audit at all (FID was a field
+# metric, replaced by INP), so one of its three numbers could only ever be N/A.
+# CWV is covered by lighthouse-ci.yml (head-vs-base LCP, PRs) and
+# lighthouse.yml (CLS budget 0.05, push + PR). See scripts/ops_health_orchestrator.py.
 
-# PageSpeed Insights API를 사용할 경우
-if command -v curl &> /dev/null && [ -n "$PAGESPEED_API_KEY" ]; then
-    _info "Checking Core Web Vitals via PageSpeed Insights..."
-
-    PSI_URL="https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=$DEPLOYMENT_URL&key=$PAGESPEED_API_KEY"
-    PSI_RESPONSE=$(curl -s "$PSI_URL" 2>/dev/null || echo "{}")
-
-    # CWV 메트릭 추출
-    LCP=$(echo "$PSI_RESPONSE" | jq -r '.lighthouseResult.audits."largest-contentful-paint".displayValue // "N/A"' 2>/dev/null)
-    FID=$(echo "$PSI_RESPONSE" | jq -r '.lighthouseResult.audits."first-input-delay".displayValue // "N/A"' 2>/dev/null)
-    CLS=$(echo "$PSI_RESPONSE" | jq -r '.lighthouseResult.audits."cumulative-layout-shift".displayValue // "N/A"' 2>/dev/null)
-
-    _echo "  LCP (Largest Contentful Paint): $LCP (목표 < 2.5s)"
-    _echo "  FID (First Input Delay):         $FID (목표 < 100ms)"
-    _echo "  CLS (Cumulative Layout Shift):   $CLS (목표 < 0.1)"
-else
-    _info "PageSpeed Insights API key not configured"
-    _echo "  Set PAGESPEED_API_KEY environment variable to enable CWV monitoring"
-fi
-
-# === 3. Sentry 에러 대시보드 (선택적) ===
-_section "4. Sentry Error Dashboard"
+# === 2. Sentry 에러 대시보드 (선택적) ===
+_section "3. Sentry Error Dashboard"
 
 if [ -n "$SENTRY_AUTH_TOKEN" ] && [ -n "$SENTRY_ORG" ] && [ -n "$SENTRY_PROJECT" ]; then
     _info "Fetching Sentry metrics..."
@@ -193,24 +178,20 @@ else
     _echo "  Set SENTRY_AUTH_TOKEN, SENTRY_ORG, SENTRY_PROJECT to enable error monitoring"
 fi
 
-# === 4. 빌드 성능 메트릭 ===
-_section "5. Build Performance Metrics"
+# === 3. 빌드 성능 메트릭 ===
+_section "4. Build Performance Metrics"
 
 _echo "Target Thresholds:"
 _echo "  • Build Time:      < ${BUILD_TIME_THRESHOLD}s"
-_echo "  • LCP:             < ${LCP_THRESHOLD}ms"
-_echo "  • FID:             < ${FID_THRESHOLD}ms"
-_echo "  • CLS:             < ${CLS_THRESHOLD}"
 _echo "  • Deployment Success Rate: > 99%"
 
-# === 5. 환경 변수 상태 (마스킹) ===
-_section "6. Environment Variables Status"
+# === 4. 환경 변수 상태 (마스킹) ===
+_section "5. Environment Variables Status"
 
 _echo "Required environment variables:"
 ENV_VARS=(
     "VERCEL_TOKEN"
     "SENTRY_AUTH_TOKEN"
-    "PAGESPEED_API_KEY"
     "DEEPSEEK_API_KEY"
 )
 
@@ -222,8 +203,8 @@ for var in "${ENV_VARS[@]}"; do
     fi
 done
 
-# === 6. 유용한 명령어 ===
-_section "7. Useful Commands"
+# === 5. 유용한 명령어 ===
+_section "6. Useful Commands"
 
 _echo "Vercel monitoring:"
 _echo "  vercel logs --follow              # Real-time logs"

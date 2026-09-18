@@ -155,7 +155,36 @@
 | `SLACK_CHANNEL_ID_OPS` | ~~`ops-orchestrator`~~ | ✅ **2026-09-18 참조 제거** |
 | `CLAUDE_API_KEY` | `ai-blogwatcher` | ✅ 2026-09-17 — 선택적 프로바이더 |
 | `OPENAI_API_KEY` | `ai-blogwatcher` | ✅ 2026-09-17 — 선택적 프로바이더 |
-| `PAGESPEED_API_KEY` | `monitoring`, `ops-orchestrator` | ❌ 미판단 |
+| `PAGESPEED_API_KEY` | ~~`monitoring`, `ops-orchestrator`~~ | ✅ **2026-09-18 참조 제거 — 등록하지 말 것** |
+
+**PAGESPEED_API_KEY — 2026-09-18 에 참조를 제거했다. 등록하지 말 것.**
+
+`ops_health_orchestrator.py` 의 `check_uiux()` 와 `monitor_vercel_builds.sh` 의 CWV
+블록이 이 키를 썼다. 미등록이었으므로 전자는 늘 `Skipped (PAGESPEED_API_KEY not set)`
+를 반환했고, 후자는 늘 `PageSpeed Insights API key not configured` 를 찍었다.
+
+**등록하지 않는 이유는 "안 쓰니까"가 아니다. 등록하면 해로웠다.** `check_uiux()` 의
+판정식은 `perf_score >= 0.75 and lcp_ms <= 2500 and cls <= 0.1` 이고 실패 시 **P1**
+인데, P1 은 ops 실패 이슈를 여는 조건이다 (6시간 주기 크론). 그 세 항은 이 저장소가
+이미 60회 실측으로 폐기했거나 더 엄격하게 대체한 것들이다:
+
+| `check_uiux` 의 조건 | 이 저장소의 실측 | 결과 |
+|---|---|---|
+| `perf_score >= 0.75` | 동일 콘텐츠 60회에서 performance **0.55~0.86** → `lighthouse.yml` 이 "produced random red" 로 게이트에서 제거 | 무작위 red |
+| `lcp_ms <= 2500` | LCP 이봉분포 **4218~4373ms(55회) / 6921~9695ms(5회)** — 두 봉우리 모두 2500 초과 | 사실상 상시 실패 |
+| `cls <= 0.1` | `lighthouse.yml` 이 더 엄격한 **0.05** 로 이미 게이트 | 중복, 더 느슨 |
+
+기능이 사라진 것이 아니다. CWV 는 `lighthouse-ci.yml`(PR, head 대 base LCP 5회 비교)
+과 `lighthouse.yml`(push+PR, CLS 예산 0.05)이 재고 있고, 둘 다 현역이다.
+
+참고로 shell 쪽 블록은 `first-input-delay` 를 물었는데 그건 Lighthouse 감사 항목이
+아니다 (FID 는 필드 지표였고 INP 로 대체됐다). 세 수치 중 하나는 애초에 N/A 만
+나올 수 있었다.
+
+**이 판정을 뒤집으려면**: PSI 쪽(구글 인프라)에서 수치가 안정적임을 실측하고, 반올림한
+숫자가 아니라 그 분포에서 유도한 임계값을 함께 제시할 것. 위 60회는 GitHub 러너의
+Lighthouse/Lantern 이라 그대로 이전되지 않는다. 키 없는 PSI 요청은 2026-09-18 실측에서
+**HTTP 429**(익명 쿼터 소진)였으므로 키 없이 대체하는 것도 불가능하다.
 
 **AI_GATEWAY_* + SLACK_CHANNEL_ID_OPS — 2026-09-18 에 참조를 제거했다.**
 

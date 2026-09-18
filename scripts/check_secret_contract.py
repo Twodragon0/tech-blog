@@ -122,6 +122,20 @@ DOCUMENTED_WITHOUT_CONSUMER: Dict[str, str] = {
         "Slack channel was never provisioned; the repo's working Slack path is "
         "SLACK_BOT_TOKEN + SLACK_CHANNEL_ID via scripts/notify_webhook.py."
     ),
+    "PAGESPEED_API_KEY": (
+        "RESOLVED 2026-09-18: DO NOT PROVISION. check_uiux() and the CWV block in "
+        "monitor_vercel_builds.sh were removed because the measurement already "
+        "exists twice — lighthouse-ci.yml (head-vs-base LCP over 5 runs, PRs) and "
+        "lighthouse.yml (CLS budget 0.05, push + PR) — and check_uiux gated on "
+        "exactly what lighthouse.yml discarded after 60 runs: performance score "
+        "(0.55-0.86 on unchanged content, 'produced random red') and LCP <= 2500ms "
+        "(bimodal 4218-4373 / 6921-9695, both modes above the threshold). Setting "
+        "this key would have aimed a noisy P1 source at the 6-hourly cron, and P1 "
+        "is what opens an ops issue. Documented so the guide can say 'do not set "
+        "this here'. To remove this entry: land a PSI-side measurement showing the "
+        "numbers are stable on Google's infrastructure, with thresholds derived "
+        "from that distribution, and wire a real consumer in the same change."
+    ),
     # The retired SNS eight. scripts/share_sns.py and linkedin_oauth.py read
     # them from the local environment for manual runs, so they are documented —
     # but as "do not put these in Actions secrets".
@@ -195,26 +209,51 @@ def workflow_secrets() -> Dict[str, List[str]]:
     return out
 
 
-def code_consumers(name: str) -> List[str]:
-    """Tracked files under CODE_DIRS that mention the name.
+_COMMENT_PREFIXES = ("#", "//", "*", "/*")
 
-    Deliberately a plain substring scan rather than `os.environ` parsing: a
-    dynamic read (``os.environ[k]`` over a parsed .env, or
-    ``importlib``-style indirection) would be invisible to a stricter pattern,
-    and calling a live credential unused is the expensive direction to be wrong
-    in. `_archive/` is excluded — code kept for history is not a consumer.
+
+def code_consumers(name: str) -> List[str]:
+    """Tracked files under CODE_DIRS that mention the name OUTSIDE a comment.
+
+    Deliberately a substring scan rather than `os.environ` parsing: a dynamic
+    read (``os.environ[k]`` over a parsed .env, or ``importlib``-style
+    indirection) would be invisible to a stricter pattern, and calling a live
+    credential unused is the expensive direction to be wrong in. `_archive/` is
+    excluded — code kept for history is not a consumer.
+
+    Whole-line comments are dropped, because a substring scan otherwise cannot
+    tell a read from prose ABOUT a read, and this tool's entire question is
+    "does anything actually read this". Measured cost of not doing it: on
+    2026-09-18 the removal notes explaining why `PAGESPEED_API_KEY` was deleted
+    counted as three consumers, so the contract check reported 0 violations for
+    a secret that by then had none. The same day, three AI-Gateway names
+    survived only in a guard's comments and passed for the same reason.
+
+    Limit, stated rather than papered over: this drops whole-line comments, not
+    docstrings or block-comment bodies whose lines happen not to start with a
+    marker. A name mentioned mid-prose inside a ``\"\"\"...\"\"\"`` still reads as a
+    consumer — the safe direction, since the failure mode is "keeps a live
+    secret documented", not "declares a used secret dead".
     """
     proc = subprocess.run(
-        ["git", "grep", "-l", "--", name, *CODE_DIRS],
+        ["git", "grep", "-n", "--", name, *CODE_DIRS],
         cwd=REPO_ROOT,
         capture_output=True,
         text=True,
     )
-    return [
-        p
-        for p in proc.stdout.split()
-        if p and "_archive" not in p and p not in _SELF_REFERENCES
-    ]
+    hits: dict[str, None] = {}
+    for line in proc.stdout.splitlines():
+        # `path:lineno:text` — the text itself may contain colons.
+        parts = line.split(":", 2)
+        if len(parts) < 3:
+            continue
+        path, _, text = parts
+        if "_archive" in path or path in _SELF_REFERENCES:
+            continue
+        if text.lstrip().startswith(_COMMENT_PREFIXES):
+            continue
+        hits[path] = None
+    return list(hits)
 
 
 def check_doc_consumer_sync() -> List[str]:

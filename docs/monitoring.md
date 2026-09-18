@@ -1,6 +1,7 @@
 # Vercel Monitoring & Performance Tracking
 
-Comprehensive monitoring for Vercel deployments, build performance, and Core Web Vitals.
+Comprehensive monitoring for Vercel deployments, build performance, and error tracking.
+(Core Web Vitals live in the Lighthouse workflows — see "2. Core Web Vitals" below.)
 
 ## Quick Start
 
@@ -42,12 +43,10 @@ Set these in your `.env` or CI/CD platform for full monitoring capabilities:
 | `SENTRY_AUTH_TOKEN` | Sentry error tracking | No (optional) |
 | `SENTRY_ORG` | Sentry organization | No (optional) |
 | `SENTRY_PROJECT` | Sentry project ID | No (optional) |
-| `PAGESPEED_API_KEY` | Google PageSpeed Insights | No (optional) |
 
 **Obtaining Keys:**
 
 - **Sentry**: Visit Settings → Integrations → Tokens
-- **PageSpeed Insights**: [Google Cloud Console](https://console.cloud.google.com)
 
 ## Metrics Tracked
 
@@ -56,14 +55,23 @@ Set these in your `.env` or CI/CD platform for full monitoring capabilities:
 - Recent deployment history (last 5)
 - Success/failure indicators
 
-### 2. Core Web Vitals (CWV)
-Measured via Google PageSpeed Insights API (requires `PAGESPEED_API_KEY`):
+### 2. Core Web Vitals (CWV) — 이 스크립트가 아니라 Lighthouse 워크플로가 잰다
 
-| Metric | Abbreviation | Good | Needs Improvement | Poor |
-|--------|--------------|------|-------------------|------|
-| **Largest Contentful Paint** | LCP | < 2.5s | 2.5-4.0s | > 4.0s |
-| **First Input Delay** | FID | < 100ms | 100-300ms | > 300ms |
-| **Cumulative Layout Shift** | CLS | < 0.1 | 0.1-0.25 | > 0.25 |
+`monitor_vercel_builds.sh` 의 PageSpeed Insights 블록과 `PAGESPEED_API_KEY` 는
+2026-09-18 에 제거됐다. 키가 등록된 적이 없어 늘 건너뛰었고, 등록했다면 이 저장소가
+이미 60회 실측으로 폐기한 절대값 임계값(performance 0.55~0.86 변동, LCP 이봉분포의
+두 봉우리가 모두 2500ms 초과)을 P1 로 판정해 6시간 주기로 ops 이슈를 열었을 것이다.
+근거와 되돌리는 조건: `.github/docs/SECRETS_MANAGEMENT.md` 의 PAGESPEED_API_KEY 항목.
+
+CWV 는 다음 두 워크플로가 잰다:
+
+| 워크플로 | 트리거 | 무엇을 |
+|---|---|---|
+| `lighthouse-ci.yml` | PR | LCP 를 head 대 base 로 5회 비교, 회귀 200ms 초과 시 실패 |
+| `lighthouse.yml` | push + PR | CLS 절대 예산 0.05, accessibility/best-practices/SEO 카테고리 게이트 |
+
+절대 LCP 와 performance 점수는 **의도적으로** 게이트가 아니다. 러너 성능 추첨에
+좌우돼 무작위 red 를 만들기 때문이며, 대신 로그로 계속 누적된다.
 
 ### 3. Sentry Error Tracking
 Monitor unresolved errors in production (requires Sentry credentials):
@@ -85,11 +93,12 @@ Checks for required API keys and Vercel authentication
 Configurable in `scripts/monitor_vercel_builds.sh`:
 
 ```bash
-LCP_THRESHOLD=2500      # ms
-FID_THRESHOLD=100       # ms
-CLS_THRESHOLD=0.1       # unitless
 BUILD_TIME_THRESHOLD=120 # seconds
 ```
+
+LCP/FID/CLS 임계값은 2026-09-18 에 제거됐다 — 이 스크립트가 재지 않는 목표를 출력하고
+있었다. CWV 임계값은 `lighthouse-ci.yml`(LCP 회귀 200ms) 과 `lighthouse.yml`(CLS 0.05)
+에 있다.
 
 ## Output Modes
 
@@ -143,13 +152,6 @@ apt-get install jq
 choco install jq
 ```
 
-### "PAGESPEED_API_KEY not configured"
-1. Create API key in [Google Cloud Console](https://console.cloud.google.com)
-2. Set environment variable:
-   ```bash
-   export PAGESPEED_API_KEY="your-api-key"
-   ```
-
 ### "Sentry connection failed"
 Verify credentials:
 ```bash
@@ -185,7 +187,6 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
 
       - name: Create issue on failure
         if: failure()
@@ -218,9 +219,10 @@ alias monitor-alert='./scripts/monitor_vercel_builds.sh --alert-only'
 - **Simultaneous Builds**: Up to 12 (Pro plan)
 
 ### User Experience (Core Web Vitals)
-- **LCP**: < 2.5 seconds
-- **FID**: < 100 milliseconds
-- **CLS**: < 0.1
+`lighthouse-ci.yml` / `lighthouse.yml` 가 강제한다 (위 "2. Core Web Vitals" 참조).
+- **LCP**: 절대값이 아니라 head 대 base 회귀 200ms 로 게이트
+- **CLS**: < 0.05 (절대 예산)
+- **INP**: 미측정 — FID 는 2024 년에 은퇴했고 Lighthouse 감사 항목이 아니다
 
 ### Error Tracking
 - **Unresolved Issues**: Keep < 10 at any time

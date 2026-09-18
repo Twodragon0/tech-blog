@@ -357,68 +357,31 @@ def check_sentry(unresolved_threshold: int) -> CheckResult:
     )
 
 
-def check_uiux() -> CheckResult:
-    api_key = os.getenv("PAGESPEED_API_KEY", "")
-    target_url = os.getenv("OPS_UIUX_TARGET_URL", "https://tech.2twodragon.com")
-    if not api_key:
-        return CheckResult(
-            name="uiux-health",
-            agent="UiUxAgent",
-            ok=True,
-            priority="P2",
-            summary="Skipped (PAGESPEED_API_KEY not set)",
-            recommendation="Set PAGESPEED_API_KEY to enforce UI/UX performance gates.",
-        )
-
-    query = urllib.parse.urlencode(
-        {
-            "url": target_url,
-            "key": api_key,
-            "strategy": "mobile",
-            "category": "performance",
-        }
-    )
-    request = urllib.request.Request(
-        f"https://www.googleapis.com/pagespeedonline/v5/runPagespeed?{query}"
-    )
-
-    try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-    except urllib.error.URLError as error:
-        return CheckResult(
-            name="uiux-health",
-            agent="UiUxAgent",
-            ok=False,
-            priority="P1",
-            summary=f"PageSpeed API request failed: {error}",
-            recommendation="Check API key quota and site availability.",
-        )
-
-    lighthouse = payload.get("lighthouseResult", {})
-    categories = lighthouse.get("categories", {})
-    audits = lighthouse.get("audits", {})
-
-    perf_score = categories.get("performance", {}).get("score", 0.0)
-    lcp_ms = audits.get("largest-contentful-paint", {}).get("numericValue", 99999)
-    cls = audits.get("cumulative-layout-shift", {}).get("numericValue", 999.0)
-
-    ok = perf_score >= 0.75 and lcp_ms <= 2500 and cls <= 0.1
-    summary = (
-        f"performance score: {perf_score:.2f}\nLCP(ms): {lcp_ms:.0f}\nCLS: {cls:.3f}"
-    )
-    return CheckResult(
-        name="uiux-health",
-        agent="UiUxAgent",
-        ok=ok,
-        priority="P2" if ok else "P1",
-        summary=summary,
-        recommendation=(
-            "No action needed."
-            if ok
-            else "Improve LCP/CLS with image optimization and layout stabilization."
-        ),
-    )
+# check_uiux() / PAGESPEED_API_KEY was removed 2026-09-18.
+#
+# It called PageSpeed Insights and failed P1 when
+# `perf_score >= 0.75 and lcp_ms <= 2500 and cls <= 0.1` did not hold. Every
+# part of that was already settled elsewhere in this repo, the wrong way round:
+#
+#   * `perf_score >= 0.75` — lighthouse.yml deliberately dropped `performance`
+#     as a gate after measuring 0.55-0.86 on UNCHANGED content over 60 runs:
+#     "Gating on it produced random red."
+#   * `lcp_ms <= 2500` — LCP is bimodal here, 4218-4373ms (55 runs) and
+#     6921-9695ms (5 runs). BOTH modes exceed 2500, so this term was close to
+#     constant-false.
+#   * `cls <= 0.1` — lighthouse.yml already budgets CLS at a stricter 0.05.
+#
+# The capability is not lost: lighthouse-ci.yml compares head-vs-base LCP over
+# 5 runs on PRs, and lighthouse.yml gates CLS on push and PR. Both are live.
+#
+# The secret was never provisioned, so this check only ever returned
+# "Skipped (PAGESPEED_API_KEY not set)". Provisioning it would have pointed a
+# noisy P1 source at the 6-hourly cron — and P1 is what opens an ops issue.
+#
+# What would bring it back: a PSI-side measurement showing the numbers are
+# stable on Google's infrastructure (the 60 runs above are GitHub-runner
+# Lighthouse/Lantern and do not transfer directly), plus thresholds derived
+# from that distribution rather than round numbers.
 
 
 def derive_global_priority(results: list[CheckResult]) -> str:
@@ -452,12 +415,6 @@ def format_roundtable(results: list[CheckResult]) -> str:
         lines.append(f"- {result.name}: {status} ({result.priority})")
         lines.append(f"  {result.summary}")
 
-    lines.extend(["", "[UiUxAgent]"])
-    for result in by_agent.get("UiUxAgent", []):
-        status = "OK" if result.ok else "FAIL"
-        lines.append(f"- {result.name}: {status} ({result.priority})")
-        lines.append(f"  {result.summary}")
-
     lines.extend(["", "[Moderator]", "Recommended next actions:"])
     failed = [result for result in results if not result.ok]
     if not failed:
@@ -477,7 +434,7 @@ def write_report(path: Path, report: str) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Run lint/ops/security/uiux roundtable checks"
+        description="Run lint/ops/security roundtable checks"
     )
     parser.add_argument("--auto-recover-gha", action="store_true")
     parser.add_argument("--gha-rerun-limit", type=int, default=2)
@@ -486,7 +443,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--skip-vercel", action="store_true")
     parser.add_argument("--skip-github-actions", action="store_true")
     parser.add_argument("--skip-sentry", action="store_true")
-    parser.add_argument("--skip-uiux", action="store_true")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--json-output", type=Path)
     return parser.parse_args()
@@ -507,7 +463,6 @@ def main() -> int:
         env_enabled("RUN_GITHUB_ACTIONS_CHECKS", True) and not args.skip_github_actions
     )
     run_sentry = env_enabled("RUN_SENTRY_CHECKS", True) and not args.skip_sentry
-    run_uiux = env_enabled("RUN_UIUX_CHECKS", True) and not args.skip_uiux
 
     results: list[CheckResult] = []
     if run_lint:
@@ -525,8 +480,6 @@ def main() -> int:
         results.append(
             check_sentry(unresolved_threshold=max(0, args.sentry_unresolved_threshold))
         )
-    if run_uiux:
-        results.append(check_uiux())
 
     if not results:
         print("Ops Roundtable Priority: P2\n\n[Moderator]\n- No checks enabled.\n")
