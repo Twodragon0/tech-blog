@@ -201,34 +201,89 @@ jobs:
             echo "message=Ops roundtable report missing." >> "$GITHUB_OUTPUT"
           fi
 
+      # The body INLINES the report. It used to carry only a link to the
+      # `ops-roundtable-report` artifact, and artifacts expire after 90 days —
+      # so every one of these issues became unactionable on a timer regardless
+      # of whether anyone read it. Measured 2026-09-18 over the 21 open ones:
+      # #191 (03-23), #394 (06-08) and #400 (06-09) all had ZERO surviving
+      # artifacts; only #643 (08-31) still had its. 20 of 21 had already lost
+      # their only evidence.
+      #
+      # Inlining does not widen exposure: the same text is already written to
+      # $GITHUB_STEP_SUMMARY on a public repo, and the report names credentials
+      # only by presence ("Skipped (VERCEL_TOKEN not set)") — never values.
       - name: Create issue on failure
         if: failure()
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
+        env:
+          REPORT: ${{ steps.report.outputs.message }}
         with:
           script: |
             const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
-            const title = `🚨 Ops multi-agent loop failed (${new Date().toISOString().slice(0, 10)})`;
+            const today = new Date().toISOString().slice(0, 10);
+            // Dedup matches on TITLE_PREFIX, not the full title. The full title
+            // carries the date, and the old check was `issue.title === title` —
+            // so the date made every day's title unique and the check could
+            // never fire. Two failure streaks each opened one issue per day:
+            // 2026-03-23…04-03 (12 consecutive) and 2026-06-02…06-09 (8). That
+            // is 20 of the 21 issues this dedup existed to prevent.
+            const TITLE_PREFIX = '🚨 Ops multi-agent loop failed';
+            const title = `${TITLE_PREFIX} (${today})`;
+
+            // GitHub caps an issue body at 65536 chars. Budget well under it so
+            // the surrounding prose always fits, and say so when truncating —
+            // a silently cut report is the same defect as an expired artifact.
+            const LIMIT = 50000;
+            const raw = (process.env.REPORT || '').trim();
+            let report = raw || '(report was not generated — see the workflow run)';
+            if (report.length > LIMIT) {
+              report = report.slice(0, LIMIT) +
+                `\n\n… truncated at ${LIMIT} chars; full text in the run log / artifact.`;
+            }
+
             const body = [
               'Ops multi-agent checks found unresolved P1/P0 issues.',
               '',
               `- Workflow run: ${runUrl}`,
-              '- Artifact: ops-roundtable-report',
+              '- Artifact: `ops-roundtable-report` (expires 90 days after the run)',
               '',
               'Suggested actions:',
-              '- Review reports/ops-roundtable.md',
               '- Triage Vercel/GitHub Actions/Sentry issues first',
-              '- Re-run workflow after fixes'
+              '- Re-run workflow after fixes',
+              '',
+              '<details><summary>reports/ops-roundtable.md (inlined — outlives the artifact)</summary>',
+              '',
+              '```',
+              report,
+              '```',
+              '',
+              '</details>'
             ].join('\n');
 
-            const { data: issues } = await github.rest.issues.listForRepo({
+            // paginate: the default page size is 30, and this repo had 21 open
+            // ops/automation issues at once. A single unpaginated page can drop
+            // the very issue the dedup is looking for.
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
-              labels: 'ops,automation'
+              labels: 'ops,automation',
+              per_page: 100
             });
 
-            const duplicate = issues.find((issue) => issue.title === title);
-            if (!duplicate) {
+            const duplicate = issues.find((issue) => issue.title.startsWith(TITLE_PREFIX));
+            if (duplicate) {
+              // A recurring failure appends evidence to the one open issue.
+              // Doing nothing (the old behaviour on a match) would have thrown
+              // the report away, which is the same evidence loss the inlining
+              // above exists to stop.
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: duplicate.number,
+                body: `Still failing on ${today}.\n\n${body}`
+              });
+            } else {
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
