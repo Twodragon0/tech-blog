@@ -12,6 +12,10 @@ name: Ops Orchestrator
 #   * `on_demand` keeps step-scoped secrets (MED-2 hardening, dd0fc74e): the
 #     job-level env carries only non-secret toggles + boolean has-secret flags;
 #     real secrets are declared on the individual steps that use them.
+#   * `priority` carries NO secrets at all since 2026-09-18 — the strongest form
+#     of the same rule. Its only secret use was an AI-Gateway Slack step that had
+#     never executed (AI_GATEWAY_URL/TOKEN + SLACK_CHANNEL_ID_OPS unprovisioned),
+#     removed along with its two siblings in the other jobs.
 # Guarded by scripts/tests/test_ci_ops_orchestrator_partition_guard.py.
 
 on:
@@ -114,9 +118,6 @@ jobs:
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
       PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
-      AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
-      SLACK_CHANNEL_ID_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
 
     steps:
       - name: Checkout
@@ -200,19 +201,6 @@ jobs:
             echo "message=Ops roundtable report missing." >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Post report to Slack via AI Gateway
-        if: always() && env.AI_GATEWAY_URL != '' && env.AI_GATEWAY_TOKEN != '' && env.SLACK_CHANNEL_ID_OPS != ''
-        env:
-          MESSAGE: ${{ steps.report.outputs.message }}
-          TARGET_CHANNEL_ID: ${{ env.SLACK_CHANNEL_ID_OPS }}
-        run: |
-          set -euo pipefail
-          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
-          curl -sS "${AI_GATEWAY_URL}/tools/invoke" \
-            -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" \
-            -H "Content-Type: application/json" \
-            -d "$payload"
-
       - name: Create issue on failure
         if: failure()
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
@@ -265,11 +253,13 @@ jobs:
     permissions:
       contents: read
     env:
+      # 이 잡은 시크릿을 하나도 쓰지 않는다 — MED-2 의 가장 강한 형태다.
+      # 예전에는 has-secret boolean 만 job-level 에 두고 실제 값은 "Post to Slack"
+      # step 에 주는 패턴이었는데, 그 step 이 2026-09-18 에 제거됐다(한 번도 실행된
+      # 적이 없었다 — AI_GATEWAY_URL/TOKEN/SLACK_CHANNEL_ID_OPS 가 전부 미등록).
+      # 시크릿을 추가하려면 job-level env 가 아니라 그 step 에 스코프하고
+      # test_ci_ops_orchestrator_partition_guard.py 의 zero 단언을 같이 고칠 것.
       RUN_VERCEL_CHECKS: "false"
-      # MED-2: 시크릿 값은 job-level에 두지 않고 존재 여부 boolean만 노출한다.
-      # 실제 값은 이를 사용하는 "Post to Slack" step에만 부여(on_demand와 동일 패턴).
-      HAS_AI_GATEWAY: ${{ secrets.AI_GATEWAY_URL != '' && secrets.AI_GATEWAY_TOKEN != '' }}
-      HAS_SLACK_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS != '' }}
 
     steps:
       - name: Checkout
@@ -306,22 +296,6 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
-
-      - name: Post to Slack via AI Gateway
-        if: env.HAS_AI_GATEWAY == 'true' && env.HAS_SLACK_OPS == 'true'
-        shell: bash
-        env:
-          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
-          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
-          MESSAGE: ${{ steps.checks.outputs.message }}
-          TARGET_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
-        run: |
-          set -euo pipefail
-          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
-          curl -sS "${AI_GATEWAY_URL}/tools/invoke" \
-            -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" \
-            -H "Content-Type: application/json" \
-            -d "$payload"
 
       - name: Fail run if ops health checks reported a blocking issue
         if: always()
@@ -361,8 +335,6 @@ jobs:
       RUN_UIUX_CHECKS: ${{ github.event.inputs.run_uiux_checks || github.event.client_payload.run_uiux_checks || 'true' }}
       AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || github.event.client_payload.auto_recover_gha || 'true' }}
       # if: 조건용 boolean (시크릿 값이 아님 — 존재 여부만 노출).
-      HAS_AI_GATEWAY: ${{ secrets.AI_GATEWAY_URL != '' && secrets.AI_GATEWAY_TOKEN != '' }}
-      HAS_SLACK_OPS: ${{ secrets.SLACK_CHANNEL_ID_OPS != '' }}
 
     steps:
       - name: Checkout
@@ -413,22 +385,6 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
-
-      - name: Post to Slack via AI Gateway
-        if: env.HAS_AI_GATEWAY == 'true' && env.HAS_SLACK_OPS == 'true'
-        shell: bash
-        env:
-          AI_GATEWAY_URL: ${{ secrets.AI_GATEWAY_URL }}
-          AI_GATEWAY_TOKEN: ${{ secrets.AI_GATEWAY_TOKEN }}
-          MESSAGE: ${{ steps.checks.outputs.message }}
-          TARGET_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID_OPS }}
-        run: |
-          set -euo pipefail
-          payload=$(python -c 'import json,os; message=os.environ.get("MESSAGE", ""); channel_id=os.environ.get("TARGET_CHANNEL_ID", ""); payload={"tool":"message","action":"send","args":{"channel":"slack","target":f"channel:{channel_id}","message":message}}; print(json.dumps(payload, ensure_ascii=False))')
-          curl -sS "${AI_GATEWAY_URL}/tools/invoke" \
-            -H "Authorization: Bearer ${AI_GATEWAY_TOKEN}" \
-            -H "Content-Type: application/json" \
-            -d "$payload"
 
       - name: Fail run if ops health checks reported a blocking issue
         if: always()

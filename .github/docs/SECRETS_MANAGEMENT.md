@@ -150,25 +150,36 @@
 | `VERCEL_PROJECT_ID` | `vercel-firewall-backup` | ✅ 가드 주석 |
 | `VERCEL_TEAM_ID` | `vercel-firewall-backup` | ✅ 가드 주석 |
 | `SLACK_WEBHOOK` | `monitoring` | ✅ 가드 주석 (한 번도 발화한 적 없음) |
-| `AI_GATEWAY_TOKEN` | `ops-orchestrator` | ✅ 2026-09-17 — 아래 "단계 단위 게이트" |
-| `AI_GATEWAY_URL` | `ops-orchestrator` | ✅ 2026-09-17 — 아래 "단계 단위 게이트" |
-| `SLACK_CHANNEL_ID_OPS` | `ops-orchestrator` | ✅ 2026-09-17 — 아래 "단계 단위 게이트" |
+| `AI_GATEWAY_TOKEN` | ~~`ops-orchestrator`~~ | ✅ **2026-09-18 참조 제거** |
+| `AI_GATEWAY_URL` | ~~`ops-orchestrator`~~ | ✅ **2026-09-18 참조 제거** |
+| `SLACK_CHANNEL_ID_OPS` | ~~`ops-orchestrator`~~ | ✅ **2026-09-18 참조 제거** |
 | `CLAUDE_API_KEY` | `ai-blogwatcher` | ✅ 2026-09-17 — 선택적 프로바이더 |
 | `OPENAI_API_KEY` | `ai-blogwatcher` | ✅ 2026-09-17 — 선택적 프로바이더 |
 | `PAGESPEED_API_KEY` | `monitoring`, `ops-orchestrator` | ❌ 미판단 |
 
-**단계 단위 게이트 (AI_GATEWAY_* + SLACK_CHANNEL_ID_OPS).**
-`ops-orchestrator.yml:204` 의 알림 단계가
-`if: always() && env.AI_GATEWAY_URL != '' && env.AI_GATEWAY_TOKEN != '' && env.SLACK_CHANNEL_ID_OPS != ''`
-로 묶여 있다. 셋 다 미등록이라 **그 단계는 존재한 이래 한 번도 실행되지 않았다** —
-`monitoring.yml` 의 `SLACK_WEBHOOK` 과 같은 모양이다.
+**AI_GATEWAY_* + SLACK_CHANNEL_ID_OPS — 2026-09-18 에 참조를 제거했다.**
+
+`ops-orchestrator.yml` 에 AI Gateway 로 Slack 에 보내는 단계가 **세 개**(잡마다 하나)
+있었고, `if: env.HAS_AI_GATEWAY == 'true' && env.HAS_SLACK_OPS == 'true'` 로 묶여 있었다.
+셋 다 미등록이라 **존재한 이래 한 번도 실행되지 않았다** — 워크플로는 2026-08-07 부터
+가동했고, 성공 실행 10건을 표본으로 뽑아 전부 `skipped` 임을 확인했다.
+
+제거한 이유는 "안 돌아서" 가 아니라 **중복이어서**다. 같은 일을 하는 경로가 이미 있다:
+`SLACK_BOT_TOKEN` + `SLACK_CHANNEL_ID` + `scripts/notify_webhook.py` (등록돼 있고
+워크플로 6개가 쓰며 `--require-delivery` 로 테스트된다). AI Gateway 경로는 같은 결과를
+위해 미등록 시크릿 3개와 **외부 자체호스팅 서비스**를 추가로 요구했다. 실패 알림은
+바로 다음 `Create issue on failure` 단계가 `GITHUB_TOKEN` 만으로 이미 수행한다.
 
 `test_ci_secret_absence_guard.py` 의 `NEVER_CONFIGURED` 로 옮기지 **않았다.** 그 목록의
-계약은 "시크릿이 없으면 **워크플로 전체**가 아무 일도 안 한다" 이고, 그래서 짝이 되는
-테스트가 cron 제거까지 요구한다. 여기는 워크플로가 실제 작업을 하고 **알림 한 단계만**
-막히는 경우다. ops-orchestrator 는 6시간마다 도는 스케줄이 있으므로 그 목록에 넣으면
-테스트가 깨지고, 더 중요하게는 **틀린 서술**이 된다. 비슷해 보이는 옆 목록을 재사용하면
-안 되는 사례다.
+계약은 "시크릿이 없으면 **워크플로 전체**가 아무 일도 안 한다" 이고, 짝이 되는 테스트가
+cron 제거까지 요구한다. 여기는 워크플로가 실제 작업을 하고 알림 단계만 막히는 경우이며
+ops-orchestrator 에는 6시간 cron 이 있다. 비슷해 보이는 옆 목록을 재사용하면 안 되는
+사례였다.
+
+⚠️ **다시 넣는다면 게이트웨이 서비스와 시크릿 3개를 같은 PR 에서 함께** 넣어야 한다.
+`priority` 잡은 이제 시크릿이 하나도 없고,
+`test_ci_ops_orchestrator_partition_guard.py::test_priority_job_has_no_secrets_at_all`
+이 그 상태를 고정한다.
 
 **선택적 프로바이더 (`CLAUDE_API_KEY`, `OPENAI_API_KEY`).** `USE_AI` 기본값 `auto` 는
 네 프로바이더 키를 모두 넘기고, `GEMINI_API_KEY` 와 `DEEPSEEK_API_KEY` 는 등록돼 있다.
