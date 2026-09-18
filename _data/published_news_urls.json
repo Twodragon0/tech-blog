@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-17T02:37:13.231609+00:00",
+  "updated_at": "2026-09-18T02:22:37.992353+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/us-becomes-top-target-in-rmm-phishing.html",
-      "title": "US Becomes Top Target in RMM Phishing Campaign Spanning 46 Countries",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/attackers-turn-trusted-nodejs-runtime.html",
-      "title": "Attackers Turn Trusted Node.js Runtime Into Malware Delivery Tool in Targeted At",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/shai-huluds-reach-just-grew-to-469.html",
-      "title": "Shai-Hulud's Reach Just Grew to 469 Credential Locations. Here's What That Means",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/pegasus-zero-click-spyware-exploit.html",
-      "title": "Pegasus Zero-Click Spyware Exploit Infects Serbian Student Movement Member's iPh",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/researcher-releases-falconflank-poc.html",
-      "title": "Researcher Releases FalconFlank PoC Showing Privilege Escalation in CrowdStrike ",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
-      "title": "‘NBA 2K27’ With NVIDIA DLSS 5 Leads 28 New Games Coming to GeForce NOW",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/",
-      "title": "Proactive cyber defense for governments and enterprises",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/accessing-openai-gpt-5-6-models-on-amazon-bedrock-from-australia-with-global-cross-region-inference/",
-      "title": "Accessing OpenAI models on Amazon Bedrock from Australia with global cross-Regio",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/modernizing-and-scaling-support-operations-with-generative-ai-on-aws/",
-      "title": "Modernizing and scaling support operations with generative AI on AWS",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-an-aws-team-detects-dashboard-content-failures-at-scale-using-amazon-bedrock/",
-      "title": "How an AWS team detects dashboard content failures at scale using Amazon Bedrock",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-identity-columns-to-auto-generate-sequential-integers/",
-      "title": "Simplify pipelines with new BigQuery identity columns",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/agentcore-aiops-samsung-2/",
-      "title": "삼성 계정 AIOps: AgentCore기반 AlOps의 실전 활용과 자율성 확장",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/agentcore-aiops-samsung-1/",
-      "title": "삼성 계정 AIOps: AgentCore기반 멀티 에이전트 운영 자동화 여정",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/ec2-nitro-v6-connection-tracking/",
-      "title": "Amazon EC2 Nitro V6의 Connection Tracking 유휴 타임아웃 변경 대응하기",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/automating_finops_tasks_with_amazon_quick/",
-      "title": "Amazon Quick으로 FinOps 업무 자동화하기",
-      "published_date": "2026-09-04",
-      "expires_at": "2026-09-10T15:08:26.584565+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/",
       "title": "N-able patches max severity N-central flaw amid ongoing attacks",
@@ -1080,6 +990,96 @@
       "title": "AWS reimagines the getting started experience",
       "published_date": "2026-09-17",
       "expires_at": "2026-09-24T02:37:13.231523+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/run-open-weight-models-on-aws-bedrock-in-aws-european-sovereign-cloud/",
+      "title": "Run open weight models on Amazon Bedrock in AWS European Sovereign Cloud",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/critical-unbound-dnssec-validator-flaw.html",
+      "title": "Critical Unbound DNSSEC Validator Flaw Could Allow RCE via a Malicious DNS Zone",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-rathat-android-malware-uses-ai-to-automate-device-control/",
+      "title": "New RatHat Android malware uses AI to automate device control",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/can-you-prove-new-cve-is-exploitable.html",
+      "title": "Can You Prove a New CVE Is Exploitable Before Attackers Do? Learn How in This We",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/17/from-guidance-to-action-security-fundamentals-that-materially-reduce-risk/",
+      "title": "From guidance to action: Security fundamentals that materially reduce risk",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-un-data-commons-platform/",
+      "title": "Making global data easier to explore",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-aniimo/",
+      "title": "Cute Critters Come to the Cloud: ‘Aniimo’ Launches on GeForce NOW",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://openai.com/index/cooley-gopublic",
+      "title": "How Cooley is accelerating IPO work with ChatGPT",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/openai-discloses-6-new-cases-of-misaligned-ai-behavior?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "OpenAI discloses 6 new cases of ‘misaligned’ AI behavior",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/reduce-time-to-hire-for-quality-candidates-with-ai-powered-amazon-connect-talent/",
+      "title": "Reduce time-to-hire for quality candidates with AI-powered Amazon Connect Talent",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/google-named-a-leader-in-the-external-threat-intelligence-service-forrester-wave/",
+      "title": "Google named a Leader in the External Threat Intelligence Service Forrester Wave",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/supply-chain-logistics/the-future-of-orchestration-pine59s-journey-to-airflow-3-on-google-cloud/",
+      "title": "The future of orchestration: Pine59’s journey to Airflow 3 on Google Cloud",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/solo-founder-runs-a-global-tender-platform-on-alloydb-and-mcp/",
+      "title": "How a solo founder runs a five-continent tender platform on AlloyDB and MCP",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/new-low-cost-burstable-amazon-ec2-t8i-instances-are-generally-available/",
+      "title": "New low-cost burstable Amazon EC2 T8i instances are generally available",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-elastic-beanstalk-introduces-cluster-mode/",
+      "title": "AWS Elastic Beanstalk introduces Cluster Mode",
+      "published_date": "2026-09-18",
+      "expires_at": "2026-09-25T02:22:37.992251+00:00"
     }
   ]
 }
