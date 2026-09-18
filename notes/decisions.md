@@ -295,6 +295,53 @@ $0 에 Path B 를 연다.
 
 ## 2026-09
 
+### A-H3 자기-재실행 차단이 무효였다 — 이름 목록에서 런타임 유도로 (2026-09-18)
+
+`ops_health_orchestrator.py` 에 테스트를 붙이려다 발견했다. `check_github_actions`
+는 `--auto-recover-gha` 로 실패한 워크플로를 자동 재실행하는데, **자기 자신과 형제
+ops 루프는 재실행하면 안 된다** — 재실행하면 그 안에서 auto-recover 가 또 돌아
+actions:write 를 쥔 자율 재실행 연쇄가 되기 때문이다 (2026-06-30 감사, A-H3).
+
+차단 기준이 워크플로 이름 **리터럴 4개**였다:
+`Ops Multi Agent Loop` / `Ops Priority Loop` / `Ultrawork Loop` / `AI Ops On Demand`.
+
+**2026-09-18 실측: 4개 전부 현존 워크플로와 일치하지 않는다.** 넷이
+`ops-orchestrator.yml` 하나로 통합되면서 `name:` 이 `Ops Orchestrator` 가 됐는데
+목록은 갱신되지 않았다. `gh run list` 가 돌려주는 name 실측에서도 최근 15회 중 4회가
+`Ops Orchestrator` 다. 즉 통합 시점부터 이 보안 통제는 **꺼져 있었다.**
+
+사고가 안 난 이유는 보호받아서가 아니라 운이다 — 최근 50회 실행에서 Ops Orchestrator
+가 실패한 적이 없다. 2026-03/04/06 에 쌓인 ops 실패 이슈 21건이 실패한다는 증거다.
+`AUTO_RECOVER_GHA` 는 스케줄 경로에서 기본 `'true'` 라 크론이 실제로 플래그를 넘긴다.
+
+**수정 — 두 겹으로 바꿨다.**
+1. `GITHUB_WORKFLOW` (Actions 가 주입하는 실행 중 워크플로 이름). 유지보수가 필요
+   없고 자기-재실행을 정확히 덮는다.
+2. `SELF_RERUN_WORKFLOWS` (선언된 형제). 모든 항목이 실제 워크플로 `name:` 과
+   일치하는지 `test_ops_health_orchestrator.py` 가 단언한다 — 이름을 바꾸면 CI 가
+   죽지, 보호가 조용히 사라지지 않는다.
+
+CLAUDE.md 의 "정규 문자열 게이트는 변형에 눈이 멀다" 가 그대로 재현됐다. 이번 변형은
+오탈자가 아니라 **리팩터링으로 바뀐 이름**이었다. 교훈 갱신: 문자열 목록으로 대상을
+지정하는 통제는 **그 문자열이 여전히 무언가와 일치하는지**를 테스트가 물어야 한다.
+
+### ops_health_orchestrator.py 테스트 34건 신설 (2026-09-18)
+
+6시간 주기 크론이 `actions:write` + `issues:write` 로 도는 코드인데 import 하거나
+실행하는 테스트가 **0건**이었다 (`test_ci_python_lint_gate.py` 가 텍스트로 읽어
+`ruff --fix` 금지만 검사). 위 A-H3 무효화가 첫 수확이다.
+
+고정한 불변식: A-H3 차단(+공허하지 않음 대조군), `rerun_limit` 폭발 반경, `skipped`/
+`cancelled`/`in_progress` 를 실패로 세지 않기(priority 레인이 크론 게이트 OFF 라
+상시 `skipped` 를 낸다), 통과한 체크가 전역 priority 를 올리지 않기, **lint-and-types
+만 blocking**(외부 서비스 장애로 크론을 red 로 만들면 그게 알림을 뮤트시키는 길이다),
+빈 문자열 env 를 unset 으로 취급하지 않기(`${{ vars.X }}` 는 미설정 시 "" 로 렌더된다),
+그리고 자격증명 값이 리포트에 도달하지 않기(#746 이후 리포트는 공개 이슈 본문에
+인라인된다).
+
+뮤테이션 프로브 11종 전부 대조군 PASS + 변이 FAIL.
+
+
 ### PAGESPEED_API_KEY 를 등록하지 않고 소비자를 제거한다 (2026-09-18)
 
 시크릿 계약에서 유일하게 판정이 없던 이름이었다. 소비자는 셋 — `check_uiux()`

@@ -177,6 +177,37 @@ def check_vercel() -> CheckResult:
     )
 
 
+# Workflows that may invoke this orchestrator with --auto-recover-gha, and so
+# must never be auto-rerun BY it. Rerunning one re-runs auto-recover inside it:
+# an autonomous rerun chain holding actions:write with no human gate.
+# (Security fix A-H3, 2026-06-30 workflow audit.)
+#
+# This was a literal set of four names — "Ops Multi Agent Loop", "Ops Priority
+# Loop", "Ultrawork Loop", "AI Ops On Demand" — and on 2026-09-18 NONE of the
+# four matched a live workflow. The four had been consolidated into one file
+# whose `name:` is "Ops Orchestrator", and the set was never updated, so the
+# control had been inert since that consolidation. Nothing went wrong only
+# because Ops Orchestrator did not fail in the last 50 runs; the 21 stale ops
+# issues from 2026-03/04/06 show it does fail. A gate keyed to an exact string
+# is blind to the variant, and a renamed workflow is the variant.
+#
+# Two layers now, so a rename cannot silently disarm it again:
+#   1. GITHUB_WORKFLOW — set by Actions to the RUNNING workflow's name. Always
+#      correct, needs no maintenance, and covers the self-rerun case exactly.
+#   2. SELF_RERUN_WORKFLOWS — declared siblings, for the case where a future
+#      second loop workflow can also pass --auto-recover-gha. Every entry is
+#      asserted against the live `.github/workflows/*.yml` `name:` fields by
+#      test_ops_health_orchestrator.py, so a rename fails CI instead of
+#      quietly removing the protection.
+SELF_RERUN_WORKFLOWS = frozenset({"Ops Orchestrator"})
+
+
+def self_rerun_excluded() -> frozenset[str]:
+    """Workflow names this orchestrator must not auto-rerun."""
+    running = os.getenv("GITHUB_WORKFLOW", "").strip()
+    return SELF_RERUN_WORKFLOWS | ({running} if running else frozenset())
+
+
 def check_github_actions(auto_recover: bool, rerun_limit: int) -> CheckResult:
     if shutil.which("gh") is None:
         return CheckResult(
@@ -242,25 +273,12 @@ def check_github_actions(auto_recover: bool, rerun_limit: int) -> CheckResult:
             recommendation="Check gh CLI version and token scope.",
         )
 
-    # Exclude ALL autonomous ops-loop workflows from auto-rerun, not just the
-    # caller. Every loop workflow can invoke this orchestrator with
-    # --auto-recover-gha; if the exclusion covered only "Ops Multi Agent Loop"
-    # then a failed Ultrawork Loop / AI Ops On Demand / Ops Priority Loop could be
-    # rerun by a sibling loop, and the rerun itself re-runs auto-recover — an
-    # uncontrolled autonomous rerun chain with actions:write and no human gate.
-    # (Security fix A-H3, 2026-06-30 workflow audit.)
-    self_workflows = {
-        "Ops Multi Agent Loop",
-        "Ops Priority Loop",
-        "Ultrawork Loop",
-        "AI Ops On Demand",
-    }
     failed_runs = [
         run
         for run in runs
         if run.get("status") == "completed"
         and run.get("conclusion") not in {"success", "neutral", "skipped", "cancelled"}
-        and run.get("name") not in self_workflows
+        and run.get("name") not in self_rerun_excluded()
     ]
 
     rerun_attempts: list[str] = []
