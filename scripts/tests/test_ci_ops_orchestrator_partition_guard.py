@@ -173,14 +173,41 @@ class TestOpsOrchestratorPartitionGuard:
                 "step-scoped:\n  " + "\n  ".join(leaks)
             )
 
-    def test_read_only_jobs_actually_use_step_scoped_secrets(self):
-        # Positive check: step-scoped secrets still exist somewhere in each job
-        # (guards against a "fix" that just deletes them, killing Slack/checks).
+    def test_on_demand_actually_uses_step_scoped_secrets(self):
+        # Positive check: step-scoped secrets still exist in on_demand (guards
+        # against a "fix" that just deletes them, killing the Vercel/Sentry
+        # checks). VERCEL_TOKEN / SENTRY_* / PAGESPEED_API_KEY / GITHUB_TOKEN
+        # live here.
+        #
+        # `priority` used to be in this set. Its ONLY secret usage was the
+        # AI-Gateway Slack step, removed 2026-09-18 after measuring that it had
+        # never executed — all three of AI_GATEWAY_URL / AI_GATEWAY_TOKEN /
+        # SLACK_CHANNEL_ID_OPS are unprovisioned, so its
+        # `if: env.HAS_AI_GATEWAY == 'true' && …` gate was false on every run
+        # (10/10 sampled successful runs: skipped; workflow live since
+        # 2026-08-07). See test_priority_job_has_no_secrets_at_all below — zero
+        # secrets is a STRONGER position than step-scoped, not a regression.
         text = WORKFLOW.read_text(encoding="utf-8")
-        for name in READ_ONLY_JOBS:
-            job_text = _job_block(text, name)
-            assert SECRET_VALUE.search(job_text), (
-                f"{name} no longer references any step-scoped secret; expected the "
-                "AI_GATEWAY/SLACK (and, for on_demand, VERCEL/SENTRY/GITHUB) values "
-                "on the steps that use them."
-            )
+        job_text = _job_block(text, "on_demand")
+        assert SECRET_VALUE.search(job_text), (
+            "on_demand no longer references any step-scoped secret; expected the "
+            "VERCEL/SENTRY/PAGESPEED/GITHUB values on the steps that use them."
+        )
+
+    def test_priority_job_has_no_secrets_at_all(self):
+        """`priority` must stay secret-free — the exact-zero form of MED-2.
+
+        Pinned rather than left unstated: the sibling test above exists because
+        someone could "fix" a secrets finding by deleting the steps that use
+        them. Asserting zero here means a future secret in `priority` has to be
+        added deliberately, at step scope, and this guard updated in the same
+        change — it cannot drift in as a job-level env line.
+        """
+        text = WORKFLOW.read_text(encoding="utf-8")
+        job_text = _job_block(text, "priority")
+        found = sorted(set(re.findall(r"secrets\.([A-Z0-9_]+)", job_text)))
+        assert found == [], (
+            f"priority now references {found}. If that is intentional, scope the "
+            "value to the step that uses it (never job-level env) and move this "
+            "job back into the step-scoped positive check above."
+        )

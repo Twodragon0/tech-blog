@@ -102,6 +102,26 @@ DOCUMENTED_WITHOUT_CONSUMER: Dict[str, str] = {
         "No runtime reader. setup_gemini_oauth.sh / gemini_oauth_setup.py only "
         "PRINT it as an `export ...` hint for local setup."
     ),
+    # The AI-Gateway Slack trio. Listed explicitly even though `code_consumers`
+    # currently finds them, because what it finds is a COMMENT in
+    # test_ci_ops_orchestrator_partition_guard.py explaining the removal — the
+    # substring scan cannot tell prose from a read. That looseness is deliberate
+    # (a missed dynamic read is the expensive direction to be wrong in), so the
+    # accurate record has to live here rather than rely on the grep.
+    "AI_GATEWAY_TOKEN": (
+        "RESOLVED 2026-09-18: the three ops-orchestrator steps that used it were "
+        "removed. Never provisioned, so every one of those steps was skipped on "
+        "every run since 2026-08-07. Re-adding needs the gateway service AND the "
+        "secret in the same change."
+    ),
+    "AI_GATEWAY_URL": (
+        "RESOLVED 2026-09-18 — removed with AI_GATEWAY_TOKEN, same three steps."
+    ),
+    "SLACK_CHANNEL_ID_OPS": (
+        "RESOLVED 2026-09-18 — removed with the AI-Gateway steps. A dedicated ops "
+        "Slack channel was never provisioned; the repo's working Slack path is "
+        "SLACK_BOT_TOKEN + SLACK_CHANNEL_ID via scripts/notify_webhook.py."
+    ),
     # The retired SNS eight. scripts/share_sns.py and linkedin_oauth.py read
     # them from the local environment for manual runs, so they are documented —
     # but as "do not put these in Actions secrets".

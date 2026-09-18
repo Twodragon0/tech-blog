@@ -49,20 +49,31 @@ def test_secret_doc_and_consumers_agree() -> None:
 def test_scanners_are_not_vacuous() -> None:
     """A regex that stops matching would make the check above pass trivially.
 
-    Both numbers are floors, not exact counts — they should only ever grow, and a
-    collapse means the extractor broke rather than the repo shrinking. Measured
-    2026-09-17: 24 documented, 21 read by workflows.
+    These are floors against the EXTRACTOR breaking, not a claim that the counts
+    never fall. A deliberate removal legitimately lowers the second one, and the
+    floor gets lowered with it — in the same change, with the reason:
+
+        2026-09-17  24 documented / 21 read by workflows   (initial measurement)
+        2026-09-17  …            / 20   USE_GEMINI_PRO_IMAGE moved to `vars.`
+        2026-09-18  …            / 17   AI_GATEWAY_URL + AI_GATEWAY_TOKEN +
+                                        SLACK_CHANNEL_ID_OPS references removed
+                                        with the three never-executed
+                                        ops-orchestrator Slack steps
+
+    A collapse to single digits means `_DOC_ENTRY_RE` / `_WORKFLOW_SECRET_RE`
+    stopped matching — fix the regex, do not lower the floor to meet it.
     """
     documented = documented_secrets()
     consumed = workflow_secrets()
     assert len(documented) >= 20, (
         f"Only {len(documented)} secret(s) parsed out of SECRETS_MANAGEMENT.md "
-        "(24 on 2026-09-17). The doc format probably changed — fix _DOC_ENTRY_RE "
+        "(24 on 2026-09-18). The doc format probably changed — fix _DOC_ENTRY_RE "
         "rather than letting the contract check pass on an empty set."
     )
-    assert len(consumed) >= 18, (
-        f"Only {len(consumed)} secret(s) found in .github/workflows/ (21 on "
-        "2026-09-17). Check _WORKFLOW_SECRET_RE."
+    assert len(consumed) >= 15, (
+        f"Only {len(consumed)} secret(s) found in .github/workflows/ (17 on "
+        "2026-09-18). Check _WORKFLOW_SECRET_RE before assuming secrets were "
+        "removed on purpose."
     )
 
 
