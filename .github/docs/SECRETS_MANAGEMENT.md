@@ -225,10 +225,22 @@ ops-orchestrator 에는 6시간 cron 이 있다. 비슷해 보이는 옆 목록�
 
 - `USE_GEMINI_PRO_IMAGE`: 이미지 생성에 Gemini Pro 를 쓸지 (미설정 시 `false` → Flash)
   - 소비자: `scripts/generate_post_images.py`, `scripts/generate_missing_diagrams.py`
-  - ⚠️ 두 소비자의 **로컬 기본값이 서로 다르다** — `generate_post_images.py:146` 은
-    `"true"`, `generate_missing_diagrams.py:42` 는 `"false"`. CI 는 워크플로가 항상
-    `'false'` 를 넘기므로 일치하지만, 환경변수 없이 로컬 실행하면 두 스크립트가 다른
-    모델을 쓴다. 어느 쪽으로 맞출지는 비용·품질 결정이라 미정.
+  - **2026-09-18 에 `false` 로 통일**했다. 이전에는 `generate_post_images.py:146` 만
+    `"true"` 였고 다른 소비자·CI·문서는 전부 Flash 였다. Pro 는 `--use-pro-image`
+    또는 이 변수를 `true` 로 두어 명시적으로 요청한다.
+  - 기본값 3곳이 다시 갈라지면 `scripts/tests/test_gemini_image_flag_defaults.py`
+    가 실패시킨다.
+- `USE_GEMINI_IMAGE_API`: **Gemini 래스터 경로 자체의 게이트** (미설정 시 `false`)
+  - 이 변수(또는 `--use-api`) 없이는 `generate_post_images.py` 가 이미지 API 를
+    호출하지 않는다. 2026-09-18 이전에는 게이트가 `if GEMINI_API_KEY:` 뿐이라,
+    셸에 키를 export 해 둔 것만으로 API 를 호출하고 **성공 시 L20/L22/L25 SVG
+    커버 시스템 전체를 건너뛰었다** — 포스트의 `image:` 는 `.svg` 인데 래스터는
+    `<stem>.png` 로 저장되므로, 참조되는 SVG 가 생성되지 않는다.
+  - 코퍼스에서 발화한 적은 없다 (2026-09-18 실측: `image:` 미해석 포스트 0건).
+    기존 커버가 있으면 `has_image and not force` 에서 조기 반환하고 CI 는 키를
+    넘기지 않기 때문이다. `--force` 로 다이제스트를 훑는 실행이 정확히 이걸 건드린다.
+  - CI 동작은 바뀌지 않는다. `generate-images.yml` 은 `use_api` 입력(기본 `false`)
+    으로 이미 opt-in 이었고, 이제 같은 판정을 `USE_GEMINI_IMAGE_API` 로도 넘긴다.
 - `AI_BLOGWATCHER_SCHEDULE`, `ULTRAWORK_LOOP_SCHEDULE`, `GSC_SITE_URL`,
   `AUTO_PUBLISH_GEMINI_MODEL`, `SLACK_CATEGORY_DIGEST_SCHEDULE` 도 같은 범주다.
 

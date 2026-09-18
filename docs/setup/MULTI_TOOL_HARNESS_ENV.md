@@ -42,7 +42,8 @@ breaker (e.g. Gemini failover to DeepSeek in `enhancer.py`).
 |-----|---------|--------|
 | `DEEPSEEK_MODEL` | `deepseek-chat` | Override to `deepseek-reasoner` for harder prompts. |
 | `GPT54_MODEL` | `gpt-5.4` | Set to model snapshot date for stability. |
-| `USE_GEMINI_PRO_IMAGE` | `true` | `false` → text-only Gemini path (cheaper). |
+| `USE_GEMINI_IMAGE_API` | `false` | **Gate for the Gemini raster path.** `true` (or `--use-api`) makes `generate_post_images.py` call the image API; a successful call writes `<stem>.png` and **skips the L20/L22/L25 SVG cover generators**, while the post's `image:` still points at `.svg`. Leave off unless you specifically want a raster cover. |
+| `USE_GEMINI_PRO_IMAGE` | `false` | Model when the gate above is on: `true` → `gemini-3-pro-image`, `false` → `gemini-2.5-flash-image`. Was documented as `true` until 2026-09-18, which matched neither CI nor `generate_missing_diagrams.py`. |
 | `USE_GPT54_PROMPT_ENHANCER` | `true` | `false` → skip OpenAI enhancement step. |
 | `USE_PROFESSIONAL_IMAGE_STYLE` | `true` | Toggles editorial vs casual SVG layout. |
 | `USE_L20_HERO` | `1` | `0` falls back to legacy `generate_svg_image` cover. |
@@ -174,7 +175,8 @@ DEEPSEEK_API_KEY=sk-...
 
 # === Model selection ===
 DEEPSEEK_MODEL=deepseek-chat
-USE_GEMINI_PRO_IMAGE=true
+USE_GEMINI_IMAGE_API=false
+USE_GEMINI_PRO_IMAGE=false
 USE_GPT54_PROMPT_ENHANCER=true
 
 # === OAuth ===
@@ -257,6 +259,7 @@ PY
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
 | `503` from `/api/chat` | `DEEPSEEK_API_KEY` not set in Vercel | Add via Vercel Dashboard, redeploy. |
-| `Gemini circuit breaker OPEN` in build log | Free quota exhausted | Wait or set `USE_GEMINI_PRO_IMAGE=false`. |
+| `Gemini circuit breaker OPEN` in build log | Free quota exhausted | Wait, or unset `USE_GEMINI_IMAGE_API` to take the SVG path (no API cost). |
+| Post has a `.png` cover but `image:` points at `.svg` | `USE_GEMINI_IMAGE_API=true` — the raster path ran and the SVG generator was skipped | Unset it and re-run `generate_post_images.py --force` for that post. |
 | Sentry not capturing errors | `SENTRY_DSN` empty in `_config.yml` | Vercel env var → build.sh injection. |
 | GH Actions step "secrets not found" | Job missing `secrets:` mapping | Add to job-level `env:` or `with:`. |
