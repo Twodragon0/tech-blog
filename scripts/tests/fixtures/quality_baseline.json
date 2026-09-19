@@ -4413,7 +4413,7 @@
     }
   },
   "2026-09-12-Tech_Security_Weekly_Digest_Data_AI_AWS_Malware.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4423,12 +4423,12 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-09-13-Tech_Security_Weekly_Digest_AWS_AI_Agent_Data.md": {
-    "total": 93,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4438,7 +4438,7 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },

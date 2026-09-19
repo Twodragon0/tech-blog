@@ -40,3 +40,8 @@ ruff>=0.16.7
 # removal is loud and needs no entry in test_ci_pytest_deps_guard.py. That guard exists
 # for deps whose absence is SILENT.
 python-dotenv>=1.2.3
+
+# feedparser — test_collect_tech_news_timeout loads collect_tech_news.py, which
+# imports feedparser at module level.
+feedparser>=6.0.14
+

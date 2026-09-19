@@ -12,6 +12,7 @@ Usage:
 """
 
 import argparse
+import concurrent.futures
 import hashlib
 import json
 import os
@@ -28,8 +29,8 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 
-# 기본 소켓 타임아웃 설정 (개별 피드 행 방지)
-DEFAULT_FEED_TIMEOUT = 30  # seconds
+# 기본 소켓 타임아웃 설정 (개별 피드 지연 방지 - 10초로 경량화)
+DEFAULT_FEED_TIMEOUT = 10  # seconds
 
 
 # ============================================================================
@@ -1183,7 +1184,10 @@ def clean_html(html_content: str) -> str:
 
 
 def fetch_skshieldus_insight(
-    source_key: str, source_config: dict, hours: int = 24
+    source_key: str,
+    source_config: dict,
+    hours: int = 24,
+    timeout: int = DEFAULT_FEED_TIMEOUT,
 ) -> List[NewsItem]:
     """SK쉴더스 인사이트 페이지에서 뉴스 수집 (EQST insight / Report)"""
     items = []
@@ -1199,7 +1203,7 @@ def fetch_skshieldus_insight(
             "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
         }
 
-        response = requests.get(insight_url, headers=headers, timeout=30)
+        response = requests.get(insight_url, headers=headers, timeout=timeout)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
@@ -1216,6 +1220,8 @@ def fetch_skshieldus_insight(
 
         print(f"    Found {len(items)} items")
 
+    except (requests.Timeout, socket.timeout, TimeoutError):
+        print(f"    Timeout: {source_config['name']} ({timeout}s)")
     except requests.RequestException as e:
         print(f"    Error fetching SK쉴더스: {e}")
 
@@ -1223,7 +1229,10 @@ def fetch_skshieldus_insight(
 
 
 def fetch_worldmonitor_tech(
-    source_key: str, source_config: dict, hours: int = 24
+    source_key: str,
+    source_config: dict,
+    hours: int = 24,
+    timeout: int = DEFAULT_FEED_TIMEOUT,
 ) -> List[NewsItem]:
     items: List[NewsItem] = []
     target_url = source_config.get("url", "").strip()
@@ -1267,7 +1276,7 @@ def fetch_worldmonitor_tech(
             "User-Agent": "TechBlog-NewsCollector/1.0",
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         }
-        response = requests.get(target_url, headers=headers, timeout=30)
+        response = requests.get(target_url, headers=headers, timeout=timeout)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
@@ -1286,6 +1295,9 @@ def fetch_worldmonitor_tech(
         meta_desc = soup.select_one('meta[name="description"]')
         if meta_desc and meta_desc.get("content"):
             description = str(meta_desc.get("content", "")).strip()
+    except (requests.Timeout, socket.timeout, TimeoutError):
+        print(f"    Timeout: {source_config['name']} ({timeout}s)")
+        return []
     except requests.RequestException as e:
         print(f"    Error fetching world monitor: {e}")
 
@@ -1587,7 +1599,10 @@ def fetch_og_image(url: str, timeout: int = 10) -> str:
 
 
 def fetch_rss_feed(
-    source_key: str, source_config: dict, hours: int = 24, timeout: int = 30
+    source_key: str,
+    source_config: dict,
+    hours: int = 24,
+    timeout: int = DEFAULT_FEED_TIMEOUT,
 ) -> List[NewsItem]:
     """RSS 피드에서 뉴스 수집 (per-feed socket timeout 적용)"""
     items: List[NewsItem] = []
@@ -1612,8 +1627,11 @@ def fetch_rss_feed(
             )
             resp.raise_for_status()
             feed = feedparser.parse(resp.content)
+        except (requests.Timeout, socket.timeout, TimeoutError):
+            print(f"    Timeout: {source_config['name']} ({timeout}s)")
+            return items
         except requests.RequestException:
-            # requests 실패 시 feedparser 직접 호출 (fallback)
+            # requests 실패(SSL, 403 차단 등) 시에만 feedparser 직접 호출 (fallback)
             feed = feedparser.parse(
                 feed_url,
                 request_headers={"User-Agent": "TechBlog-NewsCollector/1.0"},
@@ -1690,7 +1708,7 @@ def fetch_rss_feed(
             # 이미지 추출: RSS 엔트리 → og:image fallback
             image = extract_image_from_entry(entry)
             if not image and url:
-                image = fetch_og_image(url, timeout=8)
+                image = fetch_og_image(url, timeout=5)
 
             item = NewsItem(
                 id=generate_id(url),
@@ -1712,7 +1730,7 @@ def fetch_rss_feed(
 
         print(f"    Found {len(items)} items")
 
-    except socket.timeout:
+    except (socket.timeout, TimeoutError, requests.Timeout):
         print(f"    Timeout: {source_config['name']} ({timeout}s)")
     except (KeyError, AttributeError, TypeError) as e:
         print(f"    Error: {e}")
@@ -1722,13 +1740,31 @@ def fetch_rss_feed(
     return items
 
 
+def _fetch_source_item(
+    source_key: str, source_config: dict, hours: int, feed_timeout: int
+) -> List[NewsItem]:
+    """단일 뉴스 소스 수집 래퍼"""
+    scraper = source_config.get("scraper")
+    if scraper and scraper.startswith("skshieldus"):
+        return fetch_skshieldus_insight(
+            source_key, source_config, hours, timeout=feed_timeout
+        )
+    elif scraper == "worldmonitor_tech":
+        return fetch_worldmonitor_tech(
+            source_key, source_config, hours, timeout=feed_timeout
+        )
+    else:
+        return fetch_rss_feed(source_key, source_config, hours, timeout=feed_timeout)
+
+
 def fetch_all_news(
     sources: Optional[List[str]] = None,
     hours: int = 24,
     feed_timeout: int = DEFAULT_FEED_TIMEOUT,
+    workers: int = 1,
 ) -> List[NewsItem]:
-    """모든 소스에서 뉴스 수집"""
-    all_items = []
+    """모든 소스에서 뉴스 수집 (순차 및 비동기 멀티스레드 지원)"""
+    all_items: List[NewsItem] = []
 
     # 소스 필터링
     if sources:
@@ -1736,21 +1772,28 @@ def fetch_all_news(
     else:
         active_sources = NEWS_SOURCES
 
+    worker_msg = f", {workers} workers" if workers > 1 else ""
     print(
-        f"\nCollecting news from {len(active_sources)} sources (last {hours} hours, timeout {feed_timeout}s/feed)...\n"
+        f"\nCollecting news from {len(active_sources)} sources (last {hours} hours, timeout {feed_timeout}s/feed{worker_msg})...\n"
     )
 
-    for source_key, source_config in active_sources.items():
-        scraper = source_config.get("scraper")
-        if scraper and scraper.startswith("skshieldus"):
-            items = fetch_skshieldus_insight(source_key, source_config, hours)
-        elif scraper == "worldmonitor_tech":
-            items = fetch_worldmonitor_tech(source_key, source_config, hours)
-        else:
-            items = fetch_rss_feed(
-                source_key, source_config, hours, timeout=feed_timeout
-            )
-        all_items.extend(items)
+    if workers > 1:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
+            future_to_source = {
+                executor.submit(_fetch_source_item, k, v, hours, feed_timeout): k
+                for k, v in active_sources.items()
+            }
+            for future in concurrent.futures.as_completed(future_to_source):
+                src_key = future_to_source[future]
+                try:
+                    items = future.result()
+                    all_items.extend(items)
+                except Exception as e:
+                    print(f"    Error collecting from {src_key}: {e}")
+    else:
+        for source_key, source_config in active_sources.items():
+            items = _fetch_source_item(source_key, source_config, hours, feed_timeout)
+            all_items.extend(items)
 
     # 중복 제거 (URL 기준)
     seen_urls = set()
@@ -1883,6 +1926,12 @@ def main():
         default=DEFAULT_FEED_TIMEOUT,
         help=f"Per-feed socket timeout in seconds (default: {DEFAULT_FEED_TIMEOUT})",
     )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=1,
+        help="Number of concurrent worker threads for collection (default: 1)",
+    )
 
     args = parser.parse_args()
 
@@ -1909,7 +1958,10 @@ def main():
 
     # 뉴스 수집
     items = fetch_all_news(
-        sources=sources, hours=args.hours, feed_timeout=args.feed_timeout
+        sources=sources,
+        hours=args.hours,
+        feed_timeout=args.feed_timeout,
+        workers=args.workers,
     )
 
     # 최근 포스트에서 다룬 뉴스 제목 중복 제거

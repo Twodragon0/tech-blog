@@ -323,7 +323,11 @@ mitre_attack:
 
 - [ ] **Nvidia, 기록적인 Anthropic IPO 가능성에 100억 달러 투자 검토 (로이터)** 관련 AI 보안 정책 검토
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
-## 참고 자료
+## 관련 포스트 및 참고 자료
+
+- 2026년 09월 12일 주간 보안 다이제스트: {% post_url 2026-09-12-Tech_Security_Weekly_Digest_Data_AI_AWS_Malware %}
+- 2026년 09월 11일 주간 보안 다이제스트: {% post_url 2026-09-11-Tech_Security_Weekly_Digest_AWS_Threat_Go_Malware %}
+- 2026년 09월 10일 주간 보안 다이제스트: {% post_url 2026-09-10-Tech_Security_Weekly_Digest_Cloud_Threat_AI_Security %}
 
 | 리소스 | 링크 |
 |--------|------|
