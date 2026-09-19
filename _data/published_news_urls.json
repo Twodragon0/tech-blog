@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-18T02:22:37.992353+00:00",
+  "updated_at": "2026-09-19T02:25:23.222738+00:00",
   "entries": [
     {
       "url": "https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/",
@@ -1080,6 +1080,96 @@
       "title": "AWS Elastic Beanstalk introduces Cluster Mode",
       "published_date": "2026-09-18",
       "expires_at": "2026-09-25T02:22:37.992251+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/public-exploits-released-for-four-linux.html",
+      "title": "Public Exploits Released for Four Linux Kernel Flaws That Enable Local Root",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/new-wordpress-click2shell-flaw-forces.html",
+      "title": "New WordPress Click2Shell Flaw Forces Theme Installs, Can Chain to Code Executio",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/transparent-tribe-deploys-new-rust.html",
+      "title": "Transparent Tribe Deploys New Rust Backdoor Using Private GitHub Repositories fo",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/microsoft-patches-cvss-100-azure-ai.html",
+      "title": "Microsoft Patches CVSS 10.0 Azure AI Foundry Flaw Enabling Unauthorized Privileg",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/an-abandoned-cdn-domain-was-re.html",
+      "title": "An Abandoned CDN Domain Was Re-Registered. Thousands of Sites Still Call It.",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/",
+      "title": "New experts join Google’s AI & Economy team",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
+      "title": "Co-creating the future of fashion with Google",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/leave-the-class-path-in-the-rearview-mirror-67a85b15b6be?source=rss----2615bd06b42e---4",
+      "title": "Leave the Class Path in the Rearview Mirror",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-inference-2026-year-to-date-launches-in-review/",
+      "title": "Amazon SageMaker Inference: 2026 year-to-date launches in review",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-kimi-k3-on-amazon-bedrock/",
+      "title": "Introducing Kimi K3 on Amazon Bedrock",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/native-bm25-search-in-alloydb-and-cloud-sql/",
+      "title": "Announcing Native BM25 Ranking in AlloyDB and Cloud SQL",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/reimagining-service-delivery-in-the-agentic-era-with-google-public-sector/",
+      "title": "Reimagining service delivery in the agentic era with Google Public Sector",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-devfest-community-workshop-experience-building-real-agents-together/",
+      "title": "The DevFest Community Workshop Experience: Building Real Agents Together",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/consulting/upskill-your-ai-using-daily-micro-habits/",
+      "title": "How to upskill enterprise AI builders by using daily micro habits",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/borderless-lakehouse-cross-cloud-caching-and-connections/",
+      "title": "Accelerating the borderless Lakehouse: Announcing preview of cross-cloud caching",
+      "published_date": "2026-09-19",
+      "expires_at": "2026-09-26T02:25:23.222675+00:00"
     }
   ]
 }
