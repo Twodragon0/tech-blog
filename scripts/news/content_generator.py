@@ -1506,6 +1506,40 @@ def _format_stats_block(stats: Dict[str, int], total: int) -> str:
     return "\n".join(lines)
 
 
+def _get_recent_digest_links(post_date: datetime, count: int = 3) -> str:
+    """_posts 디렉토리에서 post_date 직전의 주간 다이제스트 포스트 링크({% post_url %}) 목록을 반환."""
+    posts_dir = Path(__file__).resolve().parent.parent.parent / "_posts"
+    if not posts_dir.is_dir():
+        return ""
+
+    current_date_str = post_date.strftime("%Y-%m-%d")
+    matched_links: List[str] = []
+
+    for path in sorted(
+        posts_dir.glob("20*-Tech_Security_Weekly_Digest_*.md"), reverse=True
+    ):
+        filename = path.name
+        file_date = filename[:10]
+        if file_date >= current_date_str:
+            continue
+        slug = path.stem
+        try:
+            d = datetime.strptime(file_date, "%Y-%m-%d")
+            display_date = d.strftime("%Y년 %m월 %d일")
+        except ValueError:
+            display_date = file_date
+        matched_links.append(
+            f"- {display_date} 주간 보안 다이제스트: {{% post_url {slug} %}}"
+        )
+        if len(matched_links) >= count:
+            break
+
+    if not matched_links:
+        return ""
+
+    return "\n".join(matched_links) + "\n\n"
+
+
 def generate_post_content(
     news_items: List[Dict],
     categorized: Dict[str, List[Dict]],
@@ -1832,9 +1866,12 @@ toc: true
     # 뉴스 기반 실무 체크리스트
     content += _generate_news_specific_checklist(news_items)
 
-    content += """## 참고 자료
+    recent_links = _get_recent_digest_links(date)
+    heading = "## 관련 포스트 및 참고 자료" if recent_links else "## 참고 자료"
 
-| 리소스 | 링크 |
+    content += f"""{heading}
+
+{recent_links}| 리소스 | 링크 |
 |--------|------|
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
@@ -2150,7 +2187,18 @@ toc: true
     content += _generate_tech_trend_analysis(news_items, section_num)
     content += _generate_news_specific_checklist(news_items)
 
-    content += """---
+    recent_links = _get_recent_digest_links(date)
+    heading = "## 관련 포스트 및 참고 자료" if recent_links else "## 참고 자료"
+
+    content += f"""{heading}
+
+{recent_links}| 리소스 | 링크 |
+|--------|------|
+| CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) |
+| MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) |
+| FIRST EPSS | [first.org/epss](https://www.first.org/epss/) |
+
+---
 
 **작성자**: Twodragon
 """

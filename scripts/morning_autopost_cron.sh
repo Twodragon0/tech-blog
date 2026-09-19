@@ -43,7 +43,7 @@ run_cmd git pull --ff-only
 
 run_cmd python3 scripts/fix_malformed_liquid_includes.py
 
-run_cmd python3 scripts/collect_tech_news.py --hours "$HOURS" --output _data/collected_news.json --feed-timeout 15 || true
+run_cmd python3 scripts/collect_tech_news.py --hours "$HOURS" --output _data/collected_news.json --feed-timeout 15 --workers 4 || true
 
 if [ -f "_data/collected_news.json" ]; then
   cp "_data/collected_news.json" "data/collected_news.json"

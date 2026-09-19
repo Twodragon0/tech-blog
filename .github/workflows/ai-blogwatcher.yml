@@ -167,7 +167,7 @@ jobs:
         if: env.BLOGWATCHER_NEWS_URL == '' && env.BLOGWATCHER_NEWS_JSON == ''
         run: |
           echo "Collecting news from last ${HOURS} hours..."
-          timeout 480 python3 scripts/collect_tech_news.py --hours "${HOURS}" --output _data/collected_news.json --feed-timeout 15 || {
+          timeout 480 python3 scripts/collect_tech_news.py --hours "${HOURS}" --output _data/collected_news.json --feed-timeout 15 --workers 4 || {
             echo "::warning::RSS collection timed out or failed, checking existing data..."
           }
 
