@@ -66,8 +66,12 @@ BASES = (
 )
 
 _EXT = re.compile(r"\.(py|ya?ml|md|sh|json|js|mjs|rb|html|txt|svg)$")
-# Not paths: glob patterns, URLs, Liquid/template fragments.
-_NOT_A_PATH = re.compile(r"[*?]|://|\{[%{]")
+# Not paths: glob patterns, URLs, Liquid/template fragments, and bare suffixes.
+# The last class was added 2026-09-18 when this guard fired on
+# `SOURCE_SUFFIXES = (".py", ".yml", ".yaml", ".sh")` in a new dev script — a
+# suffix tuple is a filter, not a list of files. Found by the guard doing its
+# job on new code, which is the point.
+_NOT_A_PATH = re.compile(r"[*?]|://|\{[%{]|^\.\w+$")
 
 # Entries known dead, kept deliberately. Each says what would remove it — an
 # exemption without an exit condition is a permanent hole, which this repo has
@@ -227,6 +231,8 @@ def test_globs_and_urls_are_not_treated_as_paths() -> None:
         "scripts/**/*.py",  # _SEARCH_GLOBS
         "https://www.json.org/json-en.html",  # INVALID_LINKS
         "{% include news-card.html",  # _GROUND_TRUTH_OPENERS
+        ".py",  # SOURCE_SUFFIXES — a suffix filter, not a file
+        ".yaml",
     ):
         assert _NOT_A_PATH.search(not_a_path), (
             f"{not_a_path!r} would now be treated as a repo path and reported as "

@@ -261,3 +261,60 @@ def test_pagespeed_decision_says_do_not_provision() -> None:
         "The entry should name where the measurement actually lives, or the next "
         "reader will think CWV monitoring was simply dropped."
     )
+
+
+def test_docstrings_do_not_count_as_consumers(tmp_path, monkeypatch) -> None:
+    """A name inside a `\"\"\"...\"\"\"` is prose, not a read.
+
+    Found the hard way on 2026-09-19: adding `scripts/dev/probe_guard_vacuity.py`,
+    whose module docstring *describes* the PAGESPEED_API_KEY incident, made that
+    secret look consumed again — breaking the very guard written to catch this.
+    The earlier version called leaving docstrings in "the safe direction"; it was
+    just the unbuilt one.
+
+    It also only failed after `git add`, because `code_consumers` walks
+    `git grep` and that reads the index. A bare `pytest` on an untracked file
+    passed while the pre-commit hook failed.
+    """
+    import check_secret_contract as mod
+
+    assert mod.code_consumers("PAGESPEED_API_KEY") == [], (
+        "PAGESPEED_API_KEY looks consumed again. If the hits are prose — a "
+        "docstring or a comment describing the removal — the filter regressed."
+    )
+
+
+def test_docstring_filter_is_not_over_broad(tmp_path) -> None:
+    """Only a bare string STATEMENT is a docstring.
+
+    A string that is assigned, passed or returned is data — `os.getenv("X")`,
+    a lookup table, an f-string command — and must keep counting. Stripping
+    those would declare live credentials dead, which is the expensive direction.
+    """
+    import check_secret_contract as mod
+
+    src = tmp_path / "sample.py"
+    src.write_text(
+        '''"""Module prose mentioning DOCSTRING_ONLY_NAME."""
+
+import os
+
+VALUE = os.getenv("REAL_CODE_NAME", "")
+
+
+def f():
+    """Function prose mentioning DOCSTRING_ONLY_NAME again."""
+    return VALUE
+''',
+        encoding="utf-8",
+    )
+    doc_lines = mod._docstring_lines(src)
+    text = src.read_text(encoding="utf-8").splitlines()
+    for i, line in enumerate(text, 1):
+        if "DOCSTRING_ONLY_NAME" in line:
+            assert i in doc_lines, f"line {i} is a docstring but was not detected"
+        if "REAL_CODE_NAME" in line:
+            assert i not in doc_lines, (
+                f"line {i} is an os.getenv call, not a docstring — the filter is "
+                "over-broad and would declare live secrets unused."
+            )
