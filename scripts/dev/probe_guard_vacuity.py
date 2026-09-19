@@ -61,60 +61,43 @@ import tokenize
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from scripts.lib import source_text  # noqa: E402
+
 TESTS_DIR = REPO_ROOT / "scripts" / "tests"
 SOURCE_SUFFIXES = (".py", ".yml", ".yaml", ".sh")
 
 
-def noncode_spans(path: Path) -> dict[int, list[tuple[int, int]]]:
-    """line -> [(col_start, col_end)] covered by a comment or a docstring."""
-    text = path.read_text(encoding="utf-8", errors="replace")
-    spans: dict[int, list[tuple[int, int]]] = collections.defaultdict(list)
-    if path.suffix == ".py":
-        lines = text.splitlines()
-        try:
-            tree = ast.parse(text)
-        except SyntaxError:
-            tree = None
-        if tree is not None:
-            for node in ast.walk(tree):
-                if isinstance(node, ast.Expr) and isinstance(node.value, ast.Constant):
-                    if isinstance(node.value.value, str):
-                        for ln in range(
-                            node.lineno, (node.end_lineno or node.lineno) + 1
-                        ):
-                            width = len(lines[ln - 1]) if ln - 1 < len(lines) else 10**6
-                            spans[ln].append((0, width))
-        try:
-            for tok in tokenize.generate_tokens(io.StringIO(text).readline):
-                if tok.type == tokenize.COMMENT:
-                    spans[tok.start[0]].append((tok.start[1], 10**6))
-        except tokenize.TokenError:
-            pass
-    else:
-        for i, line in enumerate(text.splitlines(), 1):
-            if line.lstrip().startswith("#"):
-                spans[i].append((0, 10**6))
-    return spans
-
-
 def blank_noncode(path: Path, literal: str) -> tuple[str, int]:
-    """Replace `literal` with same-length filler only at non-code positions."""
+    """Replace `literal` with same-length filler only at non-code positions.
+
+    Uses the one shared fold in `scripts/lib/source_text` (2026-09-19), so this
+    tool and the guards it audits agree on what "code" means. Seven private
+    copies of that idea did not agree, which is what the consolidation fixed.
+    """
     text = path.read_text(encoding="utf-8")
-    spans = noncode_spans(path)
-    out, changed = [], 0
-    for i, line in enumerate(text.splitlines(), 1):
-        cur, start = line, 0
+    try:
+        spans = source_text.noncode_spans(text, suffix=path.suffix)
+    except SyntaxError:
+        # A visible skip, not a quietly weaker fold. An unparseable file cannot
+        # be classified, and pretending otherwise is the defect this tool hunts.
+        return text, 0
+    out, changed = list(text), 0
+    for start, end in spans:
+        offset = 0
+        region = text[start:end]
         while True:
-            j = cur.find(literal, start)
+            j = region.find(literal, offset)
             if j < 0:
                 break
-            if any(a <= j < b for a, b in spans.get(i, [])):
-                cur = cur[:j] + ("░" * len(literal)) + cur[j + len(literal) :]
-                changed += 1
-            start = j + 1
-        out.append(cur)
-    tail = "\n" if text.endswith("\n") else ""
-    return "\n".join(out) + tail, changed
+            for k in range(start + j, min(start + j + len(literal), len(out))):
+                if out[k] != "\n":
+                    out[k] = "░"
+            changed += 1
+            offset = j + 1
+    return "".join(out), changed
 
 
 def _passes(test: Path) -> bool:

@@ -36,6 +36,8 @@ from news.content_generator import (
     _generate_trend_analysis,
 )
 
+from scripts.lib.source_text import code_tokens_only
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 GENERATOR = REPO_ROOT / "scripts" / "news" / "content_generator.py"
 
@@ -250,20 +252,12 @@ def _code_only(source: str) -> str:
 
     So that a source guard does not trip on prose that merely quotes the thing
     it forbids — the mistake that broke ``test_inline_gate_registry`` once.
+
+    Delegates to the shared fold since 2026-09-19. Seven private copies of this
+    idea were in the tree and they disagreed: the line-prefix ones kept trailing
+    comments and docstrings.
     """
-    lines = source.splitlines(keepends=True)
-    starts = [0]
-    for line in lines:
-        starts.append(starts[-1] + len(line))
-    out = list(source)
-    for token in tokenize.generate_tokens(io.StringIO(source).readline):
-        if token.type not in (tokenize.COMMENT, tokenize.STRING):
-            continue
-        (srow, scol), (erow, ecol) = token.start, token.end
-        for i in range(starts[srow - 1] + scol, min(starts[erow - 1] + ecol, len(out))):
-            if out[i] != "\n":
-                out[i] = " "
-    return "".join(out)
+    return code_tokens_only(source)
 
 
 def test_the_generator_still_calls_the_assertion():

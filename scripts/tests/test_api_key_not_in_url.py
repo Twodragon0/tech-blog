@@ -42,6 +42,8 @@ from pathlib import Path
 
 import pytest
 
+from scripts.lib.source_text import without_comments
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 # `key=` immediately after ? or & followed by an interpolation of something
@@ -84,11 +86,19 @@ def _code_lines(path: Path) -> list[tuple[int, str]]:
     `?key=<API key>` shape on purpose. Matching raw text would flag the
     explanation and, worse, would keep passing if someone deleted the comment
     while reintroducing the bug.
+
+    Shared fold (`scripts/lib/source_text`) since 2026-09-19 — the private
+    version dropped whole-line comments only, so a trailing comment or a
+    docstring naming the `?key=` shape still read as code. Blanking preserves
+    line numbers, which this guard reports to the developer.
+
+    `without_comments`, not `code_tokens_only`: the URL is BUILT in an f-string,
+    so blanking string literals would hide the very thing being looked for.
     """
-    lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
-    return [
-        (i + 1, ln) for i, ln in enumerate(lines) if not ln.lstrip().startswith("#")
-    ]
+    folded = without_comments(
+        path.read_text(encoding="utf-8", errors="replace"), suffix=path.suffix
+    )
+    return list(enumerate(folded.splitlines(), start=1))
 
 
 @pytest.mark.parametrize("path", _python_sources(), ids=lambda p: str(p.name))
