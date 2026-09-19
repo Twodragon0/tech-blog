@@ -35,6 +35,8 @@ from pathlib import Path
 
 import yaml
 
+from scripts.lib.source_text import without_comments
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "python-lint.yml"
 ORCHESTRATOR = REPO_ROOT / "scripts" / "ops_health_orchestrator.py"
@@ -51,11 +53,18 @@ def _ruff_pins(text: str) -> set[str]:
     return set(re.findall(r"ruff==(\d+\.\d+\.\d+)", _code_lines(text)))
 
 
-def _code_lines(text: str) -> str:
-    """Drop whole-line comments so prose about a flag is not read as using it."""
-    return "\n".join(
-        line for line in text.splitlines() if not line.lstrip().startswith("#")
-    )
+def _code_lines(text: str, suffix: str = ".yml") -> str:
+    """Drop commentary so prose about a flag is not read as using it.
+
+    Shared fold (`scripts/lib/source_text`) since 2026-09-19. The private
+    version dropped whole-line comments only, so a trailing `# …--fix…` or a
+    docstring naming a flag still counted as using it.
+
+    `without_comments`, not `code_tokens_only`: the flags this guard looks for
+    live INSIDE strings (`run_command(["ruff", "check", "--fix"])`), so blanking
+    string literals would make every assertion here vacuous.
+    """
+    return without_comments(text, suffix=suffix)
 
 
 class TestPullRequestLintWorkflow:
@@ -211,7 +220,7 @@ class TestBothRuffGatesRunTheSameVersion:
 class TestOrchestratorDoesNotRepairBeforeVerifying:
     @classmethod
     def _code(cls) -> str:
-        return _code_lines(ORCHESTRATOR.read_text(encoding="utf-8"))
+        return _code_lines(ORCHESTRATOR.read_text(encoding="utf-8"), ".py")
 
     def test_orchestrator_exists(self):
         assert ORCHESTRATOR.is_file(), f"{ORCHESTRATOR} not found"

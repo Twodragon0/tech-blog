@@ -285,36 +285,28 @@ def test_docstrings_do_not_count_as_consumers(tmp_path, monkeypatch) -> None:
 
 
 def test_docstring_filter_is_not_over_broad(tmp_path) -> None:
-    """Only a bare string STATEMENT is a docstring.
+    """A consumer that reads the secret in code must still count.
 
-    A string that is assigned, passed or returned is data — `os.getenv("X")`,
-    a lookup table, an f-string command — and must keep counting. Stripping
-    those would declare live credentials dead, which is the expensive direction.
+    The over-folding direction is the expensive one: blanking functional string
+    literals would make `os.getenv("NAME")` invisible and declare a live
+    credential unused. The fold itself is pinned in test_source_text.py; this
+    checks the property end-to-end through code_consumers.
     """
     import check_secret_contract as mod
 
     src = tmp_path / "sample.py"
     src.write_text(
-        '''"""Module prose mentioning DOCSTRING_ONLY_NAME."""
+        '''"""Prose naming DOCSTRING_ONLY_NAME."""
 
 import os
 
 VALUE = os.getenv("REAL_CODE_NAME", "")
-
-
-def f():
-    """Function prose mentioning DOCSTRING_ONLY_NAME again."""
-    return VALUE
 ''',
         encoding="utf-8",
     )
-    doc_lines = mod._docstring_lines(src)
-    text = src.read_text(encoding="utf-8").splitlines()
-    for i, line in enumerate(text, 1):
-        if "DOCSTRING_ONLY_NAME" in line:
-            assert i in doc_lines, f"line {i} is a docstring but was not detected"
-        if "REAL_CODE_NAME" in line:
-            assert i not in doc_lines, (
-                f"line {i} is an os.getenv call, not a docstring — the filter is "
-                "over-broad and would declare live secrets unused."
-            )
+    folded = mod.without_comments(src.read_text(encoding="utf-8"), suffix=".py")
+    assert "DOCSTRING_ONLY_NAME" not in folded, "docstring prose survived the fold"
+    assert "REAL_CODE_NAME" in folded, (
+        "an os.getenv literal was blanked — the fold is over-broad and would "
+        "declare live credentials unused."
+    )

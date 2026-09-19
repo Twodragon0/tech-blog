@@ -49,6 +49,8 @@ from pathlib import Path
 
 import pytest
 
+from scripts.lib.source_text import without_comments
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOWS = REPO_ROOT / ".github" / "workflows"
 MONTHLY = WORKFLOWS / "monthly-quality-report.yml"
@@ -56,16 +58,15 @@ SENTRY = WORKFLOWS / "sentry-release.yml"
 
 
 def _code(path: Path) -> str:
-    """Workflow text minus comment-only lines.
+    """Workflow text minus commentary.
 
     Both files now explain, in prose, which `|| true` calls they keep and why. Matching
     raw text would hit that explanation instead of the code it describes.
+
+    Shared fold (`scripts/lib/source_text`) since 2026-09-19 — seven private
+    copies of this idea disagreed with each other.
     """
-    return "\n".join(
-        ln
-        for ln in path.read_text(encoding="utf-8").splitlines()
-        if not ln.lstrip().startswith("#")
-    )
+    return without_comments(path.read_text(encoding="utf-8"), suffix=path.suffix)
 
 
 def _soft_lines(path: Path) -> list[str]:

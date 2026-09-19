@@ -295,6 +295,64 @@ $0 에 Path B 를 연다.
 
 ## 2026-09
 
+### "무엇이 코드인가" 를 접는 함수를 하나로 — 7벌 → 2함수 (2026-09-19)
+
+[공허성 감사](guard-vacuity-audit-2026-09-18.md) 의 부수 발견을 실행했다. 같은 방어가
+**7벌** 있었고 서로 동작이 달랐다. 같은 스니펫을 먹였을 때:
+
+| 토큰 위치 | 줄-접두사 계열 (4벌) | tokenize 계열 (2벌) |
+|---|---|---|
+| 독스트링 안 | 유지 | 제거 |
+| 끝주석 `X = 1  # TOKEN` | **유지** | 제거 |
+| 문자열 안 `"a # TOKEN"` | 유지 | **제거** |
+| 전줄 주석 | 제거 | 제거 |
+
+**어느 쪽도 "정답" 이 아니라, 둘이 서로 다른 일을 하고 있었다.** 그래서 하나로 합치면
+안 되고, 의미를 이름에 박은 **두 함수**가 맞다 (`scripts/lib/source_text`):
+
+- `without_comments` — 주석·독스트링만 제거, **문자열 리터럴은 유지**. 찾는 대상이
+  문자열 안에 사는 경우에 쓴다: CLI 플래그(`run_command(["ruff", "--fix"])`), URL,
+  워크플로 명령.
+- `code_tokens_only` — 주석 + **모든 문자열 리터럴** 제거. 문자열이 오탐인 경우에 쓴다:
+  `symbol(` 호출 지점 탐색.
+
+이 구분이 실제로 중요하다. `test_api_key_not_in_url` 은 URL 을 **f-string 으로 만드는**
+코드를 찾으므로 `code_tokens_only` 로 옮겼다면 **가드가 공허해졌을 것**이다. 반대로
+`test_inline_gate_registry` 는 문자열 속 `symbol(` 이 오탐이라 반드시 `code_tokens_only`
+여야 한다.
+
+둘 다 **같은 길이 공백으로 제자리 치환**한다 — `test_inline_gate_registry` 가 문자
+오프셋으로 순서를 단언하고 `test_api_key_not_in_url` 이 줄 번호를 사람에게 보고한다.
+
+**옮긴 곳 8군데**: 테스트 6개(`test_ci_soft_spot_triage_guard`,
+`test_ci_ops_failure_issue_inlines_report`, `test_trend_single_source`,
+`test_inline_gate_registry`, `test_ci_python_lint_gate`, `test_api_key_not_in_url`),
+프로덕션 `check_secret_contract.code_consumers`, 도구 `probe_guard_vacuity`.
+
+**폴백은 넣지 않았다.** 파싱 못 하는 입력에 대해 더 약한 fold 로 조용히 내려가면
+호출자는 "검사하고 있다" 고 믿으면서 덜 검사한다 — 이 모듈이 없애려는 결함 그 자체다.
+대신 `SyntaxError` 하나로 올린다. 여기서 실제 버그를 하나 잡았다: `tokenize.TokenError`
+는 `SyntaxError` 의 하위 클래스가 **아니라서**(3.13 실측), 호출자가 쓴 자연스러운
+`except SyntaxError` 가 미종료 문자열에서 크래시했을 것이다. 모듈이 변환해 올린다.
+
+**검증** — 옮긴 가드 6건 전부 뮤테이션 프로브로 확인했다. 대조군 PASS + 변이 CAUGHT:
+
+| 변이 | 결과 |
+|---|---|
+| `monthly-quality-report.yml` 에 미검토 `\|\| true` 추가 | CAUGHT |
+| `ops-orchestrator.yml` dedup 을 날짜 완전일치로 원복 | CAUGHT |
+| `content_generator.py` 에서 단언 호출 제거 | CAUGHT |
+| `ops_health_orchestrator.py` 에 `ruff --fix` 재도입 | CAUGHT |
+| URL 에 자격증명 f-string 삽입 | CAUGHT |
+| 같은 문자열을 **주석 안**에 삽입 | 오탐 없음 (fold 가 과잉이 아님) |
+| 퍼블리셔에서 게이트 호출 제거 | CAUGHT |
+
+`scripts/tests/test_source_text.py` 가 위 표를 그대로 고정한다 — 양방향이다. 과소 접기는
+산문이 가드를 만족시키고, 과대 접기는 살아있는 것을 죽었다고 선언한다.
+
+`test_font_tier_split._strip_comments` 는 HTML 주석이라 범위 밖으로 두었다.
+
+
 ### Gemini 이미지 플래그 — 기본값 Flash 통일 + 래스터 경로 opt-in (2026-09-18)
 
 "로컬 기본값을 Pro/Flash 중 어느 쪽으로 통일할지" 를 비용·품질 판단으로 열어 뒀는데,

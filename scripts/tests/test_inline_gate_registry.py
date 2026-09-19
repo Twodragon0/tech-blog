@@ -36,6 +36,8 @@ from pathlib import Path
 import auto_publish_news as apn
 import pytest
 
+from scripts.lib.source_text import code_tokens_only
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 PUBLISHER = REPO_ROOT / "scripts" / "auto_publish_news.py"
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "ai-blogwatcher.yml"
@@ -65,23 +67,10 @@ def _code_only(source: str) -> str:
     ``tokenize`` knows the difference.
 
     Same-length replacement keeps offsets usable for the ordering assertion.
-    """
-    lines = source.splitlines(keepends=True)
-    line_start = [0]
-    for line in lines:
-        line_start.append(line_start[-1] + len(line))
 
-    out = list(source)
-    for token in tokenize.generate_tokens(io.StringIO(source).readline):
-        if token.type not in (tokenize.COMMENT, tokenize.STRING):
-            continue
-        (srow, scol), (erow, ecol) = token.start, token.end
-        start = line_start[srow - 1] + scol
-        end = line_start[erow - 1] + ecol
-        for i in range(start, min(end, len(out))):
-            if out[i] != "\n":
-                out[i] = " "
-    return "".join(out)
+    Delegates to the shared fold (`scripts/lib/source_text`) since 2026-09-19.
+    """
+    return code_tokens_only(source)
 
 
 def _publisher_source() -> str:

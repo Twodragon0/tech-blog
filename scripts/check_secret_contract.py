@@ -53,7 +53,6 @@ Usage::
 from __future__ import annotations
 
 import argparse
-import ast
 import re
 import subprocess
 import sys
@@ -61,6 +60,14 @@ from pathlib import Path
 from typing import Dict, List, Set
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+
+# `scripts/lib/__init__.py` imports via the `scripts.` package path, so the repo
+# root has to be importable whether this runs as a script or under pytest.
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from scripts.lib.source_text import without_comments  # noqa: E402
+
 DOC = REPO_ROOT / ".github" / "docs" / "SECRETS_MANAGEMENT.md"
 WORKFLOWS = REPO_ROOT / ".github" / "workflows"
 CODE_DIRS = ("scripts", "api")
@@ -210,30 +217,6 @@ def workflow_secrets() -> Dict[str, List[str]]:
     return out
 
 
-_COMMENT_PREFIXES = ("#", "//", "*", "/*")
-
-
-def _docstring_lines(path: Path) -> set:
-    """Line numbers covered by a docstring (a bare string statement).
-
-    Only `Expr(Constant(str))` statements count — a string assigned, passed or
-    returned is data, not prose, and must keep counting as a consumer.
-    """
-    try:
-        tree = ast.parse(path.read_text(encoding="utf-8"))
-    except (OSError, SyntaxError):
-        return set()
-    lines: set = set()
-    for node in ast.walk(tree):
-        if (
-            isinstance(node, ast.Expr)
-            and isinstance(node.value, ast.Constant)
-            and isinstance(node.value.value, str)
-        ):
-            lines.update(range(node.lineno, (node.end_lineno or node.lineno) + 1))
-    return lines
-
-
 def code_consumers(name: str) -> List[str]:
     """Tracked files under CODE_DIRS that mention the name OUTSIDE a comment.
 
@@ -269,29 +252,27 @@ def code_consumers(name: str) -> List[str]:
     so a name inside a shell here-doc or a YAML block scalar still counts.
     """
     proc = subprocess.run(
-        ["git", "grep", "-n", "--", name, *CODE_DIRS],
+        ["git", "grep", "-l", "--", name, *CODE_DIRS],
         cwd=REPO_ROOT,
         capture_output=True,
         text=True,
     )
     hits: dict[str, None] = {}
-    docstring_lines: dict[str, set] = {}
-    for line in proc.stdout.splitlines():
-        # `path:lineno:text` — the text itself may contain colons.
-        parts = line.split(":", 2)
-        if len(parts) < 3:
+    for rel in dict.fromkeys(proc.stdout.split()):
+        if not rel or "_archive" in rel or rel in _SELF_REFERENCES:
             continue
-        path, lineno, text = parts
-        if "_archive" in path or path in _SELF_REFERENCES:
-            continue
-        if text.lstrip().startswith(_COMMENT_PREFIXES):
-            continue
-        if path.endswith(".py"):
-            if path not in docstring_lines:
-                docstring_lines[path] = _docstring_lines(REPO_ROOT / path)
-            if int(lineno) in docstring_lines[path]:
-                continue
-        hits[path] = None
+        path = REPO_ROOT / rel
+        try:
+            folded = without_comments(
+                path.read_text(encoding="utf-8", errors="replace"), suffix=path.suffix
+            )
+        except SyntaxError:
+            # A file this checker cannot parse still gets scanned raw rather than
+            # skipped: dropping it would silently shrink the consumer set, and
+            # "declares a live secret dead" is the expensive direction.
+            folded = path.read_text(encoding="utf-8", errors="replace")
+        if name in folded:
+            hits[rel] = None
     return list(hits)
 
 

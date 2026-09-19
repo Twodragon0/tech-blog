@@ -38,6 +38,8 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from scripts.lib.source_text import without_comments
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOW = REPO_ROOT / ".github" / "workflows" / "ops-orchestrator.yml"
 
@@ -66,11 +68,7 @@ def _code(text: str) -> str:
     Whole-line comments only (`#` for YAML, `//` for the embedded JS); a `//`
     appearing mid-expression is left alone.
     """
-    return "\n".join(
-        ln
-        for ln in text.splitlines()
-        if not ln.lstrip().startswith("#") and not ln.lstrip().startswith("//")
-    )
+    return without_comments(text, suffix=".yml")
 
 
 def test_workflow_exists() -> None:
