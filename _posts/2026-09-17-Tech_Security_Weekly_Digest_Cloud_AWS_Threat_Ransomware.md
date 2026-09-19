@@ -402,7 +402,11 @@ SeaArt의 게이밍 스타트업인 SeaVerse는 사용자들이 가벼운 게임
 
 - [ ] **모델 정렬 불일치 보고를 위한 우리의 프레임워크** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
-## 참고 자료
+## 관련 포스트 및 참고 자료
+
+- 2026년 09월 16일 주간 보안 다이제스트: {% post_url 2026-09-16-Tech_Security_Weekly_Digest_ML_Malware_AWS %}
+- 2026년 09월 15일 주간 보안 다이제스트: {% post_url 2026-09-15-Tech_Security_Weekly_Digest_ML_Update_Go %}
+- 2026년 09월 14일 주간 보안 다이제스트: {% post_url 2026-09-14-Tech_Security_Weekly_Digest_Cloud_Data_Malware_AI %}
 
 | 리소스 | 링크 |
 |--------|------|

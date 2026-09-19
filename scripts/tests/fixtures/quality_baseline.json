@@ -4443,7 +4443,7 @@
     }
   },
   "2026-09-14-Tech_Security_Weekly_Digest_Cloud_Data_Malware_AI.md": {
-    "total": 93,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4453,12 +4453,12 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 3
     }
   },
   "2026-09-15-Tech_Security_Weekly_Digest_ML_Update_Go.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4468,12 +4468,12 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-09-16-Tech_Security_Weekly_Digest_ML_Malware_AWS.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4483,12 +4483,12 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-09-17-Tech_Security_Weekly_Digest_Cloud_AWS_Threat_Ransomware.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4498,12 +4498,12 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-09-18-Tech_Security_Weekly_Digest_Cloud_AWS_AI_Malware.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4513,12 +4513,12 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   },
   "2026-09-19-Tech_Security_Weekly_Digest_AWS_AI_Rust_Patch.md": {
-    "total": 94,
+    "total": 99,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -4528,7 +4528,7 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
+      "cross_refs": 5,
       "length": 4
     }
   }

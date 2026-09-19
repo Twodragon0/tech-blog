@@ -400,7 +400,11 @@ Google Cloud는 2026년 3분기 Forrester Wave™: Public Cloud Platforms 보고
 
 - [ ] **우주비행사 Christina Koch와 Google의 James Manyika가 우주, 기술 및 발견에 대해 논의한다.** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
-## 참고 자료
+## 관련 포스트 및 참고 자료
+
+- 2026년 09월 14일 주간 보안 다이제스트: {% post_url 2026-09-14-Tech_Security_Weekly_Digest_Cloud_Data_Malware_AI %}
+- 2026년 09월 13일 주간 보안 다이제스트: {% post_url 2026-09-13-Tech_Security_Weekly_Digest_AWS_AI_Agent_Data %}
+- 2026년 09월 12일 주간 보안 다이제스트: {% post_url 2026-09-12-Tech_Security_Weekly_Digest_Data_AI_AWS_Malware %}
 
 | 리소스 | 링크 |
 |--------|------|

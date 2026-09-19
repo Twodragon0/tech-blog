@@ -398,7 +398,11 @@ summary_card:
 
 - [ ] **새 전문가, Google의 AI & Economy 팀에 합류** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
-## 참고 자료
+## 관련 포스트 및 참고 자료
+
+- 2026년 09월 18일 주간 보안 다이제스트: {% post_url 2026-09-18-Tech_Security_Weekly_Digest_Cloud_AWS_AI_Malware %}
+- 2026년 09월 17일 주간 보안 다이제스트: {% post_url 2026-09-17-Tech_Security_Weekly_Digest_Cloud_AWS_Threat_Ransomware %}
+- 2026년 09월 16일 주간 보안 다이제스트: {% post_url 2026-09-16-Tech_Security_Weekly_Digest_ML_Malware_AWS %}
 
 | 리소스 | 링크 |
 |--------|------|
