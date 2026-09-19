@@ -22,6 +22,7 @@ CLAUDE.md에서 이 디렉토리를 참조합니다.
 | [seo-canonical-fix.md](seo-canonical-fix.md) | canonical/share URL, `absolute_url` 금지 규칙 |
 | [codeql-setup-and-fp-suppression.md](codeql-setup-and-fp-suppression.md) | CodeQL 설정, false positive 처리 |
 | [ci-security-hardening-2026-07.md](ci-security-hardening-2026-07.md) | 워크플로 권한·액션 핀·시크릿 위생 |
+| [guard-vacuity-audit-2026-09-18.md](guard-vacuity-audit-2026-09-18.md) | 소스 텍스트에 부분문자열을 단언하는 가드가 코드가 아니라 주석을 읽고 있는지 확인할 때. 프로브 20건 전건 정상, 정적 분류가 세 번 틀린 기록과 `scripts/dev/probe_guard_vacuity.py` 사용법 |
 | [name-list-control-audit-2026-09-18.md](name-list-control-audit-2026-09-18.md) | 이름(워크플로명·스텝명·경로·테스트명)으로 대상을 지정하는 통제가 아직 무언가와 일치하는지 확인할 때. A-H3 가 워크플로 통합 시점부터 꺼져 있던 사례와, 09-16 감사의 대상 목록이 그것을 빼먹은 이유 |
 | [gate-constant-drift-audit-2026-09-16.md](gate-constant-drift-audit-2026-09-16.md) | 게이트에 박힌 상수(하드코딩 목록·핀·마커·allow-list)가 실제 대상 집합과 여전히 같은지 확인할 때. 임시 추출기가 5번 틀린 기록과 그 예방 절차 포함 |
 

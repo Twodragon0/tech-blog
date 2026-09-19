@@ -53,6 +53,7 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import ast
 import re
 import subprocess
 import sys
@@ -212,6 +213,27 @@ def workflow_secrets() -> Dict[str, List[str]]:
 _COMMENT_PREFIXES = ("#", "//", "*", "/*")
 
 
+def _docstring_lines(path: Path) -> set:
+    """Line numbers covered by a docstring (a bare string statement).
+
+    Only `Expr(Constant(str))` statements count — a string assigned, passed or
+    returned is data, not prose, and must keep counting as a consumer.
+    """
+    try:
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+    except (OSError, SyntaxError):
+        return set()
+    lines: set = set()
+    for node in ast.walk(tree):
+        if (
+            isinstance(node, ast.Expr)
+            and isinstance(node.value, ast.Constant)
+            and isinstance(node.value.value, str)
+        ):
+            lines.update(range(node.lineno, (node.end_lineno or node.lineno) + 1))
+    return lines
+
+
 def code_consumers(name: str) -> List[str]:
     """Tracked files under CODE_DIRS that mention the name OUTSIDE a comment.
 
@@ -229,11 +251,22 @@ def code_consumers(name: str) -> List[str]:
     a secret that by then had none. The same day, three AI-Gateway names
     survived only in a guard's comments and passed for the same reason.
 
-    Limit, stated rather than papered over: this drops whole-line comments, not
-    docstrings or block-comment bodies whose lines happen not to start with a
-    marker. A name mentioned mid-prose inside a ``\"\"\"...\"\"\"`` still reads as a
-    consumer — the safe direction, since the failure mode is "keeps a live
-    secret documented", not "declares a used secret dead".
+    Python docstrings are dropped too, as of 2026-09-19. The earlier version
+    said leaving them in was "the safe direction"; it was not, it was just the
+    unbuilt one. A docstring is never a read, and a real dynamic read still has
+    to name the variable somewhere in code (`os.getenv(name)` over a literal, or
+    the literal in a lookup table), so nothing genuine is lost. What the gap
+    actually cost: adding `scripts/dev/probe_guard_vacuity.py`, whose module
+    docstring *describes* the PAGESPEED_API_KEY incident, made that secret look
+    consumed again and broke the very guard written to catch this.
+
+    That failure also only appeared once the file was `git add`-ed, because this
+    walks `git grep`, which sees the index — so it passed on an untracked file
+    and failed inside the pre-commit hook. Keep that in mind when a contract
+    check disagrees with a bare `pytest` run.
+
+    Remaining limit: for non-Python files only whole-line comments are dropped,
+    so a name inside a shell here-doc or a YAML block scalar still counts.
     """
     proc = subprocess.run(
         ["git", "grep", "-n", "--", name, *CODE_DIRS],
@@ -242,16 +275,22 @@ def code_consumers(name: str) -> List[str]:
         text=True,
     )
     hits: dict[str, None] = {}
+    docstring_lines: dict[str, set] = {}
     for line in proc.stdout.splitlines():
         # `path:lineno:text` — the text itself may contain colons.
         parts = line.split(":", 2)
         if len(parts) < 3:
             continue
-        path, _, text = parts
+        path, lineno, text = parts
         if "_archive" in path or path in _SELF_REFERENCES:
             continue
         if text.lstrip().startswith(_COMMENT_PREFIXES):
             continue
+        if path.endswith(".py"):
+            if path not in docstring_lines:
+                docstring_lines[path] = _docstring_lines(REPO_ROOT / path)
+            if int(lineno) in docstring_lines[path]:
+                continue
         hits[path] = None
     return list(hits)
 
