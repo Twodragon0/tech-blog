@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-19T02:25:23.222738+00:00",
+  "updated_at": "2026-09-20T02:30:49.800464+00:00",
   "entries": [
     {
       "url": "https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/",
@@ -1170,6 +1170,96 @@
       "title": "Accelerating the borderless Lakehouse: Announcing preview of cross-cloud caching",
       "published_date": "2026-09-19",
       "expires_at": "2026-09-26T02:25:23.222675+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html",
+      "title": "Claude Opus 5 Helped Researchers Take Over OpenAI Staff Accounts via Chained Fla",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/identity-visibility-in-2026-foundation.html",
+      "title": "Identity Visibility in 2026: The Foundation of Identity Security",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/solarwinds-patches-arm-hard-coded-key.html",
+      "title": "SolarWinds Patches ARM Hard-Coded Key Flaw Enabling Unauthenticated RCE",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/critical-pre-auth-rce-in-orkes.html",
+      "title": "Critical Pre-Auth RCE in Orkes Conductor Workflow Platform Exploited in the Wild",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/google-gemini-broke-into-real-company.html",
+      "title": "Google Gemini Broke Into Real Company Systems After Security Test Domain Mix-Up",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/rex-launches-2x-leveraged-etf-tied-to-bitcoin-treasury-firm-strive?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "REX launches 2x leveraged ETF tied to Bitcoin treasury firm Strive",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/kalshi-joins-coinbase-with-filing-for-us-stock-perpetual-futures?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Kalshi joins Coinbase with filing for US stock perpetual futures",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/vaneck-labels-metaplanet-compensation-bad?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "VanEck criticizes Metaplanet over executive dilution despite compensation cuts",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bastion-wins-conditional-occ-approval-for-national-trust-bank-charter?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bastion wins conditional OCC approval for national trust bank charter",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/hong-kong-jails-former-banker-over-16b-false-credit-cryptocurrency-bribes-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Hong Kong jails former banker over $1.6B false credit, cryptocurrency bribes: Re",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33970",
+      "title": "Microsoft 디렉터: AI 스크래핑은 ‘인류 역사상 최대 규모의 노동 도둑질’",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33969",
+      "title": "Hacker News 순위의 작동 방식: 점수, 논쟁, 페널티 (2013)",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33968",
+      "title": "AI는 엘리트의 연쇄 범죄다",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=33967",
+      "title": "AI 챗봇이 사람들의 생각을 바꾸는 데 전문가가 되고 있음",
+      "published_date": "2026-09-20",
+      "expires_at": "2026-09-27T02:30:49.800394+00:00"
     }
   ]
 }
