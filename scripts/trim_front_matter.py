@@ -21,13 +21,47 @@ regressions against what the repo has decided elsewhere:
    Deleting it silently swaps the meta-keywords source from a curated list
    to raw tags on 300 pages.
 
-One argument that does NOT hold, recorded so it is not re-used: trimming does
-not break `check_excerpt_promises`. Measured on five posts — the gate stayed
-green (305 clean). The case against this script is the two points above.
+Raising the excerpt limit does NOT fix this — the operation is wrong
+---------------------------------------------------------------------
+An earlier version of this note said to reopen once `FIELD_LIMITS["excerpt"]`
+was reconciled with the documented 150-200 range. **That instruction was
+wrong**, and following it would have shipped the damage with a bigger number.
+Measured 2026-09-21 at a 200 limit: only 4 posts exceed it, and all 4 lose
+their closing predicate.
 
-Reopen if: `FIELD_LIMITS["excerpt"]` is reconciled with CLAUDE.md's 150-200
-range, and the `keywords` removal is either dropped or shown to be wanted by
-whoever owns `head.html`. Full measurement: notes/decisions.md, 2026-09-21.
+    before (204):  … 주요 보안 이슈와 DevSecOps 실무 대응 포인트를 주차 단위로 종합 정리합니다.
+    after  (197):  … DevSecOps 실무 대응 포인트를 주차 단위로...
+
+`truncate_at_word` cuts at `rfind(" ")`. Korean puts spaces between 어절, so a
+space is not a safe cut point: the sentence ends in a predicate, and dropping
+it leaves a dangling adverbial. The excerpt is the text listing pages, the RSS
+feed and the Google result show. Saving 7-43 characters is not worth a broken
+sentence on the most-read line of a post.
+
+`description` is moot, not merely small: `_includes/head.html:56` is
+`{% assign raw_description = page.excerpt | default: page.description %}`, and
+all 305 posts have an excerpt — so `page.description` is never rendered.
+Trimming its 159 over-limit values changes nothing anyone sees.
+
+Two arguments that do NOT hold, recorded so they are not re-used:
+
+* Trimming does not break `check_excerpt_promises`. Measured both ways — five
+  posts at the 150 limit, and the four truncated at 200 — the gate stayed
+  green (305 clean) each time. It is worse than neutral: truncation destroys
+  the closing claim, so the gate passes *more* easily. Passing it here is not
+  evidence of quality.
+* "287 posts sit inside the documented range" was the argument against the 150
+  limit specifically. It does not survive raising the limit, which is why the
+  sentence-level measurement above is the real case.
+
+What is left if all three are dropped: `image_alt` (29 posts over 80, max 109),
+where truncation appends no ellipsis and alt text has no predicate to lose.
+That is the only field where this tool does something defensible.
+
+Reopen if: someone wants the `image_alt` pass and rewrites excerpt/description
+handling out, OR a Korean-aware truncation (sentence-boundary, not
+space-boundary) replaces `truncate_at_word`. Do not reopen by changing a
+number. Full measurement: notes/decisions.md, 2026-09-21.
 
 Usage:
     python3 scripts/trim_front_matter.py              # dry-run all posts
