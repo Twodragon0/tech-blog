@@ -644,6 +644,50 @@ jobs:
           fi
           python3 scripts/regen_quality_baseline.py --check
 
+      - name: Reference-table enrichment (enrich, then verify)
+        if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
+        run: |
+          # enrich_digest_references adds the 용도 column and the cited-source
+          # rows the body already supports. The GENERATOR does not emit them, so
+          # this script is the only producer — and until now it was called from
+          # nowhere at all: no workflow, no hook, no pipeline. It shipped
+          # 2026-08-06 as a 5-post pilot (#507), someone backfilled 2026-01..07,
+          # and every digest published since was born without the column.
+          # Measured 2026-09-21 before this step existed:
+          #
+          #   2026-04..07  30/30 each  had it   (the backfill)
+          #   2026-08       6/31       had it   (25 stale)
+          #   2026-09      14/19       had it   (5 stale, incl. that morning's)
+          #
+          # Unlike the pre-flights above this is NOT self-heal-then-block: there
+          # is no checker that fails on a missing column. Deliberately not adding
+          # one corpus-wide — 13 legacy digests have no reference section at all
+          # and would make it red from birth, which is the dormant-gate trap this
+          # repo has paid for before. So the post-condition here is post-scoped.
+          #
+          # Lossless by measurement across all 43 posts it rewrote: 0 URLs lost,
+          # 0 tokens removed, rows only added. It aborts rather than touch
+          # anything above the reference heading.
+          POST_FILE="${{ steps.check_post.outputs.post_file }}"
+          python3 scripts/enrich_digest_references.py "$POST_FILE"
+          # Post-condition: the column is actually there now. Without this the
+          # step could no-op silently — which is exactly how 30 posts accumulated.
+          python3 - "$POST_FILE" <<'PY'
+          import sys, pathlib
+          sys.path.insert(0, ".")
+          from scripts.lib.digest_headings import REFERENCE_HEADING_RE
+          text = pathlib.Path(sys.argv[1]).read_text(encoding="utf-8")
+          if REFERENCE_HEADING_RE.search(text) is None:
+              sys.exit(f"{sys.argv[1]}: no reference section — the generator "
+                       "stopped emitting one, or its heading changed again. "
+                       "See scripts/lib/digest_headings.")
+          if "| 용도 |" not in text:
+              sys.exit(f"{sys.argv[1]}: enrichment ran but the 용도 column is "
+                       "still missing. enrich_digest_references silently did "
+                       "nothing; do not publish a digest it could not enrich.")
+          print(f"[enrich-references] OK — {sys.argv[1]} carries the 용도 column.")
+          PY
+
       - name: Corpus gate pre-flight (block)
         if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
         run: |
