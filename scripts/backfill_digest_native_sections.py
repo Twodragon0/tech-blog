@@ -60,13 +60,16 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, cast
 
-from scripts.lib.digest_headings import is_reference_heading
-
 # --- Path setup so we can import scripts.news.* (mirrors
 # backfill_digest_enrichment.py's established pattern). ---
+# Every `scripts.*` import MUST come after this line. Putting one above it
+# works under pytest (the suite puts the repo root on sys.path itself) and
+# fails only when the file is run as a CLI — which is how this module is
+# actually used. That is exactly the regression shipped in #762.
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(_REPO_ROOT))
 
+from scripts.lib.digest_headings import is_reference_heading  # noqa: E402
 from scripts.news import content_generator  # noqa: E402
 
 # The highlights table opens with a (category, source) header — current
