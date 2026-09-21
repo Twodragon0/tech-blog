@@ -4546,5 +4546,20 @@
       "cross_refs": 5,
       "length": 2
     }
+  },
+  "2026-09-21-Tech_Security_Weekly_Digest_AI_AWS_Agent_Bitcoin.md": {
+    "total": 97,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 2
+    }
   }
 }

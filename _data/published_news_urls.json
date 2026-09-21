@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-20T02:30:49.800464+00:00",
+  "updated_at": "2026-09-21T02:28:22.907269+00:00",
   "entries": [
     {
       "url": "https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/",
@@ -1260,6 +1260,90 @@
       "title": "AI 챗봇이 사람들의 생각을 바꾸는 데 전문가가 되고 있음",
       "published_date": "2026-09-20",
       "expires_at": "2026-09-27T02:30:49.800394+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/malicious-npm-packages-evade-install-script-defenses-at-runtime/",
+      "title": "Malicious npm packages evade install-script defenses at runtime",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/researchers-escape-openai-codex-sandbox-to-run-commands-on-host/",
+      "title": "Researchers escape OpenAI Codex sandbox to run commands on host",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/anthropic-tabs-accenture-as-embedded-evaluator-to-help-with-ai-slowdown-proposal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Anthropic taps Accenture as embedded evaluator to help with AI slowdown proposal",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/securely-connect-aws-devops-agent-to-private-services-in-your-vpcs/",
+      "title": "VPC 내 프라이빗 서비스에 AWS DevOps Agent를 안전하게 연결하기",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/saylor-argues-clarity-act-failure-is-a-win",
+      "title": "Strategy Founder Michael Saylor Argues Clarity Act Collapse Is a Win",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/videos/move-over-housing-bitcoin-is-gen-zs-new-wealth-building-asset",
+      "title": "Move Over Housing – Bitcoin is Gen Z’s New Wealth Building Asset",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/videos/coinbase-policy-chief-strategic-bitcoin-reserve-bill-outlook",
+      "title": "Coinbase Policy Chief: Strategic Bitcoin Reserve Bill Outlook",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/videos/strategy-ceo-phong-le-jpmorgan-of-bitcoin",
+      "title": "Strategy CEO Phong Le: We Want to Be the JPMorgan of Bitcoin",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/videos/bill-miller-iv-bullish-on-bitcoin",
+      "title": "Why Legendary Investor Bill Miller IV has “Never Been More Bullish on Bitcoin”",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://arstechnica.com/security/2026/09/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
+      "title": "An undercover Google analyst infiltrated a notorious supply-chain hacking gang",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34047",
+      "title": "Apple iPhone 18 Pro 카메라 테스트",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34046",
+      "title": "이제 인간 수학자가 왜 필요한가?",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34044",
+      "title": "Snowden 아카이브에는 무슨 일이 일어났나",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34041",
+      "title": "LangChain은 유료 광고 운영 에이전트를 어떻게 만들었나",
+      "published_date": "2026-09-21",
+      "expires_at": "2026-09-28T02:28:22.907179+00:00"
     }
   ]
 }
