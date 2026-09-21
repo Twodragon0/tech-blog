@@ -41,8 +41,9 @@ from scripts.lib.source_text import without_comments  # noqa: E402
 #: 스크립트 -> 배선 금지 사유(한 줄). 사유 없이 늘리지 말 것.
 _DO_NOT_WIRE = {
     "trim_front_matter.py": (
-        "excerpt 를 150자로 자르는데 CLAUDE.md 규격은 150-200 이고 287건이 그 "
-        "범위 안에 있다. 또 keywords: 를 지우는데 head.html:79 가 그걸 읽는다."
+        "한국어 excerpt 를 공백 기준으로 잘라 닫는 서술어를 날린다(200 상한에서도 "
+        "4/4 가 그렇다). keywords: 도 지우는데 head.html:79 가 그걸 읽는다. "
+        "숫자를 바꿔서 해결되는 문제가 아니다."
     ),
     "backfill_digest_commentary.py": (
         "--no-llm 이 결정론적 가짜 문단을 쓴다(6/6 꼬리 문장 동일). 자동 실행 "
@@ -172,4 +173,91 @@ def test_no_llm_dry_run_still_works(sandboxed_digest: str) -> None:
     assert r.returncode == 0, (
         f"--no-llm --dry-run 까지 막혔다. 거부는 --commit 조합에만 걸려야 한다.\n"
         f"{r.stderr[-400:]}"
+    )
+
+
+# --- trim_front_matter: 숫자를 바꿔서 되돌리지 못하도록 사실을 고정한다 -------
+
+
+def _excerpts() -> list[tuple[str, str]]:
+    import re
+
+    out = []
+    for p in sorted((REPO_ROOT / "_posts").glob("*.md")):
+        text = p.read_text(encoding="utf-8")
+        if not text.startswith("---"):
+            continue
+        m = re.search(r'^excerpt:\s*"?(.*?)"?\s*$', text.split("---", 2)[1], re.M)
+        if m:
+            out.append((p.name, m.group(1)))
+    return out
+
+
+def _ends_at_a_sentence(value: str) -> bool:
+    """말줄임표를 걷어낸 뒤 문장 종결부호로 끝나는가."""
+    return value.rstrip().removesuffix("...").rstrip().endswith((".", "!", "?"))
+
+
+@pytest.mark.parametrize("limit", [150, 200])
+def test_trimming_an_excerpt_cuts_into_its_final_sentence(limit: int) -> None:
+    """상한을 올려도 고쳐지지 않는다는 것이 이 검사의 요지다.
+
+    `truncate_at_word` 는 `rfind(" ")` 로 자른다. 한국어는 어절 사이에 공백이
+    있으므로 공백이 안전한 절단점이 아니다 — 문장이 서술어로 끝나는데 그 앞의
+    공백에서 잘리면 부사어만 남는다. excerpt 는 목록 페이지·RSS·구글 결과가
+    보여주는 줄이다.
+
+        before (204):  … 실무 대응 포인트를 주차 단위로 종합 정리합니다.
+        after  (197):  … 실무 대응 포인트를 주차 단위로...
+
+    단언은 **출력이 문장 종결부호로 끝나는가** 다. 여기까지 두 번 고쳤다.
+
+    1. 서술어 어미를 접미사로 찾는 초안은 오탐을 냈다 — `남겼습니다. 다음...`
+       에서 다음 어절의 `다` 를 서술어 끝으로 읽었다.
+    2. "원문의 마지막 문장이 온전히 남는가" 로 바꿨더니 이번엔 **뮤테이션을
+       놓쳤다.** 문장 경계 절단기로 교체해도 통과했다 — 마지막 문장을 통째로
+       버리는 것과 중간에서 자르는 것을 구별하지 못하기 때문이다. 이 검사의
+       존재 이유가 바로 그 신호인데 그걸 못 봤다.
+
+    끝 모양으로 보면 갈린다. 2026-09-21 실측:
+
+        현재 절단기(공백 기준)   150자 0/288,  200자 0/4  가 문장으로 끝남
+        문장 경계 절단기         150자 270/288, 200자 4/4  가 문장으로 끝남
+
+    그래서 재검토 조건은 "숫자를 고쳐라"가 아니라 "문장 경계로 자르는 절단기를
+    쓰거나 excerpt 처리를 빼라" 다. 그렇게 되면 이 검사가 실패해서 알려 준다.
+    """
+    sys.path.insert(0, str(REPO_ROOT / "scripts"))
+    from trim_front_matter import truncate_at_word
+
+    over = [(n, v) for n, v in _excerpts() if len(v) > limit]
+    assert over, f"{limit}자를 넘는 excerpt 가 없다 — 이 검사가 공허해졌다."
+
+    clean = [
+        n
+        for n, v in over
+        if _ends_at_a_sentence(truncate_at_word(v, limit, suffix="..."))
+    ]
+    assert not clean, (
+        f"{limit}자 절단이 {len(clean)}/{len(over)}건에서 문장 경계로 끝났다. "
+        "절단기가 문장을 알게 된 것이라면 trim_front_matter 의 재검토 조건이 "
+        f"충족됐다는 뜻이다 — docstring 과 이 검사를 함께 갱신하라: {clean[:3]}"
+    )
+
+
+def test_description_is_never_rendered_so_trimming_it_is_moot() -> None:
+    """`head.html` 이 excerpt 를 먼저 쓰고 305/305 가 excerpt 를 갖고 있다.
+
+    이 전제가 깨지면(excerpt 없는 포스트가 생기거나 우선순위가 뒤집히면)
+    description 절단이 갑자기 의미를 갖게 되므로, 그때 알려야 한다.
+    """
+    head = (REPO_ROOT / "_includes" / "head.html").read_text(encoding="utf-8")
+    assert "page.excerpt | default: page.description" in head, (
+        "head.html 의 description 폴백 순서가 바뀌었다. page.description 이 실제로 "
+        "렌더링된다면 trim_front_matter 의 description 한계값을 다시 따져야 한다."
+    )
+    missing = [n for n, v in _excerpts() if not v.strip()]
+    assert not missing, (
+        f"excerpt 가 빈 포스트 {len(missing)}건 — 그 포스트들은 description 으로 "
+        f"폴백한다: {missing[:3]}"
     )
