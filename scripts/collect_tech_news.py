@@ -1611,10 +1611,14 @@ def fetch_rss_feed(
     if not feed_url:
         return items
 
-    # per-feed socket timeout 설정
-    old_timeout = socket.getdefaulttimeout()
-    socket.setdefaulttimeout(timeout)
-
+    # NOTE: socket.setdefaulttimeout is NOT set here. It is process-global, and
+    # since --workers 4 landed this function runs in several threads at once:
+    # one thread restoring the previous value while a sibling is still fetching
+    # strips the timeout from that sibling's feedparser fallback — reproducing
+    # the very hang this timeout exists to prevent — and the last thread to
+    # finish can leave the global permanently altered. Reproduced 2026-09-21 by
+    # constructing the interleaving (a thread that read old=15 finishing last).
+    # fetch_all_news sets it once, single-threaded, around the whole collection.
     try:
         print(f"  Fetching: {source_config['name']}...")
 
@@ -1734,8 +1738,6 @@ def fetch_rss_feed(
         print(f"    Timeout: {source_config['name']} ({timeout}s)")
     except (KeyError, AttributeError, TypeError) as e:
         print(f"    Error: {e}")
-    finally:
-        socket.setdefaulttimeout(old_timeout)
 
     return items
 
@@ -1772,28 +1774,42 @@ def fetch_all_news(
     else:
         active_sources = NEWS_SOURCES
 
+    # The one place the process-global socket timeout is touched: here, before
+    # any worker starts and after they all join. `feedparser.parse(url)` (the
+    # fallback when requests fails on SSL/403) has no per-call timeout and reads
+    # this global, so it has to be set somewhere — but never from inside a thread.
+    previous_timeout = socket.getdefaulttimeout()
+    socket.setdefaulttimeout(feed_timeout)
+
     worker_msg = f", {workers} workers" if workers > 1 else ""
     print(
         f"\nCollecting news from {len(active_sources)} sources (last {hours} hours, timeout {feed_timeout}s/feed{worker_msg})...\n"
     )
 
-    if workers > 1:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
-            future_to_source = {
-                executor.submit(_fetch_source_item, k, v, hours, feed_timeout): k
-                for k, v in active_sources.items()
-            }
-            for future in concurrent.futures.as_completed(future_to_source):
-                src_key = future_to_source[future]
-                try:
-                    items = future.result()
-                    all_items.extend(items)
-                except Exception as e:
-                    print(f"    Error collecting from {src_key}: {e}")
-    else:
-        for source_key, source_config in active_sources.items():
-            items = _fetch_source_item(source_key, source_config, hours, feed_timeout)
-            all_items.extend(items)
+    try:
+        if workers > 1:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
+                future_to_source = {
+                    executor.submit(_fetch_source_item, k, v, hours, feed_timeout): k
+                    for k, v in active_sources.items()
+                }
+                for future in concurrent.futures.as_completed(future_to_source):
+                    src_key = future_to_source[future]
+                    try:
+                        items = future.result()
+                        all_items.extend(items)
+                    except Exception as e:
+                        print(f"    Error collecting from {src_key}: {e}")
+        else:
+            for source_key, source_config in active_sources.items():
+                items = _fetch_source_item(
+                    source_key, source_config, hours, feed_timeout
+                )
+                all_items.extend(items)
+    finally:
+        # Restored even if a worker raises out of the pool, so the global does
+        # not leak into whatever runs next in this process.
+        socket.setdefaulttimeout(previous_timeout)
 
     # 중복 제거 (URL 기준)
     seen_urls = set()

@@ -13,6 +13,10 @@ from typing import Dict, List, Optional, Tuple
 
 from scripts.check_duplicate_card_summary import canonical as _same_sentence
 from scripts.digest_quality_report import _SINGLE_SYLLABLE_ALLOW
+from scripts.lib.digest_headings import (
+    REFERENCE_HEADING,
+    REFERENCE_HEADING_WITH_POSTS,
+)
 from scripts.news.analyzer import (
     extract_cve_id,
     generate_mitre_mapping,
@@ -1867,7 +1871,7 @@ toc: true
     content += _generate_news_specific_checklist(news_items)
 
     recent_links = _get_recent_digest_links(date)
-    heading = "## 관련 포스트 및 참고 자료" if recent_links else "## 참고 자료"
+    heading = REFERENCE_HEADING_WITH_POSTS if recent_links else REFERENCE_HEADING
 
     content += f"""{heading}
 
@@ -2188,7 +2192,7 @@ toc: true
     content += _generate_news_specific_checklist(news_items)
 
     recent_links = _get_recent_digest_links(date)
-    heading = "## 관련 포스트 및 참고 자료" if recent_links else "## 참고 자료"
+    heading = REFERENCE_HEADING_WITH_POSTS if recent_links else REFERENCE_HEADING
 
     content += f"""{heading}
 

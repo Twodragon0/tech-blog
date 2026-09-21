@@ -14,7 +14,9 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from restore_digest_structure import (  # noqa: E402
+    ITEM_HEADING_RE,
     TOP_SECTION_RE,
     boldify_response_checklist,
     canonicalize_checklist_heading,
@@ -26,6 +28,9 @@ from restore_digest_structure import (  # noqa: E402
     transform,
     unbox_checkboxes_outside_checklist,
 )
+
+import scripts.backfill_digest_structure as bds  # noqa: E402
+from scripts.lib.digest_headings import REFERENCE_HEADINGS  # noqa: E402
 
 _FM = '---\ntitle: "x"\n---\n'
 
@@ -434,44 +439,56 @@ def test_apply_writes_and_skips_non_digest(tmp_path):
 # --- drift guard for the copied shared regexes ------------------------------
 
 
-def test_shared_regexes_have_not_drifted():
-    """ITEM_HEADING_RE / TOP_SECTION_RE 는 backfill_digest_structure.transform_body
-    에서 복사했다. 그쪽은 function-local이라 import가 불가하므로 소스를 스캔해
-    두 정의가 갈라지면 실패시킨다. 갈라지면 두 경로가 서로 다른 '섹션'을 인식해
-    강등 범위가 조용히 달라진다.
+def test_shared_regexes_are_one_definition_not_a_copy():
+    """복사본이 아니라 같은 객체여야 한다.
+
+    2026-09-21 이전에는 restore 가 손으로 복사한 사본을 들고 있었고, 이 테스트는
+    고정 목록의 각 원소가 양쪽에 '들어 있는지'만 봤다. 멤버십 검사는 단방향이다 —
+    한쪽에만 원소를 **추가**하면 조용히 통과한다. 실제로 그날 참고자료 헤딩의 두
+    번째 표기(`## 관련 포스트 및 참고 자료`)가 backfill 에만 추가됐고 가드는 통과했다.
+    결과는 실측됐다: restore 가 그 헤딩을 섹션 경계로 보지 못해 아이템 영역이 닫히지
+    않았고, 참고자료 섹션 안의 `###` 소제목이 `####` 로 강등됐다.
+
+    그래서 목록을 늘리는 대신 사본을 없앴다. 이 단언이 깨지면 누군가 사본을 되살린
+    것이다 — 목록을 고치지 말고 import 를 되돌려라.
     """
-    src = (
-        Path(__file__).resolve().parents[1] / "backfill_digest_structure.py"
-    ).read_text(encoding="utf-8")
-    assert r'r"^### \d+\.\d+"' in src, (
-        "backfill_digest_structure.py 의 item-heading 정규식이 바뀌었다. "
-        "restore_digest_structure.ITEM_HEADING_RE 를 맞춰 갱신하라."
+    assert TOP_SECTION_RE is bds.TOP_SECTION_RE, (
+        "restore_digest_structure.TOP_SECTION_RE 가 backfill 쪽과 다른 객체다. "
+        "사본이 다시 생겼다면 두 경로가 서로 다른 '섹션'을 인식하게 되고, 강등 "
+        "범위가 조용히 갈라진다."
     )
-    for member in (
-        "보안",
-        "AI/ML",
-        "클라우드",
-        "DevOps",
-        "블록체인",
-        "기타",
-        "트렌드",
-        "GeekNews",
-        "Open Source",
-        "## 실무 체크리스트",
-        "## 서론",
-        "## 분석가 시점",
-        "## 경영진 브리핑",
-        "## 위험 스코어카드",
-        "## 참고 자료",
-        "## 📊",
-    ):
-        assert member in src, (
-            f"backfill_digest_structure.py 의 섹션 whitelist 에서 {member!r} 가 "
-            "사라졌다. restore_digest_structure.TOP_SECTION_RE 를 맞춰 갱신하라."
+    assert ITEM_HEADING_RE is bds.ITEM_HEADING_RE, (
+        "restore_digest_structure.ITEM_HEADING_RE 가 backfill 쪽과 다른 객체다."
+    )
+
+
+def test_top_section_boundary_covers_every_reference_spelling():
+    """참고자료 헤딩은 표기가 둘이고, 둘 다 섹션 경계여야 한다.
+
+    경계로 인식되지 않으면 아이템 영역이 그 지점에서 닫히지 않는다. 위 사본
+    사고의 관측된 증상이 바로 이것이었다. 목록을 손으로 적지 않고
+    scripts.lib.digest_headings 에서 읽어, 세 번째 표기가 생겨도 자동으로 덮인다.
+    """
+    for heading in REFERENCE_HEADINGS:
+        assert TOP_SECTION_RE.match(heading), (
+            f"{heading!r} 가 섹션 경계가 아니다. 아이템 영역이 닫히지 않아 참고자료 "
+            "섹션 안의 소제목이 강등된다."
         )
-        assert member in TOP_SECTION_RE.pattern, (
-            f"TOP_SECTION_RE 에 {member!r} 가 없다 — backfill 쪽과 불일치."
-        )
+
+
+@pytest.mark.parametrize("heading", REFERENCE_HEADINGS)
+def test_reference_section_subheadings_survive_both_spellings(heading: str) -> None:
+    """정규식이 아니라 결과로 확인한다 — 위 가드가 공허해지지 않도록."""
+    import restore_digest_structure as mod
+
+    text = (
+        "---\ntitle: t\n---\n\n## 1. 보안 뉴스\n\n### 1.1 기사\n\n본문.\n\n"
+        f"{heading}\n\n### 공식 문서\n\n- [a](https://x)\n"
+    )
+    assert mod.transform(text) == text, (
+        f"{heading!r} 아래 '### 공식 문서' 가 변형됐다 — 강등이 참고자료 섹션까지 "
+        "번졌다."
+    )
 
 
 # --- R0: code-fence protection ---------------------------------------------

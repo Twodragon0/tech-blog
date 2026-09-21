@@ -24,7 +24,25 @@ from pathlib import Path
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(_REPO_ROOT))
 
+from scripts.lib.digest_headings import (  # noqa: E402
+    REFERENCE_HEADING_ALTERNATION,
+)
 from scripts.news.content_generator import _normalize_deep_analysis  # noqa: E402
+
+# Module-level, NOT function-local, so restore_digest_structure can import it.
+# It used to be local to transform_body and restore kept a hand-copy guarded by
+# a membership test over a fixed list of members. That guard is one-directional:
+# on 2026-09-21 the reference heading's second spelling was added here and the
+# copy stayed behind, and the guard passed. Measured consequence in restore —
+# with the boundary unrecognised the item region never closed, so `###`
+# subheadings inside the reference section were demoted to `####`.
+ITEM_HEADING_RE = re.compile(r"^### \d+\.\d+")
+TOP_SECTION_RE = re.compile(
+    r"^(## \d+\. (보안|AI/ML|클라우드|DevOps|블록체인|기타|트렌드|"
+    r"GeekNews|Open Source)|"
+    r"## 실무 체크리스트|## 서론|## 분석가 시점|## 경영진 브리핑|"
+    r"## 위험 스코어카드|" + REFERENCE_HEADING_ALTERNATION + r"|## 📊)"
+)
 
 
 def _split_front_matter(text: str):
@@ -146,13 +164,8 @@ def transform_body(text: str, path: str = "<unknown>") -> str:
     Idempotent.
     """
     front, body = _split_front_matter(text)
-    item_heading_re = re.compile(r"^### \d+\.\d+")
-    top_section_re = re.compile(
-        r"^(## \d+\. (보안|AI/ML|클라우드|DevOps|블록체인|기타|트렌드|"
-        r"GeekNews|Open Source)|"
-        r"## 실무 체크리스트|## 서론|## 분석가 시점|## 경영진 브리핑|"
-        r"## 위험 스코어카드|## 참고 자료|## 📊)"
-    )
+    item_heading_re = ITEM_HEADING_RE
+    top_section_re = TOP_SECTION_RE
     out = []
     buf: list[str] = []
     in_item = False

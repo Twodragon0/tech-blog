@@ -29,9 +29,14 @@ from collections import OrderedDict
 from pathlib import Path
 from urllib.parse import urlparse
 
+from scripts.lib.digest_headings import REFERENCE_HEADING_RE
+
 REPO = Path(__file__).resolve().parent.parent
 
-REFERENCE_HEADING = "## 참고 자료"
+# Both spellings live in scripts/lib/digest_headings — the generator emits
+# "## 관련 포스트 및 참고 자료" when a digest has sibling cross-references, and
+# that variant does not contain this one as a substring. 13 posts were invisible
+# to this script on 2026-09-19 because of it.
 PURPOSE_COLUMN = "용도"
 
 # Canonical purposes. Deliberately deny-by-default: an unmapped resource never
@@ -86,9 +91,21 @@ def _cells(line: str):
     return [c.strip() for c in m.group(1).split("|")] if m else None
 
 
+def _before_refs(text: str) -> str:
+    """Everything above the reference heading, whichever spelling is used.
+
+    Was `text.split("## 참고 자료")[0]`, which returned the WHOLE document for a
+    digest using the cross-reference spelling — so the "nothing above the
+    section changed" abort check compared two identical whole documents and
+    could never fire on those 13 posts.
+    """
+    m = REFERENCE_HEADING_RE.search(text)
+    return text if m is None else text[: m.start()]
+
+
 def _split_reference_section(text: str):
     """(before, section, after) around the 참고 자료 section, or None."""
-    m = re.search(rf"^{re.escape(REFERENCE_HEADING)}[ \t]*$", text, re.MULTILINE)
+    m = REFERENCE_HEADING_RE.search(text)
     if not m:
         return None
     rest = text[m.end() :]
@@ -198,7 +215,7 @@ def main(argv=None) -> int:
             print(f"OK   {f}")
             continue
         # Everything before the section must be byte-identical.
-        if new.split(REFERENCE_HEADING)[0] != original.split(REFERENCE_HEADING)[0]:
+        if _before_refs(new) != _before_refs(original):
             print(f"ABORT {f}: content outside 참고 자료 changed", file=sys.stderr)
             return 1
         changed += 1

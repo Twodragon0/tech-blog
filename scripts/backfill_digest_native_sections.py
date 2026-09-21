@@ -60,6 +60,8 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, cast
 
+from scripts.lib.digest_headings import is_reference_heading
+
 # --- Path setup so we can import scripts.news.* (mirrors
 # backfill_digest_enrichment.py's established pattern). ---
 _REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -85,7 +87,9 @@ _CVE_HEADING = "## 주요 CVE 요약"
 
 _EXEC_HEADING = "## 경영진 브리핑"
 _CHECKLIST_HEADING = "## 실무 체크리스트"
-_REFS_HEADING = "## 참고 자료"
+# Both spellings — see scripts/lib/digest_headings. Keyed to one literal until
+# 2026-09-19, which made the checklist insertion point fall to EOF on every
+# digest carrying the cross-reference variant.
 
 # Convert a plain bullet ("- text") to a checkbox ("- [ ] text"); skip lines
 # that are ALREADY a checkbox so the conversion is idempotent.
@@ -394,6 +398,14 @@ def _derive_counts(items: List[Dict]) -> Dict[str, int]:
     return counts
 
 
+def _find_reference_line(lines: List[str]) -> Optional[int]:
+    """Index of the reference heading, either spelling."""
+    for i, ln in enumerate(lines):
+        if is_reference_heading(ln):
+            return i
+    return None
+
+
 def _find_line(lines: List[str], needle: str) -> Optional[int]:
     for i, ln in enumerate(lines):
         if ln.startswith(needle):
@@ -559,7 +571,7 @@ def transform_text(
             items, honor_item_severity=True
         )
         gen = re.sub(r"^---\n\n", "", raw)
-        refs = _find_line(lines, _REFS_HEADING)
+        refs = _find_reference_line(lines)
         insert_at = len(lines) if refs is None else refs
         # Dedupe a leading separator: if the last non-blank line before the
         # insertion point is already '---', don't prepend another one
