@@ -10,6 +10,24 @@ the next `## ` section (typically `## 1. 보안 뉴스`).
 Idempotent: posts that already contain a `## 분석가 시점` section are
 skipped.
 
+`--no-llm` is testing-only and refuses `--commit`
+-------------------------------------------------
+`--no-llm` substitutes a DETERMINISTIC placeholder (`_fake_commentary`).
+Measured 2026-09-21 across six 2026-09 digests: six paragraphs, **one**
+distinct tail sentence — 6/6 identical from "DevSecOps 실무자는 …" onward.
+That is precisely the repeated-body-prose shape gate 11 exists to stop, and
+gate 11 does not stop it: `check_post_boilerplate` compares Mermaid fences and
+checklists, not this paragraph. Written into three real posts in a scratch run
+it returned exit 0.
+
+With no downstream gate, a docstring warning is not a control, so `main()`
+rejects `--no-llm --commit` outright. `--no-llm --dry-run` still works.
+
+Do not put this script on an automated path (CI, pre-commit, publish): the
+flag combination has to be impossible, not merely unused. Guarded by
+`scripts/tests/test_do_not_wire_guard.py`; measurement in notes/decisions.md
+(2026-09-21).
+
 Usage
 -----
     # Dry-run on the most recent 5 digest posts (no writes, prints sample).
@@ -319,6 +337,26 @@ def main(argv: Optional[List[str]] = None) -> int:
         level=logging.DEBUG if args.verbose else logging.INFO,
         format="%(asctime)s - %(levelname)s - %(message)s",
     )
+
+    # `--no-llm` produces a DETERMINISTIC fake paragraph (see
+    # `_fake_commentary`). Measured 2026-09-21 over six 2026-09 digests: six
+    # paragraphs, ONE distinct tail sentence — 6/6 identical from "DevSecOps
+    # 실무자는 …" onward. That is the corpus-wide boilerplate gate 11 exists to
+    # stop, and gate 11 does NOT stop it: `check_post_boilerplate` compares
+    # Mermaid fences and checklists, not the `## 분석가 시점` paragraph. Written
+    # into three posts in a scratch run, it returned exit 0.
+    #
+    # So there is no downstream gate, and a docstring warning is not a control.
+    # Refuse the combination here, at the only point that can see it.
+    if args.no_llm and args.commit:
+        logger.error(
+            "--no-llm writes a deterministic placeholder paragraph (identical "
+            "across every post) and is for testing only. Combining it with "
+            "--commit would publish that text; no gate downstream catches it. "
+            "Use --no-llm with --dry-run, or drop --no-llm to generate real "
+            "commentary."
+        )
+        return 1
 
     # Default to dry-run when neither flag is given (safety).
     dry_run = args.dry_run or not args.commit
