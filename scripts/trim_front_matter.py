@@ -3,6 +3,32 @@
 """
 trim_front_matter.py - Automatically trim oversized front matter fields in Jekyll posts.
 
+DO NOT WIRE THIS INTO CI, pre-commit, or the publish path, and do not run
+`--fix` over the corpus without reopening the decision below.
+------------------------------------------------------------------------
+It reports 304/305 posts as "would be trimmed", which reads like a backlog.
+It is not. Measured 2026-09-21, the two things it would change are both
+regressions against what the repo has decided elsewhere:
+
+1. **excerpt truncation to 150 chars.** CLAUDE.md's front-matter spec says
+   `excerpt: "Summary (150-200 chars)"`. Of 305 posts, 288 exceed 150 chars
+   and **287 of those sit inside the documented 150-200 range**. Trimming
+   would push 287 posts OUT of spec to satisfy a limit this file chose on
+   its own. `FIELD_LIMITS["excerpt"]` below is the disagreement.
+2. **`keywords:` deletion whenever `tags` exist.** 300/305 posts carry
+   `keywords:`, and `_includes/head.html:79` reads it —
+   `{% assign meta_keywords = page.keywords | default: page.tags %}`.
+   Deleting it silently swaps the meta-keywords source from a curated list
+   to raw tags on 300 pages.
+
+One argument that does NOT hold, recorded so it is not re-used: trimming does
+not break `check_excerpt_promises`. Measured on five posts — the gate stayed
+green (305 clean). The case against this script is the two points above.
+
+Reopen if: `FIELD_LIMITS["excerpt"]` is reconciled with CLAUDE.md's 150-200
+range, and the `keywords` removal is either dropped or shown to be wanted by
+whoever owns `head.html`. Full measurement: notes/decisions.md, 2026-09-21.
+
 Usage:
     python3 scripts/trim_front_matter.py              # dry-run all posts
     python3 scripts/trim_front_matter.py --fix        # apply changes to all posts
