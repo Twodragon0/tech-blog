@@ -29,9 +29,14 @@ from collections import OrderedDict
 from pathlib import Path
 from urllib.parse import urlparse
 
-from scripts.lib.digest_headings import REFERENCE_HEADING_RE
-
 REPO = Path(__file__).resolve().parent.parent
+# Must precede the `scripts.*` import below: this file is run as a CLI, and
+# then nothing else puts the repo root on sys.path. Under pytest the suite does
+# it, so an import placed above this line passes every test and still breaks
+# `python3 scripts/enrich_digest_references.py` — the regression in #762.
+sys.path.insert(0, str(REPO))
+
+from scripts.lib.digest_headings import REFERENCE_HEADING_RE  # noqa: E402
 
 # Both spellings live in scripts/lib/digest_headings — the generator emits
 # "## 관련 포스트 및 참고 자료" when a digest has sibling cross-references, and
