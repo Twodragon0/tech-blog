@@ -85,19 +85,16 @@ from pathlib import Path
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(_REPO_ROOT))
 
+# Imported, not copied. These were hand-copies kept in sync by a drift guard
+# that only asserted membership of a fixed list in both — so a member added on
+# one side alone passed. That happened on 2026-09-21 with the reference
+# heading's second spelling, and restore then demoted `###` subheadings inside
+# the reference section because the item region never closed. They are
+# module-level in backfill now; there is one definition.
 from scripts.backfill_digest_structure import (  # noqa: E402
+    ITEM_HEADING_RE,
+    TOP_SECTION_RE,
     _split_front_matter,
-)
-
-# Copied from backfill_digest_structure.transform_body, where they are
-# function-local and cannot be imported. test_restore_digest_structure.py has a
-# drift guard that fails if the two definitions diverge.
-ITEM_HEADING_RE = re.compile(r"^### \d+\.\d+")
-TOP_SECTION_RE = re.compile(
-    r"^(## \d+\. (보안|AI/ML|클라우드|DevOps|블록체인|기타|트렌드|"
-    r"GeekNews|Open Source)|"
-    r"## 실무 체크리스트|## 서론|## 분석가 시점|## 경영진 브리핑|"
-    r"## 위험 스코어카드|## 참고 자료|## 📊)"
 )
 
 _ANY_HEADING_RE = re.compile(r"^(#{1,4})\s+(.*)$")
