@@ -3948,7 +3948,7 @@
     }
   },
   "2026-08-14-Tech_Security_Weekly_Digest_AI_AWS_Data_Go.md": {
-    "total": 93,
+    "total": 94,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -3959,7 +3959,7 @@
       "tables": 10,
       "code_blocks": 10,
       "cross_refs": 0,
-      "length": 3
+      "length": 4
     }
   },
   "2026-08-15-Tech_Security_Weekly_Digest_AI_Security_Go_Cloud.md": {
