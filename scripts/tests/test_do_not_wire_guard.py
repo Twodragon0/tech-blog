@@ -179,18 +179,32 @@ def test_no_llm_dry_run_still_works(sandboxed_digest: str) -> None:
 # --- trim_front_matter: 숫자를 바꿔서 되돌리지 못하도록 사실을 고정한다 -------
 
 
-def _excerpts() -> list[tuple[str, str]]:
-    import re
+def _field(name: str) -> list[tuple[str, str]]:
+    """front matter 필드를 YAML 로 읽는다.
+
+    정규식(`"?(.*?)"?`)으로 읽던 판은 작은따옴표 스칼라를 잘못 벗겨 `image_alt`
+    를 44건이 아니라 29건으로, 최대 112자를 109자로 셌다. excerpt 쪽 수치는
+    우연히 일치했을 뿐이다 — 우연은 근거가 아니므로 파서로 읽는다.
+    """
+    import yaml
 
     out = []
     for p in sorted((REPO_ROOT / "_posts").glob("*.md")):
         text = p.read_text(encoding="utf-8")
         if not text.startswith("---"):
             continue
-        m = re.search(r'^excerpt:\s*"?(.*?)"?\s*$', text.split("---", 2)[1], re.M)
-        if m:
-            out.append((p.name, m.group(1)))
+        try:
+            fm = yaml.safe_load(text.split("---", 2)[1])
+        except yaml.YAMLError:
+            continue
+        value = (fm or {}).get(name)
+        if isinstance(value, str):
+            out.append((p.name, value))
     return out
+
+
+def _excerpts() -> list[tuple[str, str]]:
+    return _field("excerpt")
 
 
 def _ends_at_a_sentence(value: str) -> bool:
@@ -260,4 +274,61 @@ def test_description_is_never_rendered_so_trimming_it_is_moot() -> None:
     assert not missing, (
         f"excerpt 가 빈 포스트 {len(missing)}건 — 그 포스트들은 description 으로 "
         f"폴백한다: {missing[:3]}"
+    )
+
+
+def test_nothing_in_the_repo_asks_image_alt_to_be_shorter() -> None:
+    """`FIELD_LIMITS["image_alt"] = 80` 에 외부 근거가 없다는 것을 고정한다.
+
+    이 필드에 길이를 강제하는 곳은 저장소 안에 `sitemap.xml` 의 `truncate: 160`
+    하나뿐이고, 가장 긴 값이 그보다 짧다. `og:image:alt`, `twitter:image:alt`,
+    그리고 실제로 렌더링되는 `<img alt>` 는 아무 제한도 걸지 않는다. 즉 80 은
+    이 도구가 스스로 고른 숫자다 — excerpt 의 150 이 그랬던 것과 같다.
+
+    이 단언이 깨진다면 어떤 소비자가 진짜 상한을 갖게 된 것이므로, 그때는
+    trim_front_matter 의 image_alt 처리를 다시 따져야 한다.
+    """
+    import re as _re
+
+    sitemap = (REPO_ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    m = _re.search(r"post\.image_alt.*?truncate:\s*(\d+)", sitemap, _re.S)
+    assert m, (
+        "sitemap.xml 이 image_alt 에 truncate 를 걸지 않는다 — 이 저장소에서 "
+        "이 필드에 상한을 두는 유일한 지점이 사라졌다."
+    )
+    enforced = int(m.group(1))
+
+    values = _field("image_alt")
+    assert values, "image_alt 를 가진 포스트가 없다 — 이 검사가 공허해졌다."
+    longest = max(len(v) for _, v in values)
+    assert longest <= enforced, (
+        f"가장 긴 image_alt 가 {longest}자로 sitemap 의 상한 {enforced}자를 넘었다. "
+        "실제로 잘리는 값이 생겼다면 trim_front_matter 의 image_alt 처리를 다시 "
+        "따져 볼 근거가 된다."
+    )
+
+
+def test_trimming_image_alt_drops_words_rather_than_whitespace() -> None:
+    """ "서술어가 없으니 안전하다" 는 논거를 반박해 고정한다.
+
+    영어 alt 텍스트에는 잃을 서술어가 없다. 그래서 안전하다고 적었는데 틀렸다 —
+    사라지는 것이 의미다. 2026-09-21 실측(YAML 파싱): 80 초과 44건에서 91단어가
+    사라지고, "…container supply chain attacks digest" 가 "…container supply" 가
+    된다. `<img alt>`(_layouts/post.html:140)는 접근성 표면이고 CLAUDE.md 는
+    WCAG 2.1 AA 를 요구한다.
+    """
+    sys.path.insert(0, str(REPO_ROOT / "scripts"))
+    from trim_front_matter import FIELD_LIMITS, truncate_at_word
+
+    limit = FIELD_LIMITS["image_alt"]
+    over = [(n, v) for n, v in _field("image_alt") if len(v) > limit]
+    assert over, f"{limit}자를 넘는 image_alt 가 없다 — 이 검사가 공허해졌다."
+
+    dropped = sum(
+        len(v.split()) - len(truncate_at_word(v, limit, suffix="").split())
+        for _, v in over
+    )
+    assert dropped > 0, (
+        "절단이 단어를 하나도 지우지 않는다. 공백만 정리하는 것으로 바뀌었다면 "
+        "이 검사와 trim_front_matter 의 재검토 조건을 함께 갱신하라."
     )

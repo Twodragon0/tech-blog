@@ -54,14 +54,37 @@ Two arguments that do NOT hold, recorded so they are not re-used:
   limit specifically. It does not survive raising the limit, which is why the
   sentence-level measurement above is the real case.
 
-What is left if all three are dropped: `image_alt` (29 posts over 80, max 109),
-where truncation appends no ellipsis and alt text has no predicate to lose.
-That is the only field where this tool does something defensible.
+`image_alt` does not survive either — the earlier note here was wrong
+---------------------------------------------------------------------
+This file previously called `image_alt` "the only field where this tool does
+something defensible (29 posts over 80, max 109)". Both the numbers and the
+conclusion were wrong. The counts came from a regex that mishandled
+single-quoted YAML scalars; parsed as YAML it is **44 posts over 80, max 112,
+91 words dropped**.
 
-Reopen if: someone wants the `image_alt` pass and rewrites excerpt/description
-handling out, OR a Korean-aware truncation (sentence-boundary, not
-space-boundary) replaces `truncate_at_word`. Do not reopen by changing a
-number. Full measurement: notes/decisions.md, 2026-09-21.
+The conclusion fails on its own terms:
+
+* **Nothing in the repo asks for 80.** The only length constraint applied to
+  this field anywhere is `sitemap.xml:94`'s `truncate: 160`, and the longest
+  value is 112 — already under it. `og:image:alt` (`head.html:184`),
+  `twitter:image:alt` (`head.html:211`) and the rendered `<img alt>`
+  (`_layouts/post.html:140`) impose none. 80 is this file's own invention,
+  exactly as 150 was for excerpt.
+* **The dropped words are the informative ones.** "…container supply chain
+  attacks digest" becomes "…container supply"; "…prompt injection defense
+  digest" becomes "…prompt injection". No predicate is lost because English
+  alt text has none, but meaning is.
+* **`<img alt>` is an accessibility surface.** CLAUDE.md commits this site to
+  WCAG 2.1 AA. Making alt text shorter and less descriptive to satisfy a
+  self-chosen limit is a regression against that, not a cleanup.
+
+So all three fields fail, and this tool has no remaining defensible job.
+
+Reopen if: a Korean-aware truncation (sentence-boundary, not space-boundary)
+replaces `truncate_at_word` AND a consumer that actually enforces a length is
+identified for the field being trimmed. Do not reopen by changing a number —
+that was tried and recorded above. Full measurement: notes/decisions.md,
+2026-09-21.
 
 Usage:
     python3 scripts/trim_front_matter.py              # dry-run all posts
