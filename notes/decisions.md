@@ -758,3 +758,65 @@ baseline 을 통째로 갱신하자"가 아니라, **무엇이 왜 움직였는�
 
 뮤테이션 프로브 5건 전부 대조군 깨끗한 채 CAUGHT — 사후조건 공허화(E),
 스텝 삭제(F), `|| true` 무력화(G), 사후조건 제거(H), 순서 뒤바꿈(I).
+
+---
+
+## 2026-09-21 — 배선 없는 코퍼스 스크립트 전수 조사: 두 번째 enrich 는 없다
+
+#764 이후 "고쳤지만 안 돈다"가 더 있는지 전수로 쟀다. 결론부터: **없다.**
+코드 변경 없음.
+
+### 감사기 자체의 오판을 먼저 고쳤다
+
+첫 판은 "호출처 0" 을 단순 grep 으로 셌고, `scripts/lib/digest_headings.py`
+**docstring 의 언급**을 호출처로 셌다. 메모리에 있는 그 함정이다
+(`substring_scan_counts_comments_as_usage`). 공용 fold(`without_comments`)로
+접고 다시 세자 고아가 37 → 42 로 늘었다 — 8개가 주석에 가려져 있었다.
+
+감사 도구도 게이트와 같은 규칙을 받는다: **인용과 사용을 구별하지 못하는
+스캔은 정리를 잘 할수록 더 눈이 먼다.**
+
+### 판별 기준
+
+"호출처 0" 자체는 결함이 아니다. 대부분은 일회성 마이그레이션 도구고, 수동인
+게 맞다. enrich 계열인지를 가르는 것은 하나다 — **생성기가 만들지 않는 것을
+만들어서, 새 포스트가 결손 상태로 태어나는가.** 그래서 최근 생성 다이제스트
+(2026-09, 19건)에 dry-run 으로 돌려 실측했다. 쓰기·네트워크·이미지 작업은
+제외했고, 부작용 0(변경 파일 0) 확인했다.
+
+### 결과
+
+| 스크립트 | 최근 19건 대상 | 판정 |
+|---|---|---|
+| `backfill_digest_native_sections` | **0/19 변경** | 생성기가 흡수. 완료된 캠페인 |
+| `backfill_card_summary_period` | 0/19 | 완료 |
+| `rewind_truncated_summaries` | 0/19 | 완료 |
+| `migrate_summary_cards_to_frontmatter` | 19 skipped | 완료 |
+| `backfill_digest_titles` | 0/229 | 완료 |
+| `fix_code_block_languages` | 0 | 완료 |
+| `fix_unclosed_code_blocks` | 305 clean | 완료 |
+| `add_missing_tags` | 0 | 완료 |
+
+**사용자가 지목한 `backfill_digest_native_sections` 는 같은 계열이 아니다.**
+0/19 다. 생성기가 native section 을 이미 내보내므로 배선이 없는 게 맞다.
+
+### 배선하면 안 되는 것 2건 (실측 근거)
+
+- **`trim_front_matter`** — 304/305 를 바꾸겠다고 하지만 enrich 계열이 아니라
+  **파괴적 정규화기**다. excerpt 를 150자로 자르고 `keywords:` 를 삭제한다.
+  CLAUDE.md 의 front matter 규격은 excerpt 를 **150-200 chars** 로 적고 있어
+  이 도구의 상한이 문서와 충돌한다. 게다가 excerpt 는 지금 게이트 14
+  (`check_excerpt_promises`)가 본문과 대조하는 대상이다. 배선 금지.
+- **`backfill_digest_commentary --no-llm`** — 2026-09 6건에 돌리면 문단 6개가
+  나오는데 **꼬리 문장이 1종**이다(6/6 동일). 게이트 11
+  (`check_post_boilerplate`)이 막으려고 만들어진 바로 그 모양이다. 배선 금지.
+
+### 판단 보류 1건
+
+- **`add_last_modified_at`** — 304/305 가 대상이고, 이건 실재하는 결손이다.
+  `sitemap.xml:47,72` 과 `_includes/head.html:115` 이 `last_modified_at` 을
+  실제로 읽는다(없으면 `page.date` 로 폴백). 다만 front matter 304건 일괄
+  추가는 `check_front_matter_growth` 게이트가 있는 영역이고, 폴백이 동작하므로
+  당장 깨진 것은 없다. **이득(SEO lastmod 정확도) 대비 churn 을 재기 전에는
+  손대지 않는다.** 착수한다면 먼저 셀 것 — 실제로 본문이 수정된 적 있는
+  포스트가 몇 건인지. 전부 `date == last_modified_at` 이면 이득이 0 이다.
