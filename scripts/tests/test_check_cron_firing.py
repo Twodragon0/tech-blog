@@ -94,7 +94,29 @@ class TestCronParsing:
 class TestLateIsNotLost:
     """Real 2026-08-27 numbers. A very late run is delivered, not dropped."""
 
-    SETTLE = timedelta(hours=18)
+    #: 프로덕션 기본값에서 가져온다. 하드코딩된 18시간이었는데, 그러면 프로덕션이
+    #: 6시간으로 내려가도 이 클래스의 시나리오는 18시간으로 계속 통과한다 —
+    #: "매우 늦은 실행은 누락이 아니다" 를 증명한다면서 정작 프로덕션이 그것을
+    #: 누락으로 보고하게 되는 조합이다.
+    SETTLE = timedelta(hours=mod.DEFAULT_SETTLE_HOURS)
+
+    def test_settle_keeps_margin_over_observed_lag(self):
+        """관측된 최악 lag 대비 여유가 남아 있어야 한다.
+
+        네트워크를 타지 않으려고 관측값을 상수로 둔다. 2026-09-22 실측(13개
+        워크플로, 7일 윈도): lag 118-409분. 스케줄러 지연은 변동이 크므로
+        ``check_cron_firing.py`` docstring 의 재계산 명령으로 다시 재고, 여유가
+        2배 아래로 내려가면 ``DEFAULT_SETTLE_HOURS`` 를 올려라 — 드롭 보고를
+        시작할 게 아니다. 늦은 것과 잃은 것은 다르고, 이 저장소는 그 둘을 혼동해
+        PR #629 를 틀린 전제로 정당화한 적이 있다.
+        """
+        worst_observed_minutes = 409
+        margin = (mod.DEFAULT_SETTLE_HOURS * 60) / worst_observed_minutes
+        assert margin >= 2.0, (
+            f"DEFAULT_SETTLE_HOURS={mod.DEFAULT_SETTLE_HOURS}h 는 관측 최악 lag "
+            f"{worst_observed_minutes}분 대비 {margin:.1f}배뿐이다. 정상 지연을 "
+            "드롭으로 보고하기 시작한다."
+        )
 
     def test_eleven_hour_delay_counts_as_delivered(self):
         # svg-lint: nominal 03:45Z, actual 14:46Z -> 661 minutes late.

@@ -12,9 +12,30 @@ The reason this needs a script rather than a glance is that eyeballing it gets
 the answer wrong. On 2026-08-28 at 00:58Z, three cron entries had been due since
 00:00-00:30Z with no run in sight, and that looked exactly like an outage. It was
 not: measuring ``deploy-pages`` (cron ``30 0 * * *``) across five ordinary days
-gives start times of 01:57, 02:09, 02:07, 02:01 and 02:08Z — **this repo's
-scheduler is 30-100 minutes late as its normal baseline**, on every workflow
-checked. An hour of silence is not a signal here; it is Tuesday.
+gave start times of 01:57, 02:09, 02:07, 02:01 and 02:08Z — 87-99 minutes late,
+on every workflow checked. **Silence is not a signal here; it is Tuesday.**
+
+Do not read a fixed band out of that paragraph. It said "30-100 minutes is the
+normal baseline" until 2026-09-22, and by then it was stale by roughly 3x:
+across 13 workflows over 7 days the lag ran **118-409 minutes**, with the
+per-workflow medians at 272 (min) and 328 (max). The same ``deploy-pages`` cron
+quoted above now lands 262-286 minutes late. The lag is volatile rather than
+drifting — measured monthly on ``ai-blogwatcher``, the median went 31 (06월),
+110 (07월), 61 (08월), 133 (09월) minutes.
+
+So the number belongs in a measurement, not in prose. This script already emits
+it; recompute instead of quoting::
+
+    python3 scripts/check_cron_firing.py --lookback-hours 168 --json \
+      | python3 -c "import json,sys; \
+        [print(r['workflow'], r['min_lag_minutes'], r['max_lag_minutes']) \
+         for r in json.load(sys.stdin)['workflows']]"
+
+What does NOT go stale is the shape of the mistake: hours of silence are
+normal, absence of a run within the declared window is not evidence, and
+``DEFAULT_SETTLE_HOURS`` is what separates "late" from "lost". At 18h it still
+holds 2.6x margin over the worst lag observed in the 7-day window above; if that
+margin ever drops below about 2x, raise it rather than start reporting drops.
 
 The genuinely bad day, 2026-08-27, was worse than it first appeared *and* better:
 runs arrived 350-661 minutes late, but every one of them did arrive. Nothing was
