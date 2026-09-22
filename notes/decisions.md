@@ -1274,3 +1274,69 @@ born-stale 이었다.
 
 코퍼스는 깨끗하고(stale 0), 배선은 동작하며, 대조도 설명된다. 만들 것이 없어
 노트만 남긴다.
+
+---
+
+## 2026-09-22 — ruleset 적용 불가 확정: 계정 유형 게이트 둘
+
+#750(2026-09-18)에서 선언한 `main` ruleset 이 나흘간 "적용 대기" 로 남아 있었다.
+오늘 실제로 POST 해 보고 **왜 안 되는지가 확정됐다.**
+
+```
+evaluate + bypass        422  Actor GitHub Actions integration must be part of
+                              the ruleset source or owner organization
+evaluate + bypass 없음   422  Enforcement evaluate option is not supported on
+                              this plan. Please upgrade to Enterprise.
+```
+
+| 설계가 요구한 것 | 실제 |
+|---|---|
+| `bypass_actors` = GitHub Actions(Integration, 15368) | **조직 소유 저장소 전용.** 이 저장소는 `owner.type = User` |
+| `enforcement: evaluate` | **Enterprise 플랜 전용** |
+
+둘 다 결제로 풀리는 문제가 아니라 계정 유형 문제다 —
+`secret_scanning_toggles_silent_noop`(Secret Protection 이 조직 전용)과 같은 계열이고,
+이 저장소에서 두 번째로 같은 벽에 부딪힌 것이다.
+
+두 POST 모두 **검증 단계에서 거부**돼 아무것도 생성되지 않았다(`rulesets` → `[]`).
+
+### 내 보고가 틀렸던 지점
+
+세션 내내 "ruleset 적용은 제가 실행할 수 없습니다(권한 classifier 거부)" 로
+보고했다. 세션 초반에는 실제로 classifier 가 막았지만, **그게 유일한 장애물인 것처럼
+말한 것이 틀렸다.** 오늘 POST 는 classifier 를 통과했고 GitHub 이 거부했다.
+"내가 못 한다" 와 "이 계정에서는 안 된다" 는 다른 말이고, 나흘 동안 전자로만
+보고하는 바람에 후자를 확인하는 일이 미뤄졌다.
+
+**교훈: 막혔다고 보고하기 전에 한 번은 끝까지 밀어 볼 것.** 대리 실행을 요청하는
+제안을 반복하는 것보다, 실패 메시지 하나가 훨씬 많은 것을 알려 준다.
+
+### 적용 가능한 유일한 형태와, 그것이 깨뜨리는 것
+
+`active` + `bypass_actors: []` 는 검증을 통과할 것이다. 그리고 **일일 발행을 멈춘다.**
+`ai-blogwatcher` 는 `GITHUB_TOKEN` 으로 main 에 직접 push 하고(오늘 발행 커밋
+`97976d5b`, actor `github-actions[bot]`), required check 가 걸린 브랜치에 직접
+push 하면 체크를 만족시킬 방법이 없다. bypass 가 있던 이유가 정확히 이것이므로,
+**이 형태로 켜지 않는다.** 실행하지 않았다.
+
+### 선택지 (사람 판단 필요)
+
+1. 봇에게 PAT / GitHub App 토큰 발급 — `branch_protection_bot_token` 이 기록한
+   경로. 현재 시크릿에 해당 토큰 **없음**(2026-09-22 확인). 시크릿 신규 발급이라
+   §5(A) 정지 대상이다.
+2. 발행을 PR 경로로 전환 — required check 가 자연히 만족되지만 발행 지연이 늘고,
+   봇-push 전제 위에 선 기존 기록들(`cron_posts_get_no_notifications`,
+   `ci_gates_blind_to_cron_bot_push`)의 전제가 바뀐다.
+3. 그대로 둔다 — 강제가 없을 뿐, 현재 PR 은 전부 5개 체크를 통과하고 있고 실질
+   위반은 관측되지 않았다.
+
+### 살아남는 측정
+
+어느 선택지든 아래는 유효하다(2026-09-22).
+
+- **유령 체크 이름 없음**: 요구 5개가 1파일짜리 문서 전용 PR(#772)에서도 5/5 pass.
+  `skipping` 으로 끝나는 `npm Security Audit`·`Ruby Gem Security Audit`·`auto-merge`
+  는 요구 목록에 없다.
+- **bypass actor id 는 맞았다**: `gh api /apps/github-actions` →
+  `slug=github-actions id=15368`. 틀린 것은 id 가 아니라 개인 저장소에서 그 actor
+  를 선언할 수 없다는 점이다.
