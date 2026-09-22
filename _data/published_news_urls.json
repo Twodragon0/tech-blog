@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-09-21T02:28:22.907269+00:00",
+  "updated_at": "2026-09-22T02:33:48.021261+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/",
-      "title": "N-able patches max severity N-central flaw amid ongoing attacks",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/95253/",
-      "title": "리눅스 환경의 루트킷 Syslogk 탐지 및 치료",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/chatgpt-astra-is-now-rolling-out-to-20-plus-subscription/",
-      "title": "ChatGPT Astra is now rolling out to $20 Plus subscription",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/attackers-hijack-mikrotik-routers.html",
-      "title": "Attackers Hijack MikroTik Routers Through Internet-Exposed SSH Without Authentic",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/four-revstealer-linked-modules-disable.html",
-      "title": "Four REVSTEALER-Linked Modules Disable Windows Update and Defender to Run a Cryp",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://openai.com/index/supporting-independent-journalism-in-ukraine",
-      "title": "Supporting independent journalism in Ukraine",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://openai.com/index/an-alien-mind",
-      "title": "An Alien Mind",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/evaluate-ai-agent-search-quality-with-amazon-opensearch-service-2/",
-      "title": "AI Agent를 위한 OpenSearch 검색 품질 개선하기 (Part 2)",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/how-channel-corporation-modernized-their-architecture-with-amazon-dynamodb-part-3-user-and-badge/",
-      "title": "채널코퍼레이션의 Amazon DynamoDB와 함께한 아키텍처 현대화 여정 – 3부",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/lg-energy-solution-price-prediction-agent/",
-      "title": "가격 예측부터 입찰 전략까지, LG에너지솔루션의 Amazon Bedrock AgentCore 기반 ERCOT 분석 에이전트 구축기",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/alleged-white-hat-hackers-withdraw-4000-bitcoin-from-blockstreams-liquid-network-federation-reserves",
-      "title": "Alleged White-Hat Hackers Withdraw 4,000 bitcoin from Blockstream’s Liquid Netwo",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/fomo-pumpfun-revenue-app-solana?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Fomo overtakes Pump.fun in daily revenue on Solana",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/liquid-network-pauses-320m-bitcoin-withdrawal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin sidechain Liquid pauses after purported ‘white hats’ withdraw $320M in B",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/white-hats-take-4000-btc-from-liquid-btc-etfs-best-week-of-2026-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "‘White hats’ take 4000 BTC from Liquid, ETFs see best inflows of 2026: Hodler’s ",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/satoshi-era-bitcoin-wakes-16-years-600-btc-moves?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Satoshi-era Bitcoin wakes after 16 years of dormancy as 600 BTC moves",
-      "published_date": "2026-09-07",
-      "expires_at": "2026-09-14T08:22:44.814274+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/peep-turns-chrome-and-edge-into-post.html",
-      "title": "PEEP Turns Chrome and Edge Into Post-Compromise Backdoors for Host Command Execu",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html",
-      "title": "Fake IT Calls Target Executives in Microsoft 365 Data Theft and Extortion Attack",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/weekly-recap-chrome-0-day-router.html",
-      "title": "⚡ Weekly Recap: Chrome 0-Day, Router Hijacks, Coder Supply Chain Attack and More",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/your-cloud-security-checklist-doesnt.html",
-      "title": "Your Cloud Security Checklist Doesn't Work the Way You Think It Does",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/rogue-screenconnect-clients-spread-four.html",
-      "title": "Rogue ScreenConnect Clients Spread Four-Stage VBScript Chain to Newly Connected ",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-claude-fable-5-1-on-aws-amazon-linux-2027-preview-aws-certified-ai-business-strategist-and-more-september-7-2026/",
-      "title": "AWS Weekly Roundup: Claude Fable 5.1 on AWS, Amazon Linux 2027 preview, AWS Cert",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/gsretail-aigateway-02/",
-      "title": "GS리테일의 전사 AI Gateway 구축 사례 – 2부: 실사용을 견디는 운영과 거버넌스",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/gsretail-aigateway-01/",
-      "title": "GS리테일의 전사 AI Gateway 구축 사례 – 1부: 인증·라우팅·계정 자동화 설계",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/announcements/2026/09/07/cloud-native-computing-foundation-announces-karmada-graduation/",
-      "title": "Cloud Native Computing Foundation Announces Karmada Graduation",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/announcements/2026/09/07/cncf-welcomes-new-silver-members-as-enterprises-scale-ai-from-training-to-inference/",
-      "title": "CNCF Welcomes New Silver Members as Enterprises Scale AI From Training to Infere",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/announcements/2026/09/07/china-merchants-bank-wins-cncf-end-user-case-study-contest-for-unifying-ai-training-and-inference-on-kubernetes/",
-      "title": "China Merchants Bank Wins CNCF End User Case Study Contest for Unifying AI Train",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/announcements/2026/09/07/cncf-and-slashdata-report-highlights-chinas-cloud-native-momentum-as-ai-moves-to-inference/",
-      "title": "CNCF and SlashData Report Highlights China’s Cloud Native Momentum as AI Moves t",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/09/07/handling-vulnerability-reports-recipe-card/",
-      "title": "Handling vulnerability reports: Recipe card",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/liquid-gets-3400-btc-back-after-on-chain-talks-white-hats-keep-598-5-btc",
-      "title": "Liquid Gets 3,400 BTC Back After On-Chain Talks; White Hats Keep 598.5 BTC",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/uk-financial-watchdog-prediction-markets-ban?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "UK financial watchdog weighs lifting prediction markets ban: Report",
-      "published_date": "2026-09-08",
-      "expires_at": "2026-09-15T02:15:01.430122+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/slim-spider-steals-crypto-custody.html",
       "title": "Slim Spider Steals Crypto Custody Secrets From Brazilian Financial Institution",
@@ -1344,6 +1164,96 @@
       "title": "LangChain은 유료 광고 운영 에이전트를 어떻게 만들었나",
       "published_date": "2026-09-21",
       "expires_at": "2026-09-28T02:28:22.907179+00:00"
+    },
+    {
+      "url": "https://research.checkpoint.com/2026/21st-september-threat-intelligence-report/",
+      "title": "21st September – Threat Intelligence Report",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/fake-lastpass-authenticator-installer.html",
+      "title": "Fake LastPass Authenticator Installer Abuses Microsoft-Signed Driver to Kill Ant",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/contagious-interview-campaign.html",
+      "title": "Contagious Interview Campaign Compromises 30,000 Devices, Steals $10.71M in Cryp",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/google-fined-403-million-over-gdpr.html",
+      "title": "Google Fined €403 Million Over GDPR Violations Tied to Location Data",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/weekly-recap-cisco-0-day-ai-agent-rce.html",
+      "title": "⚡ Weekly Recap: Cisco 0-Day, AI Agent RCE, ClickFix Attacks, ClickFix Surge, and",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/dsx-ready-ai-factories-power-cooling/",
+      "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/physical-ai-halos-safety/",
+      "title": "Why Deploying Physical AI at Scale Demands Safety at Every Layer",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/09/21/open-source/rebalancer-generic-high-performance-library-assignment-problems/",
+      "title": "Open-Sourcing Rebalancer: A Generic, High-Performance Library for Solving Assign",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/egypt-africa-ai-ecosystem/",
+      "title": "From Enablement to Execution, Egypt’s AI Ecosystem Reaches Production Scale",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-security-agent-stack/",
+      "title": "AI Security Is an Engineering Problem — How to Solve It at Every Layer of the Ag",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-pod-snapshots/",
+      "title": "Scale your AI workloads faster and more efficiently with GKE Pod snapshots",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/strengthen-your-cicd-pipeline-with-new-secure-source-manager-capabilities/",
+      "title": "Strengthen your CI/CD pipeline with new Secure Source Manager capabilities",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/maximize-apache-spark-availability-with-flexible-vms/",
+      "title": "Maximizing Apache Spark availability: Mitigating compute stockouts with flexible",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gpu-and-tpu-utilization-with-multi-cluster-gke-inference-gateway/",
+      "title": "Global AI routing with <1% overhead on multi-cluster GKE Inference Gateway",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-builder-center-mobile-apps-amazon-connect-talent-ga-amazon-corretto-27-and-more-september-14-2026/",
+      "title": "AWS Weekly Roundup: AWS Builder Center mobile apps, Amazon Connect Talent GA, Am",
+      "published_date": "2026-09-22",
+      "expires_at": "2026-09-29T02:33:48.021162+00:00"
     }
   ]
 }
