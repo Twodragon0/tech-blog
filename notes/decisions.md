@@ -1082,3 +1082,68 @@ prompt injection defense digest        →  prompt injection
 
 뮤테이션 프로브 O(image_alt 상한 무력화)·P(sitemap truncate 를 100 으로 낮춤)
 모두 대조군 깨끗한 채 CAUGHT.
+
+---
+
+## 2026-09-22 — front matter 정규식 파싱 전수 조사
+
+#769 에서 내 감사기가 작은따옴표 YAML 스칼라를 잘못 벗긴 것이 드러났다. 같은
+결함이 프로덕션에도 있는지 전수로 쟀다. **눈으로 고르지 않고**, 각 파일의 정규식
+리터럴을 AST 로 뽑아 큰따옴표/작은따옴표 두 표본에 실제로 돌려 판별했다.
+
+### 결과 — 3개 파일, 5개 패턴
+
+```
+scripts/auto_publish_news.py          ^title: / ^excerpt:   작은따옴표 → 따옴표째 추출
+scripts/regen_l20_digest_covers.py    ^title: / ^excerpt:   작은따옴표 → 따옴표째 추출
+scripts/seo_inject_related_links.py   ^title:               작은따옴표 → None
+```
+
+코퍼스 실측: `title` 작은따옴표 **51건**(2025-04 ~ 2026-02, 이후 0건),
+`image_alt` 39건, `description` 19건, `excerpt` **0건**.
+
+### 지금 터지지 않는 이유 — 세 겹이고, 전부 우연이 아니다
+
+1. `auto_publish_news` 는 **방금 생성한 포스트**만 처리한다. 생성기는
+   `title: "{yaml_title}"` 로 큰따옴표를 하드코딩하므로 작은따옴표가 나올 수 없다.
+2. `regen_l20_digest_covers` 와 `seo_inject_related_links` 는 **미배선**이다
+   (2026-09-21 전수 조사). 수동 실행에서만 51건/9건이 걸린다.
+3. 제목 안의 따옴표는 `sanitize_quotes_for_yaml` 이 전부 작은따옴표로 정규화한다.
+
+### 진짜 발견 — 3번이 단언된 적이 없었다
+
+`[^\n"]+` 는 값 안의 `"` 를 만나면 멈춘다. 이스케이프된 큰따옴표가 든 제목이면
+매치가 **통째로 실패**하고, 그러면 `post_info_for_l20["title"]` 이 초기값 빈
+문자열로 남는다(본문이 `---` 로 시작하므로 그 폴백 조건도 거짓이다).
+
+재현했다 — 빈 제목으로 L20 을 부르면 커버는 **정상 생성되고**(28 KB) 헤드라인만
+`Security Update` 라는 일반 문구로 바뀐다. 실패가 아니라 **조용한 치환**이다.
+커버 정직성 게이트를 가진 저장소에서 제목이 소리 없이 사라지는 셈이다.
+
+그 경로가 닫혀 있는 이유는 정규식이 견고해서가 아니라 sanitizer 때문이다. 즉
+**생산자와 소비자가 한 가정을 공유하는데 그 가정을 아무도 단언하지 않았다.**
+`test_auto_publish_sanitize.py` 는 sanitizer 의 *동작*만 검사했고, 그것이 커버
+제목 추출의 전제라는 사실은 어디에도 없었다. 이 저장소가 이미 대가를 치른 모양이다
+(`producer_gate_must_import_one_fold`).
+
+### 한 일
+
+정규식을 고치지 않았다. 발행 경로의 hot path 이고 지금 옳게 동작하며, 세 겹 중
+어느 것도 오늘 깨져 있지 않다. 대신 **결합을 걸었다** —
+`TestCoverTitleExtractionDependsOnSanitizer` 가 sanitizer 를 통과한 제목이
+프로덕션 정규식으로 복원되는지 확인한다. 정규식은 사본을 두지 않고
+`auto_publish_news.py` 소스에서 읽어 온다(사본을 두면 저쪽이 바뀌어도 옛 패턴을
+계속 통과시킨다).
+
+대조군도 함께 뒀다 — sanitizer 를 거치지 않은 제목은 실제로 추출에 실패해야 한다.
+정규식이 견고해지면 이 단언이 깨져서 "결합이 풀렸다"고 알려 준다.
+
+뮤테이션 프로브 Q(sanitizer 를 항등함수로)·R(정규식을 `(.+?)` 로 견고하게) 모두
+대조군 깨끗한 채 CAUGHT.
+
+### 남긴 것
+
+`regen_l20_digest_covers` 9건, `seo_inject_related_links` 51건은 **고치지 않았다.**
+둘 다 미배선이라 자동으로 돌지 않고, 손대면 커버 재생성 블롭이 따라온다
+(CLAUDE.md: 2,930 이미지에 29,177 리비전). 수동으로 돌릴 일이 생기면 그때
+정규식부터 고칠 것.
