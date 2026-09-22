@@ -1340,3 +1340,72 @@ push 하면 체크를 만족시킬 방법이 없다. bypass 가 있던 이유가
 - **bypass actor id 는 맞았다**: `gh api /apps/github-actions` →
   `slug=github-actions id=15368`. 틀린 것은 id 가 아니라 개인 저장소에서 그 actor
   를 선언할 수 없다는 점이다.
+
+---
+
+## 2026-09-22 — required check 강제 방향: **그대로 둔다.** 단 내가 든 근거는 틀렸었다
+
+### 먼저 정정 — "실질 위반 미관측" 은 거짓이었다
+
+직전 보고에서 "그대로 둔다가 유력합니다(현재 PR 전부 5개 체크 통과, 실질 위반
+미관측)" 라고 적었다. 앞 절은 맞고 **뒷 절은 틀렸다.** 최근 main 커밋 100건의
+유입 경로를 세어 보면:
+
+```
+PR 머지(squash)      76건
+봇 직접 push         16건
+사람 직접 push        8건   ← ruleset 이 막았을 대상
+```
+
+8건이 있다. 그중 셋(`cf8d265a`, `fa2c46f8`, `9efefcd1`)이 바로 이 세션을 시작하게
+한 09-19 커밋들이고, 거기서 결함 2건이 나왔다. "위반이 없다" 가 아니라
+**"내가 PR 체크만 보고 직접 push 를 세지 않았다"** 였다.
+
+### 그런데 세어 보니 결론은 같고, 이유가 달라졌다
+
+직접 push 커밋에 실제로 무엇이 돌았는지 쟀다. (`gh run list --commit` 은 대조군
+커밋에서도 0건을 반환한다 — 메모리 `gh_run_sha_filters_silently_return_zero` 대로
+못 쓴다. `--json headSha` 로 받아 클라이언트에서 필터링했다.)
+
+```
+cf8d265a (직접 push)   Python Lint success · Jekyll site CI success · CodeQL success
+9efefcd1 (직접 push)   Python Lint success · Jekyll site CI success · CodeQL success
+5f48434f (PR 머지)     Python Lint success · Jekyll site CI success · CodeQL
+```
+
+push 이벤트 전체로도 `Python Lint` 29/29, `Jekyll site CI` 29/29 success 다.
+
+즉 **요구 5개 중 3개(ruff·build·CodeQL)는 직접 push 에서도 이미 돈다.**
+진짜로 빠지는 것은 `GitGuardian`(PR 전용, 그러나 native push protection 이 그
+경로를 덮는다 — 이 세션 초반 실측)과 **사람 리뷰**뿐이다.
+
+**그리고 09-19 커밋의 결함 2건을 잡은 것은 리뷰였지 5개 체크 중 어느 것도
+아니다.** 소켓 타임아웃 경합도, 헤딩 변형 실명도 ruff·build·CodeQL 이 잡을 수
+있는 종류가 아니다.
+
+`required_status_checks` 는 리뷰를 요구하지 않는다. **관측된 문제에 맞는 도구가
+아니다.**
+
+### 결정
+
+**선택지 3(그대로 둔다).** 근거는 "위반이 없어서" 가 아니라:
+
+1. 요구 5개 중 3개가 직접 push 에서도 이미 실행된다(29/29).
+2. 빠지는 `GitGuardian` 은 native push protection 이 같은 경로를 덮는다.
+3. 실제로 결함을 잡은 것은 리뷰이고, 이 rule type 은 리뷰를 강제하지 않는다.
+4. 적용 가능한 유일한 형태(`active` + bypass 없음)는 일일 발행을 멈춘다.
+
+### 파일은 **제거하지 않는다**
+
+`main-required-status-checks.json` 에는 살아 있는 소비자가 있다 —
+`check_required_checks_contract.py` 가 pytest 에서 그 5개 이름이 여전히 생성
+가능하고 `paths:` 필터에 걸리지 않는지 검사한다(`OK — 5 context(s), all
+producible, none paths-filtered`). 지우면 **작동 중인 가드가 사라진다.**
+
+ruleset 이 적용되지 않아도 그 검사는 의미가 있다: 언젠가 켤 수 있게 되는 날
+(조직 이전, PAT 도입 등) 이름이 썩어 있으면 모든 PR 이 영구히 막힌다. 그 이름들을
+계속 살려 두는 것이 이 파일의 현재 역할이다.
+
+`.github/rulesets/README.md` 에 적용 불가 사유와 남은 선택지를 적었고,
+`docs/troubleshooting/GITHUB_ACCOUNT_TYPE_GATES.md` 에 같은 벽에 세 번째로
+부딪히지 않도록 계정 유형 게이트를 모았다.
