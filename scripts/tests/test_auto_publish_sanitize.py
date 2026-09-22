@@ -184,3 +184,87 @@ class TestSanitizeQuotesForYaml:
         assert "\u201d" not in result
         assert "\u2018" not in result
         assert "\u2019" not in result
+
+
+# ---------------------------------------------------------------------------
+# 4. The coupling: the cover-title regex is only correct BECAUSE of this
+#    sanitizer. Nothing asserted that until 2026-09-22.
+# ---------------------------------------------------------------------------
+
+
+class TestCoverTitleExtractionDependsOnSanitizer:
+    """`auto_publish_news` 는 front matter 제목을 정규식으로 되읽는다.
+
+        m_title = re.search(r'^title:\\s*"?([^\\n"]+)"?\\s*$', post_content, re.M)
+
+    `[^\\n"]+` 는 값 안의 `"` 를 만나면 멈춘다. 이스케이프된 큰따옴표가 든 제목이면
+    매치가 **통째로 실패**하고, 그 경우 `post_info_for_l20["title"]` 은 초기값인
+    빈 문자열로 남는다(포스트 본문은 `---` 로 시작하므로 그 조건도 거짓이다).
+
+    2026-09-22 재현: 빈 제목으로 L20 을 부르면 커버는 정상 생성되지만 헤드라인이
+    "Security Update" 라는 일반 문구로 대체된다. 실패가 아니라 **조용한 치환**이다.
+    커버 정직성 체계를 가진 저장소에서 제목이 소리 없이 사라지는 셈이다.
+
+    그 경로가 지금 닫혀 있는 이유는 정규식이 견고해서가 아니라
+    `sanitize_quotes_for_yaml` 이 모든 큰따옴표류를 작은따옴표로 바꾸기 때문이다.
+    즉 **생산자와 소비자가 한 가정을 공유하는데 그 가정을 아무도 단언하지 않았다** —
+    이 저장소가 이미 대가를 치른 모양이다(notes: producer-gate must share one fold).
+
+    그래서 여기서는 sanitizer 의 동작이 아니라 **둘의 결합**을 건다.
+    """
+
+    @staticmethod
+    def _title_regex():
+        """정규식을 사본으로 두지 않고 프로덕션 소스에서 읽어 온다.
+
+        여기 복사해 두면 저쪽이 바뀌어도 이 검사는 옛 패턴을 계속 통과시킨다.
+        """
+        import re
+
+        src = (Path(__file__).resolve().parents[1] / "auto_publish_news.py").read_text(
+            encoding="utf-8"
+        )
+        m = re.search(r"re\.search\(\s*(r'[^']*\^title:[^']*')", src)
+        assert m, (
+            "auto_publish_news.py 에서 제목 추출 정규식을 찾지 못했다. 추출 방식이 "
+            "바뀌었다면(예: YAML 파싱) 이 검사를 그에 맞게 갱신하라 — 찾지 못한 채 "
+            "통과시키면 아무것도 검사하지 않게 된다."
+        )
+        return re.compile(eval(m.group(1)), re.MULTILINE)  # noqa: S307
+
+    @pytest.mark.parametrize(
+        "headline",
+        [
+            '중요한 cPanel 취약점이 "Sorry", Trellix, 그리고 AWS',
+            "보안 업데이트 &quot;긴급&quot; 배포",
+            "“제로데이” 공격 확산",
+            "이미 'single' 인용된 제목",
+            "따옴표 없는 평범한 제목",
+        ],
+    )
+    def test_sanitized_titles_survive_the_cover_regex(self, headline: str) -> None:
+        sanitized = sanitize_quotes_for_yaml(headline)
+        front_matter = f'---\nlayout: post\ntitle: "{sanitized}"\n---\n\n본문\n'
+
+        m = self._title_regex().search(front_matter)
+        assert m, (
+            f"정규화된 제목 {sanitized!r} 를 커버 추출 정규식이 읽지 못했다. "
+            "발행 시 커버 제목이 빈 문자열이 되고, 헤드라인이 'Security Update' "
+            "같은 일반 문구로 조용히 대체된다."
+        )
+        assert m.group(1).strip() == sanitized, (
+            f"추출값이 원본과 다르다: {m.group(1).strip()!r} != {sanitized!r}"
+        )
+
+    def test_an_unsanitized_title_would_break_it(self) -> None:
+        """대조군 — 위 검사가 공허하지 않음을 보인다.
+
+        sanitizer 를 거치지 않은 제목은 실제로 추출에 실패한다. 이 단언이 깨진다면
+        정규식이 견고해진 것이므로 결합이 풀린 것이고, 그때는 위 검사도 다시 본다.
+        """
+        raw = '취약점이 \\"Sorry\\" 라고 말했다'
+        front_matter = f'---\nlayout: post\ntitle: "{raw}"\n---\n\n본문\n'
+        assert self._title_regex().search(front_matter) is None, (
+            "이스케이프된 큰따옴표가 든 제목을 정규식이 읽어냈다. 정규식이 "
+            "견고해졌다면 sanitizer 의존이 사라진 것이니 이 클래스의 설명을 갱신하라."
+        )
