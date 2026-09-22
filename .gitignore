@@ -84,6 +84,8 @@ Untitled.*
 # Image analysis temp files
 all_images.txt
 referenced_images.txt
+assets/images/*_image.webp
+assets/images/_unused_archive/**/*.webp
 
 # IDE
 .vscode/

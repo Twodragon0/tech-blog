@@ -240,7 +240,7 @@ mitre_attack:
 | **인증 보안** | 1건 | The Hacker News 관련 동향 |
 | **블록체인/암호화폐** | 1건 | Cointelegraph 관련 동향 |
 
-이번 주기의 핵심 트렌드는 **AI/ML**(3건)입니다. Tech World Monitor 관련 동향, Microsoft 디렉터 등이 주요 이슈입니다. **취약점/CVE** 분야에서는 The Hacker News 관련 동향 관련 동향에 주목할 필요가 있습니다.
+이번 주기의 핵심 트렌드는 **AI/ML**(3건)입니다. Tech World Monitor 관련 동향, Microsoft 디렉터 등이 주요 이슈입니다. **취약점/CVE** 분야에서는 The Hacker News 관련 보안 취약점 동향에 주목할 필요가 있습니다.
 
 ---
 
@@ -259,6 +259,7 @@ mitre_attack:
 ### P2 (30일 내)
 
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+
 ## 관련 포스트 및 참고 자료
 
 - 2026년 09월 19일 주간 보안 다이제스트: {% post_url 2026-09-19-Tech_Security_Weekly_Digest_AWS_AI_Rust_Patch %}
