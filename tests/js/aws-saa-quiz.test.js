@@ -449,7 +449,15 @@ describe('aws-saa-quiz.js', () => {
       buildQuizFixture([Q1]);
       runScript(registered);
 
-      const createSpy = vi.spyOn(URL, 'createObjectURL');
+      // 원본 jsdom 구현으로 흘려보내지 않는다. 이 spy 가 필요로 하는 것은 blob
+      // 인자뿐인데, jsdom 30.1.0 의 URL.createObjectURL 은 이 Blob 을 받지
+      // 못하고 `Cannot read properties of undefined (reading '_buffer')` 로
+      // 던진다. 그 예외는 click 핸들러 안에서 나므로 삼켜지고, 바로 다음 줄인
+      // `document.createElement('a')` 가 실행되지 않아 앵커 단언이 깨진다
+      // (2026-09-23 실측, PR #755 를 막고 있던 원인). 브라우저에서는 정상이다.
+      const createSpy = vi
+        .spyOn(URL, 'createObjectURL')
+        .mockReturnValue('blob:test');
       document.querySelector('.download-question[data-question="1"]').click();
 
       const blob = createSpy.mock.calls[0][0];
@@ -462,7 +470,15 @@ describe('aws-saa-quiz.js', () => {
       buildQuizFixture([Q1]);
       runScript(registered);
 
-      const createSpy = vi.spyOn(URL, 'createObjectURL');
+      // 원본 jsdom 구현으로 흘려보내지 않는다. 이 spy 가 필요로 하는 것은 blob
+      // 인자뿐인데, jsdom 30.1.0 의 URL.createObjectURL 은 이 Blob 을 받지
+      // 못하고 `Cannot read properties of undefined (reading '_buffer')` 로
+      // 던진다. 그 예외는 click 핸들러 안에서 나므로 삼켜지고, 바로 다음 줄인
+      // `document.createElement('a')` 가 실행되지 않아 앵커 단언이 깨진다
+      // (2026-09-23 실측, PR #755 를 막고 있던 원인). 브라우저에서는 정상이다.
+      const createSpy = vi
+        .spyOn(URL, 'createObjectURL')
+        .mockReturnValue('blob:test');
       document.querySelector('.download-both[data-question="1"]').click();
 
       const blob = createSpy.mock.calls[0][0];
@@ -475,7 +491,15 @@ describe('aws-saa-quiz.js', () => {
       buildQuizFixture([Q1, Q2]);
       runScript(registered);
 
-      const createSpy = vi.spyOn(URL, 'createObjectURL');
+      // 원본 jsdom 구현으로 흘려보내지 않는다. 이 spy 가 필요로 하는 것은 blob
+      // 인자뿐인데, jsdom 30.1.0 의 URL.createObjectURL 은 이 Blob 을 받지
+      // 못하고 `Cannot read properties of undefined (reading '_buffer')` 로
+      // 던진다. 그 예외는 click 핸들러 안에서 나므로 삼켜지고, 바로 다음 줄인
+      // `document.createElement('a')` 가 실행되지 않아 앵커 단언이 깨진다
+      // (2026-09-23 실측, PR #755 를 막고 있던 원인). 브라우저에서는 정상이다.
+      const createSpy = vi
+        .spyOn(URL, 'createObjectURL')
+        .mockReturnValue('blob:test');
       document.getElementById('download-all-questions').click();
 
       const blob = createSpy.mock.calls[0][0];

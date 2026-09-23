@@ -1479,3 +1479,76 @@ bypass 없이 active 로 켜면 발행이 멈춘다는 경고, 그럼에도 파�
 경고가 조용히 사라지지 않도록 `test_the_ruleset_file_says_it_is_not_applied` 가
 존재와 필수 토큰 3개(`README.md`, `owner.type=User`, `del(._comment)`)를 단언한다.
 뮤테이션(키 제거) CAUGHT.
+
+---
+
+## 2026-09-23 — PR #755 를 막던 vitest 실패: 원인은 jsdom 30.1.0
+
+`dependabot/npm_and_yarn/js-minor-patch` 의 `certification-quiz.test.js` 1건이
+`expected undefined to be defined` 로 실패하고 있었다. 이분해서 원인을 좁혔다.
+
+### 범인은 vitest 가 아니다
+
+PR 은 셋을 올린다 — `@vitest/coverage-v8` 5.0.0→5.0.1, `jsdom` 30.0.1→**30.1.0**,
+전이적으로 `@asamuzakjp/css-color` 6→7. vitest 5.0.1 을 유지한 채 jsdom 만 30.0.1
+로 내리면 **18/18 통과**한다. jsdom 이다.
+
+### 기전 — 삼켜진 예외
+
+증상만 보면 모순이었다. `createObjectURL` 은 1회 호출되고 blob 내용 단언은
+통과하는데, `document.createElement` spy 가 수집한 앵커는 **0개**였다.
+
+가정을 하나씩 단언으로 깼다. spy 는 정상 설치돼 있고(테스트에서 직접 호출하면
+포착됨), 스크립트가 받은 document 는 테스트의 것과 동일 객체이며
+(`SAME-DOC: true`), `createElement` 도 같은 함수였다(`ce-same: true`).
+
+실제 원인은 클릭 핸들러 안의 예외였다:
+
+```
+WINDOW-ERROR: Cannot read properties of undefined (reading '_buffer')
+```
+
+jsdom 30.1.0 의 `URL.createObjectURL` 이 스크립트가 만든 Blob 을 받지 못한다.
+spy 는 **호출을 기록한 뒤 원본으로 흘려보내므로** 기록은 남고, 그 다음 줄인
+`document.createElement('a')`(certification-quiz.js:676) 는 실행되지 않는다.
+예외는 이벤트 핸들러 안에서 나 window error 로 삼켜진다 — 그래서 테스트가
+"에러" 가 아니라 "앵커 없음" 으로 보인다.
+
+브라우저에서는 정상이다. 저장소 코드의 결함이 아니다.
+
+### 수정 — 원본으로 흘려보내지 않는다
+
+이 spy 가 필요로 하는 것은 blob 인자뿐이다. `.mockReturnValue('blob:test')` 를
+붙여 jsdom 구현을 타지 않게 했다. 5개 지점(certification-quiz 2, aws-saa-quiz 3).
+jsdom 30.1.0 에서 18/18, 현재 main(30.0.1)에서 42/42 통과한다. 범프와 독립적인
+테스트 견고성 수정이므로 main 에 올린다 — #755 는 리베이스하면 풀린다.
+
+---
+
+## 2026-09-23 — 낡은 node_modules 로 받은 "738 passed" 는 근거가 아니었다
+
+`53e9e922`(vitest 4→5) 를 리뷰하며 `npm test` 로 738 passed 를 받고 "범프는
+안전하다" 고 적을 뻔했다. **그 검증은 공허했다** — `node_modules` 가 낡아 실제로는
+vitest **4.1.10** 으로 돌고 있었다. 선언도 lock 도 5.0.0 인데 설치본만 4 였다.
+
+`npm ci` 후 다시 돌려서야 5.0.0 에서의 결과를 얻었다. 숫자는 같았지만, **같다는
+것을 모르는 상태에서 그 숫자를 근거로 쓰려 한 것**이 문제다.
+
+CI 는 `npm ci` 를 쓰므로 안 걸린다. 걸리는 것은 로컬에서 확인하는 사람이고, 그
+사람이 "로컬에서 전건 통과" 라고 적는다.
+
+가드: `scripts/tests/test_installed_js_deps_match_lock.py`. 선언된 최상위
+의존성에 대해 설치본과 lock 을 비교한다. 전이 의존성은 제외했다 — 소음이 커지면
+가드가 꺼진다. "npm test 전에 npm ci 하라" 는 규칙으로 두지 않은 이유는 그것이
+사람 기억에 의존하기 때문이고, 파이썬 스위트는 로컬에서 늘 돌기 때문이다.
+
+### 저장소 정책 가드가 내 테스트를 고쳤다
+
+초안은 "패키지가 node_modules 에 없으면 skip" 이었다. `test_skip_path_policy` 가
+잡았다 — **그게 바로 잡으려는 드리프트인데 skip 하면 green 으로 보고된다.**
+단언으로 바꿨다. `node_modules` 자체가 없는 경우만 skip 으로 남겼고(gitignore
+대상이고 `npm ci` 로만 생기는 환경 사실), 문구를 정책의 허용 패턴에 맞췄다.
+
+뮤테이션(설치본 버전을 4.1.10 으로 위조) CAUGHT. 첫 프로브는
+`npm install --no-save vitest@4.1.10` 이었는데 실제로 내려가지 않아 **무효였다** —
+통과로 읽지 않고 조건을 직접 만들어 다시 쟀다.
