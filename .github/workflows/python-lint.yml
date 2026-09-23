@@ -73,7 +73,7 @@ jobs:
         # 0.15.8 no longer reproduces — but a future edit to a fenced Python
         # block in those files can now fail this gate. That is the intended
         # trade, not an accident.
-        run: python3 -m pip install --upgrade pip 'ruff==0.16.7'
+        run: python3 -m pip install --upgrade pip 'ruff==0.16.8'
 
       - name: ruff check (blocking)
         # No --fix. That is the entire point of this step existing.
