@@ -1409,3 +1409,73 @@ ruleset 이 적용되지 않아도 그 검사는 의미가 있다: 언젠가 켤
 `.github/rulesets/README.md` 에 적용 불가 사유와 남은 선택지를 적었고,
 `docs/troubleshooting/GITHUB_ACCOUNT_TYPE_GATES.md` 에 같은 벽에 세 번째로
 부딪히지 않도록 계정 유형 게이트를 모았다.
+
+---
+
+## 2026-09-23 — 미검토 직접 push 5건 사후 리뷰: 전건 결함 없음
+
+09-19 배치 3건은 이 세션 초반에 리뷰해 결함 2건을 찾았다. 나머지 5건은 리뷰된 적이
+없어 마저 봤다. **다섯 건 모두 결함 없음.**
+
+| 커밋 | 내용 | 확인한 것 |
+|---|---|---|
+| `3839c048` | 아카이브에서 이미지 3개 복원 | 3/3 이 포스트에서 실제 참조되고 파일 존재 |
+| `bc168110` | 문서만(CLAUDE.md + cover-system 스킬) | 코드 변경 없음 |
+| `e6e65601` | 워크플로 3개 `fetch-depth: 0 → 1` | 아래 |
+| `cf644e88` | 교차참조 + 품질 점수 | baseline 과 실제 점수 3/3 일치(전부 99) |
+| `53e9e922` | vitest 4 → 5 메이저 범프 | 아래 |
+
+**`e6e65601`** — 커밋 메시지가 "이 셋은 history 명령을 안 쓴다" 고 주장한다.
+믿지 않고 쟀다: `generate-images` / `monthly-quality-report` / `vercel-deploy`
+모두 history 명령 0건이다. 반대 방향도 봤다 — merge-base 를 쓰는 잡
+(`jekyll/build`, `svg-lint/lint`)은 여전히 `fetch-depth: 0` 이다. 정확한 변경이다.
+
+**`53e9e922`** — 로컬에서 `npm test` 가 738 passed 를 냈지만 **그 검증은 공허했다**:
+`node_modules` 가 낡아 vitest **4.1.10** 으로 돌고 있었다(선언은 `^5.0.0`).
+`npm ci` 로 lock 대로 설치하니 5.0.0 이고, 그 상태에서 30 files / 738 tests 전건
+통과한다. lock 도 5.0.0 으로 고정돼 있다. 같이 들어간 파이썬 변경은 타입 내로잉
+(`assert _m is not None`)으로 동작 동일하고, baseline 94→99 는 같은 커밋의 품질
+상향과 일치한다.
+
+### 내가 만들어 낸 가짜 구멍 하나
+
+리뷰 도중 "`vitest.yml` 이 `pull_request` 전용이라 직접 push 인 `53e9e922` 는 착지
+시점에 JS 검증을 못 받았다" 고 판단했다. **틀렸다.** 파일 앞 20줄만 읽고 `on:` 블록
+전체를 보지 않았다 — `push: branches: [main]` 이 같은 paths 로 함께 있다. 실측하니
+`53e9e922` 에 대한 push 이벤트 vitest 런이 있고 **success** 다(09-08T15:21).
+
+이 세션이 반복해서 경고한 그 함정을 내가 또 밟았다(`dont_tail_a_gate_output`).
+**트리거를 주장하기 전에 `on:` 을 파싱해서 볼 것** — `sed -n '1,20p'` 로는 알 수 없다.
+
+### 09-21 vitest 실패는 별건이다
+
+`vitest.yml` 최근 실행 중 하나가 failure 인데, 브랜치는
+`dependabot/npm_and_yarn/js-minor-patch-16a205b317` 이고 실패는
+`certification-quiz.test.js` 의 `expected undefined to be defined` 1건이다
+(1 failed / 29 passed). main 은 vitest 5 에서 전건 통과하므로 **이 범프의 문제가
+아니라 그 PR 의 문제**다. 이번 리뷰 범위 밖으로 남긴다.
+
+### 그래서 강화할 것이 있는가 — 없다
+
+직접 push 8건 중 결함은 09-19 배치 3건에만 있었고, 그것도 리뷰가 잡았지 CI 가 잡을
+수 있는 종류가 아니었다(소켓 경합, 헤딩 변형 실명). 나머지 5건은 CI 가 정상적으로
+덮었고 실제로 green 이었다. 직전 결정("required check 강제는 관측된 문제에 맞는
+도구가 아니다")을 뒤집을 근거가 이번 리뷰에서 나오지 않았다.
+
+---
+
+## 2026-09-23 — ruleset JSON 을 자기설명하게
+
+`main-required-status-checks.json` 은 머지 후 나흘 동안 "적용 대기" 로 오해됐고,
+실제로는 적용 **불가능**이었다. README 를 안 열고 파일만 보는 사람이 그대로 POST
+하지 않도록, JSON 에 `_comment` 키로 경고를 실었다(JSON 은 주석을 지원하지 않는다).
+
+담은 것: 적용 불가 사유(조직 소유 전용, 422 원문), `owner.type=User` 라는 근거,
+bypass 없이 active 로 켜면 발행이 멈춘다는 경고, 그럼에도 파일을 지우면 안 되는
+이유(계약 검사기가 5개 이름의 생존을 검사한다), README 위치, 그리고 실제 적용 시
+`jq 'del(._comment)'` 로 걷어내라는 지시.
+
+추가 키가 계약 검사기를 깨지 않는 것은 먼저 확인했다(18건 그대로 통과).
+경고가 조용히 사라지지 않도록 `test_the_ruleset_file_says_it_is_not_applied` 가
+존재와 필수 토큰 3개(`README.md`, `owner.type=User`, `del(._comment)`)를 단언한다.
+뮤테이션(키 제거) CAUGHT.

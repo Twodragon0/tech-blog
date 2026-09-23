@@ -26,6 +26,16 @@ $ jq '.enforcement="evaluate" | .bypass_actors=[]' … | gh api --method POST �
 두 POST 모두 검증 단계에서 거부됐으므로 **아무것도 생성되지 않았다**
 (`gh api repos/Twodragon0/tech-blog/rulesets` → `[]`).
 
+JSON 자체에도 같은 경고를 `_comment` 키로 실어 뒀다 — 이 README 를 안 열고
+파일만 보는 사람을 위해서다. **GitHub 에 보낼 때는 그 키를 걷어낼 것:**
+
+```bash
+jq 'del(._comment)' .github/rulesets/main-required-status-checks.json | gh api …
+```
+
+`check_required_checks_contract.py` 는 그 키를 무시하며, 경고가 조용히 사라지지
+않도록 `test_the_ruleset_file_says_it_is_not_applied` 가 존재를 단언한다.
+
 ## 그래도 적용할 수 있는 유일한 형태와, 그것이 깨뜨리는 것
 
 `enforcement: active` + `bypass_actors: []` 는 검증을 통과할 것이다. 그리고
