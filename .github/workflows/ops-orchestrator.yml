@@ -144,7 +144,7 @@ jobs:
         # in one PR; the guard in test_ci_python_lint_gate.py says so by name.
         run: |
           python -m pip install --upgrade pip
-          python -m pip install 'ruff==0.16.7' mypy
+          python -m pip install 'ruff==0.16.8' mypy
           npm i -g vercel
           gh --version
           vercel --version
@@ -321,7 +321,7 @@ jobs:
         # ruff + mypy are required by the blocking lint-and-types check (the only
         # check that can fail this run). Without them the lint step could not run.
         # ruff is pinned to python-lint.yml's version — see the roundtable job.
-        run: python -m pip install --upgrade pip pyyaml 'ruff==0.16.7' mypy
+        run: python -m pip install --upgrade pip pyyaml 'ruff==0.16.8' mypy
 
       - name: Run priority checks
         id: checks
@@ -395,7 +395,7 @@ jobs:
         # ruff pinned to python-lint.yml's version — see the roundtable job.
         run: |
           python -m pip install --upgrade pip
-          python -m pip install 'ruff==0.16.7' mypy
+          python -m pip install 'ruff==0.16.8' mypy
           npm i -g vercel
           gh --version
           vercel --version
