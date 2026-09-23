@@ -1,45 +1,46 @@
 {
-    "name": "main: required status checks",
-    "target": "branch",
-    "enforcement": "active",
-    "bypass_actors": [
-        {
-            "actor_id": 15368,
-            "actor_type": "Integration",
-            "bypass_mode": "always"
-        }
-    ],
-    "conditions": {
-        "ref_name": {
-            "include": [
-                "~DEFAULT_BRANCH"
-            ],
-            "exclude": []
-        }
-    },
-    "rules": [
-        {
-            "type": "required_status_checks",
-            "parameters": {
-                "strict_required_status_checks_policy": false,
-                "required_status_checks": [
-                    {
-                        "context": "ruff"
-                    },
-                    {
-                        "context": "build"
-                    },
-                    {
-                        "context": "Security Audit Summary"
-                    },
-                    {
-                        "context": "CodeQL"
-                    },
-                    {
-                        "context": "GitGuardian Security Checks"
-                    }
-                ]
-            }
-        }
-    ]
+  "_comment": "NOT APPLIED, AND CANNOT BE — 이 파일은 선언이지 설정이 아니다. 2026-09-22 실측: bypass_actors(GitHub Actions)는 조직 소유 저장소 전용이고 (422 Actor GitHub Actions integration must be part of the ruleset source or owner organization), 이 저장소는 owner.type=User 다. 그대로 POST 하지 말 것. bypass 를 빼고 active 로 켜면 검증은 통과하지만 일일 발행이 멈춘다 — ai-blogwatcher 가 GITHUB_TOKEN 으로 main 에 직접 push 한다. 그래도 이 파일은 지우지 않는다: scripts/check_required_checks_contract.py 가 여기 적힌 5개 이름이 여전히 생성 가능하고 paths 필터에 걸리지 않는지 pytest 에서 검사한다. 언젠가 켤 수 있게 되는 날 이름이 썩어 있으면 모든 PR 이 영구히 막힌다. 전체 사유와 남은 선택지: .github/rulesets/README.md. 실제로 적용할 때는 이 키를 제거할 것: jq 'del(._comment)' <file> | gh api ... --input -",
+  "name": "main: required status checks",
+  "target": "branch",
+  "enforcement": "active",
+  "bypass_actors": [
+    {
+      "actor_id": 15368,
+      "actor_type": "Integration",
+      "bypass_mode": "always"
+    }
+  ],
+  "conditions": {
+    "ref_name": {
+      "include": [
+        "~DEFAULT_BRANCH"
+      ],
+      "exclude": []
+    }
+  },
+  "rules": [
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": false,
+        "required_status_checks": [
+          {
+            "context": "ruff"
+          },
+          {
+            "context": "build"
+          },
+          {
+            "context": "Security Audit Summary"
+          },
+          {
+            "context": "CodeQL"
+          },
+          {
+            "context": "GitGuardian Security Checks"
+          }
+        ]
+      }
+    }
+  ]
 }

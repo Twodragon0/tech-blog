@@ -182,3 +182,30 @@ def test_context_names_are_sanitized_before_printing(weird: str) -> None:
 def test_real_context_names_survive_the_sanitizer(real: str) -> None:
     """Not vacuous — a redact-everything version would make messages useless."""
     assert rc._safe(real) == real
+
+
+def test_the_ruleset_file_says_it_is_not_applied() -> None:
+    """JSON 만 읽는 사람이 그대로 POST 하지 않도록.
+
+    이 파일은 선언이지 설정이다 — 2026-09-18 에 머지되고 나흘 동안 "적용 대기" 로
+    오해된 채 남아 있었고, 실제로는 적용이 **불가능**했다(bypass_actors 가 조직 소유
+    저장소 전용). JSON 은 주석을 지원하지 않으므로 `_comment` 키로 싣는다.
+
+    GitHub 에 보낼 때는 `jq 'del(._comment)'` 로 걷어낸다 — README 의 명령이 그렇게
+    되어 있다. 계약 검사기는 이 키를 무시한다(추가해도 18건 그대로 통과).
+
+    이 단언이 깨진다면 누군가 경고를 지운 것이다. 지우기 전에
+    `.github/rulesets/README.md` 와 `docs/troubleshooting/GITHUB_ACCOUNT_TYPE_GATES.md`
+    를 먼저 반박하라.
+    """
+    data = json.loads(rc.RULESET.read_text(encoding="utf-8"))
+    comment = data.get("_comment", "")
+    assert comment, (
+        "ruleset JSON 에서 `_comment` 가 사라졌다. 이 파일은 적용할 수 없는데도 "
+        "적용 가능한 설정처럼 읽힌다 — 그 오해로 나흘을 썼다."
+    )
+    for token in ("README.md", "owner.type=User", "del(._comment)"):
+        assert token in comment, (
+            f"`_comment` 가 {token!r} 를 더 이상 가리키지 않는다. 사유·근거·적용 "
+            "방법 중 하나가 빠지면 다음 사람이 다시 추측하게 된다."
+        )
