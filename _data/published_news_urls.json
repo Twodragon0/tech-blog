@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-23T02:33:26.527437+00:00",
+  "updated_at": "2026-09-24T02:22:48.093373+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/us-disrupts-xinbi-guarantee-scam.html",
-      "title": "U.S. Disrupts Xinbi Guarantee Scam Marketplace, Freezes $52.8 Million in Crypto",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/four-spy-groups-used-same-chrome-and.html",
-      "title": "Four Spy Groups Used the Same Chrome and Windows Exploit Kit Within a Week",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/09/threat-matrix-mapping-threats-across-cloud-web-applications/",
-      "title": "Threat matrix: Mapping threats across cloud web applications",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/infostealer-logs-expose-replayable-ai.html",
-      "title": "Infostealer Logs Expose Replayable AI Tokens That Can Bypass MFA",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/the-state-of-ai-for-security-measuring-what-matters-most-for-building-trust/",
-      "title": "The state of AI for security: Measuring what matters most for building trust",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
-      "title": "Paul Christiano joins OpenAI Foundation Board",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ibc-news-2026/",
-      "title": "NVIDIA Brings Real-Time AI to Broadcast, Sports and Global Streaming at IBC",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/football-features-google-search/",
-      "title": "Get ready for the game with new football features in Search",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/",
-      "title": "Recreating a 70-year love story frame by frame",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://openai.com/index/ai-policy-window",
-      "title": "The AI policy window is open. We need to act.",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/alloydb-omni-rpm-orchestrator-is-generally-available/",
-      "title": "Enterprise-grade PostgreSQL with AlloyDB Omni RPM Orchestrator is generally avai",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-is-a-leader-in-2026-gartner-magic-quadrant-for-enterprise-ai-assistants/",
-      "title": "Google is a Leader in the 2026 Gartner® Magic Quadrant™ for Enterprise AI Assist",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/how-to-replicate-sql-server-logins-and-passwords-to-cloud-sql/",
-      "title": "Beyond DMS: Accelerating Migrations SQL Server Logins and Users to Cloud SQL",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/spanner-removes-dml-mutation-limits/",
-      "title": "Spanner: Removing cumulative mutation limits for DML transactions",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/media-entertainment/how-airtel-delivered-its-flawless-indian-premiere-league-2026-cricket-broadcasts/",
-      "title": "How Airtel delivered its flawless Indian Premiere League 2026 cricket broadcasts",
-      "published_date": "2026-09-10",
-      "expires_at": "2026-09-17T02:17:40.802153+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/threatsday-200-android-flaws-browser.html",
       "title": "ThreatsDay: 200 Android Flaws, Browser-Built Phishing, 119K Scam Shops + 23 More",
@@ -1254,6 +1164,96 @@
       "title": "Faster C++ code intelligence with whole codebase indexing",
       "published_date": "2026-09-23",
       "expires_at": "2026-09-30T02:33:26.527233+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/attackers-use-malicious-terraform.html",
+      "title": "Attackers Use Malicious Terraform Providers to Deliver Go Malware via HashiCorp ",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/icymi-august-2026-aws-security/",
+      "title": "ICYMI: August 2026 @AWS Security",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/a-leaked-gitlab-issue-email-address.html",
+      "title": "A Leaked GitLab Issue Email Address Lets Anyone Push Code and Run CI Jobs as You",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/mikrotrick-chain-let-attackers-take.html",
+      "title": "MikroTrick Chain Let Attackers Take Over MikroTik Routers Without a Password or ",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/windows-malware-is-built-to-let-up-to.html",
+      "title": "This Windows Malware is Built to Let Up to Four AI Models Vote on Its Next Move",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/09/23/security/private-processing-meta-ai-glasses/",
+      "title": "Bringing Private Processing to Meta AI Glasses",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/",
+      "title": "Google Beam expands with new regions, partners, and customers",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
+      "title": "Advancing Private AI Compute with secure, server-side memory",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://openai.com/index/two-years-of-openai-academy",
+      "title": "Two years of OpenAI Academy",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-life-sakeena-fiza/",
+      "title": "Sakeena Fiza Helps NVIDIA Hardware Succeed at Scale",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-speed-up-your-video-processing-with-alphaevolve/",
+      "title": "A guide to speeding up your video processing with AlphaEvolve",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-adds-native-scale-to-zero-capabilities/",
+      "title": "GKE becomes more elastic: Scale to zero, save costs, and keep workloads responsi",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/native-support-for-prometheus-metrics-in-gke/",
+      "title": "Scale your own way, using HPA with built-in support for PromQL metrics queries i",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/chrome-enterprise/secure-intelligent-experiences-across-every-endpoint/",
+      "title": "Secure, intelligent experiences across every endpoint",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
+      "title": "More ways to request and configure Copilot code reviews",
+      "published_date": "2026-09-24",
+      "expires_at": "2026-10-01T02:22:48.093190+00:00"
     }
   ]
 }
