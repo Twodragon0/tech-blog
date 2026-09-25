@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-24T02:22:48.093373+00:00",
+  "updated_at": "2026-09-25T02:39:52.790068+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/threatsday-200-android-flaws-browser.html",
-      "title": "ThreatsDay: 200 Android Flaws, Browser-Built Phishing, 119K Scam Shops + 23 More",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/google-play-early-access-abused-to-push.html",
-      "title": "Google Play Early Access Abused to Push Thousands of Deceptive Android Apps",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/new-android-malware-encrypts-files-steals-data-and-harasses-victims/",
-      "title": "New Android malware encrypts files, steals data, and harasses victims",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/10/protecting-organizations-ai-assisted-executive-impersonation-invoice-fraud/",
-      "title": "Protecting organizations from AI-assisted executive impersonation and invoice fr",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/check-point-discloses-two-98-rated-vpn.html",
-      "title": "Check Point Discloses Two 9.8-Rated VPN Certificate Flaws Enabling Unauthenticat",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/",
-      "title": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform/",
-      "title": "Physical AI Takes the Wheel: How the World’s Robotaxi Leaders Are Building With ",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials",
-      "title": "How a researcher uses Codex and ChatGPT to search for new antimicrobial molecule",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/running-race-training-tips/",
-      "title": "3 ways to prep for your next big race with Search",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://openai.com/index/put-data-to-work",
-      "title": "Now everyone can put data to work",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/introducing-the-google-cloud-developer-plugin-for-ai-coding-agents/",
-      "title": "Introducing the Google Cloud Developer Plugin for AI Coding Agents",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
-      "title": "What’s new with Google Cloud",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/",
-      "title": "What’s new with Google Data Cloud",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/rendering-digital-humans-with-amazon-ec2-spot-instances/",
-      "title": "Amazon EC2 Spot 인스턴스로 디지털 휴먼 렌더링하기",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/running-pgvector-in-production-on-amazon-aurora-postgresql/",
-      "title": "Amazon Aurora PostgreSQL에서 pgvector를 프로덕션 환경으로 운영하기",
-      "published_date": "2026-09-11",
-      "expires_at": "2026-09-18T02:13:58.056502+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/hackers-abused-claude-to-extract-secrets-from-18m-android-apps/",
       "title": "Hackers abused Claude to extract secrets from 1.8M Android apps",
@@ -1254,6 +1164,96 @@
       "title": "More ways to request and configure Copilot code reviews",
       "published_date": "2026-09-24",
       "expires_at": "2026-10-01T02:22:48.093190+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/unpatched-oneplus-flaws-let-installed.html",
+      "title": "Unpatched OnePlus Flaws Let Installed Android Apps Gain Root Without Permissions",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/threatsday-ai-search-poisoning-ai.html",
+      "title": "ThreatsDay: AI Search Poisoning, AI Coding Tool Leaking Repos, One-Click Code Ex",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/placeholder-third-partycom-referenced.html",
+      "title": "Placeholder third-party[.]com Referenced Across 1,700+ Repositories Now Serves M",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/hacked-ukrainian-sites-serve-fake.html",
+      "title": "Hacked Ukrainian Sites Serve Fake Cloudflare ClickFix Lures for Psychedelic Stea",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/corp-mdm-spyware-targets-logistics.html",
+      "title": "Corp MDM Spyware Targets Logistics Firms, Steals New SMS and Redirects Calls",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/open-protein-dataset/",
+      "title": "How Open Science Can Help Researchers Prepare for the Next Pandemic",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-control-resonant/",
+      "title": "Contain the Chaos: ‘CONTROL Resonant’ Launches on GeForce NOW",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/asia-dominates-crypto-adoption-index-bitgets-356m-hack-asia-express?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Asia dominates Crypto Adoption Index, Bitget’s $352M hack: Asia Express",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/speaker-labeled-transcription-with-whisperx-on-sagemaker-ai/",
+      "title": "Speaker-labeled transcription with WhisperX on SageMaker AI",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-multi-account-ai-agent-with-agentcore-gateway-and-mcp/",
+      "title": "Build a multi-account AI agent with AgentCore Gateway and MCP",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/agent-factory-recap-agent-harnesses-shifting-left-and-autonomous-coding/",
+      "title": "Agent Factory recap: Agent harnesses, shifting left, and autonomous coding",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/2026-gartner-magic-quadrant-for-container-management/",
+      "title": "Google is a Leader in the 2026 Gartner Magic Quadrant for Container Management",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-agentic-migration/",
+      "title": "Introducing GKE agentic migration for AI-assisted EKS-to-GKE migrations with bui",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/customers/scribd-inc-classifies-millions-of-documents-on-gemini-enterprise/",
+      "title": "Scribd, Inc. classifies more than 400 million documents with Gemini batch infere",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-8-live-with-live-avatar-is-now-generally-available/",
+      "title": "Power your agents: Gemini 3.8 Live with Live Avatar is now generally available",
+      "published_date": "2026-09-25",
+      "expires_at": "2026-10-02T02:39:52.789846+00:00"
     }
   ]
 }
