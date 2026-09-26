@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-25T02:39:52.790068+00:00",
+  "updated_at": "2026-09-26T02:42:29.307928+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-abused-claude-to-extract-secrets-from-18m-android-apps/",
-      "title": "Hackers abused Claude to extract secrets from 1.8M Android apps",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/florida-confirms-dmv-database-breached-via-stolen-police-account/",
-      "title": "Florida confirms DMV database breached via stolen police account",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/passkey-themed-phishing-attacks-lead-to-microsoft-365-data-theft/",
-      "title": "Passkey-themed phishing attacks lead to Microsoft 365 data theft",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/artifactory-flaws-chained-in-attacks-deploying-backdoor-malware/",
-      "title": "Artifactory flaws chained in attacks deploying backdoor malware",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/how-threat-actors-are-turning-trusted-ai-platforms-into-an-attack-surface/",
-      "title": "How Threat Actors Are Turning Trusted AI Platforms Into an Attack Surface",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
-      "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://openai.com/index/cognition-devin-testing-with-astra",
-      "title": "Cognition helps Devin test its own work with GPT‑6 Astra",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one",
-      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/claude-ai-cyberattacks-surveillance-weapons-anthropic?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Anthropic says Claude used for cyberattacks and surveillance",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/monitoring-production-agent-lifecycle-with-aws-devops-agent-and-agentcore-evaluations/",
-      "title": "Monitoring production agent lifecycle with AWS DevOps Agent and AgentCore Evalua",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/highlights-from-the-goldman-sachs-communicopia-and-technology-conference/",
-      "title": "3 Highlights from Thomas Kurian’s Keynote at the Goldman Sachs Communicopia & Te",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/healthomics-cancer-genomics-automation/",
-      "title": "이노크라스의 AWS HealthOmics 기반 임상 유전체 파이프라인 운영 효율화 방안",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
-      "title": "Add VS Code Agents to Copilot usage metrics",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review",
-      "title": "Auto-resolution and analysis updates in Copilot code review",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
-    {
-      "url": "https://webkit.org/blog/18304/release-notes-for-safari-technology-preview-252/",
-      "title": "Release Notes for Safari Technology Preview 252",
-      "published_date": "2026-09-12",
-      "expires_at": "2026-09-19T02:18:54.551499+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/cisa-adds-5-actively-exploited.html",
       "title": "CISA Adds 5 Actively Exploited Artifactory, ScreenConnect, and RouterOS Flaws to",
@@ -1254,6 +1164,96 @@
       "title": "Power your agents: Gemini 3.8 Live with Live Avatar is now generally available",
       "published_date": "2026-09-25",
       "expires_at": "2026-10-02T02:39:52.789846+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/compromised-github-actions-came-back.html",
+      "title": "Compromised GitHub Actions Came Back Online and Resumed Executing Mini Shai-Hulu",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/pamstealer-macos-malware-adds-live-c2.html",
+      "title": "PamStealer macOS Malware Adds Live C2 Payload Decryption and Multi-Layer Persist",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/kiteworks-urges-6-hour-server-shutdown-over-potential-zero-day-attacks/",
+      "title": "Kiteworks urges 6-hour server shutdown over potential zero-day attacks",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/the-soc-doesnt-need-to-start-over-with.html",
+      "title": "The SOC Doesn't Need to Start Over with Every Alert",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-hacked-clop-leak-site-using-grav-cms-path-traversal-flaw/",
+      "title": "ShinyHunters hacked Clop leak site using Grav CMS path traversal flaw",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://openai.com/index/proaction",
+      "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/trading-a-cloud-identity-for-your-own-workload-attestation-on-managed-compute-516d5a29b252?source=rss----2615bd06b42e---4",
+      "title": "Trading a Cloud Identity for Your Own: Workload Attestation on Managed Compute",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/",
+      "title": "Scaling MoE reinforcement learning on Amazon EKS with EFA and DeepEP with 40% mo",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/",
+      "title": "Accelerate multimodal RL training with SkyRL on Amazon SageMaker HyperPod",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/narrateai-production-ready-llm-quality-assurance-on-amazon-bedrock/",
+      "title": "NarrateAI: production-ready LLM quality assurance on Amazon Bedrock",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/memorystore-for-valkey-9-1-3x-qps-caching/",
+      "title": "Unlock 3x QPS and microsecond latency with Memorystore for Valkey 9.1",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/storage-data-transfer/storage-intelligence-advisor-and-batch-operations-updates/",
+      "title": "Storage Intelligence advisor: Know what changed in your storage estate and act o",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/best-practices-guide-for-customizing-gemini-models/",
+      "title": "Best practices guide for customizing Gemini models via Reinforcement Learning (R",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
+      "title": "Enterprise managed settings in-product validator",
+      "published_date": "2026-09-26",
+      "expires_at": "2026-10-03T02:42:29.307705+00:00"
     }
   ]
 }
