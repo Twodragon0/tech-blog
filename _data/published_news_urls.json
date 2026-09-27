@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-26T02:42:29.307928+00:00",
+  "updated_at": "2026-09-27T11:22:14.631832+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/cisa-adds-5-actively-exploited.html",
-      "title": "CISA Adds 5 Actively Exploited Artifactory, ScreenConnect, and RouterOS Flaws to",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/when-whole-company-adopts-ai-what-it.html",
-      "title": "When the Whole Company Adopts AI: What It Does to Your SOC",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/openai-agents-linked-to-rubygems.html",
-      "title": "OpenAI Agents Linked to RubyGems Campaign That Gained RCE on RubyDoc Servers",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/dutch-ncsc-critical-check-point-vpn-flaws-exploitation-is-imminent/",
-      "title": "Dutch NCSC: Critical Check Point VPN flaws exploitation is imminent",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/09/12/revolut-confirms-customer-data-breach-through-fake-government-requests/",
-      "title": "Revolut confirms customer data breach through fake government requests",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/nvidia-considers-10b-investment-in-anthropic-record-ipo-reuters?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Nvidia considers $10B investment in potential record Anthropic IPO: Reuters",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/markets/2026/09/12/openai-ipo-won-t-happen-this-year-says-sam-altman",
-      "title": "OpenAI IPO won't happen this year, says Sam Altman",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/tech/2026/09/12/anthropic-ceo-calls-for-ai-race-to-slow-down-musk-and-openai-s-altman-agrees",
-      "title": "Anthropic CEO calls for AI race to slow down citing safety. Musk and OpenAI's Al",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/north-korea-using-foreign-talent-to-help-infiltrate-us-companies-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "North Korea using foreign talent to help infiltrate US companies: Report",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/farages-reform-uk-gets-biggest-donation-ever-from-crypto-billionaire-reports?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Farage’s Reform UK gets $97M from two crypto billionaires",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/09/12/bitcoin-suisse-plans-to-cut-up-to-half-its-swiss-jobs-as-it-shifts-work-abroad",
-      "title": "Bitcoin Suisse plans to cut up to half its Swiss jobs as it shifts work abroad",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/09/12/nigel-farage-s-reform-uk-lands-usd97-million-donations-from-two-crypto-billionaires-in-24-hours",
-      "title": "Nigel Farage’s Reform UK lands $97 million donations from two crypto billionaire",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/09/12/ripple-stablecoin-chief-sees-usd13-trillion-corporate-treasury-opportunity-for-rlusd",
-      "title": "Ripple stablecoin chief sees $13 trillion corporate treasury opportunity for RLU",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33607",
-      "title": "Show GN: irasutoya - (Claude Skill) いらすとや 이라스토야 일러스트를 검색·다운로드해 활용",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33606",
-      "title": "Dreeve - 운동 데이터를 직접 보관하고 분석하는 셀프 호스팅 대시보드",
-      "published_date": "2026-09-13",
-      "expires_at": "2026-09-20T02:14:31.129048+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/attackers-use-passkey-phishing-to.html",
       "title": "Attackers Use Passkey Phishing to Hijack Microsoft Cloud Accounts and Exfiltrate",
@@ -1254,6 +1164,96 @@
       "title": "Enterprise managed settings in-product validator",
       "published_date": "2026-09-26",
       "expires_at": "2026-10-03T02:42:29.307705+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html",
+      "title": "Warning: Two Unpatched Citrix NetScaler RCE Zero-Days Under Active Exploitation",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/lunex-stealer-abuses-amd-driver-to.html",
+      "title": "Lunex Stealer Abuses AMD Driver to Disable Security Monitoring and Steal Browser",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/attackers-bypass-wafs-to-exploit-oracle.html",
+      "title": "Attackers Bypass WAFs to Exploit Oracle PeopleSoft Flaw and Deploy Web Shells",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/",
+      "title": "ShinyHunters uses WAF bypass trick in Oracle PeopleSoft attacks",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-opus-55-uses-95-percent-fewer-em-dashes-but-its-answers-are-getting-longer/",
+      "title": "Claude Opus 5.5 uses 95% fewer em dashes, but its answers are getting longer",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/culture/samourai-letter-7-notes-from-the-inside",
+      "title": "Samourai Letter #7: Notes From The Inside",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/videos/an-austrian-economist-explains-why-ai-will-make-everyone-an-entrepreneur-w-per-bylund",
+      "title": "An Austrian Economist Explains Why AI Will Make Everyone an Entrepreneur w/ Per ",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/grant-cardone-real-estate-armageddon-is-here-why-bitcoin-is-the-hedge",
+      "title": "Grant Cardone: Real Estate “Armageddon” Is Here – Why BITCOIN is the Hedge",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/videos/technical-analysis-btc-to-cross-key-price-level-against-gold",
+      "title": "TECHNICAL ANALYSIS: BTC to Cross Key Price Level Against Gold",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/videos/katie-stockton-93k-btc-is-the-key-price-level-for-the-bull-market",
+      "title": "Katie Stockton: $93K BTC is the Key Price Level for the Bull Market",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34355",
+      "title": "Meta, 선거 2주 앞두고 룰라 대통령의 Facebook 페이지·선거 광고 차단",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34354",
+      "title": "Show GN: REFOURIER – 파일을 서버에 올리지 않고 브라우저에서 끝내는 한국어 문서 변환 도구",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34353",
+      "title": "은행과 신용협동조합, Apple Pay 수수료에 공동 대응 나선다",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34352",
+      "title": "OpenAI, Hacker News에 올라올 내용이 ‘대외 이미지’에 미칠 영향 우려",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34351",
+      "title": "예멘의 면적은 얼마일까? (2024)",
+      "published_date": "2026-09-27",
+      "expires_at": "2026-10-04T11:22:14.631214+00:00"
     }
   ]
 }
