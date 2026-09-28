@@ -260,6 +260,7 @@ summary_card:
 - [ ] **Anthropic이 AI slowdown proposal 지원을 위해 Accenture를 임베디드 평가자로 선정** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
 - [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+
 ## 관련 포스트 및 참고 자료
 
 - 2026년 09월 20일 주간 보안 다이제스트: {% post_url 2026-09-20-Tech_Security_Weekly_Digest_AI_AWS_Security_Patch %}

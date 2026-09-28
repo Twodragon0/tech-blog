@@ -393,6 +393,7 @@ GitHub에서 제공되는 가짜 LastPass Authenticator 설치 프로그램이 �
 
 - [ ] **NVIDIA는 AI Factories용 전력 및 냉각 제품을 인증할 준비를 마친 DSX를 출시했다.** 관련 AI 보안 정책 검토
 - [ ] 클라우드 인프라 보안 설정 정기 감사
+
 ## 관련 포스트 및 참고 자료
 
 - 2026년 09월 21일 주간 보안 다이제스트: {% post_url 2026-09-21-Tech_Security_Weekly_Digest_AI_AWS_Agent_Bitcoin %}

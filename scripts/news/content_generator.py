@@ -1873,7 +1873,8 @@ toc: true
     recent_links = _get_recent_digest_links(date)
     heading = REFERENCE_HEADING_WITH_POSTS if recent_links else REFERENCE_HEADING
 
-    content += f"""{heading}
+    content += f"""
+{heading}
 
 {recent_links}| 리소스 | 링크 |
 |--------|------|
@@ -2194,7 +2195,8 @@ toc: true
     recent_links = _get_recent_digest_links(date)
     heading = REFERENCE_HEADING_WITH_POSTS if recent_links else REFERENCE_HEADING
 
-    content += f"""{heading}
+    content += f"""
+{heading}
 
 {recent_links}| 리소스 | 링크 |
 |--------|------|
