@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-27T11:22:14.631832+00:00",
+  "updated_at": "2026-09-28T02:42:32.367235+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/attackers-use-passkey-phishing-to.html",
-      "title": "Attackers Use Passkey Phishing to Hijack Microsoft Cloud Accounts and Exfiltrate",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/95384/",
-      "title": "2026년 8월 다크웹 침해사고 동향 보고서",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/95388/",
-      "title": "2026년 8월 다크웹 이슈 동향 보고서",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/95389/",
-      "title": "2026년 8월 다크웹 위협 행위자 동향 보고서",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-tencent-app-flaw-to-deploy-grayrabbit-malware/",
-      "title": "Hackers exploit Tencent app flaw to deploy GrayRabbit malware",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/anthropic-chief-urges-slowdown-in-ai-development-to-safer-pace?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Anthropic chief urges slowdown in AI development to safer pace",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/eks-advanced-control-plane/",
-      "title": "Amazon EKS 고급 컨트롤 플레인 구성하기",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/celltrion-pharm-oms-develop-with-ai-dlc/",
-      "title": "셀트리온제약의 AI-DLC 방법론과 Kiro를 활용한 OMS 서비스 구축하기",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/revolut-attackers-threaten-daily-customer-data-leaks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Revolut attackers threaten daily customer data leaks",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/revolut-says-customer-data-exposed-through-fake-government-email?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Revolut says customer data exposed through fake government email",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/cryptos-biggest-week-ever-swarm-fears-prompt-ai-slowdown-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Crypto’s biggest week ever? Swarm fears prompt AI slowdown: Hodler’s Digest",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/policy/2026/09/13/is-clarity-dead-a-vibes-based-analysis-state-of-crypto",
-      "title": "Is Clarity dead? A vibes-based analysis: State of Crypto",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/opinion/2026/09/13/quantum-proof-blockchain-why-math-not-machines-holds-the-key",
-      "title": "Quantum-proof blockchain: why math, not machines, holds the key",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33667",
-      "title": "공포의 전염",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33665",
-      "title": "Alien - 고객 환경에 설치한 소프트웨어를 원격으로 운영하는 플랫폼",
-      "published_date": "2026-09-14",
-      "expires_at": "2026-09-21T02:32:13.489357+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/new-ddrop-attack-breaks-intel-tdx-and.html",
       "title": "New DDRop Attack Breaks Intel TDX and AMD SEV-SNP Confidential Computing",
@@ -1254,6 +1164,96 @@
       "title": "예멘의 면적은 얼마일까? (2024)",
       "published_date": "2026-09-27",
       "expires_at": "2026-10-04T11:22:14.631214+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-preparing-o-an-always-on-chatgpt-assistant-that-could-handle-email/",
+      "title": "OpenAI is preparing “o,” an always-on ChatGPT assistant that could handle email",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/95560/",
+      "title": "Telerik UI 취약점을 악용한 웹쉘 설치 및 스캐너 실행 공격 사례",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/",
+      "title": "Citrix confirms two NetScaler RCE zero-days exploited in attacks",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/cloudflare-fixes-containers-cross-tenant-flaw-exposing-customer-data/",
+      "title": "Cloudflare fixes Containers cross-tenant flaw exposing customer data",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-turns-claude-into-an-ai-marketplace-with-2-000-plus-plugins-and-connectors/",
+      "title": "Anthropic turns Claude into an AI marketplace with 2,000+ plugins and connectors",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/australia-summons-openai-anthropic-chiefs-to-senate-inquiry-on-health-data-hack-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Australia asks OpenAI, Anthropic chiefs to Senate inquiry on rogue hack: Report",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/newsom-signs-california-ban-on-public-officials-issuing-memecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Newsom signs California ban on public officials issuing memecoins",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/thorchain-under-fire-over-bitget-hack-eth-is-beyond-blockchain-now?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "THORChain under fire over Bitget, ETH evolves beyond blockchain: Hodler’s Digest",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/riot-platforms-repays-200m-credit-facility-releases-collateral?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Riot Platforms repays $200M credit facility, releases collateral",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/saylor-outlines-bill-of-digital-rights-to-help-build-prosperity-in-future-economy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Saylor outlines ‘bill of digital rights’ to help build prosperity in future econ",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/09/27/vitalik-buterin-maps-ethereum-s-shift-beyond-a-blockchain-in-sweeping-2030-vision",
+      "title": "Vitalik Buterin maps Ethereum’s shift beyond a blockchain in sweeping 2030 visio",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34404",
+      "title": "Palantir 공동창업자, 이란 학교 공습 참사에 대한 비판 자제 요구",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34403",
+      "title": "Show GN: 매번 QR코드를 새로 만들기 귀찮아서 만든 고정 QR 웹 서비스, &#039;큐알라&#039;",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34399",
+      "title": "바이브 코딩 현실: 셀프테스트는 통과했는데 실데이터는 261편 중 6편만 맞았다",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34397",
+      "title": "계속 승진하는 것이 좋은 커리어일까? 엔지니어 Philip Su의 경험 [동영상]",
+      "published_date": "2026-09-28",
+      "expires_at": "2026-10-05T02:42:32.366947+00:00"
     }
   ]
 }
