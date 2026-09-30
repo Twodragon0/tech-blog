@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-29T03:26:11.389082+00:00",
+  "updated_at": "2026-09-30T03:09:16.380341+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/kremlin-banking-malware-hijacks-chrome.html",
-      "title": "KREMLIN Banking Malware Hijacks Chrome and Edge to Steal Credentials and Session",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/aws-sts-simplifies-session-token-size-limits-and-adds-session-token-size-monitoring/",
-      "title": "AWS STS simplifies session token size limits and adds session token size monitor",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/iranian-hackers-use-telegram-controlled.html",
-      "title": "Iranian Hackers Use Telegram-Controlled Malware to Spy on Dissidents and Journal",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/bambootoken-malware-uses-mqtt-to.html",
-      "title": "BambooToken Malware Uses MQTT to Control Windows and Linux Systems",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/architecting-resilient-authentication-with-amazon-cognito-multi-region-replication/",
-      "title": "Architecting resilient authentication with Amazon Cognito multi-Region replicati",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/jensen-huang-dreamforce/",
-      "title": "‘Now We Can Know Everything and Do Anything,’ Jensen Huang Says at Dreamforce",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/from-megawatts-to-tokens-how-nvidia-maximizes-ai-factory-production/",
-      "title": "From Megawatts to Tokens: How NVIDIA Maximizes AI Factory Production",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ai-infra-summit-vera-rubin-dsx-energy-efficiencies-tokens-per-watt-ai-factories/",
-      "title": "AI Infra Summit: NVIDIA Vera Rubin and DSX Platform Advancements Showcase Energy",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
-      "title": "AI for Societal Impact",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-applications-science-people/",
-      "title": "Building AI to accelerate science and improve lives",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/introducing-new-session-management-tools-with-native-granular-controls/",
-      "title": "Introducing new session management tools with native, granular controls",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/cloud-reliability-incident-handling-best-practices/",
-      "title": "Best practices for handling cloud reliability incidents",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/agent-substrate-available-on-gke/",
-      "title": "Agent Substrate brings high-density, scalable, trusted infrastructure to GKE",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/run-gnns-at-scale-with-ease-introducing-distributed-graphflow/",
-      "title": "Scaling Telco Autonomy: Leveraging GNNs with Distributed GraphFlow",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/storage-data-transfer/filestore-agent-volumes/",
-      "title": "Introducing Filestore agent volumes: fully managed storage for agent workspaces",
-      "published_date": "2026-09-16",
-      "expires_at": "2026-09-23T02:33:45.593132+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/attackers-exploit-issabel-framework.html",
       "title": "Attackers Exploit Issabel Framework Flaw Enabling Unauthenticated OS Command Exe",
@@ -1254,6 +1164,96 @@
       "title": "SageMaker Studio에서 TIP와 S3 Access Grants를 활용한 Athena 쿼리 실행하기",
       "published_date": "2026-09-29",
       "expires_at": "2026-10-06T03:26:11.388818+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/french-tax-data-theft-using-stolen.html",
+      "title": "French Tax Data Theft Using Stolen Staff Passwords Went Undetected for Seven Wee",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/new-spectre-v2-btr-attack-leaks-linux.html",
+      "title": "New Spectre-v2 BTR Attack Leaks Linux Memory Despite Existing Defenses",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/russias-star-blizzard-targets-100.html",
+      "title": "Russia's Star Blizzard Targets 100+ Organizations With Fake Event Invites to Del",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/29/phishing-abuses-rmm-tools-persistent-access/",
+      "title": "Phishing Abuses RMM Tools for Persistent Access",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-is-rolling-out-linux-container-support-to-wsl/",
+      "title": "Microsoft is rolling out Linux container support to WSL",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol",
+      "title": "Introducing GPT-6.1 Sol",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://openai.com/index/devday-2026-recap",
+      "title": "DevDay 2026 Recap",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/openai-30-billion-funding-round-1-4-trillion-valuation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "OpenAI valuation could hit $1.4T in new funding round: Report",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-expands-claude-model-availability-to-india-cross-region-inference/",
+      "title": "Amazon Bedrock expands Claude model availability to in-country inferencing in In",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-anthropic-models-on-amazon-bedrock-for-in-region-inference-in-seoul-and-singapore/",
+      "title": "Introducing Anthropic models on Amazon Bedrock for in-region inference in Seoul ",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/accelerate-agentic-rl-with-gke-agent-sandbox/",
+      "title": "Accelerating agentic RL and evaluation research velocity with 45x faster GKE Age",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/graph-workflows-in-adk-everything-you-need-to-know/",
+      "title": "Graph Workflows in ADK: Everything You Need to Know",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/google-cloud-partners-deliver-new-security-agents-and-ai-defenses-with-gemini-enterprise/",
+      "title": "Google Cloud partners deliver new security agents and AI defenses with Gemini En",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/physical-ai-model-pipeline/",
+      "title": "Amazon SageMaker AI와 AWS IoT Greengrass를 활용한 Physical AI 학습 파이프라인 구축하기",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/mvnt-event-driven-music-to-dance-ai-infrastructure/",
+      "title": "AWS 인프라를 활용한 무븐트의 music-to-dance AI 학습·서빙 인프라 구축기",
+      "published_date": "2026-09-30",
+      "expires_at": "2026-10-07T03:09:16.380119+00:00"
     }
   ]
 }
