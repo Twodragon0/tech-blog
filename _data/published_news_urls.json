@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-09-30T03:09:16.380341+00:00",
+  "updated_at": "2026-10-01T03:16:42.980826+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/attackers-exploit-issabel-framework.html",
-      "title": "Attackers Exploit Issabel Framework Flaw Enabling Unauthenticated OS Command Exe",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/architecting-a-secure-landing-zone-in-the-aws-european-sovereign-cloud/",
-      "title": "Architecting a secure landing zone in the AWS European Sovereign Cloud",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/three-threat-groups-target-russian.html",
-      "title": "Three Threat Groups Target Russian Enterprises With Backdoors, Ransomware, and W",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-wants-claude-to-analyze-your-bank-account-and-financial-data/",
-      "title": "Anthropic wants Claude to analyze your bank account and financial data",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/one-extension-could-hijack-ai.html",
-      "title": "One Extension Could Hijack AI Assistants Across Chrome, Comet, Edge, Opera Neon ",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://openai.com/index/model-misalignment-reporting-framework",
-      "title": "Our framework for reporting model misalignment",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://openai.com/index/helping-older-adults-use-ai-in-everyday-life",
-      "title": "Helping older adults use AI in everyday life",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/",
-      "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 De",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
-      "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Center",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://openai.com/index/reimagining-advertising-with-ai",
-      "title": "Reimagining advertising with AI",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/seaverse-chooses-gke-agent-sandbox/",
-      "title": "For SeaVerse, GKE Agent Sandbox reduces infrastructure costs by 60%",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-google-monitors-ai-threats-advances-ai-defenses/",
-      "title": "Cloud CISO Perspectives: How Google monitors AI threats and advances AI defenses",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/compute-engine-m4n-vms/",
-      "title": "M4N VM family, now GA: Highest per-core IOPS and throughput for I/O and memory-b",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/telecommunications/how-orange-uses-agents-to-make-finops-everyones-responsibility/",
-      "title": "How Orange built FinOps accountability, and why agents are next",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-reimagines-the-getting-started-experience/",
-      "title": "AWS reimagines the getting started experience",
-      "published_date": "2026-09-17",
-      "expires_at": "2026-09-24T02:37:13.231523+00:00"
-    },
     {
       "url": "https://aws.amazon.com/blogs/security/run-open-weight-models-on-aws-bedrock-in-aws-european-sovereign-cloud/",
       "title": "Run open weight models on Amazon Bedrock in AWS European Sovereign Cloud",
@@ -1254,6 +1164,96 @@
       "title": "AWS 인프라를 활용한 무븐트의 music-to-dance AI 학습·서빙 인프라 구축기",
       "published_date": "2026-09-30",
       "expires_at": "2026-10-07T03:09:16.380119+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/attackers-exploit-zimbra-flaw-to-deploy.html",
+      "title": "Attackers Exploit Zimbra Flaw to Deploy Web Shells and Harvest Authentication Se",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/attackers-abuse-msp360-to-deploy.html",
+      "title": "Attackers Abuse MSP360 to Deploy ScreenConnect in Dual-RMM Phishing Attacks",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/cisco-warns-of-attackers-exploiting.html",
+      "title": "Cisco Warns of Attackers Exploiting Critical Authentication Bypass in SD-WAN Man",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/attackers-abuse-chatgpt-custom-gpts-to.html",
+      "title": "Attackers Abuse ChatGPT Custom GPTs to Deliver RAT via ClickFix Lures",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/30/secure-whats-next-your-guide-to-microsoft-security-at-microsoft-ignite-2026/",
+      "title": "​​Secure what’s next: Your guide to Microsoft Security at Microsoft Ignite 2026",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/applications-open-graduate-fellowship-awards-2026/",
+      "title": "NVIDIA Opens Applications for 2027–2028 Graduate Fellowships With Awards Up to $",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+      "title": "Introducing SynthID Bio",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/coreweave-agentic-ai-vera-rubin/",
+      "title": "From Training to Production, NVIDIA and CoreWeave Close the Loop on Agentic AI",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "title": "Disrupting a coordinated model-distillation campaign",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work",
+      "title": "Helping small businesses put AI to work",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month/",
+      "title": "What’s new in AI infrastructure and orchestration in September",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-how-cybersecurity-startups-can-win-cisos/",
+      "title": "Cloud CISO Perspectives: How cybersecurity startups can win CISOs",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-cli-remote-mcp-server-in-preview/",
+      "title": "Empower your agents with the Google Cloud CLI remote MCP server",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/spanner-omni-deploy-anywhere-version-of-spanner-is-now-ga/",
+      "title": "Spanner Omni, now GA: A distributed, multi-model database that you can deploy an",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/data-agent-kit-is-now-ga-bring-google-data-cloud-to-any-coding-agent/",
+      "title": "Data Agent Kit is now GA: Bring Google Data Cloud to any coding agent",
+      "published_date": "2026-10-01",
+      "expires_at": "2026-10-08T03:16:42.980475+00:00"
     }
   ]
 }
