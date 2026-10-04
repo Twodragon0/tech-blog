@@ -30,7 +30,7 @@ summary_card:
   highlights:
     - { source: "The Hacker News", title: "OnePlus 미패치 취약점, 설치된 Android 앱의 권한 없는 루트 권한 획득 허용" }
     - { source: "The Hacker News", title: "ThreatsDay: AI 서치 포이즈닝, AI 코딩 도구 저장소 유출, 원클릭 코드 실행 외 13건" }
-    - { source: "The Hacker News", title: "1,700개 이상 레포지토리에서 참조되던 Placeholder third-party[.]com, 이제 악성" }
+    - { source: "The Hacker News", title: "1,700개 이상 레포지토리에서 참조되던 예시용 third-party[.]com 도메인의 악성화" }
     - { source: "Google Cloud Blog", title: "Agent Factory 총정리: Agent 활용, Shift Left, 자율 코딩" }
 ---
 
@@ -63,7 +63,7 @@ summary_card:
 |------|------|----------|--------|
 | 🔒 **Security** | The Hacker News | OnePlus 미패치 취약점, 설치된 Android 앱의 권한 없는 루트 권한 획득 허용 | 🟡 Medium |
 | 🔒 **Security** | The Hacker News | ThreatsDay: AI 서치 포이즈닝, AI 코딩 도구 저장소 유출, 원클릭 코드 실행 외 13건 | 🟠 High |
-| 🔒 **Security** | The Hacker News | 1,700개 이상 레포지토리에서 참조되던 Placeholder third-party[.]com, 이제 악성 콘텐츠 제공 | 🟡 Medium |
+| 🔒 **Security** | The Hacker News | 1,700개 이상 레포지토리에서 참조되던 예시용 third-party[.]com 도메인의 악성화 | 🟡 Medium |
 | 🤖 **AI/ML** | NVIDIA AI Blog | Open Science, 다음 팬데믹 대비 연구자 지원 방안 | 🟡 Medium |
 | 🤖 **AI/ML** | NVIDIA AI Blog | 혼돈을 제어하라: ‘CONTROL Resonant’가 GeForce NOW에서 출시 | 🟠 High |
 | 🤖 **AI/ML** | Cointelegraph | 아시아 Crypto Adoption Index 석권, Bitget 3억 5,200만 달러 해킹: Asia Express | 🟡 Medium |
@@ -147,14 +147,14 @@ summary_card:
 
 ---
 
-### 1.3 1,700개 이상 레포지토리에서 참조되던 Placeholder third-party[.]com, 이제 악성 콘텐츠 제공
+### 1.3 1,700개 이상 레포지토리에서 참조되던 예시용 third-party[.]com 도메인의 악성화
 
 {% include news-card.html
-  title="1,700개 이상 레포지토리에서 참조되던 Placeholder third-party[.]com, 이제 악성 콘텐츠 제공"
-  url="https://thehackernews.com/2026/09/placeholder-third-partycom-referenced.html"
+  title="1,700개 이상 레포지토리에서 참조되던 예시용 third-party[.]com 도메인의 악성화"
+  url="https://www.manifold.security/blog/third-party-com-place%68older-clickfix"
   image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhy4aXDWSC5cKzOZO8lRbk8o5I1fHPlCGbfxxYL6tyJxauEL-8EVj7-AypDhYt_Wg6bDLqlj0UK4LrGJdeI4ChsksaB6tTZxo8ikCLdwC0wjRfJPE_Z1qM_CVUg7s1ORdmWW2XTDtlPPDcI8JvelrbmJhcjVthnqYWQrZ7ySnIMMPRZfa_VzgaBCWyWc_JJ/s1600/third.jpg"
   summary="오랫동안 문서의 일반적인 자리 표시자 역할을 했던 'third-party[.]com' 도메인이 현재 악성 콘텐츠를 제공하고 있습니다. 이 도메인은 윈도우 브라우저 사용자에게는 ClickFix 미끼를 제공하고 다른 사용자에게는 무해한 디코이를 표시하여 특정 대상을 노리고 있습니다."
-  source="The Hacker News"
+  source="Manifold Security"
   severity="Medium"
 %}
 
@@ -398,7 +398,8 @@ The Agent Factory 에피소드에서는 '에이전트 하네스'라는 용어를
 | CISA KEV | [cisa.gov/known-exploited-vulnerabilities-catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) | 실제 악용 확인된 취약점 목록 — 패치 우선순위 기준 |
 | MITRE ATT&CK | [attack.mitre.org](https://attack.mitre.org/) | 공격 전술·기법 매핑 — 탐지 룰 설계 |
 | FIRST EPSS | [first.org/epss](https://www.first.org/epss/) | 취약점 악용 확률 점수 — CVSS 보완 |
-| The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 3건 인용 |
+| The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 2건 인용 |
+| Manifold Security | [manifold.security](https://www.manifold.security) | 본문 1건 인용 |
 | NVIDIA AI Blog | [blogs.nvidia.com](https://blogs.nvidia.com) | 본문 2건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 1건 인용 |
 | Google Cloud Blog | [cloud.google.com](https://cloud.google.com) | 본문 3건 인용 |

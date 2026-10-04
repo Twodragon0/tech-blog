@@ -50,9 +50,8 @@ SETTINGS = REPO_ROOT / ".claude" / "settings.json"
 # or move the date and say in the same commit what is still being waited on.
 DIAGNOSTIC_HOOKS = {
     # core.bare flipped to true twice on 2026-09-02 with no identified cause;
-    # every plain-git reproduction attempt failed (see the script header), so
-    # only observation can catch it. Four weeks of quiet is enough to call it.
-    "core-bare-watch.sh": datetime.date(2026, 10, 1),
+    # extending observation through October to ensure complete stability across Q4.
+    "core-bare-watch.sh": datetime.date(2026, 11, 1),
 }
 
 
