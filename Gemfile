@@ -6,12 +6,12 @@ ruby ">= 2.7.0"
 gem "jekyll", "~> 4.4.1"
 
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.15"
+  gem "jekyll-feed", "~> 0.18"
   gem "jekyll-sitemap", "~> 1.4"
   gem "jekyll-seo-tag", "~> 2.9"
   # Replaces vercel.json `redirects` block when serving from GitHub Pages.
   # See scripts/convert_vercel_redirects_to_jekyll.py for the migration.
-  gem "jekyll-redirect-from", "~> 0.16"
+  gem "jekyll-redirect-from", "~> 0.17"
 end
 
 # Performance
