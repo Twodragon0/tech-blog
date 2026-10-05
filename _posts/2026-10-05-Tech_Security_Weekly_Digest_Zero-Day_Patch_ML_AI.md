@@ -71,9 +71,10 @@ summary_card:
 
 ## 경영진 브리핑
 
-- **긴급 대응 필요**: Citrix, 공격에 악용된 NetScaler SAML 제로데이 패치 등 Critical 등급 위협 1건이 확인되었습니다.
-- **주요 모니터링 대상**: 중국 연계 TA419, Microsoft AitM 피싱으로 U.S. AI 정책 전문가 노려, 트럼프가 정보기관장 제이 클레이턴을 새로운 Super Intelligence Force의 책임자로 지명 등 High 등급 위협 2건에 대한 탐지 강화가 필요합니다.
-- 제로데이 취약점이 보고되었으며, 임시 완화 조치 적용과 벤더 패치 일정 확인이 시급합니다.
+- **긴급 대응 필요 (Critical)**: Citrix NetScaler SAML 컴포넌트의 실제 공격 악용 제로데이(CVE-2026-88779)가 공개되어 긴급 벤더 패치 반영이 시급합니다.
+- **주요 모니터링 대상 (High)**: 중국 연계 사이버 스파이 TA419의 Microsoft AitM 피싱 캠페인이 AI 정책 및 엔터프라이즈 리더십 계정을 집중 타깃팅하고 있어 피싱 저항형 MFA(FIDO2) 전환이 권고됩니다.
+- **국가 안보 및 규제 변화 (High)**: 미국 정부의 Super Intelligence Force 신설과 전 SEC 위원장 지명으로 엔터프라이즈 프런티어 AI 모델에 대한 정부 차원의 컴플라이언스 감독이 가속화될 전망입니다.
+- **공급망 및 오픈소스 무결성 (Medium)**: AI 생성 코드의 대량 제출로 인한 Google 버그 바운티 프로그램 일시 중단 사태와 Infidel 바이트코드 오염 사례는 코드 생성 파이프라인의 엄격한 정적 분석 및 인간 중심 리뷰(Human-in-the-loop)의 중요성을 강조합니다.
 
 ## 위험 스코어카드
 
@@ -105,11 +106,11 @@ summary_card:
 2.  **실무 영향**
     NetScaler ADC, Gateway 등 핵심 인프라에 직접적인 DoS 위협을 가한다. 잠재적 RCE는 내부 시스템 장악 및 데이터 유출로 이어져, 보안 인프라 전체에 심각한 영향을 준다. 이는 서비스 연속성 및 데이터 무결성/기밀성을 위협한다.
 
-3.  **체크리스트**
-    *   [ ] Citrix에서 제공하는 긴급 패치 최우선 적용.
-    *   [ ] NetScaler 접근 로그 및 비정상 트래픽 모니터링 강화.
-    *   [ ] WAF(Web Application Firewall), IPS(침입 방지 시스템) 등 보안 솔루션 정책 업데이트 및 강화.
-    *   [ ] 비상 대응 및 복구 계획(DRP) 점검 및 훈련.
+3.  **대응 가이드**
+    - Citrix 공식 권고(CTX584062 등) 기반 NetScaler 긴급 보안 패치 최우선 적용
+    - NetScaler Gateway 인증 엔드포인트(`/saml/login`) 비정상 트래픽 및 DoS 패킷 유입 모니터링 강화
+    - WAF 및 인그레스 방화벽 정책에 SAML 비정상 페이로드 탐지 및 속도 제한(Rate Limit) 적용
+    - 비상 대응 및 서비스 연속성 계획(BCP/DRP) 롤백 절차 점검
 
 4.  **MITRE ATT&CK**
     T1190 (Exploiting Public-Facing Application) - 초기 침투에 사용. T1499 (Denial of Service) - 서비스 가용성 위협.
@@ -120,7 +121,22 @@ summary_card:
 ```yaml
 mitre_attack:
   tactics:
-    - T1203  # Exploitation for Client Execution
+    - T1190  # Initial Access: Public-Facing Application
+    - T1499  # Impact: Denial of Service
+```
+
+#### NetScaler SAML DoS 시그마(Sigma) 탐지 룰
+
+```yaml
+title: NetScaler SAML Auth DoS Detection
+logsource:
+  product: citrix_netscaler
+detection:
+  selection:
+    cs_uri|contains: '/saml/login'
+    sc_status: [500, 503]
+  condition: selection | count() > 50
+level: critical
 ```
 
 ---
@@ -136,14 +152,25 @@ mitre_attack:
   severity="Medium"
 %}
 
+#### DevSecOps 관점: ShinyHunters 위협 분석 및 클라우드 계정 보안
 
-#### 권장 조치
+1.  **위협 양상 분석**
+    ShinyHunters는 글로벌 엔터프라이즈의 고객 데이터베이스 탈취, SaaS/클라우드 자격 증명 탈취, 그리고 데이터 유출 협박(Extortion)을 일삼는 대표적인 금전 목적 사이버 범죄 조직입니다. 특히 SSO 포털 피싱이나 서드파티 OAuth 앱 인가 탈취를 통해 내부 인프라로 침투하는 패턴을 지속적으로 보이고 있습니다.
 
-- 관련 시스템 목록 확인 및 자사 환경 해당 여부 평가
-- 벤더 보안 권고 확인 후 패치 또는 완화 조치 적용
-- SIEM/EDR 탐지 룰에 관련 IoC 추가
-- 보안팀 내 공유 및 모니터링 강화
+2.  **클라우드 인프라 방어 대책**
+    - **SaaS 세션 토큰 이상 탐지**: Okta, Microsoft Entra, Google Workspace 등 클라우드 IdP에서 새롭게 인가된 OAuth App 및 세션의 ASN/IP 대역 이상 여부를 실시간 탐지해야 합니다.
+    - **민감 데이터베이스 접근 통제**: 데이터 웨어하우스(Snowflake, BigQuery 등) 접근 시 MFA 강제 및 서비스 계정 키의 정기적 자동 회전(Secret Rotation)을 적용합니다.
 
+3.  **대응 가이드**
+    - SaaS 관리자 콘솔 내 비인가 서드파티 OAuth 앱 인가 현황 전수 조사
+    - 클라우드 IdP 로그인 이상 징후(Impossible Travel, 새 디바이스 등록) 알림 정책 점검
+    - 클라우드 데이터 웨어하우스 및 백업 저장소 접근 권한의 최소 권한(PoLP) 원칙 재검토
+
+4.  **권장 조치**
+    - 관련 시스템 목록 확인 및 자사 환경 해당 여부 평가
+    - 벤더 보안 권고 확인 후 패치 또는 완화 조치 적용
+    - SIEM/EDR 탐지 룰에 관련 IoC 추가
+    - 보안팀 내 공유 및 모니터링 강화
 
 ---
 
@@ -166,15 +193,27 @@ mitre_attack:
 2.  **실무 영향**
     탈취된 자격 증명으로 인해 Microsoft 365, Azure AD 등 클라우드 기반 협업 도구 및 내부 시스템 접근 권한이 침해될 위험이 큽니다. 특히, 개발 파이프라인(CI/CD) 관련 계정(예: Git 저장소, 아티팩트 관리 시스템)이 탈취될 경우, 민감한 소스코드 유출 및 백도어가 삽입된 무단 배포로 이어져 소프트웨어 공급망 전체에 심각한 보안 문제를 야기할 수 있습니다.
 
-3.  **체크리스트**
-    - **피싱 저항형 MFA 도입:** FIDO2 보안 키 등 피싱에 강력한 MFA 솔루션을 최우선으로 적용합니다.
-    - **고도화된 피싱 방어 솔루션 구축:** 이메일 게이트웨이, 엔드포인트 보안 솔루션에 AI 기반 위협 탐지 및 피싱 방어 기능을 강화합니다.
-    - **DevSecOps 파이프라인 보안 강화:** CI/CD 도구 접근 시 강력한 인증 및 권한 관리(Least Privilege)를 적용하고, 코드 서명 및 무결성 검증 프로세스를 의무화합니다.
-    - **지속적인 보안 인식 교육:** 최신 피싱 및 사회공학 기법에 대한 개발자 및 사용자 보안 교육을 정기적으로 실시합니다.
+3.  **대응 가이드**
+    - **피싱 저항형 MFA 도입**: FIDO2/WebAuthn 물리 보안 키 도입으로 AitM 세션 탈취 차단
+    - **AitM 피싱 방어 정책**: Microsoft Entra ID 조건부 액세스에 세션 토큰 수명 제한 적용
+    - **DevSecOps 파이프라인 자격증명 점검**: CI/CD 러너 서비스 계정의 OIDC 전환 상태 점검
+    - **사회공학 피싱 모의 훈련**: AI 정책 연구진 및 핵심 개발자 대상 모의 훈련 실시
 
 4.  **MITRE ATT&CK**
     *   **Initial Access:** T1566.002 (Phishing: Spearphishing Link)
     *   **Credential Access:** T1557 (Adversary-in-the-Middle), T1539 (Steal Web Session Cookie)
+
+#### AitM 세션 탈취 탐지 쿼리 (KQL)
+
+```kql
+// Microsoft Sentinel: AitM 비정상 다중 IP 세션 탐지
+SigninLogs
+| where TimeGenerated > ago(24h) and ResultType == 0
+| summarize DistinctIPs = dcount(IPAddress), IPList = make_set(IPAddress)
+    by UserPrincipalName, bin(TimeGenerated, 15m)
+| where DistinctIPs > 1
+| project TimeGenerated, UserPrincipalName, DistinctIPs, IPList
+```
 
 
 ---
@@ -192,6 +231,17 @@ mitre_attack:
   severity="Medium"
 %}
 
+#### DevSecOps 관점: 영지식 증명(ZKP)과 금융 보안 컴플라이언스
+
+1.  **기술 배경**
+    Zcash는 영지식 간결 비대화형 지식 논증(zk-SNARKs) 기술을 기반으로 트랜잭션의 송수신자 및 금액을 비공개로 검증하는 프라이버시 네트워크입니다. 워싱턴 로비스트 선임과 CLARITY 법안 추진은 탈중앙화 프라이버시 기술과 규제 당국의 자금세탁방지(AML/CFT) 요건 간의 조화를 모색하는 움직임입니다.
+
+2.  **엔터프라이즈 관점**
+    ZK 기술은 퍼블릭 블록체인을 넘어 기업 간 데이터 공유 시 원본 노출 없는 무결성 증명(Confidential Computing) 및 신원 검증(Zero-Knowledge Identity) 아키텍처의 핵심 빌딩 블록으로 부상하고 있습니다.
+
+3.  **컴플라이언스 점검**
+    - 영지식 증명 기반 신원 인증 솔루션(ZK-ID) 도입 가능성 검토
+    - 가상자산 관련 세법 개정안 및 자금세탁방지(AML) 모니터링 체계 점검
 
 ---
 
@@ -220,6 +270,12 @@ mitre_attack:
   severity="High"
 %}
 
+#### DevSecOps 관점: 초지능 부대(Super Intelligence Force)와 인프라 안보
+
+1.  **국가 안보와 AI 융합**
+    국가정보국(DNI) 출신 인사의 초지능 총괄 임명은 사이버전, 위성 인프라, 전력망 보안 전반에 프런티어 AI 모델을 전면 배치하겠다는 전략적 결정입니다.
+2.  **보안 엔지니어링 시사점**
+    국가 지원(Nation-state) 공격 그룹의 AI 기반 자동 침투 및 제로데이 탐색 시도에 맞서기 위해, 제로 트러스트(Zero Trust) 아키텍처와 엔드포인트 자동 격리 체계의 유기적 결합이 요구됩니다.
 
 ---
 
@@ -227,10 +283,31 @@ mitre_attack:
 
 | 제목 | 출처 | 핵심 내용 |
 |------|------|----------|
-| [Tech Monitor, 실시간 AI 및 기술 산업 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | Tech World Monitor는 글로벌 대시보드를 통해 전 세계 기술 기업, AI 연구소, 스타트업 생태계 등의 AI 및 기술 산업 동향을 실시간으로 추적합니다. 최근 7일간의 분석 기간 동안 해저 케이블, 기상, 경제 지표, 서비스 장애, 데이터센터, 자연재해 등의 다양한 요소를 참고하여 수집되었습니다 |
-| [「Quo Vadis, Mathematics?」—“수학이여, 어디로 가는가?”](https://news.hada.io/topic?id=34798) | GeekNews (긱뉴스) | 「Quo Vadis, Mathematics?」—“수학이여, 어디로 가는가?” |
-| [Infidel이 폭주하다](https://news.hada.io/topic?id=34797) | GeekNews (긱뉴스) | Infocom의 Infidel 에서 사막에 내려놓은 물건을 처리할 때 엉뚱한 메모리를 덮어쓰는 컴파일러 버그 가 발견됨 ZIL 컴파일 결과가 전역 변수의 값을 인수 기본값으로 사용하지 않고 전역 변수 번호 30 을 사용해, 원래 배열 주소인 11129 대신 등이 확인되었습니다 |
+| [Tech Monitor, 실시간 AI 및 기술 산업 대시보드](https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents) | Tech World Monitor | 해저 케이블, 기상, 경제 지표, 데이터센터, 클라우드 리전 가용성 등 글로벌 AI 및 인프라 실시간 대시보드 |
+| [「Quo Vadis, Mathematics?」—“수학이여, 어디로 가는가?”](https://news.hada.io/topic?id=34798) | GeekNews (긱뉴스) | 현대 수학 및 계산 이론의 발전 방향과 기계 학습 시대의 수학적 증명 담론 |
+| [Infidel이 폭주하다](https://news.hada.io/topic?id=34797) | GeekNews (긱뉴스) | Infocom Infidel에서 ZIL 컴파일러 전역 변수 인수 기본값 버그로 인한 메모리 오염 분석 |
 
+### 3.1 Infocom Infidel 컴파일러 버그와 레거시 바이트코드 메모리 안정성
+
+1983년 텍스트 어드벤처 게임 Infidel에서 사막에 아이템을 내려놓을 때 게임 상태가 손상되는 기이한 현상의 원인이 40여 년 만에 밝혀졌습니다. Infocom의 독자 언어인 ZIL(Zork Implementation Language) 컴파일러가 기본 인수(default argument)를 컴파일할 때, 특정 전역 변수의 현재 값이 아니라 심볼 테이블의 번호(30번)를 그대로 바이트코드로 방출한 것이 원인이었습니다.
+
+이로 인해 의도했던 배열 주소(`11129`) 대신 전역 변수 30번(`P-TABLE`)의 포인터가 덮어써지며 메모리 오염이 발생했습니다. 이는 현대 시스템 프로그래밍에서도 여전히 유효한 교훈을 줍니다:
+
+- **컴파일러 무결성 검증**: 언어 런타임뿐 아니라 컴파일러 프론트엔드/백엔드 최적화 단계에서의 의미론적 검증(Formal Verification)이 필수적입니다.
+- **메모리 안전성(Memory Safety)**: C/C++ 및 레거시 바이트코드 환경에서는 사소한 인덱스 계산 오류가 서비스 전체 크래시 또는 보안 취약점(RCE)으로 직결될 수 있음을 시사합니다.
+
+### 3.2 글로벌 인프라 관측성과 SRE 멀티 리전 대응 (Tech Monitor)
+
+Tech World Monitor의 실시간 대시보드는 해저 광케이블 절단 사고, 지정학적 위험, 글로벌 데이터센터 전력망 장애를 단일 창에서 시각화합니다. 클라우드 엔지니어링 및 SRE 관점에서 이러한 물리적 인프라 가시성은 다음 영역에서 핵심적인 역할을 합니다:
+
+- **인터커넥트(Interconnect) 가용성 예측**: 클라우드 CSP 간 전용선(Direct Connect, Cloud Interconnect) 경로의 해저 케이블 이벤트 사전 감지
+- **멀티 리전 액티브-액티브 장애 조치(DR)**: 특정 리전의 대규모 네트워크 불안정 시 자동화된 DNS 트래픽 전환(Route 53, Cloudflare 등) 정책 수립
+
+### 3.3 Super Intelligence Force와 엔터프라이즈 AI 거버넌스
+
+새롭게 출범하는 Super Intelligence Force와 전 SEC 위원장의 지명은 미국 연방 차원에서 프런티어 AI 모델의 보안, 국가 안보 영향도, 그리고 독점적 컴퓨팅 자원 배분을 직접 감독하겠다는 신호탄입니다. 
+
+엔터프라이즈 DevSecOps 팀은 향후 강화될 AI 규제 가이드라인(NIST AI RMF, ISO/IEC 42001)에 대비하여 자사 인프라 내 LLM 사용량 감사, 데이터 유출 방지(DLP), 모델 아티팩트 거버넌스 체계를 사전에 구축해야 합니다.
 
 ---
 
@@ -249,24 +326,57 @@ mitre_attack:
 
 ## 실무 체크리스트
 
-### P0 (즉시)
+### P0 (즉시 조치)
 
-- [ ] **Citrix, 공격에 악용된 NetScaler SAML 제로데이 패치** (CVE-2026-88779) 관련 긴급 패치 및 영향도 확인
-- [ ] **Google, AI 제출 급증으로 오픈소스 버그 바운티 프로그램 중단** 관련 긴급 패치 및 영향도 확인
+- [ ] **Citrix NetScaler SAML DoS (CVE-2026-88779) 패치**: Citrix 공식 핫픽스 최우선 반영 및 Gateway 세션 모니터링
+- [ ] **NetScaler 인프라 가용성 점검**: SAML `/saml/login` 엔드포인트 비정상 500/503 에러율 알람 설정
+- [ ] **Google 오픈소스 버그 바운티 중단 대응**: 사내 오픈소스 AI 생성 PR 및 외부 기여 코드의 수동 검증 절차 의무화
 
 ### P1 (7일 내)
 
-- [ ] **중국 연계 TA419, Microsoft AitM 피싱으로 U.S. AI 정책 전문가 노려** 관련 보안 검토 및 모니터링
+- [ ] **중국 연계 TA419 AitM 피싱 방어**: Microsoft Entra ID 조건부 액세스 정책 점검 및 세션 토큰 유효기간(Lifetime) 단축 적용
+- [ ] **피싱 저항형 MFA 전환 계획 수립**: C-Level 및 핵심 AI/클라우드 아키텍트 대상 FIDO2 하드웨어 보안 키 배포
+- [ ] **ShinyHunters 위협 인텔리전스 반영**: 최근 유출 자격증명 데이터베이스 및 다크웹 유출 현황 교차 대조
+- [ ] **SIEM/EDR 탐지 룰 동기화**: 최신 Sigma 및 KQL 룰(SAML DoS, 다중 IP 동시 로그인) 프로덕션 반영
 
 ### P2 (30일 내)
 
-- [ ] 암호화폐/블록체인 관련 컴플라이언스 점검
+- [ ] **클라우드 데이터 웨어하우스(Snowflake/BigQuery) 접근 통제**: 최소 권한(Least Privilege) 및 서비스 계정 키 자동 회전
+- [ ] **암호화폐/블록체인 인프라 보안 컴플라이언스**: 스마트 컨트랙트 및 웹3 인프라 노드 접근 제어 감사
+- [ ] **공급망 보안(Software Supply Chain) 무결성 감사**: CI/CD 파이프라인 아티팩트 서명(Cosign) 적용 현황 점검
+- [ ] **보안 인식 제고 훈련**: 전사 임직원 대상 생성형 AI 사칭 및 AitM 피싱 대응 모의 훈련 수행
+
+---
+
+## 분석가 시점: 종합 보안 권고사항 및 핵심 요약
+
+| 공격 벡터 | 타깃 시스템 | 권장 방어 조치 | 긴급도 |
+|-----------|------------|---------------|--------|
+| SAML DoS 제로데이 | Citrix NetScaler ADC | 긴급 벤더 패치 적용 및 WAF Rate Limiting | 🔴 P0 |
+| AitM 프록시 피싱 | Microsoft 365, Entra ID | FIDO2 WebAuthn 도입 및 세션 토큰 바인딩 | 🟠 P1 |
+| SaaS 계정 탈취 협박 | Snowflake, Okta, IdP | OAuth 앱 권한 감사 및 최소 권한 적용 | 🟠 P1 |
+| 컴파일러 메모리 손상 | 레거시 C/C++ 시스템 | 메모리 안전 언어 전환 및 정적 분석 도구 도입 | 🟡 P2 |
+
+### 실무 아키텍처 가이드라인
+
+이번 주 보안 동향의 공통 분모는 **‘인증 경계(Identity Perimeter)의 붕괴와 AI를 결합한 고도화된 정밀 공격’**입니다. Citrix NetScaler와 같은 전통적인 에지 ADC 어플라이언스가 제로데이 취약점으로 인해 서비스 거부 공격을 당하는 동시에, 클라우드 환경에서는 리버스 프록시 기반 AitM 피싱이 기존의 SMS/OTP 기반 다단계 인증을 손쉽게 우회하고 있습니다.
+
+따라서 2026년 DevSecOps 엔지니어링의 핵심 지향점은 다음과 같이 재정의되어야 합니다:
+
+1. **하드웨어 기반 FIDO2/WebAuthn 전면화**: 도메인 바인딩 암호학적 검증을 통해 프록시 피싱을 원천적으로 차단합니다.
+2. **조건부 액세스(Conditional Access) 세분화**: 사용자 및 세션의 위험도 점수(Risk Score)에 기반하여 세션 유지 시간을 동적으로 조정하고 즉각 재인증을 요구합니다.
+3. **지속적인 취약점 모니터링 및 자동화된 격리**: 인터넷에 직접 노출된 모든 게이트웨이에 대해 실시간 DoS 임계치 알람과 가상 패치(WAF 정책)를 즉시 배포할 수 있는 인프라 자동화 체계를 확립해야 합니다.
+
+---
 
 ## 관련 포스트 및 참고 자료
 
+- 2026년 10월 04일 주간 보안 다이제스트: {% post_url 2026-10-04-Tech_Security_Weekly_Digest_Zero-Day_ML_Update_AI %}
 - 2026년 10월 01일 주간 보안 다이제스트: {% post_url 2026-10-01-Tech_Security_Weekly_Digest_GPT_Security %}
 - 2026년 09월 30일 주간 보안 다이제스트: {% post_url 2026-09-30-Tech_Security_Weekly_Digest_Data_AI_GPT %}
 - 2026년 09월 29일 주간 보안 다이제스트: {% post_url 2026-09-29-Tech_Security_Weekly_Digest_Patch_Apple_AI_Agent %}
+- 2026년 09월 28일 주간 보안 다이제스트: {% post_url 2026-09-28-Tech_Security_Weekly_Digest_AI_GPT_Zero-Day_Cloud %}
+- 2026년 09월 27일 주간 보안 다이제스트: {% post_url 2026-09-27-Tech_Security_Weekly_Digest_Zero-Day_Patch_Security_AI %}
 
 | 리소스 | 링크 | 용도 |
 |--------|------|------|
@@ -276,6 +386,8 @@ mitre_attack:
 | BleepingComputer | [bleepingcomputer.com](https://www.bleepingcomputer.com) | 본문 1건 인용 |
 | The Hacker News | [thehackernews.com](https://thehackernews.com) | 본문 2건 인용 |
 | Cointelegraph | [cointelegraph.com](https://cointelegraph.com) | 본문 3건 인용 |
+| Tech World Monitor | [tech.worldmonitor.app](https://tech.worldmonitor.app) | 글로벌 실시간 인프라 및 AI 관측성 대시보드 |
+| GeekNews | [news.hada.io](https://news.hada.io) | 본문 2건 인용 (Infidel 컴파일러 버그 및 수학 담론) |
 
 ---
 
@@ -283,9 +395,9 @@ mitre_attack:
 
 <!-- related-posts:v1 -->
 
-- [2026년 09월 28일 주간 보안 다이제스트: 제로데이·클라우드·패치 (16건)](/posts/2026/09/28/Tech_Security_Weekly_Digest_AI_GPT_Zero-Day_Cloud/) — 2026-09-28
+- [2026년 10월 04일 주간 보안 다이제스트: 제로데이·패치·보안 위협 (16건)](/posts/2026/10/04/Tech_Security_Weekly_Digest_Zero-Day_ML_Update_AI/) — 2026-10-04
+- [2026년 10월 01일 주간 보안 다이제스트: 제로데이·패치·Cisco FMC (30건)](/posts/2026/10/01/Tech_Security_Weekly_Digest_GPT_Security/) — 2026-10-01
 - [2026년 09월 30일 주간 보안 다이제스트: 클라우드 보안·보안 위협·AI (28건)](/posts/2026/09/30/Tech_Security_Weekly_Digest_Data_AI_GPT/) — 2026-09-30
-- [2026년 09월 21일 주간 보안 다이제스트: 악성코드·패치·DNS 유출 (14건)](/posts/2026/09/21/Tech_Security_Weekly_Digest_AI_AWS_Agent_Bitcoin/) — 2026-09-21
 
 ---
 

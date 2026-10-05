@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-05T03:09:12.448239+00:00",
+  "updated_at": "2026-10-05T10:21:59.375510+00:00",
   "entries": [
     {
       "url": "https://research.checkpoint.com/2026/21st-september-threat-intelligence-report/",
@@ -990,6 +990,96 @@
       "title": "Bill Draper 별세",
       "published_date": "2026-10-05",
       "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/attackers-target-rejetto-hfs-flaw-that.html",
+      "title": "Attackers Target Rejetto HFS Flaw That Enables Admin Session Forgery and RCE",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html",
+      "title": "New NetScaler Zero-Day Exploited in Targeted Attacks Can Knock SAML Deployments ",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-kb5124010-update-crashes-some-games-and-apps/",
+      "title": "Microsoft: Windows KB5124010 update crashes some games and apps",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/google/google-halts-open-source-bug-bounty-program-amid-ai-spam-surge/",
+      "title": "Google halts open-source bug bounty program amid AI spam surge",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/mi5-says-chinas-mss-funded-research.html",
+      "title": "MI5 Says China’s MSS Funded Research Involving 100+ U.K.-Linked Academics",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/microsoft/thinkingbox",
+      "title": "The Agent Said It Was Done. The Database Disagreed.",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/vivek-ramaswamy-crypto-gubernatorial-campaign?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Vivek Ramaswamy’s gubernatorial run lacks the crypto rhetoric of his presidentia",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/payward-partners-singapore-gulf-bank-settlement?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Kraken parent adds 24/7 dollar settlement with Singapore Gulf Bank",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-etf-third-inflow-week-ether-funds-red?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin ETFs notch third inflow week as Ether ETFs shed $138M",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/zcash-nu7-testnet-activation-november-mainnet?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Zcash activates NU7 on testnet ahead of November mainnet target",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/okx-nyse-parent-file-to-launch-tokenized-us-stock-platform?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "OKX, NYSE parent file to launch tokenized US stock platform",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34819",
+      "title": "Android에서 시스템 수준으로 광고 차단하기",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34818",
+      "title": "ncdu - NCurses 디스크 사용량 분석 도구(업데이트된 포크)",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34816",
+      "title": "스왑으로 발생한 Go 가비지 컬렉터의 40ms 정지",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34815",
+      "title": "오리지널 Doom을 SQL로 포팅하기",
+      "published_date": "2026-10-04",
+      "expires_at": "2026-10-12T10:21:59.375390+00:00"
     }
   ]
 }
