@@ -1,360 +1,6 @@
 {
-  "updated_at": "2026-10-01T03:16:42.980826+00:00",
+  "updated_at": "2026-10-05T03:09:12.448239+00:00",
   "entries": [
-    {
-      "url": "https://aws.amazon.com/blogs/security/run-open-weight-models-on-aws-bedrock-in-aws-european-sovereign-cloud/",
-      "title": "Run open weight models on Amazon Bedrock in AWS European Sovereign Cloud",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/critical-unbound-dnssec-validator-flaw.html",
-      "title": "Critical Unbound DNSSEC Validator Flaw Could Allow RCE via a Malicious DNS Zone",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/new-rathat-android-malware-uses-ai-to-automate-device-control/",
-      "title": "New RatHat Android malware uses AI to automate device control",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/can-you-prove-new-cve-is-exploitable.html",
-      "title": "Can You Prove a New CVE Is Exploitable Before Attackers Do? Learn How in This We",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/09/17/from-guidance-to-action-security-fundamentals-that-materially-reduce-risk/",
-      "title": "From guidance to action: Security fundamentals that materially reduce risk",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/google-un-data-commons-platform/",
-      "title": "Making global data easier to explore",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-aniimo/",
-      "title": "Cute Critters Come to the Cloud: ‘Aniimo’ Launches on GeForce NOW",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://openai.com/index/cooley-gopublic",
-      "title": "How Cooley is accelerating IPO work with ChatGPT",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/openai-discloses-6-new-cases-of-misaligned-ai-behavior?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "OpenAI discloses 6 new cases of ‘misaligned’ AI behavior",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/reduce-time-to-hire-for-quality-candidates-with-ai-powered-amazon-connect-talent/",
-      "title": "Reduce time-to-hire for quality candidates with AI-powered Amazon Connect Talent",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/google-named-a-leader-in-the-external-threat-intelligence-service-forrester-wave/",
-      "title": "Google named a Leader in the External Threat Intelligence Service Forrester Wave",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/supply-chain-logistics/the-future-of-orchestration-pine59s-journey-to-airflow-3-on-google-cloud/",
-      "title": "The future of orchestration: Pine59’s journey to Airflow 3 on Google Cloud",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/solo-founder-runs-a-global-tender-platform-on-alloydb-and-mcp/",
-      "title": "How a solo founder runs a five-continent tender platform on AlloyDB and MCP",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/new-low-cost-burstable-amazon-ec2-t8i-instances-are-generally-available/",
-      "title": "New low-cost burstable Amazon EC2 T8i instances are generally available",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-elastic-beanstalk-introduces-cluster-mode/",
-      "title": "AWS Elastic Beanstalk introduces Cluster Mode",
-      "published_date": "2026-09-18",
-      "expires_at": "2026-09-25T02:22:37.992251+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/public-exploits-released-for-four-linux.html",
-      "title": "Public Exploits Released for Four Linux Kernel Flaws That Enable Local Root",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/new-wordpress-click2shell-flaw-forces.html",
-      "title": "New WordPress Click2Shell Flaw Forces Theme Installs, Can Chain to Code Executio",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/transparent-tribe-deploys-new-rust.html",
-      "title": "Transparent Tribe Deploys New Rust Backdoor Using Private GitHub Repositories fo",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/microsoft-patches-cvss-100-azure-ai.html",
-      "title": "Microsoft Patches CVSS 10.0 Azure AI Foundry Flaw Enabling Unauthorized Privileg",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/an-abandoned-cdn-domain-was-re.html",
-      "title": "An Abandoned CDN Domain Was Re-Registered. Thousands of Sites Still Call It.",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/",
-      "title": "New experts join Google’s AI & Economy team",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
-      "title": "Co-creating the future of fashion with Google",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://netflixtechblog.com/leave-the-class-path-in-the-rearview-mirror-67a85b15b6be?source=rss----2615bd06b42e---4",
-      "title": "Leave the Class Path in the Rearview Mirror",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-inference-2026-year-to-date-launches-in-review/",
-      "title": "Amazon SageMaker Inference: 2026 year-to-date launches in review",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-kimi-k3-on-amazon-bedrock/",
-      "title": "Introducing Kimi K3 on Amazon Bedrock",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/native-bm25-search-in-alloydb-and-cloud-sql/",
-      "title": "Announcing Native BM25 Ranking in AlloyDB and Cloud SQL",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/reimagining-service-delivery-in-the-agentic-era-with-google-public-sector/",
-      "title": "Reimagining service delivery in the agentic era with Google Public Sector",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-devfest-community-workshop-experience-building-real-agents-together/",
-      "title": "The DevFest Community Workshop Experience: Building Real Agents Together",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/consulting/upskill-your-ai-using-daily-micro-habits/",
-      "title": "How to upskill enterprise AI builders by using daily micro habits",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/borderless-lakehouse-cross-cloud-caching-and-connections/",
-      "title": "Accelerating the borderless Lakehouse: Announcing preview of cross-cloud caching",
-      "published_date": "2026-09-19",
-      "expires_at": "2026-09-26T02:25:23.222675+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/claude-opus-5-helped-researchers-take.html",
-      "title": "Claude Opus 5 Helped Researchers Take Over OpenAI Staff Accounts via Chained Fla",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/identity-visibility-in-2026-foundation.html",
-      "title": "Identity Visibility in 2026: The Foundation of Identity Security",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/solarwinds-patches-arm-hard-coded-key.html",
-      "title": "SolarWinds Patches ARM Hard-Coded Key Flaw Enabling Unauthenticated RCE",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/critical-pre-auth-rce-in-orkes.html",
-      "title": "Critical Pre-Auth RCE in Orkes Conductor Workflow Platform Exploited in the Wild",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/google-gemini-broke-into-real-company.html",
-      "title": "Google Gemini Broke Into Real Company Systems After Security Test Domain Mix-Up",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/rex-launches-2x-leveraged-etf-tied-to-bitcoin-treasury-firm-strive?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "REX launches 2x leveraged ETF tied to Bitcoin treasury firm Strive",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/kalshi-joins-coinbase-with-filing-for-us-stock-perpetual-futures?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Kalshi joins Coinbase with filing for US stock perpetual futures",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/vaneck-labels-metaplanet-compensation-bad?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "VanEck criticizes Metaplanet over executive dilution despite compensation cuts",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/bastion-wins-conditional-occ-approval-for-national-trust-bank-charter?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bastion wins conditional OCC approval for national trust bank charter",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/hong-kong-jails-former-banker-over-16b-false-credit-cryptocurrency-bribes-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Hong Kong jails former banker over $1.6B false credit, cryptocurrency bribes: Re",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33970",
-      "title": "Microsoft 디렉터: AI 스크래핑은 ‘인류 역사상 최대 규모의 노동 도둑질’",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33969",
-      "title": "Hacker News 순위의 작동 방식: 점수, 논쟁, 페널티 (2013)",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33968",
-      "title": "AI는 엘리트의 연쇄 범죄다",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=33967",
-      "title": "AI 챗봇이 사람들의 생각을 바꾸는 데 전문가가 되고 있음",
-      "published_date": "2026-09-20",
-      "expires_at": "2026-09-27T02:30:49.800394+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/malicious-npm-packages-evade-install-script-defenses-at-runtime/",
-      "title": "Malicious npm packages evade install-script defenses at runtime",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/researchers-escape-openai-codex-sandbox-to-run-commands-on-host/",
-      "title": "Researchers escape OpenAI Codex sandbox to run commands on host",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/anthropic-tabs-accenture-as-embedded-evaluator-to-help-with-ai-slowdown-proposal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Anthropic taps Accenture as embedded evaluator to help with AI slowdown proposal",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/securely-connect-aws-devops-agent-to-private-services-in-your-vpcs/",
-      "title": "VPC 내 프라이빗 서비스에 AWS DevOps Agent를 안전하게 연결하기",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/saylor-argues-clarity-act-failure-is-a-win",
-      "title": "Strategy Founder Michael Saylor Argues Clarity Act Collapse Is a Win",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/videos/move-over-housing-bitcoin-is-gen-zs-new-wealth-building-asset",
-      "title": "Move Over Housing – Bitcoin is Gen Z’s New Wealth Building Asset",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/videos/coinbase-policy-chief-strategic-bitcoin-reserve-bill-outlook",
-      "title": "Coinbase Policy Chief: Strategic Bitcoin Reserve Bill Outlook",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/videos/strategy-ceo-phong-le-jpmorgan-of-bitcoin",
-      "title": "Strategy CEO Phong Le: We Want to Be the JPMorgan of Bitcoin",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/videos/bill-miller-iv-bullish-on-bitcoin",
-      "title": "Why Legendary Investor Bill Miller IV has “Never Been More Bullish on Bitcoin”",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://arstechnica.com/security/2026/09/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
-      "title": "An undercover Google analyst infiltrated a notorious supply-chain hacking gang",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34047",
-      "title": "Apple iPhone 18 Pro 카메라 테스트",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34046",
-      "title": "이제 인간 수학자가 왜 필요한가?",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34044",
-      "title": "Snowden 아카이브에는 무슨 일이 일어났나",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34041",
-      "title": "LangChain은 유료 광고 운영 에이전트를 어떻게 만들었나",
-      "published_date": "2026-09-21",
-      "expires_at": "2026-09-28T02:28:22.907179+00:00"
-    },
     {
       "url": "https://research.checkpoint.com/2026/21st-september-threat-intelligence-report/",
       "title": "21st September – Threat Intelligence Report",
@@ -1254,6 +900,96 @@
       "title": "Data Agent Kit is now GA: Bring Google Data Cloud to any coding agent",
       "published_date": "2026-10-01",
       "expires_at": "2026-10-08T03:16:42.980475+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/",
+      "title": "Citrix patches NetScaler SAML zero-day exploited in attacks",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/shinyhunters-suspect-rey-reportedly.html",
+      "title": "ShinyHunters Suspect Rey Reportedly Detained in Jordan, Helping FBI Identify Gro",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/china-aligned-ta419-targets-us-ai.html",
+      "title": "China-Aligned TA419 Targets U.S. AI Policy Experts With Microsoft AitM Phishing",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-asks-claude-users-to-share-voice-data-for-ai-model-training/",
+      "title": "Anthropic asks Claude users to share voice data for AI model training",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/10/04/google-froze-its-open-source-bug-bounty-program-due-to-a-significant-rise-in-ai-submissions/",
+      "title": "Google froze its open source bug bounty program due to a ‘significant rise’ in A",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/zcash-gets-a-washington-lobbyist-to-push-crypto-policy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Zcash gets a Washington lobbyist to push crypto policy",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/former-sec-boss-made-ai-czar-bitcoin-may-hit-600k-this-cycle-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Former SEC boss made AI Czar, Bitcoin may hit $600K this cycle: Hodler’s Digest",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/trump-taps-jay-clayton-to-lead-new-super-intelligence-force?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Trump taps intel chief Jay Clayton to lead new Super Intelligence Force",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/japan-adds-garantex-to-list-of-russia-sanctions-over-ukraine-war?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Japan adds Garantex to list of Russia sanctions over Ukraine war",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/el-salvador-receives-138-million-from-imf-after-bitcoin-waivers-granted?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "El Salvador receives $138 million from IMF after Bitcoin waivers granted",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34798",
+      "title": "「Quo Vadis, Mathematics?」—“수학이여, 어디로 가는가?”",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34797",
+      "title": "Infidel이 폭주하다",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34796",
+      "title": "Claude Code 모드(mod) 시작하기",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=34795",
+      "title": "Bill Draper 별세",
+      "published_date": "2026-10-05",
+      "expires_at": "2026-10-12T03:09:12.448056+00:00"
     }
   ]
 }
