@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-10-06T04:44:57.366959+00:00",
+  "updated_at": "2026-10-07T03:25:18.820808+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/check-point-warns-of-management-server.html",
-      "title": "Check Point Warns of Management Server Zero-Day Exploited in Targeted Attacks",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/wordpress-issues-patch-for-critical.html",
-      "title": "WordPress Issues Patch for Critical Flaw That Can Enable Code Execution on Some ",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/malicious-npm-package-poses-as-twilio.html",
-      "title": "Malicious npm Package Poses as Twilio Bug-Bounty Probe, Can Exfiltrate Credentia",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/microsoft-takes-down-eviltokens-device.html",
-      "title": "Microsoft Takes Down EvilTokens Device-Code Phishing Service Tied to 12,000 Inbo",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/critical-bifrost-ai-gateway-flaw-lets.html",
-      "title": "Critical Bifrost AI Gateway Flaw Lets Attackers Run Commands Without Credentials",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://openai.com/index/better-prompt-caching-for-gpt-6",
-      "title": "Better prompt caching for GPT-6",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna",
-      "title": "Introducing GPT-6 Sol and Luna",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/isaac-ros-5-0-agentic-open-source-robotics/",
-      "title": "NVIDIA Isaac ROS 5.0 Advances Agentic, Open Source Robotics Development",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://openai.com/index/parallel-cuts-time-and-cost-with-astra",
-      "title": "Parallel cut research time and cost in half with GPT‑6 Astra",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/bring-more-intelligence-to-everyday-work-with-gpt-6-sol-and-gpt-6-luna-on-amazon-bedrock/",
-      "title": "Bring more intelligence to everyday work with GPT-6 Sol and GPT-6 Luna on Amazon",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-cloudwatch-omni-collaborative-ai-powered-observability-for-your-applications/",
-      "title": "Introducing Amazon CloudWatch Omni: collaborative AI-powered observability for y",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-cloudwatch-omni-ai-powered-observability-for-generative-ai-and-agentic-workloads/",
-      "title": "Introducing Amazon CloudWatch Omni: AI-powered observability for generative AI a",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/narae-energy-service-diagnostic-agent/",
-      "title": "Strands Agents와 Amazon Bedrock AgentCore을 이용한 발전설비진단 구현하기",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains",
-      "title": "New features and improvements in Copilot for JetBrains",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
-      "title": "Faster C++ code intelligence with whole codebase indexing",
-      "published_date": "2026-09-23",
-      "expires_at": "2026-09-30T02:33:26.527233+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/attackers-use-malicious-terraform.html",
       "title": "Attackers Use Malicious Terraform Providers to Deliver Go Malware via HashiCorp ",
@@ -1080,6 +990,96 @@
       "title": "UWP and WinUI 3 apps: UI testing with MSTest",
       "published_date": "2026-10-06",
       "expires_at": "2026-10-13T04:44:57.366761+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
+      "title": "Fake ChatGPT, Gemini, and Claude Ad Portals Capture Credentials and MFA Codes",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/linux-backdoors-impersonate-email.html",
+      "title": "Linux Backdoors Impersonate Email Security Tools to Evade Detection in Korea and",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/improving-spire-security-and-resiliency-with-aws-managed-services/",
+      "title": "Improving SPIRE security and resiliency with AWS managed services",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/libreoffice-and-openoffice-flaws-let.html",
+      "title": "LibreOffice and OpenOffice Flaws Let Malicious Spreadsheets Run Code Without Mac",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/ninja-forms-plugin-flaw-exploited-to-hack-wordpress-sites/",
+      "title": "Ninja Forms plugin flaw exploited to hack WordPress sites",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/10/06/production-engineering/nts-authenticated-time-at-meta/",
+      "title": "NTS: Authenticated Time at Meta",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://openai.com/index/atlassian-partnership",
+      "title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/telecom-operators-open-models/",
+      "title": "Why Telecom Operators Are Building Their AI Strategy on Open Models",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://openai.com/index/jump-trading",
+      "title": "How Jump Trading is scaling quant research with ChatGPT",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics",
+      "title": "Sharing AI progress in mathematics",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-mcp-toolbox-java-sdk-v10-agentic-data-access-for-the-enterprise/",
+      "title": "Announcing MCP Toolbox Java SDK v1.0: Agentic data access for the enterprise",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/lakehouse-runtime-catalog-powered-by-spanner/",
+      "title": "Managed Apache Iceberg at scale: How Spanner powers Lakehouse runtime catalog",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/networking-for-ai-inference-model-serving-gke-only-and-for-all-other-backends/",
+      "title": "Networking for AI inference model serving - GKE only and for all other backends",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/where-mission-meets-moonshot-join-us-at-the-google-public-sector-summit-2026/",
+      "title": "Where mission meets moonshot: Join us at the Google Public Sector Summit 2026",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/simplify-ai-search-with-alloydb-hybrid-search-and-rrf/",
+      "title": "AlloyDB: A unified database engine for hybrid search",
+      "published_date": "2026-10-07",
+      "expires_at": "2026-10-14T03:25:18.820621+00:00"
     }
   ]
 }
