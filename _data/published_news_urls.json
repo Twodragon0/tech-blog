@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-10-07T03:25:18.820808+00:00",
+  "updated_at": "2026-10-08T03:40:55.302393+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/attackers-use-malicious-terraform.html",
-      "title": "Attackers Use Malicious Terraform Providers to Deliver Go Malware via HashiCorp ",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/icymi-august-2026-aws-security/",
-      "title": "ICYMI: August 2026 @AWS Security",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/a-leaked-gitlab-issue-email-address.html",
-      "title": "A Leaked GitLab Issue Email Address Lets Anyone Push Code and Run CI Jobs as You",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/mikrotrick-chain-let-attackers-take.html",
-      "title": "MikroTrick Chain Let Attackers Take Over MikroTik Routers Without a Password or ",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/windows-malware-is-built-to-let-up-to.html",
-      "title": "This Windows Malware is Built to Let Up to Four AI Models Vote on Its Next Move",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/09/23/security/private-processing-meta-ai-glasses/",
-      "title": "Bringing Private Processing to Meta AI Glasses",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/",
-      "title": "Google Beam expands with new regions, partners, and customers",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
-      "title": "Advancing Private AI Compute with secure, server-side memory",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://openai.com/index/two-years-of-openai-academy",
-      "title": "Two years of OpenAI Academy",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/nvidia-life-sakeena-fiza/",
-      "title": "Sakeena Fiza Helps NVIDIA Hardware Succeed at Scale",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-speed-up-your-video-processing-with-alphaevolve/",
-      "title": "A guide to speeding up your video processing with AlphaEvolve",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-adds-native-scale-to-zero-capabilities/",
-      "title": "GKE becomes more elastic: Scale to zero, save costs, and keep workloads responsi",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/native-support-for-prometheus-metrics-in-gke/",
-      "title": "Scale your own way, using HPA with built-in support for PromQL metrics queries i",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/chrome-enterprise/secure-intelligent-experiences-across-every-endpoint/",
-      "title": "Secure, intelligent experiences across every endpoint",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
-      "title": "More ways to request and configure Copilot code reviews",
-      "published_date": "2026-09-24",
-      "expires_at": "2026-10-01T02:22:48.093190+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/unpatched-oneplus-flaws-let-installed.html",
       "title": "Unpatched OnePlus Flaws Let Installed Android Apps Gain Root Without Permissions",
@@ -1080,6 +990,96 @@
       "title": "AlloyDB: A unified database engine for hybrid search",
       "published_date": "2026-10-07",
       "expires_at": "2026-10-14T03:25:18.820621+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/attackers-hijack-gh-sl-and-as.html",
+      "title": "Attackers Hijack .gh, .sl, and .as Registries to Obtain Certificates for Google ",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/eight-malicious-npm-packages-downloaded.html",
+      "title": "Eight Malicious npm Packages Downloaded 40,767 Times Deliver Overlord RAT and St",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/configuring-your-ai-vulnerability-harness-part-2-the-steering-file/",
+      "title": "Configuring your AI vulnerability harness, Part 2: The steering file",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/building-your-ai-vulnerability-harness-part-1/",
+      "title": "Building your AI vulnerability harness, Part 1",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html",
+      "title": "SonicWall Patches CVSS 10.0 Pre-Authentication SSRF Flaw in SMA1000 Appliances",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
+      "title": "NVIDIA, Microsoft Kick Off a New Beginning for Windows PCs With RTX Spark and AI",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://openai.com/index/teens-learn-and-plan",
+      "title": "Helping teens learn, plan, and shape the future of AI",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://openai.com/index/radisson",
+      "title": "Radisson Hotel Group brings hotel discovery into ChatGPT",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-haiku-5-5-on-aws/",
+      "title": "Introducing Claude Haiku 5.5 on AWS",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/rethinking-access-control-for-rag-with-amazon-quick-and-amazon-bedrock/",
+      "title": "Rethinking access control for RAG with Amazon Quick and Amazon Bedrock",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/financial-services/ultra-low-latency-solution-with-u4-enables-high-velocity-trading/",
+      "title": "Introducing Google Cloud’s U4 compute: Enabling ultra-low latency trading",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/blog/ai-transformation-across-the-infrastructure-lifecycle-from-supply-chain-to-fleet-operations/",
+      "title": "AI transformation across the infrastructure lifecycle: From supply chain to flee",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/adopting-kiro-to-game-dev-team/",
+      "title": "넷마블넥서스의 AI 코딩 도구 도입기 – 게임 개발팀의 Kiro 도입 및 활용 여정",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
+      "title": "Claude Haiku 5.5 in GitHub Copilot",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
+      "title": "Purpose-built model for leaked secret detection",
+      "published_date": "2026-10-08",
+      "expires_at": "2026-10-15T03:40:55.302215+00:00"
     }
   ]
 }
