@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-10-09T03:45:35.835166+00:00",
+  "updated_at": "2026-10-10T03:27:50.454461+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/compromised-github-actions-came-back.html",
-      "title": "Compromised GitHub Actions Came Back Online and Resumed Executing Mini Shai-Hulu",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/pamstealer-macos-malware-adds-live-c2.html",
-      "title": "PamStealer macOS Malware Adds Live C2 Payload Decryption and Multi-Layer Persist",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/kiteworks-urges-6-hour-server-shutdown-over-potential-zero-day-attacks/",
-      "title": "Kiteworks urges 6-hour server shutdown over potential zero-day attacks",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/the-soc-doesnt-need-to-start-over-with.html",
-      "title": "The SOC Doesn't Need to Start Over with Every Alert",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-hacked-clop-leak-site-using-grav-cms-path-traversal-flaw/",
-      "title": "ShinyHunters hacked Clop leak site using Grav CMS path traversal flaw",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://openai.com/index/proaction",
-      "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://netflixtechblog.com/trading-a-cloud-identity-for-your-own-workload-attestation-on-managed-compute-516d5a29b252?source=rss----2615bd06b42e---4",
-      "title": "Trading a Cloud Identity for Your Own: Workload Attestation on Managed Compute",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/",
-      "title": "Scaling MoE reinforcement learning on Amazon EKS with EFA and DeepEP with 40% mo",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/",
-      "title": "Accelerate multimodal RL training with SkyRL on Amazon SageMaker HyperPod",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/narrateai-production-ready-llm-quality-assurance-on-amazon-bedrock/",
-      "title": "NarrateAI: production-ready LLM quality assurance on Amazon Bedrock",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
-      "title": "What’s new with Google Cloud",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/memorystore-for-valkey-9-1-3x-qps-caching/",
-      "title": "Unlock 3x QPS and microsecond latency with Memorystore for Valkey 9.1",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/storage-data-transfer/storage-intelligence-advisor-and-batch-operations-updates/",
-      "title": "Storage Intelligence advisor: Know what changed in your storage estate and act o",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/best-practices-guide-for-customizing-gemini-models/",
-      "title": "Best practices guide for customizing Gemini models via Reinforcement Learning (R",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator",
-      "title": "Enterprise managed settings in-product validator",
-      "published_date": "2026-09-26",
-      "expires_at": "2026-10-03T02:42:29.307705+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html",
       "title": "Warning: Two Unpatched Citrix NetScaler RCE Zero-Days Under Active Exploitation",
@@ -1080,6 +990,96 @@
       "title": "Triage role users or higher can now archive pull requests",
       "published_date": "2026-10-09",
       "expires_at": "2026-10-16T03:45:35.834566+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/credential-stealing-github-actions.html",
+      "title": "Credential-Stealing GitHub Actions Workflows Planted in Tens of Thousands of Rep",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/fbi-arrests-another-shinyhunters.html",
+      "title": "FBI Arrests Another ShinyHunters Suspect Reportedly Involved in Its Jobs Portal ",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/p7-darksword-ios-exploit-kit-adds.html",
+      "title": "P7 DarkSword iOS Exploit Kit Adds Crypto Wallet Data Theft and Remote Commands",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/tp-link-sued-by-four-more-us-states.html",
+      "title": "TP-Link Sued by Four More U.S. States Over Router Security and China Ties",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/researchers-publish-working-exploit-for.html",
+      "title": "Researchers Publish Working Exploit for Pre-Auth AnyDesk Linux Flaw That Gives R",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://openai.com/index/sophos",
+      "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://openai.com/index/asana-browser-agent",
+      "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/icymi-what-landed-for-ai-builders-in-september-2026/",
+      "title": "ICYMI: What landed for AI builders in September 2026",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-postman-runs-agent-mode-for-40-million-developers-on-amazon-bedrock/",
+      "title": "How Postman runs Agent Mode for 40 million developers on Amazon Bedrock",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/allenai/impactful-scheduling",
+      "title": "Impactful scheduling for GPU clusters",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+      "title": "Modernizing Unstructured Data Workflows: Alteryx Live Query meets Google Cloud B",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/",
+      "title": "What’s new with Google Data Cloud",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5",
+      "title": "GitHub Copilot weekly releases — October 5",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis",
+      "title": "CodeQL 2.27.2 improves C++, Go, Rust, and JavaScript analysis",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/10/09/join-platform-engineering-day-at-kubecon-cloudnativecon-north-america-2026/",
+      "title": "Join Platform Engineering Day at KubeCon + CloudNativeCon North America 2026",
+      "published_date": "2026-10-10",
+      "expires_at": "2026-10-17T03:27:50.454273+00:00"
     }
   ]
 }
