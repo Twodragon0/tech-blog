@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T03:27:50.454461+00:00",
+  "updated_at": "2026-10-11T03:00:33.512144+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html",
@@ -1080,6 +1080,96 @@
       "title": "Join Platform Engineering Day at KubeCon + CloudNativeCon North America 2026",
       "published_date": "2026-10-10",
       "expires_at": "2026-10-17T03:27:50.454273+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/the-third-party-agent-problem-why.html",
+      "title": "The Third-Party Agent Problem: Why Security Built for AI You Chose Misses the Ag",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html",
+      "title": "Anthropic Cuts Live Internet Access for Internal AI Tests After Claude Exploits ",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/cyber-exec-arrested-in-case-allegedly-tied-to-shinyhunters-hackers/",
+      "title": "Cyber exec arrested in case allegedly tied to ShinyHunters hackers",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/",
+      "title": "ARTEX AI, Claude agents used in cyberattacks on South Korean banks",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/criminal-ip-introduces-aitem-as-the-next-evolution-of-attack-surface-management/",
+      "title": "Criminal IP Introduces AITEM as the Next Evolution of Attack Surface Management",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/tech-chief-says-eu-can-fend-off-rogue-ai-risk-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Tech chief says EU can fend off rogue AI risk: Report",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains",
+      "title": "New controls and chat improvements in Copilot for JetBrains",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/justin-sun-says-trons-post-quantum-cryptography-has-gone-live-on-testnet?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Justin Sun says Tron’s post-quantum cryptography has gone live on testnet",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/sam-altman-backed-bitcoin-life-insurer-meanwhile-raises-more-funds?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Sam Altman-backed Bitcoin life insurer, Meanwhile, raises more funds",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Here’s what happened in crypto today",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/10/05/tokenized-commodities-look-beyond-gold-as-lending-and-oil-open-new-markets",
+      "title": "Tokenized commodities look beyond gold as lending and oil open new markets",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/10/10/robinhood-chain-slowdown-spreads-from-fees-to-trading-as-transactions-fall-more-than-40",
+      "title": "Robinhood Chain slowdown spreads from fees to trading as transactions fall more ",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35144",
+      "title": "Nix가 내 디버거의 절반을 만들어 줬다",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35143",
+      "title": "Show GN: Ukemi - jj 작업 이력을 타임라인에서 확인하고 복원하는 macOS GUI",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35142",
+      "title": "Knuth의 오류 발견 보상 수표",
+      "published_date": "2026-10-11",
+      "expires_at": "2026-10-18T03:00:33.511900+00:00"
     }
   ]
 }
