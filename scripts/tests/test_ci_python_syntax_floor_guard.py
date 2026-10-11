@@ -28,17 +28,30 @@ A 3.12+ standard-library call parses fine here and would still fail at runtime
 on 3.11.
 """
 
-from __future__ import annotations
-
+import os
 import re
 import shutil
 import subprocess
+import sys
 import tomllib
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 WORKFLOWS = REPO_ROOT / ".github" / "workflows"
 SCRIPTS = REPO_ROOT / "scripts"
+
+
+def _find_ruff() -> str | None:
+    found = shutil.which("ruff")
+    if found:
+        return found
+    venv_ruff = Path(sys.executable).parent / "ruff"
+    if venv_ruff.is_file() and os.access(venv_ruff, os.X_OK):
+        return str(venv_ruff)
+    repo_venv_ruff = REPO_ROOT / ".venv" / "bin" / "ruff"
+    if repo_venv_ruff.is_file() and os.access(repo_venv_ruff, os.X_OK):
+        return str(repo_venv_ruff)
+    return None
 
 _PIN_RE = re.compile(
     r"^\s*python-version:\s*['\"]?(\d+)\.(\d+)['\"]?\s*$", re.MULTILINE
@@ -99,17 +112,18 @@ def test_ruff_is_installed():
     absent tooling is a failure, not a skip. ruff is declared in
     scripts/requirements-ci.txt for exactly this test.
     """
-    assert shutil.which("ruff"), (
-        "ruff is not on PATH. It is declared in scripts/requirements-ci.txt; "
+    assert _find_ruff(), (
+        "ruff is not on PATH or venv. It is declared in scripts/requirements-ci.txt; "
         "install it (`pip install -r scripts/requirements-ci.txt`) rather than "
         "letting this check silently pass."
     )
 
 
 def _invalid_syntax_lines(target: str, path: Path) -> list[str]:
+    ruff_bin = _find_ruff() or "ruff"
     res = subprocess.run(
         [
-            "ruff",
+            ruff_bin,
             "check",
             "--no-cache",
             "--target-version",
