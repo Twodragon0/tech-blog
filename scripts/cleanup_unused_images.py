@@ -52,7 +52,9 @@ def extract_image_refs_from_file(filepath: Path) -> set[str]:
         return set()
 
     # Jekyll 주석 및 HTML 주석 제거 (예: include 사용법 주석 내 foo.svg 오탐 방지)
-    content = re.sub(r"\{%\s*comment\s*%\}.*?\{%\s*endcomment\s*%\}", "", content, flags=re.DOTALL)
+    content = re.sub(
+        r"\{%\s*comment\s*%\}.*?\{%\s*endcomment\s*%\}", "", content, flags=re.DOTALL
+    )
     content = re.sub(r"<!--.*?-->", "", content, flags=re.DOTALL)
 
     return set(extract_image_paths(content, include_attr_refs=True))

@@ -53,6 +53,7 @@ def _find_ruff() -> str | None:
         return str(repo_venv_ruff)
     return None
 
+
 _PIN_RE = re.compile(
     r"^\s*python-version:\s*['\"]?(\d+)\.(\d+)['\"]?\s*$", re.MULTILINE
 )
