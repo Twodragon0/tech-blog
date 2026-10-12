@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-10-11T03:00:33.512144+00:00",
+  "updated_at": "2026-10-12T03:23:51.849323+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/warning-two-unpatched-citrix-netscaler.html",
-      "title": "Warning: Two Unpatched Citrix NetScaler RCE Zero-Days Under Active Exploitation",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/lunex-stealer-abuses-amd-driver-to.html",
-      "title": "Lunex Stealer Abuses AMD Driver to Disable Security Monitoring and Steal Browser",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/attackers-bypass-wafs-to-exploit-oracle.html",
-      "title": "Attackers Bypass WAFs to Exploit Oracle PeopleSoft Flaw and Deploy Web Shells",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/shinyhunters-uses-waf-bypass-trick-in-oracle-peoplesoft-attacks/",
-      "title": "ShinyHunters uses WAF bypass trick in Oracle PeopleSoft attacks",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-opus-55-uses-95-percent-fewer-em-dashes-but-its-answers-are-getting-longer/",
-      "title": "Claude Opus 5.5 uses 95% fewer em dashes, but its answers are getting longer",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/culture/samourai-letter-7-notes-from-the-inside",
-      "title": "Samourai Letter #7: Notes From The Inside",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/videos/an-austrian-economist-explains-why-ai-will-make-everyone-an-entrepreneur-w-per-bylund",
-      "title": "An Austrian Economist Explains Why AI Will Make Everyone an Entrepreneur w/ Per ",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/grant-cardone-real-estate-armageddon-is-here-why-bitcoin-is-the-hedge",
-      "title": "Grant Cardone: Real Estate “Armageddon” Is Here – Why BITCOIN is the Hedge",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/videos/technical-analysis-btc-to-cross-key-price-level-against-gold",
-      "title": "TECHNICAL ANALYSIS: BTC to Cross Key Price Level Against Gold",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/videos/katie-stockton-93k-btc-is-the-key-price-level-for-the-bull-market",
-      "title": "Katie Stockton: $93K BTC is the Key Price Level for the Bull Market",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34355",
-      "title": "Meta, 선거 2주 앞두고 룰라 대통령의 Facebook 페이지·선거 광고 차단",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34354",
-      "title": "Show GN: REFOURIER – 파일을 서버에 올리지 않고 브라우저에서 끝내는 한국어 문서 변환 도구",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34353",
-      "title": "은행과 신용협동조합, Apple Pay 수수료에 공동 대응 나선다",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34352",
-      "title": "OpenAI, Hacker News에 올라올 내용이 ‘대외 이미지’에 미칠 영향 우려",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34351",
-      "title": "예멘의 면적은 얼마일까? (2024)",
-      "published_date": "2026-09-27",
-      "expires_at": "2026-10-04T11:22:14.631214+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-preparing-o-an-always-on-chatgpt-assistant-that-could-handle-email/",
-      "title": "OpenAI is preparing “o,” an always-on ChatGPT assistant that could handle email",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/95560/",
-      "title": "Telerik UI 취약점을 악용한 웹쉘 설치 및 스캐너 실행 공격 사례",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/citrix-admins-warned-to-shut-down-netscalers-over-2-exploited-zero-days/",
-      "title": "Citrix confirms two NetScaler RCE zero-days exploited in attacks",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/cloudflare-fixes-containers-cross-tenant-flaw-exposing-customer-data/",
-      "title": "Cloudflare fixes Containers cross-tenant flaw exposing customer data",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-turns-claude-into-an-ai-marketplace-with-2-000-plus-plugins-and-connectors/",
-      "title": "Anthropic turns Claude into an AI marketplace with 2,000+ plugins and connectors",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/australia-summons-openai-anthropic-chiefs-to-senate-inquiry-on-health-data-hack-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Australia asks OpenAI, Anthropic chiefs to Senate inquiry on rogue hack: Report",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/newsom-signs-california-ban-on-public-officials-issuing-memecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Newsom signs California ban on public officials issuing memecoins",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/thorchain-under-fire-over-bitget-hack-eth-is-beyond-blockchain-now?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "THORChain under fire over Bitget, ETH evolves beyond blockchain: Hodler’s Digest",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/riot-platforms-repays-200m-credit-facility-releases-collateral?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Riot Platforms repays $200M credit facility, releases collateral",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/saylor-outlines-bill-of-digital-rights-to-help-build-prosperity-in-future-economy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Saylor outlines ‘bill of digital rights’ to help build prosperity in future econ",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/tech/2026/09/27/vitalik-buterin-maps-ethereum-s-shift-beyond-a-blockchain-in-sweeping-2030-vision",
-      "title": "Vitalik Buterin maps Ethereum’s shift beyond a blockchain in sweeping 2030 visio",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34404",
-      "title": "Palantir 공동창업자, 이란 학교 공습 참사에 대한 비판 자제 요구",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34403",
-      "title": "Show GN: 매번 QR코드를 새로 만들기 귀찮아서 만든 고정 QR 웹 서비스, &#039;큐알라&#039;",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34399",
-      "title": "바이브 코딩 현실: 셀프테스트는 통과했는데 실데이터는 261편 중 6편만 맞았다",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34397",
-      "title": "계속 승진하는 것이 좋은 커리어일까? 엔지니어 Philip Su의 경험 [동영상]",
-      "published_date": "2026-09-28",
-      "expires_at": "2026-10-05T02:42:32.366947+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/apple-patches-coregraphics-flaw.html",
       "title": "Apple Patches CoreGraphics Flaw Possibly Exploited in Targeted Attacks",
@@ -1170,6 +990,72 @@
       "title": "Knuth의 오류 발견 보상 수표",
       "published_date": "2026-10-11",
       "expires_at": "2026-10-18T03:00:33.511900+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/nippon-columbia-malware-incident-exposes-86-million-karaoke-fan-records/",
+      "title": "Nippon Columbia malware incident exposes 8.6 million karaoke fan records",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/xrp-ledger-defends-emergency-patch-for-unlimited-xrp-bug?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "XRP Ledger defends emergency patch for unlimited XRP bug",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/ledger-attack-spreads-to-eu-ai-finds-18-trillion-xrp-bug-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ledger attack spreads to EU, AI finds ’18 trillion XRP’ bug: Hodler’s Digest",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/saylors-teases-strategy-bitcoin-buying-after-ending-september-with-strc-buybacks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Saylor teases Strategy Bitcoin buying after ending September with STRC buybacks",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/coldcard-says-its-investigating-how-phishing-link-appeared-on-its-x-account?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Coldcard says it’s investigating how phishing link appeared on its X account",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ledger-confirms-unauthorized-hardware-implant-losses-may-exceed-86m?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ledger confirms unauthorized hardware implant, says losses may exceed $86M",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://toss.tech/article/53795",
+      "title": "CPU 뼛속까지 써먹고, Milvus 사이징 기준을 만들기까지",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35220",
+      "title": "Show GN: 이득체크 - 질문 8개로 내가 받을 수 있는 정부·지역 혜택 판정",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35219",
+      "title": "상용 공간 오디오 효과를 역공학한 방법",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35218",
+      "title": "브라우저 지문은 새로운 쿠키다",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35217",
+      "title": "Show GN: 모퉁이 라디오 - 맥/윈도우 라디오 앱",
+      "published_date": "2026-10-12",
+      "expires_at": "2026-10-19T03:23:51.849095+00:00"
     }
   ]
 }
