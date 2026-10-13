@@ -4877,6 +4877,21 @@
       "length": 2
     }
   },
+  "2026-10-13-Istio_Ambient_Mesh_ztunnel_L4_mTLS_Waypoint_Proxy_Architecture.md": {
+    "total": 94,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 7,
+      "cross_refs": 5,
+      "length": 2
+    }
+  },
   "2026-10-13-Sigstore_Cosign_v3_Keyless_OIDC_Signing_SLSA_Level_3_Supply_Chain_Security.md": {
     "total": 94,
     "scores": {
