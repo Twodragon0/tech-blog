@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-10-12T03:23:51.849323+00:00",
+  "updated_at": "2026-10-13T04:39:46.649490+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/09/apple-patches-coregraphics-flaw.html",
-      "title": "Apple Patches CoreGraphics Flaw Possibly Exploited in Targeted Attacks",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/hackers-use-needymantis-to-maintain.html",
-      "title": "Hackers Use NeedyMantis to Maintain Long-Term Access in Breached Networks",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/iam-for-ai-agent.html",
-      "title": "IAM for AI agents: A Practical Enterprise Framework",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/bitget-says-attacker-exploited-third.html",
-      "title": "Bitget Says Attacker Exploited Third-Party Security Product Flaw to Steal $388M",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/09/rathat-android-malware-console-uses.html",
-      "title": "RatHat Android Malware Console Uses Gemini to Identify Higher-Value Victims",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/",
-      "title": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://openai.com/index/how-we-will-do-better-for-australia",
-      "title": "How we will do better for Australia",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://openai.com/index/lenfest-ai-collaborative-expansion",
-      "title": "The Lenfest Institute grows landmark program with expanded OpenAI support",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/",
-      "title": "Grok 4.7 is now available on Amazon Bedrock",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-sonnet-5-5-on-aws/",
-      "title": "Introducing Claude Sonnet 5.5 on AWS",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/startups/why-your-startup-needs-open-models-alongside-frontier-apis/",
-      "title": "Why your startup needs open models alongside frontier APIs",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/accelerate-geospatial-coding-with-ai-in-google-earth-engine/",
-      "title": "Introducing Ask, a new Google Earth Engine feature to accelerate geospatial codi",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/storage-optimized-z4d-vm-and-bare-metal-instances/",
-      "title": "Storage-optimized Z4D machine family, now GA, is designed for IO-intensive workl",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-gpt-6-sol-and-luna-claude-opus-5-5-on-amazon-bedrock-strands-harness-and-more-september-28-2026/",
-      "title": "AWS Weekly Roundup: GPT-6 Sol and Luna, Claude Opus 5.5 on Amazon Bedrock, Stran",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/sagemakerstudio-tip-accessgrants-athena/",
-      "title": "SageMaker Studio에서 TIP와 S3 Access Grants를 활용한 Athena 쿼리 실행하기",
-      "published_date": "2026-09-29",
-      "expires_at": "2026-10-06T03:26:11.388818+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/09/french-tax-data-theft-using-stolen.html",
       "title": "French Tax Data Theft Using Stolen Staff Passwords Went Undetected for Seven Wee",
@@ -1056,6 +966,96 @@
       "title": "Show GN: 모퉁이 라디오 - 맥/윈도우 라디오 앱",
       "published_date": "2026-10-12",
       "expires_at": "2026-10-19T03:23:51.849095+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/guardduty-extended-threat-detection-has-added-five-new-indicators-to-surface-attack-sequences/",
+      "title": "GuardDuty Extended Threat Detection has added five new indicators to surface att",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/weekly-recap-helpdesk-0-days-rogue.html",
+      "title": "⚡ Weekly Recap: Helpdesk 0-Days, Rogue Certs, ShinyHunters Arrest, AI-Fooling Ma",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/quantum-resistant-signing-on-aws-part-2-enforce-your-ml-dsa-algorithm-policy-with-scps-and-iam/",
+      "title": "Quantum-resistant signing on AWS, Part 2: Enforce your ML-DSA algorithm policy w",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/quantum-resistant-signing-on-aws-part-1-build-a-software-supply-chain-with-ml-dsa/",
+      "title": "Quantum-resistant signing on AWS, Part 1: Build a software supply chain with ML-",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/bring-your-own-agent-your-employees.html",
+      "title": "Bring Your Own Agent: Your Employees' Assistants Are Already Logged In",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/10/12/open-source/ocp-summit-2026-powering-ai-with-open-innovations-in-scale-up-scale-out-and-scale-across-networks/",
+      "title": "OCP Summit 2026: Powering AI with Open Innovations in Scale-Up, Scale-Out, and S",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/10/12/video-engineering/shipping-media-over-quic-at-meta-scale-for-instagram-live-ingest/",
+      "title": "Shipping Media Over QUIC at Meta Scale for Instagram Live Ingest",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/10/12/ml-applications/turning-opportunistic-ai-inference-capacity-into-better-ads-recommendations/",
+      "title": "Turning Opportunistic AI Inference Capacity Into Better Ads Recommendations",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ocp-global-summit-vera-rubin-scale-ai-factories/",
+      "title": "OCP Global Summit: Amid Ecosystem Adoption, NVIDIA Opens Vera Rubin Architecture",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/meta-launches-muse-wonder-ai-models-challenging-top-rivals?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Meta claims new Muse Wonder AI models rival OpenAI, Anthropic",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bringing-you-the-data-agent-kit/",
+      "title": "Agentic data science with the Data Agent Kit",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/devops-sre/sre-book-second-edition/",
+      "title": "10 Years of the SRE book: Announcing the second edition of \"Site Reliability Eng",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-data-apps/",
+      "title": "Trusted Data Apps for the Agentic Data Cloud, powered by Looker",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-timesfm-3-0-with-multivariate-time-series-forecasting/",
+      "title": "Introducing TimesFM 3.0 with multivariate time-series forecasting in BigQuery",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/announcing-aws-lambda-web-functions-for-fast-consistent-web-app-performance-anywhere/",
+      "title": "Announcing AWS Lambda Web Functions",
+      "published_date": "2026-10-13",
+      "expires_at": "2026-10-20T04:39:46.649281+00:00"
     }
   ]
 }
