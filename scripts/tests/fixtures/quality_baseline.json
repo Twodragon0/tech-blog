@@ -4862,6 +4862,21 @@
       "length": 2
     }
   },
+  "2026-10-13-Cilium_Tetragon_Kernel_Level_Runtime_Enforcement_SIGKILL_Playbook.md": {
+    "total": 96,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 9,
+      "cross_refs": 5,
+      "length": 2
+    }
+  },
   "2026-10-13-Tech_Security_Weekly_Digest_Threat_AI_Malware_ML.md": {
     "total": 99,
     "scores": {
