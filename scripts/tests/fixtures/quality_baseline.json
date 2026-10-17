@@ -855,12 +855,12 @@
     }
   },
   "2026-01-31-January_2026_Security_Digest_Monthly_Index.md": {
-    "total": 87,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
       "digest_link_coverage": 35,
-      "weekly_structure": 7,
+      "weekly_structure": 20,
       "editorial_sections": 10,
       "excerpt_quality": 10
     }

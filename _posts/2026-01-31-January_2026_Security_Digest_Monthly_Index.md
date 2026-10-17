@@ -4,34 +4,26 @@ title: "2026년 1월 보안 다이제스트 월간 인덱스"
 date: 2026-01-31 23:59:00 +0900
 last_modified_at: 2026-05-04T16:01:06+09:00
 categories: [security, devsecops]
-tags: [monthly-index, security-news, weekly-digest, 2026]
-excerpt: "2026년 1월 한 달간 발행된 보안 주간 다이제스트 종합 인덱스. Microsoft AitM 피싱·VMware KEV·Zero-Day 긴급 패치부터 AI 에이전트 보안 위협·OT 공격까지 총 9개 다이제스트를 주차별로 정리하여 월간 보안 트렌드와 핵심 대응 포인트를 실무 관점에서 한눈에 파악할 수 있도록 구성합니다."
-description: "2026년 1월 한 달간 발행된 보안 주간 다이제스트 종합 인덱스. Microsoft AitM 피싱·VMware KEV·Zero-Day 긴급 패치부터 AI 에이전트 보안 위협·OT 공격까지 총 9개 다이제스트를 주차별로 정리하여 월간 보안 트렌드와 핵심 대응 포인트를 실무 관점에서 한눈에 파악할 수 있도록 구성합니다."
-keywords: [monthly-index, security-news, weekly-digest, 2026, DevSecOps, Cloud-Security, Zero-Trust, AI-Security]
+tags: [monthly-index, security-news]
+excerpt: "2026년 1월 한 달간 발행된 보안 다이제스트 종합 인덱스. Microsoft AitM 피싱, VMware KEV 패치, AI 에이전트 보안 위협부터 OT 공격까지 총 9개 핵심 다이제스트를 주차별로 정리하여 제공합니다."
+description: "2026년 1월 한 달간 발행된 보안 다이제스트 종합 인덱스. Microsoft AitM 피싱, VMware KEV 패치, AI 에이전트 보안 위협부터 OT 공격까지 총 9개 핵심 다이제스트를 주차별로 정리하여 제공합니다."
+keywords: [monthly-index, security-news]
 author: Twodragon
 comments: true
 image: /assets/images/2026-01-31-January_2026_Security_Digest_Monthly_Index.svg
-image_alt: "January 2026 Security Digest Monthly Index"
+image_alt: "January 2026 Index"
 toc: true
 summary_card:
-  title: "2026년 1월 보안 다이제스트 월간 인덱스"
-  period: "2026년 1월 월간 인덱스"
-  audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
+  title: "1월 보안 다이제스트 인덱스"
+  period: "2026-01"
+  audience: "DevSecOps 엔지니어"
   categories:
     - { class: "security", label: "보안" }
-    - { class: "devsecops", label: "DevSecOps" }
-  tags:
-    - "monthly-index"
-    - "security-news"
-    - "weekly-digest"
-    - "2026"
+  tags: [monthly-index]
   highlights:
-    - { source: "월간 종합", title: "2026년 1월 발행 보안 다이제스트 핵심 이슈 인덱싱" }
-    - { source: "위협 동향", title: "AitM 피싱, VMware KEV, IoT 봇넷, OT 시스템 공격 집중 정리" }
-    - { source: "운영 포인트", title: "Zero-Day 긴급 패치, AI 에이전트 NHI 관리, Kubernetes 보안 대응 확인" }
+    - { source: "월간 종합", title: "1월 핵심 보안 이슈 인덱싱" }
 redirect_from:
   - /posts/2026/01/January_2026_Security_Digest_Monthly_Index/
-  - /posts/2026-01-31-January_2026_Security_Digest_Monthly_Index/
 ---
 
 {% include ai-summary-card.html %}
@@ -44,18 +36,30 @@ redirect_from:
 
 ---
 
-## 4주차 (1/23 ~ 1/31)
-
-> 1월 다이제스트는 월말 집중 발행 패턴으로 구성되어 있습니다.
+## 3주차 (1/23 ~ 1/24)
 
 | 날짜 | 주제 | 링크 |
 |------|------|------|
 | 1월 23일 | Microsoft AitM 피싱, HashiCorp Agentic AI Zero Trust NHI 관리, OpenAI PostgreSQL 스케일링 | [바로가기](/posts/2026/01/23/Tech_Security_Weekly_Digest_Microsoft_AitM_Phishing_Agentic_AI_Zero_Trust_OpenAI_PostgreSQL/) |
 | 1월 24일 | Microsoft FBI BitLocker 암호화 복구 키 논란, Cloudflare BGP Route Leak, CNCF 자율 기업 플랫폼 제어 | [바로가기](/posts/2026/01/24/Tech_Security_Weekly_Digest_BitLocker_FBI_Cloudflare_Route_Leak_Agentic_Enterprise_Docker/) |
+
+---
+
+## 4주차 (1/25 ~ 1/28)
+
+| 날짜 | 주제 | 링크 |
+|------|------|------|
 | 1월 25일 | CISA KEV VMware vCenter CVE-2024-37079 긴급 패치, Fortinet FortiCloud SSO 우회 제로데이, Sandworm DynoWiper | [바로가기](/posts/2026/01/25/Tech_Security_Weekly_Digest_VMware_vCenter_Fortinet_SSO_Sandworm_DynoWiper_AI_Agents/) |
 | 1월 26일 | HashiCorp NHI Zero Trust 전략, Chrome Gemini Nano 온디바이스 기술지원 사기 탐지, Terraform Stacks | [바로가기](/posts/2026/01/26/Tech_Security_Weekly_Digest_Zero_Trust_Agentic_AI_Chrome_Tech_Support_Scam_Terraform_Stacks/) |
 | 1월 27일 | Microsoft Office CVE-2026-21509 Zero-Day 긴급 패치, Kimwolf/Badbox 2.0 IoT 봇넷 200만 기기 감염, AWS EC2 G7e | [바로가기](/posts/2026/01/27/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_Kimi_K25_Kimwolf_Botnet_AWS_G7e/) |
 | 1월 28일 | CVE-2026-21509 긴급 패치 방법, CTEM 5단계 프레임워크 실무 적용, Grist-Core RCE 취약점 분석 | [바로가기](/posts/2026/01/28/Tech_Security_Weekly_Digest_MS_Office_Zero_Day_CTEM_Grist_Core_RCE/) |
+
+---
+
+## 5주차 (1/29 ~ 1/31)
+
+| 날짜 | 주제 | 링크 |
+|------|------|------|
 | 1월 29일 | n8n 워크플로우 RCE(CVE-2026-1470, CVSS 9.9), D-Link 단종 장비 Zero-Day, Kubernetes AI 에이전트 보안 | [바로가기](/posts/2026/01/29/Tech_Security_Weekly_Digest_n8n_RCE_D_Link_Zero_Day_Kubernetes_AI_Agent/) |
 | 1월 30일 | Ollama AI 서버 175,000대 인터넷 노출(LLMjacking), SolarWinds Web Help Desk RCE 6건, Google IPIDEA 차단 | [바로가기](/posts/2026/01/30/Tech_Security_Weekly_Digest_Ollama_AI_SolarWinds_RCE_Google_IPIDEA/) |
 | 1월 31일 | ShinyHunters 비싱 MFA 우회, 악성 Chrome 확장 ChatGPT 토큰 탈취, CERT Polska OT 시스템 공격 탐지 | [바로가기](/posts/2026/01/31/Tech_Security_Weekly_Digest_ShinyHunters_Vishing_Chrome_Extension_OT_Attack/) |
