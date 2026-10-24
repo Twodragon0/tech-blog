@@ -97,11 +97,11 @@ class TestIndexDetection:
 class TestIndexRubric:
     def test_january_scores_at_least_80(self):
         r = validate_post(POSTS_DIR / INDEX_FILES[0])
-        assert r["total"] == 87
+        assert r["total"] == 100
         assert r["total"] >= 80
 
-    @pytest.mark.parametrize("name", INDEX_FILES[1:])
-    def test_feb_mar_score_100(self, name):
+    @pytest.mark.parametrize("name", INDEX_FILES)
+    def test_indices_score_100(self, name):
         r = validate_post(POSTS_DIR / name)
         assert r["total"] == 100
 
@@ -116,9 +116,7 @@ class TestIndexRubric:
         assert s["excerpt_quality"] == 10
 
     def test_weekly_structure_values(self):
-        jan = validate_post(POSTS_DIR / INDEX_FILES[0])
-        assert jan["scores"]["weekly_structure"] == 7  # single month-end bucket
-        for name in INDEX_FILES[1:]:
+        for name in INDEX_FILES:
             r = validate_post(POSTS_DIR / name)
             assert r["scores"]["weekly_structure"] == 20
 
