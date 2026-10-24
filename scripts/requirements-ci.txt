@@ -14,7 +14,7 @@ qrcode>=8.2
 # native AVIF encoding (verified `features.check("avif") is True` at exactly 11.3.0).
 # No <12 ceiling here — the ceiling in scripts/requirements.txt exists for moviepy,
 # which this file does not install.
-Pillow>=11.3.0
+Pillow>=13.0.0
 
 # fonttools[woff] — test_font_tier_split opens the shipped tier-1/tier-2 .woff2 with
 # fontTools.ttLib to assert their cmaps match the declared unicode-range split. woff2
