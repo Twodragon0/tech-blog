@@ -93,7 +93,7 @@ flowchart TD
         Waypoint["Waypoint Proxy (Envoy)"]
     end
 
-    ztunnelA ==>|HBONE mTLS (Port 15008)| ztunnelB
+    ztunnelA ==>|"HBONE mTLS (Port 15008)"| ztunnelB
     ztunnelA -.->|L7 Policy Route| Waypoint
     Waypoint -.->|HBONE mTLS| ztunnelB
 ```
