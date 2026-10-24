@@ -254,9 +254,10 @@ export default async function handler(req, res) {
       .update(`${clientIp}:${ua}`)
       .digest('hex')
       .substring(0, 16);
-    const rateLimitIdentifier = sessionId
-      ? `session:${sessionId}`
-      : `ip:${fingerprint}`;
+    // 보안 패치 (이슈 #429): 클라이언트 제어 sessionId로 버킷 키를 교체하면
+    // 요청마다 새로운 sessionId를 전송하여 10 req/min 한도를 무제한 우회할 수 있음.
+    // 따라서 레이트리밋 버킷 키는 항상 서버 검증 가능한 IP + UA 핑거프린트로 강제함.
+    const rateLimitIdentifier = `ip:${fingerprint}`;
     
     const rateLimitResult = await checkRateLimit(rateLimitIdentifier, 'anonymous');
     setRateLimitHeaders(res, rateLimitResult.headers);
@@ -265,6 +266,7 @@ export default async function handler(req, res) {
       if (process.env.VERCEL_ENV === 'production') {
         safeLog('warn', '[Security] Rate limit exceeded:', {
           identifier: rateLimitIdentifier.substring(0, 50),
+          sessionId: sessionId || null,
           ip: clientIp,
           requestId
         });

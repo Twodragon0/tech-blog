@@ -181,9 +181,9 @@ export default async function handler(req, res) {
       return res.status(403).json({ error: 'forbidden' });
     }
 
-    // Rate Limiting
-    const clientIp = req.headers['x-forwarded-for']?.split(',')[0]?.trim()
-      || req.headers['x-real-ip']
+    // Rate Limiting (x-real-ip 우선 검증으로 스푸핑 방어)
+    const clientIp = req.headers['x-real-ip']
+      || req.headers['x-forwarded-for']?.split(',')[0]?.trim()
       || req.socket?.remoteAddress
       || 'unknown';
 
