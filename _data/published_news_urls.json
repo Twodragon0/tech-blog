@@ -1,636 +1,6 @@
 {
-  "updated_at": "2026-10-16T02:21:25.949776+00:00",
+  "updated_at": "2026-10-24T13:58:15.425211+00:00",
   "entries": [
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/citrix-patches-netscaler-saml-zero-day-exploited-in-attacks/",
-      "title": "Citrix patches NetScaler SAML zero-day exploited in attacks",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/shinyhunters-suspect-rey-reportedly.html",
-      "title": "ShinyHunters Suspect Rey Reportedly Detained in Jordan, Helping FBI Identify Gro",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/china-aligned-ta419-targets-us-ai.html",
-      "title": "China-Aligned TA419 Targets U.S. AI Policy Experts With Microsoft AitM Phishing",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-asks-claude-users-to-share-voice-data-for-ai-model-training/",
-      "title": "Anthropic asks Claude users to share voice data for AI model training",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/10/04/google-froze-its-open-source-bug-bounty-program-due-to-a-significant-rise-in-ai-submissions/",
-      "title": "Google froze its open source bug bounty program due to a ‘significant rise’ in A",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/zcash-gets-a-washington-lobbyist-to-push-crypto-policy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Zcash gets a Washington lobbyist to push crypto policy",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/former-sec-boss-made-ai-czar-bitcoin-may-hit-600k-this-cycle-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Former SEC boss made AI Czar, Bitcoin may hit $600K this cycle: Hodler’s Digest",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/trump-taps-jay-clayton-to-lead-new-super-intelligence-force?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Trump taps intel chief Jay Clayton to lead new Super Intelligence Force",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/japan-adds-garantex-to-list-of-russia-sanctions-over-ukraine-war?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Japan adds Garantex to list of Russia sanctions over Ukraine war",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/el-salvador-receives-138-million-from-imf-after-bitcoin-waivers-granted?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "El Salvador receives $138 million from IMF after Bitcoin waivers granted",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34798",
-      "title": "「Quo Vadis, Mathematics?」—“수학이여, 어디로 가는가?”",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34797",
-      "title": "Infidel이 폭주하다",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34796",
-      "title": "Claude Code 모드(mod) 시작하기",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34795",
-      "title": "Bill Draper 별세",
-      "published_date": "2026-10-05",
-      "expires_at": "2026-10-12T03:09:12.448056+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/attackers-target-rejetto-hfs-flaw-that.html",
-      "title": "Attackers Target Rejetto HFS Flaw That Enables Admin Session Forgery and RCE",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/new-netscaler-zero-day-exploited-in.html",
-      "title": "New NetScaler Zero-Day Exploited in Targeted Attacks Can Knock SAML Deployments ",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-windows-kb5124010-update-crashes-some-games-and-apps/",
-      "title": "Microsoft: Windows KB5124010 update crashes some games and apps",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/google/google-halts-open-source-bug-bounty-program-amid-ai-spam-surge/",
-      "title": "Google halts open-source bug bounty program amid AI spam surge",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/mi5-says-chinas-mss-funded-research.html",
-      "title": "MI5 Says China’s MSS Funded Research Involving 100+ U.K.-Linked Academics",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/microsoft/thinkingbox",
-      "title": "The Agent Said It Was Done. The Database Disagreed.",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/vivek-ramaswamy-crypto-gubernatorial-campaign?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Vivek Ramaswamy’s gubernatorial run lacks the crypto rhetoric of his presidentia",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/payward-partners-singapore-gulf-bank-settlement?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Kraken parent adds 24/7 dollar settlement with Singapore Gulf Bank",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-etf-third-inflow-week-ether-funds-red?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin ETFs notch third inflow week as Ether ETFs shed $138M",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/zcash-nu7-testnet-activation-november-mainnet?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Zcash activates NU7 on testnet ahead of November mainnet target",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/okx-nyse-parent-file-to-launch-tokenized-us-stock-platform?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "OKX, NYSE parent file to launch tokenized US stock platform",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34819",
-      "title": "Android에서 시스템 수준으로 광고 차단하기",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34818",
-      "title": "ncdu - NCurses 디스크 사용량 분석 도구(업데이트된 포크)",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34816",
-      "title": "스왑으로 발생한 Go 가비지 컬렉터의 40ms 정지",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=34815",
-      "title": "오리지널 Doom을 SQL로 포팅하기",
-      "published_date": "2026-10-04",
-      "expires_at": "2026-10-12T10:21:59.375390+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/microsoft-exchange-flaw-lets.html",
-      "title": "Microsoft Exchange Flaw Lets Authenticated Attackers Read Other Users' Mailboxes",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/aws-continuum-sets-a-new-standard-in-autonomous-code-security/",
-      "title": "AWS Continuum sets a new standard in autonomous code security",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/weekly-recap-netscaler-and-fortimail-0.html",
-      "title": "⚡ Weekly Recap: NetScaler and FortiMail 0-Days, AI Coding Leaks, Spectre v2 and ",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/openai-is-adding-invisible-watermarks-to-chatgpt-and-codex-text-in-the-eu/",
-      "title": "OpenAI is adding invisible watermarks to ChatGPT and Codex text in the EU",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/the-credential-layer-is-expanding.html",
-      "title": "The Credential Layer Is Expanding Faster Than Security Teams Can See It",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://openai.com/index/eu-text-provenance",
-      "title": "Our approach to EU text provenance rules",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ai-breast-cancer-startups/",
-      "title": "From Scan to Treatment Plan, AI Helps Close Breast Cancer’s Deadliest Gaps",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement",
-      "title": "Building advertising for the way people use AI",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-glm-5-3-on-amazon-bedrock/",
-      "title": "Introducing GLM 5.3 on Amazon Bedrock",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/supercharge-regulated-workloads-with-claude-code-and-amazon-bedrock/",
-      "title": "Supercharge regulated workloads with Claude Code and Amazon Bedrock",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/infrastructure-modernization/google-cloud-modernize-accelerate-transformation-with-ai/",
-      "title": "Introducing Google Cloud Modernize, transforming for (and with) AI",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-bedrock-managed-agents-powered-by-openai-q3-service-availability-updates-kiro-workflows-and-more-october-5-2026/",
-      "title": "AWS Weekly Roundup: Amazon Bedrock Managed Agents powered by OpenAI, Q3 service ",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more",
-      "title": "Secret scanning adds detectors for Lovable, Supabase, and more",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/10/05/kubelet-watches-inodes-just-not-until-its-an-emergency/",
-      "title": "Kubelet watches inodes. Just not until it’s an emergency.",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/dotnet/testing-uwp-and-winui-3-apps-with-mstest/",
-      "title": "UWP and WinUI 3 apps: UI testing with MSTest",
-      "published_date": "2026-10-06",
-      "expires_at": "2026-10-13T04:44:57.366761+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/fake-chatgpt-gemini-and-claude-ad.html",
-      "title": "Fake ChatGPT, Gemini, and Claude Ad Portals Capture Credentials and MFA Codes",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/linux-backdoors-impersonate-email.html",
-      "title": "Linux Backdoors Impersonate Email Security Tools to Evade Detection in Korea and",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/improving-spire-security-and-resiliency-with-aws-managed-services/",
-      "title": "Improving SPIRE security and resiliency with AWS managed services",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/libreoffice-and-openoffice-flaws-let.html",
-      "title": "LibreOffice and OpenOffice Flaws Let Malicious Spreadsheets Run Code Without Mac",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/ninja-forms-plugin-flaw-exploited-to-hack-wordpress-sites/",
-      "title": "Ninja Forms plugin flaw exploited to hack WordPress sites",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/10/06/production-engineering/nts-authenticated-time-at-meta/",
-      "title": "NTS: Authenticated Time at Meta",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://openai.com/index/atlassian-partnership",
-      "title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/telecom-operators-open-models/",
-      "title": "Why Telecom Operators Are Building Their AI Strategy on Open Models",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://openai.com/index/jump-trading",
-      "title": "How Jump Trading is scaling quant research with ChatGPT",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics",
-      "title": "Sharing AI progress in mathematics",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/announcing-mcp-toolbox-java-sdk-v10-agentic-data-access-for-the-enterprise/",
-      "title": "Announcing MCP Toolbox Java SDK v1.0: Agentic data access for the enterprise",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/lakehouse-runtime-catalog-powered-by-spanner/",
-      "title": "Managed Apache Iceberg at scale: How Spanner powers Lakehouse runtime catalog",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/networking-for-ai-inference-model-serving-gke-only-and-for-all-other-backends/",
-      "title": "Networking for AI inference model serving - GKE only and for all other backends",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/where-mission-meets-moonshot-join-us-at-the-google-public-sector-summit-2026/",
-      "title": "Where mission meets moonshot: Join us at the Google Public Sector Summit 2026",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/simplify-ai-search-with-alloydb-hybrid-search-and-rrf/",
-      "title": "AlloyDB: A unified database engine for hybrid search",
-      "published_date": "2026-10-07",
-      "expires_at": "2026-10-14T03:25:18.820621+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/attackers-hijack-gh-sl-and-as.html",
-      "title": "Attackers Hijack .gh, .sl, and .as Registries to Obtain Certificates for Google ",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/eight-malicious-npm-packages-downloaded.html",
-      "title": "Eight Malicious npm Packages Downloaded 40,767 Times Deliver Overlord RAT and St",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/configuring-your-ai-vulnerability-harness-part-2-the-steering-file/",
-      "title": "Configuring your AI vulnerability harness, Part 2: The steering file",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/building-your-ai-vulnerability-harness-part-1/",
-      "title": "Building your AI vulnerability harness, Part 1",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/sonicwall-patches-cvss-100-pre.html",
-      "title": "SonicWall Patches CVSS 10.0 Pre-Authentication SSRF Flaw in SMA1000 Appliances",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
-      "title": "NVIDIA, Microsoft Kick Off a New Beginning for Windows PCs With RTX Spark and AI",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://openai.com/index/teens-learn-and-plan",
-      "title": "Helping teens learn, plan, and shape the future of AI",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://openai.com/index/radisson",
-      "title": "Radisson Hotel Group brings hotel discovery into ChatGPT",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-haiku-5-5-on-aws/",
-      "title": "Introducing Claude Haiku 5.5 on AWS",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/rethinking-access-control-for-rag-with-amazon-quick-and-amazon-bedrock/",
-      "title": "Rethinking access control for RAG with Amazon Quick and Amazon Bedrock",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/financial-services/ultra-low-latency-solution-with-u4-enables-high-velocity-trading/",
-      "title": "Introducing Google Cloud’s U4 compute: Enabling ultra-low latency trading",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://azure.microsoft.com/en-us/blog/ai-transformation-across-the-infrastructure-lifecycle-from-supply-chain-to-fleet-operations/",
-      "title": "AI transformation across the infrastructure lifecycle: From supply chain to flee",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/adopting-kiro-to-game-dev-team/",
-      "title": "넷마블넥서스의 AI 코딩 도구 도입기 – 게임 개발팀의 Kiro 도입 및 활용 여정",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
-      "title": "Claude Haiku 5.5 in GitHub Copilot",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
-      "title": "Purpose-built model for leaked secret detection",
-      "published_date": "2026-10-08",
-      "expires_at": "2026-10-15T03:40:55.302215+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/fbi-says-china-linked-hackers-ran.html",
-      "title": "FBI Says China-Linked Hackers Ran Portal Giving Third Parties Access to Stolen E",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/threatsday-ransomware-affiliate.html",
-      "title": "ThreatsDay: Ransomware Affiliate Betrayal, WhatsApp RAT, Exposed Hacker Tools an",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/japan-sees-sharp-rise-in-web-data-leaks.html",
-      "title": "Japan Sees Sharp Rise in Web Data Leaks Amid Mobile API Abuse and Metabase Attac",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/uac-0099-targets-ukrainian-government.html",
-      "title": "UAC-0099 Targets Ukrainian Government Personnel With ASHVEIN RAT Hiding Commands",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/08/post-quantum-authentication-why-organizations-should-start-testing-certificate-ecosystems-now/",
-      "title": "Post-quantum authentication: Why organizations should start testing certificate ",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
-      "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI ",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://openai.com/index/oracle",
-      "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gears-of-war-e-day/",
-      "title": "Rally Up: ‘Gears of War: E-Day’ Launches on GeForce NOW",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://openai.com/index/pollo-ai",
-      "title": "Pollo AI turns creative ideas into campaigns with OpenAI",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://openai.com/index/legalon-halves-codex-costs",
-      "title": "LegalOn halves Codex costs while maintaining development speed",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/customers/ireland-innovation-companies-startups-governments-scale-with-gemini/",
-      "title": "Innovation in Ireland: How Irish brands scale with Gemini Enterprise",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/gps-suny-launch-ai-enabled-platform-to-accelerate-university-research/",
-      "title": "Google Public Sector and SUNY launch AI-enabled platform to accelerate universit",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/startups/how-to-grow-your-small-business-using-google-gemini/",
-      "title": "Empowering SMBs to do more with Gemini",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026/",
-      "title": "Welcome to Gemini at Work 2026: Introducing the Gemini agent",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests",
-      "title": "Triage role users or higher can now archive pull requests",
-      "published_date": "2026-10-09",
-      "expires_at": "2026-10-16T03:45:35.834566+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/credential-stealing-github-actions.html",
-      "title": "Credential-Stealing GitHub Actions Workflows Planted in Tens of Thousands of Rep",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/fbi-arrests-another-shinyhunters.html",
-      "title": "FBI Arrests Another ShinyHunters Suspect Reportedly Involved in Its Jobs Portal ",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/p7-darksword-ios-exploit-kit-adds.html",
-      "title": "P7 DarkSword iOS Exploit Kit Adds Crypto Wallet Data Theft and Remote Commands",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/tp-link-sued-by-four-more-us-states.html",
-      "title": "TP-Link Sued by Four More U.S. States Over Router Security and China Ties",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/researchers-publish-working-exploit-for.html",
-      "title": "Researchers Publish Working Exploit for Pre-Auth AnyDesk Linux Flaw That Gives R",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://openai.com/index/sophos",
-      "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://openai.com/index/asana-browser-agent",
-      "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/icymi-what-landed-for-ai-builders-in-september-2026/",
-      "title": "ICYMI: What landed for AI builders in September 2026",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/how-postman-runs-agent-mode-for-40-million-developers-on-amazon-bedrock/",
-      "title": "How Postman runs Agent Mode for 40 million developers on Amazon Bedrock",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://huggingface.co/blog/allenai/impactful-scheduling",
-      "title": "Impactful scheduling for GPU clusters",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
-      "title": "Modernizing Unstructured Data Workflows: Alteryx Live Query meets Google Cloud B",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/",
-      "title": "What’s new with Google Data Cloud",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5",
-      "title": "GitHub Copilot weekly releases — October 5",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis",
-      "title": "CodeQL 2.27.2 improves C++, Go, Rust, and JavaScript analysis",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/10/09/join-platform-engineering-day-at-kubecon-cloudnativecon-north-america-2026/",
-      "title": "Join Platform Engineering Day at KubeCon + CloudNativeCon North America 2026",
-      "published_date": "2026-10-10",
-      "expires_at": "2026-10-17T03:27:50.454273+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/10/the-third-party-agent-problem-why.html",
       "title": "The Third-Party Agent Problem: Why Security Built for AI You Chose Misses the Ag",
@@ -1056,6 +426,96 @@
       "title": "How Visko streams real-time world models on Google Cloud TPUs",
       "published_date": "2026-10-16",
       "expires_at": "2026-10-23T02:21:25.949599+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html",
+      "title": "Brotli Decoder Flaw Behind Node.js RCE Also Affects Bun, Python and Other Widely",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html",
+      "title": "Leaked LiteLLM Master Key Let Attackers Steal GitHub Tokens and Hijack Release P",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/google-says-gmail-and-photos-data.html",
+      "title": "Google Says Gmail and Photos Data Shared With AI Search Could Be Used for Target",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/researchers-push-over-2-million-updates.html",
+      "title": "Researchers Push Over 2 Million Updates to Remotely Disable Popcorn Time Updater",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html",
+      "title": "CISA Flags Two Actively Exploited Critical Flaws in Collabora Online and Arista ",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
+      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://netflixtechblog.com/beyond-api-compatibility-building-a-tool-to-measure-the-blast-radius-of-library-changes-9474f2fd4f90?source=rss----2615bd06b42e---4",
+      "title": "Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+      "title": "Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cdk/",
+      "title": "Orchestrating SageMaker AI endpoint auto scaling with AWS CDK",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/visualize-points-and-routes-with-geojson-in-amazon-quick-sight-layer-maps/",
+      "title": "Visualize points and routes with GeoJSON in Amazon Quick Sight layer maps",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode",
+      "title": "Usage metrics API adds usage from tools like OpenCode",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
+      "title": "Turn notifications into code with GitHub Copilot in Teams",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-23-emu-deletions-fix",
+      "title": "EMU deletions fix",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks",
+      "title": "Public monitoring adds triage, validity, API, and webhooks",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available",
+      "title": "Enterprise installations for GitHub Apps generally available",
+      "published_date": "2026-10-24",
+      "expires_at": "2026-10-31T13:58:15.425150+00:00"
     }
   ]
 }
