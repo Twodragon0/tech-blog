@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T13:58:15.425211+00:00",
+  "updated_at": "2026-10-25T02:23:54.239219+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/10/the-third-party-agent-problem-why.html",
@@ -516,6 +516,96 @@
       "title": "Enterprise installations for GitHub Apps generally available",
       "published_date": "2026-10-24",
       "expires_at": "2026-10-31T13:58:15.425150+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/blackx-uefi-bootkit-exploits-baton-drop-flaw-to-bypass-secure-boot/",
+      "title": "BlackX UEFI bootkit exploits Baton Drop flaw to bypass Secure Boot",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/10/24/will-ai-expose-the-rickety-infrastructure-of-the-internet/",
+      "title": "Will AI expose the rickety infrastructure of the internet?",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/10/24/php-ocalypse-how-two-critical-web-bugs-almost-broke-the-internet/",
+      "title": "PHP-ocalypse: How two critical web bugs almost broke the internet",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35943",
+      "title": "내 수요일을 돌려줘",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497",
+      "title": "Node2Shell evolves to HTTP2Shell, blast radius affects many HTTP libs and apps",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/10/24/strategy-strive-face-balancing-act-between-bitcoin-buying-and-preferred-stock-dividends",
+      "title": "Strategy, Strive face balancing act between bitcoin buying and preferred stock d",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/tech/2026/10/24/block-s-new-voice-ai-sounds-eerily-human-sparking-awe-and-scam-fears",
+      "title": "Block's new voice AI sounds eerily human, sparking awe and scam fears",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/10/24/crypto-under-weekend-pressure-bitcoin-slides-below-usd80-000-on-u-s-middle-east-evacuations",
+      "title": "Crypto under weekend pressure, bitcoin slides below $80,000 on U.S. Middle East ",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/10/23/why-mcdonalds-microsoft-and-google-saying-no-to-tokenized-stocks-isn-t-a-dealbreaker",
+      "title": "Why McDonalds, Microsoft and Google saying no to tokenized stocks isn't a dealbr",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/10/24/argentina-drops-criminal-probe-into-president-milei-over-crashed-memecoin-libra",
+      "title": "Argentina drops criminal probe into President Milei over crashed memecoin LIBRA",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35951",
+      "title": "알츠하이머 연구의 돌파구: 뇌 플라크 제거 없이 수면 2시간 회복",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35950",
+      "title": "우리가 만드는 소프트웨어에 더 큰 야심을 가져야 한다",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35947",
+      "title": "AI가 생성한 언어는 왜 이해하기 어려울까?",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=35946",
+      "title": "Dream-1 - 처음 보는 양팔 로봇을 제로샷으로 제어하는 로봇 모델",
+      "published_date": "2026-10-25",
+      "expires_at": "2026-11-01T02:23:54.239001+00:00"
     }
   ]
 }
