@@ -200,7 +200,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v6
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v6
         with:
           python-version: '3.11'
 
@@ -565,7 +565,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Ruby (Jekyll build)
-        uses: ruby/setup-ruby@e81a8fa391b11a595c1b7ed84177cc0fe02faf83  # v1
+        uses: ruby/setup-ruby@26e5b7d197ebf60545ee9667bcbace0be11ccaec  # v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
@@ -577,7 +577,7 @@ jobs:
           cache: 'npm'
 
       - name: Setup Python (build.sh favicon/raster deps)
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v6
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v6
         with:
           python-version: '3.11'
           cache: 'pip'
