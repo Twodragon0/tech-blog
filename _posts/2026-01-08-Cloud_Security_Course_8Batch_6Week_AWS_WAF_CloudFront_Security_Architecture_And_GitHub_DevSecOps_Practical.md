@@ -1,26 +1,17 @@
 ---
-
+layout: post
+title: '클라우드 보안 8기 6주차: AWS WAF/CloudFront 보안 아키텍처, DevSecOps'
+date: 2026-01-08 19:58:00 +0900
+last_modified_at: 2026-04-16T11:22:39+09:00
 author: Twodragon
+comments: true
+toc: true
+image: /assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg
+image_alt: 'Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture'
+cover_style: l20
 categories:
 - security
 - devsecops
-certifications:
-- aws-saa
-comments: true
-date: 2026-01-08 19:58:00 +0900
-last_modified_at: 2026-04-16T11:22:39+09:00
-description: 클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking),
-  GitHub DevSecOps 실전(CodeQL, Dependabot, Secret Scanning), 실전 보안 패치(SSRF, Data Masking),
-  Jekyll 블로그 보안 강화까지 실무 정리.
-excerpt: "클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC·WAF 규칙·Geo-blocking), GitHub DevSecOps 실전(CodeQL·Dependabot·Secret Scanning), SSRF·Data Masking 보안 패치, Jekyll 블로그 보안 강화까지 실무 정리합니다."
-image: /assets/images/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_and_GitHub_DevSecOps_Practical.svg
-cover_style: l20
-image_alt: 'Cloud Security Course 8Batch 6Week: AWS WAF CloudFront Security Architecture'
-layout: post
-original_url: https://twodragon.tistory.com/707
-series: "Cloud Security Course 8기"
-series_order: 7
-series_total: 9
 tags:
 - AWS
 - CloudFront
@@ -33,8 +24,14 @@ tags:
 - TechBlog
 - waf
 keywords: [AWS, CloudFront, cloudsecurity, Cybersecurity, DevSecOps, github, githubactions, SecurityEngineering]
-title: '클라우드 보안 8기 6주차: AWS WAF/CloudFront 보안 아키텍처, DevSecOps'
-toc: true
+certifications:
+- aws-saa
+excerpt: "클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC·WAF 규칙·Geo-blocking), GitHub DevSecOps 실전(CodeQL·Dependabot·Secret Scanning), SSRF·Data Masking 보안 패치, Jekyll 블로그 보안 강화까지 실무 정리합니다."
+description: 클라우드 보안 과정 8기 6주차. AWS WAF/CloudFront 보안 아키텍처(OAI/OAC, WAF 규칙, Geo-blocking), GitHub DevSecOps 실전(CodeQL, Dependabot, Secret Scanning), 실전 보안 패치(SSRF, Data Masking), Jekyll 블로그 보안 강화까지 실무 정리.
+original_url: https://twodragon.tistory.com/707
+series: "Cloud Security Course 8기"
+series_order: 7
+series_total: 9
 redirect_from:
   - /posts/2026/01/Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/
   - /posts/2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/
@@ -300,6 +297,29 @@ GitHub Actions 워크플로우에 CodeQL 정적 분석, Dependabot 의존성 검
 
 SSRF 공격은 서버가 공격자가 지정한 내부 URL에 요청을 보내도록 유도합니다. 방어의 핵심은 Allow-list 기반 URL 검증입니다. 허용된 도메인과 스킴만 통과시키고, `169.254.169.254`(EC2 메타데이터) 등 내부 IP 대역은 명시적으로 차단해야 합니다.
 
+### 5.5 클라우드 네이티브 엣지-오리진 심층 방어 아키텍처 (Defense-in-Depth)
+
+엔터프라이즈 환경에서 웹 애플리케이션을 보호하기 위해서는 단일 엣지 WAF에만 의존하지 않고, CloudFront 엣지부터 Application Load Balancer(ALB), 백엔드 컨테이너(ECS/EKS)까지 이어지는 종단 간 제로 트러스트(Zero Trust) 파이프라인을 구축해야 합니다.
+
+1. **CloudFront OAC (Origin Access Control) 마이그레이션**:
+   - 구형 OAI(Origin Access Identity)는 SSE-KMS 암호화된 S3 버킷 및 다이나믹 버킷 정책을 지원하지 않으므로, AWS Signature Version 4(SigV4)를 지원하는 최신 OAC로 전환합니다.
+   - S3 버킷 정책에 `aws:SourceArn` 조건을 강제하여 지정된 CloudFront 배포 ID로부터의 요청만 인가합니다.
+
+2. **ALB 오리진 우회 차단 (Custom Origin Header Validation)**:
+   - 공격자가 CloudFront를 통하지 않고 ALB의 공인 IP로 직접 접근하여 WAF 룰을 우회하는 공격을 차단합니다.
+   - CloudFront 오리진 요청 시 무작위 생성된 비밀 커스텀 헤더(`X-Origin-Verify: <UUID>`)를 주입하고, ALB 리스너 룰에서 해당 헤더가 일치하지 않는 모든 트래픽을 즉각 403 Forbidden으로 차단합니다.
+
+3. **AWS WAFv2 고급 보안 제어 (Bot Control & Fraud Prevention)**:
+   - AWS Managed Rules(AMR) 중 Bot Control 규칙 세트를 활성화하여 스크레이퍼, 크롤러, 무단 자동화 도구의 리소스 소진을 차단합니다.
+   - 비정상적인 트래픽 급증 시 무차별 차단(Block) 대신 WAF CAPTCHA 또는 JavaScript Challenge(Silent Challenge)를 적용하여 정상 사용자의 가용성을 보장합니다.
+
+| 엣지-오리진 계층 | 보안 위협 벡터 | 구현 방어 통제 | AWS 핵심 서비스 / 기능 |
+|----------------|--------------|--------------|---------------------|
+| **Global Edge** | 대규모 L3/L4 DDoS 및 지리적 비인가 접속 | AWS Shield Standard 자동 완화 및 Geo-blocking | CloudFront, AWS Shield |
+| **L7 Web ACL** | SQLi, XSS, 무차별 대입, 스크레이핑 | Core Rule Set(CRS), Rate-based 룰, Bot Control | AWS WAFv2 WebACL |
+| **Origin Ingress** | ALB 직접 호출을 통한 WAF 우회 | 커스텀 공유 비밀 헤더 검증 및 보안 그룹 제한 | ALB Listener Rules, Security Group |
+| **S3 Storage** | 공용 버킷 노출 및 자격증명 도용 | S3 Block Public Access 및 SigV4 기반 OAC | Amazon S3 OAC, Bucket Policy |
+
 > 참고: AWS WAF/CloudFront 설정 관련 내용은 [AWS WAF Terraform 모듈](https://github.com/trussworks/terraform-aws-wafv2) 및 [AWS WAF CloudFront 통합 예제](https://docs.aws.amazon.com/waf/latest/developerguide/)를 참조하세요.
 
 AWS WAF와 CloudFront의 정교한 보안 구성뿐만 아니라, 실제 코드를 다루고 개선하는 보안 엔지니어의 실무 감각을 함께 익혀보시길 바랍니다.
@@ -466,4 +486,23 @@ AWS WAF와 CloudFront의 정교한 보안 구성뿐만 아니라, 실제 코드�
 - [ ] **CloudFront TLS 1.3 및 최신 보안 정책 강제**: 구버전 SSL/TLS 프로토콜 접속을 금지하고 `TLSv1.2_2021` 이상의 최신 암호화 스위트를 적용했는지 확인합니다.
 - [ ] **GitHub Actions OIDC 연동 및 IAM 권한 최소화**: AWS 배포 시 영구 Access Key를 사용하지 않고 GitHub OIDC 토큰 기반 단기 임시 자격증명을 사용하는지 점검합니다.
 - [ ] **WAF 실시간 차단 로그 Kinesis Firehose 파이프라인**: 모든 차단된 요청의 페이로드 및 IP 정보를 S3 보안 감사 버킷으로 실시간 스트리밍하는지 점검합니다.
+
+---
+
+## 🔗 관련 포스트 및 기술 문서
+
+클라우드 네이티브 아키텍처 및 DevSecOps 파이프라인 보안을 심도 있게 다룬 연계 포스트와 공식 레퍼런스 문서입니다.
+
+### 사내 DevSecOps 기술 블로그 연계 문서
+- [클라우드 시큐리티 8기 5주차: AWS Control Tower SCP 기반 거버넌스와 Datadog SIEM]({% post_url 2025-12-24-Cloud_Security_Course_8Batch_5Week_AWS_Control_TowerSCP_Based_Governance_And_Datadog_SIEM_Cloudflare_Security %})
+- [클라우드 시큐리티 8기 7주차: Docker와 Kubernetes 보안 실무 가이드]({% post_url 2026-01-15-Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide %})
+- [AWS Cloud Security 완전 가이드: IAM부터 EKS까지 클라우드 보안 아키텍처]({% post_url 2026-01-14-AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture %})
+- [2026 DevSecOps 로드맵 완전 가이드: 클라우드 네이티브 보안 및 AI 거버넌스]({% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %})
+
+### 공식 기술 표준 및 레퍼런스 아키텍처
+- [AWS Security Reference Architecture (AWS SRA)](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html)
+- [AWS WAF Developer Guide & Best Practices](https://docs.aws.amazon.com/waf/latest/developerguide/)
+- [Amazon CloudFront Origin Access Control (OAC) Setup Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html)
+- [GitHub Actions Security Hardening Guide](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)
+
 

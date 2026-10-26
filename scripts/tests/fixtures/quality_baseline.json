@@ -480,9 +480,9 @@
     }
   },
   "2026-01-08-Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical.md": {
-    "total": 90,
+    "total": 100,
     "scores": {
-      "front_matter": 11,
+      "front_matter": 15,
       "ai_summary": 10,
       "executive_summary": 10,
       "risk_scorecard": 10,
@@ -490,8 +490,8 @@
       "checklists": 10,
       "tables": 10,
       "code_blocks": 10,
-      "cross_refs": 0,
-      "length": 4
+      "cross_refs": 5,
+      "length": 5
     }
   },
   "2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis.md": {
