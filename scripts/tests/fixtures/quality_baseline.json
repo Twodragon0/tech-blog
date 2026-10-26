@@ -435,7 +435,7 @@
     }
   },
   "2026-01-03-OWASP_2025_Latest_Update_Complete_Guide_Top_10_Agentic_AI_Security.md": {
-    "total": 90,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -444,9 +444,9 @@
       "sections": 15,
       "checklists": 10,
       "tables": 10,
-      "code_blocks": 7,
-      "cross_refs": 0,
-      "length": 3
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 5
     }
   },
   "2026-01-06-DevSecOps_Viewing_Automotive_Security_Complete_Guide.md": {
