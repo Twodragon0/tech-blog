@@ -12,10 +12,20 @@ GitHub Actions 실행 [41967080988](https://github.com/Twodragon0/tech-blog/acti
 
 ## 적용과 한계
 
-수정은 로컬 커밋으로 제공한다. 원격 main과 로컬 HEAD는 다르므로 이 검증을 원격 최신 코드와 완전히 동일한 실행으로 보지 않는다. push·병합·실제 발행 재실행은 수행하지 않았다. 따라서 운영 복구 완료는 아직 주장할 수 없다.
+초기 로컬 수정 후 사용자의 원격 반영 요청에 따라 main에 push하고 실제 발행을 검증 중이다. 아래 실행 기록은 각 시점의 결과이며, 최종 판정은 새 커밋·게시 URL·RSS를 대조한 결과로 갱신한다.
 
 반영 후에는 같은 워크플로를 먼저 dry_run=true, use_ai=none으로 실행해 발행 전 gate를 확인한다. 이어 정상 발행 실행에서 published_to_main, 커밋 SHA, 새 글 URL, production 응답과 RSS 반영을 대조한다. 실패하면 기존 실패 로그와 비교하고 테스트나 보안 gate를 건너뛰지 않는다. 누락 기간 기사를 당일 기사인 것처럼 자동 재발행하지 않는다.
 
 ## 로컬 검증 결과
 
 전체 pytest 6075 passed, 3 skipped, 기존 font tier 경고 1개. 정밀 회귀를 강화한 뒤 관련 105개 테스트와 새 회귀 2개 재통과. 변경한 Python 파일 Ruff/Mypy 통과. 초안 포함 Jekyll 빌드 성공. 커밋 훅에서도 전체 테스트와 SVG 검사가 통과했다. 게시물 검사에는 보존한 Mermaid 23줄 경고 1개가 남는다.
+
+## 원격 반영 및 실제 실행에서 추가 발견
+
+- 두 커밋과 원격 변경을 merge한 `3a1faa2c`를 main에 push했다.
+- dry-run [42057213382](https://github.com/Twodragon0/tech-blog/actions/runs/42057213382)는 성공했으나 파일을 쓰지 않는 모드이므로 전체 corpus 발행 gate 성공을 의미하지 않는다.
+- 첫 실제 실행 [42057555197](https://github.com/Twodragon0/tech-blog/actions/runs/42057555197)은 KST 11월 6일 파일을 생성했으나 UTC 11월 5일 파일을 찾아 publish를 건너뛰었다. 워크플로 세 곳의 TODAY를 KST로 통일하고 회귀 테스트를 추가했다 (`e4f49115`). 전체 테스트 6082개 통과 후 push했다.
+- 재실행 [42057987536](https://github.com/Twodragon0/tech-blog/actions/runs/42057987536)은 새 글을 찾았지만 KST 자정 timestamp의 filename-date redirect 누락을 corpus gate가 차단했다. 생성기 보완 대상으로 확인했다. 성공 상태만으로 발행 성공을 판정하지 않은 이유다.
+- 자정 redirect 수정 `ac61a3db`를 main에 반영했다. 로컬 전체 테스트 6092개 통과.
+- 실행 [42058846379](https://github.com/Twodragon0/tech-blog/actions/runs/42058846379)은 날짜 게이트를 통과했으나 use_ai=none으로 남은 영문 카드 제목 13건을 한국어 gate가 차단했다. 현재 Claude/OpenAI Actions 키가 비어 있어 해당 모드만으로 한국어 자동 번역을 완료할 수 없다. 이번 글은 한국어 검수 발행으로 복구하고 정기 번역 제공자 결정은 별도로 남긴다.
+- 별도 worktree 검수에서는 중복 요약 12개를 제거하고 모든 corpus 정적 gate를 통과시켰다. 후보 30건과 본문 카드 15건을 구분하는 설명을 추가했다. 직접 편집 검수이므로 이를 무인 번역 성공으로 표기하지 않는다.

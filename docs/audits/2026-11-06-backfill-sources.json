@@ -1,0 +1,92 @@
+{
+  "authored_at": "2026-11-06",
+  "coverage_interval": [
+    "2026-10-28",
+    "2026-11-05"
+  ],
+  "status": "draft-not-published",
+  "coverage_limit": "Current RSS retention is incomplete; this is not an exhaustive reconstruction. RSS timestamps can differ from official page dates.",
+  "dedup_method": [
+    "Exact URL match after trailing-slash normalization against all current _posts bodies",
+    "Case-insensitive full official title match against all current _posts bodies",
+    "Feed source ID checked against corpus where present; generic technology overlap is not article duplication"
+  ],
+  "existing_post_count": 336,
+  "sources": [
+    {
+      "id": "6dc79cc8b642",
+      "title": "Dependabot version updates support Agent Package Manager",
+      "url": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager",
+      "published": "2026-11-03T20:24:07+00:00",
+      "source": "github_changelog",
+      "canonical_url": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager/",
+      "official_page_date": "2026-11-03",
+      "verified_full_page": true,
+      "existing_post_matches": [],
+      "source_id_matches": []
+    },
+    {
+      "id": "a714ce65a96a",
+      "title": "GitHub Desktop adds short-lived authentication tokens",
+      "url": "https://github.blog/changelog/2026-11-02-github-desktop-adds-short-lived-authentication-tokens",
+      "published": "2026-11-03T07:55:58+00:00",
+      "source": "github_changelog",
+      "canonical_url": "https://github.blog/changelog/2026-11-02-github-desktop-adds-short-lived-authentication-tokens/",
+      "official_page_date": "2026-11-02",
+      "verified_full_page": true,
+      "existing_post_matches": [],
+      "source_id_matches": []
+    },
+    {
+      "id": "78d7d195e79a",
+      "title": "Beyond DKIM key rotation: understanding email replay attacks",
+      "url": "https://aws.amazon.com/blogs/security/beyond-dkim-key-rotation-understanding-email-replay-attacks/",
+      "published": "2026-11-02T18:06:28+00:00",
+      "source": "aws_security",
+      "canonical_url": "https://aws.amazon.com/blogs/security/beyond-dkim-key-rotation-understanding-email-replay-attacks/",
+      "official_page_date": "2026-11-02",
+      "verified_full_page": true,
+      "existing_post_matches": [],
+      "source_id_matches": []
+    },
+    {
+      "id": "055bbce57459",
+      "title": "Security risk assessments include repository protection status",
+      "url": "https://github.blog/changelog/2026-11-02-security-risk-assessments-include-repository-protection-status",
+      "published": "2026-11-02T15:47:21+00:00",
+      "source": "github_changelog",
+      "canonical_url": "https://github.blog/changelog/2026-11-02-security-risk-assessments-include-repository-protection-status/",
+      "official_page_date": "2026-11-02",
+      "verified_full_page": true,
+      "existing_post_matches": [],
+      "source_id_matches": []
+    },
+    {
+      "id": "be4835c4d729",
+      "title": "From Working Group to SIG Architecture: spotlight on AI Conformance",
+      "url": "https://kubernetes.io/blog/2026/10/29/sig-arch-ai-conformance-2026/",
+      "published": "2026-10-29T05:00:00+00:00",
+      "source": "kubernetes",
+      "canonical_url": "https://kubernetes.io/blog/2026/10/29/sig-arch-ai-conformance-2026/",
+      "official_page_date": "2026-10-29",
+      "verified_full_page": true,
+      "existing_post_matches": [],
+      "source_id_matches": []
+    }
+  ],
+  "excluded_after_recovery_dedup": [
+    {
+      "id": "0becd15b5cb6",
+      "title": "CodeQL 2.27.4 improves accuracy and query metadata",
+      "url": "https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata",
+      "published": "2026-11-04T20:04:52+00:00",
+      "source": "github_changelog",
+      "canonical_url": "https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata/",
+      "official_page_date": "2026-11-04",
+      "verified_full_page": true,
+      "existing_post_matches": [],
+      "source_id_matches": []
+    }
+  ],
+  "recovery_post_checked": "2026-11-06-Tech_Security_Weekly_Digest_Threat_DeFi_AI_Cloud.md"
+}
