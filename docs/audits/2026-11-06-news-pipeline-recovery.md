@@ -29,3 +29,13 @@ GitHub Actions 실행 [41967080988](https://github.com/Twodragon0/tech-blog/acti
 - 자정 redirect 수정 `ac61a3db`를 main에 반영했다. 로컬 전체 테스트 6092개 통과.
 - 실행 [42058846379](https://github.com/Twodragon0/tech-blog/actions/runs/42058846379)은 날짜 게이트를 통과했으나 use_ai=none으로 남은 영문 카드 제목 13건을 한국어 gate가 차단했다. 현재 Claude/OpenAI Actions 키가 비어 있어 해당 모드만으로 한국어 자동 번역을 완료할 수 없다. 이번 글은 한국어 검수 발행으로 복구하고 정기 번역 제공자 결정은 별도로 남긴다.
 - 별도 worktree 검수에서는 중복 요약 12개를 제거하고 모든 corpus 정적 gate를 통과시켰다. 후보 30건과 본문 카드 15건을 구분하는 설명을 추가했다. 직접 편집 검수이므로 이를 무인 번역 성공으로 표기하지 않는다.
+
+## 검수 발행 원격 반영의 최종 차단 상태
+
+검수 글은 `72532eba`, 포맷 수정은 `75feffd9`로 커밋했고 원격 `fix/news-restoration-20261106` 브랜치와 PR #803에 반영했다. 검수 worktree의 전체 검사 6088 passed, 14 skipped, 기존 font 경고 1개였으며, Jekyll 빌드와 새 글 커밋 훅을 통과했다. 458개 Python 파일의 Ruff format 검사도 통과했다. linked-worktree 훅 격리 후에는 caller HEAD/index/core.bare가 테스트로 바뀌지 않았다.
+
+main 직접 push는 GitHub의 Internal Server Error와 commit_refs_rules 오류로 거부됐다. 다른 브랜치 push와 REST PR 생성은 성공했으나 정상 PR merge API는 HTTP 500, JSON 없는 응답을 반환했다. force/admin 우회는 사용하지 않았다. GitHub 공식 상태 API는 당시 정상으로 표시돼 플랫폼 전체 장애라고 단정하지 않는다.
+
+대체 경로로 로컬 Vercel CLI 인증을 조회했으나 기존 자격 증명이 없어 직접 production 배포도 실행하지 못했다. 로그인·키 변경·새 프로젝트 생성은 수행하지 않았다. 마지막 production RSS 조회는 HTTP 200이지만 최신 항목은 여전히 10월 27일이었다. **새 글 production/RSS 반영은 미완료이며 자동 발행 복구 완료를 주장하지 않는다.**
+
+복구 재개는 PR #803 head의 필수 검사와 merge 상태를 다시 확인한 뒤 정상 merge하고, Vercel 배포 완료 및 새 글 canonical URL과 filename-date redirect, RSS 항목을 대조하는 순서다. 자동 번역은 Claude/OpenAI Actions 키 또는 명시적으로 허용된 기존 제공자 선택이 추가로 필요하다. 질문 없이 새 유료 제공자를 사용하지 않았다.
