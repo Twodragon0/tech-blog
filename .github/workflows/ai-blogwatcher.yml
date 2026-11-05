@@ -333,7 +333,7 @@ jobs:
         id: check_post
         if: steps.check_news.outputs.has_enough_news == 'true'
         run: |
-          TODAY=$(date +%Y-%m-%d)
+          TODAY=$(TZ=Asia/Seoul date +%Y-%m-%d)
           POST_FILE=$(find _posts -maxdepth 1 -type f \( -name "${TODAY}-*Digest*.md" -o -name "${TODAY}-*Weekly*.md" \) -print | sort -u | head -1)
 
           if [ -n "$POST_FILE" ] && [ -f "$POST_FILE" ]; then
@@ -353,7 +353,7 @@ jobs:
           # removed on 2026-05-26 when the pipeline unified on L20 — L20
           # covers typically range 26-75 KB depending on content density
           # (excerpts with short news headlines compress more aggressively).
-          TODAY=$(date +%Y-%m-%d)
+          TODAY=$(TZ=Asia/Seoul date +%Y-%m-%d)
           SVG=$(find assets/images -maxdepth 1 -type f \
               \( -name "${TODAY}-*Digest*.svg" -o -name "${TODAY}-*Weekly*.svg" \) \
               -print | sort -u | head -1)
@@ -762,7 +762,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          TODAY=$(date +%Y-%m-%d)
+          TODAY=$(TZ=Asia/Seoul date +%Y-%m-%d)
 
           # Proper-noun canonicalization moved to its own pre-flight step above
           # ("Proper-noun pre-flight"), which self-heals and then RE-VERIFIES.
