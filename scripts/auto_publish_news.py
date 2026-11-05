@@ -246,6 +246,41 @@ L20_HERO_ENABLED: bool = os.getenv("USE_L20_HERO", "1").strip().lower() not in {
 # to the legacy ``generate_svg_image`` safety net.
 
 
+def _ensure_midnight_redirect(content: str, filename: str, now: datetime) -> str:
+    """Preserve the timestamp while covering the filename-date URL before 09 KST."""
+    if now.hour >= 9:
+        return content
+    match = re.match(r"^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$", filename)
+    front = re.match(r"^---\n(.*?)\n---(?=\n|$)", content, re.DOTALL)
+    if not match or not front:
+        raise ValueError("Midnight publication requires dated filename and front matter")
+    import yaml
+
+    fm = front.group(1)
+    parsed = yaml.safe_load(fm)
+    target = "/posts/{}/{}/{}/{}/".format(*match.groups())
+    existing = parsed.get("redirect_from", [])
+    redirects = [existing] if isinstance(existing, str) else list(existing or [])
+    if target in redirects:
+        return content
+    redirects.append(target)
+    entry = yaml.safe_dump({"redirect_from": redirects}, sort_keys=False).rstrip("\n")
+    node = yaml.compose(fm)
+    for index, (key, value) in enumerate(node.value):
+        if key.value == "redirect_from":
+            end = (
+                node.value[index + 1][0].start_mark.index
+                if index + 1 < len(node.value)
+                else len(fm)
+            )
+            suffix = fm[end:]
+            fm = fm[: key.start_mark.index] + entry + ("\n" + suffix if suffix else "")
+            break
+    else:
+        fm += "\n" + entry
+    return content[: front.start(1)] + fm + content[front.end(1) :]
+
+
 def _render_l20_svg_string(post_info: Dict) -> str:
     """Render an L20 Hero+2-Card SVG and return its string contents.
 
@@ -753,6 +788,8 @@ def main():
             post_content,
             flags=re.MULTILINE,
         )
+
+    post_content = _ensure_midnight_redirect(post_content, post_filename, now)
 
     post_path = POSTS_DIR / post_filename
     svg_path = IMAGES_DIR / svg_filename
