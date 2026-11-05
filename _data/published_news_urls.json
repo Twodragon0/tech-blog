@@ -1,276 +1,6 @@
 {
-  "updated_at": "2026-10-27T02:59:52.237490+00:00",
+  "updated_at": "2026-11-05T15:53:32.437904+00:00",
   "entries": [
-    {
-      "url": "https://aws.amazon.com/blogs/security/guardduty-extended-threat-detection-has-added-five-new-indicators-to-surface-attack-sequences/",
-      "title": "GuardDuty Extended Threat Detection has added five new indicators to surface att",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/weekly-recap-helpdesk-0-days-rogue.html",
-      "title": "⚡ Weekly Recap: Helpdesk 0-Days, Rogue Certs, ShinyHunters Arrest, AI-Fooling Ma",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/quantum-resistant-signing-on-aws-part-2-enforce-your-ml-dsa-algorithm-policy-with-scps-and-iam/",
-      "title": "Quantum-resistant signing on AWS, Part 2: Enforce your ML-DSA algorithm policy w",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/quantum-resistant-signing-on-aws-part-1-build-a-software-supply-chain-with-ml-dsa/",
-      "title": "Quantum-resistant signing on AWS, Part 1: Build a software supply chain with ML-",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/bring-your-own-agent-your-employees.html",
-      "title": "Bring Your Own Agent: Your Employees' Assistants Are Already Logged In",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/10/12/open-source/ocp-summit-2026-powering-ai-with-open-innovations-in-scale-up-scale-out-and-scale-across-networks/",
-      "title": "OCP Summit 2026: Powering AI with Open Innovations in Scale-Up, Scale-Out, and S",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/10/12/video-engineering/shipping-media-over-quic-at-meta-scale-for-instagram-live-ingest/",
-      "title": "Shipping Media Over QUIC at Meta Scale for Instagram Live Ingest",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/10/12/ml-applications/turning-opportunistic-ai-inference-capacity-into-better-ads-recommendations/",
-      "title": "Turning Opportunistic AI Inference Capacity Into Better Ads Recommendations",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/ocp-global-summit-vera-rubin-scale-ai-factories/",
-      "title": "OCP Global Summit: Amid Ecosystem Adoption, NVIDIA Opens Vera Rubin Architecture",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/meta-launches-muse-wonder-ai-models-challenging-top-rivals?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Meta claims new Muse Wonder AI models rival OpenAI, Anthropic",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bringing-you-the-data-agent-kit/",
-      "title": "Agentic data science with the Data Agent Kit",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/devops-sre/sre-book-second-edition/",
-      "title": "10 Years of the SRE book: Announcing the second edition of \"Site Reliability Eng",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-data-apps/",
-      "title": "Trusted Data Apps for the Agentic Data Cloud, powered by Looker",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-timesfm-3-0-with-multivariate-time-series-forecasting/",
-      "title": "Introducing TimesFM 3.0 with multivariate time-series forecasting in BigQuery",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/announcing-aws-lambda-web-functions-for-fast-consistent-web-app-performance-anywhere/",
-      "title": "Announcing AWS Lambda Web Functions",
-      "published_date": "2026-10-13",
-      "expires_at": "2026-10-20T04:39:46.649281+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/95811/",
-      "title": "2026년 3분기 윈도우 웹 서버 대상 악성코드 통계 보고서",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/95807/",
-      "title": "2026년 3분기 리눅스 SSH 서버 대상 악성코드 통계 보고서",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://asec.ahnlab.com/ko/95806/",
-      "title": "2026년 3분기 윈도우 데이터베이스 서버 대상 악성코드 통계 보고서",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/anthropic-warns-small-ai-models-could.html",
-      "title": "Anthropic Warns Small AI Models Could Soon Form Self-Propagating IoT Botnets",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/docker-fixes-critical-two-year-old-hub.html",
-      "title": "Docker Fixes Critical Two-Year-Old Hub Flaw That Let One User Push Images as Ano",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
-      "title": "Google DeepMind and Singapore Government announce new AI tool to protect citizen",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/10/13/ml-applications/generative-ads-model-gem-scaling-frontier-ads-ai/",
-      "title": "Meta’s Generative Ads Model (GEM): Scaling the Central Model and Compute Engine ",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
-      "title": "Gemini 4 Argon: Built to solve your hardest problems",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/",
-      "title": "All Systems Go: Global PC App Ecosystem Ready for NVIDIA RTX Spark",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://openai.com/index/higgsfield-longer-videos-voice",
-      "title": "Higgsfield takes AI video from 1 minute to over 10",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/cross-cloud-conversational-analytics-with-borderless-lakehouse/",
-      "title": "Cross-cloud conversational analytics made simple with open standards",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud/",
-      "title": "Gemini 4 Argon available on Google Cloud, built to help solve your business’ har",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/one-agent-development-kit-five-languages/",
-      "title": "One Agent Development Kit, five languages",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-prime-day-2026-by-the-numbers-claude-haiku-5-5-amazon-nova-2-5-sonic-and-more-october-13-2026/",
-      "title": "AWS Weekly Roundup: Prime Day 2026 by the numbers, Claude Haiku 5.5, Amazon Nova",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management",
-      "title": "GitHub App improvements for least privilege and management",
-      "published_date": "2026-10-14",
-      "expires_at": "2026-10-21T02:48:28.638005+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/critical-pwnescape-linux-kernel.html",
-      "title": "Critical PwnEscape Linux Kernel Vulnerability Lets Guest VMs Read Host Memory",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/threatsday-adobe-rce-dns-wallet-theft.html",
-      "title": "ThreatsDay: Adobe RCE, DNS Wallet Theft, NVIDIA Container Escape, Self-Healing B",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/citizen-lab-traces-zero-click-candiru.html",
-      "title": "Citizen Lab Traces Zero-Click Candiru Spyware Infections at Al Jazeera to Target",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/silent-lynx-exploits-winrar-flaw-to.html",
-      "title": "Silent Lynx Exploits WinRAR Flaw to Deploy Reverse Shell in CIS Government Attac",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/help-tds-linked-to-hotejka-as-20000.html",
-      "title": "Help TDS Linked to Hotejka as 20,000+ Cloudflare Pages Domains Host Tech Support",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/10/15/ml-applications/how-meta-built-forum-ai-native-engineering/",
-      "title": "How Meta Built Forum With AI-Native Engineering",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
-      "title": "Bringing GPT-Rosalind to academic research labs",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/10/15/production-engineering/2026-world-cup-record-traffic-reliability-at-scale/",
-      "title": "2026 World Cup: Breaking Records, Spiky Charts and Reliability at Scale",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-launch-event-invite/",
-      "title": "Be There for the Beginning: Celebrate the Launch of NVIDIA RTX Spark",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
-      "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/serverless/temporal-serverless-workers-on-cloud-run-worker-pools/",
-      "title": "Temporal Serverless Workers on Cloud Run: Scale workers ahead of demand",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/startups/what-the-gemini-agent-means-for-startups/",
-      "title": "What the Gemini agent means for startups",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/borderless-lakehouse-integrates-with-gemini/",
-      "title": "Bringing the borderless Lakehouse into the agentic era with innovations for Gemi",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/introducing-new-scalable-perimeter-options-with-vpc-service-controls/",
-      "title": "Modernizing perimeter security: Scalable perimeters with VPC Service Controls",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/media-entertainment/how-visko-streams-real-time-world-models-on-google-cloud-tpus/",
-      "title": "How Visko streams real-time world models on Google Cloud TPUs",
-      "published_date": "2026-10-16",
-      "expires_at": "2026-10-23T02:21:25.949599+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html",
       "title": "Brotli Decoder Flaw Behind Node.js RCE Also Affects Bun, Python and Other Widely",
@@ -630,6 +360,96 @@
       "title": "WebKit Features for Safari 27.2",
       "published_date": "2026-10-27",
       "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
+      "title": "ThreatsDay: Apache OFBiz RCE, DreamHost Breach, DeFi Site Hijacks + 17 More Stor",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/is-your-exposure-management-platform.html",
+      "title": "Is Your Exposure Management Platform Leaving You Exposed? Five Tests to Find Out",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/openai-ai-pipeline-generates-948-linux.html",
+      "title": "OpenAI AI Pipeline Generates 948 Linux Root Escalation Exploits in 30-Hour Run",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/5-active-cyber-threats-that-put-us.html",
+      "title": "5 Active Cyber Threats That Put US Enterprises at Risk in October 2026",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/apple-to-start-scanning-publicly-shared.html",
+      "title": "Apple to Start Scanning Publicly Shared iCloud Photos and Files for Harmful Cont",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-hogwarts-legacy-dlss-5/",
+      "title": "‘Hogwarts Legacy’ Gets a Magical NVIDIA DLSS 5 Upgrade on GeForce NOW",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+      "title": "Setting a new standard for responsible AI infrastructure",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/riot-names-anthropic-texas-lease",
+      "title": "Riot (RIOT) Names Anthropic as Tenant in $28 Billion Texas Lease, Could Owe It 1",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/use-decision-models-with-amazon-bedrock-agentcore-evaluations/",
+      "title": "Use decision models with Amazon Bedrock AgentCore Evaluations",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/smart-approvals-in-amazon-quick-human-oversight-where-it-matters/",
+      "title": "Smart Approvals in Amazon Quick: Human oversight where it matters",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/",
+      "title": "Powering open infrastructure for autonomous agents",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/helping-you-build-and-defend-at-machine-speed-in-the-agentic-era/",
+      "title": "Helping you build and defend at machine-speed in the agentic era",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/public-sector/highlights-and-reflections-from-google-public-sector-summit-where-mission-meets-moonshot/",
+      "title": "Highlights and reflections from Google Public Sector Summit: Where mission meets",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/introducing-compute-engine-api-multi-versioning-predictable-evolution-without-breaking-production/",
+      "title": "Introducing Compute Engine API multi-versioning: Predictable evolution without b",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg/",
+      "title": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Ice",
+      "published_date": "2026-11-06",
+      "expires_at": "2026-11-12T15:53:32.437847+00:00"
     }
   ]
 }
