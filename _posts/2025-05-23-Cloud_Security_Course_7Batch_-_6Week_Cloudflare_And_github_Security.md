@@ -160,88 +160,15 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 
 SQL Injection 차단을 위한 AWS WAF Web ACL 규칙 JSON 예제입니다:
 
-```json
-{
-  "Name": "SQLInjectionRuleGroup",
-  "Scope": "REGIONAL",
-  "DefaultAction": { "Allow": {} },
-  "Rules": [
-    {
-      "Name": "BlockSQLInjection",
-      "Priority": 1,
-      "Action": { "Block": {} },
-      "Statement": {
-        "SqliMatchStatement": {
-          "FieldToMatch": {
-            "Body": {}
-          },
-          "TextTransformations": [
-            { "Priority": 0, "Type": "URL_DECODE" },
-            { "Priority": 1, "Type": "HTML_ENTITY_DECODE" }
-          ]
-        }
-      },
-      "VisibilityConfig": {
-        "SampledRequestsEnabled": true,
-        "CloudWatchMetricsEnabled": true,
-        "MetricName": "SQLInjectionRule"
-      }
-    },
-    {
-      "Name": "BlockXSS",
-      "Priority": 2,
-      "Action": { "Block": {} },
-      "Statement": {
-        "XssMatchStatement": {
-          "FieldToMatch": {
-            "AllQueryArguments": {}
-          },
-          "TextTransformations": [
-            { "Priority": 0, "Type": "URL_DECODE" },
-            { "Priority": 1, "Type": "HTML_ENTITY_DECODE" }
-          ]
-        }
-      },
-      "VisibilityConfig": {
-        "SampledRequestsEnabled": true,
-        "CloudWatchMetricsEnabled": true,
-        "MetricName": "XSSRule"
-      }
-    }
-  ],
-  "VisibilityConfig": {
-    "SampledRequestsEnabled": true,
-    "CloudWatchMetricsEnabled": true,
-    "MetricName": "SQLInjectionRuleGroup"
-  }
-}
-```
+[전체 json 예제: example-01.jsonc](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-01.jsonc)
+
+<!-- Full example moved to docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-01.jsonc; preserved verbatim. -->
 
 Cloudflare WAF 커스텀 규칙 예제 (API 활용):
 
-```bash
-# Cloudflare WAF 커스텀 규칙 생성
-curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets" \
-  -H "Authorization: Bearer ${CF_API_TOKEN}" \
-  -H "Content-Type: application/json" \
-  --data '{
-    "name": "Custom WAF Rules",
-    "kind": "zone",
-    "phase": "http_request_firewall_custom",
-    "rules": [
-      {
-        "action": "block",
-        "expression": "(http.request.uri.query contains \"SELECT\" and http.request.uri.query contains \"FROM\") or (http.request.body contains \"UNION SELECT\")",
-        "description": "SQL Injection 차단 규칙"
-      },
-      {
-        "action": "challenge",
-        "expression": "cf.threat_score gt 30",
-        "description": "위협 점수 높은 요청에 챌린지 적용"
-      }
-    ]
-  }'
-```
+[전체 bash 예제: example-02.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-02.sh)
+
+<!-- Full example moved to docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-02.sh; preserved verbatim. -->
 
 #### 2.3.2 Rate Limiting 전략
 
@@ -258,31 +185,9 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets" \
 
 Geo-blocking 설정 예제 (AWS CLI):
 
-```bash
-# 특정 국가 차단을 위한 AWS WAF Geo Match 규칙 생성
-aws wafv2 create-rule-group \
-  --name "GeoBlockRuleGroup" \
-  --scope REGIONAL \
-  --capacity 50 \
-  --rules '[
-    {
-      "Name": "BlockHighRiskCountries",
-      "Priority": 1,
-      "Action": { "Block": {} },
-      "Statement": {
-        "GeoMatchStatement": {
-          "CountryCodes": ["CN", "RU", "KP"]
-        }
-      },
-      "VisibilityConfig": {
-        "SampledRequestsEnabled": true,
-        "CloudWatchMetricsEnabled": true,
-        "MetricName": "GeoBlockRule"
-      }
-    }
-  ]' \
-  --visibility-config SampledRequestsEnabled=true,CloudWatchMetricsEnabled=true,MetricName=GeoBlockRuleGroup
-```
+[전체 bash 예제: example-03.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-03.sh)
+
+<!-- Full example moved to docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-03.sh; preserved verbatim. -->
 
 ## 3. Cloudflare 보안
 
@@ -358,82 +263,15 @@ Code Scanning 설정 단계:
 
 SQL Injection 취약점을 탐지하는 CodeQL 쿼리 예제입니다:
 
-```ql
-/**
- * @name SQL Injection 취약점 탐지
- * @description 사용자 입력이 SQL 쿼리에 직접 삽입되는 경우를 탐지합니다.
- * @kind path-problem
- * @problem.severity error
- * @security-severity 9.8
- */
+[전체 ql 예제: example-04.ql](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-04.ql)
 
-import javascript
-import DataFlow::PathGraph
-
-class SqlInjectionConfig extends TaintTracking::Configuration {
-  SqlInjectionConfig() { this = "SqlInjectionConfig" }
-
-  override predicate isSource(DataFlow::Node source) {
-    exists(Express::RequestExpr req |
-      source.asExpr() = req.getAPropertyRead(["query", "body", "params"])
-    )
-  }
-
-  override predicate isSink(DataFlow::Node sink) {
-    exists(DatabaseQuery query | sink.asExpr() = query.getAQueryArgument())
-  }
-}
-
-from SqlInjectionConfig config, DataFlow::PathNode source, DataFlow::PathNode sink
-where config.hasFlowPath(source, sink)
-select sink.getNode(), source, sink, "사용자 입력이 SQL 쿼리에 직접 삽입됩니다."
-```
+<!-- Full example moved to docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-04.ql; preserved verbatim. -->
 
 #### 4.4.2 GitHub Actions CodeQL 워크플로우
 
-```yaml
-# .github/workflows/codeql-analysis.yml
-name: "CodeQL Analysis"
+[전체 yaml 예제: example-05.yml](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-05.yml)
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  schedule:
-    - cron: '0 6 * * 1'  # 매주 월요일 오전 6시 실행
-
-jobs:
-  analyze:
-    name: Analyze
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-
-    strategy:
-      matrix:
-        language: ['javascript', 'python']
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: ${{ matrix.language }}
-          queries: security-and-quality
-
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-        with:
-          category: "/language:${{ matrix.language }}"
-```
+<!-- Full example moved to docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-05.yml; preserved verbatim. -->
 
 ## 5. MITRE ATT&CK 매핑
 
@@ -485,20 +323,9 @@ aws wafv2 get-sampled-requests \
 
 Cloudflare 보안 이벤트 조회 (API 활용):
 
-```bash
-# Cloudflare 보안 이벤트 조회
-curl -s "https://api.cloudflare.com/client/v4/zones/{zone_id}/security/events?per_page=50" \
-  -H "Authorization: Bearer ${CF_API_TOKEN}" | \
-  jq '.result[] | {action, clientIP: .clientIP, uri: .clientRequestHTTPHost, ruleId: .ruleId}'
+[전체 bash 예제: example-06.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-06.sh)
 
-# Cloudflare Firewall 이벤트 분석 (GraphQL)
-curl -s "https://api.cloudflare.com/client/v4/graphql" \
-  -H "Authorization: Bearer ${CF_API_TOKEN}" \
-  -H "Content-Type: application/json" \
-  --data '{
-    "query": "{ viewer { zones(filter: {zoneTag: \"{zone_id}\"}) { firewallEventsAdaptive(filter: {datetime_gt: \"2025-05-22T00:00:00Z\"}, limit: 100, orderBy: [datetime_DESC]) { action clientIP clientRequestHTTPHost ruleId } } } }"
-  }'
-```
+<!-- Full example moved to docs/examples/2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security/example-06.sh; preserved verbatim. -->
 
 ### 시크릿 노출 탐지
 

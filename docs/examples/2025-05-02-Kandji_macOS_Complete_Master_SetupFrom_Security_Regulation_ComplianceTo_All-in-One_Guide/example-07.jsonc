@@ -1,0 +1,24 @@
+{
+  "PayloadDisplayName": "공공기관 보안 정책",
+  "PayloadType": "Configuration",
+  "PayloadContent": [
+    {
+      "PayloadType": "com.apple.security.firewall",
+      "EnableFirewall": true,
+      "EnableStealthMode": true,
+      "BlockAllIncoming": false
+    },
+    {
+      "PayloadType": "com.apple.screensaver",
+      "loginWindowIdleTime": 300,
+      "askForPassword": true,
+      "askForPasswordDelay": 0
+    },
+    {
+      "PayloadType": "com.apple.password-policy",
+      "minLength": 12,
+      "requireAlphanumeric": true,
+      "maxPINAgeInDays": 90
+    }
+  ]
+}

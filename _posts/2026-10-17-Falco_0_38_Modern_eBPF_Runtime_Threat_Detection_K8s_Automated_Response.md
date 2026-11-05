@@ -177,7 +177,7 @@ falcosidekick:
       allownodes: false
       customlabels:
         quarantine: "true"
-        isolated-at: "{{ .Timestamp }}"
+        isolated-at: "{% raw %}{{ .Timestamp }}{% endraw %}"
 ```
 
 ### 4.2 자동 격리 NetworkPolicy 선언

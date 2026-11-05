@@ -173,35 +173,9 @@ Amazon Q Developer는 AWS Well-Architected Framework 기반으로 코드 최적�
 
 #### 2.1.3 IAM 정책 최소 권한 분석
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AmazonQDeveloperReadOnly",
-      "Effect": "Allow",
-      "Action": [
-        "codewhisperer:GenerateRecommendations",
-        "codewhisperer:ListRecommendations",
-        "sts:GetCallerIdentity"
-      ],
-      "Resource": "*"
-    },
-    {
-      "Sid": "S3ReadForCodeContext",
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:ListBucket"
-      ],
-      "Resource": [
-        "arn:aws:s3:::YOUR_CODE_BUCKET",
-        "arn:aws:s3:::YOUR_CODE_BUCKET/*"
-      ]
-    }
-  ]
-}
-```
+[전체 json 예제: example-01.jsonc](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-01.jsonc)
+
+<!-- Full example moved to docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-01.jsonc; preserved verbatim. -->
 
 
 참고: IAM 정책 모범 사례는 [AWS IAM Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) 및 [IAM Policy Simulator](https://policysim.aws.amazon.com/) 참조
@@ -210,24 +184,9 @@ Amazon Q Developer는 AWS Well-Architected Framework 기반으로 코드 최적�
 
 #### 2.2.1 VS Code 설정
 
-```json
-{
-  "amazonQ.telemetry": false,
-  "amazonQ.shareContentWithAWS": false,
-  "amazonQ.workspaceContext": true,
-  "amazonQ.suppressAutoSuggestions": false,
-  "amazonQ.importRecommendations": true,
-  "editor.inlineSuggest.enabled": true,
-  "editor.suggest.preview": true,
-  "[python]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
-}
-```
+[전체 json 예제: example-02.jsonc](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-02.jsonc)
+
+<!-- Full example moved to docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-02.jsonc; preserved verbatim. -->
 
 
 #### 2.2.2 JetBrains IDE 설정
@@ -239,55 +198,9 @@ Amazon Q Developer는 AWS Well-Architected Framework 기반으로 코드 최적�
 <details>
 <summary>GitHub Actions CodeQL 분석 워크플로우 (click to expand)</summary>
 
-```yaml
-# .github/workflows/codeql-analysis.yml
-name: "CodeQL Security Analysis"
+[전체 yaml 예제: example-03.yml](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-03.yml)
 
-on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: '0 2 * * 1'  # 매주 월요일 오전 2시
-
-jobs:
-  analyze:
-    name: Analyze Code
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'python', 'javascript', 'typescript' ]
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
-      with:
-        languages: {% raw %}${{ matrix.language }}{% endraw %}
-        queries: security-extended,security-and-quality
-        config-file: ./.github/codeql/codeql-config.yml
-
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:{% raw %}${{ matrix.language }}{% endraw %}"
-        upload: true
-        # 심각도 기준으로 빌드 실패
-        fail-build: true
-        severity: critical,high
-```
+<!-- Full example moved to docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-03.yml; preserved verbatim. -->
 
 </details>
 
@@ -295,114 +208,26 @@ jobs:
 
 #### 3.1.3 커스텀 CodeQL 설정
 
-```yaml
-# .github/codeql/codeql-config.yml
-name: "Custom CodeQL Config"
+[전체 yaml 예제: example-04.yml](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-04.yml)
 
-disable-default-queries: false
-
-queries:
-  - uses: security-extended
-  - uses: security-and-quality
-
-query-filters:
-  - exclude:
-      id:
-        - js/unused-local-variable
-        - py/unused-import
-  - include:
-      tags contain: security
-
-paths-ignore:
-  - '/test/'
-  - '/tests/'
-  - '/node_modules/'
-  - '/vendor/'
-  - '/__pycache__/'
-
-paths:
-  - 'src/'
-  - 'lib/'
-  - 'api/'
-```
+<!-- Full example moved to docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-04.yml; preserved verbatim. -->
 
 ### 3.2 Dependabot 고급 설정
 
 #### 3.2.1 자동 병합 전략
 
-```yaml
-# .github/dependabot.yml
-version: 2
-updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "09:00"
-      timezone: "Asia/Seoul"
-    open-pull-requests-limit: 10
-    reviewers:
-      - "security-team"
-    labels:
-      - "dependencies"
-      - "security"
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
+[전체 yaml 예제: example-05.yml](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-05.yml)
 
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "python"
-
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    labels:
-      - "dependencies"
-      - "github-actions"
-```
+<!-- Full example moved to docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-05.yml; preserved verbatim. -->
 
 
 참고: Dependabot 설정은 [GitHub Dependabot Configuration](https://docs.github.com/en/code-security) 참조
 
 #### 3.2.2 Dependabot Alerts 자동화
 
-```yaml
-# .github/workflows/dependabot-auto-merge.yml
-name: Dependabot Auto-Merge
+[전체 yaml 예제: example-06.yml](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-06.yml)
 
-on: pull_request
-
-permissions:
-  contents: write
-  pull-requests: write
-
-jobs:
-  auto-merge:
-    runs-on: ubuntu-latest
-    if: {% raw %}${{ github.actor == 'dependabot[bot]' }}{% endraw %}
-
-    steps:
-      - name: Dependabot metadata
-        id: metadata
-        uses: dependabot/fetch-metadata@v2
-        with:
-          github-token: "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}"
-
-      - name: Auto-merge security updates
-        if: {% raw %}${{ steps.metadata.outputs.update-type == 'version-update:semver-patch' && steps.metadata.outputs.severity == 'critical' }}{% endraw %}
-        run: gh pr merge --auto --squash "{% raw %}${{ github.event.pull_request.html_url }}{% endraw %}"
-        env:
-          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```
+<!-- Full example moved to docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-06.yml; preserved verbatim. -->
 
 ### 3.3 Secret Scanning
 
@@ -415,89 +240,9 @@ jobs:
 <details>
 <summary>Secret Scanning 알림 자동 처리 스크립트 (click to expand)</summary>
 
-```python
-# scripts/remediate_secrets.py
-import os
-import requests
-from typing import List, Dict
+[전체 python 예제: example-07.py](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-07.py)
 
-class SecretRemediator:
-    """Secret Scanning 알림 자동 처리"""
-
-    def __init__(self, github_token: str, repo: str):
-        self.token = github_token
-        self.repo = repo
-        self.api_base = "https://api.github.com"
-
-    def get_secret_alerts(self, state: str = "open") -> List[Dict]:
-        """Secret Scanning 알림 조회"""
-        url = f"{self.api_base}/repos/{self.repo}/secret-scanning/alerts"
-        headers = {
-            "Authorization": f"Bearer {self.token}",
-            "Accept": "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28"
-        }
-        params = {"state": state}
-
-        response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()
-        return response.json()
-
-    def revoke_aws_key(self, access_key_id: str) -> bool:
-        """AWS 액세스 키 자동 폐기"""
-        import boto3
-
-        try:
-            iam = boto3.client('iam')
-            # 액세스 키 비활성화
-            iam.update_access_key(
-                AccessKeyId=access_key_id,
-                Status='Inactive'
-            )
-            # 알림 전송
-            self._send_slack_alert(
-                f"🚨 AWS Access Key 자동 폐기: {access_key_id}"
-            )
-            return True
-        except Exception as e:
-            print(f"Failed to revoke key: {e}")
-            return False
-
-    def close_alert(self, alert_number: int, resolution: str = "revoked"):
-        """알림 종료"""
-        url = f"{self.api_base}/repos/{self.repo}/secret-scanning/alerts/{alert_number}"
-        headers = {
-            "Authorization": f"Bearer {self.token}",
-            "Accept": "application/vnd.github+json"
-        }
-        data = {
-            "state": "resolved",
-            "resolution": resolution  # revoked, false_positive, used_in_tests
-        }
-
-        response = requests.patch(url, headers=headers, json=data)
-        response.raise_for_status()
-
-    def _send_slack_alert(self, message: str):
-        """Slack 알림 전송"""
-        webhook_url = os.getenv('SLACK_WEBHOOK_URL')
-        if webhook_url:
-            requests.post(webhook_url, json={"text": message})
-
-# 사용 예시
-if __name__ == "__main__":
-    remediator = SecretRemediator(
-        github_token=os.getenv('GITHUB_TOKEN'),
-        repo="myorg/myrepo"
-    )
-
-    alerts = remediator.get_secret_alerts()
-    for alert in alerts:
-        if alert['secret_type'] == 'aws_access_key_id':
-            key_id = alert['secret']
-            if remediator.revoke_aws_key(key_id):
-                remediator.close_alert(alert['number'], resolution='revoked')
-```
+<!-- Full example moved to docs/examples/2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/example-07.py; preserved verbatim. -->
 
 </details>
 

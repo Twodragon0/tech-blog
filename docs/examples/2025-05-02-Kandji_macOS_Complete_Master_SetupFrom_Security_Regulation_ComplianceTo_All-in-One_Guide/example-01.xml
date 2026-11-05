@@ -1,0 +1,32 @@
+<!-- Kandji PPPC 프로파일 예시: 카메라 및 마이크 권한 사전 승인 -->
+<dict>
+    <key>PayloadType</key>
+    <string>com.apple.TCC.configuration-profile-policy</string>
+    <key>Services</key>
+    <dict>
+        <!-- 카메라 접근 허용 (Zoom) -->
+        <key>Camera</key>
+        <array>
+            <dict>
+                <key>Identifier</key>
+                <string>us.zoom.xos</string>
+                <key>IdentifierType</key>
+                <string>bundleID</string>
+                <key>Authorization</key>
+                <string>Allow</string>
+            </dict>
+        </array>
+        <!-- 마이크 접근 허용 (Microsoft Teams) -->
+        <key>Microphone</key>
+        <array>
+            <dict>
+                <key>Identifier</key>
+                <string>com.microsoft.teams</string>
+                <key>IdentifierType</key>
+                <string>bundleID</string>
+                <key>Authorization</key>
+                <string>Allow</string>
+            </dict>
+        </array>
+    </dict>
+</dict>

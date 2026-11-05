@@ -1,0 +1,16 @@
+{
+  "amazonQ.telemetry": false,
+  "amazonQ.shareContentWithAWS": false,
+  "amazonQ.workspaceContext": true,
+  "amazonQ.suppressAutoSuggestions": false,
+  "amazonQ.importRecommendations": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggest.preview": true,
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

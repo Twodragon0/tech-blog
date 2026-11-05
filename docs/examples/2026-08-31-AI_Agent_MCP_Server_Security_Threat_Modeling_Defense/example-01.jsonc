@@ -1,0 +1,11 @@
+// https://modelcontextprotocol.io/docs/concepts/tools
+{
+  "mcpServers": {
+    "secure-repo-reader": {
+      "command": "node",
+      "args": ["/opt/mcp/dist/repo-reader.js"],
+      "allowed_tools": ["read_file", "list_dir"],
+      "denied_tools": ["delete_file", "execute_command"]
+    }
+  }
+}

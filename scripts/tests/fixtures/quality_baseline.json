@@ -45,7 +45,7 @@
     }
   },
   "2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide.md": {
-    "total": 96,
+    "total": 98,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -54,7 +54,7 @@
       "sections": 15,
       "checklists": 10,
       "tables": 10,
-      "code_blocks": 6,
+      "code_blocks": 8,
       "cross_refs": 5,
       "length": 5
     }
@@ -90,7 +90,7 @@
     }
   },
   "2025-05-23-Cloud_Security_Course_7Batch_-_6Week_Cloudflare_And_github_Security.md": {
-    "total": 96,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -99,13 +99,13 @@
       "sections": 15,
       "checklists": 10,
       "tables": 10,
-      "code_blocks": 6,
+      "code_blocks": 10,
       "cross_refs": 5,
       "length": 5
     }
   },
   "2025-05-24-Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS.md": {
-    "total": 96,
+    "total": 100,
     "scores": {
       "front_matter": 15,
       "ai_summary": 10,
@@ -114,7 +114,7 @@
       "sections": 15,
       "checklists": 10,
       "tables": 10,
-      "code_blocks": 6,
+      "code_blocks": 10,
       "cross_refs": 5,
       "length": 5
     }
@@ -4212,9 +4212,9 @@
       "sections": 15,
       "checklists": 10,
       "tables": 10,
-      "code_blocks": 8,
+      "code_blocks": 9,
       "cross_refs": 5,
-      "length": 2
+      "length": 1
     }
   },
   "2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance.md": {

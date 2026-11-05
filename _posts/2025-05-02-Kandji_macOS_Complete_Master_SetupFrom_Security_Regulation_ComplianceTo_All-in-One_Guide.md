@@ -169,40 +169,9 @@ WHERE service = 'kTCCServiceCamera';
 
 PPPC 프로파일로 앱의 카메라/마이크 접근 권한을 MDM에서 사전 승인할 수 있습니다.
 
-```xml
-<!-- Kandji PPPC 프로파일 예시: 카메라 및 마이크 권한 사전 승인 -->
-<dict>
-    <key>PayloadType</key>
-    <string>com.apple.TCC.configuration-profile-policy</string>
-    <key>Services</key>
-    <dict>
-        <!-- 카메라 접근 허용 (Zoom) -->
-        <key>Camera</key>
-        <array>
-            <dict>
-                <key>Identifier</key>
-                <string>us.zoom.xos</string>
-                <key>IdentifierType</key>
-                <string>bundleID</string>
-                <key>Authorization</key>
-                <string>Allow</string>
-            </dict>
-        </array>
-        <!-- 마이크 접근 허용 (Microsoft Teams) -->
-        <key>Microphone</key>
-        <array>
-            <dict>
-                <key>Identifier</key>
-                <string>com.microsoft.teams</string>
-                <key>IdentifierType</key>
-                <string>bundleID</string>
-                <key>Authorization</key>
-                <string>Allow</string>
-            </dict>
-        </array>
-    </dict>
-</dict>
-```
+[전체 xml 예제: example-01.xml](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-01.xml)
+
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-01.xml; preserved verbatim. -->
 
 ## 3. MDM 정책 설정
 
@@ -235,27 +204,9 @@ Kandji에서 권장하는 핵심 보안 설정:
 
 #### ISMS-P 컴플라이언스 스크립트
 
-```bash
-#!/bin/bash
-# ISMS-P 핵심 통제 항목 자동 점검
-echo "=== ISMS-P 컴플라이언스 점검 ==="
+[전체 bash 예제: example-02.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-02.sh)
 
-# 2.5.1 암호화: FileVault 상태
-fv_status=$(fdesetup status)
-echo "[2.5.1] FileVault: $fv_status"
-
-# 2.4.1 패스워드 정책 확인
-pw_min=$(pwpolicy -getaccountpolicies 2>/dev/null | grep -c "minLength")
-echo "[2.4.1] 패스워드 정책 적용: $pw_min 항목"
-
-# 2.6.1 Gatekeeper 상태
-gk_status=$(spctl --status)
-echo "[2.6.1] Gatekeeper: $gk_status"
-
-# 2.7.1 마지막 업데이트 확인
-last_update=$(softwareupdate --history | tail -1)
-echo "[2.7.1] 최근 업데이트: $last_update"
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-02.sh; preserved verbatim. -->
 
 
 ### 4.2 CIS macOS Benchmark
@@ -278,26 +229,9 @@ CIS macOS 14.0 Benchmark 주요 통제:
 
 #### Kandji 차단 스크립트
 
-```bash
-#!/bin/bash
-# CIS Benchmark 핵심 항목 자동 감사
-echo "=== CIS macOS Benchmark 감사 ==="
+[전체 bash 예제: example-03.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-03.sh)
 
-# CIS 1.1: 자동 업데이트
-auto_update=$(defaults read /Library/Preferences/com.apple.SoftwareUpdate AutomaticCheckEnabled 2>/dev/null)
-[ "$auto_update" = "1" ] && echo "PASS [1.1] 자동 업데이트 활성화" || echo "FAIL [1.1] 자동 업데이트 비활성화"
-
-# CIS 2.3.1: 방화벽
-fw_state=$(defaults read /Library/Preferences/com.apple.alf globalstate 2>/dev/null)
-[ "$fw_state" != "0" ] && echo "PASS [2.3.1] 방화벽 활성화" || echo "FAIL [2.3.1] 방화벽 비활성화"
-
-# CIS 2.5.1: FileVault
-fv=$(fdesetup status)
-echo "$fv" | grep -q "On" && echo "PASS [2.5.1] FileVault 활성화" || echo "FAIL [2.5.1] FileVault 비활성화"
-
-# CIS 2.10.1: SIP
-csrutil status | grep -q "enabled" && echo "PASS [2.10.1] SIP 활성화" || echo "FAIL [2.10.1] SIP 비활성화"
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-03.sh; preserved verbatim. -->
 
 스크립트 실행 시 예상 출력:
 
@@ -388,25 +322,9 @@ MDM의 Zero Trust 역할:
 
 Kandji 이벤트를 Splunk HTTP Event Collector(HEC)로 전송합니다.
 
-```bash
-# Kandji → Splunk HEC 연동 예시
-# 1. Kandji Audit Log API로 이벤트 수집
-KANDJI_TOKEN="YOUR_KANDJI_API_TOKEN"
-SPLUNK_HEC_URL="https://splunk.example.com:8088/services/collector"
-SPLUNK_HEC_TOKEN="YOUR_SPLUNK_HEC_TOKEN"
+[전체 bash 예제: example-04.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-04.sh)
 
-# Kandji audit events 조회 (최근 1시간)
-events=$(curl -s -X GET "https://api.kandji.io/api/v1/audit-log?limit=100" \
-  -H "Authorization: Bearer ${KANDJI_TOKEN}" | jq -c '.results[]')
-
-# Splunk HEC로 이벤트 전송
-echo "$events" | while IFS= read -r event; do
-  curl -s -X POST "${SPLUNK_HEC_URL}" \
-    -H "Authorization: Splunk ${SPLUNK_HEC_TOKEN}" \
-    -H "Content-Type: application/json" \
-    -d "{\"sourcetype\": \"kandji:audit\", \"event\": ${event}}"
-done
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-04.sh; preserved verbatim. -->
 
 Splunk 검색 쿼리(SPL) 예시:
 
@@ -424,40 +342,16 @@ index=kandji sourcetype="kandji:audit"
 
 #### Okta 연동
 
-```bash
-# Okta Device Trust 연동 확인 스크립트
-# Kandji 관리 디바이스에서 Okta Device Trust 인증서 상태 점검
+[전체 bash 예제: example-05.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-05.sh)
 
-# 1. Okta Device Trust 인증서 확인
-security find-certificate -a -Z /Library/Keychains/System.keychain \
-  | grep -A 5 "Okta Device Trust"
-
-# 2. MDM 등록 상태 확인
-profiles status -type enrollment
-
-# 3. Okta Verify 앱 설치 확인
-ls /Applications/ | grep -i "Okta Verify"
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-05.sh; preserved verbatim. -->
 
 
 #### Azure AD Conditional Access
 
-```json
-{
-  "conditionalAccessPolicy": {
-    "displayName": "Kandji Managed Mac - Require Compliant Device",
-    "state": "enabled",
-    "conditions": {
-      "platforms": { "includePlatforms": ["macOS"] },
-      "clientAppTypes": ["all"]
-    },
-    "grantControls": {
-      "operator": "AND",
-      "builtInControls": ["compliantDevice", "domainJoinedDevice"]
-    }
-  }
-}
-```
+[전체 json 예제: example-06.jsonc](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-06.jsonc)
+
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-06.jsonc; preserved verbatim. -->
 
 
 ### 8.2 SASE 통합
@@ -490,32 +384,9 @@ security find-certificate -a -Z /Library/Keychains/System.keychain \
 
 ### 9.1 공공기관 보안 설정
 
-```json
-{
-  "PayloadDisplayName": "공공기관 보안 정책",
-  "PayloadType": "Configuration",
-  "PayloadContent": [
-    {
-      "PayloadType": "com.apple.security.firewall",
-      "EnableFirewall": true,
-      "EnableStealthMode": true,
-      "BlockAllIncoming": false
-    },
-    {
-      "PayloadType": "com.apple.screensaver",
-      "loginWindowIdleTime": 300,
-      "askForPassword": true,
-      "askForPasswordDelay": 0
-    },
-    {
-      "PayloadType": "com.apple.password-policy",
-      "minLength": 12,
-      "requireAlphanumeric": true,
-      "maxPINAgeInDays": 90
-    }
-  ]
-}
-```
+[전체 json 예제: example-07.jsonc](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-07.jsonc)
+
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-07.jsonc; preserved verbatim. -->
 
 
 ## 10. 경영진 보고 형식
@@ -538,20 +409,9 @@ security find-certificate -a -Z /Library/Keychains/System.keychain \
 
 원인 및 해결:
 
-```bash
-# 1. APNs 연결 확인
-nc -zv gateway.push.apple.com 2195
-nc -zv feedback.push.apple.com 2196
+[전체 bash 예제: example-08.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-08.sh)
 
-# 2. MDM 등록 상태 확인
-sudo /usr/libexec/mdmclient dep nag
-
-# 3. ABM 서버 접근 확인
-curl -sv https://deviceenrollment.apple.com/ping
-
-# 4. Kandji 에이전트 재시작
-sudo launchctl kickstart -k system/com.kandji.agent
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-08.sh; preserved verbatim. -->
 
 
 방화벽 예외 규칙:
@@ -571,19 +431,9 @@ deviceenrollment.apple.com
 
 해결 절차:
 
-```bash
-# 1. Kandji API로 복구키 조회
-curl -X GET "https://api.kandji.io/api/v1/devices/{device_id}/filevault" \
-  -H "Authorization: Bearer YOUR_API_TOKEN" \
-  | jq -r '.recovery_key'
+[전체 bash 예제: example-09.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-09.sh)
 
-# 2. 복구키로 macOS 복구 모드 진입 후 잠금 해제
-# - 재시작 후 Command+R 또는 전원 버튼 길게 눌러 복구 모드 진입
-# - Disk Utility → 디스크 잠금 해제 시 복구키 입력
-
-# 3. 복구키 회전 (해제 후 즉시 실행)
-sudo fdesetup changerecovery -personal
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-09.sh; preserved verbatim. -->
 
 
 ### 11.3 MDM 프로파일 제거 불가
@@ -594,20 +444,9 @@ sudo fdesetup changerecovery -personal
 
 해결:
 
-```bash
-# 1. MDM 등록 상태 확인
-profiles status -type enrollment
+[전체 bash 예제: example-10.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-10.sh)
 
-# 2. UAMDM(사용자 승인 MDM) 활성화 여부 확인
-sudo /usr/libexec/mdmclient QuerySecurityInfo | grep -i "user approved"
-
-# 3. 사용자 승인 유도 (시스템 설정 → 개인 정보 보호 및 보안 → 프로파일)
-open "x-apple.systempreferences:com.apple.preferences.security"
-
-# 4. DEP 재등록 (Recovery Mode에서 실행)
-# csrutil disable  ← Apple Silicon: Startup Security Utility에서 변경
-sudo /usr/libexec/mdmclient dep nag
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-10.sh; preserved verbatim. -->
 
 
 ### 11.4 앱 배포 실패
@@ -616,23 +455,9 @@ sudo /usr/libexec/mdmclient dep nag
 
 체크리스트:
 
-```bash
-# 1. VPP 토큰 유효성 확인 (Kandji Console → Integrations → Apple Business Manager)
-curl -X GET "https://api.kandji.io/api/v1/integrations/vpp" \
-  -H "Authorization: Bearer YOUR_API_TOKEN" \
-  | jq '.token_expiry'
+[전체 bash 예제: example-11.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-11.sh)
 
-# 2. 앱 라이선스 잔여 확인
-curl -X GET "https://api.kandji.io/api/v1/apps" \
-  -H "Authorization: Bearer YOUR_API_TOKEN" \
-  | jq '.[] | {name: .name, available_licenses: .available_licenses}'
-
-# 3. 디바이스 ABM 연결 확인
-sudo /usr/libexec/mdmclient QueryDeviceInformation | grep -i "EnrolledViaDEP"
-
-# 4. Kandji 에이전트 로그 확인
-log show --predicate 'subsystem == "com.kandji.agent"' --last 1h | grep -i "app install"
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-11.sh; preserved verbatim. -->
 
 
 ### 11.5 성능 저하 (디바이스 느림)
@@ -641,19 +466,9 @@ log show --predicate 'subsystem == "com.kandji.agent"' --last 1h | grep -i "app 
 
 진단:
 
-```bash
-# 1. mdmclient 프로세스 CPU/메모리 사용량 확인
-top -l 1 -s 0 | grep -i mdmclient
+[전체 bash 예제: example-12.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-12.sh)
 
-# 2. Kandji 에이전트 리소스 사용량 확인
-ps aux | grep -E "kandji|mdmclient" | awk '{print $1, $2, $3, $4, $11}'
-
-# 3. 최근 1시간 에이전트 로그 오류 확인
-log show --predicate 'subsystem == "com.kandji.agent"' --last 1h --level error
-
-# 4. 과도한 스크립트 실행 여부 확인
-log show --predicate 'process == "bash" OR process == "python3"' --last 30m | wc -l
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-12.sh; preserved verbatim. -->
 
 
 최적화:
@@ -675,20 +490,9 @@ sudo log config --mode "level:default" --subsystem com.kandji
 
 해결:
 
-```bash
-# 1. 802.1X 인증서 키체인 확인
-security find-certificate -a -Z /Library/Keychains/System.keychain \
-  | grep -B 5 "802.1X\|RADIUS\|WPA"
+[전체 bash 예제: example-13.sh](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-13.sh)
 
-# 2. Wi-Fi 프로파일 설치 상태 확인
-profiles list -verbose | grep -i "Wi-Fi\|802.1X"
-
-# 3. 인증서 유효기간 확인
-security find-certificate -c "Your-Corp-CA" -p | openssl x509 -noout -dates
-
-# 4. 네트워크 연결 진단 로그
-log show --predicate 'subsystem == "com.apple.eap"' --last 30m | tail -50
-```
+<!-- Full example moved to docs/examples/2025-05-02-Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/example-13.sh; preserved verbatim. -->
 
 
 ## 12. 참고 자료

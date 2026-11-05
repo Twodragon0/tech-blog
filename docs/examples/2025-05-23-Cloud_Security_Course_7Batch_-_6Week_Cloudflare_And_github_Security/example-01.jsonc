@@ -1,0 +1,54 @@
+{
+  "Name": "SQLInjectionRuleGroup",
+  "Scope": "REGIONAL",
+  "DefaultAction": { "Allow": {} },
+  "Rules": [
+    {
+      "Name": "BlockSQLInjection",
+      "Priority": 1,
+      "Action": { "Block": {} },
+      "Statement": {
+        "SqliMatchStatement": {
+          "FieldToMatch": {
+            "Body": {}
+          },
+          "TextTransformations": [
+            { "Priority": 0, "Type": "URL_DECODE" },
+            { "Priority": 1, "Type": "HTML_ENTITY_DECODE" }
+          ]
+        }
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "SQLInjectionRule"
+      }
+    },
+    {
+      "Name": "BlockXSS",
+      "Priority": 2,
+      "Action": { "Block": {} },
+      "Statement": {
+        "XssMatchStatement": {
+          "FieldToMatch": {
+            "AllQueryArguments": {}
+          },
+          "TextTransformations": [
+            { "Priority": 0, "Type": "URL_DECODE" },
+            { "Priority": 1, "Type": "HTML_ENTITY_DECODE" }
+          ]
+        }
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "XSSRule"
+      }
+    }
+  ],
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "SQLInjectionRuleGroup"
+  }
+}

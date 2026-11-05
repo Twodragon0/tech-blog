@@ -120,19 +120,9 @@ sequenceDiagram
 ### 3.1 레시피 1: 에이전트별 세분화된 도구 화이트리스트 및 권한 스코핑
 모든 MCP 도구를 전역 활성화하는 대신, 에이전트의 역할(Researcher, Coder, Auditor)에 따라 허용된 최소 도구만 선언적으로 바인딩합니다.
 
-```json
-// https://modelcontextprotocol.io/docs/concepts/tools
-{
-  "mcpServers": {
-    "secure-repo-reader": {
-      "command": "node",
-      "args": ["/opt/mcp/dist/repo-reader.js"],
-      "allowed_tools": ["read_file", "list_dir"],
-      "denied_tools": ["delete_file", "execute_command"]
-    }
-  }
-}
-```
+[전체 json 예제: example-01.jsonc](https://github.com/Twodragon0/tech-blog/blob/main/docs/examples/2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense/example-01.jsonc)
+
+<!-- Full example moved to docs/examples/2026-08-31-AI_Agent_MCP_Server_Security_Threat_Modeling_Defense/example-01.jsonc; preserved verbatim. -->
 
 ### 3.2 레시피 2: gVisor / 마이크로 샌드박스를 활용한 격리 실행
 MCP 서버 프로세스를 호스트 OS에서 직접 실행하지 않고, **gVisor(runsc)** 커널 샌드박스 내부로 격리하여 비인가 시스템 콜 및 파일시스템 접근을 차단합니다.

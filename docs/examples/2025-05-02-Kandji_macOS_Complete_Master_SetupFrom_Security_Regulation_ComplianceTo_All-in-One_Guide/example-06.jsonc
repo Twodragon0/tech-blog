@@ -1,0 +1,14 @@
+{
+  "conditionalAccessPolicy": {
+    "displayName": "Kandji Managed Mac - Require Compliant Device",
+    "state": "enabled",
+    "conditions": {
+      "platforms": { "includePlatforms": ["macOS"] },
+      "clientAppTypes": ["all"]
+    },
+    "grantControls": {
+      "operator": "AND",
+      "builtInControls": ["compliantDevice", "domainJoinedDevice"]
+    }
+  }
+}

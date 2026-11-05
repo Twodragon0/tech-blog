@@ -1,0 +1,28 @@
+# .github/codeql/codeql-config.yml
+name: "Custom CodeQL Config"
+
+disable-default-queries: false
+
+queries:
+  - uses: security-extended
+  - uses: security-and-quality
+
+query-filters:
+  - exclude:
+      id:
+        - js/unused-local-variable
+        - py/unused-import
+  - include:
+      tags contain: security
+
+paths-ignore:
+  - '/test/'
+  - '/tests/'
+  - '/node_modules/'
+  - '/vendor/'
+  - '/__pycache__/'
+
+paths:
+  - 'src/'
+  - 'lib/'
+  - 'api/'
