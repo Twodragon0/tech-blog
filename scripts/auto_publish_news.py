@@ -399,6 +399,12 @@ class _ConfigProxy:
             return getattr(_news_config, name)
         return getattr(object.__getattribute__(self, "_real"), name)
 
+    def __delattr__(self, name):
+        if name in _PROXIED_CONFIG_ATTRS or name in _PROXIED_CONFIG_DICTS:
+            delattr(_news_config, name)
+            return
+        delattr(object.__getattribute__(self, "_real"), name)
+
     def __repr__(self):
         return repr(object.__getattribute__(self, "_real"))
 

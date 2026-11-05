@@ -1598,7 +1598,9 @@ _AI_COMPOUND_ADJECTIVES: frozenset = frozenset({"agentic", "vertical"})
 #     joining to "Claude AI" is exactly the proper-noun-fragment breakage the
 #     _AI_COMPOUND_ADJECTIVES comment warns against ("Claude Mythos AI" -> "Mythos
 #     AI"). So the lone lead is CORRECT; we vet it, not join it.
-_DEFERRED_AI_ADJECTIVES: frozenset = frozenset({"shadow", "claude"})
+# OpenAI is also a vendor brand: "OpenAI AI 파이프라인" should retain
+# the recognizable vendor lead, not be joined as a generic AI adjective.
+_DEFERRED_AI_ADJECTIVES: frozenset = frozenset({"shadow", "claude", "openai"})
 
 # FM4 — curated multi-word vendor/product entities whose FIRST word, when it ends
 # up as a resolved-bigram token, truncates the full entity that is literally
