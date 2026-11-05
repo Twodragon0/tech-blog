@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T12:14:00.748681+00:00",
+  "updated_at": "2026-10-27T02:59:52.237490+00:00",
   "entries": [
     {
       "url": "https://aws.amazon.com/blogs/security/guardduty-extended-threat-detection-has-added-five-new-indicators-to-surface-attack-sequences/",
@@ -540,6 +540,96 @@
       "title": "Musk warns over 200 AI neoclouds face ‘guppy-level death’",
       "published_date": "2026-10-26",
       "expires_at": "2026-11-02T12:14:00.748476+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/hackers-infect-953-online-stores-with.html",
+      "title": "Hackers Infect 953 Online Stores With Scanner-Evading JavaScript, Mostly on Mage",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/php-issues-second-windows-security.html",
+      "title": "PHP Issues Second Windows Security Update in Five Days to Fix Brotli Code Execut",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html",
+      "title": "Attackers Use Microsoft Teams IT Support Scams to Deploy Malware and Ransomware",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/weekly-recap-this2shell-that2shell.html",
+      "title": "⚡ Weekly Recap: This2Shell, That2Shell, Everything's an RCE? Rogue AI, Supply Ch",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/",
+      "title": "University of Copenhagen data breach exposes data of 525,000 people",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://openai.com/index/greptile-code-review-codex-astra",
+      "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/10/26/open-source/ocp-summit-2026-meta-networking-talks/",
+      "title": "Meta Networking at the 2026 OCP Global Summit: Open Innovation for Scale-Up, Sca",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/",
+      "title": "Our newest AI Quest: Mapping the human brain",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
+      "title": "Working with academic communities to build scientific understanding",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+      "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/financial-services/easy-to-integrate-compliant-by-design-bringing-the-swiss-franc-to-google-cloud-universal-ledger/",
+      "title": "Easy to integrate, compliant by design: Bringing the Swiss Franc to Google Cloud",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/lookml-metadata-indexing-in-knowledge-catalog-is-now-ga/",
+      "title": "Unifying enterprise context and semantics: LookML in Knowledge Catalog is now GA",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-polly-generative-engine-torchneuron-for-trainium-and-more-october-26-2026/",
+      "title": "AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, an",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot",
+      "title": "GPT-6.1 Terra in GitHub Copilot",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
+    },
+    {
+      "url": "https://webkit.org/blog/18515/webkit-features-for-safari-27-2/",
+      "title": "WebKit Features for Safari 27.2",
+      "published_date": "2026-10-27",
+      "expires_at": "2026-11-03T02:59:52.237303+00:00"
     }
   ]
 }
