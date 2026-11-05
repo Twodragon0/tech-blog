@@ -253,7 +253,9 @@ def _ensure_midnight_redirect(content: str, filename: str, now: datetime) -> str
     match = re.match(r"^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$", filename)
     front = re.match(r"^---\n(.*?)\n---(?=\n|$)", content, re.DOTALL)
     if not match or not front:
-        raise ValueError("Midnight publication requires dated filename and front matter")
+        raise ValueError(
+            "Midnight publication requires dated filename and front matter"
+        )
     import yaml
 
     fm = front.group(1)

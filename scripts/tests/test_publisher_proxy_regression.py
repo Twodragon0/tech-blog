@@ -14,8 +14,10 @@ from scripts.news.l20_dispatch import (
 
 def test_proxy_deletes_attributes_on_backing_module():
     real = types.ModuleType("publisher_regression")
+
     def original_renderer():
         return "real-svg"
+
     real._render_l20_svg_string = original_renderer
     proxy = auto_publish_news._ConfigProxy(real)
     with pytest.MonkeyPatch.context() as patch:
@@ -29,7 +31,9 @@ def test_proxy_deletes_attributes_on_backing_module():
 
 
 def test_openai_ai_lead_is_vetted_brand_not_compound_adjective():
-    title = "OpenAI AI 파이프라인, 30시간 실행으로 948개의 Linux 권한 상승 익스플로잇 생성"
+    title = (
+        "OpenAI AI 파이프라인, 30시간 실행으로 948개의 Linux 권한 상승 익스플로잇 생성"
+    )
     assert build_lead_headline(title) == "OpenAI"
     assert "openai" in _DEFERRED_AI_ADJECTIVES
     assert "openai" not in _AI_COMPOUND_ADJECTIVES

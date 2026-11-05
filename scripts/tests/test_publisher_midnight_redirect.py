@@ -1,4 +1,5 @@
 """KST midnight publication keeps its actual date and filename URL reachable."""
+
 from datetime import datetime, timedelta, timezone
 
 import pytest
@@ -9,8 +10,12 @@ from scripts.check_kst_midnight import check_file
 
 
 @pytest.mark.parametrize("hour", [0, 8, 9])
-@pytest.mark.parametrize("existing", ["", "redirect_from: /old/\n", "redirect_from:\n- /old/\n"])
-def test_redirect_covers_resolved_filename_without_changing_date(tmp_path, hour, existing):
+@pytest.mark.parametrize(
+    "existing", ["", "redirect_from: /old/\n", "redirect_from:\n- /old/\n"]
+)
+def test_redirect_covers_resolved_filename_without_changing_date(
+    tmp_path, hour, existing
+):
     now = datetime(2026, 11, 6, hour, 12, tzinfo=timezone(timedelta(hours=9)))
     date = now.strftime("%Y-%m-%d %H:%M:%S %z")
     content = f'---\ntitle: "Keep quoted title"\ndate: {date}\n{existing}tags: [ai]\n---\nBody\n'
