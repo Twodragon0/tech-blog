@@ -71,7 +71,7 @@ def write_manifest(
     image_file: str = "",
 ) -> None:
     """Atomically record one publisher outcome. ``status`` is a closed set."""
-    if status not in {"created", "skipped", "dry_run"}:
+    if status not in {"created", "skipped", "dry_run", "failed"}:
         raise ValueError(f"unknown publish status: {status}")
     payload: dict[str, str] = {
         "calendar": "Asia/Seoul",
@@ -191,6 +191,8 @@ def resolve_manifest(manifest: Path) -> ResolveResult:
             publish_date=date,
             skip_reason=reason or status,
         )
+    if status == "failed":
+        return ResolveResult(ok=False, message="publisher recorded a failed preflight")
     if status != "created":
         return ResolveResult(
             ok=False,

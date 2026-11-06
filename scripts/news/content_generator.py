@@ -2967,6 +2967,13 @@ def _restore_sentence_period(text: str) -> str:
 
 
 def _korean_brief_summary(item: Dict, max_sentences: int = 2) -> str:
+    from scripts.news.translation_publication import TranslatedArticle
+
+    if isinstance(item, TranslatedArticle):
+        # Opt-in publisher preflight has already applied T1. Do not replace its
+        # validated facts with stale legacy cache or heuristic re-summarization.
+        return item.translation.korean_summary
+
     summary = (item.get("summary", "") or "").strip()
     content_text = (item.get("content", "") or "").strip()
     text = summary or content_text
