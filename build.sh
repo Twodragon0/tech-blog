@@ -153,14 +153,14 @@ rm -rf _site || true
 log "Building Jekyll site..."
 # Support baseurl from environment (for GitHub Pages)
 BASEURL="${BASEURL:-}"
-BUILD_ARGS="--verbose --trace"
+BUILD_ARGS=(--verbose --trace --config "${JEKYLL_CONFIG:-_config.yml}")
 if [ -n "$BASEURL" ]; then
-    BUILD_ARGS="$BUILD_ARGS --baseurl $BASEURL"
+    BUILD_ARGS+=(--baseurl "$BASEURL")
     log "Using baseurl: $BASEURL"
 fi
 
 set +e
-bundle exec jekyll build $BUILD_ARGS 2>&1 | tee /tmp/jekyll-build.log
+bundle exec jekyll build "${BUILD_ARGS[@]}" 2>&1 | tee /tmp/jekyll-build.log
 BUILD_EXIT=${PIPESTATUS[0]:-$?}
 set -e
 if [ "$BUILD_EXIT" -ne 0 ]; then

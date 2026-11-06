@@ -13,6 +13,8 @@ on:
       - '_config.yml'
       - 'assets/**'
       - 'pages/**'
+      - 'build.sh'
+      - '.github/workflows/deploy-pages.yml'
       - 'Gemfile'
       - 'Gemfile.lock'
       - 'index.html'
@@ -120,6 +122,12 @@ jobs:
         id: pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d  # v6
 
+      - name: Write Pages origin override
+        env:
+          PAGES_ORIGIN: ${{ steps.pages.outputs.origin }}
+        run: |
+          ruby -rjson -e 'File.write(File.join(ENV.fetch("RUNNER_TEMP"), "jekyll-pages.yml"), JSON.generate({"url" => ENV.fetch("PAGES_ORIGIN")}))'
+
       - name: Build with Jekyll (via build.sh for parity with Vercel)
         run: |
           chmod +x build.sh
@@ -127,6 +135,7 @@ jobs:
         env:
           JEKYLL_ENV: production
           BASEURL: ${{ steps.pages.outputs.base_path }}
+          JEKYLL_CONFIG: _config.yml,${{ runner.temp }}/jekyll-pages.yml
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
