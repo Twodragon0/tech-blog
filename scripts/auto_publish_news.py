@@ -421,6 +421,13 @@ class _ConfigProxy:
     def __init__(self, real_module):
         object.__setattr__(self, "_real", real_module)
 
+    @property
+    def __dict__(self):
+        # Attribute writes go to the backing module; expose that same namespace
+        # to introspection and patch tools so restoring a patch cannot delete
+        # a function that already existed before the patch.
+        return vars(object.__getattribute__(self, "_real"))
+
     def __setattr__(self, name, value):
         if name in _PROXIED_CONFIG_ATTRS:
             setattr(_news_config, name, value)
