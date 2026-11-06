@@ -14,6 +14,7 @@ on:
       - 'assets/**'
       - 'pages/**'
       - 'build.sh'
+      - 'scripts/build/write_pages_config.rb'
       - '.github/workflows/deploy-pages.yml'
       - 'Gemfile'
       - 'Gemfile.lock'
@@ -125,8 +126,7 @@ jobs:
       - name: Write Pages origin override
         env:
           PAGES_ORIGIN: ${{ steps.pages.outputs.origin }}
-        run: |
-          ruby -rjson -e 'File.write(File.join(ENV.fetch("RUNNER_TEMP"), "jekyll-pages.yml"), JSON.generate({"url" => ENV.fetch("PAGES_ORIGIN")}))'
+        run: ruby scripts/build/write_pages_config.rb
 
       - name: Build with Jekyll (via build.sh for parity with Vercel)
         run: |

@@ -47,6 +47,7 @@ def jekyll_available():
 @pytest.mark.parametrize(
     "origin,baseurl",
     [
+        ("http://twodragon0.github.io", "/tech-blog"),
         ("https://twodragon0.github.io", "/tech-blog"),
         ("https://tech.2twodragon.com", ""),
     ],
@@ -61,8 +62,9 @@ def test_rendered_feed_uses_selected_deployment(
     )
     base = tmp_path / "base.yml"
     base.write_text(json.dumps({"url": "https://tech.2twodragon.com", "baseurl": ""}))
-    override = tmp_path / "override.yml"
-    override.write_text(json.dumps({"url": origin, "baseurl": baseurl}))
+    prepared = run_pages_config(tmp_path, origin)
+    assert prepared.returncode == 0, prepared.stderr
+    override = tmp_path / "jekyll-pages.yml"
     result = subprocess.run(
         [
             "bundle",
@@ -75,6 +77,8 @@ def test_rendered_feed_uses_selected_deployment(
             str(tmp_path / "out"),
             "--config",
             f"{base},{override}",
+            "--baseurl",
+            baseurl,
             "--quiet",
         ],
         cwd=ROOT,
@@ -83,4 +87,70 @@ def test_rendered_feed_uses_selected_deployment(
         text=True,
     )
     assert result.returncode == 0, result.stdout + result.stderr
-    assert f"{origin}{baseurl}/posts/item/" in (tmp_path / "out/feed.xml").read_text()
+    expected_origin = origin.replace("http:", "https:", 1)
+    assert (
+        f"{expected_origin}{baseurl}/posts/item/"
+        in (tmp_path / "out/feed.xml").read_text()
+    )
+
+
+@pytest.fixture(scope="module")
+def ruby_available():
+    if not shutil.which("ruby"):
+        pytest.skip("Ruby not on PATH; required for Pages configuration")
+
+
+def run_pages_config(tmp_path, origin):
+    workflow = yaml.safe_load((ROOT / ".github/workflows/deploy-pages.yml").read_text())
+    setup = next(
+        s
+        for s in workflow["jobs"]["build"]["steps"]
+        if s.get("name") == "Write Pages origin override"
+    )
+    env = os.environ.copy()
+    env.update(PAGES_ORIGIN=origin, RUNNER_TEMP=str(tmp_path))
+    return subprocess.run(
+        ["bash", "-e", "-c", setup["run"]],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+    )
+
+
+@pytest.mark.parametrize(
+    "origin",
+    [
+        "http://twodragon0.github.io",
+        "https://twodragon0.github.io",
+        "http://twodragon0.github.io/",
+    ],
+)
+def test_actual_pages_step_always_writes_https(tmp_path, origin, ruby_available):
+    result = run_pages_config(tmp_path, origin)
+    assert result.returncode == 0, result.stderr
+    assert json.loads((tmp_path / "jekyll-pages.yml").read_text()) == {
+        "url": "https://twodragon0.github.io"
+    }
+
+
+@pytest.mark.parametrize(
+    "origin",
+    [
+        "",
+        "ftp://twodragon0.github.io",
+        "https://user:password@host.test",
+        "https://host.test/path",
+        "https://host.test?token=private",
+        "https://host.test#section",
+        "http://host.test:8080",
+    ],
+)
+def test_pages_step_rejects_invalid_origin_without_writing(
+    tmp_path, origin, ruby_available
+):
+    result = run_pages_config(tmp_path, origin)
+    assert result.returncode != 0
+    assert not (tmp_path / "jekyll-pages.yml").exists()
+    assert "password" not in result.stderr
+    assert "private" not in result.stderr
