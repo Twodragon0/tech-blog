@@ -14,8 +14,10 @@ from scripts.news.l20_dispatch import (
 
 def test_proxy_deletes_attributes_on_backing_module():
     real = types.ModuleType("publisher_regression")
+
     def original_renderer():
         return "real-svg"
+
     real._render_l20_svg_string = original_renderer
     proxy = auto_publish_news._ConfigProxy(real)
     with pytest.MonkeyPatch.context() as patch:
@@ -28,8 +30,30 @@ def test_proxy_deletes_attributes_on_backing_module():
     assert proxy._render_l20_svg_string is original_renderer
 
 
+def test_live_module_monkeypatch_restores_the_renderer():
+    """The cron suite patches the installed proxy, not a stand-in module.
+
+    Run 42161517966 deleted ``_render_l20_svg_string`` on undo, so the next
+    two renderer tests raised AttributeError and the digest was not committed.
+    """
+    original = auto_publish_news._render_l20_svg_string
+    assert callable(original)
+    with pytest.MonkeyPatch.context() as patch:
+        patch.setattr(auto_publish_news, "_render_l20_svg_string", lambda _info: "")
+        patch.setattr(
+            auto_publish_news,
+            "generate_svg_image",
+            lambda *_args, **_kwargs: "patched",
+            raising=False,
+        )
+        assert auto_publish_news._render_l20_svg_string({}) == ""
+    assert auto_publish_news._render_l20_svg_string is original
+
+
 def test_openai_ai_lead_is_vetted_brand_not_compound_adjective():
-    title = "OpenAI AI 파이프라인, 30시간 실행으로 948개의 Linux 권한 상승 익스플로잇 생성"
+    title = (
+        "OpenAI AI 파이프라인, 30시간 실행으로 948개의 Linux 권한 상승 익스플로잇 생성"
+    )
     assert build_lead_headline(title) == "OpenAI"
     assert "openai" in _DEFERRED_AI_ADJECTIVES
     assert "openai" not in _AI_COMPOUND_ADJECTIVES
