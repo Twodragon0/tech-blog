@@ -39,3 +39,9 @@ main 직접 push는 GitHub의 Internal Server Error와 commit_refs_rules 오류�
 대체 경로로 로컬 Vercel CLI 인증을 조회했으나 기존 자격 증명이 없어 직접 production 배포도 실행하지 못했다. 로그인·키 변경·새 프로젝트 생성은 수행하지 않았다. 마지막 production RSS 조회는 HTTP 200이지만 최신 항목은 여전히 10월 27일이었다. **새 글 production/RSS 반영은 미완료이며 자동 발행 복구 완료를 주장하지 않는다.**
 
 복구 재개는 PR #803 head의 필수 검사와 merge 상태를 다시 확인한 뒤 정상 merge하고, Vercel 배포 완료 및 새 글 canonical URL과 filename-date redirect, RSS 항목을 대조하는 순서다. 자동 번역은 Claude/OpenAI Actions 키 또는 명시적으로 허용된 기존 제공자 선택이 추가로 필요하다. 질문 없이 새 유료 제공자를 사용하지 않았다.
+
+## 사용자 후속 결정
+
+2026-11-06 사용자가 이번 회차는 한국어 검수 발행으로 복구하고 자동 번역 연결은 후속 작업으로 분리하도록 확정했다. 따라서 이번 회차에 번역 API 키 등록이나 제공자 변경을 요구하지 않고 검수 글의 병합·배포·RSS 확인에 집중한다.
+
+후속 CI 로그에서 pytest 9.2.0의 namespace 기반 패치 복원과 프록시 introspection 불일치를 확인했다. backing module과 동일한 __dict__를 노출하는 수정 및 namespace 복원 회귀 테스트를 추가했다. 이는 Python 3.11 자체의 문제라는 가설을 대체하는 확인된 원인이다.
