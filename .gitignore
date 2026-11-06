@@ -164,4 +164,6 @@ _data/source_articles_cache.json
 
 # Digest quality gate diagnostics (uploaded as a CI artifact, never committed)
 .digest-gate-failure/
+# Publisher outcome for one Actions run. The workflow reads it; it is not a post.
+.blogwatcher-publish.json
 openclaw-workspace-state.json

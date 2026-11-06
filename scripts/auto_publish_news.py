@@ -15,6 +15,7 @@ import logging
 import os
 import re
 import sys
+from collections.abc import Mapping
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, cast
@@ -28,6 +29,11 @@ if _PROJECT_ROOT not in sys.path:
 # Import the news package modules
 # ---------------------------------------------------------------------------
 import scripts.news.config as _news_config  # noqa: E402
+from scripts.blogwatcher_manifest import (  # noqa: E402
+    default_manifest_path,
+    kst_publish_date,
+    write_manifest,
+)
 
 # Re-export analyzer functions
 from scripts.news.analyzer import (  # noqa: E402,F401
@@ -415,20 +421,46 @@ def __getattr__(name):
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 
+class _ProxyAttrView(Mapping[str, Any]):
+    """Resolved attributes for pytest 9.2's undo snapshot.
+
+    ``MonkeyPatch.setattr`` stores ``obj.__dict__.get(name, NOTSET)`` and, on
+    undo, deletes the name when that lookup misses. Attributes live on the
+    backing module, so a real instance ``__dict__`` classified every patch as
+    an insertion and deleted ``_render_l20_svg_string`` after the first test
+    (run 42161517966, three AttributeErrors, commit skipped).
+    """
+
+    def __init__(self, proxy: "_ConfigProxy") -> None:
+        self._proxy = proxy
+
+    def __getitem__(self, key: str) -> Any:
+        try:
+            return getattr(self._proxy, key)
+        except AttributeError as exc:
+            raise KeyError(key) from exc
+
+    def __iter__(self):
+        real = object.__getattribute__(self._proxy, "_real")
+        return iter(dir(real))
+
+    def __len__(self) -> int:
+        return sum(1 for _ in self)
+
+
 class _ConfigProxy:
     """Thin proxy so that ``auto_publish_news.X = val`` writes through to config."""
 
-    def __init__(self, real_module):
+    __slots__ = ("_real",)
+
+    def __init__(self, real_module: Any) -> None:
         object.__setattr__(self, "_real", real_module)
 
     @property
-    def __dict__(self):
-        # Attribute writes go to the backing module; expose that same namespace
-        # to introspection and patch tools so restoring a patch cannot delete
-        # a function that already existed before the patch.
-        return vars(object.__getattribute__(self, "_real"))
+    def __dict__(self) -> "_ProxyAttrView":  # type: ignore[override]
+        return _ProxyAttrView(self)
 
-    def __setattr__(self, name, value):
+    def __setattr__(self, name: str, value: Any) -> None:
         if name in _PROXIED_CONFIG_ATTRS:
             setattr(_news_config, name, value)
             return
@@ -438,18 +470,18 @@ class _ConfigProxy:
             return
         object.__setattr__(self._real, name, value)
 
-    def __getattr__(self, name):
+    def __getattr__(self, name: str) -> Any:
         if name in _PROXIED_CONFIG_ATTRS or name in _PROXIED_CONFIG_DICTS:
             return getattr(_news_config, name)
         return getattr(object.__getattribute__(self, "_real"), name)
 
-    def __delattr__(self, name):
+    def __delattr__(self, name: str) -> None:
         if name in _PROXIED_CONFIG_ATTRS or name in _PROXIED_CONFIG_DICTS:
             delattr(_news_config, name)
             return
         delattr(object.__getattribute__(self, "_real"), name)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return repr(object.__getattribute__(self, "_real"))
 
 
@@ -663,6 +695,12 @@ def main():
         help="Target publish date in YYYY-MM-DD (default: today KST)",
     )
     parser.add_argument(
+        "--publish-manifest",
+        type=str,
+        default="",
+        help="Outcome manifest path (default: repo-root .blogwatcher-publish.json)",
+    )
+    parser.add_argument(
         "--post-filename",
         type=str,
         default="",
@@ -681,6 +719,41 @@ def main():
         help="Skip auto-commit of generated raster variants (also: TECH_BLOG_NO_AUTO_COMMIT=1)",
     )
     args = parser.parse_args()
+
+    manifest_path = (
+        Path(args.publish_manifest)
+        if args.publish_manifest
+        else default_manifest_path()
+    )
+    # Drop a stale outcome so a failed run cannot be detected as the last success.
+    manifest_path.unlink(missing_ok=True)
+
+    def _record(
+        status: str,
+        reason: str,
+        *,
+        date: str = "",
+        post_file: str = "",
+        image_file: str = "",
+    ) -> None:
+        write_manifest(
+            manifest_path,
+            status=status,
+            reason=reason,
+            date=date,
+            post_file=post_file,
+            image_file=image_file,
+        )
+
+    # One KST conversion, before any early return that still needs the day.
+    # 23:11 UTC is already the next KST morning. The workflow does not call date(1).
+    try:
+        now, date_str = kst_publish_date(forced=args.date)
+    except ValueError:
+        print(f"\u274c Invalid --date format: {args.date} (expected YYYY-MM-DD)")
+        # Argument validation, not a content gate, so it stays off the
+        # inline-gate registry's terminator count.
+        raise SystemExit(1) from None
 
     _news_config._AI_MODE = args.use_ai
 
@@ -727,24 +800,10 @@ def main():
         print(
             f"\u26a0\ufe0f Not enough news ({len(filtered)} < {MIN_NEWS_COUNT}). Skipping."
         )
+        _record("skipped", "not_enough_news", date=date_str)
         return
 
     categorized = categorize_news(filtered)
-
-    # Date setup
-    now = datetime.now(timezone(timedelta(hours=9)))  # KST
-    if args.date:
-        try:
-            forced_date = datetime.strptime(args.date, "%Y-%m-%d")
-            now = now.replace(
-                year=forced_date.year,
-                month=forced_date.month,
-                day=forced_date.day,
-            )
-        except ValueError:
-            print(f"\u274c Invalid --date format: {args.date} (expected YYYY-MM-DD)")
-            return
-    date_str = now.strftime("%Y-%m-%d")
 
     # Duplicate check - only ONE post per day (any pattern)
     if not args.force:
@@ -757,6 +816,7 @@ def main():
                 f"\u23ed\ufe0f Same-day post already exists ({len(existing)} found): {existing[0].name}"
             )
             print("   Only 1 post per day is allowed. Use --force to override.")
+            _record("skipped", "same_day_exists", date=date_str)
             return
 
     if args.mode == "tech-blog":
@@ -768,6 +828,7 @@ def main():
         }
         if not tech_categorized:
             print("\u26a0\ufe0f No tech blog content found. Skipping.")
+            _record("skipped", "no_tech_content", date=date_str)
             return
         selected = select_top_news(tech_categorized, args.max_news)
         topics = _extract_key_topics(selected)
@@ -849,6 +910,7 @@ def main():
                 f"\u23ed\ufe0f Existing post is larger ({existing_size}B > {new_size}B). Skipping to preserve manual post."
             )
             print(f"   File: {post_path}")
+            _record("skipped", "preserved_larger_post", date=date_str)
             return
         else:
             print(
@@ -911,6 +973,13 @@ def main():
         print(f"   - Image: {svg_path}")
         print("\n--- Post Preview (first 500 chars) ---")
         print(post_content[:500])
+        _record(
+            "dry_run",
+            "dry_run",
+            date=date_str,
+            post_file=post_path.as_posix(),
+            image_file=svg_path.as_posix(),
+        )
         return
 
     # Save files
@@ -1082,6 +1151,13 @@ def main():
         no_commit=args.no_commit,
     )
 
+    _record(
+        "created",
+        "created",
+        date=date_str,
+        post_file=post_path.as_posix(),
+        image_file=svg_path.as_posix(),
+    )
     print(f"\n\U0001f389 Auto publish completed! (mode: {args.mode})")
 
 
