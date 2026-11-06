@@ -57,3 +57,23 @@ def test_openai_ai_lead_is_vetted_brand_not_compound_adjective():
     assert build_lead_headline(title) == "OpenAI"
     assert "openai" in _DEFERRED_AI_ADJECTIVES
     assert "openai" not in _AI_COMPOUND_ADJECTIVES
+
+
+def test_proxy_namespace_supports_namespace_based_patch_restore():
+    """New pytest versions capture old values from vars(), not getattr()."""
+    real = types.ModuleType("namespace_regression")
+
+    def renderer():
+        return "real-svg"
+
+    real._render_l20_svg_string = renderer
+    proxy = auto_publish_news._ConfigProxy(real)
+    absent = object()
+    old = vars(proxy).get("_render_l20_svg_string", absent)
+    proxy._render_l20_svg_string = lambda: ""
+    if old is absent:
+        del proxy._render_l20_svg_string
+    else:
+        proxy._render_l20_svg_string = old
+    assert proxy._render_l20_svg_string is renderer
+    assert vars(proxy).get("_render_l20_svg_string") is renderer

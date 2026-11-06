@@ -12,10 +12,36 @@ GitHub Actions 실행 [41967080988](https://github.com/Twodragon0/tech-blog/acti
 
 ## 적용과 한계
 
-수정은 로컬 커밋으로 제공한다. 원격 main과 로컬 HEAD는 다르므로 이 검증을 원격 최신 코드와 완전히 동일한 실행으로 보지 않는다. push·병합·실제 발행 재실행은 수행하지 않았다. 따라서 운영 복구 완료는 아직 주장할 수 없다.
+초기 로컬 수정 후 사용자의 원격 반영 요청에 따라 main에 push하고 실제 발행을 검증 중이다. 아래 실행 기록은 각 시점의 결과이며, 최종 판정은 새 커밋·게시 URL·RSS를 대조한 결과로 갱신한다.
 
 반영 후에는 같은 워크플로를 먼저 dry_run=true, use_ai=none으로 실행해 발행 전 gate를 확인한다. 이어 정상 발행 실행에서 published_to_main, 커밋 SHA, 새 글 URL, production 응답과 RSS 반영을 대조한다. 실패하면 기존 실패 로그와 비교하고 테스트나 보안 gate를 건너뛰지 않는다. 누락 기간 기사를 당일 기사인 것처럼 자동 재발행하지 않는다.
 
 ## 로컬 검증 결과
 
 전체 pytest 6075 passed, 3 skipped, 기존 font tier 경고 1개. 정밀 회귀를 강화한 뒤 관련 105개 테스트와 새 회귀 2개 재통과. 변경한 Python 파일 Ruff/Mypy 통과. 초안 포함 Jekyll 빌드 성공. 커밋 훅에서도 전체 테스트와 SVG 검사가 통과했다. 게시물 검사에는 보존한 Mermaid 23줄 경고 1개가 남는다.
+
+## 원격 반영 및 실제 실행에서 추가 발견
+
+- 두 커밋과 원격 변경을 merge한 `3a1faa2c`를 main에 push했다.
+- dry-run [42057213382](https://github.com/Twodragon0/tech-blog/actions/runs/42057213382)는 성공했으나 파일을 쓰지 않는 모드이므로 전체 corpus 발행 gate 성공을 의미하지 않는다.
+- 첫 실제 실행 [42057555197](https://github.com/Twodragon0/tech-blog/actions/runs/42057555197)은 KST 11월 6일 파일을 생성했으나 UTC 11월 5일 파일을 찾아 publish를 건너뛰었다. 워크플로 세 곳의 TODAY를 KST로 통일하고 회귀 테스트를 추가했다 (`e4f49115`). 전체 테스트 6082개 통과 후 push했다.
+- 재실행 [42057987536](https://github.com/Twodragon0/tech-blog/actions/runs/42057987536)은 새 글을 찾았지만 KST 자정 timestamp의 filename-date redirect 누락을 corpus gate가 차단했다. 생성기 보완 대상으로 확인했다. 성공 상태만으로 발행 성공을 판정하지 않은 이유다.
+- 자정 redirect 수정 `ac61a3db`를 main에 반영했다. 로컬 전체 테스트 6092개 통과.
+- 실행 [42058846379](https://github.com/Twodragon0/tech-blog/actions/runs/42058846379)은 날짜 게이트를 통과했으나 use_ai=none으로 남은 영문 카드 제목 13건을 한국어 gate가 차단했다. 현재 Claude/OpenAI Actions 키가 비어 있어 해당 모드만으로 한국어 자동 번역을 완료할 수 없다. 이번 글은 한국어 검수 발행으로 복구하고 정기 번역 제공자 결정은 별도로 남긴다.
+- 별도 worktree 검수에서는 중복 요약 12개를 제거하고 모든 corpus 정적 gate를 통과시켰다. 후보 30건과 본문 카드 15건을 구분하는 설명을 추가했다. 직접 편집 검수이므로 이를 무인 번역 성공으로 표기하지 않는다.
+
+## 검수 발행 원격 반영의 최종 차단 상태
+
+검수 글은 `72532eba`, 포맷 수정은 `75feffd9`로 커밋했고 원격 `fix/news-restoration-20261106` 브랜치와 PR #803에 반영했다. 검수 worktree의 전체 검사 6088 passed, 14 skipped, 기존 font 경고 1개였으며, Jekyll 빌드와 새 글 커밋 훅을 통과했다. 458개 Python 파일의 Ruff format 검사도 통과했다. linked-worktree 훅 격리 후에는 caller HEAD/index/core.bare가 테스트로 바뀌지 않았다.
+
+main 직접 push는 GitHub의 Internal Server Error와 commit_refs_rules 오류로 거부됐다. 다른 브랜치 push와 REST PR 생성은 성공했으나 정상 PR merge API는 HTTP 500, JSON 없는 응답을 반환했다. force/admin 우회는 사용하지 않았다. GitHub 공식 상태 API는 당시 정상으로 표시돼 플랫폼 전체 장애라고 단정하지 않는다.
+
+대체 경로로 로컬 Vercel CLI 인증을 조회했으나 기존 자격 증명이 없어 직접 production 배포도 실행하지 못했다. 로그인·키 변경·새 프로젝트 생성은 수행하지 않았다. 마지막 production RSS 조회는 HTTP 200이지만 최신 항목은 여전히 10월 27일이었다. **새 글 production/RSS 반영은 미완료이며 자동 발행 복구 완료를 주장하지 않는다.**
+
+복구 재개는 PR #803 head의 필수 검사와 merge 상태를 다시 확인한 뒤 정상 merge하고, Vercel 배포 완료 및 새 글 canonical URL과 filename-date redirect, RSS 항목을 대조하는 순서다. 자동 번역은 Claude/OpenAI Actions 키 또는 명시적으로 허용된 기존 제공자 선택이 추가로 필요하다. 질문 없이 새 유료 제공자를 사용하지 않았다.
+
+## 사용자 후속 결정
+
+2026-11-06 사용자가 이번 회차는 한국어 검수 발행으로 복구하고 자동 번역 연결은 후속 작업으로 분리하도록 확정했다. 따라서 이번 회차에 번역 API 키 등록이나 제공자 변경을 요구하지 않고 검수 글의 병합·배포·RSS 확인에 집중한다.
+
+후속 CI 로그에서 pytest 9.2.0의 namespace 기반 패치 복원과 프록시 introspection 불일치를 확인했다. backing module과 동일한 __dict__를 노출하는 수정 및 namespace 복원 회귀 테스트를 추가했다. 이는 Python 3.11 자체의 문제라는 가설을 대체하는 확인된 원인이다.

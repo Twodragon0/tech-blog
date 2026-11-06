@@ -66,7 +66,12 @@ if [ -n "$CHANGED_PY" ] || [ -n "$CHANGED_SVG" ]; then
   else
     echo "[pre-commit] Running tests (cover SVG change — guards size-gate/visual-baseline regressions)..."
   fi
-  python3 -m pytest "$REPO_ROOT/scripts/tests/" -x -q 2>&1
+  (
+    # Git exports repository-local variables to hooks. Test fixtures create
+    # other repositories; do not let their git commands target this index/HEAD.
+    unset $(git rev-parse --local-env-vars)
+    python3 -m pytest "$REPO_ROOT/scripts/tests/" -x -q 2>&1
+  )
   if [ $? -ne 0 ]; then
     echo "[pre-commit] FAILED"
     exit 1
