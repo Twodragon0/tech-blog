@@ -9,7 +9,6 @@
     "test:js": "vitest run",
     "test:api": "node --test api/__tests__/*.test.js",
     "test:coverage": "vitest run --coverage",
-    "vercel-build": "./build.sh",
     "index-posts": "node scripts/index_posts.mjs",
     "index-posts:dry": "node scripts/index_posts.mjs --dry-run",
     "lint": "ruff check scripts/ && mypy scripts/ --ignore-missing-imports",
