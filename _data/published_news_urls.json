@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05T15:53:32.437904+00:00",
+  "updated_at": "2026-11-07T03:49:33.830586+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html",
@@ -450,6 +450,96 @@
       "title": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Ice",
       "published_date": "2026-11-06",
       "expires_at": "2026-11-12T15:53:32.437847+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/",
+      "title": "ARTEX abuse expands as cybercriminals target financial sector",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html",
+      "title": "Installing the Fix for an Exploited WordPress Flaw Can Expose Some Sites One Las",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/addressing-protocol-security-gaps-in-multi-tenant-kubernetes/",
+      "title": "Addressing protocol security gaps in multi-tenant Kubernetes",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html",
+      "title": "Hackers Target OpenSSH SSHole Flaw Within Hours of Disclosure, Gain Root on Hone",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html",
+      "title": "OpenAI Launches GPT-6 Cyber After AI Helps Find 81 Firefox Flaws, 948 Linux Expl",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks/",
+      "title": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Ne",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://openai.com/index/partnering-with-hacktron",
+      "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/",
+      "title": "SageMaker Inference now supports Multi-Instance GPU to maximize GPU utilization ",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/taxonomy-of-agentic-primitives-in-amazon-quick/",
+      "title": "Taxonomy of agentic primitives in Amazon Quick",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/serverless-mcp-server-for-ai-agent-data-lake-access-on-amazon-ecs-fargate/",
+      "title": "Serverless MCP server for AI agent data lake access on Amazon ECS Fargate",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
+      "title": "What’s new with Google Cloud",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga/",
+      "title": "Introducing Z4M: storage-optimized compute for AI/ML and parallel file systems",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/media-entertainment/how-mito-orchestrated-5000-plus-ai-assets-for-a-world-cup-tv-spot/",
+      "title": "The Blueprint: Orchestrating 5,000+ AI assets for a World Cup TV spot",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-ai-functions-in-pandas/",
+      "title": "Zero-shot predictions in Pandas using the new BigQuery Accessor",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/encored-wrf-2/",
+      "title": "인코어드의 AWS HPC 환경에서 WRF 실행하기 [2부: MPI/OpenMP 하이브리드 병렬화 튜닝 심층 분석]",
+      "published_date": "2026-11-07",
+      "expires_at": "2026-11-14T03:49:33.830261+00:00"
     }
   ]
 }
