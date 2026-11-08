@@ -87,3 +87,7 @@ rejection 디렉터리는 workspace의 공개 산출물 경로와 분리하고 �
 - `scripts/news/translation_publication.py`: 후보 상한, 비공개 검수 자료와 게시 전 출처 검사
 - `.github/workflows/ai-blogwatcher.yml`: 기존 Secret 전달·dispatch·게시/배포 경계
 - `docs/pipeline/2026-11-06-translation-followup-plan.md`: T6·T7 후속 구현 범위
+
+## 영속 저장소와 장애 복구의 구체화
+
+단일 Mac mini 실행 주체, canonical 장부 경로, 비공개 백업 위치, 잠금 협조·검증·복구 및 재개 체크리스트를 [영속 장부 운영 런북](../runbooks/translation-ledger-storage-backup-recovery.md)에 정리했다. 같은 SSD의 복사본은 호스트 손실에 대비한 원격 백업을 대체하지 않는다. 외부 백업 목적지와 실제 비용 정산 연결이 확정·검증되기 전까지 운영 실호출을 활성화하지 않는다.
