@@ -26,6 +26,7 @@ from scripts.news.translation_execution import (
     TranslationCache,
     execute_translation,
 )
+from scripts.news.translation_production import ProductionBudgetLedger
 from scripts.news.translation_provider import ProviderRequest, ProviderResponse
 from scripts.news.translation_publication import PublicationTranslation
 
@@ -88,12 +89,15 @@ def validate_fixture(
     *,
     daily_limit_microusd: int = 1_000_000,
     batch_limit_microusd: int = 250_000,
+    require_existing_ledger: bool = False,
 ) -> dict[str, Any]:
     """Exercise T2/T4/T5 and budget accounting with synthetic fixture charges.
 
     Outputs are private, isolated validation artifacts; never a publish manifest,
     published-URL tracker, commit, image generation, or production deployment.
     """
+    if not isinstance(require_existing_ledger, bool):
+        raise ValidationError("Existing-ledger policy must be boolean")
     output, ledger_path = output.resolve(), ledger_path.resolve()
     for target in (output, ledger_path):
         if target == ROOT or ROOT in target.parents:
@@ -105,6 +109,9 @@ def validate_fixture(
     output.mkdir(parents=True, mode=0o700)
     report: dict[str, Any] = {
         "mode": "offline_fixture",
+        "ledger_policy": "existing_only"
+        if require_existing_ledger
+        else "fixture_bootstrap",
         "status": "failed",
         "live_calls": 0,
         "fixture_requests": 0,
@@ -117,7 +124,10 @@ def validate_fixture(
         categorized: dict[str, list[dict]] = {}
         for row in rows:
             categorized.setdefault(row["category"], []).append(row)
-        ledger = BudgetLedger(
+        ledger_type = (
+            ProductionBudgetLedger if require_existing_ledger else BudgetLedger
+        )
+        ledger = ledger_type(
             ledger_path,
             daily_limit_microusd=daily_limit_microusd,
             batch_limit_microusd=batch_limit_microusd,
@@ -223,9 +233,20 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--ledger", type=Path, required=True)
     parser.add_argument("--run-id", required=True)
+    parser.add_argument(
+        "--require-existing-ledger",
+        action="store_true",
+        help="Use production admission against an existing fixture DB and lock; never bootstrap",
+    )
     args = parser.parse_args(argv)
     try:
-        report = validate_fixture(args.fixture, args.output, args.ledger, args.run_id)
+        report = validate_fixture(
+            args.fixture,
+            args.output,
+            args.ledger,
+            args.run_id,
+            require_existing_ledger=args.require_existing_ledger,
+        )
     except (ValidationError, OSError):
         print(
             "Offline validation failed; no production files or live calls.",

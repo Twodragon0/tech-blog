@@ -97,6 +97,27 @@ def test_workflow_is_manual_readonly_without_secrets_or_publish():
     assert "persist-credentials: false" in text
     assert "validate_translation_pipeline.py" in text
     assert "candidate.md" not in text
+    assert "--require-existing-ledger" in text
+    run_steps = [
+        step.get("run", "")
+        for step in workflow["jobs"][next(iter(workflow["jobs"]))]["steps"]
+    ]
+    commands = [
+        command
+        for command in run_steps
+        if "validate_translation_pipeline.py" in command
+    ]
+    assert any("--require-existing-ledger" not in command for command in commands)
+    assert any("--require-existing-ledger" in command for command in commands)
+    artifacts = {
+        step["with"]["name"]: step["with"]["path"]
+        for step in workflow["jobs"]["validate"]["steps"]
+        if "actions/upload-artifact@" in step.get("uses", "")
+    }
+    assert artifacts == {
+        "translation-bootstrap-report": "${{ runner.temp }}/translation-validation-bootstrap/report.json",
+        "translation-offline-report": "${{ runner.temp }}/translation-validation/report.json",
+    }
 
 
 def test_quality_repair_cannot_replace_validated_translation(tmp_path, monkeypatch):
@@ -126,3 +147,196 @@ def test_new_validation_run_keeps_previous_daily_spend(tmp_path):
         )
     report = json.loads((tmp_path / "second/report.json").read_text())
     assert report["status"] == "failed" and report["fixture_requests"] == 0
+
+
+def _cli_validation(fixture, output, ledger_path, run_id, *, protected=False):
+    import os
+    import subprocess
+    import sys
+
+    root = Path(__file__).resolve().parents[2]
+    command = [
+        sys.executable,
+        str(root / "scripts/validate_translation_pipeline.py"),
+        "--fixture",
+        str(fixture),
+        "--output",
+        str(output),
+        "--ledger",
+        str(ledger_path),
+        "--run-id",
+        run_id,
+    ]
+    if protected:
+        command.append("--require-existing-ledger")
+    env = os.environ.copy()
+    for name in (
+        "OPENAI_API_KEY",
+        "CLAUDE_API_KEY",
+        "GEMINI_API_KEY",
+        "DEEPSEEK_API_KEY",
+    ):
+        env.pop(name, None)
+    return subprocess.run(
+        command, cwd=root, env=env, capture_output=True, text=True, timeout=30
+    )
+
+
+def _ledger_records(path):
+    import sqlite3
+    from contextlib import closing
+
+    with closing(sqlite3.connect(path.as_uri() + "?mode=ro", uri=True)) as db:
+        return (
+            db.execute("SELECT * FROM runs ORDER BY run_id").fetchall(),
+            db.execute("SELECT * FROM reservations ORDER BY reservation_id").fetchall(),
+        )
+
+
+def test_protected_cli_missing_storage_reports_zero_requests_and_never_bootstraps(
+    tmp_path,
+):
+    ledger_path = tmp_path / "production" / "budget.sqlite"
+    output = tmp_path / "blocked"
+    result = _cli_validation(FIXTURE, output, ledger_path, "missing", protected=True)
+    assert result.returncode != 0
+    report = json.loads((output / "report.json").read_text())
+    assert report["ledger_policy"] == "existing_only"
+    assert report["fixture_requests"] == 0 and report["live_calls"] == 0
+    assert report["status"] == "failed"
+    assert not ledger_path.exists() and not ledger_path.parent.exists()
+    assert not (output / "candidate.md").exists()
+
+
+def test_protected_cli_bootstrap_maintenance_clear_resume_preserves_spend_and_inode(
+    tmp_path,
+):
+    from scripts.news.translation_budget import BudgetError
+    from scripts.news.translation_production import ProductionBudgetLedger
+
+    ledger_path = tmp_path / "budget.sqlite"
+    first = _cli_validation(FIXTURE, tmp_path / "bootstrap", ledger_path, "bootstrap")
+    assert first.returncode == 0, first.stdout + first.stderr
+    bootstrap_report = json.loads((tmp_path / "bootstrap/report.json").read_text())
+    assert bootstrap_report["ledger_policy"] == "fixture_bootstrap"
+    assert bootstrap_report["fixture_requests"] == 3
+    lock = ledger_path.with_name(ledger_path.name + ".lock")
+    inode = lock.stat().st_ino
+    prior = _ledger_records(ledger_path)
+    second = _cli_validation(
+        FIXTURE, tmp_path / "protected", ledger_path, "protected-one", protected=True
+    )
+    assert second.returncode == 0, second.stdout + second.stderr
+    report = json.loads((tmp_path / "protected/report.json").read_text())
+    assert report["ledger_policy"] == "existing_only" and report["quality_score"] >= 80
+    assert report["fixture_requests"] == 3 and report["rendered_articles"] == 3
+    before_maintenance = _ledger_records(ledger_path)
+    guard = ProductionBudgetLedger(
+        ledger_path, daily_limit_microusd=1_000_000, batch_limit_microusd=250_000
+    )
+    guard.enter_maintenance("restore-one", "restore")
+    blocked = _cli_validation(
+        FIXTURE, tmp_path / "maintenance", ledger_path, "blocked", protected=True
+    )
+    assert blocked.returncode != 0
+    blocked_report = json.loads((tmp_path / "maintenance/report.json").read_text())
+    assert blocked_report["ledger_policy"] == "existing_only"
+    assert (
+        blocked_report["fixture_requests"] == 0 and blocked_report["status"] == "failed"
+    )
+    assert not (tmp_path / "maintenance/candidate.md").exists()
+    assert _ledger_records(ledger_path) == before_maintenance
+    with pytest.raises(BudgetError):
+        guard.clear_maintenance("wrong-id")
+    assert guard.maintenance_path.exists()
+    guard.clear_maintenance("restore-one")
+    resumed = _cli_validation(
+        FIXTURE, tmp_path / "resumed", ledger_path, "resumed", protected=True
+    )
+    assert resumed.returncode == 0, resumed.stdout + resumed.stderr
+    resumed_report = json.loads((tmp_path / "resumed/report.json").read_text())
+    assert resumed_report["ledger_policy"] == "existing_only"
+    assert resumed_report["fixture_requests"] == 3 and resumed_report["live_calls"] == 0
+    assert resumed_report["quality_score"] >= 80
+    final = _ledger_records(ledger_path)
+    assert all(row in final[0] for row in prior[0])
+    assert all(row in final[1] for row in prior[1])
+    assert len(final[1]) == 9
+    assert sum(row[-1] for row in final[1]) == 4_500
+    assert lock.stat().st_ino == inode
+
+
+@pytest.mark.parametrize("kind", ["empty", "corrupt", "policy"])
+def test_protected_cli_invalid_existing_storage_cannot_make_requests(tmp_path, kind):
+    from scripts.news.translation_budget import BudgetLedger
+
+    path = tmp_path / "budget.sqlite"
+    if kind == "policy":
+        with BudgetLedger(
+            path, daily_limit_microusd=100, batch_limit_microusd=80
+        ).batch("fixture"):
+            pass
+    else:
+        path.write_bytes(b"" if kind == "empty" else b"corrupt evidence")
+        path.with_name(path.name + ".lock").touch(mode=0o600)
+    before = path.read_bytes()
+    output = tmp_path / kind
+    result = _cli_validation(FIXTURE, output, path, "blocked", protected=True)
+    assert result.returncode != 0
+    report = json.loads((output / "report.json").read_text())
+    assert report["ledger_policy"] == "existing_only"
+    assert report["fixture_requests"] == 0 and report["live_calls"] == 0
+    assert not (output / "candidate.md").exists()
+    assert path.read_bytes() == before
+
+
+@pytest.mark.parametrize("flag", [None, 0, 1, "true"])
+def test_require_existing_policy_must_be_a_real_boolean(tmp_path, flag):
+    with pytest.raises(ValidationError):
+        validate_fixture(
+            FIXTURE,
+            tmp_path / "out",
+            tmp_path / "budget",
+            "bad-flag",
+            require_existing_ledger=flag,
+        )
+    assert not (tmp_path / "budget").exists()
+
+
+def test_protected_cli_missing_lock_is_not_recreated_or_charged(tmp_path):
+    path = tmp_path / "budget.sqlite"
+    assert (
+        _cli_validation(FIXTURE, tmp_path / "bootstrap", path, "bootstrap").returncode
+        == 0
+    )
+    lock = path.with_name(path.name + ".lock")
+    lock.unlink()
+    before = _ledger_records(path)
+    result = _cli_validation(
+        FIXTURE, tmp_path / "blocked", path, "missing-lock", protected=True
+    )
+    assert result.returncode != 0
+    report = json.loads((tmp_path / "blocked/report.json").read_text())
+    assert (
+        report["ledger_policy"] == "existing_only" and report["fixture_requests"] == 0
+    )
+    assert not lock.exists() and _ledger_records(path) == before
+    assert not (tmp_path / "blocked/candidate.md").exists()
+
+
+def test_protected_report_declares_policy_even_when_fixture_load_fails(tmp_path):
+    malformed = tmp_path / "malformed.json"
+    malformed.write_text("not JSON")
+    with pytest.raises(ValidationError):
+        validate_fixture(
+            malformed,
+            tmp_path / "failed",
+            tmp_path / "missing-db",
+            "bad-fixture",
+            require_existing_ledger=True,
+        )
+    report = json.loads((tmp_path / "failed/report.json").read_text())
+    assert (
+        report["ledger_policy"] == "existing_only" and report["fixture_requests"] == 0
+    )
+    assert not (tmp_path / "missing-db").exists()

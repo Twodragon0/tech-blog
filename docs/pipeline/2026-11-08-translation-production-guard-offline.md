@@ -60,3 +60,25 @@ ledger.clear_maintenance("restore-drill-01")
 ## 로컬 검증 기록
 
 운영 보호 30개·기존 장부 44개·T6 회귀 9개, 집중 검사 총 83개가 통과했다. 변경 Python 3개 파일의 Ruff·format·Mypy를 통과했고, 별도 읽기 전용 리뷰에서 확인한 이중 I/O 장애의 best-effort 한계를 위에 명시했다. 실제 운영 DB·Secret·모델 API·OS 재부팅은 사용하지 않았다. 전체 commit hook 검증과 커밋 SHA는 완료 보고에 기록한다.
+
+## T6 종단 연결
+
+T6 검증 명령의 `--require-existing-ledger`는 이미 준비된 **임시 fixture 장부**에만 보호 API를 적용하는 옵션이다. Python 호출에서는 `require_existing_ledger=True`를 명시한다. 이 경우 `ProductionBudgetLedger.batch()`의 같은 잠금 아래 DB와 marker를 확인하며, 실패해도 기본 `BudgetLedger` 생성 경로로 돌아가지 않는다. fixture 입력·가짜 transport·콘텐츠 gate는 그대로 사용한다.
+
+보고서는 기본 경로를 `ledger_policy=fixture_bootstrap`, 기존 장부 경로를 `ledger_policy=existing_only`로 구분한다. missing DB·유지보수·손상·policy 불일치가 차단되면 `status=failed`, `fixture_requests=0`, `live_calls=0`인 안전한 보고서만 남기고 후보를 쓰지 않는다. 출력 디렉터리는 실행마다 새로 지정해야 하며 운영 장부를 이 검증 명령에 전달하지 않는다.
+
+```bash
+python scripts/validate_translation_pipeline.py \
+  --fixture scripts/tests/fixtures/translation-validation.json \
+  --output /tmp/guarded-fixture-check-01 \
+  --ledger /tmp/rehearsal/budget.sqlite \
+  --run-id guarded-fixture-01 --require-existing-ledger
+```
+
+[검증 명령 구현](../../scripts/validate_translation_pipeline.py)을 참고한다. 기본 fixture 초기 구성 경로는 이전 workflow와의 호환을 위해 유지하며 운영 bootstrap 승인 절차를 대신하지 않는다.
+
+수동 `Translation Offline Validation` workflow는 Secret 없이 CLI 회귀 테스트를 실행하고, 별도 runner.temp 경로에 fixture 장부를 준비한 뒤 같은 장부를 보호 모드로 다시 검증한다. 준비 단계와 보호 단계의 정상 CLI는 각각 가짜 요청 3건을 처리한다. `translation-offline-report`에는 보호 모드의 `report.json`만 올린다. 초기 구성 실패의 진단도 보존하도록 `translation-bootstrap-report`에 준비 단계의 안전한 보고서를 별도로 올린다. 후보·DB·원문 검수 자료는 두 artifact 모두에 넣지 않는다. hosted runner의 임시 장부를 운영 일일 예산 저장소로 간주하지 않는다.
+
+실제 CLI를 새 프로세스로 실행하는 종단 테스트는 missing DB 무생성, 기존 장부 성공, 유지보수 후 새 프로세스의 요청 0회 차단, 해제 ID 확인, 명시적 해제 뒤 재실행과 기존 비용·잠금 inode 보존을 검증한다. 실제 provider Secret·API·production 경로·배포는 사용하지 않는다.
+
+T6 연결 후 집중 검사: runner 20개 + 운영 보호 30개 + 기존 원장 44개, 총 94개 통과. 별도 읽기 전용 검토에서 확인한 bootstrap 실패 보고서 누락도 별도 safe report artifact로 보완했다.
