@@ -40,7 +40,7 @@ python scripts/validate_translation_pipeline.py \
 
 ## 별도 수동 workflow
 
-`translation-validation.yml`은 `workflow_dispatch`만 제공하며 일정·push/PR 자동 실행·임의 입력을 추가하지 않는다. 권한은 `contents: read`, checkout 인증 보존은 끈다. 기존 스크립트 의존성만 설치하고 고정 fixture를 검증한다. 제공자 Secret을 전달하지 않으며 보고서 JSON만 7일 artifact로 올린다. 원문 후보·SQLite·검수 디렉터리는 업로드하지 않는다. workflow 전체 timeout은 5분이다.
+`translation-validation.yml`은 `workflow_dispatch`만 제공하며 일정·push/PR 자동 실행·임의 입력을 추가하지 않는다. 권한은 `contents: read`, checkout 인증 보존은 끈다. 기존 발행 workflow가 사용하는 `requirements-blogwatcher.txt`만 설치하고 고정 fixture를 검증한다. 비디오·다이어그램 등 불필요한 전체 스크립트 의존성은 설치하지 않는다. 제공자 Secret을 전달하지 않으며 보고서 JSON만 7일 artifact로 올린다. 원문 후보·SQLite·검수 디렉터리는 업로드하지 않는다. workflow 전체 timeout은 5분이다.
 
 runner.temp의 장부는 이 오프라인 job만 위한 임시 장부다. 다음 hosted runner에서 이전 일일 사용량을 복원한다는 보장은 없다. 운영용 영속 장부·Secret 주입·실제 사용량 정산·token/가격 snapshot·전체 batch deadline·endpoint/redirect/응답 크기 제한은 여전히 후속 작업이다. 현재 명령이 과금 없이 동작하는 이유는 가짜 transport뿐이며 일반적인 dry-run이 무료이기 때문이 아니다.
 
@@ -59,3 +59,5 @@ runner.temp의 장부는 이 오프라인 job만 위한 임시 장부다. 다음
 - 변경 Python의 Ruff·format·Mypy와 workflow Action SHA 고정 검사를 통과했다.
 - 별도 읽기 전용 리뷰 후 품질 보정의 번역 변경을 거부하는 회귀 테스트를 추가했다. 예산의 로컬 동시성/비용 경계도 리뷰했다.
 - 원격 Actions 실행·운영 모델 호출·Secret 접근·정기 일정 변경은 수행하지 않았다. 전체 pytest 결과와 로컬 커밋은 작업 완료 보고에 기록한다.
+
+전체 commit hook 검증: **6,391 passed, 9 skipped**, 기존 font tier 경고 1건. workflow 의존성 경로 보완 후 Secret/권한 경계의 집중 테스트와 Action SHA 고정 검사를 다시 통과했다.
