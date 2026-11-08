@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-11-07T03:49:33.830586+00:00",
+  "updated_at": "2026-11-08T03:30:08.715553+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html",
-      "title": "Brotli Decoder Flaw Behind Node.js RCE Also Affects Bun, Python and Other Widely",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html",
-      "title": "Leaked LiteLLM Master Key Let Attackers Steal GitHub Tokens and Hijack Release P",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/google-says-gmail-and-photos-data.html",
-      "title": "Google Says Gmail and Photos Data Shared With AI Search Could Be Used for Target",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/researchers-push-over-2-million-updates.html",
-      "title": "Researchers Push Over 2 Million Updates to Remotely Disable Popcorn Time Updater",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html",
-      "title": "CISA Flags Two Actively Exploited Critical Flaws in Collabora Online and Arista ",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
-      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://netflixtechblog.com/beyond-api-compatibility-building-a-tool-to-measure-the-blast-radius-of-library-changes-9474f2fd4f90?source=rss----2615bd06b42e---4",
-      "title": "Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
-      "title": "Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cdk/",
-      "title": "Orchestrating SageMaker AI endpoint auto scaling with AWS CDK",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/visualize-points-and-routes-with-geojson-in-amazon-quick-sight-layer-maps/",
-      "title": "Visualize points and routes with GeoJSON in Amazon Quick Sight layer maps",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode",
-      "title": "Usage metrics API adds usage from tools like OpenCode",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
-      "title": "Turn notifications into code with GitHub Copilot in Teams",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-23-emu-deletions-fix",
-      "title": "EMU deletions fix",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks",
-      "title": "Public monitoring adds triage, validity, API, and webhooks",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available",
-      "title": "Enterprise installations for GitHub Apps generally available",
-      "published_date": "2026-10-24",
-      "expires_at": "2026-10-31T13:58:15.425150+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/blackx-uefi-bootkit-exploits-baton-drop-flaw-to-bypass-secure-boot/",
-      "title": "BlackX UEFI bootkit exploits Baton Drop flaw to bypass Secure Boot",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/10/24/will-ai-expose-the-rickety-infrastructure-of-the-internet/",
-      "title": "Will AI expose the rickety infrastructure of the internet?",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://techcrunch.com/2026/10/24/php-ocalypse-how-two-critical-web-bugs-almost-broke-the-internet/",
-      "title": "PHP-ocalypse: How two critical web bugs almost broke the internet",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=35943",
-      "title": "내 수요일을 돌려줘",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://www.aikido.dev/blog/python-packages-vulnerable-node2shell-brotli-cve-2026-111497",
-      "title": "Node2Shell evolves to HTTP2Shell, blast radius affects many HTTP libs and apps",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/10/24/strategy-strive-face-balancing-act-between-bitcoin-buying-and-preferred-stock-dividends",
-      "title": "Strategy, Strive face balancing act between bitcoin buying and preferred stock d",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/tech/2026/10/24/block-s-new-voice-ai-sounds-eerily-human-sparking-awe-and-scam-fears",
-      "title": "Block's new voice AI sounds eerily human, sparking awe and scam fears",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/markets/2026/10/24/crypto-under-weekend-pressure-bitcoin-slides-below-usd80-000-on-u-s-middle-east-evacuations",
-      "title": "Crypto under weekend pressure, bitcoin slides below $80,000 on U.S. Middle East ",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/10/23/why-mcdonalds-microsoft-and-google-saying-no-to-tokenized-stocks-isn-t-a-dealbreaker",
-      "title": "Why McDonalds, Microsoft and Google saying no to tokenized stocks isn't a dealbr",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://www.coindesk.com/business/2026/10/24/argentina-drops-criminal-probe-into-president-milei-over-crashed-memecoin-libra",
-      "title": "Argentina drops criminal probe into President Milei over crashed memecoin LIBRA",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=35951",
-      "title": "알츠하이머 연구의 돌파구: 뇌 플라크 제거 없이 수면 2시간 회복",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=35950",
-      "title": "우리가 만드는 소프트웨어에 더 큰 야심을 가져야 한다",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=35947",
-      "title": "AI가 생성한 언어는 왜 이해하기 어려울까?",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=35946",
-      "title": "Dream-1 - 처음 보는 양팔 로봇을 제로샷으로 제어하는 로봇 모델",
-      "published_date": "2026-10-25",
-      "expires_at": "2026-11-01T02:23:54.239001+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/10/between-alerts-what-attackers-do-in.html",
       "title": "Between alerts: What Attackers Do in the Spaces Ordinary Detection Misses",
@@ -540,6 +360,96 @@
       "title": "인코어드의 AWS HPC 환경에서 WRF 실행하기 [2부: MPI/OpenMP 하이브리드 병렬화 튜닝 심층 분석]",
       "published_date": "2026-11-07",
       "expires_at": "2026-11-14T03:49:33.830261+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+      "title": "Claude Code's “Don't Ask Again” File Exposes Passwords and Keys in 1,122 Public ",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/",
+      "title": "Hackers pull off $133 million French bank heist via service provider",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/ctm360-exposes-fake-gift-card-scams-exploiting-trusted-brands/",
+      "title": "CTM360 Exposes Fake Gift Card Scams Exploiting Trusted Brands",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
+      "title": "SonicWall Patches Exploited SonicOS Vulnerability That Weakens VPN Logins",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/11/07/we-organized-sustainability-month-heres-what-we-learned-%f0%9f%8c%b1/",
+      "title": "We organized Sustainability Month. Here’s what we learned. 🌱",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ex-fbi-counterintelligence-agent-stole-almost-25m-in-crypto?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Ex-FBI counterintelligence agent stole almost $2.5M in crypto",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/bitcoin-holders-have-received-ecash-what-can-you-with-it?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin holders have received eCash — What can you do with it?",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/us-sanctions-canadian-money-exchange-firms-over-iran-ties?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "US sanctions Canadian money-exchange firms over Iran ties",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/suspicious-prediction-market-activity-seen-before-election-poll-release-nyt?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Suspicious prediction market activity seen before election poll release: NYT",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/nvidia-may-be-facing-a-more-hostile-post-election-washington-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Nvidia may face a more hostile post-election Washington: Report",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=36785&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "언어 모델의 거부 행동은 단일 방향에 의해 매개됨",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=36784&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "Claude Code의 &quot;다시 묻지 않기&quot;, 공개 GitHub 파일 1,122개에 비밀번호 노출",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=36782&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "OpenMausBot - 봇이 사용할 가상 머신을 제공하는 오픈소스 Grok Bot 대체재",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=36781&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "웹에서 AI가 일으키는 온갖 부작용에 어떻게 대처하고 계신가요?",
+      "published_date": "2026-11-08",
+      "expires_at": "2026-11-15T03:30:08.715312+00:00"
     }
   ]
 }
