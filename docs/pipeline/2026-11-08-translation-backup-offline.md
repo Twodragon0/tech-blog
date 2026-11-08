@@ -64,3 +64,13 @@ python scripts/manage_translation_ledger.py restore \
 - 임시 CLI 리허설에서 백업·복구를 성공했고 실행 1건·예약 2건·미정산 1건·합성 비용 500 micro-USD를 유지했다. snapshot SHA-256·기존 lock inode가 보존됐고 복구 후에도 유지보수 차단이 남았다.
 - 리허설 보고서는 `ledger-backup-tool-rehearsal-sjebvk2g/rehearsal-report.json`에 생성했다. 임시 경로의 장기 보존은 보장하지 않는다. 모델 호출은 0회이며 실제 power-loss·운영 원장·외부 복원은 시험하지 않았다.
 - 전체 commit hook 결과와 로컬 커밋은 작업 완료 보고에 기록한다.
+
+## T6의 Secret 없는 리허설 연결
+
+`rehearse_translation_backup.py --output <새 보고서 디렉터리>`는 호출자가 운영 장부 경로를 지정하지 못하게 하고, 자체 `TemporaryDirectory` 안에서만 fixture 장부·snapshot·quarantine을 만든다. 실제 백업/복구 CLI를 새 프로세스로 실행해 유지보수 차단·잠금 inode·snapshot SHA·전체 회계 기록 보존을 확인한다. 임시 fixture를 정리한 뒤 보고서만 저장하며 복구 API 자체가 maintenance를 해제하는 것은 아니다.
+
+수동 T6 workflow에는 백업/CLI/리허설 회귀와 별도 리허설 단계가 추가된다. `translation-backup-rehearsal-report`에는 `mode=offline_backup_restore`, `live_calls=0`, 보존 검사·집계가 담긴 `report.json`만 올린다. 장부·snapshot·quarantine·plaintext는 GitHub artifact에 넣지 않는다. 출력은 새 디렉터리만 허용하고 실패도 안전한 보고서와 종료 코드로 알린다. 운영 백업 일정과 외부 저장소 업로드는 이 리허설의 기능이 아니다.
+
+외부 암호화 보관의 제안 위치·접근 권한·복원 키 분리·회전·분실 대응은 [외부 암호화 백업 런북](../runbooks/translation-ledger-encrypted-offsite-backup.md)을 참고한다. 실제 버킷·암호화 키·IAM·자격 증명은 생성하거나 변경하지 않는다.
+
+연결 후 집중 회귀는 T6 20개·백업/CLI 28개·리허설 8개, 총 56개 통과했다. 별도 읽기 전용 리뷰와 Ruff·format·Mypy를 통과했다. 실제 로컬 리허설도 `status=validated`, 보존 검사 네 개 모두 true, 모델 호출 0회를 확인했다. 보고서만 `/private/tmp/techblog-t6-backup-proof-20261108-01/report.json`에 남겼으며 실제 암호화·키 생성·외부 업로드는 수행하지 않았다.

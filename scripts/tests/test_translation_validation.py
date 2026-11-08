@@ -98,6 +98,7 @@ def test_workflow_is_manual_readonly_without_secrets_or_publish():
     assert "validate_translation_pipeline.py" in text
     assert "candidate.md" not in text
     assert "--require-existing-ledger" in text
+    assert "rehearse_translation_backup.py" in text
     run_steps = [
         step.get("run", "")
         for step in workflow["jobs"][next(iter(workflow["jobs"]))]["steps"]
@@ -115,6 +116,7 @@ def test_workflow_is_manual_readonly_without_secrets_or_publish():
         if "actions/upload-artifact@" in step.get("uses", "")
     }
     assert artifacts == {
+        "translation-backup-rehearsal-report": "${{ runner.temp }}/translation-backup-rehearsal/report.json",
         "translation-bootstrap-report": "${{ runner.temp }}/translation-validation-bootstrap/report.json",
         "translation-offline-report": "${{ runner.temp }}/translation-validation/report.json",
     }
