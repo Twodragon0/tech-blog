@@ -61,3 +61,7 @@ runner.temp의 장부는 이 오프라인 job만 위한 임시 장부다. 다음
 - 원격 Actions 실행·운영 모델 호출·Secret 접근·정기 일정 변경은 수행하지 않았다. 전체 pytest 결과와 로컬 커밋은 작업 완료 보고에 기록한다.
 
 전체 commit hook 검증: **6,391 passed, 9 skipped**, 기존 font tier 경고 1건. workflow 의존성 경로 보완 후 Secret/권한 경계의 집중 테스트와 Action SHA 고정 검사를 다시 통과했다.
+
+## 운영 장부의 저장·백업·복구 설계
+
+운영 기준 경로는 `~/.local/state/tech-blog/translation/production/budget.sqlite`로 제안한다. 서비스 디렉터리 생성·장부 초기화·launchd 등록은 수행하지 않았다. 동시 실행 차단을 유지하는 백업, 오래된 snapshot의 누락 예약 대조와 재개 조건은 [영속 장부 운영 런북](../runbooks/translation-ledger-storage-backup-recovery.md)을 따른다.
