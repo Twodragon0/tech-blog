@@ -15,6 +15,7 @@ import fcntl
 import os
 import re
 import sqlite3
+import stat
 import uuid
 from collections.abc import Iterator
 from contextlib import contextmanager
@@ -55,17 +56,78 @@ def _identity(value: object) -> str:
     return value
 
 
+def _existing_identity(path: Path) -> tuple[int, int]:
+    try:
+        info = path.stat()
+    except OSError:
+        raise BudgetError("Existing budget storage is unavailable") from None
+    if not stat.S_ISREG(info.st_mode) or info.st_size == 0 or info.st_nlink != 1:
+        raise BudgetError("Existing budget storage is not a nonempty single-link file")
+    return info.st_dev, info.st_ino
+
+
+def _validate_existing_db(
+    db: sqlite3.Connection, daily_limit_microusd: int, batch_limit_microusd: int
+) -> None:
+    """Shared read-only validation; never creates schema or records a run."""
+    if db.execute("PRAGMA quick_check").fetchall() != [("ok",)]:
+        raise BudgetError("Budget storage integrity check failed")
+    tables = {
+        row[0]
+        for row in db.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"
+        )
+    }
+    if db.execute("PRAGMA user_version").fetchone() != (1,) or tables != {
+        "runs",
+        "reservations",
+        "policy",
+    }:
+        raise BudgetError("Unsupported or incomplete budget storage schema")
+    if db.execute("PRAGMA journal_mode").fetchone() != ("delete",):
+        raise BudgetError("Unexpected budget journal mode")
+    policy = db.execute(
+        "SELECT daily_limit_microusd,batch_limit_microusd FROM policy WHERE singleton=1"
+    ).fetchall()
+    if policy != [(daily_limit_microusd, batch_limit_microusd)]:
+        raise BudgetError("Persisted budget policy differs from requested limits")
+    # Never recreate missing tables or columns on an existing version: that
+    # could silently discard the only evidence of previously reserved cost.
+    if [row[1] for row in db.execute("PRAGMA table_info(reservations)")] != [
+        "reservation_id",
+        "run_id",
+        "attempt_id",
+        "utc_day",
+        "reserved_microusd",
+        "actual_microusd",
+    ]:
+        raise BudgetError("Invalid budget reservation schema")
+    if db.execute("PRAGMA foreign_key_check").fetchall():
+        raise BudgetError("Budget storage reference check failed")
+
+
 class BudgetLedger:
     """Persist charges, applying the explicit policy supplied by each caller."""
 
     def __init__(
-        self, path: Path, *, daily_limit_microusd: int, batch_limit_microusd: int
+        self,
+        path: Path,
+        *,
+        daily_limit_microusd: int,
+        batch_limit_microusd: int,
+        require_existing: bool = False,
     ) -> None:
         if not isinstance(path, Path):
             raise BudgetError("Explicit ledger Path required")
         self.daily_limit_microusd = _integer(daily_limit_microusd)
         self.batch_limit_microusd = _integer(batch_limit_microusd)
         self.path = path.resolve()
+        if not isinstance(require_existing, bool):
+            raise BudgetError("Existing-only policy must be boolean")
+        self._require_existing = require_existing
+
+    def _before_open_locked(self) -> None:
+        """Extension point for production admission while holding the flock."""
 
     def batch(self, run_id: str) -> BudgetBatch:
         """Create one context; run IDs are single-use, attempts unique per run."""
@@ -82,10 +144,16 @@ class BudgetBatch:
         self._lock: BinaryIO | None = None
         self._owner_pid = os.getpid()
         self._created_storage = False
+        self._storage_identity: tuple[int, int] | None = None
 
     def _connection(self) -> sqlite3.Connection:
         if self._db is None or self._owner_pid != os.getpid():
             raise BudgetError("Budget batch is inactive or belongs to another process")
+        if (
+            self._ledger._require_existing
+            and _existing_identity(self._ledger.path) != self._storage_identity
+        ):
+            raise BudgetError("Production budget storage was removed or replaced")
         return self._db
 
     @contextmanager
@@ -106,6 +174,13 @@ class BudgetBatch:
 
     def _initialize(self) -> None:
         db = self._connection()
+        if self._ledger._require_existing:
+            _validate_existing_db(
+                db, self._ledger.daily_limit_microusd, self._ledger.batch_limit_microusd
+            )
+            db.execute("PRAGMA foreign_keys=ON")
+            db.execute("PRAGMA synchronous=FULL")
+            return
         db.execute("PRAGMA foreign_keys=ON")
         db.execute("PRAGMA journal_mode=DELETE")
         db.execute("PRAGMA synchronous=FULL")
@@ -151,62 +226,73 @@ class BudgetBatch:
                 transaction.execute("PRAGMA user_version=1")
         elif version != 1 or tables != {"runs", "reservations", "policy"}:
             raise BudgetError("Unsupported or incomplete budget storage schema")
-        policy = db.execute(
-            "SELECT daily_limit_microusd,batch_limit_microusd FROM policy WHERE singleton=1"
-        ).fetchall()
-        if policy != [
-            (self._ledger.daily_limit_microusd, self._ledger.batch_limit_microusd)
-        ]:
-            raise BudgetError("Persisted budget policy differs from requested limits")
-        # Never recreate missing tables or columns on an existing version: that
-        # could silently discard the only evidence of previously reserved cost.
-        if [row[1] for row in db.execute("PRAGMA table_info(reservations)")] != [
-            "reservation_id",
-            "run_id",
-            "attempt_id",
-            "utc_day",
-            "reserved_microusd",
-            "actual_microusd",
-        ]:
-            raise BudgetError("Invalid budget reservation schema")
-        if db.execute("PRAGMA foreign_key_check").fetchall():
-            raise BudgetError("Budget storage reference check failed")
+        _validate_existing_db(
+            db, self._ledger.daily_limit_microusd, self._ledger.batch_limit_microusd
+        )
 
     def __enter__(self) -> BudgetBatch:
         if self._lock is not None or self._db is not None:
             raise BudgetError("Budget batch is already active")
         try:
-            self._ledger.path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
             lock_path = self._ledger.path.with_name(self._ledger.path.name + ".lock")
-            self._lock = lock_path.open("a+b")
-            os.fchmod(self._lock.fileno(), 0o600)
+            if self._ledger._require_existing:
+                descriptor = os.open(lock_path, os.O_RDWR | os.O_NOFOLLOW)
+                self._lock = os.fdopen(descriptor, "r+b")
+                info = os.fstat(self._lock.fileno())
+                linked = lock_path.lstat()
+                if not stat.S_ISREG(info.st_mode) or (info.st_dev, info.st_ino) != (
+                    linked.st_dev,
+                    linked.st_ino,
+                ):
+                    raise BudgetError("Existing regular budget lock required")
+            else:
+                self._ledger.path.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+                self._lock = lock_path.open("a+b")
+                os.fchmod(self._lock.fileno(), 0o600)
             try:
                 fcntl.flock(self._lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
             except OSError as error:
                 if error.errno in (errno.EACCES, errno.EAGAIN):
                     raise BudgetBusy("Another budget batch is active") from None
                 raise
-            if self._ledger.path.exists() and self._ledger.path.stat().st_nlink > 1:
-                raise BudgetError("Hard-linked budget storage is not supported")
-            try:
-                descriptor = os.open(
-                    self._ledger.path, os.O_RDWR | os.O_CREAT | os.O_EXCL, 0o600
+            if self._ledger._require_existing:
+                held, current = os.fstat(self._lock.fileno()), lock_path.lstat()
+                if not stat.S_ISREG(current.st_mode) or (held.st_dev, held.st_ino) != (
+                    current.st_dev,
+                    current.st_ino,
+                ):
+                    raise BudgetError("Budget lock changed during acquisition")
+            self._ledger._before_open_locked()
+            if self._ledger._require_existing:
+                self._storage_identity = _existing_identity(self._ledger.path)
+                self._db = sqlite3.connect(
+                    self._ledger.path.as_uri() + "?mode=rw",
+                    uri=True,
+                    timeout=0,
+                    isolation_level=None,
                 )
-            except FileExistsError:
-                self._created_storage = False
-                if self._ledger.path.stat().st_size == 0:
-                    raise BudgetError(
-                        "Existing empty budget storage cannot be initialized automatically"
-                    )
             else:
-                os.close(descriptor)
-                self._created_storage = True
-            if self._ledger.path.stat().st_nlink > 1:
-                raise BudgetError("Hard-linked budget storage is not supported")
-            self._ledger.path.chmod(0o600)
-            self._db = sqlite3.connect(
-                self._ledger.path, timeout=0, isolation_level=None
-            )
+                if self._ledger.path.exists() and self._ledger.path.stat().st_nlink > 1:
+                    raise BudgetError("Hard-linked budget storage is not supported")
+                try:
+                    descriptor = os.open(
+                        self._ledger.path, os.O_RDWR | os.O_CREAT | os.O_EXCL, 0o600
+                    )
+                except FileExistsError:
+                    self._created_storage = False
+                    if self._ledger.path.stat().st_size == 0:
+                        raise BudgetError(
+                            "Existing empty budget storage cannot be initialized automatically"
+                        )
+                else:
+                    os.close(descriptor)
+                    self._created_storage = True
+                if self._ledger.path.stat().st_nlink > 1:
+                    raise BudgetError("Hard-linked budget storage is not supported")
+                self._ledger.path.chmod(0o600)
+                self._db = sqlite3.connect(
+                    self._ledger.path, timeout=0, isolation_level=None
+                )
             self._initialize()
             with self._transaction() as db:
                 db.execute(
