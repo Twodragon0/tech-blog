@@ -30,7 +30,7 @@
 - 최초 bootstrap은 별도의 승인된 절차와 실행 증거로만 허용한다.
 - 영속 maintenance 상태가 있으면 재부팅 후에도 새 실행·API 호출을 막는다.
 
-이 production preflight·bootstrap 승인·영속 maintenance gate는 **아직 구현·배포되지 않은 활성화 조건**이다. 지금 있는 `BudgetLedger`의 기능으로 오인하지 않는다. DB가 사라졌을 때 자동 생성하도록 두면 백업 손실이 예산 0부터 재시작하는 사고로 이어진다.
+기존 DB 확인·영속 maintenance API는 [운영 보호 구현](../pipeline/2026-11-08-translation-production-guard-offline.md)에서 구현해 PR #813으로 병합했다. 실제 운영 entrypoint 연결·bootstrap 승인 절차·호스트 배포는 아직 별도 활성화 조건이다. 일반 `BudgetLedger`가 이 보호를 자동 제공한다고 오인하지 않는다. DB가 사라졌을 때 자동 생성하도록 두면 백업 손실이 예산 0부터 재시작하는 사고로 이어진다.
 
 ## 2. 보존해야 하는 예산 의미
 
@@ -245,3 +245,7 @@ SHA-256은 닫힌 snapshot의 최종 bytes로 계산한다. manifest에 기록�
 - [SQLite Online Backup API](https://www.sqlite.org/backup.html): 일관된 snapshot 생성 방법.
 - [SQLite How To Corrupt Your Database Files](https://www.sqlite.org/howtocorrupt.html): 활성 DB 복사·hot journal 삭제·열린 DB 교체의 위험.
 - [Python 3.11 sqlite3.Connection.backup](https://docs.python.org/3.11/library/sqlite3.html#sqlite3.Connection.backup): Python backup API와 연결 수명 관리의 기준.
+
+## 잠금 연동 도구의 오프라인 구현
+
+[백업·검증 복구 도구](../pipeline/2026-11-08-translation-backup-offline.md)는 기존 flock·manifest 검증과 유지보수 ID를 사용한다. 현재 accounting과 정확히 같은 snapshot의 복구만 적용하며, 손상된 current DB 또는 누락 비용 대조가 필요한 과거 snapshot은 자동 적용하지 않는다. 운영 일정·retention·외부 암호화 보관은 설치하지 않았다.

@@ -25,8 +25,12 @@ jobs:
           python-version: '3.11'
       - name: Install existing script dependencies
         run: python -m pip install -r requirements-blogwatcher.txt
-      - name: Exercise missing DB and maintenance CLI boundaries offline
-        run: python -m pytest -q scripts/tests/test_translation_validation.py
+      - name: Exercise ledger protection and recovery boundaries offline
+        run: >-
+          python -m pytest -q scripts/tests/test_translation_validation.py
+          scripts/tests/test_translation_backup.py
+          scripts/tests/test_translation_backup_cli.py
+          scripts/tests/test_translation_backup_rehearsal.py
       - name: Prepare isolated fixture ledger without Secrets
         env:
           VALIDATION_OUTPUT: ${{ runner.temp }}/translation-validation-bootstrap
@@ -50,6 +54,18 @@ jobs:
             --ledger "$VALIDATION_LEDGER" \
             --run-id "$VALIDATION_RUN_ID" \
             --require-existing-ledger
+      - name: Rehearse backup and restore on a disposable fixture
+        env:
+          REHEARSAL_OUTPUT: ${{ runner.temp }}/translation-backup-rehearsal
+        run: python scripts/rehearse_translation_backup.py --output "$REHEARSAL_OUTPUT"
+      - name: Upload safe backup rehearsal report only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: translation-backup-rehearsal-report
+          path: ${{ runner.temp }}/translation-backup-rehearsal/report.json
+          retention-days: 7
+          if-no-files-found: warn
       - name: Upload safe bootstrap report only
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
