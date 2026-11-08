@@ -334,3 +334,17 @@ def test_invalid_forced_date_exits(tmp_path, monkeypatch):
         publish_main()
     assert caught.value.code == 1
     assert not (tmp_path / "manifest.json").exists()
+
+
+def test_failed_preflight_manifest_roundtrip_cannot_announce_created_post(tmp_path):
+    repo = _repo(tmp_path)
+    _write_pair(repo)
+    manifest = repo / ".blogwatcher-publish.json"
+    write_manifest(
+        manifest, status="failed", reason="translation_failed", date="2026-11-06"
+    )
+    assert json.loads(manifest.read_text())["status"] == "failed"
+    outcome = resolve_manifest(manifest)
+    assert not outcome.ok
+    assert not outcome.post_created
+    assert "failed preflight" in outcome.message

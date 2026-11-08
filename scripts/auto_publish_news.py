@@ -18,7 +18,7 @@ import sys
 from collections.abc import Mapping
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, cast
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, cast
 
 # Ensure project root is on sys.path so ``scripts.news`` is importable
 _PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)
@@ -29,6 +29,9 @@ if _PROJECT_ROOT not in sys.path:
 # Import the news package modules
 # ---------------------------------------------------------------------------
 import scripts.news.config as _news_config  # noqa: E402
+
+if TYPE_CHECKING:
+    from scripts.news.translation_publication import PublicationTranslation
 from scripts.blogwatcher_manifest import (  # noqa: E402
     default_manifest_path,
     kst_publish_date,
@@ -656,7 +659,7 @@ def _preserve_rejected_post(post_path: Path, issues: List[str]) -> Optional[Path
         return None
 
 
-def main():
+def main(*, translation: Optional["PublicationTranslation"] = None) -> None:
     parser = argparse.ArgumentParser(description="Auto publish news to _posts")
     parser.add_argument(
         "--dry-run", action="store_true", help="Preview without publishing"
@@ -819,6 +822,27 @@ def main():
             _record("skipped", "same_day_exists", date=date_str)
             return
 
+    original_categorized = categorized
+    if translation is not None:
+        candidates = (
+            {
+                k: v
+                for k, v in categorized.items()
+                if k in ("tech", "devops", "ai", "cloud")
+            }
+            if args.mode == "tech-blog"
+            else categorized
+        )
+        from scripts.news.translation_publication import TranslationPublicationError
+
+        try:
+            categorized = translation.prepare(
+                candidates, legacy_ai_disabled=args.use_ai == "none"
+            )
+        except TranslationPublicationError:
+            _record("failed", "translation_failed", date=date_str)
+            raise SystemExit(1) from None
+
     if args.mode == "tech-blog":
         # Filter for tech blog content only
         tech_categorized = {
@@ -831,7 +855,19 @@ def main():
             _record("skipped", "no_tech_content", date=date_str)
             return
         selected = select_top_news(tech_categorized, args.max_news)
-        topics = _extract_key_topics(selected)
+        topic_candidates = (
+            select_top_news(
+                {
+                    k: v
+                    for k, v in original_categorized.items()
+                    if k in tech_categorized
+                },
+                args.max_news,
+            )
+            if translation is not None
+            else selected
+        )
+        topics = _extract_key_topics(topic_candidates)
         topics_slug = "_".join(topics[:3]) if topics else "Tech"
 
         post_content = generate_tech_blog_content(
@@ -841,7 +877,12 @@ def main():
         svg_filename = f"{date_str}-Tech_Blog_Weekly_Digest_{topics_slug}.svg"
     else:
         selected = select_top_news(categorized, args.max_news)
-        topics = _extract_key_topics(selected)
+        topic_candidates = (
+            select_top_news(original_categorized, args.max_news)
+            if translation is not None
+            else selected
+        )
+        topics = _extract_key_topics(topic_candidates)
         topics_slug = "_".join(topics[:4]) if topics else "News"
 
         post_content = generate_post_content(selected, categorized, now, topics_slug)
@@ -863,6 +904,14 @@ def main():
 
     post_path = POSTS_DIR / post_filename
     svg_path = IMAGES_DIR / svg_filename
+
+    tracked_items = selected
+    if translation is not None:
+        try:
+            tracked_items = translation.rendered_items(post_content, categorized)
+        except TranslationPublicationError:
+            _record("failed", "translation_source_rendering", date=date_str)
+            raise SystemExit(1) from None
 
     print(f"\u2705 Selected {len(selected)} top news items")
     for cat, items in categorized.items():
@@ -1131,7 +1180,7 @@ def main():
     print(f"\u2705 Created post: {post_path}")
 
     # Track published URLs for cross-day dedup
-    save_published_urls(selected, date_str)
+    save_published_urls(tracked_items, date_str)
 
     with open(svg_path, "w", encoding="utf-8") as f:
         f.write(svg_content)
