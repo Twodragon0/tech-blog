@@ -1,0 +1,46 @@
+name: Translation Offline Validation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# This serializes THIS workflow; the ledger lock covers processes sharing its
+# local path. Hosted runners do not share a durable daily production budget.
+concurrency:
+  group: translation-offline-validation
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v6
+        with:
+          python-version: '3.11'
+      - name: Install existing script dependencies
+        run: python -m pip install -r scripts/requirements.txt
+      - name: Validate fixture pipeline without Secrets
+        env:
+          VALIDATION_OUTPUT: ${{ runner.temp }}/translation-validation
+          VALIDATION_LEDGER: ${{ runner.temp }}/translation-budget.sqlite
+          VALIDATION_RUN_ID: offline-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python scripts/validate_translation_pipeline.py \
+            --fixture scripts/tests/fixtures/translation-validation.json \
+            --output "$VALIDATION_OUTPUT" \
+            --ledger "$VALIDATION_LEDGER" \
+            --run-id "$VALIDATION_RUN_ID"
+      - name: Upload safe validation report only
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: translation-offline-report
+          path: ${{ runner.temp }}/translation-validation/report.json
+          retention-days: 7
+          if-no-files-found: warn
