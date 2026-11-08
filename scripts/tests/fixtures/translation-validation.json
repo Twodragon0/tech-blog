@@ -1,0 +1,55 @@
+{
+  "articles": [
+    {
+      "id": "acme",
+      "url": "https://vendor.test/acme",
+      "title": "Acme releases an update",
+      "summary": "Acme releases a patch. Review the changes before deploying.",
+      "source": "Vendor",
+      "published_date": "2026-11-08T00:00:00+00:00",
+      "category": "ai",
+      "protected_terms": [
+        "Acme"
+      ],
+      "translation": {
+        "korean_title": "Acme 업데이트 공개",
+        "korean_summary": "Acme 업데이트를 공개했다. 적용 전 변경 내용과 서비스 영향 범위를 검토해야 한다.",
+        "editorial_note": ""
+      }
+    },
+    {
+      "id": "beacon",
+      "url": "https://vendor.test/beacon",
+      "title": "Beacon releases an update",
+      "summary": "Beacon releases a patch. Review the changes before deploying.",
+      "source": "Vendor",
+      "published_date": "2026-11-08T00:00:00+00:00",
+      "category": "cloud",
+      "protected_terms": [
+        "Beacon"
+      ],
+      "translation": {
+        "korean_title": "Beacon 업데이트 공개",
+        "korean_summary": "Beacon 업데이트를 공개했다. 적용 전 변경 내용과 서비스 영향 범위를 검토해야 한다.",
+        "editorial_note": ""
+      }
+    },
+    {
+      "id": "cedar",
+      "url": "https://vendor.test/cedar",
+      "title": "Cedar releases an update",
+      "summary": "Cedar releases a patch. Review the changes before deploying.",
+      "source": "Vendor",
+      "published_date": "2026-11-08T00:00:00+00:00",
+      "category": "tech",
+      "protected_terms": [
+        "Cedar"
+      ],
+      "translation": {
+        "korean_title": "Cedar 업데이트 공개",
+        "korean_summary": "Cedar 업데이트를 공개했다. 적용 전 변경 내용과 서비스 영향 범위를 검토해야 한다.",
+        "editorial_note": ""
+      }
+    }
+  ]
+}
