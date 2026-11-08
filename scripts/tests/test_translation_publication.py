@@ -431,14 +431,32 @@ def test_long_summary_is_rejected_before_renderer_can_drop_protected_facts(
         boundary.prepare({"security": items})
 
 
-def test_tech_mode_missing_source_cards_fails_closed(items, tmp_path, monkeypatch):
+@pytest.mark.parametrize("category", ["ai", "devops", "cloud", "tech"])
+def test_tech_mode_publishes_validated_sources_with_real_gates(
+    items, tmp_path, monkeypatch, category
+):
+    original = copy.deepcopy(items)
+    for item in items:
+        item["category"] = category
     posts, _, manifest, tracker = setup_main(monkeypatch, tmp_path, items)
     monkeypatch.setattr(sys, "argv", sys.argv + ["--mode", "tech-blog"])
-    monkeypatch.setattr(publisher, "categorize_news", lambda rows: {"cloud": rows})
+    monkeypatch.setattr(publisher, "categorize_news", lambda rows: {category: rows})
     boundary = PublicationTranslation(
         executor=translated, max_articles=3, rejection_dir=tmp_path / "rejected"
     )
-    with pytest.raises(SystemExit):
-        publisher.main(translation=boundary)
-    assert not posts.exists() and not tracker
-    assert json.loads(manifest.read_text())["reason"] == "translation_source_rendering"
+    publisher.main(translation=boundary)
+    generated = list(posts.glob("*.md"))
+    assert len(generated) == 1
+    content = generated[0].read_text()
+    assert "Acme 취약점 패치 공개" in content
+    assert "Acme 보안 패치를 공개했다." in content
+    assert {item["url"] for item in tracker} == {item["url"] for item in items}
+    assert all(item["url"] in content for item in items)
+    from scripts.news.qa_gate import validate_stats_consistency
+
+    assert validate_stats_consistency(content) == []
+    assert json.loads(manifest.read_text())["status"] == "created"
+    for item, before in zip(items, original):
+        assert item["url"] == before["url"]
+        assert item["title"] == before["title"]
+        assert item["published_date"] == before["published_date"]

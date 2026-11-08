@@ -47,12 +47,14 @@ dry-run은 번역과 렌더링·사전 검사를 실행하고 dry_run manifest�
 T1 검사는 어휘적 보존이며 의미적 번역 충실도와 심각도 추론의 정확성을 보장하지 않는다. 기존 후속 콘텐츠 검사가 결과를 거부하면 그 실패를 유지해야 한다. 전체 배치 시간·일일 비용·T6 Secret/운영 transport 및 T7 원격 증거는 별도다.
 
 
-### source-card 기반 tracker와 tech-blog 제한
+### source-card 기반 tracker와 tech-blog 보완
 
 선택적 연결에서는 기존 카드 검사기의 `CARD_RE`를 재사용해 생성된 본문의 quoted URL을 읽고 HTML entity를 해제한다. 검증된 후보와 연결되는 실제 source card만 tracker에 기록하며 중복 카드는 한 번만 기록한다. URL이 없거나 알 수 없거나 source card가 한 개도 없으면 글을 쓰기 전에 failed manifest와 검수 자료를 남기고 중단한다. 기본 미연결 경로는 여전히 기존 selected 기반 추적을 사용한다.
 
-현재 tech-blog 렌더러의 일부 AI/ML·DevOps·Open Source 경로는 source card가 있다는 주석과 달리 제목·요약만 출력한다. 이 문제를 이번 작업에서 넓혀 수정하지 않았다. 해당 경로는 선택적 T5 source-card 검사를 통과하지 못하므로 실패 상태를 유지한다. tech-blog 모드 전체의 운영 준비 완료를 주장하지 않는다.
+최초 커밋 `29220190`에서는 tech-blog 렌더러 일부가 제목·요약만 출력해 source-card 검사에서 중단됐다. 2026-11-08 보완에서는 기존 security 카드 생성·Liquid escaping을 공통 helper로 재사용하고 tech-blog의 중요 업데이트·AI/ML·DevOps/Cloud·Open Source·General 섹션에도 출처 카드를 생성한다. 실제 카드가 없는 입력과 알 수 없는 URL은 여전히 실패한다. Secret/운영 transport·전체 batch 비용 제한은 별도이며 운영 활성화 완료를 의미하지 않는다.
 
 ### 최종 로컬 검증
 
-T5 테스트 23개, manifest/registry 및 T1·T2·T4를 합친 집중 검사 206개 통과. 변경 Python 6개 파일의 Ruff·format check·Mypy를 통과했다. 실제 commit hook의 전체 직렬 pytest 결과는 작업 완료 보고에 별도로 기록한다. 이번 단계는 로컬 커밋까지이며 push·제공자 호출·원격 발행은 하지 않는다.
+T5 테스트 23개, manifest/registry 및 T1·T2·T4를 합친 집중 검사 206개 통과. 변경 Python 6개 파일의 Ruff·format check·Mypy를 통과했다. 실제 commit hook의 전체 직렬 pytest 결과는 작업 완료 보고에 별도로 기록한다. 최초 구현 검증은 로컬 커밋까지였고 provider 호출·원격 콘텐츠 발행은 수행하지 않았다. 2026-11-08에는 원본 커밋을 PR #810으로 전송했다.
+
+운영 연결 전 Secret·제안 비용 상한·중단 및 복구 절차는 [운영 준비 문서](2026-11-08-translation-operations-readiness.md)에 정리했다. 원본 T5 커밋은 PR #810으로 분리했고 실제 API 호출은 수행하지 않았다.

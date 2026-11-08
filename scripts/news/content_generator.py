@@ -1890,6 +1890,66 @@ toc: true
     return content
 
 
+# fmt: off
+_CURLY_QUOTES = {"\u201c": '"', "\u201d": '"', "\u2018": "'", "\u2019": "'"}
+# fmt: on
+
+
+def _sanitize_liquid_param(text: str) -> str:
+    """Liquid include 파라미터용 문자열 정리.
+
+    Liquid include attributes use ASCII " as the outer delimiter and do
+    NOT honor backslash escapes — ``\\"`` is two literal characters, not an
+    escaped quote, so the attribute terminates at the first inner ASCII ".
+    Mirror ``scripts/fix_malformed_liquid_includes.py``: normalize any
+    curly quotes the LLM emitted to ASCII first, then map inner ASCII " to
+    U+201D RIGHT DOUBLE QUOTATION MARK so the value never breaks the
+    outer delimiter. Inner ASCII ' is already safe (different character)
+    so it is left as-is.
+    """
+    for curly, straight in _CURLY_QUOTES.items():
+        text = text.replace(curly, straight)
+    return text.replace('"', "\u201d")
+
+
+def _render_news_card(
+    item: Dict, title: str, ko_summary: str, *, severity: str, force_url: bool = False
+) -> Tuple[str, str]:
+    """Share Liquid escaping and card fields across security and tech digests."""
+    url = item.get("url", "")
+    image = item.get("image", "")
+    source = item.get("source_name", item.get("source", "Unknown"))
+    card_shows = ""
+
+    if image or ko_summary or (force_url and url):
+        card_parts = [
+            "{% include news-card.html",
+            '  title="%s"' % _sanitize_liquid_param(title),
+            '  url="%s"' % _sanitize_liquid_param(url),
+        ]
+        if image:
+            # Strip query params that break Jekyll include parser
+            clean_image = image.split("?")[0] if "?" in image else image
+            card_parts.append('  image="%s"' % _sanitize_liquid_param(clean_image))
+        if ko_summary:
+            # Boundary-aware, NOT ko_summary[:200]: the raw slice cut readers off
+            # mid-word ("…지원하는 방식으로 확") on 128 of 1,756 corpus cards, whose
+            # lengths cluster exactly on the cap. _korean_brief_summary already
+            # boundary-cuts at 220, so a blind 200 re-cut undid that work; the
+            # excerpt and table-summary paths have always used this helper.
+            card_summary = _sanitize_liquid_param(
+                _truncate_korean_sentence(ko_summary, 200)
+            )
+            card_parts.append('  summary="%s"' % card_summary)
+            card_shows = card_summary
+        card_parts.append('  source="%s"' % _sanitize_liquid_param(source))
+        card_parts.append('  severity="%s"' % severity)
+        card_parts.append("%}")
+        return "\n".join(card_parts) + "\n\n", card_shows
+
+    return "", card_shows
+
+
 def generate_tech_blog_content(
     news_items: List[Dict],
     categorized: Dict[str, List[Dict]],
@@ -2118,9 +2178,14 @@ toc: true
             ko_summary = _korean_brief_summary(item)
 
             content += f"### {title}\n\n"
-            if ko_summary:
-                content += f"{ko_summary}\n\n"
-            # 출처는 news-card에 포함되므로 별도 blockquote 생략
+            card, _ = _render_news_card(
+                item,
+                title,
+                ko_summary,
+                severity=_determine_severity(item),
+                force_url=True,
+            )
+            content += card
         section_num += 1
 
     # AI/ML 섹션
@@ -2133,9 +2198,14 @@ toc: true
             ko_summary = _korean_brief_summary(item)
 
             content += f"### {section_num}.{i} {title}\n\n"
-            if ko_summary:
-                content += f"{ko_summary}\n\n"
-            # 출처는 news-card에 포함되므로 별도 blockquote 생략
+            card, _ = _render_news_card(
+                item,
+                title,
+                ko_summary,
+                severity=_determine_severity(item),
+                force_url=True,
+            )
+            content += card
 
             # Key points
             key_points = _generate_key_points(item)
@@ -2154,9 +2224,14 @@ toc: true
             ko_summary = _korean_brief_summary(item)
 
             content += f"### {section_num}.{i} {title}\n\n"
-            if ko_summary:
-                content += f"{ko_summary}\n\n"
-            # 출처는 news-card에 포함되므로 별도 blockquote 생략
+            card, _ = _render_news_card(
+                item,
+                title,
+                ko_summary,
+                severity=_determine_severity(item),
+                force_url=True,
+            )
+            content += card
         section_num += 1
 
     # Open Source 섹션
@@ -2169,23 +2244,31 @@ toc: true
             ko_summary = _korean_brief_summary(item)
 
             content += f"### {section_num}.{i} {title}\n\n"
-            if ko_summary:
-                content += f"{ko_summary}\n\n"
-            # 출처는 news-card에 포함되므로 별도 blockquote 생략
+            card, _ = _render_news_card(
+                item,
+                title,
+                ko_summary,
+                severity=_determine_severity(item),
+                force_url=True,
+            )
+            content += card
         section_num += 1
 
     # General 섹션
     if topic_groups["General"]:
         content += f"## {section_num}. 기타 주목할 뉴스\n\n"
-        content += "| 제목 | 출처 | 핵심 내용 |\n"
-        content += "|------|------|----------|\n"
-        for item in topic_groups["General"][:5]:
-            title = _korean_display_title(item, max_len=50)
-            source = item.get("source_name", "")
-            url = item.get("url", "")
-            ko_summary = _table_summary(_korean_brief_summary(item).replace("\n", " "))
-            content += f"| [{title}]({url}) | {source} | {ko_summary} |\n"
-        content += "\n"
+        for i, item in enumerate(topic_groups["General"][:5], 1):
+            title = _korean_display_title(item)
+            ko_summary = _korean_brief_summary(item)
+            content += f"### {section_num}.{i} {title}\n\n"
+            card, _ = _render_news_card(
+                item,
+                title,
+                ko_summary,
+                severity=_determine_severity(item),
+                force_url=True,
+            )
+            content += card
         section_num += 1
 
     # 트렌드 분석
@@ -3190,35 +3273,13 @@ def generate_news_section(
     item: Dict, section_num: str, is_critical: bool = False
 ) -> str:
     """개별 뉴스 섹션 생성 - 고품질 분석 포함"""
-    # fmt: off
-    _CURLY_QUOTES = {"\u201c": '"', "\u201d": '"', "\u2018": "'", "\u2019": "'"}
-    # fmt: on
-
-    def _sanitize_liquid_param(text: str) -> str:
-        """Liquid include 파라미터용 문자열 정리.
-
-        Liquid include attributes use ASCII " as the outer delimiter and do
-        NOT honor backslash escapes — ``\\"`` is two literal characters, not an
-        escaped quote, so the attribute terminates at the first inner ASCII ".
-        Mirror ``scripts/fix_malformed_liquid_includes.py``: normalize any
-        curly quotes the LLM emitted to ASCII first, then map inner ASCII " to
-        U+201D RIGHT DOUBLE QUOTATION MARK so the value never breaks the
-        outer delimiter. Inner ASCII ' is already safe (different character)
-        so it is left as-is.
-        """
-        for curly, straight in _CURLY_QUOTES.items():
-            text = text.replace(curly, straight)
-        return text.replace('"', "\u201d")
-
     title = _korean_display_title(item)
     url = item.get("url", "")
-    source = item.get("source_name", item.get("source", "Unknown"))
     content_text = item.get("content", "")
     category = item.get("category", "tech")
 
     severity = _determine_severity(item)
     cve_ids = _extract_cve_ids(item)
-    image = item.get("image", "")
     ko_summary = _korean_brief_summary(item)
 
     section = f"### {section_num} {title}\n\n"
@@ -3226,34 +3287,8 @@ def generate_news_section(
     # What the news-card will actually display, or "" when it shows no summary.
     # Recorded here so the fallback below can tell whether a `#### 요약` block
     # would add anything or just print the same sentence a second time.
-    card_shows = ""
-
-    # 뉴스 카드 (이미지 + 요약)
-    if image or ko_summary:
-        card_parts = [
-            "{% include news-card.html",
-            '  title="%s"' % _sanitize_liquid_param(title),
-            '  url="%s"' % _sanitize_liquid_param(url),
-        ]
-        if image:
-            # Strip query params that break Jekyll include parser
-            clean_image = image.split("?")[0] if "?" in image else image
-            card_parts.append('  image="%s"' % _sanitize_liquid_param(clean_image))
-        if ko_summary:
-            # Boundary-aware, NOT ko_summary[:200]: the raw slice cut readers off
-            # mid-word ("…지원하는 방식으로 확") on 128 of 1,756 corpus cards, whose
-            # lengths cluster exactly on the cap. _korean_brief_summary already
-            # boundary-cuts at 220, so a blind 200 re-cut undid that work; the
-            # excerpt and table-summary paths have always used this helper.
-            card_summary = _sanitize_liquid_param(
-                _truncate_korean_sentence(ko_summary, 200)
-            )
-            card_parts.append('  summary="%s"' % card_summary)
-            card_shows = card_summary
-        card_parts.append('  source="%s"' % _sanitize_liquid_param(source))
-        card_parts.append('  severity="%s"' % severity)
-        card_parts.append("%}")
-        section += "\n".join(card_parts) + "\n\n"
+    card, card_shows = _render_news_card(item, title, ko_summary, severity=severity)
+    section += card
 
     # Severity is already rendered inside the news-card include via the
     # `severity="..."` param above; the prior text blockquote form
