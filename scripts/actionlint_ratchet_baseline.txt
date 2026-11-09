@@ -13,7 +13,7 @@
 # The ratchet is two-sided: a higher count is a regression, a lower count means
 # this file is stale and must be regenerated with --update so the slots you
 # freed cannot be silently refilled.
-# Total grandfathered findings: 11
+# Total grandfathered findings: 10
 .github/workflows/buttondown-notify.yml SC2129 style 1
 .github/workflows/generate-images.yml SC2012 info 3
 .github/workflows/generate-images.yml SC2129 style 2
@@ -21,4 +21,3 @@
 .github/workflows/lighthouse-ci.yml SC2016 info 1
 .github/workflows/monitoring.yml SC2016 info 1
 .github/workflows/monthly-quality-report.yml SC2129 style 1
-.github/workflows/security-audit.yml SC2129 style 1
