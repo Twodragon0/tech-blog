@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-08T03:30:08.715553+00:00",
+  "updated_at": "2026-11-09T03:45:25.514937+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/10/between-alerts-what-attackers-do-in.html",
@@ -450,6 +450,96 @@
       "title": "웹에서 AI가 일으키는 온갖 부작용에 어떻게 대처하고 계신가요?",
       "published_date": "2026-11-08",
       "expires_at": "2026-11-15T03:30:08.715312+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/",
+      "title": "Iris Ohyama data cloud breach exposes info of 7.7 million customers",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/brava-security-emerges-from-stealth-with-15-million-in-funding/",
+      "title": "Brava Security Emerges From Stealth With $15 Million in Funding",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/amazon-braket-pennylane-maxcut-qaoa-part2/",
+      "title": "PennyLane을 활용한 Amazon Braket에서의 Max-Cut 문제의 해결 (2부) – 세 가지 실행 방식 비교",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/woongjin-thinkbig-agent-platform/",
+      "title": "하나의 플랫폼으로 두 가지 에이전트 런타임 운영하기: 웅진씽크빅의 Amazon Bedrock AgentCore 및 Amazon EKS 기반 플랫",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://www.cncf.io/blog/2026/11/08/lima-v2-3-native-on-windows-vmnet-on-linux-and-menu-tui/",
+      "title": "Lima v2.3: Native on Windows, VMnet on Linux, and menu TUI",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/magazine/vitaliks-pivots-to-eth-as-a-store-of-value-us-election-weighs-on-crypto-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Vitalik ‘pivots’ ETH to store of value, crypto suffers after US midterms: Hodler",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/binance-france-emails-announce-closure-of-its-users-accounts-on-dec-31?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Binance France emails announce closure of its users’ accounts on Dec. 31",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/amsterdam-data-center-protesters-break-into-construction-site-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Amsterdam protesters break into Microsoft data center construction site: Report",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/binances-finance-chief-kaiser-ng-to-leave-company-report-says?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Binance’s  finance chief Kaiser Ng to leave company, report says",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Here’s what happened in crypto today",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://d2.naver.com/helloworld/4293206",
+      "title": "로그인 화면, 이제 만들지 마세요 - n3r OIDC",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=36867&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "전 세계 대부분 지역에서 X 브랜드의 어떤 차량이든 잠금 해제하기",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=36865&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "Starship 15차 비행, 11월 13일 부스터와 우주선 모두 포획 시도 계획",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=36864&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "Chimera Vocal Synth - 기도 시뮬레이션으로 소리를 만드는 음성 합성기",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=36862&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "Windows용 Little Snitch, PacketHound",
+      "published_date": "2026-11-09",
+      "expires_at": "2026-11-16T03:45:25.514721+00:00"
     }
   ]
 }
