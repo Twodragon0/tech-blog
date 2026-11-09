@@ -213,7 +213,7 @@ def test_security_summary_rejects_unexpected_conclusions():
         "the summary is back to comparing only against 'failure'; cancelled and "
         "timed_out would pass"
     )
-    assert "success|skipped)" in body, (
+    assert "success:clean|success:findings|skipped:)" in body, (
         "expected an allow-list of acceptable conclusions rather than a deny-list of one"
     )
 

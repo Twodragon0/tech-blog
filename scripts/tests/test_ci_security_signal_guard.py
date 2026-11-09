@@ -78,12 +78,14 @@ def _step(path: Path, job: str, name_fragment: str) -> dict:
     ],
 )
 def test_reconcile_step_runs_regardless_of_findings(job: str, fragment: str):
-    """Gating it on findings is what made "resolved" unobservable."""
+    """Only the default branch may mutate issues; every result still reconciles there."""
     step = _step(SECURITY_AUDIT, job, fragment)
-    assert "if" not in step, (
-        f"{fragment} is conditioned on {step.get('if')!r}. It must run on every audit "
-        "so a resolved finding closes its issue; otherwise a stale open issue keeps "
-        "suppressing the next real one."
+    assert (
+        step.get("if")
+        == "github.ref == format('refs/heads/{0}', github.event.repository.default_branch)"
+    ), (
+        f"{fragment} must reconcile clean/findings on the default branch only; "
+        "PR and feature branch audits must not mutate the default branch's issue state."
     )
 
 
