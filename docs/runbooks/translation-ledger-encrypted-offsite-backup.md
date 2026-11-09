@@ -190,3 +190,7 @@ STANDARD 저장량 외에 요청·readback 전송·복원·soft-delete 잔여 �
 ## 임시 암호화와 실제 대상의 사전 점검
 
 [age fixture 검증과 사전 점검 기록](../pipeline/2026-11-08-translation-age-offsite-preflight.md)에서 임시 키의 왕복·거부 시험과 기존 Cloud 계정·프로젝트·버킷·로컬 경로·1Password CLI 메타데이터를 구분했다. 실제 프로젝트·보관자·운영 키와 외부 사본은 아직 확정·배포하지 않았다.
+
+## 프로젝트 선택 검토안
+
+[기존 프로젝트 재사용·전용 프로젝트 분리 비교](../decisions/2026-11-09-translation-backup-project-choice.md)는 전용 백업 프로젝트 B를 승인 후 구성하는 방안을 권고한다. 같은 관리자·계정·조직·결제를 공유하는 공통 위험과 키/암호문 각각의 복구 경계는 별도로 검토해야 한다. 현재 프로젝트 선택·생성·결제·IAM 변경은 실행하지 않았다.

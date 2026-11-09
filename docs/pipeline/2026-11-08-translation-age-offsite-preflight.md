@@ -74,3 +74,5 @@ python scripts/rehearse_translation_age.py \
 집중 검사 11개를 실제 age 바이너리로 실행해 모두 통과했으며 skip은 없었다. Ruff·format·Mypy와 별도 읽기 전용 crypto/privacy 검토도 통과했다. 테스트는 `AGE_REHEARSAL_BIN`, `AGE_REHEARSAL_KEYGEN_BIN`에 명시적인 검증 바이너리를 지정하며, 없는 환경의 실제 암호화 통합 검사는 명시적으로 skip한다. 자동 다운로드·설치·PATH fallback은 하지 않는다. 따라서 바이너리가 없는 CI의 일반 pytest 통과를 실제 암호화 검증 성공으로 해석하지 않는다.
 
 임시 바이너리와 private 결과 파일은 장기 보존·배포 대상이 아니다. 재실행 시 공식 릴리스 provenance를 다시 확인하고 새로운 보고서 디렉터리를 사용한다. 운영 identity·복호화 passphrase·vault 비상 복구코드를 임시 fixture나 테스트 환경변수로 전달하지 않는다. 전체 commit hook 결과와 로컬 커밋은 작업 완료 보고에 남긴다.
+
+2026-11-09의 [프로젝트 선택 검토안](../decisions/2026-11-09-translation-backup-project-choice.md)은 이 11월 8일 관측을 과거 증거로 구분하고, A 재사용의 제한적 시험과 B 전용 분리의 승인·이전 조건을 비교한다. 기존 기본값을 백업 대상으로 자동 채택하지 않는다.
