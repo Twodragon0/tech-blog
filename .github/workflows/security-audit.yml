@@ -5,6 +5,7 @@ on:
     - cron: '0 9 * * 1'  # Every Monday at 9:00 UTC
   push:
     paths:
+      - '.github/workflows/security-audit.yml'
       - 'package.json'
       - 'package-lock.json'
       - 'Gemfile'
@@ -46,6 +47,7 @@ jobs:
         with:
           filters: |
             should-audit:
+              - '.github/workflows/security-audit.yml'
               - 'package.json'
               - 'package-lock.json'
               - 'Gemfile'
@@ -78,6 +80,8 @@ jobs:
     if: (github.event_name != 'schedule' || vars.SECURITY_AUDIT_SCHEDULE != 'false') && needs.check-changes.outputs.should-audit == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      verdict: ${{ steps.npm_audit.outputs.verdict }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
 
@@ -93,14 +97,42 @@ jobs:
       - name: Run npm audit
         id: npm_audit
         run: |
-          npm audit --audit-level=high --json > npm-audit-report.json 2>&1 || true
-          VULNS=$(cat npm-audit-report.json | jq '.metadata.vulnerabilities.high + .metadata.vulnerabilities.critical' 2>/dev/null || echo "0")
-          echo "vulnerabilities=$VULNS" >> "$GITHUB_OUTPUT"
-          if [ "$VULNS" -gt "0" ]; then
-            echo "## npm Audit: $VULNS high/critical vulnerabilities found" >> "$GITHUB_STEP_SUMMARY"
-            npm audit --audit-level=high 2>&1 | head -50 >> "$GITHUB_STEP_SUMMARY" || true
+          set -euo pipefail
+          status=0
+          npm audit --audit-level=high --json > npm-audit-report.json 2> npm-audit-stderr.txt || status=$?
+
+          if ! jq -e '
+            (.error == null) and
+            (.metadata.vulnerabilities.high | type == "number" and . >= 0 and floor == .) and
+            (.metadata.vulnerabilities.critical | type == "number" and . >= 0 and floor == .)
+          ' npm-audit-report.json >/dev/null; then
+            echo "::error::npm audit returned invalid or incomplete JSON; no verdict emitted"
+            cat npm-audit-stderr.txt >&2
+            exit 1
+          fi
+
+          VULNS=$(jq -er '.metadata.vulnerabilities.high + .metadata.vulnerabilities.critical' npm-audit-report.json)
+          if [ "$status" -eq 0 ] && [ "$VULNS" -eq 0 ]; then
+            verdict=clean
+          elif [ "$status" -eq 1 ] && [ "$VULNS" -gt 0 ]; then
+            verdict=findings
           else
-            echo "## npm Audit: No high/critical vulnerabilities" >> "$GITHUB_STEP_SUMMARY"
+            echo "::error::npm audit exit code ($status) conflicts with parsed high/critical count ($VULNS); no verdict emitted"
+            cat npm-audit-stderr.txt >&2
+            exit 1
+          fi
+
+          echo "verdict=$verdict" >> "$GITHUB_OUTPUT"
+          echo "vulnerabilities=$VULNS" >> "$GITHUB_OUTPUT"
+          if [ "$verdict" = findings ]; then
+            echo "## npm Audit: $VULNS high/critical vulnerabilities found" >> "$GITHUB_STEP_SUMMARY"
+            jq -r '
+              (.vulnerabilities // {}) | to_entries[] |
+              select(.value.severity == "high" or .value.severity == "critical") |
+              "- \(.key): \(.value.severity)"
+            ' npm-audit-report.json >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "## npm Audit completed: no high/critical findings reported" >> "$GITHUB_STEP_SUMMARY"
           fi
 
       # Self-clearing signal. This step used to run only when VULNS > 0 and did
@@ -116,6 +148,7 @@ jobs:
       # rather than the title, so retitling cannot fork the issue — with a one-time
       # title fallback so the legacy #414/#415 get adopted instead of orphaned.
       - name: Reconcile npm audit issue
+        if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
         env:
           VULNS: ${{ steps.npm_audit.outputs.vulnerabilities }}
@@ -216,6 +249,8 @@ jobs:
     if: (github.event_name != 'schedule' || vars.SECURITY_AUDIT_SCHEDULE != 'false') && needs.check-changes.outputs.should-audit == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      verdict: ${{ steps.bundle_audit.outputs.verdict }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
 
@@ -231,14 +266,39 @@ jobs:
       - name: Run bundle audit
         id: bundle_audit
         run: |
-          bundle audit check --update 2>&1 | tee bundle-audit-report.txt || true
-          if grep -q "Vulnerabilities found!" bundle-audit-report.txt 2>/dev/null; then
-            echo "vulnerable=true" >> "$GITHUB_OUTPUT"
+          set -euo pipefail
+          status=0
+          bundle audit check --update > bundle-audit-report.txt 2>&1 || status=$?
+
+          if grep -Fq "Vulnerabilities found!" bundle-audit-report.txt && ! grep -Fq "No vulnerabilities found" bundle-audit-report.txt; then
+            if [ "$status" -ne 1 ]; then
+              echo "::error::bundle audit reported findings with unexpected exit code ($status); no verdict emitted"
+              cat bundle-audit-report.txt >&2
+              exit 1
+            fi
+            verdict=findings
+            vulnerable=true
+          elif grep -Fq "No vulnerabilities found" bundle-audit-report.txt && ! grep -Fq "Vulnerabilities found!" bundle-audit-report.txt; then
+            if [ "$status" -ne 0 ]; then
+              echo "::error::bundle audit reported clean output with nonzero exit code ($status); no verdict emitted"
+              cat bundle-audit-report.txt >&2
+              exit 1
+            fi
+            verdict=clean
+            vulnerable=false
+          else
+            echo "::error::bundle audit output has no unambiguous clean/findings verdict (exit code $status)"
+            cat bundle-audit-report.txt >&2
+            exit 1
+          fi
+
+          echo "verdict=$verdict" >> "$GITHUB_OUTPUT"
+          echo "vulnerable=$vulnerable" >> "$GITHUB_OUTPUT"
+          if [ "$vulnerable" = true ]; then
             echo "## Bundle Audit: Vulnerabilities found" >> "$GITHUB_STEP_SUMMARY"
             cat bundle-audit-report.txt >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "vulnerable=false" >> "$GITHUB_OUTPUT"
-            echo "## Bundle Audit: No vulnerabilities" >> "$GITHUB_STEP_SUMMARY"
+            echo "## Bundle Audit completed: no vulnerabilities reported" >> "$GITHUB_STEP_SUMMARY"
           fi
 
       # Same self-clearing reconcile as the npm side. #446 was still open from
@@ -246,6 +306,7 @@ jobs:
       # found" (verified locally 2026-08-10), so the stale issue was suppressing the
       # only notification this gate can emit.
       - name: Reconcile bundle audit issue
+        if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
         env:
           VULNERABLE: ${{ steps.bundle_audit.outputs.vulnerable }}
@@ -360,26 +421,51 @@ jobs:
       # clean, and any conclusion that is neither success nor skipped (cancelled,
       # timed_out, a future value) fails instead of falling through the equality test.
       - name: Evaluate audit results
+        env:
+          NPM_VERDICT: ${{ needs.npm-audit.outputs.verdict }}
+          BUNDLE_VERDICT: ${{ needs.bundle-audit.outputs.verdict }}
         run: |
+          CHANGES="${{ needs.check-changes.result }}"
           NPM="${{ needs.npm-audit.result }}"
           BUNDLE="${{ needs.bundle-audit.result }}"
-          echo "## Security Audit Summary" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "## Security Audit Summary"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$CHANGES" != success ]; then
+            echo "::error::Dependency change detection ended as $CHANGES; audit coverage is unknown."
+            echo "❌ Dependency change detection failed or did not run; audit coverage is unknown." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
 
           label() {
+            result="$1"
+            verdict="$2"
+            if [ "$result" = success ]; then
+              case "$verdict" in
+                clean) echo "✅ completed; no high/critical findings reported" ;;
+                findings) echo "⚠️ findings reported; see audit report" ;;
+                *) echo "❌ completed without a valid verdict" ;;
+              esac
+              return
+            fi
             case "$1" in
-              success) echo "✅ ran, no high/critical findings reported" ;;
               skipped) echo "⏭️ NOT RUN — no dependency manifest changed in this event" ;;
               *)       echo "❌ $1" ;;
             esac
           }
-          echo "- npm audit: $(label "$NPM")" >> "$GITHUB_STEP_SUMMARY"
-          echo "- bundle audit: $(label "$BUNDLE")" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "- npm audit: $(label "$NPM" "$NPM_VERDICT")"
+            echo "- bundle audit: $(label "$BUNDLE" "$BUNDLE_VERDICT")"
+          } >> "$GITHUB_STEP_SUMMARY"
 
           bad=""
-          for r in "$NPM" "$BUNDLE"; do
-            case "$r" in
-              success|skipped) ;;
-              *) bad="$bad $r" ;;
+          for pair in "$NPM:$NPM_VERDICT" "$BUNDLE:$BUNDLE_VERDICT"; do
+            result="${pair%%:*}"
+            verdict="${pair#*:}"
+            case "$result:$verdict" in
+              success:clean|success:findings|skipped:) ;;
+              *) bad="$bad $pair" ;;
             esac
           done
           if [ -n "$bad" ]; then
@@ -388,10 +474,12 @@ jobs:
           fi
 
           if [ "$NPM" = "skipped" ] && [ "$BUNDLE" = "skipped" ]; then
-            echo "⏭️ Neither audit ran (no dependency manifest changed)." >> "$GITHUB_STEP_SUMMARY"
-            echo "This check passing does NOT mean dependencies were audited." >> "$GITHUB_STEP_SUMMARY"
-            echo "Coverage comes from the Monday cron, which audits unconditionally." >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "⏭️ Neither audit ran (no dependency manifest changed)."
+              echo "This check passing does NOT mean dependencies were audited."
+              echo "Coverage comes from the Monday cron, which audits unconditionally."
+            } >> "$GITHUB_STEP_SUMMARY"
             echo "⏭️ Neither audit ran — not a clean bill of health."
             exit 0
           fi
-          echo "✅ Audits that ran reported no high/critical findings"
+          echo "✅ Audits completed; findings are reported in the audit steps. Issue reconciliation runs only on the default branch."
