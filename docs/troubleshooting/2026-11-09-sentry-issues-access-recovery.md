@@ -2,11 +2,17 @@
 
 ## 관측과 미확인 사항
 
-2026-11-09 점검에서 최신 [Sentry Healthcheck 실행 42598432118](https://github.com/Twodragon0/tech-blog/actions/runs/42598432118)은
+2026-11-09 최초 점검의 [Sentry Healthcheck 실행 42598432118](https://github.com/Twodragon0/tech-blog/actions/runs/42598432118)은
 project API 검사를 통과한 뒤 issues API에서 HTTP 403을 기록했다.
 job 자체는 success였지만 CSP 보고서는 측정하지 못했다고 명시했다.
 [운영 이슈 #804](https://github.com/Twodragon0/tech-blog/issues/804)의 Sentry 항목은
 해결 완료로 닫을 수 없다.
+
+이어 기존 workflow를 읽기 전용으로 실행한
+[실행 42623064807](https://github.com/Twodragon0/tech-blog/actions/runs/42623064807)에서도
+2026-11-09 13:10 UTC에 issues API HTTP 403과 CSP **MEASURED NOTHING**이 재현됐다.
+이 실행도 기존 코드에서 success로 끝났으므로, 현재 접근 복구의 증거로 쓰지 않는다.
+아래의 수정 코드는 이 실행에 아직 반영되지 않았다.
 
 GitHub Secret 이름 메타데이터에서 `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT`는
 존재하며 마지막 변경 시점은 2026-01-11이다. 이는 값·유효 범위·만료·권한의 증거가 아니다.
