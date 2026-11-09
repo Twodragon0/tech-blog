@@ -64,38 +64,43 @@ jobs:
         run: |
           set -euo pipefail
           project_url="https://sentry.io/api/0/projects/${SENTRY_ORG}/${SENTRY_PROJECT}/"
-          issues_url="https://sentry.io/api/0/organizations/${SENTRY_ORG}/issues/?project=${SENTRY_PROJECT}&limit=1"
+          issues_url="https://sentry.io/api/0/organizations/${SENTRY_ORG}/issues/?project=${SENTRY_PROJECT}&query=is%3Aunresolved&limit=1"
 
-          project_code=$(curl -sS -o /tmp/sentry_project.json -w "%{http_code}" \
+          project_code=$(curl -sS -o "${RUNNER_TEMP}/sentry_project.json" -w "%{http_code}" \
             -H "Authorization: Bearer ${SENTRY_AUTH_TOKEN}" \
             -H "Accept: application/json" \
             "$project_url")
 
           if [ "$project_code" -ne 200 ]; then
             echo "❌ Sentry project API check failed: HTTP $project_code"
-            cat /tmp/sentry_project.json || true
+            echo "::error::Sentry project access could not be verified."
             exit 1
           fi
 
           echo "token_ok=true" >> "$GITHUB_OUTPUT"
 
-          issues_code=$(curl -sS -o /tmp/sentry_issues.json -w "%{http_code}" \
+          issues_code=$(curl -sS -o "${RUNNER_TEMP}/sentry_issues.json" -w "%{http_code}" \
             -H "Authorization: Bearer ${SENTRY_AUTH_TOKEN}" \
             -H "Accept: application/json" \
             "$issues_url")
 
           if [ "$issues_code" -eq 200 ]; then
-            unresolved_count=$(python3 -c "import json; from pathlib import Path; payload=json.loads(Path('/tmp/sentry_issues.json').read_text(encoding='utf-8')); print(len(payload) if isinstance(payload, list) else 0)")
+            if ! unresolved_count=$(python3 -c "import json,os; from pathlib import Path; payload=json.loads((Path(os.environ['RUNNER_TEMP'])/'sentry_issues.json').read_text(encoding='utf-8')); assert isinstance(payload,list) and all(isinstance(i,dict) for i in payload); print(len(payload))" 2>/dev/null); then
+              echo "issues_ok=false" >> "$GITHUB_OUTPUT"
+              echo "unresolved_count=unknown" >> "$GITHUB_OUTPUT"
+              echo "::error::Sentry issues API returned an invalid issue list; no issues measured."
+              exit 1
+            fi
             echo "issues_ok=true" >> "$GITHUB_OUTPUT"
             echo "unresolved_count=$unresolved_count" >> "$GITHUB_OUTPUT"
           else
             echo "issues_ok=false" >> "$GITHUB_OUTPUT"
             echo "unresolved_count=unknown" >> "$GITHUB_OUTPUT"
-            echo "⚠️ Sentry issues API check returned HTTP $issues_code"
-            cat /tmp/sentry_issues.json || true
+            echo "::error::Sentry issues API returned HTTP $issues_code; verify event:read scope and organization/project access. No issues measured."
+            exit 1
           fi
 
-          echo "✅ Sentry token is valid and project is accessible"
+          echo "✅ Sentry project and issues APIs are accessible"
 
       - name: Check GitHub App evidence for Sentry integration
         id: app
@@ -144,17 +149,11 @@ jobs:
       # healthcheck on volume. It DOES fail on a missing secret or a dead API,
       # because "could not measure" must not render as "nothing was wrong".
       #
-      # One exception, added 2026-08-12 after the first dispatch run went red:
-      # HTTP 401/403 exits 0. The token can read the project but not its events,
-      # and that predates this script — the scheduled run at 04:21Z the same day,
-      # before it existed, already logged "Sentry issues API check returned HTTP
-      # 403" from the step above and stayed green on a warning. Fail-closed on a
-      # standing scope gap produces a nightly red that gets muted, which this
-      # repo has established is worse than the gap. The run instead says, in the
-      # summary, that it measured nothing and why. Grant the token `event:read`
-      # to make it actually measure.
-      # Exit-code asymmetry is pinned by scripts/tests/test_sentry_csp_volume.py.
+      # The CSP helper still labels 401/403 as unmeasured. The access check
+      # above now fails the healthcheck on that gap; run this report afterward
+      # only when project access was established so its diagnostic survives.
       - name: Report CSP report-channel volume
+        if: always() && steps.token.outputs.token_ok == 'true'
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}

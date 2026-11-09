@@ -337,8 +337,10 @@ def check_sentry(unresolved_threshold: int) -> CheckResult:
             recommendation="Set Sentry secrets to enable automatic monitoring.",
         )
 
-    params = urllib.parse.urlencode({"project": project, "status": "unresolved"})
-    url = f"https://sentry.io/api/0/organizations/{org}/issues/?{params}"
+    params = urllib.parse.urlencode(
+        {"project": project, "query": "is:unresolved", "limit": 100}
+    )
+    url = f"https://sentry.io/api/0/organizations/{urllib.parse.quote(org, safe='')}/issues/?{params}"
     request = urllib.request.Request(
         url,
         headers={"Authorization": f"Bearer {token}", "Accept": "application/json"},
@@ -347,14 +349,35 @@ def check_sentry(unresolved_threshold: int) -> CheckResult:
     try:
         with urllib.request.urlopen(request, timeout=20) as response:
             payload = json.loads(response.read().decode("utf-8"))
-    except urllib.error.URLError as error:
+    except urllib.error.HTTPError as error:
         return CheckResult(
             name="sentry-health",
             agent="SecurityAgent",
             ok=False,
             priority="P1",
-            summary=f"Sentry API request failed: {error}",
+            summary=f"Sentry issues API request failed: HTTP {error.code}; no issues measured",
+            recommendation="Verify event:read scope and access to the selected organization/project; project API access alone does not prove issues access.",
+        )
+    except (urllib.error.URLError, ValueError, UnicodeDecodeError):
+        return CheckResult(
+            name="sentry-health",
+            agent="SecurityAgent",
+            ok=False,
+            priority="P1",
+            summary="Sentry issues API request or JSON decoding failed; no issues measured",
             recommendation="Verify Sentry token scope and organization/project values.",
+        )
+
+    if not isinstance(payload, list) or not all(
+        isinstance(issue, dict) for issue in payload
+    ):
+        return CheckResult(
+            name="sentry-health",
+            agent="SecurityAgent",
+            ok=False,
+            priority="P1",
+            summary="Sentry issues API returned an invalid issue list; no issues measured",
+            recommendation="Verify the API response schema before using the monitoring result.",
         )
 
     unresolved = len(payload)
