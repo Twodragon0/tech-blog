@@ -59,19 +59,14 @@
   {% endif %}
   {% assign share_description = raw_description | strip_html | strip_newlines | normalize_whitespace | truncate: 200 | escape %}
   {%- comment -%}
-    Canonical URL must always point to the Vercel production host
-    (https://tech.2twodragon.com), never to the GH Pages backup
-    (which gets built with `--baseurl "/tech-blog"`). Use site.url
-    directly without site.baseurl so:
-      - Vercel prod (baseurl = "")  → https://tech.2twodragon.com{page.url}
-      - GH Pages backup (baseurl="/tech-blog") → ALSO emits the prod URL,
-        telling Google the canonical lives on Vercel (not the backup).
-    Previously this used `page.url | absolute_url` which prepends BOTH
-    site.url AND site.baseurl, producing https://tech.2twodragon.com/tech-blog/...
-    on the GH Pages backup — a non-existent URL that GSC rejected.
+    Canonical/share metadata uses a stable SEO origin. `site.url` follows the
+    deployment origin for the generated RSS (the Pages build overrides it to
+    twodragon0.github.io); `canonical_origin` stays on production. Neither URL
+    should include `site.baseurl` in canonical or social metadata.
   {%- endcomment -%}
-  {% assign canonical_url = site.url | append: page.url | replace: 'index.html', '' %}
-  {% assign share_url = site.url | append: page.url %}
+  {% assign canonical_origin = site.canonical_origin | default: site.url %}
+  {% assign canonical_url = canonical_origin | append: page.url | replace: 'index.html', '' %}
+  {% assign share_url = canonical_origin | append: page.url %}
 
   <!-- SEO -->
   <title>{% if page.title %}{{ page.title | escape }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
@@ -154,7 +149,7 @@
     og:image must be an absolute URL on the canonical Vercel host
     (matches canonical_url). Using `absolute_url` would attach the
     /tech-blog/ baseurl on the GH Pages backup, producing a 404 when
-    Facebook/Twitter/KakaoTalk fetch the preview image. Use site.url
+    Facebook/Twitter/KakaoTalk fetch the preview image. Use canonical_origin
     directly to keep the URL pointing at the production CDN.
   {%- endcomment -%}
   {% comment %}
@@ -167,10 +162,10 @@
     have already cached it for every post).
   {% endcomment %}
   {% if og_image contains 'og-default' %}
-    {% assign og_image_url = site.url | append: og_image %}
+    {% assign og_image_url = canonical_origin | append: og_image %}
   {% else %}
     {% assign og_image_versioned = og_image | image_v %}
-    {% assign og_image_url = site.url | append: og_image_versioned %}
+    {% assign og_image_url = canonical_origin | append: og_image_versioned %}
   {% endif %}
   {% assign og_image_mime = 'image/png' %}
   {% if og_image contains '.jpg' or og_image contains '.jpeg' %}{% assign og_image_mime = 'image/jpeg' %}{% endif %}
@@ -206,7 +201,7 @@
   <meta name="twitter:title" content="{{ share_title | escape }}">
   <meta name="twitter:description" content="{{ share_description }}">
   <meta name="twitter:url" content="{{ share_url }}">
-  <meta name="twitter:domain" content="{{ site.url | replace: 'https://', '' | replace: 'http://', '' }}">
+  <meta name="twitter:domain" content="{{ canonical_origin | replace: 'https://', '' | replace: 'http://', '' }}">
   <meta name="twitter:image" content="{{ og_image_url }}">
   <meta name="twitter:image:alt" content="{% if page.image_alt %}{{ page.image_alt }}{% else %}{{ page.title | default: site.title }}{% endif %}">
 
@@ -448,10 +443,10 @@
     "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebSite{% endif %}",
     "headline": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}",
     "description": "{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}",
-    "url": "{{ site.url }}{{ page.url }}",
+    "url": "{{ canonical_origin }}{{ page.url }}",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "{{ site.url }}{{ page.url }}"
+      "@id": "{{ canonical_origin }}{{ page.url }}"
     },
     "inLanguage": "ko-KR",
     "datePublished": "{% if page.date %}{{ page.date | date_to_xmlschema }}{% endif %}",
@@ -459,7 +454,7 @@
     "author": {
       "@type": "Person",
       "name": "{{ site.author.name }}",
-      "url": "{{ site.url }}",
+      "url": "{{ canonical_origin }}",
       "sameAs": [
         "https://github.com/Twodragon0"
       ]
@@ -469,12 +464,12 @@
       "name": "{{ site.title }}",
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ site.url }}{{ site.logo }}"
+        "url": "{{ canonical_origin }}{{ site.logo }}"
       }
     },
     "image": {
       "@type": "ImageObject",
-      "url": "{{ site.url }}{% if page.image %}{{ page.image | image_v }}{% else %}/assets/images/og-default.png{% endif %}",
+      "url": "{{ canonical_origin }}{% if page.image %}{{ page.image | image_v }}{% else %}/assets/images/og-default.png{% endif %}",
       "width": {{ site.og_image_width | default: 1200 }},
       "height": {{ site.og_image_height | default: 630 }}
     }{% if page.category %},
@@ -493,19 +488,19 @@
         "@type": "ListItem",
         "position": 1,
         "name": "홈",
-        "item": "{{ site.url }}"
+        "item": "{{ canonical_origin }}"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "{{ page.category | default: page.categories[0] | default: 'Blog' }}",
-        "item": "{{ site.url }}/{{ page.category | default: page.categories[0] | default: 'blog' | downcase }}"
+        "item": "{{ canonical_origin }}/{{ page.category | default: page.categories[0] | default: 'blog' | downcase }}"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "{{ page.title | escape }}",
-        "item": "{{ site.url }}{{ page.url }}"
+        "item": "{{ canonical_origin }}{{ page.url }}"
       }
     ]
   }
@@ -520,7 +515,7 @@
         "@type": "ListItem",
         "position": 1,
         "name": "홈",
-        "item": "{{ site.url }}"
+        "item": "{{ canonical_origin }}"
       },
       {
         "@type": "ListItem",
