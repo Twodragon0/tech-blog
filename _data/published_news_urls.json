@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-11-09T03:45:25.514937+00:00",
+  "updated_at": "2026-11-10T05:19:53.278947+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/10/between-alerts-what-attackers-do-in.html",
-      "title": "Between alerts: What Attackers Do in the Spaces Ordinary Detection Misses",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/ucreator-android-spyware-can-steal.html",
-      "title": "uCreator Android Spyware Can Steal Telegram 2FA Passwords and Clone WeChat Accou",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/microsoft-365-token-replay-attacks.html",
-      "title": "Microsoft 365 Token-Replay Attacks Compromise 97 Accounts at 79 Organizations",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/gheist-uses-stolen-github-tokens-to.html",
-      "title": "Gheist Uses Stolen GitHub Tokens to Steal Private Repository Secrets via Actions",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html",
-      "title": "Malicious File in Downloads Folder Tries to Trick AI Coding Agent Into Installin",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/igaworks-claire-agentic-agent-with-amazon-bedrock-agentcore-part-2/",
-      "title": "기존 LangGraph 워크플로우를 Amazon Bedrock AgentCore Runtime으로: 아이지에이웍스 클레어의 프로덕션 이관과 운영",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/igaworks-claire-agentic-agent-with-amazon-bedrock-agentcore-part-1/",
-      "title": "아이지에이웍스 클레어의 Agentic AI PoC 여정: Amazon Bedrock AgentCore로 설계하고 평가하기",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/search-os-seo-geo-optimization-eks-cloudfront/",
-      "title": "Search OS의 SEO와 GEO 최적화 솔루션: Amazon EKS와 Amazon CloudFront로 구축한 상품 콘텐츠 구조화 시스템",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/10/26/isolation-security-scale/",
-      "title": "Isolation. Security. Scale.",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://blog.rust-lang.org/2026/10/26/how-to-fund-rust-contributors/",
-      "title": "How to fund Rust contributors",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://devblogs.microsoft.com/dotnet/dotnet-october-2026-oob-security-updates/",
-      "title": ".NET October 2026 Out-of-Band Security Updates",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/aviva-investors-launches-tokenized-share-class-of-sterling-fund-on-xrp-ledger?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Aviva Investors launches tokenized share class of $29B Sterling fund on XRP Ledg",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/securitizes-tokenized-stock-circle-lead?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Securitize’s tokenized stock value halves as Circle widens lead",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/markets/bitcoin-etfs-rebound-weekly-inflow-301-million?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin ETFs break 2-week outflow streak with $301M comeback",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/musk-warns-over-200-ai-neoclouds-face-guppy-level-death?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Musk warns over 200 AI neoclouds face ‘guppy-level death’",
-      "published_date": "2026-10-26",
-      "expires_at": "2026-11-02T12:14:00.748476+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/hackers-infect-953-online-stores-with.html",
-      "title": "Hackers Infect 953 Online Stores With Scanner-Evading JavaScript, Mostly on Mage",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/php-issues-second-windows-security.html",
-      "title": "PHP Issues Second Windows Security Update in Five Days to Fix Brotli Code Execut",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html",
-      "title": "Attackers Use Microsoft Teams IT Support Scams to Deploy Malware and Ransomware",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/10/weekly-recap-this2shell-that2shell.html",
-      "title": "⚡ Weekly Recap: This2Shell, That2Shell, Everything's an RCE? Rogue AI, Supply Ch",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/",
-      "title": "University of Copenhagen data breach exposes data of 525,000 people",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://openai.com/index/greptile-code-review-codex-astra",
-      "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/10/26/open-source/ocp-summit-2026-meta-networking-talks/",
-      "title": "Meta Networking at the 2026 OCP Global Summit: Open Innovation for Scale-Up, Sca",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/",
-      "title": "Our newest AI Quest: Mapping the human brain",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
-      "title": "Working with academic communities to build scientific understanding",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
-      "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/financial-services/easy-to-integrate-compliant-by-design-bringing-the-swiss-franc-to-google-cloud-universal-ledger/",
-      "title": "Easy to integrate, compliant by design: Bringing the Swiss Franc to Google Cloud",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/business-intelligence/lookml-metadata-indexing-in-knowledge-catalog-is-now-ga/",
-      "title": "Unifying enterprise context and semantics: LookML in Knowledge Catalog is now GA",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-polly-generative-engine-torchneuron-for-trainium-and-more-october-26-2026/",
-      "title": "AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, an",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot",
-      "title": "GPT-6.1 Terra in GitHub Copilot",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
-    {
-      "url": "https://webkit.org/blog/18515/webkit-features-for-safari-27-2/",
-      "title": "WebKit Features for Safari 27.2",
-      "published_date": "2026-10-27",
-      "expires_at": "2026-11-03T02:59:52.237303+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
       "title": "ThreatsDay: Apache OFBiz RCE, DreamHost Breach, DeFi Site Hijacks + 17 More Stor",
@@ -540,6 +360,96 @@
       "title": "Windows용 Little Snitch, PacketHound",
       "published_date": "2026-11-09",
       "expires_at": "2026-11-16T03:45:25.514721+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html",
+      "title": "Hackers Exploit Qubole's Trusted AWS Access to Breach Customer Accounts and Stea",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/hackers-compromise-etherspheres-bee-js.html",
+      "title": "Hackers Compromise Ethersphere's bee-js and Swarm Desktop to Deliver Wallet-Stea",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/09/forge-lab-uses-agentic-tools-to-identify-memory-safety-issues-in-rust/",
+      "title": "FORGE Lab uses agentic tools to identify memory safety issues in Rust",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/bitter-hackers-deploy-new-paprat.html",
+      "title": "Bitter Hackers Deploy New PapRAT Backdoor in Cyberespionage Campaign Targeting S",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/help-defend-against-memory-poisoning-in-amazon-bedrock-agentcore-with-multi-layer-write-validation/",
+      "title": "Help defend against memory poisoning in Amazon Bedrock AgentCore with multi-laye",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
+      "title": "ChatGPT Enterprise now available in AWS Marketplace",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/11/09/developer-tools/extending-lldb-to-debug-applications-that-span-cpus-and-gpus/",
+      "title": "Extending LLDB to Debug Applications That Span CPUs and GPUs",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/",
+      "title": "Practice Makes Precise: At CoRL, NVIDIA and Partners Reveal How Robots Rehearse ",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://openai.com/index/control-room",
+      "title": "Control Room: A central system to track and stop model workloads across our rese",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+      "title": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA A",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-open-ai-native-stack-on-kubernetes-from-open-models-to-distributed-inference-and-agents/",
+      "title": "The open AI-native stack on Kubernetes: From open models to distributed inferenc",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-survey-finds-enterprises-trapped-between-legacy-software-and-ai-modernization/",
+      "title": "New survey finds enterprises trapped between legacy software and AI modernizatio",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-our-security-forecast-2027/",
+      "title": "Cloud CISO Perspectives: Our security forecast for 2027",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-tpu-sync-fast-kv-cache-and-weight-transfer-on-tpu/",
+      "title": "Introducing TPU Sync: Fast KV cache and weight transfer for inference and RL on ",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-dynamic-slicing-on-tpus/",
+      "title": "Now generally available: GKE dynamic slicing for higher resilience, and efficien",
+      "published_date": "2026-11-10",
+      "expires_at": "2026-11-17T05:19:53.278696+00:00"
     }
   ]
 }
