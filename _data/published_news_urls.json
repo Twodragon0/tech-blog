@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T05:19:53.278947+00:00",
+  "updated_at": "2026-11-11T03:52:18.244878+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
@@ -450,6 +450,96 @@
       "title": "Now generally available: GKE dynamic slicing for higher resilience, and efficien",
       "published_date": "2026-11-10",
       "expires_at": "2026-11-17T05:19:53.278696+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html",
+      "title": "Git Patches Flaw That Lets Malicious Repositories Execute Code During Recursive ",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
+      "title": "SGLang RCE Exploit Breaches NEAR AI, Steals Data From 18 Agents and About 100 Us",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-xen-orchestra.html",
+      "title": "Hackers Exploit Critical Xen Orchestra Auth Bypass Flaw to Gain Admin Access",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/three-china-nexus-espionage-campaigns.html",
+      "title": "Three China-Nexus Espionage Campaigns Linked Through Sparrow Malware Ecosystem",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/reduce-alert-fatigue-by-customizing-threat-detection-features-in-amazon-guardduty/",
+      "title": "Reduce alert fatigue by customizing threat detection features in Amazon GuardDut",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
+      "title": "Gilbert + Tobin rethinks the business of law with AI",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-recycling-startups/",
+      "title": "How AI Helps Recyclers Turn Mixed Waste Into Reusable Material",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+      "title": "Gemini Intelligence: New features, on more devices",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/11/10/ml-applications/your-algorithm-giving-people-more-ways-to-personalize-facebook-recommendations/",
+      "title": "Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/11/10/open-source/tlx-a-hardware-native-gpu-compiler-for-production-ml/",
+      "title": "How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/partners/inside-the-gemini-factory-accelerating-partner-solutions/",
+      "title": "Inside the Gemini factory: Accelerating partner solutions",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/identity-security/how-to-run-codemender-in-your-pull-requests/",
+      "title": "Don't just flag it, fix it: How to run CodeMender in your pull requests",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-measures-ga-unifying-bi-metrics-and-knowledge-graphs/",
+      "title": "BigQuery measures is now GA: Unifying BI metrics and knowledge graphs for AI acc",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/experimenting-with-clusternetworkpolicy-in-gke/",
+      "title": "Experimenting with ClusterNetworkPolicy in GKE",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/retail/the-blueprint-how-authentic-brands-group-expands-creativity-with-authos/",
+      "title": "The Blueprint: How Authentic Brands Group expands creativity with AuthOS",
+      "published_date": "2026-11-11",
+      "expires_at": "2026-11-18T03:52:18.244681+00:00"
     }
   ]
 }
