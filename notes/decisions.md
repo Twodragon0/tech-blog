@@ -1552,3 +1552,53 @@ CI 는 `npm ci` 를 쓰므로 안 걸린다. 걸리는 것은 로컬에서 확�
 뮤테이션(설치본 버전을 4.1.10 으로 위조) CAUGHT. 첫 프로브는
 `npm install --no-save vitest@4.1.10` 이었는데 실제로 내려가지 않아 **무효였다** —
 통과로 읽지 않고 조건을 직접 만들어 다시 쟀다.
+
+---
+
+## 2026-09-23 — call-through spy 전수 점검: 일괄 수정 대신 탐지기를 걸었다
+
+#777 에서 `URL.createObjectURL` spy 가 jsdom 구현으로 흘러가 핸들러를 죽인 것을
+고쳤다. 같은 형태가 더 있는지 전수로 셌다 — mock 구현 없이 원본으로 흘려보내는
+spy 가 **15건**이다.
+
+### 일괄 수정하지 않았다
+
+call-through 자체는 결함이 아니다. 15건의 대상은 `addEventListener`,
+`history.pushState/replaceState`, `click` 이고 jsdom 이 온전히 구현한다. 오히려
+`addEventListener` 는 원본이 돌아야 핸들러가 실제로 등록된다 —
+mock 으로 막으면 테스트가 망가진다. `createObjectURL` 이 특별했던 이유는 그것이
+**내부 Blob 을 요구하는 부분 스텁**이기 때문이다.
+
+그래서 "call-through 를 없애라" 가 아니라 **"삼켜진 예외를 드러내라"** 가 맞는
+규칙이다. 증상이 아니라 기전을 잡는다.
+
+### 내 첫 측정은 틀렸다
+
+계측용 리스너를 setup 에 붙이고 전체를 돌려 "삼켜진 에러 0건" 을 얻었다.
+**vitest 가 통과한 테스트의 `console.log` 를 억제한다는 것을 잊었다.** 실제로
+가드를 걸자 곧바로 1건이 걸렸다. 이 세션에서 반복한 실수와 같은 계열이다 —
+관측 도구가 보여주지 않는 것을 "없음" 으로 읽었다.
+
+### 가드
+
+`tests/js/setup.js` 의 `afterEach` 가 window `error` 를 모아 테스트마다 비운다.
+합성 `new Event('error')` 는 제외한다 — `console-filter` 가 리스너를 자극하려고
+직접 발행하는 픽스처이고, 던져진 예외가 아니다. 구분은 `error`/`message` 의
+존재이므로 **면제 목록이 아니고**, 새 테스트가 생겨도 손볼 것이 없다.
+
+효과 확인(뮤테이션: #777 수정을 되돌리고 jsdom 30.1.0 설치):
+
+```
+TypeError: Cannot read properties of undefined (reading '_buffer')
+Error: 핸들러 안에서 예외가 던져졌고 테스트는 그것을 보지 못한 채 진행했다:
+  Cannot read properties of undefined (reading '_buffer')
+```
+
+**오도하는 `expected undefined to be defined` 대신 근본 원인이 첫 줄에 나온다.**
+이 가드가 있었다면 #755 의 이분 과정이 통째로 필요 없었다.
+
+그리고 2건을 잡았다 — 실패하던 테스트뿐 아니라 **공허하게 통과하던 형제 테스트**
+까지다. 그 테스트는 blob 만 보고 앵커를 보지 않아, 다운로드 경로가 중간에 죽은
+채로도 green 이었다.
+
+현재 전체 스위트는 이 가드와 함께 738 passed 다.
