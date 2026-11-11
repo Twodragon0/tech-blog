@@ -95,7 +95,8 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v6
         with:
-          python-version: "3.11"
+          # NumPy 2.5 requires Python >=3.12; keep capture and verify paired.
+          python-version: "3.12"
 
       - name: Install Python deps
         # Same file visual-baseline-refresh.yml installs, so capture and verify
