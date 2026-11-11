@@ -8,14 +8,14 @@ import shlex
 import shutil
 import subprocess
 import sys
-import urllib.error
-import urllib.parse
-import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.lib import sentry_monitor  # noqa: E402
 
 
 @dataclass
@@ -33,6 +33,7 @@ class CheckResult:
     priority: str
     summary: str
     recommendation: str
+    measured: bool = True
 
 
 def run_command(command: list[str], timeout: int = 180) -> CommandResult:
@@ -324,72 +325,48 @@ def check_github_actions(auto_recover: bool, rerun_limit: int) -> CheckResult:
 
 
 def check_sentry(unresolved_threshold: int) -> CheckResult:
-    token = os.getenv("SENTRY_AUTH_TOKEN", "")
-    org = os.getenv("SENTRY_ORG", "")
-    project = os.getenv("SENTRY_PROJECT", "")
-    if not token or not org or not project:
+    shared = (os.getenv(sentry_monitor.MODE_ENV) or "shared") == "shared"
+    try:
+        config = sentry_monitor.load_config()
+    except sentry_monitor.SentryMonitorError as error:
         return CheckResult(
             name="sentry-health",
             agent="SecurityAgent",
-            ok=True,
-            priority="P2",
-            summary="Skipped (SENTRY_AUTH_TOKEN/SENTRY_ORG/SENTRY_PROJECT not fully set)",
-            recommendation="Set Sentry secrets to enable automatic monitoring.",
+            ok=shared,
+            priority="P2" if shared else "P1",
+            summary=f"{'Skipped' if shared else 'Unavailable'}: {error}; no issues measured",
+            recommendation="Set the credentials for the selected monitoring mode.",
+            measured=False,
         )
-
-    params = urllib.parse.urlencode(
-        {"project": project, "query": "is:unresolved", "limit": 100}
-    )
-    url = f"https://sentry.io/api/0/organizations/{urllib.parse.quote(org, safe='')}/issues/?{params}"
-    request = urllib.request.Request(
-        url,
-        headers={"Authorization": f"Bearer {token}", "Accept": "application/json"},
-    )
 
     try:
-        with urllib.request.urlopen(request, timeout=20) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as error:
-        return CheckResult(
-            name="sentry-health",
-            agent="SecurityAgent",
-            ok=False,
-            priority="P1",
-            summary=f"Sentry issues API request failed: HTTP {error.code}; no issues measured",
-            recommendation="Verify event:read scope and access to the selected organization/project; project API access alone does not prove issues access.",
+        page = sentry_monitor.read_issues(
+            config, max_pages=1 if shared else sentry_monitor.MAX_PAGES
         )
-    except (urllib.error.URLError, ValueError, UnicodeDecodeError):
+        unresolved = len(page.issues)
+        if not page.complete and unresolved <= unresolved_threshold:
+            raise sentry_monitor.SentryMonitorError(
+                f"Sentry observation is partial ({unresolved} issues observed)"
+            )
+    except sentry_monitor.SentryMonitorError as error:
         return CheckResult(
             name="sentry-health",
             agent="SecurityAgent",
             ok=False,
             priority="P1",
-            summary="Sentry issues API request or JSON decoding failed; no issues measured",
-            recommendation="Verify Sentry token scope and organization/project values.",
+            summary=f"{error}; no issues measured",
+            recommendation="Verify event:read scope and access to the selected organization/project.",
+            measured=False,
         )
 
-    if not isinstance(payload, list) or not all(
-        isinstance(issue, dict) for issue in payload
-    ):
-        return CheckResult(
-            name="sentry-health",
-            agent="SecurityAgent",
-            ok=False,
-            priority="P1",
-            summary="Sentry issues API returned an invalid issue list; no issues measured",
-            recommendation="Verify the API response schema before using the monitoring result.",
-        )
-
-    unresolved = len(payload)
     ok = unresolved <= unresolved_threshold
-    top_issue = payload[0].get("title", "n/a") if payload else "n/a"
-    summary = f"unresolved issues: {unresolved}\ntop issue: {top_issue}"
+    coverage = "" if page.complete else " (partial observation)"
     return CheckResult(
         name="sentry-health",
         agent="SecurityAgent",
         ok=ok,
         priority="P2" if ok else "P1",
-        summary=summary,
+        summary=f"unresolved issues: {unresolved}{coverage}",
         recommendation=(
             "No action needed."
             if ok
@@ -453,13 +430,18 @@ def format_roundtable(results: list[CheckResult]) -> str:
     lines.extend(["", "[SecurityAgent]"])
     for result in by_agent.get("SecurityAgent", []):
         status = "OK" if result.ok else "FAIL"
+        if not result.measured:
+            status = "UNMEASURED"
         lines.append(f"- {result.name}: {status} ({result.priority})")
         lines.append(f"  {result.summary}")
 
     lines.extend(["", "[Moderator]", "Recommended next actions:"])
     failed = [result for result in results if not result.ok]
     if not failed:
-        lines.append("- All checks passed. Keep current automation cadence.")
+        if any(not result.measured for result in results):
+            lines.append("- Completed checks passed. Unmeasured checks have no result.")
+        else:
+            lines.append("- All checks passed. Keep current automation cadence.")
     else:
         ordered = sorted(failed, key=lambda item: item.priority)
         for result in ordered:
@@ -524,9 +506,12 @@ def main() -> int:
 
     if not results:
         print("Ops Roundtable Priority: P2\n\n[Moderator]\n- No checks enabled.\n")
+        print("Sentry monitoring disabled by configuration.")
         return 0
 
     report = format_roundtable(results)
+    if not run_sentry:
+        report += "\nSentry monitoring disabled by configuration.\n"
     print(report)
 
     if args.output:
@@ -541,8 +526,14 @@ def main() -> int:
             args.json_output, json.dumps(payload, indent=2, ensure_ascii=False)
         )
 
-    # Only lint-and-types is blocking; external service checks are advisory
-    blocking = [r for r in results if r.name == "lint-and-types"]
+    # Dedicated Sentry access failures block. Measured issue counts remain advisory.
+    strict_sentry = (os.getenv(sentry_monitor.MODE_ENV) or "shared") != "shared"
+    blocking = [
+        result
+        for result in results
+        if result.name == "lint-and-types"
+        or (strict_sentry and result.name == "sentry-health" and not result.measured)
+    ]
     if any(r.priority == "P0" and not r.ok for r in blocking):
         return 2
     if any(not r.ok for r in blocking):

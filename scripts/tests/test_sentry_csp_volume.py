@@ -1,25 +1,13 @@
 #!/usr/bin/env python3
-"""Guard the exit-code asymmetry in scripts/sentry_csp_volume.py.
-
-The script reports CSP report-channel volume from Sentry. Its exit codes encode
-a deliberate asymmetry that is easy to "simplify" away later:
-
-  - missing secret            -> 1  (SENTRY_* are configured; absence = regression)
-  - HTTP 401/403              -> 0  (standing scope gap; fail-closed here would
-                                     make a daily cron permanently red, which
-                                     gets muted — see the module docstring)
-  - any other API failure     -> 2  ("could not measure" != "nothing was wrong")
-
-Collapsing 401/403 into the generic error branch turns the nightly Sentry
-healthcheck red every night until someone grants the token `event:read`. Making
-every failure exit 0 hides real breakage. These tests pin both directions.
-"""
+"""Verify CSP measurement, failure handling, and aggregate-only output."""
 
 from __future__ import annotations
 
 import email.message
 import importlib.util
+import io
 import json
+import sys
 import urllib.error
 from pathlib import Path
 
@@ -27,6 +15,20 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = REPO_ROOT / "scripts" / "sentry_csp_volume.py"
+sys.path.insert(0, str(SCRIPT.parent))
+
+
+class Response(io.BytesIO):
+    status = 200
+    headers: dict[str, str] = {}
+
+
+def _respond(mod, monkeypatch, payload):
+    monkeypatch.setattr(
+        mod.sentry_monitor,
+        "_open",
+        lambda *_a, **_k: Response(json.dumps(payload).encode()),
+    )
 
 
 def _load():
@@ -80,7 +82,9 @@ def test_authorization_failure_stays_green_but_says_it_measured_nothing(
     mod, creds, monkeypatch, capsys, code
 ):
     monkeypatch.setattr(
-        mod, "_fetch", lambda *_a, **_k: (_ for _ in ()).throw(_http_error(code))
+        mod.sentry_monitor,
+        "_open",
+        lambda *_a, **_k: (_ for _ in ()).throw(_http_error(code)),
     )
     assert mod.main() == 0
     out = capsys.readouterr().out
@@ -94,7 +98,9 @@ def test_authorization_failure_stays_green_but_says_it_measured_nothing(
 @pytest.mark.parametrize("code", [400, 404, 429, 500, 503])
 def test_other_http_errors_are_fail_closed(mod, creds, monkeypatch, code):
     monkeypatch.setattr(
-        mod, "_fetch", lambda *_a, **_k: (_ for _ in ()).throw(_http_error(code))
+        mod.sentry_monitor,
+        "_open",
+        lambda *_a, **_k: (_ for _ in ()).throw(_http_error(code)),
     )
     assert mod.main() == 2
 
@@ -103,12 +109,12 @@ def test_network_failure_is_fail_closed(mod, creds, monkeypatch):
     def boom(*_a, **_k):
         raise urllib.error.URLError("no route to host")
 
-    monkeypatch.setattr(mod, "_fetch", boom)
+    monkeypatch.setattr(mod.sentry_monitor, "_open", boom)
     assert mod.main() == 2
 
 
 def test_unexpected_response_shape_is_fail_closed(mod, creds, monkeypatch):
-    monkeypatch.setattr(mod, "_fetch", lambda *_a, **_k: {"detail": "not a list"})
+    _respond(mod, monkeypatch, {"detail": "not a list"})
     assert mod.main() == 2
 
 
@@ -126,20 +132,21 @@ def test_successful_report_buckets_and_totals(mod, creds, monkeypatch, capsys):
             "culprit": "https://tech.2twodragon.com/",
         },
     ]
-    monkeypatch.setattr(mod, "_fetch", lambda *_a, **_k: issues)
+    _respond(mod, monkeypatch, issues)
     assert mod.main() == 0
     out = capsys.readouterr().out
     assert "| extension | 10 |" in out
     assert "| translate | 5 |" in out
     assert "| first-party | 2 |" in out
-    assert "Total CSP events: **17**" in out
+    assert "API-reported events in observed groups: **17**" in out
+    assert "CSP: script-src-elem" not in out
 
 
 def test_full_page_is_declared_a_floor_not_a_total(mod, creds, monkeypatch, capsys):
     # No silent caps: hitting the API page limit must be stated, or the number
     # reads as complete when it is not.
     issues = [{"count": 1, "title": "CSP", "culprit": "https://example.com/"}] * 100
-    monkeypatch.setattr(mod, "_fetch", lambda *_a, **_k: issues)
+    _respond(mod, monkeypatch, issues)
     assert mod.main() == 0
     assert "floor" in capsys.readouterr().out
 
@@ -147,17 +154,17 @@ def test_full_page_is_declared_a_floor_not_a_total(mod, creds, monkeypatch, caps
 def test_zero_events_does_not_claim_the_channel_is_quiet(
     mod, creds, monkeypatch, capsys
 ):
-    monkeypatch.setattr(mod, "_fetch", lambda *_a, **_k: [])
+    _respond(mod, monkeypatch, [])
     assert mod.main() == 0
     out = capsys.readouterr().out
     assert "inbound filters" in out
 
 
-def test_malformed_count_does_not_crash(mod, creds, monkeypatch, capsys):
+def test_malformed_count_is_unmeasured(mod, creds, monkeypatch, capsys):
     issues = [{"count": "n/a", "title": "CSP", "culprit": "https://example.com/"}]
-    monkeypatch.setattr(mod, "_fetch", lambda *_a, **_k: issues)
-    assert mod.main() == 0
-    assert "Total CSP events: **0**" in capsys.readouterr().out
+    _respond(mod, monkeypatch, issues)
+    assert mod.main() == 2
+    assert "CSP unmeasured" in capsys.readouterr().err
 
 
 def test_classify_buckets(mod):
@@ -169,18 +176,23 @@ def test_classify_buckets(mod):
     assert mod.classify({"culprit": "https://tech.2twodragon.com/"}) == "first-party"
 
 
-def test_docstring_records_why_401_403_is_not_fail_closed(mod):
-    # The exemption is only defensible with its reason attached. If someone
-    # strips the rationale, the next reader sees an unexplained green-on-error.
-    doc = mod.__doc__ or ""
-    assert "401/403" in doc
-    assert "event:read" in doc
-    assert "permanently red" in doc
+@pytest.mark.parametrize("code", [401, 403])
+def test_dedicated_auth_failure_exits_nonzero(mod, creds, monkeypatch, capsys, code):
+    monkeypatch.setenv("SENTRY_MONITOR_MODE", "dedicated")
+    monkeypatch.setenv("SENTRY_MONITOR_AUTH_TOKEN", "dedicated-fixture")
+
+    def denied(request, **_kwargs):
+        assert request.get_header("Authorization") == "Bearer dedicated-fixture"
+        raise _http_error(code)
+
+    monkeypatch.setattr(mod.sentry_monitor, "_open", denied)
+    assert mod.main() == 2
+    assert "CSP unmeasured" in capsys.readouterr().err
 
 
 def test_json_decode_error_is_fail_closed(mod, creds, monkeypatch):
     def boom(*_a, **_k):
         raise json.JSONDecodeError("bad", "", 0)
 
-    monkeypatch.setattr(mod, "_fetch", boom)
+    monkeypatch.setattr(mod.sentry_monitor, "_open", boom)
     assert mod.main() == 2

@@ -21,13 +21,12 @@ NC='\033[0m' # No Color
 DEFAULT_DEPLOYMENT_URL="https://tech.2twodragon.com"
 DEPLOYMENT_URL="$DEFAULT_DEPLOYMENT_URL"
 ALERT_ONLY=false
-DETAILED=false
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
         --alert-only) ALERT_ONLY=true ;;
-        --detailed) DETAILED=true ;;
+        --detailed) ;;
         -*) ;; # ignore unknown flags
         *)
             if [[ "$1" =~ ^https?:// ]]; then
@@ -152,30 +151,19 @@ fi
 # CWV is covered by lighthouse-ci.yml (head-vs-base LCP, PRs) and
 # lighthouse.yml (CLS budget 0.05, push + PR). See scripts/ops_health_orchestrator.py.
 
-# === 2. Sentry 에러 대시보드 (선택적) ===
+# === 2. Sentry 에러 대시보드 ===
 _section "3. Sentry Error Dashboard"
 
-if [ -n "$SENTRY_AUTH_TOKEN" ] && [ -n "$SENTRY_ORG" ] && [ -n "$SENTRY_PROJECT" ]; then
-    _info "Fetching Sentry metrics..."
-
-    SENTRY_URL="https://sentry.io/api/0/organizations/$SENTRY_ORG/issues/?project=$SENTRY_PROJECT&status=unresolved"
-    SENTRY_RESPONSE=$(curl -s -H "Authorization: Bearer $SENTRY_AUTH_TOKEN" "$SENTRY_URL" 2>/dev/null || echo "[]")
-
-    ISSUE_COUNT=$(echo "$SENTRY_RESPONSE" | jq 'length // 0' 2>/dev/null)
-
-    if [ "$ISSUE_COUNT" -gt 0 ]; then
-        _warn "Found $ISSUE_COUNT unresolved Sentry issues"
-
-        # 상위 5개 이슈 표시
-        echo "$SENTRY_RESPONSE" | jq -r '.[0:5] | .[] | "\(.title) (Events: \(.stats.\"24h\"[0][1]))"' 2>/dev/null | while read -r issue; do
-            echo "    - $issue"
-        done
+SENTRY_MEASURED=true
+SENTRY_MODE="${SENTRY_MONITOR_MODE:-shared}"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+if ! python3 "$SCRIPT_DIR/lib/sentry_monitor.py" issues; then
+    SENTRY_MEASURED=false
+    if [ "$SENTRY_MODE" = shared ]; then
+        _warn "Sentry issues are unmeasured"
     else
-        _success "No unresolved Sentry issues"
+        _alert "Sentry issues are unmeasured"
     fi
-else
-    _info "Sentry credentials not configured"
-    _echo "  Set SENTRY_AUTH_TOKEN, SENTRY_ORG, SENTRY_PROJECT to enable error monitoring"
 fi
 
 # === 3. 빌드 성능 메트릭 ===
@@ -191,7 +179,6 @@ _section "5. Environment Variables Status"
 _echo "Required environment variables:"
 ENV_VARS=(
     "VERCEL_TOKEN"
-    "SENTRY_AUTH_TOKEN"
     "DEEPSEEK_API_KEY"
 )
 
@@ -221,7 +208,11 @@ _echo "  bundle exec jekyll serve          # Serve locally"
 _section "Summary"
 
 if [ "$ALERT_COUNT" -eq 0 ]; then
-    _success "All checks passed!"
+    if [ "$SENTRY_MEASURED" = true ]; then
+        _success "All checks passed!"
+    else
+        _info "Completed checks passed; Sentry issues are unmeasured"
+    fi
     exit 0
 else
     _alert "Found $ALERT_COUNT issues"
