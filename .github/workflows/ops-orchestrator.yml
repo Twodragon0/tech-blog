@@ -105,9 +105,6 @@ jobs:
       issues: write
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
@@ -153,6 +150,11 @@ jobs:
         id: roundtable
         env:
           AUTO_RECOVER_GHA: ${{ github.event.inputs.auto_recover_gha || 'true' }}
+          SENTRY_MONITOR_MODE: ${{ vars.SENTRY_MONITOR_MODE || 'shared' }}
+          SENTRY_AUTH_TOKEN: ${{ (vars.SENTRY_MONITOR_MODE == '' || vars.SENTRY_MONITOR_MODE == 'shared') && secrets.SENTRY_AUTH_TOKEN || '' }}
+          SENTRY_MONITOR_AUTH_TOKEN: ${{ vars.SENTRY_MONITOR_MODE == 'dedicated' && secrets.SENTRY_MONITOR_AUTH_TOKEN || '' }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         run: |
           set -euo pipefail
           mkdir -p reports
@@ -404,7 +406,9 @@ jobs:
         id: checks
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_MONITOR_MODE: ${{ vars.SENTRY_MONITOR_MODE || 'shared' }}
+          SENTRY_AUTH_TOKEN: ${{ (vars.SENTRY_MONITOR_MODE == '' || vars.SENTRY_MONITOR_MODE == 'shared') && secrets.SENTRY_AUTH_TOKEN || '' }}
+          SENTRY_MONITOR_AUTH_TOKEN: ${{ vars.SENTRY_MONITOR_MODE == 'dedicated' && secrets.SENTRY_MONITOR_AUTH_TOKEN || '' }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -416,8 +420,8 @@ jobs:
           fi
           mkdir -p reports
           # Capture the orchestrator's exit code instead of swallowing it with
-          # `|| true`. Non-zero = BLOCKING lint-and-types failure (rc 1=P1, 2=P0);
-          # advisory checks never set it. Still publish to Slack below, then fail
+          # `|| true`. Blocking lint or dedicated Sentry access failures use rc 1
+          # for P1 and rc 2 for P0. Keep the report available before failing
           # in the trailing step so a broken state is RED. (Fix A-H2, audit.)
           set +e
           message=$(python3 scripts/ops_health_orchestrator.py "${args[@]}")
@@ -435,8 +439,8 @@ jobs:
         env:
           OPS_RC: ${{ steps.checks.outputs.rc }}
         run: |
-          if [ "${OPS_RC:-0}" != "0" ]; then
-            echo "::error::ops_health_orchestrator exited ${OPS_RC} (blocking lint-and-types failure; see the Slack report)."
-            exit "${OPS_RC}"
+          if [ "${OPS_RC:-1}" != "0" ]; then
+            echo "::error::ops_health_orchestrator exited ${OPS_RC} (blocking check failure; see the report)."
+            exit "${OPS_RC:-1}"
           fi
           echo "ops health checks passed (rc=0)."

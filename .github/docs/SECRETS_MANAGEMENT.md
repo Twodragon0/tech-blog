@@ -16,6 +16,14 @@
     ```
   - 확인 방법: GitHub Repository → Settings → Secrets and variables → Actions → SENTRY_AUTH_TOKEN
 
+- `SENTRY_MONITOR_AUTH_TOKEN`: Sentry 읽기 전용 모니터링 자격
+  - 저장소 Actions 변수 `SENTRY_MONITOR_MODE`가 `dedicated`일 때만 사용합니다.
+  - 승인된 Sentry 주체에 대상 프로젝트 접근과 `project:read`·`event:read` 권한을 부여합니다.
+  - Healthcheck, Ops Orchestrator, Production Monitoring의 조회 단계에 연결합니다.
+  - 전용 모드에서 이 Secret이 누락되면 모니터링을 미측정 실패로 표시합니다.
+  - 변수 미설정 또는 `shared`에서는 기존 `SENTRY_AUTH_TOKEN`을 사용합니다.
+  - 릴리스 생성과 Vercel 배포 알림은 기존 공유 자격을 사용합니다.
+
 - `SENTRY_ORG`: Sentry Organization 슬러그 (선택적, 기본값: `twodragon`)
   - 확인 방법: Sentry 대시보드 URL에서 확인 (예: `https://sentry.io/organizations/YOUR-ORG-SLUG/`)
   - GitHub Secrets 설정 (필요시):

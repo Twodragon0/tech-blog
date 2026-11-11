@@ -168,7 +168,7 @@ def test_config_flags_are_variables_not_secrets() -> None:
 
     Add a name here when you introduce another flag; do not relax the assertion.
     """
-    flags = ("USE_GEMINI_PRO_IMAGE",)
+    flags = ("USE_GEMINI_PRO_IMAGE", "SENTRY_MONITOR_MODE")
     offenders = []
     for path in sorted((REPO_ROOT / ".github" / "workflows").glob("*.yml")):
         text = path.read_text(encoding="utf-8")
