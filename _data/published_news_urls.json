@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T03:52:18.244878+00:00",
+  "updated_at": "2026-11-12T06:56:27.855851+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
@@ -540,6 +540,96 @@
       "title": "The Blueprint: How Authentic Brands Group expands creativity with AuthOS",
       "published_date": "2026-11-11",
       "expires_at": "2026-11-18T03:52:18.244681+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html",
+      "title": "Critical Apache HTTP/2 Flaw Could Let Unauthenticated Attackers Execute Code Rem",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html",
+      "title": "ScreenConnect Attacks Target at Least 288 Endpoints Across 48 Organizations With",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html",
+      "title": "Critical Zoom Workplace Flaw Could Allow Unauthenticated Remote Privilege Escala",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/antifox-ai-pentesting-platform-linked.html",
+      "title": "AntiFox AI Pentesting Platform Linked to Attacks That Accessed AWS Production Se",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/ease-of-use-and-secure-defaults-in-the-new-aws-experience/",
+      "title": "Ease of use and secure defaults in the new AWS experience",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/11/11/ml-applications/intelligent-delivery-serve-better-ads/",
+      "title": "Intelligent Delivery: Making Every Unit of Compute Serve Better Ads",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+      "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+      "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu/",
+      "title": "Experience the art and legacy of Dr. Esther Mahlangu",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://openai.com/index/chatgpt-plus-for-veterans",
+      "title": "ChatGPT Plus for veterans and servicemembers",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/startups/building-real-time-agents-for-ev-charging-using-gemma-and-tpus/",
+      "title": "How lemonflow built real-time agents for EV charging using Gemma and TPUs",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/ai-classify-and-ai-extract-functions-in-alloydb-ai/",
+      "title": "Introducing new AI functions for AlloyDB: ai.classify and ai.extract",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/training-certifications/google-cloud-agentic-architect-certification-dont-just-prompt-ai-design-it/",
+      "title": "Don’t just prompt AI — architect it: Introducing the Professional Agentic Archit",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
+      "title": "Test your applications against AWS locally with AWS Emulator",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/diningbrandsgroup-demand-forecasting-with-sagemaker-canvas/",
+      "title": "데이터 사이언티스트 없이 수요 예측 자동화, 다이닝브랜즈그룹의 Amazon SageMaker Canvas 활용기",
+      "published_date": "2026-11-12",
+      "expires_at": "2026-11-19T06:56:27.840648+00:00"
     }
   ]
 }
