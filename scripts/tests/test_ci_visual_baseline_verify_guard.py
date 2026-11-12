@@ -113,6 +113,24 @@ def test_capture_and_verify_install_the_same_deps():
         assert "librsvg2-bin" in body, f"{path.name} no longer installs librsvg2-bin"
 
 
+def test_capture_and_verify_use_numpy_supported_python():
+    """NumPy 2.5 wheels require Python >=3.12 in both paired workflows."""
+    versions = []
+    for path in (VERIFY, REFRESH):
+        jobs = _yaml(path)["jobs"]
+        configured = [
+            str(step["with"]["python-version"])
+            for job in jobs.values()
+            for step in job.get("steps", [])
+            if str(step.get("uses", "")).startswith("actions/setup-python@")
+        ]
+        assert len(configured) == 1, f"{path.name} must configure one Python version"
+        version = tuple(int(part) for part in configured[0].split("."))
+        assert version >= (3, 12), f"{path.name} cannot install NumPy 2.5 on {version}"
+        versions.append(configured[0])
+    assert versions[0] == versions[1], "capture and verify must use the same Python"
+
+
 def test_verify_triggers_on_the_generators_it_protects():
     """The baselines record generator output; editing a generator must run verify."""
     triggers = _yaml(VERIFY)
