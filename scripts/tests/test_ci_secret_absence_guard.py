@@ -78,6 +78,18 @@ DELEGATED_GUARD = {
 # Secrets never configured -> fail-closed would be a permanently red cron.
 NEVER_CONFIGURED = {
     "gsc-queue-refresh.yml": "GSC_SERVICE_ACCOUNT_JSON",
+}
+
+# Fail-closed on a NON-Slack secret. Same rule as FAIL_CLOSED above (an absent
+# secret is a regression, not an optional integration), but the assertions
+# differ: these workflows have no SLACK_BOT_TOKEN / SLACK_CHANNEL_ID pair to
+# match, so the guard block is keyed on the workflow's own secret name.
+#
+# vercel-firewall-backup moved here from NEVER_CONFIGURED when VERCEL_TOKEN was
+# provisioned. Its cron came back in the same change, which is what the
+# docstring's "Direction" paragraph asks for: the secret and the schedule are
+# only correct together.
+FAIL_CLOSED_NON_SLACK = {
     "vercel-firewall-backup.yml": "VERCEL_TOKEN",
 }
 
@@ -172,6 +184,48 @@ def test_missing_secret_is_an_error_annotation_not_a_warning(name: str):
     guard_region = body[body.find("SLACK_BOT_TOKEN:-") :][:1200]
     assert "::error::" in guard_region, (
         f"{name}: the missing-secret branch should emit ::error::, not ::warning::"
+    )
+
+
+@pytest.mark.parametrize(("name", "secret"), sorted(FAIL_CLOSED_NON_SLACK.items()))
+def test_non_slack_fail_closed_workflows_exit_nonzero(name: str, secret: str):
+    """A provisioned secret's absence must fail, whatever the integration is."""
+    body = _body(name)
+    assert secret in body, f"{name} no longer references {secret}"
+    blocks = re.findall(
+        rf'if \[ -z "\$\{{?{secret}}}?" \][^\n]*\n(.*?)\n\s*fi',
+        body,
+        re.DOTALL,
+    )
+    assert blocks, f"{name}: no {secret} guard block found"
+    for block in blocks:
+        assert "exit 1" in block, (
+            f"{name}: a missing {secret} still exits 0. The secret is configured, "
+            f"so a green skip hides the job silently doing nothing — which is the "
+            f"state this workflow was retired from cron for."
+        )
+        assert "exit 0" not in block, f"{name}: guard block still contains exit 0"
+        assert "::error::" in block, (
+            f"{name}: the missing-secret branch emits no ::error::. A ::warning:: "
+            f"reads as expected-and-fine; this state is neither."
+        )
+
+
+@pytest.mark.parametrize("name", sorted(FAIL_CLOSED_NON_SLACK))
+def test_non_slack_fail_closed_workflows_are_scheduled(name: str):
+    """The inverse of the NEVER_CONFIGURED rule below.
+
+    Fail-closed without a cron is a workflow that can only fail when someone
+    remembers to click it. The pairing runs both ways: no secret -> no cron, and
+    secret -> cron.
+    """
+    import yaml
+
+    parsed = yaml.safe_load((WORKFLOWS / name).read_text(encoding="utf-8"))
+    on = parsed[True] if True in parsed else parsed["on"]
+    assert "schedule" in on, (
+        f"{name} is fail-closed on a provisioned secret but has no schedule, so "
+        f"the snapshot only happens on a manual dispatch. Restore the cron."
     )
 
 
