@@ -17,6 +17,7 @@ from scripts.lib.digest_headings import (
     REFERENCE_HEADING,
     REFERENCE_HEADING_WITH_POSTS,
 )
+from scripts.lib.news_priority import is_promotional_news_title
 from scripts.news.analyzer import (
     extract_cve_id,
     generate_mitre_mapping,
@@ -1544,6 +1545,18 @@ def _get_recent_digest_links(post_date: datetime, count: int = 3) -> str:
     return "\n".join(matched_links) + "\n\n"
 
 
+def _priority_news_items(items: List[Dict]) -> List[Dict]:
+    """Keep event promotions in articles, outside priority metadata surfaces."""
+    return [
+        item
+        for item in items
+        if not any(
+            is_promotional_news_title(title)
+            for title in (str(item.get("title", "")), _korean_display_title(item))
+        )
+    ]
+
+
 def generate_post_content(
     news_items: List[Dict],
     categorized: Dict[str, List[Dict]],
@@ -1571,13 +1584,17 @@ def generate_post_content(
     devops_news = categorized.get("devops", [])[:3]
     blockchain_news = categorized.get("blockchain", [])[:3]
     tech_news = categorized.get("tech", [])[:3]
+    rendered_items = (
+        security_news + ai_news + cloud_news + devops_news + blockchain_news + tech_news
+    )
+    metadata_items = _priority_news_items(rendered_items)
 
     # 핵심 하이라이트 생성 — Option A: structured data for summary_card YAML.
     # html.escape is preserved so the include template's raw `{{ h.source }}` /
     # `{{ h.title }}` render produces the same HTML output as the legacy
     # include-with-attributes path used to.
     highlights_data: List[Tuple[str, str]] = []
-    for item in (security_news + cloud_news)[:4]:
+    for item in _priority_news_items(security_news + cloud_news)[:4]:
         source = item.get("source_name", item.get("source", "Unknown"))
         title = _korean_display_title(item)
         if len(title) > 60:
@@ -1586,16 +1603,16 @@ def generate_post_content(
     if not highlights_data:
         highlights_data = [("", "오늘의 주요 뉴스를 확인하세요")]
 
-    topics = _extract_key_topics(news_items)
+    topics = _extract_key_topics(metadata_items)
 
     # `title_keywords` is the bare theme phrase (e.g. "제로데이, AI 에이전트")
     # used downstream by excerpt/description/image_alt builders that splice
     # the topic into Korean prose. The post title itself uses the
     # schema-driven `post_title` so search engines see a stable series
     # pattern like "YYYY년 MM월 DD일 주간 보안 다이제스트: theme (N건)".
-    title_keywords = _build_digest_title(news_items, mode="security")
+    title_keywords = _build_digest_title(metadata_items, mode="security")
     post_title = _compose_digest_post_title(
-        date_str, news_items, total, mode="security"
+        date_str, metadata_items, total, mode="security"
     )
 
     base_tags = [
@@ -1713,7 +1730,7 @@ toc: true
         for it in cat_items:
             if it not in highlight_items:
                 highlight_items.append(it)
-    for item in highlight_items[:10]:
+    for item in _priority_news_items(highlight_items)[:10]:
         source = item.get("source_name", item.get("source", "Unknown"))[:20]
         title = _korean_display_title(item, max_len=60)
         category = item.get("category", "tech")
@@ -1737,11 +1754,6 @@ toc: true
         content += f"| {emoji} **{cat_display}** | {source} | {title} | {severity_emoji} {severity} |\n"
 
     content += "\n---\n\n"
-
-    # Items that will become rendered news cards (used for briefing title text).
-    rendered_items = (
-        security_news + ai_news + cloud_news + devops_news + blockchain_news + tech_news
-    )
 
     # Build news sections FIRST so we can count the actual severity="..." tags
     # they emit. This is the structural guarantee that briefing '등 N건' counts

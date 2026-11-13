@@ -815,6 +815,8 @@ def test_vb_security_advisory_omits_severity_when_unknown() -> None:
     assert "ADVISORY" in out
     assert "SEVERITY: TBD" not in out, "must not assert a fabricated TBD level"
     assert "unspecified - under review" not in out
+    assert "SEVERITY" not in out
+    assert 'transform="translate(70,19)"' not in out
 
 
 def test_vb_security_advisory_renders_known_severity() -> None:
@@ -823,6 +825,7 @@ def test_vb_security_advisory_renders_known_severity() -> None:
     for word in ("CRITICAL", "HIGH", "MEDIUM"):
         out = svg_l20_hero.vb_security_advisory(800, 230, "amber", severity=word)
         assert f"SEVERITY: {word}" in out
+        assert 'transform="translate(70,19)"' in out
         assert "SEVERITY: TBD" not in out
         assert out.isascii()
 

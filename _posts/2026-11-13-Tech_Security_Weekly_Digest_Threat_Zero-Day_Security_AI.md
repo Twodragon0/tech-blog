@@ -1,20 +1,20 @@
 ---
 layout: post
-title: "2026년 11월 13일 주간 보안 다이제스트: AI 에이전트·제로데이·BYOVD EDR (30건)"
+title: "2026년 11월 13일 주간 보안 다이제스트: 피싱·Linux 위협·클라우드 보안 (30건)"
 date: 2026-11-13 13:12:02 +0900
-last_modified_at: 2026-11-13T13:12:02+09:00
+last_modified_at: 2026-11-14T08:01:29+09:00
 categories: [security, devsecops]
-tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Threat, Zero-Day, Security, AI]
-excerpt: "2026년 11월 13일 수집한 30건의 보안 이슈 중 발주서 확인 요청으로 위장한 피싱 메일 주의 (Xloader) · 웨비나: Identity Blind Spots가 어떻게 SOC를을 중심으로 영향 범위와 패치 우선순위를 분석합니다. 사안별 소스와 영향도를 표로 정리해 우선순위 판단 근거를 남겼습니다."
-description: "2026년 11월 13일 보안 뉴스 요약. 안랩 ASEC 블로그, The Hacker News 등 30건을 분석하고 발주서 확인 요청으로 위장한 피싱 메일, 웨비나: Identity Blind, ThreatsDay 등 DevSecOps 대응 포인트를 정리합니다. 주간 보안 위협 동향과 실무 대응 방안을 한곳에서 확인하세요."
-keywords: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Threat, Zero-Day, Security]
+tags: [Security-Weekly, DevSecOps, Cloud-Security, Weekly-Digest, 2026, Phishing, Linux, Threat]
+excerpt: "안랩 ASEC의 Xloader 피싱 분석과 ThreatsDay의 Linux 커널·백도어 동향, Chrome Enterprise의 의료 기술 보호 소식을 중심으로 2026년 11월 13일 수집한 30건을 살펴봅니다. 본문에 소개한 출처별 핵심 내용과 운영 점검 항목을 구분해 정리했습니다."
+description: "2026년 11월 13일 수집한 보안·기술 뉴스 30건 가운데 Xloader 피싱, ThreatsDay의 Linux 커널·백도어 동향, Chrome Enterprise의 의료 기술 보호 소식을 정리합니다. 본문의 출처별 분석과 운영 점검 항목을 통해 대응 우선순위를 확인하세요."
+keywords: [Security-Weekly, DevSecOps, Cloud-Security, Phishing, Linux, Xloader, ThreatsDay]
 author: Twodragon
 comments: true
 image: /assets/images/2026-11-13-Tech_Security_Weekly_Digest_Threat_Zero-Day_Security_AI.svg
-image_alt: "Identity Blind, ThreatsDay - security digest overview"
+image_alt: "Xloader phishing, ThreatsDay and Chrome Enterprise security overview"
 toc: true
 summary_card:
-  title: "2026년 11월 13일 주간 보안 다이제스트: AI 에이전트·제로데이·BYOVD EDR (30건)"
+  title: "2026년 11월 13일 주간 보안 다이제스트: 피싱·Linux 위협·클라우드 보안 (30건)"
   period: "2026년 11월 13일 (24시간)"
   audience: "보안 담당자, DevSecOps 엔지니어, SRE, 클라우드 아키텍트"
   categories:
@@ -22,15 +22,14 @@ summary_card:
     - { class: "devsecops", label: "DevSecOps" }
   tags:
     - "Security-Weekly"
+    - "Phishing"
+    - "Linux"
+    - "Cloud-Security"
     - "Threat"
-    - "Zero-Day"
-    - "Security"
-    - "AI"
     - "2026"
   highlights:
     - { source: "안랩 ASEC 블로그", title: "발주서 확인 요청으로 위장한 피싱 메일 주의 (Xloader)" }
-    - { source: "The Hacker News", title: "웨비나: Identity Blind Spots가 어떻게 SOC를 위험에 빠뜨리는지, 그리고 이를 해결하는" }
-    - { source: "The Hacker News", title: "ThreatsDay: 59개 Linux 커널 버그, Falcon 스파이웨어, GSocket 백도어 +" }
+    - { source: "The Hacker News", title: "ThreatsDay: Linux 커널 버그·스파이웨어·백도어 동향" }
     - { source: "Google Cloud Blog", title: "Chrome Enterprise, 의료 기술에 더 많은 보호 기능 제공" }
 ---
 

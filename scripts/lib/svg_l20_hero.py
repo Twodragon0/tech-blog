@@ -1138,15 +1138,14 @@ def vb_security_advisory(
     ``severity`` (optional, ASCII all-caps ``CRITICAL`` / ``HIGH`` / ``MEDIUM``)
     is the impact level the post actually reported for this story. When known,
     the gauge renders ``SEVERITY: <level>``; when ``""`` (unassessed) the
-    severity line is OMITTED entirely — the cover never asserts a fabricated
+    severity gauge is OMITTED entirely — the cover never asserts a fabricated
     "TBD" / "unspecified - under review" level.
 
     HONESTY CONSTRAINTS (hard): it must NOT fabricate specifics. There is
     deliberately no ``CVE-XXXX`` id, no "Active exploitation", no
     "PATCH UPSTREAM NOW", no attacker / victim / C2 / exploit-chain
-    narrative. The headline label is ``SECURITY ADVISORY``. The gauge needle
-    deliberately parks at the neutral midpoint — it does not assert a score
-    beyond the post-reported ``severity`` word (when one was supplied).
+    narrative. The headline label is ``SECURITY ADVISORY``. A gauge appears
+    only alongside a post-reported severity word, never for an unassessed topic.
 
     Design: a centered shield outline (the universal "security topic" mark)
     with a check-style glyph, an ``ADVISORY`` badge, and a horizontal
@@ -1195,25 +1194,31 @@ def vb_security_advisory(
         f'<g transform="translate(-92,-46)">'
         f"{_advisory_emblem(cover_seed, shield_a, shield_soft)}"
         f"</g>"
-        # Right column: severity gauge (unfilled track, TBD marker)
-        f'<g transform="translate(8,-44)">'
-        f'<text x="0" y="0" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{txt}">SEVERITY</text>'
-        # Gauge track
-        f'<rect x="0" y="12" width="140" height="14" rx="7" fill="#11182B" stroke="{a}" stroke-width="1.2"/>'
-        # Three benign segment ticks (LOW / MED / HIGH scale, no value asserted)
-        f'<g stroke="{a}" stroke-width="1" opacity="0.4">'
-        f'<line x1="47" y1="12" x2="47" y2="26"/><line x1="93" y1="12" x2="93" y2="26"/>'
-        f"</g>"
-        # Neutral marker parked at the midpoint — asserts no score on its own.
-        f'<g transform="translate(70,19)">'
-        f'<circle cx="0" cy="0" r="6.5" fill="{a}">'
-        f'<animate attributeName="opacity" values="0.7;1;0.7" dur="2.2s" repeatCount="indefinite"/></circle>'
-        f'<circle cx="0" cy="0" r="2.4" fill="#0A0F1E"/>'
-        f"</g>"
-        # Real post-reported severity word, or nothing when unassessed (never
-        # "TBD" / "unspecified - under review").
-        f"{severity_line}"
-        f"</g>"
+        # Right column is absent when no severity was reported. Even an
+        # unlabelled midpoint otherwise looks like a measured risk score.
+        + (
+            f'<g transform="translate(8,-44)">'
+            f'<text x="0" y="0" font-family="Inter, monospace" font-size="10" font-weight="800" fill="{txt}">SEVERITY</text>'
+            # Gauge track
+            f'<rect x="0" y="12" width="140" height="14" rx="7" fill="#11182B" stroke="{a}" stroke-width="1.2"/>'
+            # Three benign segment ticks (LOW / MED / HIGH scale, no value asserted)
+            f'<g stroke="{a}" stroke-width="1" opacity="0.4">'
+            f'<line x1="47" y1="12" x2="47" y2="26"/><line x1="93" y1="12" x2="93" y2="26"/>'
+            f"</g>"
+            # Neutral marker parked at the midpoint — asserts no score on its own.
+            f'<g transform="translate(70,19)">'
+            f'<circle cx="0" cy="0" r="6.5" fill="{a}">'
+            f'<animate attributeName="opacity" values="0.7;1;0.7" dur="2.2s" repeatCount="indefinite"/></circle>'
+            f'<circle cx="0" cy="0" r="2.4" fill="#0A0F1E"/>'
+            f"</g>"
+            # Real post-reported severity word, or nothing when unassessed (never
+            # "TBD" / "unspecified - under review").
+            f"{severity_line}"
+            f"</g>"
+            if sev
+            else ""
+        )
+        +
         # Bottom caption (benign, no call to patch)
         f'<text x="0" y="92" text-anchor="middle" font-family="Inter, Helvetica, Arial, sans-serif" font-size="10" font-weight="700" fill="{a}" letter-spacing="2">REVIEW ADVISORY DETAILS</text>'
         f"</g>"
