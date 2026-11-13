@@ -5131,5 +5131,20 @@
       "cross_refs": 5,
       "length": 4
     }
+  },
+  "2026-11-13-Tech_Security_Weekly_Digest_Threat_Zero-Day_Security_AI.md": {
+    "total": 99,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 4
+    }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T06:56:27.855851+00:00",
+  "updated_at": "2026-11-13T04:13:03.889597+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
@@ -630,6 +630,96 @@
       "title": "데이터 사이언티스트 없이 수요 예측 자동화, 다이닝브랜즈그룹의 Amazon SageMaker Canvas 활용기",
       "published_date": "2026-11-12",
       "expires_at": "2026-11-19T06:56:27.840648+00:00"
+    },
+    {
+      "url": "https://asec.ahnlab.com/ko/96512/",
+      "title": "발주서 확인 요청으로 위장한 피싱 메일 주의 (Xloader)",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/your-soc-sees-alert-but-does-it-know.html",
+      "title": "Webinar: See How Identity Blind Spots Put Your SOC at Risk and How to Close Them",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/threatsday-59-linux-kernel-bugs-falcon.html",
+      "title": "ThreatsDay: 59 Linux Kernel Bugs, Falcon Spyware, GSocket Backdoors + 17 More St",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html",
+      "title": "New SignDrop Zero-Day Exploit Turns Windows CLFS Security Feature Into SYSTEM Ac",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html",
+      "title": "Critical Red Hat Quay Flaw Lets Attackers Read and Overwrite All Private Contain",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://openai.com/business/customer-stories/amplitude",
+      "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+      "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-warhammer-dawn-of-war-iv-coming/",
+      "title": "A New Dawn in the Cloud: ‘Warhammer 40,000: Dawn of War IV’ Is Coming to GeForce",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://openai.com/business/customer-stories/gondola",
+      "title": "Gondola doubles revenue as its team builds more with Codex",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://openai.com/business/customer-stories/holidays-extras-codex",
+      "title": "Holiday Extras is rethinking what it can build with Codex",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/chrome-enterprise/chrome-enterprise-brings-more-protections-to-healthcare-technologies/",
+      "title": "Chrome Enterprise brings more protections to healthcare technologies",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/networking/partner-cross-cloud-interconnect-for-last-mile-delivered-by-lumen/",
+      "title": "Simplifying last mile cloud connectivity with Lumen and partner Cross-Cloud Inte",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/",
+      "title": "What’s new with Google Data Cloud",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/partners/autonomous-defense-at-cloud-speed-with-sentinelone-and-google-security-operations/",
+      "title": "Autonomous defense at cloud speed with SentinelOne and Google Security Operation",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/google-is-a-leader-in-the-gartner-magic-quadrant-for-data-lakehouse-platforms/",
+      "title": "Google named the furthest in vision for the Gartner Magic Quadrant for Data Lake",
+      "published_date": "2026-11-13",
+      "expires_at": "2026-11-20T04:13:03.889397+00:00"
     }
   ]
 }
