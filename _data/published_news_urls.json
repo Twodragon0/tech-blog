@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T04:13:03.889597+00:00",
+  "updated_at": "2026-11-14T04:09:33.044387+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
@@ -720,6 +720,96 @@
       "title": "Google named the furthest in vision for the Gartner Magic Quadrant for Data Lake",
       "published_date": "2026-11-13",
       "expires_at": "2026-11-20T04:13:03.889397+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html",
+      "title": "PostgreSQL Patches 52 Flaws, Including 22-Year-Old Bug Enabling Authenticated RC",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/",
+      "title": "SCKit abuses ScreenConnect to deploy remote access and target technician session",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/new-mior-and-skyfall-attacks-let-rogue.html",
+      "title": "New Mior and Skyfall Attacks Let Rogue Cloud Hosts Steal Secrets From AMD SEV-SN",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/",
+      "title": "Amazon Threat Intelligence observes threat actors running cybercrime campaigns w",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html",
+      "title": "FBI Says North Korean Hackers Stole Over $400 Million in Crypto Using Deepfake V",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/11/13/android/cuttlefish-on-mac/",
+      "title": "Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple ",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-chatgpt-wallet",
+      "title": "Introducing ChatGPT Wallet",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/how-ai-is-helping-care-teams/",
+      "title": "How AI Is Helping Care Teams Get Patients the Right Care, Sooner",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://openai.com/business/customer-stories/shield",
+      "title": "Shield helps technicians hand off legacy portal work with OpenAI",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/openai-ai-payments-chatgpt-wallet-visa-mastercard-amex?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "OpenAI launches AI payments in ChatGPT with Visa, Mastercard and Amex",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/enterprise-ai-agent-observability-with-bigquery-and-looker/",
+      "title": "New AI agent observability and governance across BigQuery and Looker",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/hpc/whats-new-in-hpc-and-ai-at-sc26/",
+      "title": "Where supercomputing meets agentic AI: What’s new in Google Cloud HPC and AI at ",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/reverse-etl-bigquery-exports-to-alloydb/",
+      "title": "From OLAP to OLTP: How Copel Simplified Reverse ETL Using BigQuery's Native Expo",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+      "title": "Upcoming deprecation of selected GitHub Copilot models in December",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
+      "title": "GitHub Enterprise Server support in the GitHub Copilot app",
+      "published_date": "2026-11-14",
+      "expires_at": "2026-11-21T04:09:33.044157+00:00"
     }
   ]
 }
