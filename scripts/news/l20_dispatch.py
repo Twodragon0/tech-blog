@@ -37,6 +37,8 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
+from scripts.lib.news_priority import is_promotional_news_title
+
 # Module-level feature flag. Evaluated once at import time so callers may
 # override it for tests via ``monkeypatch.setattr(...)`` or by mutating the
 # module attribute directly.
@@ -2085,6 +2087,8 @@ def _panel_from_source_title(
     Returns ``None`` when the title carries no usable ASCII entity, so callers
     skip the slot (leaving it on the keyword path) rather than padding it.
     """
+    if is_promotional_news_title(ttl):
+        return None
     toks = _entity_tokens(ttl)
     if not toks:
         return None
@@ -2752,6 +2756,11 @@ def _apply_real_content(
     content = str(post_info.get("content", "") or "")
     panels = _digest_panels(post_info.get("summary_card"), content)
     for i, story in enumerate(stories):
+        # Position is editorial emphasis, not evidence of threat severity.
+        # The legacy HIGH/HIGH/MEDIUM defaults must not survive when a real
+        # panel has no reported severity (or no real panel exists at all).
+        story["tag"] = "FOCUS"
+        story["severity"] = ""
         if i < len(panels) and panels[i] is not None:
             panel = panels[i]
             story["headline"] = panel["headline"]
@@ -2759,6 +2768,7 @@ def _apply_real_content(
             # Real per-story severity (ASCII word) for the advisory gauge; ""
             # when unknown so the renderer OMITS the severity line (no "TBD").
             story["severity"] = panel.get("severity", "")
+            story["tag"] = story["severity"] or "FOCUS"
             # Re-route the visual (+ theme, + hero action) to the real story,
             # clamped to an honest, non-overclaiming class.
             new_visual = _honest_content_visual(

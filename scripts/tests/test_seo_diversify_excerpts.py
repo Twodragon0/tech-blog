@@ -99,6 +99,23 @@ summary_card:
 class TestBuildDiverseExcerpt:
     """Pure-function checks on ``_build_diverse_excerpt``."""
 
+    @pytest.mark.parametrize("variant", range(5))
+    def test_truncated_headline_particles_are_not_grammar_glued(
+        self, tmp_path: Path, variant: int
+    ) -> None:
+        path = tmp_path / f"2026-11-13-Tech_Security_Weekly_Digest_{variant}.md"
+        excerpt = _build_diverse_excerpt(
+            path,
+            title="보안 다이제스트",
+            highlights=["발주서 확인 요청으로 위장한 피싱 메일 주의", "SOC를"],
+            existing=V1_EXCERPT,
+            body=DIGEST_BODY,
+        )
+        assert "SOC를을" not in excerpt
+        assert "SOC를이" not in excerpt
+        assert "‘SOC를’ 소식" in excerpt
+        assert 150 <= len(excerpt) <= 220
+
     def test_length_within_seo_window(self, tmp_path: Path) -> None:
         path = _write_fixture_post(
             tmp_path, "2026-05-18-Tech_Security_Weekly_Digest_X.md"

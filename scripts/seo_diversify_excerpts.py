@@ -553,17 +553,17 @@ def _build_diverse_excerpt(
 
     # Pick anchors: prefer highlights, fall back to title fragments
     if len(highlights) >= 2:
-        anchors = [_truncate(h, 38) for h in highlights[:2]]
+        anchors = [f"‘{_truncate(h, 38)}’ 소식" for h in highlights[:2]]
         stories = " · ".join(anchors)
     elif highlights:
-        stories = _truncate(highlights[0], 60)
+        stories = f"‘{_truncate(highlights[0], 60)}’ 소식"
     else:
         # split title by commas — drop empties
         parts = [p.strip() for p in re.split(r"[,，]", title) if p.strip()]
         if len(parts) >= 2:
-            stories = " · ".join(_truncate(p, 38) for p in parts[:2])
+            stories = " · ".join(f"‘{_truncate(p, 38)}’ 소식" for p in parts[:2])
         elif parts:
-            stories = _truncate(parts[0], 60)
+            stories = f"‘{_truncate(parts[0], 60)}’ 소식"
         else:
             stories = "주요 보안 이슈"
 
