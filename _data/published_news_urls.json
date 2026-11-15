@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T04:09:33.044387+00:00",
+  "updated_at": "2026-11-15T03:54:41.242583+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
@@ -810,6 +810,96 @@
       "title": "GitHub Enterprise Server support in the GitHub Copilot app",
       "published_date": "2026-11-14",
       "expires_at": "2026-11-21T04:09:33.044157+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
+      "title": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/",
+      "title": "Cursor confirms security breach led to malicious Claude Code extension",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/us-disrupts-north-korean-campaign-behind-400-million-crypto-theft/",
+      "title": "US disrupts North Korean campaign behind $400 million crypto theft",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://techcrunch.com/2026/11/14/transportation-secretary-blames-routine-equipment-upgrade-for-grounding-flights-nationwide/",
+      "title": "Transportation secretary blames ‘routine’ equipment upgrade for grounding flight",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/is-ai-making-us-worse-at-cybersecurity/",
+      "title": "Is AI Making Us Worse at Cybersecurity?",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/markets/bitcoin-price-crashes-13-percent-65600",
+      "title": "Bitcoin Price Falls 14% in a Week to $65,000 as Weekend Selling Breaks Friday’s ",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/microsoft-365-outage-resolved-cyberattack-ruled-out?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Microsoft confirms global outage resolved, rules out cyberattack",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/megaeth-parent-cuts-20-percent-staff-ai-push?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "MegaETH parent cuts 20% of staff amid restructuring, AI push",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-etf-outflows-2-35-billion-blackrock-11-session-streak?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin ETFs shed $2.35B in 2 weeks, BlackRock’s losing streak hits 11",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/11/14/ethereum-scaling-project-megaeth-slashes-staff-by-20-as-it-pursues-ai-business",
+      "title": "Ethereum scaling project MegaETH slashes staff by 20% as it pursues AI business",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=37189&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "Show HN: 순수 JAX 약 200줄로 구현한 DeepSeek V3",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=37187&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "Nvidia, 순환 금융 거래로 GPU 가격을 의도적으로 높게 유지했다는 의혹",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=37186&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "LinkedIn과 Monster, CBC 조사 후 가짜 채용 공고 1,000건 이상 삭제",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=37185&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "컨텐츠 플랫폼에서 웹인프라서비스의 시대로",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=37183&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "ChatGPT 내 비즈니스 기능 소개",
+      "published_date": "2026-11-15",
+      "expires_at": "2026-11-22T03:54:41.242344+00:00"
     }
   ]
 }
