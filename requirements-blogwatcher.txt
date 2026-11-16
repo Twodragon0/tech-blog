@@ -30,5 +30,5 @@ qrcode[pil]>=7.0
 # test_optional_narrowing_guards.py. Re-measure in a clean venv before trimming
 # this list — the local environment has more packages and hides the difference.
 fonttools[woff]>=4.64.0
-python-dotenv>=1.2.3
+python-dotenv>=1.2.4
 ruff>=0.16.9
