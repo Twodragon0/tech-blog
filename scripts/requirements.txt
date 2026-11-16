@@ -20,7 +20,7 @@ python-dotenv>=1.2.3
 feedparser>=6.0.14
 
 # Google OAuth 2.0 및 Gemini API (선택적)
-google-auth>=2.58.0
+google-auth>=2.62.2
 # google-auth-oauthlib removed 2026-09-16: dead. Nothing imports it (statically or
 # dynamically) and NO installed package requires it — it was a direct declaration
 # only, added by b7b39e95 for an OAuth flow that never landed. The auth path that
