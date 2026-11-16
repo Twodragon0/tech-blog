@@ -29,7 +29,7 @@ google-auth>=2.62.2
 #
 # google-auth-httplib2 below is different: also unimported, but google-api-python-client
 # requires it (<1.0.0,>=0.2.0) via google-generativeai, so it installs either way.
-google-auth-httplib2>=0.4.2
+google-auth-httplib2>=0.4.4
 google-generativeai>=0.8.6
 
 # TTS (선택적) — generate_post_images.py:106 `from gtts import gTTS`
