@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T03:54:41.242583+00:00",
+  "updated_at": "2026-11-16T03:55:26.619121+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
@@ -900,6 +900,96 @@
       "title": "ChatGPT 내 비즈니스 기능 소개",
       "published_date": "2026-11-15",
       "expires_at": "2026-11-22T03:54:41.242344+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/italy-fines-meta-805-million-over.html",
+      "title": "Italy Fines Meta €805 Million Over Facebook's Android Gallery Access Without Exp",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html",
+      "title": "Cursor Says Stolen Fireworks AI Key Led to Trojanized Claude Code Extension Inci",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
+      "title": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/tsmc-employee-data-breach-linked-to-cloud-provider/",
+      "title": "TSMC employee data breach linked to cloud provider",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/pentagon-renames-cdao-super-intelligence-office/",
+      "title": "Pentagon Renames CDAO ‘Super Intelligence Office’",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ai-day-seoul-wrapup/",
+      "title": "AI Day Seoul Brings Together Korea’s Industry Leaders, Startups and Developer Co",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://openai.com/index/step-toward-defining-the-standard-model",
+      "title": "A step toward defining the Standard Model on a lattice",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://openai.com/index/our-new-blog-for-science",
+      "title": "Our new blog for science",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/getting-started-with-aws-emulator-local-testing-without-an-aws-account/",
+      "title": "AWS Emulator 시작하기 – 계정 없이 AWS 애플리케이션을 로컬에서 테스트하는 방법과 활용 사례",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/luxor-ceo-warns-of-ai-dark-forest-after-bitcoin-miner-hijack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Luxor CEO warns of AI ‘dark forest’ after Bitcoin miner hijack",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/jensen-huang-weighs-nvidia-comeback-days-after-shock-exit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Jensen Huang weighs Nvidia comeback days after shock exit: FT",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/opinion/enterprise-blockchain-come-back-from-dead?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Enterprise blockchain is going to come back from the dead",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/coinone-data-breach-phishing-identity-theft-customer-information?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Coinone warns of phishing, identity theft after customer data breach",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/rwa-protocol-stusdt-winds-down-three-years-after-23b-tvl-peak?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "RWA protocol stUSDT winds down three years after $2.3B TVL peak",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://d2.naver.com/helloworld/1599966",
+      "title": "흩어진 행동을 연결하다: 네이버 전 지면의 사용자 행동을 학습하는 추천 모델 개발기",
+      "published_date": "2026-11-16",
+      "expires_at": "2026-11-23T03:55:26.618953+00:00"
     }
   ]
 }
