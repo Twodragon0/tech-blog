@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-16T03:55:26.619121+00:00",
+  "updated_at": "2026-11-18T00:31:27.044189+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
@@ -990,6 +990,96 @@
       "title": "흩어진 행동을 연결하다: 네이버 전 지면의 사용자 행동을 학습하는 추천 모델 개발기",
       "published_date": "2026-11-16",
       "expires_at": "2026-11-23T03:55:26.618953+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/researchers-claim-two-rce-exploits-that.html",
+      "title": "Researchers Claim Two RCE Exploits That Bypass Telegram’s New Android Defenses",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/introducing-simplified-onboarding-for-aws-waf-bot-control-at-the-targeted-inspection-level/",
+      "title": "Introducing simplified onboarding for AWS WAF Bot Control at the targeted inspec",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html",
+      "title": "Oracle to Patch 11 Java Flaws Today as Critical OpenJDK RCE (CVE-2026-114938) Re",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/trigram-campaign-impersonates-about-50.html",
+      "title": "Trigram Campaign Impersonates About 50 AI and Blockchain Brands to Target Devs w",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/securely-exposing-amazon-bedrock-agentcore-runtime/",
+      "title": "Securely exposing Amazon Bedrock AgentCore Runtime",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "title": "Introducing GPT-6.2 Astra and Sol",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+      "title": "Put Gemini to work for you",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/ian-buck-sc26/",
+      "title": "Ian Buck Kicks Off NVIDIA’s Week at SC26 as Science Enters the Age of Agents",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-chatgpt-for-sales",
+      "title": "Introducing ChatGPT for Sales",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/coinbase-chatgpt-plugin-bitcoin-trading",
+      "title": "Coinbase Launches ChatGPT Plugin for Trading Bitcoin, Stocks, and Derivatives",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-build-durable-agentic-systems-with-google-antigravity-from-instructions-to-loops/",
+      "title": "How to Build Durable Agentic Systems with Google Antigravity: From Instructions ",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/networking/cross-cloud-interconnect-for-microsoft-azure/",
+      "title": "Simplifying multicloud networking to Azure with partner Cross-Cloud Interconnect",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-is-a-leader-in-the-2026-gartner-magic-quadrant/",
+      "title": "Google Cloud is a Leader in the 2026 Gartner Magic Quadrant for AI Application D",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/business-intelligence/modern-data-visualizations-and-custom-charts-in-looker/",
+      "title": "The visual evolution of Looker: Modern design for enterprise data storytelling",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/partners/2026-google-cloud-partner-all-stars-winners/",
+      "title": "Congratulations to our 2026 Google Cloud Partner All-stars",
+      "published_date": "2026-11-18",
+      "expires_at": "2026-11-25T00:31:27.044114+00:00"
     }
   ]
 }
