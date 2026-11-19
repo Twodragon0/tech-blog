@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18T00:31:27.044189+00:00",
+  "updated_at": "2026-11-19T05:08:17.946592+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
@@ -1080,6 +1080,96 @@
       "title": "Congratulations to our 2026 Google Cloud Partner All-stars",
       "published_date": "2026-11-18",
       "expires_at": "2026-11-25T00:31:27.044114+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/php-warns-of-critical-security-flaws.html",
+      "title": "PHP Warns of Critical Security Flaws Affecting All Supported Versions, Fixes Com",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html",
+      "title": "10-Year-Old NGINX HTTP/2 Flaw Lets Unauthenticated Attackers Execute Code on Ser",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/step-up-authentication-how-to-right-size-authentication-to-risk/",
+      "title": "Step-up authentication: how to right-size authentication to risk",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/f5-warns-6-critical-big-ip-flaws-can.html",
+      "title": "F5 Warns 6 Critical BIG-IP Flaws Can Crash Traffic in Specific Setups, May Allow",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html",
+      "title": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Req",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/",
+      "title": "The Gemini app is now available on lower-memory Android devices.",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/11/18/ml-applications/ai-agents-to-scale-ml-innovations-across-ads-ranking-models/",
+      "title": "How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://engineering.fb.com/2026/11/18/ml-applications/design-once-deploy-at-scale-template-driven-ml-ecosystem/",
+      "title": "Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/rtx-spark-desktop-local-ai-available-now/",
+      "title": "NVIDIA RTX Spark Compact Desktops Out Now",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://openai.com/index/the-silent-consensus",
+      "title": "The Silent Consensus",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/chrome-enterprise/a-bridge-to-modernization-what-idcs-market-note-says-about-cameyo-by-google/",
+      "title": "A bridge to modernization: What IDC’s Market Note says about Cameyo by Google",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/startups/google-cloud-highlights-emea-startup-momentum-at-slush-2026/",
+      "title": "EMEA startups building the next-generation of agents on Google Cloud",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/introducing-okf-v0-3/",
+      "title": "What’s new in OKF v0.3: enterprise-ready knowledge, use cases, and skills",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/database-center-assessments-for-cloud-sql-for-postgresql/",
+      "title": "Testing changes, fast: Introducing agentic assessments in Database Center",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system/",
+      "title": "Sashiko: Lessons from building an agentic code review system for Linux",
+      "published_date": "2026-11-19",
+      "expires_at": "2026-11-26T05:08:17.946322+00:00"
     }
   ]
 }
