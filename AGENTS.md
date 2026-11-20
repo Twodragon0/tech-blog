@@ -13,6 +13,12 @@ Coding guidelines for AI agents (Claude, Cursor, Copilot, etc.) working on this 
 | **GitHub** | https://github.com/Twodragon0/tech-blog |
 | **RSS** | https://tech.2twodragon.com/feed.xml |
 
+**Domain decision (2026-11-20):** `tech.2twodragon.com` is the canonical host. The apex
+`2twodragon.com` (retired WordPress) only 301s — security posts to their tech URLs, other
+WordPress paths to the `legacy.2twodragon.com` archive. Do not move `url`, canonicals or
+API/Sentry origins to the apex; details in `docs/seo/apex-domain-cutover.md`, enforced by
+`scripts/tests/test_domain_decision.py`.
+
 ---
 
 ## 1. Build/Lint/Test Commands

@@ -629,7 +629,7 @@
           }
         }
       ],
-      "destination": "https://tech.2twodragon.com/",
+      "destination": "https://legacy.2twodragon.com/apple-smarthome/",
       "statusCode": 301
     },
     {
@@ -725,7 +725,7 @@
           }
         }
       ],
-      "destination": "https://tech.2twodragon.com/",
+      "destination": "https://legacy.2twodragon.com/johnmcafee/",
       "statusCode": 301
     },
     {
@@ -1337,7 +1337,4279 @@
       "statusCode": 301
     },
     {
-      "source": "/:path*",
+      "source": "/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8%ec%9d%b4-%eb%b0%94%ea%be%b8%eb%8a%94-%ea%b8%88%ec%9c%b5%ea%b3%bc-%ec%9a%b0%eb%a6%ac%ec%9d%98-%ec%82%b6/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8%ec%9d%b4-%eb%b0%94%ea%be%b8%eb%8a%94-%ea%b8%88%ec%9c%b5%ea%b3%bc-%ec%9a%b0%eb%a6%ac%ec%9d%98-%ec%82%b6/",
+      "statusCode": 301
+    },
+    {
+      "source": "/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8%EC%9D%B4-%EB%B0%94%EA%BE%B8%EB%8A%94-%EA%B8%88%EC%9C%B5%EA%B3%BC-%EC%9A%B0%EB%A6%AC%EC%9D%98-%EC%82%B6/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8%ec%9d%b4-%eb%b0%94%ea%be%b8%eb%8a%94-%ea%b8%88%ec%9c%b5%ea%b3%bc-%ec%9a%b0%eb%a6%ac%ec%9d%98-%ec%82%b6/",
+      "statusCode": 301
+    },
+    {
+      "source": "/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8-%ea%b8%b0%ec%88%a0%ea%b3%bc-%ea%b8%88%ec%9c%b5%ed%98%81%eb%aa%85-%eb%b9%84%ed%8a%b8%ec%bd%94%ec%9d%b8%ea%b3%bc-%ec%9d%b4%eb%8d%94%eb%a6%ac%ec%9b%80%ec%9d%98/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8-%ea%b8%b0%ec%88%a0%ea%b3%bc-%ea%b8%88%ec%9c%b5%ed%98%81%eb%aa%85-%eb%b9%84%ed%8a%b8%ec%bd%94%ec%9d%b8%ea%b3%bc-%ec%9d%b4%eb%8d%94%eb%a6%ac%ec%9b%80%ec%9d%98/",
+      "statusCode": 301
+    },
+    {
+      "source": "/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EA%B8%88%EC%9C%B5%ED%98%81%EB%AA%85-%EB%B9%84%ED%8A%B8%EC%BD%94%EC%9D%B8%EA%B3%BC-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80%EC%9D%98/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8-%ea%b8%b0%ec%88%a0%ea%b3%bc-%ea%b8%88%ec%9c%b5%ed%98%81%eb%aa%85-%eb%b9%84%ed%8a%b8%ec%bd%94%ec%9d%b8%ea%b3%bc-%ec%9d%b4%eb%8d%94%eb%a6%ac%ec%9b%80%ec%9d%98/",
+      "statusCode": 301
+    },
+    {
+      "source": "/%ec%84%9c%ec%9a%b8%eb%b6%80%eb%8f%99%ec%82%b0/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/%ec%84%9c%ec%9a%b8%eb%b6%80%eb%8f%99%ec%82%b0/",
+      "statusCode": 301
+    },
+    {
+      "source": "/%EC%84%9C%EC%9A%B8%EB%B6%80%EB%8F%99%EC%82%B0/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/%ec%84%9c%ec%9a%b8%eb%b6%80%eb%8f%99%ec%82%b0/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2024-f1/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2024-f1/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2024-netflix/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2024-netflix/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2024-yr4/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2024-yr4/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2025-bath-trends/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2025-bath-trends/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2025-japan-company/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2025-japan-company/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2025-marriage-birth/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2025-marriage-birth/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2025-realestate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2025-realestate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2025-smart-phone/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2025-smart-phone/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2025-starbucks/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2025-starbucks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2025-suv/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2025-suv/",
+      "statusCode": 301
+    },
+    {
+      "source": "/2025-trump/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/2025-trump/",
+      "statusCode": 301
+    },
+    {
+      "source": "/30-healthy/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/30-healthy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/adidas-tesla/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/adidas-tesla/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ages-assets-times/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ages-assets-times/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-alphafold3/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ai-alphafold3/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-fraud/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ai-fraud/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-generated-content/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ai-generated-content/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai-investment/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ai-investment/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ai4game/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ai4game/",
+      "statusCode": 301
+    },
+    {
+      "source": "/airpods-translate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/airpods-translate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/all-is-well-india/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/all-is-well-india/",
+      "statusCode": 301
+    },
+    {
+      "source": "/altjira/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/altjira/",
+      "statusCode": 301
+    },
+    {
+      "source": "/anduril/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/anduril/",
+      "statusCode": 301
+    },
+    {
+      "source": "/anthropic/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/anthropic/",
+      "statusCode": 301
+    },
+    {
+      "source": "/antlife/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/antlife/",
+      "statusCode": 301
+    },
+    {
+      "source": "/apple-air/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/apple-air/",
+      "statusCode": 301
+    },
+    {
+      "source": "/apple-spacex/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/apple-spacex/",
+      "statusCode": 301
+    },
+    {
+      "source": "/applepay-kpass/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/applepay-kpass/",
+      "statusCode": 301
+    },
+    {
+      "source": "/asia-dynamic-real-estate-markets-china-tokyo-seoul/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/asia-dynamic-real-estate-markets-china-tokyo-seoul/",
+      "statusCode": 301
+    },
+    {
+      "source": "/aus-social/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/aus-social/",
+      "statusCode": 301
+    },
+    {
+      "source": "/aws-sysops-soa/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/aws-sysops-soa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/bankmoney/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/bankmoney/",
+      "statusCode": 301
+    },
+    {
+      "source": "/beeple-nft/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/beeple-nft/",
+      "statusCode": 301
+    },
+    {
+      "source": "/binance-okx-bybit-ftx/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/binance-okx-bybit-ftx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/bitcoin-100k/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/bitcoin-100k/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blockrevolution/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/blockrevolution/",
+      "statusCode": 301
+    },
+    {
+      "source": "/brain-health/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/brain-health/",
+      "statusCode": 301
+    },
+    {
+      "source": "/brainchip/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/brainchip/",
+      "statusCode": 301
+    },
+    {
+      "source": "/brics/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/brics/",
+      "statusCode": 301
+    },
+    {
+      "source": "/btc72k/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/btc72k/",
+      "statusCode": 301
+    },
+    {
+      "source": "/btcgold/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/btcgold/",
+      "statusCode": 301
+    },
+    {
+      "source": "/caffeine-vs-decaf/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/caffeine-vs-decaf/",
+      "statusCode": 301
+    },
+    {
+      "source": "/cart/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/cart/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/central-vs-local/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/central-vs-local/",
+      "statusCode": 301
+    },
+    {
+      "source": "/chainfinance/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/chainfinance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/chappellroan-grammys/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/chappellroan-grammys/",
+      "statusCode": 301
+    },
+    {
+      "source": "/chatbit/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/chatbit/",
+      "statusCode": 301
+    },
+    {
+      "source": "/checkout/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/checkout/",
+      "statusCode": 301
+    },
+    {
+      "source": "/china-bull-market/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/china-bull-market/",
+      "statusCode": 301
+    },
+    {
+      "source": "/china-food8/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/china-food8/",
+      "statusCode": 301
+    },
+    {
+      "source": "/chinavisafree/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/chinavisafree/",
+      "statusCode": 301
+    },
+    {
+      "source": "/christmas/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/christmas/",
+      "statusCode": 301
+    },
+    {
+      "source": "/clients/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/clients/",
+      "statusCode": 301
+    },
+    {
+      "source": "/cn-realestate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/cn-realestate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/coinbase-loan/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/coinbase-loan/",
+      "statusCode": 301
+    },
+    {
+      "source": "/colosseum/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/colosseum/",
+      "statusCode": 301
+    },
+    {
+      "source": "/cosmetic-manager/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/cosmetic-manager/",
+      "statusCode": 301
+    },
+    {
+      "source": "/cryptoetf/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/cryptoetf/",
+      "statusCode": 301
+    },
+    {
+      "source": "/daily-invest-for-future/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/daily-invest-for-future/",
+      "statusCode": 301
+    },
+    {
+      "source": "/daonetwork/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/daonetwork/",
+      "statusCode": 301
+    },
+    {
+      "source": "/datadog-aiops/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/datadog-aiops/",
+      "statusCode": 301
+    },
+    {
+      "source": "/deepseek-nvidia/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/deepseek-nvidia/",
+      "statusCode": 301
+    },
+    {
+      "source": "/deepseek-r1/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/deepseek-r1/",
+      "statusCode": 301
+    },
+    {
+      "source": "/deepseek-v3/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/deepseek-v3/",
+      "statusCode": 301
+    },
+    {
+      "source": "/deepseek/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/deepseek/",
+      "statusCode": 301
+    },
+    {
+      "source": "/desci/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/desci/",
+      "statusCode": 301
+    },
+    {
+      "source": "/devsecops-finops/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/devsecops-finops/",
+      "statusCode": 301
+    },
+    {
+      "source": "/diabetes-r-vecs/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/diabetes-r-vecs/",
+      "statusCode": 301
+    },
+    {
+      "source": "/disaster-impact/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/disaster-impact/",
+      "statusCode": 301
+    },
+    {
+      "source": "/dk2scene/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/dk2scene/",
+      "statusCode": 301
+    },
+    {
+      "source": "/doge-dividend/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/doge-dividend/",
+      "statusCode": 301
+    },
+    {
+      "source": "/doge-gov/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/doge-gov/",
+      "statusCode": 301
+    },
+    {
+      "source": "/doge-nasa-noaa/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/doge-nasa-noaa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/dream-guide/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/dream-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/econ-signal/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/econ-signal/",
+      "statusCode": 301
+    },
+    {
+      "source": "/economic-bitcoin/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/economic-bitcoin/",
+      "statusCode": 301
+    },
+    {
+      "source": "/edu-paths/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/edu-paths/",
+      "statusCode": 301
+    },
+    {
+      "source": "/employee-1/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/employee-1/",
+      "statusCode": 301
+    },
+    {
+      "source": "/employee/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/employee/",
+      "statusCode": 301
+    },
+    {
+      "source": "/etf-irp-isa/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/etf-irp-isa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/etftips/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/etftips/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ethplatform/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ethplatform/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ev-subway/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ev-subway/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ev2025/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ev2025/",
+      "statusCode": 301
+    },
+    {
+      "source": "/fed-rate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/fed-rate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/galaxy-water/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/galaxy-water/",
+      "statusCode": 301
+    },
+    {
+      "source": "/galaxys25/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/galaxys25/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gemini-ai-pro/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/gemini-ai-pro/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gems/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/gems/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ghibli-world/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ghibli-world/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gladiator1/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/gladiator1/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gladiator2/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/gladiator2/",
+      "statusCode": 301
+    },
+    {
+      "source": "/global-kor-company/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/global-kor-company/",
+      "statusCode": 301
+    },
+    {
+      "source": "/global-speaking-test/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/global-speaking-test/",
+      "statusCode": 301
+    },
+    {
+      "source": "/global-univ-top5/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/global-univ-top5/",
+      "statusCode": 301
+    },
+    {
+      "source": "/good-sleep/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/good-sleep/",
+      "statusCode": 301
+    },
+    {
+      "source": "/google-willow/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/google-willow/",
+      "statusCode": 301
+    },
+    {
+      "source": "/greenliving/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/greenliving/",
+      "statusCode": 301
+    },
+    {
+      "source": "/grow/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/grow/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gsdap/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/gsdap/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hankang-novel/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/hankang-novel/",
+      "statusCode": 301
+    },
+    {
+      "source": "/health-mgmt/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/health-mgmt/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hku5%e2%80%91cov%e2%80%912/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/hku5%e2%80%91cov%e2%80%912/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hku5%E2%80%91cov%E2%80%912/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/hku5%e2%80%91cov%e2%80%912/",
+      "statusCode": 301
+    },
+    {
+      "source": "/huangs-law/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/huangs-law/",
+      "statusCode": 301
+    },
+    {
+      "source": "/humanatlas/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/humanatlas/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hyperloop/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/hyperloop/",
+      "statusCode": 301
+    },
+    {
+      "source": "/hyundaicharge/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/hyundaicharge/",
+      "statusCode": 301
+    },
+    {
+      "source": "/id-realestate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/id-realestate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/immigration-policy/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/immigration-policy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/intermittent-fasting/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/intermittent-fasting/",
+      "statusCode": 301
+    },
+    {
+      "source": "/invest-smart/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/invest-smart/",
+      "statusCode": 301
+    },
+    {
+      "source": "/investment-rebalancing-guide/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/investment-rebalancing-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/investor/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/investor/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ipfs-filecoin/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ipfs-filecoin/",
+      "statusCode": 301
+    },
+    {
+      "source": "/israel-hamas-conflict/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/israel-hamas-conflict/",
+      "statusCode": 301
+    },
+    {
+      "source": "/israel-iran/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/israel-iran/",
+      "statusCode": 301
+    },
+    {
+      "source": "/it-plan/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/it-plan/",
+      "statusCode": 301
+    },
+    {
+      "source": "/japan-and-china-real-estate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/japan-and-china-real-estate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/jeongjo2024/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/jeongjo2024/",
+      "statusCode": 301
+    },
+    {
+      "source": "/jfk/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/jfk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/jobfuture/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/jobfuture/",
+      "statusCode": 301
+    },
+    {
+      "source": "/jp-realestate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/jp-realestate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/jprealty/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/jprealty/",
+      "statusCode": 301
+    },
+    {
+      "source": "/justin-sun-banana/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/justin-sun-banana/",
+      "statusCode": 301
+    },
+    {
+      "source": "/k-chicken/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/k-chicken/",
+      "statusCode": 301
+    },
+    {
+      "source": "/kaist-postech-snu/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/kaist-postech-snu/",
+      "statusCode": 301
+    },
+    {
+      "source": "/killer-shop/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/killer-shop/",
+      "statusCode": 301
+    },
+    {
+      "source": "/kimseungho-success/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/kimseungho-success/",
+      "statusCode": 301
+    },
+    {
+      "source": "/kor-africa/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/kor-africa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/korea-democracy/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/korea-democracy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/korea-duality/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/korea-duality/",
+      "statusCode": 301
+    },
+    {
+      "source": "/koreanleaders/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/koreanleaders/",
+      "statusCode": 301
+    },
+    {
+      "source": "/kospi-down/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/kospi-down/",
+      "statusCode": 301
+    },
+    {
+      "source": "/kostolanyeggb/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/kostolanyeggb/",
+      "statusCode": 301
+    },
+    {
+      "source": "/leader-advisor/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/leader-advisor/",
+      "statusCode": 301
+    },
+    {
+      "source": "/left-hand/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/left-hand/",
+      "statusCode": 301
+    },
+    {
+      "source": "/lifebalance/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/lifebalance/",
+      "statusCode": 301
+    },
+    {
+      "source": "/local-invest/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/local-invest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/macro-micro/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/macro-micro/",
+      "statusCode": 301
+    },
+    {
+      "source": "/mars-misson/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/mars-misson/",
+      "statusCode": 301
+    },
+    {
+      "source": "/mars-yard3/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/mars-yard3/",
+      "statusCode": 301
+    },
+    {
+      "source": "/martial-law/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/martial-law/",
+      "statusCode": 301
+    },
+    {
+      "source": "/medical-security/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/medical-security/",
+      "statusCode": 301
+    },
+    {
+      "source": "/meta-sui/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/meta-sui/",
+      "statusCode": 301
+    },
+    {
+      "source": "/metaquest/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/metaquest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/mickey17/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/mickey17/",
+      "statusCode": 301
+    },
+    {
+      "source": "/microplastics/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/microplastics/",
+      "statusCode": 301
+    },
+    {
+      "source": "/mideast-talks/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/mideast-talks/",
+      "statusCode": 301
+    },
+    {
+      "source": "/moana/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/moana/",
+      "statusCode": 301
+    },
+    {
+      "source": "/moana2/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/moana2/",
+      "statusCode": 301
+    },
+    {
+      "source": "/modely-juniper/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/modely-juniper/",
+      "statusCode": 301
+    },
+    {
+      "source": "/moodengcoin/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/moodengcoin/",
+      "statusCode": 301
+    },
+    {
+      "source": "/muan-jeju-air/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/muan-jeju-air/",
+      "statusCode": 301
+    },
+    {
+      "source": "/multi-vitamin/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/multi-vitamin/",
+      "statusCode": 301
+    },
+    {
+      "source": "/muse-wham/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/muse-wham/",
+      "statusCode": 301
+    },
+    {
+      "source": "/my-account/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/my-account/",
+      "statusCode": 301
+    },
+    {
+      "source": "/my-realestate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/my-realestate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/myetf/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/myetf/",
+      "statusCode": 301
+    },
+    {
+      "source": "/myrealty/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/myrealty/",
+      "statusCode": 301
+    },
+    {
+      "source": "/nature-good-health/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/nature-good-health/",
+      "statusCode": 301
+    },
+    {
+      "source": "/netflix-blackandwhite/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/netflix-blackandwhite/",
+      "statusCode": 301
+    },
+    {
+      "source": "/newhome/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/newhome/",
+      "statusCode": 301
+    },
+    {
+      "source": "/night-drive-edm-mix-2025/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/night-drive-edm-mix-2025/",
+      "statusCode": 301
+    },
+    {
+      "source": "/nk-ru-special-forces/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/nk-ru-special-forces/",
+      "statusCode": 301
+    },
+    {
+      "source": "/nobel-ai/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/nobel-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/non-stop-big-room-edm/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/non-stop-big-room-edm/",
+      "statusCode": 301
+    },
+    {
+      "source": "/northkr-crisis/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/northkr-crisis/",
+      "statusCode": 301
+    },
+    {
+      "source": "/nvda-djia/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/nvda-djia/",
+      "statusCode": 301
+    },
+    {
+      "source": "/offer-guide/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/offer-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/opensea-sec/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/opensea-sec/",
+      "statusCode": 301
+    },
+    {
+      "source": "/otani-mandalart/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/otani-mandalart/",
+      "statusCode": 301
+    },
+    {
+      "source": "/palantir/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/palantir/",
+      "statusCode": 301
+    },
+    {
+      "source": "/palawan/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/palawan/",
+      "statusCode": 301
+    },
+    {
+      "source": "/path-to-phd/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/path-to-phd/",
+      "statusCode": 301
+    },
+    {
+      "source": "/philobiz/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/philobiz/",
+      "statusCode": 301
+    },
+    {
+      "source": "/philosophy/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/philosophy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/plant-sound/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/plant-sound/",
+      "statusCode": 301
+    },
+    {
+      "source": "/polymarket-fbi/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/polymarket-fbi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolio/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolio/cloud-security-master-book/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/portfolio/cloud-security-master-book/",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolio/cloud-security-online/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/portfolio/cloud-security-online/",
+      "statusCode": 301
+    },
+    {
+      "source": "/portfolio/us-cloud-security-mastery-book/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/portfolio/us-cloud-security-mastery-book/",
+      "statusCode": 301
+    },
+    {
+      "source": "/portwine/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/portwine/",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy-policy/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/privacy-policy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/%f0%9f%94%90-cloud-security-mastery-your-guide-to-becoming-an-aws-azure-expert-%f0%9f%8c%90/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/product/%f0%9f%94%90-cloud-security-mastery-your-guide-to-becoming-an-aws-azure-expert-%f0%9f%8c%90/",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/%F0%9F%94%90-cloud-security-mastery-your-guide-to-becoming-an-aws-azure-expert-%F0%9F%8C%90/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/product/%f0%9f%94%90-cloud-security-mastery-your-guide-to-becoming-an-aws-azure-expert-%f0%9f%8c%90/",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/cloud-security-master-book-store/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/product/cloud-security-master-book-store/",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/get-1k-token-credit-for-al-forms-boost-your-form-automation-efficiency/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/product/get-1k-token-credit-for-al-forms-boost-your-form-automation-efficiency/",
+      "statusCode": 301
+    },
+    {
+      "source": "/rapa-life/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/rapa-life/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ratecut05/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ratecut05/",
+      "statusCode": 301
+    },
+    {
+      "source": "/refund_returns/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/refund_returns/",
+      "statusCode": 301
+    },
+    {
+      "source": "/retire-smart/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/retire-smart/",
+      "statusCode": 301
+    },
+    {
+      "source": "/rose-apt-hit/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/rose-apt-hit/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sahara-flood/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/sahara-flood/",
+      "statusCode": 301
+    },
+    {
+      "source": "/saylor-btc/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/saylor-btc/",
+      "statusCode": 301
+    },
+    {
+      "source": "/self-employed/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/self-employed/",
+      "statusCode": 301
+    },
+    {
+      "source": "/seoul-invest/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/seoul-invest/",
+      "statusCode": 301
+    },
+    {
+      "source": "/shogun-legacy/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/shogun-legacy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/shop/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/shop/",
+      "statusCode": 301
+    },
+    {
+      "source": "/smallluxury/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/smallluxury/",
+      "statusCode": 301
+    },
+    {
+      "source": "/soa-c02-test/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/soa-c02-test/",
+      "statusCode": 301
+    },
+    {
+      "source": "/social-media/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/social-media/",
+      "statusCode": 301
+    },
+    {
+      "source": "/solana/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/solana/",
+      "statusCode": 301
+    },
+    {
+      "source": "/spacexplore/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/spacexplore/",
+      "statusCode": 301
+    },
+    {
+      "source": "/starlink/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/starlink/",
+      "statusCode": 301
+    },
+    {
+      "source": "/startwithwhy/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/startwithwhy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/streamcompare/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/streamcompare/",
+      "statusCode": 301
+    },
+    {
+      "source": "/strike2024/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/strike2024/",
+      "statusCode": 301
+    },
+    {
+      "source": "/stripe-bridge/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/stripe-bridge/",
+      "statusCode": 301
+    },
+    {
+      "source": "/stx-babylon/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/stx-babylon/",
+      "statusCode": 301
+    },
+    {
+      "source": "/suv-ev3-vs-byd/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/suv-ev3-vs-byd/",
+      "statusCode": 301
+    },
+    {
+      "source": "/syria-revolution/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/syria-revolution/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tamc-2nm/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/tamc-2nm/",
+      "statusCode": 301
+    },
+    {
+      "source": "/telegram-ceo/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/telegram-ceo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/terms/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tesla-aim-high/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/tesla-aim-high/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tesla-mars/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/tesla-mars/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tesla-model-y/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/tesla-model-y/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tesla-werobot/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/tesla-werobot/",
+      "statusCode": 301
+    },
+    {
+      "source": "/thai-realestate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/thai-realestate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/threalty/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/threalty/",
+      "statusCode": 301
+    },
+    {
+      "source": "/toncoin/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/toncoin/",
+      "statusCode": 301
+    },
+    {
+      "source": "/travel-trend-2025/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/travel-trend-2025/",
+      "statusCode": 301
+    },
+    {
+      "source": "/trump-bitcoin-policy/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/trump-bitcoin-policy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/trump-coin/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/trump-coin/",
+      "statusCode": 301
+    },
+    {
+      "source": "/trump-tax/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/trump-tax/",
+      "statusCode": 301
+    },
+    {
+      "source": "/trump2024/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/trump2024/",
+      "statusCode": 301
+    },
+    {
+      "source": "/trx-ceo-dinner/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/trx-ceo-dinner/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tsundoku/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/tsundoku/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ufo-uap/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/ufo-uap/",
+      "statusCode": 301
+    },
+    {
+      "source": "/us-china-trade-war/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/us-china-trade-war/",
+      "statusCode": 301
+    },
+    {
+      "source": "/us-crypto/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/us-crypto/",
+      "statusCode": 301
+    },
+    {
+      "source": "/us-invest-hidden/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/us-invest-hidden/",
+      "statusCode": 301
+    },
+    {
+      "source": "/us-realestate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/us-realestate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/usa-doge/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/usa-doge/",
+      "statusCode": 301
+    },
+    {
+      "source": "/usdt-gold/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/usdt-gold/",
+      "statusCode": 301
+    },
+    {
+      "source": "/usdt/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/usdt/",
+      "statusCode": 301
+    },
+    {
+      "source": "/vacant-houses/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/vacant-houses/",
+      "statusCode": 301
+    },
+    {
+      "source": "/valueup2025/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/valueup2025/",
+      "statusCode": 301
+    },
+    {
+      "source": "/vc-investment/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/vc-investment/",
+      "statusCode": 301
+    },
+    {
+      "source": "/vision-pro-2/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/vision-pro-2/",
+      "statusCode": 301
+    },
+    {
+      "source": "/vn-realestate/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/vn-realestate/",
+      "statusCode": 301
+    },
+    {
+      "source": "/vote2024/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/vote2024/",
+      "statusCode": 301
+    },
+    {
+      "source": "/vtuber-idols/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/vtuber-idols/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wa-philosophy/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/wa-philosophy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/warrior-spirit/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/warrior-spirit/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wealth-health-time/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/wealth-health-time/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wealthlife/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/wealthlife/",
+      "statusCode": 301
+    },
+    {
+      "source": "/web3-nft/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/web3-nft/",
+      "statusCode": 301
+    },
+    {
+      "source": "/web3-vr/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/web3-vr/",
+      "statusCode": 301
+    },
+    {
+      "source": "/wechat-deepseek/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/wechat-deepseek/",
+      "statusCode": 301
+    },
+    {
+      "source": "/workstyle/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/workstyle/",
+      "statusCode": 301
+    },
+    {
+      "source": "/worldgames/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/worldgames/",
+      "statusCode": 301
+    },
+    {
+      "source": "/x-cyber-attack/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/x-cyber-attack/",
+      "statusCode": 301
+    },
+    {
+      "source": "/xai-dell/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/xai-dell/",
+      "statusCode": 301
+    },
+    {
+      "source": "/xai-grok/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/xai-grok/",
+      "statusCode": 301
+    },
+    {
+      "source": "/xai/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/xai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/xrp-guide/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/xrp-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/yen-carrytrade/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://legacy.2twodragon.com/yen-carrytrade/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path((?!(?:ads\\.txt|app-ads\\.txt|robots\\.txt)$).*)",
       "has": [
         {
           "type": "host",
