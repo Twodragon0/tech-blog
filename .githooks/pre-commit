@@ -219,6 +219,15 @@ fi
 #     Mirrors scripts/pre-commit-quality-check.sh (validate_post_quality.py, 100-pt).
 #     Only staged _posts/*.md are scored; fail < 60, warn < 80.
 STAGED_QUALITY_POSTS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^_posts/[^/]+\.md$' || true)
+#     Imported 2twodragon.com WordPress posts are exempt — same rule as CI
+#     (scripts/quality_floor_posts.py).
+if [ -n "$STAGED_QUALITY_POSTS" ]; then
+  # shellcheck disable=SC2086
+  STAGED_QUALITY_POSTS=$(python3 "$REPO_ROOT/scripts/quality_floor_posts.py" $STAGED_QUALITY_POSTS) || {
+    echo "[pre-commit] quality_floor_posts.py failed; refusing to skip the quality floor."
+    exit 1
+  }
+fi
 if [ -n "$STAGED_QUALITY_POSTS" ]; then
   echo "[pre-commit] Scoring staged post quality (fail < 60, warn < 80)..."
   echo "$STAGED_QUALITY_POSTS" \

@@ -937,6 +937,22 @@
       "statusCode": 301
     },
     {
+      "source": "/amazon-eks-nginx%E2%80%91ingress/",
+      "has": [
+        {
+          "type": "host",
+          "value": {
+            "inc": [
+              "2twodragon.com",
+              "www.2twodragon.com"
+            ]
+          }
+        }
+      ],
+      "destination": "https://tech.2twodragon.com/posts/2025/03/25/Amazon_EKS_nginx-ingress_Vulnerability_Response_Guide/",
+      "statusCode": 301
+    },
+    {
       "source": "/cloudflare-cloudfront-s3/",
       "has": [
         {
