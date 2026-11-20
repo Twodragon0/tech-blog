@@ -23,7 +23,9 @@ import re
 import sys
 from pathlib import Path
 
-IMPORTED_HOST_RE = re.compile(r"""^original_url:\s*["']?https://(www\.)?2twodragon\.com/""")
+IMPORTED_HOST_RE = re.compile(
+    r"""^original_url:\s*["']?https://(www\.)?2twodragon\.com/"""
+)
 
 
 def front_matter_lines(text: str) -> list[str]:
