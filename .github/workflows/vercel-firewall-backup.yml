@@ -15,24 +15,26 @@ name: Vercel Firewall Backup
 #   VERCEL_PROJECT_ID  — defaults to tech-blog project
 #   VERCEL_TEAM_ID     — defaults to twodragon0s-projects team
 
-# RETIRED FROM THE WEEKLY SCHEDULE (2026-08-10).
+# WEEKLY SCHEDULE RESTORED (pending VERCEL_TOKEN provisioning).
 #
-# VERCEL_TOKEN has never been configured, so no snapshot has ever been taken.
-# Verified from the live log:
+# Retired from cron on 2026-08-10 because VERCEL_TOKEN had never been
+# configured: every weekly run reported success while
 #
 #     ##[warning]VERCEL_TOKEN secret not set; skipping snapshot.
 #
-# That is worth stating plainly given the incident in the header above: this
-# workflow exists so an unauthorized dashboard edit shows up as a committed diff,
-# and it has been reporting weekly success without ever producing one. The green
-# tick was itself the audit-trail gap it was built to close.
+# meant no snapshot was ever taken. Given the incident in the header above,
+# that green tick WAS the audit-trail gap this workflow exists to close —
+# docs/backups/vercel-firewall/latest.json had not changed since 2026-05-08.
 #
-# The cron is removed rather than made fail-closed: with the secret permanently
-# absent, failing would produce a red run every Monday, which gets muted — the same
-# failure mode digest-translate-backfill.yml was repaired for. `workflow_dispatch`
-# is kept so the first real snapshot is one click away once VERCEL_TOKEN exists;
-# restore the cron in that same PR.
+# The cron and the fail-closed branch below only make sense together with the
+# secret. Restoring the cron without it produces a red run every Monday, which
+# gets muted; making the branch soft again restores the silent no-op. That
+# pairing is enforced by scripts/tests/test_ci_secret_absence_guard.py, so this
+# change must land in the same PR as `gh secret set VERCEL_TOKEN`.
 on:
+  schedule:
+    # Monday 00:00 UTC = Monday 09:00 KST
+    - cron: "0 0 * * 1"
   workflow_dispatch:
     inputs:
       commit:
@@ -73,15 +75,17 @@ jobs:
           VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
         run: |
           if [ -z "$VERCEL_TOKEN" ]; then
-            echo "::warning::VERCEL_TOKEN secret not set; skipping snapshot."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
+            echo "::error::VERCEL_TOKEN is not available. It is configured in this repo, so this is a regression — the weekly firewall snapshot is the only audit trail for dashboard edits (2026-05-08 incident) and it is not being taken."
+            exit 1
           fi
           python3 scripts/backup_vercel_firewall.py
         id: snapshot
 
       - name: Detect drift + commit
-        if: steps.snapshot.outputs.skip != 'true' && github.event.inputs.commit != 'false'
+        # `steps.snapshot.outputs.skip` is gone: the snapshot step no longer has
+        # a skip path — a missing VERCEL_TOKEN now fails the job instead of
+        # setting that output, so the guard on it could only ever be true.
+        if: github.event.inputs.commit != 'false'
         run: |
           # Stage backup dir; commit only if there's a meaningful change
           # (the redacted snapshot strips updatedAt timestamps, so any
