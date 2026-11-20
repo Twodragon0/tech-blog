@@ -54,7 +54,7 @@ function formatPostMarkdown(post) {
   const lines = [];
   lines.push(`## ${post.title}`);
   lines.push('');
-  lines.push(`- **URL**: https://tech.2twodragon.com${post.url}`);
+  lines.push(`- **URL**: https://2twodragon.com${post.url}`);
   lines.push(`- **Date**: ${formatDate(post.publishedDate)}`);
   if (post.category) lines.push(`- **Category**: ${post.category}`);
   if (post.tags && post.tags.length) lines.push(`- **Tags**: ${post.tags.join(', ')}`);
@@ -66,7 +66,7 @@ function formatPostMarkdown(post) {
     lines.push(content.substring(0, CONFIG.MAX_CONTENT_LENGTH));
     if (content.length > CONFIG.MAX_CONTENT_LENGTH) {
       lines.push('');
-      lines.push(`... [truncated, full content at https://tech.2twodragon.com${post.url}]`);
+      lines.push(`... [truncated, full content at https://2twodragon.com${post.url}]`);
     }
   }
 
@@ -81,7 +81,12 @@ function formatDate(date) {
 
 export default async function handler(req, res) {
   // CORS headers for AI agents - explicit allowlist instead of wildcard
-  const allowedOrigins = ['https://tech.2twodragon.com', 'https://twodragon0.github.io'];
+  const allowedOrigins = [
+    'https://2twodragon.com',
+    'https://www.2twodragon.com',
+    'https://tech.2twodragon.com',
+    'https://twodragon0.github.io',
+  ];
   const origin = req.headers.origin;
   if (origin && allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);

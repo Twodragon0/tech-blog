@@ -98,6 +98,8 @@ function isBotUserAgent(userAgent) {
 function isAllowedOrigin(origin) {
   if (!origin) return false;
   const allowed = [
+    'https://2twodragon.com',
+    'https://www.2twodragon.com',
     'https://tech.2twodragon.com',
     'https://www.tech.2twodragon.com',
     ...(process.env.NODE_ENV === 'development' ? [

@@ -3,7 +3,7 @@
 
   var script = document.currentScript;
   var dsn = (script && script.getAttribute('data-sentry-dsn')) || '';
-  var productionHost = (script && script.getAttribute('data-production-host')) || 'tech.2twodragon.com';
+  var productionHost = (script && script.getAttribute('data-production-host')) || '2twodragon.com';
   var allowedHostsAttr = (script && script.getAttribute('data-allowed-hosts')) || productionHost;
 
   if (!dsn) {
