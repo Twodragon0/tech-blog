@@ -1,4 +1,529 @@
 {
+  "2024-08-30-AWS_IAM_And_IRSA_Basics.md": {
+    "total": 25,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2024-09-01-EKS_Pod_Restart_Temporary_Credentials_And_Token_Refresh.md": {
+    "total": 24,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 8,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2024-10-04-AWS_vs_Azure_vs_GCP_Cloud_Comparison.md": {
+    "total": 25,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2024-10-05-AWS_Core_Services_EC2_S3_IAM_EKS_RDS_CloudTrail_GuardDuty.md": {
+    "total": 32,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2024-10-19-AWS_Organizations_And_IAM_Policy_Complete_Guide.md": {
+    "total": 25,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2024-10-26-AWS_EC2_And_Network_Architecture_Summary.md": {
+    "total": 26,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2024-11-02-AWS_Cloud_Security_Checklist_And_ISMS-P_Compliance_Guide.md": {
+    "total": 25,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2024-11-04-Ransomware-as-a-Service_RaaS_And_Big_Game_Hunting.md": {
+    "total": 26,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2024-11-13-Bitcoin_Blockchain_How_It_Works.md": {
+    "total": 33,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2024-11-14-Bitcoin_Source_Code_Structure_Analysis.md": {
+    "total": 24,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 7,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2024-11-15-Ethereum_Blockchain_Internal_Structure.md": {
+    "total": 26,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2024-12-24-Shared_PC_Privacy_And_Security_Guide.md": {
+    "total": 33,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2024-12-25-Privacy_Protection_And_Passkey_Setup_Guide.md": {
+    "total": 25,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2025-01-15-AI_Based_Security_Threats_And_Response_Strategies.md": {
+    "total": 25,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2025-01-16-FBI_PlugX_Malware_Removal_Operation.md": {
+    "total": 25,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2025-01-31-Apple_M_Series_SLAP_And_FLOP_Vulnerabilities.md": {
+    "total": 34,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 8,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-02-16-EKS_Cluster_Upgrade_1_32_Zero_Downtime_Strategy.md": {
+    "total": 26,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-02-22-QR_Code_Scan_And_Signal_Security.md": {
+    "total": 25,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
+    }
+  },
+  "2025-03-13-GitHub_Features_And_DevSecOps_Guide.md": {
+    "total": 33,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-03-14-Datadog_Features_DevSecOps_Cloud_SIEM_APM.md": {
+    "total": 33,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-03-17-Google_Workspace_Enterprise_Security_And_Collaboration.md": {
+    "total": 41,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-03-18-2025_Unicorn_Day_AI_Cloud_Innovation_And_Security_Strategy.md": {
+    "total": 33,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-03-21-Elasticsearch_S3_Snapshot_Keystore_Troubleshooting.md": {
+    "total": 33,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-03-22-On-Premises_vs_VM_Virtualization_vs_Cloud.md": {
+    "total": 44,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2025-03-23-Security_Strategy_By_Company_Size_And_CISO_Role.md": {
+    "total": 43,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-03-24-SentinelOne_Next_Generation_Endpoint_Security.md": {
+    "total": 34,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 8,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-03-25-Amazon_EKS_nginx-ingress_Vulnerability_Response_Guide.md": {
+    "total": 33,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-03-28-Cloudflare_CloudFront_S3_CORS_And_Security_Optimization.md": {
+    "total": 44,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2025-03-31-AWS_Site-to-Site_VPN_EKS_Cluster_Access_Architecture.md": {
+    "total": 44,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 8,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-04-04-Diagrams_as_Code_Cloud_Architecture_Guide.md": {
+    "total": 33,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 9,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2025-04-09-MCP_Model_Context_Protocol_Security_Risks_And_Mitigations.md": {
+    "total": 53,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 7,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-04-22-Amazon_Bedrock_Slack_AIOps_Chatbot_AWS_Security_Architecture.md": {
+    "total": 51,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 15,
+      "checklists": 0,
+      "tables": 10,
+      "code_blocks": 8,
+      "cross_refs": 0,
+      "length": 3
+    }
+  },
+  "2025-04-25-SKT_BPFDoor_And_SIM_Swapping_Threat_Analysis.md": {
+    "total": 37,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 10,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 2
+    }
+  },
+  "2025-04-28-KS_Korea_Employment_Information_Data_Leak_LummaC2_Infostealer.md": {
+    "total": 26,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
+  "2025-04-28-SKT_USIM_Data_Breach_Summary_April_2025.md": {
+    "total": 26,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 1
+    }
+  },
   "2025-04-29-SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance.md": {
     "total": 100,
     "scores": {
@@ -192,6 +717,21 @@
       "code_blocks": 10,
       "cross_refs": 5,
       "length": 2
+    }
+  },
+  "2025-07-29-US_AI_Action_Plan_Innovation_And_Security.md": {
+    "total": 25,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 0,
+      "executive_summary": 0,
+      "risk_scorecard": 0,
+      "sections": 0,
+      "checklists": 0,
+      "tables": 0,
+      "code_blocks": 10,
+      "cross_refs": 0,
+      "length": 0
     }
   },
   "2025-09-10-npm_Ecosystem_Large_scale_Security_Breach_20_Download_Package_Malware_Infection.md": {
