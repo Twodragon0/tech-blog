@@ -1337,7 +1337,7 @@
       "statusCode": 301
     },
     {
-      "source": "/:path(.*)",
+      "source": "/:path((?!(?:ads\\.txt|app-ads\\.txt|robots\\.txt)$).*)",
       "has": [
         {
           "type": "host",
