@@ -20,6 +20,11 @@ has been verified.
 - WordPress sitemaps expose 299 post URLs, 9 page URLs, 4 product URLs, and
   4 portfolio URLs, including shop, cart, checkout, and account routes. The
   WordPress post paths have no exact path overlap with the tech sitemap.
+- A public static archive is prepared for `legacy.2twodragon.com`: 298 post
+  pages plus historical pages and commerce shutdown notices. The exact
+  314-path redirect map is in `wordpress-archive-redirects.csv`; the media
+  path has one wildcard redirect. A separate, private WordPress files/database
+  backup is still required for orders and customer records.
 - Vercel has the apex and `www` assigned to `tech-blog`, but their DNS still
   points to WordPress. The project-specific Vercel verification asks for
   DNS-only CNAME records for `@` and `www`, both pointing to
@@ -30,9 +35,9 @@ has been verified.
 
 1. Export and verify a complete WordPress files/database backup, including
    WooCommerce orders and customer data, outside the live hosting account.
-2. Decide which old posts are migrated to equivalent tech pages, archived at
-   a separate host, or removed. Record exact URL-to-URL redirects. Decide how
-   to handle shop, checkout, accounts, products, and order access.
+2. Publish and verify the static archive at `legacy.2twodragon.com`, including
+   representative posts, images, historical pages, and commerce notices.
+   Verify the old URL redirect map in the Vercel preview deployment.
 3. Deploy and verify this repository's apex canonical, sitemap, API origin,
    monitoring, and security metadata changes on Vercel.
 4. Configure old URL redirects before changing DNS. Keep the old WordPress
