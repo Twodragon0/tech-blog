@@ -1337,7 +1337,7 @@
       "statusCode": 301
     },
     {
-      "source": "/:path*",
+      "source": "/:path(.*)",
       "has": [
         {
           "type": "host",
