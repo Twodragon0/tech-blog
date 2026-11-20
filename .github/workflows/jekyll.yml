@@ -316,12 +316,24 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           echo "📊 Checking post quality for changed files..."
-          if ! CHANGED_POSTS=$(git diff --name-only origin/main...HEAD -- '_posts/*.md'); then
+          if ! CHANGED_POSTS=$(git diff --name-only --diff-filter=ACMR origin/main...HEAD -- '_posts/*.md'); then
             echo "::error::could not diff against origin/main; refusing to report 'no changes'"
             exit 1
           fi
           if [ -z "$CHANGED_POSTS" ]; then
             echo "✅ No post changes detected"
+            exit 0
+          fi
+          # Posts imported verbatim from the retired 2twodragon.com WordPress are
+          # exempt (reason + rule: scripts/quality_floor_posts.py, shared with the
+          # pre-commit hook). Deleted paths are dropped there too.
+          # shellcheck disable=SC2086
+          if ! CHANGED_POSTS=$(python3 scripts/quality_floor_posts.py $CHANGED_POSTS); then
+            echo "::error::quality_floor_posts.py failed; refusing to skip the floor"
+            exit 1
+          fi
+          if [ -z "$CHANGED_POSTS" ]; then
+            echo "✅ All changed posts are imported WordPress posts (exempt from the floor)"
             exit 0
           fi
           echo "Changed posts:"
