@@ -24,7 +24,7 @@ vi.mock('../../api/lib/ratelimit.js', () => ({
 }));
 
 const SECRET = 'test-secret-value';
-const ORIGIN = 'https://2twodragon.com';
+const ORIGIN = 'https://tech.2twodragon.com';
 
 function makeRes() {
   const res = {

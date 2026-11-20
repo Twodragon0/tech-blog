@@ -16,7 +16,7 @@ sitemap: false
 
 ## Site Info
 
-- URL: https://2twodragon.com
+- URL: https://tech.2twodragon.com
 - Language: Korean (ko-KR)
 - Author: Twodragon
 - Topics: DevSecOps, Cloud Security, Kubernetes, FinOps, AI Coding, Incident Response

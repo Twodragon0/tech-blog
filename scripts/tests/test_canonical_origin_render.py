@@ -13,7 +13,7 @@ from xml.etree import ElementTree
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-PRODUCTION = "https://2twodragon.com"
+PRODUCTION = "https://tech.2twodragon.com"
 BACKUP = "https://twodragon0.github.io"
 BASEURL = "/tech-blog"
 POST_PATH = "/posts/2026/11/10/canonical-origin-fixture/"
@@ -119,7 +119,7 @@ def test_rendered_canonical_and_share_metadata_use_production_origin(
     assert f'<meta name="twitter:url" content="{expected_post}">' in html
     assert f'<meta property="og:image" content="{expected_image}?v=' in html
     assert f'<meta name="twitter:image" content="{expected_image}?v=' in html
-    assert '<meta name="twitter:domain" content="2twodragon.com">' in html
+    assert '<meta name="twitter:domain" content="tech.2twodragon.com">' in html
     structured_data = [
         json.loads(block)
         for block in re.findall(

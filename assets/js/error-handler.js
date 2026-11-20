@@ -99,7 +99,7 @@
     logError(error, context);
 
     // Send to Sentry if available (Free 티어 최적화: 프로덕션만 전송)
-    if (window.Sentry && window.location.hostname === '2twodragon.com') {
+    if (window.Sentry && window.location.hostname === 'tech.2twodragon.com') {
       try {
         // 에러는 captureException으로 전송
         if (typeof window.Sentry.captureException === 'function') {

@@ -7,7 +7,7 @@
 //
 // The script early-exits on `localhost`/`127.0.0.1` hosts, so we run it
 // against a synthetic `window` whose `location.hostname` matches the
-// production canonical (`2twodragon.com`). This lets us spy on the
+// production canonical (`tech.2twodragon.com`). This lets us spy on the
 // listener registration calls and on `Sentry.captureException` directly,
 // without needing to dispatch real DOM events.
 
@@ -20,7 +20,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const SCRIPT_PATH = resolve(__dirname, '../../assets/js/error-handler.js');
 const SCRIPT_SOURCE = readFileSync(SCRIPT_PATH, 'utf8') + `\n//# sourceURL=${pathToFileURL(SCRIPT_PATH).href}`;
 
-function buildFakeWindow({ hostname = '2twodragon.com', sentry = null } = {}) {
+function buildFakeWindow({ hostname = 'tech.2twodragon.com', sentry = null } = {}) {
   const listeners = []; // captured (event, handler, useCapture)
   const fake = {
     addEventListener: vi.fn((evt, handler, capture) => {
@@ -72,12 +72,12 @@ describe('error-handler.js', () => {
     const captureException = vi.fn();
     const { fake, listeners } = buildFakeWindow({ sentry: { captureException } });
     // Override hostname to match the script's prod-only Sentry gate.
-    fake.location.hostname = '2twodragon.com';
+    fake.location.hostname = 'tech.2twodragon.com';
     runScript(fake);
     const errorListener = listeners.find((l) => l.evt === 'error').handler;
     errorListener({
       message: 'boom',
-      filename: 'https://2twodragon.com/assets/js/foo.js',
+      filename: 'https://tech.2twodragon.com/assets/js/foo.js',
       error: new Error('boom'),
       lineno: 12,
       colno: 4,
@@ -94,7 +94,7 @@ describe('error-handler.js', () => {
     for (let i = 0; i < 12; i++) {
       errorListener({
         message: `boom-${i}`,
-        filename: 'https://2twodragon.com/assets/js/foo.js',
+        filename: 'https://tech.2twodragon.com/assets/js/foo.js',
         error: new Error(`boom-${i}`),
       });
     }
@@ -123,14 +123,14 @@ describe('error-handler.js', () => {
     const err = new Error('first-time');
     errorListener({
       message: 'first-time',
-      filename: 'https://2twodragon.com/foo.js',
+      filename: 'https://tech.2twodragon.com/foo.js',
       error: err,
     });
     expect(err.__sentry_captured__).toBe(true);
     // Re-dispatching the SAME Error instance should not double-send.
     errorListener({
       message: 'first-time',
-      filename: 'https://2twodragon.com/foo.js',
+      filename: 'https://tech.2twodragon.com/foo.js',
       error: err,
     });
     expect(captureException).toHaveBeenCalledTimes(1);
@@ -185,7 +185,7 @@ describe('error-handler.js', () => {
     // The second 'error' listener is the resource-error one.
     const resourceListener = listeners.filter((l) => l.evt === 'error')[1].handler;
 
-    const fakeScript = { tagName: 'SCRIPT', src: 'https://2twodragon.com/assets/js/missing.js' };
+    const fakeScript = { tagName: 'SCRIPT', src: 'https://tech.2twodragon.com/assets/js/missing.js' };
     resourceListener({ target: fakeScript });
 
     expect(captureException).toHaveBeenCalledTimes(1);
@@ -198,7 +198,7 @@ describe('error-handler.js', () => {
     runScript(fake);
     const resourceListener = listeners.filter((l) => l.evt === 'error')[1].handler;
 
-    const fakeImg = { tagName: 'IMG', src: 'https://2twodragon.com/assets/images/missing.svg' };
+    const fakeImg = { tagName: 'IMG', src: 'https://tech.2twodragon.com/assets/images/missing.svg' };
     resourceListener({ target: fakeImg });
 
     expect(captureException).not.toHaveBeenCalled();
@@ -214,7 +214,7 @@ describe('error-handler.js', () => {
     // encoding mismatch is a known false-positive source.
     const fakeScript = {
       tagName: 'SCRIPT',
-      src: 'https://2twodragon.com/assets/js/한글-스크립트.js',
+      src: 'https://tech.2twodragon.com/assets/js/한글-스크립트.js',
     };
     resourceListener({ target: fakeScript });
 

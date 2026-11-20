@@ -463,7 +463,7 @@ describe('main-core.js', () => {
   });
 
   it('firebase links: link param to allowed domain returns before URL cleanup', () => {
-    const target = 'https://2twodragon.com/posts/x';
+    const target = 'https://tech.2twodragon.com/posts/x';
     window.history.pushState(null, '', '/?link=' + encodeURIComponent(target) + '&apn=1');
     const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
     try {
@@ -504,7 +504,7 @@ describe('main-core.js', () => {
   });
 
   it('firebase links: overlong link param aborts without redirect', () => {
-    const longLink = 'https://2twodragon.com/' + 'a'.repeat(2100);
+    const longLink = 'https://tech.2twodragon.com/' + 'a'.repeat(2100);
     window.history.pushState(null, '', '/?link=' + encodeURIComponent(longLink) + '&apn=1');
     const replaceStateSpy = vi.spyOn(window.history, 'replaceState');
     try {

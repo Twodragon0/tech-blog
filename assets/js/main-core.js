@@ -143,7 +143,7 @@
             }
 
             // 보안: 허용된 도메인만 리디렉션
-            const allowedDomains = ['2twodragon.com', 'tech.2twodragon.com', 'buttondown.com', 'buttondown.email'];
+            const allowedDomains = ['tech.2twodragon.com', 'buttondown.com', 'buttondown.email'];
             const linkUrl = new URL(decodedLink);
 
             // Security: Validate protocol - only allow http/https

@@ -92,7 +92,7 @@ describe('sentry-init.js', () => {
     window.Sentry = { init: sentryInit, captureException: sentryCaptureException };
 
     // Default: production host.
-    setHostname('2twodragon.com');
+    setHostname('tech.2twodragon.com');
     localStorage.clear();
     document.body.innerHTML = '';
   });
@@ -143,14 +143,14 @@ describe('sentry-init.js', () => {
   it('builds allowUrls regex array from data-allowed-hosts CSV', () => {
     runScriptWithAttrs({
       'data-sentry-dsn': 'https://abc@sentry.io/1',
-      'data-allowed-hosts': '2twodragon.com,twodragon0.github.io',
+      'data-allowed-hosts': 'tech.2twodragon.com,twodragon0.github.io',
     });
     expect(sentryInit).toHaveBeenCalledTimes(1);
     const { allowUrls } = sentryInit.mock.calls[0][0];
     expect(Array.isArray(allowUrls)).toBe(true);
     expect(allowUrls.length).toBe(2);
     expect(allowUrls[0]).toBeInstanceOf(RegExp);
-    expect(allowUrls[0].test('https://2twodragon.com/some/path')).toBe(true);
+    expect(allowUrls[0].test('https://tech.2twodragon.com/some/path')).toBe(true);
     expect(allowUrls[1].test('https://twodragon0.github.io/tech-blog/')).toBe(true);
   });
 
@@ -170,10 +170,10 @@ describe('sentry-init.js', () => {
   // =========================================================================
 
   it('sets environment to "production" on the production host', () => {
-    // hostname is already '2twodragon.com' from beforeEach.
+    // hostname is already 'tech.2twodragon.com' from beforeEach.
     runScriptWithAttrs({
       'data-sentry-dsn': 'https://abc@sentry.io/1',
-      'data-allowed-hosts': '2twodragon.com',
+      'data-allowed-hosts': 'tech.2twodragon.com',
     });
     expect(sentryInit).toHaveBeenCalledTimes(1);
     expect(sentryInit.mock.calls[0][0].environment).toBe('production');
@@ -390,7 +390,7 @@ describe('sentry-init.js', () => {
             {
               value: 'boom',
               stacktrace: {
-                frames: [{ filename: 'https://2twodragon.com/assets/js/vendor.js' }],
+                frames: [{ filename: 'https://tech.2twodragon.com/assets/js/vendor.js' }],
               },
             },
           ],
@@ -565,12 +565,12 @@ describe('sentry-init.js', () => {
       const event = {
         message: 'req-scrub',
         request: {
-          url: 'https://2twodragon.com/page?token=abc&keep=1&password=xyz',
+          url: 'https://tech.2twodragon.com/page?token=abc&keep=1&password=xyz',
           cookies: { session: 'abc' },
         },
       };
       const result = beforeSend(event, {});
-      expect(result.request.url).toBe('https://2twodragon.com/page?keep=1');
+      expect(result.request.url).toBe('https://tech.2twodragon.com/page?keep=1');
       expect(result.request.cookies).toBeUndefined();
     });
 
