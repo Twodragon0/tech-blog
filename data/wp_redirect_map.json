@@ -1,0 +1,322 @@
+[
+  {
+    "wp_slug": "aws-iam-and-irsa-basic",
+    "wp_path": "/aws-iam-and-irsa-basic/",
+    "target": "/posts/2024/08/29/AWS_IAM_And_IRSA_Basics/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "pod-restart-temp-auth-iam-role",
+    "wp_path": "/pod-restart-temp-auth-iam-role/",
+    "target": "/posts/2024/09/01/EKS_Pod_Restart_Temporary_Credentials_And_Token_Refresh/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "aws-azure-gcp",
+    "wp_path": "/aws-azure-gcp/",
+    "target": "/posts/2024/10/04/AWS_vs_Azure_vs_GCP_Cloud_Comparison/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "aws-services",
+    "wp_path": "/aws-services/",
+    "target": "/posts/2024/10/04/AWS_Core_Services_EC2_S3_IAM_EKS_RDS_CloudTrail_GuardDuty/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "aws-org-iam-guide",
+    "wp_path": "/aws-org-iam-guide/",
+    "target": "/posts/2024/10/19/AWS_Organizations_And_IAM_Policy_Complete_Guide/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "aws-ec2-network-abstract",
+    "wp_path": "/aws-ec2-network-abstract/",
+    "target": "/posts/2024/10/25/AWS_EC2_And_Network_Architecture_Summary/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "aws-isms-p",
+    "wp_path": "/aws-isms-p/",
+    "target": "/posts/2024/11/01/AWS_Cloud_Security_Checklist_And_ISMS-P_Compliance_Guide/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "raas-threat",
+    "wp_path": "/raas-threat/",
+    "target": "/posts/2024/11/03/Ransomware-as-a-Service_RaaS_And_Big_Game_Hunting/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "bitcoin-blockchain",
+    "wp_path": "/bitcoin-blockchain/",
+    "target": "/posts/2024/11/12/Bitcoin_Blockchain_How_It_Works/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "bitcoin-github",
+    "wp_path": "/bitcoin-github/",
+    "target": "/posts/2024/11/13/Bitcoin_Source_Code_Structure_Analysis/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "eth-network",
+    "wp_path": "/eth-network/",
+    "target": "/posts/2024/11/14/Ethereum_Blockchain_Internal_Structure/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "apple-smarthome",
+    "wp_path": "/apple-smarthome/",
+    "target": null,
+    "action": "null",
+    "note": "off-topic (product rumor); not migrated"
+  },
+  {
+    "wp_slug": "tesla-issues",
+    "wp_path": "/tesla-issues/",
+    "target": "/posts/2026/01/01/Tesla_FSD_2026_Complete_Guide_Model_Y_Juniper_Security_DevSecOps/",
+    "action": "mapped",
+    "note": "related, not a duplicate: thin 2024 hardware/OTA news post; redirected to the closest existing Tesla security post instead of the homepage"
+  },
+  {
+    "wp_slug": "shared-pc-sec",
+    "wp_path": "/shared-pc-sec/",
+    "target": "/posts/2024/12/24/Shared_PC_Privacy_And_Security_Guide/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "passkey",
+    "wp_path": "/passkey/",
+    "target": "/posts/2024/12/25/Privacy_Protection_And_Passkey_Setup_Guide/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "ai-cyberattack",
+    "wp_path": "/ai-cyberattack/",
+    "target": "/posts/2025/01/14/AI_Based_Security_Threats_And_Response_Strategies/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "plugx",
+    "wp_path": "/plugx/",
+    "target": "/posts/2025/01/16/FBI_PlugX_Malware_Removal_Operation/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "johnmcafee",
+    "wp_path": "/johnmcafee/",
+    "target": null,
+    "action": "null",
+    "note": "off-topic (crypto token / biography); not migrated"
+  },
+  {
+    "wp_slug": "apple-slap-flop",
+    "wp_path": "/apple-slap-flop/",
+    "target": "/posts/2025/01/31/Apple_M_Series_SLAP_And_FLOP_Vulnerabilities/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "eks-cluster-upgrade-1-32",
+    "wp_path": "/eks-cluster-upgrade-1-32/",
+    "target": "/posts/2025/02/16/EKS_Cluster_Upgrade_1_32_Zero_Downtime_Strategy/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "qr-code-scan-signal",
+    "wp_path": "/qr-code-scan-signal/",
+    "target": "/posts/2025/02/22/QR_Code_Scan_And_Signal_Security/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "github-devsecops",
+    "wp_path": "/github-devsecops/",
+    "target": "/posts/2025/03/13/GitHub_Features_And_DevSecOps_Guide/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "datadog-cloudsiem",
+    "wp_path": "/datadog-cloudsiem/",
+    "target": "/posts/2025/03/13/Datadog_Features_DevSecOps_Cloud_SIEM_APM/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "gsuite-security",
+    "wp_path": "/gsuite-security/",
+    "target": "/posts/2025/03/17/Google_Workspace_Enterprise_Security_And_Collaboration/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "2025-unicornday",
+    "wp_path": "/2025-unicornday/",
+    "target": "/posts/2025/03/18/2025_Unicorn_Day_AI_Cloud_Innovation_And_Security_Strategy/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "elasticsearch-s3-keystore",
+    "wp_path": "/elasticsearch-s3-keystore/",
+    "target": "/posts/2025/03/21/Elasticsearch_S3_Snapshot_Keystore_Troubleshooting/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "idc-cloud-k8s",
+    "wp_path": "/idc-cloud-k8s/",
+    "target": "/posts/2025/03/22/On-Premises_vs_VM_Virtualization_vs_Cloud/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "ciso-role-security",
+    "wp_path": "/ciso-role-security/",
+    "target": "/posts/2025/03/23/Security_Strategy_By_Company_Size_And_CISO_Role/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "sentinelone",
+    "wp_path": "/sentinelone/",
+    "target": "/posts/2025/03/24/SentinelOne_Next_Generation_Endpoint_Security/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "amazon-eks-nginx‑ingress",
+    "wp_path": "/amazon-eks-nginx‑ingress/",
+    "target": "/posts/2025/03/25/Amazon_EKS_nginx-ingress_Vulnerability_Response_Guide/",
+    "wp_slug_encoded": "amazon-eks-nginx%e2%80%91ingress",
+    "wp_path_encoded": "/amazon-eks-nginx%e2%80%91ingress/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "cloudflare-cloudfront-s3",
+    "wp_path": "/cloudflare-cloudfront-s3/",
+    "target": "/posts/2025/03/28/Cloudflare_CloudFront_S3_CORS_And_Security_Optimization/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "aws-vpn-eks",
+    "wp_path": "/aws-vpn-eks/",
+    "target": "/posts/2025/03/31/AWS_Site-to-Site_VPN_EKS_Cluster_Access_Architecture/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "diagrams-as-code",
+    "wp_path": "/diagrams-as-code/",
+    "target": "/posts/2025/04/04/Diagrams_as_Code_Cloud_Architecture_Guide/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "mcp-security",
+    "wp_path": "/mcp-security/",
+    "target": "/posts/2025/04/09/MCP_Model_Context_Protocol_Security_Risks_And_Mitigations/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "slack-aiops",
+    "wp_path": "/slack-aiops/",
+    "target": "/posts/2025/04/22/Amazon_Bedrock_Slack_AIOps_Chatbot_AWS_Security_Architecture/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "skt-hacking",
+    "wp_path": "/skt-hacking/",
+    "target": "/posts/2025/04/25/SKT_BPFDoor_And_SIM_Swapping_Threat_Analysis/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "skt-usim",
+    "wp_path": "/skt-usim/",
+    "target": "/posts/2025/04/28/SKT_USIM_Data_Breach_Summary_April_2025/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "ks-lummac2",
+    "wp_path": "/ks-lummac2/",
+    "target": "/posts/2025/04/28/KS_Korea_Employment_Information_Data_Leak_LummaC2_Infostealer/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "skt-usim-1",
+    "wp_path": "/skt-usim-1/",
+    "target": "/posts/2025/04/29/SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "otp-passkey",
+    "wp_path": "/otp-passkey/",
+    "target": "/posts/2025/04/30/Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "kandji-macos",
+    "wp_path": "/kandji-macos/",
+    "target": "/posts/2025/05/02/Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "amazon-q",
+    "wp_path": "/amazon-q/",
+    "target": "/posts/2025/05/24/Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/",
+    "action": "mapped",
+    "note": "duplicate of existing tistory-migrated post (same title/topic)"
+  },
+  {
+    "wp_slug": "spf-dkim-dmarc",
+    "wp_path": "/spf-dkim-dmarc/",
+    "target": "/posts/2025/06/05/Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide/",
+    "action": "mapped",
+    "note": "duplicate of existing tistory-migrated post (same title)"
+  },
+  {
+    "wp_slug": "usa-ai-action-plan",
+    "wp_path": "/usa-ai-action-plan/",
+    "target": "/posts/2025/07/29/US_AI_Action_Plan_Innovation_And_Security/",
+    "action": "created"
+  },
+  {
+    "wp_slug": "critical-npm-security-alert-18-core-packages",
+    "wp_path": "/critical-npm-security-alert-18-core-packages/",
+    "target": "/posts/2025/09/10/npm_Ecosystem_Large_scale_Security_Breach_20_Download_Package_Malware_Infection/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "shai-hulud",
+    "wp_path": "/shai-hulud/",
+    "target": "/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "aws-datadog-imdsv2",
+    "wp_path": "/aws-datadog-imdsv2/",
+    "target": "/posts/2025/09/16/AWS_reInforce_2025_Cloud_Security_Current_and_Future/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "karpenterv1-5-3",
+    "wp_path": "/karpenterv1-5-3/",
+    "target": "/posts/2025/10/02/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "ai-security",
+    "wp_path": "/ai-security/",
+    "target": "/posts/2025/10/31/AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "zscaler-guide",
+    "wp_path": "/zscaler-guide/",
+    "target": "/posts/2025/11/04/Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "cloudflare-error",
+    "wp_path": "/cloudflare-error/",
+    "target": "/posts/2025/11/19/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/",
+    "action": "mapped"
+  },
+  {
+    "wp_slug": "12mon-devsecops",
+    "wp_path": "/12mon-devsecops/",
+    "target": "/posts/2025/12/17/12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence/",
+    "action": "mapped",
+    "note": "duplicate of existing tistory-migrated post (same conference recap)"
+  }
+]
