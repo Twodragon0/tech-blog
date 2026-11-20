@@ -77,7 +77,7 @@
         // /api/vitals does not exist (Vercel serves the function). Beaconing
         // there is a guaranteed 404, and preview deployments would pollute the
         // production property, so only the canonical host reports.
-        if (window.location.hostname !== 'tech.2twodragon.com') return;
+        if (window.location.hostname !== '2twodragon.com') return;
         try {
           var body = JSON.stringify({
             p: window.location.pathname,
@@ -148,7 +148,7 @@
         });
       } catch (e) {
         // LCP observer not supported
-        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+        if (window.location.hostname === '2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
           Sentry.captureException(e, {
             tags: { errorType: 'performance_monitor_lcp' },
             level: 'warning'
@@ -169,7 +169,7 @@
         fidObserver.observe({ entryTypes: ['first-input'] });
       } catch (e) {
         // FID observer not supported
-        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+        if (window.location.hostname === '2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
           Sentry.captureException(e, {
             tags: { errorType: 'performance_monitor_fid' },
             level: 'warning'
@@ -234,7 +234,7 @@
         });
       } catch (e) {
         // INP observer not supported (Safari < 16.4, older Chromium)
-        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+        if (window.location.hostname === '2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
           Sentry.captureException(e, {
             tags: { errorType: 'performance_monitor_inp' },
             level: 'warning'
@@ -359,7 +359,7 @@
         });
       } catch (e) {
         // CLS observer not supported
-        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+        if (window.location.hostname === '2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
           Sentry.captureException(e, {
             tags: { errorType: 'performance_monitor_cls' },
             level: 'warning'
@@ -406,7 +406,7 @@
         resourceObserver.observe({ entryTypes: ['resource'] });
       } catch (e) {
         // Resource observer not supported
-        if (window.location.hostname === 'tech.2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
+        if (window.location.hostname === '2twodragon.com' && typeof Sentry !== 'undefined' && Sentry.captureException) {
           Sentry.captureException(e, {
             tags: { errorType: 'performance_monitor_resource' },
             level: 'warning'

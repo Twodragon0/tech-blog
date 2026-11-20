@@ -36,7 +36,7 @@ const CONFIG = {
   MAX_PATH_LENGTH: 200,
   MAX_CAUSE_LENGTH: 100,
   RATE_LIMIT_TIER: 'anonymous',
-  SITE_ORIGIN: process.env.SITE_ORIGIN || 'https://tech.2twodragon.com',
+  SITE_ORIGIN: process.env.SITE_ORIGIN || 'https://2twodragon.com',
 };
 
 const METRIC_NAMES = new Set(['LCP', 'INP', 'CLS']);

@@ -114,6 +114,8 @@ export default async function handler(req, res) {
   
   // 허용된 Origin 목록 (보안 강화)
   const allowedOrigins = [
+    'https://2twodragon.com',
+    'https://www.2twodragon.com',
     'https://tech.2twodragon.com',
     'https://www.tech.2twodragon.com',
     // 개발 환경용 (로컬 개발 시에만 사용)

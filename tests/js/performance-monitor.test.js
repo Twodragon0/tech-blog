@@ -58,7 +58,7 @@ function setupPerformanceObserverStub() {
 }
 
 function buildFakeWindow({
-  hostname = 'tech.2twodragon.com',
+  hostname = '2twodragon.com',
   PerformanceObserver = undefined,
 } = {}) {
   const listeners = [];
