@@ -127,6 +127,74 @@ AWS re:Inforce 2025에서 발표된 최신 보안 기능과 모범 사례는 클
 | 운영 단계 (Ops Phase) | 배포 (Deploy) | 보안 배포 (Secure Deployment) | Kubernetes Deployment |
 | | 모니터링 (Monitor) | 런타임 보안 모니터링 (Runtime Security) | Falco, OPA Gatekeeper |
 
+## 현장에서 얻은 핵심 인사이트
+
+들어가며에서 예고한 개인 연구와 실무 관점의 인사이트입니다. 컨퍼런스 직후 [원문](https://twodragon.tistory.com/693)에 적었던 네 가지 요점을 옮깁니다.
+
+### 1. 가장 시급한 위협: 인터넷 노출 ALB와 IMDSv1
+
+원문은 이 조합을 "시한폭탄"이라고 불렀습니다. 격리된 개인 테스트 환경에 인터넷 노출(internet-facing) ALB, IMDSv1이 켜진 EC2, 입력 검증 없이 전달받은 URL을 대신 호출하는 SSRF 취약 엔드포인트를 의도적으로 구성해 재현해 보니, 공격 경로는 다음 세 단계였습니다.
+
+1. SSRF 취약점으로 `http://169.254.169.254/latest/meta-data/iam/security-credentials/`를 호출
+2. EC2 인스턴스에 연결된 IAM 역할의 자격 증명을 획득
+3. 그 권한으로 백도어 사용자 생성, 리소스 무단 생성·삭제까지 가능
+
+대응은 당장 할 일과 장기 과제로 나뉩니다. 당장은 모든 EC2에 IMDSv2를 강제합니다. Amazon Linux 2023 AMI로 띄운 인스턴스는 기본값이 IMDSv2 전용이라, AL2에서 AL2023으로 옮기면 이 설정이 함께 따라옵니다([AWS AL2023 문서](https://docs.aws.amazon.com/linux/al2023/ug/imdsv2.html)). 장기적으로는 ALB를 internal로 돌리고 엣지에 CloudFront와 WAF를 두며, 내부 통신은 PrivateLink로, 서버 접속은 SSH 대신 Session Manager로 바꿉니다.
+
+```bash
+# 기존 인스턴스에 IMDSv2 강제 (원문 예시)
+aws ec2 modify-instance-metadata-options \
+    --instance-id <instance-id> \
+    --http-tokens required \
+    --http-endpoint enabled \
+    --http-put-response-hop-limit 1
+```
+
+옵션 설명은 [AWS EC2 사용 설명서](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-existing-instances.html)에 있습니다. AL2023의 기본 hop limit은 컨테이너 워크로드를 고려해 2로 잡혀 있으니([AWS AL2023 문서](https://docs.aws.amazon.com/linux/al2023/ug/imdsv2.html)), 컨테이너를 돌리는 노드에 1을 적용할 때는 영향부터 확인해야 합니다.
+
+```text
+현재(취약): Internet → ALB(Internet-facing) → EC2(IMDSv1)
+목표(안전): Internet → CloudFront(WAF) → ALB(Internal) → EC2(IMDSv2)
+```
+
+### 2. 비용 효율적인 하이브리드: AWS 네이티브 + Datadog + 오픈소스
+
+모든 보안 기능을 한 벤더의 풀 스위트로 채우는 대신, 역할별로 효율이 좋은 도구를 조합하자는 것이 원문의 제안이었습니다.
+
+| 계층 | 도구 | 맡는 일 |
+|------|------|--------|
+| 기반 (AWS 네이티브) | Security Hub, GuardDuty, AWS Config | 위협 탐지와 구성 변경 감시의 기본 축 |
+| 핵심 보강 (Datadog) | Cloud SIEM, CSM Threats | 실시간 위협 탐지와 심층 로그 분석이 필요한 영역에만 선택 도입 |
+| 공백 보완 (오픈소스) | Prowler | CIS, PCI-DSS 등 정기 컴플라이언스 점검 |
+
+Datadog 쪽에서는 CSPM을 Prowler와 AWS Config로, 워크로드 보호(CWP)를 GuardDuty와 Inspector로 대신하고, 로그는 필수 로그만 인덱싱한 뒤 나머지는 아카이브해 두었다가 필요할 때 다시 불러오는(rehydration) 방식을 권했습니다. 비용은 원문의 100개 AWS 리소스 기준 예시로 보면 기본 스택(Security Hub, GuardDuty, Config, Prowler) 월 약 80달러에 Datadog 선택 도입분(필수 로그만 넣은 SIEM, CSM Threats) 월 약 800달러를 더해 월 약 880달러입니다. 같은 범위를 Datadog 전체 기능으로 운영할 때(월 3,000달러 이상)와 비교해 약 70%를 줄일 수 있다는 것이 원문의 추정입니다([원문](https://twodragon.tistory.com/693)). 리소스 규모와 계약 조건에 따라 달라지는 예시 수치로 읽어야 합니다. Datadog Cloud SIEM 자체의 기능은 [Datadog 기능 정리 글]({% post_url 2025-03-14-Datadog_Features_DevSecOps_Cloud_SIEM_APM %})에서 다뤘습니다.
+
+### 3. 보안 데이터의 중앙 허브: Security Hub
+
+흩어진 보안 데이터를 한곳에 모으는 역할은 Security Hub에 맡겼습니다. GuardDuty, Inspector, IAM Access Analyzer, Config, Macie 같은 AWS 서비스의 탐지 결과뿐 아니라 Prowler 결과(ASFF 형식)와 Datadog Security Signals까지 받아 하나의 흐름으로 처리하는 구성입니다([원문](https://twodragon.tistory.com/693)).
+
+1. 모든 보안 이벤트를 Security Hub로 모은다
+2. 심각도별로 자동 분류한다
+3. Critical, High 등급은 티켓을 자동으로 만든다
+4. 깊이 봐야 할 이벤트는 Datadog SIEM으로 넘겨 분석한다
+5. 정해 둔 대응 플레이북을 자동으로 실행한다
+
+지금 이 구성을 따라 한다면 이름 변화부터 확인해야 합니다. re:Inforce 2025에서 여러 보안 서비스의 신호를 묶어 위험 우선순위를 매기는 새 Security Hub가 프리뷰로 공개됐고([AWS 발표](https://aws.amazon.com/about-aws/whats-new/2025/06/aws-security-hub-risk-prioritization-response-scale/)), 기존 Security Hub는 Security Hub CSPM이라는 이름으로 남았습니다. AWS FAQ에 따르면 Security Hub CSPM은 ASFF를, 새 Security Hub는 OCSF 형식을 쓰므로([AWS Security Hub FAQ](https://aws.amazon.com/security-hub/faqs/)), Prowler의 ASFF 결과를 어느 쪽으로 보낼지 정하고 설계해야 합니다.
+
+### 4. AI 시대의 실용 보안: 당근 사례
+
+당근(당근마켓)은 AI 도구를 안전하게 활용하면서 보안도 지키는 3계층 프레임워크를 발표했습니다([원문](https://twodragon.tistory.com/693)).
+
+| 계층 | 통제 | 내용 |
+|------|------|------|
+| 네트워크 | DLP 패턴 | AWS 액세스 키(`AKIA[0-9A-Z]{16}`), 주민등록번호, 신용카드번호 같은 민감 정보가 밖으로 나가지 않게 차단 |
+| 애플리케이션 | 사용 정책 | 프라이버시 모드 강제, 데이터 학습 거부(opt-out) 옵션 활성화, 프롬프트 로깅과 모니터링 |
+| 디바이스 | MDM | 단말 정책을 적용하고 정책을 지키지 않는 기기의 접근 차단 |
+
+보안 운영에도 AI를 썼습니다. Amazon Bedrock이 보안 이벤트를 1차로 분석하고, SageMaker 모델이 정탐과 오탐을 가려내며(원문 기준 정확도 95%), 결과는 Slack으로 바로 알립니다. 보안팀이 모든 알림을 직접 들여다보지 않아도 되게 만드는 구조입니다. 구성원 훈련은 암호화폐 채굴 탐지, 데이터 유출 시도, 권한 상승 같은 모의 시나리오와 게임 형식의 보안 퀴즈로 진행했습니다.
+
+원문의 결론은 기본기로 돌아옵니다. IMDSv2 강제 같은 단순한 설정 하나가 상당수 위협을 막고, 그 위에 AWS 네이티브 서비스와 Datadog의 분석 기능, Prowler 같은 오픈소스를 조합하면 효과와 비용을 함께 잡을 수 있다는 것입니다.
+
 ## MITRE ATT&CK 매핑 (Cloud IaaS)
 
 AWS 보안 서비스와 MITRE ATT&CK 프레임워크의 매핑 관계를 정리합니다.
