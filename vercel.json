@@ -2976,7 +2976,7 @@
       "statusCode": 301
     },
     {
-      "source": "/tag/:path*",
+      "source": "/tag/(.*)",
       "destination": "https://legacy.2twodragon.com/",
       "statusCode": 301
     },
