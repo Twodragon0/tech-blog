@@ -4,7 +4,7 @@ categories:
 - cloud
 comments: true
 date: 2025-09-16 23:09:44 +0900
-last_modified_at: 2026-04-16T11:29:01+09:00
+last_modified_at: 2026-11-21T23:01:58+09:00
 description: "AWS re:Inforce 2025 컨퍼런스 핵심 발표 정리. 최신 AWS 보안 신기능, Zero Trust 아키텍처 구현 방법, AI 기반 위협 탐지 고도화, GuardDuty 확장 기능, Security Hub 개선 사항 등 클라우드 보안의 현재와 미래를 살펴봅니다."
 excerpt: "AWS re:Inforce 2025 컨퍼런스 핵심 발표 정리. 최신 AWS 보안 신기능, Zero Trust 아키텍처 구현 방법, AI 기반 위협 탐지 고도화, GuardDuty 확장 기능, Security Hub 개선 사항 등 클라우드 보안의 현재와 미래를 살펴봅니다."
 image: /assets/images/2025-09-16-AWS_reInforce_2025_Cloud_Security_and_Future.svg
@@ -111,7 +111,7 @@ AWS re:Inforce 2025에서 발표된 최신 보안 기능과 모범 사례는 클
 
 2025년 6월 필라델피아에서 개최된 AWS re:Inforce는 5,800명의 보안 전문가들이 모여 클라우드 보안의 최신 트렌드와 기술을 공유하는 장이었습니다. 특히 한국 참가자가 전년 대비 2배 증가하며 국내 기업들의 클라우드 보안에 대한 관심이 높아지고 있음을 보여주었습니다.
 
-이번 포스트에서는 콘퍼런스의 주요 업데이트와 함께 다양한 관점에서의 보안 인사이트를 공유합니다:
+이번 포스트에서는 컨퍼런스의 주요 업데이트와 함께 다양한 관점에서의 보안 인사이트를 공유합니다:
 
 - AWS의 새로운 보안 서비스 및 기능 업데이트
 - 개인 연구 및 실무 경험을 바탕으로 한 보안 인사이트
@@ -129,7 +129,7 @@ AWS re:Inforce 2025에서 발표된 최신 보안 기능과 모범 사례는 클
 
 ## 현장에서 얻은 핵심 인사이트
 
-들어가며에서 예고한 개인 연구와 실무 관점의 인사이트입니다. 컨퍼런스 직후 [원문](https://twodragon.tistory.com/693)에 적었던 네 가지 요점을 옮깁니다.
+들어가며에서 예고한 개인 연구와 실무 관점의 인사이트입니다. 컨퍼런스(2025년 6월 16~18일)가 끝나고 약 석 달 뒤인 2025년 9월에 [원문](https://twodragon.tistory.com/693)으로 정리했던 네 가지 요점을 옮깁니다.
 
 ### 1. 가장 시급한 위협: 인터넷 노출 ALB와 IMDSv1
 
@@ -167,7 +167,7 @@ aws ec2 modify-instance-metadata-options \
 | 핵심 보강 (Datadog) | Cloud SIEM, CSM Threats | 실시간 위협 탐지와 심층 로그 분석이 필요한 영역에만 선택 도입 |
 | 공백 보완 (오픈소스) | Prowler | CIS, PCI-DSS 등 정기 컴플라이언스 점검 |
 
-Datadog 쪽에서는 CSPM을 Prowler와 AWS Config로, 워크로드 보호(CWP)를 GuardDuty와 Inspector로 대신하고, 로그는 필수 로그만 인덱싱한 뒤 나머지는 아카이브해 두었다가 필요할 때 다시 불러오는(rehydration) 방식을 권했습니다. 비용은 원문의 100개 AWS 리소스 기준 예시로 보면 기본 스택(Security Hub, GuardDuty, Config, Prowler) 월 약 80달러에 Datadog 선택 도입분(필수 로그만 넣은 SIEM, CSM Threats) 월 약 800달러를 더해 월 약 880달러입니다. 같은 범위를 Datadog 전체 기능으로 운영할 때(월 3,000달러 이상)와 비교해 약 70%를 줄일 수 있다는 것이 원문의 추정입니다([원문](https://twodragon.tistory.com/693)). 리소스 규모와 계약 조건에 따라 달라지는 예시 수치로 읽어야 합니다. Datadog Cloud SIEM 자체의 기능은 [Datadog 기능 정리 글]({% post_url 2025-03-14-Datadog_Features_DevSecOps_Cloud_SIEM_APM %})에서 다뤘습니다.
+Datadog 쪽에서는 CSPM을 Prowler와 AWS Config로, 워크로드 보호(CWP)를 GuardDuty와 Inspector로 대신하고, 로그는 필수 로그만 인덱싱한 뒤 나머지는 아카이브해 두었다가 필요할 때 다시 불러오는(rehydration) 방식을 권했습니다. 비용은 원문의 100개 AWS 리소스 기준 예시로 보면 기본 스택(Security Hub, GuardDuty, Config, Prowler) 월 약 80달러(원문 작성 당시 Security Hub 프리뷰 무료 기준)에 Datadog 선택 도입분(필수 로그만 넣은 SIEM, CSM Threats) 월 약 800달러를 더해 월 약 880달러입니다. 같은 범위를 Datadog 전체 기능으로 운영할 때(월 3,000달러 이상)와 비교해 약 70%를 줄일 수 있다는 것이 원문의 추정입니다([원문](https://twodragon.tistory.com/693)). 리소스 규모와 계약 조건에 따라 달라지는 예시 수치로 읽어야 합니다. 특히 Security Hub는 2025년 12월 정식 출시(GA)됐고([AWS 발표](https://aws.amazon.com/about-aws/whats-new/2025/12/security-hub-near-real-time-risk-analytics/)), 지금은 Essentials 플랜이 모니터링하는 리소스 단위로 월 과금되므로([AWS Security Hub 요금](https://aws.amazon.com/security-hub/pricing/)) 이 비용을 기본 스택에 더해 다시 계산해야 합니다. Datadog Cloud SIEM 자체의 기능은 [Datadog 기능 정리 글]({% post_url 2025-03-14-Datadog_Features_DevSecOps_Cloud_SIEM_APM %})에서 다뤘습니다.
 
 ### 3. 보안 데이터의 중앙 허브: Security Hub
 
@@ -183,7 +183,7 @@ Datadog 쪽에서는 CSPM을 Prowler와 AWS Config로, 워크로드 보호(CWP)�
 
 ### 4. AI 시대의 실용 보안: 당근 사례
 
-당근(당근마켓)은 AI 도구를 안전하게 활용하면서 보안도 지키는 3계층 프레임워크를 발표했습니다([원문](https://twodragon.tistory.com/693)).
+원문은 당근(당근마켓)이 AI 도구를 안전하게 활용하면서 보안도 지키려고 3계층 프레임워크를 구현한 사례를 소개했습니다([원문](https://twodragon.tistory.com/693)).
 
 | 계층 | 통제 | 내용 |
 |------|------|------|
@@ -334,7 +334,7 @@ AWS re:Inforce 2025는 클라우드 보안의 현재와 미래를 보여주는 �
 ---
 
 
-## 📋 차세대 클라우드 보안 트렌드 도입 체크리스트 (re:Inforce Action Checklist)
+## 차세대 클라우드 보안 트렌드 도입 체크리스트 (re:Inforce Action Checklist)
 
 - [ ] **생성형 AI 보안 통제(Bedrock Guardrails) 구현**: LLM 기반 워크로드에 PII 마스킹, 유해 프롬프트 차단, 모델 인젝션 방어 정책을 적용했는지 점검합니다.
 - [ ] **IAM 자격증명 수명 축소 및 임시 토큰 의무화**: 장기 보관용 Access Key를 완전히 퇴출하고 AWS STS 기반 1시간 미만 임시 자격증명 사용을 강제하는지 확인합니다.
@@ -342,7 +342,7 @@ AWS re:Inforce 2025는 클라우드 보안의 현재와 미래를 보여주는 �
 - [ ] **자동화된 인시던트 플레이북(Automated Remediation)**: GuardDuty 또는 Security Hub 탐지 이벤트 발생 시 비인가 보안 그룹을 자동 롤백하는 EventBridge-Lambda 루프를 검증합니다.
 - [ ] **암호화 알고리즘 양자 내성(PQC) 로드맵 수립**: 향후 양자 컴퓨팅 위협에 대비해 TLS 1.3 하이브리드 포스트 퀀텀 키 교환 알고리즘 도입 일정을 검토했는지 확인합니다.
 
-## 🔗 관련 포스트 및 참고 자료 (Cross References)
+## 관련 포스트 및 참고 자료 (Cross References)
 
 - AWS IAM Identity Center & ABAC 거버넌스: {% post_url 2026-08-31-AWS_IAM_Identity_Center_ABAC_Zero_Trust_Governance %}
 - 2026 DevSecOps 로드맵 가이드: {% post_url 2026-01-10-2026_DevSecOps_Roadmap_Complete_Guide_Analysis %}
