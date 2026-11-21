@@ -15,7 +15,7 @@ CONFIG = yaml.safe_load((ROOT / "_config.yml").read_text())
 
 def _title_tag():
     start = HEAD.index("<title>")
-    return HEAD[start:HEAD.index("</title>", start)]
+    return HEAD[start : HEAD.index("</title>", start)]
 
 
 def test_page_titles_use_short_brand_suffix():
