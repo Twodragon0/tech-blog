@@ -735,6 +735,21 @@
     }
   },
   "2025-09-10-npm_Ecosystem_Large_scale_Security_Breach_20_Download_Package_Malware_Infection.md": {
+    "total": 99,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 4
+    }
+  },
+  "2025-09-16-AWS_reInforce_2025_Cloud_Security_Current_and_Future.md": {
     "total": 98,
     "scores": {
       "front_matter": 15,
@@ -747,21 +762,6 @@
       "code_blocks": 10,
       "cross_refs": 5,
       "length": 3
-    }
-  },
-  "2025-09-16-AWS_reInforce_2025_Cloud_Security_Current_and_Future.md": {
-    "total": 97,
-    "scores": {
-      "front_matter": 15,
-      "ai_summary": 10,
-      "executive_summary": 10,
-      "risk_scorecard": 10,
-      "sections": 15,
-      "checklists": 10,
-      "tables": 10,
-      "code_blocks": 10,
-      "cross_refs": 5,
-      "length": 2
     }
   },
   "2025-09-17-NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis.md": {
