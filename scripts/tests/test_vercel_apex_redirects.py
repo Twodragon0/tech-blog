@@ -1,6 +1,7 @@
 """Guard the apex cutover against obsolete WordPress host redirects."""
 
 import json
+import re
 from pathlib import Path
 
 VERCEL_CONFIG = Path(__file__).resolve().parents[2] / "vercel.json"
@@ -33,7 +34,13 @@ WP_ONLY_CATEGORIES = ("economic", "music", "online-class", "certification", "kno
 def test_wordpress_taxonomy_urls_reach_archive_without_shadowing_apex():
     redirects = json.loads(VERCEL_CONFIG.read_text())["redirects"]
     destinations = {rule["source"]: rule["destination"] for rule in redirects}
-    assert destinations["/tag/:path*"] == LEGACY_HOME
+    tag_rules = [r for r in redirects if r["source"].startswith("/tag/")]
+    assert [r["destination"] for r in tag_rules] == [LEGACY_HOME]
+    # trailingSlash: true sends /tag/sre to /tag/sre/ first, and a ":path*"
+    # source never matches a trailing slash, so /tag/sre/ stayed 404.
+    tag_pattern = re.escape(tag_rules[0]["source"]).replace(re.escape("(.*)"), ".*")
+    for path in ("/tag/sre/", "/tag/2024%eb%85%84/", "/tag/"):
+        assert re.fullmatch(tag_pattern, path), path
     for slug in WP_ONLY_CATEGORIES:
         assert destinations[f"/category/{slug}/"] == LEGACY_HOME
     assert not [
