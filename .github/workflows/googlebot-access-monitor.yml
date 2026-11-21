@@ -41,7 +41,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          bash scripts/check_googlebot_access.sh "https://tech.2twodragon.com" \
+          bash scripts/check_googlebot_access.sh "https://2twodragon.com" \
             > /tmp/probe.txt 2>&1
           status=$?
           set -e
@@ -86,7 +86,7 @@ jobs:
           channel = os.environ.get("SLACK_CHANNEL_ID", "")
           message = (
               ":rotating_light: *Googlebot access probe failed*\n"
-              "tech.2twodragon.com is returning HTTP 429 / challenge to "
+              "2twodragon.com is returning HTTP 429 / challenge to "
               "Googlebot. Likely cause: Vercel Attack Challenge Mode is "
               "enabled — disable at "
               "https://vercel.com/twodragon0s-projects/tech-blog/settings/security\n"

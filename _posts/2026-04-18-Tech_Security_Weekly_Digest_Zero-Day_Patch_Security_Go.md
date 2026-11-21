@@ -391,7 +391,7 @@ DevSecOps 실무자에게 이 솔루션은 **표준화된 데이터 파이프라
 
 이번 주 한 줄: 사내 Defender 버전 인벤토리부터 추출하라 — `Invoke-Command -ComputerName (Get-ADComputer -Filter 'OperatingSystem -like "*Windows*"' | Select -Expand Name) -ScriptBlock { Get-MpComputerStatus | Select PSComputerName,AntivirusSignatureVersion,AMEngineVersion,AMServiceVersion }` 한 줄로 도메인 전체의 엔진 버전을 추출해, MS 의 권고 패치 버전 미만이면 SCCM/Intune 강제 큐로 묶고, 미패치 2건에 대해서는 attack surface reduction (ASR) 룰 강제 활성화로 임시 격리한다. OCSF 측은 Defender 의 advanced hunting 로그(`DeviceProcessEvents`, `DeviceImageLoadEvents`) 와 CloudTrail·VPC Flow Logs 를 같은 schema 로 정규화한 뒤 `GROUP BY device.uid, src.ip` 로 단일 호스트가 동시에 Defender 우회 시도 + 비정상 AWS API 호출 패턴을 보였는지 한 쿼리로 묶을 수 있다.
 
-본 블로그의 [클라우드 보안 8기 7주차 — Docker·Kubernetes 보안 실습](https://tech.2twodragon.com/posts/2026/01/15/Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/) 에서 정리한 다층 방어(EDR + Falco runtime + audit log) 패턴은 Defender 0-Day 처럼 단일 EDR 이 일시 무력화되는 시나리오에서 시그널이 끊기지 않는 유일한 구조다. 사내 EDR 외 런타임 보안 레이어가 없다면, 이번 사고는 그 레이어 도입의 직접적 트리거다.
+본 블로그의 [클라우드 보안 8기 7주차 — Docker·Kubernetes 보안 실습](/posts/2026/01/15/Cloud_Security_Course_8Batch_7Week_Docker_Kubernetes_Security_Practical_Guide/) 에서 정리한 다층 방어(EDR + Falco runtime + audit log) 패턴은 Defender 0-Day 처럼 단일 EDR 이 일시 무력화되는 시나리오에서 시그널이 끊기지 않는 유일한 구조다. 사내 EDR 외 런타임 보안 레이어가 없다면, 이번 사고는 그 레이어 도입의 직접적 트리거다.
 
 ## 참고 자료
 

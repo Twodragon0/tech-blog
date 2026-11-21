@@ -401,7 +401,7 @@ The Gentlemen 랜섬웨어가 SystemBC C2로 1,570명 피해자를 확보한 사
 
 이번 주의 실무 작업은 두 가지다. 첫째, Lantronix·Silex 등 직렬-IP 컨버터를 자산 목록에서 식별하라. 회사망에 NetFlow·Zeek가 있다면 `cat /opt/zeek/logs/current/conn.log | zeek-cut id.resp_h id.resp_p | sort -u | grep -E ":(23|9999|10001|30718)$"` 같은 한 줄로 Lantronix 기본 포트 노출을 찾을 수 있고, MikroTik·SonicWall 환경이면 IPS 시그니처 업데이트 후 BRIDGE:BREAK 관련 CVE 매핑 규칙이 활성화됐는지 확인해야 한다. 둘째, SystemBC가 노리는 윈도우 측 측면이동(lateral movement) 경로 — RDP·SMB·WMI — 에 대한 EDR 행위 룰이 **prefetch + execution chain** 단위로 기록되도록 점검하라.
 
-이번 사고의 본질은 백업의 **존재**가 아니라 백업의 **격리(immutability)** 다. S3 Object Lock(governance/compliance 모드), AWS Backup Vault Lock, Azure immutable blob 의 정책 적용 상태를 확인하고, 마지막 복구 리허설이 90일을 넘었다면 이번 주 안에 부분 복원 테스트를 잡길 권한다. 본 블로그의 [KARA 랜섬웨어 동향 보고서 2025년 3분기 분석](https://tech.2twodragon.com/posts/2026/01/22/KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST/) 에서 정리한 affiliate 별 TTP 매트릭스를 이번 The Gentlemen 캠페인 IoC와 교차해 보면, 어느 affiliate 의 도구셋이 자사 환경의 어떤 단계에서 가장 먼저 트리거를 일으킬지 예측할 수 있다.
+이번 사고의 본질은 백업의 **존재**가 아니라 백업의 **격리(immutability)** 다. S3 Object Lock(governance/compliance 모드), AWS Backup Vault Lock, Azure immutable blob 의 정책 적용 상태를 확인하고, 마지막 복구 리허설이 90일을 넘었다면 이번 주 안에 부분 복원 테스트를 잡길 권한다. 본 블로그의 [KARA 랜섬웨어 동향 보고서 2025년 3분기 분석](/posts/2026/01/22/KARA_Ransomware_Trends_Report_2025_Q3_Analysis_SK_Shieldus_EQST/) 에서 정리한 affiliate 별 TTP 매트릭스를 이번 The Gentlemen 캠페인 IoC와 교차해 보면, 어느 affiliate 의 도구셋이 자사 환경의 어떤 단계에서 가장 먼저 트리거를 일으킬지 예측할 수 있다.
 
 ## 참고 자료
 

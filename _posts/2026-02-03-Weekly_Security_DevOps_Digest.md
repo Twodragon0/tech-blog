@@ -545,4 +545,4 @@ MDM 기반 Zero Trust 구현 시 핵심 점검 항목은 다음과 같습니다:
 
 ---
 
-*이 글은 [Twodragon's Tech Blog](https://tech.2twodragon.com)에서 매주 발행하는 Security & DevOps Digest입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*
+*이 글은 [Twodragon's Tech Blog](https://2twodragon.com/)에서 매주 발행하는 Security & DevOps Digest입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*

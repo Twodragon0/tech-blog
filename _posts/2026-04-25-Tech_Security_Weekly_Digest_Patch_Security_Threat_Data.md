@@ -418,7 +418,7 @@ Visier Workforce AI 플랫폼과 Amazon Quick를 Model Context Protocol (MCP)로
 
 이번 주 한 줄: 사내 Cisco 네트워크 장비 인벤토리부터 추출하라 — `ansible -i inventory cisco_devices -m raw -a "show version | include uptime|Cisco IOS|System image file" --user=netops 2>/dev/null | tee /tmp/cisco-firepower-audit.txt` (Ansible 기준) 또는 NMS 가 있다면 SNMP `sysDescr` + `ciscoConfigCopyStatus` 풀로 Firepower 시리즈를 식별하고, CISA 의 FIRESTARTER 침해 지표(`show flash` 의 미인가 `.bin` 파일, ROM monitor 의 변조 흔적) 를 강제 점검. 패치 이후에도 침해 지표가 남으면 그 장비는 격리 후 RMA 또는 fresh image reload(`copy tftp: rom-monitor`) 가 필수다. NASA 측 교훈은 사내 보안 메일 게이트웨이의 첨부 isolation 강제 — `*.iso`·`*.lnk`·`*.scr` 첨부의 자동 격리 + sandbox detonation 룰을 이번 주 안에 박는다.
 
-본 블로그의 [AWS re:Inforce 2025 — 클라우드 보안 현황과 미래](https://tech.2twodragon.com/posts/2025/09/16/AWS_reInforce_2025_Cloud_Security_Current_and_Future/) 에서 정리한 firmware·boot integrity·NIST PQC 마이그레이션 로드맵은 FIRESTARTER 가 보여준 패치 후 생존 시나리오와 양자 위협 헤드라인이 같은 한 가지 결론으로 수렴하는 이유를 보여준다 — **공급망의 최하단(펌웨어·로더) 무결성 보장이 곧 사이버 회복탄력성의 1차 조건**이다. 그 글의 ICAO/NIST 로드맵 체크리스트가 사내 인프라 자산표에 매핑돼 있지 않다면, 이번 주 작업으로 그 매핑을 시작하라.
+본 블로그의 [AWS re:Inforce 2025 — 클라우드 보안 현황과 미래](/posts/2025/09/16/AWS_reInforce_2025_Cloud_Security_Current_and_Future/) 에서 정리한 firmware·boot integrity·NIST PQC 마이그레이션 로드맵은 FIRESTARTER 가 보여준 패치 후 생존 시나리오와 양자 위협 헤드라인이 같은 한 가지 결론으로 수렴하는 이유를 보여준다 — **공급망의 최하단(펌웨어·로더) 무결성 보장이 곧 사이버 회복탄력성의 1차 조건**이다. 그 글의 ICAO/NIST 로드맵 체크리스트가 사내 인프라 자산표에 매핑돼 있지 않다면, 이번 주 작업으로 그 매핑을 시작하라.
 
 ## 참고 자료
 

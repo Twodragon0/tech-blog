@@ -72,6 +72,7 @@ jobs:
         id: inspect
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          # After the apex move the Search Console property is likely sc-domain:2twodragon.com or https://2twodragon.com/, so set it via the GSC_SITE_URL repo variable; this fallback is the old host on purpose.
           GSC_SITE_URL: ${{ vars.GSC_SITE_URL || 'https://tech.2twodragon.com' }}
           # Pass the workflow_dispatch input via env, not inline ${{ }} in the
           # shell, so a crafted limit value cannot inject commands. (Security

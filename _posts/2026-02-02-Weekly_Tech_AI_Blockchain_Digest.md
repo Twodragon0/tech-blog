@@ -628,6 +628,6 @@ FOSDEM 2026의 Security DevRoom에서 다룬 공급망 보안(SBOM, Sigstore) �
 
 ---
 
-*이 글은 [Twodragon's Tech Blog](https://tech.2twodragon.com)에서 매주 발행하는 Tech & Security Weekly Digest입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*
+*이 글은 [Twodragon's Tech Blog](https://2twodragon.com/)에서 매주 발행하는 Tech & Security Weekly Digest입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*
 
 작성자: Twodragon

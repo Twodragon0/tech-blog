@@ -265,7 +265,7 @@ DevSecOps 관점에서 이 취약점은 다음과 같은 직접적 영향을 미
 
 이번 주 한 줄: FortiClient EMS 측은 노출 점검부터 시작하라 — `nmap -p 8013,10443 --script http-title -T4 <EMS-CIDR>` 으로 관리 콘솔 응답을 확인한 뒤, 8013/10443 이 사내망 외부 또는 사용자 VLAN 에서 도달 가능하면 즉시 ACL 격리 + 패치 적용 P0. Drift 측 교훈은 운영 키 관리로 옮겨야 한다 — 사내 IAM/Privileged Access 환경에서 `aws iam list-access-keys --user-name <admin> --query 'AccessKeyMetadata[?CreateDate<=`'$(date -v-90d +%F)'`].[UserName,AccessKeyId,CreateDate]'` (또는 `date -d "-90 days"` GNU 변형) 으로 90일 넘긴 관리자 액세스 키를 색출하고, 90일 이내 강제 회전·MFA 강제 정책을 SCP 로 박아두라.
 
-본 블로그의 [AWS 클라우드 보안 완전 가이드 — IAM·EKS·보안 아키텍처](https://tech.2twodragon.com/posts/2026/01/14/AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture/) 에서 정리한 권한 분리(SoD)·JIT·HSM 기반 키 관리 패턴은 Drift 케이스의 6개월 사회공학 시나리오가 왜 한 명의 키 보유자에서 끊겼어야 했는지를 직접 보여준다. 다중서명·하드웨어 격리가 도입된 환경이라면 같은 사회공학으로 한 명을 뚫어도 자산 이동은 막힌다 — 이번 주 작업할 항목은 그 다중서명 경계의 현행 상태 검증이다.
+본 블로그의 [AWS 클라우드 보안 완전 가이드 — IAM·EKS·보안 아키텍처](/posts/2026/01/14/AWS_Cloud_Security_Complete_Guide_IAMFrom_EKSTo_Security_Architecture/) 에서 정리한 권한 분리(SoD)·JIT·HSM 기반 키 관리 패턴은 Drift 케이스의 6개월 사회공학 시나리오가 왜 한 명의 키 보유자에서 끊겼어야 했는지를 직접 보여준다. 다중서명·하드웨어 격리가 도입된 환경이라면 같은 사회공학으로 한 명을 뚫어도 자산 이동은 막힌다 — 이번 주 작업할 항목은 그 다중서명 경계의 현행 상태 검증이다.
 
 ## 참고 자료
 

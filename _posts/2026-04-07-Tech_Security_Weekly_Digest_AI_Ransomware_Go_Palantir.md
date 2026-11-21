@@ -388,7 +388,7 @@ GandCrab(2018-2019)와 REvil(2019-2021)은 랜섬웨어-as-a-Service(RaaS) 모�
 
 이번 주 한 줄 점검: M365 측은 패스워드 스프레이링 흔적부터 추출하라 — `Get-MgAuditLogSignIn -Filter "Status/ErrorCode eq 50053 or Status/ErrorCode eq 50126" -Top 5000 | Group-Object IPAddress | Where-Object Count -gt 50 | Sort-Object Count -Descending` 로 단일 IP 에서 50회 이상 실패한 패턴을 색출하고, 해당 IP 대역(주로 VPS) 을 Conditional Access named location 의 block 룰에 즉시 등록한다. GitHub C2 측은 사내 egress 로그(zeek/proxy/falcoSPF) 에서 `raw.githubusercontent.com`·`gist.githubusercontent.com` 접근을 사용자 OS 외 컨테이너·서버 호스트에서 비정상적으로 호출하는 패턴을 `zeek-cut id.orig_h host uri user_agent < http.log | awk '$2 ~ /githubusercontent/ && $4 !~ /git|curl/'` 로 추출한다 — 빌드 노드 외 호스트에서의 호출은 거의 모두 의심 대상이다.
 
-본 블로그의 [클라우드 보안 8기 6주차 — AWS WAF·CloudFront 보안 아키텍처 및 GitHub DevSecOps 실습](https://tech.2twodragon.com/posts/2026/01/08/Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/) 에서 정리한 GitHub Advanced Security·Branch protection·OIDC 트러스트 구성은 GitHub 가 C2 로 악용되는 시나리오 자체를 막진 못해도, 사내 코드 유출과 토큰 탈취가 같은 채널을 타는 것을 차단하는 가장 직접적인 방어선이다. 이번 사고를 계기로 그 글의 룰셋이 운영 저장소에 모두 박혔는지 다시 점검할 가치가 있다.
+본 블로그의 [클라우드 보안 8기 6주차 — AWS WAF·CloudFront 보안 아키텍처 및 GitHub DevSecOps 실습](/posts/2026/01/08/Cloud_Security_Course_8Batch_6Week_AWS_WAF_CloudFront_Security_Architecture_And_GitHub_DevSecOps_Practical/) 에서 정리한 GitHub Advanced Security·Branch protection·OIDC 트러스트 구성은 GitHub 가 C2 로 악용되는 시나리오 자체를 막진 못해도, 사내 코드 유출과 토큰 탈취가 같은 채널을 타는 것을 차단하는 가장 직접적인 방어선이다. 이번 사고를 계기로 그 글의 룰셋이 운영 저장소에 모두 박혔는지 다시 점검할 가치가 있다.
 
 ## 참고 자료
 

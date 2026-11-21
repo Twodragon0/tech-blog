@@ -416,7 +416,7 @@ Google Cloud Next에서 발표한 새로운 컴퓨팅 기능은 코어 범용 �
 
 이번 주 한 줄: 사내 사용 중인 보안 도구 Docker 이미지의 digest 핀부터 검증하라 — `docker images --digests | awk '/checkmarx|kics|snyk|trivy|grype|tfsec|checkov|terrascan|semgrep/ {print $1":"$2" -> "$4}' | tee /tmp/security-tools-digests.txt; for line in $(cat /tmp/security-tools-digests.txt); do echo "verify: $line"; done` 한 줄로 사내에 풀린 보안 도구 이미지의 현행 digest 를 추출하고, 각 이미지를 vendor advisory 의 known-good digest 와 대조하라. CI 파이프라인의 모든 보안 스캐너는 `image: checkmarx/kics@sha256:<digest>` 같은 immutable digest 핀으로 강제되어야 한다 — `:latest`·`:v2.x.y` tag 만 쓰는 단계라면 이번 주가 그 마이그레이션 시점이다.
 
-본 블로그의 [NPM Shai-Hulud 자기복제 웜 — 180개 패키지 침해 분석](https://tech.2twodragon.com/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/) 에서 정리한 자기 전파형 npm 웜의 토큰 탈취 패턴은 오늘의 두 사건이 동일 가족군의 진화임을 보여준다. 그때 도입한 짧은 lifetime PAT, post-install 훅 비활성화(`npm ci --ignore-scripts`), OS keyring 마이그레이션 절차가 사내에 박혀 있지 않다면, 이번 사건이 가장 합리적인 도입 트리거다.
+본 블로그의 [NPM Shai-Hulud 자기복제 웜 — 180개 패키지 침해 분석](/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/) 에서 정리한 자기 전파형 npm 웜의 토큰 탈취 패턴은 오늘의 두 사건이 동일 가족군의 진화임을 보여준다. 그때 도입한 짧은 lifetime PAT, post-install 훅 비활성화(`npm ci --ignore-scripts`), OS keyring 마이그레이션 절차가 사내에 박혀 있지 않다면, 이번 사건이 가장 합리적인 도입 트리거다.
 
 ## 참고 자료
 

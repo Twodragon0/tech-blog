@@ -403,7 +403,7 @@ GitHub Blog의 Copilot Applied Science에서 코딩 에이전트를 활용해 �
 
 이번 주 실무자가 손에 잡히는 작업으로 옮길 항목은 **artifact 서명 검증을 빌드의 옵션이 아니라 게이트로 승격**하는 것이다. cosign을 이미 도입했다면 검증을 admission 단에서 실행해야 한다 — 예: `cosign verify --certificate-identity-regexp "^https://github.com/myorg/" --certificate-oidc-issuer https://token.actions.githubusercontent.com ghcr.io/myorg/app@sha256:...` 명령을 Kyverno 또는 Sigstore policy-controller로 강제하면, 서명 누락 이미지는 클러스터에 들어오지 못한다. TrueConf처럼 외부 벤더 바이너리를 EDR 정책 예외로 둔 케이스가 있다면 이번 주에 그 예외 목록을 재검토하라.
 
-또 하나의 결론은 ISO/IEC 27001:2022의 Annex A 8.30·8.31(공급망 보안·개발 분리) 통제를 형식적 문서가 아닌 **자동화된 evidence**로 채워야 한다는 점이다. 이는 본 블로그의 [LLM 보안 실무 가이드 — Prompt Injection·RAG·MCP](https://tech.2twodragon.com/posts/2026/03/07/LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP/) 에서 다룬 MCP 도구 화이트리스트 원칙과 같은 결로 이어진다. 자동 업데이터든 AI 에이전트든, 신뢰 경계를 넘어 코드를 실행시키는 주체에 대한 신원 증명을 강제하지 않으면 같은 사고가 다른 표면에서 반복된다.
+또 하나의 결론은 ISO/IEC 27001:2022의 Annex A 8.30·8.31(공급망 보안·개발 분리) 통제를 형식적 문서가 아닌 **자동화된 evidence**로 채워야 한다는 점이다. 이는 본 블로그의 [LLM 보안 실무 가이드 — Prompt Injection·RAG·MCP](/posts/2026/03/07/LLM_Security_Practical_Guide_Prompt_Injection_RAG_MCP/) 에서 다룬 MCP 도구 화이트리스트 원칙과 같은 결로 이어진다. 자동 업데이터든 AI 에이전트든, 신뢰 경계를 넘어 코드를 실행시키는 주체에 대한 신원 증명을 강제하지 않으면 같은 사고가 다른 표면에서 반복된다.
 
 ## 참고 자료
 
