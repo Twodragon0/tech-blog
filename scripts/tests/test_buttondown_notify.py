@@ -9,7 +9,7 @@ Three defects, all found in buttondown-notify.yml run logs (2026-10-27,
 3. One push tried to mail 36 imported WordPress posts at once.
 
 No test here touches the network. ``_no_real_buttondown`` makes any unfaked
-``requests.post`` fail the test; ``buttondown`` installs a scripted fake.
+``requests`` call fail the test; ``buttondown`` installs a scripted fake.
 """
 
 from __future__ import annotations
@@ -62,12 +62,16 @@ class _FakeButtondown:
 
 @pytest.fixture(autouse=True)
 def _no_real_buttondown(monkeypatch: pytest.MonkeyPatch) -> None:
-    """A test that forgets the fake must fail, not mail the real list."""
+    """A test that forgets the fake must fail, not mail the real list.
+
+    requests.post/get/request and every Session end in Session.request.
+    conftest.py also blocks sockets to other hosts underneath it.
+    """
 
     def refuse(*args: object, **kwargs: object) -> None:
-        raise AssertionError("test reached requests.post without the fake")
+        raise AssertionError("test reached requests without the Buttondown fake")
 
-    monkeypatch.setattr(requests, "post", refuse)
+    monkeypatch.setattr(requests.sessions.Session, "request", refuse)
 
 
 @pytest.fixture
@@ -78,6 +82,11 @@ def buttondown(monkeypatch: pytest.MonkeyPatch):
         return fake
 
     return install
+
+
+def test_a_send_without_the_fake_fails_instead_of_mailing() -> None:
+    with pytest.raises(AssertionError, match="without the Buttondown fake"):
+        buttondown_notify.send_buttondown_email("s", "b", "key")
 
 
 # ---------------------------------------------------------------------------
