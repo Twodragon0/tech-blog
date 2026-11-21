@@ -6,8 +6,8 @@
 #
 # 예시:
 #   ./scripts/monitor_vercel_builds.sh
-#   ./scripts/monitor_vercel_builds.sh https://tech.2twodragon.com --alert-only
-#   ./scripts/monitor_vercel_builds.sh https://tech.2twodragon.com --detailed
+#   ./scripts/monitor_vercel_builds.sh https://2twodragon.com --alert-only
+#   ./scripts/monitor_vercel_builds.sh https://2twodragon.com --detailed
 
 set -e
 
@@ -18,7 +18,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-DEFAULT_DEPLOYMENT_URL="https://tech.2twodragon.com"
+DEFAULT_DEPLOYMENT_URL="https://2twodragon.com"
 DEPLOYMENT_URL="$DEFAULT_DEPLOYMENT_URL"
 ALERT_ONLY=false
 
@@ -105,7 +105,7 @@ _success "Environment checks passed"
 _section "2. Site Availability"
 
 HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 -A "Mozilla/5.0 TechBlogMonitor" "$DEPLOYMENT_URL" 2>/dev/null || echo "000")
-if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 400 ]; then
+if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
     _success "Site is accessible (HTTP $HTTP_STATUS)"
 elif [ "$HTTP_STATUS" -eq 429 ]; then
     _warn "Site returned HTTP 429 (rate limited) - site is alive but throttled"
