@@ -11,7 +11,7 @@ import yaml
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
 
-DEFAULT_SITE_URL = "https://tech.2twodragon.com"
+DEFAULT_SITE_URL = "https://2twodragon.com"
 DEFAULT_TZ_OFFSET = timezone(timedelta(hours=9))
 
 ALIAS_TAGS = {
