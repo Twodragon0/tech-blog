@@ -411,7 +411,7 @@ DNS(Domain Name System) 파서는 네트워크 통신의 가장 기본적이면�
 
 이번 주 실행 가능한 레버는 **CI 빌드 컨테이너에서 시크릿과 의존성 설치를 같은 단계에 두지 않는 것**이다. GitHub Actions 기준 예시: `permissions: { contents: read, id-token: write }` 로 OIDC를 켜고, AWS 자격증명은 `aws-actions/configure-aws-credentials@v4` 의 `role-to-assume` 으로만 받게 한 뒤, `composer install --no-scripts --no-plugins` 단계는 secrets 없는 별도 job 으로 분리한다. 이렇게 분리하면 CVE-2026-40176 같은 임의 명령 실행이 발생해도 AWS·GHCR·Slack 토큰이 노출되지 않는다. 동일한 원리가 npm `postinstall`, pip 빌드 hook, Go `go generate` 에도 적용된다.
 
-Google이 Pixel 10 모뎀의 DNS 파서를 Rust로 교체한 결정은 모바일 펌웨어 수준에서 메모리 안전 언어 마이그레이션이 비용 대비 효과적이라는 증명이다 — 같은 논리가 사내 사이드카·로그 수집 데몬에도 유효하다. 지금 당장 할 수 있는 점검: `kubectl get pods -A -o jsonpath='{range .items[*]}{.spec.containers[*].image}{"\n"}{end}' | sort -u | grep -Ei 'fluent-bit|fluentd|syslog-ng|rsyslog|filebeat|logstash'` 로 로그 파서 사이드카를 인벤토리한 뒤, 각 이미지의 베이스가 C/C++ 기반(예: fluent-bit C core, rsyslog)인지 확인하고 메모리 안전 대안(예: Vector.dev — Rust)으로의 교체 후보를 정리하라. AI 에이전트 권한 설계의 더 깊은 패턴은 본 블로그의 [AI 에이전트 보안 아키텍처 설계 가이드](https://tech.2twodragon.com/posts/2026/02/28/AI_Agent_Security_Architecture_Design_Guide/) 에 정리해 두었으니, MCP 도입을 검토 중이라면 이번 AWS 패턴과 함께 교차 검증하길 권한다.
+Google이 Pixel 10 모뎀의 DNS 파서를 Rust로 교체한 결정은 모바일 펌웨어 수준에서 메모리 안전 언어 마이그레이션이 비용 대비 효과적이라는 증명이다 — 같은 논리가 사내 사이드카·로그 수집 데몬에도 유효하다. 지금 당장 할 수 있는 점검: `kubectl get pods -A -o jsonpath='{range .items[*]}{.spec.containers[*].image}{"\n"}{end}' | sort -u | grep -Ei 'fluent-bit|fluentd|syslog-ng|rsyslog|filebeat|logstash'` 로 로그 파서 사이드카를 인벤토리한 뒤, 각 이미지의 베이스가 C/C++ 기반(예: fluent-bit C core, rsyslog)인지 확인하고 메모리 안전 대안(예: Vector.dev — Rust)으로의 교체 후보를 정리하라. AI 에이전트 권한 설계의 더 깊은 패턴은 본 블로그의 [AI 에이전트 보안 아키텍처 설계 가이드](/posts/2026/02/28/AI_Agent_Security_Architecture_Design_Guide/) 에 정리해 두었으니, MCP 도입을 검토 중이라면 이번 AWS 패턴과 함께 교차 검증하길 권한다.
 
 ## 참고 자료
 

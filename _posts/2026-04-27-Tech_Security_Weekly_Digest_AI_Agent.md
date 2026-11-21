@@ -256,7 +256,7 @@ DevSecOps 실무자 입장에서 이번 사고는 다음과 같은 즉각적인 
 
 이번 주 한 줄: IT/OT 분리 인벤토리부터 다시 추출하라 — IT 측 호스트가 OT VLAN 으로 도달 가능한지 확인하는 가장 빠른 방법은 `nmap -Pn -p 102,502,2222,20000,44818,47808 -T2 -iL ot-subnets.txt -oA /tmp/it-to-ot-reach-$(date +%F)` 한 줄로 Modbus(502)·EtherNet/IP(44818)·BACnet(47808)·DNP3(20000) 같은 OT 프로토콜 포트가 IT 호스트에서 응답하는지 색출하는 것이다. 응답이 있으면 그 firewall 룰은 즉시 재검토 대상. Bedrock AgentCore 측은 도입 전 IAM 권한 경계부터 박아두라 — `aws iam create-role --role-name BedrockAgentExecutor --assume-role-policy-document file://trust.json` 의 trust policy 에 `aws:SourceArn` condition 으로 특정 agent ARN 만 허용하고, action policy 는 explicit deny 로 시작해 화이트리스트 액션만 더한다.
 
-본 블로그의 [Agentic AI Security 2026 — 공격 벡터와 방어 아키텍처](https://tech.2twodragon.com/posts/2026/02/01/Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture/) 에서 정리한 에이전트 권한 격리·감사 경로·휴먼-인-더-루프 패턴은 Bedrock AgentCore 같은 멀티-에이전트 시뮬레이션이 운영 OT 데이터에 접근하기 시작할 때 왜 IAM session policy 와 CloudTrail evidence 가 동시에 필요한지를 직접 보여준다. AgentCore 도입을 검토 중이라면, 그 글의 권한 매트릭스를 Bedrock agent ARN 별 정책으로 매핑하는 것이 이번 주의 가장 작은 안전 조치다.
+본 블로그의 [Agentic AI Security 2026 — 공격 벡터와 방어 아키텍처](/posts/2026/02/01/Agentic_AI_Security_2026_Attack_Vectors_Defense_Architecture/) 에서 정리한 에이전트 권한 격리·감사 경로·휴먼-인-더-루프 패턴은 Bedrock AgentCore 같은 멀티-에이전트 시뮬레이션이 운영 OT 데이터에 접근하기 시작할 때 왜 IAM session policy 와 CloudTrail evidence 가 동시에 필요한지를 직접 보여준다. AgentCore 도입을 검토 중이라면, 그 글의 권한 매트릭스를 Bedrock agent ARN 별 정책으로 매핑하는 것이 이번 주의 가장 작은 안전 조치다.
 
 ## 참고 자료
 

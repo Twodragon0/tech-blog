@@ -307,7 +307,7 @@ OpenSSL은 지구상에서 가장 많이 검토되고 감사된 암호화 라이
 
 ---
 
-*이 글은 [Twodragon's Tech Blog](https://tech.2twodragon.com)에서 매주 발행하는 Tech & Security Weekly Digest입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*
+*이 글은 [Twodragon's Tech Blog](https://2twodragon.com/)에서 매주 발행하는 Tech & Security Weekly Digest입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*
 
 
 ---

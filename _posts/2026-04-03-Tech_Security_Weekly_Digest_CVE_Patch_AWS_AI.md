@@ -436,7 +436,7 @@ Flex Inference와 Priority Inference는 Gemini API의 비용과 신뢰성을 조
 
 이번 주 한 줄 점검: `gh api -X GET search/code --paginate -f q='filename:next.config.js OR filename:next.config.mjs language:JavaScript' --jq '.items[].repository.full_name' | sort -u` 으로 사내 GitHub 조직 안의 Next.js 사용 저장소를 인벤토리한 뒤, 각 저장소의 `package.json` 에서 next 버전이 패치 라인(13.5.x/14.2.x/15.x 패치 버전) 이상인지 검증하라. Cisco IMC/SSM 측은 `curl -sk https://<imc-ip>/redfish/v1 -o /dev/null -w '%{http_code}\n'` 으로 OOB 인터페이스가 외부에서 응답하는지 확인하고, 응답이 200/401 이면 즉시 management VLAN 분리 또는 ACL 차단을 P0 로 올려야 한다.
 
-이번 사건은 본 블로그의 [Next.js SSR 에러 — Cloudflare 차단·ALB 5xx 인시던트 분석](https://tech.2twodragon.com/posts/2026/01/16/Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis/) 에서 정리한 SSR 레이어의 신뢰 경계가 왜 미들웨어 단계에서 다시 검증돼야 하는지를 재확인시킨다. CVE-2025-55182 도 미들웨어 우회 형태의 결함이라는 점에서, 그때 도입한 edge 룰·헤더 화이트리스트 패턴을 이번 패치 시점에 동일 코드베이스에 다시 강제 적용할 가치가 있다.
+이번 사건은 본 블로그의 [Next.js SSR 에러 — Cloudflare 차단·ALB 5xx 인시던트 분석](/posts/2026/01/16/Postmortem_NextJS_SSR_Error_Cloudflare_Blocking_ALB_5XX_Incident_Analysis/) 에서 정리한 SSR 레이어의 신뢰 경계가 왜 미들웨어 단계에서 다시 검증돼야 하는지를 재확인시킨다. CVE-2025-55182 도 미들웨어 우회 형태의 결함이라는 점에서, 그때 도입한 edge 룰·헤더 화이트리스트 패턴을 이번 패치 시점에 동일 코드베이스에 다시 강제 적용할 가치가 있다.
 
 ## 참고 자료
 
