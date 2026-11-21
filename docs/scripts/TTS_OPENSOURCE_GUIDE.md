@@ -12,8 +12,8 @@
 > (torch 포함 약 639 MB)로 불렸고, `edge-tts` 는 aiohttp 트리 8개를 끌고 왔다.
 > 특히 `TTS` 를 되돌리면 파일 전체에 `<3.12` 천장이 함께 돌아온다.
 >
-> 이 저장소에 남아 있는 음성 경로는 `gTTS` 하나이고,
-> `generate_post_images.py:106` 의 `from gtts import gTTS` 가 유일한 호출부다.
+> 2026-11-21: 이 저장소의 음성·영상 경로(`gTTS`, `moviepy`, `generate_post_images.py`의
+> `generate_audio()`/`generate_video()`)는 호출부가 없어 삭제했다. 음성·영상은 online-course 저장소가 담당한다.
 
 ## 개요
 

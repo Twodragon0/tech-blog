@@ -4,7 +4,12 @@ on:
   repository_dispatch:
     types: [ai_blogwatcher]
   schedule:
-    - cron: "0 0 * * *"  # 09:00 AM KST (UTC+9)
+    # Off the top of the hour: the 00:00 UTC slot ran 3-5 h late and once 19 h
+    # (the 11-17 digest landed as 11-18). The retry is a no-op once the day's
+    # post exists (same_day_exists). Keep both inside 00:00-14:59 UTC so the
+    # KST filename date and the UTC permalink date agree.
+    - cron: "23 0 * * *"  # 09:23 KST
+    - cron: "17 6 * * *"  # 15:17 KST retry
   workflow_dispatch:
     inputs:
       hours:
@@ -649,6 +654,20 @@ jobs:
           print(f"[enrich-references] OK — {sys.argv[1]} carries the 용도 column.")
           PY
 
+      - name: Font coverage pre-flight (self-heal, then block)
+        if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
+        run: |
+          # A syllable outside KS X 1001 (2026-11-20: 댤) is in neither shipped
+          # font tier, so the corpus pytest below failed and the day's digest was
+          # discarded. Regenerating tier-2 is deterministic and adds every corpus
+          # syllable; it rewrites only the files staged in "Commit and publish".
+          COVERAGE_TEST="scripts/tests/test_font_tier_split.py::test_every_corpus_syllable_is_covered_by_a_shipped_tier"
+          if ! python3 -m pytest -q --no-header -p no:randomly "$COVERAGE_TEST"; then
+            echo "::warning::Corpus syllable outside the shipped font tiers — regenerating tier-2."
+            python3 scripts/build/generate_noto_2tier_subset.py --only-tier2
+          fi
+          python3 -m pytest -q --no-header -p no:randomly "$COVERAGE_TEST"
+
       - name: Corpus gate pre-flight (block)
         if: env.RUN_CHECKS == 'true' && steps.check_post.outputs.post_created == 'true'
         run: |
@@ -751,6 +770,8 @@ jobs:
           git add "_data/collected_news.json" 2>/dev/null || true
           git add "_data/published_news_urls.json" 2>/dev/null || true
           git add "data/collected_news.json" 2>/dev/null || true
+          # Tier-2 font files change only when the font self-heal ran.
+          git add assets/css/font-tier2.css assets/fonts/noto-sans-kr-400-tier2.woff2 assets/fonts/noto-sans-kr-700-tier2.woff2
 
           # Self-heal the post-quality baseline. A cron-added digest missing from
           # scripts/tests/fixtures/quality_baseline.json leaves
