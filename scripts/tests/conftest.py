@@ -78,12 +78,19 @@ _REPO_LOCAL_GIT_ENV = (
 )
 
 
+# Removed once when this file is imported, too: module- and session-scoped
+# fixtures, class-level setup and import-time code all run before the
+# function-scoped fixture below would.
+for _name in _REPO_LOCAL_GIT_ENV:
+    os.environ.pop(_name, None)
+
+
 @pytest.fixture(autouse=True)
-def _isolate_git_repo_env(monkeypatch):
+def _isolate_git_repo_env(monkeypatch: pytest.MonkeyPatch) -> None:
     """Make each test's git find its repository from its own cwd.
 
-    Function-scoped, so module- and session-scoped fixtures are set up before
-    it runs: one of those that spawns git has to pass env= itself.
+    The import-time removal above already covers the whole process; this
+    re-applies it per test in case something set the variables again.
     """
     for name in _REPO_LOCAL_GIT_ENV:
         monkeypatch.delenv(name, raising=False)
