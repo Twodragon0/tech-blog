@@ -1,74 +1,76 @@
 date: '2025-09-10'
 slug: npm_Large-scale_Security_20
 sfx: SP10
-title: '2025-09-10: npm 2.0 breach, 18 core packages, 2B weekly downloads'
-aria: npm registry large-scale supply chain breach, 18 core packages including debug
-  chalk lodash infected with malware, weekly download volume above 2 billion,
-  emergency triage and SBOM-based recovery procedure.
+title: '2025-09-10: npm phishing takeover, 19 versions, browser crypto swap'
+aria: npm maintainer account phished by a fake 2FA reset email from npmjs[.]help,
+  19 malicious versions including debug 4.4.2 and chalk 5.6.1 live on npm for about
+  two hours, a browser-only payload that hooks fetch, XHR and wallet APIs to swap
+  crypto addresses, and cleanup by upgrading, purging caches and rebuilding bundles.
 bands:
 - theme: red
-  label: NPM REGISTRY BREACH
-  headline: 18 Core Packages Hit
-  metric: 'debug chalk lodash : 18 hijacks'
-  detail: 'Maintainer ATO via phishing : malware injected post-pub : 2B weekly downloads'
+  label: NPM ACCOUNT TAKEOVER
+  headline: 19 Tainted Versions
+  metric: 'debug@4.4.2 : chalk@5.6.1 : 17 more'
+  detail: 'Phishing from npmjs[.]help : fake 2FA reset email'
   badge:
-    value: '18'
-    label: PACKAGES
-    sub: infected
+    value: '19'
+    label: VERSIONS
+    sub: malicious
   visual:
     kind: code_bars
-    caption: NPM TAMPER
-  metric_b: 'Maintainer ATO chain : npm publish hijack : transitive blast radius'
-  detail_b: 'OTP backup code abuse : phishing landing page : staged malware post-pub'
+    caption: INDEX.JS TAMPER
+  metric_b: 'Qix account : 2 publish waves 13:12-13:20 UTC Sep 8'
+  detail_b: 'Live about 2 h : packages total 2B+ weekly downloads'
   mini:
     value: '2B'
     label: WEEKLY
     sub: downloads
   mini2:
-    value: ATO
-    label: VECTOR
-    sub: maint
+    value: 2h
+    label: LIVE
+    sub: on npm
 - theme: amber
-  label: MALWARE PAYLOAD
-  headline: Postinstall Exfil
-  metric: 'postinstall script : creds + env steal'
-  detail: 'package.json postinstall : env var exfil : crypto wallet scrape : C2 beacon'
+  label: BROWSER-ONLY PAYLOAD
+  headline: Wallet Address Swap
+  metric: Hooks fetch, XHR and wallet APIs
+  detail: Rewrites ETH BTC SOL TRX LTC BCH addresses
   badge:
-    value: ENV
-    label: EXFIL
-    sub: vars
+    value: WEB
+    label: TARGET
+    sub: browser only
   visual:
-    kind: lock_cve
-    cvss: EXFIL
-  metric_b: 'Env var sweep : .env / AWS_SECRET : NPM_TOKEN steal'
-  detail_b: 'Block npm postinstall in CI : audit .npmrc tokens : rotate AWS keys now'
+    kind: browser_cve
+    label: FETCH XHR HOOK
+  metric_b: 'Lookalike pick by Levenshtein : approve target hijack'
+  detail_b: 'No effect on Node servers or CLI : rebuild browser bundles'
   mini:
-    value: ENV
-    label: STEAL
-    sub: secrets
+    value: $500
+    label: STOLEN
+    sub: approx
   mini2:
-    value: C2
-    label: BEACON
-    sub: exfil
+    value: '6'
+    label: SWAP
+    sub: chains
 - theme: blue
-  label: SUPPLY CHAIN DEFENSE
-  headline: SBOM + Lockfile Audit
-  metric: 'SBOM scan : lockfile pin : 2FA'
-  detail: 'SBOM CycloneDX scan : lockfile-only install : npm publish 2FA mandatory'
+  label: CLEANUP + HARDENING
+  headline: Upgrade and Rebuild
+  metric: 'debug 4.4.3 : chalk 5.6.2 : patched'
+  detail: Wipe node_modules, npm cache, CI and CDN caches
   badge:
-    value: SBOM
-    label: SCAN
-    sub: deps
+    value: FIX
+    label: UPGRADE
+    sub: patched releases
   visual:
-    kind: attestation_chain
-    caption: SBOM
-  metric_b: 'pnpm/yarn frozen lockfile : --ignore-scripts in CI : npm token rotate'
-  detail_b: 'Scan deps with osv-scanner + snyk : disable postinstall : audit transitive'
+    kind: shield
+    label: REBUILD BUNDLES
+    kpi: 'npm ci : lockfile pinned'
+  metric_b: Block the 19 versions in private registries and mirrors
+  detail_b: 'Maintainers : WebAuthn 2FA + trusted publishing'
   mini:
-    value: 2FA
-    label: PUBLISH
-    sub: req
+    value: CDN
+    label: PURGE
+    sub: caches
   mini2:
-    value: LOCK
-    label: PIN
-    sub: deps
+    value: FIDO
+    label: 2FA
+    sub: WebAuthn
