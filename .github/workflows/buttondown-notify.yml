@@ -102,12 +102,19 @@ jobs:
         run: |
           pip install pyyaml requests
 
+      # No continue-on-error and no `|| echo` here: until 2026-11-21 both hid a
+      # 401 on every run while the job showed green. A rejected key or a refused
+      # request now fails this job (::error::); a 5xx/429/timeout only warns.
+      # A red run here blocks nothing else: no workflow waits on this one
+      # (no workflow_run consumer, no needs:) and it has no PR trigger.
       - name: Send Buttondown Email
         if: steps.check_posts.outputs.has_new_posts == 'true' || github.event_name == 'workflow_dispatch'
-        continue-on-error: true
         env:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
           SITE_URL: "https://2twodragon.com"
+          # More mailable posts than this in one run is treated as a bulk import
+          # and nothing is sent. Unset falls back to the script default (3).
+          BUTTONDOWN_MAX_POSTS: ${{ vars.BUTTONDOWN_MAX_POSTS }}
           # Pass the workflow_dispatch input via env (NOT inline ${{ }} in the
           # shell) so a crafted post_path cannot inject shell commands: GitHub
           # writes it as a literal string to the process env and the shell never
@@ -116,18 +123,18 @@ jobs:
         run: |
           # 보안: API 키 검증
           if [ -z "$BUTTONDOWN_API_KEY" ]; then
-            echo "❌ BUTTONDOWN_API_KEY is not set in GitHub Secrets"
-            echo "Please set it in: Settings → Secrets and variables → Actions"
+            echo "::error::BUTTONDOWN_API_KEY is not set in GitHub Secrets (Settings → Secrets and variables → Actions)"
             exit 1
           fi
 
           # workflow_dispatch: 지정된 포스트 발송
           # push: git diff로 새 포스트 감지 후 발송
+          # Both go through the batch script so the same bulk/imported guards apply.
           if [ -n "$POST_PATH" ]; then
             echo "📧 Manual dispatch: $POST_PATH"
-            python3 scripts/buttondown_notify.py "$POST_PATH" || echo "⚠️ Buttondown notification failed (non-critical)"
+            python3 scripts/buttondown_notify_batch.py -- "$POST_PATH"
           else
             echo "📧 Processing posts detected by git diff..."
-            python3 scripts/buttondown_notify_batch.py || echo "⚠️ Buttondown notification failed (non-critical)"
+            python3 scripts/buttondown_notify_batch.py
           fi
           

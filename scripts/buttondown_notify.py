@@ -22,7 +22,15 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import requests
 import yaml
 
+from scripts.lib.post_url import post_permalink
 from scripts.lib.security import mask_sensitive_info
+
+# send_buttondown_email() outcomes. A retry can fix TRANSIENT (5xx, 429, timeout,
+# connection error); AUTH_REJECTED and FAILED need a person.
+SENT = "sent"
+AUTH_REJECTED = "auth_rejected"
+TRANSIENT = "transient"
+FAILED = "failed"
 
 
 def safe_print(message: str) -> None:
@@ -66,12 +74,10 @@ def get_post_content(file_path: str) -> str:
 
 
 def generate_post_url(file_path: str, site_url: str) -> str:
-    filename = Path(file_path).stem
-    match = re.match(r"(\d{4})-(\d{2})-(\d{2})-(.+)", filename)
-    if not match:
-        return f"{site_url}/posts/{filename}/"
-    year, month, day, title = match.groups()
-    return f"{site_url}/posts/{year}/{month}/{title}/"
+    """Live URL of the post: the day part comes from its ``date:`` in UTC."""
+    frontmatter = parse_frontmatter(file_path)
+    post_date = frontmatter.get("date") if isinstance(frontmatter, dict) else None
+    return f"{site_url}{post_permalink(file_path, post_date)}"
 
 
 def extract_excerpt(content: str, max_length: int = 200) -> str:
@@ -255,7 +261,7 @@ def create_email_content(
     excerpt = frontmatter.get("excerpt", frontmatter.get("description", ""))
     tags = frontmatter.get("tags", [])
     category = frontmatter.get("categories", frontmatter.get("category", ""))
-    site_url = os.environ.get("SITE_URL", "https://tech.2twodragon.com")
+    site_url = os.environ.get("SITE_URL", "https://2twodragon.com")
 
     if isinstance(category, list) and category:
         category = category[0]
@@ -293,8 +299,12 @@ def create_email_content(
     return subject, body
 
 
-def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
-    """Send Markdown email via Buttondown API."""
+def send_buttondown_email(subject: str, body: str, api_key: str) -> str:
+    """Send Markdown email via Buttondown API.
+
+    Returns SENT, AUTH_REJECTED (401/403), TRANSIENT (429, 5xx, timeout,
+    connection error) or FAILED (any other refusal).
+    """
     url = "https://api.buttondown.com/v1/emails"
     headers = {"Authorization": f"Token {api_key}", "Content-Type": "application/json"}
 
@@ -310,29 +320,34 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> bool:
 
         response = requests.post(url, json=data, headers=headers, timeout=30)
 
-        if response.status_code in [200, 201]:
+        status = response.status_code
+        if status in [200, 201]:
             result = response.json() if response.text else {}
             email_id = result.get("id", "N/A")
             print(f"  Sent successfully (ID: {email_id})")
-            return True
-        elif response.status_code == 401:
-            print("  Auth failed (401). Check BUTTONDOWN_API_KEY.")
+            return SENT
+        elif status in (401, 403):
+            print(f"  Auth failed ({status}). Check BUTTONDOWN_API_KEY.")
             safe_print(f"  API Key length: {len(api_key)}")
-            return False
+            return AUTH_REJECTED
+        elif status == 429 or status >= 500:
+            print(f"  Temporary failure: {status}")
+            safe_print(f"  Response: {response.text[:300]}")
+            return TRANSIENT
         else:
-            print(f"  Failed: {response.status_code}")
-            print(f"  Response: {response.text[:300]}")
-            return False
+            print(f"  Failed: {status}")
+            safe_print(f"  Response: {response.text[:300]}")
+            return FAILED
 
     except requests.exceptions.Timeout:
         print("  Timeout: API did not respond within 30s")
-        return False
+        return TRANSIENT
     except requests.exceptions.ConnectionError as e:
         print(f"  Connection error: {e}")
-        return False
+        return TRANSIENT
     except requests.exceptions.RequestException as e:
         print(f"  Request error: {e}")
-        return False
+        return FAILED
 
 
 def find_post_file(post_path: str) -> Path:
@@ -362,6 +377,17 @@ def find_post_file(post_path: str) -> Path:
     return post_file
 
 
+def notify_post(post_path: str, frontmatter: dict, api_key: str, site_url: str) -> str:
+    """Build the email for one post, send it, and return the send status."""
+    post_url = generate_post_url(post_path, site_url)
+    post_content = get_post_content(post_path)
+    filename = Path(post_path).name
+
+    subject, body = create_email_content(frontmatter, post_url, post_content, filename)
+
+    return send_buttondown_email(subject, body, api_key)
+
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python buttondown_notify.py <post_file_path>")
@@ -381,7 +407,7 @@ def main():
         print("BUTTONDOWN_API_KEY not set")
         sys.exit(1)
 
-    site_url = os.environ.get("SITE_URL", "https://tech.2twodragon.com")
+    site_url = os.environ.get("SITE_URL", "https://2twodragon.com")
 
     print(f"Processing: {Path(post_path).name}")
 
@@ -393,15 +419,7 @@ def main():
         print("Skipping draft post")
         sys.exit(0)
 
-    post_url = generate_post_url(post_path, site_url)
-    post_content = get_post_content(post_path)
-    filename = Path(post_path).name
-
-    subject, body = create_email_content(frontmatter, post_url, post_content, filename)
-
-    success = send_buttondown_email(subject, body, api_key)
-
-    if not success:
+    if notify_post(post_path, frontmatter, api_key, site_url) != SENT:
         sys.exit(1)
 
 
