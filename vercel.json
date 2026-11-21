@@ -1346,6 +1346,16 @@
       "statusCode": 301
     },
     {
+      "source": "/amazon-eks-nginx\u2011ingress/",
+      "destination": "/posts/2025/03/25/Amazon_EKS_nginx-ingress_Vulnerability_Response_Guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/amazon-eks-nginx%E2%80%91ingress/",
+      "destination": "/posts/2025/03/25/Amazon_EKS_nginx-ingress_Vulnerability_Response_Guide/",
+      "statusCode": 301
+    },
+    {
       "source": "/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8%ec%9d%b4-%eb%b0%94%ea%be%b8%eb%8a%94-%ea%b8%88%ec%9c%b5%ea%b3%bc-%ec%9a%b0%eb%a6%ac%ec%9d%98-%ec%82%b6/",
       "destination": "https://legacy.2twodragon.com/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8%ec%9d%b4-%eb%b0%94%ea%be%b8%eb%8a%94-%ea%b8%88%ec%9c%b5%ea%b3%bc-%ec%9a%b0%eb%a6%ac%ec%9d%98-%ec%82%b6/",
       "statusCode": 301
@@ -1362,7 +1372,7 @@
     },
     {
       "source": "/12mon-devsecops/",
-      "destination": "https://legacy.2twodragon.com/12mon-devsecops/",
+      "destination": "/posts/2025/12/17/12_Conference_Review_AWSKRUG_OWASP_Datadog_Preview_See_2025_AIAnd_Security_Coexistence/",
       "statusCode": 301
     },
     {
@@ -1422,7 +1432,7 @@
     },
     {
       "source": "/2025-unicornday/",
-      "destination": "https://legacy.2twodragon.com/2025-unicornday/",
+      "destination": "/posts/2025/03/18/2025_Unicorn_Day_AI_Cloud_Innovation_And_Security_Strategy/",
       "statusCode": 301
     },
     {
@@ -1447,7 +1457,7 @@
     },
     {
       "source": "/ai-cyberattack/",
-      "destination": "https://legacy.2twodragon.com/ai-cyberattack/",
+      "destination": "/posts/2025/01/14/AI_Based_Security_Threats_And_Response_Strategies/",
       "statusCode": 301
     },
     {
@@ -1467,7 +1477,7 @@
     },
     {
       "source": "/ai-security/",
-      "destination": "https://legacy.2twodragon.com/ai-security/",
+      "destination": "/posts/2025/10/31/AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide/",
       "statusCode": 301
     },
     {
@@ -1492,12 +1502,12 @@
     },
     {
       "source": "/amazon-eks-nginx%e2%80%91ingress/",
-      "destination": "https://legacy.2twodragon.com/amazon-eks-nginx%e2%80%91ingress/",
+      "destination": "/posts/2025/03/25/Amazon_EKS_nginx-ingress_Vulnerability_Response_Guide/",
       "statusCode": 301
     },
     {
       "source": "/amazon-q/",
-      "destination": "https://legacy.2twodragon.com/amazon-q/",
+      "destination": "/posts/2025/05/24/Amazon_Q_DeveloperAnd_GitHub_Advanced_Security_Security_And_AWS/",
       "statusCode": 301
     },
     {
@@ -1522,7 +1532,7 @@
     },
     {
       "source": "/apple-slap-flop/",
-      "destination": "https://legacy.2twodragon.com/apple-slap-flop/",
+      "destination": "/posts/2025/01/31/Apple_M_Series_SLAP_And_FLOP_Vulnerabilities/",
       "statusCode": 301
     },
     {
@@ -1552,37 +1562,37 @@
     },
     {
       "source": "/aws-azure-gcp/",
-      "destination": "https://legacy.2twodragon.com/aws-azure-gcp/",
+      "destination": "/posts/2024/10/04/AWS_vs_Azure_vs_GCP_Cloud_Comparison/",
       "statusCode": 301
     },
     {
       "source": "/aws-datadog-imdsv2/",
-      "destination": "https://legacy.2twodragon.com/aws-datadog-imdsv2/",
+      "destination": "/posts/2025/09/16/AWS_reInforce_2025_Cloud_Security_Current_and_Future/",
       "statusCode": 301
     },
     {
       "source": "/aws-ec2-network-abstract/",
-      "destination": "https://legacy.2twodragon.com/aws-ec2-network-abstract/",
+      "destination": "/posts/2024/10/25/AWS_EC2_And_Network_Architecture_Summary/",
       "statusCode": 301
     },
     {
       "source": "/aws-iam-and-irsa-basic/",
-      "destination": "https://legacy.2twodragon.com/aws-iam-and-irsa-basic/",
+      "destination": "/posts/2024/08/29/AWS_IAM_And_IRSA_Basics/",
       "statusCode": 301
     },
     {
       "source": "/aws-isms-p/",
-      "destination": "https://legacy.2twodragon.com/aws-isms-p/",
+      "destination": "/posts/2024/11/01/AWS_Cloud_Security_Checklist_And_ISMS-P_Compliance_Guide/",
       "statusCode": 301
     },
     {
       "source": "/aws-org-iam-guide/",
-      "destination": "https://legacy.2twodragon.com/aws-org-iam-guide/",
+      "destination": "/posts/2024/10/19/AWS_Organizations_And_IAM_Policy_Complete_Guide/",
       "statusCode": 301
     },
     {
       "source": "/aws-services/",
-      "destination": "https://legacy.2twodragon.com/aws-services/",
+      "destination": "/posts/2024/10/04/AWS_Core_Services_EC2_S3_IAM_EKS_RDS_CloudTrail_GuardDuty/",
       "statusCode": 301
     },
     {
@@ -1592,7 +1602,7 @@
     },
     {
       "source": "/aws-vpn-eks/",
-      "destination": "https://legacy.2twodragon.com/aws-vpn-eks/",
+      "destination": "/posts/2025/03/31/AWS_Site-to-Site_VPN_EKS_Cluster_Access_Architecture/",
       "statusCode": 301
     },
     {
@@ -1617,12 +1627,12 @@
     },
     {
       "source": "/bitcoin-blockchain/",
-      "destination": "https://legacy.2twodragon.com/bitcoin-blockchain/",
+      "destination": "/posts/2024/11/12/Bitcoin_Blockchain_How_It_Works/",
       "statusCode": 301
     },
     {
       "source": "/bitcoin-github/",
-      "destination": "https://legacy.2twodragon.com/bitcoin-github/",
+      "destination": "/posts/2024/11/13/Bitcoin_Source_Code_Structure_Analysis/",
       "statusCode": 301
     },
     {
@@ -1717,7 +1727,7 @@
     },
     {
       "source": "/ciso-role-security/",
-      "destination": "https://legacy.2twodragon.com/ciso-role-security/",
+      "destination": "/posts/2025/03/23/Security_Strategy_By_Company_Size_And_CISO_Role/",
       "statusCode": 301
     },
     {
@@ -1727,12 +1737,12 @@
     },
     {
       "source": "/cloudflare-cloudfront-s3/",
-      "destination": "https://legacy.2twodragon.com/cloudflare-cloudfront-s3/",
+      "destination": "/posts/2025/03/28/Cloudflare_CloudFront_S3_CORS_And_Security_Optimization/",
       "statusCode": 301
     },
     {
       "source": "/cloudflare-error/",
-      "destination": "https://legacy.2twodragon.com/cloudflare-error/",
+      "destination": "/posts/2025/11/19/Post-Mortem_2025_11_18_Cloudflare_Global_Incident_Response_Log_What_Learned/",
       "statusCode": 301
     },
     {
@@ -1757,7 +1767,7 @@
     },
     {
       "source": "/critical-npm-security-alert-18-core-packages/",
-      "destination": "https://legacy.2twodragon.com/critical-npm-security-alert-18-core-packages/",
+      "destination": "/posts/2025/09/10/npm_Ecosystem_Large_scale_Security_Breach_20_Download_Package_Malware_Infection/",
       "statusCode": 301
     },
     {
@@ -1782,7 +1792,7 @@
     },
     {
       "source": "/datadog-cloudsiem/",
-      "destination": "https://legacy.2twodragon.com/datadog-cloudsiem/",
+      "destination": "/posts/2025/03/13/Datadog_Features_DevSecOps_Cloud_SIEM_APM/",
       "statusCode": 301
     },
     {
@@ -1822,7 +1832,7 @@
     },
     {
       "source": "/diagrams-as-code/",
-      "destination": "https://legacy.2twodragon.com/diagrams-as-code/",
+      "destination": "/posts/2025/04/04/Diagrams_as_Code_Cloud_Architecture_Guide/",
       "statusCode": 301
     },
     {
@@ -1872,12 +1882,12 @@
     },
     {
       "source": "/eks-cluster-upgrade-1-32/",
-      "destination": "https://legacy.2twodragon.com/eks-cluster-upgrade-1-32/",
+      "destination": "/posts/2025/02/16/EKS_Cluster_Upgrade_1_32_Zero_Downtime_Strategy/",
       "statusCode": 301
     },
     {
       "source": "/elasticsearch-s3-keystore/",
-      "destination": "https://legacy.2twodragon.com/elasticsearch-s3-keystore/",
+      "destination": "/posts/2025/03/21/Elasticsearch_S3_Snapshot_Keystore_Troubleshooting/",
       "statusCode": 301
     },
     {
@@ -1902,7 +1912,7 @@
     },
     {
       "source": "/eth-network/",
-      "destination": "https://legacy.2twodragon.com/eth-network/",
+      "destination": "/posts/2024/11/14/Ethereum_Blockchain_Internal_Structure/",
       "statusCode": 301
     },
     {
@@ -1952,7 +1962,7 @@
     },
     {
       "source": "/github-devsecops/",
-      "destination": "https://legacy.2twodragon.com/github-devsecops/",
+      "destination": "/posts/2025/03/13/GitHub_Features_And_DevSecOps_Guide/",
       "statusCode": 301
     },
     {
@@ -2007,7 +2017,7 @@
     },
     {
       "source": "/gsuite-security/",
-      "destination": "https://legacy.2twodragon.com/gsuite-security/",
+      "destination": "/posts/2025/03/17/Google_Workspace_Enterprise_Security_And_Collaboration/",
       "statusCode": 301
     },
     {
@@ -2052,7 +2062,7 @@
     },
     {
       "source": "/idc-cloud-k8s/",
-      "destination": "https://legacy.2twodragon.com/idc-cloud-k8s/",
+      "destination": "/posts/2025/03/22/On-Premises_vs_VM_Virtualization_vs_Cloud/",
       "statusCode": 301
     },
     {
@@ -2152,12 +2162,12 @@
     },
     {
       "source": "/kandji-macos/",
-      "destination": "https://legacy.2twodragon.com/kandji-macos/",
+      "destination": "/posts/2025/05/02/Kandji_macOS_Complete_Master_SetupFrom_Security_Regulation_ComplianceTo_All-in-One_Guide/",
       "statusCode": 301
     },
     {
       "source": "/karpenterv1-5-3/",
-      "destination": "https://legacy.2twodragon.com/karpenterv1-5-3/",
+      "destination": "/posts/2025/10/02/Karpenter_v153_Node_Integration_Due_to_Large_scale_Incident_Analysis_And_Resolution/",
       "statusCode": 301
     },
     {
@@ -2202,7 +2212,7 @@
     },
     {
       "source": "/ks-lummac2/",
-      "destination": "https://legacy.2twodragon.com/ks-lummac2/",
+      "destination": "/posts/2025/04/28/KS_Korea_Employment_Information_Data_Leak_LummaC2_Infostealer/",
       "statusCode": 301
     },
     {
@@ -2247,7 +2257,7 @@
     },
     {
       "source": "/mcp-security/",
-      "destination": "https://legacy.2twodragon.com/mcp-security/",
+      "destination": "/posts/2025/04/09/MCP_Model_Context_Protocol_Security_Risks_And_Mitigations/",
       "statusCode": 301
     },
     {
@@ -2397,7 +2407,7 @@
     },
     {
       "source": "/otp-passkey/",
-      "destination": "https://legacy.2twodragon.com/otp-passkey/",
+      "destination": "/posts/2025/04/30/Public_PCEven_in_Safely_Passkey_OTP_Strong_Password_Management_Usage/",
       "statusCode": 301
     },
     {
@@ -2412,7 +2422,7 @@
     },
     {
       "source": "/passkey/",
-      "destination": "https://legacy.2twodragon.com/passkey/",
+      "destination": "/posts/2024/12/25/Privacy_Protection_And_Passkey_Setup_Guide/",
       "statusCode": 301
     },
     {
@@ -2437,12 +2447,12 @@
     },
     {
       "source": "/plugx/",
-      "destination": "https://legacy.2twodragon.com/plugx/",
+      "destination": "/posts/2025/01/16/FBI_PlugX_Malware_Removal_Operation/",
       "statusCode": 301
     },
     {
       "source": "/pod-restart-temp-auth-iam-role/",
-      "destination": "https://legacy.2twodragon.com/pod-restart-temp-auth-iam-role/",
+      "destination": "/posts/2024/09/01/EKS_Pod_Restart_Temporary_Credentials_And_Token_Refresh/",
       "statusCode": 301
     },
     {
@@ -2497,12 +2507,12 @@
     },
     {
       "source": "/qr-code-scan-signal/",
-      "destination": "https://legacy.2twodragon.com/qr-code-scan-signal/",
+      "destination": "/posts/2025/02/22/QR_Code_Scan_And_Signal_Security/",
       "statusCode": 301
     },
     {
       "source": "/raas-threat/",
-      "destination": "https://legacy.2twodragon.com/raas-threat/",
+      "destination": "/posts/2024/11/03/Ransomware-as-a-Service_RaaS_And_Big_Game_Hunting/",
       "statusCode": 301
     },
     {
@@ -2547,7 +2557,7 @@
     },
     {
       "source": "/sentinelone/",
-      "destination": "https://legacy.2twodragon.com/sentinelone/",
+      "destination": "/posts/2025/03/24/SentinelOne_Next_Generation_Endpoint_Security/",
       "statusCode": 301
     },
     {
@@ -2557,12 +2567,12 @@
     },
     {
       "source": "/shai-hulud/",
-      "destination": "https://legacy.2twodragon.com/shai-hulud/",
+      "destination": "/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/",
       "statusCode": 301
     },
     {
       "source": "/shared-pc-sec/",
-      "destination": "https://legacy.2twodragon.com/shared-pc-sec/",
+      "destination": "/posts/2024/12/24/Shared_PC_Privacy_And_Security_Guide/",
       "statusCode": 301
     },
     {
@@ -2577,22 +2587,22 @@
     },
     {
       "source": "/skt-hacking/",
-      "destination": "https://legacy.2twodragon.com/skt-hacking/",
+      "destination": "/posts/2025/04/25/SKT_BPFDoor_And_SIM_Swapping_Threat_Analysis/",
       "statusCode": 301
     },
     {
       "source": "/skt-usim-1/",
-      "destination": "https://legacy.2twodragon.com/skt-usim-1/",
+      "destination": "/posts/2025/04/29/SKT_Security_Issue_Complete_Response_Guide_IMEI_Check_USIMeSIM_Replace_And_MFA_Importance/",
       "statusCode": 301
     },
     {
       "source": "/skt-usim/",
-      "destination": "https://legacy.2twodragon.com/skt-usim/",
+      "destination": "/posts/2025/04/28/SKT_USIM_Data_Breach_Summary_April_2025/",
       "statusCode": 301
     },
     {
       "source": "/slack-aiops/",
-      "destination": "https://legacy.2twodragon.com/slack-aiops/",
+      "destination": "/posts/2025/04/22/Amazon_Bedrock_Slack_AIOps_Chatbot_AWS_Security_Architecture/",
       "statusCode": 301
     },
     {
@@ -2622,7 +2632,7 @@
     },
     {
       "source": "/spf-dkim-dmarc/",
-      "destination": "https://legacy.2twodragon.com/spf-dkim-dmarc/",
+      "destination": "/posts/2025/06/05/Email_Delivery_Trust_Improve_SendGrid_SPF_DKIM_DMARC_Setup_Complete_Guide/",
       "statusCode": 301
     },
     {
@@ -2687,7 +2697,7 @@
     },
     {
       "source": "/tesla-issues/",
-      "destination": "https://legacy.2twodragon.com/tesla-issues/",
+      "destination": "/posts/2026/01/01/Tesla_FSD_2026_Complete_Guide_Model_Y_Juniper_Security_DevSecOps/",
       "statusCode": 301
     },
     {
@@ -2782,7 +2792,7 @@
     },
     {
       "source": "/usa-ai-action-plan/",
-      "destination": "https://legacy.2twodragon.com/usa-ai-action-plan/",
+      "destination": "/posts/2025/07/29/US_AI_Action_Plan_Innovation_And_Security/",
       "statusCode": 301
     },
     {
@@ -2912,7 +2922,7 @@
     },
     {
       "source": "/zscaler-guide/",
-      "destination": "https://legacy.2twodragon.com/zscaler-guide/",
+      "destination": "/posts/2025/11/04/Zscaler_Complete_Guide_SSL_Inspection_Sandbox_AI_Advertisement_Harmful_Site_Complete_Block/",
       "statusCode": 301
     },
     {
