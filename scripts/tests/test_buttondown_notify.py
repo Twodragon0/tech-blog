@@ -14,6 +14,10 @@ No test here touches the network. ``_no_real_buttondown`` makes any unfaked
 
 from __future__ import annotations
 
+import base64
+import json
+import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -342,3 +346,91 @@ def test_batch_without_api_key_fails(
     code, out, _ = run_batch(_write_post(tmp_path, "2026-11-19-Post.md"))
     assert code == 1
     assert "::error::BUTTONDOWN_API_KEY" in out
+
+
+# ---------------------------------------------------------------------------
+# 5. A push run mails exactly the posts the workflow's check step found
+# ---------------------------------------------------------------------------
+
+
+def _posts_json(*paths: str) -> str:
+    """POSTS_JSON as the check step writes it: base64 paths in a JSON array."""
+    return json.dumps([base64.b64encode(p.encode()).decode() for p in paths])
+
+
+@pytest.fixture
+def repo_root(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
+    """A stand-in repository root, with an empty _posts/."""
+    root = tmp_path / "repo"
+    (root / "_posts").mkdir(parents=True)
+    monkeypatch.setattr(batch, "PROJECT_ROOT", root)
+    return root
+
+
+def test_batch_mails_every_post_the_check_step_found(
+    repo_root: Path, buttondown, run_batch, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    names = ["2026-11-19-First.md", "2026-11-20-보안_점검.md"]
+    for name in names:
+        _write_post(repo_root / "_posts", name)
+    monkeypatch.setenv("POSTS_JSON", _posts_json(*(f"_posts/{n}" for n in names)))
+    fake = buttondown(201, 201)
+    code, _, summary = run_batch()
+    assert code == 0
+    assert len(fake.bodies) == 2
+    assert "| `2026-11-20-보안_점검.md` | sent |" in summary
+
+
+def test_batch_does_not_diff_again_when_the_check_step_found_nothing(
+    buttondown, run_batch, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("POSTS_JSON", "[]")
+    monkeypatch.setattr(
+        batch, "detect_posts_via_git_diff", lambda: pytest.fail("diffed again")
+    )
+    fake = buttondown()
+    code, _, _ = run_batch()
+    assert (code, fake.bodies) == (0, [])
+
+
+@pytest.mark.parametrize(
+    "posts_json", ["", "not json", '{"a": 1}', "[1]", '["not base64!"]']
+)
+def test_batch_malformed_posts_json_fails_without_sending(
+    posts_json: str, buttondown, run_batch, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("POSTS_JSON", posts_json)
+    monkeypatch.setattr(
+        batch, "detect_posts_via_git_diff", lambda: pytest.fail("diffed again")
+    )
+    fake = buttondown()
+    code, out, _ = run_batch()
+    assert code == 1
+    assert "::error::POSTS_JSON from the check step is malformed" in out
+    assert fake.bodies == []
+
+
+def test_local_git_diff_fallback_reads_non_ascii_names_verbatim(
+    repo_root: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    # Default git config: core.quotePath would quote the name without -z.
+    monkeypatch.setenv("GIT_CONFIG_GLOBAL", os.devnull)
+    monkeypatch.setenv("GIT_CONFIG_NOSYSTEM", "1")
+
+    def commit(message: str) -> None:
+        for args in (["add", "-A"], ["commit", "-q", "-m", message]):
+            subprocess.run(
+                ["git", "-c", "user.name=fixture", "-c", "user.email=f@invalid.local"]
+                + ["-c", "commit.gpgsign=false", "-c", "core.hooksPath=/dev/null"]
+                + args,
+                cwd=repo_root,
+                check=True,
+                capture_output=True,
+            )
+
+    subprocess.run(["git", "init", "-q"], cwd=repo_root, check=True)
+    (repo_root / "README.md").write_text("x\n", encoding="utf-8")
+    commit("base")
+    _write_post(repo_root / "_posts", "2026-11-19-보안_점검.md")
+    commit("post")
+    assert batch.detect_posts_via_git_diff() == ["_posts/2026-11-19-보안_점검.md"]

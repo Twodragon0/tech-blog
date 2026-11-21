@@ -2,8 +2,9 @@
 """
 Buttondown Batch Email Notification Script
 Processes multiple blog posts and sends email notifications for each.
-Takes post paths as arguments, or reads the POSTS_JSON environment variable,
-or detects posts via git diff.
+Takes post paths as arguments, or the POSTS_JSON list that the workflow's
+"Check for new posts" step builds from github.event.before..github.sha. A local
+run without either diffs HEAD~1..HEAD itself.
 Note: Only new posts trigger email notifications. Updated posts are excluded.
 
 Guards (added 2026-11-21, after one push tried to mail 36 imported WordPress
@@ -100,6 +101,17 @@ def write_step_summary(lines: list) -> None:
         f.write("\n".join(lines) + "\n")
 
 
+def decode_posts_json(raw: str) -> list:
+    """The paths in POSTS_JSON: a JSON array of base64-encoded UTF-8 paths.
+
+    The workflow's check step writes it. Raises ValueError if it is malformed.
+    """
+    items = json.loads(raw)
+    if not isinstance(items, list) or not all(isinstance(i, str) for i in items):
+        raise ValueError("expected a JSON array of strings")
+    return [base64.b64decode(item, validate=True).decode("utf-8") for item in items]
+
+
 def detect_posts_via_git_diff():
     """Detect only new posts via git diff (excludes modified posts)."""
     posts = []
@@ -107,10 +119,12 @@ def detect_posts_via_git_diff():
     try:
         # Get only added posts (new posts)
         # Modified posts are excluded to prevent email notifications for updates
+        # -z: NUL-separated and unquoted, so non-ASCII names come out verbatim
         result = subprocess.run(
             [
                 "git",
                 "diff",
+                "-z",
                 "--name-only",
                 "--diff-filter=A",
                 "HEAD~1",
@@ -121,13 +135,13 @@ def detect_posts_via_git_diff():
             cwd=PROJECT_ROOT,
             capture_output=True,
             text=True,
+            encoding="utf-8",
             timeout=10,
         )
-        if result.returncode == 0 and result.stdout.strip():
-            posts.extend(result.stdout.strip().split("\n"))
-
-        # Remove duplicates and empty strings
-        posts = list(set([p.strip() for p in posts if p.strip()]))
+        if result.returncode == 0:
+            posts = [name for name in result.stdout.split("\0") if name]
+        else:
+            print(f"⚠️ git diff failed: {result.stderr.strip()}")
 
         if posts:
             print(f"📝 Detected {len(posts)} new post(s) (modified posts excluded)")
@@ -148,7 +162,7 @@ def main(argv: "list | None" = None) -> None:
     parser.add_argument(
         "posts",
         nargs="*",
-        help="post files to send (default: POSTS_JSON, then git diff HEAD~1 HEAD)",
+        help="post files to send (default: POSTS_JSON, else git diff HEAD~1 HEAD)",
     )
     args = parser.parse_args(argv)
 
@@ -179,27 +193,19 @@ def main(argv: "list | None" = None) -> None:
             sys.exit(1)
         posts.append(str(post_file))
 
-    # Try to get posts from POSTS_JSON first, then fall back to git diff
-    posts_json = os.environ.get("POSTS_JSON", "[]")
-
-    if not posts and posts_json and posts_json != "[]":
-        print("📋 Using POSTS_JSON from environment variable")
+    # In the workflow the check step hands over the posts it found, even an
+    # empty list, so this script never works out a different range. Only a
+    # local run without POSTS_JSON diffs for itself.
+    posts_json = os.environ.get("POSTS_JSON")
+    if not args.posts and posts_json is not None:
+        print("📋 Using the posts the check step found (POSTS_JSON)")
         try:
-            posts_encoded = json.loads(posts_json)
-            for post_encoded in posts_encoded:
-                if post_encoded:
-                    try:
-                        post_file = base64.b64decode(post_encoded).decode("utf-8")
-                        posts.append(post_file)
-                    except Exception as e:
-                        print(f"⚠️ Failed to decode post file path: {e}")
-        except json.JSONDecodeError as e:
-            print(f"⚠️ Failed to parse POSTS_JSON: {e}")
-            print("   Falling back to git diff detection")
-
-    # If no posts from POSTS_JSON, detect via git diff
-    if not posts:
-        print("📋 Detecting posts via git diff...")
+            posts = decode_posts_json(posts_json)
+        except ValueError as e:
+            print(f"::error::POSTS_JSON from the check step is malformed: {e}")
+            sys.exit(1)
+    elif not args.posts:
+        print("📋 Detecting posts via git diff HEAD~1 HEAD...")
         posts = detect_posts_via_git_diff()
 
     # Filter out draft posts and validate
