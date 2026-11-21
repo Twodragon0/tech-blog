@@ -19,11 +19,15 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import datetime, timezone
+import sys
 from pathlib import Path
 
 import frontmatter
 import pytest
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from scripts.lib.post_url import post_permalink  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 VERCEL_CONFIG = REPO_ROOT / "vercel.json"
@@ -58,16 +62,9 @@ def post_url(path: Path) -> str:
 
     ``_config.yml`` pins ``timezone: UTC``, so the date parts come from the
     front-matter ``date`` converted to UTC, and ``:title`` is the filename slug.
+    Built by the same helper the newsletter and share scripts use.
     """
-    when = frontmatter.load(path).metadata["date"]
-    if isinstance(when, str):
-        when = datetime.strptime(when.strip(), "%Y-%m-%d %H:%M:%S %z")
-    elif not isinstance(when, datetime):  # a bare YAML date
-        when = datetime(when.year, when.month, when.day)
-    if when.tzinfo is not None:
-        when = when.astimezone(timezone.utc)
-    title = _POST_FILENAME.match(path.stem)["title"]
-    return f"/posts/{when:%Y/%m/%d}/{title}/"
+    return post_permalink(path, frontmatter.load(path).metadata["date"])
 
 
 MIGRATED_PATHS = [(path, e["target"]) for e in MIGRATED for path in request_paths(e)]

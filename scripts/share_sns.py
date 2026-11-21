@@ -10,9 +10,11 @@ import re
 import sys
 from pathlib import Path
 from typing import Any, Optional, cast
-from urllib.parse import quote
 
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.lib.post_url import post_permalink
 
 # .env 파일에서 환경 변수 로드
 SCRIPT_DIR = Path(__file__).parent
@@ -59,19 +61,10 @@ def parse_frontmatter(file_path: str) -> dict:
 
 
 def generate_post_url(file_path: str, site_url: str) -> str:
-    """Generate the URL for a blog post based on permalink structure."""
-    filename = Path(file_path).stem
-
-    # Parse date and title from filename (YYYY-MM-DD-title format)
-    match = re.match(r"(\d{4})-(\d{2})-(\d{2})-(.+)", filename)
-    if not match:
-        return f"{site_url}/posts/{filename}/"
-
-    year, month, day, title = match.groups()
-    # URL encode the title for Korean characters
-    encoded_title = quote(title, safe="")
-
-    return f"{site_url}/posts/{year}/{month}/{title}/"
+    """Live URL of the post: the day part comes from its ``date:`` in UTC."""
+    frontmatter = parse_frontmatter(file_path)
+    post_date = frontmatter.get("date") if isinstance(frontmatter, dict) else None
+    return f"{site_url}{post_permalink(file_path, post_date)}"
 
 
 def create_share_message(frontmatter: dict, post_url: str, platform: str) -> str:
@@ -511,7 +504,7 @@ def main():
         print(f"Searched in: {posts_dir}")
         sys.exit(1)
 
-    site_url = os.environ.get("SITE_URL", "https://tech.2twodragon.com")
+    site_url = os.environ.get("SITE_URL", "https://2twodragon.com")
 
     print(f"Processing: {post_path}")
 
@@ -544,7 +537,7 @@ def main():
     image_path = frontmatter.get("image")
     if image_path:
         # 이미지 URL 생성 (절대 URL)
-        site_url = os.environ.get("SITE_URL", "https://tech.2twodragon.com")
+        site_url = os.environ.get("SITE_URL", "https://2twodragon.com")
         # SVG를 PNG로 변환 (LinkedIn은 SVG를 지원하지 않음)
         if image_path.endswith(".svg"):
             image_path = image_path.replace(".svg", ".png")
