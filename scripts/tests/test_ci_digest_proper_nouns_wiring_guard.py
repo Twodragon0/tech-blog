@@ -3,7 +3,7 @@
 
 check_digest_proper_nouns.py enforces English-canonical proper nouns in digest
 bodies (deny-by-default). The enforcement only has teeth if it is actually
-wired into (a) the generated pre-commit hook and (b) the svg-lint CI workflow.
+wired into (a) the pre-commit hook and (b) the svg-lint CI workflow.
 Either wire can be dropped silently in an unrelated edit; this guard fails
 loudly if that happens.
 
@@ -19,7 +19,6 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 SCRIPT = "scripts/check_digest_proper_nouns.py"
 HOOK = REPO / ".githooks" / "pre-commit"
-INSTALL = REPO / "scripts" / "install-hooks.sh"
 CI = REPO / ".github" / "workflows" / "svg-lint.yml"
 BLOGWATCHER = REPO / ".github" / "workflows" / "ai-blogwatcher.yml"
 
@@ -42,18 +41,7 @@ def test_wired_into_active_pre_commit_hook():
     assert _STAGED_RE.search(body), (
         "The active .githooks/pre-commit no longer invokes "
         f"'{SCRIPT} --staged'. Digest proper-noun canonicalization is no longer "
-        "enforced locally. Re-add the gate (regenerate via scripts/install-hooks.sh)."
-    )
-
-
-def test_wired_into_canonical_hook_source():
-    # install-hooks.sh is the canonical source that regenerates .githooks/pre-commit;
-    # if the gate is only in the generated file it will vanish on the next re-run.
-    body = _noncomment(INSTALL.read_text(encoding="utf-8"))
-    assert _STAGED_RE.search(body), (
-        "scripts/install-hooks.sh (the canonical hook source) does not invoke "
-        f"'{SCRIPT} --staged'. Running install-hooks.sh would drop the gate from "
-        "the generated hook. Add it to the heredoc in install-hooks.sh."
+        "enforced locally. Re-add the gate to .githooks/pre-commit."
     )
 
 

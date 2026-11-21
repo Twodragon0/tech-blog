@@ -228,7 +228,7 @@ def _noncomment(text: str) -> str:
     return "\n".join(ln for ln in text.splitlines() if not ln.strip().startswith("#"))
 
 
-@pytest.mark.parametrize("rel", [".githooks/pre-commit", "scripts/install-hooks.sh"])
+@pytest.mark.parametrize("rel", [".githooks/pre-commit"])
 def test_wired_into_precommit(rel):
     import re as _re
 

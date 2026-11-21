@@ -94,8 +94,7 @@ def test_nested_git(tmp_path):
     assert hook_env["GIT_DIR"] == str(gitdir)
 
 
-def test_installer_generates_the_same_isolated_pytest_block():
+def test_tracked_hook_has_the_isolated_pytest_block():
     block = """    unset $(git rev-parse --local-env-vars)
     python3 -m pytest "$REPO_ROOT/scripts/tests/" -x -q 2>&1"""
-    assert block in (ROOT / "scripts/install-hooks.sh").read_text()
     assert block in (ROOT / ".githooks/pre-commit").read_text()

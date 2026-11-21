@@ -350,9 +350,9 @@ C1~C10은 전부 **"어디를 건드리면 안 되는가"**(보호)만 다룬다
     가이드였고 크론 digest는 0건 → 크론 배선 제외).
 13. 재발 경로가 **생성기**면 게이트가 아니라 생성기를 고친다(C8). 백필은 헬퍼를 import 한다.
 14. 레거시 결함이 남아 있으면 게이트는 `--staged`/`--changed` + `--ratchet`, kind 단위 비교(C6, C7).
-15. `.githooks/pre-commit` 은 `install-hooks.sh` 가 heredoc으로 생성한다. **생성기 소스도 함께**
-    고쳐야 한다 (memory `githooks_hookspath_gotcha`). 배선 회귀 테스트를 붙인다
-    (`test_wired_into_precommit`, `test_wired_into_ci`).
+15. `.githooks/pre-commit` 이 hook 의 유일한 소스다. `install-hooks.sh` 는 `core.hooksPath`
+    만 설정하고 hook 본문을 갖지 않는다 (`test_install_hooks_uses_tracked_hook.py` 가 보장).
+    배선 회귀 테스트를 붙인다 (`test_wired_into_precommit`, `test_wired_into_ci`).
 
 ---
 
