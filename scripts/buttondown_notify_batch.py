@@ -26,6 +26,7 @@ import argparse
 import base64
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -54,13 +55,13 @@ from buttondown_notify import (
     FAILED,
     SENT,
     TRANSIENT,
-    find_post_file,
     notify_post,
     parse_frontmatter,
 )
 
 DEFAULT_MAX_POSTS = 3
 IMPORTED_HOST = "2twodragon.com"
+POST_NAME_RE = re.compile(r"^\d{4}-\d{2}-\d{2}-.+\.md$")
 
 # Re-run jobs repeats the whole run, so every post in it that did go out would
 # be mailed to every subscriber again. A failed post is re-sent on its own.
@@ -108,6 +109,29 @@ def write_step_summary(lines: list) -> None:
         return
     with open(summary_path, "a", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
+
+
+def resolve_post(raw_path: str) -> "Path | None":
+    """The ``_posts/YYYY-MM-DD-*.md`` file ``raw_path`` names, or None.
+
+    A relative path is taken from the repository root and, failing that, its
+    file name from ``_posts/``. Whatever it resolves to, ``..`` and symlinks
+    included, must be a file directly in ``_posts/`` named like a post: a
+    post_path is the one input here that a person types.
+    """
+    path = Path(raw_path.strip().strip("'\""))
+    if not path.is_absolute():
+        path = PROJECT_ROOT / path
+        if not path.exists():
+            path = PROJECT_ROOT / "_posts" / path.name
+    path = path.resolve()
+    if (
+        path.parent != (PROJECT_ROOT / "_posts").resolve()
+        or not POST_NAME_RE.match(path.name)
+        or not path.is_file()
+    ):
+        return None
+    return path
 
 
 def decode_posts_json(raw: str) -> list:
@@ -175,7 +199,7 @@ def main(argv: "list | None" = None) -> None:
     )
     args = parser.parse_args(argv)
 
-    api_key = os.environ.get("BUTTONDOWN_API_KEY")
+    api_key = (os.environ.get("BUTTONDOWN_API_KEY") or "").strip()
     site_url = os.environ.get("SITE_URL", "https://2twodragon.com")
     max_posts = max_posts_per_run(os.environ.get("BUTTONDOWN_MAX_POSTS"))
 
@@ -190,53 +214,76 @@ def main(argv: "list | None" = None) -> None:
         print("::error::BUTTONDOWN_API_KEY environment variable not set")
         sys.exit(1)
 
+    notes: list = []  # each is a ::warning:: and a paragraph of the summary
+    rows: list = []  # the step summary's Post | Result table
+
+    def warn(note: str) -> None:
+        print(f"::warning::{note}")
+        notes.append(note)
+
+    # resolve_post(), not find_post_file(): the latter falls back to any post
+    # with the same date prefix, so a mistyped post_path would mail another
+    # post to every subscriber.
     posts = []
     for raw_path in args.posts:
-        post_file = find_post_file(raw_path)
-        # find_post_file() falls back to any post sharing the date prefix, so a
-        # mistyped post_path would mail a different post to every subscriber.
-        # Accept only the file that was named.
-        requested = Path(raw_path.strip().strip("'\"")).name
-        if post_file.name != requested or not post_file.exists():
-            print(f"::error::Post file not found: {raw_path}")
+        post = resolve_post(raw_path)
+        if post is None:
+            print(
+                f"::error::Post file not found: {raw_path}. post_path must name an "
+                "existing _posts/YYYY-MM-DD-<slug>.md file."
+            )
             sys.exit(1)
-        posts.append(str(post_file))
+        posts.append(post)
 
     # In the workflow the check step hands over the posts it found, even an
     # empty list, so this script never works out a different range. Only a
     # local run without POSTS_JSON diffs for itself.
+    found = []
     posts_json = os.environ.get("POSTS_JSON")
     if not args.posts and posts_json is not None:
         print("📋 Using the posts the check step found (POSTS_JSON)")
         try:
-            posts = decode_posts_json(posts_json)
+            found = decode_posts_json(posts_json)
         except ValueError as e:
             print(f"::error::POSTS_JSON from the check step is malformed: {e}")
             sys.exit(1)
     elif not args.posts:
         print("📋 Detecting posts via git diff HEAD~1 HEAD...")
-        posts = detect_posts_via_git_diff()
+        found = detect_posts_via_git_diff()
+    for raw_path in found:
+        post = resolve_post(raw_path)
+        if post is None:
+            warn(
+                f"New post {raw_path} is not a _posts/YYYY-MM-DD-<slug>.md file in "
+                "this checkout, so no newsletter was sent for it. To mail it, run "
+                "this workflow manually with its post_path."
+            )
+            rows.append(f"| `{raw_path}` | not sent: file not found |")
+        else:
+            posts.append(post)
 
-    # Filter out draft posts and validate
+    # A file named twice (as a bare name and as _posts/<name>, say) is one post.
+    posts = list(dict.fromkeys(posts))
+
+    # Filter out draft posts
     valid_posts = []
-    for post_file in posts:
-        post_path = Path(post_file)
-        if not post_path.is_absolute():
-            post_path = PROJECT_ROOT / post_file
-
-        if not post_path.exists():
-            print(f"⚠️ Post file not found: {post_path}")
-            continue
-
+    for post_path in posts:
         # Check if draft (quick check without full parsing)
         try:
             with open(post_path, "r", encoding="utf-8") as f:
                 content = f.read(1000)  # Read first 1000 chars
                 if "draft: true" in content or "draft: True" in content:
-                    print(f"⏭️ Skipping draft post: {post_file}")
+                    print(f"⏭️ Skipping draft post: {post_path.name}")
+                    rows.append(f"| `{post_path.name}` | skipped: draft |")
+                    if args.posts:
+                        warn(
+                            f"{post_path.name} is a draft (draft: true), so no "
+                            "newsletter was sent. Publish it, then run this "
+                            "workflow again."
+                        )
                     continue
         except Exception as e:
-            print(f"⚠️ Error checking draft status for {post_file}: {e}")
+            print(f"⚠️ Error checking draft status for {post_path}: {e}")
 
         valid_posts.append(str(post_path))
 
@@ -246,7 +293,6 @@ def main(argv: "list | None" = None) -> None:
         print("   1. No new posts were detected (updated posts are excluded)")
         print("   2. All posts are marked as draft")
         print("   3. The post files don't exist")
-        sys.exit(0)
 
     candidates = []
     for path in valid_posts:
@@ -257,34 +303,28 @@ def main(argv: "list | None" = None) -> None:
 
     to_send, imported, bulk = select_posts(candidates, max_posts)
 
-    notes = []
     if imported:
-        notes.append(
+        warn(
             f"Skipped {len(imported)} imported post(s) whose original_url is on "
             f"{IMPORTED_HOST}. They are not new posts, so no newsletter was sent "
             "for them."
         )
     if bulk:
-        notes.append(
+        warn(
             f"{len(bulk)} new posts in one run is more than "
             f"BUTTONDOWN_MAX_POSTS={max_posts} and looks like a bulk import, so no "
             "newsletter was sent. To mail one of them, run this workflow manually "
             "with post_path."
         )
-    summary = ["## Buttondown newsletter", ""]
-    for note in notes:
-        print(f"::warning::{note}")
-        summary += [note, ""]
-    summary += ["| Post | Result |", "| --- | --- |"]
     for path, frontmatter in imported:
         print(f"⏭️ Skipping imported post: {Path(path).name}")
-        summary.append(
+        rows.append(
             f"| `{Path(path).name}` | skipped: imported from "
             f"{imported_from(frontmatter)} |"
         )
     for path, _ in bulk:
         print(f"⏭️ Skipping (bulk run): {Path(path).name}")
-        summary.append(f"| `{Path(path).name}` | skipped: bulk run |")
+        rows.append(f"| `{Path(path).name}` | skipped: bulk run |")
 
     print(f"📧 Processing {len(to_send)} post(s)...")
     print("")
@@ -334,22 +374,27 @@ def main(argv: "list | None" = None) -> None:
         FAILED: "not sent: refused by Buttondown",
     }
     for path, result in results:
-        summary.append(f"| `{Path(path).name}` | {labels[result]} |")
+        rows.append(f"| `{Path(path).name}` | {labels[result]} |")
     for path, _ in to_send[len(results) :]:
-        summary.append(
+        rows.append(
             f"| `{Path(path).name}` | not sent: stopped after the key was rejected |"
         )
 
     sent = sum(1 for _, result in results if result == SENT)
     transient = sum(1 for _, result in results if result == TRANSIENT)
     failed = len(to_send) - sent - transient
+    summary = ["## Buttondown newsletter", ""]
+    for note in notes:
+        summary += [note, ""]
+    summary += ["| Post | Result |", "| --- | --- |", *rows]
     if sent < len(to_send):
         summary += [
             "",
             "To re-send a post that was not sent or not confirmed, run this "
             f"workflow manually with its post_path. {NO_RERUN}",
         ]
-    write_step_summary(summary)
+    if rows:
+        write_step_summary(summary)
 
     # 결과 요약
     print("=" * 42)

@@ -346,7 +346,21 @@ def test_select_posts_drops_imported_posts_before_counting() -> None:
 
 
 @pytest.fixture
-def run_batch(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys):
+def repo_root(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
+    """A stand-in repository root, with an empty _posts/."""
+    root = tmp_path / "repo"
+    (root / "_posts").mkdir(parents=True)
+    monkeypatch.setattr(batch, "PROJECT_ROOT", root)
+    return root
+
+
+@pytest.fixture
+def posts_dir(repo_root: Path) -> Path:
+    return repo_root / "_posts"
+
+
+@pytest.fixture
+def run_batch(tmp_path: Path, repo_root: Path, monkeypatch: pytest.MonkeyPatch, capsys):
     summary = tmp_path / "step_summary.md"
     monkeypatch.setenv("BUTTONDOWN_API_KEY", "key")
     monkeypatch.setenv("SITE_URL", SITE)
@@ -366,9 +380,9 @@ def run_batch(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys):
     return run
 
 
-def test_batch_sends_new_posts(tmp_path: Path, buttondown, run_batch) -> None:
+def test_batch_sends_new_posts(posts_dir: Path, buttondown, run_batch) -> None:
     fake = buttondown(201, 201)
-    posts = [_write_post(tmp_path, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
+    posts = [_write_post(posts_dir, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
     code, out, summary = run_batch(*posts)
     assert code == 0
     assert len(fake.bodies) == 2
@@ -377,10 +391,10 @@ def test_batch_sends_new_posts(tmp_path: Path, buttondown, run_batch) -> None:
 
 
 def test_batch_rejected_key_fails_the_job_and_stops(
-    tmp_path: Path, buttondown, run_batch
+    posts_dir: Path, buttondown, run_batch
 ) -> None:
     fake = buttondown(401)
-    posts = [_write_post(tmp_path, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
+    posts = [_write_post(posts_dir, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
     code, out, summary = run_batch(*posts)
     assert code == 1
     assert "::error::BUTTONDOWN_API_KEY rejected — rotate it in repo secrets" in out
@@ -390,11 +404,11 @@ def test_batch_rejected_key_fails_the_job_and_stops(
 
 
 def test_batch_transient_failure_fails_the_job_and_names_the_post_to_resend(
-    tmp_path: Path, buttondown, run_batch
+    posts_dir: Path, buttondown, run_batch
 ) -> None:
     """The workflow is isolated: a red run is the only notice anyone gets."""
     fake = buttondown(201, 503)
-    posts = [_write_post(tmp_path, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
+    posts = [_write_post(posts_dir, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
     code, out, summary = run_batch(*posts)
     assert code == 1
     assert len(fake.bodies) == 2
@@ -411,29 +425,29 @@ def test_batch_transient_failure_fails_the_job_and_names_the_post_to_resend(
 
 
 def test_batch_rate_limited_once_then_sent_passes(
-    tmp_path: Path, buttondown, run_batch, sleeps: list
+    posts_dir: Path, buttondown, run_batch, sleeps: list
 ) -> None:
     buttondown(429, 201)
-    code, out, summary = run_batch(_write_post(tmp_path, "2026-11-19-Post.md"))
+    code, out, summary = run_batch(_write_post(posts_dir, "2026-11-19-Post.md"))
     assert (code, sleeps) == (0, [10])
     assert "::error::" not in out
     assert "| `2026-11-19-Post.md` | sent |" in summary
 
 
 def test_batch_refused_request_fails_the_job(
-    tmp_path: Path, buttondown, run_batch
+    posts_dir: Path, buttondown, run_batch
 ) -> None:
     buttondown(400, 201)
-    posts = [_write_post(tmp_path, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
+    posts = [_write_post(posts_dir, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
     code, out, _ = run_batch(*posts)
     assert code == 1
     assert "::error::Buttondown refused the newsletter for 2026-11-18-Post_8.md" in out
     assert "post_path=_posts/2026-11-18-Post_8.md" in out
 
 
-def test_batch_bulk_run_sends_nothing(tmp_path: Path, buttondown, run_batch) -> None:
+def test_batch_bulk_run_sends_nothing(posts_dir: Path, buttondown, run_batch) -> None:
     fake = buttondown()
-    posts = [_write_post(tmp_path, f"2026-11-1{i}-Post_{i}.md") for i in range(4)]
+    posts = [_write_post(posts_dir, f"2026-11-1{i}-Post_{i}.md") for i in range(4)]
     code, out, summary = run_batch(*posts)
     assert code == 0
     assert fake.bodies == []
@@ -444,25 +458,25 @@ def test_batch_bulk_run_sends_nothing(tmp_path: Path, buttondown, run_batch) -> 
 
 
 def test_batch_limit_is_configurable(
-    tmp_path: Path, buttondown, run_batch, monkeypatch: pytest.MonkeyPatch
+    posts_dir: Path, buttondown, run_batch, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     monkeypatch.setenv("BUTTONDOWN_MAX_POSTS", "1")
     fake = buttondown()
-    posts = [_write_post(tmp_path, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
+    posts = [_write_post(posts_dir, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
     code, out, _ = run_batch(*posts)
     assert (code, fake.bodies) == (0, [])
     assert "BUTTONDOWN_MAX_POSTS=1" in out
 
 
-def test_batch_skips_imported_posts(tmp_path: Path, buttondown, run_batch) -> None:
+def test_batch_skips_imported_posts(posts_dir: Path, buttondown, run_batch) -> None:
     fake = buttondown(201)
     imported = _write_post(
-        tmp_path,
+        posts_dir,
         "2024-09-01-EKS_Pod_Restart.md",
         date="2024-09-01 20:36:28 +0900",
         original_url="https://2twodragon.com/pod-restart-temp-auth-iam-role/",
     )
-    new = _write_post(tmp_path, "2026-11-19-New_Post.md")
+    new = _write_post(posts_dir, "2026-11-19-New_Post.md")
     code, out, summary = run_batch(imported, new)
     assert code == 0
     assert len(fake.bodies) == 1 and "New_Post" in fake.bodies[0]
@@ -471,25 +485,25 @@ def test_batch_skips_imported_posts(tmp_path: Path, buttondown, run_batch) -> No
 
 
 def test_batch_with_only_drafts_is_not_a_failure(
-    tmp_path: Path, buttondown, run_batch
+    posts_dir: Path, buttondown, run_batch
 ) -> None:
     fake = buttondown()
-    draft = _write_post(tmp_path, "2026-11-19-Draft.md", draft="true")
+    draft = _write_post(posts_dir, "2026-11-19-Draft.md", draft="true")
     code, _, _ = run_batch(draft)
     assert (code, fake.bodies) == (0, [])
 
 
-def test_batch_unknown_explicit_post_fails(tmp_path: Path, run_batch) -> None:
-    code, out, _ = run_batch(tmp_path / "2026-11-19-Missing.md")
+def test_batch_unknown_explicit_post_fails(posts_dir: Path, run_batch) -> None:
+    code, out, _ = run_batch(posts_dir / "2026-11-19-Missing.md")
     assert code == 1
     assert "::error::Post file not found" in out
 
 
 def test_batch_without_api_key_fails(
-    tmp_path: Path, run_batch, monkeypatch: pytest.MonkeyPatch
+    posts_dir: Path, run_batch, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     monkeypatch.delenv("BUTTONDOWN_API_KEY")
-    code, out, _ = run_batch(_write_post(tmp_path, "2026-11-19-Post.md"))
+    code, out, _ = run_batch(_write_post(posts_dir, "2026-11-19-Post.md"))
     assert code == 1
     assert "::error::BUTTONDOWN_API_KEY" in out
 
@@ -502,15 +516,6 @@ def test_batch_without_api_key_fails(
 def _posts_json(*paths: str) -> str:
     """POSTS_JSON as the check step writes it: base64 paths in a JSON array."""
     return json.dumps([base64.b64encode(p.encode()).decode() for p in paths])
-
-
-@pytest.fixture
-def repo_root(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
-    """A stand-in repository root, with an empty _posts/."""
-    root = tmp_path / "repo"
-    (root / "_posts").mkdir(parents=True)
-    monkeypatch.setattr(batch, "PROJECT_ROOT", root)
-    return root
 
 
 def test_batch_mails_every_post_the_check_step_found(
@@ -580,3 +585,104 @@ def test_local_git_diff_fallback_reads_non_ascii_names_verbatim(
     _write_post(repo_root / "_posts", "2026-11-19-보안_점검.md")
     commit("post")
     assert batch.detect_posts_via_git_diff() == ["_posts/2026-11-19-보안_점검.md"]
+
+
+# ---------------------------------------------------------------------------
+# 6. A post_path names one real post; drafts and missing posts are reported
+# ---------------------------------------------------------------------------
+
+
+def _outside_the_repo(repo: Path) -> str:
+    return str(_write_post(repo.parent, "2026-11-19-Outside.md"))
+
+
+def _dot_dot_out_of_posts(repo: Path) -> str:
+    _write_post(repo, "2026-11-19-Root.md")
+    return "_posts/../2026-11-19-Root.md"
+
+
+def _symlink_out_of_posts(repo: Path) -> str:
+    target = _write_post(repo.parent, "2026-11-19-Target.md")
+    (repo / "_posts" / "2026-11-19-Link.md").symlink_to(target)
+    return "_posts/2026-11-19-Link.md"
+
+
+def _not_named_like_a_post(repo: Path) -> str:
+    _write_post(repo / "_posts", "README.md")
+    return "_posts/README.md"
+
+
+def _not_markdown(repo: Path) -> str:
+    _write_post(repo / "_posts", "2026-11-19-Post.txt")
+    return "_posts/2026-11-19-Post.txt"
+
+
+@pytest.mark.parametrize(
+    "make_path",
+    [
+        _outside_the_repo,
+        _dot_dot_out_of_posts,
+        _symlink_out_of_posts,
+        _not_named_like_a_post,
+        _not_markdown,
+    ],
+)
+def test_batch_refuses_a_post_path_that_is_not_a_post(
+    repo_root: Path, buttondown, run_batch, make_path
+) -> None:
+    fake = buttondown()
+    code, out, _ = run_batch(make_path(repo_root))
+    assert code == 1
+    assert "::error::Post file not found" in out
+    assert fake.bodies == []
+
+
+def test_batch_mails_a_post_named_twice_once(
+    posts_dir: Path, buttondown, run_batch
+) -> None:
+    post = _write_post(posts_dir, "2026-11-19-Post.md")
+    fake = buttondown(201)
+    code, _, summary = run_batch(post, "_posts/2026-11-19-Post.md", post.name)
+    assert code == 0
+    assert len(fake.bodies) == 1
+    assert summary.count("2026-11-19-Post.md") == 1
+
+
+def test_batch_warns_when_the_dispatched_post_is_a_draft(
+    posts_dir: Path, buttondown, run_batch
+) -> None:
+    fake = buttondown()
+    draft = _write_post(posts_dir, "2026-11-19-Draft.md", draft="true")
+    code, out, summary = run_batch(draft)
+    assert (code, fake.bodies) == (0, [])
+    assert "::warning::2026-11-19-Draft.md is a draft (draft: true)" in out
+    assert "| `2026-11-19-Draft.md` | skipped: draft |" in summary
+
+
+def test_batch_lists_a_pushed_draft_without_a_warning(
+    posts_dir: Path, buttondown, run_batch, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _write_post(posts_dir, "2026-11-19-Draft.md", draft="true")
+    monkeypatch.setenv("POSTS_JSON", _posts_json("_posts/2026-11-19-Draft.md"))
+    fake = buttondown()
+    code, out, summary = run_batch()
+    assert (code, fake.bodies) == (0, [])
+    assert "::warning::" not in out
+    assert "| `2026-11-19-Draft.md` | skipped: draft |" in summary
+
+
+def test_batch_warns_about_a_new_post_it_cannot_find(
+    posts_dir: Path, buttondown, run_batch, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _write_post(posts_dir, "2026-11-19-Here.md")
+    monkeypatch.setenv(
+        "POSTS_JSON",
+        _posts_json("_posts/2026-11-19-Here.md", "_posts/2026-11-20-Gone.md"),
+    )
+    fake = buttondown(201)
+    code, out, summary = run_batch()
+    assert code == 0
+    assert len(fake.bodies) == 1
+    assert "::warning::New post _posts/2026-11-20-Gone.md is not a" in out
+    assert "| `_posts/2026-11-20-Gone.md` | not sent: file not found |" in summary
+    assert "| `2026-11-19-Here.md` | sent |" in summary
