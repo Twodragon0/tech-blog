@@ -105,7 +105,7 @@ _success "Environment checks passed"
 _section "2. Site Availability"
 
 HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 -A "Mozilla/5.0 TechBlogMonitor" "$DEPLOYMENT_URL" 2>/dev/null || echo "000")
-if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 400 ]; then
+if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 300 ]; then
     _success "Site is accessible (HTTP $HTTP_STATUS)"
 elif [ "$HTTP_STATUS" -eq 429 ]; then
     _warn "Site returned HTTP 429 (rate limited) - site is alive but throttled"
