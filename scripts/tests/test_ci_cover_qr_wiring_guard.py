@@ -38,7 +38,6 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 SCRIPT = "scripts/check_cover_qr_urls.py"
 HOOK = REPO / ".githooks" / "pre-commit"
-INSTALL = REPO / "scripts" / "install-hooks.sh"
 CHECK_SVG = REPO / ".github" / "workflows" / "check-svg.yml"
 BLOGWATCHER = REPO / ".github" / "workflows" / "ai-blogwatcher.yml"
 
@@ -61,7 +60,7 @@ def _noncomment(text: str) -> str:
 
 def test_all_wiring_files_exist():
     """Canary: a renamed file must fail loudly, not vacuously pass."""
-    for path in (HOOK, INSTALL, CHECK_SVG, BLOGWATCHER):
+    for path in (HOOK, CHECK_SVG, BLOGWATCHER):
         assert path.is_file(), f"{path} not found"
 
 
@@ -70,24 +69,13 @@ def test_wired_into_active_pre_commit_hook():
     assert SCRIPT in body, (
         f"The active .githooks/pre-commit no longer invokes {SCRIPT}. The local "
         "publish path is the one that shipped the 09-04 blank QR. Re-add the "
-        "gate and regenerate via scripts/install-hooks.sh."
-    )
-
-
-def test_wired_into_canonical_hook_source():
-    """install-hooks.sh regenerates the hook; a gate only in the generated file
-    disappears on the next run of the installer."""
-    body = _noncomment(INSTALL.read_text(encoding="utf-8"))
-    assert SCRIPT in body, (
-        f"scripts/install-hooks.sh (the canonical hook source) does not invoke "
-        f"{SCRIPT}. Running install-hooks.sh would drop the gate from the "
-        "generated hook. Add it to the heredoc."
+        "gate to .githooks/pre-commit."
     )
 
 
 def test_local_gate_covers_the_whole_corpus():
     """Direction: scope must stay wide. See the module docstring for the 16."""
-    for path in (HOOK, INSTALL):
+    for path in (HOOK,):
         body = _noncomment(path.read_text(encoding="utf-8"))
         assert _CORPUS_SCOPE_RE.search(body), (
             f"{path.name}: the staged-cover selector for {SCRIPT} no longer "

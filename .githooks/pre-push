@@ -5,7 +5,7 @@
 #
 # Tracked version lives at .githooks/pre-push.
 # Install with:  git config core.hooksPath .githooks
-# Or run once:   bash scripts/install-hooks.sh  (re-run after changes)
+# Or run once:   bash scripts/install-hooks.sh  (no re-run needed after edits)
 #
 # Emergency bypass:  SKIP_VARIANT_CHECK=1 SKIP_PIN_CHECK=1 git push
 

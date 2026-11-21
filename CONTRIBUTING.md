@@ -43,8 +43,11 @@ bash scripts/install-hooks.sh
 bundle exec jekyll serve --host 0.0.0.0 --port 4000 --livereload
 ```
 
-`install-hooks.sh`는 `core.hooksPath`를 `.githooks/`로 설정합니다.
-`.git/hooks/`에 직접 심볼릭 링크를 만들지 마세요 — 무시됩니다.
+`install-hooks.sh`는 `core.hooksPath`를 `.githooks/`로 설정할 뿐, hook 본문은 추적되는
+`.githooks/`에만 있습니다. hook을 고쳐도 다시 실행할 필요가 없고 linked worktree도 각자
+체크아웃한 `.githooks/`를 씁니다. `.git/hooks/`에 복사하거나 심볼릭 링크를 만들지 마세요 —
+무시됩니다. 예전에 설치한 클론은 한 번 다시 실행하고 `git config core.hooksPath`가
+`.githooks`를 출력하는지 확인하세요.
 
 ---
 

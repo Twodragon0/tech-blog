@@ -150,7 +150,7 @@ def test_wired_into_blogwatcher_publish():
     assert "check_digest_checklist_heading.py" in _noncomment(wf)
 
 
-@pytest.mark.parametrize("rel", [".githooks/pre-commit", "scripts/install-hooks.sh"])
+@pytest.mark.parametrize("rel", [".githooks/pre-commit"])
 def test_wired_into_precommit(rel):
     text = (REPO / rel).read_text(encoding="utf-8")
     assert re.search(

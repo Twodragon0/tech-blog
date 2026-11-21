@@ -139,7 +139,7 @@ deny-by-default·no-FP 원칙상 자동 canonical화 불가 → genuine Windows 
 - digest 판별은 `_is_digest_post` 필터 재사용 (파일명 `*Digest*`/`*Weekly*` + front matter 확인). 비-digest 포스트는 대상 외.
 
 **Wiring:**
-- pre-commit: 스테이징된 digest만 (기존 hook 체인에 step 추가, `githooks_hookspath_gotcha` 준수 — `.githooks/` 소스, `install-hooks.sh` 경유).
+- pre-commit: 스테이징된 digest만 (기존 hook 체인에 step 추가 — `.githooks/pre-commit` 이 유일한 소스, `install-hooks.sh` 는 `core.hooksPath` 만 설정).
 - CI (svg-lint 또는 신규 gate job): PR의 changed digest만.
 - **blogwatcher 발행 경로**(`ai-blogwatcher.yml`): 발행 직전 `--fix`를 자동 적용해 신규 digest가 항상 canonical로 커밋되게 (재발 방지 A/B와 동일 계층).
 
@@ -195,8 +195,8 @@ multiset 비교해 **신규 위반만** 실패시킨다.
 baseline 파일(`cover_honesty_baseline.txt` 방식) 대신 래칫을 택한 이유: 동기화할 상태가 없고,
 grandfather된 포스트도 **계속 보호**된다(baseline은 등록 파일의 이후 회귀까지 통과시킴).
 
-배선은 pre-commit + svg-lint CI 양쪽. `.githooks/pre-commit`은 `install-hooks.sh`가 heredoc으로
-생성하므로 **생성기 소스도 함께** 수정해야 한다(`githooks_hookspath_gotcha`). 회귀 가드
+배선은 pre-commit + svg-lint CI 양쪽. `.githooks/pre-commit`이 유일한 hook 소스라서
+(`install-hooks.sh`는 `core.hooksPath`만 설정) 거기만 고치면 된다. 회귀 가드
 `test_ci_digest_structure_ratchet_guard.py`가 게이트 제거 / `--ratchet` 제거 / `--all` 회귀
 3방향을 모두 탐지하며, 배선 제거 시 실제로 실패함을 음성 테스트로 확인했다.
 
