@@ -18,6 +18,9 @@ from pathlib import Path
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.lib.post_url import post_permalink
+
 
 def _normalize_site_url(url: str) -> str:
     value = (url or "").strip().rstrip("/")
@@ -41,14 +44,9 @@ def extract_frontmatter(post_path: Path) -> dict:
     return yaml.safe_load(parts[1]) or {}
 
 
-def build_post_url(filename: str) -> str:
-    """Build post URL from filename."""
-    stem = Path(filename).stem
-    parts = stem.split("-", 3)
-    if len(parts) < 4:
-        return f"{SITE_URL}/posts/{stem}/"
-    year, month, day, slug = parts
-    return f"{SITE_URL}/posts/{year}/{month}/{day}/{slug}/"
+def build_post_url(filename: str, post_date: object = None) -> str:
+    """Live URL of the post: the day part comes from its ``date:`` in UTC."""
+    return f"{SITE_URL}{post_permalink(filename, post_date)}"
 
 
 def get_category(fm: dict) -> str:
@@ -81,7 +79,7 @@ def main() -> None:
         fm = extract_frontmatter(post_path)
         title = fm.get("title", post_path.stem)
         category = get_category(fm)
-        url = build_post_url(post_path.name)
+        url = build_post_url(post_path.name, fm.get("date"))
 
         if category:
             lines.append(f"• <{url}|{title}> [{category}]")

@@ -8,6 +8,7 @@ The newsletter and share builders used to drop the day entirely and 404ed.
 
 from __future__ import annotations
 
+import re
 import sys
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -17,10 +18,11 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from scripts.lib.post_url import post_permalink  # noqa: E402
+from scripts.lib.post_url import _isoformat, _utc_day, post_permalink  # noqa: E402
 
 KST = timezone(timedelta(hours=9))
 NAME = "2026-05-21-Kubernetes_Security_Guide.md"
+POSTS_DIR = Path(__file__).resolve().parents[2] / "_posts"
 
 
 def _yaml_date(line: str) -> object:
@@ -116,3 +118,58 @@ def test_slug_is_kept_verbatim() -> None:
 
 def test_dateless_filename_keeps_the_old_fallback() -> None:
     assert post_permalink("about.md") == "/posts/about/"
+
+
+@pytest.mark.parametrize(
+    "front_matter_date, expected_day",
+    [
+        ("2026-05-21 8:59:59 +0900", "2026/05/20"),
+        ("2026-05-21 9:00:00 +0900", "2026/05/21"),
+    ],
+)
+def test_single_digit_hours_parse_as_jekyll_reads_them(
+    front_matter_date: str, expected_day: str
+) -> None:
+    """Ruby's Time.parse takes "9:00:00"; fromisoformat() needs "09"."""
+    value = _yaml_date(f"date: {front_matter_date}")
+    assert post_permalink(NAME, value) == (
+        f"/posts/{expected_day}/Kubernetes_Security_Guide/"
+    )
+
+
+@pytest.mark.parametrize(
+    "text, iso",
+    [
+        ("2026-05-21 09:00:00 +0900", "2026-05-21 09:00:00+09:00"),
+        ("2026-05-21 9:00:00 +0900", "2026-05-21 09:00:00+09:00"),
+        ("2026-05-21T9:00:00+0900", "2026-05-21T09:00:00+09:00"),
+        ("2026-05-21 22:00:00 -0500", "2026-05-21 22:00:00-05:00"),
+        ("2026-05-21 08:00:00 +09:00", "2026-05-21 08:00:00+09:00"),
+        ("2026-05-20T23:00:00Z", "2026-05-20T23:00:00+00:00"),
+        ("2026-05-21 09:00:00.500 +0900", "2026-05-21 09:00:00.500+09:00"),
+        ("2026-05-21 03:00:00", "2026-05-21 03:00:00"),
+        ("2026-05-21", "2026-05-21"),
+    ],
+)
+def test_dates_are_rewritten_into_a_form_python_3_7_to_3_10_reads(
+    text: str, iso: str
+) -> None:
+    """fromisoformat() before 3.11 rejects "+0900", "Z" and a space before the
+    offset, so a 3.10 run would have used the filename day for every post."""
+    assert _isoformat(text) == iso
+
+
+def test_every_post_date_parses_without_the_filename_fallback() -> None:
+    """A date the parser rejects falls back to the filename day silently, and
+    that is the wrong URL for any KST post written before 09:00."""
+    posts = sorted(POSTS_DIR.glob("*.md"))
+    assert posts, f"no posts found in {POSTS_DIR}"
+    unparsed = []
+    for path in posts:
+        text = path.read_text(encoding="utf-8")
+        match = re.match(r"^---\s*\n(.*?)\n---\s*\n", text, re.DOTALL)
+        front = yaml.safe_load(match.group(1)) if match else None
+        value = front.get("date") if isinstance(front, dict) else None
+        if _utc_day(value) is None:
+            unparsed.append(f"{path.name}: date {value!r}")
+    assert not unparsed, "\n".join(unparsed)

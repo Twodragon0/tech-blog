@@ -2,11 +2,15 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.lib.post_url import post_permalink
 
 PROJECT_ROOT = Path(__file__).parent.parent
 POSTS_DIR = PROJECT_ROOT / "_posts"
@@ -70,13 +74,9 @@ def parse_post_date(value: Optional[str]) -> Optional[datetime]:
             return None
 
 
-def build_post_url(filename: str, site_url: str) -> str:
-    stem = filename[:-3]
-    parts = stem.split("-", 3)
-    if len(parts) < 4:
-        return f"{site_url}/posts/{stem}/"
-    year, month, day, slug = parts
-    return f"{site_url}/posts/{year}/{month}/{day}/{slug}/"
+def build_post_url(filename: str, site_url: str, post_date: object = None) -> str:
+    """Live URL of the post: the day part comes from its ``date:`` in UTC."""
+    return f"{site_url}{post_permalink(filename, post_date)}"
 
 
 def load_posts() -> Iterable[Tuple[Path, Dict]]:
@@ -117,7 +117,7 @@ def build_digest(
 
         post_categories = normalize_categories(front_matter.get("categories"))
         title = str(front_matter.get("title", post_file.stem)).strip()
-        url = build_post_url(post_file.name, site_url)
+        url = build_post_url(post_file.name, site_url, front_matter.get("date"))
 
         if any(category in post_categories for category in categories):
             digest.append((title, url))

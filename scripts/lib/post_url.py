@@ -30,9 +30,21 @@ __all__ = ["post_permalink"]
 
 _FILENAME_RE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})-(.+)$")
 
-# "2026-05-21 09:00:00 +0900": fromisoformat() accepts "+0900" but not the space
-# in front of it.
-_SPACE_BEFORE_OFFSET_RE = re.compile(r"\s+(?=(?:Z|[+-]\d{2}:?\d{2})$)")
+# Jekyll reads the date with Ruby's Time.parse, which takes "9:00:00" and
+# "+0900". datetime.fromisoformat() needs a two-digit hour and, before Python
+# 3.11, an offset written "+09:00" with no space in front (and no "Z").
+_ONE_DIGIT_HOUR_RE = re.compile(r"^(\d{4}-\d{2}-\d{2}[T ])(\d):")
+_OFFSET_RE = re.compile(r"^(.*\d:\d{2}(?:\.\d+)?)\s*(?:Z|([+-]\d{2}):?(\d{2}))$")
+
+
+def _isoformat(text: str) -> str:
+    """``text`` rewritten into the form fromisoformat() reads on Python 3.7+."""
+    text = _ONE_DIGIT_HOUR_RE.sub(r"\g<1>0\2:", text.strip())
+    match = _OFFSET_RE.match(text)
+    if match:
+        time, hours, minutes = match.groups()
+        text = f"{time}{hours or '+00'}:{minutes or '00'}"
+    return text
 
 
 def _utc_day(value: object) -> date | None:
@@ -48,9 +60,8 @@ def _utc_day(value: object) -> date | None:
     elif isinstance(value, date):
         return value
     elif isinstance(value, str):
-        text = _SPACE_BEFORE_OFFSET_RE.sub("", value.strip())
         try:
-            when = datetime.fromisoformat(text)
+            when = datetime.fromisoformat(_isoformat(value))
         except ValueError:
             return None
     else:
