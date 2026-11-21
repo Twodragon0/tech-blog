@@ -6,8 +6,8 @@
 #
 # 예시:
 #   ./scripts/monitor_vercel_builds.sh
-#   ./scripts/monitor_vercel_builds.sh https://tech.2twodragon.com --alert-only
-#   ./scripts/monitor_vercel_builds.sh https://tech.2twodragon.com --detailed
+#   ./scripts/monitor_vercel_builds.sh https://2twodragon.com --alert-only
+#   ./scripts/monitor_vercel_builds.sh https://2twodragon.com --detailed
 
 set -e
 
@@ -18,7 +18,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-DEFAULT_DEPLOYMENT_URL="https://tech.2twodragon.com"
+DEFAULT_DEPLOYMENT_URL="https://2twodragon.com"
 DEPLOYMENT_URL="$DEFAULT_DEPLOYMENT_URL"
 ALERT_ONLY=false
 

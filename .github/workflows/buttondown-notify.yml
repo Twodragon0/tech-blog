@@ -107,7 +107,7 @@ jobs:
         continue-on-error: true
         env:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
-          SITE_URL: "https://tech.2twodragon.com"
+          SITE_URL: "https://2twodragon.com"
           # Pass the workflow_dispatch input via env (NOT inline ${{ }} in the
           # shell) so a crafted post_path cannot inject shell commands: GitHub
           # writes it as a literal string to the process env and the shell never
