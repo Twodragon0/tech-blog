@@ -181,6 +181,26 @@ def read_issues(
     return IssuePages(issues, False)
 
 
+def _token_scopes(config: SentryConfig) -> list[str] | None:
+    """Scope names the API root reports for the token, or None when unknown.
+
+    A 403 from the issues API only says access was denied. The root endpoint
+    names the token's scopes, so the failure can say which one is missing.
+    """
+    try:
+        payload, _ = _read_json(f"{API_ROOT}/", config, time.monotonic() + 10, "auth")
+    except SentryMonitorError:
+        return None
+    scopes = (
+        (payload.get("auth") or {}).get("scopes") if isinstance(payload, dict) else None
+    )
+    if not isinstance(scopes, list):
+        return None
+    return sorted(
+        s for s in scopes if isinstance(s, str) and re.fullmatch(r"[a-z_]+:[a-z_]+", s)
+    )
+
+
 def _healthcheck(config: SentryConfig) -> None:
     deadline = time.monotonic() + TOTAL_TIMEOUT
     url = f"{API_ROOT}/projects/{config.org}/{config.project}/"
@@ -191,8 +211,16 @@ def _healthcheck(config: SentryConfig) -> None:
         output.write("token_ok=true\n")
         try:
             page = read_issues(config, limit=1, max_pages=1)
-        except SentryMonitorError:
+        except SentryMonitorError as error:
             output.write("issues_ok=false\nunresolved_count=unknown\n")
+            if error.http_status == 403:
+                scopes = _token_scopes(config)
+                if scopes is not None:
+                    missing = "" if "event:read" in scopes else "; missing event:read"
+                    raise SentryMonitorError(
+                        f"{error}; token scopes: {', '.join(scopes) or 'none'}{missing}",
+                        http_status=403,
+                    ) from None
             raise
         output.write(f"issues_ok=true\nunresolved_count={len(page.issues)}\n")
     print("Sentry project and issues APIs are accessible")
