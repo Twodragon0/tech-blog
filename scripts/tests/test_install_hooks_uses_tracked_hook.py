@@ -155,8 +155,8 @@ def test_tracked_hooks_are_executable():
         text=True,
         timeout=30,
     )
-    if listed.returncode != 0:
-        pytest.skip("not a git checkout")
+    # The suite always runs from a git checkout (locally and actions/checkout).
+    assert listed.returncode == 0, listed.stderr
     modes = {
         line.split("\t")[1]: line.split()[0] for line in listed.stdout.splitlines()
     }
