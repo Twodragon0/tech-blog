@@ -1361,12 +1361,27 @@
       "statusCode": 301
     },
     {
+      "source": "/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8%EC%9D%B4-%EB%B0%94%EA%BE%B8%EB%8A%94-%EA%B8%88%EC%9C%B5%EA%B3%BC-%EC%9A%B0%EB%A6%AC%EC%9D%98-%EC%82%B6/",
+      "destination": "https://legacy.2twodragon.com/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8%ec%9d%b4-%eb%b0%94%ea%be%b8%eb%8a%94-%ea%b8%88%ec%9c%b5%ea%b3%bc-%ec%9a%b0%eb%a6%ac%ec%9d%98-%ec%82%b6/",
+      "statusCode": 301
+    },
+    {
       "source": "/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8-%ea%b8%b0%ec%88%a0%ea%b3%bc-%ea%b8%88%ec%9c%b5%ed%98%81%eb%aa%85-%eb%b9%84%ed%8a%b8%ec%bd%94%ec%9d%b8%ea%b3%bc-%ec%9d%b4%eb%8d%94%eb%a6%ac%ec%9b%80%ec%9d%98/",
       "destination": "https://legacy.2twodragon.com/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8-%ea%b8%b0%ec%88%a0%ea%b3%bc-%ea%b8%88%ec%9c%b5%ed%98%81%eb%aa%85-%eb%b9%84%ed%8a%b8%ec%bd%94%ec%9d%b8%ea%b3%bc-%ec%9d%b4%eb%8d%94%eb%a6%ac%ec%9b%80%ec%9d%98/",
       "statusCode": 301
     },
     {
+      "source": "/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EA%B8%88%EC%9C%B5%ED%98%81%EB%AA%85-%EB%B9%84%ED%8A%B8%EC%BD%94%EC%9D%B8%EA%B3%BC-%EC%9D%B4%EB%8D%94%EB%A6%AC%EC%9B%80%EC%9D%98/",
+      "destination": "https://legacy.2twodragon.com/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8-%ea%b8%b0%ec%88%a0%ea%b3%bc-%ea%b8%88%ec%9c%b5%ed%98%81%eb%aa%85-%eb%b9%84%ed%8a%b8%ec%bd%94%ec%9d%b8%ea%b3%bc-%ec%9d%b4%eb%8d%94%eb%a6%ac%ec%9b%80%ec%9d%98/",
+      "statusCode": 301
+    },
+    {
       "source": "/%ec%84%9c%ec%9a%b8%eb%b6%80%eb%8f%99%ec%82%b0/",
+      "destination": "https://legacy.2twodragon.com/%ec%84%9c%ec%9a%b8%eb%b6%80%eb%8f%99%ec%82%b0/",
+      "statusCode": 301
+    },
+    {
+      "source": "/%EC%84%9C%EC%9A%B8%EB%B6%80%EB%8F%99%EC%82%B0/",
       "destination": "https://legacy.2twodragon.com/%ec%84%9c%ec%9a%b8%eb%b6%80%eb%8f%99%ec%82%b0/",
       "statusCode": 301
     },
@@ -2036,6 +2051,11 @@
       "statusCode": 301
     },
     {
+      "source": "/hku5%E2%80%91cov%E2%80%912/",
+      "destination": "https://legacy.2twodragon.com/hku5%e2%80%91cov%e2%80%912/",
+      "statusCode": 301
+    },
+    {
       "source": "/huangs-law/",
       "destination": "https://legacy.2twodragon.com/huangs-law/",
       "statusCode": 301
@@ -2487,6 +2507,11 @@
     },
     {
       "source": "/product/%f0%9f%94%90-cloud-security-mastery-your-guide-to-becoming-an-aws-azure-expert-%f0%9f%8c%90/",
+      "destination": "https://legacy.2twodragon.com/product/%f0%9f%94%90-cloud-security-mastery-your-guide-to-becoming-an-aws-azure-expert-%f0%9f%8c%90/",
+      "statusCode": 301
+    },
+    {
+      "source": "/product/%F0%9F%94%90-cloud-security-mastery-your-guide-to-becoming-an-aws-azure-expert-%F0%9F%8C%90/",
       "destination": "https://legacy.2twodragon.com/product/%f0%9f%94%90-cloud-security-mastery-your-guide-to-becoming-an-aws-azure-expert-%f0%9f%8c%90/",
       "statusCode": 301
     },

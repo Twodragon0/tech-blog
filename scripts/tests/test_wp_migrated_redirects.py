@@ -8,10 +8,11 @@ https://legacy.2twodragon.com/<slug>/, so every migrated article had a second
 copy and the old URL's link equity went to the archive instead of the post.
 
 Rules are matched the way Vercel does here: the first rule whose ``source``
-equals the request path wins. A slug with a non-ASCII character can arrive as
-the raw path, as WordPress's lowercase percent-encoding, or as the uppercase
-encoding browsers send; Vercel compares sources case-sensitively, so each form
-needs its own rule.
+equals the request path wins. Vercel compares the percent-encoded path
+case-sensitively, so a slug with a non-ASCII character needs a rule for
+WordPress's lowercase encoding and for the uppercase encoding browsers send.
+The raw-character rule is defensive: clients that send raw UTF-8 bytes are
+re-encoded upstream and land on the uppercase rule.
 """
 
 from __future__ import annotations
@@ -106,6 +107,23 @@ def test_target_is_an_existing_post(entry):
         for p in POSTS_DIR.glob("*.md")
         if (m := _POST_FILENAME.match(p.stem)) and m["title"] == title
     ]
-    assert entry["target"] in {post_url(p) for p in candidates}, (
-        f"{entry['wp_slug']}: no _posts file builds {entry['target']}"
-    )
+    building = [p for p in candidates if post_url(p) == entry["target"]]
+    assert building, f"{entry['wp_slug']}: no _posts file builds {entry['target']}"
+    # post_url() derives the URL from date + filename only; an override would
+    # move or hide the post while this test still passed.
+    meta = frontmatter.load(building[0]).metadata
+    assert not {"permalink", "slug"} & meta.keys(), building[0].name
+    assert meta.get("published", True) is not False, building[0].name
+
+
+def test_no_pattern_rule_precedes_a_migrated_rule():
+    # first_rule() only knows exact sources. A pattern (":param", "(...)", "*")
+    # above the WordPress block could capture an old URL before its own rule.
+    migrated = {path for path, _ in MIGRATED_PATHS}
+    last = max(i for i, rule in enumerate(REDIRECTS) if rule["source"] in migrated)
+    patterns = [
+        rule["source"]
+        for rule in REDIRECTS[:last]
+        if any(ch in rule["source"] for ch in ":(*")
+    ]
+    assert not patterns, patterns
