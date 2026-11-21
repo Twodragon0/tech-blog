@@ -16,7 +16,7 @@
 
 set -uo pipefail
 
-DOMAIN="${1:-https://tech.2twodragon.com}"
+DOMAIN="${1:-https://2twodragon.com}"
 UA="Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 
 # Probe paths: homepage, sitemap, robots.txt, one recent post.

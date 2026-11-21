@@ -38,9 +38,11 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 
+// Apex, not tech.2twodragon.com: that host 301s to the apex, and the sawReportOnly check below
+// matches the response by exact URL, so it would only ever see the headerless redirect hop.
 const DEFAULT_URLS = [
-  'https://tech.2twodragon.com/',
-  'https://tech.2twodragon.com/posts/2026/08/11/Tech_Security_Weekly_Digest_AI_Ransomware_Go_AWS/',
+  'https://2twodragon.com/',
+  'https://2twodragon.com/posts/2026/08/11/Tech_Security_Weekly_Digest_AI_Ransomware_Go_AWS/',
 ];
 
 // head-runtime.js binds these five, capture+passive, to trigger its lazy loaders.

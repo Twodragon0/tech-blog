@@ -27,11 +27,11 @@ jobs:
 
       - name: Check site availability
         run: |
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 -A "Mozilla/5.0 TechBlogMonitor" https://tech.2twodragon.com)
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 -A "Mozilla/5.0 TechBlogMonitor" https://2twodragon.com)
           echo "HTTP status: $HTTP_STATUS"
           if [ "$HTTP_STATUS" -eq 429 ]; then
             echo "::warning::Site returned HTTP 429 (rate limited) - site is alive"
-          elif [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 400 ]; then
+          elif [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 300 ]; then
             echo "::error::Site returned HTTP $HTTP_STATUS"
             exit 1
           else
@@ -48,7 +48,7 @@ jobs:
           which jq > /dev/null 2>&1 || (apt-get update && apt-get install -y jq)
 
       - name: Run Vercel monitoring
-        run: bash scripts/monitor_vercel_builds.sh https://tech.2twodragon.com --alert-only
+        run: bash scripts/monitor_vercel_builds.sh https://2twodragon.com --alert-only
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           SENTRY_MONITOR_MODE: ${{ vars.SENTRY_MONITOR_MODE || 'shared' }}
@@ -127,7 +127,7 @@ jobs:
               "*Production Monitoring Failed*\n"
               f"<{os.environ["RUN_URL"]}|View Workflow Run>\n"
               f"Repository: `{os.environ["REPOSITORY"]}`  Branch: `{os.environ["BRANCH"]}`\n"
-              "Site: <https://tech.2twodragon.com|tech.2twodragon.com>"
+              "Site: <https://2twodragon.com|2twodragon.com>"
           )
           print(json.dumps({
               "channel": os.environ["SLACK_CHANNEL_ID"],
