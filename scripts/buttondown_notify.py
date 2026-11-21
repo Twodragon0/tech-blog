@@ -336,13 +336,16 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> str:
 
     print("Sending email via Buttondown API...")
     print(f"  Subject: {subject[:80]}")
+    # No redirects: requests would repeat the POST as a GET, and that GET's 200
+    # would read as a sent email.
+    post = {"json": data, "headers": headers, "timeout": 30, "allow_redirects": False}
     try:
-        response = requests.post(url, json=data, headers=headers, timeout=30)
+        response = requests.post(url, **post)
         if response.status_code == 429:
             wait = _rate_limit_wait(response)
             print(f"  Rate limited (429); retrying once in {wait}s")
             time.sleep(wait)
-            response = requests.post(url, json=data, headers=headers, timeout=30)
+            response = requests.post(url, **post)
     except requests.exceptions.Timeout:
         print("  Timeout: no answer within 30s. The email may have gone out anyway.")
         return TRANSIENT
@@ -369,14 +372,14 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> str:
         )
         print(f"  Auth failed ({status}): {reason}. Check BUTTONDOWN_API_KEY.")
         safe_print(f"  API Key length: {len(api_key)}")
-        safe_print(f"  Response: {response.text[:300]}")
+        print(f"  Response: {mask_sensitive_info(response.text)[:300]}")
         return AUTH_REJECTED
     if status == 429 or status >= 500:
         print(f"  Temporary failure: {status}")
-        safe_print(f"  Response: {response.text[:300]}")
+        print(f"  Response: {mask_sensitive_info(response.text)[:300]}")
         return TRANSIENT
     print(f"  Failed: {status}")
-    safe_print(f"  Response: {response.text[:300]}")
+    print(f"  Response: {mask_sensitive_info(response.text)[:300]}")
     return FAILED
 
 

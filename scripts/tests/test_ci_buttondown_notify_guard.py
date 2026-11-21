@@ -291,14 +291,76 @@ def test_edited_and_renamed_posts_are_not_new(repo: Path):
     assert _new_posts(repo, "push", before) == []
 
 
-def test_non_ascii_post_names_come_through_verbatim(repo: Path):
-    """Without -z, git prints such a name quoted and octal-escaped."""
+@pytest.mark.parametrize(
+    "name", ["_posts/2026-11-19-보안_점검.md", "_posts/2026-11-19-two\nlines.md"]
+)
+def test_post_names_come_through_verbatim(repo: Path, name: str):
+    """Without -z, git quotes and octal-escapes such names; split on newlines,
+    the second would turn into two paths."""
     before = _git(repo, "rev-parse", "HEAD")
-    _commit(repo, "_posts/2026-11-19-보안_점검.md")
-    assert _new_posts(repo, "push", before) == ["_posts/2026-11-19-보안_점검.md"]
+    _commit(repo, name)
+    assert _new_posts(repo, "push", before) == [name]
 
 
 def test_a_failing_git_diff_fails_the_step(repo: Path):
     """It used to read as "no new posts", and the run went green."""
     run = _check_step(repo, "push", ZERO_SHA)  # HEAD~1 of a root commit
     assert run.returncode != 0, run.stdout
+
+
+def _send_step(tmp_path: Path, event: str, attempt: int, post_path: str = ""):
+    """Run the send step's script with a stand-in python3 that records its args.
+
+    The working directory has no scripts/, and the key is a dummy, so even a
+    real python3 found by mistake could not send anything.
+    """
+    bin_dir, work = tmp_path / "bin", tmp_path / "work"
+    bin_dir.mkdir()
+    work.mkdir()
+    calls = tmp_path / "python3_calls"
+    stub = bin_dir / "python3"
+    stub.write_text(f'#!/bin/sh\nprintf "%s\\n" "$@" >> "{calls}"\n')
+    stub.chmod(0o755)
+    script = tmp_path / "send_step.sh"
+    script.write_text(_step(SEND_STEP)["run"], encoding="utf-8")
+    run = subprocess.run(
+        ["bash", "-e", str(script)],  # Actions' default for a step without shell:
+        cwd=work,
+        env={
+            "PATH": f"{bin_dir}{os.pathsep}{os.environ['PATH']}",
+            "HOME": str(tmp_path),
+            "GITHUB_EVENT_NAME": event,
+            "GITHUB_RUN_ATTEMPT": str(attempt),
+            "BUTTONDOWN_API_KEY": "dummy-key-for-a-stub",
+            "POST_PATH": post_path,
+        },
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    sent = calls.read_text().splitlines() if calls.exists() else None
+    return run, sent
+
+
+def test_a_rerun_of_a_push_run_sends_nothing(tmp_path: Path):
+    """Re-run jobs replays the push's list, so posts that went out would be
+    mailed again. Failed posts are re-sent one at a time with post_path."""
+    run, sent = _send_step(tmp_path, "push", attempt=2)
+    assert run.returncode == 1
+    assert sent is None, f"the batch script ran: {sent}"
+    assert "::error::" in run.stdout and "post_path" in run.stdout
+
+
+def test_the_first_attempt_of_a_push_run_sends(tmp_path: Path):
+    run, sent = _send_step(tmp_path, "push", attempt=1)
+    assert run.returncode == 0, run.stdout + run.stderr
+    assert sent == ["scripts/buttondown_notify_batch.py"]
+
+
+@pytest.mark.parametrize("attempt", [1, 2])
+def test_a_manual_run_only_ever_sends_its_post_path(tmp_path: Path, attempt: int):
+    """Even with post_path empty: then the batch script refuses the empty path
+    instead of mailing the posts of the last commit."""
+    run, sent = _send_step(tmp_path, "workflow_dispatch", attempt, post_path="")
+    assert run.returncode == 0, run.stdout + run.stderr
+    assert sent == ["scripts/buttondown_notify_batch.py", "--", ""]

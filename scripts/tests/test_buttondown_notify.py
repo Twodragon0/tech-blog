@@ -65,10 +65,19 @@ class _FakeButtondown:
         self.outcomes = list(outcomes)
         self.bodies: list = []
         self.headers: list = []
+        self.follows_redirects: list = []
 
-    def __call__(self, url: str, json: dict, headers: dict, timeout: int):
+    def __call__(
+        self,
+        url: str,
+        json: dict,
+        headers: dict,
+        timeout: int,
+        allow_redirects: bool = True,
+    ):
         self.bodies.append(json["body"])
         self.headers.append(headers)
+        self.follows_redirects.append(allow_redirects)
         outcome = self.outcomes.pop(0)
         if isinstance(outcome, BaseException) or (
             isinstance(outcome, type) and issubclass(outcome, BaseException)
@@ -168,6 +177,7 @@ def test_email_body_links_to_the_live_url(tmp_path: Path, buttondown) -> None:
         ((503,), buttondown_notify.TRANSIENT),
         ((requests.exceptions.Timeout,), buttondown_notify.TRANSIENT),
         ((requests.exceptions.ConnectionError,), buttondown_notify.TRANSIENT),
+        ((301,), buttondown_notify.FAILED),
         ((400,), buttondown_notify.FAILED),
         ((422,), buttondown_notify.FAILED),
         ((requests.exceptions.RequestException,), buttondown_notify.FAILED),
@@ -247,6 +257,36 @@ def test_auth_failure_prints_the_response_masked_and_truncated(
     assert '{"detail": "token ***BUTTONDOWN_API_KEY_MASKED*** refused"}' in out
     assert KEY not in out
     assert 0 < out.count(" pad") < 200
+
+
+def test_redirects_are_not_followed(buttondown) -> None:
+    """requests turns a redirected POST into a GET, whose 200 is no email."""
+    fake = buttondown(_response(302, headers={"Location": "/v1/emails/"}), 201)
+    assert buttondown_notify.send_buttondown_email("s", "b", "key") == (
+        buttondown_notify.FAILED
+    )
+    assert fake.follows_redirects == [False]
+
+
+def test_a_response_is_masked_before_it_is_truncated(
+    buttondown, capsys, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Truncating first left the start of a key that straddled character 300."""
+    monkeypatch.setenv("BUTTONDOWN_API_KEY", KEY)
+    buttondown(_response(400, "x " * 145 + KEY))
+    assert buttondown_notify.send_buttondown_email("s", "b", KEY) == (
+        buttondown_notify.FAILED
+    )
+    assert KEY[:8] not in capsys.readouterr().out
+
+
+def test_a_key_saved_with_a_newline_is_still_masked(
+    buttondown, capsys, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("BUTTONDOWN_API_KEY", f"{KEY}\n")
+    buttondown(_response(401, f'{{"detail": "token {KEY} refused"}}'))
+    buttondown_notify.send_buttondown_email("s", "b", f"{KEY}\n")
+    assert KEY not in capsys.readouterr().out
 
 
 def test_the_api_key_is_stripped_before_use(buttondown) -> None:

@@ -38,7 +38,9 @@ def mask_sensitive_info(text: str) -> str:
     # Slack bot / app tokens
     masked = re.sub(r"xox[abposr]-[a-zA-Z0-9-]{10,}", "xox***MASKED***", masked)
 
-    # Mask actual API key values from environment
+    # Mask actual API key values from environment. Stripped, because callers
+    # use them stripped: a secret saved with a trailing newline would
+    # otherwise never match the key as it appears in a message.
     for env_var in [
         "GEMINI_API_KEY",
         "CLAUDE_API_KEY",
@@ -49,7 +51,7 @@ def mask_sensitive_info(text: str) -> str:
         "SLACK_WEBHOOK_URL",
         "DISCORD_WEBHOOK_URL",
     ]:
-        key_val = os.getenv(env_var, "")
+        key_val = os.getenv(env_var, "").strip()
         if key_val and len(key_val) > 10:
             masked = masked.replace(key_val, f"***{env_var}_MASKED***")
 

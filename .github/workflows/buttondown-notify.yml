@@ -71,20 +71,20 @@ jobs:
           echo "Looking for new posts in $BASE..HEAD"
 
           # --diff-filter=A: only new posts are mailed, never edits or renames.
-          # -z: names come out verbatim; otherwise git quotes non-ASCII ones.
-          NEW_POSTS=$(git diff -z --name-only --diff-filter=A "$BASE" HEAD -- '_posts/*.md' | tr '\0' '\n')
+          # -z: NUL-separated and verbatim; otherwise git quotes non-ASCII names.
+          NEW_POSTS=$(mktemp)
+          git diff -z --name-only --diff-filter=A "$BASE" HEAD -- '_posts/*.md' > "$NEW_POSTS"
 
           # The send step mails this list (POSTS_JSON) rather than diffing
           # again, so both steps agree. Each path is base64-encoded so any file
           # name survives GITHUB_OUTPUT and the environment.
           POSTS_JSON=""
           POST_COUNT=0
-          while IFS= read -r post; do
-            [ -n "$post" ] || continue
+          while IFS= read -r -d '' post; do
             echo "  new post: $post"
             POSTS_JSON="$POSTS_JSON${POSTS_JSON:+,}\"$(printf '%s' "$post" | base64 | tr -d '\n')\""
             POST_COUNT=$((POST_COUNT + 1))
-          done <<< "$NEW_POSTS"
+          done < "$NEW_POSTS"
 
           echo "posts_json=[$POSTS_JSON]" >> "$GITHUB_OUTPUT"
           echo "post_count=$POST_COUNT" >> "$GITHUB_OUTPUT"
@@ -111,7 +111,8 @@ jobs:
       # 401 on every run while the job showed green. Any post not confirmed
       # sent (rejected key, refused request, 429/5xx/timeout) now fails this
       # job with an ::error:: naming it. Re-send such a post with a manual run
-      # (post_path); Re-run jobs would mail the posts that went out again.
+      # (post_path). Re-run jobs would mail the posts that went out again, so
+      # a re-run of a push run stops before sending anything.
       # A red run here blocks nothing else: no workflow waits on this one
       # (no workflow_run consumer, no needs:) and it has no PR trigger.
       - name: Send Buttondown Email
@@ -131,6 +132,13 @@ jobs:
           # re-parses it. (Security fix B-H1, 2026-06-30 workflow audit.)
           POST_PATH: ${{ github.event.inputs.post_path }}
         run: |
+          # Re-run jobs replays this push's list of posts, so every one of them
+          # that already went out would be mailed to every subscriber again.
+          if [ "$GITHUB_EVENT_NAME" = push ] && [ "${GITHUB_RUN_ATTEMPT:-1}" -gt 1 ]; then
+            echo "::error::Attempt $GITHUB_RUN_ATTEMPT of a push run sends nothing: it would mail again the posts that already went out. Re-send each post marked not sent or not confirmed in the first attempt's summary by running this workflow manually with its post_path."
+            exit 1
+          fi
+
           # 보안: API 키 검증
           if [ -z "$BUTTONDOWN_API_KEY" ]; then
             echo "::error::BUTTONDOWN_API_KEY is not set in GitHub Secrets (Settings → Secrets and variables → Actions)"
@@ -140,7 +148,9 @@ jobs:
           # workflow_dispatch: 지정된 포스트 발송
           # push: check 단계가 찾은 새 포스트(POSTS_JSON) 발송
           # Both go through the batch script so the same bulk/imported guards apply.
-          if [ -n "$POST_PATH" ]; then
+          # A manual run never falls through to the push list: with an empty
+          # post_path the batch script refuses the path instead.
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
             echo "📧 Manual dispatch: $POST_PATH"
             python3 scripts/buttondown_notify_batch.py -- "$POST_PATH"
           else
