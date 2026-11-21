@@ -109,8 +109,8 @@ updates:
       # diagrams 0.25.1 (latest on 2026-08-18) declares
       # `graphviz<0.21.0,>=0.13.2`, and NO diagrams release ever published
       # allows graphviz>=0.21 — `pip install diagrams 'graphviz>=0.21'` is
-      # ResolutionImpossible across all 49 versions. Unlike the Pillow case
-      # this one fails loudly rather than silently downgrading, but merging it
+      # ResolutionImpossible across all 49 versions. This one fails loudly
+      # rather than silently downgrading, but merging it
       # still breaks `pip install -r scripts/requirements.txt` outright.
       # PR #562 was exactly this.
       #

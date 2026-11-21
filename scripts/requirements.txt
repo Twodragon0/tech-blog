@@ -13,7 +13,7 @@ python-frontmatter>=1.3.0
 # unused.
 tweepy>=4.17.0
 PyYAML>=6.0.3
-Pillow>=13.0.0,<14.0
+Pillow>=13.0.0,<14.0  # majors arrive as dependabot PRs, gated by the CI resolver dry-run
 python-dotenv>=1.2.4
 
 # RSS 피드 파싱 (뉴스 수집)
@@ -46,8 +46,7 @@ google-generativeai>=0.8.6
 # Coqui `TTS` was removed here on 2026-09-16. It was dead: nothing in this repo
 # imports it (`import TTS` / `from TTS`: 0 hits) and its only documented consumer,
 # generate_enhanced_audio.py, moved to the online-course repo in cfe0d82d —
-# scripts/README.md already points there. The audio path that remains is gTTS,
-# a different package with no Python cap.
+# scripts/README.md already points there. No audio path remains in this repo.
 #
 # It was not free to keep. Coqui TTS declares `Requires-Python >=3.9.0, <3.12`,
 # which is the ONLY Python constraint this file had, and on 3.11 it pulled the

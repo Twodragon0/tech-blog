@@ -102,14 +102,6 @@ try:
     PIL_AVAILABLE = True
 except ImportError:
     PIL_AVAILABLE = False
-try:
-    import cairosvg
-
-    CAIROSVG_AVAILABLE = True
-except Exception:
-    CAIROSVG_AVAILABLE = False
-
-RSVG_CONVERT_PATH = shutil.which("rsvg-convert")
 CWEBP_PATH = shutil.which("cwebp")
 AVIFENC_PATH = shutil.which("avifenc")
 
@@ -878,94 +870,6 @@ def save_prompt_file(prompt: str, output_path: Path):
         log_message(
             f"⚠️ 프롬프트 파일 저장 실패: {mask_sensitive_info(str(e))}", "WARNING"
         )
-
-
-def convert_svg_to_png(svg_path: Path, png_path: Path) -> bool:
-    """SVG 파일을 PNG로 변환"""
-    if CAIROSVG_AVAILABLE:
-        try:
-            cairosvg.svg2png(
-                url=str(svg_path), write_to=str(png_path), scale=2
-            )  # 2x scale for higher quality
-            log_message(f"✅ SVG → PNG 변환 완료: {png_path.name}", "SUCCESS")
-            convert_png_to_modern_formats(png_path)
-            return True
-        except Exception as e:
-            log_message(
-                f"⚠️ cairosvg 변환 실패: {mask_sensitive_info(str(e))}", "WARNING"
-            )
-
-    if RSVG_CONVERT_PATH:
-        try:
-            result = subprocess.run(
-                [
-                    RSVG_CONVERT_PATH,
-                    "-w",
-                    "1200",
-                    "-h",
-                    "630",
-                    str(svg_path),
-                    "-o",
-                    str(png_path),
-                ],
-                capture_output=True,
-                text=True,
-                timeout=30,
-            )
-            if result.returncode == 0:
-                log_message(
-                    f"✅ SVG → PNG 변환 완료 (rsvg-convert): {png_path.name}", "SUCCESS"
-                )
-                convert_png_to_modern_formats(png_path)
-                return True
-            log_message(
-                f"⚠️ rsvg-convert 실패: {mask_sensitive_info(result.stderr)}", "WARNING"
-            )
-        except Exception as e:
-            log_message(
-                f"⚠️ rsvg-convert 오류: {mask_sensitive_info(str(e))}", "WARNING"
-            )
-
-    log_message("⚠️ SVG 변환 불가: cairosvg 또는 rsvg-convert 필요", "WARNING")
-    log_message("💡 설치: pip install cairosvg 또는 brew install librsvg", "INFO")
-    return False
-
-
-def convert_png_to_modern_formats(png_path: Path) -> None:
-    """PNG를 WebP + AVIF로 변환 (next-gen 이미지 포맷)"""
-    if not png_path.exists():
-        return
-
-    webp_path = png_path.with_suffix(".webp")
-    avif_path = png_path.with_suffix(".avif")
-
-    # WebP 변환
-    if CWEBP_PATH and not webp_path.exists():
-        try:
-            result = subprocess.run(
-                [CWEBP_PATH, "-q", "80", "-quiet", str(png_path), "-o", str(webp_path)],
-                capture_output=True,
-                text=True,
-                timeout=30,
-            )
-            if result.returncode == 0:
-                log_message(f"✅ PNG → WebP 변환: {webp_path.name}", "SUCCESS")
-        except Exception as e:
-            log_message(f"⚠️ WebP 변환 실패: {mask_sensitive_info(str(e))}", "WARNING")
-
-    # AVIF 변환
-    if AVIFENC_PATH and not avif_path.exists():
-        try:
-            result = subprocess.run(
-                [AVIFENC_PATH, "-s", "6", "-q", "40", str(png_path), str(avif_path)],
-                capture_output=True,
-                text=True,
-                timeout=60,
-            )
-            if result.returncode == 0:
-                log_message(f"✅ PNG → AVIF 변환: {avif_path.name}", "SUCCESS")
-        except Exception as e:
-            log_message(f"⚠️ AVIF 변환 실패: {mask_sensitive_info(str(e))}", "WARNING")
 
 
 # ============================================================================
