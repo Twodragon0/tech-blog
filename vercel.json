@@ -1346,7 +1346,7 @@
       "statusCode": 301
     },
     {
-      "source": "/amazon-eks-nginx\u2011ingress/",
+      "source": "/amazon-eks-nginx‑ingress/",
       "destination": "/posts/2025/03/25/Amazon_EKS_nginx-ingress_Vulnerability_Response_Guide/",
       "statusCode": 301
     },
@@ -2483,11 +2483,6 @@
     {
       "source": "/portwine/",
       "destination": "https://legacy.2twodragon.com/portwine/",
-      "statusCode": 301
-    },
-    {
-      "source": "/privacy-policy/",
-      "destination": "https://legacy.2twodragon.com/privacy-policy/",
       "statusCode": 301
     },
     {
