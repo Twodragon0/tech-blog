@@ -27,13 +27,21 @@ layout: null
       <width>144</width>
       <height>144</height>
     </image>
-    {% for post in site.posts limit: 50 %}
+    {%- comment -%}
+      20 items, not 50: every item carries the full body (digests run ~40 KB),
+      and at 50 the feed reached 2.2 MB. Root-relative href/src in bodies are
+      made absolute because readers resolve them against their own host;
+      protocol-relative "//" URLs are parked first so they are left alone.
+    {%- endcomment -%}
+    {% assign feed_origin = site.url | append: site.baseurl %}
+    {% for post in site.posts limit: 20 %}
     <item>
       <title>{{ post.title | xml_escape }}</title>
       <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
       <dc:creator>{{ site.author.name | xml_escape }}</dc:creator>
       <description>{{ post.excerpt | strip_html | strip_newlines | xml_escape | truncate: 500 }}</description>
-      <content:encoded><![CDATA[{{ post.content }}]]></content:encoded>
+      {% assign feed_body = post.content | replace: 'href="//', 'href="@@PROTO@@' | replace: 'src="//', 'src="@@PROTO@@' | replace: 'href="/', 'href="FEED_ORIGIN/' | replace: 'src="/', 'src="FEED_ORIGIN/' | replace: 'FEED_ORIGIN', feed_origin | replace: '@@PROTO@@', '//' %}
+      <content:encoded><![CDATA[{{ feed_body }}]]></content:encoded>
       <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
       <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
       {% for category in post.categories %}
