@@ -292,7 +292,7 @@ OpenAI의 ChatGPT Pro 구독 출시는 생성형 AI 시장의 경쟁 심화를 �
 
 이번 주 한 줄: 사내 Android·iOS 앱에서 광고 ID 송출 경로부터 분리하라 — Android 측은 `find . -name "*.gradle*" | xargs grep -H -iE "applovin|ironsource|chartboost|inmobi|smaato|mintegral|tradplus|cobwebs" 2>/dev/null` 한 줄로 광고 SDK 인벤토리를 만들고, 사용 중인 SDK 의 privacy manifest 와 `AAID/IDFA` 송신 도메인을 화이트리스트로만 허용하는 NetworkSecurityConfig 룰을 다음 릴리스에 박는다. 워크스테이션 측은 `Get-FileHash -Algorithm SHA256 (Get-ChildItem -Path "C:\Program Files\*","C:\Program Files (x86)\*" -Filter "cpuz*.exe","HWiNFO*.exe" -Recurse 2>$null)` (Windows) 또는 `shasum -a 256 /Applications/CPU-X*.app/Contents/MacOS/* 2>/dev/null` 으로 정상 해시와 비교하라.
 
-본 블로그의 [AI 비서 보안 구멍 — 엔터프라이즈 AI 서비스 보안 가이드](https://tech.2twodragon.com/posts/2025/10/31/AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide/) 에서 정리한 데이터 최소화·텔레메트리 화이트리스트 원칙은 Webloc 의 광고 데이터 우회 추적 패턴이 사내 SaaS·AI 도구의 텔레메트리 채널에서 동일하게 일어날 수 있다는 점을 직접 보여준다. 사내 AI 비서를 운영 중이라면, 거기서 제시한 outbound 도메인 화이트리스트가 광고/분석 트래픽까지 포함해 명시화돼 있는지 이번 주에 재검증하라.
+본 블로그의 [AI 비서 보안 구멍 — 엔터프라이즈 AI 서비스 보안 가이드](/posts/2025/10/31/AI_Secretary_Security_Hole_For_Enterprise_AI_Service_Security_Guide/) 에서 정리한 데이터 최소화·텔레메트리 화이트리스트 원칙은 Webloc 의 광고 데이터 우회 추적 패턴이 사내 SaaS·AI 도구의 텔레메트리 채널에서 동일하게 일어날 수 있다는 점을 직접 보여준다. 사내 AI 비서를 운영 중이라면, 거기서 제시한 outbound 도메인 화이트리스트가 광고/분석 트래픽까지 포함해 명시화돼 있는지 이번 주에 재검증하라.
 
 ## 참고 자료
 

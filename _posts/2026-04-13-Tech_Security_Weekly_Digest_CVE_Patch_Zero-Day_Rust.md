@@ -280,7 +280,7 @@ Bitcoin Magazine의 'Relics of a Revolution, Part II: False Profits and Freedom'
 
 이번 주 한 줄: 사내 Marimo 인스턴스부터 색출하라 — `kubectl get pods -A -o jsonpath='{range .items[*]}{.spec.containers[*].image}{"\n"}{end}' 2>/dev/null | sort -u | grep -i marimo; pip list --format=freeze 2>/dev/null | grep -i marimo; ps -eo cmd | grep -i 'marimo' | grep -v grep` 한 줄로 K8s·로컬 venv·실행 중 프로세스를 동시에 점검하고, 발견 즉시 `pip install -U marimo` 최신화 + 외부 포트(보통 2718) 의 ingress 차단을 P0 로 올린다. Acrobat Reader 측은 endpoint 측 인벤토리에서 `reg query "HKLM\Software\Adobe\Acrobat Reader" /s | findstr Version` (Windows) 또는 macOS `mdls -name kMDItemVersion /Applications/Adobe\ Acrobat\ Reader.app` 으로 패치 라인(25.x 패치 빌드 이상) 미만 호스트를 추출해 SCCM/Intune 강제 업데이트 큐에 넣어라.
 
-본 블로그의 [NPM Shai-Hulud 자기복제 웜 — 180개 패키지 침해 분석](https://tech.2twodragon.com/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/) 에서 정리한 자동 자격증명 회수·짧은 lifetime PAT 절차는 Marimo RCE 가 노트북 환경의 `~/.aws/credentials`·`~/.kube/config` 를 그대로 가져갈 수 있다는 점에서 직접 적용 가능하다. 운영 노트북 환경의 자격증명이 평문으로 남아 있다면, 이번 주 작업으로 keyring·`aws sts get-session-token` 단명 토큰 흐름으로의 전환을 마치는 것이 합리적이다.
+본 블로그의 [NPM Shai-Hulud 자기복제 웜 — 180개 패키지 침해 분석](/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/) 에서 정리한 자동 자격증명 회수·짧은 lifetime PAT 절차는 Marimo RCE 가 노트북 환경의 `~/.aws/credentials`·`~/.kube/config` 를 그대로 가져갈 수 있다는 점에서 직접 적용 가능하다. 운영 노트북 환경의 자격증명이 평문으로 남아 있다면, 이번 주 작업으로 keyring·`aws sts get-session-token` 단명 토큰 흐름으로의 전환을 마치는 것이 합리적이다.
 
 ## 참고 자료
 

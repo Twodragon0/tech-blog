@@ -461,7 +461,7 @@ VECT 2.0은 기존 랜섬웨어와 달리 **암호화 구현의 치명적 결함
 
 GHE Server 를 운영한다면 이번 주 우선 작업은 명확하다. 패치 적용 + 사고 발생을 가정한 audit log 조사다 — `ghe-audit-log-export --start-time "2026-04-15" --query "action:repo.push" --format json | jq '.[] | select(.repo.private==false or .commit_count>500)'` 같은 형태로 패치 이전 윈도우의 비정상 push 패턴을 찾고, OIDC 트러스트로 AWS·GCP 자격증명을 받는 워크플로우가 있는 저장소는 권한 범위를 다시 검토해야 한다. LofyGang의 Minecraft LofyStealer 캠페인은 사용자 PC 측 npm·VS Code 확장 stealer 가 다시 활성화됐다는 의미이므로, 개발자 워크스테이션의 `~/.aws/credentials`·`~/.kube/config`·`~/.netrc` 파일을 OS keyring 기반 자격증명 헬퍼로 마이그레이션하는 작업을 늦추지 말아야 한다.
 
-VECT 2.0의 destructive 특성은 백업 전략의 RPO·RTO 가정을 흔든다. 131KB 초과 파일이 영구 손상되는 시나리오에서는 차분(differential) 백업으로 복구 시간을 늘려도 손실 자체가 0이 되지 않으므로, **immutable snapshot 빈도**를 시간 단위로 좁힐 가치가 있다(예: AWS Backup Vault Lock + 1시간 단위 RDS PITR + S3 versioning + Object Lock). 본 블로그의 [NPM Shai-Hulud 자기복제 웜 — 180개 패키지 침해 분석](https://tech.2twodragon.com/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/) 에서 정리한 dev-machine 토큰 유출 경로는 이번 LofyStealer 캠페인 대응의 직접적인 참조점이며, 이전에 도입한 차단·롤백 절차가 그대로 적용 가능하다.
+VECT 2.0의 destructive 특성은 백업 전략의 RPO·RTO 가정을 흔든다. 131KB 초과 파일이 영구 손상되는 시나리오에서는 차분(differential) 백업으로 복구 시간을 늘려도 손실 자체가 0이 되지 않으므로, **immutable snapshot 빈도**를 시간 단위로 좁힐 가치가 있다(예: AWS Backup Vault Lock + 1시간 단위 RDS PITR + S3 versioning + Object Lock). 본 블로그의 [NPM Shai-Hulud 자기복제 웜 — 180개 패키지 침해 분석](/posts/2025/09/17/NPM_Shai-Hulud_Self_Replication_Worm_Attack_180_Above_Package_Breach_Large_scale_Supply_Chain_Attack_Complete_Analysis/) 에서 정리한 dev-machine 토큰 유출 경로는 이번 LofyStealer 캠페인 대응의 직접적인 참조점이며, 이전에 도입한 차단·롤백 절차가 그대로 적용 가능하다.
 
 ## 참고 자료
 

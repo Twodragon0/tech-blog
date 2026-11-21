@@ -655,6 +655,6 @@ SK쉴더스 데이터 중심 제로트러스트 전략의 국내 적용:
 
 ---
 
-*이 글은 [Twodragon's Tech Blog](https://tech.2twodragon.com)에서 매주 발행하는 Security Threat Intelligence Digest입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*
+*이 글은 [Twodragon's Tech Blog](https://2twodragon.com/)에서 매주 발행하는 Security Threat Intelligence Digest입니다. 최신 보안 뉴스와 실무 가이드를 매주 받아보세요.*
 
 작성자: Twodragon

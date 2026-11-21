@@ -303,7 +303,7 @@ aws ec2 authorize-security-group-ingress \
 | 리소스 | 링크 |
 |--------|------|
 | AWS 한국 블로그 - Control Tower | [aws.amazon.com/ko/blogs/korea/aws-control-tower](https://aws.amazon.com/ko/blogs/korea/tag/aws-control-tower/) |
-| 클라우드 보안 컨설팅 (Twodragon) | [tech.2twodragon.com](https://tech.2twodragon.com) |
+| 클라우드 보안 컨설팅 (Twodragon) | [2twodragon.com](https://2twodragon.com/) |
 | AWS 공인 교육 과정 | AWS Training and Certification 한국어 과정 |
 
 ### 5.4 관련 AWS 서비스

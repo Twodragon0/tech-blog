@@ -657,7 +657,7 @@ EU의 MiCA(Markets in Crypto-Assets Regulation)가 전면 시행에 들어갔습
 
 ---
 
-*이 포스트가 유용했다면, [tech.2twodragon.com](https://tech.2twodragon.com)을 방문하여 더 많은 DevSecOps 인사이트를 확인하세요.*
+*이 포스트가 유용했다면, [2twodragon.com](https://2twodragon.com/)을 방문하여 더 많은 DevSecOps 인사이트를 확인하세요.*
 
 ---
 
