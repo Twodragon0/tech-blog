@@ -25,6 +25,12 @@ has been verified.
   314-path redirect map is in `wordpress-archive-redirects.csv`; the media
   path has one wildcard redirect. A separate, private WordPress files/database
   backup is still required for orders and customer records.
+  The CSV is the archive's input, not the live rule set: in `vercel.json` the
+  50 migrated security slugs 301 to their apex `/posts/...` URLs instead
+  (`data/wp_redirect_map.json`, guarded by `test_wp_migrated_redirects.py`),
+  `/privacy-policy/` is not redirected because the blog serves its own page
+  (`test_vercel_redirects_no_page_shadowing.py`), and every percent-encoded
+  source also has its uppercase twin (`test_vercel_percent_encoding_twins.py`).
 - Vercel has the apex and `www` assigned to `tech-blog`, but their DNS still
   points to WordPress. The project-specific Vercel verification asks for
   DNS-only CNAME records for `@` and `www`, both pointing to

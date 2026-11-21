@@ -34,8 +34,8 @@ def sample_key():
 @pytest.fixture()
 def sample_urls():
     return [
-        "https://tech.2twodragon.com/post-a/",
-        "https://tech.2twodragon.com/post-b/",
+        "https://2twodragon.com/post-a/",
+        "https://2twodragon.com/post-b/",
     ]
 
 
@@ -110,7 +110,7 @@ def test_mask_key_short():
 def test_url_limit_truncation(sample_key, capsys):
     """URLs exceeding URL_LIMIT must be truncated, not errored."""
     oversized = [
-        f"https://tech.2twodragon.com/post-{i}/" for i in range(ping.URL_LIMIT + 500)
+        f"https://2twodragon.com/post-{i}/" for i in range(ping.URL_LIMIT + 500)
     ]
 
     with (
@@ -133,7 +133,7 @@ def test_url_limit_truncation(sample_key, capsys):
 
 def test_url_limit_boundary_ok(sample_key, sample_urls):
     """Exactly URL_LIMIT URLs should pass without truncation warning."""
-    exactly = [f"https://tech.2twodragon.com/p{i}/" for i in range(ping.URL_LIMIT)]
+    exactly = [f"https://2twodragon.com/p{i}/" for i in range(ping.URL_LIMIT)]
     payload = ping.build_payload(sample_key, exactly)
     assert len(payload["urlList"]) == ping.URL_LIMIT
 
@@ -188,8 +188,8 @@ def test_dry_run_contains_payload_structure(sample_key, sample_urls, capsys):
 
 SAMPLE_XML = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tech.2twodragon.com/a/</loc></url>
-  <url><loc>https://tech.2twodragon.com/b/</loc></url>
+  <url><loc>https://2twodragon.com/a/</loc></url>
+  <url><loc>https://2twodragon.com/b/</loc></url>
 </urlset>
 """.strip()
 
@@ -207,10 +207,10 @@ def test_parse_sitemap_urls_success():
     """A 200 response with valid namespaced XML returns the parsed URL list."""
     fake_resp = _make_url_resp(SAMPLE_XML.encode("utf-8"))
     with patch("indexnow_ping.urlopen", return_value=fake_resp):
-        urls = ping.parse_sitemap_urls("https://tech.2twodragon.com/sitemap.xml")
+        urls = ping.parse_sitemap_urls("https://2twodragon.com/sitemap.xml")
     assert urls == [
-        "https://tech.2twodragon.com/a/",
-        "https://tech.2twodragon.com/b/",
+        "https://2twodragon.com/a/",
+        "https://2twodragon.com/b/",
     ]
 
 
@@ -226,7 +226,7 @@ def test_parse_sitemap_urls_returns_empty_on_non_200(capsys):
     """A non-200 status returns [] with a stderr diagnostic."""
     fake_resp = _make_url_resp(b"", status=503)
     with patch("indexnow_ping.urlopen", return_value=fake_resp):
-        urls = ping.parse_sitemap_urls("https://tech.2twodragon.com/sitemap.xml")
+        urls = ping.parse_sitemap_urls("https://2twodragon.com/sitemap.xml")
     assert urls == []
     assert "HTTP 503" in capsys.readouterr().err
 
@@ -235,7 +235,7 @@ def test_parse_sitemap_urls_returns_empty_on_invalid_xml(capsys):
     """A 200 with malformed XML returns [] with a parse-error diagnostic."""
     fake_resp = _make_url_resp(b"<not-xml")
     with patch("indexnow_ping.urlopen", return_value=fake_resp):
-        urls = ping.parse_sitemap_urls("https://tech.2twodragon.com/sitemap.xml")
+        urls = ping.parse_sitemap_urls("https://2twodragon.com/sitemap.xml")
     assert urls == []
     assert "Failed to parse sitemap" in capsys.readouterr().err
 

@@ -3,7 +3,6 @@
 import json
 from pathlib import Path
 
-
 VERCEL_CONFIG = Path(__file__).resolve().parents[2] / "vercel.json"
 
 
@@ -20,10 +19,7 @@ def test_apex_routes_do_not_redirect_to_old_tech_host():
 def test_wordpress_slug_and_uploads_reach_archive():
     redirects = json.loads(VERCEL_CONFIG.read_text())["redirects"]
     destinations = {rule["source"]: rule["destination"] for rule in redirects}
-    assert (
-        destinations["/12mon-devsecops/"]
-        == "https://legacy.2twodragon.com/12mon-devsecops/"
-    )
+    assert destinations["/2024-f1/"] == "https://legacy.2twodragon.com/2024-f1/"
     assert destinations["/wp-content/uploads/:path*"] == (
         "https://legacy.2twodragon.com/wp-content/uploads/:path*"
     )

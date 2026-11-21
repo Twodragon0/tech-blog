@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      SITE_URL: "https://tech.2twodragon.com"
+      SITE_URL: "https://2twodragon.com"
 
     steps:
       - name: Checkout
