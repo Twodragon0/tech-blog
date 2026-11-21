@@ -1,13 +1,17 @@
 """Shared pytest configuration for scripts/tests/.
 
 Disables all external API calls (Gemini, DeepSeek, OpenAI) and patches
-module-level globals to prevent network access during testing. Also keeps
-every test's git commands out of the repository that launched pytest.
+module-level globals to prevent network access during testing. Blocks every
+socket connection to another machine. Also keeps every test's git commands
+out of the repository that launched pytest.
 """
 
+import ipaddress
 import os
+import socket
 import sys
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -16,6 +20,76 @@ os.environ["GEMINI_API_KEY"] = ""
 os.environ["DEEPSEEK_API_KEY"] = ""
 os.environ["OPENAI_API_KEY"] = ""
 os.environ["NEWS_NO_TRANSLATE"] = "1"
+
+# --- Network isolation ---
+# No test may open a connection to another machine. Some scripts under test
+# post to live services (buttondown_notify.py mails every subscriber), so a
+# test that forgets its fake must fail rather than send. Loopback and Unix
+# sockets stay allowed for local test servers. Installed here, before any test
+# module is imported, so import-time code is covered too.
+_REAL_CONNECT = socket.socket.connect
+_REAL_CONNECT_EX = socket.socket.connect_ex
+_REAL_CREATE_CONNECTION = socket.create_connection
+# Blocked attempts, so a test fails even when the code under test swallows
+# the exception (see _no_network_connections below).
+_BLOCKED_CONNECTIONS: list[str] = []
+
+
+class NetworkAccessBlocked(RuntimeError):
+    """Raised when a test tries to connect to a host other than this one."""
+
+
+def _is_local(address: object) -> bool:
+    """True for a loopback address, "localhost" or a Unix socket path."""
+    if not isinstance(address, tuple):
+        return True
+    host = str(address[0]).split("%", 1)[0]  # drop an IPv6 zone index
+    if host == "localhost":
+        return True
+    try:
+        return ipaddress.ip_address(host).is_loopback
+    except ValueError:  # any other host name
+        return False
+
+
+def _refuse_remote(address: object) -> None:
+    if not _is_local(address):
+        _BLOCKED_CONNECTIONS.append(repr(address))
+        raise NetworkAccessBlocked(
+            f"a test tried to connect to {address!r}; fake the client instead"
+        )
+
+
+def _guarded_connect(self: Any, address: Any) -> None:
+    _refuse_remote(address)
+    _REAL_CONNECT(self, address)
+
+
+def _guarded_connect_ex(self: Any, address: Any) -> int:
+    _refuse_remote(address)
+    return _REAL_CONNECT_EX(self, address)
+
+
+def _guarded_create_connection(address: Any, *args: Any, **kwargs: Any) -> Any:
+    _refuse_remote(address)  # before the DNS lookup, not just the connect
+    return _REAL_CREATE_CONNECTION(address, *args, **kwargs)
+
+
+socket.socket.connect = _guarded_connect  # type: ignore[method-assign]
+socket.socket.connect_ex = _guarded_connect_ex  # type: ignore[method-assign]
+socket.create_connection = _guarded_create_connection
+
+
+@pytest.fixture(autouse=True)
+def _no_network_connections():
+    """Fail any test that tried to reach another machine, even if it was caught."""
+    _BLOCKED_CONNECTIONS.clear()
+    yield
+    if _BLOCKED_CONNECTIONS:
+        blocked = ", ".join(_BLOCKED_CONNECTIONS)
+        _BLOCKED_CONNECTIONS.clear()
+        pytest.fail(f"test tried to open network connections: {blocked}")
+
 
 # --- Path setup ---
 sys.path.insert(0, str(Path(__file__).parent.parent))

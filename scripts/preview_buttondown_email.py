@@ -39,7 +39,7 @@ def preview_email(post_path: str, output_file: "str | None" = None):
         print(f"Post file not found: {post_path}")
         sys.exit(1)
 
-    site_url = os.environ.get("SITE_URL", "https://tech.2twodragon.com")
+    site_url = os.environ.get("SITE_URL", "https://2twodragon.com")
 
     frontmatter = parse_frontmatter(str(post_file))
     if not frontmatter:
