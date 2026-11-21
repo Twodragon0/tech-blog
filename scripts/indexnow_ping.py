@@ -12,7 +12,7 @@ Usage:
     python3 scripts/indexnow_ping.py
 
     # Submit specific URLs only
-    python3 scripts/indexnow_ping.py --urls https://tech.2twodragon.com/post1 https://tech.2twodragon.com/post2
+    python3 scripts/indexnow_ping.py --urls https://2twodragon.com/post1 https://2twodragon.com/post2
 
     # Dry-run: print payload without sending
     python3 scripts/indexnow_ping.py --dry-run
@@ -43,7 +43,7 @@ INDEXNOW_ENDPOINTS = [
     "https://yandex.com/indexnow",
 ]
 
-HOST = "tech.2twodragon.com"
+HOST = "2twodragon.com"
 CONFIG_PATH = Path(__file__).parent.parent / "_config.yml"
 PRODUCTION_SITEMAP_URL = f"https://{HOST}/sitemap.xml"
 

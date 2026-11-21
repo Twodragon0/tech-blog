@@ -22,8 +22,8 @@ IndexNow는 Bing, Yandex 등 참여 검색엔진에 URL 변경을 즉시 알리�
 
 | 파일 | URL |
 |------|-----|
-| `890b921a9bdd4a155d198c6c0487a14f.txt` | `https://tech.2twodragon.com/890b921a9bdd4a155d198c6c0487a14f.txt` |
-| `.well-known/890b921a9bdd4a155d198c6c0487a14f.txt` | `https://tech.2twodragon.com/.well-known/890b921a9bdd4a155d198c6c0487a14f.txt` |
+| `890b921a9bdd4a155d198c6c0487a14f.txt` | `https://2twodragon.com/890b921a9bdd4a155d198c6c0487a14f.txt` |
+| `.well-known/890b921a9bdd4a155d198c6c0487a14f.txt` | `https://2twodragon.com/.well-known/890b921a9bdd4a155d198c6c0487a14f.txt` |
 
 두 파일 내용 모두 키 값 그 자체: `890b921a9bdd4a155d198c6c0487a14f`
 
@@ -40,8 +40,8 @@ python3 scripts/indexnow_ping.py
 
 # 특정 URL만 제출 (배포 직후 새 포스트 빠른 색인용)
 python3 scripts/indexnow_ping.py --urls \
-  https://tech.2twodragon.com/your-new-post/ \
-  https://tech.2twodragon.com/another-post/
+  https://2twodragon.com/your-new-post/ \
+  https://2twodragon.com/another-post/
 
 # 드라이런 (payload만 출력, 실제 POST 없음)
 python3 scripts/indexnow_ping.py --dry-run
@@ -54,12 +54,12 @@ INDEXNOW_KEY=your_key python3 scripts/indexnow_ping.py --dry-run
 
 ```json
 {
-  "host": "tech.2twodragon.com",
+  "host": "2twodragon.com",
   "key": "890b...4f",
-  "keyLocation": "https://tech.2twodragon.com/890b921a9bdd4a155d198c6c0487a14f.txt",
+  "keyLocation": "https://2twodragon.com/890b921a9bdd4a155d198c6c0487a14f.txt",
   "urlList": [
-    "https://tech.2twodragon.com/",
-    "https://tech.2twodragon.com/post-a/",
+    "https://2twodragon.com/",
+    "https://2twodragon.com/post-a/",
     ...
   ]
 }

@@ -37,7 +37,7 @@ jobs:
           message=$(python scripts/post_category_slack_digest.py \
             --window-hours 24 \
             --channel-alias "security" \
-            --site-url "https://tech.2twodragon.com" || true)
+            --site-url "https://2twodragon.com" || true)
           if [ -z "$message" ]; then
             echo "has_message=false" >> "$GITHUB_OUTPUT"
             exit 0
