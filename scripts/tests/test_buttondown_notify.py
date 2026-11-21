@@ -40,28 +40,44 @@ def _write_post(
     return path
 
 
-class _Response:
-    def __init__(self, status_code: int, text: str = "") -> None:
-        self.status_code = status_code
-        self.text = text
-
-    def json(self) -> dict:
-        return {"id": "em_test"}
+# A real requests.Response, so .json() and .text behave as in production.
+def _response(
+    status: int, body: "str | None" = None, headers: "dict | None" = None
+) -> requests.Response:
+    if body is None:
+        body = '{"id": "em_test"}' if status < 300 else '{"detail": "nope"}'
+    response = requests.Response()
+    response.status_code = status
+    response._content = body.encode("utf-8")
+    response.encoding = "utf-8"
+    response.headers.update(headers or {})
+    return response
 
 
 class _FakeButtondown:
-    """Stands in for requests.post; answers with a scripted status per call."""
+    """Stands in for requests.post; gives each call the next scripted outcome.
 
-    def __init__(self, *outcomes: "int | type[Exception]") -> None:
+    An outcome is a status code, a prepared response, or an exception (class
+    or instance) to raise. A call beyond the script raises IndexError.
+    """
+
+    def __init__(self, *outcomes: object) -> None:
         self.outcomes = list(outcomes)
         self.bodies: list = []
+        self.headers: list = []
 
     def __call__(self, url: str, json: dict, headers: dict, timeout: int):
         self.bodies.append(json["body"])
+        self.headers.append(headers)
         outcome = self.outcomes.pop(0)
-        if isinstance(outcome, type) and issubclass(outcome, Exception):
-            raise outcome("simulated")
-        return _Response(outcome, "{}" if outcome < 300 else '{"detail": "nope"}')
+        if isinstance(outcome, BaseException) or (
+            isinstance(outcome, type) and issubclass(outcome, BaseException)
+        ):
+            raise outcome
+        if isinstance(outcome, requests.Response):
+            return outcome
+        assert isinstance(outcome, int)
+        return _response(outcome)
 
 
 @pytest.fixture(autouse=True)
@@ -78,9 +94,17 @@ def _no_real_buttondown(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(requests.sessions.Session, "request", refuse)
 
 
+@pytest.fixture(autouse=True)
+def sleeps(monkeypatch: pytest.MonkeyPatch) -> list:
+    """The waits before a retry, recorded instead of slept through."""
+    waits: list = []
+    monkeypatch.setattr(buttondown_notify.time, "sleep", waits.append)
+    return waits
+
+
 @pytest.fixture
 def buttondown(monkeypatch: pytest.MonkeyPatch):
-    def install(*outcomes: "int | type[Exception]") -> _FakeButtondown:
+    def install(*outcomes: object) -> _FakeButtondown:
         fake = _FakeButtondown(*outcomes)
         monkeypatch.setattr(requests, "post", fake)
         return fake
@@ -130,25 +154,125 @@ def test_email_body_links_to_the_live_url(tmp_path: Path, buttondown) -> None:
 
 
 @pytest.mark.parametrize(
-    "outcome, expected",
+    "outcomes, expected",
     [
-        (200, buttondown_notify.SENT),
-        (201, buttondown_notify.SENT),
-        (401, buttondown_notify.AUTH_REJECTED),
-        (403, buttondown_notify.AUTH_REJECTED),
-        (429, buttondown_notify.TRANSIENT),
-        (500, buttondown_notify.TRANSIENT),
-        (503, buttondown_notify.TRANSIENT),
-        (requests.exceptions.Timeout, buttondown_notify.TRANSIENT),
-        (requests.exceptions.ConnectionError, buttondown_notify.TRANSIENT),
-        (400, buttondown_notify.FAILED),
-        (422, buttondown_notify.FAILED),
-        (requests.exceptions.RequestException, buttondown_notify.FAILED),
+        ((200,), buttondown_notify.SENT),
+        ((201,), buttondown_notify.SENT),
+        ((202,), buttondown_notify.SENT),
+        ((204,), buttondown_notify.SENT),
+        ((401,), buttondown_notify.AUTH_REJECTED),
+        ((403,), buttondown_notify.AUTH_REJECTED),
+        ((429, 429), buttondown_notify.TRANSIENT),
+        ((429, 201), buttondown_notify.SENT),
+        ((500,), buttondown_notify.TRANSIENT),
+        ((503,), buttondown_notify.TRANSIENT),
+        ((requests.exceptions.Timeout,), buttondown_notify.TRANSIENT),
+        ((requests.exceptions.ConnectionError,), buttondown_notify.TRANSIENT),
+        ((400,), buttondown_notify.FAILED),
+        ((422,), buttondown_notify.FAILED),
+        ((requests.exceptions.RequestException,), buttondown_notify.FAILED),
     ],
 )
-def test_send_classifies_the_outcome(buttondown, outcome, expected: str) -> None:
-    buttondown(outcome)
+def test_send_classifies_the_outcome(buttondown, outcomes, expected: str) -> None:
+    fake = buttondown(*outcomes)
     assert buttondown_notify.send_buttondown_email("s", "b", "key") == expected
+    assert fake.outcomes == [], "a scripted answer was never asked for"
+
+
+@pytest.mark.parametrize(
+    "outcome",
+    [500, 503, requests.exceptions.Timeout, requests.exceptions.ConnectionError],
+)
+def test_only_a_429_is_retried(buttondown, sleeps: list, outcome) -> None:
+    """A 5xx or a timeout can come after Buttondown created the email, so a
+    retry could mail every subscriber twice. The fake has one answer only."""
+    fake = buttondown(outcome)
+    assert buttondown_notify.send_buttondown_email("s", "b", "key") == (
+        buttondown_notify.TRANSIENT
+    )
+    assert (len(fake.bodies), sleeps) == (1, [])
+
+
+@pytest.mark.parametrize(
+    "retry_after, wait",
+    [
+        ("7", 7),
+        ("3600", 60),
+        (None, 10),
+        ("Wed, 21 Oct 2026 07:28:00 GMT", 10),
+        ("²", 10),
+    ],
+)
+def test_a_429_is_retried_once_after_its_retry_after(
+    buttondown, sleeps: list, retry_after: "str | None", wait: int
+) -> None:
+    headers = {"Retry-After": retry_after} if retry_after else {}
+    fake = buttondown(_response(429, headers=headers), 201)
+    assert buttondown_notify.send_buttondown_email("s", "b", "key") == (
+        buttondown_notify.SENT
+    )
+    assert (len(fake.bodies), sleeps) == (2, [wait])
+
+
+@pytest.mark.parametrize("status, body", [(201, "not json"), (200, "[]"), (204, "")])
+def test_any_2xx_is_sent_whatever_the_body(buttondown, status: int, body: str) -> None:
+    """The email exists once Buttondown answers 2xx; an odd body changes nothing.
+
+    requests' JSONDecodeError is a RequestException, so it used to land in the
+    FAILED branch after the email had been created.
+    """
+    buttondown(_response(status, body))
+    assert buttondown_notify.send_buttondown_email("s", "b", "key") == (
+        buttondown_notify.SENT
+    )
+
+
+KEY = "b7f1c2d4-1111-2222-3333-444455556666"  # Buttondown keys are UUIDs
+
+
+@pytest.mark.parametrize(
+    "status, reason",
+    [(401, "key rejected"), (403, "key rejected or missing permission")],
+)
+def test_auth_failure_prints_the_response_masked_and_truncated(
+    buttondown, capsys, monkeypatch: pytest.MonkeyPatch, status: int, reason: str
+) -> None:
+    monkeypatch.setenv("BUTTONDOWN_API_KEY", KEY)
+    buttondown(_response(status, f'{{"detail": "token {KEY} refused"}}' + " pad" * 200))
+    assert buttondown_notify.send_buttondown_email("s", "b", KEY) == (
+        buttondown_notify.AUTH_REJECTED
+    )
+    out = capsys.readouterr().out
+    assert f"Auth failed ({status}): {reason}." in out
+    assert '{"detail": "token ***BUTTONDOWN_API_KEY_MASKED*** refused"}' in out
+    assert KEY not in out
+    assert 0 < out.count(" pad") < 200
+
+
+def test_the_api_key_is_stripped_before_use(buttondown) -> None:
+    """A trailing newline in the secret made the header invalid."""
+    fake = buttondown(201)
+    buttondown_notify.send_buttondown_email("s", "b", f"  {KEY}\n")
+    assert fake.headers[0]["Authorization"] == f"Token {KEY}"
+
+
+@pytest.mark.parametrize(
+    "error, expected",
+    [
+        (requests.exceptions.InvalidHeader, buttondown_notify.FAILED),
+        (requests.exceptions.ConnectionError, buttondown_notify.TRANSIENT),
+    ],
+)
+def test_request_errors_are_printed_masked(
+    buttondown, capsys, monkeypatch: pytest.MonkeyPatch, error, expected: str
+) -> None:
+    """requests' InvalidHeader message quotes the header value: the token."""
+    monkeypatch.setenv("BUTTONDOWN_API_KEY", KEY)
+    buttondown(error(f"Invalid header value: 'Token {KEY}\\n'"))
+    assert buttondown_notify.send_buttondown_email("s", "b", KEY) == expected
+    out = capsys.readouterr().out
+    assert "Invalid header value" in out
+    assert KEY not in out
 
 
 def test_single_post_cli_exits_nonzero_unless_sent(
@@ -260,19 +384,40 @@ def test_batch_rejected_key_fails_the_job_and_stops(
     code, out, summary = run_batch(*posts)
     assert code == 1
     assert "::error::BUTTONDOWN_API_KEY rejected — rotate it in repo secrets" in out
+    assert "Don't use Re-run jobs" in out
     assert len(fake.bodies) == 1, "kept sending with a key Buttondown rejected"
     assert "stopped after the key was rejected" in summary
 
 
-def test_batch_transient_failure_warns_without_failing(
+def test_batch_transient_failure_fails_the_job_and_names_the_post_to_resend(
     tmp_path: Path, buttondown, run_batch
 ) -> None:
-    buttondown(503)
+    """The workflow is isolated: a red run is the only notice anyone gets."""
+    fake = buttondown(201, 503)
+    posts = [_write_post(tmp_path, f"2026-11-1{i}-Post_{i}.md") for i in (8, 9)]
+    code, out, summary = run_batch(*posts)
+    assert code == 1
+    assert len(fake.bodies) == 2
+    assert (
+        "::error::Buttondown did not confirm the newsletter for 2026-11-19-Post_9.md"
+        in out
+    )
+    assert "post_path=_posts/2026-11-19-Post_9.md" in out
+    assert "post_path=_posts/2026-11-18-Post_8.md" not in out
+    assert "Don't use Re-run jobs" in out
+    assert "| `2026-11-18-Post_8.md` | sent |" in summary
+    assert "| `2026-11-19-Post_9.md` | not confirmed: temporary Buttondown" in summary
+    assert "Don't use Re-run jobs" in summary
+
+
+def test_batch_rate_limited_once_then_sent_passes(
+    tmp_path: Path, buttondown, run_batch, sleeps: list
+) -> None:
+    buttondown(429, 201)
     code, out, summary = run_batch(_write_post(tmp_path, "2026-11-19-Post.md"))
-    assert code == 0
-    assert "::warning::Buttondown failed temporarily" in out
+    assert (code, sleeps) == (0, [10])
     assert "::error::" not in out
-    assert "temporary Buttondown failure" in summary
+    assert "| `2026-11-19-Post.md` | sent |" in summary
 
 
 def test_batch_refused_request_fails_the_job(
@@ -283,6 +428,7 @@ def test_batch_refused_request_fails_the_job(
     code, out, _ = run_batch(*posts)
     assert code == 1
     assert "::error::Buttondown refused the newsletter for 2026-11-18-Post_8.md" in out
+    assert "post_path=_posts/2026-11-18-Post_8.md" in out
 
 
 def test_batch_bulk_run_sends_nothing(tmp_path: Path, buttondown, run_batch) -> None:

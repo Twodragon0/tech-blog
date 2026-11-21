@@ -15,9 +15,11 @@ posts at once):
   treated as a bulk import, and nothing is sent.
 Either way the run writes a ::warning:: and a GitHub step summary instead.
 
-Exit status: 1 when the API key was rejected (401/403) or Buttondown refused a
-request for another reason, because both need a person. 0 otherwise, including
-transient failures (429, 5xx, timeout), which are reported as ::warning::.
+Exit status: 1 when any post that should have been mailed was not confirmed
+sent: a rejected key (401/403), a refused request, or a temporary failure (a
+429 that a retry did not clear, a 5xx, a timeout). Nothing else watches this
+workflow, so a red run is the only notice anyone gets. 0 otherwise, including
+when posts were skipped on purpose.
 """
 
 import argparse
@@ -59,6 +61,13 @@ from buttondown_notify import (
 
 DEFAULT_MAX_POSTS = 3
 IMPORTED_HOST = "2twodragon.com"
+
+# Re-run jobs repeats the whole run, so every post in it that did go out would
+# be mailed to every subscriber again. A failed post is re-sent on its own.
+NO_RERUN = (
+    "Don't use Re-run jobs: it mails every post of this run that already went "
+    "out a second time."
+)
 
 
 def max_posts_per_run(raw: "str | None") -> int:
@@ -294,20 +303,26 @@ def main(argv: "list | None" = None) -> None:
         elif result == AUTH_REJECTED:
             print(
                 "::error::BUTTONDOWN_API_KEY rejected — rotate it in repo secrets "
-                "(Settings > Secrets and variables > Actions), then re-run this job."
+                "(Settings > Secrets and variables > Actions), then re-send each "
+                "post marked 'not sent' in the step summary by running this "
+                f"workflow manually with its post_path. {NO_RERUN}"
             )
             # Every later post would be rejected with the same key.
             break
         elif result == TRANSIENT:
             print(
-                f"::warning::Buttondown failed temporarily; no newsletter was sent "
-                f"for {name}. Run this workflow manually with post_path once it "
-                "recovers."
+                f"::error::Buttondown did not confirm the newsletter for {name} "
+                "(rate limit, server error, timeout or lost connection; see above). "
+                "After a timeout it may have gone out anyway, so check Buttondown "
+                "first. To re-send only this post, run this workflow manually with "
+                f"post_path=_posts/{name}. {NO_RERUN}"
             )
         else:
             print(
-                f"::error::Buttondown refused the newsletter for {name}; "
-                "see the response above."
+                f"::error::Buttondown refused the newsletter for {name}; see the "
+                "response above. Once that is fixed, re-send only this post by "
+                f"running this workflow manually with post_path=_posts/{name}. "
+                f"{NO_RERUN}"
             )
 
         print("")
@@ -315,7 +330,7 @@ def main(argv: "list | None" = None) -> None:
     labels = {
         SENT: "sent",
         AUTH_REJECTED: "not sent: API key rejected",
-        TRANSIENT: "not sent: temporary Buttondown failure",
+        TRANSIENT: "not confirmed: temporary Buttondown failure",
         FAILED: "not sent: refused by Buttondown",
     }
     for path, result in results:
@@ -324,11 +339,17 @@ def main(argv: "list | None" = None) -> None:
         summary.append(
             f"| `{Path(path).name}` | not sent: stopped after the key was rejected |"
         )
-    write_step_summary(summary)
 
     sent = sum(1 for _, result in results if result == SENT)
     transient = sum(1 for _, result in results if result == TRANSIENT)
     failed = len(to_send) - sent - transient
+    if sent < len(to_send):
+        summary += [
+            "",
+            "To re-send a post that was not sent or not confirmed, run this "
+            f"workflow manually with its post_path. {NO_RERUN}",
+        ]
+    write_step_summary(summary)
 
     # 결과 요약
     print("=" * 42)
@@ -341,8 +362,8 @@ def main(argv: "list | None" = None) -> None:
     print(f"📝 Total: {len(valid_posts)}")
     print("=" * 42)
 
-    # A rejected key or a refused request needs a person, so the job goes red.
-    if failed:
+    # Every post that was not confirmed sent needs a person to re-send it.
+    if sent < len(to_send):
         sys.exit(1)
 
 

@@ -6,9 +6,10 @@ was green. The send step carried ``continue-on-error: true`` and wrapped each
 call in ``|| echo "... (non-critical)"``, so a revoked key read as success for
 weeks and no subscriber got an email.
 
-The fix lets the exit status through: the batch script exits 1 on a rejected
-key (401/403) or a refused request and only warns on 5xx/429/timeouts. Failing
-here is safe because nothing waits on this workflow; the last test pins that.
+The fix lets the exit status through: the batch script exits 1 whenever a post
+was not confirmed sent, whether the key was rejected (401/403), the request was
+refused, or Buttondown failed temporarily (429, 5xx, timeout). Failing here is
+safe because nothing waits on this workflow; a test below pins that.
 
 Direction: reintroducing ``continue-on-error``, an ``||`` fallback on the send
 command, or a workflow that depends on this one trips this guard.

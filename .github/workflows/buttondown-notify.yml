@@ -108,8 +108,10 @@ jobs:
           pip install pyyaml requests
 
       # No continue-on-error and no `|| echo` here: until 2026-11-21 both hid a
-      # 401 on every run while the job showed green. A rejected key or a refused
-      # request now fails this job (::error::); a 5xx/429/timeout only warns.
+      # 401 on every run while the job showed green. Any post not confirmed
+      # sent (rejected key, refused request, 429/5xx/timeout) now fails this
+      # job with an ::error:: naming it. Re-send such a post with a manual run
+      # (post_path); Re-run jobs would mail the posts that went out again.
       # A red run here blocks nothing else: no workflow waits on this one
       # (no workflow_run consumer, no needs:) and it has no PR trigger.
       - name: Send Buttondown Email

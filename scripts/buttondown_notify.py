@@ -16,6 +16,7 @@ Best practices (per Buttondown docs):
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -25,12 +26,16 @@ import yaml
 from scripts.lib.post_url import post_permalink
 from scripts.lib.security import mask_sensitive_info
 
-# send_buttondown_email() outcomes. A retry can fix TRANSIENT (5xx, 429, timeout,
-# connection error); AUTH_REJECTED and FAILED need a person.
+# send_buttondown_email() outcomes. TRANSIENT (429, 5xx, timeout, connection
+# error) may clear by itself; AUTH_REJECTED and FAILED need a person.
 SENT = "sent"
 AUTH_REJECTED = "auth_rejected"
 TRANSIENT = "transient"
 FAILED = "failed"
+
+# Seconds to wait before the one retry a 429 gets: its Retry-After, capped.
+RATE_LIMIT_WAIT = 10
+RATE_LIMIT_MAX_WAIT = 60
 
 
 def safe_print(message: str) -> None:
@@ -299,13 +304,28 @@ def create_email_content(
     return subject, body
 
 
+def _rate_limit_wait(response: requests.Response) -> int:
+    """Seconds to wait before retrying a 429: its Retry-After, capped at 60."""
+    value = str(response.headers.get("Retry-After", "")).strip()
+    return (
+        min(int(value), RATE_LIMIT_MAX_WAIT) if value.isdecimal() else RATE_LIMIT_WAIT
+    )
+
+
 def send_buttondown_email(subject: str, body: str, api_key: str) -> str:
     """Send Markdown email via Buttondown API.
 
-    Returns SENT, AUTH_REJECTED (401/403), TRANSIENT (429, 5xx, timeout,
-    connection error) or FAILED (any other refusal).
+    Returns SENT (any 2xx), AUTH_REJECTED (401/403), TRANSIENT (429, 5xx,
+    timeout, connection error) or FAILED (any other refusal).
+
+    Only a 429 is retried, once: Buttondown refused it before creating
+    anything. A 5xx or a timeout can arrive after the email was created, and a
+    retry would then mail every subscriber twice.
     """
     url = "https://api.buttondown.com/v1/emails"
+    # A newline left in the secret makes the header invalid, and requests'
+    # InvalidHeader message then quotes the whole token.
+    api_key = api_key.strip()
     headers = {"Authorization": f"Token {api_key}", "Content-Type": "application/json"}
 
     data = {
@@ -314,40 +334,50 @@ def send_buttondown_email(subject: str, body: str, api_key: str) -> str:
         "status": "about_to_send",
     }
 
+    print("Sending email via Buttondown API...")
+    print(f"  Subject: {subject[:80]}")
     try:
-        print("Sending email via Buttondown API...")
-        print(f"  Subject: {subject[:80]}")
-
         response = requests.post(url, json=data, headers=headers, timeout=30)
-
-        status = response.status_code
-        if status in [200, 201]:
-            result = response.json() if response.text else {}
-            email_id = result.get("id", "N/A")
-            print(f"  Sent successfully (ID: {email_id})")
-            return SENT
-        elif status in (401, 403):
-            print(f"  Auth failed ({status}). Check BUTTONDOWN_API_KEY.")
-            safe_print(f"  API Key length: {len(api_key)}")
-            return AUTH_REJECTED
-        elif status == 429 or status >= 500:
-            print(f"  Temporary failure: {status}")
-            safe_print(f"  Response: {response.text[:300]}")
-            return TRANSIENT
-        else:
-            print(f"  Failed: {status}")
-            safe_print(f"  Response: {response.text[:300]}")
-            return FAILED
-
+        if response.status_code == 429:
+            wait = _rate_limit_wait(response)
+            print(f"  Rate limited (429); retrying once in {wait}s")
+            time.sleep(wait)
+            response = requests.post(url, json=data, headers=headers, timeout=30)
     except requests.exceptions.Timeout:
-        print("  Timeout: API did not respond within 30s")
+        print("  Timeout: no answer within 30s. The email may have gone out anyway.")
         return TRANSIENT
     except requests.exceptions.ConnectionError as e:
-        print(f"  Connection error: {e}")
+        safe_print(f"  Connection error: {e}")
         return TRANSIENT
     except requests.exceptions.RequestException as e:
-        print(f"  Request error: {e}")
+        safe_print(f"  Request error: {e}")
         return FAILED
+
+    status = response.status_code
+    if 200 <= status < 300:
+        # The email exists now; a body that is not JSON changes nothing.
+        try:
+            result = response.json()
+        except ValueError:  # requests' JSONDecodeError is a ValueError too
+            result = None
+        email_id = result.get("id", "N/A") if isinstance(result, dict) else "N/A"
+        print(f"  Sent successfully (HTTP {status}, ID: {email_id})")
+        return SENT
+    if status in (401, 403):
+        reason = (
+            "key rejected" if status == 401 else "key rejected or missing permission"
+        )
+        print(f"  Auth failed ({status}): {reason}. Check BUTTONDOWN_API_KEY.")
+        safe_print(f"  API Key length: {len(api_key)}")
+        safe_print(f"  Response: {response.text[:300]}")
+        return AUTH_REJECTED
+    if status == 429 or status >= 500:
+        print(f"  Temporary failure: {status}")
+        safe_print(f"  Response: {response.text[:300]}")
+        return TRANSIENT
+    print(f"  Failed: {status}")
+    safe_print(f"  Response: {response.text[:300]}")
+    return FAILED
 
 
 def find_post_file(post_path: str) -> Path:
@@ -402,7 +432,7 @@ def main():
 
     post_path = str(post_file)
 
-    api_key = os.environ.get("BUTTONDOWN_API_KEY")
+    api_key = (os.environ.get("BUTTONDOWN_API_KEY") or "").strip()
     if not api_key:
         print("BUTTONDOWN_API_KEY not set")
         sys.exit(1)
