@@ -1,186 +1,6 @@
 {
-  "updated_at": "2026-11-19T05:08:17.946592+00:00",
+  "updated_at": "2026-11-21T04:53:03.892052+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/11/threatsday-apache-ofbiz-rce-dreamhost.html",
-      "title": "ThreatsDay: Apache OFBiz RCE, DreamHost Breach, DeFi Site Hijacks + 17 More Stor",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/is-your-exposure-management-platform.html",
-      "title": "Is Your Exposure Management Platform Leaving You Exposed? Five Tests to Find Out",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/openai-ai-pipeline-generates-948-linux.html",
-      "title": "OpenAI AI Pipeline Generates 948 Linux Root Escalation Exploits in 30-Hour Run",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/5-active-cyber-threats-that-put-us.html",
-      "title": "5 Active Cyber Threats That Put US Enterprises at Risk in October 2026",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/apple-to-start-scanning-publicly-shared.html",
-      "title": "Apple to Start Scanning Publicly Shared iCloud Photos and Files for Harmful Cont",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-hogwarts-legacy-dlss-5/",
-      "title": "‘Hogwarts Legacy’ Gets a Magical NVIDIA DLSS 5 Upgrade on GeForce NOW",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
-      "title": "Setting a new standard for responsible AI infrastructure",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://bitcoinmagazine.com/news/riot-names-anthropic-texas-lease",
-      "title": "Riot (RIOT) Names Anthropic as Tenant in $28 Billion Texas Lease, Could Owe It 1",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/use-decision-models-with-amazon-bedrock-agentcore-evaluations/",
-      "title": "Use decision models with Amazon Bedrock AgentCore Evaluations",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/smart-approvals-in-amazon-quick-human-oversight-where-it-matters/",
-      "title": "Smart Approvals in Amazon Quick: Human oversight where it matters",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/",
-      "title": "Powering open infrastructure for autonomous agents",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/helping-you-build-and-defend-at-machine-speed-in-the-agentic-era/",
-      "title": "Helping you build and defend at machine-speed in the agentic era",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/public-sector/highlights-and-reflections-from-google-public-sector-summit-where-mission-meets-moonshot/",
-      "title": "Highlights and reflections from Google Public Sector Summit: Where mission meets",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/introducing-compute-engine-api-multi-versioning-predictable-evolution-without-breaking-production/",
-      "title": "Introducing Compute Engine API multi-versioning: Predictable evolution without b",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg/",
-      "title": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Ice",
-      "published_date": "2026-11-06",
-      "expires_at": "2026-11-12T15:53:32.437847+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/",
-      "title": "ARTEX abuse expands as cybercriminals target financial sector",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html",
-      "title": "Installing the Fix for an Exploited WordPress Flaw Can Expose Some Sites One Las",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/addressing-protocol-security-gaps-in-multi-tenant-kubernetes/",
-      "title": "Addressing protocol security gaps in multi-tenant Kubernetes",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html",
-      "title": "Hackers Target OpenSSH SSHole Flaw Within Hours of Disclosure, Gain Root on Hone",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html",
-      "title": "OpenAI Launches GPT-6 Cyber After AI Helps Find 81 Firefox Flaws, 948 Linux Expl",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks/",
-      "title": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Ne",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://openai.com/index/partnering-with-hacktron",
-      "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/",
-      "title": "SageMaker Inference now supports Multi-Instance GPU to maximize GPU utilization ",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/taxonomy-of-agentic-primitives-in-amazon-quick/",
-      "title": "Taxonomy of agentic primitives in Amazon Quick",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/machine-learning/serverless-mcp-server-for-ai-agent-data-lake-access-on-amazon-ecs-fargate/",
-      "title": "Serverless MCP server for AI agent data lake access on Amazon ECS Fargate",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud/",
-      "title": "What’s new with Google Cloud",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/compute/storage-optimized-z4m-machine-series-are-ga/",
-      "title": "Introducing Z4M: storage-optimized compute for AI/ML and parallel file systems",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/media-entertainment/how-mito-orchestrated-5000-plus-ai-assets-for-a-world-cup-tv-spot/",
-      "title": "The Blueprint: Orchestrating 5,000+ AI assets for a World Cup TV spot",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/bigquery-ai-functions-in-pandas/",
-      "title": "Zero-shot predictions in Pandas using the new BigQuery Accessor",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/encored-wrf-2/",
-      "title": "인코어드의 AWS HPC 환경에서 WRF 실행하기 [2부: MPI/OpenMP 하이브리드 병렬화 튜닝 심층 분석]",
-      "published_date": "2026-11-07",
-      "expires_at": "2026-11-14T03:49:33.830261+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
       "title": "Claude Code's “Don't Ask Again” File Exposes Passwords and Keys in 1,122 Public ",
@@ -1170,6 +990,96 @@
       "title": "Sashiko: Lessons from building an agentic code review system for Linux",
       "published_date": "2026-11-19",
       "expires_at": "2026-11-26T05:08:17.946322+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html",
+      "title": "WhatsApp Patches 3 Security Flaws, Including Android Bug Suspected of Use in Sca",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/scope-down-permissions-of-existing-sessions-using-aws-sts-getscopedcredentials/",
+      "title": "Scope down permissions of existing sessions using AWS STS GetScopedCredentials",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
+      "title": "Bazuka Android Malware Uses Fake Screen Overlays to Hide Credential Theft and De",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html",
+      "title": "Linux KVM Flaw CVE-2026-99312 Lets Guest VMs Access Host Memory on AMD Hosts",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+      "title": "Chinese-nexus actor’s Cairn AI agents found a zero-day on their own",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://openai.com/index/combatting-adversarial-distillation",
+      "title": "Combatting adversarial distillation",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/blackrock-ibit-record-single-day-outflow?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "BlackRock’s IBIT loses record $541M amid Anthropic market debut",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/anthropic-ipo-spacex-retail-buying-first-day-gains?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Anthropic’s $81B IPO draws half the net retail buying of SpaceX’s",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/new-in-aws-quick-more-capable-flows-an-updated-web-experience-and-agents-that-work-together/",
+      "title": "New in AWS Quick: More capable flows, an updated web experience, and agents that",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/cut-self-hosted-llm-cost-and-latency-with-the-distributed-kv-caching-agent-skill/",
+      "title": "Cut self-hosted LLM cost and latency with the distributed KV caching agent skill",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/topics/developers-practitioners/how-to-fix-your-teams-api-keys/",
+      "title": "Ultimate guide for fixing your team’s API keys",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/scaling-airflow-pipelines-with-ai-agents-on-managed-airflow/",
+      "title": "Drowning in clicks: Scaling Black Friday pipelines with Managed Airflow agents",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/a-data-simulator-to-test-agents/",
+      "title": "Frontier and Center: Why your data agents need a “wind tunnel”",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/dynaport-modernizes-with-alloydb/",
+      "title": "DynaPORT modernization on Google Cloud with AlloyDB for PostgreSQL and GKE",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-in-managed-service-for-apache-spark-4-0/",
+      "title": "What’s new in Managed Service for Apache Spark 4.0",
+      "published_date": "2026-11-21",
+      "expires_at": "2026-11-28T04:53:03.891814+00:00"
     }
   ]
 }

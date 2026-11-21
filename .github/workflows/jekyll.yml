@@ -130,6 +130,14 @@ jobs:
           pip install --quiet -r scripts/requirements-ci.txt
           echo "✅ Python dependencies installed"
 
+      # Nothing else installs scripts/requirements.txt before generate-images.yml
+      # does, after merge. Dependabot has proposed five mutually conflicting pins
+      # for it (#488, #562, #572, #791, #792); #792 reached main and broke that
+      # workflow for four weeks with ResolutionImpossible. A resolver dry-run here
+      # (same Python 3.11) fails the PR instead, for any conflicting pair.
+      - name: Check scripts/requirements.txt resolves
+        run: pip install --dry-run --quiet -r scripts/requirements.txt
+
       # REQUIRE_JEKYLL_BUILD arms test_image_content_hash.py: `Setup Ruby` ran
       # several steps above, so `bundle` is on PATH and the fixture's own
       # `bundle exec jekyll build` is expected to succeed here. Unarmed, a

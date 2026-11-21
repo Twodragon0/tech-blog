@@ -1,6 +1,6 @@
 PyYAML>=6.0.3
 python-frontmatter>=1.3.0
-pytest>=9.1.1
+pytest>=9.2.0
 pytest-cov>=7.1.0
 requests>=2.34.2
 beautifulsoup4>=4.15.0
@@ -12,8 +12,8 @@ qrcode>=8.2
 # executed in CI. `_generate_and_commit_raster_variants` encodes _og/_card .avif and
 # .webp, and AVIF is why the floor is 11.3.0: that is the release where Pillow gained
 # native AVIF encoding (verified `features.check("avif") is True` at exactly 11.3.0).
-# No <12 ceiling here — the ceiling in scripts/requirements.txt exists for moviepy,
-# which this file does not install.
+# scripts/requirements.txt pins the same major since moviepy (which capped Pillow
+# below 12) was removed on 2026-11-21, so CI and the image workflow run alike.
 Pillow>=13.0.0
 
 # fonttools[woff] — test_font_tier_split opens the shipped tier-1/tier-2 .woff2 with
