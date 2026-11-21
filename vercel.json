@@ -2949,6 +2949,51 @@
       "source": "/wp-content/uploads/:path*",
       "destination": "https://legacy.2twodragon.com/wp-content/uploads/:path*",
       "statusCode": 301
+    },
+    {
+      "source": "/category/economic/",
+      "destination": "https://legacy.2twodragon.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/music/",
+      "destination": "https://legacy.2twodragon.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/online-class/",
+      "destination": "https://legacy.2twodragon.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/certification/",
+      "destination": "https://legacy.2twodragon.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/knowledge/",
+      "destination": "https://legacy.2twodragon.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/tag/:path*",
+      "destination": "https://legacy.2twodragon.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/feed/",
+      "destination": "/feed.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/comments/feed/",
+      "destination": "/feed.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/wp-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
     }
   ],
   "rewrites": [
