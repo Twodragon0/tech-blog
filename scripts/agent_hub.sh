@@ -78,10 +78,12 @@ cmd_status() {
         echo -e "  Working tree: ${COLOR_YELLOW}has uncommitted changes${COLOR_RESET}"
     fi
 
-    if [ -f "$REPO_ROOT/.githooks/pre-commit" ] || [ -f "$REPO_ROOT/.git/hooks/pre-commit" ]; then
-        echo -e "  [${COLOR_GREEN}✓${COLOR_RESET}] Pre-commit hook installed"
+    # A tracked .githooks/pre-commit runs only when core.hooksPath points at it;
+    # a file in the tree (or a stale .git/hooks copy) says nothing about that.
+    if [ "$(git -C "$REPO_ROOT" config --get core.hooksPath)" = ".githooks" ] && [ -x "$REPO_ROOT/.githooks/pre-commit" ]; then
+        echo -e "  [${COLOR_GREEN}✓${COLOR_RESET}] Pre-commit hook active (core.hooksPath=.githooks)"
     else
-        echo -e "  [${COLOR_YELLOW}!${COLOR_RESET}] Pre-commit hook missing. Install via: bash scripts/install-hooks.sh"
+        echo -e "  [${COLOR_YELLOW}!${COLOR_RESET}] Tracked hooks not active. Install via: bash scripts/install-hooks.sh"
     fi
 
     echo -e "\n${COLOR_BOLD}5. Key Guidelines & Configurations:${COLOR_RESET}"

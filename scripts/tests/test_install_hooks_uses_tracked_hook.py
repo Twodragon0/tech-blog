@@ -140,13 +140,31 @@ def test_installer_embeds_no_hook_text():
 
 
 def test_tracked_hooks_are_executable():
-    """git skips a non-executable hook with only a hint, so a mode slip means no gates."""
-    hooks = [p for p in TRACKED_HOOKS.iterdir() if p.is_file()]
-    assert {"pre-commit", "pre-push"} <= {p.name for p in hooks}
-    not_executable = sorted(p.name for p in hooks if not os.access(p, os.X_OK))
+    """git skips a non-executable hook with only a hint, so a mode slip means no gates.
+
+    Checks the mode recorded in the index (what fresh clones and new worktrees
+    get), not the working-tree bit, and only for the hook files: a stray
+    .DS_Store or editor backup in .githooks/ must not fail this.
+    """
+    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+    listed = subprocess.run(
+        ["git", "ls-files", "-s", "--", ".githooks/pre-commit", ".githooks/pre-push"],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+    if listed.returncode != 0:
+        pytest.skip("not a git checkout")
+    modes = {
+        line.split("\t")[1]: line.split()[0] for line in listed.stdout.splitlines()
+    }
+    assert set(modes) == {".githooks/pre-commit", ".githooks/pre-push"}, modes
+    not_executable = sorted(path for path, mode in modes.items() if mode != "100755")
     assert not_executable == [], (
-        f".githooks/{not_executable} lost the executable bit; git would not run "
-        "them. Fix with: git update-index --chmod=+x .githooks/<name>"
+        f"{not_executable} are not 100755 in the index; git would not run them. "
+        "Fix with: git update-index --chmod=+x <path>"
     )
 
 

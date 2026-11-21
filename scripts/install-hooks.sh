@@ -30,16 +30,28 @@ if [ ! -f "$REPO_ROOT/.githooks/pre-commit" ]; then
   exit 1
 fi
 
+# git ignores a hook that is not executable. Done before the config write so a
+# failure leaves core.hooksPath untouched, and only for the hook files: a
+# non-hook file added to .githooks/ later must not pick up the bit.
+for hook in pre-commit pre-push; do
+  if [ -f "$REPO_ROOT/.githooks/$hook" ]; then
+    chmod +x "$REPO_ROOT/.githooks/$hook"
+  fi
+done
+
+previous="$(git -C "$REPO_ROOT" config --get core.hooksPath || true)"
+if [ -n "$previous" ] && [ "$previous" != ".githooks" ]; then
+  echo "[install-hooks] Replacing core.hooksPath=$previous"
+fi
 echo "[install-hooks] Configuring core.hooksPath=.githooks ..."
 git -C "$REPO_ROOT" config core.hooksPath .githooks
-
-# git ignores a hook that is not executable.
-chmod +x "$REPO_ROOT"/.githooks/*
 
 echo "[install-hooks] Done."
 echo ""
 echo "  pre-commit : $REPO_ROOT/.githooks/pre-commit (via core.hooksPath)"
-echo "  pre-push   : $REPO_ROOT/.githooks/pre-push (via core.hooksPath)"
+if [ -f "$REPO_ROOT/.githooks/pre-push" ]; then
+  echo "  pre-push   : $REPO_ROOT/.githooks/pre-push (via core.hooksPath)"
+fi
 echo ""
 echo "  Emergency push bypass: SKIP_VARIANT_CHECK=1 git push"
 echo "  Disable auto-commit of raster variants: TECH_BLOG_NO_AUTO_COMMIT=1"
