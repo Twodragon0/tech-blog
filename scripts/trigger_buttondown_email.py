@@ -24,6 +24,7 @@ if ENV_FILE.exists():
 
 sys.path.insert(0, str(SCRIPT_DIR))
 from buttondown_notify import (
+    SENT,
     create_email_content,
     generate_post_url,
     get_post_content,
@@ -54,7 +55,7 @@ def main():
         print("BUTTONDOWN_API_KEY not set. Use --dry-run to preview.")
         sys.exit(1)
 
-    site_url = os.environ.get("SITE_URL", "https://tech.2twodragon.com")
+    site_url = os.environ.get("SITE_URL", "https://2twodragon.com")
 
     frontmatter = parse_frontmatter(str(post_file))
     if not frontmatter:
@@ -91,8 +92,8 @@ def main():
             print("Cancelled")
             return
 
-    success = send_buttondown_email(subject, body, api_key)
-    sys.exit(0 if success else 1)
+    result = send_buttondown_email(subject, body, api_key)
+    sys.exit(0 if result == SENT else 1)
 
 
 if __name__ == "__main__":

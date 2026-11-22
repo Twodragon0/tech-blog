@@ -75,6 +75,14 @@ class TestMaskSensitiveInfo:
         assert secret not in result
         assert "GEMINI_API_KEY_MASKED" in result
 
+    def test_masks_env_var_value_saved_with_a_trailing_newline(self, monkeypatch):
+        """A secret pasted with a newline is used stripped, so mask it stripped."""
+        secret = "b7f1c2d4-1111-2222-3333-444455556666"
+        monkeypatch.setenv("BUTTONDOWN_API_KEY", f"{secret}\n")
+        result = mask_sensitive_info(f"token {secret} refused")
+        assert secret not in result
+        assert "BUTTONDOWN_API_KEY_MASKED" in result
+
     def test_masks_slack_webhook_url(self):
         """The generic 40+ char rule never caught these.
 

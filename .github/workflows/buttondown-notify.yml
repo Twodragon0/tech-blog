@@ -18,9 +18,14 @@ on:
 
 permissions: {}
 
+# One group per commit (and per dispatched post), never cancelled. A group per
+# branch with cancel-in-progress let a second push cancel the run that was
+# mailing the first push's posts. Turning cancel-in-progress off alone is not
+# enough: GitHub keeps one pending run per group, so a third push would still
+# replace the second.
 concurrency:
-  group: buttondown-notify-${{ github.ref }}
-  cancel-in-progress: true
+  group: buttondown-${{ github.sha }}-${{ inputs.post_path || 'push' }}
+  cancel-in-progress: false
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -38,57 +43,57 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v6
         with:
-          fetch-depth: 2
+          # All commits, so github.event.before is here however many commits
+          # the push carried. blob:none leaves out old file contents: a few MB
+          # of history instead of the full 1.4 GB clone.
+          fetch-depth: 0
+          filter: blob:none
 
       - name: Check for new posts
         id: check_posts
+        shell: bash  # -eo pipefail: a failing git diff fails the step
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
         run: |
-          # Get the list of added posts in this push
-          # Use --diff-filter=A to only get added files (not modified)
-          # Use -z option for null-terminated strings to handle Unicode filenames correctly
-          # Only new posts trigger email notifications (updated posts do not)
-          NEW_POSTS=$(git diff --name-only -z --diff-filter=A HEAD~1 HEAD -- '_posts/*.md' 2>/dev/null | tr '\0' '\n' || echo "")
-          
-          echo "🔍 Debug: Checking for new posts..."
-          echo "  New posts: ${NEW_POSTS:-none}"
-          echo "  Note: Modified posts are excluded from email notifications"
-          
-          if [ -z "$NEW_POSTS" ]; then
-            echo "No new posts found"
-            echo "has_new_posts=false" >> "$GITHUB_OUTPUT"
-            echo "posts_json=[]" >> "$GITHUB_OUTPUT"
-            echo "post_count=0" >> "$GITHUB_OUTPUT"
-          else
-            echo "New posts found:"
-            echo "$NEW_POSTS"
+          # New posts in this push: diff from where main was before it, so a
+          # push of several commits mails the posts from all of them, not only
+          # the last commit's. HEAD~1 when there is no usable "before": a
+          # manual run, a new branch (all zeros), or a force push that left it
+          # out of HEAD's history.
+          BASE=HEAD~1
+          if [ "$EVENT_NAME" = push ] && [ -n "$BEFORE" ] \
+            && [ "$BEFORE" != 0000000000000000000000000000000000000000 ] \
+            && git cat-file -e "$BEFORE^{commit}" 2>/dev/null \
+            && git merge-base --is-ancestor "$BEFORE" HEAD; then
+            BASE=$BEFORE
+          fi
+          echo "Looking for new posts in $BASE..HEAD"
+
+          # --diff-filter=A: only new posts are mailed, never edits or renames.
+          # -z: NUL-separated and verbatim; otherwise git quotes non-ASCII names.
+          NEW_POSTS=$(mktemp)
+          git diff -z --name-only --diff-filter=A "$BASE" HEAD -- '_posts/*.md' > "$NEW_POSTS"
+
+          # The send step mails this list (POSTS_JSON) rather than diffing
+          # again, so both steps agree. Each path is base64-encoded so any file
+          # name survives GITHUB_OUTPUT and the environment.
+          POSTS_JSON=""
+          POST_COUNT=0
+          while IFS= read -r -d '' post; do
+            echo "  new post: $post"
+            POSTS_JSON="$POSTS_JSON${POSTS_JSON:+,}\"$(printf '%s' "$post" | base64 | tr -d '\n')\""
+            POST_COUNT=$((POST_COUNT + 1))
+          done < "$NEW_POSTS"
+
+          echo "posts_json=[$POSTS_JSON]" >> "$GITHUB_OUTPUT"
+          echo "post_count=$POST_COUNT" >> "$GITHUB_OUTPUT"
+          if [ "$POST_COUNT" -gt 0 ]; then
+            echo "Found $POST_COUNT new post(s)"
             echo "has_new_posts=true" >> "$GITHUB_OUTPUT"
-            
-            # Count posts (grep -c emits "0" + exit 1 on no-match, so chaining
-            # `|| echo 0` writes two lines and breaks GITHUB_OUTPUT parsing)
-            POST_COUNT=$(echo "$NEW_POSTS" | grep -c '^' || true)
-            echo "post_count=${POST_COUNT:-0}" >> "$GITHUB_OUTPUT"
-            
-            # Encode all posts as JSON array (more reliable than multiline)
-            # Convert each post path to base64 and store as JSON array
-            POSTS_JSON="["
-            FIRST=true
-            while IFS= read -r post; do
-              if [ -n "$post" ]; then
-                POST_ENCODED=$(echo -n "$post" | base64 -w 0)
-                if [ "$FIRST" = true ]; then
-                  POSTS_JSON="$POSTS_JSON\"$POST_ENCODED\""
-                  FIRST=false
-                else
-                  POSTS_JSON="$POSTS_JSON,\"$POST_ENCODED\""
-                fi
-              fi
-            done <<< "$NEW_POSTS"
-            POSTS_JSON="$POSTS_JSON]"
-            
-            # Store as single-line JSON (GitHub Actions output is more reliable this way)
-            echo "posts_json=$POSTS_JSON" >> "$GITHUB_OUTPUT"
-            
-            echo "Found $POST_COUNT new post(s) to process"
+          else
+            echo "No new posts found (edited posts are not mailed)"
+            echo "has_new_posts=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Set up Python
@@ -102,32 +107,54 @@ jobs:
         run: |
           pip install pyyaml requests
 
+      # No continue-on-error and no `|| echo` here: until 2026-11-21 both hid a
+      # 401 on every run while the job showed green. Any post not confirmed
+      # sent (rejected key, refused request, 429/5xx/timeout) now fails this
+      # job with an ::error:: naming it. Re-send such a post with a manual run
+      # (post_path). Re-run jobs would mail the posts that went out again, so
+      # a re-run of a push run stops before sending anything.
+      # A red run here blocks nothing else: no workflow waits on this one
+      # (no workflow_run consumer, no needs:) and it has no PR trigger.
       - name: Send Buttondown Email
         if: steps.check_posts.outputs.has_new_posts == 'true' || github.event_name == 'workflow_dispatch'
-        continue-on-error: true
         env:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
           SITE_URL: "https://2twodragon.com"
+          # More mailable posts than this in one run is treated as a bulk import
+          # and nothing is sent. Unset falls back to the script default (3).
+          BUTTONDOWN_MAX_POSTS: ${{ vars.BUTTONDOWN_MAX_POSTS }}
+          # The posts the check step found (base64 paths in a JSON array). A
+          # manual run's post_path takes precedence over it.
+          POSTS_JSON: ${{ steps.check_posts.outputs.posts_json }}
           # Pass the workflow_dispatch input via env (NOT inline ${{ }} in the
           # shell) so a crafted post_path cannot inject shell commands: GitHub
           # writes it as a literal string to the process env and the shell never
           # re-parses it. (Security fix B-H1, 2026-06-30 workflow audit.)
           POST_PATH: ${{ github.event.inputs.post_path }}
         run: |
+          # Re-run jobs replays this push's list of posts, so every one of them
+          # that already went out would be mailed to every subscriber again.
+          if [ "$GITHUB_EVENT_NAME" = push ] && [ "${GITHUB_RUN_ATTEMPT:-1}" -gt 1 ]; then
+            echo "::error::Attempt $GITHUB_RUN_ATTEMPT of a push run sends nothing: it would mail again the posts that already went out. Re-send each post marked not sent or not confirmed in the first attempt's summary by running this workflow manually with its post_path."
+            exit 1
+          fi
+
           # 보안: API 키 검증
           if [ -z "$BUTTONDOWN_API_KEY" ]; then
-            echo "❌ BUTTONDOWN_API_KEY is not set in GitHub Secrets"
-            echo "Please set it in: Settings → Secrets and variables → Actions"
+            echo "::error::BUTTONDOWN_API_KEY is not set in GitHub Secrets (Settings → Secrets and variables → Actions)"
             exit 1
           fi
 
           # workflow_dispatch: 지정된 포스트 발송
-          # push: git diff로 새 포스트 감지 후 발송
-          if [ -n "$POST_PATH" ]; then
+          # push: check 단계가 찾은 새 포스트(POSTS_JSON) 발송
+          # Both go through the batch script so the same bulk/imported guards apply.
+          # A manual run never falls through to the push list: with an empty
+          # post_path the batch script refuses the path instead.
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
             echo "📧 Manual dispatch: $POST_PATH"
-            python3 scripts/buttondown_notify.py "$POST_PATH" || echo "⚠️ Buttondown notification failed (non-critical)"
+            python3 scripts/buttondown_notify_batch.py -- "$POST_PATH"
           else
-            echo "📧 Processing posts detected by git diff..."
-            python3 scripts/buttondown_notify_batch.py || echo "⚠️ Buttondown notification failed (non-critical)"
+            echo "📧 Processing the posts found by the check step..."
+            python3 scripts/buttondown_notify_batch.py
           fi
           
