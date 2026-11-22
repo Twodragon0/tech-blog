@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-11-21T04:53:03.892052+00:00",
+  "updated_at": "2026-11-22T06:59:58.656518+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
-      "title": "Claude Code's “Don't Ask Again” File Exposes Passwords and Keys in 1,122 Public ",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/",
-      "title": "Hackers pull off $133 million French bank heist via service provider",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/ctm360-exposes-fake-gift-card-scams-exploiting-trusted-brands/",
-      "title": "CTM360 Exposes Fake Gift Card Scams Exploiting Trusted Brands",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
-      "title": "SonicWall Patches Exploited SonicOS Vulnerability That Weakens VPN Logins",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://www.cncf.io/blog/2026/11/07/we-organized-sustainability-month-heres-what-we-learned-%f0%9f%8c%b1/",
-      "title": "We organized Sustainability Month. Here’s what we learned. 🌱",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/ex-fbi-counterintelligence-agent-stole-almost-25m-in-crypto?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Ex-FBI counterintelligence agent stole almost $2.5M in crypto",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/magazine/bitcoin-holders-have-received-ecash-what-can-you-with-it?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Bitcoin holders have received eCash — What can you do with it?",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/us-sanctions-canadian-money-exchange-firms-over-iran-ties?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "US sanctions Canadian money-exchange firms over Iran ties",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/suspicious-prediction-market-activity-seen-before-election-poll-release-nyt?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Suspicious prediction market activity seen before election poll release: NYT",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/nvidia-may-be-facing-a-more-hostile-post-election-washington-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "Nvidia may face a more hostile post-election Washington: Report",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
-      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=36785&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
-      "title": "언어 모델의 거부 행동은 단일 방향에 의해 매개됨",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=36784&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
-      "title": "Claude Code의 &quot;다시 묻지 않기&quot;, 공개 GitHub 파일 1,122개에 비밀번호 노출",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=36782&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
-      "title": "OpenMausBot - 봇이 사용할 가상 머신을 제공하는 오픈소스 Grok Bot 대체재",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
-    {
-      "url": "https://news.hada.io/topic?id=36781&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
-      "title": "웹에서 AI가 일으키는 온갖 부작용에 어떻게 대처하고 계신가요?",
-      "published_date": "2026-11-08",
-      "expires_at": "2026-11-15T03:30:08.715312+00:00"
-    },
     {
       "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/",
       "title": "Iris Ohyama data cloud breach exposes info of 7.7 million customers",
@@ -1080,6 +990,96 @@
       "title": "What’s new in Managed Service for Apache Spark 4.0",
       "published_date": "2026-11-21",
       "expires_at": "2026-11-28T04:53:03.891814+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
+      "title": "OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at A",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/researchers-demonstrate-ghostscript.html",
+      "title": "Researchers Demonstrate Ghostscript Sandbox-Escape RCE via Crafted File Uploads ",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
+      "title": "Rackspace Spot breach let hackers access customer Kubernetes secrets",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html",
+      "title": "A Single Malicious Webpage Let Researchers Hijack Meta Muse and Access Private C",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html",
+      "title": "GnuPG Warns Critical GPGME Flaw Could Expose App Data via Malicious OpenPGP Keys",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/meta-ads-is-now-available-in-aws-quick/",
+      "title": "Meta ads is now available in AWS Quick",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/chainflip-12m-crypto-hack-10-percent-bounty?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Chainflip confirms $12M hack, offers attacker 10% bounty",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/ecb-tokenized-deposits-securities-experiments-appia?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "ECB seeks industry partners for tokenized deposits, securities experiments",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/us-prediction-market-whistleblower-rewards-30-percent?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "US lawmakers propose up to 30% rewards for prediction market whistleblowers",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/11/21/bitcoin-bounces-9-from-two-year-low-to-retake-usd60-000-as-traders-eye-monday-s-stock-open",
+      "title": "Bitcoin rebounds above $60,000 after $1.8 billion crypto liquidation wave",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/11/21/cross-chain-protocol-chainflip-s-flip-tanks-30-after-suspected-usd4-86-million-vault-drain",
+      "title": "Cross-chain protocol Chainflip's FLIP tanks 30% after suspected $4.86 million va",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://tech.worldmonitor.app/?lat=20.0000&lon=0.0000&zoom=1.00&view=global&timeRange=7d&layers=cables%2Cweather%2Ceconomic%2Coutages%2Cdatacenters%2Cnatural%2CstartupHubs%2CcloudRegions%2CtechHQs%2CtechEvents",
+      "title": "Tech Monitor - Real-Time AI & Tech Industry Dashboard",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=37609&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "결재 서류를 쌓아 두던 부장에서 보고받는 사장으로 – Claude Code 매니저 세션 만들기",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=37608&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "젠슨 황의 추락은 실리콘밸리 가속주의자들에게 악재임",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=37607&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "내 미술 작품 웹사이트의 기술 아키텍처가 꽤 마음에 든다",
+      "published_date": "2026-11-22",
+      "expires_at": "2026-11-29T06:59:58.656292+00:00"
     }
   ]
 }
