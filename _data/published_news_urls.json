@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-23T07:50:28.323639+00:00",
+  "updated_at": "2026-11-23T18:10:15.131237+00:00",
   "entries": [
     {
       "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html",
@@ -1080,6 +1080,96 @@
       "title": "GPU 노드 검증 자동화: 상시 점검부터 부하 검증까지",
       "published_date": "2026-11-23",
       "expires_at": "2026-11-30T07:50:28.323230+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
+      "title": "Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote ",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/weekly-recap-vmware-0-day-java4shell.html",
+      "title": "⚡ Weekly Recap: VMware 0-Day, Java4Shell, NGINX2Root, Ruby2Shell, and a Whole Lo",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/critical-binary-parser-flaw-enables.html",
+      "title": "Critical binary-parser Flaw Enables JavaScript Injection via Malicious Parser De",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html",
+      "title": "Hackers Exploit Critical ScreenConnect Flaw to Hijack MSP Technician PCs Without",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html",
+      "title": "N-able Discloses Critical Mail Assure Vulnerability Found During Breach Investig",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/nvidia-technologies-holidays-2026/",
+      "title": "Merry Making: Play, Build and Create With NVIDIA Technologies This Holiday Seaso",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+      "title": "A more tailored Google Search that’s uniquely yours",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+      "title": "Finding faster quantum algorithms with agents and formal verification",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/allenai/robotrack",
+      "title": "RoboTrack: Point tracking for real-world robotic manipulation",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/agentic-evals",
+      "title": "How to build and maintain an agentic evaluation",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/databases/alloydb-omni-integration-with-local-models/",
+      "title": "Data + AI Anywhere: AlloyDB Omni integration with local models",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/data-analytics/how-sinch-migrated-from-snowflake-to-bigquery-to-power-ai/",
+      "title": "How Sinch modernized its enterprise data warehouse from Snowflake to BigQuery to",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-11-23-code-coverage-uploads-now-flag-invalid-report-formats",
+      "title": "Code coverage uploads now flag invalid report formats",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://devblogs.microsoft.com/dotnet/local-models-dotnet-llama-windows/",
+      "title": "Run local models in your .NET apps with Llama on Windows",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://kubernetes.io/blog/2026/11/23/kubernetes-v1-38-sneak-peek/",
+      "title": "Kubernetes v1.38 Sneak Peek",
+      "published_date": "2026-11-24",
+      "expires_at": "2026-11-30T18:10:15.131053+00:00"
     }
   ]
 }
