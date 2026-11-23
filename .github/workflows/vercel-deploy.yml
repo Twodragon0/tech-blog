@@ -64,7 +64,7 @@ jobs:
       
       - name: Create Sentry Release (Vercel)
         if: steps.sentry_token.outputs.has_token == 'true'
-        uses: getsentry/action-release@d55c8c3b7375607e972b710f12926b676d89d7d2  # v3
+        uses: getsentry/action-release@2e505a70ff06dac263413242aa3617fec90134e5  # v3
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: twodragon
