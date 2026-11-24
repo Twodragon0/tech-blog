@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-11-23T18:10:15.131237+00:00",
+  "updated_at": "2026-11-24T17:47:21.378722+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html",
-      "title": "Hackers Exploit Qubole's Trusted AWS Access to Breach Customer Accounts and Stea",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/hackers-compromise-etherspheres-bee-js.html",
-      "title": "Hackers Compromise Ethersphere's bee-js and Swarm Desktop to Deliver Wallet-Stea",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/09/forge-lab-uses-agentic-tools-to-identify-memory-safety-issues-in-rust/",
-      "title": "FORGE Lab uses agentic tools to identify memory safety issues in Rust",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/bitter-hackers-deploy-new-paprat.html",
-      "title": "Bitter Hackers Deploy New PapRAT Backdoor in Cyberespionage Campaign Targeting S",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/help-defend-against-memory-poisoning-in-amazon-bedrock-agentcore-with-multi-layer-write-validation/",
-      "title": "Help defend against memory poisoning in Amazon Bedrock AgentCore with multi-laye",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
-      "title": "ChatGPT Enterprise now available in AWS Marketplace",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/11/09/developer-tools/extending-lldb-to-debug-applications-that-span-cpus-and-gpus/",
-      "title": "Extending LLDB to Debug Applications That Span CPUs and GPUs",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/",
-      "title": "Practice Makes Precise: At CoRL, NVIDIA and Partners Reveal How Robots Rehearse ",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://openai.com/index/control-room",
-      "title": "Control Room: A central system to track and stop model workloads across our rese",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
-      "title": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA A",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/developers-practitioners/the-open-ai-native-stack-on-kubernetes-from-open-models-to-distributed-inference-and-agents/",
-      "title": "The open AI-native stack on Kubernetes: From open models to distributed inferenc",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-survey-finds-enterprises-trapped-between-legacy-software-and-ai-modernization/",
-      "title": "New survey finds enterprises trapped between legacy software and AI modernizatio",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-our-security-forecast-2027/",
-      "title": "Cloud CISO Perspectives: Our security forecast for 2027",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-tpu-sync-fast-kv-cache-and-weight-transfer-on-tpu/",
-      "title": "Introducing TPU Sync: Fast KV cache and weight transfer for inference and RL on ",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/containers-kubernetes/gke-dynamic-slicing-on-tpus/",
-      "title": "Now generally available: GKE dynamic slicing for higher resilience, and efficien",
-      "published_date": "2026-11-10",
-      "expires_at": "2026-11-17T05:19:53.278696+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html",
       "title": "Git Patches Flaw That Lets Malicious Repositories Execute Code During Recursive ",
@@ -1170,6 +1080,96 @@
       "title": "Kubernetes v1.38 Sneak Peek",
       "published_date": "2026-11-24",
       "expires_at": "2026-11-30T18:10:15.131053+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+      "title": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Ca",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html",
+      "title": "VMware vCenter Hit by Another Critical 9.8-Rated Auth Bypass Flaw After Zero-Day",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html",
+      "title": "Okta Links ShinyHunters-Associated Vishing Group to New INCEPTION Data Leak Site",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/hackers-found-way-around-github-sha.html",
+      "title": "Hackers Found a Way Around GitHub SHA Pinning. This Webinar Explains How to Clos",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/security/aws-achieves-spains-national-limited-distribution-difusion-limitada-and-nato-restricted-accreditation-in-the-aws-europe-spain-region/",
+      "title": "AWS achieves Spain’s national Limited Distribution (Difusión Limitada) and NATO ",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-golden-state/",
+      "title": "How Gemini is changing the game for Golden State's organization and fans.",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://openai.com/index/introducing-shirudo",
+      "title": "OpenAI and Cisco introduce Shirudo",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/",
+      "title": "Introducing the Amazon Bedrock Trusted Access API with Anthropic’s Enterprise Fr",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance",
+      "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://cloud.google.com/blog/products/chrome-enterprise/enabling-zero-trust-allens-move-to-chrome-enterprise-premium/",
+      "title": "Enabling zero trust: ALLEN’s move to Chrome Enterprise Premium",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/blogs/aws/aws-weekly-roundup-local-zone-in-bogota-30-minute-lambda-timeout-and-more-november-24-2026/",
+      "title": "AWS Weekly Roundup: Local Zone in Bogotá, 30-minute Lambda timeout, and more (No",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/connecting-operational-queries-to-amazon-bedrock-agentcore-1/",
+      "title": "AI 에이전트로 AWS 운영 질문에 답하기 – 1부: Amazon Bedrock AgentCore로 조회 도구 연결하기",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/smileshark-aws-transform-sql-server-aurora-postgresql/",
+      "title": "스마일샤크, AWS Transform 으로 Microsoft SQL Server를 Amazon Aurora PostgreSQL로 현대화한 사례",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/agentcore-managed-agents-openai/",
+      "title": "AgentCore와 함께 쓰는 Amazon Bedrock Managed Agents, powered by OpenAI",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
+    },
+    {
+      "url": "https://github.blog/changelog/2026-11-24-more-predictable-notifications-on-github-com",
+      "title": "More predictable notifications on GitHub.com",
+      "published_date": "2026-11-25",
+      "expires_at": "2026-12-01T17:47:21.378527+00:00"
     }
   ]
 }
