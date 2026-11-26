@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-11-26T01:32:01.065029+00:00",
+  "updated_at": "2026-11-26T16:55:53.701329+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html",
-      "title": "Critical Apache HTTP/2 Flaw Could Let Unauthenticated Attackers Execute Code Rem",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html",
-      "title": "ScreenConnect Attacks Target at Least 288 Endpoints Across 48 Organizations With",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html",
-      "title": "Critical Zoom Workplace Flaw Could Allow Unauthenticated Remote Privilege Escala",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/antifox-ai-pentesting-platform-linked.html",
-      "title": "AntiFox AI Pentesting Platform Linked to Attacks That Accessed AWS Production Se",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/ease-of-use-and-secure-defaults-in-the-new-aws-experience/",
-      "title": "Ease of use and secure defaults in the new AWS experience",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/11/11/ml-applications/intelligent-delivery-serve-better-ads/",
-      "title": "Intelligent Delivery: Making Every Unit of Compute Serve Better Ads",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
-      "title": "Try Tabletop: Customizable, collaborative spaces for groups to plan, play and do",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
-      "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu/",
-      "title": "Experience the art and legacy of Dr. Esther Mahlangu",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://openai.com/index/chatgpt-plus-for-veterans",
-      "title": "ChatGPT Plus for veterans and servicemembers",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/startups/building-real-time-agents-for-ev-charging-using-gemma-and-tpus/",
-      "title": "How lemonflow built real-time agents for EV charging using Gemma and TPUs",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/databases/ai-classify-and-ai-extract-functions-in-alloydb-ai/",
-      "title": "Introducing new AI functions for AlloyDB: ai.classify and ai.extract",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/training-certifications/google-cloud-agentic-architect-certification-dont-just-prompt-ai-design-it/",
-      "title": "Don’t just prompt AI — architect it: Introducing the Professional Agentic Archit",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/aws/test-your-applications-against-aws-locally-with-aws-emulator/",
-      "title": "Test your applications against AWS locally with AWS Emulator",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/ko/blogs/tech/diningbrandsgroup-demand-forecasting-with-sagemaker-canvas/",
-      "title": "데이터 사이언티스트 없이 수요 예측 자동화, 다이닝브랜즈그룹의 Amazon SageMaker Canvas 활용기",
-      "published_date": "2026-11-12",
-      "expires_at": "2026-11-19T06:56:27.840648+00:00"
-    },
     {
       "url": "https://asec.ahnlab.com/ko/96512/",
       "title": "발주서 확인 요청으로 위장한 피싱 메일 주의 (Xloader)",
@@ -1170,6 +1080,96 @@
       "title": "Switzerland Picks 57 Countries for Crypto Tax Data Sharing Starting in 2028",
       "published_date": "2026-11-26",
       "expires_at": "2026-12-03T01:32:01.064783+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
+      "title": "North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread M",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/most-wanted-phishing-kits-and.html",
+      "title": "Most Wanted: The Phishing Kits and Techniques Getting Past Security Controls",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
+      "title": "1Password Hacked, Customer Data and Source Code Stolen in GitHub Account Breach",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
+      "title": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exp",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-10-vulnerabilities.html",
+      "title": "Hackers Exploit 10 Vulnerabilities Across Mitel, Juniper, Vates, and Danfoss Pro",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-community-war-thunder-reward/",
+      "title": "Come for the Games, Stay for the Community With GeForce NOW",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://www.together.ai/blog/distilling-kimi-into-qwen",
+      "title": "Distilling Kimi-K3.1-Pro into Qwen3.8-27B: Teaching a model a new language",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+      "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+      "title": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/training-swarms",
+      "title": "Swarms, Flocks, Gangs: How to build, train, and evaluate multi-agent systems",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/woongjin-ai-ready-data-graph-agent-part-2/",
+      "title": "웅진씽크빅의 AI-Ready Data 기반 콘텐츠 추천 에이전트 구축기 Part 2 – Amazon Bedrock AgentCore로 그래프 에",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/woongjin-ai-ready-data-semantic-layer-part-1/",
+      "title": "웅진씽크빅의 AI-Ready Data 기반 콘텐츠 추천 에이전트 구축기 Part 1 – Amazon Neptune으로 콘텐츠용 시맨틱 레이어 만",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/silicon2-vibe-coding-assets-aws-deployment-pipeline/",
+      "title": "실리콘투의 바이브코딩 에셋을 위한 AWS 기반 표준 배포 파이프라인 구축기",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/introducing-aws-physical-ai-toolchain/",
+      "title": "AWS Physical AI Toolchain 소개",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/culture/bitcoin-has-become-boring-finally",
+      "title": "Bitcoin Has Become Boring, Finally",
+      "published_date": "2026-11-27",
+      "expires_at": "2026-12-03T16:55:53.701256+00:00"
     }
   ]
 }
