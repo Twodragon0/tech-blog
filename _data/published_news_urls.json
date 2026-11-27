@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-11-26T16:55:53.701329+00:00",
+  "updated_at": "2026-11-27T16:41:18.563078+00:00",
   "entries": [
-    {
-      "url": "https://asec.ahnlab.com/ko/96512/",
-      "title": "발주서 확인 요청으로 위장한 피싱 메일 주의 (Xloader)",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/your-soc-sees-alert-but-does-it-know.html",
-      "title": "Webinar: See How Identity Blind Spots Put Your SOC at Risk and How to Close Them",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/threatsday-59-linux-kernel-bugs-falcon.html",
-      "title": "ThreatsDay: 59 Linux Kernel Bugs, Falcon Spyware, GSocket Backdoors + 17 More St",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html",
-      "title": "New SignDrop Zero-Day Exploit Turns Windows CLFS Security Feature Into SYSTEM Ac",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html",
-      "title": "Critical Red Hat Quay Flaw Lets Attackers Read and Overwrite All Private Contain",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://openai.com/business/customer-stories/amplitude",
-      "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
-      "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-warhammer-dawn-of-war-iv-coming/",
-      "title": "A New Dawn in the Cloud: ‘Warhammer 40,000: Dawn of War IV’ Is Coming to GeForce",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://openai.com/business/customer-stories/gondola",
-      "title": "Gondola doubles revenue as its team builds more with Codex",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://openai.com/business/customer-stories/holidays-extras-codex",
-      "title": "Holiday Extras is rethinking what it can build with Codex",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/chrome-enterprise/chrome-enterprise-brings-more-protections-to-healthcare-technologies/",
-      "title": "Chrome Enterprise brings more protections to healthcare technologies",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/networking/partner-cross-cloud-interconnect-for-last-mile-delivered-by-lumen/",
-      "title": "Simplifying last mile cloud connectivity with Lumen and partner Cross-Cloud Inte",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud/",
-      "title": "What’s new with Google Data Cloud",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/partners/autonomous-defense-at-cloud-speed-with-sentinelone-and-google-security-operations/",
-      "title": "Autonomous defense at cloud speed with SentinelOne and Google Security Operation",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/google-is-a-leader-in-the-gartner-magic-quadrant-for-data-lakehouse-platforms/",
-      "title": "Google named the furthest in vision for the Gartner Magic Quadrant for Data Lake",
-      "published_date": "2026-11-13",
-      "expires_at": "2026-11-20T04:13:03.889397+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html",
       "title": "PostgreSQL Patches 52 Flaws, Including 22-Year-Old Bug Enabling Authenticated RC",
@@ -1170,6 +1080,96 @@
       "title": "Bitcoin Has Become Boring, Finally",
       "published_date": "2026-11-27",
       "expires_at": "2026-12-03T16:55:53.701256+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/microsoft-store-app-found-delivering.html",
+      "title": "Microsoft Store App Found Delivering Vinci RAT Capable of Remote System Control",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/how-to-keep-your-security-picture.html",
+      "title": "How to Keep Your Security Picture Current When Attackers Move at AI Speed",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
+      "title": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Acces",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+      "title": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure O",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html",
+      "title": "Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests via Guest Access",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://huggingface.co/blog/video-trainium3",
+      "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/visualize-multi-account-multi-region-network-topology-aws/",
+      "title": "AWS 멀티 계정·리전 네트워크 토폴로지 시각화하기",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/linegames-ax-game-publishing-agent-for-developer/",
+      "title": "LINE Games의 AX 여정: 개발자를 위한 게임 퍼블리싱 에이전트",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/lotte-grs-cambot-campaign-ai-agent-bedrock-strands-agents/",
+      "title": "롯데GRS의 캠페인 AI 에이전트 CamBot: Amazon Bedrock과 Strands Agents로 설계부터 운영, 모델 전환까지",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/agentcore-runtime-v2/",
+      "title": "새로운 Amazon Bedrock AgentCore Runtime(플랫폼 버전 V2) 소개 – 스냅샷 기반 cold start와 탄력 메모리",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://aws.amazon.com/ko/blogs/tech/automating-natural-language-test-cases-amazon-bedrock-aws-device-farm/",
+      "title": "Amazon Bedrock과 AWS Device Farm을 활용한 자연어 테스트케이스 자동 실행 시스템 구축 과정",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/new-york-novatech-judgment-1-37-billion",
+      "title": "New York Wins $1.37 Billion Judgment Against NovaTech Crypto Ponzi Founders",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/spain-sepblac-freeze-crypto-accounts",
+      "title": "Spain Lets Anti-Money Laundering Unit Freeze Crypto Accounts Without a Judge",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/videos/peter-st-onge-massively-bullish-for-bitcoin-if-fed-abandons-2-inflation-target",
+      "title": "Peter St. Onge: “Massively Bullish” for Bitcoin if Fed Abandons 2% Inflation Tar",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/markets/galaxy-withdraws-bitcoin-bear",
+      "title": "Galaxy Withdraws Call That Bitcoin’s Bear Market Ended in June",
+      "published_date": "2026-11-28",
+      "expires_at": "2026-12-04T16:41:18.562843+00:00"
     }
   ]
 }
