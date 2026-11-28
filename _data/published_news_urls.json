@@ -1,96 +1,6 @@
 {
-  "updated_at": "2026-11-27T16:41:18.563078+00:00",
+  "updated_at": "2026-11-28T15:33:12.015012+00:00",
   "entries": [
-    {
-      "url": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html",
-      "title": "PostgreSQL Patches 52 Flaws, Including 22-Year-Old Bug Enabling Authenticated RC",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/",
-      "title": "SCKit abuses ScreenConnect to deploy remote access and target technician session",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/new-mior-and-skyfall-attacks-let-rogue.html",
-      "title": "New Mior and Skyfall Attacks Let Rogue Cloud Hosts Steal Secrets From AMD SEV-SN",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/",
-      "title": "Amazon Threat Intelligence observes threat actors running cybercrime campaigns w",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html",
-      "title": "FBI Says North Korean Hackers Stole Over $400 Million in Crypto Using Deepfake V",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://engineering.fb.com/2026/11/13/android/cuttlefish-on-mac/",
-      "title": "Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple ",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://openai.com/index/introducing-chatgpt-wallet",
-      "title": "Introducing ChatGPT Wallet",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://blogs.nvidia.com/blog/how-ai-is-helping-care-teams/",
-      "title": "How AI Is Helping Care Teams Get Patients the Right Care, Sooner",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://openai.com/business/customer-stories/shield",
-      "title": "Shield helps technicians hand off legacy portal work with OpenAI",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://cointelegraph.com/news/openai-ai-payments-chatgpt-wallet-visa-mastercard-amex?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "title": "OpenAI launches AI payments in ChatGPT with Visa, Mastercard and Amex",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/enterprise-ai-agent-observability-with-bigquery-and-looker/",
-      "title": "New AI agent observability and governance across BigQuery and Looker",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/topics/hpc/whats-new-in-hpc-and-ai-at-sc26/",
-      "title": "Where supercomputing meets agentic AI: What’s new in Google Cloud HPC and AI at ",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://cloud.google.com/blog/products/data-analytics/reverse-etl-bigquery-exports-to-alloydb/",
-      "title": "From OLAP to OLTP: How Copel Simplified Reverse ETL Using BigQuery's Native Expo",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
-      "title": "Upcoming deprecation of selected GitHub Copilot models in December",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
-    {
-      "url": "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
-      "title": "GitHub Enterprise Server support in the GitHub Copilot app",
-      "published_date": "2026-11-14",
-      "expires_at": "2026-11-21T04:09:33.044157+00:00"
-    },
     {
       "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
       "title": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
@@ -1170,6 +1080,96 @@
       "title": "Galaxy Withdraws Call That Bitcoin’s Bear Market Ended in June",
       "published_date": "2026-11-28",
       "expires_at": "2026-12-04T16:41:18.562843+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/pcloud-password-manager-hit-by-cyber.html",
+      "title": "pCloud Password Manager Hit by Cyber Attack Involving Email Address Exposure and",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://thehackernews.com/2026/11/suspected-vietnam-linked-hackers-target.html",
+      "title": "Suspected Vietnam-Linked Hackers Target Southeast Asia in South China Sea Espion",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/pcloud-confirms-password-manager-hack-after-suspicious-login-alerts/",
+      "title": "pCloud confirms password manager hack after suspicious login alerts",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/new-boston-scientific-data-breach-exposes-personal-medical-info/",
+      "title": "New Boston Scientific data breach exposes personal, medical info",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/unpatched-cacti-zero-day-with-public-poc-gives-remote-code-execution/",
+      "title": "Unpatched Cacti zero-day with public PoC gives remote code execution",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/markets/bitcoin-price-below-59k-anthropic-tech-stock-rebound?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Bitcoin price drops below $59K as Anthropic joins tech stock rebound",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/binance-lifts-withdrawal-suspension-hack",
+      "title": "Binance Fully Lifts Withdrawal Suspension a Month After $6.3 Billion Hack",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://bitcoinmagazine.com/news/russia-vtb-bitcoin-trading-crypto-test",
+      "title": "Russia’s VTB Opens Bitcoin Trading as Central Bank Finalizes Crypto Test",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/justin-sun-calls-for-trump-family-linked-wlfi-token-to-be-delisted?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Justin Sun calls for Trump family-linked WLFI token to be delisted",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/asean3-agrees-on-initiative-to-explore-crypto-payments-cooperation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "ASEAN+3 agrees on initiative to explore crypto payments cooperation",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/binance-receives-in-principle-approval-plans-asia-hub-in-bhutan?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "title": "Binance plans Asia hub in Bhutan, receives preliminary approval",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=38005&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "Claude Code의 사보타주: 예비 벤치마킹",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=38003&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "작별 인사: Heretic 개발 활동 종료와 저장소 아카이브",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=38002&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "Rayshader 1.0: 행렬을 벗어나 공간 데이터를 바로 3D로",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
+    },
+    {
+      "url": "https://news.hada.io/topic?id=38001&utm_source=geeknews&utm_medium=rss&utm_campaign=news",
+      "title": "Show GN: 눈떠보니 건물주 – Expo로 1인 개발한 건물 운영 시뮬레이션 게임 (유료, iOS·Android)",
+      "published_date": "2026-11-29",
+      "expires_at": "2026-12-05T15:33:12.014837+00:00"
     }
   ]
 }

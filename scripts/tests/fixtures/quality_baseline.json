@@ -5881,5 +5881,20 @@
       "cross_refs": 5,
       "length": 3
     }
+  },
+  "2026-11-29-Tech_Security_Weekly_Digest_AI_Cloud_Data_Zero-Day.md": {
+    "total": 97,
+    "scores": {
+      "front_matter": 15,
+      "ai_summary": 10,
+      "executive_summary": 10,
+      "risk_scorecard": 10,
+      "sections": 15,
+      "checklists": 10,
+      "tables": 10,
+      "code_blocks": 10,
+      "cross_refs": 5,
+      "length": 2
+    }
   }
 }
